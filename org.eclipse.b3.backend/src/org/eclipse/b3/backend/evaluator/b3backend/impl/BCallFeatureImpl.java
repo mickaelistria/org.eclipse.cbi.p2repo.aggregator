@@ -23,10 +23,10 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BCallFeatureImpl#isCall <em>Call</em>}</li>
+ * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BCallFeatureImpl#isCall <em>Call</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 public class BCallFeatureImpl extends BCallExpressionImpl implements BCallFeature {
@@ -34,6 +34,7 @@ public class BCallFeatureImpl extends BCallExpressionImpl implements BCallFeatur
 	 * The default value of the '{@link #isCall() <em>Call</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #isCall()
 	 * @generated
 	 * @ordered
@@ -44,6 +45,7 @@ public class BCallFeatureImpl extends BCallExpressionImpl implements BCallFeatur
 	 * The cached value of the '{@link #isCall() <em>Call</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #isCall()
 	 * @generated
 	 * @ordered
@@ -53,6 +55,7 @@ public class BCallFeatureImpl extends BCallExpressionImpl implements BCallFeatur
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected BCallFeatureImpl() {
@@ -62,11 +65,12 @@ public class BCallFeatureImpl extends BCallExpressionImpl implements BCallFeatur
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch (featureID) {
+		switch(featureID) {
 			case B3backendPackage.BCALL_FEATURE__CALL:
 				return isCall();
 		}
@@ -76,11 +80,12 @@ public class BCallFeatureImpl extends BCallExpressionImpl implements BCallFeatur
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch (featureID) {
+		switch(featureID) {
 			case B3backendPackage.BCALL_FEATURE__CALL:
 				return call != CALL_EDEFAULT;
 		}
@@ -90,13 +95,14 @@ public class BCallFeatureImpl extends BCallExpressionImpl implements BCallFeatur
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch (featureID) {
+		switch(featureID) {
 			case B3backendPackage.BCALL_FEATURE__CALL:
-				setCall((Boolean)newValue);
+				setCall((Boolean) newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -105,11 +111,12 @@ public class BCallFeatureImpl extends BCallExpressionImpl implements BCallFeatur
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
-		switch (featureID) {
+		switch(featureID) {
 			case B3backendPackage.BCALL_FEATURE__CALL:
 				setCall(CALL_EDEFAULT);
 				return;
@@ -120,6 +127,7 @@ public class BCallFeatureImpl extends BCallExpressionImpl implements BCallFeatur
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public boolean isCall() {
@@ -129,23 +137,26 @@ public class BCallFeatureImpl extends BCallExpressionImpl implements BCallFeatur
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setCall(boolean newCall) {
 		boolean oldCall = call;
 		call = newCall;
-		if (eNotificationRequired())
+		if(eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, B3backendPackage.BCALL_FEATURE__CALL, oldCall, call));
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy()) return super.toString();
+		if(eIsProxy())
+			return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (call: ");
@@ -157,6 +168,7 @@ public class BCallFeatureImpl extends BCallExpressionImpl implements BCallFeatur
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override

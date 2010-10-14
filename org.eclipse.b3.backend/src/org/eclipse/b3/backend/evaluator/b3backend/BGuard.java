@@ -18,14 +18,14 @@ import org.eclipse.emf.ecore.EObject;
  * A representation of the model object '<em><b>BGuard</b></em>'. Supports a BJavaFunction as a type
  * guard used when selecting most specific function (the guard may reject selecting based on the static types).
  * <!-- end-user-doc -->
- *
+ * 
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BGuard#getFunc <em>Func</em>}</li>
+ * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BGuard#getFunc <em>Func</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @see org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage#getBGuard()
  * @model
  * @generated
@@ -35,6 +35,7 @@ public interface BGuard extends EObject {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @model exceptions="org.eclipse.b3.backend.evaluator.b3backend.Throwable" typesDataType="org.eclipse.b3.backend.evaluator.b3backend.TypeArray"
 	 * @generated
 	 */
@@ -47,6 +48,7 @@ public interface BGuard extends EObject {
 	 * If the meaning of the '<em>Func</em>' reference isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the value of the '<em>Func</em>' reference.
 	 * @see #setFunc(BJavaFunction)
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage#getBGuard_Func()
@@ -59,7 +61,9 @@ public interface BGuard extends EObject {
 	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.BGuard#getFunc <em>Func</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Func</em>' reference.
+	 * 
+	 * @param value
+	 *            the new value of the '<em>Func</em>' reference.
 	 * @see #getFunc()
 	 * @generated
 	 */

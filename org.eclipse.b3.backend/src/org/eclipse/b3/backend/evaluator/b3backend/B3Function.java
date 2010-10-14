@@ -13,14 +13,14 @@ package org.eclipse.b3.backend.evaluator.b3backend;
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>B3 Function</b></em>'.
  * <!-- end-user-doc -->
- *
+ * 
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.B3Function#getFuncExpr <em>Func Expr</em>}</li>
+ * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.B3Function#getFuncExpr <em>Func Expr</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @see org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage#getB3Function()
  * @model
  * @generated
@@ -33,6 +33,7 @@ public interface B3Function extends BFunction {
 	 * If the meaning of the '<em>Func Expr</em>' reference isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the value of the '<em>Func Expr</em>' containment reference.
 	 * @see #setFuncExpr(BExpression)
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage#getB3Function_FuncExpr()
@@ -45,7 +46,9 @@ public interface B3Function extends BFunction {
 	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.B3Function#getFuncExpr <em>Func Expr</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Func Expr</em>' containment reference.
+	 * 
+	 * @param value
+	 *            the new value of the '<em>Func Expr</em>' containment reference.
 	 * @see #getFuncExpr()
 	 * @generated
 	 */

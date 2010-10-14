@@ -20,13 +20,14 @@ import org.eclipse.emf.ecore.EClass;
  * <!-- end-user-doc -->
  * <p>
  * </p>
- *
+ * 
  * @generated
  */
 public class BCallFunctionImpl extends BCallExpressionImpl implements BCallFunction {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected BCallFunctionImpl() {
@@ -36,6 +37,7 @@ public class BCallFunctionImpl extends BCallExpressionImpl implements BCallFunct
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override

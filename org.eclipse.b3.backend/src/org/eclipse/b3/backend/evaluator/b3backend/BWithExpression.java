@@ -18,17 +18,17 @@ import org.eclipse.emf.common.util.EList;
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>BWith Expression</b></em>'.
  * <!-- end-user-doc -->
- *
+ * 
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BWithExpression#getReferencedAdvice <em>Referenced Advice</em>}</li>
- *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BWithExpression#getPropertySets <em>Property Sets</em>}</li>
- *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BWithExpression#getConcerns <em>Concerns</em>}</li>
- *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BWithExpression#getFuncExpr <em>Func Expr</em>}</li>
+ * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BWithExpression#getReferencedAdvice <em>Referenced Advice</em>}</li>
+ * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BWithExpression#getPropertySets <em>Property Sets</em>}</li>
+ * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BWithExpression#getConcerns <em>Concerns</em>}</li>
+ * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BWithExpression#getFuncExpr <em>Func Expr</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @see org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage#getBWithExpression()
  * @model
  * @generated
@@ -37,6 +37,7 @@ public interface BWithExpression extends BExpression {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @model
 	 * @generated
 	 */
@@ -50,6 +51,7 @@ public interface BWithExpression extends BExpression {
 	 * If the meaning of the '<em>Concerns</em>' containment reference list isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the value of the '<em>Concerns</em>' containment reference list.
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage#getBWithExpression_Concerns()
 	 * @model containment="true"
@@ -60,6 +62,7 @@ public interface BWithExpression extends BExpression {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @model exceptions="org.eclipse.b3.backend.evaluator.b3backend.Throwable"
 	 * @generated
 	 */
@@ -81,6 +84,7 @@ public interface BWithExpression extends BExpression {
 	 * If the meaning of the '<em>Func Expr</em>' containment reference isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the value of the '<em>Func Expr</em>' containment reference.
 	 * @see #setFuncExpr(BExpression)
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage#getBWithExpression_FuncExpr()
@@ -97,6 +101,7 @@ public interface BWithExpression extends BExpression {
 	 * If the meaning of the '<em>Property Sets</em>' containment reference list isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the value of the '<em>Property Sets</em>' containment reference list.
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage#getBWithExpression_PropertySets()
 	 * @model containment="true"
@@ -112,6 +117,7 @@ public interface BWithExpression extends BExpression {
 	 * If the meaning of the '<em>Referenced Advice</em>' reference list isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the value of the '<em>Referenced Advice</em>' reference list.
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage#getBWithExpression_ReferencedAdvice()
 	 * @model
@@ -120,10 +126,13 @@ public interface BWithExpression extends BExpression {
 	EList<BAdvice> getReferencedAdvice();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.BWithExpression#getFuncExpr <em>Func Expr</em>}' containment reference.
+	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.BWithExpression#getFuncExpr <em>Func Expr</em>}' containment
+	 * reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Func Expr</em>' containment reference.
+	 * 
+	 * @param value
+	 *            the new value of the '<em>Func Expr</em>' containment reference.
 	 * @see #getFuncExpr()
 	 * @generated
 	 */

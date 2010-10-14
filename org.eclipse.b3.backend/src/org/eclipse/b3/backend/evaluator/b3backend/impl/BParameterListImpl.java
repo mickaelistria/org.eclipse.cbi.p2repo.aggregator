@@ -37,10 +37,10 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BParameterListImpl#getParameters <em>Parameters</em>}</li>
+ * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BParameterListImpl#getParameters <em>Parameters</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 public class BParameterListImpl extends EObjectImpl implements BParameterList {
@@ -48,6 +48,7 @@ public class BParameterListImpl extends EObjectImpl implements BParameterList {
 	 * The cached value of the '{@link #getParameters() <em>Parameters</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getParameters()
 	 * @generated
 	 * @ordered
@@ -57,6 +58,7 @@ public class BParameterListImpl extends EObjectImpl implements BParameterList {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected BParameterListImpl() {
@@ -66,11 +68,12 @@ public class BParameterListImpl extends EObjectImpl implements BParameterList {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch (featureID) {
+		switch(featureID) {
 			case B3backendPackage.BPARAMETER_LIST__PARAMETERS:
 				return getParameters();
 		}
@@ -80,13 +83,14 @@ public class BParameterListImpl extends EObjectImpl implements BParameterList {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
+		switch(featureID) {
 			case B3backendPackage.BPARAMETER_LIST__PARAMETERS:
-				return ((InternalEList<?>)getParameters()).basicRemove(otherEnd, msgs);
+				return ((InternalEList<?>) getParameters()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -94,11 +98,12 @@ public class BParameterListImpl extends EObjectImpl implements BParameterList {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch (featureID) {
+		switch(featureID) {
 			case B3backendPackage.BPARAMETER_LIST__PARAMETERS:
 				return parameters != null && !parameters.isEmpty();
 		}
@@ -108,15 +113,16 @@ public class BParameterListImpl extends EObjectImpl implements BParameterList {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch (featureID) {
+		switch(featureID) {
 			case B3backendPackage.BPARAMETER_LIST__PARAMETERS:
 				getParameters().clear();
-				getParameters().addAll((Collection<? extends BParameter>)newValue);
+				getParameters().addAll((Collection<? extends BParameter>) newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -125,11 +131,12 @@ public class BParameterListImpl extends EObjectImpl implements BParameterList {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
-		switch (featureID) {
+		switch(featureID) {
 			case B3backendPackage.BPARAMETER_LIST__PARAMETERS:
 				getParameters().clear();
 				return;
@@ -140,11 +147,13 @@ public class BParameterListImpl extends EObjectImpl implements BParameterList {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EList<BParameter> getParameters() {
-		if (parameters == null) {
-			parameters = new EObjectContainmentEList<BParameter>(BParameter.class, this, B3backendPackage.BPARAMETER_LIST__PARAMETERS);
+		if(parameters == null) {
+			parameters = new EObjectContainmentEList<BParameter>(
+				BParameter.class, this, B3backendPackage.BPARAMETER_LIST__PARAMETERS);
 		}
 		return parameters;
 	}
@@ -152,6 +161,7 @@ public class BParameterListImpl extends EObjectImpl implements BParameterList {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override

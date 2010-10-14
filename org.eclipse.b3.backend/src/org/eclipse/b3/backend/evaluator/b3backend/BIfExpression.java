@@ -13,16 +13,16 @@ package org.eclipse.b3.backend.evaluator.b3backend;
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>BIf Expression</b></em>'.
  * <!-- end-user-doc -->
- *
+ * 
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BIfExpression#getConditionExpr <em>Condition Expr</em>}</li>
- *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BIfExpression#getThenExpr <em>Then Expr</em>}</li>
- *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BIfExpression#getElseExpr <em>Else Expr</em>}</li>
+ * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BIfExpression#getConditionExpr <em>Condition Expr</em>}</li>
+ * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BIfExpression#getThenExpr <em>Then Expr</em>}</li>
+ * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BIfExpression#getElseExpr <em>Else Expr</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @see org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage#getBIfExpression()
  * @model
  * @generated
@@ -35,6 +35,7 @@ public interface BIfExpression extends BExpression {
 	 * If the meaning of the '<em>Condition Expr</em>' containment reference isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the value of the '<em>Condition Expr</em>' containment reference.
 	 * @see #setConditionExpr(BExpression)
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage#getBIfExpression_ConditionExpr()
@@ -50,6 +51,7 @@ public interface BIfExpression extends BExpression {
 	 * If the meaning of the '<em>Else Expr</em>' containment reference isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the value of the '<em>Else Expr</em>' containment reference.
 	 * @see #setElseExpr(BExpression)
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage#getBIfExpression_ElseExpr()
@@ -65,6 +67,7 @@ public interface BIfExpression extends BExpression {
 	 * If the meaning of the '<em>Then Expr</em>' containment reference isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the value of the '<em>Then Expr</em>' containment reference.
 	 * @see #setThenExpr(BExpression)
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage#getBIfExpression_ThenExpr()
@@ -74,10 +77,13 @@ public interface BIfExpression extends BExpression {
 	BExpression getThenExpr();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.BIfExpression#getConditionExpr <em>Condition Expr</em>}' containment reference.
+	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.BIfExpression#getConditionExpr <em>Condition Expr</em>}' containment
+	 * reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Condition Expr</em>' containment reference.
+	 * 
+	 * @param value
+	 *            the new value of the '<em>Condition Expr</em>' containment reference.
 	 * @see #getConditionExpr()
 	 * @generated
 	 */
@@ -87,7 +93,9 @@ public interface BIfExpression extends BExpression {
 	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.BIfExpression#getElseExpr <em>Else Expr</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Else Expr</em>' containment reference.
+	 * 
+	 * @param value
+	 *            the new value of the '<em>Else Expr</em>' containment reference.
 	 * @see #getElseExpr()
 	 * @generated
 	 */
@@ -97,7 +105,9 @@ public interface BIfExpression extends BExpression {
 	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.BIfExpression#getThenExpr <em>Then Expr</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Then Expr</em>' containment reference.
+	 * 
+	 * @param value
+	 *            the new value of the '<em>Then Expr</em>' containment reference.
 	 * @see #getThenExpr()
 	 * @generated
 	 */

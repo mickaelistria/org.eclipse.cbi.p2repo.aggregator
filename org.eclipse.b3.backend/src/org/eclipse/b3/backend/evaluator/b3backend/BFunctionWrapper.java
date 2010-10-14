@@ -18,17 +18,17 @@ import java.util.Map;
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>BFunction Wrapper</b></em>'.
  * <!-- end-user-doc -->
- *
+ * 
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BFunctionWrapper#getAroundExpr <em>Around Expr</em>}</li>
- *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BFunctionWrapper#getOriginal <em>Original</em>}</li>
- *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BFunctionWrapper#getParameterMap <em>Parameter Map</em>}</li>
- *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BFunctionWrapper#getVarargsName <em>Varargs Name</em>}</li>
+ * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BFunctionWrapper#getAroundExpr <em>Around Expr</em>}</li>
+ * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BFunctionWrapper#getOriginal <em>Original</em>}</li>
+ * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BFunctionWrapper#getParameterMap <em>Parameter Map</em>}</li>
+ * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BFunctionWrapper#getVarargsName <em>Varargs Name</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @see org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage#getBFunctionWrapper()
  * @model
  * @generated
@@ -41,6 +41,7 @@ public interface BFunctionWrapper extends BExpression, IFunction {
 	 * If the meaning of the '<em>Around Expr</em>' reference isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the value of the '<em>Around Expr</em>' reference.
 	 * @see #setAroundExpr(BExpression)
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage#getBFunctionWrapper_AroundExpr()
@@ -56,6 +57,7 @@ public interface BFunctionWrapper extends BExpression, IFunction {
 	 * If the meaning of the '<em>Original</em>' reference isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the value of the '<em>Original</em>' reference.
 	 * @see #setOriginal(IFunction)
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage#getBFunctionWrapper_Original()
@@ -71,6 +73,7 @@ public interface BFunctionWrapper extends BExpression, IFunction {
 	 * If the meaning of the '<em>Parameter Map</em>' attribute isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the value of the '<em>Parameter Map</em>' attribute.
 	 * @see #setParameterMap(Map)
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage#getBFunctionWrapper_ParameterMap()
@@ -86,6 +89,7 @@ public interface BFunctionWrapper extends BExpression, IFunction {
 	 * If the meaning of the '<em>Varargs Name</em>' attribute isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the value of the '<em>Varargs Name</em>' attribute.
 	 * @see #setVarargsName(String)
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage#getBFunctionWrapper_VarargsName()
@@ -98,7 +102,9 @@ public interface BFunctionWrapper extends BExpression, IFunction {
 	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.BFunctionWrapper#getAroundExpr <em>Around Expr</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Around Expr</em>' reference.
+	 * 
+	 * @param value
+	 *            the new value of the '<em>Around Expr</em>' reference.
 	 * @see #getAroundExpr()
 	 * @generated
 	 */
@@ -108,7 +114,9 @@ public interface BFunctionWrapper extends BExpression, IFunction {
 	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.BFunctionWrapper#getOriginal <em>Original</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Original</em>' reference.
+	 * 
+	 * @param value
+	 *            the new value of the '<em>Original</em>' reference.
 	 * @see #getOriginal()
 	 * @generated
 	 */
@@ -118,7 +126,9 @@ public interface BFunctionWrapper extends BExpression, IFunction {
 	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.BFunctionWrapper#getParameterMap <em>Parameter Map</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Parameter Map</em>' attribute.
+	 * 
+	 * @param value
+	 *            the new value of the '<em>Parameter Map</em>' attribute.
 	 * @see #getParameterMap()
 	 * @generated
 	 */
@@ -128,7 +138,9 @@ public interface BFunctionWrapper extends BExpression, IFunction {
 	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.BFunctionWrapper#getVarargsName <em>Varargs Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Varargs Name</em>' attribute.
+	 * 
+	 * @param value
+	 *            the new value of the '<em>Varargs Name</em>' attribute.
 	 * @see #getVarargsName()
 	 * @generated
 	 */

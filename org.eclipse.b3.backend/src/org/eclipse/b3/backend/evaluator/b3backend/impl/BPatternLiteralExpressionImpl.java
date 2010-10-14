@@ -23,13 +23,14 @@ import org.eclipse.emf.ecore.EClass;
  * <!-- end-user-doc -->
  * <p>
  * </p>
- *
+ * 
  * @generated
  */
 public class BPatternLiteralExpressionImpl extends BExpressionImpl implements BPatternLiteralExpression {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected BPatternLiteralExpressionImpl() {
@@ -39,6 +40,7 @@ public class BPatternLiteralExpressionImpl extends BExpressionImpl implements BP
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public boolean matches(CharSequence candidate) {
@@ -50,6 +52,7 @@ public class BPatternLiteralExpressionImpl extends BExpressionImpl implements BP
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override

@@ -16,16 +16,16 @@ package org.eclipse.b3.backend.evaluator.b3backend;
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>BDef Value</b></em>'.
  * <!-- end-user-doc -->
- *
+ * 
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BDefValue#isFinal <em>Final</em>}</li>
- *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BDefValue#isImmutable <em>Immutable</em>}</li>
- *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BDefValue#getValueExpr <em>Value Expr</em>}</li>
+ * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BDefValue#isFinal <em>Final</em>}</li>
+ * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BDefValue#isImmutable <em>Immutable</em>}</li>
+ * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BDefValue#getValueExpr <em>Value Expr</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @see org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage#getBDefValue()
  * @model
  * @generated
@@ -38,6 +38,7 @@ public interface BDefValue extends BExpression, ITypedValue {
 	 * If the meaning of the '<em>Value Expr</em>' reference isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the value of the '<em>Value Expr</em>' containment reference.
 	 * @see #setValueExpr(BExpression)
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage#getBDefValue_ValueExpr()
@@ -53,6 +54,7 @@ public interface BDefValue extends BExpression, ITypedValue {
 	 * If the meaning of the '<em>Final</em>' attribute isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the value of the '<em>Final</em>' attribute.
 	 * @see #setFinal(boolean)
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage#getBDefValue_Final()
@@ -68,6 +70,7 @@ public interface BDefValue extends BExpression, ITypedValue {
 	 * If the meaning of the '<em>Immutable</em>' attribute isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the value of the '<em>Immutable</em>' attribute.
 	 * @see #setImmutable(boolean)
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage#getBDefValue_Immutable()
@@ -80,7 +83,9 @@ public interface BDefValue extends BExpression, ITypedValue {
 	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.BDefValue#isFinal <em>Final</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Final</em>' attribute.
+	 * 
+	 * @param value
+	 *            the new value of the '<em>Final</em>' attribute.
 	 * @see #isFinal()
 	 * @generated
 	 */
@@ -90,7 +95,9 @@ public interface BDefValue extends BExpression, ITypedValue {
 	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.BDefValue#isImmutable <em>Immutable</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Immutable</em>' attribute.
+	 * 
+	 * @param value
+	 *            the new value of the '<em>Immutable</em>' attribute.
 	 * @see #isImmutable()
 	 * @generated
 	 */
@@ -100,7 +107,9 @@ public interface BDefValue extends BExpression, ITypedValue {
 	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.BDefValue#getValueExpr <em>Value Expr</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Value Expr</em>' containment reference.
+	 * 
+	 * @param value
+	 *            the new value of the '<em>Value Expr</em>' containment reference.
 	 * @see #getValueExpr()
 	 * @generated
 	 */

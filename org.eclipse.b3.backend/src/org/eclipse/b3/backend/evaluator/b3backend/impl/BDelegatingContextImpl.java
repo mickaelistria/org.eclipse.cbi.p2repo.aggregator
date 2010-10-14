@@ -31,13 +31,14 @@ import org.eclipse.emf.ecore.EClass;
  * <!-- end-user-doc -->
  * <p>
  * </p>
- *
+ * 
  * @generated
  */
 public class BDelegatingContextImpl extends BInnerContextImpl implements BDelegatingContext {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected BDelegatingContextImpl() {
@@ -181,6 +182,7 @@ public class BDelegatingContextImpl extends BInnerContextImpl implements BDelega
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override

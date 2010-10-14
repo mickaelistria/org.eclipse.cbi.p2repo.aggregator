@@ -28,10 +28,10 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BFunctionNamePredicateImpl#getNamePredicate <em>Name Predicate</em>}</li>
+ * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BFunctionNamePredicateImpl#getNamePredicate <em>Name Predicate</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 public class BFunctionNamePredicateImpl extends BExpressionImpl implements BFunctionNamePredicate {
@@ -39,6 +39,7 @@ public class BFunctionNamePredicateImpl extends BExpressionImpl implements BFunc
 	 * The cached value of the '{@link #getNamePredicate() <em>Name Predicate</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getNamePredicate()
 	 * @generated
 	 * @ordered
@@ -48,6 +49,7 @@ public class BFunctionNamePredicateImpl extends BExpressionImpl implements BFunc
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected BFunctionNamePredicateImpl() {
@@ -57,14 +59,20 @@ public class BFunctionNamePredicateImpl extends BExpressionImpl implements BFunc
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public NotificationChain basicSetNamePredicate(BNamePredicate newNamePredicate, NotificationChain msgs) {
 		BNamePredicate oldNamePredicate = namePredicate;
 		namePredicate = newNamePredicate;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, B3backendPackage.BFUNCTION_NAME_PREDICATE__NAME_PREDICATE, oldNamePredicate, newNamePredicate);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
+		if(eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(
+				this, Notification.SET, B3backendPackage.BFUNCTION_NAME_PREDICATE__NAME_PREDICATE, oldNamePredicate,
+				newNamePredicate);
+			if(msgs == null)
+				msgs = notification;
+			else
+				msgs.add(notification);
 		}
 		return msgs;
 	}
@@ -72,11 +80,12 @@ public class BFunctionNamePredicateImpl extends BExpressionImpl implements BFunc
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch (featureID) {
+		switch(featureID) {
 			case B3backendPackage.BFUNCTION_NAME_PREDICATE__NAME_PREDICATE:
 				return getNamePredicate();
 		}
@@ -86,11 +95,12 @@ public class BFunctionNamePredicateImpl extends BExpressionImpl implements BFunc
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
+		switch(featureID) {
 			case B3backendPackage.BFUNCTION_NAME_PREDICATE__NAME_PREDICATE:
 				return basicSetNamePredicate(null, msgs);
 		}
@@ -100,11 +110,12 @@ public class BFunctionNamePredicateImpl extends BExpressionImpl implements BFunc
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch (featureID) {
+		switch(featureID) {
 			case B3backendPackage.BFUNCTION_NAME_PREDICATE__NAME_PREDICATE:
 				return namePredicate != null;
 		}
@@ -114,13 +125,14 @@ public class BFunctionNamePredicateImpl extends BExpressionImpl implements BFunc
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch (featureID) {
+		switch(featureID) {
 			case B3backendPackage.BFUNCTION_NAME_PREDICATE__NAME_PREDICATE:
-				setNamePredicate((BNamePredicate)newValue);
+				setNamePredicate((BNamePredicate) newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -129,13 +141,14 @@ public class BFunctionNamePredicateImpl extends BExpressionImpl implements BFunc
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
-		switch (featureID) {
+		switch(featureID) {
 			case B3backendPackage.BFUNCTION_NAME_PREDICATE__NAME_PREDICATE:
-				setNamePredicate((BNamePredicate)null);
+				setNamePredicate((BNamePredicate) null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -144,6 +157,7 @@ public class BFunctionNamePredicateImpl extends BExpressionImpl implements BFunc
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public BNamePredicate getNamePredicate() {
@@ -164,25 +178,32 @@ public class BFunctionNamePredicateImpl extends BExpressionImpl implements BFunc
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setNamePredicate(BNamePredicate newNamePredicate) {
-		if (newNamePredicate != namePredicate) {
+		if(newNamePredicate != namePredicate) {
 			NotificationChain msgs = null;
-			if (namePredicate != null)
-				msgs = ((InternalEObject)namePredicate).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - B3backendPackage.BFUNCTION_NAME_PREDICATE__NAME_PREDICATE, null, msgs);
-			if (newNamePredicate != null)
-				msgs = ((InternalEObject)newNamePredicate).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - B3backendPackage.BFUNCTION_NAME_PREDICATE__NAME_PREDICATE, null, msgs);
+			if(namePredicate != null)
+				msgs = ((InternalEObject) namePredicate).eInverseRemove(this, EOPPOSITE_FEATURE_BASE -
+						B3backendPackage.BFUNCTION_NAME_PREDICATE__NAME_PREDICATE, null, msgs);
+			if(newNamePredicate != null)
+				msgs = ((InternalEObject) newNamePredicate).eInverseAdd(this, EOPPOSITE_FEATURE_BASE -
+						B3backendPackage.BFUNCTION_NAME_PREDICATE__NAME_PREDICATE, null, msgs);
 			msgs = basicSetNamePredicate(newNamePredicate, msgs);
-			if (msgs != null) msgs.dispatch();
+			if(msgs != null)
+				msgs.dispatch();
 		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, B3backendPackage.BFUNCTION_NAME_PREDICATE__NAME_PREDICATE, newNamePredicate, newNamePredicate));
+		else if(eNotificationRequired())
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, B3backendPackage.BFUNCTION_NAME_PREDICATE__NAME_PREDICATE, newNamePredicate,
+				newNamePredicate));
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override

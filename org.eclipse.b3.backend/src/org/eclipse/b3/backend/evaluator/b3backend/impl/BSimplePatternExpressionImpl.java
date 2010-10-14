@@ -24,10 +24,10 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BSimplePatternExpressionImpl#getPattern <em>Pattern</em>}</li>
+ * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BSimplePatternExpressionImpl#getPattern <em>Pattern</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 public class BSimplePatternExpressionImpl extends BPatternLiteralExpressionImpl implements BSimplePatternExpression {
@@ -35,6 +35,7 @@ public class BSimplePatternExpressionImpl extends BPatternLiteralExpressionImpl 
 	 * The default value of the '{@link #getPattern() <em>Pattern</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getPattern()
 	 * @generated
 	 * @ordered
@@ -45,6 +46,7 @@ public class BSimplePatternExpressionImpl extends BPatternLiteralExpressionImpl 
 	 * The cached value of the '{@link #getPattern() <em>Pattern</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getPattern()
 	 * @generated
 	 * @ordered
@@ -54,6 +56,7 @@ public class BSimplePatternExpressionImpl extends BPatternLiteralExpressionImpl 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected BSimplePatternExpressionImpl() {
@@ -63,11 +66,12 @@ public class BSimplePatternExpressionImpl extends BPatternLiteralExpressionImpl 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch (featureID) {
+		switch(featureID) {
 			case B3backendPackage.BSIMPLE_PATTERN_EXPRESSION__PATTERN:
 				return getPattern();
 		}
@@ -77,13 +81,16 @@ public class BSimplePatternExpressionImpl extends BPatternLiteralExpressionImpl 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch (featureID) {
+		switch(featureID) {
 			case B3backendPackage.BSIMPLE_PATTERN_EXPRESSION__PATTERN:
-				return PATTERN_EDEFAULT == null ? pattern != null : !PATTERN_EDEFAULT.equals(pattern);
+				return PATTERN_EDEFAULT == null
+						? pattern != null
+						: !PATTERN_EDEFAULT.equals(pattern);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -91,13 +98,14 @@ public class BSimplePatternExpressionImpl extends BPatternLiteralExpressionImpl 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch (featureID) {
+		switch(featureID) {
 			case B3backendPackage.BSIMPLE_PATTERN_EXPRESSION__PATTERN:
-				setPattern((SimplePattern)newValue);
+				setPattern((SimplePattern) newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -106,11 +114,12 @@ public class BSimplePatternExpressionImpl extends BPatternLiteralExpressionImpl 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
-		switch (featureID) {
+		switch(featureID) {
 			case B3backendPackage.BSIMPLE_PATTERN_EXPRESSION__PATTERN:
 				setPattern(PATTERN_EDEFAULT);
 				return;
@@ -121,6 +130,7 @@ public class BSimplePatternExpressionImpl extends BPatternLiteralExpressionImpl 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public SimplePattern getPattern() {
@@ -140,23 +150,27 @@ public class BSimplePatternExpressionImpl extends BPatternLiteralExpressionImpl 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setPattern(SimplePattern newPattern) {
 		SimplePattern oldPattern = pattern;
 		pattern = newPattern;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, B3backendPackage.BSIMPLE_PATTERN_EXPRESSION__PATTERN, oldPattern, pattern));
+		if(eNotificationRequired())
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, B3backendPackage.BSIMPLE_PATTERN_EXPRESSION__PATTERN, oldPattern, pattern));
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy()) return super.toString();
+		if(eIsProxy())
+			return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (pattern: ");
@@ -168,6 +182,7 @@ public class BSimplePatternExpressionImpl extends BPatternLiteralExpressionImpl 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override

@@ -16,14 +16,14 @@ package org.eclipse.b3.backend.evaluator.b3backend;
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>BAdvice</b></em>'.
  * <!-- end-user-doc -->
- *
+ * 
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BAdvice#getDocumentation <em>Documentation</em>}</li>
+ * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BAdvice#getDocumentation <em>Documentation</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @see org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage#getBAdvice()
  * @model
  * @generated
@@ -36,6 +36,7 @@ public interface BAdvice extends BExpression, ITypedValue {
 	 * If the meaning of the '<em>Documentation</em>' attribute isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the value of the '<em>Documentation</em>' attribute.
 	 * @see #setDocumentation(String)
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage#getBAdvice_Documentation()
@@ -48,7 +49,9 @@ public interface BAdvice extends BExpression, ITypedValue {
 	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.BAdvice#getDocumentation <em>Documentation</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Documentation</em>' attribute.
+	 * 
+	 * @param value
+	 *            the new value of the '<em>Documentation</em>' attribute.
 	 * @see #getDocumentation()
 	 * @generated
 	 */

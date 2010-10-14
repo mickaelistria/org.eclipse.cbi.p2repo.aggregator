@@ -23,15 +23,15 @@ import org.eclipse.emf.ecore.EObject;
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>B3 Wildcard Type</b></em>'.
  * <!-- end-user-doc -->
- *
+ * 
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.B3WildcardType#getLowerBoundsList <em>Lower Bounds List</em>}</li>
- *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.B3WildcardType#getUpperBoundsList <em>Upper Bounds List</em>}</li>
+ * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.B3WildcardType#getLowerBoundsList <em>Lower Bounds List</em>}</li>
+ * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.B3WildcardType#getUpperBoundsList <em>Upper Bounds List</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @see org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage#getB3WildcardType()
  * @model superTypes="org.eclipse.b3.backend.evaluator.b3backend.IWildcardType"
  * @generated
@@ -40,6 +40,7 @@ public interface B3WildcardType extends EObject, WildcardType {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @model kind="operation" dataType="org.eclipse.b3.backend.evaluator.b3backend.TypeArray"
 	 * @generated
 	 */
@@ -53,6 +54,7 @@ public interface B3WildcardType extends EObject, WildcardType {
 	 * If the meaning of the '<em>Lower Bounds List</em>' reference list isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the value of the '<em>Lower Bounds List</em>' containment reference list.
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage#getB3WildcardType_LowerBoundsList()
 	 * @model type="org.eclipse.b3.backend.evaluator.b3backend.IType" containment="true"
@@ -63,6 +65,7 @@ public interface B3WildcardType extends EObject, WildcardType {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @model kind="operation" dataType="org.eclipse.b3.backend.evaluator.b3backend.TypeArray"
 	 * @generated
 	 */
@@ -76,6 +79,7 @@ public interface B3WildcardType extends EObject, WildcardType {
 	 * If the meaning of the '<em>Upper Bounds List</em>' reference list isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the value of the '<em>Upper Bounds List</em>' containment reference list.
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage#getB3WildcardType_UpperBoundsList()
 	 * @model type="org.eclipse.b3.backend.evaluator.b3backend.IType" containment="true"

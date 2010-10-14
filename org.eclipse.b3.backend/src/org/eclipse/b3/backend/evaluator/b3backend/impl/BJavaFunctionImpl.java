@@ -29,13 +29,13 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BJavaFunctionImpl#getMethod <em>Method</em>}</li>
- *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BJavaFunctionImpl#getCallType <em>Call Type</em>}</li>
- *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BJavaFunctionImpl#getParameterTypes <em>Parameter Types</em>}</li>
- *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BJavaFunctionImpl#getParameterNames <em>Parameter Names</em>}</li>
+ * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BJavaFunctionImpl#getMethod <em>Method</em>}</li>
+ * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BJavaFunctionImpl#getCallType <em>Call Type</em>}</li>
+ * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BJavaFunctionImpl#getParameterTypes <em>Parameter Types</em>}</li>
+ * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BJavaFunctionImpl#getParameterNames <em>Parameter Names</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 public class BJavaFunctionImpl extends BFunctionImpl implements BJavaFunction {
@@ -44,6 +44,7 @@ public class BJavaFunctionImpl extends BFunctionImpl implements BJavaFunction {
 	 * The default value of the '{@link #getMethod() <em>Method</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getMethod()
 	 * @generated
 	 * @ordered
@@ -54,6 +55,7 @@ public class BJavaFunctionImpl extends BFunctionImpl implements BJavaFunction {
 	 * The cached value of the '{@link #getMethod() <em>Method</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getMethod()
 	 * @generated
 	 * @ordered
@@ -64,6 +66,7 @@ public class BJavaFunctionImpl extends BFunctionImpl implements BJavaFunction {
 	 * The default value of the '{@link #getCallType() <em>Call Type</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getCallType()
 	 * @generated
 	 * @ordered
@@ -74,6 +77,7 @@ public class BJavaFunctionImpl extends BFunctionImpl implements BJavaFunction {
 	 * The cached value of the '{@link #getCallType() <em>Call Type</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getCallType()
 	 * @generated
 	 * @ordered
@@ -84,6 +88,7 @@ public class BJavaFunctionImpl extends BFunctionImpl implements BJavaFunction {
 	 * The default value of the '{@link #getParameterTypes() <em>Parameter Types</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getParameterTypes()
 	 * @generated
 	 * @ordered
@@ -94,6 +99,7 @@ public class BJavaFunctionImpl extends BFunctionImpl implements BJavaFunction {
 	 * The cached value of the '{@link #getParameterTypes() <em>Parameter Types</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getParameterTypes()
 	 * @generated
 	 * @ordered
@@ -104,6 +110,7 @@ public class BJavaFunctionImpl extends BFunctionImpl implements BJavaFunction {
 	 * The default value of the '{@link #getParameterNames() <em>Parameter Names</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getParameterNames()
 	 * @generated
 	 * @ordered
@@ -114,6 +121,7 @@ public class BJavaFunctionImpl extends BFunctionImpl implements BJavaFunction {
 	 * The cached value of the '{@link #getParameterNames() <em>Parameter Names</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getParameterNames()
 	 * @generated
 	 * @ordered
@@ -123,6 +131,7 @@ public class BJavaFunctionImpl extends BFunctionImpl implements BJavaFunction {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected BJavaFunctionImpl() {
@@ -148,11 +157,12 @@ public class BJavaFunctionImpl extends BFunctionImpl implements BJavaFunction {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch (featureID) {
+		switch(featureID) {
 			case B3backendPackage.BJAVA_FUNCTION__METHOD:
 				return getMethod();
 			case B3backendPackage.BJAVA_FUNCTION__CALL_TYPE:
@@ -168,19 +178,26 @@ public class BJavaFunctionImpl extends BFunctionImpl implements BJavaFunction {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch (featureID) {
+		switch(featureID) {
 			case B3backendPackage.BJAVA_FUNCTION__METHOD:
-				return METHOD_EDEFAULT == null ? method != null : !METHOD_EDEFAULT.equals(method);
+				return METHOD_EDEFAULT == null
+						? method != null
+						: !METHOD_EDEFAULT.equals(method);
 			case B3backendPackage.BJAVA_FUNCTION__CALL_TYPE:
 				return callType != CALL_TYPE_EDEFAULT;
 			case B3backendPackage.BJAVA_FUNCTION__PARAMETER_TYPES:
-				return PARAMETER_TYPES_EDEFAULT == null ? parameterTypes != null : !PARAMETER_TYPES_EDEFAULT.equals(parameterTypes);
+				return PARAMETER_TYPES_EDEFAULT == null
+						? parameterTypes != null
+						: !PARAMETER_TYPES_EDEFAULT.equals(parameterTypes);
 			case B3backendPackage.BJAVA_FUNCTION__PARAMETER_NAMES:
-				return PARAMETER_NAMES_EDEFAULT == null ? parameterNames != null : !PARAMETER_NAMES_EDEFAULT.equals(parameterNames);
+				return PARAMETER_NAMES_EDEFAULT == null
+						? parameterNames != null
+						: !PARAMETER_NAMES_EDEFAULT.equals(parameterNames);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -188,22 +205,23 @@ public class BJavaFunctionImpl extends BFunctionImpl implements BJavaFunction {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch (featureID) {
+		switch(featureID) {
 			case B3backendPackage.BJAVA_FUNCTION__METHOD:
-				setMethod((Method)newValue);
+				setMethod((Method) newValue);
 				return;
 			case B3backendPackage.BJAVA_FUNCTION__CALL_TYPE:
-				setCallType((BJavaCallType)newValue);
+				setCallType((BJavaCallType) newValue);
 				return;
 			case B3backendPackage.BJAVA_FUNCTION__PARAMETER_TYPES:
-				setParameterTypes((Type[])newValue);
+				setParameterTypes((Type[]) newValue);
 				return;
 			case B3backendPackage.BJAVA_FUNCTION__PARAMETER_NAMES:
-				setParameterNames((String[])newValue);
+				setParameterNames((String[]) newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -212,11 +230,12 @@ public class BJavaFunctionImpl extends BFunctionImpl implements BJavaFunction {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
-		switch (featureID) {
+		switch(featureID) {
 			case B3backendPackage.BJAVA_FUNCTION__METHOD:
 				setMethod(METHOD_EDEFAULT);
 				return;
@@ -236,6 +255,7 @@ public class BJavaFunctionImpl extends BFunctionImpl implements BJavaFunction {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public BJavaCallType getCallType() {
@@ -245,6 +265,7 @@ public class BJavaFunctionImpl extends BFunctionImpl implements BJavaFunction {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public Method getMethod() {
@@ -254,6 +275,7 @@ public class BJavaFunctionImpl extends BFunctionImpl implements BJavaFunction {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public String[] getParameterNames() {
@@ -263,6 +285,7 @@ public class BJavaFunctionImpl extends BFunctionImpl implements BJavaFunction {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public Type[] getParameterTypes() {
@@ -337,59 +360,73 @@ public class BJavaFunctionImpl extends BFunctionImpl implements BJavaFunction {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setCallType(BJavaCallType newCallType) {
 		BJavaCallType oldCallType = callType;
-		callType = newCallType == null ? CALL_TYPE_EDEFAULT : newCallType;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, B3backendPackage.BJAVA_FUNCTION__CALL_TYPE, oldCallType, callType));
+		callType = newCallType == null
+				? CALL_TYPE_EDEFAULT
+				: newCallType;
+		if(eNotificationRequired())
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, B3backendPackage.BJAVA_FUNCTION__CALL_TYPE, oldCallType, callType));
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setMethod(Method newMethod) {
 		Method oldMethod = method;
 		method = newMethod;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, B3backendPackage.BJAVA_FUNCTION__METHOD, oldMethod, method));
+		if(eNotificationRequired())
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, B3backendPackage.BJAVA_FUNCTION__METHOD, oldMethod, method));
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setParameterNames(String[] newParameterNames) {
 		String[] oldParameterNames = parameterNames;
 		parameterNames = newParameterNames;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, B3backendPackage.BJAVA_FUNCTION__PARAMETER_NAMES, oldParameterNames, parameterNames));
+		if(eNotificationRequired())
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, B3backendPackage.BJAVA_FUNCTION__PARAMETER_NAMES, oldParameterNames,
+				parameterNames));
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setParameterTypes(Type[] newParameterTypes) {
 		Type[] oldParameterTypes = parameterTypes;
 		parameterTypes = newParameterTypes;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, B3backendPackage.BJAVA_FUNCTION__PARAMETER_TYPES, oldParameterTypes, parameterTypes));
+		if(eNotificationRequired())
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, B3backendPackage.BJAVA_FUNCTION__PARAMETER_TYPES, oldParameterTypes,
+				parameterTypes));
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy()) return super.toString();
+		if(eIsProxy())
+			return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (method: ");
@@ -407,6 +444,7 @@ public class BJavaFunctionImpl extends BFunctionImpl implements BJavaFunction {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override

@@ -52,12 +52,12 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BPropertySetImpl#getExtends <em>Extends</em>}</li>
- *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BPropertySetImpl#getOperations <em>Operations</em>}</li>
- *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BPropertySetImpl#getPropertiesFile <em>Properties File</em>}</li>
+ * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BPropertySetImpl#getExtends <em>Extends</em>}</li>
+ * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BPropertySetImpl#getOperations <em>Operations</em>}</li>
+ * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BPropertySetImpl#getPropertiesFile <em>Properties File</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 public class BPropertySetImpl extends BAdviceImpl implements BPropertySet {
@@ -65,6 +65,7 @@ public class BPropertySetImpl extends BAdviceImpl implements BPropertySet {
 	 * The cached value of the '{@link #getExtends() <em>Extends</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getExtends()
 	 * @generated
 	 * @ordered
@@ -75,6 +76,7 @@ public class BPropertySetImpl extends BAdviceImpl implements BPropertySet {
 	 * The cached value of the '{@link #getOperations() <em>Operations</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getOperations()
 	 * @generated
 	 * @ordered
@@ -85,6 +87,7 @@ public class BPropertySetImpl extends BAdviceImpl implements BPropertySet {
 	 * The default value of the '{@link #getPropertiesFile() <em>Properties File</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getPropertiesFile()
 	 * @generated
 	 * @ordered
@@ -95,6 +98,7 @@ public class BPropertySetImpl extends BAdviceImpl implements BPropertySet {
 	 * The cached value of the '{@link #getPropertiesFile() <em>Properties File</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getPropertiesFile()
 	 * @generated
 	 * @ordered
@@ -109,6 +113,7 @@ public class BPropertySetImpl extends BAdviceImpl implements BPropertySet {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected BPropertySetImpl() {
@@ -118,6 +123,7 @@ public class BPropertySetImpl extends BAdviceImpl implements BPropertySet {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public BPropertySet basicGetExtends() {
@@ -127,13 +133,15 @@ public class BPropertySetImpl extends BAdviceImpl implements BPropertySet {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch (featureID) {
+		switch(featureID) {
 			case B3backendPackage.BPROPERTY_SET__EXTENDS:
-				if (resolve) return getExtends();
+				if(resolve)
+					return getExtends();
 				return basicGetExtends();
 			case B3backendPackage.BPROPERTY_SET__OPERATIONS:
 				return getOperations();
@@ -146,13 +154,14 @@ public class BPropertySetImpl extends BAdviceImpl implements BPropertySet {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
+		switch(featureID) {
 			case B3backendPackage.BPROPERTY_SET__OPERATIONS:
-				return ((InternalEList<?>)getOperations()).basicRemove(otherEnd, msgs);
+				return ((InternalEList<?>) getOperations()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -160,17 +169,20 @@ public class BPropertySetImpl extends BAdviceImpl implements BPropertySet {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch (featureID) {
+		switch(featureID) {
 			case B3backendPackage.BPROPERTY_SET__EXTENDS:
 				return extends_ != null;
 			case B3backendPackage.BPROPERTY_SET__OPERATIONS:
 				return operations != null && !operations.isEmpty();
 			case B3backendPackage.BPROPERTY_SET__PROPERTIES_FILE:
-				return PROPERTIES_FILE_EDEFAULT == null ? propertiesFile != null : !PROPERTIES_FILE_EDEFAULT.equals(propertiesFile);
+				return PROPERTIES_FILE_EDEFAULT == null
+						? propertiesFile != null
+						: !PROPERTIES_FILE_EDEFAULT.equals(propertiesFile);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -178,21 +190,22 @@ public class BPropertySetImpl extends BAdviceImpl implements BPropertySet {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch (featureID) {
+		switch(featureID) {
 			case B3backendPackage.BPROPERTY_SET__EXTENDS:
-				setExtends((BPropertySet)newValue);
+				setExtends((BPropertySet) newValue);
 				return;
 			case B3backendPackage.BPROPERTY_SET__OPERATIONS:
 				getOperations().clear();
-				getOperations().addAll((Collection<? extends BPropertyOperation>)newValue);
+				getOperations().addAll((Collection<? extends BPropertyOperation>) newValue);
 				return;
 			case B3backendPackage.BPROPERTY_SET__PROPERTIES_FILE:
-				setPropertiesFile((URI)newValue);
+				setPropertiesFile((URI) newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -201,13 +214,14 @@ public class BPropertySetImpl extends BAdviceImpl implements BPropertySet {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
-		switch (featureID) {
+		switch(featureID) {
 			case B3backendPackage.BPROPERTY_SET__EXTENDS:
-				setExtends((BPropertySet)null);
+				setExtends((BPropertySet) null);
 				return;
 			case B3backendPackage.BPROPERTY_SET__OPERATIONS:
 				getOperations().clear();
@@ -222,15 +236,17 @@ public class BPropertySetImpl extends BAdviceImpl implements BPropertySet {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public BPropertySet getExtends() {
-		if (extends_ != null && extends_.eIsProxy()) {
-			InternalEObject oldExtends = (InternalEObject)extends_;
-			extends_ = (BPropertySet)eResolveProxy(oldExtends);
-			if (extends_ != oldExtends) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, B3backendPackage.BPROPERTY_SET__EXTENDS, oldExtends, extends_));
+		if(extends_ != null && extends_.eIsProxy()) {
+			InternalEObject oldExtends = (InternalEObject) extends_;
+			extends_ = (BPropertySet) eResolveProxy(oldExtends);
+			if(extends_ != oldExtends) {
+				if(eNotificationRequired())
+					eNotify(new ENotificationImpl(
+						this, Notification.RESOLVE, B3backendPackage.BPROPERTY_SET__EXTENDS, oldExtends, extends_));
 			}
 		}
 		return extends_;
@@ -287,6 +303,7 @@ public class BPropertySetImpl extends BAdviceImpl implements BPropertySet {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public URI getPropertiesFile() {
@@ -345,35 +362,42 @@ public class BPropertySetImpl extends BAdviceImpl implements BPropertySet {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setExtends(BPropertySet newExtends) {
 		BPropertySet oldExtends = extends_;
 		extends_ = newExtends;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, B3backendPackage.BPROPERTY_SET__EXTENDS, oldExtends, extends_));
+		if(eNotificationRequired())
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, B3backendPackage.BPROPERTY_SET__EXTENDS, oldExtends, extends_));
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setPropertiesFile(URI newPropertiesFile) {
 		URI oldPropertiesFile = propertiesFile;
 		propertiesFile = newPropertiesFile;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, B3backendPackage.BPROPERTY_SET__PROPERTIES_FILE, oldPropertiesFile, propertiesFile));
+		if(eNotificationRequired())
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, B3backendPackage.BPROPERTY_SET__PROPERTIES_FILE, oldPropertiesFile,
+				propertiesFile));
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy()) return super.toString();
+		if(eIsProxy())
+			return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (propertiesFile: ");
@@ -385,6 +409,7 @@ public class BPropertySetImpl extends BAdviceImpl implements BPropertySet {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override

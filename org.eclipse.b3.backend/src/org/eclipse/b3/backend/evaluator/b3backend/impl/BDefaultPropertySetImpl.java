@@ -22,13 +22,14 @@ import org.eclipse.emf.ecore.EClass;
  * <!-- end-user-doc -->
  * <p>
  * </p>
- *
+ * 
  * @generated
  */
 public class BDefaultPropertySetImpl extends BPropertySetImpl implements BDefaultPropertySet {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected BDefaultPropertySetImpl() {
@@ -38,6 +39,7 @@ public class BDefaultPropertySetImpl extends BPropertySetImpl implements BDefaul
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override

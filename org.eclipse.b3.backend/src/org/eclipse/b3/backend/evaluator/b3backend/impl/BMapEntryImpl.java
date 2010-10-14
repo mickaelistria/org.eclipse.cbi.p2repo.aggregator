@@ -26,11 +26,11 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BMapEntryImpl#getKey <em>Key</em>}</li>
- *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BMapEntryImpl#getValue <em>Value</em>}</li>
+ * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BMapEntryImpl#getKey <em>Key</em>}</li>
+ * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BMapEntryImpl#getValue <em>Value</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 public class BMapEntryImpl extends EObjectImpl implements BMapEntry {
@@ -38,6 +38,7 @@ public class BMapEntryImpl extends EObjectImpl implements BMapEntry {
 	 * The cached value of the '{@link #getKey() <em>Key</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getKey()
 	 * @generated
 	 * @ordered
@@ -48,6 +49,7 @@ public class BMapEntryImpl extends EObjectImpl implements BMapEntry {
 	 * The cached value of the '{@link #getValue() <em>Value</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getValue()
 	 * @generated
 	 * @ordered
@@ -57,6 +59,7 @@ public class BMapEntryImpl extends EObjectImpl implements BMapEntry {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected BMapEntryImpl() {
@@ -66,14 +69,19 @@ public class BMapEntryImpl extends EObjectImpl implements BMapEntry {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public NotificationChain basicSetKey(BExpression newKey, NotificationChain msgs) {
 		BExpression oldKey = key;
 		key = newKey;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, B3backendPackage.BMAP_ENTRY__KEY, oldKey, newKey);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
+		if(eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(
+				this, Notification.SET, B3backendPackage.BMAP_ENTRY__KEY, oldKey, newKey);
+			if(msgs == null)
+				msgs = notification;
+			else
+				msgs.add(notification);
 		}
 		return msgs;
 	}
@@ -81,14 +89,19 @@ public class BMapEntryImpl extends EObjectImpl implements BMapEntry {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public NotificationChain basicSetValue(BExpression newValue, NotificationChain msgs) {
 		BExpression oldValue = value;
 		value = newValue;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, B3backendPackage.BMAP_ENTRY__VALUE, oldValue, newValue);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
+		if(eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(
+				this, Notification.SET, B3backendPackage.BMAP_ENTRY__VALUE, oldValue, newValue);
+			if(msgs == null)
+				msgs = notification;
+			else
+				msgs.add(notification);
 		}
 		return msgs;
 	}
@@ -96,11 +109,12 @@ public class BMapEntryImpl extends EObjectImpl implements BMapEntry {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch (featureID) {
+		switch(featureID) {
 			case B3backendPackage.BMAP_ENTRY__KEY:
 				return getKey();
 			case B3backendPackage.BMAP_ENTRY__VALUE:
@@ -112,11 +126,12 @@ public class BMapEntryImpl extends EObjectImpl implements BMapEntry {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
+		switch(featureID) {
 			case B3backendPackage.BMAP_ENTRY__KEY:
 				return basicSetKey(null, msgs);
 			case B3backendPackage.BMAP_ENTRY__VALUE:
@@ -128,11 +143,12 @@ public class BMapEntryImpl extends EObjectImpl implements BMapEntry {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch (featureID) {
+		switch(featureID) {
 			case B3backendPackage.BMAP_ENTRY__KEY:
 				return key != null;
 			case B3backendPackage.BMAP_ENTRY__VALUE:
@@ -144,16 +160,17 @@ public class BMapEntryImpl extends EObjectImpl implements BMapEntry {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch (featureID) {
+		switch(featureID) {
 			case B3backendPackage.BMAP_ENTRY__KEY:
-				setKey((BExpression)newValue);
+				setKey((BExpression) newValue);
 				return;
 			case B3backendPackage.BMAP_ENTRY__VALUE:
-				setValue((BExpression)newValue);
+				setValue((BExpression) newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -162,16 +179,17 @@ public class BMapEntryImpl extends EObjectImpl implements BMapEntry {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
-		switch (featureID) {
+		switch(featureID) {
 			case B3backendPackage.BMAP_ENTRY__KEY:
-				setKey((BExpression)null);
+				setKey((BExpression) null);
 				return;
 			case B3backendPackage.BMAP_ENTRY__VALUE:
-				setValue((BExpression)null);
+				setValue((BExpression) null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -180,6 +198,7 @@ public class BMapEntryImpl extends EObjectImpl implements BMapEntry {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public BExpression getKey() {
@@ -189,6 +208,7 @@ public class BMapEntryImpl extends EObjectImpl implements BMapEntry {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public BExpression getValue() {
@@ -198,44 +218,54 @@ public class BMapEntryImpl extends EObjectImpl implements BMapEntry {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setKey(BExpression newKey) {
-		if (newKey != key) {
+		if(newKey != key) {
 			NotificationChain msgs = null;
-			if (key != null)
-				msgs = ((InternalEObject)key).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - B3backendPackage.BMAP_ENTRY__KEY, null, msgs);
-			if (newKey != null)
-				msgs = ((InternalEObject)newKey).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - B3backendPackage.BMAP_ENTRY__KEY, null, msgs);
+			if(key != null)
+				msgs = ((InternalEObject) key).eInverseRemove(this, EOPPOSITE_FEATURE_BASE -
+						B3backendPackage.BMAP_ENTRY__KEY, null, msgs);
+			if(newKey != null)
+				msgs = ((InternalEObject) newKey).eInverseAdd(this, EOPPOSITE_FEATURE_BASE -
+						B3backendPackage.BMAP_ENTRY__KEY, null, msgs);
 			msgs = basicSetKey(newKey, msgs);
-			if (msgs != null) msgs.dispatch();
+			if(msgs != null)
+				msgs.dispatch();
 		}
-		else if (eNotificationRequired())
+		else if(eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, B3backendPackage.BMAP_ENTRY__KEY, newKey, newKey));
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setValue(BExpression newValue) {
-		if (newValue != value) {
+		if(newValue != value) {
 			NotificationChain msgs = null;
-			if (value != null)
-				msgs = ((InternalEObject)value).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - B3backendPackage.BMAP_ENTRY__VALUE, null, msgs);
-			if (newValue != null)
-				msgs = ((InternalEObject)newValue).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - B3backendPackage.BMAP_ENTRY__VALUE, null, msgs);
+			if(value != null)
+				msgs = ((InternalEObject) value).eInverseRemove(this, EOPPOSITE_FEATURE_BASE -
+						B3backendPackage.BMAP_ENTRY__VALUE, null, msgs);
+			if(newValue != null)
+				msgs = ((InternalEObject) newValue).eInverseAdd(this, EOPPOSITE_FEATURE_BASE -
+						B3backendPackage.BMAP_ENTRY__VALUE, null, msgs);
 			msgs = basicSetValue(newValue, msgs);
-			if (msgs != null) msgs.dispatch();
+			if(msgs != null)
+				msgs.dispatch();
 		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, B3backendPackage.BMAP_ENTRY__VALUE, newValue, newValue));
+		else if(eNotificationRequired())
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, B3backendPackage.BMAP_ENTRY__VALUE, newValue, newValue));
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override

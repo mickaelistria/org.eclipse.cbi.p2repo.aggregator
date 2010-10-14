@@ -15,15 +15,15 @@ import org.eclipse.emf.ecore.EObject;
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>BCase</b></em>'.
  * <!-- end-user-doc -->
- *
+ * 
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BCase#getConditionExpr <em>Condition Expr</em>}</li>
- *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BCase#getThenExpr <em>Then Expr</em>}</li>
+ * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BCase#getConditionExpr <em>Condition Expr</em>}</li>
+ * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BCase#getThenExpr <em>Then Expr</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @see org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage#getBCase()
  * @model
  * @generated
@@ -36,6 +36,7 @@ public interface BCase extends EObject {
 	 * If the meaning of the '<em>Condition Expr</em>' containment reference isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the value of the '<em>Condition Expr</em>' containment reference.
 	 * @see #setConditionExpr(BExpression)
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage#getBCase_ConditionExpr()
@@ -51,6 +52,7 @@ public interface BCase extends EObject {
 	 * If the meaning of the '<em>Then Expr</em>' containment reference isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the value of the '<em>Then Expr</em>' containment reference.
 	 * @see #setThenExpr(BExpression)
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage#getBCase_ThenExpr()
@@ -60,10 +62,13 @@ public interface BCase extends EObject {
 	BExpression getThenExpr();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.BCase#getConditionExpr <em>Condition Expr</em>}' containment reference.
+	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.BCase#getConditionExpr <em>Condition Expr</em>}' containment
+	 * reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Condition Expr</em>' containment reference.
+	 * 
+	 * @param value
+	 *            the new value of the '<em>Condition Expr</em>' containment reference.
 	 * @see #getConditionExpr()
 	 * @generated
 	 */
@@ -73,7 +78,9 @@ public interface BCase extends EObject {
 	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.BCase#getThenExpr <em>Then Expr</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Then Expr</em>' containment reference.
+	 * 
+	 * @param value
+	 *            the new value of the '<em>Then Expr</em>' containment reference.
 	 * @see #getThenExpr()
 	 * @generated
 	 */

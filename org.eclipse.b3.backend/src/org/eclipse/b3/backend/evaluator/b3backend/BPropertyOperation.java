@@ -16,8 +16,8 @@ package org.eclipse.b3.backend.evaluator.b3backend;
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>BProperty Operation</b></em>'.
  * <!-- end-user-doc -->
- *
- *
+ * 
+ * 
  * @see org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage#getBPropertyOperation()
  * @model abstract="true"
  * @generated
@@ -26,6 +26,7 @@ public interface BPropertyOperation extends BExpression {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @model exceptions="org.eclipse.b3.backend.evaluator.b3backend.Throwable"
 	 * @generated
 	 */

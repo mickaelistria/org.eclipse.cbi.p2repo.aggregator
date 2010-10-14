@@ -111,6 +111,7 @@ import org.eclipse.emf.ecore.EObject;
  * The <b>Adapter Factory</b> for the model.
  * It provides an adapter <code>createXXX</code> method for each class of the model.
  * <!-- end-user-doc -->
+ * 
  * @see org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage
  * @generated
  */
@@ -119,6 +120,7 @@ public class B3backendAdapterFactory extends AdapterFactoryImpl {
 	 * The cached model package.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected static B3backendPackage modelPackage;
@@ -127,391 +129,485 @@ public class B3backendAdapterFactory extends AdapterFactoryImpl {
 	 * The switch that delegates to the <code>createXXX</code> methods.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected B3backendSwitch<Adapter> modelSwitch = new B3backendSwitch<Adapter>() {
-			@Override
-			public Adapter caseBExpression(BExpression object) {
-				return createBExpressionAdapter();
-			}
-			@Override
-			public Adapter caseBExecutionContext(BExecutionContext object) {
-				return createBExecutionContextAdapter();
-			}
-			@Override
-			public Adapter caseBIfExpression(BIfExpression object) {
-				return createBIfExpressionAdapter();
-			}
-			@Override
-			public Adapter caseBSwitchExpression(BSwitchExpression object) {
-				return createBSwitchExpressionAdapter();
-			}
-			@Override
-			public Adapter caseBCase(BCase object) {
-				return createBCaseAdapter();
-			}
-			@Override
-			public Adapter caseBTryExpression(BTryExpression object) {
-				return createBTryExpressionAdapter();
-			}
-			@Override
-			public Adapter caseBCatch(BCatch object) {
-				return createBCatchAdapter();
-			}
-			@Override
-			public Adapter caseBBinaryExpression(BBinaryExpression object) {
-				return createBBinaryExpressionAdapter();
-			}
-			@Override
-			public Adapter caseBOrExpression(BOrExpression object) {
-				return createBOrExpressionAdapter();
-			}
-			@Override
-			public Adapter caseBAndExpression(BAndExpression object) {
-				return createBAndExpressionAdapter();
-			}
-			@Override
-			public Adapter caseBChainedExpression(BChainedExpression object) {
-				return createBChainedExpressionAdapter();
-			}
-			@Override
-			public Adapter caseBUnaryExpression(BUnaryExpression object) {
-				return createBUnaryExpressionAdapter();
-			}
-			@Override
-			public Adapter caseBThrowExpression(BThrowExpression object) {
-				return createBThrowExpressionAdapter();
-			}
-			@Override
-			public Adapter caseBUnaryOpExpression(BUnaryOpExpression object) {
-				return createBUnaryOpExpressionAdapter();
-			}
-			@Override
-			public Adapter caseBUnaryPostOpExpression(BUnaryPostOpExpression object) {
-				return createBUnaryPostOpExpressionAdapter();
-			}
-			@Override
-			public Adapter caseBBinaryOpExpression(BBinaryOpExpression object) {
-				return createBBinaryOpExpressionAdapter();
-			}
-			@Override
-			public Adapter caseBCachedExpression(BCachedExpression object) {
-				return createBCachedExpressionAdapter();
-			}
-			@Override
-			public Adapter caseBLiteralExpression(BLiteralExpression object) {
-				return createBLiteralExpressionAdapter();
-			}
-			@Override
-			public Adapter caseBLiteralListExpression(BLiteralListExpression object) {
-				return createBLiteralListExpressionAdapter();
-			}
-			@Override
-			public Adapter caseBLiteralMapExpression(BLiteralMapExpression object) {
-				return createBLiteralMapExpressionAdapter();
-			}
-			@Override
-			public Adapter caseBMapEntry(BMapEntry object) {
-				return createBMapEntryAdapter();
-			}
-			@Override
-			public Adapter caseBFeatureExpression(BFeatureExpression object) {
-				return createBFeatureExpressionAdapter();
-			}
-			@Override
-			public Adapter caseBAtExpression(BAtExpression object) {
-				return createBAtExpressionAdapter();
-			}
-			@Override
-			public Adapter caseBVariableExpression(BVariableExpression object) {
-				return createBVariableExpressionAdapter();
-			}
-			@Override
-			public Adapter caseBCallExpression(BCallExpression object) {
-				return createBCallExpressionAdapter();
-			}
-			@Override
-			public Adapter caseBParameterizedExpression(BParameterizedExpression object) {
-				return createBParameterizedExpressionAdapter();
-			}
-			@Override
-			public Adapter caseBLiteralAny(BLiteralAny object) {
-				return createBLiteralAnyAdapter();
-			}
-			@Override
-			public Adapter caseBCreateExpression(BCreateExpression object) {
-				return createBCreateExpressionAdapter();
-			}
-			@Override
-			public Adapter caseIFunction(IFunction object) {
-				return createIFunctionAdapter();
-			}
-			@Override
-			public Adapter caseBGuard(BGuard object) {
-				return createBGuardAdapter();
-			}
-			@Override
-			public Adapter caseBSystemContext(BSystemContext object) {
-				return createBSystemContextAdapter();
-			}
-			@Override
-			public Adapter caseBContext(BContext object) {
-				return createBContextAdapter();
-			}
-			@Override
-			public Adapter caseBInnerContext(BInnerContext object) {
-				return createBInnerContextAdapter();
-			}
-			@Override
-			public Adapter caseBInvocationContext(BInvocationContext object) {
-				return createBInvocationContextAdapter();
-			}
-			@Override
-			public Adapter caseBUnaryPreOpExpression(BUnaryPreOpExpression object) {
-				return createBUnaryPreOpExpressionAdapter();
-			}
-			@Override
-			public Adapter caseBAssignmentExpression(BAssignmentExpression object) {
-				return createBAssignmentExpressionAdapter();
-			}
-			@Override
-			public Adapter caseB3Function(B3Function object) {
-				return createB3FunctionAdapter();
-			}
-			@Override
-			public Adapter caseBJavaFunction(BJavaFunction object) {
-				return createBJavaFunctionAdapter();
-			}
-			@Override
-			public Adapter caseBFunctionContainer(BFunctionContainer object) {
-				return createBFunctionContainerAdapter();
-			}
-			@Override
-			public Adapter caseBDefValue(BDefValue object) {
-				return createBDefValueAdapter();
-			}
-			@Override
-			public Adapter caseBRegularExpression(BRegularExpression object) {
-				return createBRegularExpressionAdapter();
-			}
-			@Override
-			public Adapter caseBParameterList(BParameterList object) {
-				return createBParameterListAdapter();
-			}
-			@Override
-			public Adapter caseBParameter(BParameter object) {
-				return createBParameterAdapter();
-			}
-			@Override
-			public Adapter caseBParameterDeclaration(BParameterDeclaration object) {
-				return createBParameterDeclarationAdapter();
-			}
-			@Override
-			public Adapter caseIType(Type object) {
-				return createITypeAdapter();
-			}
-			@Override
-			public Adapter caseB3FunctionType(B3FunctionType object) {
-				return createB3FunctionTypeAdapter();
-			}
-			@Override
-			public Adapter caseIParameterizedType(ParameterizedType object) {
-				return createIParameterizedTypeAdapter();
-			}
-			@Override
-			public Adapter caseIGenericDeclaration(GenericDeclaration object) {
-				return createIGenericDeclarationAdapter();
-			}
-			@Override
-			public Adapter caseB3ParameterizedType(B3ParameterizedType object) {
-				return createB3ParameterizedTypeAdapter();
-			}
-			@Override
-			public Adapter caseIWildcardType(WildcardType object) {
-				return createIWildcardTypeAdapter();
-			}
-			@Override
-			public Adapter caseB3WildcardType(B3WildcardType object) {
-				return createB3WildcardTypeAdapter();
-			}
-			@Override
-			public <D extends GenericDeclaration> Adapter caseITypeVariable(TypeVariable<D> object) {
-				return createITypeVariableAdapter();
-			}
-			@Override
-			public Adapter caseB3FuncTypeVariable(B3FuncTypeVariable object) {
-				return createB3FuncTypeVariableAdapter();
-			}
-			@Override
-			public Adapter caseB3JavaImport(B3JavaImport object) {
-				return createB3JavaImportAdapter();
-			}
-			@Override
-			public Adapter caseBLiteralType(BLiteralType object) {
-				return createBLiteralTypeAdapter();
-			}
-			@Override
-			public Adapter caseBTypeCalculator(BTypeCalculator object) {
-				return createBTypeCalculatorAdapter();
-			}
-			@Override
-			public Adapter caseBInstanceContext(BInstanceContext object) {
-				return createBInstanceContextAdapter();
-			}
-			@Override
-			public Adapter caseBDefProperty(BDefProperty object) {
-				return createBDefPropertyAdapter();
-			}
-			@Override
-			public Adapter caseBPropertySet(BPropertySet object) {
-				return createBPropertySetAdapter();
-			}
-			@Override
-			public Adapter caseBDefaultPropertySet(BDefaultPropertySet object) {
-				return createBDefaultPropertySetAdapter();
-			}
-			@Override
-			public Adapter caseBPropertyOperation(BPropertyOperation object) {
-				return createBPropertyOperationAdapter();
-			}
-			@Override
-			public Adapter caseBPropertyDefinitionOperation(BPropertyDefinitionOperation object) {
-				return createBPropertyDefinitionOperationAdapter();
-			}
-			@Override
-			public Adapter caseBConditionalPropertyOperation(BConditionalPropertyOperation object) {
-				return createBConditionalPropertyOperationAdapter();
-			}
-			@Override
-			public Adapter caseBPropertySetOperation(BPropertySetOperation object) {
-				return createBPropertySetOperationAdapter();
-			}
-			@Override
-			public Adapter caseBAdvice(BAdvice object) {
-				return createBAdviceAdapter();
-			}
-			@Override
-			public Adapter caseBConcern(BConcern object) {
-				return createBConcernAdapter();
-			}
-			@Override
-			public Adapter caseBWithExpression(BWithExpression object) {
-				return createBWithExpressionAdapter();
-			}
-			@Override
-			public Adapter caseBConcernContext(BConcernContext object) {
-				return createBConcernContextAdapter();
-			}
-			@Override
-			public Adapter caseBFunction(BFunction object) {
-				return createBFunctionAdapter();
-			}
-			@Override
-			public Adapter caseBFunctionWrapper(BFunctionWrapper object) {
-				return createBFunctionWrapperAdapter();
-			}
-			@Override
-			public Adapter caseBNamePredicate(BNamePredicate object) {
-				return createBNamePredicateAdapter();
-			}
-			@Override
-			public Adapter caseBFunctionNamePredicate(BFunctionNamePredicate object) {
-				return createBFunctionNamePredicateAdapter();
-			}
-			@Override
-			public Adapter caseBFunctionConcernContext(BFunctionConcernContext object) {
-				return createBFunctionConcernContextAdapter();
-			}
-			@Override
-			public Adapter caseBParameterPredicate(BParameterPredicate object) {
-				return createBParameterPredicateAdapter();
-			}
-			@Override
-			public Adapter caseBProceedExpression(BProceedExpression object) {
-				return createBProceedExpressionAdapter();
-			}
-			@Override
-			public Adapter caseBDelegatingContext(BDelegatingContext object) {
-				return createBDelegatingContextAdapter();
-			}
-			@Override
-			public Adapter caseBWrappingContext(BWrappingContext object) {
-				return createBWrappingContextAdapter();
-			}
-			@Override
-			public Adapter caseB3MetaClass(B3MetaClass object) {
-				return createB3MetaClassAdapter();
-			}
-			@Override
-			public Adapter caseBExpressionWrapper(BExpressionWrapper object) {
-				return createBExpressionWrapperAdapter();
-			}
-			@Override
-			public Adapter caseBWithContextExpression(BWithContextExpression object) {
-				return createBWithContextExpressionAdapter();
-			}
-			@Override
-			public Adapter caseITypedValueContainer(ITypedValueContainer object) {
-				return createITypedValueContainerAdapter();
-			}
-			@Override
-			public Adapter caseBCallFeature(BCallFeature object) {
-				return createBCallFeatureAdapter();
-			}
-			@Override
-			public Adapter caseBCallNamedFunction(BCallNamedFunction object) {
-				return createBCallNamedFunctionAdapter();
-			}
-			@Override
-			public Adapter caseBCallFunction(BCallFunction object) {
-				return createBCallFunctionAdapter();
-			}
-			@Override
-			public Adapter caseBPatternLiteralExpression(BPatternLiteralExpression object) {
-				return createBPatternLiteralExpressionAdapter();
-			}
-			@Override
-			public Adapter caseBSimplePatternExpression(BSimplePatternExpression object) {
-				return createBSimplePatternExpressionAdapter();
-			}
-			@Override
-			public Adapter caseINamedValue(INamedValue object) {
-				return createINamedValueAdapter();
-			}
-			@Override
-			public Adapter caseB3Type(B3Type object) {
-				return createB3TypeAdapter();
-			}
-			@Override
-			public Adapter caseITypedValue(ITypedValue object) {
-				return createITypedValueAdapter();
-			}
-			@Override
-			public Adapter caseIVarName(IVarName object) {
-				return createIVarNameAdapter();
-			}
-			@Override
-			public Adapter caseBTemplate(BTemplate object) {
-				return createBTemplateAdapter();
-			}
-			@Override
-			public Adapter caseBEchoExpression(BEchoExpression object) {
-				return createBEchoExpressionAdapter();
-			}
-			@Override
-			public Adapter defaultCase(EObject object) {
-				return createEObjectAdapter();
-			}
-		};
+		@Override
+		public Adapter caseB3Function(B3Function object) {
+			return createB3FunctionAdapter();
+		}
+
+		@Override
+		public Adapter caseB3FunctionType(B3FunctionType object) {
+			return createB3FunctionTypeAdapter();
+		}
+
+		@Override
+		public Adapter caseB3FuncTypeVariable(B3FuncTypeVariable object) {
+			return createB3FuncTypeVariableAdapter();
+		}
+
+		@Override
+		public Adapter caseB3JavaImport(B3JavaImport object) {
+			return createB3JavaImportAdapter();
+		}
+
+		@Override
+		public Adapter caseB3MetaClass(B3MetaClass object) {
+			return createB3MetaClassAdapter();
+		}
+
+		@Override
+		public Adapter caseB3ParameterizedType(B3ParameterizedType object) {
+			return createB3ParameterizedTypeAdapter();
+		}
+
+		@Override
+		public Adapter caseB3Type(B3Type object) {
+			return createB3TypeAdapter();
+		}
+
+		@Override
+		public Adapter caseB3WildcardType(B3WildcardType object) {
+			return createB3WildcardTypeAdapter();
+		}
+
+		@Override
+		public Adapter caseBAdvice(BAdvice object) {
+			return createBAdviceAdapter();
+		}
+
+		@Override
+		public Adapter caseBAndExpression(BAndExpression object) {
+			return createBAndExpressionAdapter();
+		}
+
+		@Override
+		public Adapter caseBAssignmentExpression(BAssignmentExpression object) {
+			return createBAssignmentExpressionAdapter();
+		}
+
+		@Override
+		public Adapter caseBAtExpression(BAtExpression object) {
+			return createBAtExpressionAdapter();
+		}
+
+		@Override
+		public Adapter caseBBinaryExpression(BBinaryExpression object) {
+			return createBBinaryExpressionAdapter();
+		}
+
+		@Override
+		public Adapter caseBBinaryOpExpression(BBinaryOpExpression object) {
+			return createBBinaryOpExpressionAdapter();
+		}
+
+		@Override
+		public Adapter caseBCachedExpression(BCachedExpression object) {
+			return createBCachedExpressionAdapter();
+		}
+
+		@Override
+		public Adapter caseBCallExpression(BCallExpression object) {
+			return createBCallExpressionAdapter();
+		}
+
+		@Override
+		public Adapter caseBCallFeature(BCallFeature object) {
+			return createBCallFeatureAdapter();
+		}
+
+		@Override
+		public Adapter caseBCallFunction(BCallFunction object) {
+			return createBCallFunctionAdapter();
+		}
+
+		@Override
+		public Adapter caseBCallNamedFunction(BCallNamedFunction object) {
+			return createBCallNamedFunctionAdapter();
+		}
+
+		@Override
+		public Adapter caseBCase(BCase object) {
+			return createBCaseAdapter();
+		}
+
+		@Override
+		public Adapter caseBCatch(BCatch object) {
+			return createBCatchAdapter();
+		}
+
+		@Override
+		public Adapter caseBChainedExpression(BChainedExpression object) {
+			return createBChainedExpressionAdapter();
+		}
+
+		@Override
+		public Adapter caseBConcern(BConcern object) {
+			return createBConcernAdapter();
+		}
+
+		@Override
+		public Adapter caseBConcernContext(BConcernContext object) {
+			return createBConcernContextAdapter();
+		}
+
+		@Override
+		public Adapter caseBConditionalPropertyOperation(BConditionalPropertyOperation object) {
+			return createBConditionalPropertyOperationAdapter();
+		}
+
+		@Override
+		public Adapter caseBContext(BContext object) {
+			return createBContextAdapter();
+		}
+
+		@Override
+		public Adapter caseBCreateExpression(BCreateExpression object) {
+			return createBCreateExpressionAdapter();
+		}
+
+		@Override
+		public Adapter caseBDefaultPropertySet(BDefaultPropertySet object) {
+			return createBDefaultPropertySetAdapter();
+		}
+
+		@Override
+		public Adapter caseBDefProperty(BDefProperty object) {
+			return createBDefPropertyAdapter();
+		}
+
+		@Override
+		public Adapter caseBDefValue(BDefValue object) {
+			return createBDefValueAdapter();
+		}
+
+		@Override
+		public Adapter caseBDelegatingContext(BDelegatingContext object) {
+			return createBDelegatingContextAdapter();
+		}
+
+		@Override
+		public Adapter caseBEchoExpression(BEchoExpression object) {
+			return createBEchoExpressionAdapter();
+		}
+
+		@Override
+		public Adapter caseBExecutionContext(BExecutionContext object) {
+			return createBExecutionContextAdapter();
+		}
+
+		@Override
+		public Adapter caseBExpression(BExpression object) {
+			return createBExpressionAdapter();
+		}
+
+		@Override
+		public Adapter caseBExpressionWrapper(BExpressionWrapper object) {
+			return createBExpressionWrapperAdapter();
+		}
+
+		@Override
+		public Adapter caseBFeatureExpression(BFeatureExpression object) {
+			return createBFeatureExpressionAdapter();
+		}
+
+		@Override
+		public Adapter caseBFunction(BFunction object) {
+			return createBFunctionAdapter();
+		}
+
+		@Override
+		public Adapter caseBFunctionConcernContext(BFunctionConcernContext object) {
+			return createBFunctionConcernContextAdapter();
+		}
+
+		@Override
+		public Adapter caseBFunctionContainer(BFunctionContainer object) {
+			return createBFunctionContainerAdapter();
+		}
+
+		@Override
+		public Adapter caseBFunctionNamePredicate(BFunctionNamePredicate object) {
+			return createBFunctionNamePredicateAdapter();
+		}
+
+		@Override
+		public Adapter caseBFunctionWrapper(BFunctionWrapper object) {
+			return createBFunctionWrapperAdapter();
+		}
+
+		@Override
+		public Adapter caseBGuard(BGuard object) {
+			return createBGuardAdapter();
+		}
+
+		@Override
+		public Adapter caseBIfExpression(BIfExpression object) {
+			return createBIfExpressionAdapter();
+		}
+
+		@Override
+		public Adapter caseBInnerContext(BInnerContext object) {
+			return createBInnerContextAdapter();
+		}
+
+		@Override
+		public Adapter caseBInstanceContext(BInstanceContext object) {
+			return createBInstanceContextAdapter();
+		}
+
+		@Override
+		public Adapter caseBInvocationContext(BInvocationContext object) {
+			return createBInvocationContextAdapter();
+		}
+
+		@Override
+		public Adapter caseBJavaFunction(BJavaFunction object) {
+			return createBJavaFunctionAdapter();
+		}
+
+		@Override
+		public Adapter caseBLiteralAny(BLiteralAny object) {
+			return createBLiteralAnyAdapter();
+		}
+
+		@Override
+		public Adapter caseBLiteralExpression(BLiteralExpression object) {
+			return createBLiteralExpressionAdapter();
+		}
+
+		@Override
+		public Adapter caseBLiteralListExpression(BLiteralListExpression object) {
+			return createBLiteralListExpressionAdapter();
+		}
+
+		@Override
+		public Adapter caseBLiteralMapExpression(BLiteralMapExpression object) {
+			return createBLiteralMapExpressionAdapter();
+		}
+
+		@Override
+		public Adapter caseBLiteralType(BLiteralType object) {
+			return createBLiteralTypeAdapter();
+		}
+
+		@Override
+		public Adapter caseBMapEntry(BMapEntry object) {
+			return createBMapEntryAdapter();
+		}
+
+		@Override
+		public Adapter caseBNamePredicate(BNamePredicate object) {
+			return createBNamePredicateAdapter();
+		}
+
+		@Override
+		public Adapter caseBOrExpression(BOrExpression object) {
+			return createBOrExpressionAdapter();
+		}
+
+		@Override
+		public Adapter caseBParameter(BParameter object) {
+			return createBParameterAdapter();
+		}
+
+		@Override
+		public Adapter caseBParameterDeclaration(BParameterDeclaration object) {
+			return createBParameterDeclarationAdapter();
+		}
+
+		@Override
+		public Adapter caseBParameterizedExpression(BParameterizedExpression object) {
+			return createBParameterizedExpressionAdapter();
+		}
+
+		@Override
+		public Adapter caseBParameterList(BParameterList object) {
+			return createBParameterListAdapter();
+		}
+
+		@Override
+		public Adapter caseBParameterPredicate(BParameterPredicate object) {
+			return createBParameterPredicateAdapter();
+		}
+
+		@Override
+		public Adapter caseBPatternLiteralExpression(BPatternLiteralExpression object) {
+			return createBPatternLiteralExpressionAdapter();
+		}
+
+		@Override
+		public Adapter caseBProceedExpression(BProceedExpression object) {
+			return createBProceedExpressionAdapter();
+		}
+
+		@Override
+		public Adapter caseBPropertyDefinitionOperation(BPropertyDefinitionOperation object) {
+			return createBPropertyDefinitionOperationAdapter();
+		}
+
+		@Override
+		public Adapter caseBPropertyOperation(BPropertyOperation object) {
+			return createBPropertyOperationAdapter();
+		}
+
+		@Override
+		public Adapter caseBPropertySet(BPropertySet object) {
+			return createBPropertySetAdapter();
+		}
+
+		@Override
+		public Adapter caseBPropertySetOperation(BPropertySetOperation object) {
+			return createBPropertySetOperationAdapter();
+		}
+
+		@Override
+		public Adapter caseBRegularExpression(BRegularExpression object) {
+			return createBRegularExpressionAdapter();
+		}
+
+		@Override
+		public Adapter caseBSimplePatternExpression(BSimplePatternExpression object) {
+			return createBSimplePatternExpressionAdapter();
+		}
+
+		@Override
+		public Adapter caseBSwitchExpression(BSwitchExpression object) {
+			return createBSwitchExpressionAdapter();
+		}
+
+		@Override
+		public Adapter caseBSystemContext(BSystemContext object) {
+			return createBSystemContextAdapter();
+		}
+
+		@Override
+		public Adapter caseBTemplate(BTemplate object) {
+			return createBTemplateAdapter();
+		}
+
+		@Override
+		public Adapter caseBThrowExpression(BThrowExpression object) {
+			return createBThrowExpressionAdapter();
+		}
+
+		@Override
+		public Adapter caseBTryExpression(BTryExpression object) {
+			return createBTryExpressionAdapter();
+		}
+
+		@Override
+		public Adapter caseBTypeCalculator(BTypeCalculator object) {
+			return createBTypeCalculatorAdapter();
+		}
+
+		@Override
+		public Adapter caseBUnaryExpression(BUnaryExpression object) {
+			return createBUnaryExpressionAdapter();
+		}
+
+		@Override
+		public Adapter caseBUnaryOpExpression(BUnaryOpExpression object) {
+			return createBUnaryOpExpressionAdapter();
+		}
+
+		@Override
+		public Adapter caseBUnaryPostOpExpression(BUnaryPostOpExpression object) {
+			return createBUnaryPostOpExpressionAdapter();
+		}
+
+		@Override
+		public Adapter caseBUnaryPreOpExpression(BUnaryPreOpExpression object) {
+			return createBUnaryPreOpExpressionAdapter();
+		}
+
+		@Override
+		public Adapter caseBVariableExpression(BVariableExpression object) {
+			return createBVariableExpressionAdapter();
+		}
+
+		@Override
+		public Adapter caseBWithContextExpression(BWithContextExpression object) {
+			return createBWithContextExpressionAdapter();
+		}
+
+		@Override
+		public Adapter caseBWithExpression(BWithExpression object) {
+			return createBWithExpressionAdapter();
+		}
+
+		@Override
+		public Adapter caseBWrappingContext(BWrappingContext object) {
+			return createBWrappingContextAdapter();
+		}
+
+		@Override
+		public Adapter caseIFunction(IFunction object) {
+			return createIFunctionAdapter();
+		}
+
+		@Override
+		public Adapter caseIGenericDeclaration(GenericDeclaration object) {
+			return createIGenericDeclarationAdapter();
+		}
+
+		@Override
+		public Adapter caseINamedValue(INamedValue object) {
+			return createINamedValueAdapter();
+		}
+
+		@Override
+		public Adapter caseIParameterizedType(ParameterizedType object) {
+			return createIParameterizedTypeAdapter();
+		}
+
+		@Override
+		public Adapter caseIType(Type object) {
+			return createITypeAdapter();
+		}
+
+		@Override
+		public Adapter caseITypedValue(ITypedValue object) {
+			return createITypedValueAdapter();
+		}
+
+		@Override
+		public Adapter caseITypedValueContainer(ITypedValueContainer object) {
+			return createITypedValueContainerAdapter();
+		}
+
+		@Override
+		public <D extends GenericDeclaration> Adapter caseITypeVariable(TypeVariable<D> object) {
+			return createITypeVariableAdapter();
+		}
+
+		@Override
+		public Adapter caseIVarName(IVarName object) {
+			return createIVarNameAdapter();
+		}
+
+		@Override
+		public Adapter caseIWildcardType(WildcardType object) {
+			return createIWildcardTypeAdapter();
+		}
+
+		@Override
+		public Adapter defaultCase(EObject object) {
+			return createEObjectAdapter();
+		}
+	};
 
 	/**
 	 * Creates an instance of the adapter factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public B3backendAdapterFactory() {
-		if (modelPackage == null) {
+		if(modelPackage == null) {
 			modelPackage = B3backendPackage.eINSTANCE;
 		}
 	}
@@ -520,13 +616,15 @@ public class B3backendAdapterFactory extends AdapterFactoryImpl {
 	 * Creates an adapter for the <code>target</code>.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param target the object to adapt.
+	 * 
+	 * @param target
+	 *            the object to adapt.
 	 * @return the adapter for the <code>target</code>.
 	 * @generated
 	 */
 	@Override
 	public Adapter createAdapter(Notifier target) {
-		return modelSwitch.doSwitch((EObject)target);
+		return modelSwitch.doSwitch((EObject) target);
 	}
 
 	/**
@@ -535,6 +633,7 @@ public class B3backendAdapterFactory extends AdapterFactoryImpl {
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.B3Function
 	 * @generated
@@ -549,6 +648,7 @@ public class B3backendAdapterFactory extends AdapterFactoryImpl {
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.B3FunctionType
 	 * @generated
@@ -558,11 +658,13 @@ public class B3backendAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.backend.evaluator.b3backend.B3FuncTypeVariable <em>B3 Func Type Variable</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.backend.evaluator.b3backend.B3FuncTypeVariable
+	 * <em>B3 Func Type Variable</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.B3FuncTypeVariable
 	 * @generated
@@ -577,6 +679,7 @@ public class B3backendAdapterFactory extends AdapterFactoryImpl {
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.B3JavaImport
 	 * @generated
@@ -591,6 +694,7 @@ public class B3backendAdapterFactory extends AdapterFactoryImpl {
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.B3MetaClass
 	 * @generated
@@ -600,11 +704,13 @@ public class B3backendAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.backend.evaluator.b3backend.B3ParameterizedType <em>B3 Parameterized Type</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.backend.evaluator.b3backend.B3ParameterizedType
+	 * <em>B3 Parameterized Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.B3ParameterizedType
 	 * @generated
@@ -619,6 +725,7 @@ public class B3backendAdapterFactory extends AdapterFactoryImpl {
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.B3Type
 	 * @generated
@@ -633,6 +740,7 @@ public class B3backendAdapterFactory extends AdapterFactoryImpl {
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.B3WildcardType
 	 * @generated
@@ -647,6 +755,7 @@ public class B3backendAdapterFactory extends AdapterFactoryImpl {
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.BAdvice
 	 * @generated
@@ -661,6 +770,7 @@ public class B3backendAdapterFactory extends AdapterFactoryImpl {
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.BAndExpression
 	 * @generated
@@ -670,11 +780,13 @@ public class B3backendAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.backend.evaluator.b3backend.BAssignmentExpression <em>BAssignment Expression</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.backend.evaluator.b3backend.BAssignmentExpression
+	 * <em>BAssignment Expression</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.BAssignmentExpression
 	 * @generated
@@ -689,6 +801,7 @@ public class B3backendAdapterFactory extends AdapterFactoryImpl {
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.BAtExpression
 	 * @generated
@@ -698,11 +811,13 @@ public class B3backendAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.backend.evaluator.b3backend.BBinaryExpression <em>BBinary Expression</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.backend.evaluator.b3backend.BBinaryExpression <em>BBinary Expression</em>}
+	 * '.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.BBinaryExpression
 	 * @generated
@@ -712,11 +827,13 @@ public class B3backendAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.backend.evaluator.b3backend.BBinaryOpExpression <em>BBinary Op Expression</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.backend.evaluator.b3backend.BBinaryOpExpression
+	 * <em>BBinary Op Expression</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.BBinaryOpExpression
 	 * @generated
@@ -726,11 +843,13 @@ public class B3backendAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.backend.evaluator.b3backend.BCachedExpression <em>BCached Expression</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.backend.evaluator.b3backend.BCachedExpression <em>BCached Expression</em>}
+	 * '.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.BCachedExpression
 	 * @generated
@@ -745,6 +864,7 @@ public class B3backendAdapterFactory extends AdapterFactoryImpl {
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.BCallExpression
 	 * @generated
@@ -759,6 +879,7 @@ public class B3backendAdapterFactory extends AdapterFactoryImpl {
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.BCallFeature
 	 * @generated
@@ -773,6 +894,7 @@ public class B3backendAdapterFactory extends AdapterFactoryImpl {
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.BCallFunction
 	 * @generated
@@ -782,11 +904,13 @@ public class B3backendAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.backend.evaluator.b3backend.BCallNamedFunction <em>BCall Named Function</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.backend.evaluator.b3backend.BCallNamedFunction
+	 * <em>BCall Named Function</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.BCallNamedFunction
 	 * @generated
@@ -801,6 +925,7 @@ public class B3backendAdapterFactory extends AdapterFactoryImpl {
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.BCase
 	 * @generated
@@ -815,6 +940,7 @@ public class B3backendAdapterFactory extends AdapterFactoryImpl {
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.BCatch
 	 * @generated
@@ -824,11 +950,13 @@ public class B3backendAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.backend.evaluator.b3backend.BChainedExpression <em>BChained Expression</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.backend.evaluator.b3backend.BChainedExpression
+	 * <em>BChained Expression</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.BChainedExpression
 	 * @generated
@@ -843,6 +971,7 @@ public class B3backendAdapterFactory extends AdapterFactoryImpl {
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.BConcern
 	 * @generated
@@ -857,6 +986,7 @@ public class B3backendAdapterFactory extends AdapterFactoryImpl {
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.BConcernContext
 	 * @generated
@@ -866,11 +996,13 @@ public class B3backendAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.backend.evaluator.b3backend.BConditionalPropertyOperation <em>BConditional Property Operation</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.backend.evaluator.b3backend.BConditionalPropertyOperation
+	 * <em>BConditional Property Operation</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.BConditionalPropertyOperation
 	 * @generated
@@ -885,6 +1017,7 @@ public class B3backendAdapterFactory extends AdapterFactoryImpl {
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.BContext
 	 * @generated
@@ -894,11 +1027,13 @@ public class B3backendAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.backend.evaluator.b3backend.BCreateExpression <em>BCreate Expression</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.backend.evaluator.b3backend.BCreateExpression <em>BCreate Expression</em>}
+	 * '.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.BCreateExpression
 	 * @generated
@@ -908,11 +1043,13 @@ public class B3backendAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.backend.evaluator.b3backend.BDefaultPropertySet <em>BDefault Property Set</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.backend.evaluator.b3backend.BDefaultPropertySet
+	 * <em>BDefault Property Set</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.BDefaultPropertySet
 	 * @generated
@@ -927,6 +1064,7 @@ public class B3backendAdapterFactory extends AdapterFactoryImpl {
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.BDefProperty
 	 * @generated
@@ -941,6 +1079,7 @@ public class B3backendAdapterFactory extends AdapterFactoryImpl {
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.BDefValue
 	 * @generated
@@ -950,11 +1089,13 @@ public class B3backendAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.backend.evaluator.b3backend.BDelegatingContext <em>BDelegating Context</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.backend.evaluator.b3backend.BDelegatingContext
+	 * <em>BDelegating Context</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.BDelegatingContext
 	 * @generated
@@ -969,6 +1110,7 @@ public class B3backendAdapterFactory extends AdapterFactoryImpl {
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.BEchoExpression
 	 * @generated
@@ -978,11 +1120,13 @@ public class B3backendAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext <em>BExecution Context</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext <em>BExecution Context</em>}
+	 * '.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext
 	 * @generated
@@ -997,6 +1141,7 @@ public class B3backendAdapterFactory extends AdapterFactoryImpl {
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.BExpression
 	 * @generated
@@ -1006,11 +1151,13 @@ public class B3backendAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.backend.evaluator.b3backend.BExpressionWrapper <em>BExpression Wrapper</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.backend.evaluator.b3backend.BExpressionWrapper
+	 * <em>BExpression Wrapper</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.BExpressionWrapper
 	 * @generated
@@ -1020,11 +1167,13 @@ public class B3backendAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.backend.evaluator.b3backend.BFeatureExpression <em>BFeature Expression</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.backend.evaluator.b3backend.BFeatureExpression
+	 * <em>BFeature Expression</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.BFeatureExpression
 	 * @generated
@@ -1039,6 +1188,7 @@ public class B3backendAdapterFactory extends AdapterFactoryImpl {
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.BFunction
 	 * @generated
@@ -1048,11 +1198,13 @@ public class B3backendAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.backend.evaluator.b3backend.BFunctionConcernContext <em>BFunction Concern Context</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.backend.evaluator.b3backend.BFunctionConcernContext
+	 * <em>BFunction Concern Context</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.BFunctionConcernContext
 	 * @generated
@@ -1062,11 +1214,13 @@ public class B3backendAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.backend.evaluator.b3backend.BFunctionContainer <em>BFunction Container</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.backend.evaluator.b3backend.BFunctionContainer
+	 * <em>BFunction Container</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.BFunctionContainer
 	 * @generated
@@ -1076,11 +1230,13 @@ public class B3backendAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.backend.evaluator.b3backend.BFunctionNamePredicate <em>BFunction Name Predicate</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.backend.evaluator.b3backend.BFunctionNamePredicate
+	 * <em>BFunction Name Predicate</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.BFunctionNamePredicate
 	 * @generated
@@ -1095,6 +1251,7 @@ public class B3backendAdapterFactory extends AdapterFactoryImpl {
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.BFunctionWrapper
 	 * @generated
@@ -1109,6 +1266,7 @@ public class B3backendAdapterFactory extends AdapterFactoryImpl {
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.BGuard
 	 * @generated
@@ -1123,6 +1281,7 @@ public class B3backendAdapterFactory extends AdapterFactoryImpl {
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.BIfExpression
 	 * @generated
@@ -1137,6 +1296,7 @@ public class B3backendAdapterFactory extends AdapterFactoryImpl {
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.BInnerContext
 	 * @generated
@@ -1151,6 +1311,7 @@ public class B3backendAdapterFactory extends AdapterFactoryImpl {
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.BInstanceContext
 	 * @generated
@@ -1160,11 +1321,13 @@ public class B3backendAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.backend.evaluator.b3backend.BInvocationContext <em>BInvocation Context</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.backend.evaluator.b3backend.BInvocationContext
+	 * <em>BInvocation Context</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.BInvocationContext
 	 * @generated
@@ -1179,6 +1342,7 @@ public class B3backendAdapterFactory extends AdapterFactoryImpl {
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.BJavaFunction
 	 * @generated
@@ -1193,6 +1357,7 @@ public class B3backendAdapterFactory extends AdapterFactoryImpl {
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.BLiteralAny
 	 * @generated
@@ -1202,11 +1367,13 @@ public class B3backendAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.backend.evaluator.b3backend.BLiteralExpression <em>BLiteral Expression</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.backend.evaluator.b3backend.BLiteralExpression
+	 * <em>BLiteral Expression</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.BLiteralExpression
 	 * @generated
@@ -1216,11 +1383,13 @@ public class B3backendAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.backend.evaluator.b3backend.BLiteralListExpression <em>BLiteral List Expression</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.backend.evaluator.b3backend.BLiteralListExpression
+	 * <em>BLiteral List Expression</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.BLiteralListExpression
 	 * @generated
@@ -1230,11 +1399,13 @@ public class B3backendAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.backend.evaluator.b3backend.BLiteralMapExpression <em>BLiteral Map Expression</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.backend.evaluator.b3backend.BLiteralMapExpression
+	 * <em>BLiteral Map Expression</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.BLiteralMapExpression
 	 * @generated
@@ -1249,6 +1420,7 @@ public class B3backendAdapterFactory extends AdapterFactoryImpl {
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.BLiteralType
 	 * @generated
@@ -1263,6 +1435,7 @@ public class B3backendAdapterFactory extends AdapterFactoryImpl {
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.BMapEntry
 	 * @generated
@@ -1277,6 +1450,7 @@ public class B3backendAdapterFactory extends AdapterFactoryImpl {
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.BNamePredicate
 	 * @generated
@@ -1291,6 +1465,7 @@ public class B3backendAdapterFactory extends AdapterFactoryImpl {
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.BOrExpression
 	 * @generated
@@ -1305,6 +1480,7 @@ public class B3backendAdapterFactory extends AdapterFactoryImpl {
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.BParameter
 	 * @generated
@@ -1314,11 +1490,13 @@ public class B3backendAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.backend.evaluator.b3backend.BParameterDeclaration <em>BParameter Declaration</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.backend.evaluator.b3backend.BParameterDeclaration
+	 * <em>BParameter Declaration</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.BParameterDeclaration
 	 * @generated
@@ -1328,11 +1506,13 @@ public class B3backendAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.backend.evaluator.b3backend.BParameterizedExpression <em>BParameterized Expression</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.backend.evaluator.b3backend.BParameterizedExpression
+	 * <em>BParameterized Expression</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.BParameterizedExpression
 	 * @generated
@@ -1347,6 +1527,7 @@ public class B3backendAdapterFactory extends AdapterFactoryImpl {
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.BParameterList
 	 * @generated
@@ -1356,11 +1537,13 @@ public class B3backendAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.backend.evaluator.b3backend.BParameterPredicate <em>BParameter Predicate</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.backend.evaluator.b3backend.BParameterPredicate
+	 * <em>BParameter Predicate</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.BParameterPredicate
 	 * @generated
@@ -1370,11 +1553,13 @@ public class B3backendAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.backend.evaluator.b3backend.BPatternLiteralExpression <em>BPattern Literal Expression</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.backend.evaluator.b3backend.BPatternLiteralExpression
+	 * <em>BPattern Literal Expression</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.BPatternLiteralExpression
 	 * @generated
@@ -1384,11 +1569,13 @@ public class B3backendAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.backend.evaluator.b3backend.BProceedExpression <em>BProceed Expression</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.backend.evaluator.b3backend.BProceedExpression
+	 * <em>BProceed Expression</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.BProceedExpression
 	 * @generated
@@ -1398,11 +1585,13 @@ public class B3backendAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.backend.evaluator.b3backend.BPropertyDefinitionOperation <em>BProperty Definition Operation</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.backend.evaluator.b3backend.BPropertyDefinitionOperation
+	 * <em>BProperty Definition Operation</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.BPropertyDefinitionOperation
 	 * @generated
@@ -1412,11 +1601,13 @@ public class B3backendAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.backend.evaluator.b3backend.BPropertyOperation <em>BProperty Operation</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.backend.evaluator.b3backend.BPropertyOperation
+	 * <em>BProperty Operation</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.BPropertyOperation
 	 * @generated
@@ -1431,6 +1622,7 @@ public class B3backendAdapterFactory extends AdapterFactoryImpl {
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.BPropertySet
 	 * @generated
@@ -1440,11 +1632,13 @@ public class B3backendAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.backend.evaluator.b3backend.BPropertySetOperation <em>BProperty Set Operation</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.backend.evaluator.b3backend.BPropertySetOperation
+	 * <em>BProperty Set Operation</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.BPropertySetOperation
 	 * @generated
@@ -1454,11 +1648,13 @@ public class B3backendAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.backend.evaluator.b3backend.BRegularExpression <em>BRegular Expression</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.backend.evaluator.b3backend.BRegularExpression
+	 * <em>BRegular Expression</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.BRegularExpression
 	 * @generated
@@ -1468,11 +1664,13 @@ public class B3backendAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.backend.evaluator.b3backend.BSimplePatternExpression <em>BSimple Pattern Expression</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.backend.evaluator.b3backend.BSimplePatternExpression
+	 * <em>BSimple Pattern Expression</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.BSimplePatternExpression
 	 * @generated
@@ -1482,11 +1680,13 @@ public class B3backendAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.backend.evaluator.b3backend.BSwitchExpression <em>BSwitch Expression</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.backend.evaluator.b3backend.BSwitchExpression <em>BSwitch Expression</em>}
+	 * '.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.BSwitchExpression
 	 * @generated
@@ -1501,6 +1701,7 @@ public class B3backendAdapterFactory extends AdapterFactoryImpl {
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.BSystemContext
 	 * @generated
@@ -1515,6 +1716,7 @@ public class B3backendAdapterFactory extends AdapterFactoryImpl {
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.BTemplate
 	 * @generated
@@ -1529,6 +1731,7 @@ public class B3backendAdapterFactory extends AdapterFactoryImpl {
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.BThrowExpression
 	 * @generated
@@ -1543,6 +1746,7 @@ public class B3backendAdapterFactory extends AdapterFactoryImpl {
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.BTryExpression
 	 * @generated
@@ -1557,6 +1761,7 @@ public class B3backendAdapterFactory extends AdapterFactoryImpl {
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.BTypeCalculator
 	 * @generated
@@ -1571,6 +1776,7 @@ public class B3backendAdapterFactory extends AdapterFactoryImpl {
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.BUnaryExpression
 	 * @generated
@@ -1580,11 +1786,13 @@ public class B3backendAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.backend.evaluator.b3backend.BUnaryOpExpression <em>BUnary Op Expression</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.backend.evaluator.b3backend.BUnaryOpExpression
+	 * <em>BUnary Op Expression</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.BUnaryOpExpression
 	 * @generated
@@ -1594,11 +1802,13 @@ public class B3backendAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.backend.evaluator.b3backend.BUnaryPostOpExpression <em>BUnary Post Op Expression</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.backend.evaluator.b3backend.BUnaryPostOpExpression
+	 * <em>BUnary Post Op Expression</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.BUnaryPostOpExpression
 	 * @generated
@@ -1608,11 +1818,13 @@ public class B3backendAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.backend.evaluator.b3backend.BUnaryPreOpExpression <em>BUnary Pre Op Expression</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.backend.evaluator.b3backend.BUnaryPreOpExpression
+	 * <em>BUnary Pre Op Expression</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.BUnaryPreOpExpression
 	 * @generated
@@ -1622,11 +1834,13 @@ public class B3backendAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.backend.evaluator.b3backend.BVariableExpression <em>BVariable Expression</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.backend.evaluator.b3backend.BVariableExpression
+	 * <em>BVariable Expression</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.BVariableExpression
 	 * @generated
@@ -1636,11 +1850,13 @@ public class B3backendAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.backend.evaluator.b3backend.BWithContextExpression <em>BWith Context Expression</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.backend.evaluator.b3backend.BWithContextExpression
+	 * <em>BWith Context Expression</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.BWithContextExpression
 	 * @generated
@@ -1655,6 +1871,7 @@ public class B3backendAdapterFactory extends AdapterFactoryImpl {
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.BWithExpression
 	 * @generated
@@ -1669,6 +1886,7 @@ public class B3backendAdapterFactory extends AdapterFactoryImpl {
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.BWrappingContext
 	 * @generated
@@ -1682,6 +1900,7 @@ public class B3backendAdapterFactory extends AdapterFactoryImpl {
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null.
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @generated
 	 */
@@ -1695,6 +1914,7 @@ public class B3backendAdapterFactory extends AdapterFactoryImpl {
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.IFunction
 	 * @generated
@@ -1709,6 +1929,7 @@ public class B3backendAdapterFactory extends AdapterFactoryImpl {
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see java.lang.reflect.GenericDeclaration
 	 * @generated
@@ -1723,6 +1944,7 @@ public class B3backendAdapterFactory extends AdapterFactoryImpl {
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.INamedValue
 	 * @generated
@@ -1737,6 +1959,7 @@ public class B3backendAdapterFactory extends AdapterFactoryImpl {
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see java.lang.reflect.ParameterizedType
 	 * @generated
@@ -1751,6 +1974,7 @@ public class B3backendAdapterFactory extends AdapterFactoryImpl {
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see java.lang.reflect.Type
 	 * @generated
@@ -1765,6 +1989,7 @@ public class B3backendAdapterFactory extends AdapterFactoryImpl {
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.ITypedValue
 	 * @generated
@@ -1774,11 +1999,13 @@ public class B3backendAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.backend.evaluator.b3backend.ITypedValueContainer <em>ITyped Value Container</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.backend.evaluator.b3backend.ITypedValueContainer
+	 * <em>ITyped Value Container</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.ITypedValueContainer
 	 * @generated
@@ -1793,6 +2020,7 @@ public class B3backendAdapterFactory extends AdapterFactoryImpl {
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see java.lang.reflect.TypeVariable
 	 * @generated
@@ -1807,6 +2035,7 @@ public class B3backendAdapterFactory extends AdapterFactoryImpl {
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.IVarName
 	 * @generated
@@ -1821,6 +2050,7 @@ public class B3backendAdapterFactory extends AdapterFactoryImpl {
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see java.lang.reflect.WildcardType
 	 * @generated
@@ -1835,16 +2065,17 @@ public class B3backendAdapterFactory extends AdapterFactoryImpl {
 	 * This implementation returns <code>true</code> if the object is either the model's package or is an instance
 	 * object of the model.
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return whether this factory is applicable for the type of the object.
 	 * @generated
 	 */
 	@Override
 	public boolean isFactoryForType(Object object) {
-		if (object == modelPackage) {
+		if(object == modelPackage) {
 			return true;
 		}
-		if (object instanceof EObject) {
-			return ((EObject)object).eClass().getEPackage() == modelPackage;
+		if(object instanceof EObject) {
+			return ((EObject) object).eClass().getEPackage() == modelPackage;
 		}
 		return false;
 	}

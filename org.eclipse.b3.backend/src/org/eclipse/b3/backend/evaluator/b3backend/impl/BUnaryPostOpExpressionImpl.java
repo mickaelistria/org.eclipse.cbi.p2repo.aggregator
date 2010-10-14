@@ -19,13 +19,14 @@ import org.eclipse.emf.ecore.EClass;
  * <!-- end-user-doc -->
  * <p>
  * </p>
- *
+ * 
  * @generated
  */
 public class BUnaryPostOpExpressionImpl extends BUnaryOpExpressionImpl implements BUnaryPostOpExpression {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected BUnaryPostOpExpressionImpl() {
@@ -35,6 +36,7 @@ public class BUnaryPostOpExpressionImpl extends BUnaryOpExpressionImpl implement
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override

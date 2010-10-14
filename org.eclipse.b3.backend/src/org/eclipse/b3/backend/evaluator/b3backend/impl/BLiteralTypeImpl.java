@@ -35,10 +35,10 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BLiteralTypeImpl#getType <em>Type</em>}</li>
+ * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BLiteralTypeImpl#getType <em>Type</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 public class BLiteralTypeImpl extends BExpressionImpl implements BLiteralType {
@@ -46,6 +46,7 @@ public class BLiteralTypeImpl extends BExpressionImpl implements BLiteralType {
 	 * The cached value of the '{@link #getType() <em>Type</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getType()
 	 * @generated
 	 * @ordered
@@ -55,6 +56,7 @@ public class BLiteralTypeImpl extends BExpressionImpl implements BLiteralType {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected BLiteralTypeImpl() {
@@ -64,14 +66,19 @@ public class BLiteralTypeImpl extends BExpressionImpl implements BLiteralType {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public NotificationChain basicSetType(Type newType, NotificationChain msgs) {
 		Type oldType = type;
 		type = newType;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, B3backendPackage.BLITERAL_TYPE__TYPE, oldType, newType);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
+		if(eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(
+				this, Notification.SET, B3backendPackage.BLITERAL_TYPE__TYPE, oldType, newType);
+			if(msgs == null)
+				msgs = notification;
+			else
+				msgs.add(notification);
 		}
 		return msgs;
 	}
@@ -79,11 +86,12 @@ public class BLiteralTypeImpl extends BExpressionImpl implements BLiteralType {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch (featureID) {
+		switch(featureID) {
 			case B3backendPackage.BLITERAL_TYPE__TYPE:
 				return getType();
 		}
@@ -93,11 +101,12 @@ public class BLiteralTypeImpl extends BExpressionImpl implements BLiteralType {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
+		switch(featureID) {
 			case B3backendPackage.BLITERAL_TYPE__TYPE:
 				return basicSetType(null, msgs);
 		}
@@ -107,11 +116,12 @@ public class BLiteralTypeImpl extends BExpressionImpl implements BLiteralType {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch (featureID) {
+		switch(featureID) {
 			case B3backendPackage.BLITERAL_TYPE__TYPE:
 				return type != null;
 		}
@@ -121,13 +131,14 @@ public class BLiteralTypeImpl extends BExpressionImpl implements BLiteralType {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch (featureID) {
+		switch(featureID) {
 			case B3backendPackage.BLITERAL_TYPE__TYPE:
-				setType((Type)newValue);
+				setType((Type) newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -136,13 +147,14 @@ public class BLiteralTypeImpl extends BExpressionImpl implements BLiteralType {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
-		switch (featureID) {
+		switch(featureID) {
 			case B3backendPackage.BLITERAL_TYPE__TYPE:
-				setType((Type)null);
+				setType((Type) null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -151,6 +163,7 @@ public class BLiteralTypeImpl extends BExpressionImpl implements BLiteralType {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public Type getType() {
@@ -189,6 +202,7 @@ public class BLiteralTypeImpl extends BExpressionImpl implements BLiteralType {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override

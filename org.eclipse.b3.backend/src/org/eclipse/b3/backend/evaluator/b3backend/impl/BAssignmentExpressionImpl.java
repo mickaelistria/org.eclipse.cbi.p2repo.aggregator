@@ -19,13 +19,14 @@ import org.eclipse.emf.ecore.EClass;
  * <!-- end-user-doc -->
  * <p>
  * </p>
- *
+ * 
  * @generated
  */
 public class BAssignmentExpressionImpl extends BBinaryOpExpressionImpl implements BAssignmentExpression {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected BAssignmentExpressionImpl() {
@@ -35,6 +36,7 @@ public class BAssignmentExpressionImpl extends BBinaryOpExpressionImpl implement
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override

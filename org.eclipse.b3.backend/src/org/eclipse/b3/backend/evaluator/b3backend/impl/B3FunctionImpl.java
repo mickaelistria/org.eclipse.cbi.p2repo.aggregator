@@ -26,10 +26,10 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.B3FunctionImpl#getFuncExpr <em>Func Expr</em>}</li>
+ * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.B3FunctionImpl#getFuncExpr <em>Func Expr</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 public class B3FunctionImpl extends BFunctionImpl implements B3Function {
@@ -37,6 +37,7 @@ public class B3FunctionImpl extends BFunctionImpl implements B3Function {
 	 * The cached value of the '{@link #getFuncExpr() <em>Func Expr</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getFuncExpr()
 	 * @generated
 	 * @ordered
@@ -46,6 +47,7 @@ public class B3FunctionImpl extends BFunctionImpl implements B3Function {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected B3FunctionImpl() {
@@ -55,14 +57,19 @@ public class B3FunctionImpl extends BFunctionImpl implements B3Function {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public NotificationChain basicSetFuncExpr(BExpression newFuncExpr, NotificationChain msgs) {
 		BExpression oldFuncExpr = funcExpr;
 		funcExpr = newFuncExpr;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, B3backendPackage.B3_FUNCTION__FUNC_EXPR, oldFuncExpr, newFuncExpr);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
+		if(eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(
+				this, Notification.SET, B3backendPackage.B3_FUNCTION__FUNC_EXPR, oldFuncExpr, newFuncExpr);
+			if(msgs == null)
+				msgs = notification;
+			else
+				msgs.add(notification);
 		}
 		return msgs;
 	}
@@ -70,11 +77,12 @@ public class B3FunctionImpl extends BFunctionImpl implements B3Function {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch (featureID) {
+		switch(featureID) {
 			case B3backendPackage.B3_FUNCTION__FUNC_EXPR:
 				return getFuncExpr();
 		}
@@ -84,11 +92,12 @@ public class B3FunctionImpl extends BFunctionImpl implements B3Function {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
+		switch(featureID) {
 			case B3backendPackage.B3_FUNCTION__FUNC_EXPR:
 				return basicSetFuncExpr(null, msgs);
 		}
@@ -98,11 +107,12 @@ public class B3FunctionImpl extends BFunctionImpl implements B3Function {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch (featureID) {
+		switch(featureID) {
 			case B3backendPackage.B3_FUNCTION__FUNC_EXPR:
 				return funcExpr != null;
 		}
@@ -112,13 +122,14 @@ public class B3FunctionImpl extends BFunctionImpl implements B3Function {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch (featureID) {
+		switch(featureID) {
 			case B3backendPackage.B3_FUNCTION__FUNC_EXPR:
-				setFuncExpr((BExpression)newValue);
+				setFuncExpr((BExpression) newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -127,13 +138,14 @@ public class B3FunctionImpl extends BFunctionImpl implements B3Function {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
-		switch (featureID) {
+		switch(featureID) {
 			case B3backendPackage.B3_FUNCTION__FUNC_EXPR:
-				setFuncExpr((BExpression)null);
+				setFuncExpr((BExpression) null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -142,6 +154,7 @@ public class B3FunctionImpl extends BFunctionImpl implements B3Function {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public BExpression getFuncExpr() {
@@ -151,25 +164,31 @@ public class B3FunctionImpl extends BFunctionImpl implements B3Function {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setFuncExpr(BExpression newFuncExpr) {
-		if (newFuncExpr != funcExpr) {
+		if(newFuncExpr != funcExpr) {
 			NotificationChain msgs = null;
-			if (funcExpr != null)
-				msgs = ((InternalEObject)funcExpr).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - B3backendPackage.B3_FUNCTION__FUNC_EXPR, null, msgs);
-			if (newFuncExpr != null)
-				msgs = ((InternalEObject)newFuncExpr).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - B3backendPackage.B3_FUNCTION__FUNC_EXPR, null, msgs);
+			if(funcExpr != null)
+				msgs = ((InternalEObject) funcExpr).eInverseRemove(this, EOPPOSITE_FEATURE_BASE -
+						B3backendPackage.B3_FUNCTION__FUNC_EXPR, null, msgs);
+			if(newFuncExpr != null)
+				msgs = ((InternalEObject) newFuncExpr).eInverseAdd(this, EOPPOSITE_FEATURE_BASE -
+						B3backendPackage.B3_FUNCTION__FUNC_EXPR, null, msgs);
 			msgs = basicSetFuncExpr(newFuncExpr, msgs);
-			if (msgs != null) msgs.dispatch();
+			if(msgs != null)
+				msgs.dispatch();
 		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, B3backendPackage.B3_FUNCTION__FUNC_EXPR, newFuncExpr, newFuncExpr));
+		else if(eNotificationRequired())
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, B3backendPackage.B3_FUNCTION__FUNC_EXPR, newFuncExpr, newFuncExpr));
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override

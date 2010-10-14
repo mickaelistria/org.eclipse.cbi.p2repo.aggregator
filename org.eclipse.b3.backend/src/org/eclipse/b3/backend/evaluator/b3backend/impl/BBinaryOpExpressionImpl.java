@@ -22,10 +22,10 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BBinaryOpExpressionImpl#getFunctionName <em>Function Name</em>}</li>
+ * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BBinaryOpExpressionImpl#getFunctionName <em>Function Name</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 public class BBinaryOpExpressionImpl extends BBinaryExpressionImpl implements BBinaryOpExpression {
@@ -33,6 +33,7 @@ public class BBinaryOpExpressionImpl extends BBinaryExpressionImpl implements BB
 	 * The default value of the '{@link #getFunctionName() <em>Function Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getFunctionName()
 	 * @generated
 	 * @ordered
@@ -43,6 +44,7 @@ public class BBinaryOpExpressionImpl extends BBinaryExpressionImpl implements BB
 	 * The cached value of the '{@link #getFunctionName() <em>Function Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getFunctionName()
 	 * @generated
 	 * @ordered
@@ -52,6 +54,7 @@ public class BBinaryOpExpressionImpl extends BBinaryExpressionImpl implements BB
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected BBinaryOpExpressionImpl() {
@@ -61,11 +64,12 @@ public class BBinaryOpExpressionImpl extends BBinaryExpressionImpl implements BB
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch (featureID) {
+		switch(featureID) {
 			case B3backendPackage.BBINARY_OP_EXPRESSION__FUNCTION_NAME:
 				return getFunctionName();
 		}
@@ -75,13 +79,16 @@ public class BBinaryOpExpressionImpl extends BBinaryExpressionImpl implements BB
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch (featureID) {
+		switch(featureID) {
 			case B3backendPackage.BBINARY_OP_EXPRESSION__FUNCTION_NAME:
-				return FUNCTION_NAME_EDEFAULT == null ? functionName != null : !FUNCTION_NAME_EDEFAULT.equals(functionName);
+				return FUNCTION_NAME_EDEFAULT == null
+						? functionName != null
+						: !FUNCTION_NAME_EDEFAULT.equals(functionName);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -89,13 +96,14 @@ public class BBinaryOpExpressionImpl extends BBinaryExpressionImpl implements BB
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch (featureID) {
+		switch(featureID) {
 			case B3backendPackage.BBINARY_OP_EXPRESSION__FUNCTION_NAME:
-				setFunctionName((String)newValue);
+				setFunctionName((String) newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -104,11 +112,12 @@ public class BBinaryOpExpressionImpl extends BBinaryExpressionImpl implements BB
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
-		switch (featureID) {
+		switch(featureID) {
 			case B3backendPackage.BBINARY_OP_EXPRESSION__FUNCTION_NAME:
 				setFunctionName(FUNCTION_NAME_EDEFAULT);
 				return;
@@ -119,6 +128,7 @@ public class BBinaryOpExpressionImpl extends BBinaryExpressionImpl implements BB
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public String getFunctionName() {
@@ -128,23 +138,28 @@ public class BBinaryOpExpressionImpl extends BBinaryExpressionImpl implements BB
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setFunctionName(String newFunctionName) {
 		String oldFunctionName = functionName;
 		functionName = newFunctionName;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, B3backendPackage.BBINARY_OP_EXPRESSION__FUNCTION_NAME, oldFunctionName, functionName));
+		if(eNotificationRequired())
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, B3backendPackage.BBINARY_OP_EXPRESSION__FUNCTION_NAME, oldFunctionName,
+				functionName));
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy()) return super.toString();
+		if(eIsProxy())
+			return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (functionName: ");
@@ -156,6 +171,7 @@ public class BBinaryOpExpressionImpl extends BBinaryExpressionImpl implements BB
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override

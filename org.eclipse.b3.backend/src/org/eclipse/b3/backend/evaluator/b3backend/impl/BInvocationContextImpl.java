@@ -26,10 +26,10 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BInvocationContextImpl#getExpressionCache <em>Expression Cache</em>}</li>
+ * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BInvocationContextImpl#getExpressionCache <em>Expression Cache</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 public class BInvocationContextImpl extends BExecutionContextImpl implements BInvocationContext {
@@ -37,6 +37,7 @@ public class BInvocationContextImpl extends BExecutionContextImpl implements BIn
 	 * The default value of the '{@link #getExpressionCache() <em>Expression Cache</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getExpressionCache()
 	 * @generated
 	 * @ordered
@@ -47,6 +48,7 @@ public class BInvocationContextImpl extends BExecutionContextImpl implements BIn
 	 * The cached value of the '{@link #getExpressionCache() <em>Expression Cache</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getExpressionCache()
 	 * @generated
 	 * @ordered
@@ -67,11 +69,12 @@ public class BInvocationContextImpl extends BExecutionContextImpl implements BIn
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch (featureID) {
+		switch(featureID) {
 			case B3backendPackage.BINVOCATION_CONTEXT__EXPRESSION_CACHE:
 				return getExpressionCache();
 		}
@@ -81,13 +84,16 @@ public class BInvocationContextImpl extends BExecutionContextImpl implements BIn
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch (featureID) {
+		switch(featureID) {
 			case B3backendPackage.BINVOCATION_CONTEXT__EXPRESSION_CACHE:
-				return EXPRESSION_CACHE_EDEFAULT == null ? expressionCache != null : !EXPRESSION_CACHE_EDEFAULT.equals(expressionCache);
+				return EXPRESSION_CACHE_EDEFAULT == null
+						? expressionCache != null
+						: !EXPRESSION_CACHE_EDEFAULT.equals(expressionCache);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -95,13 +101,14 @@ public class BInvocationContextImpl extends BExecutionContextImpl implements BIn
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch (featureID) {
+		switch(featureID) {
 			case B3backendPackage.BINVOCATION_CONTEXT__EXPRESSION_CACHE:
-				setExpressionCache((B3ExpressionCache)newValue);
+				setExpressionCache((B3ExpressionCache) newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -110,11 +117,12 @@ public class BInvocationContextImpl extends BExecutionContextImpl implements BIn
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
-		switch (featureID) {
+		switch(featureID) {
 			case B3backendPackage.BINVOCATION_CONTEXT__EXPRESSION_CACHE:
 				setExpressionCache(EXPRESSION_CACHE_EDEFAULT);
 				return;
@@ -139,23 +147,28 @@ public class BInvocationContextImpl extends BExecutionContextImpl implements BIn
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setExpressionCache(B3ExpressionCache newExpressionCache) {
 		B3ExpressionCache oldExpressionCache = expressionCache;
 		expressionCache = newExpressionCache;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, B3backendPackage.BINVOCATION_CONTEXT__EXPRESSION_CACHE, oldExpressionCache, expressionCache));
+		if(eNotificationRequired())
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, B3backendPackage.BINVOCATION_CONTEXT__EXPRESSION_CACHE, oldExpressionCache,
+				expressionCache));
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy()) return super.toString();
+		if(eIsProxy())
+			return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (expressionCache: ");
@@ -167,6 +180,7 @@ public class BInvocationContextImpl extends BExecutionContextImpl implements BIn
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override

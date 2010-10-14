@@ -13,12 +13,12 @@ package org.eclipse.b3.backend.evaluator.b3backend;
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>BUnary Pre Op Expression</b></em>'.
  * <!-- end-user-doc -->
- *
+ * 
  * <!-- begin-model-doc -->
  * Unary operation requiring Lvalue expression - where function is applied pre calculation of return value.
  * <!-- end-model-doc -->
- *
- *
+ * 
+ * 
  * @see org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage#getBUnaryPreOpExpression()
  * @model
  * @generated

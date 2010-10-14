@@ -16,14 +16,14 @@ import org.eclipse.emf.ecore.EObject;
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>IVar Name</b></em>'.
  * <!-- end-user-doc -->
- *
+ * 
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.IVarName#getVarName <em>Var Name</em>}</li>
+ * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.IVarName#getVarName <em>Var Name</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @see org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage#getIVarName()
  * @model interface="true" abstract="true"
  * @generated
@@ -36,6 +36,7 @@ public interface IVarName extends EObject {
 	 * If the meaning of the '<em>Var Name</em>' attribute isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the value of the '<em>Var Name</em>' attribute.
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage#getIVarName_VarName()
 	 * @model transient="true" changeable="false" volatile="true" derived="true"

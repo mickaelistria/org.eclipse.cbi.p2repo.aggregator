@@ -16,15 +16,15 @@ package org.eclipse.b3.backend.evaluator.b3backend;
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>BParameter Declaration</b></em>'.
  * <!-- end-user-doc -->
- *
+ * 
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BParameterDeclaration#isFinal <em>Final</em>}</li>
- *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BParameterDeclaration#isImmutable <em>Immutable</em>}</li>
+ * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BParameterDeclaration#isFinal <em>Final</em>}</li>
+ * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BParameterDeclaration#isImmutable <em>Immutable</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @see org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage#getBParameterDeclaration()
  * @model
  * @generated
@@ -37,6 +37,7 @@ public interface BParameterDeclaration extends ITypedValue {
 	 * If the meaning of the '<em>Final</em>' attribute isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the value of the '<em>Final</em>' attribute.
 	 * @see #setFinal(boolean)
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage#getBParameterDeclaration_Final()
@@ -52,6 +53,7 @@ public interface BParameterDeclaration extends ITypedValue {
 	 * If the meaning of the '<em>Immutable</em>' attribute isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the value of the '<em>Immutable</em>' attribute.
 	 * @see #setImmutable(boolean)
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage#getBParameterDeclaration_Immutable()
@@ -64,7 +66,9 @@ public interface BParameterDeclaration extends ITypedValue {
 	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.BParameterDeclaration#isFinal <em>Final</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Final</em>' attribute.
+	 * 
+	 * @param value
+	 *            the new value of the '<em>Final</em>' attribute.
 	 * @see #isFinal()
 	 * @generated
 	 */
@@ -74,7 +78,9 @@ public interface BParameterDeclaration extends ITypedValue {
 	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.BParameterDeclaration#isImmutable <em>Immutable</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Immutable</em>' attribute.
+	 * 
+	 * @param value
+	 *            the new value of the '<em>Immutable</em>' attribute.
 	 * @see #isImmutable()
 	 * @generated
 	 */
