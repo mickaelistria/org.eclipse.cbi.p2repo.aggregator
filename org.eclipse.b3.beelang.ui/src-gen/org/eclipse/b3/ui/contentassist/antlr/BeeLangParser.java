@@ -764,10 +764,11 @@ public class BeeLangParser extends AbstractContentAssistParser {
 					put(grammarAccess.getParameterDeclarationAccess().getImmutableAssignment_2(), "rule__ParameterDeclaration__ImmutableAssignment_2");
 					put(grammarAccess.getParameterDeclarationAccess().getTypeAssignment_3(), "rule__ParameterDeclaration__TypeAssignment_3");
 					put(grammarAccess.getParameterDeclarationAccess().getNameAssignment_4(), "rule__ParameterDeclaration__NameAssignment_4");
-					put(grammarAccess.getParameterDeclarationUnitAccess().getTypeAssignment_1(), "rule__ParameterDeclarationUnit__TypeAssignment_1");
-					put(grammarAccess.getParameterDeclarationUnitAccess().getNameAssignment_2(), "rule__ParameterDeclarationUnit__NameAssignment_2");
-					put(grammarAccess.getParameterDeclarationNotUnitAccess().getTypeAssignment_1(), "rule__ParameterDeclarationNotUnit__TypeAssignment_1");
-					put(grammarAccess.getParameterDeclarationNotUnitAccess().getNameAssignment_2(), "rule__ParameterDeclarationNotUnit__NameAssignment_2");
+					put(grammarAccess.getParameterDeclarationUnitAccess().getTypeAssignment_3(), "rule__ParameterDeclarationUnit__TypeAssignment_3");
+					put(grammarAccess.getParameterDeclarationNotUnitAccess().getFinalAssignment_1(), "rule__ParameterDeclarationNotUnit__FinalAssignment_1");
+					put(grammarAccess.getParameterDeclarationNotUnitAccess().getImmutableAssignment_2(), "rule__ParameterDeclarationNotUnit__ImmutableAssignment_2");
+					put(grammarAccess.getParameterDeclarationNotUnitAccess().getTypeAssignment_3(), "rule__ParameterDeclarationNotUnit__TypeAssignment_3");
+					put(grammarAccess.getParameterDeclarationNotUnitAccess().getNameAssignment_4(), "rule__ParameterDeclarationNotUnit__NameAssignment_4");
 					put(grammarAccess.getRepositoryAccess().getDocumentationAssignment_1(), "rule__Repository__DocumentationAssignment_1");
 					put(grammarAccess.getRepositoryAccess().getHandlerTypeAssignment_3(), "rule__Repository__HandlerTypeAssignment_3");
 					put(grammarAccess.getRepositoryAccess().getNameAssignment_4(), "rule__Repository__NameAssignment_4");

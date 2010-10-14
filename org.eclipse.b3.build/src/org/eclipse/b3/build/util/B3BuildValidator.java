@@ -144,13 +144,22 @@ public class B3BuildValidator extends EObjectValidator {
 	public static final int BRANCH__HAS_VALID_STATE = 1;
 
 	/**
+	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Has Correct State' of 'Unit Parameter Declaration'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public static final int UNIT_PARAMETER_DECLARATION__HAS_CORRECT_STATE = 2;
+
+	/**
 	 * A constant with a fixed name that can be used as the base value for additional hand written constants.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 */
-	private static final int GENERATED_DIAGNOSTIC_CODE_COUNT = 1;
+	private static final int GENERATED_DIAGNOSTIC_CODE_COUNT = 2;
 
 	public static final int NON_GENERATED_DIAGNOSTIC_CODE_COUNT = 4;
 
@@ -1114,6 +1123,48 @@ public class B3BuildValidator extends EObjectValidator {
 	 * 
 	 * @generated
 	 */
+	public boolean validateUnitParameterDeclaration(UnitParameterDeclaration unitParameterDeclaration,
+			DiagnosticChain diagnostics, Map<Object, Object> context) {
+		if(!validate_NoCircularContainment(unitParameterDeclaration, diagnostics, context))
+			return false;
+		boolean result = validate_EveryMultiplicityConforms(unitParameterDeclaration, diagnostics, context);
+		if(result || diagnostics != null)
+			result &= validate_EveryDataValueConforms(unitParameterDeclaration, diagnostics, context);
+		if(result || diagnostics != null)
+			result &= validate_EveryReferenceIsContained(unitParameterDeclaration, diagnostics, context);
+		if(result || diagnostics != null)
+			result &= validate_EveryBidirectionalReferenceIsPaired(unitParameterDeclaration, diagnostics, context);
+		if(result || diagnostics != null)
+			result &= validate_EveryProxyResolves(unitParameterDeclaration, diagnostics, context);
+		if(result || diagnostics != null)
+			result &= validate_UniqueID(unitParameterDeclaration, diagnostics, context);
+		if(result || diagnostics != null)
+			result &= validate_EveryKeyUnique(unitParameterDeclaration, diagnostics, context);
+		if(result || diagnostics != null)
+			result &= validate_EveryMapEntryUnique(unitParameterDeclaration, diagnostics, context);
+		if(result || diagnostics != null)
+			result &= validateUnitParameterDeclaration_hasCorrectState(unitParameterDeclaration, diagnostics, context);
+		return result;
+	}
+
+	/**
+	 * Validates the hasCorrectState constraint of '<em>Unit Parameter Declaration</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public boolean validateUnitParameterDeclaration_hasCorrectState(UnitParameterDeclaration unitParameterDeclaration,
+			DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return unitParameterDeclaration.hasCorrectState(diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
 	public boolean validateUnitProvider(UnitProvider unitProvider, DiagnosticChain diagnostics,
 			Map<Object, Object> context) {
 		return validate_EveryDefaultConstraint(unitProvider, diagnostics, context);
@@ -1348,6 +1399,8 @@ public class B3BuildValidator extends EObjectValidator {
 				return validateIBuildUnitContainer((IBuildUnitContainer) value, diagnostics, context);
 			case B3BuildPackage.FRAGMENT_HOST:
 				return validateFragmentHost((FragmentHost) value, diagnostics, context);
+			case B3BuildPackage.UNIT_PARAMETER_DECLARATION:
+				return validateUnitParameterDeclaration((UnitParameterDeclaration) value, diagnostics, context);
 			case B3BuildPackage.MERGE_CONFLICT_STRATEGY:
 				return validateMergeConflictStrategy((MergeConflictStrategy) value, diagnostics, context);
 			case B3BuildPackage.BRANCH_POINT_TYPE:

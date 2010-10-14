@@ -22,8 +22,10 @@ import org.eclipse.b3.backend.evaluator.b3backend.BFunctionContainer;
 import org.eclipse.b3.backend.evaluator.b3backend.BFunctionWrapper;
 import org.eclipse.b3.backend.evaluator.b3backend.BInnerContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BJavaFunction;
+import org.eclipse.b3.backend.evaluator.b3backend.BParameterDeclaration;
 import org.eclipse.b3.backend.evaluator.b3backend.IFunction;
 import org.eclipse.b3.backend.evaluator.b3backend.INamedValue;
+import org.eclipse.b3.backend.evaluator.b3backend.ITypedValue;
 import org.eclipse.b3.backend.evaluator.b3backend.ITypedValueContainer;
 import org.eclipse.b3.backend.evaluator.b3backend.IVarName;
 import org.eclipse.b3.build.*;
@@ -394,6 +396,23 @@ public class B3BuildSwitch<T> {
 	 * @generated
 	 */
 	public T caseBJavaFunction(BJavaFunction object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>BParameter Declaration</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * 
+	 * @param object
+	 *            the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>BParameter Declaration</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseBParameterDeclaration(BParameterDeclaration object) {
 		return null;
 	}
 
@@ -1282,6 +1301,23 @@ public class B3BuildSwitch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>ITyped Value</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * 
+	 * @param object
+	 *            the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>ITyped Value</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseITypedValue(ITypedValue object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>ITyped Value Container</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -1601,6 +1637,23 @@ public class B3BuildSwitch<T> {
 	 * @generated
 	 */
 	public T caseUnitNamePredicate(UnitNamePredicate object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Unit Parameter Declaration</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * 
+	 * @param object
+	 *            the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Unit Parameter Declaration</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseUnitParameterDeclaration(UnitParameterDeclaration object) {
 		return null;
 	}
 
@@ -2517,6 +2570,19 @@ public class B3BuildSwitch<T> {
 			case B3BuildPackage.FRAGMENT_HOST: {
 				FragmentHost fragmentHost = (FragmentHost) theEObject;
 				T result = caseFragmentHost(fragmentHost);
+				if(result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
+			case B3BuildPackage.UNIT_PARAMETER_DECLARATION: {
+				UnitParameterDeclaration unitParameterDeclaration = (UnitParameterDeclaration) theEObject;
+				T result = caseUnitParameterDeclaration(unitParameterDeclaration);
+				if(result == null)
+					result = caseBParameterDeclaration(unitParameterDeclaration);
+				if(result == null)
+					result = caseITypedValue(unitParameterDeclaration);
+				if(result == null)
+					result = caseINamedValue(unitParameterDeclaration);
 				if(result == null)
 					result = defaultCase(theEObject);
 				return result;

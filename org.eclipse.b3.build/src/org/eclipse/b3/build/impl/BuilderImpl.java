@@ -20,7 +20,6 @@ import org.eclipse.b3.backend.core.exceptions.B3InternalError;
 import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BFunctionContainer;
-import org.eclipse.b3.backend.evaluator.b3backend.BParameterDeclaration;
 import org.eclipse.b3.backend.evaluator.b3backend.BPropertySet;
 import org.eclipse.b3.backend.evaluator.b3backend.impl.B3FunctionImpl;
 import org.eclipse.b3.backend.evaluator.typesystem.TypeUtils;
@@ -34,6 +33,7 @@ import org.eclipse.b3.build.EffectiveCapabilityFacade;
 import org.eclipse.b3.build.IBuilder;
 import org.eclipse.b3.build.IProvidedCapabilityContainer;
 import org.eclipse.b3.build.PathGroup;
+import org.eclipse.b3.build.UnitParameterDeclaration;
 import org.eclipse.b3.build.core.B3BuilderJob;
 import org.eclipse.b3.build.core.adapters.BuildUnitProxyAdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
@@ -167,7 +167,7 @@ public class BuilderImpl extends B3FunctionImpl implements Builder {
 	 * @generated
 	 * @ordered
 	 */
-	protected BParameterDeclaration explicitUnitType;
+	protected UnitParameterDeclaration explicitUnitType;
 
 	/**
 	 * The cached value of the '{@link #getSource() <em>Source</em>}' containment reference.
@@ -217,8 +217,9 @@ public class BuilderImpl extends B3FunctionImpl implements Builder {
 	 * 
 	 * @generated
 	 */
-	public NotificationChain basicSetExplicitUnitType(BParameterDeclaration newExplicitUnitType, NotificationChain msgs) {
-		BParameterDeclaration oldExplicitUnitType = explicitUnitType;
+	public NotificationChain basicSetExplicitUnitType(UnitParameterDeclaration newExplicitUnitType,
+			NotificationChain msgs) {
+		UnitParameterDeclaration oldExplicitUnitType = explicitUnitType;
 		explicitUnitType = newExplicitUnitType;
 		if(eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(
@@ -572,7 +573,7 @@ public class BuilderImpl extends B3FunctionImpl implements Builder {
 				setUnitType((Class<? extends BuildUnit>) newValue);
 				return;
 			case B3BuildPackage.BUILDER__EXPLICIT_UNIT_TYPE:
-				setExplicitUnitType((BParameterDeclaration) newValue);
+				setExplicitUnitType((UnitParameterDeclaration) newValue);
 				return;
 			case B3BuildPackage.BUILDER__SOURCE:
 				setSource((PathGroup) newValue);
@@ -615,7 +616,7 @@ public class BuilderImpl extends B3FunctionImpl implements Builder {
 				setUnitType((Class<? extends BuildUnit>) null);
 				return;
 			case B3BuildPackage.BUILDER__EXPLICIT_UNIT_TYPE:
-				setExplicitUnitType((BParameterDeclaration) null);
+				setExplicitUnitType((UnitParameterDeclaration) null);
 				return;
 			case B3BuildPackage.BUILDER__SOURCE:
 				setSource((PathGroup) null);
@@ -671,7 +672,7 @@ public class BuilderImpl extends B3FunctionImpl implements Builder {
 	 * 
 	 * @generated
 	 */
-	public BParameterDeclaration getExplicitUnitType() {
+	public UnitParameterDeclaration getExplicitUnitType() {
 		return explicitUnitType;
 	}
 
@@ -816,7 +817,7 @@ public class BuilderImpl extends B3FunctionImpl implements Builder {
 	 * 
 	 * @generated
 	 */
-	public void setExplicitUnitType(BParameterDeclaration newExplicitUnitType) {
+	public void setExplicitUnitType(UnitParameterDeclaration newExplicitUnitType) {
 		if(newExplicitUnitType != explicitUnitType) {
 			NotificationChain msgs = null;
 			if(explicitUnitType != null)

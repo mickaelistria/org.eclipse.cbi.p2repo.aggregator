@@ -21,8 +21,10 @@ import org.eclipse.b3.backend.evaluator.b3backend.BFunctionContainer;
 import org.eclipse.b3.backend.evaluator.b3backend.BFunctionWrapper;
 import org.eclipse.b3.backend.evaluator.b3backend.BInnerContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BJavaFunction;
+import org.eclipse.b3.backend.evaluator.b3backend.BParameterDeclaration;
 import org.eclipse.b3.backend.evaluator.b3backend.IFunction;
 import org.eclipse.b3.backend.evaluator.b3backend.INamedValue;
+import org.eclipse.b3.backend.evaluator.b3backend.ITypedValue;
 import org.eclipse.b3.backend.evaluator.b3backend.ITypedValueContainer;
 import org.eclipse.b3.backend.evaluator.b3backend.IVarName;
 import org.eclipse.b3.build.*;
@@ -206,6 +208,11 @@ public class B3BuildAdapterFactory extends AdapterFactoryImpl {
 		@Override
 		public Adapter caseBJavaFunction(BJavaFunction object) {
 			return createBJavaFunctionAdapter();
+		}
+
+		@Override
+		public Adapter caseBParameterDeclaration(BParameterDeclaration object) {
+			return createBParameterDeclarationAdapter();
 		}
 
 		@Override
@@ -469,6 +476,11 @@ public class B3BuildAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
+		public Adapter caseITypedValue(ITypedValue object) {
+			return createITypedValueAdapter();
+		}
+
+		@Override
 		public Adapter caseITypedValueContainer(ITypedValueContainer object) {
 			return createITypedValueContainerAdapter();
 		}
@@ -561,6 +573,11 @@ public class B3BuildAdapterFactory extends AdapterFactoryImpl {
 		@Override
 		public Adapter caseUnitNamePredicate(UnitNamePredicate object) {
 			return createUnitNamePredicateAdapter();
+		}
+
+		@Override
+		public Adapter caseUnitParameterDeclaration(UnitParameterDeclaration object) {
+			return createUnitParameterDeclarationAdapter();
 		}
 
 		@Override
@@ -842,6 +859,22 @@ public class B3BuildAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createBJavaFunctionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.backend.evaluator.b3backend.BParameterDeclaration
+	 * <em>BParameter Declaration</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the new adapter.
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.BParameterDeclaration
+	 * @generated
+	 */
+	public Adapter createBParameterDeclarationAdapter() {
 		return null;
 	}
 
@@ -1647,6 +1680,21 @@ public class B3BuildAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.backend.evaluator.b3backend.ITypedValue <em>ITyped Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the new adapter.
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.ITypedValue
+	 * @generated
+	 */
+	public Adapter createITypedValueAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.backend.evaluator.b3backend.ITypedValueContainer
 	 * <em>ITyped Value Container</em>}'.
 	 * <!-- begin-user-doc -->
@@ -1929,6 +1977,21 @@ public class B3BuildAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createUnitNamePredicateAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.build.UnitParameterDeclaration <em>Unit Parameter Declaration</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the new adapter.
+	 * @see org.eclipse.b3.build.UnitParameterDeclaration
+	 * @generated
+	 */
+	public Adapter createUnitParameterDeclarationAdapter() {
 		return null;
 	}
 

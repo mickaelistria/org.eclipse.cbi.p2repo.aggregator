@@ -402,6 +402,8 @@ public class B3BuildFactoryImpl extends EFactoryImpl implements B3BuildFactory {
 				return createEffectiveBuilderCallFacade();
 			case B3BuildPackage.FRAGMENT_HOST:
 				return createFragmentHost();
+			case B3BuildPackage.UNIT_PARAMETER_DECLARATION:
+				return createUnitParameterDeclaration();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -1169,6 +1171,17 @@ public class B3BuildFactoryImpl extends EFactoryImpl implements B3BuildFactory {
 	public UnitNamePredicate createUnitNamePredicate() {
 		UnitNamePredicateImpl unitNamePredicate = new UnitNamePredicateImpl();
 		return unitNamePredicate;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public UnitParameterDeclaration createUnitParameterDeclaration() {
+		UnitParameterDeclarationImpl unitParameterDeclaration = new UnitParameterDeclarationImpl();
+		return unitParameterDeclaration;
 	}
 
 	/**

@@ -4183,66 +4183,87 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 	public class ParameterDeclarationUnitElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "ParameterDeclarationUnit");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Action cBParameterDeclarationAction_0 = (Action)cGroup.eContents().get(0);
-		private final Assignment cTypeAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cTypeTypeRefParserRuleCall_1_0 = (RuleCall)cTypeAssignment_1.eContents().get(0);
-		private final Assignment cNameAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final Keyword cNameUnitKeyword_2_0 = (Keyword)cNameAssignment_2.eContents().get(0);
+		private final Action cUnitParameterDeclarationAction_0 = (Action)cGroup.eContents().get(0);
+		private final Keyword cFinalKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Keyword cValKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cTypeAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cTypeTypeRefParserRuleCall_3_0 = (RuleCall)cTypeAssignment_3.eContents().get(0);
+		private final Keyword cUnitKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		
-		//ParameterDeclarationUnit returns be::BParameterDeclaration:
-		//	{be::BParameterDeclaration} type=TypeRef name="unit";
+		//// Allows specification of defaults (final, val, unit) which will be in effect even if not stated...
+		//ParameterDeclarationUnit returns build::UnitParameterDeclaration:
+		//	{build::UnitParameterDeclaration} "final"? "val"? type=TypeRef "unit";
 		public ParserRule getRule() { return rule; }
 
-		//{be::BParameterDeclaration} type=TypeRef name="unit"
+		//{build::UnitParameterDeclaration} "final"? "val"? type=TypeRef "unit"
 		public Group getGroup() { return cGroup; }
 
-		//{be::BParameterDeclaration}
-		public Action getBParameterDeclarationAction_0() { return cBParameterDeclarationAction_0; }
+		//{build::UnitParameterDeclaration}
+		public Action getUnitParameterDeclarationAction_0() { return cUnitParameterDeclarationAction_0; }
+
+		//"final"?
+		public Keyword getFinalKeyword_1() { return cFinalKeyword_1; }
+
+		//"val"?
+		public Keyword getValKeyword_2() { return cValKeyword_2; }
 
 		//type=TypeRef
-		public Assignment getTypeAssignment_1() { return cTypeAssignment_1; }
+		public Assignment getTypeAssignment_3() { return cTypeAssignment_3; }
 
 		//TypeRef
-		public RuleCall getTypeTypeRefParserRuleCall_1_0() { return cTypeTypeRefParserRuleCall_1_0; }
-
-		//name="unit"
-		public Assignment getNameAssignment_2() { return cNameAssignment_2; }
+		public RuleCall getTypeTypeRefParserRuleCall_3_0() { return cTypeTypeRefParserRuleCall_3_0; }
 
 		//"unit"
-		public Keyword getNameUnitKeyword_2_0() { return cNameUnitKeyword_2_0; }
+		public Keyword getUnitKeyword_4() { return cUnitKeyword_4; }
 	}
 
 	public class ParameterDeclarationNotUnitElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "ParameterDeclarationNotUnit");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Action cBParameterDeclarationAction_0 = (Action)cGroup.eContents().get(0);
-		private final Assignment cTypeAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cTypeTypeRefParserRuleCall_1_0 = (RuleCall)cTypeAssignment_1.eContents().get(0);
-		private final Assignment cNameAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cNameID_or_KW_NO_UNITParserRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
+		private final Assignment cFinalAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final Keyword cFinalFinalKeyword_1_0 = (Keyword)cFinalAssignment_1.eContents().get(0);
+		private final Assignment cImmutableAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final Keyword cImmutableValKeyword_2_0 = (Keyword)cImmutableAssignment_2.eContents().get(0);
+		private final Assignment cTypeAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cTypeTypeRefParserRuleCall_3_0 = (RuleCall)cTypeAssignment_3.eContents().get(0);
+		private final Assignment cNameAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cNameID_or_KW_NO_UNITParserRuleCall_4_0 = (RuleCall)cNameAssignment_4.eContents().get(0);
 		
-		//// Used in Builder where the first paramter can be called unit, but not others	
+		//// Used in Builder where the first parameter can be called unit, but not others	
 		//ParameterDeclarationNotUnit returns be::BParameterDeclaration:
-		//	{be::BParameterDeclaration} type=TypeRef name=ID_or_KW_NO_UNIT;
+		//	{be::BParameterDeclaration} final?="final"? immutable?="val"? type=TypeRef name=ID_or_KW_NO_UNIT;
 		public ParserRule getRule() { return rule; }
 
-		//{be::BParameterDeclaration} type=TypeRef name=ID_or_KW_NO_UNIT
+		//{be::BParameterDeclaration} final?="final"? immutable?="val"? type=TypeRef name=ID_or_KW_NO_UNIT
 		public Group getGroup() { return cGroup; }
 
 		//{be::BParameterDeclaration}
 		public Action getBParameterDeclarationAction_0() { return cBParameterDeclarationAction_0; }
 
+		//final?="final"?
+		public Assignment getFinalAssignment_1() { return cFinalAssignment_1; }
+
+		//"final"
+		public Keyword getFinalFinalKeyword_1_0() { return cFinalFinalKeyword_1_0; }
+
+		//immutable?="val"?
+		public Assignment getImmutableAssignment_2() { return cImmutableAssignment_2; }
+
+		//"val"
+		public Keyword getImmutableValKeyword_2_0() { return cImmutableValKeyword_2_0; }
+
 		//type=TypeRef
-		public Assignment getTypeAssignment_1() { return cTypeAssignment_1; }
+		public Assignment getTypeAssignment_3() { return cTypeAssignment_3; }
 
 		//TypeRef
-		public RuleCall getTypeTypeRefParserRuleCall_1_0() { return cTypeTypeRefParserRuleCall_1_0; }
+		public RuleCall getTypeTypeRefParserRuleCall_3_0() { return cTypeTypeRefParserRuleCall_3_0; }
 
 		//name=ID_or_KW_NO_UNIT
-		public Assignment getNameAssignment_2() { return cNameAssignment_2; }
+		public Assignment getNameAssignment_4() { return cNameAssignment_4; }
 
 		//ID_or_KW_NO_UNIT
-		public RuleCall getNameID_or_KW_NO_UNITParserRuleCall_2_0() { return cNameID_or_KW_NO_UNITParserRuleCall_2_0; }
+		public RuleCall getNameID_or_KW_NO_UNITParserRuleCall_4_0() { return cNameID_or_KW_NO_UNITParserRuleCall_4_0; }
 	}
 
 	public class BuilderInputElements extends AbstractParserRuleElementFinder {
@@ -4300,8 +4321,6 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cSemicolonKeyword_5_1_3_6 = (Keyword)cGroup_5_1_3.eContents().get(6);
 		private final Keyword cRightCurlyBracketKeyword_5_1_4 = (Keyword)cGroup_5_1.eContents().get(4);
 		
-		////	prerequisites += Prerequisite (',' prerequisites += Prerequisite)*
-		////	;
 		//Repository returns build::Repository:
 		//	{build::Repository} documentation=DOCUMENTATION? "repository" handlerType=ID name=ID (":" "connection" ":"
 		//	address=Expression ";" | "{" ("connection" ":" address=Expression ";")? options+=RepoOption* ("branches" ":" "["
@@ -13602,8 +13621,9 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		return getParameterDeclarationAccess().getRule();
 	}
 
-	//ParameterDeclarationUnit returns be::BParameterDeclaration:
-	//	{be::BParameterDeclaration} type=TypeRef name="unit";
+	//// Allows specification of defaults (final, val, unit) which will be in effect even if not stated...
+	//ParameterDeclarationUnit returns build::UnitParameterDeclaration:
+	//	{build::UnitParameterDeclaration} "final"? "val"? type=TypeRef "unit";
 	public ParameterDeclarationUnitElements getParameterDeclarationUnitAccess() {
 		return (pParameterDeclarationUnit != null) ? pParameterDeclarationUnit : (pParameterDeclarationUnit = new ParameterDeclarationUnitElements());
 	}
@@ -13612,9 +13632,9 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		return getParameterDeclarationUnitAccess().getRule();
 	}
 
-	//// Used in Builder where the first paramter can be called unit, but not others	
+	//// Used in Builder where the first parameter can be called unit, but not others	
 	//ParameterDeclarationNotUnit returns be::BParameterDeclaration:
-	//	{be::BParameterDeclaration} type=TypeRef name=ID_or_KW_NO_UNIT;
+	//	{be::BParameterDeclaration} final?="final"? immutable?="val"? type=TypeRef name=ID_or_KW_NO_UNIT;
 	public ParameterDeclarationNotUnitElements getParameterDeclarationNotUnitAccess() {
 		return (pParameterDeclarationNotUnit != null) ? pParameterDeclarationNotUnit : (pParameterDeclarationNotUnit = new ParameterDeclarationNotUnitElements());
 	}
@@ -13633,8 +13653,6 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		return getBuilderInputAccess().getRule();
 	}
 
-	////	prerequisites += Prerequisite (',' prerequisites += Prerequisite)*
-	////	;
 	//Repository returns build::Repository:
 	//	{build::Repository} documentation=DOCUMENTATION? "repository" handlerType=ID name=ID (":" "connection" ":"
 	//	address=Expression ";" | "{" ("connection" ":" address=Expression ";")? options+=RepoOption* ("branches" ":" "["

@@ -723,6 +723,17 @@ public interface B3BuildPackage extends EPackage {
 		EReference FRAGMENT_HOST__HOST_REQUIREMENTS = eINSTANCE.getFragmentHost_HostRequirements();
 
 		/**
+		 * The meta object literal for the '{@link org.eclipse.b3.build.impl.UnitParameterDeclarationImpl <em>Unit Parameter Declaration</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @see org.eclipse.b3.build.impl.UnitParameterDeclarationImpl
+		 * @see org.eclipse.b3.build.impl.B3BuildPackageImpl#getUnitParameterDeclaration()
+		 * @generated
+		 */
+		EClass UNIT_PARAMETER_DECLARATION = eINSTANCE.getUnitParameterDeclaration();
+
+		/**
 		 * The meta object literal for the '{@link org.eclipse.b3.build.impl.BuildSetImpl <em>Build Set</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -7713,6 +7724,67 @@ public interface B3BuildPackage extends EPackage {
 	int FRAGMENT_HOST_FEATURE_COUNT = 1;
 
 	/**
+	 * The meta object id for the '{@link org.eclipse.b3.build.impl.UnitParameterDeclarationImpl <em>Unit Parameter Declaration</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see org.eclipse.b3.build.impl.UnitParameterDeclarationImpl
+	 * @see org.eclipse.b3.build.impl.B3BuildPackageImpl#getUnitParameterDeclaration()
+	 * @generated
+	 */
+	int UNIT_PARAMETER_DECLARATION = 75;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int UNIT_PARAMETER_DECLARATION__NAME = B3backendPackage.BPARAMETER_DECLARATION__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Type</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int UNIT_PARAMETER_DECLARATION__TYPE = B3backendPackage.BPARAMETER_DECLARATION__TYPE;
+
+	/**
+	 * The feature id for the '<em><b>Final</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int UNIT_PARAMETER_DECLARATION__FINAL = B3backendPackage.BPARAMETER_DECLARATION__FINAL;
+
+	/**
+	 * The feature id for the '<em><b>Immutable</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int UNIT_PARAMETER_DECLARATION__IMMUTABLE = B3backendPackage.BPARAMETER_DECLARATION__IMMUTABLE;
+
+	/**
+	 * The number of structural features of the '<em>Unit Parameter Declaration</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int UNIT_PARAMETER_DECLARATION_FEATURE_COUNT = B3backendPackage.BPARAMETER_DECLARATION_FEATURE_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link org.eclipse.b3.build.MergeConflictStrategy <em>Merge Conflict Strategy</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -7721,7 +7793,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @see org.eclipse.b3.build.impl.B3BuildPackageImpl#getMergeConflictStrategy()
 	 * @generated
 	 */
-	int MERGE_CONFLICT_STRATEGY = 75;
+	int MERGE_CONFLICT_STRATEGY = 76;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.build.BranchPointType <em>Branch Point Type</em>}' enum.
@@ -7732,7 +7804,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @see org.eclipse.b3.build.impl.B3BuildPackageImpl#getBranchPointType()
 	 * @generated
 	 */
-	int BRANCH_POINT_TYPE = 76;
+	int BRANCH_POINT_TYPE = 77;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.build.TriState <em>Tri State</em>}' enum.
@@ -7743,7 +7815,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @see org.eclipse.b3.build.impl.B3BuildPackageImpl#getTriState()
 	 * @generated
 	 */
-	int TRI_STATE = 77;
+	int TRI_STATE = 78;
 
 	/**
 	 * The meta object id for the '<em>Version Range</em>' data type.
@@ -7754,7 +7826,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @see org.eclipse.b3.build.impl.B3BuildPackageImpl#getVersionRange()
 	 * @generated
 	 */
-	int VERSION_RANGE = 78;
+	int VERSION_RANGE = 79;
 
 	/**
 	 * The meta object id for the '<em>Version</em>' data type.
@@ -7765,7 +7837,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @see org.eclipse.b3.build.impl.B3BuildPackageImpl#getVersion()
 	 * @generated
 	 */
-	int VERSION = 79;
+	int VERSION = 80;
 
 	/**
 	 * The meta object id for the '<em>IStatus</em>' data type.
@@ -7776,7 +7848,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @see org.eclipse.b3.build.impl.B3BuildPackageImpl#getIStatus()
 	 * @generated
 	 */
-	int ISTATUS = 80;
+	int ISTATUS = 81;
 
 	/**
 	 * The meta object id for the '<em>Path Iterator</em>' data type.
@@ -7787,7 +7859,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @see org.eclipse.b3.build.impl.B3BuildPackageImpl#getPathIterator()
 	 * @generated
 	 */
-	int PATH_ITERATOR = 81;
+	int PATH_ITERATOR = 82;
 
 	/**
 	 * The meta object id for the '<em>B3 Builder Job</em>' data type.
@@ -7798,7 +7870,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @see org.eclipse.b3.build.impl.B3BuildPackageImpl#getB3BuilderJob()
 	 * @generated
 	 */
-	int B3_BUILDER_JOB = 82;
+	int B3_BUILDER_JOB = 83;
 
 	/**
 	 * The meta object id for the '<em>IMatch Expression</em>' data type.
@@ -7809,7 +7881,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @see org.eclipse.b3.build.impl.B3BuildPackageImpl#getIMatchExpression()
 	 * @generated
 	 */
-	int IMATCH_EXPRESSION = 83;
+	int IMATCH_EXPRESSION = 84;
 
 	/**
 	 * The meta object id for the '<em>IInstallable Unit</em>' data type.
@@ -7820,7 +7892,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @see org.eclipse.b3.build.impl.B3BuildPackageImpl#getIInstallableUnit()
 	 * @generated
 	 */
-	int IINSTALLABLE_UNIT = 84;
+	int IINSTALLABLE_UNIT = 85;
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.b3.build.AliasedRequiredCapability <em>Aliased Required Capability</em>}'.
@@ -10719,6 +10791,17 @@ public interface B3BuildPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getUnitNamePredicate();
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipse.b3.build.UnitParameterDeclaration <em>Unit Parameter Declaration</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for class '<em>Unit Parameter Declaration</em>'.
+	 * @see org.eclipse.b3.build.UnitParameterDeclaration
+	 * @generated
+	 */
+	EClass getUnitParameterDeclaration();
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.b3.build.UnitProvider <em>Unit Provider</em>}'.

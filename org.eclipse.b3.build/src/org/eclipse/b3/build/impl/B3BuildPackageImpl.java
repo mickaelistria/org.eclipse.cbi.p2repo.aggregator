@@ -87,6 +87,7 @@ import org.eclipse.b3.build.Synchronization;
 import org.eclipse.b3.build.TriState;
 import org.eclipse.b3.build.UnitConcernContext;
 import org.eclipse.b3.build.UnitNamePredicate;
+import org.eclipse.b3.build.UnitParameterDeclaration;
 import org.eclipse.b3.build.UnitProvider;
 import org.eclipse.b3.build.UnitRepositoryDescription;
 import org.eclipse.b3.build.UnitResolutionInfo;
@@ -293,6 +294,14 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	 * @generated
 	 */
 	private EClass fragmentHostEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	private EClass unitParameterDeclarationEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -1221,6 +1230,8 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 
 		fragmentHostEClass = createEClass(FRAGMENT_HOST);
 		createEReference(fragmentHostEClass, FRAGMENT_HOST__HOST_REQUIREMENTS);
+
+		unitParameterDeclarationEClass = createEClass(UNIT_PARAMETER_DECLARATION);
 
 		// Create enums
 		mergeConflictStrategyEEnum = createEEnum(MERGE_CONFLICT_STRATEGY);
@@ -3673,6 +3684,16 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	 * 
 	 * @generated
 	 */
+	public EClass getUnitParameterDeclaration() {
+		return unitParameterDeclarationEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
 	public EClass getUnitProvider() {
 		return unitProviderEClass;
 	}
@@ -3883,6 +3904,7 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 		builderInputGroupEClass.getESuperTypes().add(this.getBuilderInputDecorator());
 		effectiveBuilderCallFacadeEClass.getESuperTypes().add(this.getBuilderCallFacade());
 		effectiveBuilderCallFacadeEClass.getESuperTypes().add(this.getIEffectiveFacade());
+		unitParameterDeclarationEClass.getESuperTypes().add(theB3backendPackage.getBParameterDeclaration());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(
@@ -3997,8 +4019,8 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 			getIBuilder_UnitType(), g1, "unitType", null, 0, 1, IBuilder.class, !IS_TRANSIENT, !IS_VOLATILE,
 			IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(
-			getIBuilder_ExplicitUnitType(), theB3backendPackage.getBParameterDeclaration(), null, "explicitUnitType",
-			null, 0, 1, IBuilder.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
+			getIBuilder_ExplicitUnitType(), this.getUnitParameterDeclaration(), null, "explicitUnitType", null, 0, 1,
+			IBuilder.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
 			!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(
 			getIBuilder_Source(), this.getPathGroup(), null, "source", null, 0, 1, IBuilder.class, !IS_TRANSIENT,
@@ -4939,6 +4961,20 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 			getFragmentHost_HostRequirements(), this.getRequiredCapability(), null, "hostRequirements", null, 0, -1,
 			FragmentHost.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
 			!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(
+			unitParameterDeclarationEClass, UnitParameterDeclaration.class, "UnitParameterDeclaration", !IS_ABSTRACT,
+			!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		op = addEOperation(
+			unitParameterDeclarationEClass, ecorePackage.getEBoolean(), "hasCorrectState", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEDiagnosticChain(), "chain", 0, 1, IS_UNIQUE, IS_ORDERED);
+		g1 = createEGenericType(ecorePackage.getEMap());
+		g2 = createEGenericType(ecorePackage.getEJavaObject());
+		g1.getETypeArguments().add(g2);
+		g2 = createEGenericType(ecorePackage.getEJavaObject());
+		g1.getETypeArguments().add(g2);
+		addEParameter(op, g1, "map", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(mergeConflictStrategyEEnum, MergeConflictStrategy.class, "MergeConflictStrategy");

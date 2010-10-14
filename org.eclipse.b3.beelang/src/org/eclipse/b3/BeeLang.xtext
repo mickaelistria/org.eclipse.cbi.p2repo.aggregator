@@ -416,20 +416,19 @@ ParameterDeclaration returns be::BParameterDeclaration : {be::BParameterDeclarat
 	final ?= "final"? immutable ?="val"? type=TypeRef name = ID_or_KW 
 	;
 
-ParameterDeclarationUnit returns be::BParameterDeclaration : {be::BParameterDeclaration} 
-	type=TypeRef name = "unit" 
+// Allows specification of defaults (final, val, unit) which will be in effect even if not stated...
+ParameterDeclarationUnit returns build::UnitParameterDeclaration : {build::UnitParameterDeclaration} 
+	"final"? "val"? type=TypeRef "unit" 
 	;
 	
-// Used in Builder where the first paramter can be called unit, but not others	
+// Used in Builder where the first parameter can be called unit, but not others	
 ParameterDeclarationNotUnit returns be::BParameterDeclaration : {be::BParameterDeclaration} 
-	type=TypeRef name = ID_or_KW_NO_UNIT 
+	final ?= "final"? immutable ?="val"? type=TypeRef name = ID_or_KW_NO_UNIT 
 	;
 
 BuilderInput returns build::BuilderInput :
 	BuilderInputNamed
 	;
-//	prerequisites += Prerequisite (',' prerequisites += Prerequisite)*
-//	;
 	
 Repository returns build::Repository : {build::Repository}
 	(documentation = DOCUMENTATION)?

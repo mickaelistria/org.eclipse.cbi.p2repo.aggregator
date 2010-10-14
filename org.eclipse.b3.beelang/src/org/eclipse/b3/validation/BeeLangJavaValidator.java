@@ -28,7 +28,7 @@ import org.eclipse.b3.backend.evaluator.b3backend.BIfExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BLiteralListExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BLiteralMapExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BMapEntry;
-import org.eclipse.b3.backend.evaluator.b3backend.BParameter;
+import org.eclipse.b3.backend.evaluator.b3backend.BParameterDeclaration;
 import org.eclipse.b3.backend.evaluator.b3backend.BProceedExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BWithExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.IFunction;
@@ -41,6 +41,7 @@ import org.eclipse.b3.backend.inference.InferenceExceptions;
 import org.eclipse.b3.build.B3BuildPackage;
 import org.eclipse.b3.build.BeeModel;
 import org.eclipse.b3.build.Branch;
+import org.eclipse.b3.build.BuildSet;
 import org.eclipse.b3.build.BuildUnit;
 import org.eclipse.b3.build.Builder;
 import org.eclipse.b3.build.BuilderConcernContext;
@@ -94,7 +95,7 @@ public class BeeLangJavaValidator extends AbstractBeeLangJavaValidator implement
 		// Check that it is an LValue
 		if(!tinfo.isLValue()) {
 			error(
-				"The left hand side of an assignment must be a variable", expr.getLeftExpr(),
+				"The left-hand side of an assignment must be a variable", expr.getLeftExpr(),
 				B3backendPackage.BASSIGNMENT_EXPRESSION__LEFT_EXPR);
 			// Additional errors are meaningless
 			return;
@@ -233,6 +234,14 @@ public class BeeLangJavaValidator extends AbstractBeeLangJavaValidator implement
 			error(
 				"A builder must have one of: input, source, output or expression returning BuildResult.", builder,
 				B3BuildPackage.BUILDER__NAME);
+			return;
+		}
+		if(builder.getFuncExpr() != null) {
+			Type returnType = typer.doGetInferredType(builder.getFuncExpr());
+			if(returnType == null || !TypeUtils.isAssignableFrom(BuildSet.class, returnType))
+				error(
+					"Can not convert a " + stringProvider.doToString(returnType) + " to a BuildSet.", builder,
+					B3BuildPackage.BUILDER__FUNC_EXPR);
 		}
 	}
 
@@ -584,8 +593,11 @@ public class BeeLangJavaValidator extends AbstractBeeLangJavaValidator implement
 					if(!other.eIsProxy()) {
 						if(eclass == B3backendPackage.Literals.BDEF_VALUE && ((BDefValue) other).isFinal())
 							error("Can not redefined a final variable", expr, B3backendPackage.BDEF_VALUE__NAME);
-						else if(eclass == B3backendPackage.Literals.BPARAMETER && ((BParameter) other).isFinal())
-							error("Can not redefined a final parameter", expr, B3backendPackage.BPARAMETER__NAME);
+						else if(eclass == B3backendPackage.Literals.BPARAMETER_DECLARATION &&
+								((BParameterDeclaration) other).isFinal())
+							error(
+								"Can not redefined a final parameter", expr,
+								B3backendPackage.BPARAMETER_DECLARATION__NAME);
 					}
 				}
 			}

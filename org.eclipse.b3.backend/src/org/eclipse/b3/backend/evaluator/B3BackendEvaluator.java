@@ -1255,6 +1255,7 @@ public class B3BackendEvaluator extends DeclarativeB3Evaluator {
 
 	/**
 	 * Prepares (and returns) a context suitable for evaluating the body of a function
+	 * TODO: See https://bugs.eclipse.org/bugs/show_bug.cgi?id=301751
 	 */
 	protected BExecutionContext callPrepare(IFunction f, Object[] params, Type[] types, BExecutionContext octx)
 			throws Throwable {
@@ -1296,6 +1297,10 @@ public class B3BackendEvaluator extends DeclarativeB3Evaluator {
 						functionParameterTypes[i], " ", functionParameterNames[i], " = ", params[i]);
 
 				// ok, define it
+				// TODO: See https://bugs.eclipse.org/bugs/show_bug.cgi?id=301751, parameter decl may be
+				// both immutable, and final - define the value accordingly. This is made difficult because
+				// the parameters are not 1:1 with ParameterDeclarations
+
 				octx.defineVariableValue(functionParameterNames[i], params[i], functionParameterTypes[i]);
 			}
 			if(!f.isVarArgs()) { // if not varargs, bind the last defined parameter

@@ -28,6 +28,7 @@ import org.eclipse.b3.build.Capability;
 import org.eclipse.b3.build.IBuilder;
 import org.eclipse.b3.build.IProvidedCapabilityContainer;
 import org.eclipse.b3.build.PathGroup;
+import org.eclipse.b3.build.UnitParameterDeclaration;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
@@ -164,7 +165,7 @@ public class BuilderWrapperImpl extends BFunctionWrapperImpl implements BuilderW
 	 * @generated
 	 * @ordered
 	 */
-	protected BParameterDeclaration explicitUnitType;
+	protected UnitParameterDeclaration explicitUnitType;
 
 	/**
 	 * The cached value of the '{@link #getSource() <em>Source</em>}' containment reference.
@@ -346,8 +347,9 @@ public class BuilderWrapperImpl extends BFunctionWrapperImpl implements BuilderW
 	 * 
 	 * @generated
 	 */
-	public NotificationChain basicSetExplicitUnitType(BParameterDeclaration newExplicitUnitType, NotificationChain msgs) {
-		BParameterDeclaration oldExplicitUnitType = explicitUnitType;
+	public NotificationChain basicSetExplicitUnitType(UnitParameterDeclaration newExplicitUnitType,
+			NotificationChain msgs) {
+		UnitParameterDeclaration oldExplicitUnitType = explicitUnitType;
 		explicitUnitType = newExplicitUnitType;
 		if(eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(
@@ -725,7 +727,7 @@ public class BuilderWrapperImpl extends BFunctionWrapperImpl implements BuilderW
 				setUnitType((Class<? extends BuildUnit>) newValue);
 				return;
 			case B3BuildPackage.BUILDER_WRAPPER__EXPLICIT_UNIT_TYPE:
-				setExplicitUnitType((BParameterDeclaration) newValue);
+				setExplicitUnitType((UnitParameterDeclaration) newValue);
 				return;
 			case B3BuildPackage.BUILDER_WRAPPER__SOURCE:
 				setSource((PathGroup) newValue);
@@ -786,7 +788,7 @@ public class BuilderWrapperImpl extends BFunctionWrapperImpl implements BuilderW
 				setUnitType((Class<? extends BuildUnit>) null);
 				return;
 			case B3BuildPackage.BUILDER_WRAPPER__EXPLICIT_UNIT_TYPE:
-				setExplicitUnitType((BParameterDeclaration) null);
+				setExplicitUnitType((UnitParameterDeclaration) null);
 				return;
 			case B3BuildPackage.BUILDER_WRAPPER__SOURCE:
 				setSource((PathGroup) null);
@@ -831,7 +833,7 @@ public class BuilderWrapperImpl extends BFunctionWrapperImpl implements BuilderW
 	 * 
 	 * @generated
 	 */
-	public BParameterDeclaration getExplicitUnitType() {
+	public UnitParameterDeclaration getExplicitUnitType() {
 		return explicitUnitType;
 	}
 
@@ -1051,7 +1053,7 @@ public class BuilderWrapperImpl extends BFunctionWrapperImpl implements BuilderW
 	 * 
 	 * @generated
 	 */
-	public void setExplicitUnitType(BParameterDeclaration newExplicitUnitType) {
+	public void setExplicitUnitType(UnitParameterDeclaration newExplicitUnitType) {
 		if(newExplicitUnitType != explicitUnitType) {
 			NotificationChain msgs = null;
 			if(explicitUnitType != null)

@@ -621,6 +621,16 @@ public interface B3BuildFactory extends EFactory {
 	UnitNamePredicate createUnitNamePredicate();
 
 	/**
+	 * Returns a new object of class '<em>Unit Parameter Declaration</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return a new object of class '<em>Unit Parameter Declaration</em>'.
+	 * @generated
+	 */
+	UnitParameterDeclaration createUnitParameterDeclaration();
+
+	/**
 	 * Returns a new object of class '<em>Unit Repository Description</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

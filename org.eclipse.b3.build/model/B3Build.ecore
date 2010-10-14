@@ -71,7 +71,7 @@
         </eTypeArguments>
       </eGenericType>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="explicitUnitType" eType="ecore:EClass ../../org.eclipse.b3.backend/model/B3Backend.ecore#//BParameterDeclaration"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="explicitUnitType" eType="#//UnitParameterDeclaration"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="source" eType="#//PathGroup"
         containment="true"/>
@@ -618,4 +618,15 @@
     <eTypeParameters name="T"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EDataType" name="IInstallableUnit" instanceClassName="org.eclipse.equinox.p2.metadata.IInstallableUnit"/>
+  <eClassifiers xsi:type="ecore:EClass" name="UnitParameterDeclaration" eSuperTypes="../../org.eclipse.b3.backend/model/B3Backend.ecore#//BParameterDeclaration">
+    <eOperations name="hasCorrectState" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eParameters name="chain" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain"/>
+      <eParameters name="map">
+        <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap">
+          <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+          <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+        </eGenericType>
+      </eParameters>
+    </eOperations>
+  </eClassifiers>
 </ecore:EPackage>
