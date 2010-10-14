@@ -621,4 +621,12 @@ public class BeeLangJavaValidator extends AbstractBeeLangJavaValidator implement
 		return result;
 
 	}
+
+	@Check
+	void checkBuilderUnitParameter(Builder builder) {
+		if(builder.eContainer() instanceof BuildUnit && builder.getExplicitUnitType() != null)
+			error(
+				"Can not override implied unit parameter for builder declared in a unit.",
+				builder.getExplicitUnitType(), B3BuildPackage.UNIT_PARAMETER_DECLARATION__NAME);
+	}
 }
