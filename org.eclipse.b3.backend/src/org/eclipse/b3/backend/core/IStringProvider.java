@@ -8,10 +8,13 @@
 
 package org.eclipse.b3.backend.core;
 
+import com.google.inject.ImplementedBy;
+
 /**
  * A provider of String labels.
  * 
  */
+@ImplementedBy(B3BackendStringProvider.class)
 public interface IStringProvider {
 	public String doToString(Object o);
 }

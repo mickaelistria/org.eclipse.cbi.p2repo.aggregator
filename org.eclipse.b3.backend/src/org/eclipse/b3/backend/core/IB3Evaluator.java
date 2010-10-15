@@ -8,11 +8,13 @@
 
 package org.eclipse.b3.backend.core;
 
+import java.io.PrintStream;
 import java.lang.reflect.Type;
 
 import org.eclipse.b3.backend.core.datatypes.LValue;
 import org.eclipse.b3.backend.evaluator.B3BackendEvaluator;
 import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
+import org.eclipse.core.runtime.IStatus;
 
 import com.google.inject.ImplementedBy;
 
@@ -102,5 +104,7 @@ public interface IB3Evaluator {
 	public LValue doLValue(Object element, BExecutionContext ctx) throws Throwable;
 
 	public String[] doParameterNames(Object element);
+
+	public IStatus doPrint(Object element, BExecutionContext ctx, PrintStream stream);
 
 }

@@ -157,7 +157,6 @@ public class BeeLangParser extends AbstractContentAssistParser {
 					put(grammarAccess.getAlfanumSymAccess().getAlternatives_1_1(), "rule__AlfanumSym__Alternatives_1_1");
 					put(grammarAccess.getDOCUMENTATIONAccess().getAlternatives(), "rule__DOCUMENTATION__Alternatives");
 					put(grammarAccess.getTemplateAccess().getAlternatives(), "rule__Template__Alternatives");
-					put(grammarAccess.getTemplateExpressionAccess().getAlternatives(), "rule__TemplateExpression__Alternatives");
 					put(grammarAccess.getREALAccess().getAlternatives_2(), "rule__REAL__Alternatives_2");
 					put(grammarAccess.getBranchPointTypeOtherAccess().getAlternatives(), "rule__BranchPointTypeOther__Alternatives");
 					put(grammarAccess.getVisibilityAccess().getAlternatives(), "rule__Visibility__Alternatives");
@@ -581,7 +580,8 @@ public class BeeLangParser extends AbstractContentAssistParser {
 					put(grammarAccess.getTemplateAccess().getGroup_1(), "rule__Template__Group_1__0");
 					put(grammarAccess.getTemplateAccess().getGroup_1_1(), "rule__Template__Group_1_1__0");
 					put(grammarAccess.getTemplateAccess().getGroup_1_1_1(), "rule__Template__Group_1_1_1__0");
-					put(grammarAccess.getEchoExpressionAccess().getGroup(), "rule__EchoExpression__Group__0");
+					put(grammarAccess.getTemplateExpressionAccess().getGroup(), "rule__TemplateExpression__Group__0");
+					put(grammarAccess.getTemplateExpressionAccess().getGroup_2(), "rule__TemplateExpression__Group_2__0");
 					put(grammarAccess.getTextLiteralAccess().getGroup(), "rule__TextLiteral__Group__0");
 					put(grammarAccess.getTextStartLiteralAccess().getGroup(), "rule__TextStartLiteral__Group__0");
 					put(grammarAccess.getTextMidLiteralAccess().getGroup(), "rule__TextMidLiteral__Group__0");
@@ -1072,7 +1072,8 @@ public class BeeLangParser extends AbstractContentAssistParser {
 					put(grammarAccess.getTemplateAccess().getExpressionsAssignment_1_1_1_0(), "rule__Template__ExpressionsAssignment_1_1_1_0");
 					put(grammarAccess.getTemplateAccess().getExpressionsAssignment_1_1_1_1(), "rule__Template__ExpressionsAssignment_1_1_1_1");
 					put(grammarAccess.getTemplateAccess().getExpressionsAssignment_1_2(), "rule__Template__ExpressionsAssignment_1_2");
-					put(grammarAccess.getEchoExpressionAccess().getExpressionAssignment_2(), "rule__EchoExpression__ExpressionAssignment_2");
+					put(grammarAccess.getTemplateExpressionAccess().getEchoExpressionAssignment_1(), "rule__TemplateExpression__EchoExpressionAssignment_1");
+					put(grammarAccess.getTemplateExpressionAccess().getExpressionAssignment_2_1(), "rule__TemplateExpression__ExpressionAssignment_2_1");
 					put(grammarAccess.getTextLiteralAccess().getValueAssignment_1(), "rule__TextLiteral__ValueAssignment_1");
 					put(grammarAccess.getTextStartLiteralAccess().getValueAssignment_1(), "rule__TextStartLiteral__ValueAssignment_1");
 					put(grammarAccess.getTextMidLiteralAccess().getValueAssignment_1(), "rule__TextMidLiteral__ValueAssignment_1");

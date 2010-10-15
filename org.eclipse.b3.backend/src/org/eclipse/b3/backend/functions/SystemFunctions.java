@@ -1,5 +1,6 @@
 package org.eclipse.b3.backend.functions;
 
+import java.io.PrintStream;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -10,6 +11,7 @@ import org.eclipse.b3.backend.core.B3Backend;
 import org.eclipse.b3.backend.core.B3ContextAccess;
 import org.eclipse.b3.backend.core.B3Debug;
 import org.eclipse.b3.backend.core.IB3Evaluator;
+import org.eclipse.b3.backend.core.IB3Printer;
 import org.eclipse.b3.backend.core.datatypes.Any;
 import org.eclipse.b3.backend.core.exceptions.B3AssertionFailedException;
 import org.eclipse.b3.backend.core.internal.B3BackendActivator;
@@ -45,13 +47,13 @@ public class SystemFunctions {
 	}
 
 	public static final IStatus EMPTY_ERROR = new Status(
-		IStatus.ERROR, B3BackendActivator.PLUGIN_IN, IStatus.OK, "", null);
+		IStatus.ERROR, B3BackendActivator.PLUGIN_ID, IStatus.OK, "", null);
 
 	public static final IStatus EMPTY_INFO = new Status(
-		IStatus.INFO, B3BackendActivator.PLUGIN_IN, IStatus.OK, "", null);
+		IStatus.INFO, B3BackendActivator.PLUGIN_ID, IStatus.OK, "", null);
 
 	public static final IStatus EMPTY_WARNING = new Status(
-		IStatus.WARNING, B3BackendActivator.PLUGIN_IN, IStatus.OK, "", null);
+		IStatus.WARNING, B3BackendActivator.PLUGIN_ID, IStatus.OK, "", null);
 
 	@B3Backend(system = true, typeFunction = "tcReturnTypeOfLastLambda")
 	public static Object __do(BExecutionContext ctx, Object[] params, Type[] types) throws Throwable {
@@ -123,7 +125,6 @@ public class SystemFunctions {
 					: cur.closure.createInnerContext();
 
 			result.add(ctx.getInjector().getInstance(IB3Evaluator.class).doCall(cur.lambda, cur.p, cur.t, useCtx));
-			// result.add(cur.lambda.call(useCtx, cur.p, cur.t));
 		}
 		return result;
 	}
@@ -230,6 +231,42 @@ public class SystemFunctions {
 		return TypeUtils.isAssignableFrom(t, o)
 				? Boolean.TRUE
 				: Boolean.FALSE;
+	}
+
+	/**
+	 * Flexible implementation, allows IB3Printer, PrintStream and Object to appear in any order in the
+	 * first two parameters (i.e. Printer.print(obj, stream), or obj.print(Printer, stream),
+	 * Printer.print(stream, obj). Allowed combinations are determined by the non system stubs though.
+	 * If an IB3Printer is not passed, the default printer is injected and used.
+	 * 
+	 * @param ctx
+	 * @param params
+	 * @param types
+	 * @return
+	 * @throws Throwable
+	 */
+	@B3Backend(system = true)
+	public static Object _print(BExecutionContext ctx, Object[] params, Type[] types) throws Throwable {
+		Object toPrint = null;
+		PrintStream stream = null;
+		IB3Printer printer = null;
+		for(int i = 0; i < params.length; i++) {
+			if(params[i] instanceof PrintStream) {
+				stream = (PrintStream) params[i];
+				continue;
+			}
+			if(params[i] instanceof IB3Printer) {
+				printer = (IB3Printer) params[i];
+				continue;
+			}
+			toPrint = params[i];
+		}
+		// get the default printer if null
+		if(printer == null)
+			printer = ctx.getInjector().getInstance(IB3Printer.class);
+
+		// print on specified stream, or if null, on default stream
+		return printer.doPrint(toPrint, ctx, stream);
 	}
 
 	@B3Backend(system = true)
@@ -488,22 +525,22 @@ public class SystemFunctions {
 	}
 
 	public static IStatus ERROR(String message) {
-		return new Status(IStatus.ERROR, B3BackendActivator.PLUGIN_IN, IStatus.OK, message, null);
+		return new Status(IStatus.ERROR, B3BackendActivator.PLUGIN_ID, IStatus.OK, message, null);
 	}
 
 	public static IStatus ERROR(String message, Throwable t) {
 		if(t instanceof CoreException) {
-			MultiStatus ms = new MultiStatus(B3BackendActivator.PLUGIN_IN, IStatus.OK, message, t);
+			MultiStatus ms = new MultiStatus(B3BackendActivator.PLUGIN_ID, IStatus.OK, message, t);
 			ms.add(((CoreException) t).getStatus());
 			return ms;
 		}
-		return new Status(IStatus.ERROR, B3BackendActivator.PLUGIN_IN, IStatus.OK, message, t);
+		return new Status(IStatus.ERROR, B3BackendActivator.PLUGIN_ID, IStatus.OK, message, t);
 	}
 
 	public static IStatus ERROR(Throwable t) {
 		if(t instanceof CoreException)
 			return ((CoreException) t).getStatus();
-		return new Status(IStatus.ERROR, B3BackendActivator.PLUGIN_IN, IStatus.OK, "Error", t);
+		return new Status(IStatus.ERROR, B3BackendActivator.PLUGIN_ID, IStatus.OK, "Error", t);
 	}
 
 	/**
@@ -537,7 +574,7 @@ public class SystemFunctions {
 	}
 
 	public static IStatus INFO(String message) {
-		return new Status(IStatus.INFO, B3BackendActivator.PLUGIN_IN, IStatus.OK, message, null);
+		return new Status(IStatus.INFO, B3BackendActivator.PLUGIN_ID, IStatus.OK, message, null);
 	}
 
 	@B3Backend(systemFunction = "_inject", varargs = true, typeFunction = "tcReturnTypeOfLastLambda")
@@ -563,7 +600,7 @@ public class SystemFunctions {
 	public static IStatus MULTISTATUS(String message, Throwable t, IStatus... iStatus) {
 		if(iStatus == null)
 			throw new IllegalArgumentException("Vararg IStatus... is null");
-		return new MultiStatus(B3BackendActivator.PLUGIN_IN, IStatus.OK, iStatus, message, t);
+		return new MultiStatus(B3BackendActivator.PLUGIN_ID, IStatus.OK, iStatus, message, t);
 	}
 
 	/**
@@ -581,14 +618,36 @@ public class SystemFunctions {
 	 * @return
 	 */
 	public static IStatus OK(String message) {
-		return new Status(IStatus.OK, B3BackendActivator.PLUGIN_IN, IStatus.OK, message, null);
+		return new Status(IStatus.OK, B3BackendActivator.PLUGIN_ID, IStatus.OK, message, null);
 	}
 
-	@B3Backend
+	@B3Backend(systemFunction = "_print")
+	public static Object print(@B3Backend(name = "aPrinter") IB3Printer printer,
+			@B3Backend(name = "anObject") Object object) {
+		return null;
+	}
+
+	@B3Backend(systemFunction = "_print")
+	public static Object print(@B3Backend(name = "aPrinter") IB3Printer printer,
+			@B3Backend(name = "anObject") Object object, @B3Backend(name = "aPrintStream") PrintStream stream) {
+		return null;
+	}
+
+	@B3Backend(systemFunction = "_print")
 	public static Object print(@B3Backend(name = "anObject") Object object) {
-		System.out.print(object.toString());
-		System.out.print("\n");
-		return object;
+		return null;
+	}
+
+	@B3Backend(systemFunction = "_print")
+	public static Object print(@B3Backend(name = "anObject") Object object,
+			@B3Backend(name = "aPrinter") IB3Printer printer) {
+		return null;
+	}
+
+	@B3Backend(systemFunction = "_print")
+	public static Object print(@B3Backend(name = "anObject") Object object,
+			@B3Backend(name = "aPrintStream") PrintStream stream) {
+		return null;
 	}
 
 	@B3Backend(systemFunction = "_reject", varargs = true)
@@ -767,11 +826,11 @@ public class SystemFunctions {
 	}
 
 	public static IStatus WARNING(String message) {
-		return new Status(IStatus.WARNING, B3BackendActivator.PLUGIN_IN, IStatus.OK, message, null);
+		return new Status(IStatus.WARNING, B3BackendActivator.PLUGIN_ID, IStatus.OK, message, null);
 	}
 
 	public static IStatus WARNING(String message, Throwable t) {
-		return new Status(IStatus.WARNING, B3BackendActivator.PLUGIN_IN, IStatus.OK, message, t);
+		return new Status(IStatus.WARNING, B3BackendActivator.PLUGIN_ID, IStatus.OK, message, t);
 	}
 
 	@B3Backend(systemFunction = "_whileFalse")

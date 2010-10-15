@@ -47,6 +47,7 @@ import org.eclipse.b3.backend.evaluator.b3backend.BChainedExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BCreateExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BDefProperty;
 import org.eclipse.b3.backend.evaluator.b3backend.BDefValue;
+import org.eclipse.b3.backend.evaluator.b3backend.BEchoExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BExpressionWrapper;
 import org.eclipse.b3.backend.evaluator.b3backend.BFeatureExpression;
@@ -570,6 +571,22 @@ public class B3BackendTypeProvider extends DeclarativeTypeProvider {
 		return t == null
 				? doGetInferredType(o.getValueExpr())
 				: t;
+	}
+
+	/**
+	 * Echo expression, when evaluated will only evaluate the echo expression and return it.
+	 * Special processing is required to also evaluate and use the non echo part.
+	 * Hence - the type is the type of the echo expression, or Object.class if there is nothing to
+	 * echo.
+	 * 
+	 * @param o
+	 * @return
+	 */
+	public Type type(BEchoExpression o) {
+		BExpression expr = o.getEchoExpression();
+		if(expr == null)
+			return Object.class;
+		return doGetInferredType(expr);
 	}
 
 	/**

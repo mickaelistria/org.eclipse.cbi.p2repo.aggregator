@@ -12496,50 +12496,42 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 
 	public class TemplateExpressionElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "TemplateExpression");
-		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final RuleCall cEchoExpressionParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
-		private final RuleCall cExpressionParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
-		
-		//TemplateExpression returns be::BExpression:
-		//	EchoExpression | Expression;
-		public ParserRule getRule() { return rule; }
-
-		//EchoExpression | Expression
-		public Alternatives getAlternatives() { return cAlternatives; }
-
-		//EchoExpression
-		public RuleCall getEchoExpressionParserRuleCall_0() { return cEchoExpressionParserRuleCall_0; }
-
-		//Expression
-		public RuleCall getExpressionParserRuleCall_1() { return cExpressionParserRuleCall_1; }
-	}
-
-	public class EchoExpressionElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "EchoExpression");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Action cBEchoExpressionAction_0 = (Action)cGroup.eContents().get(0);
-		private final Keyword cEqualsSignKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Assignment cExpressionAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cExpressionExpressionParserRuleCall_2_0 = (RuleCall)cExpressionAssignment_2.eContents().get(0);
+		private final Assignment cEchoExpressionAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cEchoExpressionExpressionParserRuleCall_1_0 = (RuleCall)cEchoExpressionAssignment_1.eContents().get(0);
+		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
+		private final Keyword cCommaKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
+		private final Assignment cExpressionAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
+		private final RuleCall cExpressionExpressionParserRuleCall_2_1_0 = (RuleCall)cExpressionAssignment_2_1.eContents().get(0);
 		
-		//EchoExpression returns be::BEchoExpression:
-		//	{be::BEchoExpression} "=" expression=Expression;
+		//TemplateExpression returns be::BEchoExpression:
+		//	{be::BEchoExpression} echoExpression=Expression? ("," expression=Expression)?;
 		public ParserRule getRule() { return rule; }
 
-		//{be::BEchoExpression} "=" expression=Expression
+		//{be::BEchoExpression} echoExpression=Expression? ("," expression=Expression)?
 		public Group getGroup() { return cGroup; }
 
 		//{be::BEchoExpression}
 		public Action getBEchoExpressionAction_0() { return cBEchoExpressionAction_0; }
 
-		//"="
-		public Keyword getEqualsSignKeyword_1() { return cEqualsSignKeyword_1; }
-
-		//expression=Expression
-		public Assignment getExpressionAssignment_2() { return cExpressionAssignment_2; }
+		//echoExpression=Expression?
+		public Assignment getEchoExpressionAssignment_1() { return cEchoExpressionAssignment_1; }
 
 		//Expression
-		public RuleCall getExpressionExpressionParserRuleCall_2_0() { return cExpressionExpressionParserRuleCall_2_0; }
+		public RuleCall getEchoExpressionExpressionParserRuleCall_1_0() { return cEchoExpressionExpressionParserRuleCall_1_0; }
+
+		//("," expression=Expression)?
+		public Group getGroup_2() { return cGroup_2; }
+
+		//","
+		public Keyword getCommaKeyword_2_0() { return cCommaKeyword_2_0; }
+
+		//expression=Expression
+		public Assignment getExpressionAssignment_2_1() { return cExpressionAssignment_2_1; }
+
+		//Expression
+		public RuleCall getExpressionExpressionParserRuleCall_2_1_0() { return cExpressionExpressionParserRuleCall_2_1_0; }
 	}
 
 	public class TextLiteralElements extends AbstractParserRuleElementFinder {
@@ -12994,7 +12986,6 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 	private TerminalRule tSTRING;
 	private TemplateElements pTemplate;
 	private TemplateExpressionElements pTemplateExpression;
-	private EchoExpressionElements pEchoExpression;
 	private TextLiteralElements pTextLiteral;
 	private TextStartLiteralElements pTextStartLiteral;
 	private TextMidLiteralElements pTextMidLiteral;
@@ -15330,24 +15321,14 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		return getTemplateAccess().getRule();
 	}
 
-	//TemplateExpression returns be::BExpression:
-	//	EchoExpression | Expression;
+	//TemplateExpression returns be::BEchoExpression:
+	//	{be::BEchoExpression} echoExpression=Expression? ("," expression=Expression)?;
 	public TemplateExpressionElements getTemplateExpressionAccess() {
 		return (pTemplateExpression != null) ? pTemplateExpression : (pTemplateExpression = new TemplateExpressionElements());
 	}
 	
 	public ParserRule getTemplateExpressionRule() {
 		return getTemplateExpressionAccess().getRule();
-	}
-
-	//EchoExpression returns be::BEchoExpression:
-	//	{be::BEchoExpression} "=" expression=Expression;
-	public EchoExpressionElements getEchoExpressionAccess() {
-		return (pEchoExpression != null) ? pEchoExpression : (pEchoExpression = new EchoExpressionElements());
-	}
-	
-	public ParserRule getEchoExpressionRule() {
-		return getEchoExpressionAccess().getRule();
 	}
 
 	//TextLiteral returns be::BExpression:

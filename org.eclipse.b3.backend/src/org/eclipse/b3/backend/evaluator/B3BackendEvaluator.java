@@ -65,6 +65,7 @@ import org.eclipse.b3.backend.evaluator.b3backend.BCreateExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BDefProperty;
 import org.eclipse.b3.backend.evaluator.b3backend.BDefValue;
 import org.eclipse.b3.backend.evaluator.b3backend.BDefaultPropertySet;
+import org.eclipse.b3.backend.evaluator.b3backend.BEchoExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BExpressionWrapper;
@@ -719,6 +720,25 @@ public class B3BackendEvaluator extends DeclarativeB3Evaluator {
 			else
 				ctx.defineVariableValue(o.getName(), result, type);
 		}
+		return result;
+	}
+
+	/**
+	 * Evaluates the echo expression's echoed part first, then the side effect expression.
+	 * The result of the echo expression is returned.
+	 * 
+	 * @param o
+	 * @param ctx
+	 * @return
+	 * @throws Throwable
+	 */
+	public Object evaluate(BEchoExpression o, BExecutionContext ctx) throws Throwable {
+		BExpression expr = o.getEchoExpression();
+		Object result = expr == null
+				? null
+				: doEvaluate(expr, ctx);
+		if(o.getExpression() != null)
+			doEvaluate(o.getExpression(), ctx);
 		return result;
 	}
 

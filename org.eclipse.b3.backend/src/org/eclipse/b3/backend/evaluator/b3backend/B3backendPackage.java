@@ -1467,6 +1467,15 @@ public interface B3backendPackage extends EPackage {
 		EReference BECHO_EXPRESSION__EXPRESSION = eINSTANCE.getBEchoExpression_Expression();
 
 		/**
+		 * The meta object literal for the '<em><b>Echo Expression</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EReference BECHO_EXPRESSION__ECHO_EXPRESSION = eINSTANCE.getBEchoExpression_EchoExpression();
+
+		/**
 		 * The meta object literal for the '{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BGuardImpl <em>BGuard</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1753,15 +1762,6 @@ public interface B3backendPackage extends EPackage {
 		EClass BPARAMETER = eINSTANCE.getBParameter();
 
 		/**
-		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * 
-		 * @generated
-		 */
-		EAttribute BPARAMETER__NAME = eINSTANCE.getBParameter_Name();
-
-		/**
 		 * The meta object literal for the '<em><b>Expr</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1769,24 +1769,6 @@ public interface B3backendPackage extends EPackage {
 		 * @generated
 		 */
 		EReference BPARAMETER__EXPR = eINSTANCE.getBParameter_Expr();
-
-		/**
-		 * The meta object literal for the '<em><b>Final</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * 
-		 * @generated
-		 */
-		EAttribute BPARAMETER__FINAL = eINSTANCE.getBParameter_Final();
-
-		/**
-		 * The meta object literal for the '<em><b>Immutable</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * 
-		 * @generated
-		 */
-		EAttribute BPARAMETER__IMMUTABLE = eINSTANCE.getBParameter_Immutable();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BParameterDeclarationImpl
@@ -5432,16 +5414,6 @@ public interface B3backendPackage extends EPackage {
 	int BPARAMETER_LIST_FEATURE_COUNT = 1;
 
 	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int BPARAMETER__NAME = 0;
-
-	/**
 	 * The feature id for the '<em><b>Expr</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5449,27 +5421,7 @@ public interface B3backendPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BPARAMETER__EXPR = 1;
-
-	/**
-	 * The feature id for the '<em><b>Final</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int BPARAMETER__FINAL = 2;
-
-	/**
-	 * The feature id for the '<em><b>Immutable</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int BPARAMETER__IMMUTABLE = 3;
+	int BPARAMETER__EXPR = 0;
 
 	/**
 	 * The number of structural features of the '<em>BParameter</em>' class.
@@ -5479,7 +5431,7 @@ public interface B3backendPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BPARAMETER_FEATURE_COUNT = 4;
+	int BPARAMETER_FEATURE_COUNT = 1;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -7783,6 +7735,16 @@ public interface B3backendPackage extends EPackage {
 	int BECHO_EXPRESSION__EXPRESSION = BEXPRESSION_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Echo Expression</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int BECHO_EXPRESSION__ECHO_EXPRESSION = BEXPRESSION_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>BEcho Expression</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -7790,7 +7752,7 @@ public interface B3backendPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BECHO_EXPRESSION_FEATURE_COUNT = BEXPRESSION_FEATURE_COUNT + 1;
+	int BECHO_EXPRESSION_FEATURE_COUNT = BEXPRESSION_FEATURE_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.backend.evaluator.b3backend.Visibility <em>Visibility</em>}' enum.
@@ -9002,6 +8964,19 @@ public interface B3backendPackage extends EPackage {
 	EClass getBEchoExpression();
 
 	/**
+	 * Returns the meta object for the containment reference '{@link org.eclipse.b3.backend.evaluator.b3backend.BEchoExpression#getEchoExpression
+	 * <em>Echo Expression</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the containment reference '<em>Echo Expression</em>'.
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.BEchoExpression#getEchoExpression()
+	 * @see #getBEchoExpression()
+	 * @generated
+	 */
+	EReference getBEchoExpression_EchoExpression();
+
+	/**
 	 * Returns the meta object for the containment reference '{@link org.eclipse.b3.backend.evaluator.b3backend.BEchoExpression#getExpression
 	 * <em>Expression</em>}'.
 	 * <!-- begin-user-doc -->
@@ -9838,42 +9813,6 @@ public interface B3backendPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getBParameter_Expr();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.b3.backend.evaluator.b3backend.BParameter#isFinal <em>Final</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @return the meta object for the attribute '<em>Final</em>'.
-	 * @see org.eclipse.b3.backend.evaluator.b3backend.BParameter#isFinal()
-	 * @see #getBParameter()
-	 * @generated
-	 */
-	EAttribute getBParameter_Final();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.b3.backend.evaluator.b3backend.BParameter#isImmutable <em>Immutable</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @return the meta object for the attribute '<em>Immutable</em>'.
-	 * @see org.eclipse.b3.backend.evaluator.b3backend.BParameter#isImmutable()
-	 * @see #getBParameter()
-	 * @generated
-	 */
-	EAttribute getBParameter_Immutable();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.b3.backend.evaluator.b3backend.BParameter#getName <em>Name</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see org.eclipse.b3.backend.evaluator.b3backend.BParameter#getName()
-	 * @see #getBParameter()
-	 * @generated
-	 */
-	EAttribute getBParameter_Name();
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.b3.backend.evaluator.b3backend.BParameterDeclaration <em>BParameter Declaration</em>}'.

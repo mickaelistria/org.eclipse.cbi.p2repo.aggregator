@@ -1322,10 +1322,8 @@ Template returns be::BTemplate: {be::BTemplate}
 		)
 	;
 	
-TemplateExpression returns be::BExpression : EchoExpression | Expression ;
-
-EchoExpression returns be::BEchoExpression : {be::BEchoExpression}
-	'=' expression = Expression
+TemplateExpression returns be::BEchoExpression : {be::BEchoExpression}
+	(echoExpression = Expression)? (',' expression = Expression)?
 	;
 	
 TextLiteral returns  be::BExpression : {be::BLiteralExpression} 

@@ -19,6 +19,7 @@ package org.eclipse.b3.backend.evaluator.b3backend;
  * The following features are supported:
  * <ul>
  * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BEchoExpression#getExpression <em>Expression</em>}</li>
+ * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BEchoExpression#getEchoExpression <em>Echo Expression</em>}</li>
  * </ul>
  * </p>
  * 
@@ -27,6 +28,22 @@ package org.eclipse.b3.backend.evaluator.b3backend;
  * @generated
  */
 public interface BEchoExpression extends BExpression {
+	/**
+	 * Returns the value of the '<em><b>Echo Expression</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Echo Expression</em>' containment reference isn't clear, there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the value of the '<em>Echo Expression</em>' containment reference.
+	 * @see #setEchoExpression(BExpression)
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage#getBEchoExpression_EchoExpression()
+	 * @model containment="true"
+	 * @generated
+	 */
+	BExpression getEchoExpression();
+
 	/**
 	 * Returns the value of the '<em><b>Expression</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
@@ -42,6 +59,19 @@ public interface BEchoExpression extends BExpression {
 	 * @generated
 	 */
 	BExpression getExpression();
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.BEchoExpression#getEchoExpression <em>Echo Expression</em>}'
+	 * containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @param value
+	 *            the new value of the '<em>Echo Expression</em>' containment reference.
+	 * @see #getEchoExpression()
+	 * @generated
+	 */
+	void setEchoExpression(BExpression value);
 
 	/**
 	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.BEchoExpression#getExpression <em>Expression</em>}' containment

@@ -1316,10 +1316,7 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 		createEReference(bParameterListEClass, BPARAMETER_LIST__PARAMETERS);
 
 		bParameterEClass = createEClass(BPARAMETER);
-		createEAttribute(bParameterEClass, BPARAMETER__NAME);
 		createEReference(bParameterEClass, BPARAMETER__EXPR);
-		createEAttribute(bParameterEClass, BPARAMETER__FINAL);
-		createEAttribute(bParameterEClass, BPARAMETER__IMMUTABLE);
 
 		bParameterDeclarationEClass = createEClass(BPARAMETER_DECLARATION);
 		createEAttribute(bParameterDeclarationEClass, BPARAMETER_DECLARATION__FINAL);
@@ -1488,6 +1485,7 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 
 		bEchoExpressionEClass = createEClass(BECHO_EXPRESSION);
 		createEReference(bEchoExpressionEClass, BECHO_EXPRESSION__EXPRESSION);
+		createEReference(bEchoExpressionEClass, BECHO_EXPRESSION__ECHO_EXPRESSION);
 
 		// Create enums
 		visibilityEEnum = createEEnum(VISIBILITY);
@@ -2323,6 +2321,16 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	 * 
 	 * @generated
 	 */
+	public EReference getBEchoExpression_EchoExpression() {
+		return (EReference) bEchoExpressionEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
 	public EReference getBEchoExpression_Expression() {
 		return (EReference) bEchoExpressionEClass.getEStructuralFeatures().get(0);
 	}
@@ -3004,37 +3012,7 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	 * @generated
 	 */
 	public EReference getBParameter_Expr() {
-		return (EReference) bParameterEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	public EAttribute getBParameter_Final() {
-		return (EAttribute) bParameterEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	public EAttribute getBParameter_Immutable() {
-		return (EAttribute) bParameterEClass.getEStructuralFeatures().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	public EAttribute getBParameter_Name() {
-		return (EAttribute) bParameterEClass.getEStructuralFeatures().get(0);
+		return (EReference) bParameterEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -4765,19 +4743,10 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 
 		initEClass(
 			bParameterEClass, BParameter.class, "BParameter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(
-			getBParameter_Name(), ecorePackage.getEString(), "name", null, 0, 1, BParameter.class, !IS_TRANSIENT,
-			!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(
 			getBParameter_Expr(), this.getBExpression(), null, "expr", null, 0, 1, BParameter.class, !IS_TRANSIENT,
 			!IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
 			IS_ORDERED);
-		initEAttribute(
-			getBParameter_Final(), ecorePackage.getEBoolean(), "final", null, 0, 1, BParameter.class, !IS_TRANSIENT,
-			!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(
-			getBParameter_Immutable(), ecorePackage.getEBoolean(), "immutable", null, 0, 1, BParameter.class,
-			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(
 			bParameterDeclarationEClass, BParameterDeclaration.class, "BParameterDeclaration", !IS_ABSTRACT,
@@ -5366,6 +5335,10 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 			IS_GENERATED_INSTANCE_CLASS);
 		initEReference(
 			getBEchoExpression_Expression(), this.getBExpression(), null, "expression", null, 0, 1,
+			BEchoExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
+			!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(
+			getBEchoExpression_EchoExpression(), this.getBExpression(), null, "echoExpression", null, 0, 1,
 			BEchoExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
 			!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 

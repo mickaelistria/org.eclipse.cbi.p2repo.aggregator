@@ -8,12 +8,16 @@
 
 package org.eclipse.b3.backend.evaluator;
 
+import java.io.PrintStream;
 import java.lang.reflect.Type;
 import java.util.Collections;
 
 import org.eclipse.b3.backend.core.IB3Evaluator;
 import org.eclipse.b3.backend.core.datatypes.LValue;
+import org.eclipse.b3.backend.core.internal.B3BackendActivator;
 import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
+import org.eclipse.core.runtime.IStatus;
+import org.eclipse.core.runtime.Status;
 import org.eclipse.emf.common.util.WrappedException;
 import org.eclipse.xtext.util.Exceptions;
 import org.eclipse.xtext.util.PolymorphicDispatcher;
@@ -77,6 +81,13 @@ public abstract class DeclarativeB3Evaluator implements IB3Evaluator {
 		"define", 2, 3, Collections.singletonList(this), new ErrorHandler<Object>() {
 			public Object handle(Object[] params, Throwable e) {
 				return handleError(params, e);
+			}
+		});
+
+	private final PolymorphicDispatcher<IStatus> printDispatcher = new PolymorphicDispatcher<IStatus>(
+		"print", 3, 3, Collections.singletonList(this), new ErrorHandler<IStatus>() {
+			public IStatus handle(Object[] params, Throwable e) {
+				return handleIStatusError(params, e);
 			}
 		});
 
@@ -176,6 +187,10 @@ public abstract class DeclarativeB3Evaluator implements IB3Evaluator {
 		return parameterNamesDispatcher.invoke(element);
 	}
 
+	public IStatus doPrint(Object element, BExecutionContext ctx, PrintStream stream) {
+		return printDispatcher.invoke(element, ctx, stream);
+	}
+
 	public Type evaluate(Object o, BExecutionContext ctx) {
 		throw new UnsupportedOperationException("No suitable evaluate method for object of class:" + o.getClass());
 	}
@@ -209,6 +224,10 @@ public abstract class DeclarativeB3Evaluator implements IB3Evaluator {
 		// return Object.class;
 		// }
 		return Exceptions.throwUncheckedException(e);
+	}
+
+	protected IStatus handleIStatusError(Object[] params, Throwable e) {
+		return new Status(IStatus.ERROR, B3BackendActivator.PLUGIN_ID, "Error while printing", e);
 	}
 
 	protected LValue handleLValueError(Object[] params, Throwable e) {

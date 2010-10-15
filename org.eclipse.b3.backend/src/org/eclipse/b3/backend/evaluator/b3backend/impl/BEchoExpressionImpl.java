@@ -30,6 +30,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * The following features are implemented:
  * <ul>
  * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BEchoExpressionImpl#getExpression <em>Expression</em>}</li>
+ * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BEchoExpressionImpl#getEchoExpression <em>Echo Expression</em>}</li>
  * </ul>
  * </p>
  * 
@@ -48,6 +49,17 @@ public class BEchoExpressionImpl extends BExpressionImpl implements BEchoExpress
 	protected BExpression expression;
 
 	/**
+	 * The cached value of the '{@link #getEchoExpression() <em>Echo Expression</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see #getEchoExpression()
+	 * @generated
+	 * @ordered
+	 */
+	protected BExpression echoExpression;
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -55,6 +67,27 @@ public class BEchoExpressionImpl extends BExpressionImpl implements BEchoExpress
 	 */
 	protected BEchoExpressionImpl() {
 		super();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public NotificationChain basicSetEchoExpression(BExpression newEchoExpression, NotificationChain msgs) {
+		BExpression oldEchoExpression = echoExpression;
+		echoExpression = newEchoExpression;
+		if(eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(
+				this, Notification.SET, B3backendPackage.BECHO_EXPRESSION__ECHO_EXPRESSION, oldEchoExpression,
+				newEchoExpression);
+			if(msgs == null)
+				msgs = notification;
+			else
+				msgs.add(notification);
+		}
+		return msgs;
 	}
 
 	/**
@@ -88,6 +121,8 @@ public class BEchoExpressionImpl extends BExpressionImpl implements BEchoExpress
 		switch(featureID) {
 			case B3backendPackage.BECHO_EXPRESSION__EXPRESSION:
 				return getExpression();
+			case B3backendPackage.BECHO_EXPRESSION__ECHO_EXPRESSION:
+				return getEchoExpression();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -103,6 +138,8 @@ public class BEchoExpressionImpl extends BExpressionImpl implements BEchoExpress
 		switch(featureID) {
 			case B3backendPackage.BECHO_EXPRESSION__EXPRESSION:
 				return basicSetExpression(null, msgs);
+			case B3backendPackage.BECHO_EXPRESSION__ECHO_EXPRESSION:
+				return basicSetEchoExpression(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -118,6 +155,8 @@ public class BEchoExpressionImpl extends BExpressionImpl implements BEchoExpress
 		switch(featureID) {
 			case B3backendPackage.BECHO_EXPRESSION__EXPRESSION:
 				return expression != null;
+			case B3backendPackage.BECHO_EXPRESSION__ECHO_EXPRESSION:
+				return echoExpression != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -133,6 +172,9 @@ public class BEchoExpressionImpl extends BExpressionImpl implements BEchoExpress
 		switch(featureID) {
 			case B3backendPackage.BECHO_EXPRESSION__EXPRESSION:
 				setExpression((BExpression) newValue);
+				return;
+			case B3backendPackage.BECHO_EXPRESSION__ECHO_EXPRESSION:
+				setEchoExpression((BExpression) newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -150,6 +192,9 @@ public class BEchoExpressionImpl extends BExpressionImpl implements BEchoExpress
 			case B3backendPackage.BECHO_EXPRESSION__EXPRESSION:
 				setExpression((BExpression) null);
 				return;
+			case B3backendPackage.BECHO_EXPRESSION__ECHO_EXPRESSION:
+				setEchoExpression((BExpression) null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -160,8 +205,43 @@ public class BEchoExpressionImpl extends BExpressionImpl implements BEchoExpress
 	 * 
 	 * @generated
 	 */
+	public BExpression getEchoExpression() {
+		return echoExpression;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
 	public BExpression getExpression() {
 		return expression;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public void setEchoExpression(BExpression newEchoExpression) {
+		if(newEchoExpression != echoExpression) {
+			NotificationChain msgs = null;
+			if(echoExpression != null)
+				msgs = ((InternalEObject) echoExpression).eInverseRemove(this, EOPPOSITE_FEATURE_BASE -
+						B3backendPackage.BECHO_EXPRESSION__ECHO_EXPRESSION, null, msgs);
+			if(newEchoExpression != null)
+				msgs = ((InternalEObject) newEchoExpression).eInverseAdd(this, EOPPOSITE_FEATURE_BASE -
+						B3backendPackage.BECHO_EXPRESSION__ECHO_EXPRESSION, null, msgs);
+			msgs = basicSetEchoExpression(newEchoExpression, msgs);
+			if(msgs != null)
+				msgs.dispatch();
+		}
+		else if(eNotificationRequired())
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, B3backendPackage.BECHO_EXPRESSION__ECHO_EXPRESSION, newEchoExpression,
+				newEchoExpression));
 	}
 
 	/**

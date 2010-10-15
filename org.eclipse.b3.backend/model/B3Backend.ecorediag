@@ -4593,9 +4593,9 @@
       <styles xmi:type="notation:ConnectorStyle" xmi:id="_HGE7sdW3Ed-p8dGUMMDM4w" routing="Rectilinear" lineColor="4210752"/>
       <styles xmi:type="notation:FontStyle" xmi:id="_HGE7stW3Ed-p8dGUMMDM4w" fontColor="4210752" fontName="Lucida Grande" fontHeight="10"/>
       <element xmi:type="ecore:EReference" href="B3Backend.ecore#//BTemplate/expressions"/>
-      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_HGE7s9W3Ed-p8dGUMMDM4w" points="[1, 0, -75, 99]$[77, -109, 1, -10]"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_HGE7s9W3Ed-p8dGUMMDM4w" points="[68, 26, -87, 9]$[152, 26, -3, 9]"/>
       <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_HGHX8NW3Ed-p8dGUMMDM4w" id="(0.3235294117647059,0.023809523809523808)"/>
-      <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_HGHX8dW3Ed-p8dGUMMDM4w" id="(0.049019607843137254,0.2619047619047619)"/>
+      <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_HGHX8dW3Ed-p8dGUMMDM4w" id="(0.0196078431372549,0.42857142857142855)"/>
     </edges>
     <edges xmi:type="notation:Edge" xmi:id="_KKZrgNW7Ed-p8dGUMMDM4w" type="3003" source="_80GYwNW6Ed-p8dGUMMDM4w" target="_NKntgNW2Ed-p8dGUMMDM4w">
       <styles xmi:type="notation:ConnectorStyle" xmi:id="_KKZrgdW7Ed-p8dGUMMDM4w" routing="Rectilinear" lineColor="4210752"/>
@@ -4617,6 +4617,20 @@
       <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_TMEgU9W7Ed-p8dGUMMDM4w" points="[-1, -1, 64, 108]$[-63, -117, 2, -8]"/>
       <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_TMHjoNW7Ed-p8dGUMMDM4w" id="(0.7378640776699029,0.047619047619047616)"/>
       <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_TMHjodW7Ed-p8dGUMMDM4w" id="(0.8921568627450981,0.21428571428571427)"/>
+    </edges>
+    <edges xmi:type="notation:Edge" xmi:id="_-djpUNe8Ed-SSMMq1rOmEg" type="3002" source="_80GYwNW6Ed-p8dGUMMDM4w" target="_NKntgNW2Ed-p8dGUMMDM4w">
+      <children xmi:type="notation:Node" xmi:id="_-dkQYNe8Ed-SSMMq1rOmEg" type="4011">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_-dk3cNe8Ed-SSMMq1rOmEg" x="-10" y="-10"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_-dlegNe8Ed-SSMMq1rOmEg" type="4012">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_-dlegde8Ed-SSMMq1rOmEg" x="10" y="10"/>
+      </children>
+      <styles xmi:type="notation:ConnectorStyle" xmi:id="_-djpUde8Ed-SSMMq1rOmEg" routing="Rectilinear" lineColor="4210752"/>
+      <styles xmi:type="notation:FontStyle" xmi:id="_-djpUte8Ed-SSMMq1rOmEg" fontColor="4210752" fontName="Lucida Grande" fontHeight="10"/>
+      <element xmi:type="ecore:EReference" href="B3Backend.ecore#//BEchoExpression/echoExpression"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_-djpU9e8Ed-SSMMq1rOmEg" points="[10, 6, 105, 119]$[72, 6, 167, 119]$[72, -158, 167, -45]$[-120, -158, -25, -45]$[-120, -131, -25, -18]"/>
+      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_-dn6wNe8Ed-SSMMq1rOmEg" id="(0.9029126213592233,0.38095238095238093)"/>
+      <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_-dn6wde8Ed-SSMMq1rOmEg" id="(0.7647058823529411,0.4523809523809524)"/>
     </edges>
   </notation:Diagram>
 </xmi:XMI>
