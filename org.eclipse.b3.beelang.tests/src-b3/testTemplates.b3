@@ -6,6 +6,8 @@ function main(List argv) {
 	testHTMLTemplate();
 	testHTMLTemplate2();
 	testHTMLTemplate3();
+	testListTemplate();
+	testMapTemplate();
 }
 function testHTMLTemplate() {
 	val r = new ByteArrayOutputStream();
@@ -46,4 +48,27 @@ function testHTMLTemplate3() {
 	val expected = "<p>a paragraph of html text\n\t<ul><li>bullet #1</li>\n\t<li>bullet #2</li>\n\t<li>bullet #5</li>\n\t<li>bullet #12</li>\n\t</ul>\n</p>";
 	assertEquals("Template result is correct",expected, r.toString());
 	assertEquals("Modified variable check", 27, a);
+}
+function testListTemplate() {
+	val r = new ByteArrayOutputStream();
+	var LI = ["<","li",">"];
+	var t = «<p>a paragraph of html text
+	<ul>«{
+		(0..3).collect(Integer x| ««{LI}»bullet #«{x}»</li>
+	»)
+	}»</ul>
+</p>»;
+	print(t, new PrintStream(r));
+	val expected = "<p>a paragraph of html text\n\t<ul><li>bullet #0</li>\n\t<li>bullet #1</li>\n\t<li>bullet #2</li>\n\t<li>bullet #3</li>\n\t</ul>\n</p>";
+	assertEquals("Template result is correct",expected, r.toString());
+}
+function testMapTemplate() {
+	val r = new ByteArrayOutputStream();
+	var ATTR = [class: "a", id: "b"];
+	var LI = ["<","li ",ATTR, ">"];
+	var t = «<p>a paragraph of html text<ul>«{LI}»bullet</li></ul></p>»;
+	print(t, new PrintStream(r));
+	val expected = "<p>a paragraph of html text<ul><li class=\"a\" id=\"b\">bullet</li></ul></p>";
+	assertEquals("Template result is correct",expected, r.toString());
+	
 }
