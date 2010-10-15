@@ -19,7 +19,7 @@ function testHTMLTemplate() {
 </p>»;
 	print(t, new PrintStream(r));
 	val expected = "<p>a paragraph of html text\n\t<ul><li>bullet #0</li>\n\t<li>bullet #1</li>\n\t<li>bullet #2</li>\n\t<li>bullet #3</li>\n\t</ul>\n</p>";
-	assertEquals("Template result is correct",expected, r.toString());
+	assertEquals("Template result is not correct",expected, r.toString());
 }
 function testHTMLTemplate2() {
 	val r = new ByteArrayOutputStream();
@@ -32,7 +32,7 @@ function testHTMLTemplate2() {
 </p>»;
 	print(t, new PrintStream(r));
 	val expected = "<p>a paragraph of html text\n\t<ul><li>bullet #1</li>\n\t<li>bullet #2</li>\n\t<li>bullet #5</li>\n\t<li>bullet #12</li>\n\t</ul>\n</p>";
-	assertEquals("Template result is correct",expected, r.toString());
+	assertEquals("Template result is not correct",expected, r.toString());
 	assertEquals("Modified variable check", 27, a);
 }
 function testHTMLTemplate3() {
@@ -46,7 +46,7 @@ function testHTMLTemplate3() {
 </p>»;
 	print(t, new PrintStream(r));
 	val expected = "<p>a paragraph of html text\n\t<ul><li>bullet #1</li>\n\t<li>bullet #2</li>\n\t<li>bullet #5</li>\n\t<li>bullet #12</li>\n\t</ul>\n</p>";
-	assertEquals("Template result is correct",expected, r.toString());
+	assertEquals("Template result is not correct",expected, r.toString());
 	assertEquals("Modified variable check", 27, a);
 }
 function testListTemplate() {
@@ -60,7 +60,7 @@ function testListTemplate() {
 </p>»;
 	print(t, new PrintStream(r));
 	val expected = "<p>a paragraph of html text\n\t<ul><li>bullet #0</li>\n\t<li>bullet #1</li>\n\t<li>bullet #2</li>\n\t<li>bullet #3</li>\n\t</ul>\n</p>";
-	assertEquals("Template result is correct",expected, r.toString());
+	assertEquals("Template result is not correct",expected, r.toString());
 }
 function testMapTemplate() {
 	val r = new ByteArrayOutputStream();
@@ -69,6 +69,6 @@ function testMapTemplate() {
 	var t = «<p>a paragraph of html text<ul>«{LI}»bullet</li></ul></p>»;
 	print(t, new PrintStream(r));
 	val expected = "<p>a paragraph of html text<ul><li class=\"a\" id=\"b\">bullet</li></ul></p>";
-	assertEquals("Template result is correct",expected, r.toString());
+	assertEquals("Template result is not correct",expected, r.toString());
 	
 }
