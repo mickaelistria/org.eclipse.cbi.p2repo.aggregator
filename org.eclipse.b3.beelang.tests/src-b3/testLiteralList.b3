@@ -7,13 +7,14 @@ function main(List argv) {
 	testAnyComparison();
 	testCallLambdaInList();
 }
+
 function testLiteralList() {
-	List a = [1,2,3];
-	List b = [1+2, "hello", [<String>], ['a', 'b', 'c', 'd'], a[0]];
+	var a = [1,2,3];
+	var b = [[1+2], ["hello"], [<String>], [<String>'a', 'b', 'c', 'd'], [a[0]]];
 	
 	assertEquals("accessing list", 2, a[1]);
 	assertEquals("an empty list", [<String>], b[2]);
-	assertEquals("an evaluated entry", 3, b[0]);
+	assertEquals("an evaluated entry", [3], b[0]);
 	assertEquals("chained at expression", "c", b[3][2]);
 	assertEquals("calling size", 5, b.size());
 	
