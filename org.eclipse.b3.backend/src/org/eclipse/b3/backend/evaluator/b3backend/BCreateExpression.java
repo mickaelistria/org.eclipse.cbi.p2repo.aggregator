@@ -52,12 +52,12 @@ public interface BCreateExpression extends BParameterizedExpression, ITypedValue
 	 * <!-- end-user-doc -->
 	 * 
 	 * @return the value of the '<em>Type Expr</em>' containment reference.
-	 * @see #setTypeExpr(BLiteralType)
+	 * @see #setTypeExpr(BExpression)
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage#getBCreateExpression_TypeExpr()
 	 * @model containment="true"
 	 * @generated
 	 */
-	BLiteralType getTypeExpr();
+	BExpression getTypeExpr();
 
 	/**
 	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.BCreateExpression#getContextBlock <em>Context Block</em>}' containment
@@ -83,6 +83,6 @@ public interface BCreateExpression extends BParameterizedExpression, ITypedValue
 	 * @see #getTypeExpr()
 	 * @generated
 	 */
-	void setTypeExpr(BLiteralType value);
+	void setTypeExpr(BExpression value);
 
 } // BCreateExpression

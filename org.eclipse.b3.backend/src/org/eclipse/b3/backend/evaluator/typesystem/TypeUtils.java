@@ -788,6 +788,8 @@ public class TypeUtils {
 			return getRaw(((TypeVariable<?>) t).getBounds()[0]);
 		if(t instanceof WildcardType)
 			return getRaw(((WildcardType) t).getUpperBounds()[0]);
+		if(t instanceof NullType)
+			return Object.class;
 		throw new UnsupportedOperationException("UNSUPPORTED TYPE CLASS - was: " + t);
 	}
 
@@ -917,6 +919,9 @@ public class TypeUtils {
 	}
 
 	public static boolean isAssignableFrom(Type baseType, Type fromType) {
+		// null can be assigned to anything
+		if(fromType instanceof NullType)
+			return true;
 		Boolean specialCase = isAssignableFromSpecialCase(baseType, fromType);
 		if(specialCase != null)
 			return specialCase.booleanValue();

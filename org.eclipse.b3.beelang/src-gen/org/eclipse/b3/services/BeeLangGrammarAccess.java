@@ -6713,19 +6713,19 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cFunctionNameAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
 		private final Keyword cFunctionNameInstanceofKeyword_1_1_0 = (Keyword)cFunctionNameAssignment_1_1.eContents().get(0);
 		private final Assignment cRightExprAssignment_1_2 = (Assignment)cGroup_1.eContents().get(2);
-		private final RuleCall cRightExprLiteralTypeParserRuleCall_1_2_0 = (RuleCall)cRightExprAssignment_1_2.eContents().get(0);
+		private final RuleCall cRightExprVariableValueParserRuleCall_1_2_0 = (RuleCall)cRightExprAssignment_1_2.eContents().get(0);
 		
 		//InstanceOfExpression returns be::BExpression:
-		//	AdditiveExpression ({be::BBinaryOpExpression.leftExpr=current} functionName="instanceof" rightExpr=LiteralType)*;
+		//	AdditiveExpression ({be::BBinaryOpExpression.leftExpr=current} functionName="instanceof" rightExpr=VariableValue)*;
 		public ParserRule getRule() { return rule; }
 
-		//AdditiveExpression ({be::BBinaryOpExpression.leftExpr=current} functionName="instanceof" rightExpr=LiteralType)*
+		//AdditiveExpression ({be::BBinaryOpExpression.leftExpr=current} functionName="instanceof" rightExpr=VariableValue)*
 		public Group getGroup() { return cGroup; }
 
 		//AdditiveExpression
 		public RuleCall getAdditiveExpressionParserRuleCall_0() { return cAdditiveExpressionParserRuleCall_0; }
 
-		//({be::BBinaryOpExpression.leftExpr=current} functionName="instanceof" rightExpr=LiteralType)*
+		//({be::BBinaryOpExpression.leftExpr=current} functionName="instanceof" rightExpr=VariableValue)*
 		public Group getGroup_1() { return cGroup_1; }
 
 		//{be::BBinaryOpExpression.leftExpr=current}
@@ -6737,11 +6737,11 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		//"instanceof"
 		public Keyword getFunctionNameInstanceofKeyword_1_1_0() { return cFunctionNameInstanceofKeyword_1_1_0; }
 
-		//rightExpr=LiteralType
+		//rightExpr=VariableValue
 		public Assignment getRightExprAssignment_1_2() { return cRightExprAssignment_1_2; }
 
-		//LiteralType
-		public RuleCall getRightExprLiteralTypeParserRuleCall_1_2_0() { return cRightExprLiteralTypeParserRuleCall_1_2_0; }
+		//VariableValue
+		public RuleCall getRightExprVariableValueParserRuleCall_1_2_0() { return cRightExprVariableValueParserRuleCall_1_2_0; }
 	}
 
 	public class AdditiveExpressionElements extends AbstractParserRuleElementFinder {
@@ -7181,8 +7181,8 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
 		private final RuleCall cFeatureCallParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
 		private final RuleCall cConstructorCallExpressionParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
-		private final RuleCall cVariableValueParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
-		private final RuleCall cLiteralParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
+		private final RuleCall cLiteralParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
+		private final RuleCall cVariableValueParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
 		private final RuleCall cTemplateParserRuleCall_4 = (RuleCall)cAlternatives.eContents().get(4);
 		private final RuleCall cPropertyValueParserRuleCall_5 = (RuleCall)cAlternatives.eContents().get(5);
 		private final RuleCall cParanthesizedExpressionParserRuleCall_6 = (RuleCall)cAlternatives.eContents().get(6);
@@ -7196,12 +7196,12 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cWithContextExpressionParserRuleCall_14 = (RuleCall)cAlternatives.eContents().get(14);
 		
 		//PrimaryExpression returns be::BExpression:
-		//	FeatureCall | ConstructorCallExpression | VariableValue | Literal | Template | PropertyValue | ParanthesizedExpression
+		//	FeatureCall | ConstructorCallExpression | Literal | VariableValue | Template | PropertyValue | ParanthesizedExpression
 		//	| IfExpression | BlockExpression | SwitchExpression | ThrowExpression | TryCatchExpression | ProceedExpression |
 		//	WithExpression | WithContextExpression;
 		public ParserRule getRule() { return rule; }
 
-		//FeatureCall | ConstructorCallExpression | VariableValue | Literal | Template | PropertyValue | ParanthesizedExpression |
+		//FeatureCall | ConstructorCallExpression | Literal | VariableValue | Template | PropertyValue | ParanthesizedExpression |
 		//IfExpression | BlockExpression | SwitchExpression | ThrowExpression | TryCatchExpression | ProceedExpression |
 		//WithExpression | WithContextExpression
 		public Alternatives getAlternatives() { return cAlternatives; }
@@ -7212,11 +7212,11 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		//ConstructorCallExpression
 		public RuleCall getConstructorCallExpressionParserRuleCall_1() { return cConstructorCallExpressionParserRuleCall_1; }
 
-		//VariableValue
-		public RuleCall getVariableValueParserRuleCall_2() { return cVariableValueParserRuleCall_2; }
-
 		//Literal
-		public RuleCall getLiteralParserRuleCall_3() { return cLiteralParserRuleCall_3; }
+		public RuleCall getLiteralParserRuleCall_2() { return cLiteralParserRuleCall_2; }
+
+		//VariableValue
+		public RuleCall getVariableValueParserRuleCall_3() { return cVariableValueParserRuleCall_3; }
 
 		//Template
 		public RuleCall getTemplateParserRuleCall_4() { return cTemplateParserRuleCall_4; }
@@ -8140,7 +8140,7 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final Action cBCreateExpressionAction_0 = (Action)cGroup.eContents().get(0);
 		private final Keyword cNewKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Assignment cTypeExprAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cTypeExprLiteralTypeParserRuleCall_2_0 = (RuleCall)cTypeExprAssignment_2.eContents().get(0);
+		private final RuleCall cTypeExprVariableValueParserRuleCall_2_0 = (RuleCall)cTypeExprAssignment_2.eContents().get(0);
 		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
 		private final Keyword cLeftParenthesisKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
 		private final Assignment cParameterListAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
@@ -8154,11 +8154,11 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cContextBlockInitializationBlockExpressionParserRuleCall_5_0 = (RuleCall)cContextBlockAssignment_5.eContents().get(0);
 		
 		//ConstructorCallExpression returns be::BExpression:
-		//	{be::BCreateExpression} "new" typeExpr=LiteralType ("(" parameterList=ParameterList? ")")? ("as" name=ID)?
+		//	{be::BCreateExpression} "new" typeExpr=VariableValue ("(" parameterList=ParameterList? ")")? ("as" name=ID)?
 		//	contextBlock=InitializationBlockExpression?;
 		public ParserRule getRule() { return rule; }
 
-		//{be::BCreateExpression} "new" typeExpr=LiteralType ("(" parameterList=ParameterList? ")")? ("as" name=ID)?
+		//{be::BCreateExpression} "new" typeExpr=VariableValue ("(" parameterList=ParameterList? ")")? ("as" name=ID)?
 		//contextBlock=InitializationBlockExpression?
 		public Group getGroup() { return cGroup; }
 
@@ -8168,11 +8168,11 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		//"new"
 		public Keyword getNewKeyword_1() { return cNewKeyword_1; }
 
-		//typeExpr=LiteralType
+		//typeExpr=VariableValue
 		public Assignment getTypeExprAssignment_2() { return cTypeExprAssignment_2; }
 
-		//LiteralType
-		public RuleCall getTypeExprLiteralTypeParserRuleCall_2_0() { return cTypeExprLiteralTypeParserRuleCall_2_0; }
+		//VariableValue
+		public RuleCall getTypeExprVariableValueParserRuleCall_2_0() { return cTypeExprVariableValueParserRuleCall_2_0; }
 
 		//("(" parameterList=ParameterList? ")")?
 		public Group getGroup_3() { return cGroup_3; }
@@ -11028,6 +11028,7 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cLiteralListParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
 		private final RuleCall cLiteralFunctionParserRuleCall_4 = (RuleCall)cAlternatives.eContents().get(4);
 		
+		////	| LiteralType
 		//Literal returns be::BExpression:
 		//	ValueLiteral | PatternLiteral | LiteralMap | LiteralList | LiteralFunction;
 		public ParserRule getRule() { return rule; }
@@ -11602,30 +11603,6 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		public RuleCall getValueSTRINGTerminalRuleCall_1_0_2() { return cValueSTRINGTerminalRuleCall_1_0_2; }
 	}
 
-	public class LiteralTypeElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "LiteralType");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Action cBLiteralTypeAction_0 = (Action)cGroup.eContents().get(0);
-		private final Assignment cTypeAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cTypeTypeRefParserRuleCall_1_0 = (RuleCall)cTypeAssignment_1.eContents().get(0);
-		
-		//LiteralType returns be::BLiteralType:
-		//	{be::BLiteralType} type=TypeRef;
-		public ParserRule getRule() { return rule; }
-
-		//{be::BLiteralType} type=TypeRef
-		public Group getGroup() { return cGroup; }
-
-		//{be::BLiteralType}
-		public Action getBLiteralTypeAction_0() { return cBLiteralTypeAction_0; }
-
-		//type=TypeRef
-		public Assignment getTypeAssignment_1() { return cTypeAssignment_1; }
-
-		//TypeRef
-		public RuleCall getTypeTypeRefParserRuleCall_1_0() { return cTypeTypeRefParserRuleCall_1_0; }
-	}
-
 	public class ValueLiteralElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "ValueLiteral");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
@@ -11636,6 +11613,9 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cStringLiteralParserRuleCall_4 = (RuleCall)cAlternatives.eContents().get(4);
 		private final RuleCall cUnitLiteralParserRuleCall_5 = (RuleCall)cAlternatives.eContents().get(5);
 		
+		////LiteralType returns be::BLiteralType : {be::BLiteralType} 
+		////	type=TypeRef 
+		////	;
 		//ValueLiteral returns be::BExpression:
 		//	BooleanLiteral //	| QueryLiteral
 		//	| // SEE ISSUE 297089 - must be placed before IntegerLiteral
@@ -12950,7 +12930,6 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 	private BlockExpressionWithoutBracketsElements pBlockExpressionWithoutBrackets;
 	private MapEntryElements pMapEntry;
 	private KeyLiteralElements pKeyLiteral;
-	private LiteralTypeElements pLiteralType;
 	private ValueLiteralElements pValueLiteral;
 	private BooleanLiteralElements pBooleanLiteral;
 	private IntegerLiteralElements pIntegerLiteral;
@@ -14103,7 +14082,7 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//InstanceOfExpression returns be::BExpression:
-	//	AdditiveExpression ({be::BBinaryOpExpression.leftExpr=current} functionName="instanceof" rightExpr=LiteralType)*;
+	//	AdditiveExpression ({be::BBinaryOpExpression.leftExpr=current} functionName="instanceof" rightExpr=VariableValue)*;
 	public InstanceOfExpressionElements getInstanceOfExpressionAccess() {
 		return (pInstanceOfExpression != null) ? pInstanceOfExpression : (pInstanceOfExpression = new InstanceOfExpressionElements());
 	}
@@ -14216,7 +14195,7 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//PrimaryExpression returns be::BExpression:
-	//	FeatureCall | ConstructorCallExpression | VariableValue | Literal | Template | PropertyValue | ParanthesizedExpression
+	//	FeatureCall | ConstructorCallExpression | Literal | VariableValue | Template | PropertyValue | ParanthesizedExpression
 	//	| IfExpression | BlockExpression | SwitchExpression | ThrowExpression | TryCatchExpression | ProceedExpression |
 	//	WithExpression | WithContextExpression;
 	public PrimaryExpressionElements getPrimaryExpressionAccess() {
@@ -14435,7 +14414,7 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//ConstructorCallExpression returns be::BExpression:
-	//	{be::BCreateExpression} "new" typeExpr=LiteralType ("(" parameterList=ParameterList? ")")? ("as" name=ID)?
+	//	{be::BCreateExpression} "new" typeExpr=VariableValue ("(" parameterList=ParameterList? ")")? ("as" name=ID)?
 	//	contextBlock=InitializationBlockExpression?;
 	public ConstructorCallExpressionElements getConstructorCallExpressionAccess() {
 		return (pConstructorCallExpression != null) ? pConstructorCallExpression : (pConstructorCallExpression = new ConstructorCallExpressionElements());
@@ -14845,6 +14824,7 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		return getGroupedBuilderPrimaryExpressionAccess().getRule();
 	}
 
+	////	| LiteralType
 	//Literal returns be::BExpression:
 	//	ValueLiteral | PatternLiteral | LiteralMap | LiteralList | LiteralFunction;
 	public LiteralElements getLiteralAccess() {
@@ -14952,16 +14932,9 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		return getKeyLiteralAccess().getRule();
 	}
 
-	//LiteralType returns be::BLiteralType:
-	//	{be::BLiteralType} type=TypeRef;
-	public LiteralTypeElements getLiteralTypeAccess() {
-		return (pLiteralType != null) ? pLiteralType : (pLiteralType = new LiteralTypeElements());
-	}
-	
-	public ParserRule getLiteralTypeRule() {
-		return getLiteralTypeAccess().getRule();
-	}
-
+	////LiteralType returns be::BLiteralType : {be::BLiteralType} 
+	////	type=TypeRef 
+	////	;
 	//ValueLiteral returns be::BExpression:
 	//	BooleanLiteral //	| QueryLiteral
 	//	| // SEE ISSUE 297089 - must be placed before IntegerLiteral

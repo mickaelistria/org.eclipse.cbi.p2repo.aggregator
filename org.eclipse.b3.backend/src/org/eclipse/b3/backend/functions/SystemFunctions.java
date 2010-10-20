@@ -18,6 +18,7 @@ import org.eclipse.b3.backend.core.internal.B3BackendActivator;
 import org.eclipse.b3.backend.evaluator.IClosure;
 import org.eclipse.b3.backend.evaluator.b3backend.B3Function;
 import org.eclipse.b3.backend.evaluator.b3backend.B3FunctionType;
+import org.eclipse.b3.backend.evaluator.b3backend.B3MetaClass;
 import org.eclipse.b3.backend.evaluator.b3backend.B3ParameterizedType;
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendFactory;
 import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
@@ -226,8 +227,15 @@ public class SystemFunctions {
 	}
 
 	@B3Backend(hideOriginal = true, funcNames = { "instanceof" })
-	public static Boolean _instanceOf(@B3Backend(name = "instance") Object o, @B3Backend(name = "type") Type t) {
+	public static Boolean _instanceOf(@B3Backend(name = "instance") Object o, @B3Backend(name = "type") Object rhs) {
 		// TODO: this is cheating - it only compares raw
+		Type t = null;
+		if(rhs instanceof B3MetaClass)
+			t = ((B3MetaClass) rhs).getInstanceClass();
+		else if(rhs instanceof Type)
+			t = (Type) rhs;
+		else
+			return Boolean.FALSE;
 		return TypeUtils.isAssignableFrom(t, o)
 				? Boolean.TRUE
 				: Boolean.FALSE;

@@ -184,23 +184,22 @@ protected class ThisRootNode extends RootToken {
 			case 150: return new BlockExpressionWithoutBrackets_Group(this, this, 150, inst);
 			case 151: return new MapEntry_Group(this, this, 151, inst);
 			case 152: return new KeyLiteral_Group(this, this, 152, inst);
-			case 153: return new LiteralType_Group(this, this, 153, inst);
-			case 154: return new ValueLiteral_Alternatives(this, this, 154, inst);
-			case 155: return new BooleanLiteral_Group(this, this, 155, inst);
-			case 156: return new IntegerLiteral_Group(this, this, 156, inst);
-			case 157: return new UnitLiteral_Group(this, this, 157, inst);
-			case 158: return new StringLiteral_Group(this, this, 158, inst);
-			case 159: return new RealLiteral_Group(this, this, 159, inst);
-			case 160: return new RegexpLiteral_Group(this, this, 160, inst);
-			case 161: return new SimplePatternLiteral_Group(this, this, 161, inst);
-			case 162: return new NullLiteral_Group(this, this, 162, inst);
-			case 163: return new ParanthesizedExpression_Group(this, this, 163, inst);
-			case 164: return new Template_Alternatives(this, this, 164, inst);
-			case 165: return new TemplateExpression_Group(this, this, 165, inst);
-			case 166: return new TextLiteral_Group(this, this, 166, inst);
-			case 167: return new TextStartLiteral_Group(this, this, 167, inst);
-			case 168: return new TextMidLiteral_Group(this, this, 168, inst);
-			case 169: return new TextEndLiteral_Group(this, this, 169, inst);
+			case 153: return new ValueLiteral_Alternatives(this, this, 153, inst);
+			case 154: return new BooleanLiteral_Group(this, this, 154, inst);
+			case 155: return new IntegerLiteral_Group(this, this, 155, inst);
+			case 156: return new UnitLiteral_Group(this, this, 156, inst);
+			case 157: return new StringLiteral_Group(this, this, 157, inst);
+			case 158: return new RealLiteral_Group(this, this, 158, inst);
+			case 159: return new RegexpLiteral_Group(this, this, 159, inst);
+			case 160: return new SimplePatternLiteral_Group(this, this, 160, inst);
+			case 161: return new NullLiteral_Group(this, this, 161, inst);
+			case 162: return new ParanthesizedExpression_Group(this, this, 162, inst);
+			case 163: return new Template_Alternatives(this, this, 163, inst);
+			case 164: return new TemplateExpression_Group(this, this, 164, inst);
+			case 165: return new TextLiteral_Group(this, this, 165, inst);
+			case 166: return new TextStartLiteral_Group(this, this, 166, inst);
+			case 167: return new TextMidLiteral_Group(this, this, 167, inst);
+			case 168: return new TextEndLiteral_Group(this, this, 168, inst);
 			default: return null;
 		}	
 	}	
@@ -32031,11 +32030,11 @@ protected class RelationalExpression_RightExprAssignment_1_2 extends AssignmentT
 /************ begin Rule InstanceOfExpression ****************
  *
  * InstanceOfExpression returns be::BExpression:
- * 	AdditiveExpression ({be::BBinaryOpExpression.leftExpr=current} functionName="instanceof" rightExpr=LiteralType)*;
+ * 	AdditiveExpression ({be::BBinaryOpExpression.leftExpr=current} functionName="instanceof" rightExpr=VariableValue)*;
  *
  **/
 
-// AdditiveExpression ({be::BBinaryOpExpression.leftExpr=current} functionName="instanceof" rightExpr=LiteralType)*
+// AdditiveExpression ({be::BBinaryOpExpression.leftExpr=current} functionName="instanceof" rightExpr=VariableValue)*
 protected class InstanceOfExpression_Group extends GroupToken {
 	
 	public InstanceOfExpression_Group(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -32128,7 +32127,7 @@ protected class InstanceOfExpression_AdditiveExpressionParserRuleCall_0 extends 
 	}	
 }
 
-// ({be::BBinaryOpExpression.leftExpr=current} functionName="instanceof" rightExpr=LiteralType)*
+// ({be::BBinaryOpExpression.leftExpr=current} functionName="instanceof" rightExpr=VariableValue)*
 protected class InstanceOfExpression_Group_1 extends GroupToken {
 	
 	public InstanceOfExpression_Group_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -32221,7 +32220,7 @@ protected class InstanceOfExpression_FunctionNameAssignment_1_1 extends Assignme
 
 }
 
-// rightExpr=LiteralType
+// rightExpr=VariableValue
 protected class InstanceOfExpression_RightExprAssignment_1_2 extends AssignmentToken  {
 	
 	public InstanceOfExpression_RightExprAssignment_1_2(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -32236,7 +32235,7 @@ protected class InstanceOfExpression_RightExprAssignment_1_2 extends AssignmentT
     @Override
 	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
 		switch(index) {
-			case 0: return new LiteralType_Group(this, this, 0, inst);
+			case 0: return new VariableValue_Group(this, this, 0, inst);
 			default: return null;
 		}	
 	}
@@ -32247,9 +32246,9 @@ protected class InstanceOfExpression_RightExprAssignment_1_2 extends AssignmentT
 		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("rightExpr");
 		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
 			IEObjectConsumer param = createEObjectConsumer((EObject)value);
-			if(param.isInstanceOf(grammarAccess.getLiteralTypeRule().getType().getClassifier())) {
+			if(param.isInstanceOf(grammarAccess.getVariableValueRule().getType().getClassifier())) {
 				type = AssignmentType.PARSER_RULE_CALL;
-				element = grammarAccess.getInstanceOfExpressionAccess().getRightExprLiteralTypeParserRuleCall_1_2_0(); 
+				element = grammarAccess.getInstanceOfExpressionAccess().getRightExprVariableValueParserRuleCall_1_2_0(); 
 				consumed = obj;
 				return param;
 			}
@@ -34528,13 +34527,13 @@ protected class CallExpression_RightParenthesisKeyword_1_3 extends KeywordToken 
 /************ begin Rule PrimaryExpression ****************
  *
  * PrimaryExpression returns be::BExpression:
- * 	FeatureCall | ConstructorCallExpression | VariableValue | Literal | Template | PropertyValue | ParanthesizedExpression
+ * 	FeatureCall | ConstructorCallExpression | Literal | VariableValue | Template | PropertyValue | ParanthesizedExpression
  * 	| IfExpression | BlockExpression | SwitchExpression | ThrowExpression | TryCatchExpression | ProceedExpression |
  * 	WithExpression | WithContextExpression;
  *
  **/
 
-// FeatureCall | ConstructorCallExpression | VariableValue | Literal | Template | PropertyValue | ParanthesizedExpression |
+// FeatureCall | ConstructorCallExpression | Literal | VariableValue | Template | PropertyValue | ParanthesizedExpression |
 // IfExpression | BlockExpression | SwitchExpression | ThrowExpression | TryCatchExpression | ProceedExpression |
 // WithExpression | WithContextExpression
 protected class PrimaryExpression_Alternatives extends AlternativesToken {
@@ -34553,8 +34552,8 @@ protected class PrimaryExpression_Alternatives extends AlternativesToken {
 		switch(index) {
 			case 0: return new PrimaryExpression_FeatureCallParserRuleCall_0(lastRuleCallOrigin, this, 0, inst);
 			case 1: return new PrimaryExpression_ConstructorCallExpressionParserRuleCall_1(lastRuleCallOrigin, this, 1, inst);
-			case 2: return new PrimaryExpression_VariableValueParserRuleCall_2(lastRuleCallOrigin, this, 2, inst);
-			case 3: return new PrimaryExpression_LiteralParserRuleCall_3(lastRuleCallOrigin, this, 3, inst);
+			case 2: return new PrimaryExpression_LiteralParserRuleCall_2(lastRuleCallOrigin, this, 2, inst);
+			case 3: return new PrimaryExpression_VariableValueParserRuleCall_3(lastRuleCallOrigin, this, 3, inst);
 			case 4: return new PrimaryExpression_TemplateParserRuleCall_4(lastRuleCallOrigin, this, 4, inst);
 			case 5: return new PrimaryExpression_PropertyValueParserRuleCall_5(lastRuleCallOrigin, this, 5, inst);
 			case 6: return new PrimaryExpression_ParanthesizedExpressionParserRuleCall_6(lastRuleCallOrigin, this, 6, inst);
@@ -34680,52 +34679,16 @@ protected class PrimaryExpression_ConstructorCallExpressionParserRuleCall_1 exte
 	}	
 }
 
-// VariableValue
-protected class PrimaryExpression_VariableValueParserRuleCall_2 extends RuleCallToken {
-	
-	public PrimaryExpression_VariableValueParserRuleCall_2(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
-		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
-	}
-	
-	@Override
-	public RuleCall getGrammarElement() {
-		return grammarAccess.getPrimaryExpressionAccess().getVariableValueParserRuleCall_2();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
-		switch(index) {
-			case 0: return new VariableValue_Group(this, this, 0, inst);
-			default: return null;
-		}	
-	}
-
-    @Override
-	public IEObjectConsumer tryConsume() {
-		if(getEObject().eClass() != grammarAccess.getVariableValueAccess().getBVariableExpressionAction_0().getType().getClassifier())
-			return null;
-		if(checkForRecursion(VariableValue_Group.class, eObjectConsumer)) return null;
-		return eObjectConsumer;
-	}
-	
-    @Override
-	public AbstractToken createFollowerAfterReturn(AbstractToken next,	int actIndex, int index, IEObjectConsumer inst) {
-		switch(index) {
-			default: return lastRuleCallOrigin.createFollowerAfterReturn(next, actIndex , index, inst);
-		}	
-	}	
-}
-
 // Literal
-protected class PrimaryExpression_LiteralParserRuleCall_3 extends RuleCallToken {
+protected class PrimaryExpression_LiteralParserRuleCall_2 extends RuleCallToken {
 	
-	public PrimaryExpression_LiteralParserRuleCall_3(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+	public PrimaryExpression_LiteralParserRuleCall_2(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
 		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
 	}
 	
 	@Override
 	public RuleCall getGrammarElement() {
-		return grammarAccess.getPrimaryExpressionAccess().getLiteralParserRuleCall_3();
+		return grammarAccess.getPrimaryExpressionAccess().getLiteralParserRuleCall_2();
 	}
 
     @Override
@@ -34747,6 +34710,42 @@ protected class PrimaryExpression_LiteralParserRuleCall_3 extends RuleCallToken 
 		   getEObject().eClass() != grammarAccess.getSimplePatternLiteralAccess().getBSimplePatternExpressionAction_0().getType().getClassifier())
 			return null;
 		if(checkForRecursion(Literal_Alternatives.class, eObjectConsumer)) return null;
+		return eObjectConsumer;
+	}
+	
+    @Override
+	public AbstractToken createFollowerAfterReturn(AbstractToken next,	int actIndex, int index, IEObjectConsumer inst) {
+		switch(index) {
+			default: return lastRuleCallOrigin.createFollowerAfterReturn(next, actIndex , index, inst);
+		}	
+	}	
+}
+
+// VariableValue
+protected class PrimaryExpression_VariableValueParserRuleCall_3 extends RuleCallToken {
+	
+	public PrimaryExpression_VariableValueParserRuleCall_3(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
+	}
+	
+	@Override
+	public RuleCall getGrammarElement() {
+		return grammarAccess.getPrimaryExpressionAccess().getVariableValueParserRuleCall_3();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
+		switch(index) {
+			case 0: return new VariableValue_Group(this, this, 0, inst);
+			default: return null;
+		}	
+	}
+
+    @Override
+	public IEObjectConsumer tryConsume() {
+		if(getEObject().eClass() != grammarAccess.getVariableValueAccess().getBVariableExpressionAction_0().getType().getClassifier())
+			return null;
+		if(checkForRecursion(VariableValue_Group.class, eObjectConsumer)) return null;
 		return eObjectConsumer;
 	}
 	
@@ -38852,12 +38851,12 @@ protected class OperationCall_RightParenthesisKeyword_4 extends KeywordToken  {
 /************ begin Rule ConstructorCallExpression ****************
  *
  * ConstructorCallExpression returns be::BExpression:
- * 	{be::BCreateExpression} "new" typeExpr=LiteralType ("(" parameterList=ParameterList? ")")? ("as" name=ID)?
+ * 	{be::BCreateExpression} "new" typeExpr=VariableValue ("(" parameterList=ParameterList? ")")? ("as" name=ID)?
  * 	contextBlock=InitializationBlockExpression?;
  *
  **/
 
-// {be::BCreateExpression} "new" typeExpr=LiteralType ("(" parameterList=ParameterList? ")")? ("as" name=ID)?
+// {be::BCreateExpression} "new" typeExpr=VariableValue ("(" parameterList=ParameterList? ")")? ("as" name=ID)?
 // contextBlock=InitializationBlockExpression?
 protected class ConstructorCallExpression_Group extends GroupToken {
 	
@@ -38938,7 +38937,7 @@ protected class ConstructorCallExpression_NewKeyword_1 extends KeywordToken  {
 
 }
 
-// typeExpr=LiteralType
+// typeExpr=VariableValue
 protected class ConstructorCallExpression_TypeExprAssignment_2 extends AssignmentToken  {
 	
 	public ConstructorCallExpression_TypeExprAssignment_2(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -38953,7 +38952,7 @@ protected class ConstructorCallExpression_TypeExprAssignment_2 extends Assignmen
     @Override
 	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
 		switch(index) {
-			case 0: return new LiteralType_Group(this, this, 0, inst);
+			case 0: return new VariableValue_Group(this, this, 0, inst);
 			default: return null;
 		}	
 	}
@@ -38964,9 +38963,9 @@ protected class ConstructorCallExpression_TypeExprAssignment_2 extends Assignmen
 		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("typeExpr");
 		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
 			IEObjectConsumer param = createEObjectConsumer((EObject)value);
-			if(param.isInstanceOf(grammarAccess.getLiteralTypeRule().getType().getClassifier())) {
+			if(param.isInstanceOf(grammarAccess.getVariableValueRule().getType().getClassifier())) {
 				type = AssignmentType.PARSER_RULE_CALL;
-				element = grammarAccess.getConstructorCallExpressionAccess().getTypeExprLiteralTypeParserRuleCall_2_0(); 
+				element = grammarAccess.getConstructorCallExpressionAccess().getTypeExprVariableValueParserRuleCall_2_0(); 
 				consumed = obj;
 				return param;
 			}
@@ -53731,6 +53730,7 @@ protected class GroupedBuilderPrimaryExpression_RightParenthesisKeyword_2 extend
 
 /************ begin Rule Literal ****************
  *
+ * //	| LiteralType
  * Literal returns be::BExpression:
  * 	ValueLiteral | PatternLiteral | LiteralMap | LiteralList | LiteralFunction;
  *
@@ -56801,120 +56801,11 @@ protected class KeyLiteral_ValueAssignment_1 extends AssignmentToken  {
 /************ end Rule KeyLiteral ****************/
 
 
-/************ begin Rule LiteralType ****************
- *
- * LiteralType returns be::BLiteralType:
- * 	{be::BLiteralType} type=TypeRef;
- *
- **/
-
-// {be::BLiteralType} type=TypeRef
-protected class LiteralType_Group extends GroupToken {
-	
-	public LiteralType_Group(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
-		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
-	}
-	
-	@Override
-	public Group getGrammarElement() {
-		return grammarAccess.getLiteralTypeAccess().getGroup();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
-		switch(index) {
-			case 0: return new LiteralType_TypeAssignment_1(lastRuleCallOrigin, this, 0, inst);
-			default: return null;
-		}	
-	}
-
-    @Override
-	public IEObjectConsumer tryConsume() {
-		if(getEObject().eClass() != grammarAccess.getLiteralTypeAccess().getBLiteralTypeAction_0().getType().getClassifier())
-			return null;
-		return eObjectConsumer;
-	}
-
-}
-
-// {be::BLiteralType}
-protected class LiteralType_BLiteralTypeAction_0 extends ActionToken  {
-
-	public LiteralType_BLiteralTypeAction_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
-		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
-	}
-	
-	@Override
-	public Action getGrammarElement() {
-		return grammarAccess.getLiteralTypeAccess().getBLiteralTypeAction_0();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
-		switch(index) {
-			default: return lastRuleCallOrigin.createFollowerAfterReturn(this, index, index, inst);
-		}	
-	}
-
-    @Override
-	public IEObjectConsumer tryConsume() {
-		if(!eObjectConsumer.isConsumed()) return null;
-		return eObjectConsumer;
-	}
-}
-
-// type=TypeRef
-protected class LiteralType_TypeAssignment_1 extends AssignmentToken  {
-	
-	public LiteralType_TypeAssignment_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
-		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
-	}
-	
-	@Override
-	public Assignment getGrammarElement() {
-		return grammarAccess.getLiteralTypeAccess().getTypeAssignment_1();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
-		switch(index) {
-			case 0: return new TypeRef_Alternatives(this, this, 0, inst);
-			default: return null;
-		}	
-	}
-
-    @Override	
-	public IEObjectConsumer tryConsume() {
-		if((value = eObjectConsumer.getConsumable("type",true)) == null) return null;
-		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("type");
-		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
-			IEObjectConsumer param = createEObjectConsumer((EObject)value);
-			if(param.isInstanceOf(grammarAccess.getTypeRefRule().getType().getClassifier())) {
-				type = AssignmentType.PARSER_RULE_CALL;
-				element = grammarAccess.getLiteralTypeAccess().getTypeTypeRefParserRuleCall_1_0(); 
-				consumed = obj;
-				return param;
-			}
-		}
-		return null;
-	}
-
-    @Override
-	public AbstractToken createFollowerAfterReturn(AbstractToken next,	int actIndex, int index, IEObjectConsumer inst) {
-		if(value == inst.getEObject() && !inst.isConsumed()) return null;
-		switch(index) {
-			case 0: return new LiteralType_BLiteralTypeAction_0(lastRuleCallOrigin, next, actIndex, consumed);
-			default: return null;
-		}	
-	}	
-}
-
-
-/************ end Rule LiteralType ****************/
-
-
 /************ begin Rule ValueLiteral ****************
  *
+ * //LiteralType returns be::BLiteralType : {be::BLiteralType} 
+ * //	type=TypeRef 
+ * //	;
  * ValueLiteral returns be::BExpression:
  * 	BooleanLiteral //	| QueryLiteral
  * 	| // SEE ISSUE 297089 - must be placed before IntegerLiteral

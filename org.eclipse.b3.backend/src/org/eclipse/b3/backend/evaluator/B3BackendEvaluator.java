@@ -1279,6 +1279,9 @@ public class B3BackendEvaluator extends DeclarativeB3Evaluator {
 	 */
 	protected BExecutionContext callPrepare(IFunction f, Object[] params, Type[] types, BExecutionContext octx)
 			throws Throwable {
+		// TODO: attempt to replace the static call to functionUtils results in a bogus B3FunctionType being
+		// returned !!! See https://bugs.eclipse.org/bugs/show_bug.cgi?id=328193
+		//
 		B3FunctionType functionSignature = functionUtils.getInferredSignature(f);
 
 		Type[] functionParameterTypes = functionSignature.getParameterTypesArray();
@@ -1304,7 +1307,7 @@ public class B3BackendEvaluator extends DeclarativeB3Evaluator {
 				// check type compatibility
 				Object o = params[i];
 				Type t = o instanceof BFunction
-						? FunctionUtils.getSignature((BFunction) o)
+						? typer.doGetInferredType(o)
 						: o.getClass();
 
 				if(!(TypeUtils.isAssignableFrom(functionParameterTypes[i], t)))
@@ -1332,7 +1335,7 @@ public class B3BackendEvaluator extends DeclarativeB3Evaluator {
 				Object o = params[limit];
 				if(o != null) {
 					Type t = o instanceof BFunction
-							? FunctionUtils.getSignature((BFunction) o)
+							? typer.doGetInferredType(o)
 							: o.getClass();
 					if(!TypeUtils.isAssignableFrom(functionParameterTypes[limit], t))
 						throw new B3IncompatibleTypeException(
@@ -1353,7 +1356,8 @@ public class B3BackendEvaluator extends DeclarativeB3Evaluator {
 				for(int i = limit; i < params.length; i++) {
 					Object o = params[i];
 					Type t = o instanceof BFunction
-							? FunctionUtils.getSignature((BFunction) o)
+							? typer.doGetInferredType(o)
+							// ? FunctionUtils.getSignature((BFunction) o)
 							: o.getClass();
 
 					if(!TypeUtils.isAssignableFrom(varargsType, t))

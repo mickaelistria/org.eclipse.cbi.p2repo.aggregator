@@ -644,7 +644,8 @@ TypeRef returns be::IType
 UnitTypeRef returns be::IType : {be::B3ParameterizedType} 
 	rawType=[be::B3JavaImport | ID] 
 	;
-	
+
+// TODO: too simplistic - does not allow List<Map<String, List<String>>>	
 SimpleTypeRef returns be::IType : {be::B3ParameterizedType} 
 	rawType=[be::B3JavaImport | ID] 
 		('<' actualArgumentsList+=[be::B3JavaImport | ID] (',' actualArgumentsList+=[be::B3JavaImport | ID])* '>' )?
@@ -694,7 +695,7 @@ RelationalExpression returns be::BExpression :
 	;
 
 InstanceOfExpression returns be::BExpression :
-	AdditiveExpression ({be::BBinaryOpExpression.leftExpr =current} functionName="instanceof" rightExpr=LiteralType)*
+	AdditiveExpression ({be::BBinaryOpExpression.leftExpr =current} functionName="instanceof" rightExpr=VariableValue)*
 	;
 
 // DEPRECATED - bitwise operators available as system functions (still available in backend if someone wants to
@@ -753,8 +754,8 @@ CallExpression returns be::BExpression :
 PrimaryExpression returns be::BExpression
 	: FeatureCall
 	| ConstructorCallExpression
-	| VariableValue
 	| Literal
+	| VariableValue
 	| Template
 	| PropertyValue
 	| ParanthesizedExpression
@@ -853,7 +854,7 @@ OperationCall returns be::BCallExpression : {be::BCallNamedFunction}
 	;
 
 ConstructorCallExpression returns be::BExpression : {be::BCreateExpression} 
-	"new" typeExpr=LiteralType 
+	"new" typeExpr = VariableValue 
 	('(' (parameterList=ParameterList)? ')')?
 	("as" name=ID)? 
 	(contextBlock = InitializationBlockExpression)?
@@ -1119,6 +1120,7 @@ Literal returns be::BExpression
 	| LiteralMap
 	| LiteralList
 	| LiteralFunction
+//	| LiteralType
 	;
 PatternLiteral returns be::BPatternLiteralExpression 
 	: RegexpLiteral
@@ -1169,9 +1171,9 @@ KeyLiteral returns be::BExpression : {be::BLiteralExpression}
 	value = (ID|PID|STRING) 
 	;
 
-LiteralType returns be::BLiteralType : {be::BLiteralType} 
-	type=TypeRef 
-	;
+//LiteralType returns be::BLiteralType : {be::BLiteralType} 
+//	type=TypeRef 
+//	;
 
 ValueLiteral returns be::BExpression 
 	: BooleanLiteral 

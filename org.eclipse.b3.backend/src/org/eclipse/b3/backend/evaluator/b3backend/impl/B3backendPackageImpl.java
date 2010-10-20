@@ -4561,7 +4561,7 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 			bCreateExpressionEClass, BCreateExpression.class, "BCreateExpression", !IS_ABSTRACT, !IS_INTERFACE,
 			IS_GENERATED_INSTANCE_CLASS);
 		initEReference(
-			getBCreateExpression_TypeExpr(), this.getBLiteralType(), null, "typeExpr", null, 0, 1,
+			getBCreateExpression_TypeExpr(), this.getBExpression(), null, "typeExpr", null, 0, 1,
 			BCreateExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
 			!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(

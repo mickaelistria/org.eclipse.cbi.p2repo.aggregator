@@ -154,7 +154,12 @@ public class DeclarativeVarScopeProvider {
 		result.add(new EObjectDescription(varEngine.getName(), varEngine, null));
 		if(result.size() < 1)
 			return null;
-		return createScope(null, result);
+
+		for(EObject t : r.getContents())
+			if(t instanceof B3JavaImport)
+				result.add(new EObjectDescription(((B3JavaImport) t).getName(), t, null));
+
+		return new SimpleScope(result);
 	}
 
 	IScope varScope(B3Function container, EObject contained) {

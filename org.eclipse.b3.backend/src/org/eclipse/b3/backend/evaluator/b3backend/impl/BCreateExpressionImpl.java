@@ -11,10 +11,11 @@ package org.eclipse.b3.backend.evaluator.b3backend.impl;
 
 import java.lang.reflect.Type;
 
+import org.eclipse.b3.backend.evaluator.b3backend.B3MetaClass;
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage;
 import org.eclipse.b3.backend.evaluator.b3backend.BCreateExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
-import org.eclipse.b3.backend.evaluator.b3backend.BLiteralType;
+import org.eclipse.b3.backend.evaluator.b3backend.BVariableExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.INamedValue;
 import org.eclipse.b3.backend.evaluator.b3backend.ITypedValue;
 import org.eclipse.emf.common.notify.Notification;
@@ -82,7 +83,7 @@ public class BCreateExpressionImpl extends BParameterizedExpressionImpl implemen
 	 * @generated
 	 * @ordered
 	 */
-	protected BLiteralType typeExpr;
+	protected BExpression typeExpr;
 
 	/**
 	 * The cached value of the '{@link #getContextBlock() <em>Context Block</em>}' containment reference.
@@ -152,8 +153,8 @@ public class BCreateExpressionImpl extends BParameterizedExpressionImpl implemen
 	 * 
 	 * @generated
 	 */
-	public NotificationChain basicSetTypeExpr(BLiteralType newTypeExpr, NotificationChain msgs) {
-		BLiteralType oldTypeExpr = typeExpr;
+	public NotificationChain basicSetTypeExpr(BExpression newTypeExpr, NotificationChain msgs) {
+		BExpression oldTypeExpr = typeExpr;
 		typeExpr = newTypeExpr;
 		if(eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(
@@ -299,7 +300,7 @@ public class BCreateExpressionImpl extends BParameterizedExpressionImpl implemen
 				setType((Type) newValue);
 				return;
 			case B3backendPackage.BCREATE_EXPRESSION__TYPE_EXPR:
-				setTypeExpr((BLiteralType) newValue);
+				setTypeExpr((BExpression) newValue);
 				return;
 			case B3backendPackage.BCREATE_EXPRESSION__CONTEXT_BLOCK:
 				setContextBlock((BExpression) newValue);
@@ -324,7 +325,7 @@ public class BCreateExpressionImpl extends BParameterizedExpressionImpl implemen
 				setType((Type) null);
 				return;
 			case B3backendPackage.BCREATE_EXPRESSION__TYPE_EXPR:
-				setTypeExpr((BLiteralType) null);
+				setTypeExpr((BExpression) null);
 				return;
 			case B3backendPackage.BCREATE_EXPRESSION__CONTEXT_BLOCK:
 				setContextBlock((BExpression) null);
@@ -360,8 +361,12 @@ public class BCreateExpressionImpl extends BParameterizedExpressionImpl implemen
 	 * @generated NOT
 	 */
 	public Type getType() {
-		if(typeExpr != null)
-			return typeExpr.getType();
+		if(typeExpr != null && typeExpr instanceof BVariableExpression) {
+			INamedValue named = ((BVariableExpression) typeExpr).getNamedValue();
+			if(named != null && named instanceof B3MetaClass) {
+				return ((B3MetaClass) named).getInstanceClass();
+			}
+		}
 		return null;
 	}
 
@@ -371,7 +376,7 @@ public class BCreateExpressionImpl extends BParameterizedExpressionImpl implemen
 	 * 
 	 * @generated
 	 */
-	public BLiteralType getTypeExpr() {
+	public BExpression getTypeExpr() {
 		return typeExpr;
 	}
 
@@ -430,7 +435,7 @@ public class BCreateExpressionImpl extends BParameterizedExpressionImpl implemen
 	 * 
 	 * @generated
 	 */
-	public void setTypeExpr(BLiteralType newTypeExpr) {
+	public void setTypeExpr(BExpression newTypeExpr) {
 		if(newTypeExpr != typeExpr) {
 			NotificationChain msgs = null;
 			if(typeExpr != null)

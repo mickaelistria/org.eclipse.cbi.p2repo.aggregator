@@ -4797,34 +4797,6 @@ finally {
 
 
 
-// Entry rule entryRuleLiteralType
-entryRuleLiteralType 
-:
-{ before(grammarAccess.getLiteralTypeRule()); }
-	 ruleLiteralType
-{ after(grammarAccess.getLiteralTypeRule()); } 
-	 EOF 
-;
-
-// Rule LiteralType
-ruleLiteralType 
-    @init {
-		int stackSize = keepStackSize();
-    }
-    :
-(
-{ before(grammarAccess.getLiteralTypeAccess().getGroup()); }
-(rule__LiteralType__Group__0)
-{ after(grammarAccess.getLiteralTypeAccess().getGroup()); }
-)
-
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-
-
 // Entry rule entryRuleValueLiteral
 entryRuleValueLiteral 
 :
@@ -7453,15 +7425,15 @@ rule__PrimaryExpression__Alternatives
 )
 
     |(
-{ before(grammarAccess.getPrimaryExpressionAccess().getVariableValueParserRuleCall_2()); }
-	ruleVariableValue
-{ after(grammarAccess.getPrimaryExpressionAccess().getVariableValueParserRuleCall_2()); }
+{ before(grammarAccess.getPrimaryExpressionAccess().getLiteralParserRuleCall_2()); }
+	ruleLiteral
+{ after(grammarAccess.getPrimaryExpressionAccess().getLiteralParserRuleCall_2()); }
 )
 
     |(
-{ before(grammarAccess.getPrimaryExpressionAccess().getLiteralParserRuleCall_3()); }
-	ruleLiteral
-{ after(grammarAccess.getPrimaryExpressionAccess().getLiteralParserRuleCall_3()); }
+{ before(grammarAccess.getPrimaryExpressionAccess().getVariableValueParserRuleCall_3()); }
+	ruleVariableValue
+{ after(grammarAccess.getPrimaryExpressionAccess().getVariableValueParserRuleCall_3()); }
 )
 
     |(
@@ -55066,69 +55038,6 @@ finally {
 
 
 
-rule__LiteralType__Group__0
-    @init {
-		int stackSize = keepStackSize();
-    }
-:
-	rule__LiteralType__Group__0__Impl
-	rule__LiteralType__Group__1
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-rule__LiteralType__Group__0__Impl
-    @init {
-		int stackSize = keepStackSize();
-    }
-:
-(
-{ before(grammarAccess.getLiteralTypeAccess().getBLiteralTypeAction_0()); }
-(
-
-)
-{ after(grammarAccess.getLiteralTypeAccess().getBLiteralTypeAction_0()); }
-)
-
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-
-rule__LiteralType__Group__1
-    @init {
-		int stackSize = keepStackSize();
-    }
-:
-	rule__LiteralType__Group__1__Impl
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-rule__LiteralType__Group__1__Impl
-    @init {
-		int stackSize = keepStackSize();
-    }
-:
-(
-{ before(grammarAccess.getLiteralTypeAccess().getTypeAssignment_1()); }
-(rule__LiteralType__TypeAssignment_1)
-{ after(grammarAccess.getLiteralTypeAccess().getTypeAssignment_1()); }
-)
-
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-
-
-
-
-
 rule__BooleanLiteral__Group__0
     @init {
 		int stackSize = keepStackSize();
@@ -63235,8 +63144,8 @@ rule__InstanceOfExpression__RightExprAssignment_1_2
     }
 :
 (
-{ before(grammarAccess.getInstanceOfExpressionAccess().getRightExprLiteralTypeParserRuleCall_1_2_0()); }
-	ruleLiteralType{ after(grammarAccess.getInstanceOfExpressionAccess().getRightExprLiteralTypeParserRuleCall_1_2_0()); }
+{ before(grammarAccess.getInstanceOfExpressionAccess().getRightExprVariableValueParserRuleCall_1_2_0()); }
+	ruleVariableValue{ after(grammarAccess.getInstanceOfExpressionAccess().getRightExprVariableValueParserRuleCall_1_2_0()); }
 )
 
 ;
@@ -64041,8 +63950,8 @@ rule__ConstructorCallExpression__TypeExprAssignment_2
     }
 :
 (
-{ before(grammarAccess.getConstructorCallExpressionAccess().getTypeExprLiteralTypeParserRuleCall_2_0()); }
-	ruleLiteralType{ after(grammarAccess.getConstructorCallExpressionAccess().getTypeExprLiteralTypeParserRuleCall_2_0()); }
+{ before(grammarAccess.getConstructorCallExpressionAccess().getTypeExprVariableValueParserRuleCall_2_0()); }
+	ruleVariableValue{ after(grammarAccess.getConstructorCallExpressionAccess().getTypeExprVariableValueParserRuleCall_2_0()); }
 )
 
 ;
@@ -66129,21 +66038,6 @@ rule__KeyLiteral__ValueAssignment_1
 { before(grammarAccess.getKeyLiteralAccess().getValueAlternatives_1_0()); }
 (rule__KeyLiteral__ValueAlternatives_1_0)
 { after(grammarAccess.getKeyLiteralAccess().getValueAlternatives_1_0()); }
-)
-
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-rule__LiteralType__TypeAssignment_1
-    @init {
-		int stackSize = keepStackSize();
-    }
-:
-(
-{ before(grammarAccess.getLiteralTypeAccess().getTypeTypeRefParserRuleCall_1_0()); }
-	ruleTypeRef{ after(grammarAccess.getLiteralTypeAccess().getTypeTypeRefParserRuleCall_1_0()); }
 )
 
 ;

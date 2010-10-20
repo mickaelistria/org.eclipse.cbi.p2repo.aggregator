@@ -7,6 +7,8 @@ import java.util.IdentityHashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.google.inject.internal.Lists;
+
 /**
  * This is work in progress...
  * 
@@ -106,6 +108,7 @@ public class TypeDistance {
 		OBJECT_SET.add(Object.class);
 	}
 
+	// TODO: fix bug https://bugs.eclipse.org/bugs/show_bug.cgi?id=328187
 	public Type getMostSpecificCommonType(Type[] types) {
 		return computeCommonClass(types);
 		// return mostSpecific(r);
@@ -178,30 +181,16 @@ public class TypeDistance {
 
 	}
 
-	// private ClassSet computeCommonClasses(Type[] types) {
-	// // collect nodes for which commonality should be computed
-	// List<TreeNode> nodesToCompute = new ArrayList<TreeNode>();
-	// // The class of each type must have been encoded
-	// for(Type t : types)
-	// nodesToCompute.add(nodeOfClass(TypeUtils.getRaw(t)));
-	//
-	// // if cache is gone - recompute it
-	// if(classList == null)
-	// eulerize();
-	// //
-	// // TODO: SHOULD NOT RETURN A SET - DO NOT PERFORM UNIT - SIMPLY ITERATE WITH
-	// // RESULT & NEXT
-	// //
-	// Class<?> r = nodesToCompute.get(0).clazz;
-	// int limit = nodesToCompute.size();
-	// for(int i = 1; i < limit; i++) {
-	// r = computeCommonClasses(r, nodesToCompute.get(i).clazz);
-	// if(r == Object.class)
-	// return Object.class;
-	// }
-	// return r;
-	// }
-	private Class<?> computeCommonClass(Type[] types) {
+	private Class<?> computeCommonClass(Type[] intypes) {
+		// Clean the list from NullType - has no effect on outcome unless all types are nulltype
+		// in which case the product is Object.class
+		//
+
+		List<Type> typeList = Lists.newArrayList();
+		for(int i = 0; i < intypes.length; i++)
+			if(!(intypes[i] instanceof NullType))
+				typeList.add(intypes[i]);
+		Type[] types = typeList.toArray(new Type[typeList.size()]);
 		// protect against degenerate case - occurs while editing
 		if(types.length == 0)
 			return Object.class;

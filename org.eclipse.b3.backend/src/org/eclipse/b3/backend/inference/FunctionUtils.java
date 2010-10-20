@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2006-2009, Cloudsmith Inc.
+ * Copyright (c) 2009-2010, Cloudsmith Inc.
  * The code, documentation and other materials contained herein have been
  * licensed under the Eclipse Public License - v 1.0 by the copyright holder
  * listed above, as the Initial Contributor under such license. The text of
@@ -49,15 +49,23 @@ public class FunctionUtils {
 	@Inject
 	private static Injector injector;
 
+	/**
+	 * @deprecated use injector to get ITypeProvider and get B3FunctionType and get parameter types from there
+	 * @param o
+	 * @return
+	 */
+	@Deprecated
 	public static Type[] getParameterTypes(IFunction o) {
 		B3FunctionType t = getSignature(o);
 		return t.getParameterTypesArray();
 	}
 
-	// TODO: Temporary "getSignature" while moving functionality
-	// Later, user inference to determine return type, and also use
-	// inference to calculate parameter types (for lambdas where this is possible).
-	//
+	/**
+	 * TODO: Temporary static "getSignature" while moving functionality
+	 * 
+	 * @deprecated use injector to get ITypeProvider instead
+	 */
+	@Deprecated
 	public static B3FunctionType getSignature(IFunction o) {
 		if(injector == null)
 			throw new IllegalStateException("FunctionUtils must be have instance initialized statically!!");
@@ -244,7 +252,8 @@ public class FunctionUtils {
 	public IFunction selectStaticFunction(String name, List<IFunction> candidates, Type[] types)
 			throws B3NoSuchFunctionException, B3NoSuchFunctionSignatureException, B3AmbiguousFunctionSignatureException {
 		if(types.length < 1)
-			throw new IllegalArgumentException("Types array can not have 0 size.");
+			throw new B3NoSuchFunctionSignatureException(name, types);
+		// throw new IllegalArgumentException("Types array can not have 0 size.");
 		B3MetaClass metaClass = B3backendFactory.eINSTANCE.createB3MetaClass();
 		metaClass.setInstanceClass(TypeUtils.getRaw(types[0]));
 		Type[] newTypes = new Type[types.length + 1];
@@ -254,38 +263,4 @@ public class FunctionUtils {
 		return selectInstanceFunction(name, candidates, newTypes);
 	}
 
-	// /**
-	// * Returns the names of the parameters. Can reserve the 0 position in the array for use by the caller
-	// * after the call completes. Exception is thrown if parameter types is not declared or can not be inferred.
-	// * All parameters are examined, and each exception is recorded in the thrown multi-exception.
-	// *
-	// * @param expr
-	// * @param reserveFirst
-	// * @return
-	// * @throws InferenceExceptions
-	// */
-	// private String[] asNameArray(BParameterizedExpression expr, boolean reserveFirst) throws InferenceExceptions {
-	// EList<BParameter> pList = expr.getParameterList().getParameters();
-	// int i = reserveFirst
-	// ? 1
-	// : 0;
-	// String[] names = new String[pList.size() + i];
-	// ArrayList<InferenceException> exceptions = new ArrayList<InferenceException>();
-	// for(BParameter p : pList) {
-	// names[i] = null; // p.getName();
-	// if(names[i] == null)
-	// try {
-	// throw new InferenceException(
-	// "The name of the parameter is not known or inferable.", p, B3backendPackage.BPARAMETER__EXPR);
-	// }
-	// catch(InferenceException e) {
-	// exceptions.add(e);
-	// }
-	// i++;
-	// }
-	// if(exceptions.size() > 0)
-	// throw new InferenceExceptions(exceptions);
-	// return names;
-	//
-	// }
 }

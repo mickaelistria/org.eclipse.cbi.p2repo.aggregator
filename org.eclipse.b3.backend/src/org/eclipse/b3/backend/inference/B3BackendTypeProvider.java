@@ -81,6 +81,7 @@ import org.eclipse.b3.backend.evaluator.b3backend.BWithContextExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BWithExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.IFunction;
 import org.eclipse.b3.backend.evaluator.b3backend.INamedValue;
+import org.eclipse.b3.backend.evaluator.typesystem.NullType;
 import org.eclipse.b3.backend.evaluator.typesystem.TypeUtils;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
@@ -552,11 +553,12 @@ public class B3BackendTypeProvider extends DeclarativeTypeProvider {
 	 * @return
 	 */
 	public Type type(BCreateExpression o) {
-		BExpression t = o.getTypeExpr();
-		if(!(t instanceof BLiteralType))
-			throw new IllegalArgumentException("Can only create literal type. Was: " + t.getClass().toString());
+		Type t = doGetInferredType(o.getTypeExpr());
+		if(!(t instanceof B3MetaClass))
+			return null;
+		// throw new IllegalArgumentException("Can only create literal type. Was: " + t.getClass().toString());
 		// note: use the type the type represents, not the type that describes it
-		return ((BLiteralType) t).getType();
+		return ((B3MetaClass) t).getInstanceClass();
 	}
 
 	public Type type(BDefProperty o) {
@@ -664,7 +666,7 @@ public class B3BackendTypeProvider extends DeclarativeTypeProvider {
 	public Type type(BLiteralExpression o) {
 		Object v = null;
 		return (v = o.getValue()) == null
-				? Object.class
+				? new NullType()
 				: v.getClass();
 	}
 
@@ -777,10 +779,12 @@ public class B3BackendTypeProvider extends DeclarativeTypeProvider {
 	 * @return the type of the type - not the represented type
 	 */
 	public Type type(BLiteralType o) {
-		Object v = null;
-		return (v = o.getType()) == null
-				? Object.class
-				: v.getClass();
+		Type v = null;
+		if((v = o.getType()) == null)
+			return Object.class;
+		B3MetaClass mc = B3backendFactory.eINSTANCE.createB3MetaClass();
+		mc.setInstanceClass(TypeUtils.getRaw(v));
+		return mc;
 	}
 
 	public Type type(BOrExpression o) {

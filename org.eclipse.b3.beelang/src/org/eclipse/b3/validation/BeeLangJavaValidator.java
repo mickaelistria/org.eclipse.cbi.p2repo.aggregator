@@ -14,17 +14,22 @@ import org.eclipse.b3.backend.core.exceptions.B3NoSuchFunctionSignatureException
 import org.eclipse.b3.backend.evaluator.B3ConstantEvaluator;
 import org.eclipse.b3.backend.evaluator.Pojo;
 import org.eclipse.b3.backend.evaluator.b3backend.B3JavaImport;
+import org.eclipse.b3.backend.evaluator.b3backend.B3MetaClass;
 import org.eclipse.b3.backend.evaluator.b3backend.B3ParameterizedType;
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage;
 import org.eclipse.b3.backend.evaluator.b3backend.BAssignmentExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BAtExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BCallFeature;
+import org.eclipse.b3.backend.evaluator.b3backend.BCallFunction;
+import org.eclipse.b3.backend.evaluator.b3backend.BCallNamedFunction;
 import org.eclipse.b3.backend.evaluator.b3backend.BCreateExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BDefValue;
 import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BFeatureExpression;
+import org.eclipse.b3.backend.evaluator.b3backend.BFunction;
 import org.eclipse.b3.backend.evaluator.b3backend.BFunctionConcernContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BIfExpression;
+import org.eclipse.b3.backend.evaluator.b3backend.BLiteralExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BLiteralListExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BLiteralMapExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BMapEntry;
@@ -109,18 +114,22 @@ public class BeeLangJavaValidator extends AbstractBeeLangJavaValidator implement
 			// it is worth continuing with additional errors as it may provide a clue
 			// to what is wrong.
 		}
+		BExpression rhs = expr.getRightExpr();
 		Type rhsType = typer.doGetInferredType(expr.getRightExpr());
+		boolean isNull = rhs instanceof BLiteralExpression && ((BLiteralExpression) rhs).getValue() == null;
 		String fName = expr.getFunctionName();
 		String lhsName = stringProvider.doToString(lhsType);
 		String rhsName = stringProvider.doToString(rhsType);
 		// straight assignment
 		if(fName == null || "".equals(fName) || "=:".contains(fName)) {
-			if(!(((tinfo.isEObject() && TypeUtils.isESettableFrom(lhsType, rhsType)) || TypeUtils.isAssignableFrom(
-				lhsType, rhsType)))) {
-				error(
-					"Type mismatch: Cannot convert from " + rhsName + " to " + lhsName, expr,
-					B3backendPackage.BASSIGNMENT_EXPRESSION__RIGHT_EXPR);
-				return;
+			if(!isNull) {
+				if(!(((tinfo.isEObject() && TypeUtils.isESettableFrom(lhsType, rhsType)) || TypeUtils.isAssignableFrom(
+					lhsType, rhsType)))) {
+					error(
+						"Type mismatch: Cannot convert from " + rhsName + " to " + lhsName, expr,
+						B3backendPackage.BASSIGNMENT_EXPRESSION__RIGHT_EXPR);
+					return;
+				}
 			}
 		}
 		else {
@@ -373,6 +382,45 @@ public class BeeLangJavaValidator extends AbstractBeeLangJavaValidator implement
 		}
 	}
 
+	@Check
+	public void checkFunctionCallCanBeMade(BCallNamedFunction o) {
+		FunctionUtils funcUtils = injector.getInstance(FunctionUtils.class);
+		// ITypeProvider typer = injector.getInstance(ITypeProvider.class);
+		String fName = o.getFuncRef() == null
+				? o.getName()
+				: o.getFuncRef().getName();
+
+		Type[] tparameters = null;
+		try {
+			tparameters = funcUtils.asTypeArray(o, false);
+		}
+		catch(InferenceExceptions e) {
+			// mark all erroneous parameters
+			for(InferenceException e2 : e.getExceptions())
+				error("The type of the parameter is not known or inferable.", e2.getSource(), e2.getFeature());
+			return; // not meaningful to continue
+		}
+
+		try {
+			List<IFunction> effective = funcUtils.findEffectiveFunctions(o, fName, tparameters.length > 0
+					? tparameters[0]
+					: null);
+			// used for side effect of exceptions
+			funcUtils.selectFunction(fName, effective, tparameters);
+		}
+		catch(B3NoSuchFunctionSignatureException e) {
+			error(
+				"No function matching used parameter types found.", o, B3backendPackage.BCALL_FUNCTION__PARAMETER_LIST);
+		}
+		catch(B3NoSuchFunctionException e) {
+			error("Function name not found.", o, B3backendPackage.BCALL_FUNCTION__NAME);
+		}
+		catch(B3AmbiguousFunctionSignatureException e) {
+			error("Used parameter types leads to ambiguous call", o, B3backendPackage.BCALL_FUNCTION__PARAMETER_LIST);
+		}
+
+	}
+
 	/**
 	 * Validate that the entered parameter pattern is compilable.
 	 * 
@@ -386,6 +434,33 @@ public class BeeLangJavaValidator extends AbstractBeeLangJavaValidator implement
 		catch(Throwable t) {
 			error(t.getMessage(), fcc, B3backendPackage.BFUNCTION_CONCERN_CONTEXT__PARAMETERS);
 		}
+	}
+
+	@Check
+	public void checkFunctionExpression(BCallFunction o) {
+		FunctionUtils funcUtils = injector.getInstance(FunctionUtils.class);
+		ITypeProvider typer = injector.getInstance(ITypeProvider.class);
+		Type lhsType = typer.doGetInferredType(o.getFuncExpr());
+		Type[] tparameters = null;
+		try {
+			tparameters = funcUtils.asTypeArray(o, false);
+		}
+		catch(InferenceExceptions e) {
+			// mark all erroneous parameters
+			for(InferenceException e2 : e.getExceptions())
+				error("The type of the parameter is not known or inferable.", e2.getSource(), e2.getFeature());
+			return; // not meaningful to continue
+		}
+
+		if(lhsType instanceof B3MetaClass) {
+			if(tparameters.length != 1)
+				error("Attempt to cast multiple instances", o, B3backendPackage.BCALL_FUNCTION__PARAMETER_LIST);
+		}
+		else if(!TypeUtils.isAssignableFrom(BFunction.class, lhsType))
+			error(
+				"Type mismatch: can not convert " + stringProvider.doToString(lhsType) + " to function or type", o,
+				B3backendPackage.BCALL_FUNCTION__FUNC_EXPR);
+
 	}
 
 	/**
@@ -571,7 +646,10 @@ public class BeeLangJavaValidator extends AbstractBeeLangJavaValidator implement
 		ITypeProvider typer = injector.getInstance(ITypeProvider.class);
 		Type lhsType = typer.doGetInferredType(expr);
 		Type rhsType = typer.doGetInferredType(expr.getValueExpr());
-		if(!TypeUtils.isAssignableFrom(lhsType, rhsType)) {
+		BExpression rhs = expr.getValueExpr();
+		boolean isNull = rhs instanceof BLiteralExpression && ((BLiteralExpression) rhs).getValue() == null;
+
+		if(!isNull && !TypeUtils.isAssignableFrom(lhsType, rhsType)) {
 			String lhsName = stringProvider.doToString(lhsType);
 			String rhsName = stringProvider.doToString(rhsType);
 			error(

@@ -202,7 +202,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="BLiteralAny" eSuperTypes="#//BPatternLiteralExpression"/>
   <eClassifiers xsi:type="ecore:EClass" name="BCreateExpression" eSuperTypes="#//BParameterizedExpression #//ITypedValue">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="typeExpr" eType="#//BLiteralType"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="typeExpr" eType="#//BExpression"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="contextBlock" eType="#//BExpression"
         containment="true"/>
