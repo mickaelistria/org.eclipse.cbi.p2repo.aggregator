@@ -12,6 +12,7 @@ import org.eclipse.b3.backend.core.exceptions.B3AmbiguousFunctionSignatureExcept
 import org.eclipse.b3.backend.core.exceptions.B3NoSuchFunctionException;
 import org.eclipse.b3.backend.core.exceptions.B3NoSuchFunctionSignatureException;
 import org.eclipse.b3.backend.evaluator.B3ConstantEvaluator;
+import org.eclipse.b3.backend.evaluator.B3ConstantEvaluator.ConstantEvaluationResult;
 import org.eclipse.b3.backend.evaluator.Pojo;
 import org.eclipse.b3.backend.evaluator.b3backend.B3JavaImport;
 import org.eclipse.b3.backend.evaluator.b3backend.B3MetaClass;
@@ -37,6 +38,7 @@ import org.eclipse.b3.backend.evaluator.b3backend.BParameterDeclaration;
 import org.eclipse.b3.backend.evaluator.b3backend.BProceedExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BWithExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.IFunction;
+import org.eclipse.b3.backend.evaluator.b3backend.impl.BBinaryOpExpressionImpl;
 import org.eclipse.b3.backend.evaluator.typesystem.TypeUtils;
 import org.eclipse.b3.backend.inference.FunctionUtils;
 import org.eclipse.b3.backend.inference.ITypeInfo;
@@ -720,5 +722,18 @@ public class BeeLangJavaValidator extends AbstractBeeLangJavaValidator implement
 			error(
 				"Can not override implied unit parameter for builder declared in a unit.",
 				builder.getExplicitUnitType(), B3BuildPackage.UNIT_PARAMETER_DECLARATION__NAME);
+	}
+
+	@Check
+	void checkDivByZero(BBinaryOpExpressionImpl o) {
+		if(!o.getFunctionName().equals("/"))
+			return;
+		B3ConstantEvaluator constEval = injector.getInstance(B3ConstantEvaluator.class);
+		ConstantEvaluationResult result = constEval.doEvalConstant(o.getRightExpr());
+		if(!result.isConstant())
+			return;
+		Object value = result.getResult();
+		if(value instanceof Number && ((Number) value).longValue() == 0)
+			error("Division by 0", o, B3backendPackage.BBINARY_OP_EXPRESSION__RIGHT_EXPR);
 	}
 }
