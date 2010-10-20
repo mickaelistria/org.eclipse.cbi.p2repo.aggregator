@@ -214,6 +214,24 @@ public class BeeLangJavaValidator extends AbstractBeeLangJavaValidator implement
 		}
 		for(BuildUnit u : offenders)
 			error("Duplicate unit name/version", u, B3BuildPackage.BUILD_UNIT);
+
+		// check for unique signatures of functions
+		HashMultimap<String, IFunction> fmap = Multimaps.newHashMultimap();
+		Set<IFunction> funcOffenders = Sets.newIdentityHashSet(ReferenceType.STRONG);
+		for(IFunction f : beeModel.getFunctions()) {
+			if(f.getName() == null)
+				continue; // handled elsewhere
+			for(IFunction f2 : fmap.get(f.getName())) {
+				if(TypeUtils.hasEqualSignature(f, f2)) {
+					funcOffenders.add(f);
+					funcOffenders.add(f2);
+				}
+			}
+			fmap.put(f.getName(), f);
+		}
+		for(IFunction f : funcOffenders)
+			error("Duplicate function signature", f, B3backendPackage.B3_FUNCTION__NAME);
+
 	}
 
 	/**
