@@ -30,6 +30,7 @@ function Object testFinalVar() {
 	z = try
 	{ var x = 20; // this redeclaration is not allowed
 	  assertTrue("Should not be reached", false);
+	  x; // need type to be correct
 	} catch Exception e: 0 endtry;
 	assertEquals("exception should have been caught for redeclaring final x", 0, z);
 }
