@@ -6,9 +6,13 @@ function Object main(List argv) {
 	testInstanceOf();
 	testRelationalFunctions();
 	testRegexp();
+	testRegexpNotMatch();
 	testRegexpList();
+	testRegexpListNotMatch();
 	testSimplePattern();
+	testSimplePatternNotMatch();
 	testSimplePatternList();
+	testSimplePatternListNotMatch();
 }
 function Object testInstanceOf() {
 	assertTrue("1 instanceof Number", 1 instanceof Number);
@@ -51,18 +55,39 @@ function Object testRegexp() {
 	assertTrue("'abc' ~= ~/.*/", "abc" ~= ~/.*/);
 	assertTrue("~/.*/ ~= 'abc'" , ~/.*/  ~= "abc" );
 }
+
+function Object testRegexpNotMatch() {
+	assertFalse("'abc' !~ ~/.*/", "abc" !~ ~/.*/);
+	assertFalse("~/.*/ !~ 'abc'" , ~/.*/  !~ "abc" );
+}
+
 function Object testRegexpList() {
 	assertTrue("['abc'] ~= [~/.*/]", ["abc"] ~= [~/.*/]);
 	assertTrue("[~/.*/] ~= ['abc']" , [~/.*/]  ~= ["abc"] );
-	
 }
+
+function Object testRegexpListNotMatch() {
+	assertFalse("['abc'] !~ [~/.*/]", ["abc"] !~ [~/.*/]);
+	assertFalse("[~/.*/] !~ ['abc']" , [~/.*/]  !~ ["abc"] );
+}
+
 function Object testSimplePattern() {
-	assertTrue("'abc123' ~= 'abc*'", "abc123" ~= "abc*");
-	assertTrue("'abc123' ~= 'abc?23'", "abc123" ~= "abc?23");
-	assertTrue("'abc123' ~= 'a*3'", "abc123" ~= "a*3");
+	assertTrue("'abc123' ~= ~'abc*'", "abc123" ~= ~"abc*");
+	assertTrue("'abc123' ~= ~'abc?23'", "abc123" ~= ~"abc?23");
+	assertTrue("'abc123' ~= ~'a*3'", "abc123" ~= ~"a*3");
+}
+function Object testSimplePatternNotMatch() {
+	assertFalse("'abc123' !~ ~'abc*'", "abc123" !~ ~"abc*");
+	assertFalse("'abc123' !~ ~'abc?23'", "abc123" !~ ~"abc?23");
+	assertFalse("'abc123' !~ ~'a*3'", "abc123" !~ ~"a*3");
 }
 function Object testSimplePatternList() {
-	assertTrue("['abc123'] ~= ['abc*']", ["abc123"] ~= ["abc*"]);
-	assertTrue("['abc123'] ~= ['abc?23']", ["abc123"] ~= ["abc?23"]);
-	assertTrue("['abc123'] ~= ['a*3']", ["abc123"] ~= ["a*3"]);
+	assertTrue("['abc123'] ~= [~'abc*']", ["abc123"] ~= [~"abc*"]);
+	assertTrue("['abc123'] ~= [~'abc?23']", ["abc123"] ~= [~"abc?23"]);
+	assertTrue("['abc123'] ~= [~'a*3']", ["abc123"] ~= [~"a*3"]);
+}
+function Object testSimplePatternListNotMatch() {
+	assertFalse("['abc123'] ~= [~'abc*']", ["abc123"] !~ [~"abc*"]);
+	assertFalse("['abc123'] ~= [~'abc?23']", ["abc123"] !~ [~"abc?23"]);
+	assertFalse("['abc123'] ~= [~'a*3']", ["abc123"] !~ [~"a*3"]);
 }
