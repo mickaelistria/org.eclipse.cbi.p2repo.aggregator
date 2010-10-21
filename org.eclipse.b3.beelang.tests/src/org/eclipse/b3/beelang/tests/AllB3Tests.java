@@ -12,6 +12,7 @@ import org.junit.runner.RunWith;
 		"/src-b3/testAssigmentFunctions.b3", //
 		"/src-b3/testBitwiseFunctions.b3", //
 		"/src-b3/testBuildUnitSyntax.b3", //
+		"/src-b3/testByteArray.b3", //
 		"/src-b3/testCache.b3", //
 		"/src-b3/testExceptions.b3", //
 		"/src-b3/testFunctionCrossCuts.b3", //
