@@ -16,245 +16,249 @@ import org.eclipse.xtext.ui.editor.contentassist.antlr.internal.Lexer;
 
 
 
-KEYWORD_145 : '@postinputcondition';
+KEYWORD_147 : '@postinputcondition';
 
-KEYWORD_143 : 'default-properties';
+KEYWORD_145 : 'default-properties';
 
-KEYWORD_144 : 'postinputcondition';
+KEYWORD_146 : 'postinputcondition';
 
-KEYWORD_141 : 'having-parameters';
+KEYWORD_143 : 'having-parameters';
 
-KEYWORD_142 : 'on-merge-conflict';
+KEYWORD_144 : 'on-merge-conflict';
 
-KEYWORD_140 : 'checkout-content';
+KEYWORD_142 : 'checkout-content';
 
-KEYWORD_134 : 'builder-context';
+KEYWORD_136 : 'builder-context';
 
-KEYWORD_135 : 'modify-selected';
+KEYWORD_137 : 'modify-selected';
 
-KEYWORD_136 : 'platform-filter';
+KEYWORD_138 : 'platform-filter';
 
-KEYWORD_137 : 'replace-content';
+KEYWORD_139 : 'replace-content';
 
-KEYWORD_138 : 'select-builders';
+KEYWORD_140 : 'select-builders';
 
-KEYWORD_139 : 'select-required';
+KEYWORD_141 : 'select-required';
 
-KEYWORD_131 : '@postcondition';
+KEYWORD_133 : '@postcondition';
 
-KEYWORD_132 : 'called-builder';
+KEYWORD_134 : 'called-builder';
 
-KEYWORD_133 : 'update-content';
+KEYWORD_135 : 'update-content';
 
-KEYWORD_127 : '@precondition';
+KEYWORD_129 : '@precondition';
 
-KEYWORD_128 : 'fragment-host';
+KEYWORD_130 : 'fragment-host';
 
-KEYWORD_129 : 'postcondition';
+KEYWORD_131 : 'postcondition';
 
-KEYWORD_130 : 'select-switch';
+KEYWORD_132 : 'select-switch';
 
-KEYWORD_120 : 'accept-dirty';
+KEYWORD_122 : 'accept-dirty';
 
-KEYWORD_121 : 'precondition';
+KEYWORD_123 : 'precondition';
 
-KEYWORD_122 : 'requires-max';
+KEYWORD_124 : 'requires-max';
 
-KEYWORD_123 : 'requires-min';
+KEYWORD_125 : 'requires-min';
 
-KEYWORD_124 : 'select-first';
+KEYWORD_126 : 'select-first';
 
-KEYWORD_125 : 'select-units';
+KEYWORD_127 : 'select-units';
 
-KEYWORD_126 : 'unit-context';
+KEYWORD_128 : 'unit-context';
 
-KEYWORD_118 : 'annotations';
+KEYWORD_120 : 'annotations';
 
-KEYWORD_119 : 'select-best';
+KEYWORD_121 : 'select-best';
 
-KEYWORD_109 : 'capability';
+KEYWORD_111 : 'capability';
 
-KEYWORD_110 : 'conditions';
+KEYWORD_112 : 'conditions';
 
-KEYWORD_111 : 'connection';
+KEYWORD_113 : 'connection';
 
-KEYWORD_112 : 'instanceof';
+KEYWORD_114 : 'instanceof';
 
-KEYWORD_113 : 'name-space';
+KEYWORD_115 : 'name-space';
 
-KEYWORD_114 : 'properties';
+KEYWORD_116 : 'properties';
 
-KEYWORD_115 : 'repository';
+KEYWORD_117 : 'repository';
 
-KEYWORD_116 : 'resolution';
+KEYWORD_118 : 'resolution';
 
-KEYWORD_117 : 'sequential';
+KEYWORD_119 : 'sequential';
 
-KEYWORD_105 : 'container';
+KEYWORD_107 : 'container';
 
-KEYWORD_106 : 'endswitch';
+KEYWORD_108 : 'endswitch';
 
-KEYWORD_107 : 'load-from';
+KEYWORD_109 : 'load-from';
 
-KEYWORD_108 : 'timestamp';
+KEYWORD_110 : 'timestamp';
 
-KEYWORD_98 : 'branches';
+KEYWORD_100 : 'branches';
 
-KEYWORD_99 : 'function';
+KEYWORD_101 : 'function';
 
-KEYWORD_100 : 'parallel';
+KEYWORD_102 : 'parallel';
 
-KEYWORD_101 : 'provides';
+KEYWORD_103 : 'provides';
 
-KEYWORD_102 : 'reexport';
+KEYWORD_104 : 'reexport';
 
-KEYWORD_103 : 'requires';
+KEYWORD_105 : 'requires';
 
-KEYWORD_104 : 'revision';
+KEYWORD_106 : 'revision';
 
-KEYWORD_86 : 'builder';
+KEYWORD_88 : 'builder';
 
-KEYWORD_87 : 'concern';
+KEYWORD_89 : 'concern';
 
-KEYWORD_88 : 'context';
+KEYWORD_90 : 'context';
 
-KEYWORD_89 : 'default';
+KEYWORD_91 : 'default';
 
-KEYWORD_90 : 'exclude';
+KEYWORD_92 : 'exclude';
 
-KEYWORD_91 : 'extends';
+KEYWORD_93 : 'extends';
 
-KEYWORD_92 : 'finally';
+KEYWORD_94 : 'finally';
 
-KEYWORD_93 : 'include';
+KEYWORD_95 : 'include';
 
-KEYWORD_94 : 'mutable';
+KEYWORD_96 : 'mutable';
 
-KEYWORD_95 : 'private';
+KEYWORD_97 : 'private';
 
-KEYWORD_96 : 'proceed';
+KEYWORD_98 : 'proceed';
 
-KEYWORD_97 : 'version';
+KEYWORD_99 : 'version';
 
-KEYWORD_73 : 'branch';
+KEYWORD_75 : 'branch';
 
-KEYWORD_74 : 'cached';
+KEYWORD_76 : 'cached';
 
-KEYWORD_75 : 'elseif';
+KEYWORD_77 : 'elseif';
 
-KEYWORD_76 : 'endtry';
+KEYWORD_78 : 'endtry';
 
-KEYWORD_77 : 'greedy';
+KEYWORD_79 : 'greedy';
 
-KEYWORD_78 : 'latest';
+KEYWORD_80 : 'latest';
 
-KEYWORD_79 : 'modify';
+KEYWORD_81 : 'modify';
 
-KEYWORD_80 : 'output';
+KEYWORD_82 : 'output';
 
-KEYWORD_81 : 'policy';
+KEYWORD_83 : 'policy';
 
-KEYWORD_82 : 'public';
+KEYWORD_84 : 'public';
 
-KEYWORD_83 : 'result';
+KEYWORD_85 : 'result';
 
-KEYWORD_84 : 'source';
+KEYWORD_86 : 'source';
 
-KEYWORD_85 : 'switch';
+KEYWORD_87 : 'switch';
 
-KEYWORD_66 : 'catch';
+KEYWORD_68 : 'catch';
 
-KEYWORD_67 : 'endif';
+KEYWORD_69 : 'endif';
 
-KEYWORD_68 : 'false';
+KEYWORD_70 : 'false';
 
-KEYWORD_69 : 'final';
+KEYWORD_71 : 'final';
 
-KEYWORD_70 : 'input';
+KEYWORD_72 : 'input';
 
-KEYWORD_71 : 'super';
+KEYWORD_73 : 'super';
 
-KEYWORD_72 : 'throw';
+KEYWORD_74 : 'throw';
 
-KEYWORD_56 : 'case';
+KEYWORD_58 : 'case';
 
-KEYWORD_57 : 'else';
+KEYWORD_59 : 'else';
 
-KEYWORD_58 : 'name';
+KEYWORD_60 : 'name';
 
-KEYWORD_59 : 'null';
+KEYWORD_61 : 'null';
 
-KEYWORD_60 : 'then';
+KEYWORD_62 : 'then';
 
-KEYWORD_61 : 'this';
+KEYWORD_63 : 'this';
 
-KEYWORD_62 : 'true';
+KEYWORD_64 : 'true';
 
-KEYWORD_63 : 'unit';
+KEYWORD_65 : 'unit';
 
-KEYWORD_64 : 'when';
+KEYWORD_66 : 'when';
 
-KEYWORD_65 : 'with';
+KEYWORD_67 : 'with';
 
-KEYWORD_46 : '!==';
+KEYWORD_47 : '!==';
 
-KEYWORD_47 : '...';
+KEYWORD_48 : '##[';
 
-KEYWORD_48 : '===';
+KEYWORD_49 : '...';
 
-KEYWORD_49 : 'env';
+KEYWORD_50 : '===';
 
-KEYWORD_50 : 'new';
+KEYWORD_51 : 'env';
 
-KEYWORD_51 : 'tag';
+KEYWORD_52 : 'new';
 
-KEYWORD_52 : 'try';
+KEYWORD_53 : 'tag';
 
-KEYWORD_53 : 'use';
+KEYWORD_54 : 'try';
 
-KEYWORD_54 : 'val';
+KEYWORD_55 : 'use';
 
-KEYWORD_55 : 'var';
+KEYWORD_56 : 'val';
+
+KEYWORD_57 : 'var';
 
 KEYWORD_26 : '!=';
 
 KEYWORD_27 : '!~';
 
-KEYWORD_28 : '%=';
+KEYWORD_28 : '#[';
 
-KEYWORD_29 : '&&';
+KEYWORD_29 : '%=';
 
-KEYWORD_30 : '*=';
+KEYWORD_30 : '&&';
 
-KEYWORD_31 : '++';
+KEYWORD_31 : '*=';
 
-KEYWORD_32 : '+=';
+KEYWORD_32 : '++';
 
-KEYWORD_33 : '--';
+KEYWORD_33 : '+=';
 
-KEYWORD_34 : '-=';
+KEYWORD_34 : '--';
 
-KEYWORD_35 : '..';
+KEYWORD_35 : '-=';
 
-KEYWORD_36 : '/=';
+KEYWORD_36 : '..';
 
-KEYWORD_37 : '<=';
+KEYWORD_37 : '/=';
 
-KEYWORD_38 : '==';
+KEYWORD_38 : '<=';
 
-KEYWORD_39 : '=>';
+KEYWORD_39 : '==';
 
-KEYWORD_40 : '>=';
+KEYWORD_40 : '=>';
 
-KEYWORD_41 : 'as';
+KEYWORD_41 : '>=';
 
-KEYWORD_42 : 'if';
+KEYWORD_42 : 'as';
 
-KEYWORD_43 : 'is';
+KEYWORD_43 : 'if';
 
-KEYWORD_44 : '||';
+KEYWORD_44 : 'is';
 
-KEYWORD_45 : '~=';
+KEYWORD_45 : '||';
+
+KEYWORD_46 : '~=';
 
 KEYWORD_1 : '!';
 

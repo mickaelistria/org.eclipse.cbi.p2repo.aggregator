@@ -157,6 +157,9 @@ public class BeeLangParser extends AbstractContentAssistParser {
 					put(grammarAccess.getAlfanumSymAccess().getAlternatives_1_1(), "rule__AlfanumSym__Alternatives_1_1");
 					put(grammarAccess.getDOCUMENTATIONAccess().getAlternatives(), "rule__DOCUMENTATION__Alternatives");
 					put(grammarAccess.getTemplateAccess().getAlternatives(), "rule__Template__Alternatives");
+					put(grammarAccess.getByteArrayLiteralAccess().getAlternatives(), "rule__ByteArrayLiteral__Alternatives");
+					put(grammarAccess.getBYTEARRAY16Access().getAlternatives(), "rule__BYTEARRAY16__Alternatives");
+					put(grammarAccess.getBYTEARRAY64Access().getAlternatives(), "rule__BYTEARRAY64__Alternatives");
 					put(grammarAccess.getREALAccess().getAlternatives_2(), "rule__REAL__Alternatives_2");
 					put(grammarAccess.getBranchPointTypeOtherAccess().getAlternatives(), "rule__BranchPointTypeOther__Alternatives");
 					put(grammarAccess.getVisibilityAccess().getAlternatives(), "rule__Visibility__Alternatives");
@@ -587,6 +590,8 @@ public class BeeLangParser extends AbstractContentAssistParser {
 					put(grammarAccess.getTextStartLiteralAccess().getGroup(), "rule__TextStartLiteral__Group__0");
 					put(grammarAccess.getTextMidLiteralAccess().getGroup(), "rule__TextMidLiteral__Group__0");
 					put(grammarAccess.getTextEndLiteralAccess().getGroup(), "rule__TextEndLiteral__Group__0");
+					put(grammarAccess.getByteArrayLiteral16Access().getGroup(), "rule__ByteArrayLiteral16__Group__0");
+					put(grammarAccess.getByteArrayLiteral64Access().getGroup(), "rule__ByteArrayLiteral64__Group__0");
 					put(grammarAccess.getREALAccess().getGroup(), "rule__REAL__Group__0");
 					put(grammarAccess.getBeeModelAccess().getImportsAssignment_1(), "rule__BeeModel__ImportsAssignment_1");
 					put(grammarAccess.getBeeModelAccess().getFunctionsAssignment_2_0(), "rule__BeeModel__FunctionsAssignment_2_0");
@@ -1080,6 +1085,9 @@ public class BeeLangParser extends AbstractContentAssistParser {
 					put(grammarAccess.getTextStartLiteralAccess().getValueAssignment_1(), "rule__TextStartLiteral__ValueAssignment_1");
 					put(grammarAccess.getTextMidLiteralAccess().getValueAssignment_1(), "rule__TextMidLiteral__ValueAssignment_1");
 					put(grammarAccess.getTextEndLiteralAccess().getValueAssignment_1(), "rule__TextEndLiteral__ValueAssignment_1");
+					put(grammarAccess.getByteArrayLiteral16Access().getValueAssignment_2(), "rule__ByteArrayLiteral16__ValueAssignment_2");
+					put(grammarAccess.getByteArrayLiteral64Access().getBase64Assignment_1(), "rule__ByteArrayLiteral64__Base64Assignment_1");
+					put(grammarAccess.getByteArrayLiteral64Access().getValueAssignment_2(), "rule__ByteArrayLiteral64__ValueAssignment_2");
 					put(grammarAccess.getProvidedCapabilityAccess().getUnorderedGroup_2_1(), "rule__ProvidedCapability__UnorderedGroup_2_1");
 					put(grammarAccess.getAliasedRequiredCapabilityAccess().getUnorderedGroup_2_1(), "rule__AliasedRequiredCapability__UnorderedGroup_2_1");
 					put(grammarAccess.getRequiredCapabilityAccess().getUnorderedGroup_2_1(), "rule__RequiredCapability__UnorderedGroup_2_1");

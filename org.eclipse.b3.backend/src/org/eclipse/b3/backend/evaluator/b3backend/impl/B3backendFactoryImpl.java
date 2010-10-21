@@ -587,6 +587,8 @@ public class B3backendFactoryImpl extends EFactoryImpl implements B3backendFacto
 				return createBTemplate();
 			case B3backendPackage.BECHO_EXPRESSION:
 				return createBEchoExpression();
+			case B3backendPackage.BLITERAL_BYTE_ARRAY_EXPRESSION:
+				return createBLiteralByteArrayExpression();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -1076,6 +1078,17 @@ public class B3backendFactoryImpl extends EFactoryImpl implements B3backendFacto
 	public BLiteralAny createBLiteralAny() {
 		BLiteralAnyImpl bLiteralAny = new BLiteralAnyImpl();
 		return bLiteralAny;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public BLiteralByteArrayExpression createBLiteralByteArrayExpression() {
+		BLiteralByteArrayExpressionImpl bLiteralByteArrayExpression = new BLiteralByteArrayExpressionImpl();
+		return bLiteralByteArrayExpression;
 	}
 
 	/**

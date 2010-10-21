@@ -11649,6 +11649,7 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cNullLiteralParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
 		private final RuleCall cStringLiteralParserRuleCall_4 = (RuleCall)cAlternatives.eContents().get(4);
 		private final RuleCall cUnitLiteralParserRuleCall_5 = (RuleCall)cAlternatives.eContents().get(5);
+		private final RuleCall cByteArrayLiteralParserRuleCall_6 = (RuleCall)cAlternatives.eContents().get(6);
 		
 		////LiteralType returns be::BLiteralType : {be::BLiteralType} 
 		////	type=TypeRef 
@@ -11656,12 +11657,12 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		//ValueLiteral returns be::BExpression:
 		//	BooleanLiteral //	| QueryLiteral
 		//	| // SEE ISSUE 297089 - must be placed before IntegerLiteral
-		//	RealLiteral | IntegerLiteral | NullLiteral | StringLiteral | UnitLiteral;
+		//	RealLiteral | IntegerLiteral | NullLiteral | StringLiteral | UnitLiteral | ByteArrayLiteral;
 		public ParserRule getRule() { return rule; }
 
 		//BooleanLiteral //	| QueryLiteral
 		//| // SEE ISSUE 297089 - must be placed before IntegerLiteral
-		//RealLiteral | IntegerLiteral | NullLiteral | StringLiteral | UnitLiteral
+		//RealLiteral | IntegerLiteral | NullLiteral | StringLiteral | UnitLiteral | ByteArrayLiteral
 		public Alternatives getAlternatives() { return cAlternatives; }
 
 		//BooleanLiteral
@@ -11682,6 +11683,9 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 
 		//UnitLiteral
 		public RuleCall getUnitLiteralParserRuleCall_5() { return cUnitLiteralParserRuleCall_5; }
+
+		//ByteArrayLiteral
+		public RuleCall getByteArrayLiteralParserRuleCall_6() { return cByteArrayLiteralParserRuleCall_6; }
 	}
 
 	public class BooleanLiteralElements extends AbstractParserRuleElementFinder {
@@ -12647,6 +12651,186 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		public RuleCall getValueTEXTENDTerminalRuleCall_1_0() { return cValueTEXTENDTerminalRuleCall_1_0; }
 	}
 
+	public class ByteArrayLiteralElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "ByteArrayLiteral");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final RuleCall cByteArrayLiteral16ParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cByteArrayLiteral64ParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		
+		//ByteArrayLiteral returns be::BLiteralByteArrayExpression:
+		//	ByteArrayLiteral16 | ByteArrayLiteral64;
+		public ParserRule getRule() { return rule; }
+
+		//ByteArrayLiteral16 | ByteArrayLiteral64
+		public Alternatives getAlternatives() { return cAlternatives; }
+
+		//ByteArrayLiteral16
+		public RuleCall getByteArrayLiteral16ParserRuleCall_0() { return cByteArrayLiteral16ParserRuleCall_0; }
+
+		//ByteArrayLiteral64
+		public RuleCall getByteArrayLiteral64ParserRuleCall_1() { return cByteArrayLiteral64ParserRuleCall_1; }
+	}
+
+	public class ByteArrayLiteral16Elements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "ByteArrayLiteral16");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cBLiteralByteArrayExpressionAction_0 = (Action)cGroup.eContents().get(0);
+		private final Keyword cNumberSignLeftSquareBracketKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cValueAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cValueBYTEARRAY16ParserRuleCall_2_0 = (RuleCall)cValueAssignment_2.eContents().get(0);
+		private final Keyword cRightSquareBracketKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		
+		//ByteArrayLiteral16 returns be::BLiteralByteArrayExpression:
+		//	{be::BLiteralByteArrayExpression} "#[" value=BYTEARRAY16 "]";
+		public ParserRule getRule() { return rule; }
+
+		//{be::BLiteralByteArrayExpression} "#[" value=BYTEARRAY16 "]"
+		public Group getGroup() { return cGroup; }
+
+		//{be::BLiteralByteArrayExpression}
+		public Action getBLiteralByteArrayExpressionAction_0() { return cBLiteralByteArrayExpressionAction_0; }
+
+		//"#["
+		public Keyword getNumberSignLeftSquareBracketKeyword_1() { return cNumberSignLeftSquareBracketKeyword_1; }
+
+		//value=BYTEARRAY16
+		public Assignment getValueAssignment_2() { return cValueAssignment_2; }
+
+		//BYTEARRAY16
+		public RuleCall getValueBYTEARRAY16ParserRuleCall_2_0() { return cValueBYTEARRAY16ParserRuleCall_2_0; }
+
+		//"]"
+		public Keyword getRightSquareBracketKeyword_3() { return cRightSquareBracketKeyword_3; }
+	}
+
+	public class ByteArrayLiteral64Elements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "ByteArrayLiteral64");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cBLiteralByteArrayExpressionAction_0 = (Action)cGroup.eContents().get(0);
+		private final Assignment cBase64Assignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final Keyword cBase64NumberSignNumberSignLeftSquareBracketKeyword_1_0 = (Keyword)cBase64Assignment_1.eContents().get(0);
+		private final Assignment cValueAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cValueBYTEARRAY64ParserRuleCall_2_0 = (RuleCall)cValueAssignment_2.eContents().get(0);
+		private final Keyword cRightSquareBracketKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		
+		//ByteArrayLiteral64 returns be::BLiteralByteArrayExpression:
+		//	{be::BLiteralByteArrayExpression} base64?="##[" value=BYTEARRAY64 "]";
+		public ParserRule getRule() { return rule; }
+
+		//{be::BLiteralByteArrayExpression} base64?="##[" value=BYTEARRAY64 "]"
+		public Group getGroup() { return cGroup; }
+
+		//{be::BLiteralByteArrayExpression}
+		public Action getBLiteralByteArrayExpressionAction_0() { return cBLiteralByteArrayExpressionAction_0; }
+
+		//base64?="##["
+		public Assignment getBase64Assignment_1() { return cBase64Assignment_1; }
+
+		//"##["
+		public Keyword getBase64NumberSignNumberSignLeftSquareBracketKeyword_1_0() { return cBase64NumberSignNumberSignLeftSquareBracketKeyword_1_0; }
+
+		//value=BYTEARRAY64
+		public Assignment getValueAssignment_2() { return cValueAssignment_2; }
+
+		//BYTEARRAY64
+		public RuleCall getValueBYTEARRAY64ParserRuleCall_2_0() { return cValueBYTEARRAY64ParserRuleCall_2_0; }
+
+		//"]"
+		public Keyword getRightSquareBracketKeyword_3() { return cRightSquareBracketKeyword_3; }
+	}
+
+	public class BYTEARRAY16Elements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "BYTEARRAY16");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final RuleCall cIDTerminalRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cINTTerminalRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		private final RuleCall cHEXTerminalRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
+		private final RuleCall cEXT_INTTerminalRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
+		private final Keyword cPlusSignKeyword_4 = (Keyword)cAlternatives.eContents().get(4);
+		private final Keyword cSolidusKeyword_5 = (Keyword)cAlternatives.eContents().get(5);
+		private final Keyword cEqualsSignKeyword_6 = (Keyword)cAlternatives.eContents().get(6);
+		private final Keyword cHyphenMinusKeyword_7 = (Keyword)cAlternatives.eContents().get(7);
+		
+		//// Allows more than what can be encoded since parser otherwise gets confused and things there are
+		//// binary operations inside the array (with faulty data to the left/right of this expression).
+		//// The characacters '+' and '/' are used in Base64 encoding, and some Base64 schemes use '-' and '='
+		//// as well. 
+		//BYTEARRAY16 returns ecore::EByteArray:
+		//	(ID | INT | HEX | EXT_INT | "+" | "/" | "=" | "-")*;
+		public ParserRule getRule() { return rule; }
+
+		//(ID | INT | HEX | EXT_INT | "+" | "/" | "=" | "-")*
+		public Alternatives getAlternatives() { return cAlternatives; }
+
+		//ID
+		public RuleCall getIDTerminalRuleCall_0() { return cIDTerminalRuleCall_0; }
+
+		//INT
+		public RuleCall getINTTerminalRuleCall_1() { return cINTTerminalRuleCall_1; }
+
+		//HEX
+		public RuleCall getHEXTerminalRuleCall_2() { return cHEXTerminalRuleCall_2; }
+
+		//EXT_INT
+		public RuleCall getEXT_INTTerminalRuleCall_3() { return cEXT_INTTerminalRuleCall_3; }
+
+		//"+"
+		public Keyword getPlusSignKeyword_4() { return cPlusSignKeyword_4; }
+
+		//"/"
+		public Keyword getSolidusKeyword_5() { return cSolidusKeyword_5; }
+
+		//"="
+		public Keyword getEqualsSignKeyword_6() { return cEqualsSignKeyword_6; }
+
+		//"-"
+		public Keyword getHyphenMinusKeyword_7() { return cHyphenMinusKeyword_7; }
+	}
+
+	public class BYTEARRAY64Elements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "BYTEARRAY64");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final RuleCall cIDTerminalRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cINTTerminalRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		private final RuleCall cHEXTerminalRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
+		private final RuleCall cEXT_INTTerminalRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
+		private final Keyword cPlusSignKeyword_4 = (Keyword)cAlternatives.eContents().get(4);
+		private final Keyword cSolidusKeyword_5 = (Keyword)cAlternatives.eContents().get(5);
+		private final Keyword cEqualsSignKeyword_6 = (Keyword)cAlternatives.eContents().get(6);
+		private final Keyword cHyphenMinusKeyword_7 = (Keyword)cAlternatives.eContents().get(7);
+		
+		//BYTEARRAY64 returns ecore::EByteArray:
+		//	(ID | INT | HEX | EXT_INT | "+" | "/" | "=" | "-")*;
+		public ParserRule getRule() { return rule; }
+
+		//(ID | INT | HEX | EXT_INT | "+" | "/" | "=" | "-")*
+		public Alternatives getAlternatives() { return cAlternatives; }
+
+		//ID
+		public RuleCall getIDTerminalRuleCall_0() { return cIDTerminalRuleCall_0; }
+
+		//INT
+		public RuleCall getINTTerminalRuleCall_1() { return cINTTerminalRuleCall_1; }
+
+		//HEX
+		public RuleCall getHEXTerminalRuleCall_2() { return cHEXTerminalRuleCall_2; }
+
+		//EXT_INT
+		public RuleCall getEXT_INTTerminalRuleCall_3() { return cEXT_INTTerminalRuleCall_3; }
+
+		//"+"
+		public Keyword getPlusSignKeyword_4() { return cPlusSignKeyword_4; }
+
+		//"/"
+		public Keyword getSolidusKeyword_5() { return cSolidusKeyword_5; }
+
+		//"="
+		public Keyword getEqualsSignKeyword_6() { return cEqualsSignKeyword_6; }
+
+		//"-"
+		public Keyword getHyphenMinusKeyword_7() { return cHyphenMinusKeyword_7; }
+	}
+
 	public class REALElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "REAL");
 		private final Group cGroup = (Group)rule.eContents().get(1);
@@ -13006,6 +13190,11 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 	private TextStartLiteralElements pTextStartLiteral;
 	private TextMidLiteralElements pTextMidLiteral;
 	private TextEndLiteralElements pTextEndLiteral;
+	private ByteArrayLiteralElements pByteArrayLiteral;
+	private ByteArrayLiteral16Elements pByteArrayLiteral16;
+	private ByteArrayLiteral64Elements pByteArrayLiteral64;
+	private BYTEARRAY16Elements pBYTEARRAY16;
+	private BYTEARRAY64Elements pBYTEARRAY64;
 	private TerminalRule tTEXT;
 	private TerminalRule tTEXTSTART;
 	private TerminalRule tTEXTEND;
@@ -14976,7 +15165,7 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 	//ValueLiteral returns be::BExpression:
 	//	BooleanLiteral //	| QueryLiteral
 	//	| // SEE ISSUE 297089 - must be placed before IntegerLiteral
-	//	RealLiteral | IntegerLiteral | NullLiteral | StringLiteral | UnitLiteral;
+	//	RealLiteral | IntegerLiteral | NullLiteral | StringLiteral | UnitLiteral | ByteArrayLiteral;
 	public ValueLiteralElements getValueLiteralAccess() {
 		return (pValueLiteral != null) ? pValueLiteral : (pValueLiteral = new ValueLiteralElements());
 	}
@@ -15380,6 +15569,60 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getTextEndLiteralRule() {
 		return getTextEndLiteralAccess().getRule();
+	}
+
+	//ByteArrayLiteral returns be::BLiteralByteArrayExpression:
+	//	ByteArrayLiteral16 | ByteArrayLiteral64;
+	public ByteArrayLiteralElements getByteArrayLiteralAccess() {
+		return (pByteArrayLiteral != null) ? pByteArrayLiteral : (pByteArrayLiteral = new ByteArrayLiteralElements());
+	}
+	
+	public ParserRule getByteArrayLiteralRule() {
+		return getByteArrayLiteralAccess().getRule();
+	}
+
+	//ByteArrayLiteral16 returns be::BLiteralByteArrayExpression:
+	//	{be::BLiteralByteArrayExpression} "#[" value=BYTEARRAY16 "]";
+	public ByteArrayLiteral16Elements getByteArrayLiteral16Access() {
+		return (pByteArrayLiteral16 != null) ? pByteArrayLiteral16 : (pByteArrayLiteral16 = new ByteArrayLiteral16Elements());
+	}
+	
+	public ParserRule getByteArrayLiteral16Rule() {
+		return getByteArrayLiteral16Access().getRule();
+	}
+
+	//ByteArrayLiteral64 returns be::BLiteralByteArrayExpression:
+	//	{be::BLiteralByteArrayExpression} base64?="##[" value=BYTEARRAY64 "]";
+	public ByteArrayLiteral64Elements getByteArrayLiteral64Access() {
+		return (pByteArrayLiteral64 != null) ? pByteArrayLiteral64 : (pByteArrayLiteral64 = new ByteArrayLiteral64Elements());
+	}
+	
+	public ParserRule getByteArrayLiteral64Rule() {
+		return getByteArrayLiteral64Access().getRule();
+	}
+
+	//// Allows more than what can be encoded since parser otherwise gets confused and things there are
+	//// binary operations inside the array (with faulty data to the left/right of this expression).
+	//// The characacters '+' and '/' are used in Base64 encoding, and some Base64 schemes use '-' and '='
+	//// as well. 
+	//BYTEARRAY16 returns ecore::EByteArray:
+	//	(ID | INT | HEX | EXT_INT | "+" | "/" | "=" | "-")*;
+	public BYTEARRAY16Elements getBYTEARRAY16Access() {
+		return (pBYTEARRAY16 != null) ? pBYTEARRAY16 : (pBYTEARRAY16 = new BYTEARRAY16Elements());
+	}
+	
+	public ParserRule getBYTEARRAY16Rule() {
+		return getBYTEARRAY16Access().getRule();
+	}
+
+	//BYTEARRAY64 returns ecore::EByteArray:
+	//	(ID | INT | HEX | EXT_INT | "+" | "/" | "=" | "-")*;
+	public BYTEARRAY64Elements getBYTEARRAY64Access() {
+		return (pBYTEARRAY64 != null) ? pBYTEARRAY64 : (pBYTEARRAY64 = new BYTEARRAY64Elements());
+	}
+	
+	public ParserRule getBYTEARRAY64Rule() {
+		return getBYTEARRAY64Access().getRule();
 	}
 
 	//terminal TEXT:

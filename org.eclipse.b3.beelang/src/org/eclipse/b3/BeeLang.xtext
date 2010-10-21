@@ -1183,6 +1183,7 @@ ValueLiteral returns be::BExpression
 	| StringLiteral
 //	| QueryLiteral
 	| UnitLiteral
+	| ByteArrayLiteral
 	;
 	
 BooleanLiteral returns  be::BExpression : {be::BLiteralExpression} 
@@ -1343,7 +1344,22 @@ TextMidLiteral returns  be::BExpression : {be::BLiteralExpression}
 TextEndLiteral returns  be::BExpression : {be::BLiteralExpression} 
 	value = TEXTEND
 	;
+
+ByteArrayLiteral returns be::BLiteralByteArrayExpression : ByteArrayLiteral16 | ByteArrayLiteral64 ;
+
+ByteArrayLiteral16 returns be::BLiteralByteArrayExpression : {be::BLiteralByteArrayExpression}
+	'#[' value = BYTEARRAY16 ']' ;
+
+ByteArrayLiteral64 returns be::BLiteralByteArrayExpression : {be::BLiteralByteArrayExpression}
+	base64 ?= '##[' value = BYTEARRAY64 ']' ;
 	
+// Allows more than what can be encoded since parser otherwise gets confused and things there are
+// binary operations inside the array (with faulty data to the left/right of this expression).
+// The characacters '+' and '/' are used in Base64 encoding, and some Base64 schemes use '-' and '='
+// as well. 
+BYTEARRAY16 returns ecore::EByteArray : (ID | INT | HEX | EXT_INT | '+' | '/' | '=' | '-')* ;
+BYTEARRAY64 returns ecore::EByteArray : (ID | INT | HEX | EXT_INT | '+' | '/' | '=' | '-')* ;
+
 terminal TEXT :      '«'     ( (("}" !'»')  | ("«" !'{')) | !('}'|"«"| "»"))* '»';
 terminal TEXTSTART : '«'     ( (("}" !'»')  | ("«" !'{')) | !('}'|"«"| "»"))* '«' '{';
 terminal TEXTEND :   '}' '»' ( (("}" !'»')  | ("«" !'{')) | !('}'|"«"| "»"))* '»';

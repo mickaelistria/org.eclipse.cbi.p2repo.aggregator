@@ -1,6 +1,7 @@
 package org.eclipse.b3.backend.functions;
 
 import java.lang.reflect.Type;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 import java.util.regex.Pattern;
@@ -176,6 +177,11 @@ public class RelationalFunctions {
 			return Boolean.TRUE;
 		return Boolean.FALSE;
 
+	}
+
+	@B3Backend(funcNames = { "==" })
+	public static Boolean equals(byte[] left, byte[] right) {
+		return Arrays.equals(left, right);
 	}
 
 	@B3Backend(funcNames = { "==" }, systemFunction = "_charSequenceEquals")

@@ -959,6 +959,23 @@ public class B3backendSwitch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>BLiteral Byte Array Expression</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * 
+	 * @param object
+	 *            the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>BLiteral Byte Array Expression</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseBLiteralByteArrayExpression(BLiteralByteArrayExpression object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>BLiteral Expression</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -2682,6 +2699,15 @@ public class B3backendSwitch<T> {
 				T result = caseBEchoExpression(bEchoExpression);
 				if(result == null)
 					result = caseBExpression(bEchoExpression);
+				if(result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
+			case B3backendPackage.BLITERAL_BYTE_ARRAY_EXPRESSION: {
+				BLiteralByteArrayExpression bLiteralByteArrayExpression = (BLiteralByteArrayExpression) theEObject;
+				T result = caseBLiteralByteArrayExpression(bLiteralByteArrayExpression);
+				if(result == null)
+					result = caseBExpression(bLiteralByteArrayExpression);
 				if(result == null)
 					result = defaultCase(theEObject);
 				return result;

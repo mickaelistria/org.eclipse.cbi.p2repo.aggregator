@@ -1476,6 +1476,36 @@ public interface B3backendPackage extends EPackage {
 		EReference BECHO_EXPRESSION__ECHO_EXPRESSION = eINSTANCE.getBEchoExpression_EchoExpression();
 
 		/**
+		 * The meta object literal for the '{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BLiteralByteArrayExpressionImpl
+		 * <em>BLiteral Byte Array Expression</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.BLiteralByteArrayExpressionImpl
+		 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getBLiteralByteArrayExpression()
+		 * @generated
+		 */
+		EClass BLITERAL_BYTE_ARRAY_EXPRESSION = eINSTANCE.getBLiteralByteArrayExpression();
+
+		/**
+		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EAttribute BLITERAL_BYTE_ARRAY_EXPRESSION__VALUE = eINSTANCE.getBLiteralByteArrayExpression_Value();
+
+		/**
+		 * The meta object literal for the '<em><b>Base64</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EAttribute BLITERAL_BYTE_ARRAY_EXPRESSION__BASE64 = eINSTANCE.getBLiteralByteArrayExpression_Base64();
+
+		/**
 		 * The meta object literal for the '{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BGuardImpl <em>BGuard</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -7755,6 +7785,48 @@ public interface B3backendPackage extends EPackage {
 	int BECHO_EXPRESSION_FEATURE_COUNT = BEXPRESSION_FEATURE_COUNT + 2;
 
 	/**
+	 * The meta object id for the '{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BLiteralByteArrayExpressionImpl
+	 * <em>BLiteral Byte Array Expression</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.BLiteralByteArrayExpressionImpl
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getBLiteralByteArrayExpression()
+	 * @generated
+	 */
+	int BLITERAL_BYTE_ARRAY_EXPRESSION = 92;
+
+	/**
+	 * The feature id for the '<em><b>Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int BLITERAL_BYTE_ARRAY_EXPRESSION__VALUE = BEXPRESSION_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Base64</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int BLITERAL_BYTE_ARRAY_EXPRESSION__BASE64 = BEXPRESSION_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>BLiteral Byte Array Expression</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int BLITERAL_BYTE_ARRAY_EXPRESSION_FEATURE_COUNT = BEXPRESSION_FEATURE_COUNT + 2;
+
+	/**
 	 * The meta object id for the '{@link org.eclipse.b3.backend.evaluator.b3backend.Visibility <em>Visibility</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -7763,7 +7835,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getVisibility()
 	 * @generated
 	 */
-	int VISIBILITY = 92;
+	int VISIBILITY = 93;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.backend.evaluator.b3backend.ExecutionMode <em>Execution Mode</em>}' enum.
@@ -7774,7 +7846,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getExecutionMode()
 	 * @generated
 	 */
-	int EXECUTION_MODE = 93;
+	int EXECUTION_MODE = 94;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.backend.evaluator.b3backend.BJavaCallType <em>BJava Call Type</em>}' enum.
@@ -7785,7 +7857,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getBJavaCallType()
 	 * @generated
 	 */
-	int BJAVA_CALL_TYPE = 94;
+	int BJAVA_CALL_TYPE = 95;
 
 	/**
 	 * The meta object id for the '<em>Core Exception</em>' data type.
@@ -7796,7 +7868,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getCoreException()
 	 * @generated
 	 */
-	int CORE_EXCEPTION = 95;
+	int CORE_EXCEPTION = 96;
 
 	/**
 	 * The meta object id for the '<em>Type</em>' data type.
@@ -7807,7 +7879,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getType()
 	 * @generated
 	 */
-	int TYPE = 96;
+	int TYPE = 97;
 
 	/**
 	 * The meta object id for the '<em>Object Array</em>' data type.
@@ -7817,7 +7889,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getObjectArray()
 	 * @generated
 	 */
-	int OBJECT_ARRAY = 97;
+	int OBJECT_ARRAY = 98;
 
 	/**
 	 * The meta object id for the '<em>Value Map</em>' data type.
@@ -7828,7 +7900,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getValueMap()
 	 * @generated
 	 */
-	int VALUE_MAP = 98;
+	int VALUE_MAP = 99;
 
 	/**
 	 * The meta object id for the '<em>B3 Engine Exception</em>' data type.
@@ -7839,7 +7911,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getB3EngineException()
 	 * @generated
 	 */
-	int B3_ENGINE_EXCEPTION = 99;
+	int B3_ENGINE_EXCEPTION = 100;
 
 	/**
 	 * The meta object id for the '<em>B3 Expression Cache</em>' data type.
@@ -7850,7 +7922,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getB3ExpressionCache()
 	 * @generated
 	 */
-	int B3_EXPRESSION_CACHE = 100;
+	int B3_EXPRESSION_CACHE = 101;
 
 	/**
 	 * The meta object id for the '<em>Throwable</em>' data type.
@@ -7861,7 +7933,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getThrowable()
 	 * @generated
 	 */
-	int THROWABLE = 101;
+	int THROWABLE = 102;
 
 	/**
 	 * The meta object id for the '<em>LValue</em>' data type.
@@ -7872,7 +7944,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getLValue()
 	 * @generated
 	 */
-	int LVALUE = 102;
+	int LVALUE = 103;
 
 	/**
 	 * The meta object id for the '<em>Type Array</em>' data type.
@@ -7882,7 +7954,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getTypeArray()
 	 * @generated
 	 */
-	int TYPE_ARRAY = 103;
+	int TYPE_ARRAY = 104;
 
 	/**
 	 * The meta object id for the '<em>Method</em>' data type.
@@ -7893,7 +7965,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getMethod()
 	 * @generated
 	 */
-	int METHOD = 104;
+	int METHOD = 105;
 
 	/**
 	 * The meta object id for the '<em>Type Variable Array</em>' data type.
@@ -7903,7 +7975,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getTypeVariableArray()
 	 * @generated
 	 */
-	int TYPE_VARIABLE_ARRAY = 105;
+	int TYPE_VARIABLE_ARRAY = 106;
 
 	/**
 	 * The meta object id for the '<em>Func Store</em>' data type.
@@ -7914,7 +7986,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getFuncStore()
 	 * @generated
 	 */
-	int FUNC_STORE = 106;
+	int FUNC_STORE = 107;
 
 	/**
 	 * The meta object id for the '<em>Regexp Pattern</em>' data type.
@@ -7925,7 +7997,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getRegexpPattern()
 	 * @generated
 	 */
-	int REGEXP_PATTERN = 107;
+	int REGEXP_PATTERN = 108;
 
 	/**
 	 * The meta object id for the '<em>String Array</em>' data type.
@@ -7935,7 +8007,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getStringArray()
 	 * @generated
 	 */
-	int STRING_ARRAY = 108;
+	int STRING_ARRAY = 109;
 
 	/**
 	 * The meta object id for the '<em>Java Iterator</em>' data type.
@@ -7946,7 +8018,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getJavaIterator()
 	 * @generated
 	 */
-	int JAVA_ITERATOR = 109;
+	int JAVA_ITERATOR = 110;
 
 	/**
 	 * The meta object id for the '<em>URI</em>' data type.
@@ -7957,7 +8029,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getURI()
 	 * @generated
 	 */
-	int URI = 110;
+	int URI = 111;
 
 	/**
 	 * The meta object id for the '<em>IProgress Monitor</em>' data type.
@@ -7968,7 +8040,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getIProgressMonitor()
 	 * @generated
 	 */
-	int IPROGRESS_MONITOR = 111;
+	int IPROGRESS_MONITOR = 112;
 
 	/**
 	 * The meta object id for the '<em>Simple Pattern</em>' data type.
@@ -7979,7 +8051,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getSimplePattern()
 	 * @generated
 	 */
-	int SIMPLE_PATTERN = 112;
+	int SIMPLE_PATTERN = 113;
 
 	/**
 	 * The meta object id for the '<em>Char Sequence</em>' data type.
@@ -7990,7 +8062,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getCharSequence()
 	 * @generated
 	 */
-	int CHAR_SEQUENCE = 113;
+	int CHAR_SEQUENCE = 114;
 
 	/**
 	 * The meta object id for the '<em>Injector</em>' data type.
@@ -8001,7 +8073,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getInjector()
 	 * @generated
 	 */
-	int INJECTOR = 114;
+	int INJECTOR = 115;
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -9574,6 +9646,44 @@ public interface B3backendPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getBLiteralAny();
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipse.b3.backend.evaluator.b3backend.BLiteralByteArrayExpression
+	 * <em>BLiteral Byte Array Expression</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for class '<em>BLiteral Byte Array Expression</em>'.
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.BLiteralByteArrayExpression
+	 * @generated
+	 */
+	EClass getBLiteralByteArrayExpression();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.b3.backend.evaluator.b3backend.BLiteralByteArrayExpression#isBase64
+	 * <em>Base64</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the attribute '<em>Base64</em>'.
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.BLiteralByteArrayExpression#isBase64()
+	 * @see #getBLiteralByteArrayExpression()
+	 * @generated
+	 */
+	EAttribute getBLiteralByteArrayExpression_Base64();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.b3.backend.evaluator.b3backend.BLiteralByteArrayExpression#getValue
+	 * <em>Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the attribute '<em>Value</em>'.
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.BLiteralByteArrayExpression#getValue()
+	 * @see #getBLiteralByteArrayExpression()
+	 * @generated
+	 */
+	EAttribute getBLiteralByteArrayExpression_Value();
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.b3.backend.evaluator.b3backend.BLiteralExpression <em>BLiteral Expression</em>}'.

@@ -79,6 +79,7 @@ import org.eclipse.b3.backend.evaluator.b3backend.BInnerContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BInvocationContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BJavaFunction;
 import org.eclipse.b3.backend.evaluator.b3backend.BLiteralAny;
+import org.eclipse.b3.backend.evaluator.b3backend.BLiteralByteArrayExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BLiteralExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BLiteralListExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BLiteralMapExpression;
@@ -846,6 +847,10 @@ public class B3BackendEvaluator extends DeclarativeB3Evaluator {
 
 	public Object evaluate(BLiteralAny o, BExecutionContext ctx) throws CoreException {
 		return Any.ANY;
+	}
+
+	public Object evaluate(BLiteralByteArrayExpression o, BExecutionContext ctx) throws Throwable {
+		return o.getValue();
 	}
 
 	public Object evaluate(BLiteralExpression o, BExecutionContext ctx) throws Throwable {

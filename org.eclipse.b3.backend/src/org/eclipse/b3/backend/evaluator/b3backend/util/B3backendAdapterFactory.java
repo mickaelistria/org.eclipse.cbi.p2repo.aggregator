@@ -374,6 +374,11 @@ public class B3backendAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
+		public Adapter caseBLiteralByteArrayExpression(BLiteralByteArrayExpression object) {
+			return createBLiteralByteArrayExpressionAdapter();
+		}
+
+		@Override
 		public Adapter caseBLiteralExpression(BLiteralExpression object) {
 			return createBLiteralExpressionAdapter();
 		}
@@ -1363,6 +1368,22 @@ public class B3backendAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createBLiteralAnyAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.backend.evaluator.b3backend.BLiteralByteArrayExpression
+	 * <em>BLiteral Byte Array Expression</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the new adapter.
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.BLiteralByteArrayExpression
+	 * @generated
+	 */
+	public Adapter createBLiteralByteArrayExpressionAdapter() {
 		return null;
 	}
 

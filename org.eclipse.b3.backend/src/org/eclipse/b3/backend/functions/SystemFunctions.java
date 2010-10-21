@@ -113,6 +113,23 @@ public class SystemFunctions {
 	}
 
 	@B3Backend(system = true)
+	public static Object _assertNotEquals(BExecutionContext ctx, Object[] params, Type[] types) throws Throwable {
+		String message = (String) params[0];
+		Object expected = params[1];
+		Object actual = params[2];
+
+		if(expected != actual)
+			return Boolean.TRUE;
+		if(expected == null || actual == null)
+			throw new B3AssertionFailedException(message, expected, actual);
+		IB3Evaluator evaluator = ctx.getInjector().getInstance(IB3Evaluator.class);
+		if(evaluator.callFunction(
+			"notEquals", new Object[] { params[1], params[2] }, new Type[] { types[1], types[2] }, ctx) != Boolean.TRUE)
+			throw new B3AssertionFailedException(message, expected, actual);
+		return Boolean.TRUE;
+	}
+
+	@B3Backend(system = true)
 	public static List<Object> _collect(BExecutionContext ctx, Object[] params, Type[] types) throws Throwable {
 		Curry cur = hurryCurry(params, types, "collect");
 
@@ -478,6 +495,12 @@ public class SystemFunctions {
 		if(!booleanExpr.equals(Boolean.FALSE))
 			throw new B3AssertionFailedException(message, Boolean.FALSE, booleanExpr);
 		return Boolean.TRUE;
+	}
+
+	@B3Backend(systemFunction = "_assertNotEquals")
+	public static Boolean assertNotEquals(@B3Backend(name = "message") String message,
+			@B3Backend(name = "expected") Object expected, @B3Backend(name = "actual") Object actual) throws Throwable {
+		return null;
 	}
 
 	public static Boolean assertNotNull(@B3Backend(name = "message") String message,

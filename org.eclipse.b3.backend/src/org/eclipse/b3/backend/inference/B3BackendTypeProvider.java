@@ -56,6 +56,7 @@ import org.eclipse.b3.backend.evaluator.b3backend.BFunctionConcernContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BFunctionWrapper;
 import org.eclipse.b3.backend.evaluator.b3backend.BIfExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BLiteralAny;
+import org.eclipse.b3.backend.evaluator.b3backend.BLiteralByteArrayExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BLiteralExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BLiteralListExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BLiteralMapExpression;
@@ -661,6 +662,10 @@ public class B3BackendTypeProvider extends DeclarativeTypeProvider {
 
 	public Type type(BLiteralAny o) {
 		return Any.class;
+	}
+
+	public Type type(BLiteralByteArrayExpression o) {
+		return byte[].class;
 	}
 
 	public Type type(BLiteralExpression o) {

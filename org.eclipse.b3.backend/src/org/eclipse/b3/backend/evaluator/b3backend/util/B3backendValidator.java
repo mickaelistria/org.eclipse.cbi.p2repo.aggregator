@@ -27,6 +27,7 @@ import org.eclipse.b3.backend.core.exceptions.B3EngineException;
 import org.eclipse.b3.backend.evaluator.B3ExpressionCache;
 import org.eclipse.b3.backend.evaluator.B3FuncStore;
 import org.eclipse.b3.backend.evaluator.ValueMap;
+import org.eclipse.b3.backend.evaluator.b3backend.*;
 import org.eclipse.b3.backend.evaluator.b3backend.B3FuncTypeVariable;
 import org.eclipse.b3.backend.evaluator.b3backend.B3Function;
 import org.eclipse.b3.backend.evaluator.b3backend.B3FunctionType;
@@ -127,6 +128,7 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.EObjectValidator;
 
 import com.google.inject.Injector;
+import java.lang.CharSequence;
 
 /**
  * <!-- begin-user-doc -->
@@ -773,6 +775,17 @@ public class B3backendValidator extends EObjectValidator {
 	 */
 	public boolean validateBLiteralAny(BLiteralAny bLiteralAny, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return validate_EveryDefaultConstraint(bLiteralAny, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public boolean validateBLiteralByteArrayExpression(BLiteralByteArrayExpression bLiteralByteArrayExpression,
+			DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(bLiteralByteArrayExpression, diagnostics, context);
 	}
 
 	/**
@@ -1696,6 +1709,8 @@ public class B3backendValidator extends EObjectValidator {
 				return validateBTemplate((BTemplate) value, diagnostics, context);
 			case B3backendPackage.BECHO_EXPRESSION:
 				return validateBEchoExpression((BEchoExpression) value, diagnostics, context);
+			case B3backendPackage.BLITERAL_BYTE_ARRAY_EXPRESSION:
+				return validateBLiteralByteArrayExpression((BLiteralByteArrayExpression) value, diagnostics, context);
 			case B3backendPackage.VISIBILITY:
 				return validateVisibility((Visibility) value, diagnostics, context);
 			case B3backendPackage.EXECUTION_MODE:

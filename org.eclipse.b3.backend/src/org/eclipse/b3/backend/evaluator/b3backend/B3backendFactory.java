@@ -451,6 +451,16 @@ public interface B3backendFactory extends EFactory {
 	BLiteralAny createBLiteralAny();
 
 	/**
+	 * Returns a new object of class '<em>BLiteral Byte Array Expression</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return a new object of class '<em>BLiteral Byte Array Expression</em>'.
+	 * @generated
+	 */
+	BLiteralByteArrayExpression createBLiteralByteArrayExpression();
+
+	/**
 	 * Returns a new object of class '<em>BLiteral Expression</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

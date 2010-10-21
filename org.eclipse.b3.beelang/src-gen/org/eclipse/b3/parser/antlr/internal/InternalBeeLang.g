@@ -21957,6 +21957,19 @@ ruleValueLiteral returns [EObject current=null]
         $current = $this_UnitLiteral_5.current; 
         currentNode = currentNode.getParent();
     }
+
+    |
+	{ 
+	  /* */ 
+	}
+    { 
+        currentNode=createCompositeNode(grammarAccess.getValueLiteralAccess().getByteArrayLiteralParserRuleCall_6(), currentNode); 
+    }
+    this_ByteArrayLiteral_6=ruleByteArrayLiteral
+    { 
+        $current = $this_ByteArrayLiteral_6.current; 
+        currentNode = currentNode.getParent();
+    }
 )
 ;
 
@@ -23880,6 +23893,373 @@ ruleTextEndLiteral returns [EObject current=null]
 )
 ))
 ;
+
+
+
+
+
+// Entry rule entryRuleByteArrayLiteral
+entryRuleByteArrayLiteral returns [EObject current=null] 
+	:
+	{ currentNode = createCompositeNode(grammarAccess.getByteArrayLiteralRule(), currentNode); }
+	 iv_ruleByteArrayLiteral=ruleByteArrayLiteral 
+	 { $current=$iv_ruleByteArrayLiteral.current; } 
+	 EOF 
+;
+
+// Rule ByteArrayLiteral
+ruleByteArrayLiteral returns [EObject current=null] 
+    @init { EObject temp=null; setCurrentLookahead(); resetLookahead(); 
+    }
+    @after { resetLookahead(); 
+    	lastConsumedNode = currentNode;
+    }:
+(
+	{ 
+	  /* */ 
+	}
+    { 
+        currentNode=createCompositeNode(grammarAccess.getByteArrayLiteralAccess().getByteArrayLiteral16ParserRuleCall_0(), currentNode); 
+    }
+    this_ByteArrayLiteral16_0=ruleByteArrayLiteral16
+    { 
+        $current = $this_ByteArrayLiteral16_0.current; 
+        currentNode = currentNode.getParent();
+    }
+
+    |
+	{ 
+	  /* */ 
+	}
+    { 
+        currentNode=createCompositeNode(grammarAccess.getByteArrayLiteralAccess().getByteArrayLiteral64ParserRuleCall_1(), currentNode); 
+    }
+    this_ByteArrayLiteral64_1=ruleByteArrayLiteral64
+    { 
+        $current = $this_ByteArrayLiteral64_1.current; 
+        currentNode = currentNode.getParent();
+    }
+)
+;
+
+
+
+
+
+// Entry rule entryRuleByteArrayLiteral16
+entryRuleByteArrayLiteral16 returns [EObject current=null] 
+	:
+	{ currentNode = createCompositeNode(grammarAccess.getByteArrayLiteral16Rule(), currentNode); }
+	 iv_ruleByteArrayLiteral16=ruleByteArrayLiteral16 
+	 { $current=$iv_ruleByteArrayLiteral16.current; } 
+	 EOF 
+;
+
+// Rule ByteArrayLiteral16
+ruleByteArrayLiteral16 returns [EObject current=null] 
+    @init { EObject temp=null; setCurrentLookahead(); resetLookahead(); 
+    }
+    @after { resetLookahead(); 
+    	lastConsumedNode = currentNode;
+    }:
+((
+	{ 
+	  /* */ 
+	}
+    { 
+        temp=factory.create(grammarAccess.getByteArrayLiteral16Access().getBLiteralByteArrayExpressionAction_0().getType().getClassifier());
+        $current = temp; 
+        temp = null;
+        CompositeNode newNode = createCompositeNode(grammarAccess.getByteArrayLiteral16Access().getBLiteralByteArrayExpressionAction_0(), currentNode.getParent());
+    newNode.getChildren().add(currentNode);
+    moveLookaheadInfo(currentNode, newNode);
+    currentNode = newNode; 
+        associateNodeWithAstElement(currentNode, $current); 
+    }
+)	'#[' 
+    {
+        createLeafNode(grammarAccess.getByteArrayLiteral16Access().getNumberSignLeftSquareBracketKeyword_1(), null); 
+    }
+(
+(
+		{ 
+	        currentNode=createCompositeNode(grammarAccess.getByteArrayLiteral16Access().getValueBYTEARRAY16ParserRuleCall_2_0(), currentNode); 
+	    }
+		lv_value_2_0=ruleBYTEARRAY16		{
+	        if ($current==null) {
+	            $current = factory.create(grammarAccess.getByteArrayLiteral16Rule().getType().getClassifier());
+	            associateNodeWithAstElement(currentNode.getParent(), $current);
+	        }
+	        try {
+	       		set(
+	       			$current, 
+	       			"value",
+	        		lv_value_2_0, 
+	        		"BYTEARRAY16", 
+	        		currentNode);
+	        } catch (ValueConverterException vce) {
+				handleValueConverterException(vce);
+	        }
+	        currentNode = currentNode.getParent();
+	    }
+
+)
+)	']' 
+    {
+        createLeafNode(grammarAccess.getByteArrayLiteral16Access().getRightSquareBracketKeyword_3(), null); 
+    }
+)
+;
+
+
+
+
+
+// Entry rule entryRuleByteArrayLiteral64
+entryRuleByteArrayLiteral64 returns [EObject current=null] 
+	:
+	{ currentNode = createCompositeNode(grammarAccess.getByteArrayLiteral64Rule(), currentNode); }
+	 iv_ruleByteArrayLiteral64=ruleByteArrayLiteral64 
+	 { $current=$iv_ruleByteArrayLiteral64.current; } 
+	 EOF 
+;
+
+// Rule ByteArrayLiteral64
+ruleByteArrayLiteral64 returns [EObject current=null] 
+    @init { EObject temp=null; setCurrentLookahead(); resetLookahead(); 
+    }
+    @after { resetLookahead(); 
+    	lastConsumedNode = currentNode;
+    }:
+((
+	{ 
+	  /* */ 
+	}
+    { 
+        temp=factory.create(grammarAccess.getByteArrayLiteral64Access().getBLiteralByteArrayExpressionAction_0().getType().getClassifier());
+        $current = temp; 
+        temp = null;
+        CompositeNode newNode = createCompositeNode(grammarAccess.getByteArrayLiteral64Access().getBLiteralByteArrayExpressionAction_0(), currentNode.getParent());
+    newNode.getChildren().add(currentNode);
+    moveLookaheadInfo(currentNode, newNode);
+    currentNode = newNode; 
+        associateNodeWithAstElement(currentNode, $current); 
+    }
+)(
+(
+		lv_base64_1_0=	'##[' 
+    {
+        createLeafNode(grammarAccess.getByteArrayLiteral64Access().getBase64NumberSignNumberSignLeftSquareBracketKeyword_1_0(), "base64"); 
+    }
+ 
+	    {
+	        if ($current==null) {
+	            $current = factory.create(grammarAccess.getByteArrayLiteral64Rule().getType().getClassifier());
+	            associateNodeWithAstElement(currentNode, $current);
+	        }
+	        
+	        try {
+	       		set($current, "base64", true, "##[", lastConsumedNode);
+	        } catch (ValueConverterException vce) {
+				handleValueConverterException(vce);
+	        }
+	    }
+
+)
+)(
+(
+		{ 
+	        currentNode=createCompositeNode(grammarAccess.getByteArrayLiteral64Access().getValueBYTEARRAY64ParserRuleCall_2_0(), currentNode); 
+	    }
+		lv_value_2_0=ruleBYTEARRAY64		{
+	        if ($current==null) {
+	            $current = factory.create(grammarAccess.getByteArrayLiteral64Rule().getType().getClassifier());
+	            associateNodeWithAstElement(currentNode.getParent(), $current);
+	        }
+	        try {
+	       		set(
+	       			$current, 
+	       			"value",
+	        		lv_value_2_0, 
+	        		"BYTEARRAY64", 
+	        		currentNode);
+	        } catch (ValueConverterException vce) {
+				handleValueConverterException(vce);
+	        }
+	        currentNode = currentNode.getParent();
+	    }
+
+)
+)	']' 
+    {
+        createLeafNode(grammarAccess.getByteArrayLiteral64Access().getRightSquareBracketKeyword_3(), null); 
+    }
+)
+;
+
+
+
+
+
+// Entry rule entryRuleBYTEARRAY16
+entryRuleBYTEARRAY16 returns [String current=null] 
+	:
+	{ currentNode = createCompositeNode(grammarAccess.getBYTEARRAY16Rule(), currentNode); } 
+	 iv_ruleBYTEARRAY16=ruleBYTEARRAY16 
+	 { $current=$iv_ruleBYTEARRAY16.current.getText(); }  
+	 EOF 
+;
+
+// Rule BYTEARRAY16
+ruleBYTEARRAY16 returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] 
+    @init { setCurrentLookahead(); resetLookahead(); 
+    }
+    @after { resetLookahead(); 
+	    lastConsumedNode = currentNode;
+    }:
+(    this_ID_0=RULE_ID    {
+		$current.merge(this_ID_0);
+    }
+
+    { 
+    createLeafNode(grammarAccess.getBYTEARRAY16Access().getIDTerminalRuleCall_0(), null); 
+    }
+
+    |    this_INT_1=RULE_INT    {
+		$current.merge(this_INT_1);
+    }
+
+    { 
+    createLeafNode(grammarAccess.getBYTEARRAY16Access().getINTTerminalRuleCall_1(), null); 
+    }
+
+    |    this_HEX_2=RULE_HEX    {
+		$current.merge(this_HEX_2);
+    }
+
+    { 
+    createLeafNode(grammarAccess.getBYTEARRAY16Access().getHEXTerminalRuleCall_2(), null); 
+    }
+
+    |    this_EXT_INT_3=RULE_EXT_INT    {
+		$current.merge(this_EXT_INT_3);
+    }
+
+    { 
+    createLeafNode(grammarAccess.getBYTEARRAY16Access().getEXT_INTTerminalRuleCall_3(), null); 
+    }
+
+    |
+	kw='+' 
+    {
+        $current.merge(kw);
+        createLeafNode(grammarAccess.getBYTEARRAY16Access().getPlusSignKeyword_4(), null); 
+    }
+
+    |
+	kw='/' 
+    {
+        $current.merge(kw);
+        createLeafNode(grammarAccess.getBYTEARRAY16Access().getSolidusKeyword_5(), null); 
+    }
+
+    |
+	kw='=' 
+    {
+        $current.merge(kw);
+        createLeafNode(grammarAccess.getBYTEARRAY16Access().getEqualsSignKeyword_6(), null); 
+    }
+
+    |
+	kw='-' 
+    {
+        $current.merge(kw);
+        createLeafNode(grammarAccess.getBYTEARRAY16Access().getHyphenMinusKeyword_7(), null); 
+    }
+)*
+    ;
+
+
+
+
+
+// Entry rule entryRuleBYTEARRAY64
+entryRuleBYTEARRAY64 returns [String current=null] 
+	:
+	{ currentNode = createCompositeNode(grammarAccess.getBYTEARRAY64Rule(), currentNode); } 
+	 iv_ruleBYTEARRAY64=ruleBYTEARRAY64 
+	 { $current=$iv_ruleBYTEARRAY64.current.getText(); }  
+	 EOF 
+;
+
+// Rule BYTEARRAY64
+ruleBYTEARRAY64 returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] 
+    @init { setCurrentLookahead(); resetLookahead(); 
+    }
+    @after { resetLookahead(); 
+	    lastConsumedNode = currentNode;
+    }:
+(    this_ID_0=RULE_ID    {
+		$current.merge(this_ID_0);
+    }
+
+    { 
+    createLeafNode(grammarAccess.getBYTEARRAY64Access().getIDTerminalRuleCall_0(), null); 
+    }
+
+    |    this_INT_1=RULE_INT    {
+		$current.merge(this_INT_1);
+    }
+
+    { 
+    createLeafNode(grammarAccess.getBYTEARRAY64Access().getINTTerminalRuleCall_1(), null); 
+    }
+
+    |    this_HEX_2=RULE_HEX    {
+		$current.merge(this_HEX_2);
+    }
+
+    { 
+    createLeafNode(grammarAccess.getBYTEARRAY64Access().getHEXTerminalRuleCall_2(), null); 
+    }
+
+    |    this_EXT_INT_3=RULE_EXT_INT    {
+		$current.merge(this_EXT_INT_3);
+    }
+
+    { 
+    createLeafNode(grammarAccess.getBYTEARRAY64Access().getEXT_INTTerminalRuleCall_3(), null); 
+    }
+
+    |
+	kw='+' 
+    {
+        $current.merge(kw);
+        createLeafNode(grammarAccess.getBYTEARRAY64Access().getPlusSignKeyword_4(), null); 
+    }
+
+    |
+	kw='/' 
+    {
+        $current.merge(kw);
+        createLeafNode(grammarAccess.getBYTEARRAY64Access().getSolidusKeyword_5(), null); 
+    }
+
+    |
+	kw='=' 
+    {
+        $current.merge(kw);
+        createLeafNode(grammarAccess.getBYTEARRAY64Access().getEqualsSignKeyword_6(), null); 
+    }
+
+    |
+	kw='-' 
+    {
+        $current.merge(kw);
+        createLeafNode(grammarAccess.getBYTEARRAY64Access().getHyphenMinusKeyword_7(), null); 
+    }
+)*
+    ;
 
 
 

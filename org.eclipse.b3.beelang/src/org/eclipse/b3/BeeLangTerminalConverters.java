@@ -30,6 +30,7 @@ import org.eclipse.b3.build.core.IVersionFormatManager;
 import org.eclipse.b3.enums.MergeConflictStrategyEnumHelper;
 import org.eclipse.b3.enums.TriStateEnumHelper;
 import org.eclipse.b3.validation.FixableTimestampException;
+import org.eclipse.emf.ecore.xml.type.internal.DataValue.Base64;
 import org.eclipse.equinox.internal.p2.metadata.InstallableUnit;
 import org.eclipse.equinox.p2.metadata.IInstallableUnit;
 import org.eclipse.equinox.p2.metadata.Version;
@@ -90,6 +91,62 @@ public class BeeLangTerminalConverters extends AbstractDeclarativeValueConverter
 						: Boolean.FALSE;
 			}
 
+		};
+	}
+
+	@ValueConverter(rule = "BYTEARRAY16")
+	public IValueConverter<byte[]> ByteArrayConverter16() {
+		return new IValueConverter<byte[]>() {
+
+			public String toString(byte[] value) throws ValueConverterException {
+				StringBuffer buf = new StringBuffer(value.length * 2);
+				for(int i = 0; i < value.length; i++)
+					buf.append(String.format("%02x", value[i]));
+				return buf.toString();
+			}
+
+			public byte[] toValue(String string, AbstractNode node) throws ValueConverterException {
+				if(string == null)
+					return new byte[0];
+				if(string.length() % 2 != 0)
+					throw new ValueConverterException(
+						"Could not convert byte array with uneven number of hex digits", node, null);
+				byte[] result = new byte[string.length() / 2];
+				for(int i = 0; i < string.length() / 2; i++) {
+					try {
+						result[i] = Byte.parseByte(string.substring(2 * i, 2 * i + 2), 16);
+					}
+					catch(NumberFormatException e) {
+						throw new ValueConverterException("Could not convert text to byte array: " + e.getMessage() +
+								", at char position: " + 2 * i, node, null);
+					}
+				}
+				return result;
+			}
+		};
+	}
+
+	/**
+	 * Uses RFC 2045 - MIME Base64 Encoding
+	 * 
+	 * @return
+	 */
+	@ValueConverter(rule = "BYTEARRAY64")
+	public IValueConverter<byte[]> ByteArrayConverter64() {
+		return new IValueConverter<byte[]>() {
+
+			public String toString(byte[] value) throws ValueConverterException {
+				return Base64.encode(value).toString();
+			}
+
+			public byte[] toValue(String string, AbstractNode node) throws ValueConverterException {
+				if(string == null)
+					return new byte[0];
+				byte[] result = Base64.decode(string);
+				if(result == null)
+					throw new ValueConverterException("Could not convert from Base64 encoding to binary", node, null);
+				return result;
+			}
 		};
 	}
 

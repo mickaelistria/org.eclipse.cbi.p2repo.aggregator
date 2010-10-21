@@ -75,6 +75,7 @@ import org.eclipse.b3.backend.evaluator.b3backend.BInvocationContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BJavaCallType;
 import org.eclipse.b3.backend.evaluator.b3backend.BJavaFunction;
 import org.eclipse.b3.backend.evaluator.b3backend.BLiteralAny;
+import org.eclipse.b3.backend.evaluator.b3backend.BLiteralByteArrayExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BLiteralExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BLiteralListExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BLiteralMapExpression;
@@ -565,6 +566,14 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	 * @generated
 	 */
 	private EClass bEchoExpressionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	private EClass bLiteralByteArrayExpressionEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -1486,6 +1495,10 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 		bEchoExpressionEClass = createEClass(BECHO_EXPRESSION);
 		createEReference(bEchoExpressionEClass, BECHO_EXPRESSION__EXPRESSION);
 		createEReference(bEchoExpressionEClass, BECHO_EXPRESSION__ECHO_EXPRESSION);
+
+		bLiteralByteArrayExpressionEClass = createEClass(BLITERAL_BYTE_ARRAY_EXPRESSION);
+		createEAttribute(bLiteralByteArrayExpressionEClass, BLITERAL_BYTE_ARRAY_EXPRESSION__VALUE);
+		createEAttribute(bLiteralByteArrayExpressionEClass, BLITERAL_BYTE_ARRAY_EXPRESSION__BASE64);
 
 		// Create enums
 		visibilityEEnum = createEEnum(VISIBILITY);
@@ -2813,6 +2826,36 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	 */
 	public EClass getBLiteralAny() {
 		return bLiteralAnyEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EClass getBLiteralByteArrayExpression() {
+		return bLiteralByteArrayExpressionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EAttribute getBLiteralByteArrayExpression_Base64() {
+		return (EAttribute) bLiteralByteArrayExpressionEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EAttribute getBLiteralByteArrayExpression_Value() {
+		return (EAttribute) bLiteralByteArrayExpressionEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -4213,6 +4256,7 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 		iTypedValueEClass.getESuperTypes().add(this.getINamedValue());
 		bTemplateEClass.getESuperTypes().add(this.getBExpression());
 		bEchoExpressionEClass.getESuperTypes().add(this.getBExpression());
+		bLiteralByteArrayExpressionEClass.getESuperTypes().add(this.getBExpression());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(
@@ -5341,6 +5385,18 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 			getBEchoExpression_EchoExpression(), this.getBExpression(), null, "echoExpression", null, 0, 1,
 			BEchoExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
 			!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(
+			bLiteralByteArrayExpressionEClass, BLiteralByteArrayExpression.class, "BLiteralByteArrayExpression",
+			!IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(
+			getBLiteralByteArrayExpression_Value(), ecorePackage.getEByteArray(), "value", null, 0, 1,
+			BLiteralByteArrayExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
+			IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(
+			getBLiteralByteArrayExpression_Base64(), ecorePackage.getEBoolean(), "base64", null, 0, 1,
+			BLiteralByteArrayExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
+			IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(visibilityEEnum, Visibility.class, "Visibility");
