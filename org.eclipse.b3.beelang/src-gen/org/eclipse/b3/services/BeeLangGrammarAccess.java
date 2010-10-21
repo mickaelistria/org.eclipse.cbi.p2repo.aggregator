@@ -5307,35 +5307,51 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cCaseKeyword_1_0_0 = (Keyword)cGroup_1_0.eContents().get(0);
 		private final Assignment cConditionExprAssignment_1_0_1 = (Assignment)cGroup_1_0.eContents().get(1);
 		private final RuleCall cConditionExprExpressionParserRuleCall_1_0_1_0 = (RuleCall)cConditionExprAssignment_1_0_1.eContents().get(0);
+		private final Group cGroup_1_0_2 = (Group)cGroup_1_0.eContents().get(2);
+		private final Keyword cCommaKeyword_1_0_2_0 = (Keyword)cGroup_1_0_2.eContents().get(0);
+		private final Assignment cConditionExprAssignment_1_0_2_1 = (Assignment)cGroup_1_0_2.eContents().get(1);
+		private final RuleCall cConditionExprExpressionParserRuleCall_1_0_2_1_0 = (RuleCall)cConditionExprAssignment_1_0_2_1.eContents().get(0);
 		private final Keyword cDefaultKeyword_1_1 = (Keyword)cAlternatives_1.eContents().get(1);
 		private final Keyword cColonKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final Assignment cThenExprAssignment_3 = (Assignment)cGroup.eContents().get(3);
 		private final RuleCall cThenExprUnitProviderParserRuleCall_3_0 = (RuleCall)cThenExprAssignment_3.eContents().get(0);
 		
 		//RepositorySelectCase returns be::BCase:
-		//	{be::BCase} ("case" conditionExpr=Expression | "default") ":" thenExpr=UnitProvider;
+		//	{be::BCase} ("case" conditionExpr+=Expression ("," conditionExpr+=Expression)* | "default") ":" thenExpr=UnitProvider;
 		public ParserRule getRule() { return rule; }
 
-		//{be::BCase} ("case" conditionExpr=Expression | "default") ":" thenExpr=UnitProvider
+		//{be::BCase} ("case" conditionExpr+=Expression ("," conditionExpr+=Expression)* | "default") ":" thenExpr=UnitProvider
 		public Group getGroup() { return cGroup; }
 
 		//{be::BCase}
 		public Action getBCaseAction_0() { return cBCaseAction_0; }
 
-		//"case" conditionExpr=Expression | "default"
+		//"case" conditionExpr+=Expression ("," conditionExpr+=Expression)* | "default"
 		public Alternatives getAlternatives_1() { return cAlternatives_1; }
 
-		//"case" conditionExpr=Expression
+		//"case" conditionExpr+=Expression ("," conditionExpr+=Expression)*
 		public Group getGroup_1_0() { return cGroup_1_0; }
 
 		//"case"
 		public Keyword getCaseKeyword_1_0_0() { return cCaseKeyword_1_0_0; }
 
-		//conditionExpr=Expression
+		//conditionExpr+=Expression
 		public Assignment getConditionExprAssignment_1_0_1() { return cConditionExprAssignment_1_0_1; }
 
 		//Expression
 		public RuleCall getConditionExprExpressionParserRuleCall_1_0_1_0() { return cConditionExprExpressionParserRuleCall_1_0_1_0; }
+
+		//("," conditionExpr+=Expression)*
+		public Group getGroup_1_0_2() { return cGroup_1_0_2; }
+
+		//","
+		public Keyword getCommaKeyword_1_0_2_0() { return cCommaKeyword_1_0_2_0; }
+
+		//conditionExpr+=Expression
+		public Assignment getConditionExprAssignment_1_0_2_1() { return cConditionExprAssignment_1_0_2_1; }
+
+		//Expression
+		public RuleCall getConditionExprExpressionParserRuleCall_1_0_2_1_0() { return cConditionExprExpressionParserRuleCall_1_0_2_1_0; }
 
 		//"default"
 		public Keyword getDefaultKeyword_1_1() { return cDefaultKeyword_1_1; }
@@ -5916,16 +5932,17 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cEqualsSignEqualsSignEqualsSignKeyword_2 = (Keyword)cAlternatives.eContents().get(2);
 		private final Keyword cExclamationMarkEqualsSignKeyword_3 = (Keyword)cAlternatives.eContents().get(3);
 		private final Keyword cExclamationMarkEqualsSignEqualsSignKeyword_4 = (Keyword)cAlternatives.eContents().get(4);
-		private final Keyword cGreaterThanSignEqualsSignKeyword_5 = (Keyword)cAlternatives.eContents().get(5);
-		private final Keyword cLessThanSignEqualsSignKeyword_6 = (Keyword)cAlternatives.eContents().get(6);
-		private final Keyword cGreaterThanSignKeyword_7 = (Keyword)cAlternatives.eContents().get(7);
-		private final Keyword cLessThanSignKeyword_8 = (Keyword)cAlternatives.eContents().get(8);
+		private final Keyword cExclamationMarkTildeKeyword_5 = (Keyword)cAlternatives.eContents().get(5);
+		private final Keyword cGreaterThanSignEqualsSignKeyword_6 = (Keyword)cAlternatives.eContents().get(6);
+		private final Keyword cLessThanSignEqualsSignKeyword_7 = (Keyword)cAlternatives.eContents().get(7);
+		private final Keyword cGreaterThanSignKeyword_8 = (Keyword)cAlternatives.eContents().get(8);
+		private final Keyword cLessThanSignKeyword_9 = (Keyword)cAlternatives.eContents().get(9);
 		
 		//RelationalOperator returns ecore::EString:
-		//	"~=" | "==" | "===" | "!=" | "!==" | ">=" | "<=" | ">" | "<";
+		//	"~=" | "==" | "===" | "!=" | "!==" | "!~" | ">=" | "<=" | ">" | "<";
 		public ParserRule getRule() { return rule; }
 
-		//"~=" | "==" | "===" | "!=" | "!==" | ">=" | "<=" | ">" | "<"
+		//"~=" | "==" | "===" | "!=" | "!==" | "!~" | ">=" | "<=" | ">" | "<"
 		public Alternatives getAlternatives() { return cAlternatives; }
 
 		//"~="
@@ -5943,17 +5960,20 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		//"!=="
 		public Keyword getExclamationMarkEqualsSignEqualsSignKeyword_4() { return cExclamationMarkEqualsSignEqualsSignKeyword_4; }
 
+		//"!~"
+		public Keyword getExclamationMarkTildeKeyword_5() { return cExclamationMarkTildeKeyword_5; }
+
 		//">="
-		public Keyword getGreaterThanSignEqualsSignKeyword_5() { return cGreaterThanSignEqualsSignKeyword_5; }
+		public Keyword getGreaterThanSignEqualsSignKeyword_6() { return cGreaterThanSignEqualsSignKeyword_6; }
 
 		//"<="
-		public Keyword getLessThanSignEqualsSignKeyword_6() { return cLessThanSignEqualsSignKeyword_6; }
+		public Keyword getLessThanSignEqualsSignKeyword_7() { return cLessThanSignEqualsSignKeyword_7; }
 
 		//">"
-		public Keyword getGreaterThanSignKeyword_7() { return cGreaterThanSignKeyword_7; }
+		public Keyword getGreaterThanSignKeyword_8() { return cGreaterThanSignKeyword_8; }
 
 		//"<"
-		public Keyword getLessThanSignKeyword_8() { return cLessThanSignKeyword_8; }
+		public Keyword getLessThanSignKeyword_9() { return cLessThanSignKeyword_9; }
 	}
 
 	public class TopLevelExpressionElements extends AbstractParserRuleElementFinder {
@@ -6240,6 +6260,7 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cActualArgumentsListB3JavaImportIDTerminalRuleCall_2_2_1_0_1 = (RuleCall)cActualArgumentsListB3JavaImportCrossReference_2_2_1_0.eContents().get(1);
 		private final Keyword cGreaterThanSignKeyword_2_3 = (Keyword)cGroup_2.eContents().get(3);
 		
+		//// TODO: too simplistic - does not allow List<Map<String, List<String>>>	
 		////		('<' actualArgumentsList+=TypeParam (',' actualArgumentsList+=TypeParam)* '>' )? // TODO: Support wildcard as well
 		//SimpleTypeRef returns be::IType:
 		//	{be::B3ParameterizedType} rawType=[be::B3JavaImport] ("<" actualArgumentsList+=[be::B3JavaImport] (","
@@ -7669,35 +7690,51 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cCaseKeyword_1_0_0 = (Keyword)cGroup_1_0.eContents().get(0);
 		private final Assignment cConditionExprAssignment_1_0_1 = (Assignment)cGroup_1_0.eContents().get(1);
 		private final RuleCall cConditionExprExpressionParserRuleCall_1_0_1_0 = (RuleCall)cConditionExprAssignment_1_0_1.eContents().get(0);
+		private final Group cGroup_1_0_2 = (Group)cGroup_1_0.eContents().get(2);
+		private final Keyword cCommaKeyword_1_0_2_0 = (Keyword)cGroup_1_0_2.eContents().get(0);
+		private final Assignment cConditionExprAssignment_1_0_2_1 = (Assignment)cGroup_1_0_2.eContents().get(1);
+		private final RuleCall cConditionExprExpressionParserRuleCall_1_0_2_1_0 = (RuleCall)cConditionExprAssignment_1_0_2_1.eContents().get(0);
 		private final Keyword cDefaultKeyword_1_1 = (Keyword)cAlternatives_1.eContents().get(1);
 		private final Keyword cColonKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final Assignment cThenExprAssignment_3 = (Assignment)cGroup.eContents().get(3);
 		private final RuleCall cThenExprExpressionParserRuleCall_3_0 = (RuleCall)cThenExprAssignment_3.eContents().get(0);
 		
 		//Case returns be::BCase:
-		//	{be::BCase} ("case" conditionExpr=Expression | "default") ":" thenExpr=Expression;
+		//	{be::BCase} ("case" conditionExpr+=Expression ("," conditionExpr+=Expression)* | "default") ":" thenExpr=Expression;
 		public ParserRule getRule() { return rule; }
 
-		//{be::BCase} ("case" conditionExpr=Expression | "default") ":" thenExpr=Expression
+		//{be::BCase} ("case" conditionExpr+=Expression ("," conditionExpr+=Expression)* | "default") ":" thenExpr=Expression
 		public Group getGroup() { return cGroup; }
 
 		//{be::BCase}
 		public Action getBCaseAction_0() { return cBCaseAction_0; }
 
-		//"case" conditionExpr=Expression | "default"
+		//"case" conditionExpr+=Expression ("," conditionExpr+=Expression)* | "default"
 		public Alternatives getAlternatives_1() { return cAlternatives_1; }
 
-		//"case" conditionExpr=Expression
+		//"case" conditionExpr+=Expression ("," conditionExpr+=Expression)*
 		public Group getGroup_1_0() { return cGroup_1_0; }
 
 		//"case"
 		public Keyword getCaseKeyword_1_0_0() { return cCaseKeyword_1_0_0; }
 
-		//conditionExpr=Expression
+		//conditionExpr+=Expression
 		public Assignment getConditionExprAssignment_1_0_1() { return cConditionExprAssignment_1_0_1; }
 
 		//Expression
 		public RuleCall getConditionExprExpressionParserRuleCall_1_0_1_0() { return cConditionExprExpressionParserRuleCall_1_0_1_0; }
+
+		//("," conditionExpr+=Expression)*
+		public Group getGroup_1_0_2() { return cGroup_1_0_2; }
+
+		//","
+		public Keyword getCommaKeyword_1_0_2_0() { return cCommaKeyword_1_0_2_0; }
+
+		//conditionExpr+=Expression
+		public Assignment getConditionExprAssignment_1_0_2_1() { return cConditionExprAssignment_1_0_2_1; }
+
+		//Expression
+		public RuleCall getConditionExprExpressionParserRuleCall_1_0_2_1_0() { return cConditionExprExpressionParserRuleCall_1_0_2_1_0; }
 
 		//"default"
 		public Keyword getDefaultKeyword_1_1() { return cDefaultKeyword_1_1; }
@@ -13798,7 +13835,7 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//RepositorySelectCase returns be::BCase:
-	//	{be::BCase} ("case" conditionExpr=Expression | "default") ":" thenExpr=UnitProvider;
+	//	{be::BCase} ("case" conditionExpr+=Expression ("," conditionExpr+=Expression)* | "default") ":" thenExpr=UnitProvider;
 	public RepositorySelectCaseElements getRepositorySelectCaseAccess() {
 		return (pRepositorySelectCase != null) ? pRepositorySelectCase : (pRepositorySelectCase = new RepositorySelectCaseElements());
 	}
@@ -13886,7 +13923,7 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//RelationalOperator returns ecore::EString:
-	//	"~=" | "==" | "===" | "!=" | "!==" | ">=" | "<=" | ">" | "<";
+	//	"~=" | "==" | "===" | "!=" | "!==" | "!~" | ">=" | "<=" | ">" | "<";
 	public RelationalOperatorElements getRelationalOperatorAccess() {
 		return (pRelationalOperator != null) ? pRelationalOperator : (pRelationalOperator = new RelationalOperatorElements());
 	}
@@ -13977,6 +14014,7 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		return getUnitTypeRefAccess().getRule();
 	}
 
+	//// TODO: too simplistic - does not allow List<Map<String, List<String>>>	
 	////		('<' actualArgumentsList+=TypeParam (',' actualArgumentsList+=TypeParam)* '>' )? // TODO: Support wildcard as well
 	//SimpleTypeRef returns be::IType:
 	//	{be::B3ParameterizedType} rawType=[be::B3JavaImport] ("<" actualArgumentsList+=[be::B3JavaImport] (","
@@ -14291,7 +14329,7 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Case returns be::BCase:
-	//	{be::BCase} ("case" conditionExpr=Expression | "default") ":" thenExpr=Expression;
+	//	{be::BCase} ("case" conditionExpr+=Expression ("," conditionExpr+=Expression)* | "default") ":" thenExpr=Expression;
 	public CaseElements getCaseAccess() {
 		return (pCase != null) ? pCase : (pCase = new CaseElements());
 	}

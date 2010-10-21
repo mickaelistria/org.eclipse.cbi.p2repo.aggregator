@@ -7,6 +7,8 @@ import java.util.TimeZone;
 
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendFactory;
 import org.eclipse.b3.backend.evaluator.b3backend.BCase;
+import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
+import org.eclipse.b3.backend.evaluator.b3backend.BLiteralAny;
 import org.eclipse.b3.backend.evaluator.b3backend.BLiteralExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BSwitchExpression;
 import org.eclipse.b3.build.Repository;
@@ -76,6 +78,28 @@ public class BeeLangQuickfixProvider extends DefaultQuickfixProvider {
 				repo.setAddress(expr);
 			}
 		});
+	}
+
+	@Fix(B3BackendIssues.ISSUE__BSWITCH_EXPRESSION__HAS_UNREACHABLE_CASE_EXPR__OFFENDER)
+	public void moveDefaultCaseExprLast(final Issue issue, IssueResolutionAcceptor acceptor) {
+		acceptor.accept(
+			issue, "Move case expression", "Offending case expression is moved last in the case", "",
+			new ISemanticModification() {
+
+				public void apply(EObject element, IModificationContext context) throws Exception {
+					BCase bcase = (BCase) element;
+					int counter = 0;
+					int limit = bcase.getConditionExpr().size();
+					for(BExpression e : bcase.getConditionExpr()) {
+						counter++;
+						if(e instanceof BLiteralAny && counter < limit) {
+							bcase.getConditionExpr().move(limit - 1, e);
+							break;
+						}
+					}
+				}
+			});
+
 	}
 
 	@Fix(B3BackendIssues.ISSUE__BSWITCH_EXPRESSION__HAS_UNREACHABLE_CASE__OFFENDER)

@@ -169,6 +169,15 @@ public class RelationalFunctions {
 		return Boolean.FALSE;
 	}
 
+	@B3Backend(system = true)
+	public static Object _notMatches(BExecutionContext ctx, Object[] params, Type[] types) throws Throwable {
+		IB3Evaluator evaluator = ctx.getInjector().getInstance(IB3Evaluator.class);
+		if(evaluator.callFunction("matches", params, types, ctx) != Boolean.TRUE)
+			return Boolean.TRUE;
+		return Boolean.FALSE;
+
+	}
+
 	@B3Backend(funcNames = { "==" }, systemFunction = "_charSequenceEquals")
 	public static Boolean equals(@B3Backend(name = "op1") CharSequence left, @B3Backend(name = "op2") CharSequence right) {
 		return null;
@@ -294,10 +303,8 @@ public class RelationalFunctions {
 	}
 
 	@B3Backend(funcNames = { "~=" })
-	public static Boolean matches(CharSequence string, CharSequence pattern) {
-		return SimplePattern.compile(pattern).isMatch(string)
-				? Boolean.TRUE
-				: Boolean.FALSE;
+	public static Boolean matches(CharSequence string, CharSequence string2) {
+		return string.equals(string2);
 	}
 
 	@B3Backend(funcNames = { "~=" })
@@ -374,6 +381,18 @@ public class RelationalFunctions {
 
 	@B3Backend(funcNames = { "!=" }, systemFunction = "_notEquals")
 	public static Boolean notEquals(Object left, Object right) {
+		return null;
+	}
+
+	/**
+	 * The operand !~ reverses the result of the ~= operand
+	 * 
+	 * @param left
+	 * @param right
+	 * @return
+	 */
+	@B3Backend(funcNames = { "!~" }, systemFunction = "_notMatches")
+	public static Boolean notMatches(@B3Backend(name = "op1") Object left, @B3Backend(name = "op2") Object right) {
 		return null;
 	}
 

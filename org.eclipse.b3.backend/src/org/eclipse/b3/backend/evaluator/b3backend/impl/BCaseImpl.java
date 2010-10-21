@@ -9,6 +9,7 @@
  */
 package org.eclipse.b3.backend.evaluator.b3backend.impl;
 
+import java.util.Collection;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 
@@ -17,10 +18,13 @@ import org.eclipse.b3.backend.evaluator.b3backend.BCase;
 import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -38,7 +42,7 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  */
 public class BCaseImpl extends EObjectImpl implements BCase {
 	/**
-	 * The cached value of the '{@link #getConditionExpr() <em>Condition Expr</em>}' containment reference.
+	 * The cached value of the '{@link #getConditionExpr() <em>Condition Expr</em>}' containment reference list.
 	 * <!-- begin-user-doc -->x x
 	 * <!-- end-user-doc -->
 	 * 
@@ -46,7 +50,7 @@ public class BCaseImpl extends EObjectImpl implements BCase {
 	 * @generated
 	 * @ordered
 	 */
-	protected BExpression conditionExpr;
+	protected EList<BExpression> conditionExpr;
 
 	/**
 	 * The cached value of the '{@link #getThenExpr() <em>Then Expr</em>}' containment reference.
@@ -67,26 +71,6 @@ public class BCaseImpl extends EObjectImpl implements BCase {
 	 */
 	protected BCaseImpl() {
 		super();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	public NotificationChain basicSetConditionExpr(BExpression newConditionExpr, NotificationChain msgs) {
-		BExpression oldConditionExpr = conditionExpr;
-		conditionExpr = newConditionExpr;
-		if(eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(
-				this, Notification.SET, B3backendPackage.BCASE__CONDITION_EXPR, oldConditionExpr, newConditionExpr);
-			if(msgs == null)
-				msgs = notification;
-			else
-				msgs.add(notification);
-		}
-		return msgs;
 	}
 
 	/**
@@ -136,7 +120,7 @@ public class BCaseImpl extends EObjectImpl implements BCase {
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch(featureID) {
 			case B3backendPackage.BCASE__CONDITION_EXPR:
-				return basicSetConditionExpr(null, msgs);
+				return ((InternalEList<?>) getConditionExpr()).basicRemove(otherEnd, msgs);
 			case B3backendPackage.BCASE__THEN_EXPR:
 				return basicSetThenExpr(null, msgs);
 		}
@@ -153,7 +137,7 @@ public class BCaseImpl extends EObjectImpl implements BCase {
 	public boolean eIsSet(int featureID) {
 		switch(featureID) {
 			case B3backendPackage.BCASE__CONDITION_EXPR:
-				return conditionExpr != null;
+				return conditionExpr != null && !conditionExpr.isEmpty();
 			case B3backendPackage.BCASE__THEN_EXPR:
 				return thenExpr != null;
 		}
@@ -166,11 +150,13 @@ public class BCaseImpl extends EObjectImpl implements BCase {
 	 * 
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch(featureID) {
 			case B3backendPackage.BCASE__CONDITION_EXPR:
-				setConditionExpr((BExpression) newValue);
+				getConditionExpr().clear();
+				getConditionExpr().addAll((Collection<? extends BExpression>) newValue);
 				return;
 			case B3backendPackage.BCASE__THEN_EXPR:
 				setThenExpr((BExpression) newValue);
@@ -189,7 +175,7 @@ public class BCaseImpl extends EObjectImpl implements BCase {
 	public void eUnset(int featureID) {
 		switch(featureID) {
 			case B3backendPackage.BCASE__CONDITION_EXPR:
-				setConditionExpr((BExpression) null);
+				getConditionExpr().clear();
 				return;
 			case B3backendPackage.BCASE__THEN_EXPR:
 				setThenExpr((BExpression) null);
@@ -204,7 +190,11 @@ public class BCaseImpl extends EObjectImpl implements BCase {
 	 * 
 	 * @generated
 	 */
-	public BExpression getConditionExpr() {
+	public EList<BExpression> getConditionExpr() {
+		if(conditionExpr == null) {
+			conditionExpr = new EObjectContainmentEList<BExpression>(
+				BExpression.class, this, B3backendPackage.BCASE__CONDITION_EXPR);
+		}
 		return conditionExpr;
 	}
 
@@ -254,30 +244,6 @@ public class BCaseImpl extends EObjectImpl implements BCase {
 			if(((Comparable) a).compareTo(b) == 0)
 				return true;
 		return false;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	public void setConditionExpr(BExpression newConditionExpr) {
-		if(newConditionExpr != conditionExpr) {
-			NotificationChain msgs = null;
-			if(conditionExpr != null)
-				msgs = ((InternalEObject) conditionExpr).eInverseRemove(this, EOPPOSITE_FEATURE_BASE -
-						B3backendPackage.BCASE__CONDITION_EXPR, null, msgs);
-			if(newConditionExpr != null)
-				msgs = ((InternalEObject) newConditionExpr).eInverseAdd(this, EOPPOSITE_FEATURE_BASE -
-						B3backendPackage.BCASE__CONDITION_EXPR, null, msgs);
-			msgs = basicSetConditionExpr(newConditionExpr, msgs);
-			if(msgs != null)
-				msgs.dispatch();
-		}
-		else if(eNotificationRequired())
-			eNotify(new ENotificationImpl(
-				this, Notification.SET, B3backendPackage.BCASE__CONDITION_EXPR, newConditionExpr, newConditionExpr));
 	}
 
 	/**

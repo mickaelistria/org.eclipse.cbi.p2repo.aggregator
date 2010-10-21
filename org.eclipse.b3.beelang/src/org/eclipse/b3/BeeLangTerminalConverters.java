@@ -391,6 +391,10 @@ public class BeeLangTerminalConverters extends AbstractDeclarativeValueConverter
 					throw new ValueConverterException(
 						"Could not convert empty string to simple pattern expression", node, null);
 				try {
+					if(string.startsWith("~\""))
+						string = string.substring(2);
+					if(string.endsWith("\""))
+						string = string.substring(0, string.length() - 1);
 					return SimplePattern.compile(string);
 				}
 				catch(IllegalArgumentException e) {

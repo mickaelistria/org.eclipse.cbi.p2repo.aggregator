@@ -524,7 +524,7 @@ SelectSwitchExpression returns be::BSwitchExpression : {be::BSwitchExpression}
 	;
 			
 RepositorySelectCase returns be::BCase : {be::BCase} 
-	(("case" conditionExpr=Expression) | "default") ':' thenExpr = UnitProvider
+	(("case" conditionExpr += Expression (',' conditionExpr += Expression)*) | "default") ':' thenExpr = UnitProvider
 	;
 	
 ContainerConfiguration returns build::ContainerConfiguration: {build::ContainerConfiguration} 
@@ -593,7 +593,7 @@ AssignmentOperator
 	;
 	
 RelationalOperator 
-	: "~=" | "==" | "===" | "!=" | "!=="
+	: "~=" | "==" | "===" | "!=" | "!==" | "!~"
 	| ">=" | "<=" | ">" | "<"
 	;
 
@@ -810,7 +810,7 @@ SwitchExpression returns be::BSwitchExpression : {be::BSwitchExpression}
 	;
 			
 Case returns be::BCase : {be::BCase} 
-	(("case" conditionExpr=Expression)|"default") ":" thenExpr=Expression
+	(("case" conditionExpr += Expression (',' conditionExpr += Expression)*)|"default") ":" thenExpr=Expression
 	;
 
 BlockExpression returns be::BExpression: {be::BChainedExpression} 

@@ -21,13 +21,12 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.regex.Pattern;
 
-import org.eclipse.b3.backend.evaluator.B3ExpressionCache;
-import org.eclipse.b3.backend.evaluator.B3FuncStore;
-import org.eclipse.b3.backend.evaluator.ValueMap;
-import org.eclipse.b3.backend.evaluator.b3backend.*;
 import org.eclipse.b3.backend.core.datatypes.LValue;
 import org.eclipse.b3.backend.core.datatypes.SimplePattern;
 import org.eclipse.b3.backend.core.exceptions.B3EngineException;
+import org.eclipse.b3.backend.evaluator.B3ExpressionCache;
+import org.eclipse.b3.backend.evaluator.B3FuncStore;
+import org.eclipse.b3.backend.evaluator.ValueMap;
 import org.eclipse.b3.backend.evaluator.b3backend.B3FuncTypeVariable;
 import org.eclipse.b3.backend.evaluator.b3backend.B3Function;
 import org.eclipse.b3.backend.evaluator.b3backend.B3FunctionType;
@@ -60,6 +59,7 @@ import org.eclipse.b3.backend.evaluator.b3backend.BDefProperty;
 import org.eclipse.b3.backend.evaluator.b3backend.BDefValue;
 import org.eclipse.b3.backend.evaluator.b3backend.BDefaultPropertySet;
 import org.eclipse.b3.backend.evaluator.b3backend.BDelegatingContext;
+import org.eclipse.b3.backend.evaluator.b3backend.BEchoExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BExpressionWrapper;
@@ -99,6 +99,7 @@ import org.eclipse.b3.backend.evaluator.b3backend.BRegularExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BSimplePatternExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BSwitchExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BSystemContext;
+import org.eclipse.b3.backend.evaluator.b3backend.BTemplate;
 import org.eclipse.b3.backend.evaluator.b3backend.BThrowExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BTryExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BTypeCalculator;
@@ -115,6 +116,7 @@ import org.eclipse.b3.backend.evaluator.b3backend.IFunction;
 import org.eclipse.b3.backend.evaluator.b3backend.INamedValue;
 import org.eclipse.b3.backend.evaluator.b3backend.ITypedValue;
 import org.eclipse.b3.backend.evaluator.b3backend.ITypedValueContainer;
+import org.eclipse.b3.backend.evaluator.b3backend.IVarName;
 import org.eclipse.b3.backend.evaluator.b3backend.Visibility;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
@@ -125,7 +127,6 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.EObjectValidator;
 
 import com.google.inject.Injector;
-import java.lang.CharSequence;
 
 /**
  * <!-- begin-user-doc -->
@@ -182,7 +183,12 @@ public class B3backendValidator extends EObjectValidator {
 	 */
 	public static final int BSWITCH_EXPRESSION__HAS_UNREACHABLE_CASE__OFFENDER = GENERATED_DIAGNOSTIC_CODE_COUNT + 1;
 
-	public static final int HANDWRITTEN_DIAGNOSTIC_CODE_COUNT = 1;
+	/**
+	 * @generated NOT
+	 */
+	public static final int BSWITCH_EXPRESSION__HAS_UNREACHABLE_CASE_EXPR__OFFENDER = GENERATED_DIAGNOSTIC_CODE_COUNT + 2;
+
+	public static final int HANDWRITTEN_DIAGNOSTIC_CODE_COUNT = 2;
 
 	/**
 	 * A constant with a fixed name that can be used as the base value for additional hand written constants in a derived class.

@@ -204,7 +204,7 @@ public interface B3backendPackage extends EPackage {
 		EClass BCASE = eINSTANCE.getBCase();
 
 		/**
-		 * The meta object literal for the '<em><b>Condition Expr</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>Condition Expr</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * 
@@ -2906,7 +2906,7 @@ public interface B3backendPackage extends EPackage {
 	int BCASE = 4;
 
 	/**
-	 * The feature id for the '<em><b>Condition Expr</b></em>' containment reference.
+	 * The feature id for the '<em><b>Condition Expr</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -8626,12 +8626,12 @@ public interface B3backendPackage extends EPackage {
 	EClass getBCase();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link org.eclipse.b3.backend.evaluator.b3backend.BCase#getConditionExpr
+	 * Returns the meta object for the containment reference list '{@link org.eclipse.b3.backend.evaluator.b3backend.BCase#getConditionExpr
 	 * <em>Condition Expr</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
-	 * @return the meta object for the containment reference '<em>Condition Expr</em>'.
+	 * @return the meta object for the containment reference list '<em>Condition Expr</em>'.
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.BCase#getConditionExpr()
 	 * @see #getBCase()
 	 * @generated

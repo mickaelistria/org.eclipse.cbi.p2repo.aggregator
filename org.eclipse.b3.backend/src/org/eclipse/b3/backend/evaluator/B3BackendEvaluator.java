@@ -94,6 +94,7 @@ import org.eclipse.b3.backend.evaluator.b3backend.BPropertyOperation;
 import org.eclipse.b3.backend.evaluator.b3backend.BPropertySet;
 import org.eclipse.b3.backend.evaluator.b3backend.BPropertySetOperation;
 import org.eclipse.b3.backend.evaluator.b3backend.BRegularExpression;
+import org.eclipse.b3.backend.evaluator.b3backend.BSimplePatternExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BSwitchExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BTemplate;
 import org.eclipse.b3.backend.evaluator.b3backend.BThrowExpression;
@@ -958,23 +959,34 @@ public class B3BackendEvaluator extends DeclarativeB3Evaluator {
 		return o.getPattern();
 	}
 
+	public Object evaluate(BSimplePatternExpression o, BExecutionContext ctx) throws CoreException {
+		return o.getPattern();
+	}
+
 	public Object evaluate(BSwitchExpression o, BExecutionContext ctx) throws Throwable {
 		BExpression switchExpression = o.getSwitchExpression();
 		Object switchValue = switchExpression == null
 				? Boolean.TRUE
 				: doEvaluate(switchExpression, ctx);
 		for(BCase c : o.getCaseList()) {
-			BExpression cond = c.getConditionExpr();
 			// "default"
-			if(cond == null)
+			if(c.getConditionExpr().size() == 0)
 				return doEvaluate(c.getThenExpr(), ctx);
 
-			Object result = doEvaluate(cond, ctx);
-			if(matches(result, switchValue))
-				return doEvaluate(c.getThenExpr(), ctx);
-			// it is not at all certain that comparison is cumulative
-			else if(switchValue.equals(result) || result.equals(switchValue))
-				return doEvaluate(c.getThenExpr(), ctx);
+			// evaluate the list of case expressions
+			for(BExpression cond : c.getConditionExpr()) {
+				// BExpression cond = c.getConditionExpr();
+				// // "default"
+				// if(cond == null)
+				// return doEvaluate(c.getThenExpr(), ctx);
+
+				Object result = doEvaluate(cond, ctx);
+				if(matches(result, switchValue))
+					return doEvaluate(c.getThenExpr(), ctx);
+				// it is not at all certain that comparison is cumulative
+				else if(switchValue.equals(result) || result.equals(switchValue))
+					return doEvaluate(c.getThenExpr(), ctx);
+			}
 		}
 		// no case matched - return null
 		return null;

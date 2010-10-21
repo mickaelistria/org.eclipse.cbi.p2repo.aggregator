@@ -25560,11 +25560,11 @@ protected class SelectSwitchExpression_EndswitchKeyword_3 extends KeywordToken  
 /************ begin Rule RepositorySelectCase ****************
  *
  * RepositorySelectCase returns be::BCase:
- * 	{be::BCase} ("case" conditionExpr=Expression | "default") ":" thenExpr=UnitProvider;
+ * 	{be::BCase} ("case" conditionExpr+=Expression ("," conditionExpr+=Expression)* | "default") ":" thenExpr=UnitProvider;
  *
  **/
 
-// {be::BCase} ("case" conditionExpr=Expression | "default") ":" thenExpr=UnitProvider
+// {be::BCase} ("case" conditionExpr+=Expression ("," conditionExpr+=Expression)* | "default") ":" thenExpr=UnitProvider
 protected class RepositorySelectCase_Group extends GroupToken {
 	
 	public RepositorySelectCase_Group(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -25619,7 +25619,7 @@ protected class RepositorySelectCase_BCaseAction_0 extends ActionToken  {
 	}
 }
 
-// "case" conditionExpr=Expression | "default"
+// "case" conditionExpr+=Expression ("," conditionExpr+=Expression)* | "default"
 protected class RepositorySelectCase_Alternatives_1 extends AlternativesToken {
 
 	public RepositorySelectCase_Alternatives_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -25642,7 +25642,7 @@ protected class RepositorySelectCase_Alternatives_1 extends AlternativesToken {
 
 }
 
-// "case" conditionExpr=Expression
+// "case" conditionExpr+=Expression ("," conditionExpr+=Expression)*
 protected class RepositorySelectCase_Group_1_0 extends GroupToken {
 	
 	public RepositorySelectCase_Group_1_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -25657,7 +25657,8 @@ protected class RepositorySelectCase_Group_1_0 extends GroupToken {
     @Override
 	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
 		switch(index) {
-			case 0: return new RepositorySelectCase_ConditionExprAssignment_1_0_1(lastRuleCallOrigin, this, 0, inst);
+			case 0: return new RepositorySelectCase_Group_1_0_2(lastRuleCallOrigin, this, 0, inst);
+			case 1: return new RepositorySelectCase_ConditionExprAssignment_1_0_1(lastRuleCallOrigin, this, 1, inst);
 			default: return null;
 		}	
 	}
@@ -25686,7 +25687,7 @@ protected class RepositorySelectCase_CaseKeyword_1_0_0 extends KeywordToken  {
 
 }
 
-// conditionExpr=Expression
+// conditionExpr+=Expression
 protected class RepositorySelectCase_ConditionExprAssignment_1_0_1 extends AssignmentToken  {
 	
 	public RepositorySelectCase_ConditionExprAssignment_1_0_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -25731,6 +25732,98 @@ protected class RepositorySelectCase_ConditionExprAssignment_1_0_1 extends Assig
 		}	
 	}	
 }
+
+// ("," conditionExpr+=Expression)*
+protected class RepositorySelectCase_Group_1_0_2 extends GroupToken {
+	
+	public RepositorySelectCase_Group_1_0_2(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
+	}
+	
+	@Override
+	public Group getGrammarElement() {
+		return grammarAccess.getRepositorySelectCaseAccess().getGroup_1_0_2();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
+		switch(index) {
+			case 0: return new RepositorySelectCase_ConditionExprAssignment_1_0_2_1(lastRuleCallOrigin, this, 0, inst);
+			default: return null;
+		}	
+	}
+
+}
+
+// ","
+protected class RepositorySelectCase_CommaKeyword_1_0_2_0 extends KeywordToken  {
+	
+	public RepositorySelectCase_CommaKeyword_1_0_2_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
+	}
+	
+	@Override
+	public Keyword getGrammarElement() {
+		return grammarAccess.getRepositorySelectCaseAccess().getCommaKeyword_1_0_2_0();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
+		switch(index) {
+			case 0: return new RepositorySelectCase_Group_1_0_2(lastRuleCallOrigin, this, 0, inst);
+			case 1: return new RepositorySelectCase_ConditionExprAssignment_1_0_1(lastRuleCallOrigin, this, 1, inst);
+			default: return null;
+		}	
+	}
+
+}
+
+// conditionExpr+=Expression
+protected class RepositorySelectCase_ConditionExprAssignment_1_0_2_1 extends AssignmentToken  {
+	
+	public RepositorySelectCase_ConditionExprAssignment_1_0_2_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
+	}
+	
+	@Override
+	public Assignment getGrammarElement() {
+		return grammarAccess.getRepositorySelectCaseAccess().getConditionExprAssignment_1_0_2_1();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
+		switch(index) {
+			case 0: return new Expression_AssignmentExpressionParserRuleCall(this, this, 0, inst);
+			default: return null;
+		}	
+	}
+
+    @Override	
+	public IEObjectConsumer tryConsume() {
+		if((value = eObjectConsumer.getConsumable("conditionExpr",false)) == null) return null;
+		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("conditionExpr");
+		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
+			IEObjectConsumer param = createEObjectConsumer((EObject)value);
+			if(param.isInstanceOf(grammarAccess.getExpressionRule().getType().getClassifier())) {
+				type = AssignmentType.PARSER_RULE_CALL;
+				element = grammarAccess.getRepositorySelectCaseAccess().getConditionExprExpressionParserRuleCall_1_0_2_1_0(); 
+				consumed = obj;
+				return param;
+			}
+		}
+		return null;
+	}
+
+    @Override
+	public AbstractToken createFollowerAfterReturn(AbstractToken next,	int actIndex, int index, IEObjectConsumer inst) {
+		if(value == inst.getEObject() && !inst.isConsumed()) return null;
+		switch(index) {
+			case 0: return new RepositorySelectCase_CommaKeyword_1_0_2_0(lastRuleCallOrigin, next, actIndex, consumed);
+			default: return null;
+		}	
+	}	
+}
+
 
 
 // "default"
@@ -29654,6 +29747,7 @@ protected class UnitTypeRef_RawTypeAssignment_1 extends AssignmentToken  {
 
 /************ begin Rule SimpleTypeRef ****************
  *
+ * // TODO: too simplistic - does not allow List<Map<String, List<String>>>	
  * //		('<' actualArgumentsList+=TypeParam (',' actualArgumentsList+=TypeParam)* '>' )? // TODO: Support wildcard as well
  * SimpleTypeRef returns be::IType:
  * 	{be::B3ParameterizedType} rawType=[be::B3JavaImport] ("<" actualArgumentsList+=[be::B3JavaImport] (","
@@ -37173,11 +37267,11 @@ protected class SwitchExpression_EndswitchKeyword_4 extends KeywordToken  {
 /************ begin Rule Case ****************
  *
  * Case returns be::BCase:
- * 	{be::BCase} ("case" conditionExpr=Expression | "default") ":" thenExpr=Expression;
+ * 	{be::BCase} ("case" conditionExpr+=Expression ("," conditionExpr+=Expression)* | "default") ":" thenExpr=Expression;
  *
  **/
 
-// {be::BCase} ("case" conditionExpr=Expression | "default") ":" thenExpr=Expression
+// {be::BCase} ("case" conditionExpr+=Expression ("," conditionExpr+=Expression)* | "default") ":" thenExpr=Expression
 protected class Case_Group extends GroupToken {
 	
 	public Case_Group(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -37232,7 +37326,7 @@ protected class Case_BCaseAction_0 extends ActionToken  {
 	}
 }
 
-// "case" conditionExpr=Expression | "default"
+// "case" conditionExpr+=Expression ("," conditionExpr+=Expression)* | "default"
 protected class Case_Alternatives_1 extends AlternativesToken {
 
 	public Case_Alternatives_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -37255,7 +37349,7 @@ protected class Case_Alternatives_1 extends AlternativesToken {
 
 }
 
-// "case" conditionExpr=Expression
+// "case" conditionExpr+=Expression ("," conditionExpr+=Expression)*
 protected class Case_Group_1_0 extends GroupToken {
 	
 	public Case_Group_1_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -37270,7 +37364,8 @@ protected class Case_Group_1_0 extends GroupToken {
     @Override
 	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
 		switch(index) {
-			case 0: return new Case_ConditionExprAssignment_1_0_1(lastRuleCallOrigin, this, 0, inst);
+			case 0: return new Case_Group_1_0_2(lastRuleCallOrigin, this, 0, inst);
+			case 1: return new Case_ConditionExprAssignment_1_0_1(lastRuleCallOrigin, this, 1, inst);
 			default: return null;
 		}	
 	}
@@ -37299,7 +37394,7 @@ protected class Case_CaseKeyword_1_0_0 extends KeywordToken  {
 
 }
 
-// conditionExpr=Expression
+// conditionExpr+=Expression
 protected class Case_ConditionExprAssignment_1_0_1 extends AssignmentToken  {
 	
 	public Case_ConditionExprAssignment_1_0_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -37344,6 +37439,98 @@ protected class Case_ConditionExprAssignment_1_0_1 extends AssignmentToken  {
 		}	
 	}	
 }
+
+// ("," conditionExpr+=Expression)*
+protected class Case_Group_1_0_2 extends GroupToken {
+	
+	public Case_Group_1_0_2(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
+	}
+	
+	@Override
+	public Group getGrammarElement() {
+		return grammarAccess.getCaseAccess().getGroup_1_0_2();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
+		switch(index) {
+			case 0: return new Case_ConditionExprAssignment_1_0_2_1(lastRuleCallOrigin, this, 0, inst);
+			default: return null;
+		}	
+	}
+
+}
+
+// ","
+protected class Case_CommaKeyword_1_0_2_0 extends KeywordToken  {
+	
+	public Case_CommaKeyword_1_0_2_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
+	}
+	
+	@Override
+	public Keyword getGrammarElement() {
+		return grammarAccess.getCaseAccess().getCommaKeyword_1_0_2_0();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
+		switch(index) {
+			case 0: return new Case_Group_1_0_2(lastRuleCallOrigin, this, 0, inst);
+			case 1: return new Case_ConditionExprAssignment_1_0_1(lastRuleCallOrigin, this, 1, inst);
+			default: return null;
+		}	
+	}
+
+}
+
+// conditionExpr+=Expression
+protected class Case_ConditionExprAssignment_1_0_2_1 extends AssignmentToken  {
+	
+	public Case_ConditionExprAssignment_1_0_2_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
+	}
+	
+	@Override
+	public Assignment getGrammarElement() {
+		return grammarAccess.getCaseAccess().getConditionExprAssignment_1_0_2_1();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
+		switch(index) {
+			case 0: return new Expression_AssignmentExpressionParserRuleCall(this, this, 0, inst);
+			default: return null;
+		}	
+	}
+
+    @Override	
+	public IEObjectConsumer tryConsume() {
+		if((value = eObjectConsumer.getConsumable("conditionExpr",false)) == null) return null;
+		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("conditionExpr");
+		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
+			IEObjectConsumer param = createEObjectConsumer((EObject)value);
+			if(param.isInstanceOf(grammarAccess.getExpressionRule().getType().getClassifier())) {
+				type = AssignmentType.PARSER_RULE_CALL;
+				element = grammarAccess.getCaseAccess().getConditionExprExpressionParserRuleCall_1_0_2_1_0(); 
+				consumed = obj;
+				return param;
+			}
+		}
+		return null;
+	}
+
+    @Override
+	public AbstractToken createFollowerAfterReturn(AbstractToken next,	int actIndex, int index, IEObjectConsumer inst) {
+		if(value == inst.getEObject() && !inst.isConsumed()) return null;
+		switch(index) {
+			case 0: return new Case_CommaKeyword_1_0_2_0(lastRuleCallOrigin, next, actIndex, consumed);
+			default: return null;
+		}	
+	}	
+}
+
 
 
 // "default"

@@ -104,8 +104,8 @@
         eType="#//BCase" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="BCase">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="conditionExpr" eType="#//BExpression"
-        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="conditionExpr" upperBound="-1"
+        eType="#//BExpression" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="thenExpr" eType="#//BExpression"
         containment="true"/>
   </eClassifiers>

@@ -226,20 +226,52 @@ public class BSwitchExpressionImpl extends BExpressionImpl implements BSwitchExp
 		// -> specify the condition that violates the invariant
 		// -> verify the details of the diagnostic, including severity and message
 		// Ensure that you remove @generated or mark it @generated NOT
-		BExpression expr = null;
+		// BExpression expr = null;
 		EList<BCase> cl = getCaseList();
-		int counter = -1;
+		int offendingCaseIndex = -1;
+		boolean hasUnreachableCaseExpr = false;
 		for(BCase bcase : cl) {
-			counter++;
-			if((expr = bcase.getConditionExpr()) == null || expr instanceof BLiteralAny)
+			offendingCaseIndex++;
+			// no case exprs == default case
+			if(bcase.getConditionExpr().size() == 0)
+				break;
+			int exprCounter = 0;
+			int limit = bcase.getConditionExpr().size();
+			boolean matchesAny = false;
+			for(BExpression expr : bcase.getConditionExpr()) {
+				exprCounter++;
+				if(expr instanceof BLiteralAny) {
+					matchesAny = true;
+					if(exprCounter < limit) {
+						hasUnreachableCaseExpr = true;
+						break;
+					}
+				}
+			}
+			if(matchesAny)
 				break;
 		}
 		// counter is now index in case list of default or Any case
+		// if hasUnreachableCaseExpr then that caselist should be marked, even if there are no other cases
+		// after it. But is not required if there are others - as the error should be clear anyway.
+		boolean reachedTheEnd = offendingCaseIndex == cl.size() - 1;
+		if(hasUnreachableCaseExpr && reachedTheEnd) {
+			// add an 'offender' strike for causing case
+			BCase bcase = cl.get(offendingCaseIndex);
+			chain.add(new BasicDiagnostic(
+				Diagnostic.ERROR, B3backendValidator.DIAGNOSTIC_SOURCE,
+				B3backendValidator.BSWITCH_EXPRESSION__HAS_UNREACHABLE_CASE_EXPR__OFFENDER,
+				EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] {
+						"hasUnreachableCase", EObjectValidator.getObjectLabel(bcase, map) }), new Object[] {
+						bcase, B3backendPackage.BCASE__CONDITION_EXPR }));
+			return false;
+
+		}
 		// if there are additional cases after this, they are unreachable
-		if(counter < cl.size() - 1) {
+		if(!reachedTheEnd) {
 			if(chain != null) {
 				// add an 'unreachable' for each unreachable case
-				for(int at = counter + 1; at < cl.size(); at++) {
+				for(int at = offendingCaseIndex + 1; at < cl.size(); at++) {
 					BCase bcase = cl.get(at);
 					chain.add(new BasicDiagnostic(
 						Diagnostic.ERROR, B3backendValidator.DIAGNOSTIC_SOURCE,
@@ -249,7 +281,7 @@ public class BSwitchExpressionImpl extends BExpressionImpl implements BSwitchExp
 						new Object[] { bcase, B3backendPackage.BCASE__THEN_EXPR }));
 				}
 				// add an 'offender' strike for causing case
-				BCase bcase = cl.get(counter);
+				BCase bcase = cl.get(offendingCaseIndex);
 				chain.add(new BasicDiagnostic(
 					Diagnostic.ERROR, B3backendValidator.DIAGNOSTIC_SOURCE,
 					B3backendValidator.BSWITCH_EXPRESSION__HAS_UNREACHABLE_CASE__OFFENDER,

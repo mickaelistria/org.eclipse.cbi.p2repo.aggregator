@@ -4361,7 +4361,7 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 
 		initEClass(bCaseEClass, BCase.class, "BCase", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(
-			getBCase_ConditionExpr(), this.getBExpression(), null, "conditionExpr", null, 0, 1, BCase.class,
+			getBCase_ConditionExpr(), this.getBExpression(), null, "conditionExpr", null, 0, -1, BCase.class,
 			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,
 			!IS_DERIVED, IS_ORDERED);
 		initEReference(
