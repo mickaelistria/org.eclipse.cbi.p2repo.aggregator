@@ -159,32 +159,6 @@ public class SystemFunctions {
 		return null;
 	}
 
-	@B3Backend(system = true, typeFunction = "tcReturnTypeOfFirstLambda")
-	public static Object _evaluate(BExecutionContext ctx, Object[] params, Type[] types) throws Throwable {
-		if(params == null || params.length < 1 || !(params[0] instanceof BFunction))
-			throw new IllegalArgumentException("_evaluate called with too few/wrong arguments");
-		BFunction func = (BFunction) params[0];
-		int limit = params.length;
-		Object[] callparams = new Object[limit - 1];
-		Type[] calltypes = new Type[limit - 1];
-		for(int i = 1; i < limit; i++) {
-			callparams[i - 1] = params[i];
-			calltypes[i - 1] = types[i];
-		}
-		// If function comes with a closure, use it, else use a new outer context. (If the function does
-		// not have a closure it should not see the calling inner context).
-		//
-		BExecutionContext useCtx = (func instanceof IClosure)
-				? ((IClosure) func).getClosure()
-				: null;
-		useCtx = useCtx == null
-				? ctx.createOuterContext()
-				: useCtx.createInnerContext();
-		return ctx.getInjector().getInstance(IB3Evaluator.class).doCall(func, callparams, calltypes, useCtx);
-
-		// return func.call(useCtx, callparams, calltypes);
-	}
-
 	@B3Backend(system = true)
 	public static Boolean _exists(BExecutionContext ctx, Object[] params, Type[] types) throws Throwable {
 		Curry cur = hurryCurry(params, types, "exists");
@@ -256,6 +230,32 @@ public class SystemFunctions {
 		return TypeUtils.isAssignableFrom(t, o)
 				? Boolean.TRUE
 				: Boolean.FALSE;
+	}
+
+	@B3Backend(system = true, typeFunction = "tcReturnTypeOfFirstLambda")
+	public static Object _invoke(BExecutionContext ctx, Object[] params, Type[] types) throws Throwable {
+		if(params == null || params.length < 1 || !(params[0] instanceof BFunction))
+			throw new IllegalArgumentException("_evaluate called with too few/wrong arguments");
+		BFunction func = (BFunction) params[0];
+		int limit = params.length;
+		Object[] callparams = new Object[limit - 1];
+		Type[] calltypes = new Type[limit - 1];
+		for(int i = 1; i < limit; i++) {
+			callparams[i - 1] = params[i];
+			calltypes[i - 1] = types[i];
+		}
+		// If function comes with a closure, use it, else use a new outer context. (If the function does
+		// not have a closure it should not see the calling inner context).
+		//
+		BExecutionContext useCtx = (func instanceof IClosure)
+				? ((IClosure) func).getClosure()
+				: null;
+		useCtx = useCtx == null
+				? ctx.createOuterContext()
+				: useCtx.createInnerContext();
+		return ctx.getInjector().getInstance(IB3Evaluator.class).doCall(func, callparams, calltypes, useCtx);
+
+		// return func.call(useCtx, callparams, calltypes);
 	}
 
 	/**
@@ -574,20 +574,6 @@ public class SystemFunctions {
 		return new Status(IStatus.ERROR, B3BackendActivator.PLUGIN_ID, IStatus.OK, "Error", t);
 	}
 
-	/**
-	 * Evaluate a function - the same as calling it.
-	 * 
-	 * @param func
-	 *            - the function to evaluate
-	 * @param params
-	 *            - the parameters passed to the function
-	 * @return the result of calling the function
-	 */
-	@B3Backend(systemFunction = "_evaluate", varargs = true, typeFunction = "tcReturnTypeOfFirstLambda")
-	public static final Object evaluate(@B3Backend(name = "function") BFunction func, Object... params) {
-		return null;
-	}
-
 	@B3Backend(systemFunction = "_exists", varargs = true)
 	public static Boolean exists(@B3Backend(name = "iterable") Iterable<?> iterable,
 			@B3Backend(name = "paramsAnyAndFunction") Object... variable) {
@@ -617,6 +603,20 @@ public class SystemFunctions {
 	@B3Backend(systemFunction = "_inject", varargs = true, typeFunction = "tcReturnTypeOfLastLambda")
 	public static Object inject(@B3Backend(name = "iterator") Iterator<?> iterator,
 			@B3Backend(name = "paramsAnyAndFunction") Object... variable) {
+		return null;
+	}
+
+	/**
+	 * Invoke calls a function
+	 * 
+	 * @param func
+	 *            - the function to evaluate
+	 * @param params
+	 *            - the parameters passed to the function
+	 * @return the result of calling the function
+	 */
+	@B3Backend(systemFunction = "_invoke", varargs = true, typeFunction = "tcReturnTypeOfFirstLambda")
+	public static final Object invoke(@B3Backend(name = "function") BFunction func, Object... params) {
 		return null;
 	}
 
