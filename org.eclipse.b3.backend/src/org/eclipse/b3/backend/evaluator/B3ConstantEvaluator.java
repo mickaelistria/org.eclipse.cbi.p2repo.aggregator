@@ -11,10 +11,12 @@ package org.eclipse.b3.backend.evaluator;
 import java.util.Collections;
 
 import org.eclipse.b3.backend.core.datatypes.Any;
+import org.eclipse.b3.backend.core.datatypes.IntegerWithRadix;
 import org.eclipse.b3.backend.evaluator.b3backend.BAndExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BBinaryOpExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BDefValue;
 import org.eclipse.b3.backend.evaluator.b3backend.BLiteralAny;
+import org.eclipse.b3.backend.evaluator.b3backend.BLiteralInteger;
 import org.eclipse.b3.backend.evaluator.b3backend.BLiteralType;
 import org.eclipse.b3.backend.evaluator.b3backend.BOrExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BUnaryOpExpression;
@@ -180,6 +182,13 @@ public class B3ConstantEvaluator {
 
 	ConstantEvaluationResult evalConstant(BLiteralExpressionImpl o) {
 		return new ConstantEvaluationResult(o.getValue(), true);
+	}
+
+	ConstantEvaluationResult evalConstant(BLiteralInteger o) {
+		Object i = o.getValue();
+		if(i instanceof IntegerWithRadix)
+			i = ((IntegerWithRadix) i).getValue();
+		return new ConstantEvaluationResult(i, true);
 	}
 
 	ConstantEvaluationResult evalConstant(BLiteralType o) {

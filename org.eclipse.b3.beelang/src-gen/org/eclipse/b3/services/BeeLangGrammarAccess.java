@@ -11715,25 +11715,25 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 	public class IntegerLiteralElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "IntegerLiteral");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Action cBLiteralExpressionAction_0 = (Action)cGroup.eContents().get(0);
+		private final Action cBLiteralIntegerAction_0 = (Action)cGroup.eContents().get(0);
 		private final Assignment cValueAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cValueIntValueParserRuleCall_1_0 = (RuleCall)cValueAssignment_1.eContents().get(0);
+		private final RuleCall cValueRadixIntValueParserRuleCall_1_0 = (RuleCall)cValueAssignment_1.eContents().get(0);
 		
 		//IntegerLiteral returns be::BExpression:
-		//	{be::BLiteralExpression} value=IntValue;
+		//	{be::BLiteralInteger} value=RadixIntValue;
 		public ParserRule getRule() { return rule; }
 
-		//{be::BLiteralExpression} value=IntValue
+		//{be::BLiteralInteger} value=RadixIntValue
 		public Group getGroup() { return cGroup; }
 
-		//{be::BLiteralExpression}
-		public Action getBLiteralExpressionAction_0() { return cBLiteralExpressionAction_0; }
+		//{be::BLiteralInteger}
+		public Action getBLiteralIntegerAction_0() { return cBLiteralIntegerAction_0; }
 
-		//value=IntValue
+		//value=RadixIntValue
 		public Assignment getValueAssignment_1() { return cValueAssignment_1; }
 
-		//IntValue
-		public RuleCall getValueIntValueParserRuleCall_1_0() { return cValueIntValueParserRuleCall_1_0; }
+		//RadixIntValue
+		public RuleCall getValueRadixIntValueParserRuleCall_1_0() { return cValueRadixIntValueParserRuleCall_1_0; }
 	}
 
 	public class UnitLiteralElements extends AbstractParserRuleElementFinder {
@@ -11919,8 +11919,29 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cINTTerminalRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
 		private final RuleCall cHEXTerminalRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
 		
-		//// Has conversion rule that handles decimal, octal, and hexadecimal values with radix
+		//// Has conversion rule that handles decimal, octal, and hexadecimal values but returns an Integer
 		//IntValue returns ecore::EIntegerObject:
+		//	INT | HEX;
+		public ParserRule getRule() { return rule; }
+
+		//INT | HEX
+		public Alternatives getAlternatives() { return cAlternatives; }
+
+		//INT
+		public RuleCall getINTTerminalRuleCall_0() { return cINTTerminalRuleCall_0; }
+
+		//HEX
+		public RuleCall getHEXTerminalRuleCall_1() { return cHEXTerminalRuleCall_1; }
+	}
+
+	public class RadixIntValueElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "RadixIntValue");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final RuleCall cINTTerminalRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cHEXTerminalRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		
+		//// Has conversion rule that handles decimal, octal, and hexadecimal values with radix
+		//RadixIntValue returns ecore::EJavaObject:
 		//	INT | HEX;
 		public ParserRule getRule() { return rule; }
 
@@ -12680,7 +12701,7 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cValueBYTEARRAY16ParserRuleCall_2_0 = (RuleCall)cValueAssignment_2.eContents().get(0);
 		private final Keyword cRightSquareBracketKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		
-		//ByteArrayLiteral16 returns be::BLiteralByteArrayExpression:
+		//ByteArrayLiteral16 returns be::BLiteralByteArrayExpression hidden(WS):
 		//	{be::BLiteralByteArrayExpression} "#[" value=BYTEARRAY16 "]";
 		public ParserRule getRule() { return rule; }
 
@@ -12713,7 +12734,7 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cValueBYTEARRAY64ParserRuleCall_2_0 = (RuleCall)cValueAssignment_2.eContents().get(0);
 		private final Keyword cRightSquareBracketKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		
-		//ByteArrayLiteral64 returns be::BLiteralByteArrayExpression:
+		//ByteArrayLiteral64 returns be::BLiteralByteArrayExpression hidden(WS):
 		//	{be::BLiteralByteArrayExpression} base64?="##[" value=BYTEARRAY64 "]";
 		public ParserRule getRule() { return rule; }
 
@@ -13163,6 +13184,7 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 	private BooleanValueElements pBooleanValue;
 	private RealValueElements pRealValue;
 	private IntValueElements pIntValue;
+	private RadixIntValueElements pRadixIntValue;
 	private TextStringValueElements pTextStringValue;
 	private TextVerbatimValueElements pTextVerbatimValue;
 	private ParanthesizedExpressionElements pParanthesizedExpression;
@@ -15185,7 +15207,7 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//IntegerLiteral returns be::BExpression:
-	//	{be::BLiteralExpression} value=IntValue;
+	//	{be::BLiteralInteger} value=RadixIntValue;
 	public IntegerLiteralElements getIntegerLiteralAccess() {
 		return (pIntegerLiteral != null) ? pIntegerLiteral : (pIntegerLiteral = new IntegerLiteralElements());
 	}
@@ -15279,7 +15301,7 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		return getRealValueAccess().getRule();
 	}
 
-	//// Has conversion rule that handles decimal, octal, and hexadecimal values with radix
+	//// Has conversion rule that handles decimal, octal, and hexadecimal values but returns an Integer
 	//IntValue returns ecore::EIntegerObject:
 	//	INT | HEX;
 	public IntValueElements getIntValueAccess() {
@@ -15288,6 +15310,17 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getIntValueRule() {
 		return getIntValueAccess().getRule();
+	}
+
+	//// Has conversion rule that handles decimal, octal, and hexadecimal values with radix
+	//RadixIntValue returns ecore::EJavaObject:
+	//	INT | HEX;
+	public RadixIntValueElements getRadixIntValueAccess() {
+		return (pRadixIntValue != null) ? pRadixIntValue : (pRadixIntValue = new RadixIntValueElements());
+	}
+	
+	public ParserRule getRadixIntValueRule() {
+		return getRadixIntValueAccess().getRule();
 	}
 
 	//// Has conversion rule that handles Java String semantics and trim
@@ -15581,7 +15614,7 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		return getByteArrayLiteralAccess().getRule();
 	}
 
-	//ByteArrayLiteral16 returns be::BLiteralByteArrayExpression:
+	//ByteArrayLiteral16 returns be::BLiteralByteArrayExpression hidden(WS):
 	//	{be::BLiteralByteArrayExpression} "#[" value=BYTEARRAY16 "]";
 	public ByteArrayLiteral16Elements getByteArrayLiteral16Access() {
 		return (pByteArrayLiteral16 != null) ? pByteArrayLiteral16 : (pByteArrayLiteral16 = new ByteArrayLiteral16Elements());
@@ -15591,7 +15624,7 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		return getByteArrayLiteral16Access().getRule();
 	}
 
-	//ByteArrayLiteral64 returns be::BLiteralByteArrayExpression:
+	//ByteArrayLiteral64 returns be::BLiteralByteArrayExpression hidden(WS):
 	//	{be::BLiteralByteArrayExpression} base64?="##[" value=BYTEARRAY64 "]";
 	public ByteArrayLiteral64Elements getByteArrayLiteral64Access() {
 		return (pByteArrayLiteral64 != null) ? pByteArrayLiteral64 : (pByteArrayLiteral64 = new ByteArrayLiteral64Elements());

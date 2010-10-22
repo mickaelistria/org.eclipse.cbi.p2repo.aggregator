@@ -139,6 +139,7 @@ public class BeeLangParser extends AbstractContentAssistParser {
 					put(grammarAccess.getValueLiteralAccess().getAlternatives(), "rule__ValueLiteral__Alternatives");
 					put(grammarAccess.getBooleanValueAccess().getAlternatives(), "rule__BooleanValue__Alternatives");
 					put(grammarAccess.getIntValueAccess().getAlternatives(), "rule__IntValue__Alternatives");
+					put(grammarAccess.getRadixIntValueAccess().getAlternatives(), "rule__RadixIntValue__Alternatives");
 					put(grammarAccess.getVersionLiteralAccess().getAlternatives(), "rule__VersionLiteral__Alternatives");
 					put(grammarAccess.getVersionRangeLiteralAccess().getAlternatives(), "rule__VersionRangeLiteral__Alternatives");
 					put(grammarAccess.getVersionRangeLiteralAccess().getAlternatives_0_0(), "rule__VersionRangeLiteral__Alternatives_0_0");

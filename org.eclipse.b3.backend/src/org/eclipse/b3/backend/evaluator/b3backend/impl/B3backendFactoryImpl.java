@@ -17,6 +17,7 @@ import java.net.URI;
 import java.util.Iterator;
 import java.util.regex.Pattern;
 
+import org.eclipse.b3.backend.core.datatypes.IntegerWithRadix;
 import org.eclipse.b3.backend.core.datatypes.LValue;
 import org.eclipse.b3.backend.core.datatypes.SimplePattern;
 import org.eclipse.b3.backend.core.exceptions.B3EngineException;
@@ -279,6 +280,16 @@ public class B3backendFactoryImpl extends EFactoryImpl implements B3backendFacto
 	 * 
 	 * @generated
 	 */
+	public String convertRadixIntegerToString(EDataType eDataType, Object instanceValue) {
+		return super.convertToString(eDataType, instanceValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
 	public String convertRegexpPatternToString(EDataType eDataType, Object instanceValue) {
 		return super.convertToString(eDataType, instanceValue);
 	}
@@ -364,6 +375,8 @@ public class B3backendFactoryImpl extends EFactoryImpl implements B3backendFacto
 				return convertSimplePatternToString(eDataType, instanceValue);
 			case B3backendPackage.CHAR_SEQUENCE:
 				return convertCharSequenceToString(eDataType, instanceValue);
+			case B3backendPackage.RADIX_INTEGER:
+				return convertRadixIntegerToString(eDataType, instanceValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() +
 						"' is not a valid classifier");
@@ -589,6 +602,8 @@ public class B3backendFactoryImpl extends EFactoryImpl implements B3backendFacto
 				return createBEchoExpression();
 			case B3backendPackage.BLITERAL_BYTE_ARRAY_EXPRESSION:
 				return createBLiteralByteArrayExpression();
+			case B3backendPackage.BLITERAL_INTEGER:
+				return createBLiteralInteger();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -1108,6 +1123,17 @@ public class B3backendFactoryImpl extends EFactoryImpl implements B3backendFacto
 	 * 
 	 * @generated
 	 */
+	public BLiteralInteger createBLiteralInteger() {
+		BLiteralIntegerImpl bLiteralInteger = new BLiteralIntegerImpl();
+		return bLiteralInteger;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
 	public BLiteralListExpression createBLiteralListExpression() {
 		BLiteralListExpressionImpl bLiteralListExpression = new BLiteralListExpressionImpl();
 		return bLiteralListExpression;
@@ -1517,6 +1543,8 @@ public class B3backendFactoryImpl extends EFactoryImpl implements B3backendFacto
 				return createSimplePatternFromString(eDataType, initialValue);
 			case B3backendPackage.CHAR_SEQUENCE:
 				return createCharSequenceFromString(eDataType, initialValue);
+			case B3backendPackage.RADIX_INTEGER:
+				return createRadixIntegerFromString(eDataType, initialValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() +
 						"' is not a valid classifier");
@@ -1581,6 +1609,16 @@ public class B3backendFactoryImpl extends EFactoryImpl implements B3backendFacto
 	 */
 	public Object[] createObjectArrayFromString(EDataType eDataType, String initialValue) {
 		return (Object[]) super.createFromString(initialValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public IntegerWithRadix createRadixIntegerFromString(EDataType eDataType, String initialValue) {
+		return (IntegerWithRadix) super.createFromString(eDataType, initialValue);
 	}
 
 	/**

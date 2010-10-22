@@ -22059,10 +22059,10 @@ ruleIntegerLiteral returns [EObject current=null]
 	  /* */ 
 	}
     { 
-        temp=factory.create(grammarAccess.getIntegerLiteralAccess().getBLiteralExpressionAction_0().getType().getClassifier());
+        temp=factory.create(grammarAccess.getIntegerLiteralAccess().getBLiteralIntegerAction_0().getType().getClassifier());
         $current = temp; 
         temp = null;
-        CompositeNode newNode = createCompositeNode(grammarAccess.getIntegerLiteralAccess().getBLiteralExpressionAction_0(), currentNode.getParent());
+        CompositeNode newNode = createCompositeNode(grammarAccess.getIntegerLiteralAccess().getBLiteralIntegerAction_0(), currentNode.getParent());
     newNode.getChildren().add(currentNode);
     moveLookaheadInfo(currentNode, newNode);
     currentNode = newNode; 
@@ -22071,9 +22071,9 @@ ruleIntegerLiteral returns [EObject current=null]
 )(
 (
 		{ 
-	        currentNode=createCompositeNode(grammarAccess.getIntegerLiteralAccess().getValueIntValueParserRuleCall_1_0(), currentNode); 
+	        currentNode=createCompositeNode(grammarAccess.getIntegerLiteralAccess().getValueRadixIntValueParserRuleCall_1_0(), currentNode); 
 	    }
-		lv_value_1_0=ruleIntValue		{
+		lv_value_1_0=ruleRadixIntValue		{
 	        if ($current==null) {
 	            $current = factory.create(grammarAccess.getIntegerLiteralRule().getType().getClassifier());
 	            associateNodeWithAstElement(currentNode.getParent(), $current);
@@ -22083,7 +22083,7 @@ ruleIntegerLiteral returns [EObject current=null]
 	       			$current, 
 	       			"value",
 	        		lv_value_1_0, 
-	        		"IntValue", 
+	        		"RadixIntValue", 
 	        		currentNode);
 	        } catch (ValueConverterException vce) {
 				handleValueConverterException(vce);
@@ -22542,6 +22542,44 @@ ruleIntValue returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken(
 
     { 
     createLeafNode(grammarAccess.getIntValueAccess().getHEXTerminalRuleCall_1(), null); 
+    }
+)
+    ;
+
+
+
+
+
+// Entry rule entryRuleRadixIntValue
+entryRuleRadixIntValue returns [String current=null] 
+	:
+	{ currentNode = createCompositeNode(grammarAccess.getRadixIntValueRule(), currentNode); } 
+	 iv_ruleRadixIntValue=ruleRadixIntValue 
+	 { $current=$iv_ruleRadixIntValue.current.getText(); }  
+	 EOF 
+;
+
+// Rule RadixIntValue
+ruleRadixIntValue returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] 
+    @init { setCurrentLookahead(); resetLookahead(); 
+    }
+    @after { resetLookahead(); 
+	    lastConsumedNode = currentNode;
+    }:
+(    this_INT_0=RULE_INT    {
+		$current.merge(this_INT_0);
+    }
+
+    { 
+    createLeafNode(grammarAccess.getRadixIntValueAccess().getINTTerminalRuleCall_0(), null); 
+    }
+
+    |    this_HEX_1=RULE_HEX    {
+		$current.merge(this_HEX_1);
+    }
+
+    { 
+    createLeafNode(grammarAccess.getRadixIntValueAccess().getHEXTerminalRuleCall_1(), null); 
     }
 )
     ;
@@ -23948,16 +23986,23 @@ ruleByteArrayLiteral returns [EObject current=null]
 
 // Entry rule entryRuleByteArrayLiteral16
 entryRuleByteArrayLiteral16 returns [EObject current=null] 
+	@init { 
+		HiddenTokens myHiddenTokenState = ((XtextTokenStream)input).setHiddenTokens("RULE_WS");
+	}
 	:
 	{ currentNode = createCompositeNode(grammarAccess.getByteArrayLiteral16Rule(), currentNode); }
 	 iv_ruleByteArrayLiteral16=ruleByteArrayLiteral16 
 	 { $current=$iv_ruleByteArrayLiteral16.current; } 
 	 EOF 
 ;
+finally {
+	myHiddenTokenState.restore();
+}
 
 // Rule ByteArrayLiteral16
 ruleByteArrayLiteral16 returns [EObject current=null] 
     @init { EObject temp=null; setCurrentLookahead(); resetLookahead(); 
+		HiddenTokens myHiddenTokenState = ((XtextTokenStream)input).setHiddenTokens("RULE_WS");
     }
     @after { resetLookahead(); 
     	lastConsumedNode = currentNode;
@@ -24010,6 +24055,9 @@ ruleByteArrayLiteral16 returns [EObject current=null]
     }
 )
 ;
+finally {
+	myHiddenTokenState.restore();
+}
 
 
 
@@ -24017,16 +24065,23 @@ ruleByteArrayLiteral16 returns [EObject current=null]
 
 // Entry rule entryRuleByteArrayLiteral64
 entryRuleByteArrayLiteral64 returns [EObject current=null] 
+	@init { 
+		HiddenTokens myHiddenTokenState = ((XtextTokenStream)input).setHiddenTokens("RULE_WS");
+	}
 	:
 	{ currentNode = createCompositeNode(grammarAccess.getByteArrayLiteral64Rule(), currentNode); }
 	 iv_ruleByteArrayLiteral64=ruleByteArrayLiteral64 
 	 { $current=$iv_ruleByteArrayLiteral64.current; } 
 	 EOF 
 ;
+finally {
+	myHiddenTokenState.restore();
+}
 
 // Rule ByteArrayLiteral64
 ruleByteArrayLiteral64 returns [EObject current=null] 
     @init { EObject temp=null; setCurrentLookahead(); resetLookahead(); 
+		HiddenTokens myHiddenTokenState = ((XtextTokenStream)input).setHiddenTokens("RULE_WS");
     }
     @after { resetLookahead(); 
     	lastConsumedNode = currentNode;
@@ -24096,6 +24151,9 @@ ruleByteArrayLiteral64 returns [EObject current=null]
     }
 )
 ;
+finally {
+	myHiddenTokenState.restore();
+}
 
 
 

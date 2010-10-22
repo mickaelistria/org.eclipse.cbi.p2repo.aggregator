@@ -5136,6 +5136,34 @@ finally {
 
 
 
+// Entry rule entryRuleRadixIntValue
+entryRuleRadixIntValue 
+:
+{ before(grammarAccess.getRadixIntValueRule()); }
+	 ruleRadixIntValue
+{ after(grammarAccess.getRadixIntValueRule()); } 
+	 EOF 
+;
+
+// Rule RadixIntValue
+ruleRadixIntValue 
+    @init {
+		int stackSize = keepStackSize();
+    }
+    :
+(
+{ before(grammarAccess.getRadixIntValueAccess().getAlternatives()); }
+(rule__RadixIntValue__Alternatives)
+{ after(grammarAccess.getRadixIntValueAccess().getAlternatives()); }
+)
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+
+
 // Entry rule entryRuleTextStringValue
 entryRuleTextStringValue 
 :
@@ -5716,16 +5744,23 @@ finally {
 
 // Entry rule entryRuleByteArrayLiteral16
 entryRuleByteArrayLiteral16 
+@init {
+	HiddenTokens myHiddenTokenState = ((XtextTokenStream)input).setHiddenTokens("RULE_WS");
+}
 :
 { before(grammarAccess.getByteArrayLiteral16Rule()); }
 	 ruleByteArrayLiteral16
 { after(grammarAccess.getByteArrayLiteral16Rule()); } 
 	 EOF 
 ;
+finally {
+	myHiddenTokenState.restore();
+}
 
 // Rule ByteArrayLiteral16
 ruleByteArrayLiteral16 
     @init {
+		HiddenTokens myHiddenTokenState = ((XtextTokenStream)input).setHiddenTokens("RULE_WS");
 		int stackSize = keepStackSize();
     }
     :
@@ -5738,22 +5773,30 @@ ruleByteArrayLiteral16
 ;
 finally {
 	restoreStackSize(stackSize);
+	myHiddenTokenState.restore();
 }
 
 
 
 // Entry rule entryRuleByteArrayLiteral64
 entryRuleByteArrayLiteral64 
+@init {
+	HiddenTokens myHiddenTokenState = ((XtextTokenStream)input).setHiddenTokens("RULE_WS");
+}
 :
 { before(grammarAccess.getByteArrayLiteral64Rule()); }
 	 ruleByteArrayLiteral64
 { after(grammarAccess.getByteArrayLiteral64Rule()); } 
 	 EOF 
 ;
+finally {
+	myHiddenTokenState.restore();
+}
 
 // Rule ByteArrayLiteral64
 ruleByteArrayLiteral64 
     @init {
+		HiddenTokens myHiddenTokenState = ((XtextTokenStream)input).setHiddenTokens("RULE_WS");
 		int stackSize = keepStackSize();
     }
     :
@@ -5766,6 +5809,7 @@ ruleByteArrayLiteral64
 ;
 finally {
 	restoreStackSize(stackSize);
+	myHiddenTokenState.restore();
 }
 
 
@@ -8831,6 +8875,28 @@ rule__IntValue__Alternatives
 { before(grammarAccess.getIntValueAccess().getHEXTerminalRuleCall_1()); }
 	RULE_HEX
 { after(grammarAccess.getIntValueAccess().getHEXTerminalRuleCall_1()); }
+)
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__RadixIntValue__Alternatives
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+(
+{ before(grammarAccess.getRadixIntValueAccess().getINTTerminalRuleCall_0()); }
+	RULE_INT
+{ after(grammarAccess.getRadixIntValueAccess().getINTTerminalRuleCall_0()); }
+)
+
+    |(
+{ before(grammarAccess.getRadixIntValueAccess().getHEXTerminalRuleCall_1()); }
+	RULE_HEX
+{ after(grammarAccess.getRadixIntValueAccess().getHEXTerminalRuleCall_1()); }
 )
 
 ;
@@ -55618,11 +55684,11 @@ rule__IntegerLiteral__Group__0__Impl
     }
 :
 (
-{ before(grammarAccess.getIntegerLiteralAccess().getBLiteralExpressionAction_0()); }
+{ before(grammarAccess.getIntegerLiteralAccess().getBLiteralIntegerAction_0()); }
 (
 
 )
-{ after(grammarAccess.getIntegerLiteralAccess().getBLiteralExpressionAction_0()); }
+{ after(grammarAccess.getIntegerLiteralAccess().getBLiteralIntegerAction_0()); }
 )
 
 ;
@@ -66851,8 +66917,8 @@ rule__IntegerLiteral__ValueAssignment_1
     }
 :
 (
-{ before(grammarAccess.getIntegerLiteralAccess().getValueIntValueParserRuleCall_1_0()); }
-	ruleIntValue{ after(grammarAccess.getIntegerLiteralAccess().getValueIntValueParserRuleCall_1_0()); }
+{ before(grammarAccess.getIntegerLiteralAccess().getValueRadixIntValueParserRuleCall_1_0()); }
+	ruleRadixIntValue{ after(grammarAccess.getIntegerLiteralAccess().getValueRadixIntValueParserRuleCall_1_0()); }
 )
 
 ;

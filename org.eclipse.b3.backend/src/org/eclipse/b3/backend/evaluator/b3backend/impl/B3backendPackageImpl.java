@@ -18,6 +18,7 @@ import java.lang.reflect.WildcardType;
 import java.util.Iterator;
 import java.util.regex.Pattern;
 
+import org.eclipse.b3.backend.core.datatypes.IntegerWithRadix;
 import org.eclipse.b3.backend.core.datatypes.LValue;
 import org.eclipse.b3.backend.core.datatypes.SimplePattern;
 import org.eclipse.b3.backend.core.exceptions.B3EngineException;
@@ -77,6 +78,7 @@ import org.eclipse.b3.backend.evaluator.b3backend.BJavaFunction;
 import org.eclipse.b3.backend.evaluator.b3backend.BLiteralAny;
 import org.eclipse.b3.backend.evaluator.b3backend.BLiteralByteArrayExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BLiteralExpression;
+import org.eclipse.b3.backend.evaluator.b3backend.BLiteralInteger;
 import org.eclipse.b3.backend.evaluator.b3backend.BLiteralListExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BLiteralMapExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BLiteralType;
@@ -581,6 +583,14 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	 * 
 	 * @generated
 	 */
+	private EClass bLiteralIntegerEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
 	private EClass bGuardEClass = null;
 
 	/**
@@ -1077,6 +1087,14 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	 * 
 	 * @generated
 	 */
+	private EDataType radixIntegerEDataType = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
 	private static boolean isInited = false;
 
 	/**
@@ -1500,6 +1518,8 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 		createEAttribute(bLiteralByteArrayExpressionEClass, BLITERAL_BYTE_ARRAY_EXPRESSION__VALUE);
 		createEAttribute(bLiteralByteArrayExpressionEClass, BLITERAL_BYTE_ARRAY_EXPRESSION__BASE64);
 
+		bLiteralIntegerEClass = createEClass(BLITERAL_INTEGER);
+
 		// Create enums
 		visibilityEEnum = createEEnum(VISIBILITY);
 		executionModeEEnum = createEEnum(EXECUTION_MODE);
@@ -1526,6 +1546,7 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 		simplePatternEDataType = createEDataType(SIMPLE_PATTERN);
 		charSequenceEDataType = createEDataType(CHAR_SEQUENCE);
 		injectorEDataType = createEDataType(INJECTOR);
+		radixIntegerEDataType = createEDataType(RADIX_INTEGER);
 	}
 
 	/**
@@ -2884,6 +2905,16 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	 * 
 	 * @generated
 	 */
+	public EClass getBLiteralInteger() {
+		return bLiteralIntegerEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
 	public EClass getBLiteralListExpression() {
 		return bLiteralListExpressionEClass;
 	}
@@ -4044,6 +4075,16 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	 * 
 	 * @generated
 	 */
+	public EDataType getRadixInteger() {
+		return radixIntegerEDataType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
 	public EDataType getRegexpPattern() {
 		return regexpPatternEDataType;
 	}
@@ -4257,6 +4298,7 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 		bTemplateEClass.getESuperTypes().add(this.getBExpression());
 		bEchoExpressionEClass.getESuperTypes().add(this.getBExpression());
 		bLiteralByteArrayExpressionEClass.getESuperTypes().add(this.getBExpression());
+		bLiteralIntegerEClass.getESuperTypes().add(this.getBLiteralExpression());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(
@@ -5398,6 +5440,10 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 			BLiteralByteArrayExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
 			IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+		initEClass(
+			bLiteralIntegerEClass, BLiteralInteger.class, "BLiteralInteger", !IS_ABSTRACT, !IS_INTERFACE,
+			IS_GENERATED_INSTANCE_CLASS);
+
 		// Initialize enums and add enum literals
 		initEEnum(visibilityEEnum, Visibility.class, "Visibility");
 		addEEnumLiteral(visibilityEEnum, Visibility.PRIVATE);
@@ -5448,6 +5494,9 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 		initEDataType(
 			charSequenceEDataType, CharSequence.class, "CharSequence", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 		initEDataType(injectorEDataType, Injector.class, "Injector", !IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
+		initEDataType(
+			radixIntegerEDataType, IntegerWithRadix.class, "RadixInteger", IS_SERIALIZABLE,
+			!IS_GENERATED_INSTANCE_CLASS);
 
 		// Create resource
 		createResource(eNS_URI);

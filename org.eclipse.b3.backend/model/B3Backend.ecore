@@ -701,4 +701,6 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EByteArray"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="base64" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="RadixInteger" instanceClassName="org.eclipse.b3.backend.core.datatypes.IntegerWithRadix"/>
+  <eClassifiers xsi:type="ecore:EClass" name="BLiteralInteger" eSuperTypes="#//BLiteralExpression"/>
 </ecore:EPackage>

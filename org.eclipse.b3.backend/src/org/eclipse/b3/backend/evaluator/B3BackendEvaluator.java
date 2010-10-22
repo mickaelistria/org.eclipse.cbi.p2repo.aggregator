@@ -28,6 +28,7 @@ import org.eclipse.b3.backend.core.IB3Weaver;
 import org.eclipse.b3.backend.core.adapters.LoadedPropertySetAdapter;
 import org.eclipse.b3.backend.core.adapters.LoadedPropertySetAdapterFactory;
 import org.eclipse.b3.backend.core.datatypes.Any;
+import org.eclipse.b3.backend.core.datatypes.IntegerWithRadix;
 import org.eclipse.b3.backend.core.datatypes.LValue;
 import org.eclipse.b3.backend.core.exceptions.B3AmbiguousFunctionSignatureException;
 import org.eclipse.b3.backend.core.exceptions.B3BackendException;
@@ -81,6 +82,7 @@ import org.eclipse.b3.backend.evaluator.b3backend.BJavaFunction;
 import org.eclipse.b3.backend.evaluator.b3backend.BLiteralAny;
 import org.eclipse.b3.backend.evaluator.b3backend.BLiteralByteArrayExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BLiteralExpression;
+import org.eclipse.b3.backend.evaluator.b3backend.BLiteralInteger;
 import org.eclipse.b3.backend.evaluator.b3backend.BLiteralListExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BLiteralMapExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BLiteralType;
@@ -855,6 +857,13 @@ public class B3BackendEvaluator extends DeclarativeB3Evaluator {
 
 	public Object evaluate(BLiteralExpression o, BExecutionContext ctx) throws Throwable {
 		return o.getValue();
+	}
+
+	public Object evaluate(BLiteralInteger o, BExecutionContext ctx) throws Throwable {
+		Object i = o.getValue();
+		if(i instanceof IntegerWithRadix)
+			return ((IntegerWithRadix) i).getValue();
+		return i;
 	}
 
 	public Object evaluate(BLiteralListExpression o, BExecutionContext ctx) throws Throwable {

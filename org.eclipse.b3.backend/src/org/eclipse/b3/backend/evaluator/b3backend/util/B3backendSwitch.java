@@ -993,6 +993,23 @@ public class B3backendSwitch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>BLiteral Integer</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * 
+	 * @param object
+	 *            the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>BLiteral Integer</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseBLiteralInteger(BLiteralInteger object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>BLiteral List Expression</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -2708,6 +2725,17 @@ public class B3backendSwitch<T> {
 				T result = caseBLiteralByteArrayExpression(bLiteralByteArrayExpression);
 				if(result == null)
 					result = caseBExpression(bLiteralByteArrayExpression);
+				if(result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
+			case B3backendPackage.BLITERAL_INTEGER: {
+				BLiteralInteger bLiteralInteger = (BLiteralInteger) theEObject;
+				T result = caseBLiteralInteger(bLiteralInteger);
+				if(result == null)
+					result = caseBLiteralExpression(bLiteralInteger);
+				if(result == null)
+					result = caseBExpression(bLiteralInteger);
 				if(result == null)
 					result = defaultCase(theEObject);
 				return result;

@@ -21,6 +21,7 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.regex.Pattern;
 
+import org.eclipse.b3.backend.core.datatypes.IntegerWithRadix;
 import org.eclipse.b3.backend.core.datatypes.LValue;
 import org.eclipse.b3.backend.core.datatypes.SimplePattern;
 import org.eclipse.b3.backend.core.exceptions.B3EngineException;
@@ -805,6 +806,17 @@ public class B3backendValidator extends EObjectValidator {
 	 * 
 	 * @generated
 	 */
+	public boolean validateBLiteralInteger(BLiteralInteger bLiteralInteger, DiagnosticChain diagnostics,
+			Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(bLiteralInteger, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
 	public boolean validateBLiteralListExpression(BLiteralListExpression bLiteralListExpression,
 			DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return validate_EveryDefaultConstraint(bLiteralListExpression, diagnostics, context);
@@ -1406,6 +1418,17 @@ public class B3backendValidator extends EObjectValidator {
 	 * 
 	 * @generated
 	 */
+	public boolean validateRadixInteger(IntegerWithRadix radixInteger, DiagnosticChain diagnostics,
+			Map<Object, Object> context) {
+		return true;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
 	public boolean validateRegexpPattern(Pattern regexpPattern, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return true;
 	}
@@ -1711,6 +1734,8 @@ public class B3backendValidator extends EObjectValidator {
 				return validateBEchoExpression((BEchoExpression) value, diagnostics, context);
 			case B3backendPackage.BLITERAL_BYTE_ARRAY_EXPRESSION:
 				return validateBLiteralByteArrayExpression((BLiteralByteArrayExpression) value, diagnostics, context);
+			case B3backendPackage.BLITERAL_INTEGER:
+				return validateBLiteralInteger((BLiteralInteger) value, diagnostics, context);
 			case B3backendPackage.VISIBILITY:
 				return validateVisibility((Visibility) value, diagnostics, context);
 			case B3backendPackage.EXECUTION_MODE:
@@ -1757,6 +1782,8 @@ public class B3backendValidator extends EObjectValidator {
 				return validateCharSequence((CharSequence) value, diagnostics, context);
 			case B3backendPackage.INJECTOR:
 				return validateInjector((Injector) value, diagnostics, context);
+			case B3backendPackage.RADIX_INTEGER:
+				return validateRadixInteger((IntegerWithRadix) value, diagnostics, context);
 			default:
 				return true;
 		}

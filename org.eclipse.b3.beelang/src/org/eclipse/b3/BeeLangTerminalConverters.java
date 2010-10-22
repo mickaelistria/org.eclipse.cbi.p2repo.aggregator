@@ -23,6 +23,7 @@ import java.util.TimeZone;
 import java.util.regex.Pattern;
 import java.util.regex.PatternSyntaxException;
 
+import org.eclipse.b3.backend.core.datatypes.IntegerWithRadix;
 import org.eclipse.b3.backend.core.datatypes.SimplePattern;
 import org.eclipse.b3.build.MergeConflictStrategy;
 import org.eclipse.b3.build.TriState;
@@ -408,6 +409,49 @@ public class BeeLangTerminalConverters extends AbstractDeclarativeValueConverter
 				catch(IllegalArgumentException e) {
 					throw new ValueConverterException(
 						"Internal error translating pattern flags - please log bug report", node, e);
+				}
+			}
+
+		};
+	}
+
+	@ValueConverter(rule = "RadixIntValue")
+	public IValueConverter<IntegerWithRadix> RadixIntValue() {
+		return new IValueConverter<IntegerWithRadix>() {
+
+			public String toString(IntegerWithRadix value) {
+				return value.toString();
+			}
+
+			public IntegerWithRadix toValue(String string, AbstractNode node) throws ValueConverterException {
+				int radix = 10;
+				if(Strings.isEmpty(string))
+					throw new ValueConverterException("Can not convert empty string to int", node, null);
+				try {
+					if(string.startsWith("0x") || string.startsWith("0X")) {
+						radix = 16;
+						string = string.substring(2);
+					}
+					else if(string.startsWith("0") && string.length() > 1)
+						radix = 8;
+
+					return new IntegerWithRadix(Integer.valueOf(string, radix), radix);
+				}
+				catch(NumberFormatException e) {
+					String format = "";
+					switch(radix) {
+						case 8:
+							format = "octal";
+							break;
+						case 10:
+							format = "decimal";
+							break;
+						case 16:
+							format = "hexadecimal";
+							break;
+					}
+					throw new ValueConverterException(
+						"Can not convert to " + format + " integer : " + string, node, null);
 				}
 			}
 

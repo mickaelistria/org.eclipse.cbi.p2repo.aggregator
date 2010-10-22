@@ -1190,8 +1190,8 @@ BooleanLiteral returns  be::BExpression : {be::BLiteralExpression}
 	value = BooleanValue
 	;
 	
-IntegerLiteral returns  be::BExpression : {be::BLiteralExpression} 
-	value= IntValue
+IntegerLiteral returns  be::BExpression : {be::BLiteralInteger} 
+	value= RadixIntValue
 	;
 	
 UnitLiteral returns  be::BExpression : {be::BLiteralExpression} 
@@ -1229,8 +1229,11 @@ BooleanValue returns ecore::EBooleanObject : ("true" | "false" );
 // Has conversion rule
 RealValue returns ecore::EDoubleObject: REAL ;
 
-// Has conversion rule that handles decimal, octal, and hexadecimal values with radix
+// Has conversion rule that handles decimal, octal, and hexadecimal values but returns an Integer
 IntValue returns ecore::EIntegerObject : INT | HEX ;
+
+// Has conversion rule that handles decimal, octal, and hexadecimal values with radix
+RadixIntValue returns ecore::EJavaObject : INT | HEX ;
 
 // Has conversion rule that handles Java String semantics and trim
 TextStringValue returns ecore::EString : TEXT ;
@@ -1347,10 +1350,10 @@ TextEndLiteral returns  be::BExpression : {be::BLiteralExpression}
 
 ByteArrayLiteral returns be::BLiteralByteArrayExpression : ByteArrayLiteral16 | ByteArrayLiteral64 ;
 
-ByteArrayLiteral16 returns be::BLiteralByteArrayExpression : {be::BLiteralByteArrayExpression}
+ByteArrayLiteral16 returns be::BLiteralByteArrayExpression hidden(WS): {be::BLiteralByteArrayExpression}
 	'#[' value = BYTEARRAY16 ']' ;
 
-ByteArrayLiteral64 returns be::BLiteralByteArrayExpression : {be::BLiteralByteArrayExpression}
+ByteArrayLiteral64 returns be::BLiteralByteArrayExpression hidden(WS): {be::BLiteralByteArrayExpression}
 	base64 ?= '##[' value = BYTEARRAY64 ']' ;
 	
 // Allows more than what can be encoded since parser otherwise gets confused and things there are

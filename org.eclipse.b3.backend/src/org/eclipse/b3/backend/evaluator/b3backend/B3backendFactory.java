@@ -471,6 +471,16 @@ public interface B3backendFactory extends EFactory {
 	BLiteralExpression createBLiteralExpression();
 
 	/**
+	 * Returns a new object of class '<em>BLiteral Integer</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return a new object of class '<em>BLiteral Integer</em>'.
+	 * @generated
+	 */
+	BLiteralInteger createBLiteralInteger();
+
+	/**
 	 * Returns a new object of class '<em>BLiteral List Expression</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

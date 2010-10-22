@@ -384,6 +384,11 @@ public class B3backendAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
+		public Adapter caseBLiteralInteger(BLiteralInteger object) {
+			return createBLiteralIntegerAdapter();
+		}
+
+		@Override
 		public Adapter caseBLiteralListExpression(BLiteralListExpression object) {
 			return createBLiteralListExpressionAdapter();
 		}
@@ -1400,6 +1405,21 @@ public class B3backendAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createBLiteralExpressionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.backend.evaluator.b3backend.BLiteralInteger <em>BLiteral Integer</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the new adapter.
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.BLiteralInteger
+	 * @generated
+	 */
+	public Adapter createBLiteralIntegerAdapter() {
 		return null;
 	}
 

@@ -1506,6 +1506,18 @@ public interface B3backendPackage extends EPackage {
 		EAttribute BLITERAL_BYTE_ARRAY_EXPRESSION__BASE64 = eINSTANCE.getBLiteralByteArrayExpression_Base64();
 
 		/**
+		 * The meta object literal for the '{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BLiteralIntegerImpl <em>BLiteral Integer</em>}'
+		 * class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.BLiteralIntegerImpl
+		 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getBLiteralInteger()
+		 * @generated
+		 */
+		EClass BLITERAL_INTEGER = eINSTANCE.getBLiteralInteger();
+
+		/**
 		 * The meta object literal for the '{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BGuardImpl <em>BGuard</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2670,6 +2682,17 @@ public interface B3backendPackage extends EPackage {
 		 * @generated
 		 */
 		EDataType INJECTOR = eINSTANCE.getInjector();
+
+		/**
+		 * The meta object literal for the '<em>Radix Integer</em>' data type.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @see org.eclipse.b3.backend.core.datatypes.IntegerWithRadix
+		 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getRadixInteger()
+		 * @generated
+		 */
+		EDataType RADIX_INTEGER = eINSTANCE.getRadixInteger();
 
 	}
 
@@ -7827,6 +7850,37 @@ public interface B3backendPackage extends EPackage {
 	int BLITERAL_BYTE_ARRAY_EXPRESSION_FEATURE_COUNT = BEXPRESSION_FEATURE_COUNT + 2;
 
 	/**
+	 * The meta object id for the '{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BLiteralIntegerImpl <em>BLiteral Integer</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.BLiteralIntegerImpl
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getBLiteralInteger()
+	 * @generated
+	 */
+	int BLITERAL_INTEGER = 93;
+
+	/**
+	 * The feature id for the '<em><b>Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int BLITERAL_INTEGER__VALUE = BLITERAL_EXPRESSION__VALUE;
+
+	/**
+	 * The number of structural features of the '<em>BLiteral Integer</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int BLITERAL_INTEGER_FEATURE_COUNT = BLITERAL_EXPRESSION_FEATURE_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link org.eclipse.b3.backend.evaluator.b3backend.Visibility <em>Visibility</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -7835,7 +7889,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getVisibility()
 	 * @generated
 	 */
-	int VISIBILITY = 93;
+	int VISIBILITY = 94;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.backend.evaluator.b3backend.ExecutionMode <em>Execution Mode</em>}' enum.
@@ -7846,7 +7900,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getExecutionMode()
 	 * @generated
 	 */
-	int EXECUTION_MODE = 94;
+	int EXECUTION_MODE = 95;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.backend.evaluator.b3backend.BJavaCallType <em>BJava Call Type</em>}' enum.
@@ -7857,7 +7911,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getBJavaCallType()
 	 * @generated
 	 */
-	int BJAVA_CALL_TYPE = 95;
+	int BJAVA_CALL_TYPE = 96;
 
 	/**
 	 * The meta object id for the '<em>Core Exception</em>' data type.
@@ -7868,7 +7922,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getCoreException()
 	 * @generated
 	 */
-	int CORE_EXCEPTION = 96;
+	int CORE_EXCEPTION = 97;
 
 	/**
 	 * The meta object id for the '<em>Type</em>' data type.
@@ -7879,7 +7933,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getType()
 	 * @generated
 	 */
-	int TYPE = 97;
+	int TYPE = 98;
 
 	/**
 	 * The meta object id for the '<em>Object Array</em>' data type.
@@ -7889,7 +7943,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getObjectArray()
 	 * @generated
 	 */
-	int OBJECT_ARRAY = 98;
+	int OBJECT_ARRAY = 99;
 
 	/**
 	 * The meta object id for the '<em>Value Map</em>' data type.
@@ -7900,7 +7954,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getValueMap()
 	 * @generated
 	 */
-	int VALUE_MAP = 99;
+	int VALUE_MAP = 100;
 
 	/**
 	 * The meta object id for the '<em>B3 Engine Exception</em>' data type.
@@ -7911,7 +7965,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getB3EngineException()
 	 * @generated
 	 */
-	int B3_ENGINE_EXCEPTION = 100;
+	int B3_ENGINE_EXCEPTION = 101;
 
 	/**
 	 * The meta object id for the '<em>B3 Expression Cache</em>' data type.
@@ -7922,7 +7976,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getB3ExpressionCache()
 	 * @generated
 	 */
-	int B3_EXPRESSION_CACHE = 101;
+	int B3_EXPRESSION_CACHE = 102;
 
 	/**
 	 * The meta object id for the '<em>Throwable</em>' data type.
@@ -7933,7 +7987,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getThrowable()
 	 * @generated
 	 */
-	int THROWABLE = 102;
+	int THROWABLE = 103;
 
 	/**
 	 * The meta object id for the '<em>LValue</em>' data type.
@@ -7944,7 +7998,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getLValue()
 	 * @generated
 	 */
-	int LVALUE = 103;
+	int LVALUE = 104;
 
 	/**
 	 * The meta object id for the '<em>Type Array</em>' data type.
@@ -7954,7 +8008,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getTypeArray()
 	 * @generated
 	 */
-	int TYPE_ARRAY = 104;
+	int TYPE_ARRAY = 105;
 
 	/**
 	 * The meta object id for the '<em>Method</em>' data type.
@@ -7965,7 +8019,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getMethod()
 	 * @generated
 	 */
-	int METHOD = 105;
+	int METHOD = 106;
 
 	/**
 	 * The meta object id for the '<em>Type Variable Array</em>' data type.
@@ -7975,7 +8029,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getTypeVariableArray()
 	 * @generated
 	 */
-	int TYPE_VARIABLE_ARRAY = 106;
+	int TYPE_VARIABLE_ARRAY = 107;
 
 	/**
 	 * The meta object id for the '<em>Func Store</em>' data type.
@@ -7986,7 +8040,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getFuncStore()
 	 * @generated
 	 */
-	int FUNC_STORE = 107;
+	int FUNC_STORE = 108;
 
 	/**
 	 * The meta object id for the '<em>Regexp Pattern</em>' data type.
@@ -7997,7 +8051,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getRegexpPattern()
 	 * @generated
 	 */
-	int REGEXP_PATTERN = 108;
+	int REGEXP_PATTERN = 109;
 
 	/**
 	 * The meta object id for the '<em>String Array</em>' data type.
@@ -8007,7 +8061,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getStringArray()
 	 * @generated
 	 */
-	int STRING_ARRAY = 109;
+	int STRING_ARRAY = 110;
 
 	/**
 	 * The meta object id for the '<em>Java Iterator</em>' data type.
@@ -8018,7 +8072,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getJavaIterator()
 	 * @generated
 	 */
-	int JAVA_ITERATOR = 110;
+	int JAVA_ITERATOR = 111;
 
 	/**
 	 * The meta object id for the '<em>URI</em>' data type.
@@ -8029,7 +8083,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getURI()
 	 * @generated
 	 */
-	int URI = 111;
+	int URI = 112;
 
 	/**
 	 * The meta object id for the '<em>IProgress Monitor</em>' data type.
@@ -8040,7 +8094,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getIProgressMonitor()
 	 * @generated
 	 */
-	int IPROGRESS_MONITOR = 112;
+	int IPROGRESS_MONITOR = 113;
 
 	/**
 	 * The meta object id for the '<em>Simple Pattern</em>' data type.
@@ -8051,7 +8105,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getSimplePattern()
 	 * @generated
 	 */
-	int SIMPLE_PATTERN = 113;
+	int SIMPLE_PATTERN = 114;
 
 	/**
 	 * The meta object id for the '<em>Char Sequence</em>' data type.
@@ -8062,7 +8116,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getCharSequence()
 	 * @generated
 	 */
-	int CHAR_SEQUENCE = 114;
+	int CHAR_SEQUENCE = 115;
 
 	/**
 	 * The meta object id for the '<em>Injector</em>' data type.
@@ -8073,7 +8127,18 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getInjector()
 	 * @generated
 	 */
-	int INJECTOR = 115;
+	int INJECTOR = 116;
+
+	/**
+	 * The meta object id for the '<em>Radix Integer</em>' data type.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see org.eclipse.b3.backend.core.datatypes.IntegerWithRadix
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getRadixInteger()
+	 * @generated
+	 */
+	int RADIX_INTEGER = 117;
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -9709,6 +9774,17 @@ public interface B3backendPackage extends EPackage {
 	EAttribute getBLiteralExpression_Value();
 
 	/**
+	 * Returns the meta object for class '{@link org.eclipse.b3.backend.evaluator.b3backend.BLiteralInteger <em>BLiteral Integer</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for class '<em>BLiteral Integer</em>'.
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.BLiteralInteger
+	 * @generated
+	 */
+	EClass getBLiteralInteger();
+
+	/**
 	 * Returns the meta object for class '{@link org.eclipse.b3.backend.evaluator.b3backend.BLiteralListExpression <em>BLiteral List Expression</em>}
 	 * '.
 	 * <!-- begin-user-doc -->
@@ -11112,6 +11188,18 @@ public interface B3backendPackage extends EPackage {
 	 * @generated
 	 */
 	EDataType getObjectArray();
+
+	/**
+	 * Returns the meta object for data type '{@link org.eclipse.b3.backend.core.datatypes.IntegerWithRadix <em>Radix Integer</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for data type '<em>Radix Integer</em>'.
+	 * @see org.eclipse.b3.backend.core.datatypes.IntegerWithRadix
+	 * @model instanceClass="org.eclipse.b3.backend.core.datatypes.IntegerWithRadix"
+	 * @generated
+	 */
+	EDataType getRadixInteger();
 
 	/**
 	 * Returns the meta object for data type '{@link java.util.regex.Pattern <em>Regexp Pattern</em>}'.
