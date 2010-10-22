@@ -1181,8 +1181,7 @@ ValueLiteral returns be::BExpression
 	| IntegerLiteral 
 	| NullLiteral 
 	| StringLiteral
-//	| QueryLiteral
-	| UnitLiteral
+//	| UnitLiteral
 	| ByteArrayLiteral
 	;
 	
@@ -1194,9 +1193,9 @@ IntegerLiteral returns  be::BExpression : {be::BLiteralInteger}
 	value= RadixIntValue
 	;
 	
-UnitLiteral returns  be::BExpression : {be::BLiteralExpression} 
-	value="unit"
-	;
+//UnitLiteral returns  be::BExpression : {be::BLiteralExpression} 
+//	value="unit"
+//	;
 	
 StringLiteral returns  be::BExpression : {be::BLiteralExpression} 
 	value = STRING

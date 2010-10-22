@@ -4884,34 +4884,6 @@ finally {
 
 
 
-// Entry rule entryRuleUnitLiteral
-entryRuleUnitLiteral 
-:
-{ before(grammarAccess.getUnitLiteralRule()); }
-	 ruleUnitLiteral
-{ after(grammarAccess.getUnitLiteralRule()); } 
-	 EOF 
-;
-
-// Rule UnitLiteral
-ruleUnitLiteral 
-    @init {
-		int stackSize = keepStackSize();
-    }
-    :
-(
-{ before(grammarAccess.getUnitLiteralAccess().getGroup()); }
-(rule__UnitLiteral__Group__0)
-{ after(grammarAccess.getUnitLiteralAccess().getGroup()); }
-)
-
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-
-
 // Entry rule entryRuleStringLiteral
 entryRuleStringLiteral 
 :
@@ -8818,15 +8790,9 @@ rule__ValueLiteral__Alternatives
 )
 
     |(
-{ before(grammarAccess.getValueLiteralAccess().getUnitLiteralParserRuleCall_5()); }
-	ruleUnitLiteral
-{ after(grammarAccess.getValueLiteralAccess().getUnitLiteralParserRuleCall_5()); }
-)
-
-    |(
-{ before(grammarAccess.getValueLiteralAccess().getByteArrayLiteralParserRuleCall_6()); }
+{ before(grammarAccess.getValueLiteralAccess().getByteArrayLiteralParserRuleCall_5()); }
 	ruleByteArrayLiteral
-{ after(grammarAccess.getValueLiteralAccess().getByteArrayLiteralParserRuleCall_6()); }
+{ after(grammarAccess.getValueLiteralAccess().getByteArrayLiteralParserRuleCall_5()); }
 )
 
 ;
@@ -55729,69 +55695,6 @@ finally {
 
 
 
-rule__UnitLiteral__Group__0
-    @init {
-		int stackSize = keepStackSize();
-    }
-:
-	rule__UnitLiteral__Group__0__Impl
-	rule__UnitLiteral__Group__1
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-rule__UnitLiteral__Group__0__Impl
-    @init {
-		int stackSize = keepStackSize();
-    }
-:
-(
-{ before(grammarAccess.getUnitLiteralAccess().getBLiteralExpressionAction_0()); }
-(
-
-)
-{ after(grammarAccess.getUnitLiteralAccess().getBLiteralExpressionAction_0()); }
-)
-
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-
-rule__UnitLiteral__Group__1
-    @init {
-		int stackSize = keepStackSize();
-    }
-:
-	rule__UnitLiteral__Group__1__Impl
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-rule__UnitLiteral__Group__1__Impl
-    @init {
-		int stackSize = keepStackSize();
-    }
-:
-(
-{ before(grammarAccess.getUnitLiteralAccess().getValueAssignment_1()); }
-(rule__UnitLiteral__ValueAssignment_1)
-{ after(grammarAccess.getUnitLiteralAccess().getValueAssignment_1()); }
-)
-
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-
-
-
-
-
 rule__StringLiteral__Group__0
     @init {
 		int stackSize = keepStackSize();
@@ -66919,29 +66822,6 @@ rule__IntegerLiteral__ValueAssignment_1
 (
 { before(grammarAccess.getIntegerLiteralAccess().getValueRadixIntValueParserRuleCall_1_0()); }
 	ruleRadixIntValue{ after(grammarAccess.getIntegerLiteralAccess().getValueRadixIntValueParserRuleCall_1_0()); }
-)
-
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-rule__UnitLiteral__ValueAssignment_1
-    @init {
-		int stackSize = keepStackSize();
-    }
-:
-(
-{ before(grammarAccess.getUnitLiteralAccess().getValueUnitKeyword_1_0()); }
-(
-{ before(grammarAccess.getUnitLiteralAccess().getValueUnitKeyword_1_0()); }
-
-	KEYWORD_65 
-
-{ after(grammarAccess.getUnitLiteralAccess().getValueUnitKeyword_1_0()); }
-)
-
-{ after(grammarAccess.getUnitLiteralAccess().getValueUnitKeyword_1_0()); }
 )
 
 ;

@@ -21950,24 +21950,11 @@ ruleValueLiteral returns [EObject current=null]
 	  /* */ 
 	}
     { 
-        currentNode=createCompositeNode(grammarAccess.getValueLiteralAccess().getUnitLiteralParserRuleCall_5(), currentNode); 
+        currentNode=createCompositeNode(grammarAccess.getValueLiteralAccess().getByteArrayLiteralParserRuleCall_5(), currentNode); 
     }
-    this_UnitLiteral_5=ruleUnitLiteral
+    this_ByteArrayLiteral_5=ruleByteArrayLiteral
     { 
-        $current = $this_UnitLiteral_5.current; 
-        currentNode = currentNode.getParent();
-    }
-
-    |
-	{ 
-	  /* */ 
-	}
-    { 
-        currentNode=createCompositeNode(grammarAccess.getValueLiteralAccess().getByteArrayLiteralParserRuleCall_6(), currentNode); 
-    }
-    this_ByteArrayLiteral_6=ruleByteArrayLiteral
-    { 
-        $current = $this_ByteArrayLiteral_6.current; 
+        $current = $this_ByteArrayLiteral_5.current; 
         currentNode = currentNode.getParent();
     }
 )
@@ -22089,64 +22076,6 @@ ruleIntegerLiteral returns [EObject current=null]
 				handleValueConverterException(vce);
 	        }
 	        currentNode = currentNode.getParent();
-	    }
-
-)
-))
-;
-
-
-
-
-
-// Entry rule entryRuleUnitLiteral
-entryRuleUnitLiteral returns [EObject current=null] 
-	:
-	{ currentNode = createCompositeNode(grammarAccess.getUnitLiteralRule(), currentNode); }
-	 iv_ruleUnitLiteral=ruleUnitLiteral 
-	 { $current=$iv_ruleUnitLiteral.current; } 
-	 EOF 
-;
-
-// Rule UnitLiteral
-ruleUnitLiteral returns [EObject current=null] 
-    @init { EObject temp=null; setCurrentLookahead(); resetLookahead(); 
-    }
-    @after { resetLookahead(); 
-    	lastConsumedNode = currentNode;
-    }:
-((
-	{ 
-	  /* */ 
-	}
-    { 
-        temp=factory.create(grammarAccess.getUnitLiteralAccess().getBLiteralExpressionAction_0().getType().getClassifier());
-        $current = temp; 
-        temp = null;
-        CompositeNode newNode = createCompositeNode(grammarAccess.getUnitLiteralAccess().getBLiteralExpressionAction_0(), currentNode.getParent());
-    newNode.getChildren().add(currentNode);
-    moveLookaheadInfo(currentNode, newNode);
-    currentNode = newNode; 
-        associateNodeWithAstElement(currentNode, $current); 
-    }
-)(
-(
-		lv_value_1_0=	'unit' 
-    {
-        createLeafNode(grammarAccess.getUnitLiteralAccess().getValueUnitKeyword_1_0(), "value"); 
-    }
- 
-	    {
-	        if ($current==null) {
-	            $current = factory.create(grammarAccess.getUnitLiteralRule().getType().getClassifier());
-	            associateNodeWithAstElement(currentNode, $current);
-	        }
-	        
-	        try {
-	       		set($current, "value", lv_value_1_0, "unit", lastConsumedNode);
-	        } catch (ValueConverterException vce) {
-				handleValueConverterException(vce);
-	        }
 	    }
 
 )

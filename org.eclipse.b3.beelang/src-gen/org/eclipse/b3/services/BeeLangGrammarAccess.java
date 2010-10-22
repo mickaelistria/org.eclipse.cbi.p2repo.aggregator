@@ -11648,21 +11648,20 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cIntegerLiteralParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
 		private final RuleCall cNullLiteralParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
 		private final RuleCall cStringLiteralParserRuleCall_4 = (RuleCall)cAlternatives.eContents().get(4);
-		private final RuleCall cUnitLiteralParserRuleCall_5 = (RuleCall)cAlternatives.eContents().get(5);
-		private final RuleCall cByteArrayLiteralParserRuleCall_6 = (RuleCall)cAlternatives.eContents().get(6);
+		private final RuleCall cByteArrayLiteralParserRuleCall_5 = (RuleCall)cAlternatives.eContents().get(5);
 		
 		////LiteralType returns be::BLiteralType : {be::BLiteralType} 
 		////	type=TypeRef 
 		////	;
 		//ValueLiteral returns be::BExpression:
-		//	BooleanLiteral //	| QueryLiteral
+		//	BooleanLiteral //	| UnitLiteral
 		//	| // SEE ISSUE 297089 - must be placed before IntegerLiteral
-		//	RealLiteral | IntegerLiteral | NullLiteral | StringLiteral | UnitLiteral | ByteArrayLiteral;
+		//	RealLiteral | IntegerLiteral | NullLiteral | StringLiteral | ByteArrayLiteral;
 		public ParserRule getRule() { return rule; }
 
-		//BooleanLiteral //	| QueryLiteral
+		//BooleanLiteral //	| UnitLiteral
 		//| // SEE ISSUE 297089 - must be placed before IntegerLiteral
-		//RealLiteral | IntegerLiteral | NullLiteral | StringLiteral | UnitLiteral | ByteArrayLiteral
+		//RealLiteral | IntegerLiteral | NullLiteral | StringLiteral | ByteArrayLiteral
 		public Alternatives getAlternatives() { return cAlternatives; }
 
 		//BooleanLiteral
@@ -11681,11 +11680,8 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		//StringLiteral
 		public RuleCall getStringLiteralParserRuleCall_4() { return cStringLiteralParserRuleCall_4; }
 
-		//UnitLiteral
-		public RuleCall getUnitLiteralParserRuleCall_5() { return cUnitLiteralParserRuleCall_5; }
-
 		//ByteArrayLiteral
-		public RuleCall getByteArrayLiteralParserRuleCall_6() { return cByteArrayLiteralParserRuleCall_6; }
+		public RuleCall getByteArrayLiteralParserRuleCall_5() { return cByteArrayLiteralParserRuleCall_5; }
 	}
 
 	public class BooleanLiteralElements extends AbstractParserRuleElementFinder {
@@ -11736,30 +11732,6 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		public RuleCall getValueRadixIntValueParserRuleCall_1_0() { return cValueRadixIntValueParserRuleCall_1_0; }
 	}
 
-	public class UnitLiteralElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "UnitLiteral");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Action cBLiteralExpressionAction_0 = (Action)cGroup.eContents().get(0);
-		private final Assignment cValueAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final Keyword cValueUnitKeyword_1_0 = (Keyword)cValueAssignment_1.eContents().get(0);
-		
-		//UnitLiteral returns be::BExpression:
-		//	{be::BLiteralExpression} value="unit";
-		public ParserRule getRule() { return rule; }
-
-		//{be::BLiteralExpression} value="unit"
-		public Group getGroup() { return cGroup; }
-
-		//{be::BLiteralExpression}
-		public Action getBLiteralExpressionAction_0() { return cBLiteralExpressionAction_0; }
-
-		//value="unit"
-		public Assignment getValueAssignment_1() { return cValueAssignment_1; }
-
-		//"unit"
-		public Keyword getValueUnitKeyword_1_0() { return cValueUnitKeyword_1_0; }
-	}
-
 	public class StringLiteralElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "StringLiteral");
 		private final Group cGroup = (Group)rule.eContents().get(1);
@@ -11767,6 +11739,9 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cValueAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cValueSTRINGTerminalRuleCall_1_0 = (RuleCall)cValueAssignment_1.eContents().get(0);
 		
+		////UnitLiteral returns  be::BExpression : {be::BLiteralExpression} 
+		////	value="unit"
+		////	;
 		//StringLiteral returns be::BExpression:
 		//	{be::BLiteralExpression} value=STRING;
 		public ParserRule getRule() { return rule; }
@@ -13175,7 +13150,6 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 	private ValueLiteralElements pValueLiteral;
 	private BooleanLiteralElements pBooleanLiteral;
 	private IntegerLiteralElements pIntegerLiteral;
-	private UnitLiteralElements pUnitLiteral;
 	private StringLiteralElements pStringLiteral;
 	private RealLiteralElements pRealLiteral;
 	private RegexpLiteralElements pRegexpLiteral;
@@ -15185,9 +15159,9 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 	////	type=TypeRef 
 	////	;
 	//ValueLiteral returns be::BExpression:
-	//	BooleanLiteral //	| QueryLiteral
+	//	BooleanLiteral //	| UnitLiteral
 	//	| // SEE ISSUE 297089 - must be placed before IntegerLiteral
-	//	RealLiteral | IntegerLiteral | NullLiteral | StringLiteral | UnitLiteral | ByteArrayLiteral;
+	//	RealLiteral | IntegerLiteral | NullLiteral | StringLiteral | ByteArrayLiteral;
 	public ValueLiteralElements getValueLiteralAccess() {
 		return (pValueLiteral != null) ? pValueLiteral : (pValueLiteral = new ValueLiteralElements());
 	}
@@ -15216,16 +15190,9 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		return getIntegerLiteralAccess().getRule();
 	}
 
-	//UnitLiteral returns be::BExpression:
-	//	{be::BLiteralExpression} value="unit";
-	public UnitLiteralElements getUnitLiteralAccess() {
-		return (pUnitLiteral != null) ? pUnitLiteral : (pUnitLiteral = new UnitLiteralElements());
-	}
-	
-	public ParserRule getUnitLiteralRule() {
-		return getUnitLiteralAccess().getRule();
-	}
-
+	////UnitLiteral returns  be::BExpression : {be::BLiteralExpression} 
+	////	value="unit"
+	////	;
 	//StringLiteral returns be::BExpression:
 	//	{be::BLiteralExpression} value=STRING;
 	public StringLiteralElements getStringLiteralAccess() {
