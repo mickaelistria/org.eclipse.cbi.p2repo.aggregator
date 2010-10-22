@@ -46,8 +46,11 @@ function Object testRelationalFunctions() {
 	assertFalse("2.0 >= 3", 2.0 >= 3);
 	
 	assertTrue("true === true", true === true);
-	assertFalse("1 === 1", 1 === 1);
-	assertTrue("1 !==1", 1 !==1);
+	// small literal ints are shared
+	assertTrue("12 === 12", 12 === 12);
+	assertFalse("2 === 1+1", 1 === 1+1);
+	assertFalse("1 !== 1", 1 !==1);
+	assertTrue("2 !== 1+2", 1 !== 1+1);
 	Number x = 1;
 	assertTrue("x === x", x === x);
 }
