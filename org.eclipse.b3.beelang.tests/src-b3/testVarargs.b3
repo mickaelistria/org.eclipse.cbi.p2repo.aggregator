@@ -14,8 +14,8 @@ function testVarargs() {
 function testLambdaVarargs() {
 	var l1 = {<Integer> ... Integer v | v.inject(0, _, Integer x, Integer y | x+y ) };	
 	var l2 = {<Integer> ... Integer v | v[0] + v[1] + v[2] };	
-	assertEquals("calling varargs function1 summing all", 6, l1.evaluate(1,2,3));
-	assertEquals("calling varargs function1 summing all", 6, l2.evaluate(1,2,3));
+	assertEquals("calling varargs function1 summing all", 6, l1.invoke(1,2,3));
+	assertEquals("calling varargs function1 summing all", 6, l2.invoke(1,2,3));
 }
 function testLambdaClosure() {
 	assertEquals("calling varargs function1 summing all closure style", 
@@ -30,5 +30,5 @@ private function variable2(... Integer v) {
  	v[0] + v[1] + v[2];
 }
 private function getVariableLambda( (...Integer)=>Integer lambda) {
-	lambda.evaluate(1,2,3);
+	lambda.invoke(1,2,3);
 }
