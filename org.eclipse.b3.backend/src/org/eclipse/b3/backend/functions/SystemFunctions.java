@@ -22,6 +22,7 @@ import org.eclipse.b3.backend.evaluator.b3backend.B3MetaClass;
 import org.eclipse.b3.backend.evaluator.b3backend.B3ParameterizedType;
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendFactory;
 import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
+import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BFunction;
 import org.eclipse.b3.backend.evaluator.typesystem.TypeUtils;
 import org.eclipse.b3.backend.inference.FunctionUtils;
@@ -159,6 +160,18 @@ public class SystemFunctions {
 		return null;
 	}
 
+	/**
+	 * Evaluates an expression and returns the result.
+	 */
+	@B3Backend(system = true)
+	public static Object _evaluate(BExecutionContext ctx, Object[] params, Type[] types) throws Throwable {
+		if(params == null || params.length < 1)
+			throw new IllegalArgumentException("_evaluate called with too few/wrong arguments");
+		if(params[0] == null)
+			return null;
+		return ctx.getInjector().getInstance(IB3Evaluator.class).doEvaluate(params[0], ctx);
+	}
+
 	@B3Backend(system = true)
 	public static Boolean _exists(BExecutionContext ctx, Object[] params, Type[] types) throws Throwable {
 		Curry cur = hurryCurry(params, types, "exists");
@@ -235,7 +248,7 @@ public class SystemFunctions {
 	@B3Backend(system = true, typeFunction = "tcReturnTypeOfFirstLambda")
 	public static Object _invoke(BExecutionContext ctx, Object[] params, Type[] types) throws Throwable {
 		if(params == null || params.length < 1 || !(params[0] instanceof BFunction))
-			throw new IllegalArgumentException("_evaluate called with too few/wrong arguments");
+			throw new IllegalArgumentException("_invoke called with too few/wrong arguments");
 		BFunction func = (BFunction) params[0];
 		int limit = params.length;
 		Object[] callparams = new Object[limit - 1];
@@ -574,6 +587,20 @@ public class SystemFunctions {
 		return new Status(IStatus.ERROR, B3BackendActivator.PLUGIN_ID, IStatus.OK, "Error", t);
 	}
 
+	/**
+	 * Invoke calls a function
+	 * 
+	 * @param func
+	 *            - the function to call
+	 * @param params
+	 *            - the parameters passed to the function
+	 * @return the result of calling the function
+	 */
+	@B3Backend(systemFunction = "_evaluate")
+	public static final Object evaluate(@B3Backend(name = "expression") BExpression expr) {
+		return null;
+	}
+
 	@B3Backend(systemFunction = "_exists", varargs = true)
 	public static Boolean exists(@B3Backend(name = "iterable") Iterable<?> iterable,
 			@B3Backend(name = "paramsAnyAndFunction") Object... variable) {
@@ -610,7 +637,7 @@ public class SystemFunctions {
 	 * Invoke calls a function
 	 * 
 	 * @param func
-	 *            - the function to evaluate
+	 *            - the function to call
 	 * @param params
 	 *            - the parameters passed to the function
 	 * @return the result of calling the function
@@ -746,13 +773,13 @@ public class SystemFunctions {
 		B3FunctionType lambda = B3backendFactory.eINSTANCE.createB3FunctionType();
 		lambda.setFunctionType(B3Function.class);
 		if(commonTypes.length == 0) // auto curry
-			lambda.getParameterTypes().add(curryType);
+			lambda.getParameterTypes().add(TypeUtils.coerceToEObjectType(curryType));
 		else
 			for(int i = 0; i < commonTypes.length; i++)
 				lambda.getParameterTypes().add(commonTypes[i]);
 		lambda.setReturnType(TypeUtils.coerceToEObjectType(Boolean.class));
 		// Set all parameters in resulting type
-		result.getParameterTypes().add(types[0]); // the iterator/iterable
+		result.getParameterTypes().add(TypeUtils.coerceToEObjectType(types[0])); // the iterator/iterable
 		for(int i = 0; i < commonTypes.length; i++)
 			result.getParameterTypes().add(commonTypes[i]);
 		result.getParameterTypes().add(lambda);
