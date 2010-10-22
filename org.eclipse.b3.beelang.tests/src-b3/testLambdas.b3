@@ -33,7 +33,7 @@ function Object testLiteralLambda() {
 	var zum = {<Integer> Integer x, Integer y | x + y };
 	// calling via expression
 	assertEquals("(zum)(1,2) == 3",3, (zum)(1,2));
-	assertEquals("zum.evaluate(1,2) == 3", 3, zum.evaluate(1,2));
+	assertEquals("zum.invoke(1,2) == 3", 3, zum.invoke(1,2));
 }
 function Object testClosure() {
 	// a variable that a lambda should be able to access
@@ -43,7 +43,7 @@ function Object testClosure() {
 	var zum = {<Integer> Integer x, Integer y | x + y + outside};
 	// calling via expression
 	assertEquals("(zum)(1,2) == 3",13, (zum)(1,2));
-	assertEquals("zum.evaluate(1,2) == 3", 13, zum.evaluate(1,2));
+	assertEquals("zum.invoke(1,2) == 3", 13, zum.invoke(1,2));
 }
 function Object testFunctionType() {
 	// Test declaration of function type
@@ -57,7 +57,7 @@ function Object testFunctionType() {
 	zee = zum;
 	assertEquals("zee evaluates to 3", 3, (zee)(1,2));
 	assertEquals("zum evaluates to 3", 3, (zum)(1,2));
-	assertEquals("zee and zum returns the same value", zee.evaluate(1,2), zum.evaluate(1,2));
+	assertEquals("zee and zum returns the same value", zee.invoke(1,2), zum.invoke(1,2));
 }
 function Object testDelegation() {
 	// a variable that a lambda should be able to access
@@ -70,7 +70,7 @@ function Object testDelegation() {
 }
 private function Object delegate((Integer, Integer)=>Integer func) {
 	Integer outside = 100;
-	assertEquals("delegated call should see original context", 13, func.evaluate(1,2));
+	assertEquals("delegated call should see original context", 13, func.invoke(1,2));
 }
 function Object testClosureOverwrite() {
 	var fredLambda = nameLambda("fred");
