@@ -247,8 +247,14 @@ public class SystemFunctions {
 
 	@B3Backend(system = true, typeFunction = "tcReturnTypeOfFirstLambda")
 	public static Object _invoke(BExecutionContext ctx, Object[] params, Type[] types) throws Throwable {
-		if(params == null || params.length < 1 || !(params[0] instanceof BFunction))
-			throw new IllegalArgumentException("_invoke called with too few/wrong arguments");
+		if(params == null || params.length < 1)
+			throw new IllegalArgumentException("_invoke called with too few arguments");
+		// TODO: need a b3 NPE equivalence
+		if(params[0] == null)
+			throw new IllegalArgumentException("invoke can not be performed on a null value");
+		if(!(params[0] instanceof BFunction))
+			throw new IllegalArgumentException("invoke type mismatch: can not transform a :" +
+					params[0].getClass().getSimpleName() + " to function!");
 		BFunction func = (BFunction) params[0];
 		int limit = params.length;
 		Object[] callparams = new Object[limit - 1];
