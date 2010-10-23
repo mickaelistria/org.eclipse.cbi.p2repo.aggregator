@@ -260,6 +260,28 @@ public class DeclarativeTypeProvider implements ITypeProvider {
 		return null;
 	}
 
+	protected B3FunctionType getAssociatedSignature(Object element) {
+		TypeAdapter ta = (element instanceof EObject)
+				? TypeAdapterFactory.eINSTANCE.adapt((EObject) element)
+				: null;
+		B3FunctionType type = null;
+		if(ta != null && (type = (B3FunctionType) ta.getAssociatedInfo(signatureDispatcher)) != null)
+			return type;
+		return null;
+
+	}
+
+	protected Type getAssociatedType(Object element) {
+		TypeAdapter ta = (element instanceof EObject)
+				? TypeAdapterFactory.eINSTANCE.adapt((EObject) element)
+				: null;
+		Type type = ta != null
+				? (Type) ta.getAssociatedInfo(typeDispatcher)
+				: null;
+		return type;
+
+	}
+
 	protected Object handleError(Object[] params, Throwable e) {
 		// TODO: don't know how this is supposed to work - callers should expect a type at all times,
 		// and get a "type can not be inferred exception" with some info about why.

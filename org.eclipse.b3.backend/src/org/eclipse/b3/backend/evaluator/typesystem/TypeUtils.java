@@ -920,7 +920,8 @@ public class TypeUtils {
 
 	public static boolean isAssignableFrom(Type baseType, Type fromType) {
 		// null can be assigned to anything
-		if(fromType instanceof NullType)
+		if(fromType instanceof NullType || fromType instanceof B3Type &&
+				((B3Type) fromType).getRawType() instanceof NullType)
 			return true;
 		Boolean specialCase = isAssignableFromSpecialCase(baseType, fromType);
 		if(specialCase != null)

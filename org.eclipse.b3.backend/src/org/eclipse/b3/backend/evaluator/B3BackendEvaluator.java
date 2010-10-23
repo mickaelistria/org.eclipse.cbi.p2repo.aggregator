@@ -1192,15 +1192,6 @@ public class B3BackendEvaluator extends DeclarativeB3Evaluator {
 				o.getObjExpr(), "expression is not of indexable type (like List or Map) - [] not applicable");
 
 		return lValProvider.doCreateLVal(obj, i, typer.doGetInferredType(o));
-
-		// if(obj instanceof List) {
-		// int index = BackendHelper.intValue(i, o.getIndexExpr());
-		// return new ListLValue((List<?>) obj, index, typer.doGetInferredType(o));
-		// }
-		// if(obj instanceof Map) {
-		// return new MapLValue((Map<?, ?>) obj, i, typer.doGetInferredType(o));
-		// }
-		// throw BackendHelper.createException(o.getObjExpr(), "expression is neither a list or map - [] not applicable");
 	}
 
 	public LValue lValue(BCallFeature o, BExecutionContext ctx) throws Throwable {
@@ -1362,6 +1353,7 @@ public class B3BackendEvaluator extends DeclarativeB3Evaluator {
 				if(o != null) {
 					Type t = o instanceof BFunction
 							? typer.doGetInferredType(o)
+							// ? FunctionUtils.getSignature((BFunction) o)
 							: o.getClass();
 					if(!TypeUtils.isAssignableFrom(functionParameterTypes[limit], t))
 						throw new B3IncompatibleTypeException(

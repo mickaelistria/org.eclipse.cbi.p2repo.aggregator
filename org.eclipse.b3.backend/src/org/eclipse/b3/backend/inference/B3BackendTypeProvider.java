@@ -272,8 +272,17 @@ public class B3BackendTypeProvider extends DeclarativeTypeProvider {
 
 							// clear and redo the inference
 							// setAssociatedType(o.getParameterList().getParameters().get(pix - 1), signatureTypes[pix]);
-							setAssociatedType(o.getParameterList().getParameters().get(pix - 1), null);
-							doGetInferredType(o.getParameterList().getParameters().get(pix - 1));
+							Type patched = doGetInferredType(o.getParameterList().getParameters().get(pix - 1));
+							setAssociatedType(patched == null
+									? TypeUtils.getDefaultInferredObjectType()
+									: patched, null);
+							if(B3Debug.typer) {
+								if(patched == null) {
+									B3Debug.trace("Patch resulted in NULL type. Set DEFAULT OBJECT TYPE.");
+								}
+								else
+									B3Debug.trace("Patch resulted in type: ", patched);
+							}
 						}
 						// redo the inference - difficult as the inference of this call is marked as in progress
 						// cheat? by setting the associated info early
@@ -408,7 +417,10 @@ public class B3BackendTypeProvider extends DeclarativeTypeProvider {
 	}
 
 	public B3FunctionType signature(IFunction f) {
-		return (B3FunctionType) doGetInferredType(f);
+		B3FunctionType result = (B3FunctionType) doGetInferredType(f);
+		if(B3Debug.typer)
+			B3Debug.trace("signature(IFunction name=", f.getName(), ") returns: ", result);
+		return result;
 	}
 
 	/**

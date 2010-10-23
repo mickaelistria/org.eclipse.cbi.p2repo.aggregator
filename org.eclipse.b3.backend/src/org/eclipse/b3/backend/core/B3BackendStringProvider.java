@@ -17,6 +17,8 @@ import org.eclipse.b3.backend.evaluator.b3backend.B3MetaClass;
 import org.eclipse.b3.backend.evaluator.b3backend.B3ParameterizedType;
 import org.eclipse.b3.backend.evaluator.b3backend.B3Type;
 import org.eclipse.b3.backend.evaluator.b3backend.impl.B3FunctionTypeImpl;
+import org.eclipse.b3.backend.evaluator.typesystem.NullType;
+import org.eclipse.b3.backend.evaluator.typesystem.TypeUtils;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.xtext.util.PolymorphicDispatcher;
 import org.eclipse.xtext.util.PolymorphicDispatcher.ErrorHandler;
@@ -95,11 +97,19 @@ public class B3BackendStringProvider implements IStringProvider {
 	}
 
 	String str(B3Type t) {
-		return doToString(t.getRawType());
+		String suffix = (TypeUtils.isDefaultInferred(t))
+				? "<?>"
+				: "";
+
+		return doToString(t.getRawType()) + suffix;
 	}
 
 	String str(Class<?> clazz) {
 		return clazz.getSimpleName();
+	}
+
+	String str(NullType t) {
+		return "Null";
 	}
 
 	String str(Object o) {
