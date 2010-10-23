@@ -20,6 +20,7 @@ import org.junit.runner.RunWith;
 		"/src-b3/testGuard.b3", //
 		"/src-b3/testHelloWorld.b3", //
 		"/src-b3/testIfThenElse.b3", //
+		"/src-b3/testInference.b3", //
 		"/src-b3/testJavaMethodCall.b3", //
 		"/src-b3/testLambdas.b3", //
 		"/src-b3/testLiteralList.b3", //
