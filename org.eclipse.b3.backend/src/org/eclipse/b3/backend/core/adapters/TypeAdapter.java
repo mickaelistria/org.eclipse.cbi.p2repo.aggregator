@@ -12,6 +12,9 @@ package org.eclipse.b3.backend.core.adapters;
 import java.lang.reflect.Type;
 import java.util.WeakHashMap;
 
+import org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage;
+import org.eclipse.b3.backend.evaluator.b3backend.BParameterDeclaration;
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.impl.AdapterImpl;
 
 /**
@@ -28,6 +31,21 @@ public class TypeAdapter extends AdapterImpl {
 	@Override
 	public boolean isAdapterForType(Object type) {
 		return type == TypeAdapter.class;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see org.eclipse.emf.common.notify.impl.AdapterImpl#notifyChanged(org.eclipse.emf.common.notify.Notification)
+	 */
+	@Override
+	public void notifyChanged(Notification msg) {
+		int featureId = msg.getFeatureID(BParameterDeclaration.class);
+		if(featureId == B3backendPackage.BPARAMETER_DECLARATION__TYPE)
+			associatedInfo.clear(); // brutal
+
+		// TODO Auto-generated method stub
+		super.notifyChanged(msg);
 	}
 
 	public void setAssociatedInfo(Object key, Type t) {

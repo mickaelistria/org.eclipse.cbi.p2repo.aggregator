@@ -139,6 +139,71 @@ public class B3BackendTypeProvider extends DeclarativeTypeProvider {
 	}
 
 	/**
+	 * Returns the fully resolved signature of the call (Ta, Ub)=>Vc, where T and U are inferred and
+	 * V is the result of f.TypeCalculator(T, U) (if declared), or signature(f).returnType.
+	 * 
+	 * @param o
+	 * @return
+	 */
+	public Type constraint(BCallFeature o, EObject forChild, EStructuralFeature feature) {
+		// if the BCallFeature represents a feature LValue expression, it may function as a constraint
+		// if assignment is made (see constraint(BAssignment).
+		if(!o.isCall())
+			return null;
+
+		// 1. Find the function that will be called
+		// 2. Get its signature
+		// 3. Resolve the return type if it depends on the parameters.
+		Exception lastException = null;
+		Type[] types = null;
+		try {
+			types = functionUtils.asTypeArray(o, true);
+
+			types[0] = doGetInferredType(o.getFuncExpr());
+			// If inference failed, it will at least be an Object
+			if(types[0] == null)
+				types[0] = Object.class;
+			List<IFunction> candidates = functionUtils.findEffectiveFunctions(o, o.getName(), types[0]);
+			IFunction f = functionUtils.selectFunction(o.getName(), candidates, types);
+			// if static
+			if(f.isClassFunction()) {
+				B3MetaClass metaClass = B3backendFactory.eINSTANCE.createB3MetaClass();
+				metaClass.setInstanceClass(TypeUtils.getRaw(types[0]));
+				Type[] newTypes = new Type[types.length + 1];
+				System.arraycopy(types, 0, newTypes, 1, types.length);
+				newTypes[0] = metaClass;
+				types = newTypes;
+			}
+			B3FunctionType ft = signature(f);
+			// If return type depends on type of parameters, resolve it.
+			// also fix unresolved inferences
+			if(ft.getTypeCalculator() != null) {
+				B3FunctionType sig = ft.getTypeCalculator().getSignature(types);
+				// ft.setReturnType(sig.getReturnType());
+				// set the resulting inference early to allow a recursive call to get this value
+				setAssociatedType(o, sig);
+				ft = sig;
+			}
+		}
+		catch(InferenceExceptions e) {
+			lastException = e;
+		}
+		catch(B3NoSuchFunctionException e) {
+			lastException = e;
+		}
+		catch(B3NoSuchFunctionSignatureException e) {
+			lastException = e;
+		}
+		catch(B3AmbiguousFunctionSignatureException e) {
+			lastException = e;
+		}
+		if(B3Debug.typer && lastException != null)
+			B3Debug.trace("Signature Inference not possible due to error: ", lastException);
+		// no constraint possible - function not found
+		return null;
+	}
+
+	/**
 	 * A BChainedExpression can impose a constraint on the last expression if the chained expression
 	 * is constrained.
 	 * 
@@ -214,6 +279,74 @@ public class B3BackendTypeProvider extends DeclarativeTypeProvider {
 				return ((B3ParameterizedType) entryType).getActualArgumentsList().get(1);
 		}
 		return null;
+	}
+
+	/**
+	 * A BParameter is constrained by the signature of the call where the parameter's parent parameter list
+	 * is the list of parameters.
+	 * 
+	 * @param aParameter
+	 * @param e
+	 * @param feature
+	 * @return
+	 */
+	public Type constraint(BParameter aParameter, EObject e, EStructuralFeature feature) {
+		final BParameterList parameterList = (BParameterList) aParameter.eContainer();
+		final Type c = doGetConstraint(parameterList, aParameter, aParameter.eContainingFeature());
+
+		if(c == null || !(c instanceof B3FunctionType))
+			return null;
+		final B3FunctionType callSignature = (B3FunctionType) c;
+		Type producedType = null;
+
+		// find the parameter's position in the container and use that type
+		int pix = parameterList.getParameters().indexOf(aParameter);
+		int signatureParameterSize = callSignature.getParameterTypes().size();
+		if(callSignature.isVarArgs() && pix >= signatureParameterSize)
+			producedType = callSignature.getParameterTypes().get(signatureParameterSize - 1);
+		else
+			try {
+				producedType = callSignature.getParameterTypes().get(pix + 1);
+			}
+			catch(RuntimeException ouch) {
+				if(B3Debug.typer)
+					B3Debug.trace(
+						"INTERNAL PROBLEM: tried to get index out of bounds for parameter ix: ", pix, " isvarargs: ",
+						callSignature.isVarArgs(), " signatureParamSize: ", signatureParameterSize);
+				throw ouch;
+			}
+
+		return producedType;
+	}
+
+	/**
+	 * Returns the signature of the call having the parameterList.
+	 * 
+	 * @param parameterList
+	 * @param e
+	 * @param feature
+	 * @return
+	 */
+	public Type constraint(BParameterList parameterList, EObject e, EStructuralFeature feature) {
+		return doGetConstraint(parameterList.eContainer(), parameterList, parameterList.eContainingFeature());
+	}
+
+	/**
+	 * Returns constraints for parameters.
+	 * 
+	 * @param parent
+	 * @param e
+	 * @param feature
+	 * @return
+	 */
+	public Type constraint(IFunction parent, EObject e, EStructuralFeature feature) {
+		if(B3backendPackage.IFUNCTION__PARAMETERS == feature.getFeatureID())
+			return null;
+
+		// good enough for starters - but should really be a constraint call to avoid recursion.
+		//
+		return doGetSignature(parent);
+
 	}
 
 	/**
@@ -449,8 +582,9 @@ public class B3BackendTypeProvider extends DeclarativeTypeProvider {
 	public Type type(B3Function o) {
 		B3FunctionType t = (B3FunctionType) type((BFunction) o);
 		Type rt = t.getReturnType();
-		if(rt == null || TypeUtils.isDefaultInferred(t.getReturnType())) {
-			t.setReturnType(doGetInferredType(o.getFuncExpr()));
+		if(rt == null || TypeUtils.isDefaultInferred(rt)) {
+			rt = doGetInferredType(o.getFuncExpr());
+			t.setReturnType(rt);
 		}
 		if(B3Debug.typer)
 			B3Debug.trace("type(B3Function) returns: ", t);
@@ -890,7 +1024,8 @@ public class B3BackendTypeProvider extends DeclarativeTypeProvider {
 		final Type theConstraint = doGetConstraint(theFunctionsContainer, theFunction, theFunction.eContainingFeature());
 
 		if(B3Debug.typer)
-			B3Debug.trace("[typer] funcContainer constrain is: ", theConstraint);
+			B3Debug.trace(
+				"[typer] funcContainer (", theFunctionsContainer.getClass(), ") constraint is: ", theConstraint);
 
 		// If the constraint is a B3FunctionType, it should be used
 		B3FunctionType constrainingSignature = null;
@@ -937,7 +1072,10 @@ public class B3BackendTypeProvider extends DeclarativeTypeProvider {
 					producedType = callSignature.getParameterTypes().get(signatureParameterSize - 1);
 				else
 					try {
-						producedType = callSignature.getParameterTypes().get(pix + 1);
+						producedType = callSignature.getParameterTypes().get(
+							pix + (parameterList.eContainer() instanceof BCallFeature
+									? 1
+									: 0));
 					}
 					catch(RuntimeException ouch) {
 						if(B3Debug.typer)
