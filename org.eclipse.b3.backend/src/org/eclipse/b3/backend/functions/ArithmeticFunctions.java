@@ -272,6 +272,53 @@ public class ArithmeticFunctions {
 		return result;
 	}
 
+	@B3Backend(typeCalculator = true)
+	public static Type numberGenericityCalculatorInternal(Type[] types) {
+		if(types.length == 1) {
+			return types[0];
+		}
+		if(types.length == 2) {
+			Type at = types[0];
+			Type bt = types[1];
+			Class<?> a = TypeUtils.getRaw(at);
+			Class<?> b = TypeUtils.getRaw(bt);
+			if(a == BigDecimal.class)
+				return at;
+			if(b == BigDecimal.class)
+				return bt;
+			if(a == Double.class)
+				return at;
+			if(b == Double.class)
+				return bt;
+			if(a == Float.class)
+				return at;
+			if(b == Float.class)
+				return bt;
+			if(a == BigInteger.class)
+				return at;
+			if(b == BigInteger.class)
+				return bt;
+			if(a == Long.class)
+				return at;
+			if(b == Long.class)
+				return bt;
+			if(a == Integer.class)
+				return at;
+			if(b == Integer.class)
+				return bt;
+			if(a == Short.class)
+				return at;
+			if(b == Short.class)
+				return bt;
+			if(a == Byte.class)
+				return at;
+			if(b == Byte.class)
+				return bt;
+		}
+		// give up...
+		return Number.class;
+	}
+
 	@B3Backend(guard = true)
 	public static Boolean permitIntegralOnlyGuard(BExecutionContext ctx, Object[] parameters, Type[] types) {
 		if(types == null)
@@ -324,53 +371,6 @@ public class ArithmeticFunctions {
 		return (n instanceof BigInteger)
 				? (BigInteger) n
 				: convertToBigInteger(n);
-	}
-
-	@B3Backend(typeCalculator = true)
-	private static Type numberGenericityCalculatorInternal(Type[] types) {
-		if(types.length == 1) {
-			return types[0];
-		}
-		if(types.length == 2) {
-			Type at = types[0];
-			Type bt = types[1];
-			Class<?> a = TypeUtils.getRaw(at);
-			Class<?> b = TypeUtils.getRaw(bt);
-			if(a == BigDecimal.class)
-				return at;
-			if(b == BigDecimal.class)
-				return bt;
-			if(a == Double.class)
-				return at;
-			if(b == Double.class)
-				return bt;
-			if(a == Float.class)
-				return at;
-			if(b == Float.class)
-				return bt;
-			if(a == BigInteger.class)
-				return at;
-			if(b == BigInteger.class)
-				return bt;
-			if(a == Long.class)
-				return at;
-			if(b == Long.class)
-				return bt;
-			if(a == Integer.class)
-				return at;
-			if(b == Integer.class)
-				return bt;
-			if(a == Short.class)
-				return at;
-			if(b == Short.class)
-				return bt;
-			if(a == Byte.class)
-				return at;
-			if(b == Byte.class)
-				return bt;
-		}
-		// give up...
-		return Number.class;
 	}
 
 	private static boolean trueWithSideEffect(Object ignored) {
