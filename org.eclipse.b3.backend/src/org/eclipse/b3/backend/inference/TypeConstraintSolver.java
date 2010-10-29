@@ -47,6 +47,9 @@ import com.google.inject.internal.Lists;
  * For instance, all expressions like 1 + 1 are trivially solved, while expressions like
  * [1 2 3].collect(3, _ |constant, x| (x + constant) * 2.0 ) requires constraints to produce [<Double>].
  * 
+ * The Solver solves constraints in a given ITypeScheme. This scheme is used to create subschemes required
+ * when an overall constraint problem needs to be divided into smaller parts.
+ * 
  */
 public class TypeConstraintSolver implements ITypeConstraintSolver {
 
@@ -54,9 +57,12 @@ public class TypeConstraintSolver implements ITypeConstraintSolver {
 
 	private List<ITypeConstraint> constraints;
 
-	public TypeConstraintSolver() {
+	private ITypeScheme typeScheme;
+
+	public TypeConstraintSolver(ITypeScheme typeScheme) {
 		substitutions = Lists.newArrayList();
 		constraints = Lists.newArrayList();
+		this.typeScheme = typeScheme;
 	}
 
 	/*

@@ -18,7 +18,8 @@ import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
 import org.eclipse.b3.backend.inference.ITypeConstraint;
 import org.eclipse.b3.backend.inference.ITypeConstraintExpression;
 import org.eclipse.b3.backend.inference.ITypeConstraintSolver;
-import org.eclipse.b3.backend.inference.TypeConstraintFactory;
+import org.eclipse.b3.backend.inference.ITypeScheme;
+import org.eclipse.b3.backend.inference.TypeScheme;
 import org.eclipse.b3.backend.inference.TypeConstraintSolver;
 import org.eclipse.emf.ecore.EObject;
 
@@ -41,7 +42,7 @@ public class TestConstraintSolver extends TestCase {
 
 	private Injector injector;
 
-	private TypeConstraintFactory factory;
+	private ITypeScheme factory;
 
 	/**
 	 * invoke(| x, y | x + y, 1, 2)
@@ -179,7 +180,7 @@ public class TestConstraintSolver extends TestCase {
 	@Override
 	protected void setUp() throws Exception {
 		injector = Guice.createInjector(new TestConstraintSolverModule());
-		factory = injector.getInstance(TypeConstraintFactory.class);
+		factory = injector.getInstance(TypeScheme.class);
 
 		super.setUp();
 	}

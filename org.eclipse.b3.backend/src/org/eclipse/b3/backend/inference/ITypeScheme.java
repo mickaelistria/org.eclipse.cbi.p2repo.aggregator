@@ -17,7 +17,7 @@ import org.eclipse.emf.ecore.EObject;
  * The TypeConstraints can be solved by a constraints solver.
  * 
  */
-public interface ITypeConstraintFactory {
+public interface ITypeScheme {
 	/**
 	 * Construct a constraint on the form A == B
 	 * 
@@ -43,11 +43,11 @@ public interface ITypeConstraintFactory {
 			ITypeConstraintExpression... constraintExpressions);
 
 	/**
-	 * The VariableViewKey is any object that identifies a set of type variables. It's identity is used as a key.
+	 * The Scheme Key is any object that identifies a set of type variables. It's identity is used as a key.
 	 * 
-	 * When used within b3 this is typically a ITypeProvider instance, but may for testing purposes be any
+	 * When used within b3 this is typically a ITypeScheme instance, but may for testing purposes be any
 	 * object. This key uniquely identifies the value of an EObject's inferred type. (Or put differently: An EObject may at any time have
-	 * multiple inferred types associated with it, differentiated by the VariableViewKey).
+	 * multiple inferred types associated with it, differentiated by the SchemeKey).
 	 * 
 	 * A typical use of the factory is:
 	 * constraint(variable(a), type(Integer.class))
@@ -55,7 +55,25 @@ public interface ITypeConstraintFactory {
 	 * 
 	 * @param key
 	 */
-	public Object getVariableViewKey();
+	public Object getSchemeKey();
+
+	/**
+	 * Returns the key for the variable representing the EObject var.
+	 * 
+	 * @param var
+	 * @return
+	 */
+	public Object getVariableKey(EObject var);
+
+	/**
+	 * Makes the variable for 'x' generic in this scheme - i.e. it will have an individual value in this scheme.
+	 * Its initial value is that in the parent scheme.
+	 * The constraint for the variable is returned as the typical is to use this in a constraint.
+	 * 
+	 * @param x
+	 * @return
+	 */
+	public ITypeConstraintExpression makeGeneric(EObject x);
 
 	/**
 	 * Construct a constraint expression stating (x,y)=>z - i.e. given the constraints x and y, z is produced.
@@ -69,6 +87,13 @@ public interface ITypeConstraintFactory {
 	 * @return
 	 */
 	public ITypeConstraintExpression produces(ITypeConstraintExpression product, ITypeConstraintExpression... given);
+
+	/**
+	 * Create a sub scheme useful for solving sub problems. Also see {@link #makeGeneric(EObject)}.
+	 * 
+	 * @return
+	 */
+	public ITypeScheme subScheme();
 
 	/**
 	 * Construct a constraint expression being an explicit type.

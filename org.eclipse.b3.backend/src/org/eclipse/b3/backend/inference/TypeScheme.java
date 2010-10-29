@@ -11,6 +11,7 @@ package org.eclipse.b3.backend.inference;
 import java.lang.reflect.Type;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Set;
 
 import org.eclipse.b3.backend.core.IStringProvider;
 import org.eclipse.b3.backend.core.adapters.TypeAdapter;
@@ -19,13 +20,15 @@ import org.eclipse.b3.backend.functions.ArithmeticFunctions;
 import org.eclipse.emf.ecore.EObject;
 
 import com.google.common.collect.Lists;
+import com.google.common.collect.Sets;
 import com.google.inject.Inject;
 
 /**
  * Implementation of Type Constraint interfaces.
  * 
  */
-public class TypeConstraintFactory implements ITypeConstraintFactory {
+public class TypeScheme implements ITypeScheme {
+
 	protected abstract class ConstraintExpr implements ITypeConstraintExpression {
 
 		public Type apply(ITypeConstraintExpression right) {
@@ -548,16 +551,20 @@ public class TypeConstraintFactory implements ITypeConstraintFactory {
 	protected class TypeVariableConstraintExpr extends ConstraintExpr {
 		final private TypeAdapter variable;
 
+		final private EObject obj;
+
 		public TypeVariableConstraintExpr(EObject element) {
 			TypeAdapter ta = TypeAdapterFactory.eINSTANCE.adapt(element);
 			if(ta == null)
 				throw new IllegalArgumentException("Can not associate a type constraint with a: " + element.getClass());
 			variable = ta;
+			obj = element;
 		}
 
-		public TypeVariableConstraintExpr(TypeAdapter a) {
-			variable = a;
-		}
+		// public TypeVariableConstraintExpr(TypeAdapter a) {
+		// variable = a;
+		// obj = a.obj;
+		// }
 
 		@Override
 		public Type apply(ITypeConstraintExpression right) {
@@ -568,13 +575,13 @@ public class TypeConstraintFactory implements ITypeConstraintFactory {
 				throw new IllegalStateException("the resolved type lied, and returned null: " +
 						stringProvider.doToString(right));
 
-			variable.setAssociatedInfo(getVariableViewKey(), t);
+			variable.setAssociatedInfo(getSchemeKey(), t);
 			return t;
 		}
 
 		@Override
 		public Type getType() {
-			return variable.getAssociatedInfo(getVariableViewKey());
+			return variable.getAssociatedInfo(getSchemeKey());
 		}
 
 		public TypeAdapter getVariable() {
@@ -623,6 +630,16 @@ public class TypeConstraintFactory implements ITypeConstraintFactory {
 	@Inject
 	private IStringProvider stringProvider;
 
+	private ITypeScheme parent;
+
+	private Set<TypeAdapter> genericVariables;
+
+	@Inject
+	public TypeScheme(IStringProvider stringProvider) {
+		this.stringProvider = stringProvider;
+		this.genericVariables = Sets.newHashSet();
+	}
+
 	public ITypeConstraint constraint(ITypeConstraintExpression a, ITypeConstraintExpression b) {
 		return new TypeConstraint(a, b);
 	}
@@ -632,12 +649,57 @@ public class TypeConstraintFactory implements ITypeConstraintFactory {
 		return new SelectFunctionExpr(funcName, scope, constraintExpressions);
 	}
 
-	public Object getVariableViewKey() {
+	public ITypeScheme getParentScheme() {
+		return parent;
+	}
+
+	public Object getSchemeKey() {
 		return this;
+	}
+
+	public Object getVariableKey(EObject var) {
+		if(genericVariables.contains(var))
+			return getSchemeKey();
+		return parent != null
+				? parent.getVariableKey(var)
+				: getSchemeKey();
+	}
+
+	/**
+	 * Makes the variable x generic by getting its value in the parent scheme, and setting it in this scheme
+	 * with the same value. Subsequent access to the variable x via this scheme will manipulate the
+	 * unique variable value of x for this scheme.
+	 * 
+	 * Throws IllegalStateException if this scheme does not have a parent scheme.
+	 * 
+	 * @param x
+	 * @return
+	 */
+	public ITypeConstraintExpression makeGeneric(EObject x) {
+		if(parent == null)
+			throw new IllegalStateException(
+				"Variables can only be made generic in a sub scheme - this scheme has no parent");
+		TypeVariableConstraintExpr xConstraint = new TypeVariableConstraintExpr(x);
+		TypeAdapter xVar = xConstraint.getVariable();
+		// Copy value from parent's view of variable to this view.
+		xVar.setAssociatedInfo(getSchemeKey(), xVar.getAssociatedInfo(parent.getVariableKey(x)));
+		genericVariables.add(xVar);
+		return xConstraint;
 	}
 
 	public ITypeConstraintExpression produces(ITypeConstraintExpression product, ITypeConstraintExpression... given) {
 		return new ProducesExpr(given, product);
+	}
+
+	/**
+	 * Create a subScheme for solving a sub problem.
+	 * 
+	 * @return
+	 */
+	public ITypeScheme subScheme() {
+		TypeScheme subScheme = new TypeScheme(stringProvider);
+		subScheme.parent = this;
+		return subScheme;
 	}
 
 	public ITypeConstraintExpression type(Type x) {
@@ -647,5 +709,4 @@ public class TypeConstraintFactory implements ITypeConstraintFactory {
 	public ITypeConstraintExpression variable(EObject x) {
 		return new TypeVariableConstraintExpr(x);
 	}
-
 }
