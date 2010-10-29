@@ -13,14 +13,16 @@ import java.util.List;
 
 import junit.framework.TestCase;
 
+import org.eclipse.b3.backend.core.B3Debug;
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendFactory;
+import org.eclipse.b3.backend.evaluator.b3backend.BDefValue;
 import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
 import org.eclipse.b3.backend.inference.ITypeConstraint;
 import org.eclipse.b3.backend.inference.ITypeConstraintExpression;
 import org.eclipse.b3.backend.inference.ITypeConstraintSolver;
 import org.eclipse.b3.backend.inference.ITypeScheme;
-import org.eclipse.b3.backend.inference.TypeScheme;
 import org.eclipse.b3.backend.inference.TypeConstraintSolver;
+import org.eclipse.b3.backend.inference.TypeScheme;
 import org.eclipse.emf.ecore.EObject;
 
 import com.google.inject.AbstractModule;
@@ -37,6 +39,9 @@ public class TestConstraintSolver extends TestCase {
 		@Override
 		protected void configure() {
 			// bind whatever is needed here
+
+			binder().requestStaticInjection(B3Debug.class);
+
 		}
 	}
 
@@ -52,14 +57,15 @@ public class TestConstraintSolver extends TestCase {
 	public void testLambdaCase() {
 		// Needs some EObject to test, what they are does not matter
 		// They are only used to hang adapters off that contain type.
-		BExpression a = expression();
-		BExpression b = expression();
-		BExpression c = expression();
-		BExpression d = expression();
-		BExpression e = expression();
-		BExpression f = expression();
-		BExpression x = expression();
-		BExpression y = expression();
+		BExpression a = expression("a");
+		BExpression b = expression("b");
+		BExpression c = expression("c");
+		BExpression d = expression("d");
+		BExpression e = expression("e");
+		BExpression f = expression("f");
+		BExpression g = expression("g");
+		BExpression x = expression("x");
+		BExpression y = expression("y");
 
 		// List<ITypeConstraint> constraints = Lists.newArrayList();
 		ITypeConstraintSolver solver = injector.getInstance(TypeConstraintSolver.class);
@@ -70,11 +76,11 @@ public class TestConstraintSolver extends TestCase {
 		// b = y
 		solver.add(constraint(variable(b), variable(y)));
 
-		// x = e
-		solver.add(constraint(variable(x), variable(e)));
-
-		// y = f
-		solver.add(constraint(variable(y), variable(f)));
+		// // x = e
+		// solver.add(constraint(variable(x), variable(e)));
+		//
+		// // y = f
+		// solver.add(constraint(variable(y), variable(f)));
 
 		// c = (+ a b)
 		solver.add(constraint(variable(c), selectFunction("+", variable(a), variable(b))));
@@ -91,6 +97,7 @@ public class TestConstraintSolver extends TestCase {
 
 		// g = (invoke d e f)
 		//
+		solver.add(constraint(variable(g), selectFunction("invoke", variable(d), variable(e), variable(f))));
 
 		int result = solver.solve();
 
@@ -109,9 +116,9 @@ public class TestConstraintSolver extends TestCase {
 	 */
 	public void testSimpleConstraint() {
 		// Needs some EObject to test, what they are does not really matter
-		BExpression a = expression();
-		BExpression b = expression();
-		BExpression d = expression();
+		BExpression a = expression("a");
+		BExpression b = expression("b");
+		BExpression d = expression("c");
 
 		List<ITypeConstraint> constraints = Lists.newArrayList();
 
@@ -141,11 +148,11 @@ public class TestConstraintSolver extends TestCase {
 	public void testSimpleFunction() {
 		// Needs some EObject to test, what they are does not matter
 		// They are only used to hang adapters off that contain type.
-		BExpression a = expression();
-		BExpression b = expression();
-		BExpression c = expression();
-		BExpression x = expression();
-		BExpression y = expression();
+		BExpression a = expression("a");
+		BExpression b = expression("b");
+		BExpression c = expression("c");
+		BExpression x = expression("x");
+		BExpression y = expression("y");
 
 		List<ITypeConstraint> constraints = Lists.newArrayList();
 
@@ -181,7 +188,6 @@ public class TestConstraintSolver extends TestCase {
 	protected void setUp() throws Exception {
 		injector = Guice.createInjector(new TestConstraintSolverModule());
 		factory = injector.getInstance(TypeScheme.class);
-
 		super.setUp();
 	}
 
@@ -189,8 +195,10 @@ public class TestConstraintSolver extends TestCase {
 		return factory.constraint(a, b);
 	}
 
-	private BExpression expression() {
-		return B3backendFactory.eINSTANCE.createBLiteralAny();
+	private BExpression expression(String name) {
+		BDefValue x = B3backendFactory.eINSTANCE.createBDefValue();
+		x.setName(name);
+		return x;
 	}
 
 	private ITypeConstraintExpression produces(ITypeConstraintExpression product, ITypeConstraintExpression... given) {

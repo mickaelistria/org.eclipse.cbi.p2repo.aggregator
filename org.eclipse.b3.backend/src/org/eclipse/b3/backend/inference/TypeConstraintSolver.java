@@ -10,26 +10,32 @@ package org.eclipse.b3.backend.inference;
 
 import java.util.List;
 
+import org.eclipse.b3.backend.core.B3Debug;
+
 import com.google.inject.Inject;
 import com.google.inject.internal.Lists;
 
 /**
- * An implementation of Constraint Unity - given a set of constraints on the form X = Y
- * is united into a set of substitutions.
+ * An implementation of "Constraint Unity" - given a set of <i>constraints</i> on the form X = Y
+ * the algorithm unites these into a set of <i>substitutions</i>.
  * 
  * The algorithm works as follows:
- * Two lists are maintained: constraints and subsitutions
+ * Two lists are maintained: <i>constraints</i> and <i>substitutions</i>
  * The basic algorithm does the following:
- * 1. pops a constraint of the constraint stack
- * 2. evaluates a set of rules that leads to a refinement of the knowledge
- * 3. until the constraint stack is empty, or there is an error
+ * <ol>
+ * <li>pops a constraint of the constraint stack</li>
+ * <li>evaluates a set of rules that leads to a refinement of the knowledge</li>
+ * <li>until the constraint stack is empty, or there is an error</li>
+ * </ol>
  * 
  * Rules are as follows:
- * 1. If A equals B then do nothing
- * 2. If A is an identifier, then replace A with B in the constraints and in the substitutions
- * 3. If B is an identifier, then replace B with A in the constraints and in the substitutions
- * 4. If A and B are the same type-function and have the same arity i.e. A=f(X1, X2, ...Xn) and
- * B=f(Y1, Y2,...Yn) then add the constraints X1=Y1, X2=Y2, ... Xn=Yn to the set of constraints
+ * <ol>
+ * <li>If A matches B then do nothing (e.g. 'integer' = 'integer')</li>
+ * <li>If A is an identifier, then replace A with B in the constraints and in the substitutions (e.g. A = 'integer')</li>
+ * <li>If B is an identifier, then replace B with A in the constraints and in the substitutions (e.g. 'integer' = A)</li>
+ * <li>If A and B are the same type-function and have the same arity i.e. A=f(X1, X2, ...Xn) and B=f(Y1, Y2,...Yn) then add the constraints X1=Y1,
+ * X2=Y2, ... Xn=Yn to the set of constraints (e.g (+ integer integer) = (+ a b) results in integer = a, integer = b)</li>
+ * </ol>
  * 
  * If in step 2 or 3, the replaced occurs in the replacement - this is an error (a recursive constraint).
  * 
@@ -49,8 +55,21 @@ import com.google.inject.internal.Lists;
  * [1 2 3].collect(3, _ |constant, x| (x + constant) * 2.0 ) requires constraints to produce [<Double>].
  * 
  * The Solver solves constraints in a given ITypeScheme. This scheme is used to create subschemes required
- * when an overall constraint problem needs to be divided into smaller parts.
+ * when an overall constraint problem needs to be divided into smaller parts (this part not yet used or tested).
  * 
+ * The basic algorithm is used from an outer loop where an additional pass allows each constraint to produce a new
+ * set of constraints based on what was solved in the first pass. This continues until no additional constraints
+ * have been produced. There is currently a max emergency break at 10 iterations - which typically indicates a problem
+ * with the implementation of type constraint expressions.
+ * 
+ * <h2>Usage</h2>
+ * <ul>
+ * <li>Instantiate a TypeConstraintSolver (or inject one via Guice).</li>
+ * <li>Create constraints using an instance of a ITypeScheme) and pass to the {@link #solve(List)}, or add constraints using
+ * {@link #add(ITypeConstraint)} or {@link #add(List)}.</li>
+ * <li>It is possible to keep adding constraints and calling {@link #solve()} multiple times.</li>
+ * <li>Calling {@link #solve(List)} will clear the state of the solver).</li>
+ * </ul>
  */
 public class TypeConstraintSolver implements ITypeConstraintSolver {
 
@@ -58,13 +77,10 @@ public class TypeConstraintSolver implements ITypeConstraintSolver {
 
 	private List<ITypeConstraint> constraints;
 
-	private ITypeScheme typeScheme;
-
 	@Inject
-	public TypeConstraintSolver(ITypeScheme typeScheme) {
+	public TypeConstraintSolver() {
 		substitutions = Lists.newArrayList();
 		constraints = Lists.newArrayList();
-		this.typeScheme = typeScheme;
 	}
 
 	/*
@@ -110,39 +126,29 @@ public class TypeConstraintSolver implements ITypeConstraintSolver {
 	}
 
 	public int solve() {
-		for(ITypeConstraint c = popConstraint(); c != null; c = popConstraint()) {
-			// RULE 1, X == Y
-			if(c.getLeft().matches(c.getRight()))
-				/* do nothing */;
-			// RULE 2, identifier(X) ? replace(X, Y)
-			else if(c.getLeft().isIdentifier()) {
-				if(c.getRight().contains(c.getLeft())) {
-					constraints.add(c);
-					return RECURSIVE;
-				}
-				replaceAll(c.getLeft(), c.getRight());
-				substitutions.add(c);
+		int result = -1;
+
+		// The emergency break is there if something is wrong with the implementation in the
+		// constraint expressions
+		//
+		int emergencyBreak = 10;
+		while(constraints.size() > 0) {
+			if(B3Debug.typer) {
+				B3Debug.trace("[solver] there are: ", constraints.size(), " constraints left to solve:");
+				dump();
 			}
-			// RULE 3, identifier(Y) ? replace(Y, X)
-			else if(c.getRight().isIdentifier()) {
-				if(c.getLeft().contains(c.getRight())) {
-					constraints.add(c);
-					return RECURSIVE;
-				}
-				replaceAll(c.getRight(), c.getLeft());
-				substitutions.add(c);
+			emergencyBreak--;
+			if(emergencyBreak <= 0)
+				return -1;
+			result = unify();
+			for(ITypeConstraint c : substitutions) {
+				List<ITypeConstraint> additions = c.resolve();
+				constraints.addAll(additions);
 			}
-			// RULE 4, C(X1...Xn) = C(Y1...Yn)
-			else if(c.getLeft().isSameFunction(c.getRight())) {
-				List<ITypeConstraint> eliminations = c.getLeft().eliminate(c.getRight());
-				for(ITypeConstraint x : eliminations)
-					constraints.add(x);
-			}
-			else
-				return NOT_UNITABLE;
 		}
-		// stack is empty
-		return SOLUTION_FOUND;
+		if(emergencyBreak <= 0 || constraints.size() > 0)
+			result = NOT_UNITABLE;
+		return result;
 	}
 
 	/*
@@ -156,22 +162,102 @@ public class TypeConstraintSolver implements ITypeConstraintSolver {
 		return solve();
 	}
 
+	public int unify() {
+		ITypeConstraint c;
+		while((c = popConstraint()) != null) {
+			// RULE 1, X == Y
+			if(c.getLeft().matches(c.getRight())) {
+				/* do nothing */;
+				if(B3Debug.typer) {
+					B3Debug.trace("[solver] unify(", c.getLeft(), " == ", c.getRight(), ") => CONSTRAINT DROPPED");
+				}
+			}
+			// RULE 2, identifier(X) ? replace(X, Y)
+			else if(c.getLeft().isIdentifier()) {
+				if(c.getRight().contains(c.getLeft())) {
+					// put it back for inspection
+					constraints.add(c);
+					if(B3Debug.typer)
+						B3Debug.trace("[solver] unify(", c.getRight(), " contains ", c.getLeft(), ") => RECURSION");
+
+					return RECURSIVE;
+				}
+				replaceAll(c.getLeft(), c.getRight());
+				substitutions.add(c);
+				if(B3Debug.typer) {
+					B3Debug.trace("[solver] unify(", c.getLeft(), " replaced by: ", c.getRight(), ") => NEW STATE");
+					dump();
+				}
+			}
+			// RULE 3, identifier(Y) ? replace(Y, X)
+			else if(c.getRight().isIdentifier()) {
+				if(c.getLeft().contains(c.getRight())) {
+					// put it back for inspection
+					constraints.add(c);
+					if(B3Debug.typer)
+						B3Debug.trace("[solver] unify(", c.getRight(), " contains ", c.getLeft(), ") => RECURSION");
+					return RECURSIVE;
+				}
+				replaceAll(c.getRight(), c.getLeft());
+				substitutions.add(c);
+				if(B3Debug.typer) {
+					B3Debug.trace("[solver] unify(", c.getRight(), " replaced by: ", c.getLeft(), ") => NEW STATE");
+					dump();
+				}
+			}
+			// RULE 4, C(X1...Xn) = C(Y1...Yn)
+			else if(c.getLeft().isSameFunction(c.getRight())) {
+				List<ITypeConstraint> eliminations = c.getLeft().eliminate(c.getRight());
+				for(ITypeConstraint x : eliminations)
+					constraints.add(x);
+				if(B3Debug.typer) {
+					B3Debug.trace("[solver] unify(", c.getLeft(), " eliminated by: ", c.getRight(), ") => NEW STATE");
+					dump();
+				}
+			}
+			else if(B3Debug.typer) {
+				B3Debug.trace("[solver] => NOT UNITABLE");
+				dump();
+			}
+			else
+				return NOT_UNITABLE;
+		}
+		// stack is empty
+		if(B3Debug.typer) {
+			B3Debug.trace("[solver] => SOLUTION FOUND");
+			dump();
+		}
+		return SOLUTION_FOUND;
+	}
+
+	private void dump() {
+		B3Debug.trace("[solver] Constraints -----");
+		for(ITypeConstraint c : constraints)
+			B3Debug.trace("         ", c);
+		B3Debug.trace("[solver] Substitutions -----");
+		for(ITypeConstraint c : substitutions)
+			B3Debug.trace("                         ", c);
+		B3Debug.trace("[solver] End Solver State");
+	}
+
 	private ITypeConstraint popConstraint() {
 		if(constraints.size() == 0)
 			return null;
+
+		// TODO: it may be faster if constraints are processed in some order other than
+		// the (LIFO) order as less manipulation may be required if simple facts are
+		// processed first.
+
 		int lastIndex = constraints.size() - 1;
-		for(int i = lastIndex; i >= 0; i--) {
-			ITypeConstraint c = constraints.get(i);
-			if(c.isResolvable()) {
-				c.resolve();
-				constraints.remove(i);
-				return c;
-			}
-		}
-		// only non resolvable left - just pop one
 		return constraints.remove(lastIndex);
 	}
 
+	/**
+	 * Replaces toBeReplaced in both constraints and substitutions.
+	 * 
+	 * @param toBeReplaced
+	 * @param replacement
+	 */
 	private void replaceAll(ITypeConstraintExpression toBeReplaced, ITypeConstraintExpression replacement) {
 		for(ITypeConstraint c : constraints)
 			c.replace(toBeReplaced, replacement);

@@ -9,6 +9,7 @@
 package org.eclipse.b3.backend.inference;
 
 import java.lang.reflect.Type;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Set;
@@ -16,6 +17,7 @@ import java.util.Set;
 import org.eclipse.b3.backend.core.IStringProvider;
 import org.eclipse.b3.backend.core.adapters.TypeAdapter;
 import org.eclipse.b3.backend.core.adapters.TypeAdapterFactory;
+import org.eclipse.b3.backend.evaluator.b3backend.INamedValue;
 import org.eclipse.b3.backend.functions.ArithmeticFunctions;
 import org.eclipse.emf.ecore.EObject;
 
@@ -103,7 +105,10 @@ public class TypeScheme implements ITypeScheme {
 					throw new IllegalStateException("TYPE == TYPE constraint found where types differ!");
 				// not meaningful to apply this... it is sort of a surprising result, but should have been
 				// eliminated from a solution - better safe and throw an exception.
-				throw new IllegalStateException("Attempt to apply TYPE x  == TYPE x - meaningsless");
+				// Well, this is actually called when initializing a constraint, Maybe it should not do that...
+				// TODO: Consider the above...
+				// throw new IllegalStateException("Attempt to apply TYPE x  == TYPE x - meaningsless");
+				return getType();
 			}
 			return right.apply(this);
 		}
@@ -201,11 +206,6 @@ public class TypeScheme implements ITypeScheme {
 			return true;
 		}
 
-		/*
-		 * (non-Javadoc)
-		 * 
-		 * @see org.eclipse.b3.backend.inference.ITypeConstraintExpression#isSameFunction(org.eclipse.b3.backend.inference.ITypeConstraintExpression)
-		 */
 		@Override
 		public boolean isSameFunction(ITypeConstraintExpression expr) {
 			if(!(expr instanceof ProducesExpr))
@@ -342,14 +342,13 @@ public class TypeScheme implements ITypeScheme {
 
 		@Override
 		public boolean matches(ITypeConstraintExpression expr) {
+			if(isResolved()) {
+				if(expr.isResolved())
+					return getType().equals(expr.getType());
+			}
 			if(!(expr instanceof SelectFunctionExpr))
 				return false;
 			SelectFunctionExpr otherExpr = (SelectFunctionExpr) expr;
-			if(isResolved()) {
-				if(!otherExpr.isResolved())
-					return false;
-				return getType().equals(otherExpr.getType());
-			}
 
 			if(!functionName.equals(otherExpr.functionName))
 				return false;
@@ -372,11 +371,32 @@ public class TypeScheme implements ITypeScheme {
 		@Override
 		public List<ITypeConstraint> resolve() {
 			List<ITypeConstraint> result = Lists.newArrayList();
+			if(isResolved())
+				return result;
 			for(ITypeConstraintExpression e : parameterTypes)
 				result.addAll(e.resolve());
 
 			result.addAll(internalResolve());
 			return result;
+		}
+
+		@Override
+		public String toString() {
+			StringBuffer buf = new StringBuffer();
+			if(isResolved())
+				buf.append("RESOLVED[");
+			buf.append("select('" + functionName + "'");
+			for(ITypeConstraintExpression e : parameterTypes) {
+				buf.append(", ");
+				buf.append(stringProvider.doToString(e));
+			}
+			buf.append(")");
+			if(isResolved()) {
+				buf.append("]=>");
+				buf.append(stringProvider.doToString(getType()));
+			}
+			return buf.toString();
+
 		}
 
 		/**
@@ -389,21 +409,30 @@ public class TypeScheme implements ITypeScheme {
 				Type[] types = new Type[2];
 				types[0] = parameterTypes.get(0).getType();
 				types[1] = parameterTypes.get(1).getType();
-				setType(ArithmeticFunctions.numberGenericityCalculatorInternal(types));
+				if(types[0] != null && types[1] != null)
+					setType(ArithmeticFunctions.numberGenericityCalculatorInternal(types));
 				return Lists.newArrayList();
 			}
+			// Simulation of what invoke's type calculator should do:
 			if(functionName.equals("invoke")) {
-				Lists.newArrayList();
+				ArrayList<ITypeConstraint> result = Lists.newArrayList();
 				ITypeConstraintExpression theLambda = parameterTypes.get(0);
-				if(!(theLambda instanceof TypeVariableConstraintExpr))
-					throw new IllegalStateException(
-						"A function constraint must have a variable constraint as its first parameter");
+				if(!(theLambda instanceof ProducesExpr)) {
+					// not a ()=> first, can not infer anything.
+					return Lists.newArrayList();
+				}
 
-				// DIFFICULT : invoke( x1=(arity but types not known)=>y1, x2, x3)
-				// resulting type = y1 - don't have a variable for that !!
-				// TODO: !!!!
-				// result.add(constraint(new TypeVariableConstraintExpr(var.getVariable()),
-				// produces()
+				ITypeConstraintExpression[] exprs = new ITypeConstraintExpression[parameterTypes.size()];
+				// select('invoke', (X0..Xn)=>Y, X0..Xn)
+				parameterTypes.subList(1, parameterTypes.size() - 1);
+				ITypeConstraintExpression produces = ((ProducesExpr) theLambda).produces;
+				exprs[0] = new ProducesExpr(parameterTypes.subList(1, parameterTypes.size()), produces);
+				for(int i = 1; i < parameterTypes.size(); i++)
+					exprs[i] = parameterTypes.get(i);
+
+				result.add(constraint(this, new SelectFunctionExpr("invoke", scope, exprs)));
+				setType(produces.getType());
+				return result;
 			}
 			return Lists.newArrayList();
 		}
@@ -561,11 +590,6 @@ public class TypeScheme implements ITypeScheme {
 			obj = element;
 		}
 
-		// public TypeVariableConstraintExpr(TypeAdapter a) {
-		// variable = a;
-		// obj = a.obj;
-		// }
-
 		@Override
 		public Type apply(ITypeConstraintExpression right) {
 			if(!right.isResolved())
@@ -610,8 +634,12 @@ public class TypeScheme implements ITypeScheme {
 		@Override
 		public String toString() {
 			StringBuffer buf = new StringBuffer();
-			buf.append("v#");
-			buf.append(variable.hashCode()); // the only available identifier
+			if(obj instanceof INamedValue)
+				buf.append(((INamedValue) obj).getName());
+			else {
+				buf.append("v#");
+				buf.append(variable.hashCode()); // the only available identifier
+			}
 			return buf.toString();
 		}
 
@@ -632,7 +660,7 @@ public class TypeScheme implements ITypeScheme {
 
 	private ITypeScheme parent;
 
-	private Set<TypeAdapter> genericVariables;
+	private Set<EObject> genericVariables;
 
 	@Inject
 	public TypeScheme(IStringProvider stringProvider) {
@@ -683,7 +711,7 @@ public class TypeScheme implements ITypeScheme {
 		TypeAdapter xVar = xConstraint.getVariable();
 		// Copy value from parent's view of variable to this view.
 		xVar.setAssociatedInfo(getSchemeKey(), xVar.getAssociatedInfo(parent.getVariableKey(x)));
-		genericVariables.add(xVar);
+		genericVariables.add(x);
 		return xConstraint;
 	}
 
@@ -702,11 +730,34 @@ public class TypeScheme implements ITypeScheme {
 		return subScheme;
 	}
 
+	/**
+	 * Sets the values of all variables made generic in this scheme in the corresponding variable in
+	 * the parent type scheme.
+	 */
+	public void supplant() {
+		if(parent == null)
+			return; // nothing to supplant to
+		for(EObject x : genericVariables)
+			supplant(x);
+	}
+
 	public ITypeConstraintExpression type(Type x) {
 		return new ExplicitTypeConstraintExpr(x);
 	}
 
 	public ITypeConstraintExpression variable(EObject x) {
 		return new TypeVariableConstraintExpr(x);
+	}
+
+	/**
+	 * Sets the value of x in this scheme in the parent scheme.
+	 * 
+	 * @param x
+	 */
+	private void supplant(EObject x) {
+		TypeVariableConstraintExpr xConstraint = new TypeVariableConstraintExpr(x);
+		TypeAdapter xVar = xConstraint.getVariable();
+
+		xVar.setAssociatedInfo(parent.getVariableKey(x), xVar.getAssociatedInfo(getSchemeKey()));
 	}
 }
