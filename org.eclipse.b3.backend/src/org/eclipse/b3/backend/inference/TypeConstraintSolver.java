@@ -10,6 +10,7 @@ package org.eclipse.b3.backend.inference;
 
 import java.util.List;
 
+import com.google.inject.Inject;
 import com.google.inject.internal.Lists;
 
 /**
@@ -59,6 +60,7 @@ public class TypeConstraintSolver implements ITypeConstraintSolver {
 
 	private ITypeScheme typeScheme;
 
+	@Inject
 	public TypeConstraintSolver(ITypeScheme typeScheme) {
 		substitutions = Lists.newArrayList();
 		constraints = Lists.newArrayList();
@@ -110,7 +112,7 @@ public class TypeConstraintSolver implements ITypeConstraintSolver {
 	public int solve() {
 		for(ITypeConstraint c = popConstraint(); c != null; c = popConstraint()) {
 			// RULE 1, X == Y
-			if(c.getLeft().equals(c.getRight()))
+			if(c.getLeft().matches(c.getRight()))
 				/* do nothing */;
 			// RULE 2, identifier(X) ? replace(X, Y)
 			else if(c.getLeft().isIdentifier()) {

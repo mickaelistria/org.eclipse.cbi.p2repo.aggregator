@@ -12,11 +12,14 @@ import java.lang.reflect.Type;
 
 import org.eclipse.emf.ecore.EObject;
 
+import com.google.inject.ImplementedBy;
+
 /**
  * Interface for a factory of Type-Constraints
  * The TypeConstraints can be solved by a constraints solver.
  * 
  */
+@ImplementedBy(TypeScheme.class)
 public interface ITypeScheme {
 	/**
 	 * Construct a constraint on the form A == B
