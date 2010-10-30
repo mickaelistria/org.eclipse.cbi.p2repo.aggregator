@@ -5,8 +5,12 @@ function main(List argv) : buildFruitSallad();
 
 « Performs the build of the fruitsallad and returns the set of files as strings »
 function buildFruitSallad() :
-	b3.resolveAndRunBuilder("fruitsallad","make");
-
+«
+The fruitsallad consists of :
+«{	b3.resolveAndRunBuilder("fruitsallad","make").pathIterator.collect(x |
+«   URI : «{ x }»«{'\n'}»»)
+}»
+».print();
 
 « Definition of the fruitsallad, and it's input »
 unit fruitsallad version 1.0.0 {
