@@ -40,6 +40,7 @@ import org.eclipse.b3.build.Builder;
 import org.eclipse.b3.build.BuilderCallFacade;
 import org.eclipse.b3.build.BuilderConcernContext;
 import org.eclipse.b3.build.BuilderNamePredicate;
+import org.eclipse.b3.build.BuilderWrapper;
 import org.eclipse.b3.build.Capability;
 import org.eclipse.b3.build.FirstFoundUnitProvider;
 import org.eclipse.b3.build.IBuilder;
@@ -82,6 +83,12 @@ public class B3BuildEvaluator extends B3BackendEvaluator {
 	 * This specialization returns a B3BuilderJob that performs the evaluation.
 	 */
 	public Object call(Builder o, Object[] parameters, Type[] types, BExecutionContext ctx) throws Throwable {
+		if(ctx.getProgressMonitor().isCanceled())
+			throw new OperationCanceledException();
+		return new B3BuilderJob(callPrepare(o, parameters, types, ctx), o);
+	}
+
+	public Object call(BuilderWrapper o, Object[] parameters, Type[] types, BExecutionContext ctx) throws Throwable {
 		if(ctx.getProgressMonitor().isCanceled())
 			throw new OperationCanceledException();
 		return new B3BuilderJob(callPrepare(o, parameters, types, ctx), o);

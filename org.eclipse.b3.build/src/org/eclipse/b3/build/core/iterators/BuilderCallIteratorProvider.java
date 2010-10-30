@@ -150,12 +150,6 @@ public class BuilderCallIteratorProvider {
 		return result;
 	}
 
-	public Iterator<BuilderCallFacade> effectiveIterator(IBuilder o) throws Throwable {
-		if(o.getInput() == null)
-			return NULL_ITERATOR;
-		return doGetIterator(o.getInput());
-	}
-
 	public Iterator<EffectiveBuilderCallFacade> effectiveIterator(IBuilder o, BExecutionContext ctx) throws Throwable {
 		if(o.getInput() == null)
 			return EFFECTIVE_NULL_ITERATOR;
@@ -187,12 +181,18 @@ public class BuilderCallIteratorProvider {
 		return new SingletonIterator<BuilderCallFacade>(erf);
 	}
 
-	public Iterator<BuilderCallFacade> iterator(BuilderInputDecorator o, BExecutionContext ctx) throws Throwable {
+	public Iterator<BuilderCallFacade> iterator(BuilderInputDecorator o) throws Throwable {
 		SerialIterator<BuilderCallFacade> result = new SerialIterator<BuilderCallFacade>();
 
 		for(BuilderInput i : o.getBuilderInput())
 			result.addIterator(doGetIterator(i));
 		return result;
+	}
+
+	public Iterator<BuilderCallFacade> iterator(IBuilder o) throws Throwable {
+		if(o.getInput() == null)
+			return NULL_ITERATOR;
+		return doGetIterator(o.getInput());
 	}
 
 	protected Iterator<EffectiveBuilderCallFacade> handleEffectiveError(Object[] params, Throwable e) {

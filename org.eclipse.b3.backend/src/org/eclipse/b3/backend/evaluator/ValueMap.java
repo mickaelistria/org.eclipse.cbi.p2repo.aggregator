@@ -14,6 +14,7 @@ import org.eclipse.b3.backend.core.exceptions.B3InternalError;
 import org.eclipse.b3.backend.core.exceptions.B3NoSuchVariableException;
 import org.eclipse.b3.backend.core.exceptions.B3VariableRedefinitionException;
 import org.eclipse.b3.backend.evaluator.b3backend.B3Function;
+import org.eclipse.b3.backend.evaluator.b3backend.B3FunctionType;
 import org.eclipse.b3.backend.evaluator.b3backend.BFunction;
 import org.eclipse.b3.backend.evaluator.typesystem.TypeUtils;
 import org.eclipse.b3.backend.inference.FunctionUtils;
@@ -39,7 +40,8 @@ public class ValueMap {
 		}
 
 		boolean isAssignableFrom(Object value) {
-			if(value instanceof B3Function)
+			// if value is a function, we need the signature if the lhs requires one
+			if(value instanceof B3Function && type instanceof B3FunctionType)
 				return TypeUtils.isAssignableFrom(type, FunctionUtils.getSignature((BFunction) value));
 			return TypeUtils.isAssignableFrom(type, value);
 		}

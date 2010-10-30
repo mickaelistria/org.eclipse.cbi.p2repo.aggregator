@@ -312,9 +312,11 @@ public class B3BackendEvaluator extends DeclarativeB3Evaluator {
 		if(ctx.getProgressMonitor().isCanceled())
 			throw new OperationCanceledException();
 
+		// A wrapper without a body is an automatic "proceed"
 		if(o.getAroundExpr() == null) {
+			return null;
 			// A wrapper without body should have been rejected by validation
-			throw new B3InternalError("A Wrapped function without a body detected.");
+			// throw new B3InternalError("A Wrapped function without a body detected.");
 			// return o.getOriginal().internalCall(ctx, parameters, types);
 		}
 		return doEvaluate(o.getAroundExpr(), prepareContext

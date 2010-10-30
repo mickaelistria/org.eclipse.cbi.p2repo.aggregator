@@ -251,7 +251,13 @@ public class Weaver extends BackendWeaver {
 		// Create a wrapping function and define it in the context
 		BuilderWrapper wrapper = B3BuildFactory.eINSTANCE.createBuilderWrapper();
 		wrapper.setOriginal(b);
-		wrapper.setAroundExpr(theBuilderConcern.getFuncExpr()); // non containment, so ok to use this.funcExpr
+
+		// make sure that a null function body is treated as a proceed
+		// BExpression concernFuncExpr = theBuilderConcern.getFuncExpr(); // non containment, so ok to use this.funcExpr
+		// concernFuncExpr = (concernFuncExpr == null)
+		// ? B3backendFactory.eINSTANCE.createBProceedExpression()
+		// : concernFuncExpr;
+		wrapper.setAroundExpr(theBuilderConcern.getFuncExpr());
 		wrapper.setParameterMap(nameMap);
 		if(promoteToUnit != null) {
 			wrapper.setUnitType(BuildUnitProxyAdapterFactory.eINSTANCE.adapt(promoteToUnit).getIface());
@@ -339,7 +345,7 @@ public class Weaver extends BackendWeaver {
 				if(inputRemover.doRemoveMatching(input, ip))
 					wrapper.setInput(null);
 
-			modified = !EcoreUtil.equals(b.getInput(), wrapper.getInput());
+			modified = !EcoreUtil.equals(b.getInput(), input);
 			// optimize if unchanged
 			if(!modified && theBuilderConcern.getInputAdditions().size() == 0) {
 				wrapper.setInput(null);

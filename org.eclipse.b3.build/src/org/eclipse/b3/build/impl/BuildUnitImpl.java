@@ -32,7 +32,6 @@ import org.eclipse.b3.backend.evaluator.b3backend.IVarName;
 import org.eclipse.b3.build.B3BuildFactory;
 import org.eclipse.b3.build.B3BuildPackage;
 import org.eclipse.b3.build.BuildUnit;
-import org.eclipse.b3.build.Builder;
 import org.eclipse.b3.build.Capability;
 import org.eclipse.b3.build.CapabilityPredicate;
 import org.eclipse.b3.build.ContainerConfiguration;
@@ -1162,12 +1161,12 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 				"[Unit Effective Facade] - START processing requirements/capabilities added by builders for unit: ",
 				getName());
 		BuildUnit proxy = BuildUnitProxyAdapterFactory.eINSTANCE.adapt(u).getProxy();
-		Iterator<IFunction> builders = ctx.getFunctionIterator(proxy.getClass(), Builder.class);
+		Iterator<IFunction> builders = ctx.getFunctionIterator(proxy.getClass(), IBuilder.class);
 		EffectiveCapabilitiesIteratorProvider capItorProvider = injector.getInstance(EffectiveCapabilitiesIteratorProvider.class);
 		EffectiveRequirementsIteratorProvider reqItorProvider = injector.getInstance(EffectiveRequirementsIteratorProvider.class);
 
 		while(builders.hasNext()) {
-			Builder b = (Builder) builders.next();
+			IBuilder b = (IBuilder) builders.next();
 			Iterator<EffectiveRequirementFacade> rItor = reqItorProvider.doGetIterator(b, outer);
 			while(rItor.hasNext()) {
 				required.add(rItor.next());
