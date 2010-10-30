@@ -6,21 +6,20 @@ use org.eclipse.b3.build.BuildSet;
 use org.eclipse.b3.build.PathVector;
 
 «Define the property zesty with a default value (overrideable from command line) »
-default-properties { ${zesty} = false ; }
+default-properties { ${zesty} = true ; }
 
 « Invoked from IDE or command line »
 function main(List argv) {
+	// run build with default properties
 	testBuildingFruitSallad();
-	with properties{ ${zesty} = true; } {
+	
+	// run build again but with override of properties
+	with properties{ ${zesty} = false; } {
 		testBuildingFruitSallad();
 	};
 }
 
-/**
-* Tests that a fruitsallad can be build - i.e, that its prerequisites in input has
-* been resolved, the builders are found, exectuted, returns a result that is merged
-* as expected.
-*/
+« Makes a fruitsallad and prints output »
 function testBuildingFruitSallad() {
 «
 The fruitsallad with zest=«{${zesty}}» consists of :
