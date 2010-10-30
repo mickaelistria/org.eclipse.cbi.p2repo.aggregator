@@ -20,34 +20,12 @@ import org.eclipse.emf.ecore.EObject;
  * parameter types.
  * <!-- end-user-doc -->
  * 
- * <p>
- * The following features are supported:
- * <ul>
- * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BTypeCalculator#getFunc <em>Func</em>}</li>
- * </ul>
- * </p>
  * 
  * @see org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage#getBTypeCalculator()
  * @model
  * @generated
  */
 public interface BTypeCalculator extends EObject {
-	/**
-	 * Returns the value of the '<em><b>Func</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Func</em>' reference isn't clear, there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * 
-	 * @return the value of the '<em>Func</em>' reference.
-	 * @see #setFunc(BJavaFunction)
-	 * @see org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage#getBTypeCalculator_Func()
-	 * @model
-	 * @generated
-	 */
-	BJavaFunction getFunc();
-
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -56,17 +34,5 @@ public interface BTypeCalculator extends EObject {
 	 * @generated
 	 */
 	B3FunctionType getSignature(Type[] types);
-
-	/**
-	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.BTypeCalculator#getFunc <em>Func</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @param value
-	 *            the new value of the '<em>Func</em>' reference.
-	 * @see #getFunc()
-	 * @generated
-	 */
-	void setFunc(BJavaFunction value);
 
 } // BTypeCalculator

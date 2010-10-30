@@ -1367,6 +1367,108 @@ public class B3backendSwitch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>BTC Boolean Lambda</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * 
+	 * @param object
+	 *            the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>BTC Boolean Lambda</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseBTCBooleanLambda(BTCBooleanLambda object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>BTC First Lambda</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * 
+	 * @param object
+	 *            the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>BTC First Lambda</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseBTCFirstLambda(BTCFirstLambda object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>BTC Integral</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * 
+	 * @param object
+	 *            the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>BTC Integral</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseBTCIntegral(BTCIntegral object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>BTC Last Lambda</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * 
+	 * @param object
+	 *            the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>BTC Last Lambda</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseBTCLastLambda(BTCLastLambda object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>BTC Number</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * 
+	 * @param object
+	 *            the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>BTC Number</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseBTCNumber(BTCNumber object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>BTC Pluggable</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * 
+	 * @param object
+	 *            the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>BTC Pluggable</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseBTCPluggable(BTCPluggable object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>BTemplate</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -2736,6 +2838,62 @@ public class B3backendSwitch<T> {
 					result = caseBLiteralExpression(bLiteralInteger);
 				if(result == null)
 					result = caseBExpression(bLiteralInteger);
+				if(result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
+			case B3backendPackage.BTC_PLUGGABLE: {
+				BTCPluggable btcPluggable = (BTCPluggable) theEObject;
+				T result = caseBTCPluggable(btcPluggable);
+				if(result == null)
+					result = caseBTypeCalculator(btcPluggable);
+				if(result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
+			case B3backendPackage.BTC_NUMBER: {
+				BTCNumber btcNumber = (BTCNumber) theEObject;
+				T result = caseBTCNumber(btcNumber);
+				if(result == null)
+					result = caseBTypeCalculator(btcNumber);
+				if(result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
+			case B3backendPackage.BTC_INTEGRAL: {
+				BTCIntegral btcIntegral = (BTCIntegral) theEObject;
+				T result = caseBTCIntegral(btcIntegral);
+				if(result == null)
+					result = caseBTCNumber(btcIntegral);
+				if(result == null)
+					result = caseBTypeCalculator(btcIntegral);
+				if(result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
+			case B3backendPackage.BTC_BOOLEAN_LAMBDA: {
+				BTCBooleanLambda btcBooleanLambda = (BTCBooleanLambda) theEObject;
+				T result = caseBTCBooleanLambda(btcBooleanLambda);
+				if(result == null)
+					result = caseBTypeCalculator(btcBooleanLambda);
+				if(result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
+			case B3backendPackage.BTC_FIRST_LAMBDA: {
+				BTCFirstLambda btcFirstLambda = (BTCFirstLambda) theEObject;
+				T result = caseBTCFirstLambda(btcFirstLambda);
+				if(result == null)
+					result = caseBTypeCalculator(btcFirstLambda);
+				if(result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
+			case B3backendPackage.BTC_LAST_LAMBDA: {
+				BTCLastLambda btcLastLambda = (BTCLastLambda) theEObject;
+				T result = caseBTCLastLambda(btcLastLambda);
+				if(result == null)
+					result = caseBTypeCalculator(btcLastLambda);
 				if(result == null)
 					result = defaultCase(theEObject);
 				return result;

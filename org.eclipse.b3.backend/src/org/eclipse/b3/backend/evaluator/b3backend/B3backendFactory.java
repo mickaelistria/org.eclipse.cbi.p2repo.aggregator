@@ -671,6 +671,66 @@ public interface B3backendFactory extends EFactory {
 	BSystemContext createBSystemContext();
 
 	/**
+	 * Returns a new object of class '<em>BTC Boolean Lambda</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return a new object of class '<em>BTC Boolean Lambda</em>'.
+	 * @generated
+	 */
+	BTCBooleanLambda createBTCBooleanLambda();
+
+	/**
+	 * Returns a new object of class '<em>BTC First Lambda</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return a new object of class '<em>BTC First Lambda</em>'.
+	 * @generated
+	 */
+	BTCFirstLambda createBTCFirstLambda();
+
+	/**
+	 * Returns a new object of class '<em>BTC Integral</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return a new object of class '<em>BTC Integral</em>'.
+	 * @generated
+	 */
+	BTCIntegral createBTCIntegral();
+
+	/**
+	 * Returns a new object of class '<em>BTC Last Lambda</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return a new object of class '<em>BTC Last Lambda</em>'.
+	 * @generated
+	 */
+	BTCLastLambda createBTCLastLambda();
+
+	/**
+	 * Returns a new object of class '<em>BTC Number</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return a new object of class '<em>BTC Number</em>'.
+	 * @generated
+	 */
+	BTCNumber createBTCNumber();
+
+	/**
+	 * Returns a new object of class '<em>BTC Pluggable</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return a new object of class '<em>BTC Pluggable</em>'.
+	 * @generated
+	 */
+	BTCPluggable createBTCPluggable();
+
+	/**
 	 * Returns a new object of class '<em>BTemplate</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

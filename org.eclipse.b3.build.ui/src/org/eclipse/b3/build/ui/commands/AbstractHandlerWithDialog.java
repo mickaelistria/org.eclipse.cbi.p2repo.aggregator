@@ -13,6 +13,7 @@ import org.eclipse.core.commands.AbstractHandler;
 import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.core.runtime.IStatus;
+import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.handlers.HandlerUtil;
 
@@ -54,19 +55,19 @@ public abstract class AbstractHandlerWithDialog extends AbstractHandler {
 			}
 		}
 		if(status.isOK() && reportHelper.shouldThisOkBeReported(status))
-			B3MessageDialog.openInformation(shell, "Info", status.getMessage());
+			MessageDialog.openInformation(shell, "Info", status.getMessage());
 
 		else if(status.matches(IStatus.INFO))
-			B3MessageDialog.openInformation(shell, "Info", status.getMessage());
+			MessageDialog.openInformation(shell, "Info", status.getMessage());
 
 		else if(status.matches(IStatus.CANCEL) && reportHelper.shouldThisCancelBeReported(status)) {
 			String msg = status.getMessage();
 			if(msg.compareToIgnoreCase("cancel") == 0)
 				msg = "Output produced by the operation may not be valid.";
-			B3MessageDialog.openWarning(shell, "Operation Canceled", msg);
+			MessageDialog.openWarning(shell, "Operation Canceled", msg);
 		}
 		else if(status.matches(IStatus.WARNING) && reportHelper.shouldThisWarningBeReported(status))
-			B3MessageDialog.openWarning(shell, "warning", status.getMessage());
+			MessageDialog.openWarning(shell, "warning", status.getMessage());
 
 		else if(status.matches(IStatus.ERROR)) {
 			if(reportHelper.shouldThisErrorBeReportedWithStackTrace(status))

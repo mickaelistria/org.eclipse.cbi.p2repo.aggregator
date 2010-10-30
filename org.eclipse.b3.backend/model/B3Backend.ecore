@@ -404,7 +404,6 @@
     <eOperations name="getSignature" eType="#//B3FunctionType">
       <eParameters name="types" eType="#//TypeArray"/>
     </eOperations>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="func" eType="#//BJavaFunction"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="BInstanceContext" eSuperTypes="#//BInnerContext">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="instance" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
@@ -703,4 +702,12 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EDataType" name="RadixInteger" instanceClassName="org.eclipse.b3.backend.core.datatypes.IntegerWithRadix"/>
   <eClassifiers xsi:type="ecore:EClass" name="BLiteralInteger" eSuperTypes="#//BLiteralExpression"/>
+  <eClassifiers xsi:type="ecore:EClass" name="BTCPluggable" eSuperTypes="#//BTypeCalculator">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="func" eType="#//BJavaFunction"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BTCNumber" eSuperTypes="#//BTypeCalculator"/>
+  <eClassifiers xsi:type="ecore:EClass" name="BTCIntegral" eSuperTypes="#//BTCNumber"/>
+  <eClassifiers xsi:type="ecore:EClass" name="BTCBooleanLambda" eSuperTypes="#//BTypeCalculator"/>
+  <eClassifiers xsi:type="ecore:EClass" name="BTCFirstLambda" eSuperTypes="#//BTypeCalculator"/>
+  <eClassifiers xsi:type="ecore:EClass" name="BTCLastLambda" eSuperTypes="#//BTypeCalculator"/>
 </ecore:EPackage>

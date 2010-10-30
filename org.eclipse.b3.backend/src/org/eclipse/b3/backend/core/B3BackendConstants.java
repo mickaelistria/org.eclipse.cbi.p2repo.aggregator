@@ -10,4 +10,7 @@ package org.eclipse.b3.backend.core;
 
 public interface B3BackendConstants {
 	public static final String B3BACKEND_THIS = "this";
+
+	public static final String B3_STREAM_OUTPUT = "b3.stream.output";
+
 }

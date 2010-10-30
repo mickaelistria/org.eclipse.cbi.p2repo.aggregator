@@ -9,8 +9,10 @@
  */
 package org.eclipse.b3.build.ui.commands;
 
+import java.io.PrintStream;
 import java.util.List;
 
+import org.eclipse.b3.backend.core.B3BackendConstants;
 import org.eclipse.b3.build.BeeModel;
 import org.eclipse.b3.build.core.B3BuildEngine;
 import org.eclipse.b3.build.operations.RunFunctionInModelOperation;
@@ -22,6 +24,9 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.xtext.ui.editor.outline.ContentOutlineNode;
 import org.eclipse.xtext.util.concurrent.IUnitOfWork;
 
+import com.google.inject.AbstractModule;
+import com.google.inject.name.Names;
+
 /**
  * Runs the BeeModel associated with the current node in the ApplicationContext's
  * default variable (a List<ContentOutlineNode>), where the first selected element must be
@@ -30,6 +35,21 @@ import org.eclipse.xtext.util.concurrent.IUnitOfWork;
  * 
  */
 public class RunMainFunctionInModelHandler extends AbstractHandlerWithB3Console {
+
+	public static class ExecuteHandlerModule extends AbstractModule {
+
+		private final PrintStream stream;
+
+		public ExecuteHandlerModule(PrintStream stream) {
+			this.stream = stream;
+		}
+
+		@Override
+		protected void configure() {
+			binder().bind(PrintStream.class).annotatedWith(Names.named(B3BackendConstants.B3_STREAM_OUTPUT)).toInstance(
+				stream);
+		}
+	}
 
 	@Override
 	@SuppressWarnings("unchecked")
@@ -42,11 +62,13 @@ public class RunMainFunctionInModelHandler extends AbstractHandlerWithB3Console 
 		IStatus result = node.getEObjectHandle().readOnly(new IUnitOfWork<IStatus, EObject>() {
 			// @Override
 			public IStatus exec(EObject state) throws Exception {
-				return new B3BuildEngine().run(new RunFunctionInModelOperation((BeeModel) state));
+				return new B3BuildEngine(new ExecuteHandlerModule(b3out)).run(new RunFunctionInModelOperation(
+					(BeeModel) state));
 			}
 		});
 		RunMainFunctionInModelHandler.this.printResult(result, true);
 
 		return null; // dictated by Handler API
 	}
+
 }

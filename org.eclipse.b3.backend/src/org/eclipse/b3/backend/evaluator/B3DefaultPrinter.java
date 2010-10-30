@@ -14,6 +14,7 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.Map.Entry;
 
+import org.eclipse.b3.backend.core.B3BackendConstants;
 import org.eclipse.b3.backend.core.IB3Evaluator;
 import org.eclipse.b3.backend.core.IB3Printer;
 import org.eclipse.b3.backend.core.IStringProvider;
@@ -25,11 +26,13 @@ import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
 
 import com.google.inject.Inject;
+import com.google.inject.name.Named;
 
 /**
  * A Default Printer.
  * 
  */
+
 public class B3DefaultPrinter extends DeclarativeB3Printer implements IB3Printer {
 	@Inject
 	protected IStringProvider stringProvider;
@@ -37,7 +40,13 @@ public class B3DefaultPrinter extends DeclarativeB3Printer implements IB3Printer
 	@Inject
 	private IB3Evaluator evaluator;
 
+	@Named(B3BackendConstants.B3_STREAM_OUTPUT)
 	private PrintStream printStream;
+
+	@Inject
+	public B3DefaultPrinter(@Named(B3BackendConstants.B3_STREAM_OUTPUT) PrintStream stream) {
+		printStream = stream;
+	}
 
 	@Override
 	public PrintStream getPrintStream() {

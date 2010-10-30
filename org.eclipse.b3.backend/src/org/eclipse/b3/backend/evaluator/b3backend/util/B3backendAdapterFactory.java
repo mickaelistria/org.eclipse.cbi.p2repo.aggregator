@@ -494,6 +494,36 @@ public class B3backendAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
+		public Adapter caseBTCBooleanLambda(BTCBooleanLambda object) {
+			return createBTCBooleanLambdaAdapter();
+		}
+
+		@Override
+		public Adapter caseBTCFirstLambda(BTCFirstLambda object) {
+			return createBTCFirstLambdaAdapter();
+		}
+
+		@Override
+		public Adapter caseBTCIntegral(BTCIntegral object) {
+			return createBTCIntegralAdapter();
+		}
+
+		@Override
+		public Adapter caseBTCLastLambda(BTCLastLambda object) {
+			return createBTCLastLambdaAdapter();
+		}
+
+		@Override
+		public Adapter caseBTCNumber(BTCNumber object) {
+			return createBTCNumberAdapter();
+		}
+
+		@Override
+		public Adapter caseBTCPluggable(BTCPluggable object) {
+			return createBTCPluggableAdapter();
+		}
+
+		@Override
 		public Adapter caseBTemplate(BTemplate object) {
 			return createBTemplateAdapter();
 		}
@@ -1748,6 +1778,96 @@ public class B3backendAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createBSystemContextAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.backend.evaluator.b3backend.BTCBooleanLambda <em>BTC Boolean Lambda</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the new adapter.
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.BTCBooleanLambda
+	 * @generated
+	 */
+	public Adapter createBTCBooleanLambdaAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.backend.evaluator.b3backend.BTCFirstLambda <em>BTC First Lambda</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the new adapter.
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.BTCFirstLambda
+	 * @generated
+	 */
+	public Adapter createBTCFirstLambdaAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.backend.evaluator.b3backend.BTCIntegral <em>BTC Integral</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the new adapter.
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.BTCIntegral
+	 * @generated
+	 */
+	public Adapter createBTCIntegralAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.backend.evaluator.b3backend.BTCLastLambda <em>BTC Last Lambda</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the new adapter.
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.BTCLastLambda
+	 * @generated
+	 */
+	public Adapter createBTCLastLambdaAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.backend.evaluator.b3backend.BTCNumber <em>BTC Number</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the new adapter.
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.BTCNumber
+	 * @generated
+	 */
+	public Adapter createBTCNumberAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.backend.evaluator.b3backend.BTCPluggable <em>BTC Pluggable</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the new adapter.
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.BTCPluggable
+	 * @generated
+	 */
+	public Adapter createBTCPluggableAdapter() {
 		return null;
 	}
 

@@ -1077,6 +1077,70 @@ public class B3backendValidator extends EObjectValidator {
 	 * 
 	 * @generated
 	 */
+	public boolean validateBTCBooleanLambda(BTCBooleanLambda btcBooleanLambda, DiagnosticChain diagnostics,
+			Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(btcBooleanLambda, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public boolean validateBTCFirstLambda(BTCFirstLambda btcFirstLambda, DiagnosticChain diagnostics,
+			Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(btcFirstLambda, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public boolean validateBTCIntegral(BTCIntegral btcIntegral, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(btcIntegral, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public boolean validateBTCLastLambda(BTCLastLambda btcLastLambda, DiagnosticChain diagnostics,
+			Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(btcLastLambda, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public boolean validateBTCNumber(BTCNumber btcNumber, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(btcNumber, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public boolean validateBTCPluggable(BTCPluggable btcPluggable, DiagnosticChain diagnostics,
+			Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(btcPluggable, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
 	public boolean validateBTemplate(BTemplate bTemplate, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return validate_EveryDefaultConstraint(bTemplate, diagnostics, context);
 	}
@@ -1736,6 +1800,18 @@ public class B3backendValidator extends EObjectValidator {
 				return validateBLiteralByteArrayExpression((BLiteralByteArrayExpression) value, diagnostics, context);
 			case B3backendPackage.BLITERAL_INTEGER:
 				return validateBLiteralInteger((BLiteralInteger) value, diagnostics, context);
+			case B3backendPackage.BTC_PLUGGABLE:
+				return validateBTCPluggable((BTCPluggable) value, diagnostics, context);
+			case B3backendPackage.BTC_NUMBER:
+				return validateBTCNumber((BTCNumber) value, diagnostics, context);
+			case B3backendPackage.BTC_INTEGRAL:
+				return validateBTCIntegral((BTCIntegral) value, diagnostics, context);
+			case B3backendPackage.BTC_BOOLEAN_LAMBDA:
+				return validateBTCBooleanLambda((BTCBooleanLambda) value, diagnostics, context);
+			case B3backendPackage.BTC_FIRST_LAMBDA:
+				return validateBTCFirstLambda((BTCFirstLambda) value, diagnostics, context);
+			case B3backendPackage.BTC_LAST_LAMBDA:
+				return validateBTCLastLambda((BTCLastLambda) value, diagnostics, context);
 			case B3backendPackage.VISIBILITY:
 				return validateVisibility((Visibility) value, diagnostics, context);
 			case B3backendPackage.EXECUTION_MODE:

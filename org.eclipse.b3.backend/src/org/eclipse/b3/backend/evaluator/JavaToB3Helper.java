@@ -29,21 +29,31 @@ import org.eclipse.b3.backend.evaluator.b3backend.BGuard;
 import org.eclipse.b3.backend.evaluator.b3backend.BJavaCallType;
 import org.eclipse.b3.backend.evaluator.b3backend.BJavaFunction;
 import org.eclipse.b3.backend.evaluator.b3backend.BParameterDeclaration;
+import org.eclipse.b3.backend.evaluator.b3backend.BTCPluggable;
 import org.eclipse.b3.backend.evaluator.b3backend.BTypeCalculator;
 import org.eclipse.b3.backend.evaluator.b3backend.IFunction;
 import org.eclipse.b3.backend.evaluator.b3backend.impl.FunctionCandidateAdapterFactory;
 import org.eclipse.b3.backend.evaluator.typesystem.TypeUtils;
+import org.eclipse.b3.provisional.core.EMFPackage;
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EClassifier;
+import org.eclipse.emf.ecore.EFactory;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EPackage;
+import org.eclipse.emf.ecore.EcoreFactory;
+import org.eclipse.emf.ecore.impl.EClassImpl;
 
 import com.google.common.collect.Multimap;
 import com.google.common.collect.Multimaps;
+import com.google.inject.internal.Maps;
 
 /**
  * Converts a class with (optional) B3 annotations into B3 Functions.
  * 
  */
 public class JavaToB3Helper {
+	private static Map<Class<? extends BTypeCalculator>, BTypeCalculator> calculatorMap = Maps.newHashMap();
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * Create and initialize a BJavaFunction to represent the method m.
@@ -225,6 +235,18 @@ public class JavaToB3Helper {
 
 			// if a function has a type calculator, remember it
 			{
+				// if it has a typeClass, use that instead of type function
+				final Class<? extends BTypeCalculator> typeClass = annotation.typeClass();
+				if(typeClass != null && typeClass != BTypeCalculator.class) {
+					// Jump through EMF hoops to get an instance of the impl class.
+					// BTypeCalculator typeCalculator = calculatorMap.get(typeClass);
+					// if(typeCalculator == null) {
+					BTypeCalculator typeCalculator = createInstanceUsingPackageFactory(typeClass);
+					// calculatorMap.put(typeClass, typeCalculator);
+					// }
+					f.setTypeCalculator(typeCalculator);
+
+				}
 				String typeCalculatorFunctionName = annotation.typeFunction();
 				if(typeCalculatorFunctionName != null && typeCalculatorFunctionName.length() > 0) {
 					List<BJavaFunction> tf = null;
@@ -280,12 +302,51 @@ public class JavaToB3Helper {
 					throw new B3FunctionLoadException("reference to type calculator function: " + e.getKey() +
 							" can not be satisfied - no such function found.", typed.getMethod());
 				// set the type calculator function, wrapped in a BTypeCalculator
-				BTypeCalculator tcf = B3backendFactory.eINSTANCE.createBTypeCalculator();
+				BTCPluggable tcf = B3backendFactory.eINSTANCE.createBTCPluggable();
 				tcf.setFunc(tc);
 				typed.setTypeCalculator(tcf);
 			}
 		}
 		return Multimaps.unmodifiableMultimap(result);
+	}
+
+	private static <T> T createInstanceUsingPackageFactory(Class<T> clazz) {
+		// Jump through EMF hoops to get an instance of the impl class.
+
+		if(clazz == null || !clazz.isInterface())
+			throw new IllegalArgumentException("The class: " + clazz + " is not an interface");
+
+		// Requires that the EMF URL can be obtained from the interface.
+		// Which requires an annotation using @EMFPackage
+		EMFPackage packageInfo = clazz.getPackage().getAnnotation(EMFPackage.class);
+		if(packageInfo == null)
+			throw new IllegalArgumentException("The interface: " + clazz +
+					"is not in a package annotated with @EMFPackage");
+		String emfPackageURI = packageInfo.value();
+		if(emfPackageURI == null || emfPackageURI.length() < 1)
+			throw new IllegalArgumentException("The @EMFPackage annotation did not define the package URI for:" + clazz);
+
+		EFactory factory = EPackage.Registry.INSTANCE.getEFactory(emfPackageURI);
+		if(factory == null)
+			throw new IllegalStateException("Can not load type calculator class - no EFactory found for:" +
+					emfPackageURI);
+		EClassifier eTypeCalculatorClass = factory.getEPackage().getEClassifier(clazz.getSimpleName());
+		if(eTypeCalculatorClass == null)
+			throw new IllegalStateException("The EMF package for: " + clazz +
+					"did not contain an EClass for it using its simple name");
+
+		// Hoop jumping time - need an EClass instance to be able to create using the factory method create.
+		// The EClass is not obtainable from the first lookup, it needs to be created and its ID set to
+		// what is obtained from the classifier we got back when looking up the EClassifier via name.
+		EClassImpl anEclass = (EClassImpl) EcoreFactory.eINSTANCE.createEClass();
+		anEclass.setClassifierID(eTypeCalculatorClass.getClassifierID());
+
+		// An instance can now be created
+		Object x = factory.create(anEclass);
+		if(!clazz.isInstance(x))
+			throw new IllegalStateException("Could not create type class:" + clazz);
+		return clazz.cast(x);
+
 	}
 
 	private static String[] getParameterNames(Annotation[][] allParametersAnnotations, String... instanceParameterNames) {

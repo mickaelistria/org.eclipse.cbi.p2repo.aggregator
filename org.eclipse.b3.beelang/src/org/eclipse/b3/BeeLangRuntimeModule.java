@@ -12,6 +12,9 @@
 
 package org.eclipse.b3;
 
+import java.io.PrintStream;
+
+import org.eclipse.b3.backend.core.B3BackendConstants;
 import org.eclipse.b3.backend.core.B3BackendStringProvider;
 import org.eclipse.b3.backend.core.B3Debug;
 import org.eclipse.b3.backend.core.IB3LvalProvider;
@@ -39,6 +42,7 @@ import org.eclipse.xtext.validation.IDiagnosticConverter;
 import com.google.inject.Binder;
 import com.google.inject.Provider;
 import com.google.inject.Singleton;
+import com.google.inject.name.Names;
 
 /**
  * Use this class to register components to be used within the IDE.
@@ -123,6 +127,9 @@ public class BeeLangRuntimeModule extends org.eclipse.b3.AbstractBeeLangRuntimeM
 		binder.requestStaticInjection(FunctionUtils.class);
 		binder.requestStaticInjection(B3BuildEngineResource.class);
 		binder.requestStaticInjection(B3Debug.class);
+		binder.bind(PrintStream.class).annotatedWith(Names.named(B3BackendConstants.B3_STREAM_OUTPUT)).toInstance(
+			System.out);
+
 	}
 
 	public Class<? extends Provider<XtextResourceSet>> provideXtextResourceSet() {

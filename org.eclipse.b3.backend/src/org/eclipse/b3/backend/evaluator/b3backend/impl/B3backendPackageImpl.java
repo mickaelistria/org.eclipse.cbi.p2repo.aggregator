@@ -100,6 +100,12 @@ import org.eclipse.b3.backend.evaluator.b3backend.BRegularExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BSimplePatternExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BSwitchExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BSystemContext;
+import org.eclipse.b3.backend.evaluator.b3backend.BTCBooleanLambda;
+import org.eclipse.b3.backend.evaluator.b3backend.BTCFirstLambda;
+import org.eclipse.b3.backend.evaluator.b3backend.BTCIntegral;
+import org.eclipse.b3.backend.evaluator.b3backend.BTCLastLambda;
+import org.eclipse.b3.backend.evaluator.b3backend.BTCNumber;
+import org.eclipse.b3.backend.evaluator.b3backend.BTCPluggable;
 import org.eclipse.b3.backend.evaluator.b3backend.BTemplate;
 import org.eclipse.b3.backend.evaluator.b3backend.BThrowExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BTryExpression;
@@ -584,6 +590,54 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	 * @generated
 	 */
 	private EClass bLiteralIntegerEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	private EClass btcPluggableEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	private EClass btcNumberEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	private EClass btcIntegralEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	private EClass btcBooleanLambdaEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	private EClass btcFirstLambdaEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	private EClass btcLastLambdaEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -1388,7 +1442,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 		createEReference(bLiteralTypeEClass, BLITERAL_TYPE__TYPE);
 
 		bTypeCalculatorEClass = createEClass(BTYPE_CALCULATOR);
-		createEReference(bTypeCalculatorEClass, BTYPE_CALCULATOR__FUNC);
 
 		bInstanceContextEClass = createEClass(BINSTANCE_CONTEXT);
 		createEAttribute(bInstanceContextEClass, BINSTANCE_CONTEXT__INSTANCE);
@@ -1519,6 +1572,19 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 		createEAttribute(bLiteralByteArrayExpressionEClass, BLITERAL_BYTE_ARRAY_EXPRESSION__BASE64);
 
 		bLiteralIntegerEClass = createEClass(BLITERAL_INTEGER);
+
+		btcPluggableEClass = createEClass(BTC_PLUGGABLE);
+		createEReference(btcPluggableEClass, BTC_PLUGGABLE__FUNC);
+
+		btcNumberEClass = createEClass(BTC_NUMBER);
+
+		btcIntegralEClass = createEClass(BTC_INTEGRAL);
+
+		btcBooleanLambdaEClass = createEClass(BTC_BOOLEAN_LAMBDA);
+
+		btcFirstLambdaEClass = createEClass(BTC_FIRST_LAMBDA);
+
+		btcLastLambdaEClass = createEClass(BTC_LAST_LAMBDA);
 
 		// Create enums
 		visibilityEEnum = createEEnum(VISIBILITY);
@@ -3375,6 +3441,76 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	 * 
 	 * @generated
 	 */
+	public EClass getBTCBooleanLambda() {
+		return btcBooleanLambdaEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EClass getBTCFirstLambda() {
+		return btcFirstLambdaEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EClass getBTCIntegral() {
+		return btcIntegralEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EClass getBTCLastLambda() {
+		return btcLastLambdaEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EClass getBTCNumber() {
+		return btcNumberEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EClass getBTCPluggable() {
+		return btcPluggableEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EReference getBTCPluggable_Func() {
+		return (EReference) btcPluggableEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
 	public EClass getBTemplate() {
 		return bTemplateEClass;
 	}
@@ -3457,16 +3593,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	 */
 	public EClass getBTypeCalculator() {
 		return bTypeCalculatorEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	public EReference getBTypeCalculator_Func() {
-		return (EReference) bTypeCalculatorEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -4299,6 +4425,12 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 		bEchoExpressionEClass.getESuperTypes().add(this.getBExpression());
 		bLiteralByteArrayExpressionEClass.getESuperTypes().add(this.getBExpression());
 		bLiteralIntegerEClass.getESuperTypes().add(this.getBLiteralExpression());
+		btcPluggableEClass.getESuperTypes().add(this.getBTypeCalculator());
+		btcNumberEClass.getESuperTypes().add(this.getBTypeCalculator());
+		btcIntegralEClass.getESuperTypes().add(this.getBTCNumber());
+		btcBooleanLambdaEClass.getESuperTypes().add(this.getBTypeCalculator());
+		btcFirstLambdaEClass.getESuperTypes().add(this.getBTypeCalculator());
+		btcLastLambdaEClass.getESuperTypes().add(this.getBTypeCalculator());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(
@@ -4968,10 +5100,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 		initEClass(
 			bTypeCalculatorEClass, BTypeCalculator.class, "BTypeCalculator", !IS_ABSTRACT, !IS_INTERFACE,
 			IS_GENERATED_INSTANCE_CLASS);
-		initEReference(
-			getBTypeCalculator_Func(), this.getBJavaFunction(), null, "func", null, 0, 1, BTypeCalculator.class,
-			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,
-			!IS_DERIVED, IS_ORDERED);
 
 		op = addEOperation(bTypeCalculatorEClass, this.getB3FunctionType(), "getSignature", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getTypeArray(), "types", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -5442,6 +5570,33 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 
 		initEClass(
 			bLiteralIntegerEClass, BLiteralInteger.class, "BLiteralInteger", !IS_ABSTRACT, !IS_INTERFACE,
+			IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(
+			btcPluggableEClass, BTCPluggable.class, "BTCPluggable", !IS_ABSTRACT, !IS_INTERFACE,
+			IS_GENERATED_INSTANCE_CLASS);
+		initEReference(
+			getBTCPluggable_Func(), this.getBJavaFunction(), null, "func", null, 0, 1, BTCPluggable.class,
+			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,
+			!IS_DERIVED, IS_ORDERED);
+
+		initEClass(
+			btcNumberEClass, BTCNumber.class, "BTCNumber", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(
+			btcIntegralEClass, BTCIntegral.class, "BTCIntegral", !IS_ABSTRACT, !IS_INTERFACE,
+			IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(
+			btcBooleanLambdaEClass, BTCBooleanLambda.class, "BTCBooleanLambda", !IS_ABSTRACT, !IS_INTERFACE,
+			IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(
+			btcFirstLambdaEClass, BTCFirstLambda.class, "BTCFirstLambda", !IS_ABSTRACT, !IS_INTERFACE,
+			IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(
+			btcLastLambdaEClass, BTCLastLambda.class, "BTCLastLambda", !IS_ABSTRACT, !IS_INTERFACE,
 			IS_GENERATED_INSTANCE_CLASS);
 
 		// Initialize enums and add enum literals

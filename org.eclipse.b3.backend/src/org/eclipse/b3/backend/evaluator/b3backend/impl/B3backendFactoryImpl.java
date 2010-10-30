@@ -604,6 +604,18 @@ public class B3backendFactoryImpl extends EFactoryImpl implements B3backendFacto
 				return createBLiteralByteArrayExpression();
 			case B3backendPackage.BLITERAL_INTEGER:
 				return createBLiteralInteger();
+			case B3backendPackage.BTC_PLUGGABLE:
+				return createBTCPluggable();
+			case B3backendPackage.BTC_NUMBER:
+				return createBTCNumber();
+			case B3backendPackage.BTC_INTEGRAL:
+				return createBTCIntegral();
+			case B3backendPackage.BTC_BOOLEAN_LAMBDA:
+				return createBTCBooleanLambda();
+			case B3backendPackage.BTC_FIRST_LAMBDA:
+				return createBTCFirstLambda();
+			case B3backendPackage.BTC_LAST_LAMBDA:
+				return createBTCLastLambda();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -1335,6 +1347,72 @@ public class B3backendFactoryImpl extends EFactoryImpl implements B3backendFacto
 	public BSystemContext createBSystemContext() {
 		BSystemContextImpl bSystemContext = new BSystemContextImpl();
 		return bSystemContext;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public BTCBooleanLambda createBTCBooleanLambda() {
+		BTCBooleanLambdaImpl btcBooleanLambda = new BTCBooleanLambdaImpl();
+		return btcBooleanLambda;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public BTCFirstLambda createBTCFirstLambda() {
+		BTCFirstLambdaImpl btcFirstLambda = new BTCFirstLambdaImpl();
+		return btcFirstLambda;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public BTCIntegral createBTCIntegral() {
+		BTCIntegralImpl btcIntegral = new BTCIntegralImpl();
+		return btcIntegral;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public BTCLastLambda createBTCLastLambda() {
+		BTCLastLambdaImpl btcLastLambda = new BTCLastLambdaImpl();
+		return btcLastLambda;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public BTCNumber createBTCNumber() {
+		BTCNumberImpl btcNumber = new BTCNumberImpl();
+		return btcNumber;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public BTCPluggable createBTCPluggable() {
+		BTCPluggableImpl btcPluggable = new BTCPluggableImpl();
+		return btcPluggable;
 	}
 
 	/**

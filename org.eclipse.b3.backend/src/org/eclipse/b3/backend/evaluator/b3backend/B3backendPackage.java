@@ -1518,6 +1518,83 @@ public interface B3backendPackage extends EPackage {
 		EClass BLITERAL_INTEGER = eINSTANCE.getBLiteralInteger();
 
 		/**
+		 * The meta object literal for the '{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BTCPluggableImpl <em>BTC Pluggable</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.BTCPluggableImpl
+		 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getBTCPluggable()
+		 * @generated
+		 */
+		EClass BTC_PLUGGABLE = eINSTANCE.getBTCPluggable();
+
+		/**
+		 * The meta object literal for the '<em><b>Func</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EReference BTC_PLUGGABLE__FUNC = eINSTANCE.getBTCPluggable_Func();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BTCNumberImpl <em>BTC Number</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.BTCNumberImpl
+		 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getBTCNumber()
+		 * @generated
+		 */
+		EClass BTC_NUMBER = eINSTANCE.getBTCNumber();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BTCIntegralImpl <em>BTC Integral</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.BTCIntegralImpl
+		 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getBTCIntegral()
+		 * @generated
+		 */
+		EClass BTC_INTEGRAL = eINSTANCE.getBTCIntegral();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BTCBooleanLambdaImpl <em>BTC Boolean Lambda</em>}'
+		 * class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.BTCBooleanLambdaImpl
+		 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getBTCBooleanLambda()
+		 * @generated
+		 */
+		EClass BTC_BOOLEAN_LAMBDA = eINSTANCE.getBTCBooleanLambda();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BTCFirstLambdaImpl <em>BTC First Lambda</em>}'
+		 * class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.BTCFirstLambdaImpl
+		 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getBTCFirstLambda()
+		 * @generated
+		 */
+		EClass BTC_FIRST_LAMBDA = eINSTANCE.getBTCFirstLambda();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BTCLastLambdaImpl <em>BTC Last Lambda</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.BTCLastLambdaImpl
+		 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getBTCLastLambda()
+		 * @generated
+		 */
+		EClass BTC_LAST_LAMBDA = eINSTANCE.getBTCLastLambda();
+
+		/**
 		 * The meta object literal for the '{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BGuardImpl <em>BGuard</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2122,15 +2199,6 @@ public interface B3backendPackage extends EPackage {
 		 * @generated
 		 */
 		EClass BTYPE_CALCULATOR = eINSTANCE.getBTypeCalculator();
-
-		/**
-		 * The meta object literal for the '<em><b>Func</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * 
-		 * @generated
-		 */
-		EReference BTYPE_CALCULATOR__FUNC = eINSTANCE.getBTypeCalculator_Func();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BInstanceContextImpl <em>BInstance Context</em>}'
@@ -5907,16 +5975,6 @@ public interface B3backendPackage extends EPackage {
 	int BTYPE_CALCULATOR = 55;
 
 	/**
-	 * The feature id for the '<em><b>Func</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int BTYPE_CALCULATOR__FUNC = 0;
-
-	/**
 	 * The number of structural features of the '<em>BType Calculator</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5924,7 +5982,7 @@ public interface B3backendPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BTYPE_CALCULATOR_FEATURE_COUNT = 1;
+	int BTYPE_CALCULATOR_FEATURE_COUNT = 0;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BInstanceContextImpl <em>BInstance Context</em>}' class.
@@ -7881,6 +7939,142 @@ public interface B3backendPackage extends EPackage {
 	int BLITERAL_INTEGER_FEATURE_COUNT = BLITERAL_EXPRESSION_FEATURE_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BTCPluggableImpl <em>BTC Pluggable</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.BTCPluggableImpl
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getBTCPluggable()
+	 * @generated
+	 */
+	int BTC_PLUGGABLE = 94;
+
+	/**
+	 * The feature id for the '<em><b>Func</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int BTC_PLUGGABLE__FUNC = BTYPE_CALCULATOR_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>BTC Pluggable</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int BTC_PLUGGABLE_FEATURE_COUNT = BTYPE_CALCULATOR_FEATURE_COUNT + 1;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BTCNumberImpl <em>BTC Number</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.BTCNumberImpl
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getBTCNumber()
+	 * @generated
+	 */
+	int BTC_NUMBER = 95;
+
+	/**
+	 * The number of structural features of the '<em>BTC Number</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int BTC_NUMBER_FEATURE_COUNT = BTYPE_CALCULATOR_FEATURE_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BTCIntegralImpl <em>BTC Integral</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.BTCIntegralImpl
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getBTCIntegral()
+	 * @generated
+	 */
+	int BTC_INTEGRAL = 96;
+
+	/**
+	 * The number of structural features of the '<em>BTC Integral</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int BTC_INTEGRAL_FEATURE_COUNT = BTC_NUMBER_FEATURE_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BTCBooleanLambdaImpl <em>BTC Boolean Lambda</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.BTCBooleanLambdaImpl
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getBTCBooleanLambda()
+	 * @generated
+	 */
+	int BTC_BOOLEAN_LAMBDA = 97;
+
+	/**
+	 * The number of structural features of the '<em>BTC Boolean Lambda</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int BTC_BOOLEAN_LAMBDA_FEATURE_COUNT = BTYPE_CALCULATOR_FEATURE_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BTCFirstLambdaImpl <em>BTC First Lambda</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.BTCFirstLambdaImpl
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getBTCFirstLambda()
+	 * @generated
+	 */
+	int BTC_FIRST_LAMBDA = 98;
+
+	/**
+	 * The number of structural features of the '<em>BTC First Lambda</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int BTC_FIRST_LAMBDA_FEATURE_COUNT = BTYPE_CALCULATOR_FEATURE_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BTCLastLambdaImpl <em>BTC Last Lambda</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.BTCLastLambdaImpl
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getBTCLastLambda()
+	 * @generated
+	 */
+	int BTC_LAST_LAMBDA = 99;
+
+	/**
+	 * The number of structural features of the '<em>BTC Last Lambda</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int BTC_LAST_LAMBDA_FEATURE_COUNT = BTYPE_CALCULATOR_FEATURE_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link org.eclipse.b3.backend.evaluator.b3backend.Visibility <em>Visibility</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -7889,7 +8083,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getVisibility()
 	 * @generated
 	 */
-	int VISIBILITY = 94;
+	int VISIBILITY = 100;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.backend.evaluator.b3backend.ExecutionMode <em>Execution Mode</em>}' enum.
@@ -7900,7 +8094,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getExecutionMode()
 	 * @generated
 	 */
-	int EXECUTION_MODE = 95;
+	int EXECUTION_MODE = 101;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.backend.evaluator.b3backend.BJavaCallType <em>BJava Call Type</em>}' enum.
@@ -7911,7 +8105,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getBJavaCallType()
 	 * @generated
 	 */
-	int BJAVA_CALL_TYPE = 96;
+	int BJAVA_CALL_TYPE = 102;
 
 	/**
 	 * The meta object id for the '<em>Core Exception</em>' data type.
@@ -7922,7 +8116,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getCoreException()
 	 * @generated
 	 */
-	int CORE_EXCEPTION = 97;
+	int CORE_EXCEPTION = 103;
 
 	/**
 	 * The meta object id for the '<em>Type</em>' data type.
@@ -7933,7 +8127,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getType()
 	 * @generated
 	 */
-	int TYPE = 98;
+	int TYPE = 104;
 
 	/**
 	 * The meta object id for the '<em>Object Array</em>' data type.
@@ -7943,7 +8137,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getObjectArray()
 	 * @generated
 	 */
-	int OBJECT_ARRAY = 99;
+	int OBJECT_ARRAY = 105;
 
 	/**
 	 * The meta object id for the '<em>Value Map</em>' data type.
@@ -7954,7 +8148,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getValueMap()
 	 * @generated
 	 */
-	int VALUE_MAP = 100;
+	int VALUE_MAP = 106;
 
 	/**
 	 * The meta object id for the '<em>B3 Engine Exception</em>' data type.
@@ -7965,7 +8159,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getB3EngineException()
 	 * @generated
 	 */
-	int B3_ENGINE_EXCEPTION = 101;
+	int B3_ENGINE_EXCEPTION = 107;
 
 	/**
 	 * The meta object id for the '<em>B3 Expression Cache</em>' data type.
@@ -7976,7 +8170,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getB3ExpressionCache()
 	 * @generated
 	 */
-	int B3_EXPRESSION_CACHE = 102;
+	int B3_EXPRESSION_CACHE = 108;
 
 	/**
 	 * The meta object id for the '<em>Throwable</em>' data type.
@@ -7987,7 +8181,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getThrowable()
 	 * @generated
 	 */
-	int THROWABLE = 103;
+	int THROWABLE = 109;
 
 	/**
 	 * The meta object id for the '<em>LValue</em>' data type.
@@ -7998,7 +8192,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getLValue()
 	 * @generated
 	 */
-	int LVALUE = 104;
+	int LVALUE = 110;
 
 	/**
 	 * The meta object id for the '<em>Type Array</em>' data type.
@@ -8008,7 +8202,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getTypeArray()
 	 * @generated
 	 */
-	int TYPE_ARRAY = 105;
+	int TYPE_ARRAY = 111;
 
 	/**
 	 * The meta object id for the '<em>Method</em>' data type.
@@ -8019,7 +8213,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getMethod()
 	 * @generated
 	 */
-	int METHOD = 106;
+	int METHOD = 112;
 
 	/**
 	 * The meta object id for the '<em>Type Variable Array</em>' data type.
@@ -8029,7 +8223,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getTypeVariableArray()
 	 * @generated
 	 */
-	int TYPE_VARIABLE_ARRAY = 107;
+	int TYPE_VARIABLE_ARRAY = 113;
 
 	/**
 	 * The meta object id for the '<em>Func Store</em>' data type.
@@ -8040,7 +8234,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getFuncStore()
 	 * @generated
 	 */
-	int FUNC_STORE = 108;
+	int FUNC_STORE = 114;
 
 	/**
 	 * The meta object id for the '<em>Regexp Pattern</em>' data type.
@@ -8051,7 +8245,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getRegexpPattern()
 	 * @generated
 	 */
-	int REGEXP_PATTERN = 109;
+	int REGEXP_PATTERN = 115;
 
 	/**
 	 * The meta object id for the '<em>String Array</em>' data type.
@@ -8061,7 +8255,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getStringArray()
 	 * @generated
 	 */
-	int STRING_ARRAY = 110;
+	int STRING_ARRAY = 116;
 
 	/**
 	 * The meta object id for the '<em>Java Iterator</em>' data type.
@@ -8072,7 +8266,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getJavaIterator()
 	 * @generated
 	 */
-	int JAVA_ITERATOR = 111;
+	int JAVA_ITERATOR = 117;
 
 	/**
 	 * The meta object id for the '<em>URI</em>' data type.
@@ -8083,7 +8277,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getURI()
 	 * @generated
 	 */
-	int URI = 112;
+	int URI = 118;
 
 	/**
 	 * The meta object id for the '<em>IProgress Monitor</em>' data type.
@@ -8094,7 +8288,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getIProgressMonitor()
 	 * @generated
 	 */
-	int IPROGRESS_MONITOR = 113;
+	int IPROGRESS_MONITOR = 119;
 
 	/**
 	 * The meta object id for the '<em>Simple Pattern</em>' data type.
@@ -8105,7 +8299,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getSimplePattern()
 	 * @generated
 	 */
-	int SIMPLE_PATTERN = 114;
+	int SIMPLE_PATTERN = 120;
 
 	/**
 	 * The meta object id for the '<em>Char Sequence</em>' data type.
@@ -8116,7 +8310,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getCharSequence()
 	 * @generated
 	 */
-	int CHAR_SEQUENCE = 115;
+	int CHAR_SEQUENCE = 121;
 
 	/**
 	 * The meta object id for the '<em>Injector</em>' data type.
@@ -8127,7 +8321,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getInjector()
 	 * @generated
 	 */
-	int INJECTOR = 116;
+	int INJECTOR = 122;
 
 	/**
 	 * The meta object id for the '<em>Radix Integer</em>' data type.
@@ -8138,7 +8332,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getRadixInteger()
 	 * @generated
 	 */
-	int RADIX_INTEGER = 117;
+	int RADIX_INTEGER = 123;
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -10338,6 +10532,84 @@ public interface B3backendPackage extends EPackage {
 	EClass getBSystemContext();
 
 	/**
+	 * Returns the meta object for class '{@link org.eclipse.b3.backend.evaluator.b3backend.BTCBooleanLambda <em>BTC Boolean Lambda</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for class '<em>BTC Boolean Lambda</em>'.
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.BTCBooleanLambda
+	 * @generated
+	 */
+	EClass getBTCBooleanLambda();
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipse.b3.backend.evaluator.b3backend.BTCFirstLambda <em>BTC First Lambda</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for class '<em>BTC First Lambda</em>'.
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.BTCFirstLambda
+	 * @generated
+	 */
+	EClass getBTCFirstLambda();
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipse.b3.backend.evaluator.b3backend.BTCIntegral <em>BTC Integral</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for class '<em>BTC Integral</em>'.
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.BTCIntegral
+	 * @generated
+	 */
+	EClass getBTCIntegral();
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipse.b3.backend.evaluator.b3backend.BTCLastLambda <em>BTC Last Lambda</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for class '<em>BTC Last Lambda</em>'.
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.BTCLastLambda
+	 * @generated
+	 */
+	EClass getBTCLastLambda();
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipse.b3.backend.evaluator.b3backend.BTCNumber <em>BTC Number</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for class '<em>BTC Number</em>'.
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.BTCNumber
+	 * @generated
+	 */
+	EClass getBTCNumber();
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipse.b3.backend.evaluator.b3backend.BTCPluggable <em>BTC Pluggable</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for class '<em>BTC Pluggable</em>'.
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.BTCPluggable
+	 * @generated
+	 */
+	EClass getBTCPluggable();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.eclipse.b3.backend.evaluator.b3backend.BTCPluggable#getFunc <em>Func</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the reference '<em>Func</em>'.
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.BTCPluggable#getFunc()
+	 * @see #getBTCPluggable()
+	 * @generated
+	 */
+	EReference getBTCPluggable_Func();
+
+	/**
 	 * Returns the meta object for class '{@link org.eclipse.b3.backend.evaluator.b3backend.BTemplate <em>BTemplate</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -10444,18 +10716,6 @@ public interface B3backendPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getBTypeCalculator();
-
-	/**
-	 * Returns the meta object for the reference '{@link org.eclipse.b3.backend.evaluator.b3backend.BTypeCalculator#getFunc <em>Func</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @return the meta object for the reference '<em>Func</em>'.
-	 * @see org.eclipse.b3.backend.evaluator.b3backend.BTypeCalculator#getFunc()
-	 * @see #getBTypeCalculator()
-	 * @generated
-	 */
-	EReference getBTypeCalculator_Func();
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.b3.backend.evaluator.b3backend.BUnaryExpression <em>BUnary Expression</em>}'.

@@ -3,6 +3,8 @@ package org.eclipse.b3.backend.core;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 
+import org.eclipse.b3.backend.evaluator.b3backend.BTypeCalculator;
+
 /**
  * Annotations for functions loaded by the b3 function loader.
  * 
@@ -85,6 +87,8 @@ public @interface B3Backend {
 	 * TODO: TYPESYSTEM IMPROVEMENT
 	 */
 	boolean typeCalculator() default false;
+
+	Class<? extends BTypeCalculator> typeClass() default (BTypeCalculator.class);
 
 	/**
 	 * The optional name of a typeCalculator function (a function annotated using {@link #typeCalculator()} that will be

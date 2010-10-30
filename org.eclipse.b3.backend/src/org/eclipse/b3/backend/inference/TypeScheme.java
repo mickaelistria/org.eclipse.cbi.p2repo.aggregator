@@ -18,7 +18,7 @@ import org.eclipse.b3.backend.core.IStringProvider;
 import org.eclipse.b3.backend.core.adapters.TypeAdapter;
 import org.eclipse.b3.backend.core.adapters.TypeAdapterFactory;
 import org.eclipse.b3.backend.evaluator.b3backend.INamedValue;
-import org.eclipse.b3.backend.functions.ArithmeticFunctions;
+import org.eclipse.b3.backend.evaluator.b3backend.impl.BTCNumberImpl;
 import org.eclipse.emf.ecore.EObject;
 
 import com.google.common.collect.Lists;
@@ -410,7 +410,7 @@ public class TypeScheme implements ITypeScheme {
 				types[0] = parameterTypes.get(0).getType();
 				types[1] = parameterTypes.get(1).getType();
 				if(types[0] != null && types[1] != null)
-					setType(ArithmeticFunctions.numberGenericityCalculatorInternal(types));
+					setType(BTCNumberImpl.numberGenericityCalculator(types));
 				return Lists.newArrayList();
 			}
 			// Simulation of what invoke's type calculator should do:

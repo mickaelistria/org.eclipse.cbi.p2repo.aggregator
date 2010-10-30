@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2009, Cloudsmith Inc and others.
+ * Copyright (c) 2010, Cloudsmith Inc and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -14,27 +14,26 @@ import java.lang.reflect.Type;
 
 import org.eclipse.b3.backend.evaluator.b3backend.B3FunctionType;
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage;
-import org.eclipse.b3.backend.evaluator.b3backend.BTypeCalculator;
+import org.eclipse.b3.backend.evaluator.b3backend.BTCLastLambda;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.impl.EObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>BType Calculator</b></em>'.
+ * An implementation of the model object '<em><b>BTC Last Lambda</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * </p>
  * 
  * @generated
  */
-public class BTypeCalculatorImpl extends EObjectImpl implements BTypeCalculator {
+public class BTCLastLambdaImpl extends BTypeCalculatorImpl implements BTCLastLambda {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 */
-	protected BTypeCalculatorImpl() {
+	protected BTCLastLambdaImpl() {
 		super();
 	}
 
@@ -42,12 +41,11 @@ public class BTypeCalculatorImpl extends EObjectImpl implements BTypeCalculator 
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
-	 * @generated
+	 * @generated NOT
 	 */
+	@Override
 	public B3FunctionType getSignature(Type[] types) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		throw new UnsupportedOperationException("TODO:");
 	}
 
 	/**
@@ -58,6 +56,7 @@ public class BTypeCalculatorImpl extends EObjectImpl implements BTypeCalculator 
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return B3backendPackage.Literals.BTYPE_CALCULATOR;
+		return B3backendPackage.Literals.BTC_LAST_LAMBDA;
 	}
-} // BTypeCalculatorImpl
+
+} // BTCLastLambdaImpl

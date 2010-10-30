@@ -12,6 +12,7 @@ import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.eclipse.b3.backend.core.B3BackendConstants;
 import org.eclipse.b3.backend.core.exceptions.B3BackendException;
 import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.IFunction;
@@ -31,13 +32,31 @@ import org.eclipse.ui.console.MessageConsole;
 import org.eclipse.xtext.ui.editor.outline.ContentOutlineNode;
 import org.eclipse.xtext.util.concurrent.IUnitOfWork;
 
+import com.google.inject.AbstractModule;
+import com.google.inject.name.Names;
+
 public class ExecuteHandler extends AbstractHandler {
+	public static class ExecuteHandlerModule extends AbstractModule {
+
+		private final PrintStream stream;
+
+		public ExecuteHandlerModule(PrintStream stream) {
+			this.stream = stream;
+		}
+
+		@Override
+		protected void configure() {
+			binder().bind(PrintStream.class).annotatedWith(Names.named(B3BackendConstants.B3_STREAM_OUTPUT)).toInstance(
+				stream);
+		}
+	}
+
 	private boolean performResolve;
 
 	@SuppressWarnings("unchecked")
 	public Object execute(ExecutionEvent event) throws ExecutionException {
 		final MessageConsole b3Console = BeeLangConsoleUtils.getBeeLangConsole();
-		PrintStream b3ConsoleOutputStream = BeeLangConsoleUtils.getConsoleOutputStream(b3Console);
+		final PrintStream b3ConsoleOutputStream = BeeLangConsoleUtils.getConsoleOutputStream(b3Console);
 		try {
 			b3ConsoleOutputStream.println("Running the main function...");
 			EvaluationContext ctx = (EvaluationContext) event.getApplicationContext();
@@ -46,7 +65,7 @@ public class ExecuteHandler extends AbstractHandler {
 			Object result = node.getEObjectHandle().readOnly(new IUnitOfWork<Object, EObject>() {
 				// @Override
 				public Object exec(EObject state) throws Exception {
-					B3BuildEngine engine = new B3BuildEngine();
+					B3BuildEngine engine = new B3BuildEngine(new ExecuteHandlerModule(b3ConsoleOutputStream));
 					try {
 						engine.defineBeeModel((BeeModel) state);
 					}

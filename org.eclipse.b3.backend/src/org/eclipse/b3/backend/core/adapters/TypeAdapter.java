@@ -22,7 +22,8 @@ import org.eclipse.emf.common.notify.impl.AdapterImpl;
  * The intended use is that a resolver associates information about its resolution progress.
  */
 public class TypeAdapter extends AdapterImpl {
-	WeakHashMap<Object, Type> associatedInfo = new WeakHashMap<Object, Type>();
+	// Default size seems to be 10 slots - which is overkill
+	WeakHashMap<Object, Type> associatedInfo = new WeakHashMap<Object, Type>(3);
 
 	public Type getAssociatedInfo(Object key) {
 		return associatedInfo.get(key);

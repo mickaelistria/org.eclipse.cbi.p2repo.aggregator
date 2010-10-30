@@ -52,7 +52,7 @@ public abstract class DeclarativeB3Printer implements IB3Printer {
 	 * This default implementation returns System.out
 	 */
 	public PrintStream getPrintStream() {
-		return System.out;
+		return System.err;
 	}
 
 	protected IStatus handleIStatusError(Object[] params, Throwable e) {

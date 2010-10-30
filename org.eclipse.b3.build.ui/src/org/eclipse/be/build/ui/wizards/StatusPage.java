@@ -17,6 +17,7 @@ import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.jface.dialogs.DialogPage;
 import org.eclipse.jface.dialogs.IDialogConstants;
+import org.eclipse.jface.dialogs.IMessageProvider;
 import org.eclipse.jface.layout.GridDataFactory;
 import org.eclipse.jface.wizard.IWizardPage;
 import org.eclipse.jface.wizard.WizardPage;
@@ -221,7 +222,7 @@ public class StatusPage extends WizardPage {
 
 	protected void setHeaderForError() {
 		setTitle("Error");
-		setMessage(getStatusMessage(), DialogPage.ERROR);
+		setMessage(getStatusMessage(), IMessageProvider.ERROR);
 	}
 
 	protected void setHeaderForOk() {

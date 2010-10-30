@@ -8,6 +8,9 @@
 
 package org.eclipse.b3.build.core.runtime;
 
+import java.io.PrintStream;
+
+import org.eclipse.b3.backend.core.B3BackendConstants;
 import org.eclipse.b3.backend.core.IB3Evaluator;
 import org.eclipse.b3.backend.core.IB3LvalProvider;
 import org.eclipse.b3.backend.core.IB3Weaver;
@@ -124,5 +127,8 @@ public class DefaultB3Module extends AbstractB3Module {
 		bindTypeProvider();
 		bindFuncScopeProvider();
 		bindVersionFormatManager();
+		binder().bind(PrintStream.class).annotatedWith(Names.named(B3BackendConstants.B3_STREAM_OUTPUT)).toInstance(
+			System.out);
+
 	}
 }
