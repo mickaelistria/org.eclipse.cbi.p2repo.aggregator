@@ -24,6 +24,7 @@ import org.eclipse.b3.backend.core.exceptions.B3EngineException;
 import org.eclipse.b3.backend.evaluator.B3FuncStore;
 import org.eclipse.b3.backend.evaluator.ValueMap;
 import org.eclipse.b3.backend.evaluator.b3backend.*;
+import org.eclipse.b3.backend.inference.ITypeScheme;
 import org.eclipse.b3.backend.evaluator.b3backend.B3FuncTypeVariable;
 import org.eclipse.b3.backend.evaluator.b3backend.B3Function;
 import org.eclipse.b3.backend.evaluator.b3backend.B3FunctionType;
@@ -90,7 +91,6 @@ import org.eclipse.b3.backend.evaluator.b3backend.BSwitchExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BSystemContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BThrowExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BTryExpression;
-import org.eclipse.b3.backend.evaluator.b3backend.BTypeCalculator;
 import org.eclipse.b3.backend.evaluator.b3backend.BUnaryOpExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BUnaryPostOpExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BUnaryPreOpExpression;
@@ -240,6 +240,16 @@ public class B3backendFactoryImpl extends EFactoryImpl implements B3backendFacto
 	 * 
 	 * @generated
 	 */
+	public String convertITypeSchemeToString(EDataType eDataType, Object instanceValue) {
+		return super.convertToString(eDataType, instanceValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
 	public String convertJavaIteratorToString(EDataType eDataType, Object instanceValue) {
 		return super.convertToString(instanceValue);
 	}
@@ -377,6 +387,8 @@ public class B3backendFactoryImpl extends EFactoryImpl implements B3backendFacto
 				return convertCharSequenceToString(eDataType, instanceValue);
 			case B3backendPackage.RADIX_INTEGER:
 				return convertRadixIntegerToString(eDataType, instanceValue);
+			case B3backendPackage.ITYPE_SCHEME:
+				return convertITypeSchemeToString(eDataType, instanceValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() +
 						"' is not a valid classifier");
@@ -538,8 +550,6 @@ public class B3backendFactoryImpl extends EFactoryImpl implements B3backendFacto
 				return createB3JavaImport();
 			case B3backendPackage.BLITERAL_TYPE:
 				return createBLiteralType();
-			case B3backendPackage.BTYPE_CALCULATOR:
-				return createBTypeCalculator();
 			case B3backendPackage.BINSTANCE_CONTEXT:
 				return createBInstanceContext();
 			case B3backendPackage.BDEF_PROPERTY:
@@ -1454,17 +1464,6 @@ public class B3backendFactoryImpl extends EFactoryImpl implements B3backendFacto
 	 * 
 	 * @generated
 	 */
-	public BTypeCalculator createBTypeCalculator() {
-		BTypeCalculatorImpl bTypeCalculator = new BTypeCalculatorImpl();
-		return bTypeCalculator;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
 	public BUnaryOpExpression createBUnaryOpExpression() {
 		BUnaryOpExpressionImpl bUnaryOpExpression = new BUnaryOpExpressionImpl();
 		return bUnaryOpExpression;
@@ -1623,6 +1622,8 @@ public class B3backendFactoryImpl extends EFactoryImpl implements B3backendFacto
 				return createCharSequenceFromString(eDataType, initialValue);
 			case B3backendPackage.RADIX_INTEGER:
 				return createRadixIntegerFromString(eDataType, initialValue);
+			case B3backendPackage.ITYPE_SCHEME:
+				return createITypeSchemeFromString(eDataType, initialValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() +
 						"' is not a valid classifier");
@@ -1647,6 +1648,16 @@ public class B3backendFactoryImpl extends EFactoryImpl implements B3backendFacto
 	 */
 	public IProgressMonitor createIProgressMonitorFromString(EDataType eDataType, String initialValue) {
 		return (IProgressMonitor) super.createFromString(eDataType, initialValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public ITypeScheme createITypeSchemeFromString(EDataType eDataType, String initialValue) {
+		return (ITypeScheme) super.createFromString(eDataType, initialValue);
 	}
 
 	/**

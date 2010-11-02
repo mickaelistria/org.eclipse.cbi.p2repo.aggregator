@@ -9,6 +9,7 @@
 package org.eclipse.b3.backend.inference;
 
 import java.lang.reflect.Type;
+import java.util.List;
 
 import org.eclipse.emf.ecore.EObject;
 
@@ -44,6 +45,10 @@ public interface ITypeScheme {
 	 */
 	public ITypeConstraintExpression function(String funcName, EObject scope,
 			ITypeConstraintExpression... constraintExpressions);
+
+	public ITypeConstraintExpression generic(EObject a);
+
+	public ITypeConstraintExpression generic(int index, EObject a);
 
 	/**
 	 * The Scheme Key is any object that identifies a set of type variables. It's identity is used as a key.
@@ -90,6 +95,18 @@ public interface ITypeScheme {
 	 * @return
 	 */
 	public ITypeConstraintExpression produces(ITypeConstraintExpression product, ITypeConstraintExpression... given);
+
+	public ITypeConstraintExpression produces(ITypeConstraintExpression product, List<ITypeConstraintExpression> given);
+
+	/**
+	 * If the given expression is a produces expression, the produce constaint is returned, else
+	 * a constraint for Object.class. This method is useful to declare x returns y's product without knowing
+	 * that y is producing anything.
+	 * 
+	 * @param produces
+	 * @return
+	 */
+	public abstract ITypeConstraintExpression product(ITypeConstraintExpression expr);
 
 	/**
 	 * Create a sub scheme useful for solving sub problems. Also see {@link #makeGeneric(EObject)}.

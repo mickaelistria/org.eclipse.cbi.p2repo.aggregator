@@ -8,6 +8,7 @@
 
 package org.eclipse.b3.backend.inference;
 
+import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -129,6 +130,188 @@ public class TypeScheme implements ITypeScheme {
 					((ExplicitTypeConstraintExpr) expr).getType().equals(getType());
 		}
 
+	}
+
+	/**
+	 * A generic arg constraint i.e ?<Integer> - i.e. any base class as long as the generic arg is
+	 * a particular class.
+	 */
+	protected class GenericTypeArgConstraintExpr extends TypeConstraintExpr {
+		public GenericTypeArgConstraintExpr(Type t) {
+			setType(t);
+		}
+
+		/**
+		 * Reverses the assignment in case a constraint is in the reverse i.e. (Integer.class = a)
+		 */
+		@Override
+		public Type apply(ITypeConstraintExpression right) {
+			if(right instanceof ExplicitTypeConstraintExpr) {
+				if(!right.getType().equals(this.getType()))
+					throw new IllegalStateException("TYPE == TYPE constraint found where types differ!");
+				// not meaningful to apply this... it is sort of a surprising result, but should have been
+				// eliminated from a solution - better safe and throw an exception.
+				// Well, this is actually called when initializing a constraint, Maybe it should not do that...
+				// TODO: Consider the above...
+				// throw new IllegalStateException("Attempt to apply TYPE x  == TYPE x - meaningsless");
+				return getType();
+			}
+			return right.apply(this);
+		}
+
+		@Override
+		public boolean isIdentifier() {
+			return true;
+		}
+
+		@Override
+		public boolean isResolved() {
+			return true;
+		}
+
+		@Override
+		public boolean matches(ITypeConstraintExpression expr) {
+			return expr instanceof ExplicitTypeConstraintExpr &&
+					((ExplicitTypeConstraintExpr) expr).getType().equals(getType());
+		}
+
+	}
+
+	/**
+	 * Selects a function based on type of parameters. Result may introduce a new type constraint.
+	 * When resolved, behaves like an ExplicitTypeConstraintExpr.
+	 * 
+	 */
+	protected class GenericTypeArgExpr extends TypeConstraintExpr {
+
+		private ITypeConstraintExpression baseTypeConstraint;
+
+		private int genericArgIndex;
+
+		public GenericTypeArgExpr(ITypeConstraintExpression constraint) {
+			baseTypeConstraint = constraint;
+			genericArgIndex = 0;
+		}
+
+		public GenericTypeArgExpr(ITypeConstraintExpression constraint, int index) {
+			baseTypeConstraint = constraint;
+			genericArgIndex = index;
+		}
+
+		@Override
+		public boolean contains(ITypeConstraintExpression expr) {
+			return baseTypeConstraint.matches(expr) || baseTypeConstraint.contains(expr);
+		}
+
+		@Override
+		public List<ITypeConstraint> eliminate(ITypeConstraintExpression expr) {
+			if(!isSameFunction(expr))
+				throw new IllegalArgumentException("Not an equivalent function");
+
+			// eliminate generic(n, A), generic(n, B) => A = B
+			GenericTypeArgExpr otherExpr = (GenericTypeArgExpr) expr;
+			List<ITypeConstraint> result = Lists.newArrayList();
+			result.add(new TypeConstraint(baseTypeConstraint, otherExpr.baseTypeConstraint));
+			return result;
+		}
+
+		@Override
+		public boolean isIdentifier() {
+			return isResolved();
+		}
+
+		@Override
+		public boolean isResolvable() {
+			if(isResolved())
+				return true;
+			ITypeConstraintExpression t = baseTypeConstraint;
+			if(!((t.isIdentifier() && t.isResolved()) || (!t.isIdentifier() && t.isResolvable())))
+				return false;
+
+			return true;
+		}
+
+		@Override
+		public boolean isSameFunction(ITypeConstraintExpression expr) {
+			if(!(expr instanceof GenericTypeArgExpr))
+				return false;
+			GenericTypeArgExpr otherExpr = (GenericTypeArgExpr) expr;
+			if(genericArgIndex != otherExpr.genericArgIndex)
+				return false;
+			return true;
+		}
+
+		@Override
+		public boolean matches(ITypeConstraintExpression expr) {
+			if(isResolved()) {
+				if(expr.isResolved()) {
+					Type otherType = expr.getType();
+					if(!(otherType instanceof ParameterizedType))
+						return false;
+					ParameterizedType pt = (ParameterizedType) otherType;
+					Type[] args = pt.getActualTypeArguments();
+					if(args.length <= genericArgIndex)
+						return false;
+
+					// match if T equals ?<,,,,U,,,,>
+					return getType().equals(args[genericArgIndex]);
+				}
+			}
+			if(!(expr instanceof GenericTypeArgExpr))
+				return false;
+			GenericTypeArgExpr otherExpr = (GenericTypeArgExpr) expr;
+
+			if(genericArgIndex != otherExpr.genericArgIndex)
+				return false;
+			if(!baseTypeConstraint.matches(otherExpr.baseTypeConstraint))
+				return false;
+			return true;
+		}
+
+		@Override
+		public void replace(ITypeConstraintExpression toBeReplaced, ITypeConstraintExpression replacement) {
+			if(baseTypeConstraint.matches(toBeReplaced))
+				baseTypeConstraint = replacement;
+		}
+
+		/**
+		 * Calls resolve on the parameters, and then internalResolve - which subclasses of this factory
+		 * and this constraint expression can override.
+		 */
+		@Override
+		public List<ITypeConstraint> resolve() {
+			if(isResolved())
+				return Lists.newArrayList();
+			List<ITypeConstraint> result = baseTypeConstraint.resolve();
+			if(baseTypeConstraint.isResolved()) {
+				Type t = baseTypeConstraint.getType();
+				if(t instanceof ParameterizedType) {
+					ParameterizedType bp = (ParameterizedType) t;
+					Type[] typeargs = bp.getActualTypeArguments();
+					if(genericArgIndex < typeargs.length)
+						setType(typeargs[genericArgIndex]);
+				}
+			}
+			return result;
+		}
+
+		@Override
+		public String toString() {
+			StringBuffer buf = new StringBuffer();
+			if(isResolved())
+				buf.append("RESOLVED[");
+			buf.append("generic(");
+			buf.append(genericArgIndex);
+			buf.append(", ");
+			buf.append(baseTypeConstraint.toString());
+			buf.append(")");
+			if(isResolved()) {
+				buf.append("]=>");
+				buf.append(stringProvider.doToString(getType()));
+			}
+			return buf.toString();
+
+		}
 	}
 
 	/**
@@ -296,9 +479,9 @@ public class TypeScheme implements ITypeScheme {
 		@Override
 		public boolean contains(ITypeConstraintExpression expr) {
 			for(ITypeConstraintExpression e : parameterTypes)
-				if(!e.contains(expr))
-					return false;
-			return super.contains(expr);
+				if(e.contains(expr))
+					return true;
+			return false; // was super.contains(expr)
 		}
 
 		@Override
@@ -677,6 +860,14 @@ public class TypeScheme implements ITypeScheme {
 		return new SelectFunctionExpr(funcName, scope, constraintExpressions);
 	}
 
+	public ITypeConstraintExpression generic(EObject a) {
+		return generic(0, a);
+	}
+
+	public ITypeConstraintExpression generic(int index, EObject a) {
+		return new GenericTypeArgExpr(variable(a), index);
+	}
+
 	public ITypeScheme getParentScheme() {
 		return parent;
 	}
@@ -717,6 +908,16 @@ public class TypeScheme implements ITypeScheme {
 
 	public ITypeConstraintExpression produces(ITypeConstraintExpression product, ITypeConstraintExpression... given) {
 		return new ProducesExpr(given, product);
+	}
+
+	public ITypeConstraintExpression produces(ITypeConstraintExpression product, List<ITypeConstraintExpression> given) {
+		return new ProducesExpr(given, product);
+	}
+
+	public ITypeConstraintExpression product(ITypeConstraintExpression produces) {
+		if(!(produces instanceof ProducesExpr))
+			return type(Object.class);
+		return ((ProducesExpr) produces).produces;
 	}
 
 	/**

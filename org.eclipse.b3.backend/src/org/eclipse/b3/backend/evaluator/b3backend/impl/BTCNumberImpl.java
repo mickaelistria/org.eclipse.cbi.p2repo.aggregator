@@ -34,6 +34,8 @@ import org.eclipse.emf.ecore.EClass;
 public class BTCNumberImpl extends BTypeCalculatorImpl implements BTCNumber {
 
 	/**
+	 * Computes the most generic of a sequence of Number types
+	 * 
 	 * @param types
 	 * @return
 	 * @generated NOT
@@ -80,6 +82,7 @@ public class BTCNumberImpl extends BTypeCalculatorImpl implements BTCNumber {
 			if(b == Byte.class)
 				return bt;
 		}
+
 		// give up...
 		return Number.class;
 	}

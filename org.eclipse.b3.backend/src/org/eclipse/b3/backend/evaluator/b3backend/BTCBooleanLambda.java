@@ -20,5 +20,5 @@ package org.eclipse.b3.backend.evaluator.b3backend;
  * @model
  * @generated
  */
-public interface BTCBooleanLambda extends BTypeCalculator {
+public interface BTCBooleanLambda extends BTCLastLambda {
 } // BTCBooleanLambda

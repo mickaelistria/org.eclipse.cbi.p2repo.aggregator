@@ -400,9 +400,22 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="#//IType"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="BTypeCalculator">
+  <eClassifiers xsi:type="ecore:EClass" name="BTypeCalculator" abstract="true">
     <eOperations name="getSignature" eType="#//B3FunctionType">
       <eParameters name="types" eType="#//TypeArray"/>
+    </eOperations>
+    <eOperations name="getConstraints">
+      <eGenericType eClassifier="#//JavaList">
+        <eTypeArguments eClassifier="#//ITypeConstraint"/>
+      </eGenericType>
+      <eParameters name="funcName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eParameters name="expr" eType="#//BExpression"/>
+      <eParameters name="typeScheme" eType="#//ITypeScheme"/>
+      <eParameters name="parameterConstraints">
+        <eGenericType eClassifier="#//JavaList">
+          <eTypeArguments eClassifier="#//ITypeConstraintExpression"/>
+        </eGenericType>
+      </eParameters>
     </eOperations>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="BInstanceContext" eSuperTypes="#//BInnerContext">
@@ -707,7 +720,16 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="BTCNumber" eSuperTypes="#//BTypeCalculator"/>
   <eClassifiers xsi:type="ecore:EClass" name="BTCIntegral" eSuperTypes="#//BTCNumber"/>
-  <eClassifiers xsi:type="ecore:EClass" name="BTCBooleanLambda" eSuperTypes="#//BTypeCalculator"/>
+  <eClassifiers xsi:type="ecore:EClass" name="BTCBooleanLambda" eSuperTypes="#//BTCLastLambda"/>
   <eClassifiers xsi:type="ecore:EClass" name="BTCFirstLambda" eSuperTypes="#//BTypeCalculator"/>
   <eClassifiers xsi:type="ecore:EClass" name="BTCLastLambda" eSuperTypes="#//BTypeCalculator"/>
+  <eClassifiers xsi:type="ecore:EDataType" name="ITypeConstraint" instanceClassName="org.eclipse.b3.backend.inference.ITypeConstraint"
+      serializable="false"/>
+  <eClassifiers xsi:type="ecore:EDataType" name="ITypeConstraintExpression" instanceClassName="org.eclipse.b3.backend.inference.ITypeConstraintExpression"
+      serializable="false"/>
+  <eClassifiers xsi:type="ecore:EDataType" name="ITypeScheme" instanceClassName="org.eclipse.b3.backend.inference.ITypeScheme"/>
+  <eClassifiers xsi:type="ecore:EDataType" name="JavaList" instanceClassName="java.util.List"
+      serializable="false">
+    <eTypeParameters name="E"/>
+  </eClassifiers>
 </ecore:EPackage>

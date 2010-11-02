@@ -14,6 +14,7 @@ import java.util.List;
 import junit.framework.TestCase;
 
 import org.eclipse.b3.backend.core.B3Debug;
+import org.eclipse.b3.backend.evaluator.b3backend.B3ParameterizedType;
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendFactory;
 import org.eclipse.b3.backend.evaluator.b3backend.BDefValue;
 import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
@@ -184,6 +185,41 @@ public class TestConstraintSolver extends TestCase {
 		assertEquals("Solver should have solved (+ a b) to Long", Long.class, variable(c).getType());
 	}
 
+	/**
+	 * Test a simple case a = d, b = d, d = Integer.class
+	 */
+	public void testSimpleGeneric() {
+		// Needs some EObject to test, what they are does not really matter
+		BExpression a = expression("a"); // Iterator<Integer>
+		BExpression b = expression("b"); // generic(1, a)
+		BExpression c = expression("c");
+
+		List<ITypeConstraint> constraints = Lists.newArrayList();
+
+		// a = List<Integer>.class
+		B3ParameterizedType ptype = B3backendFactory.eINSTANCE.createB3ParameterizedType();
+		ptype.setRawType(List.class);
+		ptype.getActualArgumentsList().add(Integer.class);
+		constraints.add(constraint(variable(a), type(ptype)));
+
+		// b = generic(1, a)
+		constraints.add(constraint(variable(b), generic(a)));
+
+		// c = b
+		constraints.add(constraint(variable(c), variable(b)));
+
+		ITypeConstraintSolver solver = injector.getInstance(TypeConstraintSolver.class);
+		int result = solver.solve(constraints);
+		assertEquals("Solver should return 0 == ok", 0, result);
+
+		for(ITypeConstraint constraint : solver.getSubstitutions()) {
+			System.out.println(constraint.toString());
+			assertTrue("Solution should be resolved", constraint.isResolved());
+		}
+		solver.applySolution();
+		assertEquals("Solution should be Integer.class", Integer.class, variable(b).getType());
+	}
+
 	@Override
 	protected void setUp() throws Exception {
 		injector = Guice.createInjector(new TestConstraintSolverModule());
@@ -199,6 +235,10 @@ public class TestConstraintSolver extends TestCase {
 		BDefValue x = B3backendFactory.eINSTANCE.createBDefValue();
 		x.setName(name);
 		return x;
+	}
+
+	private ITypeConstraintExpression generic(EObject x) {
+		return factory.generic(x);
 	}
 
 	private ITypeConstraintExpression produces(ITypeConstraintExpression product, ITypeConstraintExpression... given) {

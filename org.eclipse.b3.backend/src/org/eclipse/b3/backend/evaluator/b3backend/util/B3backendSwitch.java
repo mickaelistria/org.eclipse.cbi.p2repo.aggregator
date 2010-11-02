@@ -2875,6 +2875,8 @@ public class B3backendSwitch<T> {
 				BTCBooleanLambda btcBooleanLambda = (BTCBooleanLambda) theEObject;
 				T result = caseBTCBooleanLambda(btcBooleanLambda);
 				if(result == null)
+					result = caseBTCLastLambda(btcBooleanLambda);
+				if(result == null)
 					result = caseBTypeCalculator(btcBooleanLambda);
 				if(result == null)
 					result = defaultCase(theEObject);

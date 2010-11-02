@@ -761,16 +761,6 @@ public interface B3backendFactory extends EFactory {
 	BTryExpression createBTryExpression();
 
 	/**
-	 * Returns a new object of class '<em>BType Calculator</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @return a new object of class '<em>BType Calculator</em>'.
-	 * @generated
-	 */
-	BTypeCalculator createBTypeCalculator();
-
-	/**
 	 * Returns a new object of class '<em>BUnary Op Expression</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

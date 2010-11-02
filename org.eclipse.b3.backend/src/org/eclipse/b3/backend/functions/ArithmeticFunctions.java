@@ -7,12 +7,8 @@ import java.math.BigInteger;
 import org.eclipse.b3.backend.core.B3Backend;
 import org.eclipse.b3.backend.core.datatypes.DoubleSequence;
 import org.eclipse.b3.backend.core.datatypes.IntegerSequence;
-import org.eclipse.b3.backend.evaluator.b3backend.B3FunctionType;
-import org.eclipse.b3.backend.evaluator.b3backend.B3backendFactory;
 import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
-import org.eclipse.b3.backend.evaluator.b3backend.BFunction;
 import org.eclipse.b3.backend.evaluator.b3backend.BTCNumber;
-import org.eclipse.b3.backend.evaluator.b3backend.impl.BTCNumberImpl;
 import org.eclipse.b3.backend.evaluator.typesystem.TypeUtils;
 
 public class ArithmeticFunctions {
@@ -291,6 +287,8 @@ public class ArithmeticFunctions {
 
 	@B3Backend(funcNames = { "-" }, typeClass = BTCNumber.class)
 	public static Number negate(Number a) {
+		if(a instanceof BigDecimal)
+			return ((BigDecimal) a).negate();
 		if(a instanceof Double)
 			return new Double(-a.doubleValue());
 		if(a instanceof Float)
@@ -306,13 +304,13 @@ public class ArithmeticFunctions {
 		throw new IllegalArgumentException("Unary minus on unsupported Number subclass: " + a.getClass().toString());
 	}
 
-	@B3Backend(typeCalculator = true)
-	public static B3FunctionType numberGenericityCalculator(Type[] types) {
-		B3FunctionType result = B3backendFactory.eINSTANCE.createB3FunctionType();
-		result.setFunctionType(BFunction.class);
-		result.setReturnType(BTCNumberImpl.numberGenericityCalculator(types));
-		return result;
-	}
+	// @B3Backend(typeCalculator = true)
+	// public static B3FunctionType numberGenericityCalculator(Type[] types) {
+	// B3FunctionType result = B3backendFactory.eINSTANCE.createB3FunctionType();
+	// result.setFunctionType(BFunction.class);
+	// result.setReturnType(BTCNumberImpl.numberGenericityCalculator(types));
+	// return result;
+	// }
 
 	// // TODO: Remove from here - now in BTCNumber
 	// //
@@ -401,22 +399,22 @@ public class ArithmeticFunctions {
 				"," + b.getClass().toString());
 	}
 
-	@B3Backend(funcNames = { "-" }, typeClass = BTCNumber.class)
-	public static Number unaryMinus(Number a) {
-		if(a instanceof Double)
-			return new Double(-a.doubleValue());
-		if(a instanceof Float)
-			return new Float(-a.floatValue());
-		if(a instanceof Long)
-			return new Long(-a.longValue());
-		if(a instanceof Integer)
-			return new Integer(-a.intValue());
-		if(a instanceof Short)
-			return new Short((short) -(a.shortValue()));
-		throw new IllegalArgumentException("Unary minus on unsupported Number subclass: " + a.getClass().toString());
-	}
+	// @B3Backend(funcNames = { "-" }, typeClass = BTCNumber.class)
+	// public static Number unaryMinus(Number a) {
+	// if(a instanceof Double)
+	// return new Double(-a.doubleValue());
+	// if(a instanceof Float)
+	// return new Float(-a.floatValue());
+	// if(a instanceof Long)
+	// return new Long(-a.longValue());
+	// if(a instanceof Integer)
+	// return new Integer(-a.intValue());
+	// if(a instanceof Short)
+	// return new Short((short) -(a.shortValue()));
+	// throw new IllegalArgumentException("Unary minus on unsupported Number subclass: " + a.getClass().toString());
+	// }
 
-	private static BigDecimal convertToBigDecimal(Number n) {
+	static BigDecimal convertToBigDecimal(Number n) {
 		if(n instanceof Float || n instanceof Double)
 			return BigDecimal.valueOf(n.doubleValue());
 		if(n instanceof BigInteger)
@@ -424,23 +422,23 @@ public class ArithmeticFunctions {
 		return BigDecimal.valueOf(n.longValue());
 	}
 
-	private static BigDecimal convertToBigDecimalIfNeeded(Number n) {
+	static BigDecimal convertToBigDecimalIfNeeded(Number n) {
 		return (n instanceof BigDecimal)
 				? (BigDecimal) n
 				: convertToBigDecimal(n);
 	}
 
-	private static BigInteger convertToBigInteger(Number n) {
+	static BigInteger convertToBigInteger(Number n) {
 		return BigInteger.valueOf(n.longValue());
 	}
 
-	private static BigInteger convertToBigIntegerIfNeeded(Number n) {
+	static BigInteger convertToBigIntegerIfNeeded(Number n) {
 		return (n instanceof BigInteger)
 				? (BigInteger) n
 				: convertToBigInteger(n);
 	}
 
-	private static boolean trueWithSideEffect(Object ignored) {
+	static boolean trueWithSideEffect(Object ignored) {
 		return true;
 	}
 }

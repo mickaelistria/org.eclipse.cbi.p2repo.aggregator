@@ -1,6 +1,14 @@
 package org.eclipse.b3.backend.functions;
 
+import static org.eclipse.b3.backend.functions.ArithmeticFunctions.convertToBigDecimal;
+import static org.eclipse.b3.backend.functions.ArithmeticFunctions.convertToBigDecimalIfNeeded;
+import static org.eclipse.b3.backend.functions.ArithmeticFunctions.convertToBigInteger;
+import static org.eclipse.b3.backend.functions.ArithmeticFunctions.convertToBigIntegerIfNeeded;
+import static org.eclipse.b3.backend.functions.ArithmeticFunctions.trueWithSideEffect;
+
 import java.lang.reflect.Type;
+import java.math.BigDecimal;
+import java.math.BigInteger;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
@@ -199,21 +207,39 @@ public class RelationalFunctions {
 		return null;
 	}
 
+	/*
+	 * if(a instanceof BigDecimal && trueWithSideEffect(b = convertToBigDecimalIfNeeded(b)) //
+	 * || b instanceof BigDecimal && trueWithSideEffect(a = convertToBigDecimal(a)))
+	 * return (((BigDecimal) a).compareTo((BigDecimal) b) > 0);
+	 * if(a instanceof BigInteger && trueWithSideEffect(b = convertToBigIntegerIfNeeded(b)) //
+	 * || b instanceof BigInteger && trueWithSideEffect(a = convertToBigInteger(a)))
+	 * return (((BigInteger) a).compareTo((BigInteger) b) > 0);
+	 */
+
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	@B3Backend(funcNames = { "==" })
 	public static Boolean equals(Number a, Number b) {
 		if(a == b || a.equals(b))
 			return Boolean.TRUE;
+
+		if(a instanceof BigDecimal && trueWithSideEffect(b = convertToBigDecimalIfNeeded(b)) //
+				|| b instanceof BigDecimal && trueWithSideEffect(a = convertToBigDecimal(a)))
+			return (((BigDecimal) a).compareTo((BigDecimal) b) == 0);
 		if(a instanceof Double || b instanceof Double)
 			return Boolean.valueOf(a.doubleValue() == b.doubleValue());
 		if(a instanceof Float || b instanceof Float)
 			return Boolean.valueOf(a.floatValue() == b.floatValue());
+		if(a instanceof BigInteger && trueWithSideEffect(b = convertToBigIntegerIfNeeded(b)) //
+				|| b instanceof BigInteger && trueWithSideEffect(a = convertToBigInteger(a)))
+			return (((BigInteger) a).compareTo((BigInteger) b) == 0);
 		if(a instanceof Long || b instanceof Long)
 			return Boolean.valueOf(a.longValue() == b.longValue());
 		if(a instanceof Integer || b instanceof Integer)
 			return Boolean.valueOf(a.intValue() == b.intValue());
 		if(a instanceof Short || b instanceof Short)
 			return Boolean.valueOf(a.shortValue() == b.shortValue());
+		if(a instanceof Byte || b instanceof Byte)
+			return Boolean.valueOf(a.byteValue() == b.byteValue());
 		if(a instanceof Comparable) {
 			if(((Comparable) a).compareTo(b) == 0)
 				return Boolean.TRUE;
@@ -403,61 +429,93 @@ public class RelationalFunctions {
 	}
 
 	private static Boolean isGreaterThanN(Number a, Number b) {
+		if(a instanceof BigDecimal && trueWithSideEffect(b = convertToBigDecimalIfNeeded(b)) //
+				|| b instanceof BigDecimal && trueWithSideEffect(a = convertToBigDecimal(a)))
+			return (((BigDecimal) a).compareTo((BigDecimal) b) > 0);
 		if(a instanceof Double || b instanceof Double)
 			return Boolean.valueOf(a.doubleValue() > b.doubleValue());
 		if(a instanceof Float || b instanceof Float)
 			return Boolean.valueOf(a.floatValue() > b.floatValue());
+		if(a instanceof BigInteger && trueWithSideEffect(b = convertToBigIntegerIfNeeded(b)) //
+				|| b instanceof BigInteger && trueWithSideEffect(a = convertToBigInteger(a)))
+			return (((BigInteger) a).compareTo((BigInteger) b) > 0);
 		if(a instanceof Long || b instanceof Long)
 			return Boolean.valueOf(a.longValue() > b.longValue());
 		if(a instanceof Integer || b instanceof Integer)
 			return Boolean.valueOf(a.intValue() > b.intValue());
 		if(a instanceof Short || b instanceof Short)
 			return Boolean.valueOf(a.shortValue() > b.shortValue());
+		if(a instanceof Byte || b instanceof Byte)
+			return Boolean.valueOf(a.byteValue() > b.byteValue());
 
 		return Boolean.FALSE;
 	}
 
 	private static Boolean isGreaterThanOrEqualToN(Number a, Number b) {
+		if(a instanceof BigDecimal && trueWithSideEffect(b = convertToBigDecimalIfNeeded(b)) ||
+				b instanceof BigInteger && trueWithSideEffect(a = convertToBigInteger(a)))
+			return (((BigDecimal) a).compareTo((BigDecimal) b) >= 0);
 		if(a instanceof Double || b instanceof Double)
 			return Boolean.valueOf(a.doubleValue() >= b.doubleValue());
 		if(a instanceof Float || b instanceof Float)
 			return Boolean.valueOf(a.floatValue() >= b.floatValue());
+		if(a instanceof BigInteger && trueWithSideEffect(b = convertToBigIntegerIfNeeded(b)) //
+				|| b instanceof BigInteger && trueWithSideEffect(a = convertToBigInteger(a)))
+			return (((BigInteger) a).compareTo((BigInteger) b) >= 0);
 		if(a instanceof Long || b instanceof Long)
 			return Boolean.valueOf(a.longValue() >= b.longValue());
 		if(a instanceof Integer || b instanceof Integer)
 			return Boolean.valueOf(a.intValue() >= b.intValue());
 		if(a instanceof Short || b instanceof Short)
 			return Boolean.valueOf(a.shortValue() >= b.shortValue());
+		if(a instanceof Byte || b instanceof Byte)
+			return Boolean.valueOf(a.byteValue() >= b.byteValue());
 
 		return Boolean.FALSE;
 	}
 
 	private static Boolean isLessThanN(Number a, Number b) {
+		if(a instanceof BigDecimal && trueWithSideEffect(b = convertToBigDecimalIfNeeded(b)) //
+				|| b instanceof BigDecimal && trueWithSideEffect(a = convertToBigDecimal(a)))
+			return (((BigDecimal) a).compareTo((BigDecimal) b) < 0);
 		if(a instanceof Double || b instanceof Double)
 			return Boolean.valueOf(a.doubleValue() < b.doubleValue());
 		if(a instanceof Float || b instanceof Float)
 			return Boolean.valueOf(a.floatValue() < b.floatValue());
+		if(a instanceof BigInteger && trueWithSideEffect(b = convertToBigIntegerIfNeeded(b)) //
+				|| b instanceof BigInteger && trueWithSideEffect(a = convertToBigInteger(a)))
+			return (((BigInteger) a).compareTo((BigInteger) b) < 0);
 		if(a instanceof Long || b instanceof Long)
 			return Boolean.valueOf(a.longValue() < b.longValue());
 		if(a instanceof Integer || b instanceof Integer)
 			return Boolean.valueOf(a.intValue() < b.intValue());
 		if(a instanceof Short || b instanceof Short)
 			return Boolean.valueOf(a.shortValue() < b.shortValue());
+		if(a instanceof Byte || b instanceof Byte)
+			return Boolean.valueOf(a.byteValue() < b.byteValue());
 
 		return Boolean.FALSE;
 	}
 
 	private static Boolean isLessThanOrEqualToN(Number a, Number b) {
+		if(a instanceof BigDecimal && trueWithSideEffect(b = convertToBigDecimalIfNeeded(b)) //
+				|| b instanceof BigDecimal && trueWithSideEffect(a = convertToBigDecimal(a)))
+			return (((BigDecimal) a).compareTo((BigDecimal) b) <= 0);
 		if(a instanceof Double || b instanceof Double)
 			return Boolean.valueOf(a.doubleValue() <= b.doubleValue());
 		if(a instanceof Float || b instanceof Float)
 			return Boolean.valueOf(a.floatValue() <= b.floatValue());
+		if(a instanceof BigInteger && trueWithSideEffect(b = convertToBigIntegerIfNeeded(b)) //
+				|| b instanceof BigInteger && trueWithSideEffect(a = convertToBigInteger(a)))
+			return (((BigInteger) a).compareTo((BigInteger) b) <= 0);
 		if(a instanceof Long || b instanceof Long)
 			return Boolean.valueOf(a.longValue() <= b.longValue());
 		if(a instanceof Integer || b instanceof Integer)
 			return Boolean.valueOf(a.intValue() <= b.intValue());
 		if(a instanceof Short || b instanceof Short)
 			return Boolean.valueOf(a.shortValue() <= b.shortValue());
+		if(a instanceof Byte || b instanceof Byte)
+			return Boolean.valueOf(a.byteValue() <= b.byteValue());
 
 		return Boolean.FALSE;
 	}

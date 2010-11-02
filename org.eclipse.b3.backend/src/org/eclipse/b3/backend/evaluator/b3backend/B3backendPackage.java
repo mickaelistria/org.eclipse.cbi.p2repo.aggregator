@@ -2762,6 +2762,50 @@ public interface B3backendPackage extends EPackage {
 		 */
 		EDataType RADIX_INTEGER = eINSTANCE.getRadixInteger();
 
+		/**
+		 * The meta object literal for the '<em>IType Constraint</em>' data type.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @see org.eclipse.b3.backend.inference.ITypeConstraint
+		 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getITypeConstraint()
+		 * @generated
+		 */
+		EDataType ITYPE_CONSTRAINT = eINSTANCE.getITypeConstraint();
+
+		/**
+		 * The meta object literal for the '<em>IType Constraint Expression</em>' data type.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @see org.eclipse.b3.backend.inference.ITypeConstraintExpression
+		 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getITypeConstraintExpression()
+		 * @generated
+		 */
+		EDataType ITYPE_CONSTRAINT_EXPRESSION = eINSTANCE.getITypeConstraintExpression();
+
+		/**
+		 * The meta object literal for the '<em>IType Scheme</em>' data type.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @see org.eclipse.b3.backend.inference.ITypeScheme
+		 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getITypeScheme()
+		 * @generated
+		 */
+		EDataType ITYPE_SCHEME = eINSTANCE.getITypeScheme();
+
+		/**
+		 * The meta object literal for the '<em>Java List</em>' data type.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @see java.util.List
+		 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getJavaList()
+		 * @generated
+		 */
+		EDataType JAVA_LIST = eINSTANCE.getJavaList();
+
 	}
 
 	/**
@@ -8023,16 +8067,6 @@ public interface B3backendPackage extends EPackage {
 	int BTC_BOOLEAN_LAMBDA = 97;
 
 	/**
-	 * The number of structural features of the '<em>BTC Boolean Lambda</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int BTC_BOOLEAN_LAMBDA_FEATURE_COUNT = BTYPE_CALCULATOR_FEATURE_COUNT + 0;
-
-	/**
 	 * The meta object id for the '{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BTCFirstLambdaImpl <em>BTC First Lambda</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -8042,16 +8076,6 @@ public interface B3backendPackage extends EPackage {
 	 * @generated
 	 */
 	int BTC_FIRST_LAMBDA = 98;
-
-	/**
-	 * The number of structural features of the '<em>BTC First Lambda</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int BTC_FIRST_LAMBDA_FEATURE_COUNT = BTYPE_CALCULATOR_FEATURE_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BTCLastLambdaImpl <em>BTC Last Lambda</em>}' class.
@@ -8073,6 +8097,26 @@ public interface B3backendPackage extends EPackage {
 	 * @ordered
 	 */
 	int BTC_LAST_LAMBDA_FEATURE_COUNT = BTYPE_CALCULATOR_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>BTC Boolean Lambda</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int BTC_BOOLEAN_LAMBDA_FEATURE_COUNT = BTC_LAST_LAMBDA_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>BTC First Lambda</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int BTC_FIRST_LAMBDA_FEATURE_COUNT = BTYPE_CALCULATOR_FEATURE_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.backend.evaluator.b3backend.Visibility <em>Visibility</em>}' enum.
@@ -8333,6 +8377,50 @@ public interface B3backendPackage extends EPackage {
 	 * @generated
 	 */
 	int RADIX_INTEGER = 123;
+
+	/**
+	 * The meta object id for the '<em>IType Constraint</em>' data type.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see org.eclipse.b3.backend.inference.ITypeConstraint
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getITypeConstraint()
+	 * @generated
+	 */
+	int ITYPE_CONSTRAINT = 124;
+
+	/**
+	 * The meta object id for the '<em>IType Constraint Expression</em>' data type.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see org.eclipse.b3.backend.inference.ITypeConstraintExpression
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getITypeConstraintExpression()
+	 * @generated
+	 */
+	int ITYPE_CONSTRAINT_EXPRESSION = 125;
+
+	/**
+	 * The meta object id for the '<em>IType Scheme</em>' data type.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see org.eclipse.b3.backend.inference.ITypeScheme
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getITypeScheme()
+	 * @generated
+	 */
+	int ITYPE_SCHEME = 126;
+
+	/**
+	 * The meta object id for the '<em>Java List</em>' data type.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see java.util.List
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getJavaList()
+	 * @generated
+	 */
+	int JAVA_LIST = 127;
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -11321,6 +11409,31 @@ public interface B3backendPackage extends EPackage {
 	EClass getIType();
 
 	/**
+	 * Returns the meta object for data type '{@link org.eclipse.b3.backend.inference.ITypeConstraint <em>IType Constraint</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for data type '<em>IType Constraint</em>'.
+	 * @see org.eclipse.b3.backend.inference.ITypeConstraint
+	 * @model instanceClass="org.eclipse.b3.backend.inference.ITypeConstraint" serializeable="false"
+	 * @generated
+	 */
+	EDataType getITypeConstraint();
+
+	/**
+	 * Returns the meta object for data type '{@link org.eclipse.b3.backend.inference.ITypeConstraintExpression <em>IType Constraint Expression</em>}
+	 * '.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for data type '<em>IType Constraint Expression</em>'.
+	 * @see org.eclipse.b3.backend.inference.ITypeConstraintExpression
+	 * @model instanceClass="org.eclipse.b3.backend.inference.ITypeConstraintExpression" serializeable="false"
+	 * @generated
+	 */
+	EDataType getITypeConstraintExpression();
+
+	/**
 	 * Returns the meta object for class '{@link org.eclipse.b3.backend.evaluator.b3backend.ITypedValue <em>ITyped Value</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -11353,6 +11466,18 @@ public interface B3backendPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getITypedValueContainer();
+
+	/**
+	 * Returns the meta object for data type '{@link org.eclipse.b3.backend.inference.ITypeScheme <em>IType Scheme</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for data type '<em>IType Scheme</em>'.
+	 * @see org.eclipse.b3.backend.inference.ITypeScheme
+	 * @model instanceClass="org.eclipse.b3.backend.inference.ITypeScheme"
+	 * @generated
+	 */
+	EDataType getITypeScheme();
 
 	/**
 	 * Returns the meta object for class '{@link java.lang.reflect.TypeVariable <em>IType Variable</em>}'.
@@ -11413,6 +11538,18 @@ public interface B3backendPackage extends EPackage {
 	 * @generated
 	 */
 	EDataType getJavaIterator();
+
+	/**
+	 * Returns the meta object for data type '{@link java.util.List <em>Java List</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for data type '<em>Java List</em>'.
+	 * @see java.util.List
+	 * @model instanceClass="java.util.List" serializeable="false" typeParameters="E"
+	 * @generated
+	 */
+	EDataType getJavaList();
 
 	/**
 	 * Returns the meta object for data type '{@link org.eclipse.b3.backend.core.datatypes.LValue <em>LValue</em>}'.

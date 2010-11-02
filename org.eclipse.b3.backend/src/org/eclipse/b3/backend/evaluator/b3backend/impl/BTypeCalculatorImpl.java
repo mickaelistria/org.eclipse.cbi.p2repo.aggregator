@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2009, Cloudsmith Inc and others.
+ * Copyright (c) 2009-2010, Cloudsmith Inc and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -11,12 +11,19 @@
 package org.eclipse.b3.backend.evaluator.b3backend.impl;
 
 import java.lang.reflect.Type;
+import java.util.List;
 
 import org.eclipse.b3.backend.evaluator.b3backend.B3FunctionType;
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage;
+import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BTypeCalculator;
+import org.eclipse.b3.backend.inference.ITypeConstraint;
+import org.eclipse.b3.backend.inference.ITypeConstraintExpression;
+import org.eclipse.b3.backend.inference.ITypeScheme;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
+
+import com.google.inject.internal.Lists;
 
 /**
  * <!-- begin-user-doc -->
@@ -27,7 +34,7 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * 
  * @generated
  */
-public class BTypeCalculatorImpl extends EObjectImpl implements BTypeCalculator {
+public abstract class BTypeCalculatorImpl extends EObjectImpl implements BTypeCalculator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -40,15 +47,23 @@ public class BTypeCalculatorImpl extends EObjectImpl implements BTypeCalculator 
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * This default implementation returns an empty list.
 	 * <!-- end-user-doc -->
 	 * 
-	 * @generated
+	 * @generated NOT
 	 */
-	public B3FunctionType getSignature(Type[] types) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+	public List<ITypeConstraint> getConstraints(String funcName, BExpression expr, ITypeScheme typeScheme,
+			List<ITypeConstraintExpression> parameterConstraints) {
+		return Lists.newArrayList();
 	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated NOT
+	 */
+	public abstract B3FunctionType getSignature(Type[] types);
 
 	/**
 	 * <!-- begin-user-doc -->

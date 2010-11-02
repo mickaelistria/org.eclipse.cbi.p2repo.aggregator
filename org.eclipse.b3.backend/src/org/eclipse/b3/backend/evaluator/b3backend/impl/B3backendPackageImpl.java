@@ -16,6 +16,7 @@ import java.lang.reflect.Type;
 import java.lang.reflect.TypeVariable;
 import java.lang.reflect.WildcardType;
 import java.util.Iterator;
+import java.util.List;
 import java.util.regex.Pattern;
 
 import org.eclipse.b3.backend.core.datatypes.IntegerWithRadix;
@@ -126,6 +127,9 @@ import org.eclipse.b3.backend.evaluator.b3backend.ITypedValueContainer;
 import org.eclipse.b3.backend.evaluator.b3backend.IVarName;
 import org.eclipse.b3.backend.evaluator.b3backend.Visibility;
 import org.eclipse.b3.backend.evaluator.b3backend.util.B3backendValidator;
+import org.eclipse.b3.backend.inference.ITypeConstraint;
+import org.eclipse.b3.backend.inference.ITypeConstraintExpression;
+import org.eclipse.b3.backend.inference.ITypeScheme;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.emf.ecore.EAttribute;
@@ -1149,6 +1153,38 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	 * 
 	 * @generated
 	 */
+	private EDataType iTypeConstraintEDataType = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	private EDataType iTypeConstraintExpressionEDataType = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	private EDataType iTypeSchemeEDataType = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	private EDataType javaListEDataType = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
 	private static boolean isInited = false;
 
 	/**
@@ -1613,6 +1649,10 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 		charSequenceEDataType = createEDataType(CHAR_SEQUENCE);
 		injectorEDataType = createEDataType(INJECTOR);
 		radixIntegerEDataType = createEDataType(RADIX_INTEGER);
+		iTypeConstraintEDataType = createEDataType(ITYPE_CONSTRAINT);
+		iTypeConstraintExpressionEDataType = createEDataType(ITYPE_CONSTRAINT_EXPRESSION);
+		iTypeSchemeEDataType = createEDataType(ITYPE_SCHEME);
+		javaListEDataType = createEDataType(JAVA_LIST);
 	}
 
 	/**
@@ -4091,6 +4131,26 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	 * 
 	 * @generated
 	 */
+	public EDataType getITypeConstraint() {
+		return iTypeConstraintEDataType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EDataType getITypeConstraintExpression() {
+		return iTypeConstraintExpressionEDataType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
 	public EClass getITypedValue() {
 		return iTypedValueEClass;
 	}
@@ -4113,6 +4173,16 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	 */
 	public EClass getITypedValueContainer() {
 		return iTypedValueContainerEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EDataType getITypeScheme() {
+		return iTypeSchemeEDataType;
 	}
 
 	/**
@@ -4163,6 +4233,16 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	 */
 	public EDataType getJavaIterator() {
 		return javaIteratorEDataType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EDataType getJavaList() {
+		return javaListEDataType;
 	}
 
 	/**
@@ -4326,6 +4406,7 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 		// Create type parameters
 		ETypeParameter iTypeVariableEClass_D = addETypeParameter(iTypeVariableEClass, "D");
 		addETypeParameter(javaIteratorEDataType, "E");
+		addETypeParameter(javaListEDataType, "E");
 
 		// Set bounds for type parameters
 		EGenericType g1 = createEGenericType(this.getIGenericDeclaration());
@@ -4428,7 +4509,7 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 		btcPluggableEClass.getESuperTypes().add(this.getBTypeCalculator());
 		btcNumberEClass.getESuperTypes().add(this.getBTypeCalculator());
 		btcIntegralEClass.getESuperTypes().add(this.getBTCNumber());
-		btcBooleanLambdaEClass.getESuperTypes().add(this.getBTypeCalculator());
+		btcBooleanLambdaEClass.getESuperTypes().add(this.getBTCLastLambda());
 		btcFirstLambdaEClass.getESuperTypes().add(this.getBTypeCalculator());
 		btcLastLambdaEClass.getESuperTypes().add(this.getBTypeCalculator());
 
@@ -5098,11 +5179,24 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 			IS_ORDERED);
 
 		initEClass(
-			bTypeCalculatorEClass, BTypeCalculator.class, "BTypeCalculator", !IS_ABSTRACT, !IS_INTERFACE,
+			bTypeCalculatorEClass, BTypeCalculator.class, "BTypeCalculator", IS_ABSTRACT, !IS_INTERFACE,
 			IS_GENERATED_INSTANCE_CLASS);
 
 		op = addEOperation(bTypeCalculatorEClass, this.getB3FunctionType(), "getSignature", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getTypeArray(), "types", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = addEOperation(bTypeCalculatorEClass, null, "getConstraints", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "funcName", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getBExpression(), "expr", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getITypeScheme(), "typeScheme", 0, 1, IS_UNIQUE, IS_ORDERED);
+		g1 = createEGenericType(this.getJavaList());
+		g2 = createEGenericType(this.getITypeConstraintExpression());
+		g1.getETypeArguments().add(g2);
+		addEParameter(op, g1, "parameterConstraints", 0, 1, IS_UNIQUE, IS_ORDERED);
+		g1 = createEGenericType(this.getJavaList());
+		g2 = createEGenericType(this.getITypeConstraint());
+		g1.getETypeArguments().add(g2);
+		initEOperation(op, g1);
 
 		initEClass(
 			bInstanceContextEClass, BInstanceContext.class, "BInstanceContext", !IS_ABSTRACT, !IS_INTERFACE,
@@ -5652,6 +5746,15 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 		initEDataType(
 			radixIntegerEDataType, IntegerWithRadix.class, "RadixInteger", IS_SERIALIZABLE,
 			!IS_GENERATED_INSTANCE_CLASS);
+		initEDataType(
+			iTypeConstraintEDataType, ITypeConstraint.class, "ITypeConstraint", !IS_SERIALIZABLE,
+			!IS_GENERATED_INSTANCE_CLASS);
+		initEDataType(
+			iTypeConstraintExpressionEDataType, ITypeConstraintExpression.class, "ITypeConstraintExpression",
+			!IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
+		initEDataType(
+			iTypeSchemeEDataType, ITypeScheme.class, "ITypeScheme", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
+		initEDataType(javaListEDataType, List.class, "JavaList", !IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 
 		// Create resource
 		createResource(eNS_URI);

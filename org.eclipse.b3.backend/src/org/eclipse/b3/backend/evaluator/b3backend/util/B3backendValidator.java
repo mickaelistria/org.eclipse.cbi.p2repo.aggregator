@@ -18,6 +18,7 @@ import java.lang.reflect.TypeVariable;
 import java.lang.reflect.WildcardType;
 import java.net.URI;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 import java.util.regex.Pattern;
 
@@ -29,97 +30,9 @@ import org.eclipse.b3.backend.evaluator.B3ExpressionCache;
 import org.eclipse.b3.backend.evaluator.B3FuncStore;
 import org.eclipse.b3.backend.evaluator.ValueMap;
 import org.eclipse.b3.backend.evaluator.b3backend.*;
-import org.eclipse.b3.backend.evaluator.b3backend.B3FuncTypeVariable;
-import org.eclipse.b3.backend.evaluator.b3backend.B3Function;
-import org.eclipse.b3.backend.evaluator.b3backend.B3FunctionType;
-import org.eclipse.b3.backend.evaluator.b3backend.B3JavaImport;
-import org.eclipse.b3.backend.evaluator.b3backend.B3MetaClass;
-import org.eclipse.b3.backend.evaluator.b3backend.B3ParameterizedType;
-import org.eclipse.b3.backend.evaluator.b3backend.B3Type;
-import org.eclipse.b3.backend.evaluator.b3backend.B3WildcardType;
-import org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage;
-import org.eclipse.b3.backend.evaluator.b3backend.BAdvice;
-import org.eclipse.b3.backend.evaluator.b3backend.BAndExpression;
-import org.eclipse.b3.backend.evaluator.b3backend.BAssignmentExpression;
-import org.eclipse.b3.backend.evaluator.b3backend.BAtExpression;
-import org.eclipse.b3.backend.evaluator.b3backend.BBinaryExpression;
-import org.eclipse.b3.backend.evaluator.b3backend.BBinaryOpExpression;
-import org.eclipse.b3.backend.evaluator.b3backend.BCachedExpression;
-import org.eclipse.b3.backend.evaluator.b3backend.BCallExpression;
-import org.eclipse.b3.backend.evaluator.b3backend.BCallFeature;
-import org.eclipse.b3.backend.evaluator.b3backend.BCallFunction;
-import org.eclipse.b3.backend.evaluator.b3backend.BCallNamedFunction;
-import org.eclipse.b3.backend.evaluator.b3backend.BCase;
-import org.eclipse.b3.backend.evaluator.b3backend.BCatch;
-import org.eclipse.b3.backend.evaluator.b3backend.BChainedExpression;
-import org.eclipse.b3.backend.evaluator.b3backend.BConcern;
-import org.eclipse.b3.backend.evaluator.b3backend.BConcernContext;
-import org.eclipse.b3.backend.evaluator.b3backend.BConditionalPropertyOperation;
-import org.eclipse.b3.backend.evaluator.b3backend.BContext;
-import org.eclipse.b3.backend.evaluator.b3backend.BCreateExpression;
-import org.eclipse.b3.backend.evaluator.b3backend.BDefProperty;
-import org.eclipse.b3.backend.evaluator.b3backend.BDefValue;
-import org.eclipse.b3.backend.evaluator.b3backend.BDefaultPropertySet;
-import org.eclipse.b3.backend.evaluator.b3backend.BDelegatingContext;
-import org.eclipse.b3.backend.evaluator.b3backend.BEchoExpression;
-import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
-import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
-import org.eclipse.b3.backend.evaluator.b3backend.BExpressionWrapper;
-import org.eclipse.b3.backend.evaluator.b3backend.BFeatureExpression;
-import org.eclipse.b3.backend.evaluator.b3backend.BFunction;
-import org.eclipse.b3.backend.evaluator.b3backend.BFunctionConcernContext;
-import org.eclipse.b3.backend.evaluator.b3backend.BFunctionContainer;
-import org.eclipse.b3.backend.evaluator.b3backend.BFunctionNamePredicate;
-import org.eclipse.b3.backend.evaluator.b3backend.BFunctionWrapper;
-import org.eclipse.b3.backend.evaluator.b3backend.BGuard;
-import org.eclipse.b3.backend.evaluator.b3backend.BIfExpression;
-import org.eclipse.b3.backend.evaluator.b3backend.BInnerContext;
-import org.eclipse.b3.backend.evaluator.b3backend.BInstanceContext;
-import org.eclipse.b3.backend.evaluator.b3backend.BInvocationContext;
-import org.eclipse.b3.backend.evaluator.b3backend.BJavaCallType;
-import org.eclipse.b3.backend.evaluator.b3backend.BJavaFunction;
-import org.eclipse.b3.backend.evaluator.b3backend.BLiteralAny;
-import org.eclipse.b3.backend.evaluator.b3backend.BLiteralExpression;
-import org.eclipse.b3.backend.evaluator.b3backend.BLiteralListExpression;
-import org.eclipse.b3.backend.evaluator.b3backend.BLiteralMapExpression;
-import org.eclipse.b3.backend.evaluator.b3backend.BLiteralType;
-import org.eclipse.b3.backend.evaluator.b3backend.BMapEntry;
-import org.eclipse.b3.backend.evaluator.b3backend.BNamePredicate;
-import org.eclipse.b3.backend.evaluator.b3backend.BOrExpression;
-import org.eclipse.b3.backend.evaluator.b3backend.BParameter;
-import org.eclipse.b3.backend.evaluator.b3backend.BParameterDeclaration;
-import org.eclipse.b3.backend.evaluator.b3backend.BParameterList;
-import org.eclipse.b3.backend.evaluator.b3backend.BParameterPredicate;
-import org.eclipse.b3.backend.evaluator.b3backend.BParameterizedExpression;
-import org.eclipse.b3.backend.evaluator.b3backend.BPatternLiteralExpression;
-import org.eclipse.b3.backend.evaluator.b3backend.BProceedExpression;
-import org.eclipse.b3.backend.evaluator.b3backend.BPropertyDefinitionOperation;
-import org.eclipse.b3.backend.evaluator.b3backend.BPropertyOperation;
-import org.eclipse.b3.backend.evaluator.b3backend.BPropertySet;
-import org.eclipse.b3.backend.evaluator.b3backend.BPropertySetOperation;
-import org.eclipse.b3.backend.evaluator.b3backend.BRegularExpression;
-import org.eclipse.b3.backend.evaluator.b3backend.BSimplePatternExpression;
-import org.eclipse.b3.backend.evaluator.b3backend.BSwitchExpression;
-import org.eclipse.b3.backend.evaluator.b3backend.BSystemContext;
-import org.eclipse.b3.backend.evaluator.b3backend.BTemplate;
-import org.eclipse.b3.backend.evaluator.b3backend.BThrowExpression;
-import org.eclipse.b3.backend.evaluator.b3backend.BTryExpression;
-import org.eclipse.b3.backend.evaluator.b3backend.BTypeCalculator;
-import org.eclipse.b3.backend.evaluator.b3backend.BUnaryExpression;
-import org.eclipse.b3.backend.evaluator.b3backend.BUnaryOpExpression;
-import org.eclipse.b3.backend.evaluator.b3backend.BUnaryPostOpExpression;
-import org.eclipse.b3.backend.evaluator.b3backend.BUnaryPreOpExpression;
-import org.eclipse.b3.backend.evaluator.b3backend.BVariableExpression;
-import org.eclipse.b3.backend.evaluator.b3backend.BWithContextExpression;
-import org.eclipse.b3.backend.evaluator.b3backend.BWithExpression;
-import org.eclipse.b3.backend.evaluator.b3backend.BWrappingContext;
-import org.eclipse.b3.backend.evaluator.b3backend.ExecutionMode;
-import org.eclipse.b3.backend.evaluator.b3backend.IFunction;
-import org.eclipse.b3.backend.evaluator.b3backend.INamedValue;
-import org.eclipse.b3.backend.evaluator.b3backend.ITypedValue;
-import org.eclipse.b3.backend.evaluator.b3backend.ITypedValueContainer;
-import org.eclipse.b3.backend.evaluator.b3backend.IVarName;
-import org.eclipse.b3.backend.evaluator.b3backend.Visibility;
+import org.eclipse.b3.backend.inference.ITypeConstraint;
+import org.eclipse.b3.backend.inference.ITypeConstraintExpression;
+import org.eclipse.b3.backend.inference.ITypeScheme;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.emf.common.util.DiagnosticChain;
@@ -1388,6 +1301,28 @@ public class B3backendValidator extends EObjectValidator {
 	 * 
 	 * @generated
 	 */
+	public boolean validateITypeConstraint(ITypeConstraint iTypeConstraint, DiagnosticChain diagnostics,
+			Map<Object, Object> context) {
+		return true;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public boolean validateITypeConstraintExpression(ITypeConstraintExpression iTypeConstraintExpression,
+			DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return true;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
 	public boolean validateITypedValue(ITypedValue iTypedValue, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return validate_EveryDefaultConstraint(iTypedValue, diagnostics, context);
 	}
@@ -1401,6 +1336,16 @@ public class B3backendValidator extends EObjectValidator {
 	public boolean validateITypedValueContainer(ITypedValueContainer iTypedValueContainer, DiagnosticChain diagnostics,
 			Map<Object, Object> context) {
 		return validate_EveryDefaultConstraint(iTypedValueContainer, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public boolean validateITypeScheme(ITypeScheme iTypeScheme, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return true;
 	}
 
 	/**
@@ -1443,6 +1388,16 @@ public class B3backendValidator extends EObjectValidator {
 	 */
 	public boolean validateJavaIterator(Iterator<?> javaIterator, DiagnosticChain diagnostics,
 			Map<Object, Object> context) {
+		return true;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public boolean validateJavaList(List<?> javaList, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return true;
 	}
 
@@ -1609,6 +1564,7 @@ public class B3backendValidator extends EObjectValidator {
 	 * @generated
 	 */
 	@Override
+	@SuppressWarnings("unchecked")
 	protected boolean validate(int classifierID, Object value, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		switch(classifierID) {
 			case B3backendPackage.BEXPRESSION:
@@ -1860,6 +1816,14 @@ public class B3backendValidator extends EObjectValidator {
 				return validateInjector((Injector) value, diagnostics, context);
 			case B3backendPackage.RADIX_INTEGER:
 				return validateRadixInteger((IntegerWithRadix) value, diagnostics, context);
+			case B3backendPackage.ITYPE_CONSTRAINT:
+				return validateITypeConstraint((ITypeConstraint) value, diagnostics, context);
+			case B3backendPackage.ITYPE_CONSTRAINT_EXPRESSION:
+				return validateITypeConstraintExpression((ITypeConstraintExpression) value, diagnostics, context);
+			case B3backendPackage.ITYPE_SCHEME:
+				return validateITypeScheme((ITypeScheme) value, diagnostics, context);
+			case B3backendPackage.JAVA_LIST:
+				return validateJavaList((List<?>) value, diagnostics, context);
 			default:
 				return true;
 		}

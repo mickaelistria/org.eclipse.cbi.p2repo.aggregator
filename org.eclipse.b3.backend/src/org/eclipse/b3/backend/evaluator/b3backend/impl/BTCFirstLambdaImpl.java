@@ -11,15 +11,26 @@
 package org.eclipse.b3.backend.evaluator.b3backend.impl;
 
 import java.lang.reflect.Type;
+import java.util.List;
 
 import org.eclipse.b3.backend.evaluator.b3backend.B3FunctionType;
+import org.eclipse.b3.backend.evaluator.b3backend.B3backendFactory;
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage;
+import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BTCFirstLambda;
+import org.eclipse.b3.backend.evaluator.typesystem.TypeUtils;
+import org.eclipse.b3.backend.inference.ITypeConstraint;
+import org.eclipse.b3.backend.inference.ITypeConstraintExpression;
+import org.eclipse.b3.backend.inference.ITypeScheme;
 import org.eclipse.emf.ecore.EClass;
+
+import com.google.common.collect.Lists;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>BTC First Lambda</b></em>'.
+ * The BTCFirstLambda implementation produces constraints for
+ * selectFunction(name, (X1..Xn)=>produce(X0), X1, Xn)
+ * 
  * <!-- end-user-doc -->
  * <p>
  * </p>
@@ -38,6 +49,25 @@ public class BTCFirstLambdaImpl extends BTypeCalculatorImpl implements BTCFirstL
 	}
 
 	/**
+	 * Produces constraints for a function invocation where the first parameter must be a lambda.
+	 * 
+	 * variable(expr) = selectFunction(name, (params[1]..params[n])=>product(params[0]), params[0]..params[n])
+	 * i.e. a function that returns what the first lambda returns, and where the lambda takes the arguments 1-n.
+	 */
+	@Override
+	public List<ITypeConstraint> getConstraints(String name, BExpression expr, ITypeScheme typeScheme,
+			List<ITypeConstraintExpression> parameterTypes) {
+		List<ITypeConstraint> result = Lists.newArrayList();
+		ITypeConstraintExpression[] exprs = new ITypeConstraintExpression[parameterTypes.size()];
+		exprs[0] = typeScheme.produces(
+			typeScheme.product(parameterTypes.get(0)), parameterTypes.subList(1, parameterTypes.size()));
+		for(int i = 1; i < parameterTypes.size(); i++)
+			exprs[i] = parameterTypes.get(i);
+		result.add(typeScheme.constraint(typeScheme.variable(expr), typeScheme.function(name, expr, exprs)));
+		return result;
+	}
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -45,7 +75,15 @@ public class BTCFirstLambdaImpl extends BTypeCalculatorImpl implements BTCFirstL
 	 */
 	@Override
 	public B3FunctionType getSignature(Type[] types) {
-		throw new UnsupportedOperationException("TODO:");
+		B3FunctionType result = B3backendFactory.eINSTANCE.createB3FunctionType();
+
+		if(types.length <= 1 || !(types[0] instanceof B3FunctionType))
+			result.setReturnType(TypeUtils.coerceToEObjectType(Object.class));
+		else {
+			B3FunctionType ft = (B3FunctionType) types[0];
+			result.setReturnType(ft.getReturnTypeForParameterTypes(types));
+		}
+		return result;
 	}
 
 	/**

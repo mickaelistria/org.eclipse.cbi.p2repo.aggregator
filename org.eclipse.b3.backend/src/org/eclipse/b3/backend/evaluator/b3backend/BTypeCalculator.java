@@ -10,7 +10,11 @@
 package org.eclipse.b3.backend.evaluator.b3backend;
 
 import java.lang.reflect.Type;
+import java.util.List;
 
+import org.eclipse.b3.backend.inference.ITypeConstraint;
+import org.eclipse.b3.backend.inference.ITypeConstraintExpression;
+import org.eclipse.b3.backend.inference.ITypeScheme;
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -22,10 +26,23 @@ import org.eclipse.emf.ecore.EObject;
  * 
  * 
  * @see org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage#getBTypeCalculator()
- * @model
+ * @model abstract="true"
  * @generated
  */
 public interface BTypeCalculator extends EObject {
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @model dataType="org.eclipse.b3.backend.evaluator.b3backend.JavaList<org.eclipse.b3.backend.evaluator.b3backend.ITypeConstraint>" many="false"
+	 *        typeSchemeDataType="org.eclipse.b3.backend.evaluator.b3backend.ITypeScheme" parameterConstraintsDataType=
+	 *        "org.eclipse.b3.backend.evaluator.b3backend.JavaList<org.eclipse.b3.backend.evaluator.b3backend.ITypeConstraintExpression>"
+	 *        parameterConstraintsMany="false"
+	 * @generated
+	 */
+	List<ITypeConstraint> getConstraints(String funcName, BExpression expr, ITypeScheme typeScheme,
+			List<ITypeConstraintExpression> parameterConstraints);
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
