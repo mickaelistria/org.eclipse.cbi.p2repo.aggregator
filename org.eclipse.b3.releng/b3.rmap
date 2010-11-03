@@ -1,99 +1,131 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rm:rmap xmlns:bc="http://www.eclipse.org/buckminster/Common-1.0" xmlns:rm="http://www.eclipse.org/buckminster/RMap-1.0">
-  <rm:locator pattern="^org\.eclipse\.b3(\..+)?" searchPathRef="b3"/>
-  <rm:locator pattern="^com\.ibm\.icu\.base$" searchPathRef="orbit"/>
-  <rm:locator pattern="^org\.maven(\..+)?" searchPathRef="m2eclipse"/>
-  <rm:locator pattern="^org\.kohsuke(\..+)?" searchPathRef="orbit"/>
-  <rm:locator pattern="^org\.apache\.log4j(\..+)?" searchPathRef="orbit"/>
-  <rm:locator pattern="^de\.itemis\.xtext(\..+)?" searchPathRef="itemis"/>
-  <rm:locator pattern="^org\.antlr(\..+)?" searchPathRef="itemis"/>
-  <rm:locator pattern="^org\.eclipse\.xtext" searchPathRef="itemis"/>
-  <rm:locator pattern="^org\.eclipse\.xtend" searchPathRef="itemis"/>
-  <rm:locator pattern="^org\.eclipse\.emf\.mwe(\..+)?" searchPathRef="mwe"/>
-  <rm:locator searchPathRef="platform" failOnError="false"/>
-  <rm:locator searchPathRef="modeling" failOnError="false"/>
-  <rm:locator searchPathRef="simultanious.release" failOnError="false"/>
-  <rm:searchPath name="b3">
-    <rm:provider componentTypes="osgi.bundle,eclipse.feature,buckminster" readerType="svn">
-      <rm:uri format="{0}/modeling/org.eclipse.emft.b3/trunk/{1}?moduleAfterTag&amp;moduleAfterBranch">
-        <bc:propertyRef key="eclipse.svn.prefix"/>
-        <bc:propertyRef key="buckminster.component"/>
-      </rm:uri>
-    </rm:provider>
-  </rm:searchPath>
-  <rm:searchPath name="itemis">
-    <rm:provider componentTypes="osgi.bundle,eclipse.feature" readerType="p2" source="false" mutable="false" resolutionFilter="(build.type=R)">
-      <rm:uri format="http://download.itemis.com/updates/releases"/>
-    </rm:provider>
-    <rm:provider componentTypes="osgi.bundle,eclipse.feature" readerType="p2" source="false" mutable="false" resolutionFilter="(|(build.type=M)(build.type=I))">
-      <rm:uri format="http://download.itemis.com/updates/nightly"/>
-    </rm:provider>
-  </rm:searchPath>
-  <rm:searchPath name="emft">
-    <rm:provider componentTypes="osgi.bundle,eclipse.feature" readerType="p2" source="false" mutable="false" resolutionFilter="(build.type=R)">
-      <rm:uri format="http://download.eclipse.org/modeling/emft/updates/releases"/>
-    </rm:provider>
-    <rm:provider componentTypes="osgi.bundle,eclipse.feature" readerType="p2" source="false" mutable="false" resolutionFilter="(|(build.type=M)(build.type=I))">
-      <rm:uri format="http://download.eclipse.org/modeling/emft/updates/milestones"/>
-    </rm:provider>
-  </rm:searchPath>
-  <rm:searchPath name="mwe">
-    <rm:provider componentTypes="osgi.bundle,eclipse.feature" readerType="p2" source="false" mutable="false" resolutionFilter="(build.type=R)">
-      <rm:uri format="http://download.eclipse.org/modeling/emft/mwe/updates/releases"/>
-    </rm:provider>
-    <rm:provider componentTypes="osgi.bundle,eclipse.feature" readerType="p2" source="false" mutable="false" resolutionFilter="(|(build.type=M)(build.type=I))">
-      <rm:uri format="http://download.eclipse.org/modeling/emft/mwe/updates/milestones"/>
-    </rm:provider>
-  </rm:searchPath>
-  <rm:searchPath name="platform">
-    <rm:provider componentTypes="osgi.bundle,eclipse.feature" readerType="p2" source="false" mutable="false" resolutionFilter="(build.type=M)">
-      <rm:uri format="{0}/eclipse/updates/3.6milestones">
-        <bc:propertyRef key="eclipse.download.prefix"/>
-      </rm:uri>
-    </rm:provider>
-    <rm:provider componentTypes="osgi.bundle,eclipse.feature" readerType="p2" source="false" mutable="false" resolutionFilter="(build.type=I)">
-      <rm:uri format="{0}/eclipse/updates/3.6-I-builds">
-        <bc:propertyRef key="eclipse.download.prefix"/>
-      </rm:uri>
-    </rm:provider>
-    <rm:provider componentTypes="osgi.bundle,eclipse.feature" readerType="p2" source="false" mutable="false" resolutionFilter="(build.type=R)">
-      <rm:uri format="{0}/eclipse/updates/3.6">
-        <bc:propertyRef key="eclipse.download.prefix"/>
-      </rm:uri>
-    </rm:provider>
-  </rm:searchPath>
-  <rm:searchPath name="simultanious.release">
-    <rm:provider componentTypes="osgi.bundle,eclipse.feature" readerType="p2" source="false" mutable="false" resolutionFilter="(|(build.type=M)(build.type=I))">
-      <rm:uri format="{0}/releases/staging">
-        <bc:propertyRef key="eclipse.download.prefix"/>
-      </rm:uri>
-    </rm:provider>
-    <rm:provider componentTypes="osgi.bundle,eclipse.feature" readerType="p2" source="false" mutable="false" resolutionFilter="(build.type=R)">
-      <rm:uri format="{0}/releases/helios">
-        <bc:propertyRef key="eclipse.download.prefix"/>
-      </rm:uri>
-    </rm:provider>
-  </rm:searchPath>
-  <rm:searchPath name="orbit">
-    <rm:provider componentTypes="osgi.bundle,eclipse.feature" readerType="p2" source="false" mutable="false" resolutionFilter="">
-      <rm:uri format="{0}/tools/orbit/downloads/drops/R20100519200754/updateSite">
-        <bc:propertyRef key="eclipse.download.prefix"/>
-      </rm:uri>
-    </rm:provider>
-  </rm:searchPath>
-  <rm:searchPath name="modeling">
-    <rm:provider componentTypes="eclipse.feature,osgi.bundle" readerType="p2" source="false" mutable="false">
-      <rm:uri format="{0}/modeling/emf/emf/updates/2.6milestones/S201005211545/">
-        <bc:propertyRef key="eclipse.download.prefix"/>
-      </rm:uri>
-    </rm:provider>
-  </rm:searchPath>
-  <rm:searchPath name="m2eclipse">
-    <rm:provider componentTypes="eclipse.feature,osgi.bundle" readerType="p2" source="false" mutable="false">
-      <rm:uri format="http://m2eclipse.sonatype.org/sites/m2e"/>
-    </rm:provider>
-  </rm:searchPath>
-  <rm:property key="eclipse.download.prefix" value="http://download.eclipse.org"/>
-  <rm:property key="eclipse.svn.prefix" value="http://dev.eclipse.org/svnroot"/>
-  <rm:property key="build.type" value="I"/>
+	<rm:locator pattern="^org\.eclipse\.b3(\..+)?" searchPathRef="b3" />
+
+	<rm:locator pattern="^org\.eclipse\.(?:xtend|xtext)(\..+)?$" searchPathRef="itemis" />
+	<rm:locator pattern="^de\.itemis\.xtext(\..+)?$" searchPathRef="itemis" />
+	<rm:locator pattern="^org\.antlr(\..+)?$" searchPathRef="itemis" />
+	<rm:locator pattern="^org\.eclipse\.emf\.mwe(\..+)?$" searchPathRef="mwe" />
+	<rm:locator pattern="^org\.eclipse\.(?:emf|xsd)(\..+)?$" searchPathRef="emf" />
+	<rm:locator pattern="^org\.maven(\..+)?$" searchPathRef="m2eclipse" />
+	<rm:locator pattern="^com\.ibm\.icu\.base$" searchPathRef="orbit" />
+	<rm:locator pattern="^org\.kohsuke(\..+)?$" searchPathRef="orbit" />
+	<rm:locator pattern="^org\.apache\.log4j(\..+)?$" searchPathRef="orbit" />
+	<rm:locator searchPathRef="platform" failOnError="false" />
+	<!-- rm:locator searchPathRef="simultaneous.release" failOnError="false" /-->
+
+	<rm:searchPath name="b3">
+		<rm:provider componentTypes="osgi.bundle,eclipse.feature,buckminster" readerType="svn" source="true">
+			<rm:uri format="{0}/modeling/org.eclipse.emft.b3/trunk/{1}?moduleAfterTag&amp;moduleAfterBranch">
+				<bc:propertyRef key="source.repository.location" />
+				<bc:propertyRef key="buckminster.component" />
+			</rm:uri>
+		</rm:provider>
+	</rm:searchPath>
+
+	<rm:searchPath name="itemis">
+		<rm:provider componentTypes="osgi.bundle,eclipse.feature" readerType="p2" source="false" mutable="false"
+			resolutionFilter="(&amp;(resolve.target.platform=true)(build.type=R))"
+		>
+			<rm:uri format="http://download.itemis.com/updates/releases" />
+		</rm:provider>
+		<rm:provider componentTypes="osgi.bundle,eclipse.feature" readerType="p2" source="false" mutable="false"
+			resolutionFilter="(&amp;(resolve.target.platform=true)(|(build.type=M)(build.type=I)))"
+		>
+			<rm:uri format="http://download.itemis.com/updates/nightly" />
+		</rm:provider>
+	</rm:searchPath>
+
+	<rm:searchPath name="mwe">
+		<rm:provider componentTypes="osgi.bundle,eclipse.feature" readerType="p2" source="false" mutable="false"
+			resolutionFilter="(&amp;(resolve.target.platform=true)(build.type=R))"
+		>
+			<rm:uri format="{0}/modeling/emft/mwe/updates/releases">
+				<bc:propertyRef key="eclipse.download" />
+			</rm:uri>
+		</rm:provider>
+		<rm:provider componentTypes="osgi.bundle,eclipse.feature" readerType="p2" source="false" mutable="false"
+			resolutionFilter="(&amp;(resolve.target.platform=true)(|(build.type=M)(build.type=I)))"
+		>
+			<rm:uri format="{0}/modeling/emft/mwe/updates/milestones">
+				<bc:propertyRef key="eclipse.download" />
+			</rm:uri>
+		</rm:provider>
+	</rm:searchPath>
+
+	<rm:searchPath name="emf">
+		<rm:provider componentTypes="eclipse.feature,osgi.bundle" readerType="p2" source="false" mutable="false"
+			resolutionFilter="(resolve.target.platform=true)"
+		>
+			<rm:uri format="{0}/modeling/emf/emf/updates/2.6milestones">
+				<bc:propertyRef key="eclipse.download" />
+			</rm:uri>
+		</rm:provider>
+	</rm:searchPath>
+
+	<rm:searchPath name="m2eclipse">
+		<rm:provider componentTypes="eclipse.feature,osgi.bundle" readerType="p2" source="false" mutable="false"
+			resolutionFilter="(resolve.target.platform=true)"
+		>
+			<rm:uri format="http://m2eclipse.sonatype.org/sites/m2e" />
+		</rm:provider>
+	</rm:searchPath>
+
+	<rm:searchPath name="orbit">
+		<rm:provider componentTypes="osgi.bundle,eclipse.feature" readerType="p2" source="false" mutable="false"
+			resolutionFilter="(resolve.target.platform=true)"
+		>
+			<rm:uri format="{0}/tools/orbit/downloads/drops/R20100519200754/updateSite">
+				<bc:propertyRef key="eclipse.download" />
+			</rm:uri>
+		</rm:provider>
+	</rm:searchPath>
+
+	<rm:searchPath name="platform">
+		<rm:provider componentTypes="osgi.bundle,eclipse.feature" readerType="p2" source="false" mutable="false"
+			resolutionFilter="(&amp;(resolve.target.platform=true)(build.type=M))"
+		>
+			<rm:uri format="{0}/eclipse/updates/3.6milestones">
+				<bc:propertyRef key="eclipse.download" />
+			</rm:uri>
+		</rm:provider>
+		<rm:provider componentTypes="osgi.bundle,eclipse.feature" readerType="p2" source="false" mutable="false"
+			resolutionFilter="(&amp;(resolve.target.platform=true)(build.type=I))"
+		>
+			<rm:uri format="{0}/eclipse/updates/3.6-I-builds">
+				<bc:propertyRef key="eclipse.download" />
+			</rm:uri>
+		</rm:provider>
+		<rm:provider componentTypes="osgi.bundle,eclipse.feature" readerType="p2" source="false" mutable="false"
+			resolutionFilter="(&amp;(resolve.target.platform=true)(build.type=R))"
+		>
+			<rm:uri format="{0}/eclipse/updates/3.6">
+				<bc:propertyRef key="eclipse.download" />
+			</rm:uri>
+		</rm:provider>
+	</rm:searchPath>
+
+	<rm:searchPath name="simultaneous.release">
+		<rm:provider componentTypes="osgi.bundle,eclipse.feature" readerType="p2" source="false" mutable="false"
+			resolutionFilter="(&amp;(resolve.target.platform=true)(|(build.type=M)(build.type=I)))"
+		>
+			<rm:uri format="{0}/releases/staging">
+				<bc:propertyRef key="eclipse.download" />
+			</rm:uri>
+		</rm:provider>
+		<rm:provider componentTypes="osgi.bundle,eclipse.feature" readerType="p2" source="false" mutable="false"
+			resolutionFilter="(&amp;(resolve.target.platform=true)(build.type=R))"
+		>
+			<rm:uri format="{0}/releases/indigo">
+				<bc:propertyRef key="eclipse.download" />
+			</rm:uri>
+		</rm:provider>
+	</rm:searchPath>
+
+	<rm:property key="source.repository.location" value="http://dev.eclipse.org/svnroot" />
+
+	<rm:property key="eclipse.download" value="http://download.eclipse.org" />
+
+	<rm:property key="resolve.target.platform" value="false" />
+	<rm:property key="build.type" value="R" />
 </rm:rmap>
