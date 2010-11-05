@@ -84,5 +84,9 @@
             <cs:attribute name="site.p2.zip" component="org.eclipse.b3.site.eclipse"/>
             <cs:attribute name="site.p2.zip" component="org.eclipse.b3.site.eclipse.headless"/>
         </cs:public>
+        <cs:public name="build">
+            <cs:attribute name="site.p2"/>
+            <cs:attribute name="promote" filter="(promote.sites=true)"/>
+        </cs:public>
     </cs:groups>
 </cs:cspec>
