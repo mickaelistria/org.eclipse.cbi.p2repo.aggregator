@@ -2774,15 +2774,15 @@ public interface B3backendPackage extends EPackage {
 		EDataType ITYPE_CONSTRAINT = eINSTANCE.getITypeConstraint();
 
 		/**
-		 * The meta object literal for the '<em>IType Constraint Expression</em>' data type.
+		 * The meta object literal for the '<em>IType Expression</em>' data type.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * 
-		 * @see org.eclipse.b3.backend.inference.ITypeConstraintExpression
-		 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getITypeConstraintExpression()
+		 * @see org.eclipse.b3.backend.inference.ITypeExpression
+		 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getITypeExpression()
 		 * @generated
 		 */
-		EDataType ITYPE_CONSTRAINT_EXPRESSION = eINSTANCE.getITypeConstraintExpression();
+		EDataType ITYPE_EXPRESSION = eINSTANCE.getITypeExpression();
 
 		/**
 		 * The meta object literal for the '<em>IType Scheme</em>' data type.
@@ -8390,15 +8390,15 @@ public interface B3backendPackage extends EPackage {
 	int ITYPE_CONSTRAINT = 124;
 
 	/**
-	 * The meta object id for the '<em>IType Constraint Expression</em>' data type.
+	 * The meta object id for the '<em>IType Expression</em>' data type.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
-	 * @see org.eclipse.b3.backend.inference.ITypeConstraintExpression
-	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getITypeConstraintExpression()
+	 * @see org.eclipse.b3.backend.inference.ITypeExpression
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getITypeExpression()
 	 * @generated
 	 */
-	int ITYPE_CONSTRAINT_EXPRESSION = 125;
+	int ITYPE_EXPRESSION = 125;
 
 	/**
 	 * The meta object id for the '<em>IType Scheme</em>' data type.
@@ -11421,19 +11421,6 @@ public interface B3backendPackage extends EPackage {
 	EDataType getITypeConstraint();
 
 	/**
-	 * Returns the meta object for data type '{@link org.eclipse.b3.backend.inference.ITypeConstraintExpression <em>IType Constraint Expression</em>}
-	 * '.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @return the meta object for data type '<em>IType Constraint Expression</em>'.
-	 * @see org.eclipse.b3.backend.inference.ITypeConstraintExpression
-	 * @model instanceClass="org.eclipse.b3.backend.inference.ITypeConstraintExpression" serializeable="false"
-	 * @generated
-	 */
-	EDataType getITypeConstraintExpression();
-
-	/**
 	 * Returns the meta object for class '{@link org.eclipse.b3.backend.evaluator.b3backend.ITypedValue <em>ITyped Value</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -11466,6 +11453,18 @@ public interface B3backendPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getITypedValueContainer();
+
+	/**
+	 * Returns the meta object for data type '{@link org.eclipse.b3.backend.inference.ITypeExpression <em>IType Expression</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for data type '<em>IType Expression</em>'.
+	 * @see org.eclipse.b3.backend.inference.ITypeExpression
+	 * @model instanceClass="org.eclipse.b3.backend.inference.ITypeExpression" serializeable="false"
+	 * @generated
+	 */
+	EDataType getITypeExpression();
 
 	/**
 	 * Returns the meta object for data type '{@link org.eclipse.b3.backend.inference.ITypeScheme <em>IType Scheme</em>}'.

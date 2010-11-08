@@ -413,9 +413,10 @@
       <eParameters name="typeScheme" eType="#//ITypeScheme"/>
       <eParameters name="parameterConstraints">
         <eGenericType eClassifier="#//JavaList">
-          <eTypeArguments eClassifier="#//ITypeConstraintExpression"/>
+          <eTypeArguments eClassifier="#//ITypeExpression"/>
         </eGenericType>
       </eParameters>
+      <eParameters name="producesConstraint" eType="#//ITypeExpression"/>
     </eOperations>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="BInstanceContext" eSuperTypes="#//BInnerContext">
@@ -725,7 +726,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="BTCLastLambda" eSuperTypes="#//BTypeCalculator"/>
   <eClassifiers xsi:type="ecore:EDataType" name="ITypeConstraint" instanceClassName="org.eclipse.b3.backend.inference.ITypeConstraint"
       serializable="false"/>
-  <eClassifiers xsi:type="ecore:EDataType" name="ITypeConstraintExpression" instanceClassName="org.eclipse.b3.backend.inference.ITypeConstraintExpression"
+  <eClassifiers xsi:type="ecore:EDataType" name="ITypeExpression" instanceClassName="org.eclipse.b3.backend.inference.ITypeExpression"
       serializable="false"/>
   <eClassifiers xsi:type="ecore:EDataType" name="ITypeScheme" instanceClassName="org.eclipse.b3.backend.inference.ITypeScheme"/>
   <eClassifiers xsi:type="ecore:EDataType" name="JavaList" instanceClassName="java.util.List"

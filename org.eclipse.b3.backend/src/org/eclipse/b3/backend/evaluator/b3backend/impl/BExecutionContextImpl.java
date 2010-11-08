@@ -329,7 +329,7 @@ public abstract class BExecutionContextImpl extends EObjectImpl implements BExec
 
 	/**
 	 * <!-- begin-user-doc -->
-	 * ProducesExpr an Outer-Inner pair with a delegating context between the inner, and 'this' context.
+	 * LambdaExpr an Outer-Inner pair with a delegating context between the inner, and 'this' context.
 	 * <!-- end-user-doc -->
 	 * 
 	 * @generated NOT

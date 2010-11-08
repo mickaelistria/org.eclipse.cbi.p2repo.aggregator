@@ -14,7 +14,7 @@ import java.util.List;
 /**
  * 
  */
-public interface ITypeConstraintExpression {
+public interface ITypeExpression {
 
 	/**
 	 * Apply the resolved type described by right to a type variable. Throws IllegalState if applied
@@ -23,7 +23,7 @@ public interface ITypeConstraintExpression {
 	 * @param right
 	 * @return
 	 */
-	public Type apply(ITypeConstraintExpression right);
+	public Type apply(ITypeExpression right);
 
 	/**
 	 * Returns true if this expression matches the expr, or if the expr is contained.
@@ -31,7 +31,7 @@ public interface ITypeConstraintExpression {
 	 * @param expr
 	 * @return
 	 */
-	public boolean contains(ITypeConstraintExpression expr);
+	public boolean contains(ITypeExpression expr);
 
 	/**
 	 * Rewrite this expression and the given expression into a list of simpler constraints
@@ -42,7 +42,7 @@ public interface ITypeConstraintExpression {
 	 * @throws IllegalArgumentException
 	 *             if this.isSameFunction(expr) == false
 	 */
-	public List<ITypeConstraint> eliminate(ITypeConstraintExpression expr);
+	public List<ITypeConstraint> eliminate(ITypeExpression expr);
 
 	/**
 	 * Constraint expressions that can represent a concrete instantiate type returns the type,
@@ -71,12 +71,12 @@ public interface ITypeConstraintExpression {
 	 * @param expr
 	 * @return
 	 */
-	public boolean isSameFunction(ITypeConstraintExpression expr);
+	public boolean isSameFunction(ITypeExpression expr);
 
 	/**
 	 * Return true if the two expressions express the same constraint.
 	 */
-	public boolean matches(ITypeConstraintExpression expr);
+	public boolean matches(ITypeExpression expr);
 
 	/**
 	 * If being a container of ConstraintExpr
@@ -86,7 +86,7 @@ public interface ITypeConstraintExpression {
 	 * @param toBeReplaced
 	 * @param replacement
 	 */
-	public void replace(ITypeConstraintExpression toBeReplaced, ITypeConstraintExpression replacement);
+	public void replace(ITypeExpression toBeReplaced, ITypeExpression replacement);
 
 	/**
 	 * Containers of ConstraintExpr resolves children.

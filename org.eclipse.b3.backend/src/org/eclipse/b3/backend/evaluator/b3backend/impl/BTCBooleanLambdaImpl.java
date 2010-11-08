@@ -25,7 +25,7 @@ import org.eclipse.b3.backend.evaluator.b3backend.BFunction;
 import org.eclipse.b3.backend.evaluator.b3backend.BTCBooleanLambda;
 import org.eclipse.b3.backend.evaluator.typesystem.TypeUtils;
 import org.eclipse.b3.backend.inference.ITypeConstraint;
-import org.eclipse.b3.backend.inference.ITypeConstraintExpression;
+import org.eclipse.b3.backend.inference.ITypeExpression;
 import org.eclipse.b3.backend.inference.ITypeScheme;
 import org.eclipse.emf.ecore.EClass;
 
@@ -57,21 +57,22 @@ public class BTCBooleanLambdaImpl extends BTCLastLambdaImpl implements BTCBoolea
 	 */
 	@Override
 	public List<ITypeConstraint> getConstraints(String funcName, BExpression expr, ITypeScheme typeScheme,
-			List<ITypeConstraintExpression> parameterConstraints) {
+			List<ITypeExpression> parameterConstraints, ITypeExpression producesConstraint) {
 		List<ITypeConstraint> result = Lists.newArrayList();
 		if(parameterConstraints.size() < 2)
 			return result; // give up - this bad case should not have happened
 
-		ITypeConstraintExpression any = typeScheme.type(Any.class);
+		ITypeExpression any = typeScheme.type(Any.class);
 
-		ITypeConstraintExpression[] exprs = new ITypeConstraintExpression[parameterConstraints.size()];
+		ITypeExpression[] exprs = new ITypeExpression[parameterConstraints.size()];
 		exprs[0] = parameterConstraints.get(0);
-		// TODO: add support in typeScheme
-		ITypeConstraintExpression curryConstraint = null; // typeScheme.genericArgument(exprs[0]);
+		// curryConstraint is the generic type argument 0 for exprs[0] (i.e. the generic arg of an iterator
+		// iterateable etc.
+		ITypeExpression curryConstraint = typeScheme.generic(0, exprs[0]);
 		int lambdaArgsCount = parameterConstraints.size() - 2;
 		if(lambdaArgsCount == 0)
 			lambdaArgsCount = 1;
-		ITypeConstraintExpression[] lambdaConstraints = new ITypeConstraintExpression[lambdaArgsCount];
+		ITypeExpression[] lambdaConstraints = new ITypeExpression[lambdaArgsCount];
 		if(lambdaArgsCount == 1)
 			lambdaConstraints[0] = curryConstraint;
 		else
@@ -80,8 +81,8 @@ public class BTCBooleanLambdaImpl extends BTCLastLambdaImpl implements BTCBoolea
 				if(lambdaConstraints[i].matches(any))
 					lambdaConstraints[i] = curryConstraint;
 			}
-		exprs[exprs.length - 1] = typeScheme.produces(typeScheme.type(Boolean.class), lambdaConstraints);
-		result.add(typeScheme.constraint(typeScheme.variable(expr), typeScheme.function(funcName, expr, exprs)));
+		exprs[exprs.length - 1] = typeScheme.lambda(typeScheme.type(Boolean.class), lambdaConstraints);
+		result.add(typeScheme.constraint(typeScheme.variable(expr), typeScheme.select(funcName, expr, exprs)));
 		return result;
 	}
 

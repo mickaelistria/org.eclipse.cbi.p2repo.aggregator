@@ -18,7 +18,7 @@ import org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage;
 import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BTypeCalculator;
 import org.eclipse.b3.backend.inference.ITypeConstraint;
-import org.eclipse.b3.backend.inference.ITypeConstraintExpression;
+import org.eclipse.b3.backend.inference.ITypeExpression;
 import org.eclipse.b3.backend.inference.ITypeScheme;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
@@ -53,7 +53,7 @@ public abstract class BTypeCalculatorImpl extends EObjectImpl implements BTypeCa
 	 * @generated NOT
 	 */
 	public List<ITypeConstraint> getConstraints(String funcName, BExpression expr, ITypeScheme typeScheme,
-			List<ITypeConstraintExpression> parameterConstraints) {
+			List<ITypeExpression> parameterConstraints, ITypeExpression producesConstraint) {
 		return Lists.newArrayList();
 	}
 

@@ -31,7 +31,7 @@ import org.eclipse.b3.backend.evaluator.B3FuncStore;
 import org.eclipse.b3.backend.evaluator.ValueMap;
 import org.eclipse.b3.backend.evaluator.b3backend.*;
 import org.eclipse.b3.backend.inference.ITypeConstraint;
-import org.eclipse.b3.backend.inference.ITypeConstraintExpression;
+import org.eclipse.b3.backend.inference.ITypeExpression;
 import org.eclipse.b3.backend.inference.ITypeScheme;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
@@ -1312,17 +1312,6 @@ public class B3backendValidator extends EObjectValidator {
 	 * 
 	 * @generated
 	 */
-	public boolean validateITypeConstraintExpression(ITypeConstraintExpression iTypeConstraintExpression,
-			DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return true;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
 	public boolean validateITypedValue(ITypedValue iTypedValue, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return validate_EveryDefaultConstraint(iTypedValue, diagnostics, context);
 	}
@@ -1336,6 +1325,17 @@ public class B3backendValidator extends EObjectValidator {
 	public boolean validateITypedValueContainer(ITypedValueContainer iTypedValueContainer, DiagnosticChain diagnostics,
 			Map<Object, Object> context) {
 		return validate_EveryDefaultConstraint(iTypedValueContainer, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public boolean validateITypeExpression(ITypeExpression iTypeExpression, DiagnosticChain diagnostics,
+			Map<Object, Object> context) {
+		return true;
 	}
 
 	/**
@@ -1818,8 +1818,8 @@ public class B3backendValidator extends EObjectValidator {
 				return validateRadixInteger((IntegerWithRadix) value, diagnostics, context);
 			case B3backendPackage.ITYPE_CONSTRAINT:
 				return validateITypeConstraint((ITypeConstraint) value, diagnostics, context);
-			case B3backendPackage.ITYPE_CONSTRAINT_EXPRESSION:
-				return validateITypeConstraintExpression((ITypeConstraintExpression) value, diagnostics, context);
+			case B3backendPackage.ITYPE_EXPRESSION:
+				return validateITypeExpression((ITypeExpression) value, diagnostics, context);
 			case B3backendPackage.ITYPE_SCHEME:
 				return validateITypeScheme((ITypeScheme) value, diagnostics, context);
 			case B3backendPackage.JAVA_LIST:

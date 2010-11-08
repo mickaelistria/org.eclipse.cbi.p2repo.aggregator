@@ -13,7 +13,7 @@ import java.lang.reflect.Type;
 import java.util.List;
 
 import org.eclipse.b3.backend.inference.ITypeConstraint;
-import org.eclipse.b3.backend.inference.ITypeConstraintExpression;
+import org.eclipse.b3.backend.inference.ITypeExpression;
 import org.eclipse.b3.backend.inference.ITypeScheme;
 import org.eclipse.emf.ecore.EObject;
 
@@ -36,12 +36,12 @@ public interface BTypeCalculator extends EObject {
 	 * 
 	 * @model dataType="org.eclipse.b3.backend.evaluator.b3backend.JavaList<org.eclipse.b3.backend.evaluator.b3backend.ITypeConstraint>" many="false"
 	 *        typeSchemeDataType="org.eclipse.b3.backend.evaluator.b3backend.ITypeScheme" parameterConstraintsDataType=
-	 *        "org.eclipse.b3.backend.evaluator.b3backend.JavaList<org.eclipse.b3.backend.evaluator.b3backend.ITypeConstraintExpression>"
-	 *        parameterConstraintsMany="false"
+	 *        "org.eclipse.b3.backend.evaluator.b3backend.JavaList<org.eclipse.b3.backend.evaluator.b3backend.ITypeExpression>"
+	 *        parameterConstraintsMany="false" producesConstraintDataType="org.eclipse.b3.backend.evaluator.b3backend.ITypeExpression"
 	 * @generated
 	 */
 	List<ITypeConstraint> getConstraints(String funcName, BExpression expr, ITypeScheme typeScheme,
-			List<ITypeConstraintExpression> parameterConstraints);
+			List<ITypeExpression> parameterConstraints, ITypeExpression producesConstraint);
 
 	/**
 	 * <!-- begin-user-doc -->

@@ -22,6 +22,8 @@ public interface ITypeConstraintSolver {
 
 	public final static int NOT_UNITABLE = 2;
 
+	public final static int TOO_MANY_ITERATIONS = 3;
+
 	/**
 	 * Add a single constraint to the set of constraint to solve. May be added in the middle of solving
 	 * if new constraints are discovered.

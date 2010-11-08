@@ -723,7 +723,7 @@ public class TypeUtils {
 	}
 
 	/**
-	 * ProducesExpr a B3Type with the defaultInference flag set to true. This distinguishes this
+	 * LambdaExpr a B3Type with the defaultInference flag set to true. This distinguishes this
 	 * Object.class from a declared Object.class type, thus allowing type inference to replace it with
 	 * a better (non-local) inference.
 	 * 

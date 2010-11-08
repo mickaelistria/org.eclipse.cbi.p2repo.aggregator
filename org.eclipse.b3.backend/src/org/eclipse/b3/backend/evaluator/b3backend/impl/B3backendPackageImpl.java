@@ -128,7 +128,7 @@ import org.eclipse.b3.backend.evaluator.b3backend.IVarName;
 import org.eclipse.b3.backend.evaluator.b3backend.Visibility;
 import org.eclipse.b3.backend.evaluator.b3backend.util.B3backendValidator;
 import org.eclipse.b3.backend.inference.ITypeConstraint;
-import org.eclipse.b3.backend.inference.ITypeConstraintExpression;
+import org.eclipse.b3.backend.inference.ITypeExpression;
 import org.eclipse.b3.backend.inference.ITypeScheme;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
@@ -1161,7 +1161,7 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	 * 
 	 * @generated
 	 */
-	private EDataType iTypeConstraintExpressionEDataType = null;
+	private EDataType iTypeExpressionEDataType = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -1650,7 +1650,7 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 		injectorEDataType = createEDataType(INJECTOR);
 		radixIntegerEDataType = createEDataType(RADIX_INTEGER);
 		iTypeConstraintEDataType = createEDataType(ITYPE_CONSTRAINT);
-		iTypeConstraintExpressionEDataType = createEDataType(ITYPE_CONSTRAINT_EXPRESSION);
+		iTypeExpressionEDataType = createEDataType(ITYPE_EXPRESSION);
 		iTypeSchemeEDataType = createEDataType(ITYPE_SCHEME);
 		javaListEDataType = createEDataType(JAVA_LIST);
 	}
@@ -4141,16 +4141,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	 * 
 	 * @generated
 	 */
-	public EDataType getITypeConstraintExpression() {
-		return iTypeConstraintExpressionEDataType;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
 	public EClass getITypedValue() {
 		return iTypedValueEClass;
 	}
@@ -4173,6 +4163,16 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	 */
 	public EClass getITypedValueContainer() {
 		return iTypedValueContainerEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EDataType getITypeExpression() {
+		return iTypeExpressionEDataType;
 	}
 
 	/**
@@ -5190,9 +5190,10 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 		addEParameter(op, this.getBExpression(), "expr", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getITypeScheme(), "typeScheme", 0, 1, IS_UNIQUE, IS_ORDERED);
 		g1 = createEGenericType(this.getJavaList());
-		g2 = createEGenericType(this.getITypeConstraintExpression());
+		g2 = createEGenericType(this.getITypeExpression());
 		g1.getETypeArguments().add(g2);
 		addEParameter(op, g1, "parameterConstraints", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getITypeExpression(), "producesConstraint", 0, 1, IS_UNIQUE, IS_ORDERED);
 		g1 = createEGenericType(this.getJavaList());
 		g2 = createEGenericType(this.getITypeConstraint());
 		g1.getETypeArguments().add(g2);
@@ -5750,8 +5751,8 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 			iTypeConstraintEDataType, ITypeConstraint.class, "ITypeConstraint", !IS_SERIALIZABLE,
 			!IS_GENERATED_INSTANCE_CLASS);
 		initEDataType(
-			iTypeConstraintExpressionEDataType, ITypeConstraintExpression.class, "ITypeConstraintExpression",
-			!IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
+			iTypeExpressionEDataType, ITypeExpression.class, "ITypeExpression", !IS_SERIALIZABLE,
+			!IS_GENERATED_INSTANCE_CLASS);
 		initEDataType(
 			iTypeSchemeEDataType, ITypeScheme.class, "ITypeScheme", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 		initEDataType(javaListEDataType, List.class, "JavaList", !IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);

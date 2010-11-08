@@ -24,7 +24,7 @@ import org.eclipse.b3.backend.evaluator.b3backend.BFunction;
 import org.eclipse.b3.backend.evaluator.b3backend.BTCLastLambda;
 import org.eclipse.b3.backend.evaluator.typesystem.TypeUtils;
 import org.eclipse.b3.backend.inference.ITypeConstraint;
-import org.eclipse.b3.backend.inference.ITypeConstraintExpression;
+import org.eclipse.b3.backend.inference.ITypeExpression;
 import org.eclipse.b3.backend.inference.ITypeScheme;
 import org.eclipse.emf.ecore.EClass;
 
@@ -51,27 +51,24 @@ public class BTCLastLambdaImpl extends BTypeCalculatorImpl implements BTCLastLam
 	}
 
 	/*
-	 * (non-Javadoc)
 	 * 
-	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.BTypeCalculatorImpl#getConstraints(java.lang.String,
-	 * org.eclipse.b3.backend.evaluator.b3backend.BExpression, org.eclipse.b3.backend.inference.ITypeScheme, java.util.List)
 	 */
 	@Override
-	public List<ITypeConstraint> getConstraints(String funcName, BExpression expr, ITypeScheme typeScheme,
-			List<ITypeConstraintExpression> parameterConstraints) {
+	public List<ITypeConstraint> getConstraints(String funcName, BExpression scope, ITypeScheme typeScheme,
+			List<ITypeExpression> parameterConstraints, ITypeExpression lhs) {
 		final List<ITypeConstraint> result = Lists.newArrayList();
 		if(parameterConstraints.size() < 2)
 			return result; // give up - this bad case should not have happened
 
-		final ITypeConstraintExpression any = typeScheme.type(Any.class);
+		final ITypeExpression any = typeScheme.type(Any.class);
 
-		ITypeConstraintExpression[] exprs = new ITypeConstraintExpression[parameterConstraints.size()];
+		ITypeExpression[] exprs = new ITypeExpression[parameterConstraints.size()];
 		exprs[0] = parameterConstraints.get(0);
 
-		// TODO: add support in typeScheme for generic
-		ITypeConstraintExpression curryConstraint = null; // typeScheme.genericArgument(exprs[0]);
+		// The '_' in the parameters (or auto curry) is the generic type argument 0 of what exprs[0] resolve to
+		ITypeExpression curryConstraint = typeScheme.generic(0, exprs[0]);
 		final int lambdaArgsCount = parameterConstraints.size() - 2;
-		ITypeConstraintExpression[] lambdaConstraints = new ITypeConstraintExpression[lambdaArgsCount == 0
+		ITypeExpression[] lambdaConstraints = new ITypeExpression[lambdaArgsCount == 0
 				? 1
 				: lambdaArgsCount];
 		if(lambdaArgsCount == 0)
@@ -83,9 +80,11 @@ public class BTCLastLambdaImpl extends BTypeCalculatorImpl implements BTCLastLam
 				if(lambdaConstraints[i].matches(any))
 					lambdaConstraints[i] = curryConstraint;
 			}
-		// lambda is last (lambda args)=>Boolean
-		exprs[exprs.length - 1] = typeScheme.produces(typeScheme.type(Boolean.class), lambdaConstraints);
-		result.add(typeScheme.constraint(typeScheme.variable(expr), typeScheme.function(funcName, expr, exprs)));
+		// lambda is last (lambda args)=>σ
+		ITypeExpression product = typeScheme.product(parameterConstraints.get(parameterConstraints.size() - 1));
+		exprs[exprs.length - 1] = typeScheme.lambda(product, lambdaConstraints);
+		// result.add(typeScheme.constraint(typeScheme.variable(expr), typeScheme.select(funcName, expr, exprs)));
+		result.add(typeScheme.constraint(lhs, typeScheme.select(funcName, product, scope, exprs)));
 		return result;
 	}
 

@@ -18,8 +18,15 @@ import java.util.Set;
 import org.eclipse.b3.backend.core.IStringProvider;
 import org.eclipse.b3.backend.core.adapters.TypeAdapter;
 import org.eclipse.b3.backend.core.adapters.TypeAdapterFactory;
+import org.eclipse.b3.backend.evaluator.b3backend.B3backendFactory;
+import org.eclipse.b3.backend.evaluator.b3backend.BDefValue;
+import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
+import org.eclipse.b3.backend.evaluator.b3backend.BTCBooleanLambda;
+import org.eclipse.b3.backend.evaluator.b3backend.BTCFirstLambda;
+import org.eclipse.b3.backend.evaluator.b3backend.BTCLastLambda;
 import org.eclipse.b3.backend.evaluator.b3backend.INamedValue;
 import org.eclipse.b3.backend.evaluator.b3backend.impl.BTCNumberImpl;
+import org.eclipse.b3.backend.evaluator.typesystem.TypeUtils;
 import org.eclipse.emf.ecore.EObject;
 
 import com.google.common.collect.Lists;
@@ -27,18 +34,63 @@ import com.google.common.collect.Sets;
 import com.google.inject.Inject;
 
 /**
- * Implementation of Type Constraint interfaces.
+ * Implementation of Type Expression interfaces.
  * 
  */
 public class TypeScheme implements ITypeScheme {
 
-	protected abstract class ConstraintExpr implements ITypeConstraintExpression {
+	/**
+	 * Abstract base class for type expressions that are or can be resolved to a concrete instance of Type.
+	 * 
+	 */
+	protected abstract class AbstractTypeExpr extends ConstraintExpr {
+		private Type type;
 
-		public Type apply(ITypeConstraintExpression right) {
-			throw new UnsupportedOperationException("apply on non identifier");
+		@Override
+		public Type getType() {
+			return type;
 		}
 
-		public boolean contains(ITypeConstraintExpression expr) {
+		@Override
+		public boolean isResolved() {
+			return type != null;
+		}
+
+		@Override
+		public boolean matches(ITypeExpression expr) {
+			// TODO: possibly compare using just getType()
+			if(!(expr instanceof AbstractTypeExpr))
+				return false;
+			AbstractTypeExpr otherExpr = (AbstractTypeExpr) expr;
+			if(type == null && otherExpr.type != null)
+				return false;
+			return type.equals(otherExpr.type);
+		}
+
+		/**
+		 * Prints instantiated type in short form (as decided by the stringProvider).
+		 */
+		@Override
+		public String toString() {
+			return stringProvider.doToString(type);
+		}
+
+		protected void setType(Type t) {
+			type = t;
+		}
+
+	}
+
+	/**
+	 * Abstract implementation of ITypeExpression.
+	 */
+	protected abstract class ConstraintExpr implements ITypeExpression {
+
+		public Type apply(ITypeExpression right) {
+			throw new UnsupportedOperationException("apply on non identifier of type: " + getClass());
+		}
+
+		public boolean contains(ITypeExpression expr) {
 			return matches(expr);
 		}
 
@@ -46,9 +98,9 @@ public class TypeScheme implements ITypeScheme {
 		 * Throws UnsupportedOperationException - classes returning true on isSameFunction must implement
 		 * this method.
 		 */
-		public List<ITypeConstraint> eliminate(ITypeConstraintExpression expr) {
+		public List<ITypeConstraint> eliminate(ITypeExpression expr) {
 			throw new UnsupportedOperationException(
-				"TypeFunction should have implemented this, illegal call for others.");
+				"A Function Type Expression  should have implemented this, illegal call for others.");
 		}
 
 		public Type getType() {
@@ -62,6 +114,9 @@ public class TypeScheme implements ITypeScheme {
 			return false;
 		}
 
+		/**
+		 * This default implementation returns true.
+		 */
 		public boolean isResolvable() {
 			return true;
 		}
@@ -70,571 +125,44 @@ public class TypeScheme implements ITypeScheme {
 
 		/**
 		 * This implementation returns false. Derived classes that represent functions should return if
-		 * it both functions represent the same thing - i.e. same function (produces, etc) and have the same
+		 * it and the given expr both represent the same function - i.e. same function (product, etc) and have the same
 		 * arity (same number of parameters).
 		 */
-		public boolean isSameFunction(ITypeConstraintExpression expr) {
+		public boolean isSameFunction(ITypeExpression expr) {
 			return false;
 		}
 
-		public abstract boolean matches(ITypeConstraintExpression expr);
+		public abstract boolean matches(ITypeExpression expr);
 
-		public void replace(ITypeConstraintExpression toBeReplaced, ITypeConstraintExpression replacement) {
+		/**
+		 * This default implementation does nothing.
+		 */
+		public void replace(ITypeExpression toBeReplaced, ITypeExpression replacement) {
 			// do nothing
 		}
 
+		/**
+		 * This default implementation returns an empty list.
+		 */
 		public List<ITypeConstraint> resolve() {
 			return Lists.newArrayList();
 		}
 	}
 
 	/**
-	 * A concrete type statement e.g. Integer.class
-	 */
-	protected class ExplicitTypeConstraintExpr extends TypeConstraintExpr {
-		public ExplicitTypeConstraintExpr(Type t) {
-			setType(t);
-		}
-
-		/**
-		 * Reverses the assignment in case a constraint is in the reverse i.e. (Integer.class = a)
-		 */
-		@Override
-		public Type apply(ITypeConstraintExpression right) {
-			if(right instanceof ExplicitTypeConstraintExpr) {
-				if(!right.getType().equals(this.getType()))
-					throw new IllegalStateException("TYPE == TYPE constraint found where types differ!");
-				// not meaningful to apply this... it is sort of a surprising result, but should have been
-				// eliminated from a solution - better safe and throw an exception.
-				// Well, this is actually called when initializing a constraint, Maybe it should not do that...
-				// TODO: Consider the above...
-				// throw new IllegalStateException("Attempt to apply TYPE x  == TYPE x - meaningsless");
-				return getType();
-			}
-			return right.apply(this);
-		}
-
-		@Override
-		public boolean isIdentifier() {
-			return true;
-		}
-
-		@Override
-		public boolean isResolved() {
-			return true;
-		}
-
-		@Override
-		public boolean matches(ITypeConstraintExpression expr) {
-			return expr instanceof ExplicitTypeConstraintExpr &&
-					((ExplicitTypeConstraintExpr) expr).getType().equals(getType());
-		}
-
-	}
-
-	/**
-	 * A generic arg constraint i.e ?<Integer> - i.e. any base class as long as the generic arg is
-	 * a particular class.
-	 */
-	protected class GenericTypeArgConstraintExpr extends TypeConstraintExpr {
-		public GenericTypeArgConstraintExpr(Type t) {
-			setType(t);
-		}
-
-		/**
-		 * Reverses the assignment in case a constraint is in the reverse i.e. (Integer.class = a)
-		 */
-		@Override
-		public Type apply(ITypeConstraintExpression right) {
-			if(right instanceof ExplicitTypeConstraintExpr) {
-				if(!right.getType().equals(this.getType()))
-					throw new IllegalStateException("TYPE == TYPE constraint found where types differ!");
-				// not meaningful to apply this... it is sort of a surprising result, but should have been
-				// eliminated from a solution - better safe and throw an exception.
-				// Well, this is actually called when initializing a constraint, Maybe it should not do that...
-				// TODO: Consider the above...
-				// throw new IllegalStateException("Attempt to apply TYPE x  == TYPE x - meaningsless");
-				return getType();
-			}
-			return right.apply(this);
-		}
-
-		@Override
-		public boolean isIdentifier() {
-			return true;
-		}
-
-		@Override
-		public boolean isResolved() {
-			return true;
-		}
-
-		@Override
-		public boolean matches(ITypeConstraintExpression expr) {
-			return expr instanceof ExplicitTypeConstraintExpr &&
-					((ExplicitTypeConstraintExpr) expr).getType().equals(getType());
-		}
-
-	}
-
-	/**
-	 * Selects a function based on type of parameters. Result may introduce a new type constraint.
-	 * When resolved, behaves like an ExplicitTypeConstraintExpr.
+	 * A ConstraintStatement describes that the right ConstraintExpr should be assignable to the left.
 	 * 
 	 */
-	protected class GenericTypeArgExpr extends TypeConstraintExpr {
+	protected class ConstraintStatement implements ITypeConstraint {
 
-		private ITypeConstraintExpression baseTypeConstraint;
+		private ITypeExpression left;
 
-		private int genericArgIndex;
+		private ITypeExpression right;
 
-		public GenericTypeArgExpr(ITypeConstraintExpression constraint) {
-			baseTypeConstraint = constraint;
-			genericArgIndex = 0;
+		public ConstraintStatement() {
 		}
 
-		public GenericTypeArgExpr(ITypeConstraintExpression constraint, int index) {
-			baseTypeConstraint = constraint;
-			genericArgIndex = index;
-		}
-
-		@Override
-		public boolean contains(ITypeConstraintExpression expr) {
-			return baseTypeConstraint.matches(expr) || baseTypeConstraint.contains(expr);
-		}
-
-		@Override
-		public List<ITypeConstraint> eliminate(ITypeConstraintExpression expr) {
-			if(!isSameFunction(expr))
-				throw new IllegalArgumentException("Not an equivalent function");
-
-			// eliminate generic(n, A), generic(n, B) => A = B
-			GenericTypeArgExpr otherExpr = (GenericTypeArgExpr) expr;
-			List<ITypeConstraint> result = Lists.newArrayList();
-			result.add(new TypeConstraint(baseTypeConstraint, otherExpr.baseTypeConstraint));
-			return result;
-		}
-
-		@Override
-		public boolean isIdentifier() {
-			return isResolved();
-		}
-
-		@Override
-		public boolean isResolvable() {
-			if(isResolved())
-				return true;
-			ITypeConstraintExpression t = baseTypeConstraint;
-			if(!((t.isIdentifier() && t.isResolved()) || (!t.isIdentifier() && t.isResolvable())))
-				return false;
-
-			return true;
-		}
-
-		@Override
-		public boolean isSameFunction(ITypeConstraintExpression expr) {
-			if(!(expr instanceof GenericTypeArgExpr))
-				return false;
-			GenericTypeArgExpr otherExpr = (GenericTypeArgExpr) expr;
-			if(genericArgIndex != otherExpr.genericArgIndex)
-				return false;
-			return true;
-		}
-
-		@Override
-		public boolean matches(ITypeConstraintExpression expr) {
-			if(isResolved()) {
-				if(expr.isResolved()) {
-					Type otherType = expr.getType();
-					if(!(otherType instanceof ParameterizedType))
-						return false;
-					ParameterizedType pt = (ParameterizedType) otherType;
-					Type[] args = pt.getActualTypeArguments();
-					if(args.length <= genericArgIndex)
-						return false;
-
-					// match if T equals ?<,,,,U,,,,>
-					return getType().equals(args[genericArgIndex]);
-				}
-			}
-			if(!(expr instanceof GenericTypeArgExpr))
-				return false;
-			GenericTypeArgExpr otherExpr = (GenericTypeArgExpr) expr;
-
-			if(genericArgIndex != otherExpr.genericArgIndex)
-				return false;
-			if(!baseTypeConstraint.matches(otherExpr.baseTypeConstraint))
-				return false;
-			return true;
-		}
-
-		@Override
-		public void replace(ITypeConstraintExpression toBeReplaced, ITypeConstraintExpression replacement) {
-			if(baseTypeConstraint.matches(toBeReplaced))
-				baseTypeConstraint = replacement;
-		}
-
-		/**
-		 * Calls resolve on the parameters, and then internalResolve - which subclasses of this factory
-		 * and this constraint expression can override.
-		 */
-		@Override
-		public List<ITypeConstraint> resolve() {
-			if(isResolved())
-				return Lists.newArrayList();
-			List<ITypeConstraint> result = baseTypeConstraint.resolve();
-			if(baseTypeConstraint.isResolved()) {
-				Type t = baseTypeConstraint.getType();
-				if(t instanceof ParameterizedType) {
-					ParameterizedType bp = (ParameterizedType) t;
-					Type[] typeargs = bp.getActualTypeArguments();
-					if(genericArgIndex < typeargs.length)
-						setType(typeargs[genericArgIndex]);
-				}
-			}
-			return result;
-		}
-
-		@Override
-		public String toString() {
-			StringBuffer buf = new StringBuffer();
-			if(isResolved())
-				buf.append("RESOLVED[");
-			buf.append("generic(");
-			buf.append(genericArgIndex);
-			buf.append(", ");
-			buf.append(baseTypeConstraint.toString());
-			buf.append(")");
-			if(isResolved()) {
-				buf.append("]=>");
-				buf.append(stringProvider.doToString(getType()));
-			}
-			return buf.toString();
-
-		}
-	}
-
-	/**
-	 * A type production statement e.g. (ß,∂,...)=>µ
-	 * 
-	 */
-	protected class ProducesExpr extends ConstraintExpr {
-		private List<ITypeConstraintExpression> given;
-
-		private ITypeConstraintExpression produces;
-
-		public ProducesExpr(ConstraintExpr given, ITypeConstraintExpression produces) {
-			this.given = Lists.newArrayList();
-			this.given.add(given);
-			this.produces = produces;
-		}
-
-		public ProducesExpr(ITypeConstraintExpression[] given, ITypeConstraintExpression produces) {
-			this.given = Arrays.asList(given);
-			this.produces = produces;
-		}
-
-		public ProducesExpr(List<ITypeConstraintExpression> given, ITypeConstraintExpression produces) {
-			this.given = given;
-			this.produces = produces;
-		}
-
-		@Override
-		public boolean contains(ITypeConstraintExpression expr) {
-			if(!produces.contains(expr))
-				return false;
-			for(ITypeConstraintExpression e : given)
-				if(!e.contains(expr))
-					return false;
-			return super.contains(expr);
-		}
-
-		@Override
-		public List<ITypeConstraint> eliminate(ITypeConstraintExpression expr) {
-			if(!isSameFunction(expr))
-				throw new IllegalArgumentException("Not an equivalent function");
-			ProducesExpr otherExpr = (ProducesExpr) expr;
-			List<ITypeConstraint> result = Lists.newArrayList();
-			result.add(new TypeConstraint(produces, otherExpr.produces));
-			for(int i = 0; i < given.size(); i++)
-				result.add(new TypeConstraint(given.get(i), otherExpr.given.get(i)));
-			return result;
-		}
-
-		/**
-		 * Returns the type of what is produced
-		 */
-		@Override
-		public Type getType() {
-			return produces.getType();
-		}
-
-		@Override
-		public boolean isResolvable() {
-			if(!produces.isResolvable())
-				return false;
-			for(ITypeConstraintExpression e : given)
-				if(!e.isResolvable())
-					return false;
-			return true;
-		}
-
-		@Override
-		public boolean isResolved() {
-			if(!produces.isResolved())
-				return false;
-			for(ITypeConstraintExpression e : given)
-				if(!e.isResolved())
-					return false;
-			return true;
-		}
-
-		@Override
-		public boolean isSameFunction(ITypeConstraintExpression expr) {
-			if(!(expr instanceof ProducesExpr))
-				return false;
-			ProducesExpr otherExpr = (ProducesExpr) expr;
-			if(given.size() != otherExpr.given.size())
-				return false;
-			return true;
-		}
-
-		@Override
-		public boolean matches(ITypeConstraintExpression expr) {
-			if(!(expr instanceof ProducesExpr))
-				return false;
-			ProducesExpr otherExpr = (ProducesExpr) expr;
-			if(!produces.matches(otherExpr))
-				return false;
-			if(given.size() != otherExpr.given.size())
-				return false;
-			for(int i = 0; i < given.size(); i++)
-				if(!given.get(i).matches(otherExpr.given.get(i)))
-					return false;
-			return true;
-		}
-
-		@Override
-		public void replace(ITypeConstraintExpression toBeReplaced, ITypeConstraintExpression replacement) {
-			if(produces.matches(toBeReplaced))
-				produces = replacement;
-			for(int i = 0; i < given.size(); i++)
-				if(given.get(i).matches(toBeReplaced))
-					given.set(i, replacement);
-		}
-
-		@Override
-		public List<ITypeConstraint> resolve() {
-			List<ITypeConstraint> result = produces.resolve();
-			for(ITypeConstraintExpression e : given)
-				result.addAll(e.resolve());
-			return result;
-		}
-
-		@Override
-		public String toString() {
-			StringBuffer buf = new StringBuffer();
-			buf.append("(");
-			boolean first = true;
-			for(ITypeConstraintExpression e : given) {
-				if(first)
-					first = false;
-				else
-					buf.append(", ");
-				buf.append(stringProvider.doToString(e));
-			}
-			buf.append(")=>");
-			buf.append(stringProvider.doToString(produces));
-			return buf.toString();
-		}
-	}
-
-	/**
-	 * Selects a function based on type of parameters. Result may introduce a new type constraint.
-	 * When resolved, behaves like an ExplicitTypeConstraintExpr.
-	 * 
-	 */
-	protected class SelectFunctionExpr extends TypeConstraintExpr {
-		private String functionName;
-
-		private List<ITypeConstraintExpression> parameterTypes;
-
-		private EObject scope; // used when finding a function
-
-		/**
-		 * @param funcName
-		 * @param scope2
-		 * @param constraintExpressions
-		 */
-		public SelectFunctionExpr(String funcName, EObject aScope, ITypeConstraintExpression[] constraintExpressions) {
-			this(funcName, aScope, Arrays.asList(constraintExpressions));
-		}
-
-		public SelectFunctionExpr(String functionName, EObject scope, List<ITypeConstraintExpression> parameterTypes) {
-			this.functionName = functionName;
-			this.scope = scope;
-			this.parameterTypes = parameterTypes;
-		}
-
-		@Override
-		public boolean contains(ITypeConstraintExpression expr) {
-			for(ITypeConstraintExpression e : parameterTypes)
-				if(e.contains(expr))
-					return true;
-			return false; // was super.contains(expr)
-		}
-
-		@Override
-		public List<ITypeConstraint> eliminate(ITypeConstraintExpression expr) {
-			if(!isSameFunction(expr))
-				throw new IllegalArgumentException("Not an equivalent function");
-			SelectFunctionExpr otherExpr = (SelectFunctionExpr) expr;
-			List<ITypeConstraint> result = Lists.newArrayList();
-			for(int i = 0; i < parameterTypes.size(); i++)
-				result.add(new TypeConstraint(parameterTypes.get(i), otherExpr.parameterTypes.get(i)));
-			return result;
-		}
-
-		@Override
-		public boolean isIdentifier() {
-			return isResolved();
-		}
-
-		@Override
-		public boolean isResolvable() {
-			if(isResolved())
-				return true;
-			for(ITypeConstraintExpression t : parameterTypes) {
-				if(!((t.isIdentifier() && t.isResolved()) || (!t.isIdentifier() && t.isResolvable())))
-					return false;
-			}
-			return true;
-		}
-
-		@Override
-		public boolean isSameFunction(ITypeConstraintExpression expr) {
-			if(!(expr instanceof SelectFunctionExpr))
-				return false;
-			SelectFunctionExpr otherExpr = (SelectFunctionExpr) expr;
-			if(!functionName.equals(otherExpr.functionName))
-				return false;
-			if(parameterTypes.size() != otherExpr.parameterTypes.size())
-				return false;
-			return true;
-		}
-
-		@Override
-		public boolean matches(ITypeConstraintExpression expr) {
-			if(isResolved()) {
-				if(expr.isResolved())
-					return getType().equals(expr.getType());
-			}
-			if(!(expr instanceof SelectFunctionExpr))
-				return false;
-			SelectFunctionExpr otherExpr = (SelectFunctionExpr) expr;
-
-			if(!functionName.equals(otherExpr.functionName))
-				return false;
-			if(!constraintMatch(parameterTypes, otherExpr.parameterTypes))
-				return false;
-			return true;
-		}
-
-		@Override
-		public void replace(ITypeConstraintExpression toBeReplaced, ITypeConstraintExpression replacement) {
-			for(int i = 0; i < parameterTypes.size(); i++)
-				if(parameterTypes.get(i).matches(toBeReplaced))
-					parameterTypes.set(i, replacement);
-		}
-
-		/**
-		 * Calls resolve on the parameters, and then internalResolve - which subclasses of this factory
-		 * and this constraint expression can override.
-		 */
-		@Override
-		public List<ITypeConstraint> resolve() {
-			List<ITypeConstraint> result = Lists.newArrayList();
-			if(isResolved())
-				return result;
-			for(ITypeConstraintExpression e : parameterTypes)
-				result.addAll(e.resolve());
-
-			result.addAll(internalResolve());
-			return result;
-		}
-
-		@Override
-		public String toString() {
-			StringBuffer buf = new StringBuffer();
-			if(isResolved())
-				buf.append("RESOLVED[");
-			buf.append("select('" + functionName + "'");
-			for(ITypeConstraintExpression e : parameterTypes) {
-				buf.append(", ");
-				buf.append(stringProvider.doToString(e));
-			}
-			buf.append(")");
-			if(isResolved()) {
-				buf.append("]=>");
-				buf.append(stringProvider.doToString(getType()));
-			}
-			return buf.toString();
-
-		}
-
-		/**
-		 * TODO: This should not be in the base class !!! The current code is for testing only.
-		 * 
-		 * @return
-		 */
-		protected List<ITypeConstraint> internalResolve() {
-			if(functionName.equals("+") && parameterTypes.size() == 2) {
-				Type[] types = new Type[2];
-				types[0] = parameterTypes.get(0).getType();
-				types[1] = parameterTypes.get(1).getType();
-				if(types[0] != null && types[1] != null)
-					setType(BTCNumberImpl.numberGenericityCalculator(types));
-				return Lists.newArrayList();
-			}
-			// Simulation of what invoke's type calculator should do:
-			if(functionName.equals("invoke")) {
-				ArrayList<ITypeConstraint> result = Lists.newArrayList();
-				ITypeConstraintExpression theLambda = parameterTypes.get(0);
-				if(!(theLambda instanceof ProducesExpr)) {
-					// not a ()=> first, can not infer anything.
-					return Lists.newArrayList();
-				}
-
-				ITypeConstraintExpression[] exprs = new ITypeConstraintExpression[parameterTypes.size()];
-				// select('invoke', (X0..Xn)=>Y, X0..Xn)
-				parameterTypes.subList(1, parameterTypes.size() - 1);
-				ITypeConstraintExpression produces = ((ProducesExpr) theLambda).produces;
-				exprs[0] = new ProducesExpr(parameterTypes.subList(1, parameterTypes.size()), produces);
-				for(int i = 1; i < parameterTypes.size(); i++)
-					exprs[i] = parameterTypes.get(i);
-
-				result.add(constraint(this, new SelectFunctionExpr("invoke", scope, exprs)));
-				setType(produces.getType());
-				return result;
-			}
-			return Lists.newArrayList();
-		}
-	}
-
-	/**
-	 * A TypeConstraint describes that the right ConstraintExpr should be assignable to the left.
-	 * 
-	 */
-	protected class TypeConstraint implements ITypeConstraint {
-
-		private ITypeConstraintExpression left;
-
-		private ITypeConstraintExpression right;
-
-		public TypeConstraint() {
-		}
-
-		public TypeConstraint(ITypeConstraintExpression left, ITypeConstraintExpression right) {
+		public ConstraintStatement(ITypeExpression left, ITypeExpression right) {
 			this.left = left;
 			this.right = right;
 			// Not very likely, but just in case an already resolved constraint is added
@@ -653,21 +181,21 @@ public class TypeScheme implements ITypeScheme {
 			throw new IllegalStateException("isResolved() should have returned false - apply can't do its job");
 		}
 
-		public boolean contains(ITypeConstraintExpression expr) {
+		public boolean contains(ITypeExpression expr) {
 			if(right.contains(expr))
 				return true;
 			return false;
 		}
 
-		public ITypeConstraintExpression getLeft() {
+		public ITypeExpression getLeft() {
 			return left;
 		}
 
-		public ITypeConstraintExpression getRight() {
+		public ITypeExpression getRight() {
 			return right;
 		}
 
-		public void init(ITypeConstraintExpression left, ITypeConstraintExpression right) {
+		public void init(ITypeExpression left, ITypeExpression right) {
 			this.left = left;
 			this.right = right;
 		}
@@ -684,11 +212,12 @@ public class TypeScheme implements ITypeScheme {
 			return false;
 		}
 
-		public void replace(ITypeConstraintExpression toBeReplaced, ITypeConstraintExpression replacement) {
+		public void replace(ITypeExpression toBeReplaced, ITypeExpression replacement) {
 			if(left.matches(toBeReplaced))
 				left = replacement;
 			else
 				left.replace(toBeReplaced, replacement);
+
 			if(right.matches(toBeReplaced))
 				right = replacement;
 			else
@@ -716,56 +245,698 @@ public class TypeScheme implements ITypeScheme {
 	}
 
 	/**
-	 * For subtypes that have or can be resolved to concrete type.
-	 * 
+	 * A concrete type statement e.g. Integer.class
 	 */
-	protected abstract class TypeConstraintExpr extends ConstraintExpr {
-		private Type type;
+	protected class ExplicitTypeExpr extends AbstractTypeExpr {
+		public ExplicitTypeExpr(Type t) {
+			setType(t);
+		}
+
+		/**
+		 * Reverses the assignment in case a constraint is in the reverse i.e. (Integer.class = a)
+		 */
+		@Override
+		public Type apply(ITypeExpression right) {
+			// if right is not an explicit type, try reversing the apply
+			if(right instanceof ExplicitTypeExpr) {
+				// if left is a default inferred (i.e. a guess) assign the right type
+				if(TypeUtils.isDefaultInferred(getType()))
+					setType(right.getType());
+				else if(TypeUtils.isDefaultInferred(right.getType()))
+					return getType(); // do not override a known type with an unknown
+				// else there is a conflict left != right
+				else if(!right.getType().equals(getType()))
+					throw new IllegalStateException("TYPE == TYPE constraint found where types differ! " +
+							stringProvider.doToString(getType()) + " != " + stringProvider.doToString(right.getType()));
+				else
+					// they where equal - do nothing, just return the type
+					return getType();
+			}
+			// try the reverse
+			return right.apply(this);
+		}
 
 		@Override
-		public Type getType() {
-			return type;
+		public boolean isIdentifier() {
+			return false;
 		}
 
 		@Override
 		public boolean isResolved() {
-			return type != null;
+			return true;
 		}
 
 		@Override
-		public boolean matches(ITypeConstraintExpression expr) {
-			if(!(expr instanceof TypeConstraintExpr))
+		public boolean matches(ITypeExpression expr) {
+			// TODO: should probably use assignment compatibility instead of equals
+			return expr instanceof ExplicitTypeExpr && ((ExplicitTypeExpr) expr).getType().equals(getType());
+		}
+
+	}
+
+	/**
+	 * A type function that when applied to a generic type produces a result being one of the
+	 * generic arguments - e.g. generic(A<B>)=> B, generic(1, A<B,C>)=>C
+	 * Behaves like an ExplicitTypeExpr when resolved.
+	 */
+	protected class GenericArgExpr extends AbstractTypeExpr {
+
+		private ITypeExpression baseTypeConstraint;
+
+		private int genericArgIndex;
+
+		public GenericArgExpr(ITypeExpression constraint) {
+			baseTypeConstraint = constraint;
+			genericArgIndex = 0;
+		}
+
+		public GenericArgExpr(ITypeExpression constraint, int index) {
+			baseTypeConstraint = constraint;
+			genericArgIndex = index;
+		}
+
+		@Override
+		public boolean contains(ITypeExpression expr) {
+			return baseTypeConstraint.matches(expr) || baseTypeConstraint.contains(expr);
+		}
+
+		@Override
+		public List<ITypeConstraint> eliminate(ITypeExpression expr) {
+			if(!isSameFunction(expr))
+				throw new IllegalArgumentException("Not an equivalent function");
+
+			// eliminate generic(n, A), generic(n, B) => A = B
+			GenericArgExpr otherExpr = (GenericArgExpr) expr;
+			List<ITypeConstraint> result = Lists.newArrayList();
+			result.add(new ConstraintStatement(baseTypeConstraint, otherExpr.baseTypeConstraint));
+			return result;
+		}
+
+		@Override
+		public boolean isIdentifier() {
+			return isResolved();
+		}
+
+		@Override
+		public boolean isResolvable() {
+			if(isResolved())
+				return true;
+			ITypeExpression t = baseTypeConstraint;
+			if(!((t.isIdentifier() && t.isResolved()) || (!t.isIdentifier() && t.isResolvable())))
 				return false;
-			TypeConstraintExpr otherExpr = (TypeConstraintExpr) expr;
-			if(type == null && otherExpr.type != null)
+
+			return true;
+		}
+
+		@Override
+		public boolean isSameFunction(ITypeExpression expr) {
+			if(!(expr instanceof GenericArgExpr))
 				return false;
-			return type.equals(otherExpr.type);
+			GenericArgExpr otherExpr = (GenericArgExpr) expr;
+			if(genericArgIndex != otherExpr.genericArgIndex)
+				return false;
+			return true;
+		}
+
+		@Override
+		public boolean matches(ITypeExpression expr) {
+			if(isResolved()) {
+				if(expr.isResolved()) {
+					Type otherType = expr.getType();
+					if(!(otherType instanceof ParameterizedType))
+						return false;
+					ParameterizedType pt = (ParameterizedType) otherType;
+					Type[] args = pt.getActualTypeArguments();
+					if(args.length <= genericArgIndex)
+						return false;
+
+					// match if T equals ?<,,,,U,,,,>
+					return getType().equals(args[genericArgIndex]);
+				}
+			}
+			if(!(expr instanceof GenericArgExpr))
+				return false;
+			GenericArgExpr otherExpr = (GenericArgExpr) expr;
+
+			if(genericArgIndex != otherExpr.genericArgIndex)
+				return false;
+			if(!baseTypeConstraint.matches(otherExpr.baseTypeConstraint))
+				return false;
+			return true;
+		}
+
+		@Override
+		public void replace(ITypeExpression toBeReplaced, ITypeExpression replacement) {
+			if(baseTypeConstraint.matches(toBeReplaced))
+				baseTypeConstraint = replacement;
+			else
+				baseTypeConstraint.replace(toBeReplaced, replacement);
 		}
 
 		/**
-		 * Prints instantiated type in short form (as decided by the stringProvider).
+		 * Resolves the base expression and attempts to resolve the generic type variable.
+		 * If type variable is resolved, this instance will behave like an explicit type expression.
 		 */
 		@Override
+		public List<ITypeConstraint> resolve() {
+			if(isResolved())
+				return Lists.newArrayList();
+			List<ITypeConstraint> result = baseTypeConstraint.resolve();
+			if(baseTypeConstraint.isResolved()) {
+				Type t = baseTypeConstraint.getType();
+				if(t instanceof ParameterizedType) {
+					ParameterizedType bp = (ParameterizedType) t;
+					Type[] typeargs = bp.getActualTypeArguments();
+					if(genericArgIndex < typeargs.length)
+						setType(typeargs[genericArgIndex]);
+				}
+			}
+			return result;
+		}
+
+		@Override
 		public String toString() {
-			return stringProvider.doToString(type);
+			StringBuffer buf = new StringBuffer();
+			if(isResolved()) {
+				buf.append("Я[");
+				buf.append(stringProvider.doToString(getType()));
+				buf.append("]");
+			}
+			else {
+				buf.append("generic(");
+				buf.append(genericArgIndex);
+				buf.append(", ");
+				buf.append(baseTypeConstraint.toString());
+				buf.append(")");
+			}
+			return buf.toString();
+		}
+	}
+
+	/**
+	 * A type production statement e.g. λ(ß,∂,...)=>µ
+	 * 
+	 */
+	protected class LambdaExpr extends ConstraintExpr implements Producer {
+		private List<ITypeExpression> given;
+
+		private ITypeExpression product;
+
+		/**
+		 * λ(given)=>produces
+		 * 
+		 * @param given
+		 * @param produces
+		 */
+		public LambdaExpr(ConstraintExpr given, ITypeExpression produces) {
+			this.given = Lists.newArrayList();
+			this.given.add(given);
+			this.product = produces;
 		}
 
-		protected void setType(Type t) {
-			type = t;
+		/**
+		 * λ(given...)=>produces
+		 * 
+		 * @param given
+		 * @param produces
+		 */
+		public LambdaExpr(ITypeExpression[] given, ITypeExpression produces) {
+			this.given = Arrays.asList(given);
+			this.product = produces;
 		}
 
+		/**
+		 * λ(given...)=>produces
+		 * 
+		 * @param given
+		 * @param produces
+		 */
+		public LambdaExpr(List<ITypeExpression> given, ITypeExpression produces) {
+			this.given = given;
+			this.product = produces;
+		}
+
+		@Override
+		public boolean contains(ITypeExpression expr) {
+			if(product.matches(expr) || product.contains(expr))
+				return true;
+			for(ITypeExpression e : given)
+				if(e.matches(expr) || e.contains(expr))
+					return true;
+			return super.contains(expr);
+		}
+
+		@Override
+		public List<ITypeConstraint> eliminate(ITypeExpression expr) {
+			if(!isSameFunction(expr))
+				throw new IllegalArgumentException("Not an equivalent function");
+			LambdaExpr otherExpr = (LambdaExpr) expr;
+			List<ITypeConstraint> result = Lists.newArrayList();
+			result.add(new ConstraintStatement(product, otherExpr.product));
+			for(int i = 0; i < given.size(); i++)
+				result.add(new ConstraintStatement(given.get(i), otherExpr.given.get(i)));
+			return result;
+		}
+
+		public ITypeExpression getProduct() {
+			return product;
+		}
+
+		/**
+		 * Returns the type of what is produced
+		 */
+		@Override
+		public Type getType() {
+			return product.getType();
+		}
+
+		@Override
+		public boolean isResolvable() {
+			if(!product.isResolvable())
+				return false;
+			for(ITypeExpression e : given)
+				if(!e.isResolvable())
+					return false;
+			return true;
+		}
+
+		@Override
+		public boolean isResolved() {
+			if(!product.isResolved())
+				return false;
+			for(ITypeExpression e : given)
+				if(!e.isResolved())
+					return false;
+			return true;
+		}
+
+		@Override
+		public boolean isSameFunction(ITypeExpression expr) {
+			if(!(expr instanceof LambdaExpr))
+				return false;
+			LambdaExpr otherExpr = (LambdaExpr) expr;
+			if(given.size() != otherExpr.given.size())
+				return false;
+			return true;
+		}
+
+		@Override
+		public boolean matches(ITypeExpression expr) {
+			if(!(expr instanceof LambdaExpr))
+				return false;
+			LambdaExpr otherExpr = (LambdaExpr) expr;
+			if(!product.matches(otherExpr))
+				return false;
+			if(given.size() != otherExpr.given.size())
+				return false;
+			for(int i = 0; i < given.size(); i++)
+				if(!given.get(i).matches(otherExpr.given.get(i)))
+					return false;
+			return true;
+		}
+
+		@Override
+		public void replace(ITypeExpression toBeReplaced, ITypeExpression replacement) {
+			if(product.matches(toBeReplaced))
+				product = replacement;
+			else
+				product.replace(toBeReplaced, replacement);
+			for(int i = 0; i < given.size(); i++)
+				if(given.get(i).matches(toBeReplaced))
+					given.set(i, replacement);
+				else
+					given.get(i).replace(toBeReplaced, replacement);
+		}
+
+		@Override
+		public List<ITypeConstraint> resolve() {
+			List<ITypeConstraint> result = product.resolve();
+			for(ITypeExpression e : given)
+				result.addAll(e.resolve());
+			return result;
+		}
+
+		@Override
+		public String toString() {
+			StringBuffer buf = new StringBuffer();
+			buf.append("(");
+			boolean first = true;
+			for(ITypeExpression e : given) {
+				if(first)
+					first = false;
+				else
+					buf.append(", ");
+				buf.append(stringProvider.doToString(e));
+			}
+			buf.append(")=>");
+			buf.append(stringProvider.doToString(product));
+			return buf.toString();
+		}
+	}
+
+	protected interface Producer {
+		ITypeExpression getProduct();
+	}
+
+	/**
+	 * Constrains type to what is produced by a Producer (e.g. lambda or select function)
+	 * When resolved, behaves like an ExplicitTypeExpr.
+	 * 
+	 */
+	protected class ProductExpr extends AbstractTypeExpr {
+
+		private ITypeExpression producerConstraint;
+
+		public ProductExpr(ITypeExpression constraint) {
+			producerConstraint = constraint;
+		}
+
+		@Override
+		public boolean contains(ITypeExpression expr) {
+			return producerConstraint.matches(expr) || producerConstraint.contains(expr);
+		}
+
+		@Override
+		public List<ITypeConstraint> eliminate(ITypeExpression expr) {
+			if(!isSameFunction(expr))
+				throw new IllegalArgumentException("Not an equivalent function");
+
+			// eliminate product(A) = product(n, B) => A = B
+			ProductExpr otherExpr = (ProductExpr) expr;
+			List<ITypeConstraint> result = Lists.newArrayList();
+			result.add(new ConstraintStatement(producerConstraint, otherExpr.producerConstraint));
+			return result;
+		}
+
+		@Override
+		public boolean isIdentifier() {
+			return isResolved();
+		}
+
+		@Override
+		public boolean isResolvable() {
+			if(isResolved())
+				return true;
+			ITypeExpression t = producerConstraint;
+			if(!(t instanceof Producer && t.isResolvable()))
+				return false;
+			return true;
+		}
+
+		@Override
+		public boolean isSameFunction(ITypeExpression expr) {
+			return expr instanceof ProductExpr;
+		}
+
+		@Override
+		public boolean matches(ITypeExpression expr) {
+			if(isResolved() && expr.isResolved())
+				return getType().equals(expr.getType());
+
+			if(!(expr instanceof ProductExpr))
+				return false;
+			ProductExpr otherExpr = (ProductExpr) expr;
+
+			if(!producerConstraint.matches(otherExpr.producerConstraint))
+				return false;
+			return true;
+		}
+
+		@Override
+		public void replace(ITypeExpression toBeReplaced, ITypeExpression replacement) {
+			if(producerConstraint.matches(toBeReplaced))
+				producerConstraint = replacement;
+			else
+				producerConstraint.replace(toBeReplaced, replacement);
+		}
+
+		@Override
+		public List<ITypeConstraint> resolve() {
+			if(isResolved())
+				return Lists.newArrayList(); // no new constraints
+			List<ITypeConstraint> result = producerConstraint.resolve();
+			if(producerConstraint.isResolved())
+				setType(producerConstraint.getType());
+			return result;
+		}
+
+		@Override
+		public String toString() {
+			StringBuffer buf = new StringBuffer();
+			if(isResolved()) {
+				buf.append("Я[");
+				buf.append(stringProvider.doToString(getType()));
+				buf.append("]");
+			}
+			else {
+				buf.append("product(");
+				buf.append(producerConstraint.toString());
+				buf.append(")");
+			}
+			return buf.toString();
+		}
+	}
+
+	/**
+	 * Selects a function based on type of parameters. Result may introduce a new type constraint.
+	 * When resolved, behaves like an ExplicitTypeExpr.
+	 * 
+	 */
+	protected class SelectExpr extends ConstraintExpr implements Producer {
+		private String functionName;
+
+		private List<ITypeExpression> parameterTypes;
+
+		private ITypeExpression produces;
+
+		private BExpression scope; // used when finding a function
+
+		public SelectExpr(String funcName, BExpression viewPoint, ITypeExpression[] constraintExpressions) {
+			this(funcName, tmpVariable(tmpVarName(funcName)), viewPoint, Arrays.asList(constraintExpressions));
+		}
+
+		public SelectExpr(String funcName, BExpression viewPoint, List<ITypeExpression> parameterTypes) {
+			this(funcName, tmpVariable(tmpVarName(funcName)), viewPoint, parameterTypes);
+		}
+
+		public SelectExpr(String funcName, ITypeExpression produces, BExpression viewPoint,
+				ITypeExpression[] constraintExpressions) {
+			this(funcName, produces, viewPoint, Arrays.asList(constraintExpressions));
+		}
+
+		public SelectExpr(String functionName, ITypeExpression produces, BExpression viewPoint,
+				List<ITypeExpression> parameterTypes) {
+			this.functionName = functionName;
+			this.scope = viewPoint;
+			this.parameterTypes = parameterTypes;
+			this.produces = produces;
+		}
+
+		@Override
+		public boolean contains(ITypeExpression expr) {
+			for(ITypeExpression e : parameterTypes)
+				if(e.contains(expr) || e.matches(expr))
+					return true;
+			if(produces.matches(expr) || produces.contains(expr))
+				return true;
+			return false; // was super.contains(expr)
+		}
+
+		@Override
+		public List<ITypeConstraint> eliminate(ITypeExpression expr) {
+			if(!isSameFunction(expr))
+				throw new IllegalArgumentException("Not an equivalent function");
+			SelectExpr otherExpr = (SelectExpr) expr;
+			List<ITypeConstraint> result = Lists.newArrayList();
+			for(int i = 0; i < parameterTypes.size(); i++)
+				result.add(new ConstraintStatement(parameterTypes.get(i), otherExpr.parameterTypes.get(i)));
+			result.add(new ConstraintStatement(produces, otherExpr.produces));
+			return result;
+		}
+
+		public ITypeExpression getProduct() {
+			return produces;
+		}
+
+		@Override
+		public Type getType() {
+			return produces.getType();
+		}
+
+		// @Override
+		// public boolean isIdentifier() {
+		// return false;
+		// // return isResolved();
+		// }
+
+		@Override
+		public boolean isResolvable() {
+			if(isResolved())
+				return true;
+			for(ITypeExpression t : parameterTypes) {
+				if(!((t.isIdentifier() && t.isResolved()) || (!t.isIdentifier() && t.isResolvable())))
+					return false;
+			}
+			return true;
+		}
+
+		@Override
+		public boolean isResolved() {
+			if(!produces.isResolved())
+				return false;
+			for(ITypeExpression e : parameterTypes)
+				if(!e.isResolved())
+					return false;
+			return true;
+		}
+
+		@Override
+		public boolean isSameFunction(ITypeExpression expr) {
+			if(!(expr instanceof SelectExpr))
+				return false;
+			SelectExpr otherExpr = (SelectExpr) expr;
+			if(!functionName.equals(otherExpr.functionName))
+				return false;
+			if(parameterTypes.size() != otherExpr.parameterTypes.size())
+				return false;
+			return true;
+		}
+
+		@Override
+		public boolean matches(ITypeExpression expr) {
+			if(isResolved()) {
+				if(expr.isResolved())
+					return getType().equals(expr.getType());
+			}
+			if(!(expr instanceof SelectExpr))
+				return false;
+			SelectExpr otherExpr = (SelectExpr) expr;
+
+			if(!functionName.equals(otherExpr.functionName))
+				return false;
+			if(!constraintMatch(parameterTypes, otherExpr.parameterTypes))
+				return false;
+			if(!produces.matches(otherExpr.produces))
+				return false;
+			return true;
+		}
+
+		@Override
+		public void replace(ITypeExpression toBeReplaced, ITypeExpression replacement) {
+			for(int i = 0; i < parameterTypes.size(); i++)
+				if(parameterTypes.get(i).matches(toBeReplaced))
+					parameterTypes.set(i, replacement);
+				else
+					parameterTypes.get(i).replace(toBeReplaced, replacement);
+			if(produces.matches(toBeReplaced))
+				produces = replacement;
+			else
+				produces.replace(toBeReplaced, replacement);
+		}
+
+		/**
+		 * Calls resolve on the parameters, and then internalResolve - which subclasses of this factory
+		 * and this constraint expression can override.
+		 */
+		@Override
+		public List<ITypeConstraint> resolve() {
+			List<ITypeConstraint> result = Lists.newArrayList();
+			if(isResolved())
+				return result;
+			for(ITypeExpression e : parameterTypes)
+				result.addAll(e.resolve());
+			result.addAll(produces.resolve());
+			result.addAll(internalResolve());
+			return result;
+		}
+
+		@Override
+		public String toString() {
+			StringBuffer buf = new StringBuffer();
+			if(isResolved())
+				buf.append("Я[");
+			buf.append("select('" + functionName + "'");
+			for(ITypeExpression e : parameterTypes) {
+				buf.append(", ");
+				buf.append(stringProvider.doToString(e));
+			}
+			buf.append(")");
+			buf.append("=>");
+			buf.append(stringProvider.doToString(produces));
+			if(isResolved()) {
+				buf.append("]");
+			}
+			return buf.toString();
+		}
+
+		/**
+		 * TODO: This should not be in the base class !!! The current code is for testing only.
+		 * 
+		 * @return
+		 */
+		protected List<ITypeConstraint> internalResolve() {
+			if(functionName.equals("+") && parameterTypes.size() == 2) {
+				Type[] types = new Type[2];
+				types[0] = parameterTypes.get(0).getType();
+				types[1] = parameterTypes.get(1).getType();
+				if(types[0] != null && types[1] != null)
+					return Lists.newArrayList(constraint(
+						produces, type(BTCNumberImpl.numberGenericityCalculator(types))));
+				return Lists.newArrayList();
+			}
+			// Simulation of what invoke's type calculator should do:
+			if(functionName.equals("invoke")) {
+				ArrayList<ITypeConstraint> result = Lists.newArrayList();
+				ITypeExpression theLambda = parameterTypes.get(0);
+				if(!(theLambda instanceof Producer)) {
+					return Lists.newArrayList(); // not a ()=> first, nothing can be inferred.
+				}
+
+				ITypeExpression[] exprs = new ITypeExpression[parameterTypes.size()];
+				// select('invoke', (X0..Xn)=>Y, X0..Xn)
+				ITypeExpression product = product(theLambda);
+				exprs[0] = lambda(product, parameterTypes.subList(1, parameterTypes.size()));
+				for(int i = 1; i < parameterTypes.size(); i++)
+					exprs[i] = parameterTypes.get(i);
+				result.add(constraint(this, select("invoke", product, scope, exprs)));
+				return result;
+			}
+			// TODO: This simulates what a function using the tc first lambda does
+			if(functionName.equals("firstLambda")) {
+				ArrayList<ITypeConstraint> result = Lists.newArrayList();
+				BTCFirstLambda tc = B3backendFactory.eINSTANCE.createBTCFirstLambda();
+				result.addAll(tc.getConstraints("firstLambda", scope, TypeScheme.this, parameterTypes, SelectExpr.this));
+				return result;
+			}
+			// TODO: This simulates what a function using the tc first lambda does
+			if(functionName.equals("lastLambda")) {
+				ArrayList<ITypeConstraint> result = Lists.newArrayList();
+				BTCLastLambda tc = B3backendFactory.eINSTANCE.createBTCLastLambda();
+				result.addAll(tc.getConstraints("lastLambda", scope, TypeScheme.this, parameterTypes, SelectExpr.this));
+				return result;
+			}
+			// TODO: This simulates what a function using the tc first lambda does
+			if(functionName.equals("booleanLambda")) {
+				ArrayList<ITypeConstraint> result = Lists.newArrayList();
+				BTCBooleanLambda tc = B3backendFactory.eINSTANCE.createBTCBooleanLambda();
+				result.addAll(tc.getConstraints(
+					"booleanLambda", scope, TypeScheme.this, parameterTypes, SelectExpr.this));
+				return result;
+			}
+			return Lists.newArrayList();
+		}
 	}
 
 	/**
 	 * A constraint variable is a reference to an element's type adapter.
 	 * The type adapter's value is tied to an instance of the type provider.
 	 */
-	protected class TypeVariableConstraintExpr extends ConstraintExpr {
+	protected class VariableExpr extends ConstraintExpr {
 		final private TypeAdapter variable;
 
 		final private EObject obj;
 
-		public TypeVariableConstraintExpr(EObject element) {
+		public VariableExpr(EObject element) {
 			TypeAdapter ta = TypeAdapterFactory.eINSTANCE.adapt(element);
 			if(ta == null)
 				throw new IllegalArgumentException("Can not associate a type constraint with a: " + element.getClass());
@@ -774,7 +945,7 @@ public class TypeScheme implements ITypeScheme {
 		}
 
 		@Override
-		public Type apply(ITypeConstraintExpression right) {
+		public Type apply(ITypeExpression right) {
 			if(!right.isResolved())
 				throw new IllegalStateException("the right expression is not resolved");
 			Type t = right.getType();
@@ -806,10 +977,10 @@ public class TypeScheme implements ITypeScheme {
 		}
 
 		@Override
-		public boolean matches(ITypeConstraintExpression expr) {
-			if(!(expr instanceof TypeVariableConstraintExpr))
+		public boolean matches(ITypeExpression expr) {
+			if(!(expr instanceof VariableExpr))
 				return false;
-			TypeVariableConstraintExpr otherExpr = (TypeVariableConstraintExpr) expr;
+			VariableExpr otherExpr = (VariableExpr) expr;
 			// the identity of a type adapter *is* the variable "name"
 			return variable == otherExpr.variable;
 		}
@@ -828,7 +999,9 @@ public class TypeScheme implements ITypeScheme {
 
 	}
 
-	private static boolean constraintMatch(List<ITypeConstraintExpression> a, List<ITypeConstraintExpression> b) {
+	private static int tmpVarCounter = 0;
+
+	private static boolean constraintMatch(List<ITypeExpression> a, List<ITypeExpression> b) {
 		int limit = a.size();
 		if(limit != b.size())
 			return false;
@@ -836,6 +1009,10 @@ public class TypeScheme implements ITypeScheme {
 			if(!a.get(i).matches(b.get(i)))
 				return false;
 		return true;
+	}
+
+	private static String tmpVarName(String s) {
+		return "σ(" + s + tmpVarCounter++ + ")";
 	}
 
 	@Inject
@@ -851,21 +1028,24 @@ public class TypeScheme implements ITypeScheme {
 		this.genericVariables = Sets.newHashSet();
 	}
 
-	public ITypeConstraint constraint(ITypeConstraintExpression a, ITypeConstraintExpression b) {
-		return new TypeConstraint(a, b);
+	public ITypeConstraint constraint(ITypeExpression a, ITypeExpression b) {
+		return new ConstraintStatement(a, b);
 	}
 
-	public ITypeConstraintExpression function(String funcName, EObject scope,
-			ITypeConstraintExpression... constraintExpressions) {
-		return new SelectFunctionExpr(funcName, scope, constraintExpressions);
-	}
-
-	public ITypeConstraintExpression generic(EObject a) {
+	public ITypeExpression generic(EObject a) {
 		return generic(0, a);
 	}
 
-	public ITypeConstraintExpression generic(int index, EObject a) {
-		return new GenericTypeArgExpr(variable(a), index);
+	public ITypeExpression generic(int index, EObject a) {
+		return new GenericArgExpr(variable(a), index);
+	}
+
+	public ITypeExpression generic(int index, ITypeExpression a) {
+		return new GenericArgExpr(a, index);
+	}
+
+	public ITypeExpression generic(ITypeExpression a) {
+		return new GenericArgExpr(a, 0);
 	}
 
 	public ITypeScheme getParentScheme() {
@@ -884,6 +1064,18 @@ public class TypeScheme implements ITypeScheme {
 				: getSchemeKey();
 	}
 
+	public ITypeExpression lambda(ITypeExpression producerConstraint) {
+		return new ProductExpr(producerConstraint);
+	}
+
+	public ITypeExpression lambda(ITypeExpression product, ITypeExpression... given) {
+		return new LambdaExpr(given, product);
+	}
+
+	public ITypeExpression lambda(ITypeExpression product, List<ITypeExpression> given) {
+		return new LambdaExpr(given, product);
+	}
+
 	/**
 	 * Makes the variable x generic by getting its value in the parent scheme, and setting it in this scheme
 	 * with the same value. Subsequent access to the variable x via this scheme will manipulate the
@@ -894,11 +1086,11 @@ public class TypeScheme implements ITypeScheme {
 	 * @param x
 	 * @return
 	 */
-	public ITypeConstraintExpression makeGeneric(EObject x) {
+	public ITypeExpression makeSchemeScopedVariable(EObject x) {
 		if(parent == null)
 			throw new IllegalStateException(
 				"Variables can only be made generic in a sub scheme - this scheme has no parent");
-		TypeVariableConstraintExpr xConstraint = new TypeVariableConstraintExpr(x);
+		VariableExpr xConstraint = new VariableExpr(x);
 		TypeAdapter xVar = xConstraint.getVariable();
 		// Copy value from parent's view of variable to this view.
 		xVar.setAssociatedInfo(getSchemeKey(), xVar.getAssociatedInfo(parent.getVariableKey(x)));
@@ -906,18 +1098,26 @@ public class TypeScheme implements ITypeScheme {
 		return xConstraint;
 	}
 
-	public ITypeConstraintExpression produces(ITypeConstraintExpression product, ITypeConstraintExpression... given) {
-		return new ProducesExpr(given, product);
+	public ITypeExpression product(ITypeExpression producerConstraint) {
+		return new ProductExpr(producerConstraint);
 	}
 
-	public ITypeConstraintExpression produces(ITypeConstraintExpression product, List<ITypeConstraintExpression> given) {
-		return new ProducesExpr(given, product);
+	public ITypeExpression select(String funcName, BExpression callExpr, ITypeExpression... constraintExpressions) {
+		return new SelectExpr(funcName, callExpr, constraintExpressions);
 	}
 
-	public ITypeConstraintExpression product(ITypeConstraintExpression produces) {
-		if(!(produces instanceof ProducesExpr))
-			return type(Object.class);
-		return ((ProducesExpr) produces).produces;
+	public ITypeExpression select(String funcName, BExpression callExpr, List<ITypeExpression> constraintExpressions) {
+		return new SelectExpr(funcName, callExpr, constraintExpressions);
+	}
+
+	public ITypeExpression select(String funcName, ITypeExpression producesConstraint, BExpression callExpr,
+			ITypeExpression... constraintExpressions) {
+		return new SelectExpr(funcName, producesConstraint, callExpr, constraintExpressions);
+	}
+
+	public ITypeExpression select(String funcName, ITypeExpression producesConstraint, BExpression callExpr,
+			List<ITypeExpression> constraintExpressions) {
+		return new SelectExpr(funcName, producesConstraint, callExpr, constraintExpressions);
 	}
 
 	/**
@@ -933,7 +1133,8 @@ public class TypeScheme implements ITypeScheme {
 
 	/**
 	 * Sets the values of all variables made generic in this scheme in the corresponding variable in
-	 * the parent type scheme.
+	 * the parent type scheme. See {@link #subScheme()}.
+	 * 
 	 */
 	public void supplant() {
 		if(parent == null)
@@ -942,12 +1143,12 @@ public class TypeScheme implements ITypeScheme {
 			supplant(x);
 	}
 
-	public ITypeConstraintExpression type(Type x) {
-		return new ExplicitTypeConstraintExpr(x);
+	public ITypeExpression type(Type x) {
+		return new ExplicitTypeExpr(x);
 	}
 
-	public ITypeConstraintExpression variable(EObject x) {
-		return new TypeVariableConstraintExpr(x);
+	public ITypeExpression variable(EObject x) {
+		return new VariableExpr(x);
 	}
 
 	/**
@@ -956,9 +1157,22 @@ public class TypeScheme implements ITypeScheme {
 	 * @param x
 	 */
 	private void supplant(EObject x) {
-		TypeVariableConstraintExpr xConstraint = new TypeVariableConstraintExpr(x);
+		VariableExpr xConstraint = new VariableExpr(x);
 		TypeAdapter xVar = xConstraint.getVariable();
 
 		xVar.setAssociatedInfo(parent.getVariableKey(x), xVar.getAssociatedInfo(getSchemeKey()));
 	}
+
+	/**
+	 * Note that name is for debugging only.
+	 * 
+	 * @param name
+	 * @return
+	 */
+	private ITypeExpression tmpVariable(String name) {
+		BDefValue tmp = B3backendFactory.eINSTANCE.createBDefValue();
+		tmp.setName(name);
+		return variable(tmp);
+	}
+
 }

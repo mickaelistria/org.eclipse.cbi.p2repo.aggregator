@@ -11,6 +11,7 @@ package org.eclipse.b3.backend.inference;
 import java.lang.reflect.Type;
 import java.util.List;
 
+import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
 import org.eclipse.emf.ecore.EObject;
 
 import com.google.inject.ImplementedBy;
@@ -29,26 +30,15 @@ public interface ITypeScheme {
 	 * @param right
 	 * @return
 	 */
-	public ITypeConstraint constraint(ITypeConstraintExpression a, ITypeConstraintExpression b);
+	public ITypeConstraint constraint(ITypeExpression a, ITypeExpression b);
 
-	/**
-	 * Constructs a function selection constraint - given a function name, and a set of parameter types / constraints,
-	 * produces a return value.
-	 * Example : 1 + 1 becomes:
-	 * constraint(variable(thePlusExpression), function("+", variable(theLiteral1), variable(theLiteral2)))
-	 * 
-	 * @param funcName
-	 * @param scope
-	 *            - the scope the funcName is looked up in - typically the reference to an expression
-	 * @param constraintExpressions
-	 * @return
-	 */
-	public ITypeConstraintExpression function(String funcName, EObject scope,
-			ITypeConstraintExpression... constraintExpressions);
+	public ITypeExpression generic(EObject a);
 
-	public ITypeConstraintExpression generic(EObject a);
+	public ITypeExpression generic(int index, EObject a);
 
-	public ITypeConstraintExpression generic(int index, EObject a);
+	public ITypeExpression generic(int index, ITypeExpression a);
+
+	public ITypeExpression generic(ITypeExpression a);
 
 	/**
 	 * The Scheme Key is any object that identifies a set of type variables. It's identity is used as a key.
@@ -73,15 +63,7 @@ public interface ITypeScheme {
 	 */
 	public Object getVariableKey(EObject var);
 
-	/**
-	 * Makes the variable for 'x' generic in this scheme - i.e. it will have an individual value in this scheme.
-	 * Its initial value is that in the parent scheme.
-	 * The constraint for the variable is returned as the typical is to use this in a constraint.
-	 * 
-	 * @param x
-	 * @return
-	 */
-	public ITypeConstraintExpression makeGeneric(EObject x);
+	public ITypeExpression lambda(ITypeExpression producerConstraint);
 
 	/**
 	 * Construct a constraint expression stating (x,y)=>z - i.e. given the constraints x and y, z is produced.
@@ -94,22 +76,55 @@ public interface ITypeScheme {
 	 *            - the parameters
 	 * @return
 	 */
-	public ITypeConstraintExpression produces(ITypeConstraintExpression product, ITypeConstraintExpression... given);
+	public ITypeExpression lambda(ITypeExpression product, ITypeExpression... given);
 
-	public ITypeConstraintExpression produces(ITypeConstraintExpression product, List<ITypeConstraintExpression> given);
+	public ITypeExpression lambda(ITypeExpression product, List<ITypeExpression> given);
 
 	/**
-	 * If the given expression is a produces expression, the produce constaint is returned, else
-	 * a constraint for Object.class. This method is useful to declare x returns y's product without knowing
-	 * that y is producing anything.
+	 * Makes the variable for 'x' "local" in this scheme - i.e. it will have an individual value in this scheme.
+	 * Its initial value is that in the parent scheme.
+	 * The constraint for the variable is returned as the typical is to use this in a constraint.
 	 * 
-	 * @param produces
+	 * @param x
 	 * @return
 	 */
-	public abstract ITypeConstraintExpression product(ITypeConstraintExpression expr);
+	public ITypeExpression makeSchemeScopedVariable(EObject x);
 
 	/**
-	 * Create a sub scheme useful for solving sub problems. Also see {@link #makeGeneric(EObject)}.
+	 * A type expression taking the product of a producer - i.e. product((A B)=>C) results in C.
+	 * This is a type function used for "calls" / "evaluation with parameters".
+	 * 
+	 * @param producerConstraint
+	 *            - a lambda or select expression (or a constraint that will be unified to one)
+	 * @return
+	 */
+	public ITypeExpression product(ITypeExpression producerConstraint);
+
+	/**
+	 * Constructs a function selection constraint - given a function name, and a set of parameter types / constraints,
+	 * produces a return value.
+	 * Example : 1 + 1 becomes:
+	 * constraint(variable(thePlusExpression), function("+", variable(theLiteral1), variable(theLiteral2)))
+	 * 
+	 * @param funcName
+	 * @param scope
+	 *            - the scope the funcName is looked up in - typically the reference to an expression
+	 * @param constraintExpressions
+	 * @return
+	 */
+	public ITypeExpression select(String funcName, BExpression scope, ITypeExpression... constraintExpressions);
+
+	public abstract ITypeExpression select(String funcName, BExpression callExpr,
+			List<ITypeExpression> constraintExpressions);
+
+	public abstract ITypeExpression select(String funcName, ITypeExpression producesConstraint, BExpression callExpr,
+			ITypeExpression... constraintExpressions);
+
+	public abstract ITypeExpression select(String funcName, ITypeExpression producesConstraint, BExpression callExpr,
+			List<ITypeExpression> constraintExpressions);
+
+	/**
+	 * Create a sub scheme useful for solving sub problems. Also see {@link #makeSchemeScopedVariable(EObject)}.
 	 * 
 	 * @return
 	 */
@@ -121,7 +136,7 @@ public interface ITypeScheme {
 	 * @param x
 	 * @return
 	 */
-	public ITypeConstraintExpression type(Type x);
+	public ITypeExpression type(Type x);
 
 	/**
 	 * Construct a constraint expression being the type of an EObject - a type variable.
@@ -129,6 +144,6 @@ public interface ITypeScheme {
 	 * @param o
 	 * @return
 	 */
-	public ITypeConstraintExpression variable(EObject o);
+	public ITypeExpression variable(EObject o);
 
 }

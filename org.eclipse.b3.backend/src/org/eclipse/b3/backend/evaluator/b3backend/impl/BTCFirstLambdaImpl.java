@@ -11,6 +11,7 @@
 package org.eclipse.b3.backend.evaluator.b3backend.impl;
 
 import java.lang.reflect.Type;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.eclipse.b3.backend.evaluator.b3backend.B3FunctionType;
@@ -20,7 +21,7 @@ import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BTCFirstLambda;
 import org.eclipse.b3.backend.evaluator.typesystem.TypeUtils;
 import org.eclipse.b3.backend.inference.ITypeConstraint;
-import org.eclipse.b3.backend.inference.ITypeConstraintExpression;
+import org.eclipse.b3.backend.inference.ITypeExpression;
 import org.eclipse.b3.backend.inference.ITypeScheme;
 import org.eclipse.emf.ecore.EClass;
 
@@ -55,15 +56,19 @@ public class BTCFirstLambdaImpl extends BTypeCalculatorImpl implements BTCFirstL
 	 * i.e. a function that returns what the first lambda returns, and where the lambda takes the arguments 1-n.
 	 */
 	@Override
-	public List<ITypeConstraint> getConstraints(String name, BExpression expr, ITypeScheme typeScheme,
-			List<ITypeConstraintExpression> parameterTypes) {
-		List<ITypeConstraint> result = Lists.newArrayList();
-		ITypeConstraintExpression[] exprs = new ITypeConstraintExpression[parameterTypes.size()];
-		exprs[0] = typeScheme.produces(
-			typeScheme.product(parameterTypes.get(0)), parameterTypes.subList(1, parameterTypes.size()));
+	public List<ITypeConstraint> getConstraints(String name, BExpression scope, ITypeScheme typeScheme,
+			List<ITypeExpression> parameterTypes, ITypeExpression lhs) {
+		ArrayList<ITypeConstraint> result = Lists.newArrayList();
+		ITypeExpression theLambda = parameterTypes.get(0);
+
+		ITypeExpression[] exprs = new ITypeExpression[parameterTypes.size()];
+		// select('invoke', (X0..Xn)=>Y, X0..Xn)
+		ITypeExpression product = typeScheme.product(theLambda);
+		exprs[0] = typeScheme.lambda(product, parameterTypes.subList(1, parameterTypes.size()));
 		for(int i = 1; i < parameterTypes.size(); i++)
 			exprs[i] = parameterTypes.get(i);
-		result.add(typeScheme.constraint(typeScheme.variable(expr), typeScheme.function(name, expr, exprs)));
+
+		result.add(typeScheme.constraint(lhs, typeScheme.select(name, product, scope, exprs)));
 		return result;
 	}
 

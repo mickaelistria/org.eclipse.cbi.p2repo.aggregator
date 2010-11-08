@@ -77,6 +77,8 @@ public class TypeConstraintSolver implements ITypeConstraintSolver {
 
 	private List<ITypeConstraint> constraints;
 
+	private static final int MAX_RETRY = 5;
+
 	@Inject
 	public TypeConstraintSolver() {
 		substitutions = Lists.newArrayList();
@@ -110,7 +112,7 @@ public class TypeConstraintSolver implements ITypeConstraintSolver {
 	public void applySolution() {
 		for(ITypeConstraint solved : substitutions) {
 			if(!solved.isResolved())
-				throw new IllegalStateException("Unresolved Solution");
+				throw new IllegalStateException("Unresolved Solution: " + solved.toString());
 			if(solved.getLeft().isIdentifier())
 				solved.apply();
 		}
@@ -131,23 +133,48 @@ public class TypeConstraintSolver implements ITypeConstraintSolver {
 		// The emergency break is there if something is wrong with the implementation in the
 		// constraint expressions
 		//
-		int emergencyBreak = 10;
+		int emergencyBreak = MAX_RETRY;
 		while(constraints.size() > 0) {
 			if(B3Debug.typer) {
-				B3Debug.trace("[solver] there are: ", constraints.size(), " constraints left to solve:");
+				B3Debug.trace(
+					"[solver] PHASE(" + (MAX_RETRY - emergencyBreak) + ") there are: ", constraints.size(),
+					" constraints left to solve:");
 				dump();
 			}
 			emergencyBreak--;
-			if(emergencyBreak <= 0)
-				return -1;
-			result = unify();
-			for(ITypeConstraint c : substitutions) {
-				List<ITypeConstraint> additions = c.resolve();
-				constraints.addAll(additions);
+			if(emergencyBreak <= 0) {
+				if(B3Debug.typer)
+					B3Debug.trace("[solver] => TOO MANY ITERATIONS");
+				return TOO_MANY_ITERATIONS;
 			}
+			result = unify();
+			if(result == SOLUTION_FOUND) {
+				String before = ""; // used only when debugging
+				for(ITypeConstraint c : substitutions) {
+					if(B3Debug.typer) {
+						before = c.toString();
+					}
+					List<ITypeConstraint> additions = c.resolve();
+					if(B3Debug.typer) {
+						String after = c.toString();
+						if(!before.equals(after))
+							B3Debug.trace("[solver] RESOLVED: [", before, "] TO: ", after);
+						if(additions.size() > 0)
+							B3Debug.trace("[solver] Resolve of: ", before, "adds constraint: ", additions);
+					}
+					constraints.addAll(additions);
+				}
+			}
+			else
+				break;
 		}
-		if(emergencyBreak <= 0 || constraints.size() > 0)
+		if(emergencyBreak <= 0 || constraints.size() > 0) {
+			if(B3Debug.typer)
+				B3Debug.trace("[solver] => NOT UNITEABLE");
 			result = NOT_UNITABLE;
+		}
+		if(B3Debug.typer)
+			B3Debug.trace("[solver] Number of phases used: ", MAX_RETRY - emergencyBreak);
 		return result;
 	}
 
@@ -182,10 +209,12 @@ public class TypeConstraintSolver implements ITypeConstraintSolver {
 
 					return RECURSIVE;
 				}
+				if(B3Debug.typer) {
+					B3Debug.trace("[solver] unify(", c.getLeft(), " replaced by: ", c.getRight(), ") => NEW STATE");
+				}
 				replaceAll(c.getLeft(), c.getRight());
 				substitutions.add(c);
 				if(B3Debug.typer) {
-					B3Debug.trace("[solver] unify(", c.getLeft(), " replaced by: ", c.getRight(), ") => NEW STATE");
 					dump();
 				}
 			}
@@ -215,16 +244,17 @@ public class TypeConstraintSolver implements ITypeConstraintSolver {
 					dump();
 				}
 			}
-			else if(B3Debug.typer) {
-				B3Debug.trace("[solver] => NOT UNITABLE");
-				dump();
-			}
-			else
+			else {
+				if(B3Debug.typer) {
+					B3Debug.trace("[solver] => NOT UNITABLE: ", c.getLeft(), " and ", c.getRight());
+					dump();
+				}
 				return NOT_UNITABLE;
+			}
 		}
 		// stack is empty
 		if(B3Debug.typer) {
-			B3Debug.trace("[solver] => SOLUTION FOUND");
+			B3Debug.trace("[solver] => ALL CONSTRAINTS PROCESSED");
 			dump();
 		}
 		return SOLUTION_FOUND;
@@ -258,7 +288,7 @@ public class TypeConstraintSolver implements ITypeConstraintSolver {
 	 * @param toBeReplaced
 	 * @param replacement
 	 */
-	private void replaceAll(ITypeConstraintExpression toBeReplaced, ITypeConstraintExpression replacement) {
+	private void replaceAll(ITypeExpression toBeReplaced, ITypeExpression replacement) {
 		for(ITypeConstraint c : constraints)
 			c.replace(toBeReplaced, replacement);
 		for(ITypeConstraint c : substitutions)

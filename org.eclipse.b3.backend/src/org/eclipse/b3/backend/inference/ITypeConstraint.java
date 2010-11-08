@@ -30,11 +30,11 @@ public interface ITypeConstraint {
 	 * @param expr
 	 * @return
 	 */
-	public boolean contains(ITypeConstraintExpression expr);
+	public boolean contains(ITypeExpression expr);
 
-	public ITypeConstraintExpression getLeft();
+	public ITypeExpression getLeft();
 
-	public ITypeConstraintExpression getRight();
+	public ITypeExpression getRight();
 
 	public boolean isResolvable();
 
@@ -46,7 +46,7 @@ public interface ITypeConstraint {
 	 * @param toBeReplaced
 	 * @param replacement
 	 */
-	public void replace(ITypeConstraintExpression toBeReplaced, ITypeConstraintExpression replacement);
+	public void replace(ITypeExpression toBeReplaced, ITypeExpression replacement);
 
 	public List<ITypeConstraint> resolve();
 
