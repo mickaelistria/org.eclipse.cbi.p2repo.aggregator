@@ -530,7 +530,7 @@ public class BeeLangJavaValidator extends AbstractBeeLangJavaValidator implement
 	 * Produce warnings:
 	 * - if a repository handler name is unknown to the configuration.
 	 * - if a repository option is for an unknown repository type
-	 * ProducesExpr errors:
+	 * LambdaExpr errors:
 	 * - the remote URI of a repository is not set
 	 * - the option is not valid for the repository
 	 * 
