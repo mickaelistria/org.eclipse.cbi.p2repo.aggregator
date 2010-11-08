@@ -9,6 +9,7 @@
  */
 package org.eclipse.b3.build.core;
 
+import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Type;
 
@@ -17,12 +18,16 @@ import org.eclipse.b3.backend.core.IB3Evaluator;
 import org.eclipse.b3.backend.core.exceptions.B3EngineException;
 import org.eclipse.b3.backend.core.exceptions.B3InternalError;
 import org.eclipse.b3.backend.core.runtime.B3Engine;
+import org.eclipse.b3.backend.evaluator.b3backend.B3JavaImport;
+import org.eclipse.b3.backend.evaluator.b3backend.B3MetaClass;
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendFactory;
 import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.backend.evaluator.b3backend.impl.AbstractB3Executor;
+import org.eclipse.b3.backend.evaluator.typesystem.TypeUtils;
 import org.eclipse.b3.build.BeeModel;
 import org.eclipse.b3.build.core.runtime.DefaultB3Module;
 import org.eclipse.b3.build.engine.AbstractB3EngineExecutor;
+import org.eclipse.b3.build.engine.B3BuildEngineResourceFactory;
 import org.eclipse.b3.build.engine.IB3EngineRuntime;
 import org.eclipse.b3.build.engine.IB3Runnable;
 import org.eclipse.b3.build.functions.BuildFunctions;
@@ -33,6 +38,9 @@ import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.core.runtime.Status;
+import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.resource.Resource;
 
 import com.google.inject.Injector;
 import com.google.inject.Module;
@@ -231,5 +239,27 @@ public class B3BuildEngine extends B3Engine implements IB3EngineRuntime {
 		// FunctionUtils.instance = getInjector().getInstance(FunctionUtils.class);
 		invocationContext.loadFunctions(BuildFunctions.class);
 
+		// TODO: Fix this ugly hack where the default build resource is loaded to get the
+		// default imports so they can be defined as variables.
+
+		// Define all default IMPORTS as constants
+		//
+		URI uri = URI.createURI("b3engine:/default");
+		Resource resource = new B3BuildEngineResourceFactory().createResource(uri);
+		try {
+			resource.load(null);
+		}
+		catch(IOException e1) {
+			throw new B3InternalError("Loading of default build resource failed with exception", e1);
+		}
+		for(EObject e : resource.getContents()) {
+			if(!(e instanceof B3JavaImport))
+				continue;
+			Type t = (B3JavaImport) e;
+			Class<?> x = TypeUtils.getRaw(t);
+			B3MetaClass metaClass = B3backendFactory.eINSTANCE.createB3MetaClass();
+			metaClass.setInstanceClass(x);
+			invocationContext.defineValue(((B3JavaImport) t).getName(), x, metaClass);
+		}
 	}
 }
