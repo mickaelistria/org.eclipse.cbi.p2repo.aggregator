@@ -4089,8 +4089,9 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 			RequiredCapability.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
 			!IS_DERIVED, IS_ORDERED);
 		initEAttribute(
-			getRequiredCapability_Greedy(), ecorePackage.getEBoolean(), "greedy", null, 0, 1, RequiredCapability.class,
-			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+			getRequiredCapability_Greedy(), ecorePackage.getEBoolean(), "greedy", "true", 0, 1,
+			RequiredCapability.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+			!IS_DERIVED, IS_ORDERED);
 		initEAttribute(
 			getRequiredCapability_Max(), ecorePackage.getEInt(), "max", "1", 0, 1, RequiredCapability.class,
 			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

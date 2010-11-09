@@ -83,6 +83,7 @@ public interface RequiredCapability extends Capability {
 
 	/**
 	 * Returns the value of the '<em><b>Greedy</b></em>' attribute.
+	 * The default value is <code>"true"</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Greedy</em>' attribute isn't clear, there really should be more of a description here...
@@ -92,7 +93,7 @@ public interface RequiredCapability extends Capability {
 	 * @return the value of the '<em>Greedy</em>' attribute.
 	 * @see #setGreedy(boolean)
 	 * @see org.eclipse.b3.build.B3BuildPackage#getRequiredCapability_Greedy()
-	 * @model
+	 * @model default="true"
 	 * @generated
 	 */
 	boolean isGreedy();

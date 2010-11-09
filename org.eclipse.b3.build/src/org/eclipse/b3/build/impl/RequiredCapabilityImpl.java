@@ -64,7 +64,7 @@ public class RequiredCapabilityImpl extends CapabilityImpl implements RequiredCa
 	 * @generated
 	 * @ordered
 	 */
-	protected static final boolean GREEDY_EDEFAULT = false;
+	protected static final boolean GREEDY_EDEFAULT = true;
 
 	/**
 	 * The cached value of the '{@link #isGreedy() <em>Greedy</em>}' attribute.
