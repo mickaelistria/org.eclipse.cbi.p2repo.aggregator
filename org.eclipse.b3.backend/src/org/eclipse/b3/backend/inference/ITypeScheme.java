@@ -91,6 +91,16 @@ public interface ITypeScheme {
 	public ITypeExpression makeSchemeScopedVariable(EObject x);
 
 	/**
+	 * Construct a constraint expression for a parameterized type, the first constraint is for the base
+	 * type, and any additional expressions are the type arguments.
+	 * A List<Double> is constructed by the expression: parameterizedType(type(List.class), type(Double.class))
+	 * 
+	 * @param given
+	 * @return
+	 */
+	public abstract ITypeExpression parameterizedType(ITypeExpression... given);
+
+	/**
 	 * A type expression taking the product of a producer - i.e. product((A B)=>C) results in C.
 	 * This is a type function used for "calls" / "evaluation with parameters".
 	 * 

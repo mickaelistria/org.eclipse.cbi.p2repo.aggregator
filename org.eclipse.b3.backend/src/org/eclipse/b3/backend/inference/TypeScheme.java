@@ -19,6 +19,7 @@ import java.util.Set;
 import org.eclipse.b3.backend.core.IStringProvider;
 import org.eclipse.b3.backend.core.adapters.TypeAdapter;
 import org.eclipse.b3.backend.core.adapters.TypeAdapterFactory;
+import org.eclipse.b3.backend.evaluator.b3backend.B3ParameterizedType;
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendFactory;
 import org.eclipse.b3.backend.evaluator.b3backend.BDefValue;
 import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
@@ -28,6 +29,7 @@ import org.eclipse.b3.backend.evaluator.b3backend.BTCLastLambda;
 import org.eclipse.b3.backend.evaluator.b3backend.INamedValue;
 import org.eclipse.b3.backend.evaluator.b3backend.impl.BTCNumberImpl;
 import org.eclipse.b3.backend.evaluator.typesystem.TypeUtils;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 
 import com.google.common.collect.Lists;
@@ -588,6 +590,191 @@ public class TypeScheme implements ITypeScheme {
 		}
 	}
 
+	/**
+	 * A type function that constructs a parameterized type out of constraints for the
+	 * base type and type arguments.
+	 * parameterizedType(α, ß, γ) when resolved produces type α<ß,γ>
+	 */
+	protected class ParameterizedTypeExpr extends AbstractTypeExpr {
+		private List<ITypeExpression> parameters;
+
+		public ParameterizedTypeExpr(ITypeExpression... params) {
+			if(params.length < 2)
+				throw new IllegalArgumentException(
+					"A ParameterizedTypeExpression must have at least a base and one argument");
+			parameters = Lists.newArrayList(params);
+			if(isResolved())
+				constructType();
+		}
+
+		/**
+		 * Reverses the assignment in case a constraint is in the reverse i.e. (Integer.class = a)
+		 * TODO: Unnown if this is correct for Parameterized type - i.e. is Default<Default,...> every used,
+		 * or just a raw Object, or List<?>, Iterator<?> etc.
+		 */
+		@Override
+		public Type apply(ITypeExpression right) {
+			// if right is not an explicit type, try reversing the apply
+			if(right instanceof ExplicitTypeExpr) {
+				// if left is a default inferred (i.e. a guess) assign the right type
+				if(TypeUtils.isDefaultInferred(getType()))
+					setType(right.getType());
+				else if(TypeUtils.isDefaultInferred(right.getType()))
+					return getType(); // do not override a known type with an unknown
+				// else there is a conflict left != right
+				else if(!right.getType().equals(getType()))
+					throw new IllegalStateException("TYPE == TYPE constraint found where types differ! " +
+							stringProvider.doToString(getType()) + " != " + stringProvider.doToString(right.getType()));
+				else
+					// they where equal - do nothing, just return the type
+					return getType();
+			}
+			// try the reverse
+			return right.apply(this);
+		}
+
+		@Override
+		public boolean contains(ITypeExpression expr) {
+			for(int i = 0; i < parameters.size(); i++) {
+				ITypeExpression e = parameters.get(i);
+				if(e.matches(expr) || e.contains(expr))
+					return true;
+			}
+			return false;
+		}
+
+		@Override
+		public List<ITypeConstraint> eliminate(ITypeExpression expr) {
+			if(!isSameFunction(expr))
+				throw new IllegalArgumentException("Not same type of function - can not eliminate");
+			if(expr instanceof ParameterizedTypeExpr) {
+				ParameterizedTypeExpr otherExpr = (ParameterizedTypeExpr) expr;
+				List<ITypeConstraint> result = Lists.newArrayList();
+				for(int i = 0; i < parameters.size(); i++)
+					result.add(constraint(parameters.get(i), otherExpr.parameters.get(i)));
+				return result;
+			}
+			if(expr instanceof ExplicitTypeExpr) {
+				// already checked to be resolved and ParameterizedType (or isSameFunction returned false).
+				ParameterizedType t = (ParameterizedType) expr.getType();
+				Type[] typeArgs = t.getActualTypeArguments();
+				List<ITypeConstraint> result = Lists.newArrayList();
+				result.add(constraint(parameters.get(0), type(t.getRawType())));
+				for(int i = 0; i < typeArgs.length; i++)
+					result.add(constraint(parameters.get(1 + i), type(typeArgs[i])));
+				return result;
+			}
+			throw new IllegalStateException("Elimination failed - no condition applicable");
+		}
+
+		@Override
+		public boolean isSameFunction(ITypeExpression expr) {
+			// true if same type and same arity
+			if(expr instanceof ParameterizedTypeExpr &&
+					((ParameterizedTypeExpr) expr).parameters.size() == parameters.size())
+				return true;
+			// true if parameterized type and base+args = arity
+			if(expr instanceof ExplicitTypeExpr) {
+				if(!expr.isResolved())
+					return false;
+				Type t = expr.getType();
+				if(t == null || !(t instanceof ParameterizedType))
+					return false;
+				Type[] typeArgs = ((ParameterizedType) t).getActualTypeArguments();
+				if(typeArgs.length == parameters.size() - 1)
+					return true;
+			}
+			return false;
+		}
+
+		/**
+		 * matches a ParameterizedTypeExpr with matching parameters, or an Explicit type with same
+		 * parameters.
+		 */
+		@Override
+		public boolean matches(ITypeExpression expr) {
+			if(isResolved())
+				return super.matches(expr);
+			if(!(expr instanceof ParameterizedTypeExpr || expr instanceof ExplicitTypeExpr))
+				return false;
+
+			if(expr instanceof ParameterizedTypeExpr) {
+				ParameterizedTypeExpr otherExpr = (ParameterizedTypeExpr) expr;
+				if(parameters.size() != otherExpr.parameters.size())
+					return false;
+				for(int i = 0; i < parameters.size(); i++)
+					if(!parameters.get(i).matches(otherExpr.parameters.get(i)))
+						return false;
+				return true;
+			}
+			if(expr instanceof ExplicitTypeExpr && expr.getType() instanceof ParameterizedType) {
+				ParameterizedType t = (ParameterizedType) expr.getType();
+				Type[] typeArgs = t.getActualTypeArguments();
+				if(!parameters.get(0).matches(type(t.getRawType())))
+					return false;
+				for(int i = 1; i < parameters.size(); i++)
+					if(!parameters.get(i).matches(type(typeArgs[i - 1])))
+						return false;
+				return true;
+			}
+			return false;
+		}
+
+		@Override
+		public void replace(ITypeExpression toBeReplaced, ITypeExpression replacement) {
+			for(int i = 0; i < parameters.size(); i++)
+				if(parameters.get(i).matches(toBeReplaced))
+					parameters.set(i, replacement);
+				else
+					parameters.get(i).replace(toBeReplaced, replacement);
+		}
+
+		@Override
+		public List<ITypeConstraint> resolve() {
+			if(isResolved())
+				return NO_CONSTRAINTS;
+			List<ITypeConstraint> result = NO_CONSTRAINTS;
+			boolean allResolved = true;
+			for(ITypeExpression e : parameters) {
+				result = splice(result, e.resolve());
+				allResolved = e.isResolved() && allResolved;
+			}
+			if(allResolved)
+				constructType();
+			return result;
+		}
+
+		@Override
+		public String toString() {
+			if(isResolved())
+				return super.toString();
+			StringBuffer buf = new StringBuffer();
+			buf.append("parameterizedType(");
+			buf.append(parameters.get(0).toString());
+			buf.append("<");
+			for(int i = 1; i < parameters.size(); i++) {
+				buf.append(i == 1
+						? ""
+						: ",");
+				buf.append(parameters.get(i).toString());
+			}
+			buf.append(">)");
+			return buf.toString();
+		}
+
+		/**
+		 * Constructs a BParameterizedType from resolved parameters.
+		 */
+		private void constructType() {
+			B3ParameterizedType t = B3backendFactory.eINSTANCE.createB3ParameterizedType();
+			t.setRawType(parameters.get(0).getType());
+			EList<Type> argList = t.getActualArgumentsList();
+			for(int i = 1; i < parameters.size(); i++)
+				argList.add(parameters.get(i).getType());
+			setType(t);
+		}
+	}
+
 	protected interface Producer {
 		ITypeExpression getProduct();
 	}
@@ -1100,6 +1287,10 @@ public class TypeScheme implements ITypeScheme {
 		xVar.setAssociatedInfo(getSchemeKey(), xVar.getAssociatedInfo(parent.getVariableKey(x)));
 		genericVariables.add(x);
 		return xConstraint;
+	}
+
+	public ITypeExpression parameterizedType(ITypeExpression... given) {
+		return new ParameterizedTypeExpr(given);
 	}
 
 	public ITypeExpression product(ITypeExpression producerConstraint) {

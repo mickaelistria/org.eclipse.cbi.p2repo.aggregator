@@ -83,7 +83,6 @@ public class BTCLastLambdaImpl extends BTypeCalculatorImpl implements BTCLastLam
 		// lambda is last (lambda args)=>σ
 		ITypeExpression product = typeScheme.product(parameterConstraints.get(parameterConstraints.size() - 1));
 		exprs[exprs.length - 1] = typeScheme.lambda(product, lambdaConstraints);
-		// result.add(typeScheme.constraint(typeScheme.variable(expr), typeScheme.select(funcName, expr, exprs)));
 		result.add(typeScheme.constraint(lhs, typeScheme.select(funcName, product, scope, exprs)));
 		return result;
 	}

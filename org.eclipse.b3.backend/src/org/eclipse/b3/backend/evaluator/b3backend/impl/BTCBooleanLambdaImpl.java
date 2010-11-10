@@ -57,7 +57,7 @@ public class BTCBooleanLambdaImpl extends BTCLastLambdaImpl implements BTCBoolea
 	 */
 	@Override
 	public List<ITypeConstraint> getConstraints(String funcName, BExpression expr, ITypeScheme typeScheme,
-			List<ITypeExpression> parameterConstraints, ITypeExpression producesConstraint) {
+			List<ITypeExpression> parameterConstraints, ITypeExpression lhs) {
 		List<ITypeConstraint> result = Lists.newArrayList();
 		if(parameterConstraints.size() < 2)
 			return result; // give up - this bad case should not have happened
@@ -66,23 +66,26 @@ public class BTCBooleanLambdaImpl extends BTCLastLambdaImpl implements BTCBoolea
 
 		ITypeExpression[] exprs = new ITypeExpression[parameterConstraints.size()];
 		exprs[0] = parameterConstraints.get(0);
-		// curryConstraint is the generic type argument 0 for exprs[0] (i.e. the generic arg of an iterator
-		// iterateable etc.
+
+		// The '_' in the parameters (or auto curry) is the generic type argument 0 of what exprs[0] resolve to
 		ITypeExpression curryConstraint = typeScheme.generic(0, exprs[0]);
-		int lambdaArgsCount = parameterConstraints.size() - 2;
+		final int lambdaArgsCount = parameterConstraints.size() - 2;
+		ITypeExpression[] lambdaConstraints = new ITypeExpression[lambdaArgsCount == 0
+				? 1
+				: lambdaArgsCount];
 		if(lambdaArgsCount == 0)
-			lambdaArgsCount = 1;
-		ITypeExpression[] lambdaConstraints = new ITypeExpression[lambdaArgsCount];
-		if(lambdaArgsCount == 1)
-			lambdaConstraints[0] = curryConstraint;
+			lambdaConstraints[0] = curryConstraint; // auto curry
 		else
+			// replace the 'any' with the curry
 			for(int i = 0; i < lambdaArgsCount; i++) {
 				exprs[i + 1] = lambdaConstraints[i] = parameterConstraints.get(i + 1);
 				if(lambdaConstraints[i].matches(any))
 					lambdaConstraints[i] = curryConstraint;
 			}
+
+		ITypeExpression product = typeScheme.parameterizedType(typeScheme.type(List.class), curryConstraint);
 		exprs[exprs.length - 1] = typeScheme.lambda(typeScheme.type(Boolean.class), lambdaConstraints);
-		result.add(typeScheme.constraint(typeScheme.variable(expr), typeScheme.select(funcName, expr, exprs)));
+		result.add(typeScheme.constraint(lhs, typeScheme.select(funcName, product, expr, exprs)));
 		return result;
 	}
 
