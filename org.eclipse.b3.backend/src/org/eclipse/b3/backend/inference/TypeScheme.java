@@ -12,6 +12,7 @@ import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 import java.util.Set;
 
@@ -34,7 +35,7 @@ import com.google.common.collect.Sets;
 import com.google.inject.Inject;
 
 /**
- * Implementation of Type Expression interfaces.
+ * An implementation of Type Expression interfaces used for solving type constraints.
  * 
  */
 public class TypeScheme implements ITypeScheme {
@@ -108,7 +109,8 @@ public class TypeScheme implements ITypeScheme {
 		}
 
 		/**
-		 * This default implementation returns false.
+		 * This default implementation returns false. (Only expressions representing a variable
+		 * should return true).
 		 */
 		public boolean isIdentifier() {
 			return false;
@@ -124,9 +126,9 @@ public class TypeScheme implements ITypeScheme {
 		public abstract boolean isResolved();
 
 		/**
-		 * This implementation returns false. Derived classes that represent functions should return if
-		 * it and the given expr both represent the same function - i.e. same function (product, etc) and have the same
-		 * arity (same number of parameters).
+		 * This implementation returns false. Derived classes representing a type function should return true if
+		 * it and the given expr both represent the same function (i.e. same
+		 * function (product, etc) with equal arity (same number of parameters)).
 		 */
 		public boolean isSameFunction(ITypeExpression expr) {
 			return false;
@@ -135,17 +137,18 @@ public class TypeScheme implements ITypeScheme {
 		public abstract boolean matches(ITypeExpression expr);
 
 		/**
-		 * This default implementation does nothing.
+		 * This default implementation does nothing. A container should replace toBeReplaced with replacement
+		 * and pass the call on to its children for all non replaced contained elements.
 		 */
 		public void replace(ITypeExpression toBeReplaced, ITypeExpression replacement) {
 			// do nothing
 		}
 
 		/**
-		 * This default implementation returns an empty list.
+		 * This default implementation returns an empty (immutable) list.
 		 */
 		public List<ITypeConstraint> resolve() {
-			return Lists.newArrayList();
+			return NO_CONSTRAINTS;
 		}
 	}
 
@@ -181,8 +184,11 @@ public class TypeScheme implements ITypeScheme {
 			throw new IllegalStateException("isResolved() should have returned false - apply can't do its job");
 		}
 
+		/**
+		 * Checks if rhs contains the expr
+		 */
 		public boolean contains(ITypeExpression expr) {
-			if(right.contains(expr))
+			if(right.matches(expr) || right.contains(expr))
 				return true;
 			return false;
 		}
@@ -229,9 +235,7 @@ public class TypeScheme implements ITypeScheme {
 		}
 
 		public List<ITypeConstraint> resolve() {
-			List<ITypeConstraint> result = left.resolve();
-			result.addAll(right.resolve());
-			return result;
+			return splice(left.resolve(), right.resolve());
 		}
 
 		@Override
@@ -274,11 +278,6 @@ public class TypeScheme implements ITypeScheme {
 			}
 			// try the reverse
 			return right.apply(this);
-		}
-
-		@Override
-		public boolean isIdentifier() {
-			return false;
 		}
 
 		@Override
@@ -330,11 +329,6 @@ public class TypeScheme implements ITypeScheme {
 			List<ITypeConstraint> result = Lists.newArrayList();
 			result.add(new ConstraintStatement(baseTypeConstraint, otherExpr.baseTypeConstraint));
 			return result;
-		}
-
-		@Override
-		public boolean isIdentifier() {
-			return isResolved();
 		}
 
 		@Override
@@ -400,7 +394,7 @@ public class TypeScheme implements ITypeScheme {
 		@Override
 		public List<ITypeConstraint> resolve() {
 			if(isResolved())
-				return Lists.newArrayList();
+				return NO_CONSTRAINTS;
 			List<ITypeConstraint> result = baseTypeConstraint.resolve();
 			if(baseTypeConstraint.isResolved()) {
 				Type t = baseTypeConstraint.getType();
@@ -572,7 +566,7 @@ public class TypeScheme implements ITypeScheme {
 		public List<ITypeConstraint> resolve() {
 			List<ITypeConstraint> result = product.resolve();
 			for(ITypeExpression e : given)
-				result.addAll(e.resolve());
+				result = splice(result, e.resolve());
 			return result;
 		}
 
@@ -629,11 +623,6 @@ public class TypeScheme implements ITypeScheme {
 		}
 
 		@Override
-		public boolean isIdentifier() {
-			return isResolved();
-		}
-
-		@Override
 		public boolean isResolvable() {
 			if(isResolved())
 				return true;
@@ -673,7 +662,7 @@ public class TypeScheme implements ITypeScheme {
 		@Override
 		public List<ITypeConstraint> resolve() {
 			if(isResolved())
-				return Lists.newArrayList(); // no new constraints
+				return NO_CONSTRAINTS; // no new constraints
 			List<ITypeConstraint> result = producerConstraint.resolve();
 			if(producerConstraint.isResolved())
 				setType(producerConstraint.getType());
@@ -840,13 +829,13 @@ public class TypeScheme implements ITypeScheme {
 		 */
 		@Override
 		public List<ITypeConstraint> resolve() {
-			List<ITypeConstraint> result = Lists.newArrayList();
+			List<ITypeConstraint> result = NO_CONSTRAINTS;
 			if(isResolved())
 				return result;
 			for(ITypeExpression e : parameterTypes)
-				result.addAll(e.resolve());
-			result.addAll(produces.resolve());
-			result.addAll(internalResolve());
+				result = splice(result, e.resolve());
+			result = splice(result, produces.resolve());
+			result = splice(result, internalResolve());
 			return result;
 		}
 
@@ -888,9 +877,6 @@ public class TypeScheme implements ITypeScheme {
 			if(functionName.equals("invoke")) {
 				ArrayList<ITypeConstraint> result = Lists.newArrayList();
 				ITypeExpression theLambda = parameterTypes.get(0);
-				if(!(theLambda instanceof Producer)) {
-					return Lists.newArrayList(); // not a ()=> first, nothing can be inferred.
-				}
 
 				ITypeExpression[] exprs = new ITypeExpression[parameterTypes.size()];
 				// select('invoke', (X0..Xn)=>Y, X0..Xn)
@@ -999,6 +985,8 @@ public class TypeScheme implements ITypeScheme {
 
 	}
 
+	public static final List<ITypeConstraint> NO_CONSTRAINTS = Collections.emptyList();
+
 	private static int tmpVarCounter = 0;
 
 	private static boolean constraintMatch(List<ITypeExpression> a, List<ITypeExpression> b) {
@@ -1009,6 +997,22 @@ public class TypeScheme implements ITypeScheme {
 			if(!a.get(i).matches(b.get(i)))
 				return false;
 		return true;
+	}
+
+	private static List<ITypeConstraint> splice(List<ITypeConstraint> a, List<ITypeConstraint> b) {
+		if(a == NO_CONSTRAINTS || a.size() == 0) {
+			if(b == NO_CONSTRAINTS || b.size() == 0)
+				return NO_CONSTRAINTS;
+			return b;
+		}
+		if(b.size() > 0) {
+			List<ITypeConstraint> result = new ArrayList<ITypeConstraint>(a.size() + b.size());
+			result.addAll(a);
+			result.addAll(b);
+			return result;
+		}
+		return a;
+
 	}
 
 	private static String tmpVarName(String s) {

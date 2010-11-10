@@ -135,7 +135,7 @@ public class TypeConstraintSolver implements ITypeConstraintSolver {
 		//
 		int emergencyBreak = MAX_RETRY;
 		while(constraints.size() > 0) {
-			if(B3Debug.typer) {
+			if(B3Debug.solver) {
 				B3Debug.trace(
 					"[solver] PHASE(" + (MAX_RETRY - emergencyBreak) + ") there are: ", constraints.size(),
 					" constraints left to solve:");
@@ -143,19 +143,19 @@ public class TypeConstraintSolver implements ITypeConstraintSolver {
 			}
 			emergencyBreak--;
 			if(emergencyBreak <= 0) {
-				if(B3Debug.typer)
+				if(B3Debug.solver)
 					B3Debug.trace("[solver] => TOO MANY ITERATIONS");
 				return TOO_MANY_ITERATIONS;
 			}
 			result = unify();
-			if(result == SOLUTION_FOUND) {
+			if(result == SOLUTION_FOUND || result == NOT_UNITABLE) {
 				String before = ""; // used only when debugging
 				for(ITypeConstraint c : substitutions) {
-					if(B3Debug.typer) {
+					if(B3Debug.solver) {
 						before = c.toString();
 					}
 					List<ITypeConstraint> additions = c.resolve();
-					if(B3Debug.typer) {
+					if(B3Debug.solver) {
 						String after = c.toString();
 						if(!before.equals(after))
 							B3Debug.trace("[solver] RESOLVED: [", before, "] TO: ", after);
@@ -169,11 +169,11 @@ public class TypeConstraintSolver implements ITypeConstraintSolver {
 				break;
 		}
 		if(emergencyBreak <= 0 || constraints.size() > 0) {
-			if(B3Debug.typer)
+			if(B3Debug.solver)
 				B3Debug.trace("[solver] => NOT UNITEABLE");
 			result = NOT_UNITABLE;
 		}
-		if(B3Debug.typer)
+		if(B3Debug.solver)
 			B3Debug.trace("[solver] Number of phases used: ", MAX_RETRY - emergencyBreak);
 		return result;
 	}
@@ -195,7 +195,7 @@ public class TypeConstraintSolver implements ITypeConstraintSolver {
 			// RULE 1, X == Y
 			if(c.getLeft().matches(c.getRight())) {
 				/* do nothing */;
-				if(B3Debug.typer) {
+				if(B3Debug.solver) {
 					B3Debug.trace("[solver] unify(", c.getLeft(), " == ", c.getRight(), ") => CONSTRAINT DROPPED");
 				}
 			}
@@ -204,17 +204,17 @@ public class TypeConstraintSolver implements ITypeConstraintSolver {
 				if(c.getRight().contains(c.getLeft())) {
 					// put it back for inspection
 					constraints.add(c);
-					if(B3Debug.typer)
+					if(B3Debug.solver)
 						B3Debug.trace("[solver] unify(", c.getRight(), " contains ", c.getLeft(), ") => RECURSION");
 
 					return RECURSIVE;
 				}
-				if(B3Debug.typer) {
+				if(B3Debug.solver) {
 					B3Debug.trace("[solver] unify(", c.getLeft(), " replaced by: ", c.getRight(), ") => NEW STATE");
 				}
 				replaceAll(c.getLeft(), c.getRight());
 				substitutions.add(c);
-				if(B3Debug.typer) {
+				if(B3Debug.solver) {
 					dump();
 				}
 			}
@@ -223,13 +223,13 @@ public class TypeConstraintSolver implements ITypeConstraintSolver {
 				if(c.getLeft().contains(c.getRight())) {
 					// put it back for inspection
 					constraints.add(c);
-					if(B3Debug.typer)
+					if(B3Debug.solver)
 						B3Debug.trace("[solver] unify(", c.getRight(), " contains ", c.getLeft(), ") => RECURSION");
 					return RECURSIVE;
 				}
 				replaceAll(c.getRight(), c.getLeft());
 				substitutions.add(c);
-				if(B3Debug.typer) {
+				if(B3Debug.solver) {
 					B3Debug.trace("[solver] unify(", c.getRight(), " replaced by: ", c.getLeft(), ") => NEW STATE");
 					dump();
 				}
@@ -239,13 +239,13 @@ public class TypeConstraintSolver implements ITypeConstraintSolver {
 				List<ITypeConstraint> eliminations = c.getLeft().eliminate(c.getRight());
 				for(ITypeConstraint x : eliminations)
 					constraints.add(x);
-				if(B3Debug.typer) {
+				if(B3Debug.solver) {
 					B3Debug.trace("[solver] unify(", c.getLeft(), " eliminated by: ", c.getRight(), ") => NEW STATE");
 					dump();
 				}
 			}
 			else {
-				if(B3Debug.typer) {
+				if(B3Debug.solver) {
 					B3Debug.trace("[solver] => NOT UNITABLE: ", c.getLeft(), " and ", c.getRight());
 					dump();
 				}
@@ -253,7 +253,7 @@ public class TypeConstraintSolver implements ITypeConstraintSolver {
 			}
 		}
 		// stack is empty
-		if(B3Debug.typer) {
+		if(B3Debug.solver) {
 			B3Debug.trace("[solver] => ALL CONSTRAINTS PROCESSED");
 			dump();
 		}

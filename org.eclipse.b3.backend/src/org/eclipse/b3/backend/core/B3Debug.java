@@ -31,6 +31,8 @@ public class B3Debug {
 
 	public static final String B3_TYPER_DEBUG_OPTION = "org.eclipse.b3.backend/debug/typer";
 
+	public static final String B3_TYPER_SOLVER_DEBUG_OPTION = "org.eclipse.b3.backend/debug/typer/solver";
+
 	public static final String B3_ENGINE_DEBUG_OPTION = "org.eclipse.b3.backend/debug/engine";
 
 	public static final String B3_WEAVER_DEBUG_OPTION = "org.eclipse.b3.backend/debug/weaver";
@@ -42,6 +44,8 @@ public class B3Debug {
 	public static boolean engine = false;
 
 	public static boolean typer = false;
+
+	public static boolean solver = false;
 
 	public static boolean evaluator = false;
 
@@ -64,6 +68,7 @@ public class B3Debug {
 		global = platform && getDebugOption(B3_GLOBAL_DEBUG_OPTION);
 		evaluator = global && getDebugOption(B3_EVALUATOR_DEBUG_OPTION);
 		typer = global && getDebugOption(B3_TYPER_DEBUG_OPTION);
+		solver = typer && getDebugOption(B3_TYPER_SOLVER_DEBUG_OPTION);
 		engine = global && getDebugOption(B3_ENGINE_DEBUG_OPTION);
 		weaver = global && getDebugOption(B3_WEAVER_DEBUG_OPTION);
 		proposals = global && getDebugOption(B3_UI_PROPOSAL_DEBUG_OPTION);
