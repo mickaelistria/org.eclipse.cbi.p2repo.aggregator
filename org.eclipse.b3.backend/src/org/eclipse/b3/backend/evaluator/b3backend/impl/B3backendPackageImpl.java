@@ -5193,7 +5193,7 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 		g2 = createEGenericType(this.getITypeExpression());
 		g1.getETypeArguments().add(g2);
 		addEParameter(op, g1, "parameterConstraints", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getITypeExpression(), "producesConstraint", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getITypeExpression(), "funcSelectConstraint", 0, 1, IS_UNIQUE, IS_ORDERED);
 		g1 = createEGenericType(this.getJavaList());
 		g2 = createEGenericType(this.getITypeConstraint());
 		g1.getETypeArguments().add(g2);

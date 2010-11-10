@@ -416,7 +416,7 @@
           <eTypeArguments eClassifier="#//ITypeExpression"/>
         </eGenericType>
       </eParameters>
-      <eParameters name="producesConstraint" eType="#//ITypeExpression"/>
+      <eParameters name="funcSelectConstraint" eType="#//ITypeExpression"/>
     </eOperations>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="BInstanceContext" eSuperTypes="#//BInnerContext">
