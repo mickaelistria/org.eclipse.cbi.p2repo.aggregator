@@ -24,11 +24,14 @@ import org.eclipse.xtext.util.Exceptions;
 import org.eclipse.xtext.util.PolymorphicDispatcher;
 import org.eclipse.xtext.util.PolymorphicDispatcher.ErrorHandler;
 
+import com.google.inject.Inject;
+import com.google.inject.internal.Lists;
+
 /**
  * Basic implementation of ITypeProvider.
  * 
  */
-public class DeclarativeTypeProvider implements ITypeProvider {
+public class DeclarativeTypeProvider implements ITypeProvider, ITypeSchemeVariableProvider {
 	protected static class TypeInfo implements ITypeInfo {
 		private Type type;
 
@@ -96,6 +99,13 @@ public class DeclarativeTypeProvider implements ITypeProvider {
 			}
 		});
 
+	private final PolymorphicDispatcher<List<ITypeConstraint>> tcDispatcher = new PolymorphicDispatcher<List<ITypeConstraint>>(
+		"tc", 1, 1, Collections.singletonList(this), new ErrorHandler<List<ITypeConstraint>>() {
+			public List<ITypeConstraint> handle(Object[] params, Throwable e) {
+				return handleTcError(params, e);
+			}
+		});
+
 	private final PolymorphicDispatcher<B3FunctionType> signatureDispatcher = new PolymorphicDispatcher<B3FunctionType>(
 		"signature", 1, 3, Collections.singletonList(this), new ErrorHandler<B3FunctionType>() {
 			public B3FunctionType handle(Object[] params, Throwable e) {
@@ -128,6 +138,9 @@ public class DeclarativeTypeProvider implements ITypeProvider {
 
 	private List<Object> signatureStack = new ArrayList<Object>();
 
+	@Inject
+	protected ITypeScheme ts;
+
 	public Type constraint(EObject parent, EObject element, EStructuralFeature feature) {
 		return null;
 	}
@@ -153,7 +166,7 @@ public class DeclarativeTypeProvider implements ITypeProvider {
 				? TypeAdapterFactory.eINSTANCE.adapt((EObject) element)
 				: null;
 		Type type = null;
-		if(ta != null && (type = ta.getAssociatedInfo(typeDispatcher)) != null)
+		if(ta != null && (type = ta.getAssociatedType(typeDispatcher)) != null)
 			return type;
 
 		if(inferenceStack.contains(element)) {
@@ -166,7 +179,7 @@ public class DeclarativeTypeProvider implements ITypeProvider {
 			type = (Type) typeDispatcher.invoke(element);
 			if(type != null) {
 				if(ta != null)
-					ta.setAssociatedInfo(typeDispatcher, type);
+					ta.setAssociatedType(typeDispatcher, type);
 				return type;
 			}
 			if(B3Debug.typer)
@@ -186,7 +199,7 @@ public class DeclarativeTypeProvider implements ITypeProvider {
 				? TypeAdapterFactory.eINSTANCE.adapt((EObject) element)
 				: null;
 		B3FunctionType type = null;
-		if(ta != null && (type = (B3FunctionType) ta.getAssociatedInfo(signatureDispatcher)) != null)
+		if(ta != null && (type = (B3FunctionType) ta.getAssociatedType(signatureDispatcher)) != null)
 			return type;
 
 		if(signatureStack.contains(element)) {
@@ -200,7 +213,7 @@ public class DeclarativeTypeProvider implements ITypeProvider {
 			type = signatureDispatcher.invoke(element);
 			if(type != null) {
 				if(ta != null)
-					ta.setAssociatedInfo(signatureDispatcher, type);
+					ta.setAssociatedType(signatureDispatcher, type);
 				return type;
 			}
 			if(B3Debug.typer)
@@ -213,6 +226,12 @@ public class DeclarativeTypeProvider implements ITypeProvider {
 		finally {
 			signatureStack.remove(element);
 		}
+	}
+
+	public List<ITypeConstraint> doGetTc(EObject element) {
+		if(ts.getParent() == null)
+			ts.setParent(this);
+		return tcDispatcher.invoke(element);
 	}
 
 	/*
@@ -228,6 +247,13 @@ public class DeclarativeTypeProvider implements ITypeProvider {
 	// or the top level container of expression if it is some type of Function
 	public Object doGetVarScope(Object element) {
 		return varScopeDispatcher.invoke(element);
+	}
+
+	/**
+	 * Returns they key (this) for all variables.
+	 */
+	public Object getVariableKey(EObject var) {
+		return this;
 	}
 
 	public B3FunctionType signature(Object o) {
@@ -265,7 +291,7 @@ public class DeclarativeTypeProvider implements ITypeProvider {
 				? TypeAdapterFactory.eINSTANCE.adapt((EObject) element)
 				: null;
 		B3FunctionType type = null;
-		if(ta != null && (type = (B3FunctionType) ta.getAssociatedInfo(signatureDispatcher)) != null)
+		if(ta != null && (type = (B3FunctionType) ta.getAssociatedType(signatureDispatcher)) != null)
 			return type;
 		return null;
 
@@ -276,7 +302,7 @@ public class DeclarativeTypeProvider implements ITypeProvider {
 				? TypeAdapterFactory.eINSTANCE.adapt((EObject) element)
 				: null;
 		Type type = ta != null
-				? (Type) ta.getAssociatedInfo(typeDispatcher)
+				? (Type) ta.getAssociatedType(typeDispatcher)
 				: null;
 		return type;
 
@@ -305,6 +331,12 @@ public class DeclarativeTypeProvider implements ITypeProvider {
 		return null;
 	}
 
+	protected List<ITypeConstraint> handleTcError(Object[] params, Throwable e) {
+		if(B3Debug.typer)
+			B3Debug.trace("b3 tc provider: Error handler was used for:", params[0].getClass());
+		return Lists.newArrayList(); // empty list
+	}
+
 	protected Type handleTypeError(Object[] params, Throwable e) {
 		return null;
 	}
@@ -322,6 +354,6 @@ public class DeclarativeTypeProvider implements ITypeProvider {
 				: null;
 
 		if(ta != null)
-			ta.setAssociatedInfo(typeDispatcher, type);
+			ta.setAssociatedType(typeDispatcher, type);
 	}
 }

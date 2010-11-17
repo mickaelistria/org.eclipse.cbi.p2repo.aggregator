@@ -91,6 +91,7 @@ import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.xtext.util.Strings;
 
 import com.google.inject.Inject;
+import com.google.inject.internal.Lists;
 
 /**
  * Provides the type of expressions using declared type and type inference.
@@ -570,6 +571,83 @@ public class B3BackendTypeProvider extends DeclarativeTypeProvider {
 		B3FunctionType result = (B3FunctionType) doGetInferredType(f);
 		if(B3Debug.typer)
 			B3Debug.trace("signature(IFunction name=", f.getName(), ") returns: ", result);
+		return result;
+	}
+
+	/**
+	 * variable(o) = product(select(f, left, right)=>σf)
+	 * 
+	 * @param o
+	 * @return
+	 */
+	public List<ITypeConstraint> tc(BBinaryOpExpression o) {
+		ITypeExpression ov = ts.variable(o);
+		if(ov.isResolved())
+			return ITypeScheme.NO_CONSTRAINTS;
+		ITypeExpression lv = ts.variable(o.getLeftExpr());
+		ITypeExpression rv = ts.variable(o.getLeftExpr());
+		List<ITypeConstraint> result = Lists.newArrayList();
+		result.add(ts.constraint(ov, ts.product(ts.select(o.getFunctionName(), o, lv, rv))));
+		if(!lv.isResolved())
+			result = ts.splice(result, doGetTc(o.getLeftExpr()));
+		if(!rv.isResolved())
+			result = ts.splice(result, doGetTc(o.getRightExpr()));
+		return result;
+	}
+
+	/**
+	 * variable(o) = product(select(f, expr)=>σf)
+	 * 
+	 * @param o
+	 * @return
+	 */
+	public List<ITypeConstraint> tc(BUnaryOpExpression o) {
+		ITypeExpression ov = ts.variable(o);
+		if(ov.isResolved())
+			return ITypeScheme.NO_CONSTRAINTS;
+		ITypeExpression lv = ts.variable(o.getExpr());
+		List<ITypeConstraint> result = Lists.newArrayList();
+		result.add(ts.constraint(ov, ts.product(ts.select(o.getFunctionName(), o, lv))));
+		if(!lv.isResolved())
+			result = ts.splice(result, doGetTc(o.getExpr()));
+		return result;
+	}
+
+	/**
+	 * Assumes a postop returns the same type as the expression.
+	 * variable(o) = variable(expr)
+	 * 
+	 * @param o
+	 * @return
+	 */
+	public List<ITypeConstraint> tc(BUnaryPostOpExpression o) {
+		ITypeExpression ov = ts.variable(o);
+		if(ov.isResolved())
+			return ITypeScheme.NO_CONSTRAINTS;
+		ITypeExpression lv = ts.variable(o.getExpr());
+		List<ITypeConstraint> result = Lists.newArrayList();
+		result.add(ts.constraint(ov, lv));
+		if(!lv.isResolved())
+			result = ts.splice(result, doGetTc(o.getExpr()));
+		return result;
+	}
+
+	/**
+	 * Assumes a preop returns the same type as the expression.
+	 * variable(o) = variable(expr)
+	 * 
+	 * @param o
+	 * @return
+	 */
+	public List<ITypeConstraint> tc(BUnaryPreOpExpression o) {
+		ITypeExpression ov = ts.variable(o);
+		if(ov.isResolved())
+			return ITypeScheme.NO_CONSTRAINTS;
+		ITypeExpression lv = ts.variable(o.getExpr());
+		List<ITypeConstraint> result = Lists.newArrayList();
+		result.add(ts.constraint(ov, lv));
+		if(!lv.isResolved())
+			result = ts.splice(result, doGetTc(o.getExpr()));
 		return result;
 	}
 

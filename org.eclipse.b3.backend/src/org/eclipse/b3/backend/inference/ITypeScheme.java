@@ -9,6 +9,7 @@
 package org.eclipse.b3.backend.inference;
 
 import java.lang.reflect.Type;
+import java.util.Collections;
 import java.util.List;
 
 import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
@@ -23,6 +24,8 @@ import com.google.inject.ImplementedBy;
  */
 @ImplementedBy(TypeScheme.class)
 public interface ITypeScheme {
+	public final static List<ITypeConstraint> NO_CONSTRAINTS = Collections.emptyList();
+
 	/**
 	 * Construct a constraint on the form A == B
 	 * 
@@ -39,6 +42,8 @@ public interface ITypeScheme {
 	public ITypeExpression generic(int index, ITypeExpression a);
 
 	public ITypeExpression generic(ITypeExpression a);
+
+	public ITypeSchemeVariableProvider getParent();
 
 	/**
 	 * The Scheme Key is any object that identifies a set of type variables. It's identity is used as a key.
@@ -132,6 +137,17 @@ public interface ITypeScheme {
 
 	public abstract ITypeExpression select(String funcName, ITypeExpression producesConstraint, BExpression callExpr,
 			List<ITypeExpression> constraintExpressions);
+
+	public void setParent(ITypeSchemeVariableProvider parent);
+
+	/**
+	 * Constructs a new List of Constraints being the combination of two lists.
+	 * 
+	 * @param a
+	 * @param b
+	 * @return
+	 */
+	public List<ITypeConstraint> splice(List<ITypeConstraint> a, List<ITypeConstraint> b);
 
 	/**
 	 * Create a sub scheme useful for solving sub problems. Also see {@link #makeSchemeScopedVariable(EObject)}.

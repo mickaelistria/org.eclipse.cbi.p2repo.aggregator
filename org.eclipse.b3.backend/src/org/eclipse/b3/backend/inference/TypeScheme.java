@@ -12,7 +12,6 @@ import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 import java.util.Set;
 
@@ -40,7 +39,7 @@ import com.google.inject.Inject;
  * An implementation of Type Expression interfaces used for solving type constraints.
  * 
  */
-public class TypeScheme implements ITypeScheme {
+public class TypeScheme implements ITypeScheme, ITypeSchemeVariableProvider {
 
 	/**
 	 * Abstract base class for type expressions that are or can be resolved to a concrete instance of Type.
@@ -249,6 +248,132 @@ public class TypeScheme implements ITypeScheme {
 			return buf.toString();
 		}
 	}
+
+	// /**
+	// * A type function that when applied to a generic type produces a result being one of the
+	// * generic arguments - e.g. generic(A<B>)=> B, generic(1, A<B,C>)=>C
+	// * Behaves like an ExplicitTypeExpr when resolved.
+	// */
+	// protected class ElementExpr extends AbstractTypeExpr {
+	//
+	// private ITypeExpression baseTypeConstraint;
+	//
+	// public ElementExpr(ITypeExpression constraint) {
+	// baseTypeConstraint = constraint;
+	// }
+	//
+	// @Override
+	// public boolean contains(ITypeExpression expr) {
+	// return baseTypeConstraint.matches(expr) || baseTypeConstraint.contains(expr);
+	// }
+	//
+	// @Override
+	// public List<ITypeConstraint> eliminate(ITypeExpression expr) {
+	// if(!isSameFunction(expr))
+	// throw new IllegalArgumentException("Not an equivalent function");
+	//
+	// // eliminate element(A), element(B) => A = B
+	// ElementExpr otherExpr = (ElementExpr) expr;
+	// List<ITypeConstraint> result = Lists.newArrayList();
+	// result.add(new ConstraintStatement(baseTypeConstraint, otherExpr.baseTypeConstraint));
+	// return result;
+	// }
+	//
+	// @Override
+	// public boolean isResolvable() {
+	// if(isResolved())
+	// return true;
+	// ITypeExpression t = baseTypeConstraint;
+	// if(!((t.isIdentifier() && t.isResolved()) || (!t.isIdentifier() && t.isResolvable())))
+	// return false;
+	//
+	// return true;
+	// }
+	//
+	// @Override
+	// public boolean isSameFunction(ITypeExpression expr) {
+	// if(!(expr instanceof GenericArgExpr))
+	// return false;
+	// GenericArgExpr otherExpr = (GenericArgExpr) expr;
+	// if(genericArgIndex != otherExpr.genericArgIndex)
+	// return false;
+	// return true;
+	// }
+	//
+	// @Override
+	// public boolean matches(ITypeExpression expr) {
+	// if(isResolved()) {
+	// if(expr.isResolved()) {
+	// Type otherType = expr.getType();
+	// if(!(otherType instanceof ParameterizedType))
+	// return false;
+	// ParameterizedType pt = (ParameterizedType) otherType;
+	// Type[] args = pt.getActualTypeArguments();
+	// if(args.length <= genericArgIndex)
+	// return false;
+	//
+	// // match if T equals ?<,,,,U,,,,>
+	// return getType().equals(args[genericArgIndex]);
+	// }
+	// }
+	// if(!(expr instanceof GenericArgExpr))
+	// return false;
+	// GenericArgExpr otherExpr = (GenericArgExpr) expr;
+	//
+	// if(genericArgIndex != otherExpr.genericArgIndex)
+	// return false;
+	// if(!baseTypeConstraint.matches(otherExpr.baseTypeConstraint))
+	// return false;
+	// return true;
+	// }
+	//
+	// @Override
+	// public void replace(ITypeExpression toBeReplaced, ITypeExpression replacement) {
+	// if(baseTypeConstraint.matches(toBeReplaced))
+	// baseTypeConstraint = replacement;
+	// else
+	// baseTypeConstraint.replace(toBeReplaced, replacement);
+	// }
+	//
+	// /**
+	// * Resolves the base expression and attempts to resolve the generic type variable.
+	// * If type variable is resolved, this instance will behave like an explicit type expression.
+	// */
+	// @Override
+	// public List<ITypeConstraint> resolve() {
+	// if(isResolved())
+	// return NO_CONSTRAINTS;
+	// List<ITypeConstraint> result = baseTypeConstraint.resolve();
+	// if(baseTypeConstraint.isResolved()) {
+	// Type t = baseTypeConstraint.getType();
+	// if(t instanceof ParameterizedType) {
+	// ParameterizedType bp = (ParameterizedType) t;
+	// Type[] typeargs = bp.getActualTypeArguments();
+	// if(genericArgIndex < typeargs.length)
+	// setType(typeargs[genericArgIndex]);
+	// }
+	// }
+	// return result;
+	// }
+	//
+	// @Override
+	// public String toString() {
+	// StringBuffer buf = new StringBuffer();
+	// if(isResolved()) {
+	// buf.append("Я[");
+	// buf.append(stringProvider.doToString(getType()));
+	// buf.append("]");
+	// }
+	// else {
+	// buf.append("generic(");
+	// buf.append(genericArgIndex);
+	// buf.append(", ");
+	// buf.append(baseTypeConstraint.toString());
+	// buf.append(")");
+	// }
+	// return buf.toString();
+	// }
+	// }
 
 	/**
 	 * A concrete type statement e.g. Integer.class
@@ -1126,13 +1251,13 @@ public class TypeScheme implements ITypeScheme {
 				throw new IllegalStateException("the resolved type lied, and returned null: " +
 						stringProvider.doToString(right));
 
-			variable.setAssociatedInfo(getSchemeKey(), t);
+			variable.setAssociatedType(getVariableKey(obj), t);
 			return t;
 		}
 
 		@Override
 		public Type getType() {
-			return variable.getAssociatedInfo(getSchemeKey());
+			return variable.getAssociatedType(getVariableKey(obj));
 		}
 
 		public TypeAdapter getVariable() {
@@ -1172,8 +1297,6 @@ public class TypeScheme implements ITypeScheme {
 
 	}
 
-	public static final List<ITypeConstraint> NO_CONSTRAINTS = Collections.emptyList();
-
 	private static int tmpVarCounter = 0;
 
 	private static boolean constraintMatch(List<ITypeExpression> a, List<ITypeExpression> b) {
@@ -1186,22 +1309,6 @@ public class TypeScheme implements ITypeScheme {
 		return true;
 	}
 
-	private static List<ITypeConstraint> splice(List<ITypeConstraint> a, List<ITypeConstraint> b) {
-		if(a == NO_CONSTRAINTS || a.size() == 0) {
-			if(b == NO_CONSTRAINTS || b.size() == 0)
-				return NO_CONSTRAINTS;
-			return b;
-		}
-		if(b.size() > 0) {
-			List<ITypeConstraint> result = new ArrayList<ITypeConstraint>(a.size() + b.size());
-			result.addAll(a);
-			result.addAll(b);
-			return result;
-		}
-		return a;
-
-	}
-
 	private static String tmpVarName(String s) {
 		return "σ(" + s + tmpVarCounter++ + ")";
 	}
@@ -1209,7 +1316,7 @@ public class TypeScheme implements ITypeScheme {
 	@Inject
 	private IStringProvider stringProvider;
 
-	private ITypeScheme parent;
+	private ITypeSchemeVariableProvider parent;
 
 	private Set<EObject> genericVariables;
 
@@ -1239,7 +1346,14 @@ public class TypeScheme implements ITypeScheme {
 		return new GenericArgExpr(a, 0);
 	}
 
-	public ITypeScheme getParentScheme() {
+	/**
+	 * @return the parent
+	 */
+	public ITypeSchemeVariableProvider getParent() {
+		return parent;
+	}
+
+	public ITypeSchemeVariableProvider getParentScheme() {
 		return parent;
 	}
 
@@ -1284,7 +1398,7 @@ public class TypeScheme implements ITypeScheme {
 		VariableExpr xConstraint = new VariableExpr(x);
 		TypeAdapter xVar = xConstraint.getVariable();
 		// Copy value from parent's view of variable to this view.
-		xVar.setAssociatedInfo(getSchemeKey(), xVar.getAssociatedInfo(parent.getVariableKey(x)));
+		xVar.setAssociatedType(getSchemeKey(), xVar.getAssociatedType(parent.getVariableKey(x)));
 		genericVariables.add(x);
 		return xConstraint;
 	}
@@ -1313,6 +1427,30 @@ public class TypeScheme implements ITypeScheme {
 	public ITypeExpression select(String funcName, ITypeExpression producesConstraint, BExpression callExpr,
 			List<ITypeExpression> constraintExpressions) {
 		return new SelectExpr(funcName, producesConstraint, callExpr, constraintExpressions);
+	}
+
+	/**
+	 * @param parent
+	 *            the parent to set
+	 */
+	public void setParent(ITypeSchemeVariableProvider parent) {
+		this.parent = parent;
+	}
+
+	public List<ITypeConstraint> splice(List<ITypeConstraint> a, List<ITypeConstraint> b) {
+		if(a == NO_CONSTRAINTS || a.size() == 0) {
+			if(b == NO_CONSTRAINTS || b.size() == 0)
+				return NO_CONSTRAINTS;
+			return b;
+		}
+		if(b.size() > 0) {
+			List<ITypeConstraint> result = new ArrayList<ITypeConstraint>(a.size() + b.size());
+			result.addAll(a);
+			result.addAll(b);
+			return result;
+		}
+		return a;
+
 	}
 
 	/**
@@ -1355,7 +1493,7 @@ public class TypeScheme implements ITypeScheme {
 		VariableExpr xConstraint = new VariableExpr(x);
 		TypeAdapter xVar = xConstraint.getVariable();
 
-		xVar.setAssociatedInfo(parent.getVariableKey(x), xVar.getAssociatedInfo(getSchemeKey()));
+		xVar.setAssociatedType(parent.getVariableKey(x), xVar.getAssociatedType(getSchemeKey()));
 	}
 
 	/**
