@@ -704,7 +704,7 @@ public class B3BackendTypeProvider extends DeclarativeTypeProvider {
 			return functionUtils.getReturnType(f, types);
 		}
 		catch(Exception e) {
-			return Object.class;
+			return TypeUtils.getDefaultInferredObjectType();
 		}
 	}
 

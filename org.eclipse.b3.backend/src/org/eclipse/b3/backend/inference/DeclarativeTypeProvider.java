@@ -161,12 +161,9 @@ public class DeclarativeTypeProvider implements ITypeProvider, ITypeSchemeVariab
 	}
 
 	public Type doGetInferredType(Object element) {
-		// speed up inference by associating result with element in an adapter
-		TypeAdapter ta = (element instanceof EObject)
-				? TypeAdapterFactory.eINSTANCE.adapt((EObject) element)
-				: null;
-		Type type = null;
-		if(ta != null && (type = ta.getAssociatedType(typeDispatcher)) != null)
+		// // speed up inference by associating result with element in an adapter
+		Type type = getTypeAdapterType(element);
+		if(type != null)
 			return type;
 
 		if(inferenceStack.contains(element)) {
@@ -177,11 +174,9 @@ public class DeclarativeTypeProvider implements ITypeProvider, ITypeSchemeVariab
 		try {
 			inferenceStack.add(element);
 			type = (Type) typeDispatcher.invoke(element);
-			if(type != null) {
-				if(ta != null)
-					ta.setAssociatedType(typeDispatcher, type);
+			setTypeAdapterType(element, type);
+			if(type != null)
 				return type;
-			}
 			if(B3Debug.typer)
 				B3Debug.trace(
 					"b3 type provider: null result for doGetInferredType() for element of type: ",
@@ -249,11 +244,25 @@ public class DeclarativeTypeProvider implements ITypeProvider, ITypeSchemeVariab
 		return varScopeDispatcher.invoke(element);
 	}
 
+	public Type getTypeAdapterType(Object element) {
+		if(!(element instanceof EObject))
+			return null;
+		TypeAdapter ta = TypeAdapterFactory.eINSTANCE.adapt((EObject) element);
+		return ta.getAssociatedType(typeDispatcher);
+	}
+
 	/**
 	 * Returns they key (this) for all variables.
 	 */
 	public Object getVariableKey(EObject var) {
 		return this;
+	}
+
+	public void setTypeAdapterType(Object element, Type type) {
+		if(!(element instanceof EObject))
+			return;
+		TypeAdapter ta = TypeAdapterFactory.eINSTANCE.adapt((EObject) element);
+		ta.setAssociatedType(typeDispatcher, type);
 	}
 
 	public B3FunctionType signature(Object o) {
