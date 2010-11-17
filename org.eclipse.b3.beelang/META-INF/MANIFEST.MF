@@ -6,7 +6,7 @@ Bundle-Version: 0.1.0.qualifier
 Bundle-SymbolicName: org.eclipse.b3.beelang; singleton:=true
 Eclipse-RegisterBuddy: org.eclipse.xtext.log4j
 Bundle-ActivationPolicy: lazy
-Require-Bundle: org.eclipse.xtext,
+Require-Bundle: org.eclipse.xtext;bundle-version="1.0.1",
  org.eclipse.xtext.util,
  org.eclipse.emf.ecore,
  org.eclipse.emf.common,
