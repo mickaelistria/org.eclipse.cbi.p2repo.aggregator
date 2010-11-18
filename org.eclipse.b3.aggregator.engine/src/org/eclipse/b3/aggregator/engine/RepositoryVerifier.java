@@ -41,6 +41,7 @@ import org.eclipse.equinox.internal.p2.director.Explanation;
 import org.eclipse.equinox.internal.p2.director.Explanation.HardRequirement;
 import org.eclipse.equinox.internal.p2.director.Explanation.MissingIU;
 import org.eclipse.equinox.internal.p2.director.Explanation.Singleton;
+import org.eclipse.equinox.internal.p2.director.QueryableArray;
 import org.eclipse.equinox.internal.p2.engine.InstallableUnitOperand;
 import org.eclipse.equinox.internal.p2.engine.Operand;
 import org.eclipse.equinox.internal.p2.engine.ProvisioningPlan;
@@ -61,6 +62,7 @@ import org.eclipse.equinox.p2.metadata.Version;
 import org.eclipse.equinox.p2.planner.IPlanner;
 import org.eclipse.equinox.p2.query.IQuery;
 import org.eclipse.equinox.p2.query.IQueryResult;
+import org.eclipse.equinox.p2.query.IQueryable;
 import org.eclipse.equinox.p2.query.QueryUtil;
 import org.eclipse.equinox.p2.repository.artifact.IArtifactRepository;
 import org.eclipse.equinox.p2.repository.artifact.IArtifactRepositoryManager;
@@ -209,13 +211,19 @@ public class RepositoryVerifier extends BuilderPhase {
 					Iterator<IInstallableUnit> itor = sourceRepo.query(
 						QueryUtil.createIUPatchQuery(), subMon.newChild(1)).iterator();
 
+					IQueryable<IInstallableUnit> collectedStuff = null;
 					while(itor.hasNext()) {
 						IInstallableUnitPatch patch = (IInstallableUnitPatch) itor.next();
 						if(!unitsToAggregate.contains(patch))
 							continue;
 
+						if(collectedStuff == null) {
+							collectedStuff = new QueryableArray(
+								unitsToAggregate.toArray(new IInstallableUnit[unitsToAggregate.size()]));
+						}
+
 						Set<IInstallableUnit> units = getUnpatchedTransitiveScope(
-							patch, profile, planner, repoLocation, subMon.newChild(1));
+							collectedStuff, patch, profile, planner, repoLocation, subMon.newChild(1));
 						for(IInstallableUnit iu : units) {
 							if(validationOnlyIUs.contains(iu)) {
 								// This IU should not be included unless it is also included in one of
@@ -470,15 +478,15 @@ public class RepositoryVerifier extends BuilderPhase {
 		return null;
 	}
 
-	private Set<IInstallableUnit> getUnpatchedTransitiveScope(IInstallableUnitPatch patch, IProfile profile,
-			IPlanner planner, URI repoLocation, SubMonitor monitor) throws CoreException {
+	private Set<IInstallableUnit> getUnpatchedTransitiveScope(IQueryable<IInstallableUnit> collectedStuff,
+			IInstallableUnitPatch patch, IProfile profile, IPlanner planner, URI repoLocation, SubMonitor monitor)
+			throws CoreException {
 		IMetadataRepositoryManager mdrMgr = P2Utils.getRepositoryManager(
 			getBuilder().getProvisioningAgent(), IMetadataRepositoryManager.class);
 		try {
 			monitor.beginTask(null, 10);
-			IMetadataRepository sourceRepo = mdrMgr.loadRepository(repoLocation, monitor.newChild(1));
 			IQuery<IInstallableUnit> query = SpecialQueries.createPatchApplicabilityQuery(patch);
-			IQueryResult<IInstallableUnit> result = sourceRepo.query(query, monitor.newChild(1));
+			IQueryResult<IInstallableUnit> result = collectedStuff.query(query, monitor.newChild(1));
 
 			IInstallableUnit[] rootArr = result.toArray(IInstallableUnit.class);
 			// Add as root IU's to a request
@@ -496,20 +504,23 @@ public class RepositoryVerifier extends BuilderPhase {
 			ProvisioningPlan plan = (ProvisioningPlan) planner.getProvisioningPlan(
 				request, context, new NullProgressMonitor());
 			monitor.worked(8);
+			IStatus status = plan.getStatus();
+			if(status.isOK()) {
+				HashSet<IInstallableUnit> units = new HashSet<IInstallableUnit>();
+				units.add(patch);
+				Operand[] ops = plan.getOperands();
+				for(Operand op : ops) {
+					if(!(op instanceof InstallableUnitOperand))
+						continue;
 
-			HashSet<IInstallableUnit> units = new HashSet<IInstallableUnit>();
-			units.add(patch);
-			Operand[] ops = plan.getOperands();
-			for(Operand op : ops) {
-				if(!(op instanceof InstallableUnitOperand))
-					continue;
-
-				InstallableUnitOperand iuOp = (InstallableUnitOperand) op;
-				IInstallableUnit iu = iuOp.second();
-				if(iu != null)
-					units.add(iu);
+					InstallableUnitOperand iuOp = (InstallableUnitOperand) op;
+					IInstallableUnit iu = iuOp.second();
+					if(iu != null)
+						units.add(iu);
+				}
+				return units;
 			}
-			return units;
+			return Collections.emptySet();
 		}
 		finally {
 			P2Utils.ungetRepositoryManager(getBuilder().getProvisioningAgent(), mdrMgr);
