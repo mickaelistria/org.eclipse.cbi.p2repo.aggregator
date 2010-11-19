@@ -76,6 +76,20 @@ public class DefaultVersionFormatManager implements IVersionFormatManager {
 	public static final String VERSION_FORMAT__RPM = "format(<[n:]a(d?a)*>[-n[dS=!;]]):";
 
 	/**
+	 * Debian packages have the format
+	 * [epoch:]upstream[-debianrev]
+	 * epoch is numeric and optional
+	 * upstream is (A-Za-z0-9.~+)+, and must start with a digit
+	 * : in upstream is only allowed if epoch is specified
+	 * - as delimiter in upstream is only allowed if there is a debianrev (NOT SUPPORTED)
+	 * delimiters are included in strings and compared
+	 * debianrev may not include :
+	 * missing debianrev compares < any debianrev
+	 * debianrev only significant if all of the preceding segments are equal
+	 */
+	public static final String VERSION_FORMAT__DEB = "format(<[n:]n(S=[A-Za-z~+.:];n?)*>[-n?(S=[A-Za-z~+.];n?)*]):";
+
+	/**
 	 * Not known if this is the correct format for GEMs, documentation says three required numerical fields
 	 * separated by period. It is allowed to write less digits in version comparisons, but there are
 	 * special semantics associated with using 1,2 or 3 digits, but this does not affect b3 as osgi version
@@ -121,6 +135,7 @@ public class DefaultVersionFormatManager implements IVersionFormatManager {
 		formats.put("gem:", VERSION_FORMAT__GEM);
 		formats.put("auto:", VERSION_FORMAT__AUTO);
 		formats.put("php:", VERSION_FORMAT__PHP);
+		formats.put("deb:", VERSION_FORMAT__DEB);
 
 		// formats.put("", VERSION_FORMAT__OSGI);
 
@@ -133,6 +148,7 @@ public class DefaultVersionFormatManager implements IVersionFormatManager {
 		versionProposals.add(new ProposalImpl("gem", "gem:1.2.3"));
 		versionProposals.add(new ProposalImpl("php", "php:1.2.3.rc1"));
 		versionProposals.add(new ProposalImpl("rpm", "rpm:33:1.2.3a-23/i386"));
+		versionProposals.add(new ProposalImpl("rpm", "deb:2:1.2.3"));
 		versionProposals = Collections.unmodifiableList(versionProposals);
 
 		versionRangeProposals = Lists.newArrayList();
@@ -248,8 +264,7 @@ public class DefaultVersionFormatManager implements IVersionFormatManager {
 	}
 
 	/**
-	 * Simplistic replacement of known format prefix. It will fail if the format name prefix e.g. "rpm:" appears in the
-	 * version string as in "rpm:1.0.0-rpm:3"
+	 * Simplistic replacement of known format prefix.
 	 * 
 	 * @param s
 	 * @return
