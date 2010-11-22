@@ -11,8 +11,8 @@
 	<rm:locator pattern="^com\.ibm\.icu\.base$" searchPathRef="orbit" />
 	<rm:locator pattern="^org\.kohsuke(\..+)?$" searchPathRef="orbit" />
 	<rm:locator pattern="^org\.apache\.log4j(\..+)?$" searchPathRef="orbit" />
-	<rm:locator searchPathRef="platform" failOnError="false" />
-	<!-- rm:locator searchPathRef="simultaneous.release" failOnError="false" /-->
+	<rm:locator searchPathRef="simultaneous.release" failOnError="false" />
+	<rm:locator searchPathRef="platform" />
 
 	<rm:searchPath name="b3">
 		<rm:provider componentTypes="osgi.bundle,eclipse.feature,buckminster" readerType="svn" source="true">
@@ -75,31 +75,7 @@
 		<rm:provider componentTypes="osgi.bundle,eclipse.feature" readerType="p2" source="false" mutable="false"
 			resolutionFilter="(resolve.target.platform=true)"
 		>
-			<rm:uri format="{0}/tools/orbit/downloads/drops/R20100519200754/updateSite">
-				<bc:propertyRef key="eclipse.download" />
-			</rm:uri>
-		</rm:provider>
-	</rm:searchPath>
-
-	<rm:searchPath name="platform">
-		<rm:provider componentTypes="osgi.bundle,eclipse.feature" readerType="p2" source="false" mutable="false"
-			resolutionFilter="(&amp;(resolve.target.platform=true)(build.type=M))"
-		>
-			<rm:uri format="{0}/eclipse/updates/3.6milestones">
-				<bc:propertyRef key="eclipse.download" />
-			</rm:uri>
-		</rm:provider>
-		<rm:provider componentTypes="osgi.bundle,eclipse.feature" readerType="p2" source="false" mutable="false"
-			resolutionFilter="(&amp;(resolve.target.platform=true)(build.type=I))"
-		>
-			<rm:uri format="{0}/eclipse/updates/3.6-I-builds">
-				<bc:propertyRef key="eclipse.download" />
-			</rm:uri>
-		</rm:provider>
-		<rm:provider componentTypes="osgi.bundle,eclipse.feature" readerType="p2" source="false" mutable="false"
-			resolutionFilter="(&amp;(resolve.target.platform=true)(build.type=R))"
-		>
-			<rm:uri format="{0}/eclipse/updates/3.6">
+			<rm:uri format="{0}/tools/orbit/downloads/drops/R20100519200754/repository">
 				<bc:propertyRef key="eclipse.download" />
 			</rm:uri>
 		</rm:provider>
@@ -107,14 +83,14 @@
 
 	<rm:searchPath name="simultaneous.release">
 		<rm:provider componentTypes="osgi.bundle,eclipse.feature" readerType="p2" source="false" mutable="false"
-			resolutionFilter="(&amp;(resolve.target.platform=true)(|(build.type=M)(build.type=I)))"
+			resolutionFilter="(&amp;(resolve.target.platform=true)(!(build.platform=3.6))(|(build.type=M)(build.type=I)))"
 		>
 			<rm:uri format="{0}/releases/staging">
 				<bc:propertyRef key="eclipse.download" />
 			</rm:uri>
 		</rm:provider>
 		<rm:provider componentTypes="osgi.bundle,eclipse.feature" readerType="p2" source="false" mutable="false"
-			resolutionFilter="(&amp;(resolve.target.platform=true)(build.type=R))"
+			resolutionFilter="(&amp;(resolve.target.platform=true)(!(build.platform=3.6))(build.type=R))"
 		>
 			<rm:uri format="{0}/releases/indigo">
 				<bc:propertyRef key="eclipse.download" />
@@ -122,10 +98,37 @@
 		</rm:provider>
 	</rm:searchPath>
 
+	<rm:searchPath name="platform">
+		<rm:provider componentTypes="osgi.bundle,eclipse.feature" readerType="p2" source="false" mutable="false"
+			resolutionFilter="(&amp;(resolve.target.platform=true)(build.platform=3.6)(build.type=M))"
+		>
+			<rm:uri format="{0}/eclipse/updates/3.6milestones">
+				<bc:propertyRef key="eclipse.download" />
+			</rm:uri>
+		</rm:provider>
+		<rm:provider componentTypes="osgi.bundle,eclipse.feature" readerType="p2" source="false" mutable="false"
+			resolutionFilter="(&amp;(resolve.target.platform=true)(build.platform=3.6)(build.type=I))"
+		>
+			<rm:uri format="{0}/eclipse/updates/3.6-I-builds">
+				<bc:propertyRef key="eclipse.download" />
+			</rm:uri>
+		</rm:provider>
+		<rm:provider componentTypes="osgi.bundle,eclipse.feature" readerType="p2" source="false" mutable="false"
+			resolutionFilter="(&amp;(resolve.target.platform=true)(build.platform=3.6)(build.type=R))"
+		>
+			<rm:uri format="{0}/eclipse/updates/3.6">
+				<bc:propertyRef key="eclipse.download" />
+			</rm:uri>
+		</rm:provider>
+	</rm:searchPath>
+
+
 	<rm:property key="source.repository.location" value="http://dev.eclipse.org/svnroot" />
 
 	<rm:property key="eclipse.download" value="http://download.eclipse.org" />
 
 	<rm:property key="resolve.target.platform" value="false" />
+
 	<rm:property key="build.type" value="R" />
+	<rm:property key="build.platfrom" value="3.6" />
 </rm:rmap>
