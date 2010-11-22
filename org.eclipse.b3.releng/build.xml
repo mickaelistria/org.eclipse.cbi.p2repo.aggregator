@@ -72,8 +72,8 @@
 		<sequential>
 			<eclipse.launch app="buckminster">
 				<args>
-					<jvmarg value="-Xmx1024m"/>
-					<jvmarg value="-Dbugfix.288796=true"/>
+					<jvmarg value="-Xmx1024m" />
+					<jvmarg value="-Dbugfix.288796=true" />
 					<arg value="-data" />
 					<arg value="@{workspace}" />
 					<arg value="--loglevel" />
@@ -169,7 +169,7 @@
 
 		<available file="${basedir}/build-local.properties" property="local.properties.file.exists" />
 		<condition property="local.properties" value="build-local.properties" else="build.properties">
-			<istrue value="${local.properties.file.exists}"/>
+			<istrue value="${local.properties.file.exists}" />
 		</condition>
 
 		<echo message="Setting TP to ${targetPlatformPath}" />
