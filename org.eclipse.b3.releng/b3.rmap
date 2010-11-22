@@ -129,14 +129,14 @@
 
 	<rm:searchPath name="platform">
 		<rm:provider componentTypes="eclipse.feature,osgi.bundle" readerType="p2" source="false" mutable="false"
-			resolutionFilter="(&amp;(resolve.target.platform=true)(build.platform=3.6)(!(build.type=R)))"
+			resolutionFilter="(&amp;(resolve.target.platform=true)(build.platform=3.6)(!(|(build.type=S)(build.type=R))))"
 		>
 			<rm:uri format="{0}/eclipse/updates/3.6.x">
 				<bc:propertyRef key="eclipse.download" />
 			</rm:uri>
 		</rm:provider>
 		<rm:provider componentTypes="eclipse.feature,osgi.bundle" readerType="p2" source="false" mutable="false"
-			resolutionFilter="(&amp;(resolve.target.platform=true)(build.platform=3.6)(build.type=R))"
+			resolutionFilter="(&amp;(resolve.target.platform=true)(build.platform=3.6)(|(build.type=S)(build.type=R)))"
 		>
 			<rm:uri format="{0}/eclipse/updates/3.6">
 				<bc:propertyRef key="eclipse.download" />
