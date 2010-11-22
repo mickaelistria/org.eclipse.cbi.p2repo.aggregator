@@ -177,8 +177,8 @@
 
 	<rm:property key="eclipse.download" value="http://download.eclipse.org" />
 
-	<rm:property key="resolve.target.platform" value="false"/>
+	<rm:property key="resolve.target.platform" value="false" />
 
-	<rm:property key="build.platform" value="3.6"/>
+	<rm:property key="build.platform" value="3.6" />
 	<rm:property key="build.type" value="R" />
 </rm:rmap>
