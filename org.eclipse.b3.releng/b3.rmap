@@ -130,5 +130,4 @@
 	<rm:property key="resolve.target.platform" value="false" />
 
 	<rm:property key="build.type" value="R" />
-	<rm:property key="build.platfrom" value="3.6" />
 </rm:rmap>
