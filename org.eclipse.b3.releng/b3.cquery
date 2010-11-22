@@ -2,13 +2,9 @@
 <cq:componentQuery xmlns:cq="http://www.eclipse.org/buckminster/CQuery-1.0" resourceMap="b3.rmap">
 	<cq:rootRequest name="org.eclipse.b3.releng" componentType="buckminster"/>
 
-    <cq:advisorNode filter="(&amp;(resolve.target.platform=true)(build.platform=3.7))" namePattern="^org\.eclipse\.swt\.(?:gtk\.aix\.ppc(?:64)?|motif\.solaris\.sparc|photon\.qnx\.x86)$" skipComponent="true"/>
-    <cq:advisorNode filter="(&amp;(resolve.target.platform=true)(build.platform=3.7))" namePattern="^org\.eclipse\.equinox\.launcher\.gtk\.aix\.ppc(?:64)?$" skipComponent="true"/>
 	<cq:advisorNode filter="(resolve.target.platform=true)" useTargetPlatform="false"/>
 
 	<cq:property key="target.arch" value="*"/>
 	<cq:property key="target.os" value="*"/>
 	<cq:property key="target.ws" value="*"/>
-
-	<cq:property key="build.platform" value="3.7" />
 </cq:componentQuery>
