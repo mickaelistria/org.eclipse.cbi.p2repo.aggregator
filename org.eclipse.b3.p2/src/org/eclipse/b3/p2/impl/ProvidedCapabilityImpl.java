@@ -252,7 +252,9 @@ public class ProvidedCapabilityImpl extends MinimalEObjectImpl.Container impleme
 
 	@Override
 	public int hashCode() {
-		return namespace.hashCode() * name.hashCode() * version.hashCode();
+		return namespace.hashCode() * name.hashCode() * (version == null
+				? 1
+				: version.hashCode());
 	}
 
 	/**
