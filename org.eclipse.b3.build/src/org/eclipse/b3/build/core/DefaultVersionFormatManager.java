@@ -94,8 +94,9 @@ public class DefaultVersionFormatManager implements IVersionFormatManager {
 	 * separated by period. It is allowed to write less digits in version comparisons, but there are
 	 * special semantics associated with using 1,2 or 3 digits, but this does not affect b3 as osgi version
 	 * range semantics are used. Seems natural to allow missing position to mean "0".
+	 * Modified to include 4 digits (there are gems with 4 digit versions).
 	 */
-	public static final String VERSION_FORMAT__GEM = "format(n[.n=0;[.n=0;]]):";
+	public static final String VERSION_FORMAT__GEM = "format(n[.n=0;[.n=0;[.n=0;]]]):";
 
 /**
 	 * Placeholder format for PHP while support for enums are missing. This simplified format will
