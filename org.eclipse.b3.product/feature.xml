@@ -19,7 +19,7 @@ such license is available at www.eclipse.org.
 
    <includes
          id="org.eclipse.equinox.executable"
-         version="0.0.0"/>
+         version="3.5.0"/>
 
    <plugin
          id="org.eclipse.b3.cli"
@@ -109,6 +109,16 @@ such license is available at www.eclipse.org.
          id="org.eclipse.core.net.linux.x86"
          os="linux"
          arch="x86"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.core.net.linux.x86_64"
+         os="linux"
+         arch="x86_64"
          download-size="0"
          install-size="0"
          version="0.0.0"
@@ -343,9 +353,29 @@ such license is available at www.eclipse.org.
          unpack="false"/>
 
    <plugin
-         id="org.eclipse.core.filesystem.linux.ppc"
-         os="linux"
+         id="org.eclipse.core.filesystem.aix.ppc"
+         os="aix"
          arch="ppc"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.core.filesystem.hpux.ia64_32"
+         os="hpux"
+         arch="ia64_32"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.core.filesystem.solaris.sparc"
+         os="solaris"
+         arch="sparc"
          download-size="0"
          install-size="0"
          version="0.0.0"
