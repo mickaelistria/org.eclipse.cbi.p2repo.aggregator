@@ -477,9 +477,9 @@ public class MirrorGenerator extends BuilderPhase {
 					}
 
 					File newLocation = new File(aggregateDestination, oldLocation.getName());
-					oldLocation.renameTo(newLocation);
-					throw ExceptionUtils.fromMessage(
-						"Unable to move %s to %s", oldLocation.getAbsolutePath(), newLocation.getAbsolutePath());
+					if (!oldLocation.renameTo(newLocation))
+						throw ExceptionUtils.fromMessage(
+							"Unable to move %s to %s", oldLocation.getAbsolutePath(), newLocation.getAbsolutePath());
 				}
 				try {
 					aggregateAr = (IFileArtifactRepository) arMgr.loadRepository(aggregateURI, subMon.newChild(5));
