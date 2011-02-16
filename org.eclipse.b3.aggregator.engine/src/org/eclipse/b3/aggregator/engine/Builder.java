@@ -37,9 +37,6 @@ import org.eclipse.b3.aggregator.MappedUnit;
 import org.eclipse.b3.aggregator.MetadataRepositoryReference;
 import org.eclipse.b3.aggregator.PackedStrategy;
 import org.eclipse.b3.aggregator.impl.MetadataRepositoryReferenceImpl;
-import org.eclipse.b3.aggregator.transformer.TransformationManager;
-import org.eclipse.b3.aggregator.util.ResourceUtils;
-import org.eclipse.b3.cli.AbstractCommand;
 import org.eclipse.b3.p2.MetadataRepository;
 import org.eclipse.b3.p2.util.P2ResourceImpl;
 import org.eclipse.b3.p2.util.P2Utils;
@@ -57,7 +54,6 @@ import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.emf.common.util.Diagnostic;
-import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
@@ -85,7 +81,7 @@ import org.kohsuke.args4j.spi.OptionHandler;
 import org.kohsuke.args4j.spi.Parameters;
 import org.kohsuke.args4j.spi.Setter;
 
-public class Builder extends AbstractCommand {
+public class Builder extends ModelAbstractCommand {
 	public enum ActionType {
 		CLEAN, VERIFY, BUILD, CLEAN_BUILD
 	}
@@ -293,8 +289,8 @@ public class Builder extends AbstractCommand {
 	@Option(name = "--action", usage = "Specifies the type of the execution. Default is BUILD.")
 	private ActionType action = ActionType.BUILD;
 
-	@Option(name = "--buildModel", required = true, usage = "Appoints the aggregation definition that drives the execution")
-	private File buildModelLocation;
+	// @Option(name = "--buildModel", required = true, usage = "Appoints the aggregation definition that drives the execution")
+	// private File buildModelLocation;
 
 	@Option(name = "--buildId", usage = "Assigns a build identifier to the aggregation. "
 			+ "The identifier is used to identify the build in notification emails. Defaults to: "
@@ -906,36 +902,7 @@ public class Builder extends AbstractCommand {
 	 */
 	private void loadModel() throws CoreException {
 		try {
-			// Load the Java model into memory
-			resourceSet = new ResourceSetWithAgent();
-			String modelPath = buildModelLocation.getAbsolutePath();
-			File modelFile = new File(modelPath);
-			if(!modelFile.exists())
-				throw ExceptionUtils.fromMessage("Specified build model file does not exist");
-			if(!modelFile.isFile())
-				throw ExceptionUtils.fromMessage("Specified build model location does not appoint a file");
-			org.eclipse.emf.common.util.URI fileURI = org.eclipse.emf.common.util.URI.createFileURI(modelPath);
-
-			Resource resource;
-			if(ResourceUtils.isCurrentModel(fileURI))
-				resource = resourceSet.getResource(fileURI, true);
-			else {
-				LogUtils.warning("The build model file is obsolete, using the default transformation");
-
-				TransformationManager tm = new TransformationManager(fileURI);
-				if(!tm.isSrcNamespaceFound())
-					throw ExceptionUtils.fromMessage("No transformation found for specified build model");
-
-				resource = tm.transformResource();
-				resourceSet.getResources().add(resource);
-			}
-
-			EList<EObject> content = resource.getContents();
-			if(content.size() != 1)
-				throw ExceptionUtils.fromMessage(
-					"ECore Resource did not contain one resource. It had %d", Integer.valueOf(content.size()));
-
-			aggregator = (Aggregator) content.get(0);
+			aggregator = loadModelFromFile();
 
 			verifyContributions();
 

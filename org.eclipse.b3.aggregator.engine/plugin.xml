@@ -8,6 +8,13 @@
             name="aggregate">
       </command>
    </extension>
+   <extension
+         point="org.eclipse.b3.cli.commands">
+      <command
+            class="org.eclipse.b3.aggregator.engine.Modifier"
+            name="modify">
+      </command>
+   </extension>
    <!-- Uncomment to register MDR supporting enhanced requirements
    <extension
          id="internalRepository"
