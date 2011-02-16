@@ -12,14 +12,14 @@ Export-Package: org.eclipse.b3.aggregator.p2.provider,
  org.eclipse.b3.aggregator.provider,
  org.eclipse.b3.aggregator.util
 Require-Bundle: org.eclipse.core.runtime,
- org.eclipse.b3.aggregator;bundle-version="0.1.0";visibility:=reexport,
+ org.eclipse.b3.aggregator;visibility:=reexport,
  org.eclipse.emf.edit;visibility:=reexport,
- org.eclipse.equinox.p2.metadata.repository;bundle-version="1.0.100",
- org.eclipse.equinox.p2.metadata;bundle-version="1.0.100",
- org.eclipse.equinox.p2.repository;bundle-version="1.0.0",
- org.eclipse.equinox.p2.core;bundle-version="1.0.100",
- org.eclipse.b3.util;bundle-version="0.1.0",
- org.eclipse.b3.p2;bundle-version="0.1.0",
- org.eclipse.b3.p2.edit;bundle-version="0.1.0"
+ org.eclipse.equinox.p2.metadata.repository,
+ org.eclipse.equinox.p2.metadata,
+ org.eclipse.equinox.p2.repository,
+ org.eclipse.equinox.p2.core,
+ org.eclipse.b3.util,
+ org.eclipse.b3.p2,
+ org.eclipse.b3.p2.edit
 Bundle-ActivationPolicy: lazy
 Bundle-Vendor: %providerName
