@@ -377,8 +377,6 @@ public class Builder extends ModelAbstractCommand {
 
 	private List<IInstallableUnit> categoryIUs;
 
-	private ResourceSet resourceSet;
-
 	private boolean sendmail = false;
 
 	final private Set<IInstallableUnit> unitsToAggregate = new HashSet<IInstallableUnit>();
