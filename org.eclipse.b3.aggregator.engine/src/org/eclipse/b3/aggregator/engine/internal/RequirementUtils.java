@@ -35,7 +35,7 @@ public class RequirementUtils {
 	private static final VersionRange ANY_VERSION = VersionRange.emptyRange;
 
 	public static IRequirement[] createAllAvailableVersionsRequirements(List<IInstallableUnit> ius,
-			IMatchExpression<IInstallableUnit> filter) {
+			final IMatchExpression<IInstallableUnit> filter) {
 		Map<String, Set<Version>> versionMap = new HashMap<String, Set<Version>>();
 		Map<String, Set<IMatchExpression<IInstallableUnit>>> filterMap = new HashMap<String, Set<IMatchExpression<IInstallableUnit>>>();
 		for(IInstallableUnit iu : ius) {
@@ -71,24 +71,26 @@ public class RequirementUtils {
 				}
 			}
 
+			IMatchExpression<IInstallableUnit> requirementFilter = filter;
 			if(inheritedFilter != null) {
-				if(filter == null)
-					filter = inheritedFilter;
+				if(requirementFilter == null)
+					requirementFilter = inheritedFilter;
 				else {
 					Object[] inheritedFilterParams = inheritedFilter.getParameters();
 					Object[] filterParams = filter.getParameters();
 					Object[] compoundParams = new Object[inheritedFilterParams.length + filterParams.length];
 					System.arraycopy(inheritedFilterParams, 0, compoundParams, 0, inheritedFilterParams.length);
 					System.arraycopy(filterParams, 0, compoundParams, inheritedFilterParams.length, filterParams.length);
-					filter = ExpressionFactory.INSTANCE.matchExpression(ExpressionFactory.INSTANCE.and(
-						inheritedFilter, filter), compoundParams);
+					requirementFilter = ExpressionFactory.INSTANCE.matchExpression(
+						ExpressionFactory.INSTANCE.and(inheritedFilter, filter), compoundParams);
 				}
 			}
 
 			// TODO Use this to activate the "version enumeration" policy workaround
 			// requirements[i++] = new MultiRangeRequirement(name, namespace, iuEntry.getValue(), null, filter);
 
-			requirements[i++] = MetadataFactory.createRequirement(namespace, name, ANY_VERSION, filter, false, false);
+			requirements[i++] = MetadataFactory.createRequirement(
+				namespace, name, ANY_VERSION, requirementFilter, false, false);
 		}
 
 		return requirements;
