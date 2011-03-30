@@ -9,7 +9,6 @@
  */
 package org.eclipse.b3.aggregator.p2view.impl;
 
-import org.eclipse.b3.aggregator.p2view.*;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;

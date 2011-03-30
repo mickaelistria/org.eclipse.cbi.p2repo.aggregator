@@ -11,13 +11,12 @@ import java.util.Collection;
 import java.util.List;
 
 import org.eclipse.b3.aggregator.Aggregation;
-import org.eclipse.b3.aggregator.AggregatorFactory;
 import org.eclipse.b3.aggregator.AggregatorPackage;
+import org.eclipse.b3.aggregator.impl.AggregationImpl;
 import org.eclipse.b3.aggregator.impl.AggregatorImpl;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.ResourceLocator;
-import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
@@ -105,23 +104,6 @@ public class AggregationItemProvider extends AggregatorItemProviderAdapter imple
 	}
 
 	/**
-	 * This adds a property descriptor for the Contributions feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	protected void addContributionsPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-			getResourceLocator(),
-			getString("_UI_Aggregation_contributions_feature"),
-			getString(
-				"_UI_PropertyDescriptor_description", "_UI_Aggregation_contributions_feature", "_UI_Aggregation_type"),
-			AggregatorPackage.Literals.AGGREGATION__CONTRIBUTIONS, true, false, true, null, null, null));
-	}
-
-	/**
 	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
 	 * that can be created under this object.
 	 * <!-- begin-user-doc -->
@@ -132,6 +114,12 @@ public class AggregationItemProvider extends AggregatorItemProviderAdapter imple
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
+	}
+
+	@Override
+	public Collection<?> getChildren(Object object) {
+
+		return ((AggregationImpl) object).getContributionViews();
 	}
 
 	/**
@@ -176,7 +164,6 @@ public class AggregationItemProvider extends AggregatorItemProviderAdapter imple
 			addEnabledPropertyDescriptor(object);
 			addDescriptionPropertyDescriptor(object);
 			addLabelPropertyDescriptor(object);
-			addContributionsPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}

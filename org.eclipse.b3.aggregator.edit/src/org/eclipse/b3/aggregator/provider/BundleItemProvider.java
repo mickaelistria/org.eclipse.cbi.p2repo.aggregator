@@ -47,6 +47,23 @@ public class BundleItemProvider extends MappedUnitItemProvider implements IEditi
 	}
 
 	/**
+	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
+	 * that can be created under this object.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
+		super.collectNewChildDescriptors(newChildDescriptors, object);
+	}
+
+	@Override
+	protected List<? extends InstallableUnitRequest> getContainerChildren(MappedRepository container) {
+		return container.getBundles();
+	}
+
+	/**
 	 * This returns Bundle.gif. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated NOT
@@ -59,6 +76,11 @@ public class BundleItemProvider extends MappedUnitItemProvider implements IEditi
 				"full/obj16/Bundle" + (!((Bundle) object).isBranchDisabledOrMappedRepositoryBroken()
 						? ""
 						: "Disabled")));
+	}
+
+	@Override
+	protected IQuery<IInstallableUnit> getInstallableUnitQuery() {
+		return SpecialQueries.createBundleQuery();
 	}
 
 	/**
@@ -101,27 +123,5 @@ public class BundleItemProvider extends MappedUnitItemProvider implements IEditi
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 		super.notifyChanged(notification);
-	}
-
-	/**
-	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
-	 * that can be created under this object.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
-		super.collectNewChildDescriptors(newChildDescriptors, object);
-	}
-
-	@Override
-	protected List<? extends InstallableUnitRequest> getContainerChildren(MappedRepository container) {
-		return container.getBundles();
-	}
-
-	@Override
-	protected IQuery<IInstallableUnit> getInstallableUnitQuery() {
-		return SpecialQueries.createBundleQuery();
 	}
 }

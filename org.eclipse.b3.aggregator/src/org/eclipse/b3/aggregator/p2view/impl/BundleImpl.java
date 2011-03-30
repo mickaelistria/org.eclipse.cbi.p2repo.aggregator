@@ -41,11 +41,6 @@ public class BundleImpl extends IUPresentationWithDetailsImpl implements Bundle 
 		super(iu);
 	}
 
-	@Override
-	public InstallableUnitType getType() {
-		return InstallableUnitType.BUNDLE;
-	}
-
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -54,6 +49,11 @@ public class BundleImpl extends IUPresentationWithDetailsImpl implements Bundle 
 	@Override
 	protected EClass eStaticClass() {
 		return P2viewPackage.Literals.BUNDLE;
+	}
+
+	@Override
+	public InstallableUnitType getType() {
+		return InstallableUnitType.BUNDLE;
 	}
 
 } // BundleImpl

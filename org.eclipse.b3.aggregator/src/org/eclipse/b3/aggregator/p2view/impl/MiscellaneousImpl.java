@@ -117,6 +117,16 @@ public class MiscellaneousImpl extends MinimalEObjectImpl.Container implements M
 	 * @generated
 	 */
 	@Override
+	protected EClass eStaticClass() {
+		return P2viewPackage.Literals.MISCELLANEOUS;
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
 			case P2viewPackage.MISCELLANEOUS__OTHERS:
@@ -145,16 +155,6 @@ public class MiscellaneousImpl extends MinimalEObjectImpl.Container implements M
 			others = new EObjectResolvingEList<OtherIU>(OtherIU.class, this, P2viewPackage.MISCELLANEOUS__OTHERS);
 		}
 		return others;
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return P2viewPackage.Literals.MISCELLANEOUS;
 	}
 
 } // MiscellaneousImpl

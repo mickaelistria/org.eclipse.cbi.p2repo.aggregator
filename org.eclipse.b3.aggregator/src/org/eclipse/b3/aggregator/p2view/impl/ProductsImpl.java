@@ -120,6 +120,16 @@ public class ProductsImpl extends MinimalEObjectImpl.Container implements Produc
 	 * @generated
 	 */
 	@Override
+	protected EClass eStaticClass() {
+		return P2viewPackage.Literals.PRODUCTS;
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
 			case P2viewPackage.PRODUCTS__PRODUCTS:
@@ -148,16 +158,6 @@ public class ProductsImpl extends MinimalEObjectImpl.Container implements Produc
 			products = new EObjectResolvingEList<Product>(Product.class, this, P2viewPackage.PRODUCTS__PRODUCTS);
 		}
 		return products;
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return P2viewPackage.Literals.PRODUCTS;
 	}
 
 } // ProductsImpl

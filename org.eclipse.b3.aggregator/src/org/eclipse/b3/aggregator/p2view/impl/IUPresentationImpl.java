@@ -318,6 +318,16 @@ public abstract class IUPresentationImpl extends MinimalEObjectImpl.Container im
 	 * @generated
 	 */
 	@Override
+	protected EClass eStaticClass() {
+		return P2viewPackage.Literals.IU_PRESENTATION;
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
 			case P2viewPackage.IU_PRESENTATION__ID:
@@ -532,16 +542,6 @@ public abstract class IUPresentationImpl extends MinimalEObjectImpl.Container im
 		result.append(filter);
 		result.append(')');
 		return result.toString();
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return P2viewPackage.Literals.IU_PRESENTATION;
 	}
 
 } // IUPresentationImpl

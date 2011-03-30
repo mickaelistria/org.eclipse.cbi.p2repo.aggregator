@@ -330,6 +330,16 @@ public class MetadataRepositoryStructuredViewImpl extends MinimalEObjectImpl.Con
 	 * @generated
 	 */
 	@Override
+	protected EClass eStaticClass() {
+		return P2viewPackage.Literals.METADATA_REPOSITORY_STRUCTURED_VIEW;
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
 			case P2viewPackage.METADATA_REPOSITORY_STRUCTURED_VIEW__NAME:
@@ -576,16 +586,6 @@ public class MetadataRepositoryStructuredViewImpl extends MinimalEObjectImpl.Con
 		result.append((eFlags & LOADED_EFLAG) != 0);
 		result.append(')');
 		return result.toString();
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return P2viewPackage.Literals.METADATA_REPOSITORY_STRUCTURED_VIEW;
 	}
 
 } // MetadataRepositoryStructuredViewImpl

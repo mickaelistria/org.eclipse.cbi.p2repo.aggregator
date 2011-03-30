@@ -6,6 +6,7 @@
  */
 package org.eclipse.b3.aggregator.impl;
 
+import java.lang.Comparable;
 import org.eclipse.b3.aggregator.AggregateType;
 import org.eclipse.b3.aggregator.Aggregation;
 import org.eclipse.b3.aggregator.Aggregator;
@@ -21,6 +22,7 @@ import org.eclipse.b3.aggregator.ChildrenProvider;
 import org.eclipse.b3.aggregator.Configuration;
 import org.eclipse.b3.aggregator.Contact;
 import org.eclipse.b3.aggregator.Contribution;
+import org.eclipse.b3.aggregator.ContributionView;
 import org.eclipse.b3.aggregator.CustomCategory;
 import org.eclipse.b3.aggregator.DescriptionProvider;
 import org.eclipse.b3.aggregator.EnabledStatusProvider;
@@ -297,6 +299,14 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 	private EClass aggregatorResourceViewEClass = null;
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	private EClass contributionViewEClass = null;
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
@@ -488,6 +498,7 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 		createEReference(contributionEClass, CONTRIBUTION__REPOSITORIES);
 		createEReference(contributionEClass, CONTRIBUTION__CONTACTS);
 		createEReference(contributionEClass, CONTRIBUTION__MAVEN_MAPPINGS);
+		createEReference(contributionEClass, CONTRIBUTION__AGGREGATION);
 
 		contactEClass = createEClass(CONTACT);
 		createEAttribute(contactEClass, CONTACT__NAME);
@@ -584,11 +595,12 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 
 		aggregationEClass = createEClass(AGGREGATION);
 		createEAttribute(aggregationEClass, AGGREGATION__LABEL);
-		createEReference(aggregationEClass, AGGREGATION__CONTRIBUTIONS);
 
 		aggregatorResourceViewEClass = createEClass(AGGREGATOR_RESOURCE_VIEW);
 		createEReference(aggregatorResourceViewEClass, AGGREGATOR_RESOURCE_VIEW__AGGREGATOR);
 		createEReference(aggregatorResourceViewEClass, AGGREGATOR_RESOURCE_VIEW__AGGREGATIONS);
+
+		contributionViewEClass = createEClass(CONTRIBUTION_VIEW);
 
 		// Create enums
 		aggregateTypeEEnum = createEEnum(AGGREGATE_TYPE);
@@ -618,16 +630,6 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 	 */
 	public EClass getAggregation() {
 		return aggregationEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	public EReference getAggregation_Contributions() {
-		return (EReference) aggregationEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -1030,6 +1032,16 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EReference getContribution_Aggregation() {
+		return (EReference) contributionEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
@@ -1063,6 +1075,16 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 	 */
 	public EReference getContribution_Repositories() {
 		return (EReference) contributionEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EClass getContributionView() {
+		return contributionViewEClass;
 	}
 
 	/**
@@ -1691,7 +1713,6 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 		contributionEClass.getESuperTypes().add(this.getDescriptionProvider());
 		contributionEClass.getESuperTypes().add(this.getStatusProvider());
 		contributionEClass.getESuperTypes().add(this.getInfosProvider());
-		contributionEClass.getESuperTypes().add(this.getSeparable());
 		featureEClass.getESuperTypes().add(this.getMappedUnit());
 		bundleEClass.getESuperTypes().add(this.getMappedUnit());
 		mappedUnitEClass.getESuperTypes().add(this.getInstallableUnitRequest());
@@ -1720,6 +1741,7 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 		aggregationEClass.getESuperTypes().add(this.getDescriptionProvider());
 		aggregationEClass.getESuperTypes().add(this.getStatusProvider());
 		aggregationEClass.getESuperTypes().add(this.getInfosProvider());
+		contributionViewEClass.getESuperTypes().add(this.getLabelProvider());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(
@@ -1870,6 +1892,11 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 			getContribution_MavenMappings(), this.getMavenMapping(), null, "mavenMappings", null, 0, -1,
 			Contribution.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES,
 			!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(
+			getContribution_Aggregation(), this.getAggregation(), null, "aggregation", null, 0, 1, Contribution.class,
+			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,
+			!IS_DERIVED, IS_ORDERED);
+		getContribution_Aggregation().getEKeys().add(this.getAggregation_Label());
 
 		op = addEOperation(
 			contributionEClass, this.getMappedRepository(), "getRepositories", 0, -1, IS_UNIQUE, IS_ORDERED);
@@ -2156,11 +2183,12 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 			!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(
-			separableEClass, Separable.class, "Separable", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+			separableEClass, Separable.class, "Separable", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(
 			getSeparable_Aggregation(), this.getAggregation(), null, "aggregation", null, 0, 1, Separable.class,
-			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,
+			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,
 			!IS_DERIVED, IS_ORDERED);
+		getSeparable_Aggregation().getEKeys().add(this.getAggregation_Label());
 
 		initEClass(
 			aggregationEClass, Aggregation.class, "Aggregation", !IS_ABSTRACT, !IS_INTERFACE,
@@ -2168,11 +2196,6 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 		initEAttribute(
 			getAggregation_Label(), ecorePackage.getEString(), "label", null, 1, 1, Aggregation.class, !IS_TRANSIENT,
 			!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(
-			getAggregation_Contributions(), this.getContribution(), null, "contributions", null, 0, -1,
-			Aggregation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
-			!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		getAggregation_Contributions().getEKeys().add(this.getContribution_Label());
 
 		initEClass(
 			aggregatorResourceViewEClass, AggregatorResourceView.class, "AggregatorResourceView", !IS_ABSTRACT,
@@ -2187,6 +2210,10 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 			AggregatorResourceView.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES,
 			!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		getAggregatorResourceView_Aggregations().getEKeys().add(this.getAggregation_Label());
+
+		initEClass(
+			contributionViewEClass, ContributionView.class, "ContributionView", !IS_ABSTRACT, !IS_INTERFACE,
+			IS_GENERATED_INSTANCE_CLASS);
 
 		// Initialize enums and add enum literals
 		initEEnum(aggregateTypeEEnum, AggregateType.class, "AggregateType");

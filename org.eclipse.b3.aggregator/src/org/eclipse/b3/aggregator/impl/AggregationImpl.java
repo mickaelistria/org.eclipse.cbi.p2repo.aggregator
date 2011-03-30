@@ -10,25 +10,23 @@ package org.eclipse.b3.aggregator.impl;
 import java.util.Collection;
 
 import org.eclipse.b3.aggregator.Aggregation;
+import org.eclipse.b3.aggregator.Aggregator;
 import org.eclipse.b3.aggregator.AggregatorFactory;
 import org.eclipse.b3.aggregator.AggregatorPackage;
 import org.eclipse.b3.aggregator.Contribution;
+import org.eclipse.b3.aggregator.ContributionView;
 import org.eclipse.b3.aggregator.DescriptionProvider;
 import org.eclipse.b3.aggregator.InfosProvider;
 import org.eclipse.b3.aggregator.Status;
 import org.eclipse.b3.aggregator.StatusCode;
 import org.eclipse.b3.aggregator.StatusProvider;
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.InternalEList;
-import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -44,7 +42,6 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  * <li>{@link org.eclipse.b3.aggregator.impl.AggregationImpl#getWarnings <em>Warnings</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.impl.AggregationImpl#getInfos <em>Infos</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.impl.AggregationImpl#getLabel <em>Label</em>}</li>
- * <li>{@link org.eclipse.b3.aggregator.impl.AggregationImpl#getContributions <em>Contributions</em>}</li>
  * </ul>
  * </p>
  * 
@@ -161,17 +158,6 @@ public class AggregationImpl extends MinimalEObjectImpl.Container implements Agg
 	protected String label = LABEL_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getContributions() <em>Contributions</em>}' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @see #getContributions()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Contribution> contributions;
-
-	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -283,8 +269,6 @@ public class AggregationImpl extends MinimalEObjectImpl.Container implements Agg
 				return getInfos();
 			case AggregatorPackage.AGGREGATION__LABEL:
 				return getLabel();
-			case AggregatorPackage.AGGREGATION__CONTRIBUTIONS:
-				return getContributions();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -316,8 +300,6 @@ public class AggregationImpl extends MinimalEObjectImpl.Container implements Agg
 				return LABEL_EDEFAULT == null
 						? label != null
 						: !LABEL_EDEFAULT.equals(label);
-			case AggregatorPackage.AGGREGATION__CONTRIBUTIONS:
-				return contributions != null && !contributions.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -352,10 +334,6 @@ public class AggregationImpl extends MinimalEObjectImpl.Container implements Agg
 				return;
 			case AggregatorPackage.AGGREGATION__LABEL:
 				setLabel((String) newValue);
-				return;
-			case AggregatorPackage.AGGREGATION__CONTRIBUTIONS:
-				getContributions().clear();
-				getContributions().addAll((Collection<? extends Contribution>) newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -399,25 +377,24 @@ public class AggregationImpl extends MinimalEObjectImpl.Container implements Agg
 			case AggregatorPackage.AGGREGATION__LABEL:
 				setLabel(LABEL_EDEFAULT);
 				return;
-			case AggregatorPackage.AGGREGATION__CONTRIBUTIONS:
-				getContributions().clear();
-				return;
 		}
 		super.eUnset(featureID);
 	}
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	public EList<Contribution> getContributions() {
-		if(contributions == null) {
-			contributions = new EObjectResolvingEList<Contribution>(
-				Contribution.class, this, AggregatorPackage.AGGREGATION__CONTRIBUTIONS);
-		}
-		return contributions;
+	public Aggregator getAggregator() {
+		return (Aggregator) eContainer();
+	}
+
+	public EList<ContributionView> getContributionViews() {
+		EList<Contribution> allContributions = getAggregator().getContributions();
+
+		BasicEList<ContributionView> separatedContributions = new BasicEList<ContributionView>(allContributions.size());
+
+		for(Contribution contribution : allContributions)
+			if(contribution.getAggregation() == this)
+				separatedContributions.add(new ContributionViewImpl(contribution));
+
+		return separatedContributions;
 	}
 
 	/**
@@ -473,11 +450,7 @@ public class AggregationImpl extends MinimalEObjectImpl.Container implements Agg
 	 * @generated NOT
 	 */
 	public Status getStatus() {
-		StatusCode statusCode;
-		for(Contribution contribution : getContributions()) {
-			if((statusCode = contribution.getStatus().getCode()) != StatusCode.OK && statusCode != StatusCode.WAITING)
-				return AggregatorFactory.eINSTANCE.createStatus(StatusCode.BROKEN);
-		}
+		// TODO composite - loop through contained contributions and propagate their status
 		return AggregatorFactory.eINSTANCE.createStatus(StatusCode.OK);
 	}
 

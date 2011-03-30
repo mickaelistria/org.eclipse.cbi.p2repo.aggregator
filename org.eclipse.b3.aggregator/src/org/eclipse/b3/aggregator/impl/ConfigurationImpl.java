@@ -288,6 +288,16 @@ public class ConfigurationImpl extends MinimalEObjectImpl.Container implements C
 	 * @generated
 	 */
 	@Override
+	protected EClass eStaticClass() {
+		return AggregatorPackage.Literals.CONFIGURATION;
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
 			case AggregatorPackage.CONFIGURATION__ENABLED:
@@ -457,16 +467,6 @@ public class ConfigurationImpl extends MinimalEObjectImpl.Container implements C
 		result.append(ARCHITECTURE_EFLAG_VALUES[(eFlags & ARCHITECTURE_EFLAG) >>> ARCHITECTURE_EFLAG_OFFSET]);
 		result.append(')');
 		return result.toString();
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return AggregatorPackage.Literals.CONFIGURATION;
 	}
 
 } // ConfigurationImpl

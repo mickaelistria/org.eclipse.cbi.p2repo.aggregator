@@ -93,21 +93,19 @@ public class AddIUsToCustomCategoryCommand extends AbstractCommand implements Dr
 		return DROP_LINK;
 	}
 
-	public void redo() {
-		execute();
-	}
+	private boolean isEnabled() {
+		for(IInstallableUnit feature : mapFeatureMappedRepo.keySet()) {
+			MappedRepository repo = mapFeatureMappedRepo.get(feature);
 
-	@Override
-	public void undo() {
-		customCategory.getFeatures().removeAll(featuresAddedToCustomCategory);
+			if(repo == null)
+				return false;
 
-		for(MappedRepository mappedRepo : unitsAddedToMappedRepo.keySet())
-			for(MappedUnit unit : unitsAddedToMappedRepo.get(mappedRepo))
-				mappedRepo.removeUnit(unit);
-	}
+			MappedUnit unit = ItemUtils.findMappedUnit(repo, feature);
 
-	// validated prior command creation
-	public boolean validate(Object owner, float location, int operations, int operation, Collection<?> collection) {
+			if(unit != null && !unit.isEnabled() || unit == null && repo != null && !repo.isEnabled())
+				return false;
+		}
+
 		return true;
 	}
 
@@ -134,19 +132,21 @@ public class AddIUsToCustomCategoryCommand extends AbstractCommand implements Dr
 		return customCategory != null && selectedFeatures != null && selectedFeatures.size() > 0 && isEnabled();
 	}
 
-	private boolean isEnabled() {
-		for(IInstallableUnit feature : mapFeatureMappedRepo.keySet()) {
-			MappedRepository repo = mapFeatureMappedRepo.get(feature);
+	public void redo() {
+		execute();
+	}
 
-			if(repo == null)
-				return false;
+	@Override
+	public void undo() {
+		customCategory.getFeatures().removeAll(featuresAddedToCustomCategory);
 
-			MappedUnit unit = ItemUtils.findMappedUnit(repo, feature);
+		for(MappedRepository mappedRepo : unitsAddedToMappedRepo.keySet())
+			for(MappedUnit unit : unitsAddedToMappedRepo.get(mappedRepo))
+				mappedRepo.removeUnit(unit);
+	}
 
-			if(unit != null && !unit.isEnabled() || unit == null && repo != null && !repo.isEnabled())
-				return false;
-		}
-
+	// validated prior command creation
+	public boolean validate(Object owner, float location, int operations, int operation, Collection<?> collection) {
 		return true;
 	}
 }

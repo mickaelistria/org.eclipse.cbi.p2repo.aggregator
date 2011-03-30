@@ -14,7 +14,6 @@ import java.util.List;
 
 import org.eclipse.b3.aggregator.AggregatorPackage;
 import org.eclipse.b3.aggregator.AvailableVersion;
-import org.eclipse.b3.aggregator.VersionMatch;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.ResourceLocator;
@@ -50,6 +49,73 @@ public class AvailableVersionItemProvider extends AggregatorItemProviderAdapter 
 	 */
 	public AvailableVersionItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
+	}
+
+	/**
+	 * This adds a property descriptor for the Filter feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	protected void addFilterPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+			getResourceLocator(),
+			getString("_UI_AvailableVersion_filter_feature"),
+			getString(
+				"_UI_PropertyDescriptor_description", "_UI_AvailableVersion_filter_feature",
+				"_UI_AvailableVersion_type"), AggregatorPackage.Literals.AVAILABLE_VERSION__FILTER, false, false,
+			false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Version Match feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	protected void addVersionMatchPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+			getResourceLocator(),
+			getString("_UI_AvailableVersion_versionMatch_feature"),
+			getString(
+				"_UI_PropertyDescriptor_description", "_UI_AvailableVersion_versionMatch_feature",
+				"_UI_AvailableVersion_type"), AggregatorPackage.Literals.AVAILABLE_VERSION__VERSION_MATCH, false,
+			false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Version feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	protected void addVersionPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+			getResourceLocator(),
+			getString("_UI_AvailableVersion_version_feature"),
+			getString(
+				"_UI_PropertyDescriptor_description", "_UI_AvailableVersion_version_feature",
+				"_UI_AvailableVersion_type"), AggregatorPackage.Literals.AVAILABLE_VERSION__VERSION, false, false,
+			false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+	}
+
+	/**
+	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
+	 * that can be created under this object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
+		super.collectNewChildDescriptors(newChildDescriptors, object);
 	}
 
 	/**
@@ -170,73 +236,6 @@ public class AvailableVersionItemProvider extends AggregatorItemProviderAdapter 
 				return;
 		}
 		super.notifyChanged(notification);
-	}
-
-	/**
-	 * This adds a property descriptor for the Filter feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	protected void addFilterPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-			getResourceLocator(),
-			getString("_UI_AvailableVersion_filter_feature"),
-			getString(
-				"_UI_PropertyDescriptor_description", "_UI_AvailableVersion_filter_feature",
-				"_UI_AvailableVersion_type"), AggregatorPackage.Literals.AVAILABLE_VERSION__FILTER, false, false,
-			false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Version Match feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	protected void addVersionMatchPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-			getResourceLocator(),
-			getString("_UI_AvailableVersion_versionMatch_feature"),
-			getString(
-				"_UI_PropertyDescriptor_description", "_UI_AvailableVersion_versionMatch_feature",
-				"_UI_AvailableVersion_type"), AggregatorPackage.Literals.AVAILABLE_VERSION__VERSION_MATCH, false,
-			false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Version feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	protected void addVersionPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-			getResourceLocator(),
-			getString("_UI_AvailableVersion_version_feature"),
-			getString(
-				"_UI_PropertyDescriptor_description", "_UI_AvailableVersion_version_feature",
-				"_UI_AvailableVersion_type"), AggregatorPackage.Literals.AVAILABLE_VERSION__VERSION, false, false,
-			false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
-	}
-
-	/**
-	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
-	 * that can be created under this object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
-		super.collectNewChildDescriptors(newChildDescriptors, object);
 	}
 
 }

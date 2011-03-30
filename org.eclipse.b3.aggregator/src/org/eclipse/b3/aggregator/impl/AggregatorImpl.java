@@ -667,6 +667,16 @@ public class AggregatorImpl extends DescriptionProviderImpl implements Aggregato
 	 * @generated
 	 */
 	@Override
+	protected EClass eStaticClass() {
+		return AggregatorPackage.Literals.AGGREGATOR;
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
 			case AggregatorPackage.AGGREGATOR__ERRORS:
@@ -722,6 +732,20 @@ public class AggregatorImpl extends DescriptionProviderImpl implements Aggregato
 				return;
 		}
 		super.eUnset(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EList<Aggregation> getAggregations() {
+		if(aggregations == null) {
+			aggregations = new EObjectContainmentEList.Resolving<Aggregation>(
+				Aggregation.class, this, AggregatorPackage.AGGREGATOR__AGGREGATIONS);
+		}
+		return aggregations;
 	}
 
 	/**
@@ -895,20 +919,6 @@ public class AggregatorImpl extends DescriptionProviderImpl implements Aggregato
 				MavenMapping.class, this, AggregatorPackage.AGGREGATOR__MAVEN_MAPPINGS);
 		}
 		return mavenMappings;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	public EList<Aggregation> getAggregations() {
-		if(aggregations == null) {
-			aggregations = new EObjectContainmentEList.Resolving<Aggregation>(
-				Aggregation.class, this, AggregatorPackage.AGGREGATOR__AGGREGATIONS);
-		}
-		return aggregations;
 	}
 
 	/**
@@ -1151,16 +1161,6 @@ public class AggregatorImpl extends DescriptionProviderImpl implements Aggregato
 		result.append((eFlags & MAVEN_RESULT_EFLAG) != 0);
 		result.append(')');
 		return result.toString();
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return AggregatorPackage.Literals.AGGREGATOR;
 	}
 
 } // AggregatorImpl

@@ -230,6 +230,16 @@ public class ContactImpl extends MinimalEObjectImpl.Container implements Contact
 	 * @generated
 	 */
 	@Override
+	protected EClass eStaticClass() {
+		return AggregatorPackage.Literals.CONTACT;
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
 			case AggregatorPackage.CONTACT__NAME:
@@ -340,16 +350,6 @@ public class ContactImpl extends MinimalEObjectImpl.Container implements Contact
 		result.append(email);
 		result.append(')');
 		return result.toString();
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return AggregatorPackage.Literals.CONTACT;
 	}
 
 } // ContactImpl

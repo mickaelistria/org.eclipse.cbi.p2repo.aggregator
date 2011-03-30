@@ -81,6 +81,19 @@ public class AddIUsToMappedRepositoryCommand extends AbstractCommand implements 
 		return DROP_LINK;
 	}
 
+	@Override
+	protected boolean prepare() {
+		boolean result = mappedRepo != null && mappedRepo.isBranchEnabled() && selectedIUs != null &&
+				selectedIUs.size() > 0 && ItemUtils.haveSameLocation(mappedRepo, selectedIUs);
+
+		if(result)
+			for(IInstallableUnit iu : selectedIUs)
+				if(ItemUtils.findMappedUnit(mappedRepo, iu) != null || ItemUtils.findMapRule(mappedRepo, iu) != null)
+					return false;
+
+		return result;
+	}
+
 	public void redo() {
 		execute();
 	}
@@ -101,18 +114,5 @@ public class AddIUsToMappedRepositoryCommand extends AbstractCommand implements 
 	// validated prior command creation
 	public boolean validate(Object owner, float location, int operations, int operation, Collection<?> collection) {
 		return true;
-	}
-
-	@Override
-	protected boolean prepare() {
-		boolean result = mappedRepo != null && mappedRepo.isBranchEnabled() && selectedIUs != null &&
-				selectedIUs.size() > 0 && ItemUtils.haveSameLocation(mappedRepo, selectedIUs);
-
-		if(result)
-			for(IInstallableUnit iu : selectedIUs)
-				if(ItemUtils.findMappedUnit(mappedRepo, iu) != null || ItemUtils.findMapRule(mappedRepo, iu) != null)
-					return false;
-
-		return result;
 	}
 }

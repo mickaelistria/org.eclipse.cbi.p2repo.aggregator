@@ -120,6 +120,16 @@ public class CategoriesImpl extends MinimalEObjectImpl.Container implements Cate
 	 * @generated
 	 */
 	@Override
+	protected EClass eStaticClass() {
+		return P2viewPackage.Literals.CATEGORIES;
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
 			case P2viewPackage.CATEGORIES__CATEGORIES:
@@ -148,16 +158,6 @@ public class CategoriesImpl extends MinimalEObjectImpl.Container implements Cate
 	 */
 	public EList<Category> getChildren() {
 		return getCategories();
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return P2viewPackage.Literals.CATEGORIES;
 	}
 
 } // CategoriesImpl

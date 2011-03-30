@@ -104,6 +104,16 @@ public class ValidConfigurationsRuleImpl extends MapRuleImpl implements ValidCon
 	 * @generated
 	 */
 	@Override
+	protected EClass eStaticClass() {
+		return AggregatorPackage.Literals.VALID_CONFIGURATIONS_RULE;
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
 			case AggregatorPackage.VALID_CONFIGURATIONS_RULE__VALID_CONFIGURATIONS:
@@ -124,16 +134,6 @@ public class ValidConfigurationsRuleImpl extends MapRuleImpl implements ValidCon
 				Configuration.class, this, AggregatorPackage.VALID_CONFIGURATIONS_RULE__VALID_CONFIGURATIONS);
 		}
 		return validConfigurations;
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return AggregatorPackage.Literals.VALID_CONFIGURATIONS_RULE;
 	}
 
 } // ValidConfigurationsRuleImpl

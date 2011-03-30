@@ -27,25 +27,6 @@ public interface AggregatorFactory extends EFactory {
 	AggregatorFactory eINSTANCE = org.eclipse.b3.aggregator.impl.AggregatorFactoryImpl.init();
 
 	/**
-	 * Returns a new object of class '<em>Aggregator</em>'.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @return a new object of class '<em>Aggregator</em>'.
-	 * @generated
-	 */
-	Aggregator createAggregator();
-
-	/**
-	 * Returns a new object of class '<em>Available Version</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @return a new object of class '<em>Available Version</em>'.
-	 * @generated
-	 */
-	AvailableVersion createAvailableVersion();
-
-	/**
 	 * Returns a new object of class '<em>Aggregation</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -56,6 +37,15 @@ public interface AggregatorFactory extends EFactory {
 	Aggregation createAggregation();
 
 	/**
+	 * Returns a new object of class '<em>Aggregator</em>'.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @return a new object of class '<em>Aggregator</em>'.
+	 * @generated
+	 */
+	Aggregator createAggregator();
+
+	/**
 	 * Returns a new object of class '<em>Resource View</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -64,6 +54,16 @@ public interface AggregatorFactory extends EFactory {
 	 * @generated
 	 */
 	AggregatorResourceView createAggregatorResourceView();
+
+	/**
+	 * Returns a new object of class '<em>Available Version</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return a new object of class '<em>Available Version</em>'.
+	 * @generated
+	 */
+	AvailableVersion createAvailableVersion();
 
 	/**
 	 * Returns a new object of class '<em>Available Versions Header</em>'.
@@ -119,6 +119,16 @@ public interface AggregatorFactory extends EFactory {
 	 * @generated
 	 */
 	Contribution createContribution();
+
+	/**
+	 * Returns a new object of class '<em>Contribution View</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return a new object of class '<em>Contribution View</em>'.
+	 * @generated
+	 */
+	ContributionView createContributionView();
 
 	/**
 	 * Returns a new object of class '<em>Custom Category</em>'.
@@ -244,6 +254,16 @@ public interface AggregatorFactory extends EFactory {
 	 * @generated NOT
 	 */
 	Property createProperty(String key, String value);
+
+	/**
+	 * Returns a new object of class '<em>Separable</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return a new object of class '<em>Separable</em>'.
+	 * @generated
+	 */
+	Separable createSeparable();
 
 	/**
 	 * Returns a new object of class '<em>Status</em>'.

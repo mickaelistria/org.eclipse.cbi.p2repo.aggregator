@@ -154,6 +154,16 @@ public class InfosProviderImpl extends MinimalEObjectImpl.Container implements I
 	 * @generated
 	 */
 	@Override
+	protected EClass eStaticClass() {
+		return AggregatorPackage.Literals.INFOS_PROVIDER;
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
 			case AggregatorPackage.INFOS_PROVIDER__ERRORS:
@@ -224,16 +234,6 @@ public class InfosProviderImpl extends MinimalEObjectImpl.Container implements I
 		result.append(infos);
 		result.append(')');
 		return result.toString();
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return AggregatorPackage.Literals.INFOS_PROVIDER;
 	}
 
 } // InfosProviderImpl

@@ -154,6 +154,16 @@ public class MavenItemImpl extends MinimalEObjectImpl.Container implements Maven
 	 * @generated
 	 */
 	@Override
+	protected EClass eStaticClass() {
+		return AggregatorPackage.Literals.MAVEN_ITEM;
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
 			case AggregatorPackage.MAVEN_ITEM__GROUP_ID:
@@ -227,16 +237,6 @@ public class MavenItemImpl extends MinimalEObjectImpl.Container implements Maven
 		result.append(artifactId);
 		result.append(')');
 		return result.toString();
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return AggregatorPackage.Literals.MAVEN_ITEM;
 	}
 
 } // MavenItemImpl

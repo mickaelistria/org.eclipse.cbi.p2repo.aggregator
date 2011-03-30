@@ -20,33 +20,33 @@ package org.eclipse.b3.aggregator;
  * </p>
  * 
  * @see org.eclipse.b3.aggregator.AggregatorPackage#getSeparable()
- * @model interface="true" abstract="true"
+ * @model
  * @generated
  */
 public interface Separable {
 	/**
-	 * Returns the value of the '<em><b>Aggregation</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Aggregation</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Aggregation</em>' containment reference isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
-	 * @return the value of the '<em>Aggregation</em>' containment reference.
+	 * @return the value of the '<em>Aggregation</em>' reference.
 	 * @see #setAggregation(Aggregation)
 	 * @see org.eclipse.b3.aggregator.AggregatorPackage#getSeparable_Aggregation()
-	 * @model containment="true" resolveProxies="true"
+	 * @model keys="label"
 	 * @generated
 	 */
 	Aggregation getAggregation();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.aggregator.Separable#getAggregation <em>Aggregation</em>}' containment reference.
+	 * Sets the value of the '{@link org.eclipse.b3.aggregator.Separable#getAggregation <em>Aggregation</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
 	 * @param value
-	 *            the new value of the '<em>Aggregation</em>' containment reference.
+	 *            the new value of the '<em>Aggregation</em>' reference.
 	 * @see #getAggregation()
 	 * @generated
 	 */

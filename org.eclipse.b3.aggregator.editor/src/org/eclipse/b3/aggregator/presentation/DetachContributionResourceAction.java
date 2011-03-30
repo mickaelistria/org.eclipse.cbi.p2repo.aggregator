@@ -89,6 +89,14 @@ public class DetachContributionResourceAction extends ControlAction {
 	}
 
 	@Override
+	protected Resource getResource() {
+		DetachContributionResourceDialog dialog = new DetachContributionResourceDialog(
+			PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell(), domain, eObject);
+		dialog.open();
+		return dialog.getResource();
+	}
+
+	@Override
 	public void run() {
 		String commandLabel = null;
 
@@ -119,13 +127,5 @@ public class DetachContributionResourceAction extends ControlAction {
 		result = result && (object instanceof Contribution);
 
 		return result;
-	}
-
-	@Override
-	protected Resource getResource() {
-		DetachContributionResourceDialog dialog = new DetachContributionResourceDialog(
-			PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell(), domain, eObject);
-		dialog.open();
-		return dialog.getResource();
 	}
 }

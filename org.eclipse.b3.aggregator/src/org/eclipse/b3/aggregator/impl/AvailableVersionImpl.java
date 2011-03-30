@@ -211,6 +211,17 @@ public class AvailableVersionImpl extends MinimalEObjectImpl.Container implement
 	 * @generated
 	 */
 	@Override
+	protected EClass eStaticClass() {
+		return AggregatorPackage.Literals.AVAILABLE_VERSION;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
 			case AggregatorPackage.AVAILABLE_VERSION__VERSION_MATCH:
@@ -321,17 +332,6 @@ public class AvailableVersionImpl extends MinimalEObjectImpl.Container implement
 		result.append(filter);
 		result.append(')');
 		return result.toString();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return AggregatorPackage.Literals.AVAILABLE_VERSION;
 	}
 
 } // AvailableVersionImpl

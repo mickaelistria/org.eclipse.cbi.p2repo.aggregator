@@ -34,7 +34,6 @@ import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
-import org.eclipse.equinox.p2.metadata.expression.IMatchExpression;
 import org.eclipse.equinox.internal.p2.metadata.IRequiredCapability;
 
 /**
@@ -56,100 +55,6 @@ public class RequirementWrapperItemProvider extends AggregatorItemProviderAdapte
 	 */
 	public RequirementWrapperItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
-	}
-
-	/**
-	 * This returns RequirementWrapper.gif.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated NOT
-	 */
-	@Override
-	public Object getImage(Object object) {
-		RequirementWrapper rcw = (RequirementWrapper) object;
-
-		Object image = null;
-
-		if(rcw.getGenuine() instanceof IRequiredCapability)
-			image = CapabilityNamespaceImageProvider.getImage(((IRequiredCapability) rcw.getGenuine()).getNamespace());
-		if(image == null)
-			image = getResourceLocator().getImage("full/obj16/Requirement");
-
-		return overlayImage(object, image);
-	}
-
-	/**
-	 * This returns the property descriptors for the adapted class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-		if(itemPropertyDescriptors == null) {
-			super.getPropertyDescriptors(object);
-
-			addFilterPropertyDescriptor(object);
-			addMaxPropertyDescriptor(object);
-			addMinPropertyDescriptor(object);
-			addMatchesPropertyDescriptor(object);
-			addGreedyPropertyDescriptor(object);
-			addDescriptionPropertyDescriptor(object);
-			addLabelPropertyDescriptor(object);
-		}
-		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * Return the resource locator for this item provider's resources.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	public ResourceLocator getResourceLocator() {
-		return AggregatorEditPlugin.INSTANCE;
-	}
-
-	/**
-	 * This returns the label text for the adapted class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated NOT
-	 */
-	@Override
-	public String getText(Object object) {
-		return ((LabelProvider) object).getLabel();
-	}
-
-	/**
-	 * This handles model notifications by calling {@link #updateChildren} to update any cached
-	 * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	public void notifyChanged(Notification notification) {
-		updateChildren(notification);
-
-		switch(notification.getFeatureID(RequirementWrapper.class)) {
-			case P2viewPackage.REQUIREMENT_WRAPPER__FILTER:
-			case P2viewPackage.REQUIREMENT_WRAPPER__MAX:
-			case P2viewPackage.REQUIREMENT_WRAPPER__MIN:
-			case P2viewPackage.REQUIREMENT_WRAPPER__MATCHES:
-			case P2viewPackage.REQUIREMENT_WRAPPER__GREEDY:
-			case P2viewPackage.REQUIREMENT_WRAPPER__DESCRIPTION:
-			case P2viewPackage.REQUIREMENT_WRAPPER__LABEL:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-				return;
-		}
-		super.notifyChanged(notification);
 	}
 
 	/**
@@ -281,6 +186,100 @@ public class RequirementWrapperItemProvider extends AggregatorItemProviderAdapte
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
+	}
+
+	/**
+	 * This returns RequirementWrapper.gif.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated NOT
+	 */
+	@Override
+	public Object getImage(Object object) {
+		RequirementWrapper rcw = (RequirementWrapper) object;
+
+		Object image = null;
+
+		if(rcw.getGenuine() instanceof IRequiredCapability)
+			image = CapabilityNamespaceImageProvider.getImage(((IRequiredCapability) rcw.getGenuine()).getNamespace());
+		if(image == null)
+			image = getResourceLocator().getImage("full/obj16/Requirement");
+
+		return overlayImage(object, image);
+	}
+
+	/**
+	 * This returns the property descriptors for the adapted class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
+		if(itemPropertyDescriptors == null) {
+			super.getPropertyDescriptors(object);
+
+			addFilterPropertyDescriptor(object);
+			addMaxPropertyDescriptor(object);
+			addMinPropertyDescriptor(object);
+			addMatchesPropertyDescriptor(object);
+			addGreedyPropertyDescriptor(object);
+			addDescriptionPropertyDescriptor(object);
+			addLabelPropertyDescriptor(object);
+		}
+		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * Return the resource locator for this item provider's resources.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public ResourceLocator getResourceLocator() {
+		return AggregatorEditPlugin.INSTANCE;
+	}
+
+	/**
+	 * This returns the label text for the adapted class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated NOT
+	 */
+	@Override
+	public String getText(Object object) {
+		return ((LabelProvider) object).getLabel();
+	}
+
+	/**
+	 * This handles model notifications by calling {@link #updateChildren} to update any cached
+	 * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public void notifyChanged(Notification notification) {
+		updateChildren(notification);
+
+		switch(notification.getFeatureID(RequirementWrapper.class)) {
+			case P2viewPackage.REQUIREMENT_WRAPPER__FILTER:
+			case P2viewPackage.REQUIREMENT_WRAPPER__MAX:
+			case P2viewPackage.REQUIREMENT_WRAPPER__MIN:
+			case P2viewPackage.REQUIREMENT_WRAPPER__MATCHES:
+			case P2viewPackage.REQUIREMENT_WRAPPER__GREEDY:
+			case P2viewPackage.REQUIREMENT_WRAPPER__DESCRIPTION:
+			case P2viewPackage.REQUIREMENT_WRAPPER__LABEL:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
+		}
+		super.notifyChanged(notification);
 	}
 
 }

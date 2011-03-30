@@ -54,78 +54,6 @@ public class IUPresentationItemProvider extends AggregatorItemProviderAdapter im
 	}
 
 	/**
-	 * This returns the property descriptors for the adapted class.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-		if(itemPropertyDescriptors == null) {
-			super.getPropertyDescriptors(object);
-
-			addIdPropertyDescriptor(object);
-			addVersionPropertyDescriptor(object);
-			addNamePropertyDescriptor(object);
-			addLabelPropertyDescriptor(object);
-			addDescriptionPropertyDescriptor(object);
-			addTypePropertyDescriptor(object);
-			addFilterPropertyDescriptor(object);
-		}
-		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * Return the resource locator for this item provider's resources.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	public ResourceLocator getResourceLocator() {
-		return AggregatorEditPlugin.INSTANCE;
-	}
-
-	/**
-	 * This returns the label text for the adapted class.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	public String getText(Object object) {
-		String label = ((IUPresentation) object).getLabel();
-		return label == null || label.length() == 0
-				? getString("_UI_IUPresentation_type")
-				: getString("_UI_IUPresentation_type") + " " + label;
-	}
-
-	/**
-	 * This handles model notifications by calling {@link #updateChildren} to update any cached children and by creating
-	 * a viewer notification, which it passes to {@link #fireNotifyChanged}. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	public void notifyChanged(Notification notification) {
-		updateChildren(notification);
-
-		switch(notification.getFeatureID(IUPresentation.class)) {
-			case P2viewPackage.IU_PRESENTATION__ID:
-			case P2viewPackage.IU_PRESENTATION__VERSION:
-			case P2viewPackage.IU_PRESENTATION__NAME:
-			case P2viewPackage.IU_PRESENTATION__LABEL:
-			case P2viewPackage.IU_PRESENTATION__DESCRIPTION:
-			case P2viewPackage.IU_PRESENTATION__TYPE:
-			case P2viewPackage.IU_PRESENTATION__FILTER:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-				return;
-		}
-		super.notifyChanged(notification);
-	}
-
-	/**
 	 * This adds a property descriptor for the Description feature.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -254,5 +182,77 @@ public class IUPresentationItemProvider extends AggregatorItemProviderAdapter im
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
+	}
+
+	/**
+	 * This returns the property descriptors for the adapted class.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
+		if(itemPropertyDescriptors == null) {
+			super.getPropertyDescriptors(object);
+
+			addIdPropertyDescriptor(object);
+			addVersionPropertyDescriptor(object);
+			addNamePropertyDescriptor(object);
+			addLabelPropertyDescriptor(object);
+			addDescriptionPropertyDescriptor(object);
+			addTypePropertyDescriptor(object);
+			addFilterPropertyDescriptor(object);
+		}
+		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * Return the resource locator for this item provider's resources.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public ResourceLocator getResourceLocator() {
+		return AggregatorEditPlugin.INSTANCE;
+	}
+
+	/**
+	 * This returns the label text for the adapted class.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public String getText(Object object) {
+		String label = ((IUPresentation) object).getLabel();
+		return label == null || label.length() == 0
+				? getString("_UI_IUPresentation_type")
+				: getString("_UI_IUPresentation_type") + " " + label;
+	}
+
+	/**
+	 * This handles model notifications by calling {@link #updateChildren} to update any cached children and by creating
+	 * a viewer notification, which it passes to {@link #fireNotifyChanged}. <!-- begin-user-doc --> <!-- end-user-doc
+	 * -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public void notifyChanged(Notification notification) {
+		updateChildren(notification);
+
+		switch(notification.getFeatureID(IUPresentation.class)) {
+			case P2viewPackage.IU_PRESENTATION__ID:
+			case P2viewPackage.IU_PRESENTATION__VERSION:
+			case P2viewPackage.IU_PRESENTATION__NAME:
+			case P2viewPackage.IU_PRESENTATION__LABEL:
+			case P2viewPackage.IU_PRESENTATION__DESCRIPTION:
+			case P2viewPackage.IU_PRESENTATION__TYPE:
+			case P2viewPackage.IU_PRESENTATION__FILTER:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
+		}
+		super.notifyChanged(notification);
 	}
 }

@@ -28,21 +28,6 @@ import org.eclipse.emf.common.util.EList;
  */
 public interface AggregatorResourceView {
 	/**
-	 * Returns the value of the '<em><b>Aggregator</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Aggregator</em>' containment reference isn't clear, there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * 
-	 * @return the value of the '<em>Aggregator</em>' containment reference.
-	 * @see org.eclipse.b3.aggregator.AggregatorPackage#getAggregatorResourceView_Aggregator()
-	 * @model containment="true" resolveProxies="true" keys="label" required="true" changeable="false"
-	 * @generated
-	 */
-	Aggregator getAggregator();
-
-	/**
 	 * Returns the value of the '<em><b>Aggregations</b></em>' containment reference list.
 	 * The list contents are of type {@link org.eclipse.b3.aggregator.Aggregation}.
 	 * <!-- begin-user-doc -->
@@ -57,5 +42,20 @@ public interface AggregatorResourceView {
 	 * @generated
 	 */
 	EList<Aggregation> getAggregations();
+
+	/**
+	 * Returns the value of the '<em><b>Aggregator</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Aggregator</em>' containment reference isn't clear, there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the value of the '<em>Aggregator</em>' containment reference.
+	 * @see org.eclipse.b3.aggregator.AggregatorPackage#getAggregatorResourceView_Aggregator()
+	 * @model containment="true" resolveProxies="true" keys="label" required="true" changeable="false"
+	 * @generated
+	 */
+	Aggregator getAggregator();
 
 } // AggregatorResourceView

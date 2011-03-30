@@ -41,11 +41,6 @@ public class OtherIUImpl extends IUPresentationWithDetailsImpl implements OtherI
 		super(iu);
 	}
 
-	@Override
-	public InstallableUnitType getType() {
-		return InstallableUnitType.OTHER;
-	}
-
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -54,6 +49,11 @@ public class OtherIUImpl extends IUPresentationWithDetailsImpl implements OtherI
 	@Override
 	protected EClass eStaticClass() {
 		return P2viewPackage.Literals.OTHER_IU;
+	}
+
+	@Override
+	public InstallableUnitType getType() {
+		return InstallableUnitType.OTHER;
 	}
 
 } // OtherIUImpl

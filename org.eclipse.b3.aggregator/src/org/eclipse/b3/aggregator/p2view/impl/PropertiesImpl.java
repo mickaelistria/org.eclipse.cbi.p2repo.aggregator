@@ -129,6 +129,16 @@ public class PropertiesImpl extends MinimalEObjectImpl.Container implements Prop
 	 * @generated
 	 */
 	@Override
+	protected EClass eStaticClass() {
+		return P2viewPackage.Literals.PROPERTIES;
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
 			case P2viewPackage.PROPERTIES__PROPERTY_LIST:
@@ -149,16 +159,6 @@ public class PropertiesImpl extends MinimalEObjectImpl.Container implements Prop
 				Property.class, this, P2viewPackage.PROPERTIES__PROPERTY_LIST);
 		}
 		return propertyList;
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return P2viewPackage.Literals.PROPERTIES;
 	}
 
 } // PropertiesImpl

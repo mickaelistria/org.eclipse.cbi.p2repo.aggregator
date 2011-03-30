@@ -65,122 +65,6 @@ public class InstallableUnitRequestItemProvider extends AggregatorItemProviderAd
 		super(adapterFactory);
 	}
 
-	// hides children when disabled
-	@Override
-	public Collection<?> getChildren(Object object) {
-		if(!((InstallableUnitRequest) object).isBranchDisabledOrMappedRepositoryBroken())
-			return super.getChildren(object);
-		return Collections.emptyList();
-	}
-
-	/**
-	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
-	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
-	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
-		if(childrenFeatures == null) {
-			super.getChildrenFeatures(object);
-			childrenFeatures.add(AggregatorPackage.Literals.INSTALLABLE_UNIT_REQUEST__AVAILABLE_VERSIONS_HEADER);
-		}
-		return childrenFeatures;
-	}
-
-	/**
-	 * Grey out the label if this item is (directly or indirectly) disabled
-	 */
-	@Override
-	public Object getForeground(Object object) {
-		return !((InstallableUnitRequest) object).isBranchDisabledOrMappedRepositoryBroken()
-				? null
-				: IItemColorProvider.GRAYED_OUT_COLOR;
-	}
-
-	/**
-	 * This returns the property descriptors for the adapted class.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-		if(itemPropertyDescriptors == null) {
-			super.getPropertyDescriptors(object);
-
-			addDescriptionPropertyDescriptor(object);
-			addNamePropertyDescriptor(object);
-			addVersionRangePropertyDescriptor(object);
-		}
-		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * Return the resource locator for this item provider's resources.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	public ResourceLocator getResourceLocator() {
-		return AggregatorEditPlugin.INSTANCE;
-	}
-
-	/**
-	 * This returns the label text for the adapted class.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	public String getText(Object object) {
-		String label = ((InstallableUnitRequest) object).getName();
-		return label == null || label.length() == 0
-				? getString("_UI_InstallableUnitRequest_type")
-				: getString("_UI_InstallableUnitRequest_type") + " " + label;
-	}
-
-	// It always have a child - "Available Versions"
-	@Override
-	public boolean hasChildren(Object object) {
-		return !((InstallableUnitRequest) object).isBranchDisabledOrMappedRepositoryBroken();
-	}
-
-	/**
-	 * This handles model notifications by calling {@link #updateChildren} to update any cached children and by creating
-	 * a viewer notification, which it passes to {@link #fireNotifyChanged}. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
-	 * 
-	 * @generated NOT
-	 */
-	@Override
-	public void notifyChanged(Notification notification) {
-		updateChildren(notification);
-
-		switch(notification.getFeatureID(InstallableUnitRequest.class)) {
-			case AggregatorPackage.INSTALLABLE_UNIT_REQUEST__NAME:
-			case AggregatorPackage.INSTALLABLE_UNIT_REQUEST__VERSION_RANGE:
-				InstallableUnitRequest iuRequest = (InstallableUnitRequest) notification.getNotifier();
-				iuRequest.resolveAvailableVersions(true);
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
-				GeneralUtils.getAggregatorResource((EObject) iuRequest).analyzeResource();
-				return;
-			case AggregatorPackage.INSTALLABLE_UNIT_REQUEST__AVAILABLE_VERSIONS:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
-				return;
-			case AggregatorPackage.INSTALLABLE_UNIT_REQUEST__ERRORS:
-			case AggregatorPackage.INSTALLABLE_UNIT_REQUEST__WARNINGS:
-			case AggregatorPackage.INSTALLABLE_UNIT_REQUEST__INFOS:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-				return;
-		}
-		super.notifyChanged(notification);
-	}
-
 	/**
 	 * This adds a property descriptor for the Description feature.
 	 * <!-- begin-user-doc -->
@@ -339,14 +223,130 @@ public class InstallableUnitRequestItemProvider extends AggregatorItemProviderAd
 		return super.getChildFeature(object, child);
 	}
 
+	// hides children when disabled
+	@Override
+	public Collection<?> getChildren(Object object) {
+		if(!((InstallableUnitRequest) object).isBranchDisabledOrMappedRepositoryBroken())
+			return super.getChildren(object);
+		return Collections.emptyList();
+	}
+
+	/**
+	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
+	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
+	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
+		if(childrenFeatures == null) {
+			super.getChildrenFeatures(object);
+			childrenFeatures.add(AggregatorPackage.Literals.INSTALLABLE_UNIT_REQUEST__AVAILABLE_VERSIONS_HEADER);
+		}
+		return childrenFeatures;
+	}
+
 	// Must be implemented by subclass.
 	protected List<? extends InstallableUnitRequest> getContainerChildren(MappedRepository container) {
 		throw new UnsupportedOperationException();
 	}
 
+	/**
+	 * Grey out the label if this item is (directly or indirectly) disabled
+	 */
+	@Override
+	public Object getForeground(Object object) {
+		return !((InstallableUnitRequest) object).isBranchDisabledOrMappedRepositoryBroken()
+				? null
+				: IItemColorProvider.GRAYED_OUT_COLOR;
+	}
+
 	// Must be implemented by subclass.
 	protected IQuery<IInstallableUnit> getInstallableUnitQuery() {
 		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * This returns the property descriptors for the adapted class.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
+		if(itemPropertyDescriptors == null) {
+			super.getPropertyDescriptors(object);
+
+			addDescriptionPropertyDescriptor(object);
+			addNamePropertyDescriptor(object);
+			addVersionRangePropertyDescriptor(object);
+		}
+		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * Return the resource locator for this item provider's resources.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public ResourceLocator getResourceLocator() {
+		return AggregatorEditPlugin.INSTANCE;
+	}
+
+	/**
+	 * This returns the label text for the adapted class.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public String getText(Object object) {
+		String label = ((InstallableUnitRequest) object).getName();
+		return label == null || label.length() == 0
+				? getString("_UI_InstallableUnitRequest_type")
+				: getString("_UI_InstallableUnitRequest_type") + " " + label;
+	}
+
+	// It always have a child - "Available Versions"
+	@Override
+	public boolean hasChildren(Object object) {
+		return !((InstallableUnitRequest) object).isBranchDisabledOrMappedRepositoryBroken();
+	}
+
+	/**
+	 * This handles model notifications by calling {@link #updateChildren} to update any cached children and by creating
+	 * a viewer notification, which it passes to {@link #fireNotifyChanged}. <!-- begin-user-doc --> <!-- end-user-doc
+	 * -->
+	 * 
+	 * @generated NOT
+	 */
+	@Override
+	public void notifyChanged(Notification notification) {
+		updateChildren(notification);
+
+		switch(notification.getFeatureID(InstallableUnitRequest.class)) {
+			case AggregatorPackage.INSTALLABLE_UNIT_REQUEST__NAME:
+			case AggregatorPackage.INSTALLABLE_UNIT_REQUEST__VERSION_RANGE:
+				InstallableUnitRequest iuRequest = (InstallableUnitRequest) notification.getNotifier();
+				iuRequest.resolveAvailableVersions(true);
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
+				GeneralUtils.getAggregatorResource((EObject) iuRequest).analyzeResource();
+				return;
+			case AggregatorPackage.INSTALLABLE_UNIT_REQUEST__AVAILABLE_VERSIONS:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
+				return;
+			case AggregatorPackage.INSTALLABLE_UNIT_REQUEST__ERRORS:
+			case AggregatorPackage.INSTALLABLE_UNIT_REQUEST__WARNINGS:
+			case AggregatorPackage.INSTALLABLE_UNIT_REQUEST__INFOS:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
+		}
+		super.notifyChanged(notification);
 	}
 
 }

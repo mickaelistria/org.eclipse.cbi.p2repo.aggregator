@@ -41,11 +41,6 @@ public class FragmentImpl extends BundleImpl implements Fragment {
 		super(iu);
 	}
 
-	@Override
-	public InstallableUnitType getType() {
-		return InstallableUnitType.FRAGMENT;
-	}
-
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -54,6 +49,11 @@ public class FragmentImpl extends BundleImpl implements Fragment {
 	@Override
 	protected EClass eStaticClass() {
 		return P2viewPackage.Literals.FRAGMENT;
+	}
+
+	@Override
+	public InstallableUnitType getType() {
+		return InstallableUnitType.FRAGMENT;
 	}
 
 } // FragmentImpl

@@ -60,103 +60,6 @@ public class CustomCategoryItemProvider extends AggregatorItemProviderAdapter im
 	}
 
 	/**
-	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
-	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
-	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
-		if(childrenFeatures == null) {
-			super.getChildrenFeatures(object);
-			childrenFeatures.add(AggregatorPackage.Literals.CUSTOM_CATEGORY__FEATURES);
-		}
-		return childrenFeatures;
-	}
-
-	/**
-	 * This returns CustomCategory.gif.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/CustomCategory"));
-	}
-
-	/**
-	 * This returns the property descriptors for the adapted class.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-		if(itemPropertyDescriptors == null) {
-			super.getPropertyDescriptors(object);
-
-			addIdentifierPropertyDescriptor(object);
-			addLabelPropertyDescriptor(object);
-			addDescriptionPropertyDescriptor(object);
-			addFeaturesPropertyDescriptor(object);
-		}
-		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * Return the resource locator for this item provider's resources.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	public ResourceLocator getResourceLocator() {
-		return AggregatorEditPlugin.INSTANCE;
-	}
-
-	/**
-	 * This returns the label text for the adapted class.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	public String getText(Object object) {
-		String label = ((CustomCategory) object).getIdentifier();
-		return label == null || label.length() == 0
-				? getString("_UI_CustomCategory_type")
-				: getString("_UI_CustomCategory_type") + " " + label;
-	}
-
-	/**
-	 * This handles model notifications by calling {@link #updateChildren} to update any cached children and by creating
-	 * a viewer notification, which it passes to {@link #fireNotifyChanged}. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	public void notifyChanged(Notification notification) {
-		updateChildren(notification);
-
-		switch(notification.getFeatureID(CustomCategory.class)) {
-			case AggregatorPackage.CUSTOM_CATEGORY__IDENTIFIER:
-			case AggregatorPackage.CUSTOM_CATEGORY__LABEL:
-			case AggregatorPackage.CUSTOM_CATEGORY__DESCRIPTION:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-				return;
-			case AggregatorPackage.CUSTOM_CATEGORY__FEATURES:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
-				return;
-		}
-		super.notifyChanged(notification);
-	}
-
-	/**
 	 * This adds a property descriptor for the Description feature.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -235,6 +138,23 @@ public class CustomCategoryItemProvider extends AggregatorItemProviderAdapter im
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 	}
 
+	@SuppressWarnings("unchecked")
+	private Command createAddIUsToCustomCategoryCommand(Object owner, Collection<?> collection) {
+		ItemSorter itemSorter = new ItemSorter(collection);
+
+		if(itemSorter.getTotalItemCount() > 0 &&
+				(itemSorter.getTotalItemCount() == itemSorter.getGroupItems(ItemGroup.FEATURE).size() || (itemSorter.getTotalItemCount() == itemSorter.getGroupItems(
+					ItemGroup.FEATURE_STRUCTURED).size()))) {
+			List<IInstallableUnit> features = new ArrayList<IInstallableUnit>();
+			features.addAll((List<InstallableUnit>) itemSorter.getGroupItems(ItemGroup.FEATURE));
+			features.addAll(ItemUtils.getIUs((List<org.eclipse.b3.aggregator.p2view.Feature>) itemSorter.getGroupItems(ItemGroup.FEATURE_STRUCTURED)));
+
+			return new AddIUsToCustomCategoryCommand((CustomCategory) owner, features);
+		}
+
+		return null;
+	}
+
 	/**
 	 * Supports DnD from Features to CustomCategory
 	 */
@@ -280,6 +200,79 @@ public class CustomCategoryItemProvider extends AggregatorItemProviderAdapter im
 	}
 
 	/**
+	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
+	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
+	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
+	 * <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
+		if(childrenFeatures == null) {
+			super.getChildrenFeatures(object);
+			childrenFeatures.add(AggregatorPackage.Literals.CUSTOM_CATEGORY__FEATURES);
+		}
+		return childrenFeatures;
+	}
+
+	/**
+	 * This returns CustomCategory.gif.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public Object getImage(Object object) {
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/CustomCategory"));
+	}
+
+	/**
+	 * This returns the property descriptors for the adapted class.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
+		if(itemPropertyDescriptors == null) {
+			super.getPropertyDescriptors(object);
+
+			addIdentifierPropertyDescriptor(object);
+			addLabelPropertyDescriptor(object);
+			addDescriptionPropertyDescriptor(object);
+			addFeaturesPropertyDescriptor(object);
+		}
+		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * Return the resource locator for this item provider's resources.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public ResourceLocator getResourceLocator() {
+		return AggregatorEditPlugin.INSTANCE;
+	}
+
+	/**
+	 * This returns the label text for the adapted class.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public String getText(Object object) {
+		String label = ((CustomCategory) object).getIdentifier();
+		return label == null || label.length() == 0
+				? getString("_UI_CustomCategory_type")
+				: getString("_UI_CustomCategory_type") + " " + label;
+	}
+
+	/**
 	 * Force the children (features) to be wrapped so that changes to the children are propagated to the custom category
 	 * (as a non-containing parent)
 	 */
@@ -288,21 +281,28 @@ public class CustomCategoryItemProvider extends AggregatorItemProviderAdapter im
 		return true;
 	}
 
-	@SuppressWarnings("unchecked")
-	private Command createAddIUsToCustomCategoryCommand(Object owner, Collection<?> collection) {
-		ItemSorter itemSorter = new ItemSorter(collection);
+	/**
+	 * This handles model notifications by calling {@link #updateChildren} to update any cached children and by creating
+	 * a viewer notification, which it passes to {@link #fireNotifyChanged}. <!-- begin-user-doc --> <!-- end-user-doc
+	 * -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public void notifyChanged(Notification notification) {
+		updateChildren(notification);
 
-		if(itemSorter.getTotalItemCount() > 0 &&
-				(itemSorter.getTotalItemCount() == itemSorter.getGroupItems(ItemGroup.FEATURE).size() || (itemSorter.getTotalItemCount() == itemSorter.getGroupItems(
-					ItemGroup.FEATURE_STRUCTURED).size()))) {
-			List<IInstallableUnit> features = new ArrayList<IInstallableUnit>();
-			features.addAll((List<InstallableUnit>) itemSorter.getGroupItems(ItemGroup.FEATURE));
-			features.addAll(ItemUtils.getIUs((List<org.eclipse.b3.aggregator.p2view.Feature>) itemSorter.getGroupItems(ItemGroup.FEATURE_STRUCTURED)));
-
-			return new AddIUsToCustomCategoryCommand((CustomCategory) owner, features);
+		switch(notification.getFeatureID(CustomCategory.class)) {
+			case AggregatorPackage.CUSTOM_CATEGORY__IDENTIFIER:
+			case AggregatorPackage.CUSTOM_CATEGORY__LABEL:
+			case AggregatorPackage.CUSTOM_CATEGORY__DESCRIPTION:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
+			case AggregatorPackage.CUSTOM_CATEGORY__FEATURES:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
+				return;
 		}
-
-		return null;
+		super.notifyChanged(notification);
 	}
 
 }

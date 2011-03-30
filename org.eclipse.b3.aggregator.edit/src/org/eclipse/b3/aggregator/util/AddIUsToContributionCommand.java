@@ -90,25 +90,6 @@ public class AddIUsToContributionCommand extends AbstractCommand implements Drag
 		return DROP_LINK;
 	}
 
-	public void redo() {
-		execute();
-	}
-
-	@Override
-	public void undo() {
-		for(MappedUnit unit : addedMappedUnits) {
-			MappedRepository repo = (MappedRepository) ((EObject) unit).eContainer();
-			repo.removeUnit(unit);
-		}
-
-		contribution.getRepositories().removeAll(addedMappedRepos);
-	}
-
-	// validated prior command creation
-	public boolean validate(Object owner, float location, int operations, int operation, Collection<?> collection) {
-		return true;
-	}
-
 	@Override
 	protected boolean prepare() {
 		boolean result = contribution != null && contribution.isEnabled() &&
@@ -129,5 +110,24 @@ public class AddIUsToContributionCommand extends AbstractCommand implements Drag
 			}
 
 		return result;
+	}
+
+	public void redo() {
+		execute();
+	}
+
+	@Override
+	public void undo() {
+		for(MappedUnit unit : addedMappedUnits) {
+			MappedRepository repo = (MappedRepository) ((EObject) unit).eContainer();
+			repo.removeUnit(unit);
+		}
+
+		contribution.getRepositories().removeAll(addedMappedRepos);
+	}
+
+	// validated prior command creation
+	public boolean validate(Object owner, float location, int operations, int operation, Collection<?> collection) {
+		return true;
 	}
 }

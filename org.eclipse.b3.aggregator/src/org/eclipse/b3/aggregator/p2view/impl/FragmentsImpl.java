@@ -120,6 +120,16 @@ public class FragmentsImpl extends MinimalEObjectImpl.Container implements Fragm
 	 * @generated
 	 */
 	@Override
+	protected EClass eStaticClass() {
+		return P2viewPackage.Literals.FRAGMENTS;
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
 			case P2viewPackage.FRAGMENTS__FRAGMENTS:
@@ -148,16 +158,6 @@ public class FragmentsImpl extends MinimalEObjectImpl.Container implements Fragm
 			fragments = new EObjectResolvingEList<Fragment>(Fragment.class, this, P2viewPackage.FRAGMENTS__FRAGMENTS);
 		}
 		return fragments;
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return P2viewPackage.Literals.FRAGMENTS;
 	}
 
 } // FragmentsImpl

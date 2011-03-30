@@ -228,6 +228,42 @@ public class AggregatorItemProviderAdapterFactory extends AggregatorAdapterFacto
 	protected AvailableVersionsHeaderItemProvider availableVersionsHeaderItemProvider;
 
 	/**
+	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.aggregator.Separable} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	protected SeparableItemProvider separableItemProvider;
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.aggregator.Aggregation} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	protected AggregationItemProvider aggregationItemProvider;
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.aggregator.AggregatorResourceView} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	protected AggregatorResourceViewItemProvider aggregatorResourceViewItemProvider;
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.aggregator.ContributionView} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	protected ContributionViewItemProvider contributionViewItemProvider;
+
+	/**
 	 * This constructs an instance. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated NOT
@@ -283,47 +319,6 @@ public class AggregatorItemProviderAdapterFactory extends AggregatorAdapterFacto
 	}
 
 	/**
-	 * This creates an adapter for a {@link org.eclipse.b3.aggregator.Aggregator}.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	public Adapter createAggregatorAdapter() {
-		if(aggregatorItemProvider == null) {
-			aggregatorItemProvider = new AggregatorItemProvider(this);
-		}
-
-		return aggregatorItemProvider;
-	}
-
-	/**
-	 * This creates an adapter for a {@link org.eclipse.b3.aggregator.AvailableVersion}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	public Adapter createAvailableVersionAdapter() {
-		if(availableVersionItemProvider == null) {
-			availableVersionItemProvider = new AvailableVersionItemProvider(this);
-		}
-
-		return availableVersionItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.aggregator.Aggregation} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	protected AggregationItemProvider aggregationItemProvider;
-
-	/**
 	 * This creates an adapter for a {@link org.eclipse.b3.aggregator.Aggregation}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -340,13 +335,20 @@ public class AggregatorItemProviderAdapterFactory extends AggregatorAdapterFacto
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.aggregator.AggregatorResourceView} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * This creates an adapter for a {@link org.eclipse.b3.aggregator.Aggregator}.
+	 * <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @generated
 	 */
-	protected AggregatorResourceViewItemProvider aggregatorResourceViewItemProvider;
+	@Override
+	public Adapter createAggregatorAdapter() {
+		if(aggregatorItemProvider == null) {
+			aggregatorItemProvider = new AggregatorItemProvider(this);
+		}
+
+		return aggregatorItemProvider;
+	}
 
 	/**
 	 * This creates an adapter for a {@link org.eclipse.b3.aggregator.AggregatorResourceView}.
@@ -362,6 +364,22 @@ public class AggregatorItemProviderAdapterFactory extends AggregatorAdapterFacto
 		}
 
 		return aggregatorResourceViewItemProvider;
+	}
+
+	/**
+	 * This creates an adapter for a {@link org.eclipse.b3.aggregator.AvailableVersion}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public Adapter createAvailableVersionAdapter() {
+		if(availableVersionItemProvider == null) {
+			availableVersionItemProvider = new AvailableVersionItemProvider(this);
+		}
+
+		return availableVersionItemProvider;
 	}
 
 	/**
@@ -458,6 +476,22 @@ public class AggregatorItemProviderAdapterFactory extends AggregatorAdapterFacto
 		}
 
 		return contributionItemProvider;
+	}
+
+	/**
+	 * This creates an adapter for a {@link org.eclipse.b3.aggregator.ContributionView}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public Adapter createContributionViewAdapter() {
+		if(contributionViewItemProvider == null) {
+			contributionViewItemProvider = new ContributionViewItemProvider(this);
+		}
+
+		return contributionViewItemProvider;
 	}
 
 	/**
@@ -620,6 +654,22 @@ public class AggregatorItemProviderAdapterFactory extends AggregatorAdapterFacto
 	}
 
 	/**
+	 * This creates an adapter for a {@link org.eclipse.b3.aggregator.Separable}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public Adapter createSeparableAdapter() {
+		if(separableItemProvider == null) {
+			separableItemProvider = new SeparableItemProvider(this);
+		}
+
+		return separableItemProvider;
+	}
+
+	/**
 	 * This creates an adapter for a {@link org.eclipse.b3.aggregator.Status}.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
@@ -697,10 +747,14 @@ public class AggregatorItemProviderAdapterFactory extends AggregatorAdapterFacto
 			availableVersionsHeaderItemProvider.dispose();
 		if(availableVersionItemProvider != null)
 			availableVersionItemProvider.dispose();
+		if(separableItemProvider != null)
+			separableItemProvider.dispose();
 		if(aggregationItemProvider != null)
 			aggregationItemProvider.dispose();
 		if(aggregatorResourceViewItemProvider != null)
 			aggregatorResourceViewItemProvider.dispose();
+		if(contributionViewItemProvider != null)
+			contributionViewItemProvider.dispose();
 	}
 
 	/**

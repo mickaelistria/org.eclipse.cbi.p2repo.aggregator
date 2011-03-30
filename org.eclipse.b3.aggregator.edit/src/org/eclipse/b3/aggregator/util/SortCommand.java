@@ -99,6 +99,11 @@ public class SortCommand<T> extends AbstractCommand {
 		return labelProvider.getImage(itemTemplate);
 	}
 
+	@Override
+	protected boolean prepare() {
+		return containment.size() > 1;
+	}
+
 	public void redo() {
 		containment.clear();
 		containment.addAll(sortedSet);
@@ -108,10 +113,5 @@ public class SortCommand<T> extends AbstractCommand {
 	public void undo() {
 		containment.clear();
 		containment.addAll(originalList);
-	}
-
-	@Override
-	protected boolean prepare() {
-		return containment.size() > 1;
 	}
 }

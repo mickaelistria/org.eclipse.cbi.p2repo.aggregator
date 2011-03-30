@@ -73,7 +73,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="architecture" lowerBound="1"
         eType="#//Architecture"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Contribution" eSuperTypes="#//EnabledStatusProvider #//DescriptionProvider #//StatusProvider #//InfosProvider #//Separable">
+  <eClassifiers xsi:type="ecore:EClass" name="Contribution" eSuperTypes="#//EnabledStatusProvider #//DescriptionProvider #//StatusProvider #//InfosProvider">
     <eOperations name="getRepositories" upperBound="-1" eType="#//MappedRepository">
       <eParameters name="enabledOnly" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     </eOperations>
@@ -85,6 +85,8 @@
         eType="#//Contact" eKeys="#//Contact/email"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="mavenMappings" upperBound="-1"
         eType="#//MavenMapping" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="aggregation" eType="#//Aggregation"
+        eKeys="#//Aggregation/label"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Contact">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -300,14 +302,12 @@
     <eLiterals name="MATCHES" value="1" literal="matches"/>
     <eLiterals name="ABOVE" value="2" literal="above"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Separable" abstract="true" interface="true">
+  <eClassifiers xsi:type="ecore:EClass" name="Separable">
     <eStructuralFeatures xsi:type="ecore:EReference" name="aggregation" eType="#//Aggregation"
-        containment="true"/>
+        eKeys="#//Aggregation/label"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Aggregation" eSuperTypes="#//EnabledStatusProvider #//DescriptionProvider #//StatusProvider #//InfosProvider">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="label" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="contributions" upperBound="-1"
-        eType="#//Contribution" eKeys="#//Contribution/label"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="AggregatorResourceView">
     <eStructuralFeatures xsi:type="ecore:EReference" name="aggregator" lowerBound="1"
@@ -315,6 +315,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="aggregations" upperBound="-1"
         eType="#//Aggregation" containment="true" eKeys="#//Aggregation/label"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ContributionView" eSuperTypes="#//LabelProvider"/>
   <eSubpackages name="p2view" nsURI="http://www.eclipse.org/b3/2010/aggregator/p2view/1.0.0"
       nsPrefix="p2view">
     <eClassifiers xsi:type="ecore:EClass" name="MetadataRepositoryStructuredView">

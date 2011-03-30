@@ -107,6 +107,16 @@ public class CategoryImpl extends MappedUnitImpl implements Category {
 	 * @generated
 	 */
 	@Override
+	protected EClass eStaticClass() {
+		return AggregatorPackage.Literals.CATEGORY;
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
 			case AggregatorPackage.CATEGORY__LABEL_OVERRIDE:
@@ -153,16 +163,6 @@ public class CategoryImpl extends MappedUnitImpl implements Category {
 		result.append(labelOverride);
 		result.append(')');
 		return result.toString();
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return AggregatorPackage.Literals.CATEGORY;
 	}
 
 } // CategoryImpl

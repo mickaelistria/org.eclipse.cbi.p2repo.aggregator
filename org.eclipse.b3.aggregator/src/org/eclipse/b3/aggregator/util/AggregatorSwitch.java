@@ -20,6 +20,7 @@ import org.eclipse.b3.aggregator.ChildrenProvider;
 import org.eclipse.b3.aggregator.Configuration;
 import org.eclipse.b3.aggregator.Contact;
 import org.eclipse.b3.aggregator.Contribution;
+import org.eclipse.b3.aggregator.ContributionView;
 import org.eclipse.b3.aggregator.CustomCategory;
 import org.eclipse.b3.aggregator.DescriptionProvider;
 import org.eclipse.b3.aggregator.EnabledStatusProvider;
@@ -258,6 +259,23 @@ public class AggregatorSwitch<T1> {
 	 * @generated
 	 */
 	public T1 caseContribution(Contribution object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Contribution View</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * 
+	 * @param object
+	 *            the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Contribution View</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseContributionView(ContributionView object) {
 		return null;
 	}
 
@@ -671,8 +689,6 @@ public class AggregatorSwitch<T1> {
 				if(result == null)
 					result = caseInfosProvider(contribution);
 				if(result == null)
-					result = caseSeparable(contribution);
-				if(result == null)
 					result = defaultCase(theEObject);
 				return result;
 			}
@@ -977,6 +993,15 @@ public class AggregatorSwitch<T1> {
 			case AggregatorPackage.AGGREGATOR_RESOURCE_VIEW: {
 				AggregatorResourceView aggregatorResourceView = (AggregatorResourceView) theEObject;
 				T1 result = caseAggregatorResourceView(aggregatorResourceView);
+				if(result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
+			case AggregatorPackage.CONTRIBUTION_VIEW: {
+				ContributionView contributionView = (ContributionView) theEObject;
+				T1 result = caseContributionView(contributionView);
+				if(result == null)
+					result = caseLabelProvider(contributionView);
 				if(result == null)
 					result = defaultCase(theEObject);
 				return result;

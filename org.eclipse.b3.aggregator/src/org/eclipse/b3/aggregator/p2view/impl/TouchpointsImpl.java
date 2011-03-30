@@ -145,6 +145,16 @@ public class TouchpointsImpl extends MinimalEObjectImpl.Container implements Tou
 	 * @generated
 	 */
 	@Override
+	protected EClass eStaticClass() {
+		return P2viewPackage.Literals.TOUCHPOINTS;
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
 			case P2viewPackage.TOUCHPOINTS__TOUCHPOINT_TYPE:
@@ -207,16 +217,6 @@ public class TouchpointsImpl extends MinimalEObjectImpl.Container implements Tou
 		if(eNotificationRequired())
 			eNotify(new ENotificationImpl(
 				this, Notification.SET, P2viewPackage.TOUCHPOINTS__TOUCHPOINT_TYPE, oldTouchpointType, touchpointType));
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return P2viewPackage.Literals.TOUCHPOINTS;
 	}
 
 } // TouchpointsImpl

@@ -130,6 +130,16 @@ public class FeatureImpl extends MappedUnitImpl implements Feature {
 	 * @generated
 	 */
 	@Override
+	protected EClass eStaticClass() {
+		return AggregatorPackage.Literals.FEATURE;
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
 			case AggregatorPackage.FEATURE__CATEGORIES:
@@ -151,16 +161,6 @@ public class FeatureImpl extends MappedUnitImpl implements Feature {
 				AggregatorPackage.CUSTOM_CATEGORY__FEATURES);
 		}
 		return categories;
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return AggregatorPackage.Literals.FEATURE;
 	}
 
 } // FeatureImpl

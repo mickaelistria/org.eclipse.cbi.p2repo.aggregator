@@ -6,8 +6,6 @@
  */
 package org.eclipse.b3.aggregator;
 
-import org.eclipse.emf.common.util.EList;
-
 /**
  * <!-- begin-user-doc --> A representation of the model object '<em><b>Aggregator</b></em>'.
  * 
@@ -62,20 +60,4 @@ public interface Aggregation extends EnabledStatusProvider, DescriptionProvider,
 	 */
 	void setLabel(String value);
 
-	/**
-	 * Returns the value of the '<em><b>Contributions</b></em>' reference list.
-	 * The list contents are of type {@link org.eclipse.b3.aggregator.Contribution}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Contributions</em>' reference list isn't clear, there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * 
-	 * @return the value of the '<em>Contributions</em>' reference list.
-	 * @see org.eclipse.b3.aggregator.AggregatorPackage#getAggregation_Contributions()
-	 * @model keys="label"
-	 * @generated
-	 */
-	EList<Contribution> getContributions();
-
-} // Aggregator
+} // Aggregation

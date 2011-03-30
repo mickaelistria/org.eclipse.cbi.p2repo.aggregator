@@ -122,6 +122,17 @@ public class LicensesImpl extends MinimalEObjectImpl.Container implements Licens
 	 * @generated
 	 */
 	@Override
+	protected EClass eStaticClass() {
+		return P2viewPackage.Literals.LICENSES;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
 			case P2viewPackage.LICENSES__LICENSES:
@@ -142,17 +153,6 @@ public class LicensesImpl extends MinimalEObjectImpl.Container implements Licens
 			licenses = new EObjectResolvingEList<ILicense>(ILicense.class, this, P2viewPackage.LICENSES__LICENSES);
 		}
 		return licenses;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return P2viewPackage.Literals.LICENSES;
 	}
 
 } // LicensesImpl

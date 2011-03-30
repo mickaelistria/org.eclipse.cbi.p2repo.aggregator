@@ -400,6 +400,16 @@ public class IUDetailsImpl extends MinimalEObjectImpl.Container implements IUDet
 	 * @generated
 	 */
 	@Override
+	protected EClass eStaticClass() {
+		return P2viewPackage.Literals.IU_DETAILS;
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
 			case P2viewPackage.IU_DETAILS__REQUIREMENTS_CONTAINER:
@@ -659,16 +669,6 @@ public class IUDetailsImpl extends MinimalEObjectImpl.Container implements IUDet
 			eNotify(new ENotificationImpl(
 				this, Notification.SET, P2viewPackage.IU_DETAILS__UPDATE_DESCRIPTOR, newUpdateDescriptor,
 				newUpdateDescriptor));
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return P2viewPackage.Literals.IU_DETAILS;
 	}
 
 } // IUDetailsImpl

@@ -52,6 +52,61 @@ public class IUDetailsItemProvider extends AggregatorItemProviderAdapter impleme
 	}
 
 	/**
+	 * This adds a property descriptor for the Copyright feature.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	protected void addCopyrightPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+			getString("_UI_IUDetails_copyright_feature"),
+			getString("_UI_PropertyDescriptor_description", "_UI_IUDetails_copyright_feature", "_UI_IUDetails_type"),
+			P2viewPackage.Literals.IU_DETAILS__COPYRIGHT, false, false, true, null, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Update Descriptor feature.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	protected void addUpdateDescriptorPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+			getResourceLocator(),
+			getString("_UI_IUDetails_updateDescriptor_feature"),
+			getString(
+				"_UI_PropertyDescriptor_description", "_UI_IUDetails_updateDescriptor_feature", "_UI_IUDetails_type"),
+			P2viewPackage.Literals.IU_DETAILS__UPDATE_DESCRIPTOR, false, false, true, null, null, null));
+	}
+
+	/**
+	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
+	 * that can be created under this object.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
+		super.collectNewChildDescriptors(newChildDescriptors, object);
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected EStructuralFeature getChildFeature(Object object, Object child) {
+		// Check the type of the specified child object and return the proper feature to use for
+		// adding (see {@link AddCommand}) it as a child.
+
+		return super.getChildFeature(object, child);
+	}
+
+	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -136,61 +191,6 @@ public class IUDetailsItemProvider extends AggregatorItemProviderAdapter impleme
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 		super.notifyChanged(notification);
-	}
-
-	/**
-	 * This adds a property descriptor for the Copyright feature.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	protected void addCopyrightPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-			getString("_UI_IUDetails_copyright_feature"),
-			getString("_UI_PropertyDescriptor_description", "_UI_IUDetails_copyright_feature", "_UI_IUDetails_type"),
-			P2viewPackage.Literals.IU_DETAILS__COPYRIGHT, false, false, true, null, null, null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Update Descriptor feature.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	protected void addUpdateDescriptorPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-			getResourceLocator(),
-			getString("_UI_IUDetails_updateDescriptor_feature"),
-			getString(
-				"_UI_PropertyDescriptor_description", "_UI_IUDetails_updateDescriptor_feature", "_UI_IUDetails_type"),
-			P2viewPackage.Literals.IU_DETAILS__UPDATE_DESCRIPTOR, false, false, true, null, null, null));
-	}
-
-	/**
-	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
-	 * that can be created under this object.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
-		super.collectNewChildDescriptors(newChildDescriptors, object);
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected EStructuralFeature getChildFeature(Object object, Object child) {
-		// Check the type of the specified child object and return the proper feature to use for
-		// adding (see {@link AddCommand}) it as a child.
-
-		return super.getChildFeature(object, child);
 	}
 
 }

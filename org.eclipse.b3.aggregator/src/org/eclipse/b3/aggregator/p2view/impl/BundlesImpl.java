@@ -120,6 +120,16 @@ public class BundlesImpl extends MinimalEObjectImpl.Container implements Bundles
 	 * @generated
 	 */
 	@Override
+	protected EClass eStaticClass() {
+		return P2viewPackage.Literals.BUNDLES;
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
 			case P2viewPackage.BUNDLES__BUNDLES:
@@ -148,16 +158,6 @@ public class BundlesImpl extends MinimalEObjectImpl.Container implements Bundles
 	 */
 	public EList<Bundle> getChildren() {
 		return getBundles();
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return P2viewPackage.Literals.BUNDLES;
 	}
 
 } // BundlesImpl

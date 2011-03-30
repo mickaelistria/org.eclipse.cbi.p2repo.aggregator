@@ -41,17 +41,17 @@ public class StatusProviderAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	@Override
+	protected Adapter createAdapter(Notifier target) {
+		return (target instanceof StatusProvider || target instanceof InstallableUnit)
+				? new StatusProviderAdapter()
+				: null;
+	}
+
+	@Override
 	public boolean isFactoryForType(Object type) {
 		if(type instanceof EPackageImpl)
 			return true;
 
 		return type == StatusProvider.class;
-	}
-
-	@Override
-	protected Adapter createAdapter(Notifier target) {
-		return (target instanceof StatusProvider || target instanceof InstallableUnit)
-				? new StatusProviderAdapter()
-				: null;
 	}
 }

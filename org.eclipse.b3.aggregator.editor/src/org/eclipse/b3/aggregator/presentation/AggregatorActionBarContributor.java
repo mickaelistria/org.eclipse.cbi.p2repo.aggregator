@@ -22,6 +22,7 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
+import org.eclipse.b3.aggregator.Aggregation;
 import org.eclipse.b3.aggregator.Aggregator;
 import org.eclipse.b3.aggregator.AggregatorFactory;
 import org.eclipse.b3.aggregator.AggregatorPackage;
@@ -72,7 +73,6 @@ import org.eclipse.emf.edit.command.SetCommand;
 import org.eclipse.emf.edit.domain.AdapterFactoryEditingDomain;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.domain.IEditingDomainProvider;
-import org.eclipse.emf.edit.ui.action.ControlAction;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
@@ -81,7 +81,6 @@ import org.eclipse.emf.edit.ui.action.CreateChildAction;
 import org.eclipse.emf.edit.ui.action.CreateSiblingAction;
 import org.eclipse.emf.edit.ui.action.EditingDomainActionBarContributor;
 import org.eclipse.emf.edit.ui.action.LoadResourceAction;
-import org.eclipse.emf.edit.ui.action.ValidateAction;
 import org.eclipse.emf.edit.ui.provider.ExtendedImageRegistry;
 import org.eclipse.equinox.app.IApplication;
 import org.eclipse.equinox.p2.metadata.IInstallableUnit;
@@ -882,6 +881,14 @@ public class AggregatorActionBarContributor extends EditingDomainActionBarContri
 
 	private boolean aggregatorSelected;
 
+	private IMenuManager linkAggregationsMenuManager;
+
+	private Collection<? extends IAction> linkAggregationsActions;
+
+	private IMenuManager unlinkAggregationsMenuManager;
+
+	private Collection<? extends IAction> unlinkAggregationsActions;
+
 	/**
 	 * This creates an instance of the contributor. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -900,6 +907,9 @@ public class AggregatorActionBarContributor extends EditingDomainActionBarContri
 		verifyRepoAction = new BuildRepoAction(ActionType.VERIFY);
 		buildRepoAction = new BuildRepoAction(ActionType.BUILD);
 		cleanBuildRepoAction = new BuildRepoAction(ActionType.CLEAN_BUILD);
+
+		linkAggregationsMenuManager = new MenuManager("Add to");
+		unlinkAggregationsMenuManager = new MenuManager("Remove from");
 	}
 
 	@Override
@@ -1109,6 +1119,32 @@ public class AggregatorActionBarContributor extends EditingDomainActionBarContri
 		return actions;
 	}
 
+	protected Collection<? extends IAction> generateLinkAggregationActions(IStructuredSelection structuredSelection,
+			EList<Aggregation> aggregations) {
+		Aggregation linkedAggregation = ((Contribution) structuredSelection.getFirstElement()).getAggregation();
+		ArrayList<IAction> linkActions = new ArrayList<IAction>(aggregations.size());
+
+		for(Aggregation aggregation : aggregations) {
+			if(linkedAggregation != aggregation)
+				linkActions.add(new LinkAggregationCommand(activeEditorPart, structuredSelection, aggregation, true));
+		}
+
+		return linkActions;
+	}
+
+	protected Collection<? extends IAction> generateUnlinkAggregationActions(IStructuredSelection structuredSelection,
+			EList<Aggregation> aggregations) {
+		Aggregation linkedAggregation = ((Contribution) structuredSelection.getFirstElement()).getAggregation();
+		ArrayList<IAction> unlinkActions = new ArrayList<IAction>(aggregations.size());
+
+		for(Aggregation aggregation : aggregations) {
+			if(aggregation == linkedAggregation)
+				unlinkActions.add(new LinkAggregationCommand(activeEditorPart, structuredSelection, aggregation, false));
+		}
+
+		return unlinkActions;
+	}
+
 	private Aggregator getAggregator() {
 		if(activeEditorPart == null || !(activeEditorPart instanceof IEditingDomainProvider))
 			return null;
@@ -1135,6 +1171,34 @@ public class AggregatorActionBarContributor extends EditingDomainActionBarContri
 	@Override
 	public void menuAboutToShow(IMenuManager menuManager) {
 		menuAboutToShowGen(menuManager);
+
+		if(lastSelection instanceof IStructuredSelection) {
+			IStructuredSelection structuredSelection = (IStructuredSelection) lastSelection;
+
+			if(structuredSelection.getFirstElement() instanceof Contribution) {
+				EList<Aggregation> aggregations = getAggregator().getAggregations();
+
+				if(linkAggregationsMenuManager != null) {
+					depopulateManager(linkAggregationsMenuManager, linkAggregationsActions);
+					linkAggregationsActions = generateLinkAggregationActions(structuredSelection, aggregations);
+					if(!linkAggregationsActions.isEmpty()) {
+						populateManager(linkAggregationsMenuManager, linkAggregationsActions, null);
+						linkAggregationsMenuManager.update(true);
+						menuManager.insertBefore("edit", linkAggregationsMenuManager);
+					}
+				}
+
+				if(unlinkAggregationsMenuManager != null) {
+					depopulateManager(unlinkAggregationsMenuManager, unlinkAggregationsActions);
+					unlinkAggregationsActions = generateUnlinkAggregationActions(structuredSelection, aggregations);
+					if(!unlinkAggregationsActions.isEmpty()) {
+						populateManager(unlinkAggregationsMenuManager, unlinkAggregationsActions, null);
+						unlinkAggregationsMenuManager.update(true);
+						menuManager.insertBefore("edit", unlinkAggregationsMenuManager);
+					}
+				}
+			}
+		}
 
 		// actions need to be created just before menu is displayed, otherwise it would be possible to add an IU as a
 		// Feature and then add the same IU as Exclusion Rule
@@ -1313,12 +1377,10 @@ public class AggregatorActionBarContributor extends EditingDomainActionBarContri
 	public void updateContextMenu(ISelection selection) {
 		// Remove any menu items for old selection.
 		//
-		if(createChildMenuManager != null) {
+		if(createChildMenuManager != null)
 			depopulateManager(createChildMenuManager, createChildActions);
-		}
-		if(createSiblingMenuManager != null) {
+		if(createSiblingMenuManager != null)
 			depopulateManager(createSiblingMenuManager, createSiblingActions);
-		}
 
 		// Query the new selection for appropriate new child/sibling descriptors
 		//
@@ -1327,115 +1389,118 @@ public class AggregatorActionBarContributor extends EditingDomainActionBarContri
 		selectMatchingIUAction = null;
 		reloadOrCancelRepoActionVisible = false;
 
-		if(selection instanceof IStructuredSelection && ((IStructuredSelection) selection).size() >= 1) {
-			EditingDomain domain = ((IEditingDomainProvider) activeEditorPart).getEditingDomain();
-			List<Object> selectedItems = ((IStructuredSelection) selection).toList();
+		if(selection instanceof IStructuredSelection) {
+			IStructuredSelection structuredSelection = (IStructuredSelection) selection;
 
-			int state = -1;
-			boolean first = true;
-			for(Map.Entry<EnabledStatusAction, Boolean> sa : enabledStatusActionVisibility.entrySet()) {
-				sa.setValue(false);
-				if(sa.getKey().isSupportedFor(selectedItems)) {
-					List<EnabledStatusProvider> items = new ArrayList<EnabledStatusProvider>();
-					for(Object obj : selectedItems)
-						items.add((EnabledStatusProvider) obj);
+			if(structuredSelection.size() >= 1) {
+				EditingDomain domain = ((IEditingDomainProvider) activeEditorPart).getEditingDomain();
+				List<Object> selectedItems = structuredSelection.toList();
 
-					sa.getKey().setReference(items);
+				int state = -1;
+				boolean first = true;
+				for(Map.Entry<EnabledStatusAction, Boolean> sa : enabledStatusActionVisibility.entrySet()) {
+					sa.setValue(false);
+					if(sa.getKey().isSupportedFor(selectedItems)) {
+						List<EnabledStatusProvider> items = new ArrayList<EnabledStatusProvider>();
+						for(Object obj : selectedItems)
+							items.add((EnabledStatusProvider) obj);
 
-					sa.getKey().initialize(items, domain);
-					if(first) {
-						state = sa.getKey().determineStatus(items);
-						first = false;
-					}
+						sa.getKey().setReference(items);
 
-					if((state == EnabledStatusAction.DISABLE || state == EnabledStatusAction.BOTH) &&
-							sa.getKey().isEnableState()) {
-						sa.setValue(Boolean.TRUE);
-					}
-					if((state == EnabledStatusAction.ENABLE || state == EnabledStatusAction.BOTH) &&
-							!sa.getKey().isEnableState()) {
-						sa.setValue(Boolean.TRUE);
+						sa.getKey().initialize(items, domain);
+						if(first) {
+							state = sa.getKey().determineStatus(items);
+							first = false;
+						}
+
+						if((state == EnabledStatusAction.DISABLE || state == EnabledStatusAction.BOTH) &&
+								sa.getKey().isEnableState()) {
+							sa.setValue(Boolean.TRUE);
+						}
+						if((state == EnabledStatusAction.ENABLE || state == EnabledStatusAction.BOTH) &&
+								!sa.getKey().isEnableState()) {
+							sa.setValue(Boolean.TRUE);
+						}
 					}
 				}
-			}
 
-			reloadOrCancelRepoAction.setEnabled(true);
-			reloadOrCancelRepoAction.initMetadataRepositoryReferences();
-			Aggregator aggregator = getAggregator();
+				reloadOrCancelRepoAction.setEnabled(true);
+				reloadOrCancelRepoAction.initMetadataRepositoryReferences();
+				Aggregator aggregator = getAggregator();
 
-			aggregatorSelected = false;
-			if(selectedItems.size() == 1 && selectedItems.get(0).equals(aggregator)) {
-				aggregatorSelected = true;
-				reloadOrCancelRepoAction.setLoadText("Reload All Repositories");
-				reloadOrCancelRepoActionVisible = true;
-				ResourceSet resourceSet = ((AggregatorImpl) aggregator).eResource().getResourceSet();
-				for(Resource resource : resourceSet.getResources())
-					if(resource instanceof MetadataRepositoryResourceImpl)
-						reloadOrCancelRepoAction.addMetadataRepositoryResource((MetadataRepositoryResourceImpl) resource);
-			}
-			else {
-				reloadOrCancelRepoAction.setLoadText("Reload Repository");
-				for(Object object : selectedItems) {
-					if(object instanceof MetadataRepositoryReference) {
-						MetadataRepositoryReference metadataRepositoryReference = (MetadataRepositoryReference) object;
-						if(metadataRepositoryReference.isBranchEnabled()) {
-							MetadataRepositoryResourceImpl res = (MetadataRepositoryResourceImpl) MetadataRepositoryResourceImpl.getResourceForNatureAndLocation(
-								metadataRepositoryReference.getNature(),
-								metadataRepositoryReference.getResolvedLocation(), aggregator);
+				aggregatorSelected = false;
+				if(selectedItems.size() == 1 && selectedItems.get(0).equals(aggregator)) {
+					aggregatorSelected = true;
+					reloadOrCancelRepoAction.setLoadText("Reload All Repositories");
+					reloadOrCancelRepoActionVisible = true;
+					ResourceSet resourceSet = ((AggregatorImpl) aggregator).eResource().getResourceSet();
+					for(Resource resource : resourceSet.getResources())
+						if(resource instanceof MetadataRepositoryResourceImpl)
+							reloadOrCancelRepoAction.addMetadataRepositoryResource((MetadataRepositoryResourceImpl) resource);
+				}
+				else {
+					reloadOrCancelRepoAction.setLoadText("Reload Repository");
+					for(Object object : selectedItems) {
+						if(object instanceof MetadataRepositoryReference) {
+							MetadataRepositoryReference metadataRepositoryReference = (MetadataRepositoryReference) object;
+							if(metadataRepositoryReference.isBranchEnabled()) {
+								MetadataRepositoryResourceImpl res = (MetadataRepositoryResourceImpl) MetadataRepositoryResourceImpl.getResourceForNatureAndLocation(
+									metadataRepositoryReference.getNature(),
+									metadataRepositoryReference.getResolvedLocation(), aggregator);
+								reloadOrCancelRepoAction.addMetadataRepositoryResource(res);
+							}
+							else {
+								reloadOrCancelRepoAction.setEnabled(false);
+							}
+							reloadOrCancelRepoActionVisible = true;
+						}
+						else if(object instanceof MetadataRepositoryResourceImpl) {
+							MetadataRepositoryResourceImpl res = (MetadataRepositoryResourceImpl) object;
 							reloadOrCancelRepoAction.addMetadataRepositoryResource(res);
+							reloadOrCancelRepoActionVisible = true;
 						}
 						else {
 							reloadOrCancelRepoAction.setEnabled(false);
+							reloadOrCancelRepoActionVisible = false;
+							reloadOrCancelRepoAction.initMetadataRepositoryReferences();
+							break;
 						}
-						reloadOrCancelRepoActionVisible = true;
 					}
-					else if(object instanceof MetadataRepositoryResourceImpl) {
-						MetadataRepositoryResourceImpl res = (MetadataRepositoryResourceImpl) object;
-						reloadOrCancelRepoAction.addMetadataRepositoryResource(res);
-						reloadOrCancelRepoActionVisible = true;
+				}
+
+				if(structuredSelection.size() == 1) {
+					Object object = structuredSelection.getFirstElement();
+
+					newChildDescriptors = domain.getNewChildDescriptors(object, null);
+					newSiblingDescriptors = domain.getNewChildDescriptors(null, object);
+
+					if(object instanceof RequirementWrapper) {
+						selectMatchingIUAction = new SelectMatchingIUAction(((RequirementWrapper) object).getGenuine());
 					}
-					else {
-						reloadOrCancelRepoAction.setEnabled(false);
-						reloadOrCancelRepoActionVisible = false;
-						reloadOrCancelRepoAction.initMetadataRepositoryReferences();
-						break;
+					else if(object instanceof AvailableVersion) {
+						AvailableVersion av = (AvailableVersion) object;
+						InstallableUnitRequest mappedUnit = (InstallableUnitRequest) ((EObject) av).eContainer();
+
+						IRequirement requiredCapability = MetadataFactory.createRequirement(
+							IInstallableUnit.NAMESPACE_IU_ID, mappedUnit.getName(), new VersionRange(
+								av.getVersion(), true, av.getVersion(), true), null, false, true);
+						selectMatchingIUAction = new SelectMatchingIUAction(null, requiredCapability);
 					}
 				}
 			}
 
-			if(((IStructuredSelection) selection).size() == 1) {
-				Object object = ((IStructuredSelection) selection).getFirstElement();
-
-				newChildDescriptors = domain.getNewChildDescriptors(object, null);
-				newSiblingDescriptors = domain.getNewChildDescriptors(null, object);
-
-				if(object instanceof RequirementWrapper) {
-					selectMatchingIUAction = new SelectMatchingIUAction(((RequirementWrapper) object).getGenuine());
-				}
-				if(object instanceof AvailableVersion) {
-					AvailableVersion av = (AvailableVersion) object;
-					InstallableUnitRequest mappedUnit = (InstallableUnitRequest) ((EObject) av).eContainer();
-
-					IRequirement requiredCapability = MetadataFactory.createRequirement(
-						IInstallableUnit.NAMESPACE_IU_ID, mappedUnit.getName(), new VersionRange(
-							av.getVersion(), true, av.getVersion(), true), null, false, true);
-					selectMatchingIUAction = new SelectMatchingIUAction(null, requiredCapability);
-				}
+			// Generate actions for selection; populate and redraw the menus.
+			//
+			if(createChildMenuManager != null) {
+				createChildActions = generateCreateChildActions(newChildDescriptors, selection);
+				populateManager(createChildMenuManager, createChildActions, null);
+				createChildMenuManager.update(true);
 			}
-		}
-
-		// Generate actions for selection; populate and redraw the menus.
-		//
-		createChildActions = generateCreateChildActions(newChildDescriptors, selection);
-		createSiblingActions = generateCreateSiblingActions(newSiblingDescriptors, selection);
-
-		if(createChildMenuManager != null) {
-			populateManager(createChildMenuManager, createChildActions, null);
-			createChildMenuManager.update(true);
-		}
-		if(createSiblingMenuManager != null) {
-			populateManager(createSiblingMenuManager, createSiblingActions, null);
-			createSiblingMenuManager.update(true);
+			if(createSiblingMenuManager != null) {
+				createSiblingActions = generateCreateSiblingActions(newSiblingDescriptors, selection);
+				populateManager(createSiblingMenuManager, createSiblingActions, null);
+				createSiblingMenuManager.update(true);
+			}
 		}
 	}
 }

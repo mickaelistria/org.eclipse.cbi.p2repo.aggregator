@@ -143,6 +143,17 @@ public class AvailableVersionsHeaderImpl extends MinimalEObjectImpl.Container im
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return AggregatorPackage.Literals.AVAILABLE_VERSIONS_HEADER;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
 	 * @generated NOT
 	 */
 	public EList<AvailableVersion> getAvailableVersions() {
@@ -159,17 +170,6 @@ public class AvailableVersionsHeaderImpl extends MinimalEObjectImpl.Container im
 		if(eContainerFeatureID() != AggregatorPackage.AVAILABLE_VERSIONS_HEADER__INSTALLABLE_UNIT_REQUEST)
 			return null;
 		return (InstallableUnitRequest) eContainer();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return AggregatorPackage.Literals.AVAILABLE_VERSIONS_HEADER;
 	}
 
 } // AvailableVersionsHeaderImpl

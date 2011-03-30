@@ -494,6 +494,16 @@ public abstract class IUPresentationWithDetailsImpl extends IUPresentationImpl i
 	 * @generated
 	 */
 	@Override
+	protected EClass eStaticClass() {
+		return P2viewPackage.Literals.IU_PRESENTATION_WITH_DETAILS;
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
 			case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__REQUIREMENTS_CONTAINER:
@@ -614,6 +624,20 @@ public abstract class IUPresentationWithDetailsImpl extends IUPresentationImpl i
 	 */
 	public boolean isDetailsResolved() {
 		return (eFlags & DETAILS_RESOLVED_EFLAG) != 0;
+	}
+
+	private void resolveDetails() {
+		IUDetails iuDetails = P2viewFactory.eINSTANCE.createIUDetails(getInstallableUnit());
+
+		setRequirementsContainer(iuDetails.getRequirementsContainer());
+		setProvidedCapabilitiesContainer(iuDetails.getProvidedCapabilitiesContainer());
+		setPropertiesContainer(iuDetails.getPropertiesContainer());
+		setTouchpointsContainer(iuDetails.getTouchpointsContainer());
+		setUpdateDescriptor(iuDetails.getUpdateDescriptor());
+		setCopyright(iuDetails.getCopyright());
+		setLicensesContainer(iuDetails.getLicensesContainer());
+
+		setDetailsResolved(true);
 	}
 
 	/**
@@ -818,30 +842,6 @@ public abstract class IUPresentationWithDetailsImpl extends IUPresentationImpl i
 		result.append((eFlags & DETAILS_RESOLVED_EFLAG) != 0);
 		result.append(')');
 		return result.toString();
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return P2viewPackage.Literals.IU_PRESENTATION_WITH_DETAILS;
-	}
-
-	private void resolveDetails() {
-		IUDetails iuDetails = P2viewFactory.eINSTANCE.createIUDetails(getInstallableUnit());
-
-		setRequirementsContainer(iuDetails.getRequirementsContainer());
-		setProvidedCapabilitiesContainer(iuDetails.getProvidedCapabilitiesContainer());
-		setPropertiesContainer(iuDetails.getPropertiesContainer());
-		setTouchpointsContainer(iuDetails.getTouchpointsContainer());
-		setUpdateDescriptor(iuDetails.getUpdateDescriptor());
-		setCopyright(iuDetails.getCopyright());
-		setLicensesContainer(iuDetails.getLicensesContainer());
-
-		setDetailsResolved(true);
 	}
 
 } // IUPresentationWithDetailsImpl

@@ -133,6 +133,16 @@ public class ProvidedCapabilitiesImpl extends MinimalEObjectImpl.Container imple
 	 * @generated
 	 */
 	@Override
+	protected EClass eStaticClass() {
+		return P2viewPackage.Literals.PROVIDED_CAPABILITIES;
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
 			case P2viewPackage.PROVIDED_CAPABILITIES__PROVIDED_CAPABILITIES:
@@ -153,16 +163,6 @@ public class ProvidedCapabilitiesImpl extends MinimalEObjectImpl.Container imple
 				ProvidedCapabilityWrapper.class, this, P2viewPackage.PROVIDED_CAPABILITIES__PROVIDED_CAPABILITIES);
 		}
 		return providedCapabilities;
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return P2viewPackage.Literals.PROVIDED_CAPABILITIES;
 	}
 
 } // ProvidedCapabilitiesImpl

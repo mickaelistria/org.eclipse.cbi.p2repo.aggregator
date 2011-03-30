@@ -357,6 +357,16 @@ public class MappedRepositoryImpl extends MetadataRepositoryReferenceImpl implem
 	 * @generated
 	 */
 	@Override
+	protected EClass eStaticClass() {
+		return AggregatorPackage.Literals.MAPPED_REPOSITORY;
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
 			case AggregatorPackage.MAPPED_REPOSITORY__DESCRIPTION:
@@ -680,15 +690,5 @@ public class MappedRepositoryImpl extends MetadataRepositoryReferenceImpl implem
 			for(MappedRepository mappedRepository : contribution.getRepositories())
 				for(MappedUnit unit : mappedRepository.getUnits(false))
 					unit.resolveAvailableVersions(true);
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return AggregatorPackage.Literals.MAPPED_REPOSITORY;
 	}
 } // MappedRepositoryImpl

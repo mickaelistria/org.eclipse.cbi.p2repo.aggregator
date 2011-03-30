@@ -66,6 +66,126 @@ public class MetadataRepositoryReferenceItemProvider extends AggregatorItemProvi
 		super(adapterFactory);
 	}
 
+	/**
+	 * This adds a property descriptor for the Enabled feature.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	protected void addEnabledPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+			getResourceLocator(),
+			getString("_UI_EnabledStatusProvider_enabled_feature"),
+			getString(
+				"_UI_PropertyDescriptor_description", "_UI_EnabledStatusProvider_enabled_feature",
+				"_UI_EnabledStatusProvider_type"), AggregatorPackage.Literals.ENABLED_STATUS_PROVIDER__ENABLED, true,
+			false, false, ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Location feature.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	protected void addLocationPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+			getResourceLocator(),
+			getString("_UI_MetadataRepositoryReference_location_feature"),
+			getString(
+				"_UI_PropertyDescriptor_description", "_UI_MetadataRepositoryReference_location_feature",
+				"_UI_MetadataRepositoryReference_type"),
+			AggregatorPackage.Literals.METADATA_REPOSITORY_REFERENCE__LOCATION, true, false, false,
+			ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Metadata Repository feature. <!-- begin-user-doc --> <!-- end-user-doc
+	 * -->
+	 * 
+	 * @generated NOT
+	 */
+	protected void addMetadataRepositoryPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add(new ContributionItemProvider.DynamicItemPropertyDescriptor(
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+			getString("_UI_MetadataRepositoryReference_metadataRepository_feature"), getString(
+				"_UI_PropertyDescriptor_description", "_UI_MetadataRepositoryReference_metadataRepository_feature",
+				"_UI_MetadataRepositoryReference_type"),
+			AggregatorPackage.Literals.METADATA_REPOSITORY_REFERENCE__METADATA_REPOSITORY, true, false, true, null,
+			null, null) {
+			@Override
+			public Collection<?> getChoiceOfValues(Object object) {
+				// Provide a list of repositories that has not already been mapped
+				//
+				MetadataRepositoryReference self = (MetadataRepositoryReference) object;
+				Aggregator aggregator = self.getAggregator();
+				Collection<?> repos = super.getChoiceOfValues(object);
+				for(Contribution contribution : aggregator.getContributions()) {
+					for(MappedRepository mappedRepo : contribution.getRepositories()) {
+						if(mappedRepo == self)
+							continue;
+						MetadataRepository repo = mappedRepo.getMetadataRepository(false);
+						if(repo != null && !((EObject) repo).eIsProxy())
+							repos.remove(repo);
+					}
+				}
+				for(MetadataRepositoryReference mrRef : aggregator.getValidationRepositories()) {
+					if(mrRef == self)
+						continue;
+					MetadataRepository repo = mrRef.getMetadataRepository(false);
+					if(repo != null && !((EObject) repo).eIsProxy())
+						repos.remove(repo);
+				}
+				return repos;
+			}
+		});
+	}
+
+	/**
+	 * This adds a property descriptor for the Nature feature. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated NOT
+	 */
+	protected void addNaturePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add(new ItemPropertyDescriptor(
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+			getString("_UI_MetadataRepositoryReference_nature_feature"), getString(
+				"_UI_PropertyDescriptor_description", "_UI_MetadataRepositoryReference_nature_feature",
+				"_UI_MetadataRepositoryReference_type"),
+			AggregatorPackage.Literals.METADATA_REPOSITORY_REFERENCE__NATURE, true, false, false,
+			ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null) {
+			@Override
+			public Collection<?> getChoiceOfValues(Object object) {
+				MetadataRepositoryReference repo = (MetadataRepositoryReference) object;
+				String currentValue = repo.getNature();
+				List<String> supportedValues = AggregatorPlugin.getPlugin().getSupportedRepositoryNatureList();
+				if(!supportedValues.contains(currentValue)) {
+					List<String> globallySupportedValues = supportedValues;
+					supportedValues = new ArrayList<String>(globallySupportedValues.size() + 1);
+					supportedValues.addAll(globallySupportedValues);
+					supportedValues.add(currentValue);
+					Collections.sort(supportedValues);
+				}
+
+				return supportedValues;
+			}
+		});
+	}
+
+	/**
+	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
+	 * that can be created under this object.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
+		super.collectNewChildDescriptors(newChildDescriptors, object);
+	}
+
 	@Override
 	public Object getFont(Object object) {
 		return ((StatusProvider) object).getStatus().getCode() == StatusCode.WAITING
@@ -188,6 +308,10 @@ public class MetadataRepositoryReferenceItemProvider extends AggregatorItemProvi
 		return bld.toString();
 	}
 
+	protected String getTypeName() {
+		return "_UI_MetadataRepositoryReference_type";
+	}
+
 	/**
 	 * Experimental. Loads a resource when the user types in a URL.
 	 * 
@@ -288,130 +412,6 @@ public class MetadataRepositoryReferenceItemProvider extends AggregatorItemProvi
 				return;
 		}
 		super.notifyChanged(notification);
-	}
-
-	/**
-	 * This adds a property descriptor for the Enabled feature.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	protected void addEnabledPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-			getResourceLocator(),
-			getString("_UI_EnabledStatusProvider_enabled_feature"),
-			getString(
-				"_UI_PropertyDescriptor_description", "_UI_EnabledStatusProvider_enabled_feature",
-				"_UI_EnabledStatusProvider_type"), AggregatorPackage.Literals.ENABLED_STATUS_PROVIDER__ENABLED, true,
-			false, false, ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Location feature.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	protected void addLocationPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-			getResourceLocator(),
-			getString("_UI_MetadataRepositoryReference_location_feature"),
-			getString(
-				"_UI_PropertyDescriptor_description", "_UI_MetadataRepositoryReference_location_feature",
-				"_UI_MetadataRepositoryReference_type"),
-			AggregatorPackage.Literals.METADATA_REPOSITORY_REFERENCE__LOCATION, true, false, false,
-			ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Metadata Repository feature. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
-	 * 
-	 * @generated NOT
-	 */
-	protected void addMetadataRepositoryPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(new ContributionItemProvider.DynamicItemPropertyDescriptor(
-			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-			getString("_UI_MetadataRepositoryReference_metadataRepository_feature"), getString(
-				"_UI_PropertyDescriptor_description", "_UI_MetadataRepositoryReference_metadataRepository_feature",
-				"_UI_MetadataRepositoryReference_type"),
-			AggregatorPackage.Literals.METADATA_REPOSITORY_REFERENCE__METADATA_REPOSITORY, true, false, true, null,
-			null, null) {
-			@Override
-			public Collection<?> getChoiceOfValues(Object object) {
-				// Provide a list of repositories that has not already been mapped
-				//
-				MetadataRepositoryReference self = (MetadataRepositoryReference) object;
-				Aggregator aggregator = self.getAggregator();
-				Collection<?> repos = super.getChoiceOfValues(object);
-				for(Contribution contribution : aggregator.getContributions()) {
-					for(MappedRepository mappedRepo : contribution.getRepositories()) {
-						if(mappedRepo == self)
-							continue;
-						MetadataRepository repo = mappedRepo.getMetadataRepository(false);
-						if(repo != null && !((EObject) repo).eIsProxy())
-							repos.remove(repo);
-					}
-				}
-				for(MetadataRepositoryReference mrRef : aggregator.getValidationRepositories()) {
-					if(mrRef == self)
-						continue;
-					MetadataRepository repo = mrRef.getMetadataRepository(false);
-					if(repo != null && !((EObject) repo).eIsProxy())
-						repos.remove(repo);
-				}
-				return repos;
-			}
-		});
-	}
-
-	/**
-	 * This adds a property descriptor for the Nature feature. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated NOT
-	 */
-	protected void addNaturePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(new ItemPropertyDescriptor(
-			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-			getString("_UI_MetadataRepositoryReference_nature_feature"), getString(
-				"_UI_PropertyDescriptor_description", "_UI_MetadataRepositoryReference_nature_feature",
-				"_UI_MetadataRepositoryReference_type"),
-			AggregatorPackage.Literals.METADATA_REPOSITORY_REFERENCE__NATURE, true, false, false,
-			ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null) {
-			@Override
-			public Collection<?> getChoiceOfValues(Object object) {
-				MetadataRepositoryReference repo = (MetadataRepositoryReference) object;
-				String currentValue = repo.getNature();
-				List<String> supportedValues = AggregatorPlugin.getPlugin().getSupportedRepositoryNatureList();
-				if(!supportedValues.contains(currentValue)) {
-					List<String> globallySupportedValues = supportedValues;
-					supportedValues = new ArrayList<String>(globallySupportedValues.size() + 1);
-					supportedValues.addAll(globallySupportedValues);
-					supportedValues.add(currentValue);
-					Collections.sort(supportedValues);
-				}
-
-				return supportedValues;
-			}
-		});
-	}
-
-	/**
-	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
-	 * that can be created under this object.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
-		super.collectNewChildDescriptors(newChildDescriptors, object);
-	}
-
-	protected String getTypeName() {
-		return "_UI_MetadataRepositoryReference_type";
 	}
 
 	private void onLocationChange(MetadataRepositoryReference repository) {

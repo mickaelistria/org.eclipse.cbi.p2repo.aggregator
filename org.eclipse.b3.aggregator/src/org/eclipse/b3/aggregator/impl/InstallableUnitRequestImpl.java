@@ -460,6 +460,16 @@ public abstract class InstallableUnitRequestImpl extends MinimalEObjectImpl.Cont
 	 * @generated
 	 */
 	@Override
+	protected EClass eStaticClass() {
+		return AggregatorPackage.Literals.INSTALLABLE_UNIT_REQUEST;
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
 			case AggregatorPackage.INSTALLABLE_UNIT_REQUEST__ERRORS:
@@ -857,16 +867,6 @@ public abstract class InstallableUnitRequestImpl extends MinimalEObjectImpl.Cont
 		result.append(versionRange);
 		result.append(')');
 		return result.toString();
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return AggregatorPackage.Literals.INSTALLABLE_UNIT_REQUEST;
 	}
 
 } // InstallableUnitReferenceImpl

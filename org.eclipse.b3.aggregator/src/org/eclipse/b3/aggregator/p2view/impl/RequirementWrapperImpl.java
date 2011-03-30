@@ -337,6 +337,16 @@ public class RequirementWrapperImpl extends MinimalEObjectImpl.Container impleme
 	 * @generated
 	 */
 	@Override
+	protected EClass eStaticClass() {
+		return P2viewPackage.Literals.REQUIREMENT_WRAPPER;
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
 			case P2viewPackage.REQUIREMENT_WRAPPER__FILTER:
@@ -566,16 +576,6 @@ public class RequirementWrapperImpl extends MinimalEObjectImpl.Container impleme
 		result.append(label);
 		result.append(')');
 		return result.toString();
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return P2viewPackage.Literals.REQUIREMENT_WRAPPER;
 	}
 
 } // RequirementWrapperImpl

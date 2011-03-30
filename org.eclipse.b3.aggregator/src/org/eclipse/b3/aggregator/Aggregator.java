@@ -36,6 +36,22 @@ import org.eclipse.emf.common.util.EList;
  */
 public interface Aggregator extends DescriptionProvider, StatusProvider, InfosProvider {
 	/**
+	 * Returns the value of the '<em><b>Aggregations</b></em>' containment reference list.
+	 * The list contents are of type {@link org.eclipse.b3.aggregator.Aggregation}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Aggregations</em>' containment reference list isn't clear, there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the value of the '<em>Aggregations</em>' containment reference list.
+	 * @see org.eclipse.b3.aggregator.AggregatorPackage#getAggregator_Aggregations()
+	 * @model containment="true" resolveProxies="true" keys="label"
+	 * @generated
+	 */
+	EList<Aggregation> getAggregations();
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @model
@@ -181,22 +197,6 @@ public interface Aggregator extends DescriptionProvider, StatusProvider, InfosPr
 	 * @generated
 	 */
 	EList<MavenMapping> getMavenMappings();
-
-	/**
-	 * Returns the value of the '<em><b>Aggregations</b></em>' containment reference list.
-	 * The list contents are of type {@link org.eclipse.b3.aggregator.Aggregation}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Aggregations</em>' containment reference list isn't clear, there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * 
-	 * @return the value of the '<em>Aggregations</em>' containment reference list.
-	 * @see org.eclipse.b3.aggregator.AggregatorPackage#getAggregator_Aggregations()
-	 * @model containment="true" resolveProxies="true" keys="label"
-	 * @generated
-	 */
-	EList<Aggregation> getAggregations();
 
 	/**
 	 * Returns the value of the '<em><b>Packed Strategy</b></em>' attribute.

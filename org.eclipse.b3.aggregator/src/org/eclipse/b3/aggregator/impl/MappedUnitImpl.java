@@ -232,6 +232,16 @@ public abstract class MappedUnitImpl extends InstallableUnitRequestImpl implemen
 	 * @generated
 	 */
 	@Override
+	protected EClass eStaticClass() {
+		return AggregatorPackage.Literals.MAPPED_UNIT;
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
 			case AggregatorPackage.MAPPED_UNIT__ENABLED:
@@ -326,16 +336,6 @@ public abstract class MappedUnitImpl extends InstallableUnitRequestImpl implemen
 		result.append((eFlags & ENABLED_EFLAG) != 0);
 		result.append(')');
 		return result.toString();
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return AggregatorPackage.Literals.MAPPED_UNIT;
 	}
 
 } // MappedUnitImpl

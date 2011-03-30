@@ -264,6 +264,16 @@ public class ProductImpl extends IUPresentationWithDetailsImpl implements Produc
 	 * @generated
 	 */
 	@Override
+	protected EClass eStaticClass() {
+		return P2viewPackage.Literals.PRODUCT;
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
 			case P2viewPackage.PRODUCT__FEATURE_CONTAINER:
@@ -473,16 +483,6 @@ public class ProductImpl extends IUPresentationWithDetailsImpl implements Produc
 			eNotify(new ENotificationImpl(
 				this, Notification.SET, P2viewPackage.PRODUCT__FRAGMENT_CONTAINER, newFragmentContainer,
 				newFragmentContainer));
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return P2viewPackage.Literals.PRODUCT;
 	}
 
 } // ProductImpl

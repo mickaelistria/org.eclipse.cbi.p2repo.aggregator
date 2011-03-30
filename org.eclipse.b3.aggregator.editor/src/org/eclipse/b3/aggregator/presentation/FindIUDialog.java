@@ -197,17 +197,6 @@ public class FindIUDialog extends TrayDialog {
 		return composite;
 	}
 
-	protected boolean performAction(int actionID) {
-		switch(actionID) {
-			case CANCEL:
-				return true;
-			case FIND_ID:
-				return performFind();
-			default:
-				return false;
-		}
-	}
-
 	private boolean isFindEnabled() {
 		return regularExprButton.getSelection();
 	}
@@ -218,6 +207,17 @@ public class FindIUDialog extends TrayDialog {
 		layoutData.horizontalSpan = 4;
 		layoutData.heightHint = 8;
 		separatorLabel.setLayoutData(layoutData);
+	}
+
+	protected boolean performAction(int actionID) {
+		switch(actionID) {
+			case CANCEL:
+				return true;
+			case FIND_ID:
+				return performFind();
+			default:
+				return false;
+		}
 	}
 
 	private boolean performFind() {

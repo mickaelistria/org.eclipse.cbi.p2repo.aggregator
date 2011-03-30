@@ -195,6 +195,16 @@ public class StatusImpl extends MinimalEObjectImpl.Container implements Status {
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return AggregatorPackage.Literals.STATUS;
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated NOT
 	 */
 	public StatusCode getCode() {
@@ -227,16 +237,6 @@ public class StatusImpl extends MinimalEObjectImpl.Container implements Status {
 		result.append(message);
 		result.append(')');
 		return result.toString();
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return AggregatorPackage.Literals.STATUS;
 	}
 
 } // StatusImpl

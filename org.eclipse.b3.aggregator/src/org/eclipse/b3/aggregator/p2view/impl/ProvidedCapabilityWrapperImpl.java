@@ -269,6 +269,16 @@ public class ProvidedCapabilityWrapperImpl extends MinimalEObjectImpl.Container 
 	 * @generated
 	 */
 	@Override
+	protected EClass eStaticClass() {
+		return P2viewPackage.Literals.PROVIDED_CAPABILITY_WRAPPER;
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
 			case P2viewPackage.PROVIDED_CAPABILITY_WRAPPER__NAME:
@@ -393,16 +403,6 @@ public class ProvidedCapabilityWrapperImpl extends MinimalEObjectImpl.Container 
 		result.append(label);
 		result.append(')');
 		return result.toString();
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return P2viewPackage.Literals.PROVIDED_CAPABILITY_WRAPPER;
 	}
 
 } // ProvidedCapabilityWrapperImpl

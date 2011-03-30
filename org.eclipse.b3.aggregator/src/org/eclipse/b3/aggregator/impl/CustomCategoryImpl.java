@@ -351,6 +351,16 @@ public class CustomCategoryImpl extends MinimalEObjectImpl.Container implements 
 	 * @generated
 	 */
 	@Override
+	protected EClass eStaticClass() {
+		return AggregatorPackage.Literals.CUSTOM_CATEGORY;
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
 			case AggregatorPackage.CUSTOM_CATEGORY__ERRORS:
@@ -528,16 +538,6 @@ public class CustomCategoryImpl extends MinimalEObjectImpl.Container implements 
 		result.append(description);
 		result.append(')');
 		return result.toString();
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return AggregatorPackage.Literals.CUSTOM_CATEGORY;
 	}
 
 } // CustomCategoryImpl

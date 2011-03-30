@@ -55,84 +55,6 @@ public class ProvidedCapabilityWrapperItemProvider extends AggregatorItemProvide
 	}
 
 	/**
-	 * This returns ProvidedCapabilityWrapper.gif.
-	 * 
-	 * @generated NOT
-	 */
-	@Override
-	public Object getImage(Object object) {
-		ProvidedCapabilityWrapper pcw = (ProvidedCapabilityWrapper) object;
-
-		Object image = CapabilityNamespaceImageProvider.getImage(pcw.getNamespace());
-		if(image == null)
-			image = getResourceLocator().getImage("full/obj16/ProvidedCapability");
-
-		return overlayImage(object, image);
-	}
-
-	/**
-	 * This returns the property descriptors for the adapted class.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-		if(itemPropertyDescriptors == null) {
-			super.getPropertyDescriptors(object);
-
-			addNamePropertyDescriptor(object);
-			addNamespacePropertyDescriptor(object);
-			addVersionPropertyDescriptor(object);
-			addLabelPropertyDescriptor(object);
-		}
-		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * Return the resource locator for this item provider's resources.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	public ResourceLocator getResourceLocator() {
-		return AggregatorEditPlugin.INSTANCE;
-	}
-
-	/**
-	 * This returns the label text for the adapted class. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated NOT
-	 */
-	@Override
-	public String getText(Object object) {
-		return ((LabelProvider) object).getLabel();
-	}
-
-	/**
-	 * This handles model notifications by calling {@link #updateChildren} to update any cached children and by creating
-	 * a viewer notification, which it passes to {@link #fireNotifyChanged}. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	public void notifyChanged(Notification notification) {
-		updateChildren(notification);
-
-		switch(notification.getFeatureID(ProvidedCapabilityWrapper.class)) {
-			case P2viewPackage.PROVIDED_CAPABILITY_WRAPPER__NAME:
-			case P2viewPackage.PROVIDED_CAPABILITY_WRAPPER__NAMESPACE:
-			case P2viewPackage.PROVIDED_CAPABILITY_WRAPPER__VERSION:
-			case P2viewPackage.PROVIDED_CAPABILITY_WRAPPER__LABEL:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-				return;
-		}
-		super.notifyChanged(notification);
-	}
-
-	/**
 	 * This adds a property descriptor for the Label feature.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -209,6 +131,84 @@ public class ProvidedCapabilityWrapperItemProvider extends AggregatorItemProvide
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
+	}
+
+	/**
+	 * This returns ProvidedCapabilityWrapper.gif.
+	 * 
+	 * @generated NOT
+	 */
+	@Override
+	public Object getImage(Object object) {
+		ProvidedCapabilityWrapper pcw = (ProvidedCapabilityWrapper) object;
+
+		Object image = CapabilityNamespaceImageProvider.getImage(pcw.getNamespace());
+		if(image == null)
+			image = getResourceLocator().getImage("full/obj16/ProvidedCapability");
+
+		return overlayImage(object, image);
+	}
+
+	/**
+	 * This returns the property descriptors for the adapted class.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
+		if(itemPropertyDescriptors == null) {
+			super.getPropertyDescriptors(object);
+
+			addNamePropertyDescriptor(object);
+			addNamespacePropertyDescriptor(object);
+			addVersionPropertyDescriptor(object);
+			addLabelPropertyDescriptor(object);
+		}
+		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * Return the resource locator for this item provider's resources.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public ResourceLocator getResourceLocator() {
+		return AggregatorEditPlugin.INSTANCE;
+	}
+
+	/**
+	 * This returns the label text for the adapted class. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated NOT
+	 */
+	@Override
+	public String getText(Object object) {
+		return ((LabelProvider) object).getLabel();
+	}
+
+	/**
+	 * This handles model notifications by calling {@link #updateChildren} to update any cached children and by creating
+	 * a viewer notification, which it passes to {@link #fireNotifyChanged}. <!-- begin-user-doc --> <!-- end-user-doc
+	 * -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public void notifyChanged(Notification notification) {
+		updateChildren(notification);
+
+		switch(notification.getFeatureID(ProvidedCapabilityWrapper.class)) {
+			case P2viewPackage.PROVIDED_CAPABILITY_WRAPPER__NAME:
+			case P2viewPackage.PROVIDED_CAPABILITY_WRAPPER__NAMESPACE:
+			case P2viewPackage.PROVIDED_CAPABILITY_WRAPPER__VERSION:
+			case P2viewPackage.PROVIDED_CAPABILITY_WRAPPER__LABEL:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
+		}
+		super.notifyChanged(notification);
 	}
 
 }

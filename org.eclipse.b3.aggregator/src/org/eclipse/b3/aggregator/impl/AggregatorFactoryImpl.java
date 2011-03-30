@@ -20,6 +20,7 @@ import org.eclipse.b3.aggregator.Category;
 import org.eclipse.b3.aggregator.Configuration;
 import org.eclipse.b3.aggregator.Contact;
 import org.eclipse.b3.aggregator.Contribution;
+import org.eclipse.b3.aggregator.ContributionView;
 import org.eclipse.b3.aggregator.CustomCategory;
 import org.eclipse.b3.aggregator.DescriptionProvider;
 import org.eclipse.b3.aggregator.ExclusionRule;
@@ -36,6 +37,7 @@ import org.eclipse.b3.aggregator.OperatingSystem;
 import org.eclipse.b3.aggregator.PackedStrategy;
 import org.eclipse.b3.aggregator.Product;
 import org.eclipse.b3.aggregator.Property;
+import org.eclipse.b3.aggregator.Separable;
 import org.eclipse.b3.aggregator.Status;
 import org.eclipse.b3.aggregator.StatusCode;
 import org.eclipse.b3.aggregator.ValidConfigurationsRule;
@@ -268,10 +270,14 @@ public class AggregatorFactoryImpl extends EFactoryImpl implements AggregatorFac
 				return (EObject) createAvailableVersionsHeader();
 			case AggregatorPackage.AVAILABLE_VERSION:
 				return (EObject) createAvailableVersion();
+			case AggregatorPackage.SEPARABLE:
+				return (EObject) createSeparable();
 			case AggregatorPackage.AGGREGATION:
 				return (EObject) createAggregation();
 			case AggregatorPackage.AGGREGATOR_RESOURCE_VIEW:
 				return (EObject) createAggregatorResourceView();
+			case AggregatorPackage.CONTRIBUTION_VIEW:
+				return (EObject) createContributionView();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -404,6 +410,17 @@ public class AggregatorFactoryImpl extends EFactoryImpl implements AggregatorFac
 	public Contribution createContribution() {
 		ContributionImpl contribution = new ContributionImpl();
 		return contribution;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public ContributionView createContributionView() {
+		ContributionViewImpl contributionView = new ContributionViewImpl();
+		return contributionView;
 	}
 
 	/**
@@ -659,6 +676,17 @@ public class AggregatorFactoryImpl extends EFactoryImpl implements AggregatorFac
 	public Property createProperty(String key, String value) {
 		PropertyImpl property = new PropertyImpl(key, value);
 		return property;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public Separable createSeparable() {
+		SeparableImpl separable = new SeparableImpl();
+		return separable;
 	}
 
 	/**

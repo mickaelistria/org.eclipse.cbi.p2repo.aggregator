@@ -57,6 +57,33 @@ public class MapRuleItemProvider extends InstallableUnitRequestItemProvider impl
 	}
 
 	/**
+	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
+	 * that can be created under this object.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
+		super.collectNewChildDescriptors(newChildDescriptors, object);
+	}
+
+	@Override
+	protected List<? extends InstallableUnitRequest> getContainerChildren(MappedRepository container) {
+		List<InstallableUnitRequest> featureRefs = new ArrayList<InstallableUnitRequest>();
+		featureRefs.addAll(container.getMapRules());
+		featureRefs.addAll(container.getFeatures());
+
+		return featureRefs;
+	}
+
+	@Override
+	protected IQuery<IInstallableUnit> getInstallableUnitQuery() {
+		return QueryUtil.createCompoundQuery(
+			SpecialQueries.createProductQuery(), SpecialQueries.createFeatureQuery(), false);
+	}
+
+	/**
 	 * This returns the property descriptors for the adapted class.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -127,32 +154,5 @@ public class MapRuleItemProvider extends InstallableUnitRequestItemProvider impl
 	public void notifyChangedGen(Notification notification) {
 		updateChildren(notification);
 		super.notifyChanged(notification);
-	}
-
-	/**
-	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
-	 * that can be created under this object.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
-		super.collectNewChildDescriptors(newChildDescriptors, object);
-	}
-
-	@Override
-	protected List<? extends InstallableUnitRequest> getContainerChildren(MappedRepository container) {
-		List<InstallableUnitRequest> featureRefs = new ArrayList<InstallableUnitRequest>();
-		featureRefs.addAll(container.getMapRules());
-		featureRefs.addAll(container.getFeatures());
-
-		return featureRefs;
-	}
-
-	@Override
-	protected IQuery<IInstallableUnit> getInstallableUnitQuery() {
-		return QueryUtil.createCompoundQuery(
-			SpecialQueries.createProductQuery(), SpecialQueries.createFeatureQuery(), false);
 	}
 }

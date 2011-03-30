@@ -18,7 +18,6 @@ import org.eclipse.b3.aggregator.DescriptionProvider;
 import org.eclipse.b3.aggregator.InfosProvider;
 import org.eclipse.b3.aggregator.MappedRepository;
 import org.eclipse.b3.aggregator.MavenMapping;
-import org.eclipse.b3.aggregator.Separable;
 import org.eclipse.b3.aggregator.Status;
 import org.eclipse.b3.aggregator.StatusCode;
 import org.eclipse.b3.aggregator.StatusProvider;
@@ -47,11 +46,11 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <li>{@link org.eclipse.b3.aggregator.impl.ContributionImpl#getErrors <em>Errors</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.impl.ContributionImpl#getWarnings <em>Warnings</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.impl.ContributionImpl#getInfos <em>Infos</em>}</li>
- * <li>{@link org.eclipse.b3.aggregator.impl.ContributionImpl#getAggregation <em>Aggregation</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.impl.ContributionImpl#getLabel <em>Label</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.impl.ContributionImpl#getRepositories <em>Repositories</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.impl.ContributionImpl#getContacts <em>Contacts</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.impl.ContributionImpl#getMavenMappings <em>Maven Mappings</em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.impl.ContributionImpl#getAggregation <em>Aggregation</em>}</li>
  * </ul>
  * </p>
  * 
@@ -145,17 +144,6 @@ public class ContributionImpl extends MinimalEObjectImpl.Container implements Co
 	protected EList<String> infos;
 
 	/**
-	 * The cached value of the '{@link #getAggregation() <em>Aggregation</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @see #getAggregation()
-	 * @generated
-	 * @ordered
-	 */
-	protected Aggregation aggregation;
-
-	/**
 	 * The default value of the '{@link #getLabel() <em>Label</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
@@ -208,6 +196,17 @@ public class ContributionImpl extends MinimalEObjectImpl.Container implements Co
 	protected EList<MavenMapping> mavenMappings;
 
 	/**
+	 * The cached value of the '{@link #getAggregation() <em>Aggregation</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see #getAggregation()
+	 * @generated
+	 * @ordered
+	 */
+	protected Aggregation aggregation;
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
@@ -215,6 +214,16 @@ public class ContributionImpl extends MinimalEObjectImpl.Container implements Co
 	protected ContributionImpl() {
 		super();
 		eFlags |= ENABLED_EFLAG;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public Aggregation basicGetAggregation() {
+		return aggregation;
 	}
 
 	/**
@@ -248,14 +257,6 @@ public class ContributionImpl extends MinimalEObjectImpl.Container implements Co
 					return AggregatorPackage.INFOS_PROVIDER__WARNINGS;
 				case AggregatorPackage.CONTRIBUTION__INFOS:
 					return AggregatorPackage.INFOS_PROVIDER__INFOS;
-				default:
-					return -1;
-			}
-		}
-		if(baseClass == Separable.class) {
-			switch(derivedFeatureID) {
-				case AggregatorPackage.CONTRIBUTION__AGGREGATION:
-					return AggregatorPackage.SEPARABLE__AGGREGATION;
 				default:
 					return -1;
 			}
@@ -298,14 +299,6 @@ public class ContributionImpl extends MinimalEObjectImpl.Container implements Co
 					return -1;
 			}
 		}
-		if(baseClass == Separable.class) {
-			switch(baseFeatureID) {
-				case AggregatorPackage.SEPARABLE__AGGREGATION:
-					return AggregatorPackage.CONTRIBUTION__AGGREGATION;
-				default:
-					return -1;
-			}
-		}
 		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
 	}
 
@@ -329,10 +322,6 @@ public class ContributionImpl extends MinimalEObjectImpl.Container implements Co
 				return getWarnings();
 			case AggregatorPackage.CONTRIBUTION__INFOS:
 				return getInfos();
-			case AggregatorPackage.CONTRIBUTION__AGGREGATION:
-				if(resolve)
-					return getAggregation();
-				return basicGetAggregation();
 			case AggregatorPackage.CONTRIBUTION__LABEL:
 				return getLabel();
 			case AggregatorPackage.CONTRIBUTION__REPOSITORIES:
@@ -341,6 +330,10 @@ public class ContributionImpl extends MinimalEObjectImpl.Container implements Co
 				return getContacts();
 			case AggregatorPackage.CONTRIBUTION__MAVEN_MAPPINGS:
 				return getMavenMappings();
+			case AggregatorPackage.CONTRIBUTION__AGGREGATION:
+				if(resolve)
+					return getAggregation();
+				return basicGetAggregation();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -353,8 +346,6 @@ public class ContributionImpl extends MinimalEObjectImpl.Container implements Co
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch(featureID) {
-			case AggregatorPackage.CONTRIBUTION__AGGREGATION:
-				return basicSetAggregation(null, msgs);
 			case AggregatorPackage.CONTRIBUTION__REPOSITORIES:
 				return ((InternalEList<?>) getRepositories()).basicRemove(otherEnd, msgs);
 			case AggregatorPackage.CONTRIBUTION__MAVEN_MAPPINGS:
@@ -385,8 +376,6 @@ public class ContributionImpl extends MinimalEObjectImpl.Container implements Co
 				return warnings != null && !warnings.isEmpty();
 			case AggregatorPackage.CONTRIBUTION__INFOS:
 				return infos != null && !infos.isEmpty();
-			case AggregatorPackage.CONTRIBUTION__AGGREGATION:
-				return aggregation != null;
 			case AggregatorPackage.CONTRIBUTION__LABEL:
 				return LABEL_EDEFAULT == null
 						? label != null
@@ -397,6 +386,8 @@ public class ContributionImpl extends MinimalEObjectImpl.Container implements Co
 				return contacts != null && !contacts.isEmpty();
 			case AggregatorPackage.CONTRIBUTION__MAVEN_MAPPINGS:
 				return mavenMappings != null && !mavenMappings.isEmpty();
+			case AggregatorPackage.CONTRIBUTION__AGGREGATION:
+				return aggregation != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -428,9 +419,6 @@ public class ContributionImpl extends MinimalEObjectImpl.Container implements Co
 				getInfos().clear();
 				getInfos().addAll((Collection<? extends String>) newValue);
 				return;
-			case AggregatorPackage.CONTRIBUTION__AGGREGATION:
-				setAggregation((Aggregation) newValue);
-				return;
 			case AggregatorPackage.CONTRIBUTION__LABEL:
 				setLabel((String) newValue);
 				return;
@@ -446,8 +434,21 @@ public class ContributionImpl extends MinimalEObjectImpl.Container implements Co
 				getMavenMappings().clear();
 				getMavenMappings().addAll((Collection<? extends MavenMapping>) newValue);
 				return;
+			case AggregatorPackage.CONTRIBUTION__AGGREGATION:
+				setAggregation((Aggregation) newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return AggregatorPackage.Literals.CONTRIBUTION;
 	}
 
 	/**
@@ -473,9 +474,6 @@ public class ContributionImpl extends MinimalEObjectImpl.Container implements Co
 			case AggregatorPackage.CONTRIBUTION__INFOS:
 				getInfos().clear();
 				return;
-			case AggregatorPackage.CONTRIBUTION__AGGREGATION:
-				setAggregation((Aggregation) null);
-				return;
 			case AggregatorPackage.CONTRIBUTION__LABEL:
 				setLabel(LABEL_EDEFAULT);
 				return;
@@ -488,8 +486,31 @@ public class ContributionImpl extends MinimalEObjectImpl.Container implements Co
 			case AggregatorPackage.CONTRIBUTION__MAVEN_MAPPINGS:
 				getMavenMappings().clear();
 				return;
+			case AggregatorPackage.CONTRIBUTION__AGGREGATION:
+				setAggregation((Aggregation) null);
+				return;
 		}
 		super.eUnset(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public Aggregation getAggregation() {
+		if(aggregation != null && ((EObject) aggregation).eIsProxy()) {
+			InternalEObject oldAggregation = (InternalEObject) aggregation;
+			aggregation = (Aggregation) eResolveProxy(oldAggregation);
+			if(aggregation != oldAggregation) {
+				if(eNotificationRequired())
+					eNotify(new ENotificationImpl(
+						this, Notification.RESOLVE, AggregatorPackage.CONTRIBUTION__AGGREGATION, oldAggregation,
+						aggregation));
+			}
+		}
+		return aggregation;
 	}
 
 	/**
@@ -550,89 +571,6 @@ public class ContributionImpl extends MinimalEObjectImpl.Container implements Co
 			infos = new EDataTypeUniqueEList<String>(String.class, this, AggregatorPackage.CONTRIBUTION__INFOS);
 		}
 		return infos;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	public Aggregation getAggregation() {
-		if(aggregation != null && ((EObject) aggregation).eIsProxy()) {
-			InternalEObject oldAggregation = (InternalEObject) aggregation;
-			aggregation = (Aggregation) eResolveProxy(oldAggregation);
-			if(aggregation != oldAggregation) {
-				InternalEObject newAggregation = (InternalEObject) aggregation;
-				NotificationChain msgs = oldAggregation.eInverseRemove(this, EOPPOSITE_FEATURE_BASE -
-						AggregatorPackage.CONTRIBUTION__AGGREGATION, null, null);
-				if(newAggregation.eInternalContainer() == null) {
-					msgs = newAggregation.eInverseAdd(this, EOPPOSITE_FEATURE_BASE -
-							AggregatorPackage.CONTRIBUTION__AGGREGATION, null, msgs);
-				}
-				if(msgs != null)
-					msgs.dispatch();
-				if(eNotificationRequired())
-					eNotify(new ENotificationImpl(
-						this, Notification.RESOLVE, AggregatorPackage.CONTRIBUTION__AGGREGATION, oldAggregation,
-						aggregation));
-			}
-		}
-		return aggregation;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	public Aggregation basicGetAggregation() {
-		return aggregation;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	public NotificationChain basicSetAggregation(Aggregation newAggregation, NotificationChain msgs) {
-		Aggregation oldAggregation = aggregation;
-		aggregation = newAggregation;
-		if(eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(
-				this, Notification.SET, AggregatorPackage.CONTRIBUTION__AGGREGATION, oldAggregation, newAggregation);
-			if(msgs == null)
-				msgs = notification;
-			else
-				msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	public void setAggregation(Aggregation newAggregation) {
-		if(newAggregation != aggregation) {
-			NotificationChain msgs = null;
-			if(aggregation != null)
-				msgs = ((InternalEObject) aggregation).eInverseRemove(this, EOPPOSITE_FEATURE_BASE -
-						AggregatorPackage.CONTRIBUTION__AGGREGATION, null, msgs);
-			if(newAggregation != null)
-				msgs = ((InternalEObject) newAggregation).eInverseAdd(this, EOPPOSITE_FEATURE_BASE -
-						AggregatorPackage.CONTRIBUTION__AGGREGATION, null, msgs);
-			msgs = basicSetAggregation(newAggregation, msgs);
-			if(msgs != null)
-				msgs.dispatch();
-		}
-		else if(eNotificationRequired())
-			eNotify(new ENotificationImpl(
-				this, Notification.SET, AggregatorPackage.CONTRIBUTION__AGGREGATION, newAggregation, newAggregation));
 	}
 
 	/**
@@ -736,6 +674,20 @@ public class ContributionImpl extends MinimalEObjectImpl.Container implements Co
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public void setAggregation(Aggregation newAggregation) {
+		Aggregation oldAggregation = aggregation;
+		aggregation = newAggregation;
+		if(eNotificationRequired())
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, AggregatorPackage.CONTRIBUTION__AGGREGATION, oldAggregation, aggregation));
+	}
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
@@ -802,16 +754,6 @@ public class ContributionImpl extends MinimalEObjectImpl.Container implements Co
 		result.append(label);
 		result.append(')');
 		return result.toString();
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return AggregatorPackage.Literals.CONTRIBUTION;
 	}
 
 } // ContributionImpl

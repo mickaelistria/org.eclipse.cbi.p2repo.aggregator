@@ -54,6 +54,48 @@ public class StatusItemProvider extends AggregatorItemProviderAdapter implements
 	}
 
 	/**
+	 * This adds a property descriptor for the Code feature.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	protected void addCodePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+			getString("_UI_Status_code_feature"),
+			getString("_UI_PropertyDescriptor_description", "_UI_Status_code_feature", "_UI_Status_type"),
+			AggregatorPackage.Literals.STATUS__CODE, false, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+			null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Message feature.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	protected void addMessagePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+			getString("_UI_Status_message_feature"),
+			getString("_UI_PropertyDescriptor_description", "_UI_Status_message_feature", "_UI_Status_type"),
+			AggregatorPackage.Literals.STATUS__MESSAGE, false, false, false,
+			ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+	}
+
+	/**
+	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
+	 * that can be created under this object.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
+		super.collectNewChildDescriptors(newChildDescriptors, object);
+	}
+
+	/**
 	 * This returns Status.gif.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -127,48 +169,6 @@ public class StatusItemProvider extends AggregatorItemProviderAdapter implements
 				return;
 		}
 		super.notifyChanged(notification);
-	}
-
-	/**
-	 * This adds a property descriptor for the Code feature.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	protected void addCodePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-			getString("_UI_Status_code_feature"),
-			getString("_UI_PropertyDescriptor_description", "_UI_Status_code_feature", "_UI_Status_type"),
-			AggregatorPackage.Literals.STATUS__CODE, false, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-			null, null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Message feature.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	protected void addMessagePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-			getString("_UI_Status_message_feature"),
-			getString("_UI_PropertyDescriptor_description", "_UI_Status_message_feature", "_UI_Status_type"),
-			AggregatorPackage.Literals.STATUS__MESSAGE, false, false, false,
-			ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
-	}
-
-	/**
-	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
-	 * that can be created under this object.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
-		super.collectNewChildDescriptors(newChildDescriptors, object);
 	}
 
 }

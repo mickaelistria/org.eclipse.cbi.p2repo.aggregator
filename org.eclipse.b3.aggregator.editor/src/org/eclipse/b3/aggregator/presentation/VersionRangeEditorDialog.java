@@ -157,10 +157,6 @@ public class VersionRangeEditorDialog extends Dialog {
 		}
 	}
 
-	public VersionRange getResult() {
-		return result;
-	}
-
 	@Override
 	protected void buttonPressed(int buttonId) {
 		switch(buttonId) {
@@ -177,6 +173,70 @@ public class VersionRangeEditorDialog extends Dialog {
 	protected void configureShell(Shell shell) {
 		super.configureShell(shell);
 		shell.setText(getString("_UI_VersionRangeEditor_windowTitle"));
+	}
+
+	private Composite createAdvancedContent() {
+		Composite composite = new Composite(advancedComposite, SWT.NONE);
+		GridLayout layout = new GridLayout(2, false);
+		layout.marginHeight = layout.marginWidth = 0;
+		composite.setLayout(layout);
+		composite.setLayoutData(new GridData(GridData.VERTICAL_ALIGN_FILL | GridData.FILL_HORIZONTAL));
+		composite.setFont(advancedComposite.getFont());
+
+		Label label = new Label(composite, SWT.NONE);
+		label.setText("Version Type:");
+		GridData layoutData = new GridData();
+		layoutData.widthHint = labelWidth;
+		label.setLayoutData(layoutData);
+
+		versionTypeCombo = new Combo(composite, SWT.BORDER | SWT.READ_ONLY);
+		versionTypeCombo.setLayoutData(new GridData(GridData.FILL_HORIZONTAL));
+		versionTypeCombo.setItems(VERSION_TYPES);
+		versionTypeCombo.select(currentVersionTypeIdx);
+		versionTypeCombo.addSelectionListener(new SelectionAdapter() {
+
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+				currentVersionTypeIdx = versionTypeCombo.getSelectionIndex();
+
+				if(VERSION_TYPE_USER_DEFINED.equals(versionTypeCombo.getText())) {
+					formatStringText.setEnabled(true);
+				}
+				else {
+					currentFormat = VERSION_FORMATS[currentVersionTypeIdx];
+					formatStringText.setText(extractFormat(currentFormat.toString()));
+					formatStringText.setEnabled(false);
+				}
+			}
+		});
+
+		label = new Label(composite, SWT.NONE);
+		label.setText("Format String:");
+		layoutData = new GridData();
+		layoutData.widthHint = labelWidth;
+		label.setLayoutData(layoutData);
+
+		formatStringText = new Text(composite, SWT.BORDER);
+		formatStringText.setLayoutData(new GridData(GridData.FILL_HORIZONTAL));
+		UIUtils.safeSetText(formatStringText, extractFormat(currentFormat.toString()));
+		formatStringText.setEnabled(VERSION_TYPE_USER_DEFINED.equals(versionTypeCombo.getText()));
+		formatStringText.addModifyListener(new ModifyListener() {
+
+			public void modifyText(ModifyEvent e) {
+				try {
+					currentFormat = VersionFormat.compile(UIUtils.trimmedValue(formatStringText));
+					formatStringException = null;
+				}
+				catch(VersionFormatException ex) {
+					formatStringException = ex;
+				}
+				finally {
+					okButton.setEnabled(isOKEnabled());
+				}
+			}
+		});
+
+		return composite;
 	}
 
 	@Override
@@ -303,116 +363,6 @@ public class VersionRangeEditorDialog extends Dialog {
 		return topComposite;
 	}
 
-	/**
-	 * Shows/hides the advanced option widgets.
-	 */
-	protected void handleAdvancedButtonSelect() {
-		Shell shell = getShell();
-		Point shellSize = shell.getSize();
-
-		if(advancedFieldsComposite != null) {
-			advancedFieldsComposite.dispose();
-			advancedFieldsComposite = null;
-			topComposite.layout();
-			shell.setSize(shellSize.x, shellSize.y - advancedFieldsHeight);
-			advancedButton.setText(IDEWorkbenchMessages.showAdvanced);
-		}
-		else {
-			advancedFieldsComposite = createAdvancedContent();
-			if(advancedFieldsHeight == -1) {
-				Point groupSize = advancedFieldsComposite.computeSize(SWT.DEFAULT, SWT.DEFAULT, true);
-				advancedFieldsHeight = groupSize.y;
-			}
-			shell.setSize(shellSize.x, shellSize.y + advancedFieldsHeight);
-			topComposite.layout();
-			advancedButton.setText(IDEWorkbenchMessages.hideAdvanced);
-		}
-	}
-
-	protected boolean performAction(int actionID) {
-		result = null;
-
-		switch(actionID) {
-			case CANCEL:
-				return true;
-			case OK:
-				try {
-					result = createVersionRange();
-				}
-				catch(IllegalArgumentException e) {
-					statusMessage(true, e.getMessage());
-					return false;
-				}
-				return true;
-			default:
-				return false;
-		}
-	}
-
-	private Composite createAdvancedContent() {
-		Composite composite = new Composite(advancedComposite, SWT.NONE);
-		GridLayout layout = new GridLayout(2, false);
-		layout.marginHeight = layout.marginWidth = 0;
-		composite.setLayout(layout);
-		composite.setLayoutData(new GridData(GridData.VERTICAL_ALIGN_FILL | GridData.FILL_HORIZONTAL));
-		composite.setFont(advancedComposite.getFont());
-
-		Label label = new Label(composite, SWT.NONE);
-		label.setText("Version Type:");
-		GridData layoutData = new GridData();
-		layoutData.widthHint = labelWidth;
-		label.setLayoutData(layoutData);
-
-		versionTypeCombo = new Combo(composite, SWT.BORDER | SWT.READ_ONLY);
-		versionTypeCombo.setLayoutData(new GridData(GridData.FILL_HORIZONTAL));
-		versionTypeCombo.setItems(VERSION_TYPES);
-		versionTypeCombo.select(currentVersionTypeIdx);
-		versionTypeCombo.addSelectionListener(new SelectionAdapter() {
-
-			@Override
-			public void widgetSelected(SelectionEvent e) {
-				currentVersionTypeIdx = versionTypeCombo.getSelectionIndex();
-
-				if(VERSION_TYPE_USER_DEFINED.equals(versionTypeCombo.getText())) {
-					formatStringText.setEnabled(true);
-				}
-				else {
-					currentFormat = VERSION_FORMATS[currentVersionTypeIdx];
-					formatStringText.setText(extractFormat(currentFormat.toString()));
-					formatStringText.setEnabled(false);
-				}
-			}
-		});
-
-		label = new Label(composite, SWT.NONE);
-		label.setText("Format String:");
-		layoutData = new GridData();
-		layoutData.widthHint = labelWidth;
-		label.setLayoutData(layoutData);
-
-		formatStringText = new Text(composite, SWT.BORDER);
-		formatStringText.setLayoutData(new GridData(GridData.FILL_HORIZONTAL));
-		UIUtils.safeSetText(formatStringText, extractFormat(currentFormat.toString()));
-		formatStringText.setEnabled(VERSION_TYPE_USER_DEFINED.equals(versionTypeCombo.getText()));
-		formatStringText.addModifyListener(new ModifyListener() {
-
-			public void modifyText(ModifyEvent e) {
-				try {
-					currentFormat = VersionFormat.compile(UIUtils.trimmedValue(formatStringText));
-					formatStringException = null;
-				}
-				catch(VersionFormatException ex) {
-					formatStringException = ex;
-				}
-				finally {
-					okButton.setEnabled(isOKEnabled());
-				}
-			}
-		});
-
-		return composite;
-	}
-
 	private VersionRange createVersionRange() throws IllegalArgumentException {
 
 		if(formatStringException != null)
@@ -462,6 +412,36 @@ public class VersionRangeEditorDialog extends Dialog {
 		return string.substring(7, string.length() - 1);
 	}
 
+	public VersionRange getResult() {
+		return result;
+	}
+
+	/**
+	 * Shows/hides the advanced option widgets.
+	 */
+	protected void handleAdvancedButtonSelect() {
+		Shell shell = getShell();
+		Point shellSize = shell.getSize();
+
+		if(advancedFieldsComposite != null) {
+			advancedFieldsComposite.dispose();
+			advancedFieldsComposite = null;
+			topComposite.layout();
+			shell.setSize(shellSize.x, shellSize.y - advancedFieldsHeight);
+			advancedButton.setText(IDEWorkbenchMessages.showAdvanced);
+		}
+		else {
+			advancedFieldsComposite = createAdvancedContent();
+			if(advancedFieldsHeight == -1) {
+				Point groupSize = advancedFieldsComposite.computeSize(SWT.DEFAULT, SWT.DEFAULT, true);
+				advancedFieldsHeight = groupSize.y;
+			}
+			shell.setSize(shellSize.x, shellSize.y + advancedFieldsHeight);
+			topComposite.layout();
+			advancedButton.setText(IDEWorkbenchMessages.hideAdvanced);
+		}
+	}
+
 	private boolean isOKEnabled() {
 		try {
 			createVersionRange();
@@ -473,6 +453,26 @@ public class VersionRangeEditorDialog extends Dialog {
 
 		statusMessage(true, "");
 		return true;
+	}
+
+	protected boolean performAction(int actionID) {
+		result = null;
+
+		switch(actionID) {
+			case CANCEL:
+				return true;
+			case OK:
+				try {
+					result = createVersionRange();
+				}
+				catch(IllegalArgumentException e) {
+					statusMessage(true, e.getMessage());
+					return false;
+				}
+				return true;
+			default:
+				return false;
+		}
 	}
 
 	private void statusMessage(boolean error, String message) {

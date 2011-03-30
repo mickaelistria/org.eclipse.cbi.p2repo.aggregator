@@ -157,12 +157,6 @@ public class MavenMappingImpl extends MinimalEObjectImpl.Container implements Ma
 	 */
 	protected String artifactId = ARTIFACT_ID_EDEFAULT;
 
-	public MavenMappingImpl(String namePattern, String groupId, String artifactId) {
-		setNamePattern(namePattern);
-		setGroupId(groupId);
-		setArtifactId(artifactId);
-	}
-
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -170,6 +164,26 @@ public class MavenMappingImpl extends MinimalEObjectImpl.Container implements Ma
 	 */
 	protected MavenMappingImpl() {
 		super();
+	}
+
+	public MavenMappingImpl(String namePattern, String groupId, String artifactId) {
+		setNamePattern(namePattern);
+		setGroupId(groupId);
+		setArtifactId(artifactId);
+	}
+
+	private void checkReplacements(Pattern pattern, String... replacements) {
+		String emptyString = "";
+		String auxGroup = "(.*)";
+		Matcher matcher = compiledPattern.matcher(emptyString);
+		StringBuilder auxPatternBuilder = new StringBuilder();
+		for(int i = matcher.groupCount(); i > 0; i--)
+			auxPatternBuilder.append(auxGroup);
+
+		Pattern auxPattern = Pattern.compile(auxPatternBuilder.toString());
+		Matcher auxMatcher = auxPattern.matcher(emptyString);
+		for(String replacement : replacements)
+			auxMatcher.replaceAll(replacement);
 	}
 
 	/**
@@ -306,6 +320,16 @@ public class MavenMappingImpl extends MinimalEObjectImpl.Container implements Ma
 				return;
 		}
 		super.eSet(featureID, newValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return AggregatorPackage.Literals.MAVEN_MAPPING;
 	}
 
 	/**
@@ -521,30 +545,6 @@ public class MavenMappingImpl extends MinimalEObjectImpl.Container implements Ma
 		result.append(artifactId);
 		result.append(')');
 		return result.toString();
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return AggregatorPackage.Literals.MAVEN_MAPPING;
-	}
-
-	private void checkReplacements(Pattern pattern, String... replacements) {
-		String emptyString = "";
-		String auxGroup = "(.*)";
-		Matcher matcher = compiledPattern.matcher(emptyString);
-		StringBuilder auxPatternBuilder = new StringBuilder();
-		for(int i = matcher.groupCount(); i > 0; i--)
-			auxPatternBuilder.append(auxGroup);
-
-		Pattern auxPattern = Pattern.compile(auxPatternBuilder.toString());
-		Matcher auxMatcher = auxPattern.matcher(emptyString);
-		for(String replacement : replacements)
-			auxMatcher.replaceAll(replacement);
 	}
 
 } // MavenMappingImpl

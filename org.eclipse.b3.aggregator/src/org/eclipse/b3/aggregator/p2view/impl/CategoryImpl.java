@@ -411,6 +411,16 @@ public class CategoryImpl extends IUPresentationImpl implements Category {
 	 * @generated
 	 */
 	@Override
+	protected EClass eStaticClass() {
+		return P2viewPackage.Literals.CATEGORY;
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
 			case P2viewPackage.CATEGORY__CATEGORY_CONTAINER:
@@ -776,16 +786,6 @@ public class CategoryImpl extends IUPresentationImpl implements Category {
 			eNotify(new ENotificationImpl(
 				this, Notification.SET, P2viewPackage.CATEGORY__PRODUCT_CONTAINER, newProductContainer,
 				newProductContainer));
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return P2viewPackage.Literals.CATEGORY;
 	}
 
 } // CategoryImpl

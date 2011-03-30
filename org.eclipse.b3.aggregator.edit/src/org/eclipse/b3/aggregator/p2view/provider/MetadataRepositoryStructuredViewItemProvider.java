@@ -59,126 +59,6 @@ public class MetadataRepositoryStructuredViewItemProvider extends AggregatorItem
 	}
 
 	/**
-	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
-	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
-	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
-		if(childrenFeatures == null) {
-			super.getChildrenFeatures(object);
-			childrenFeatures.add(P2viewPackage.Literals.METADATA_REPOSITORY_STRUCTURED_VIEW__INSTALLABLE_UNIT_LIST);
-			childrenFeatures.add(P2viewPackage.Literals.METADATA_REPOSITORY_STRUCTURED_VIEW__PROPERTIES);
-		}
-		return childrenFeatures;
-	}
-
-	/**
-	 * This returns MetadataRepositoryStructuredView.gif.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/MetadataRepositoryStructuredView"));
-	}
-
-	/**
-	 * This returns the property descriptors for the adapted class.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-		if(itemPropertyDescriptors == null) {
-			super.getPropertyDescriptors(object);
-
-			addNamePropertyDescriptor(object);
-			addInstallableUnitListPropertyDescriptor(object);
-			addPropertiesPropertyDescriptor(object);
-			addLoadedPropertyDescriptor(object);
-		}
-		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * Return the resource locator for this item provider's resources.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	public ResourceLocator getResourceLocator() {
-		return AggregatorEditPlugin.INSTANCE;
-	}
-
-	/**
-	 * This returns the label text for the adapted class. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated NOT
-	 */
-	@Override
-	public String getText(Object object) {
-		String label = ((MetadataRepositoryStructuredView) object).getName();
-		return (label == null || label.length() == 0
-				? getString("_UI_MetadataRepositoryStructuredView_type")
-				: getString("_UI_MetadataRepositoryStructuredView_type") + " " + label) +
-				(((MetadataRepositoryStructuredView) object).isLoaded()
-						? ""
-						: " (loading...)");
-	}
-
-	/**
-	 * This handles model notifications by calling {@link #updateChildren} to update any cached children and by creating
-	 * a viewer notification, which it passes to {@link #fireNotifyChanged}. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
-	 * 
-	 * @generated NOT
-	 */
-	@Override
-	public void notifyChanged(Notification notification) {
-		notifyChangedGen(notification);
-
-		if(notification.getFeatureID(MetadataRepositoryStructuredView.class) == P2viewPackage.METADATA_REPOSITORY_STRUCTURED_VIEW__LOADED) {
-			MetadataRepositoryStructuredView mdrView = (MetadataRepositoryStructuredView) notification.getNotifier();
-			Aggregator aggregator = ResourceUtils.getAggregator(((EObject) mdrView).eResource().getResourceSet());
-
-			if(aggregator != null)
-				fireNotifyChanged(new ViewerNotification(notification, aggregator, true, true));
-		}
-	}
-
-	/**
-	 * This handles model notifications by calling {@link #updateChildren} to update any cached children and by creating
-	 * a viewer notification, which it passes to {@link #fireNotifyChanged}. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
-	 * 
-	 * @generated
-	 */
-	public void notifyChangedGen(Notification notification) {
-		updateChildren(notification);
-
-		switch(notification.getFeatureID(MetadataRepositoryStructuredView.class)) {
-			case P2viewPackage.METADATA_REPOSITORY_STRUCTURED_VIEW__NAME:
-			case P2viewPackage.METADATA_REPOSITORY_STRUCTURED_VIEW__METADATA_REPOSITORY:
-			case P2viewPackage.METADATA_REPOSITORY_STRUCTURED_VIEW__LOADED:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-				return;
-			case P2viewPackage.METADATA_REPOSITORY_STRUCTURED_VIEW__INSTALLABLE_UNIT_LIST:
-			case P2viewPackage.METADATA_REPOSITORY_STRUCTURED_VIEW__PROPERTIES:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
-				return;
-		}
-		super.notifyChanged(notification);
-	}
-
-	/**
 	 * This adds a property descriptor for the Installable Unit List feature. <!-- begin-user-doc --> <!-- end-user-doc
 	 * -->
 	 * 
@@ -277,11 +157,131 @@ public class MetadataRepositoryStructuredViewItemProvider extends AggregatorItem
 	}
 
 	/**
+	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
+	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
+	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
+	 * <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
+		if(childrenFeatures == null) {
+			super.getChildrenFeatures(object);
+			childrenFeatures.add(P2viewPackage.Literals.METADATA_REPOSITORY_STRUCTURED_VIEW__INSTALLABLE_UNIT_LIST);
+			childrenFeatures.add(P2viewPackage.Literals.METADATA_REPOSITORY_STRUCTURED_VIEW__PROPERTIES);
+		}
+		return childrenFeatures;
+	}
+
+	/**
+	 * This returns MetadataRepositoryStructuredView.gif.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public Object getImage(Object object) {
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/MetadataRepositoryStructuredView"));
+	}
+
+	/**
+	 * This returns the property descriptors for the adapted class.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
+		if(itemPropertyDescriptors == null) {
+			super.getPropertyDescriptors(object);
+
+			addNamePropertyDescriptor(object);
+			addInstallableUnitListPropertyDescriptor(object);
+			addPropertiesPropertyDescriptor(object);
+			addLoadedPropertyDescriptor(object);
+		}
+		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * Return the resource locator for this item provider's resources.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public ResourceLocator getResourceLocator() {
+		return AggregatorEditPlugin.INSTANCE;
+	}
+
+	/**
+	 * This returns the label text for the adapted class. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated NOT
+	 */
+	@Override
+	public String getText(Object object) {
+		String label = ((MetadataRepositoryStructuredView) object).getName();
+		return (label == null || label.length() == 0
+				? getString("_UI_MetadataRepositoryStructuredView_type")
+				: getString("_UI_MetadataRepositoryStructuredView_type") + " " + label) +
+				(((MetadataRepositoryStructuredView) object).isLoaded()
+						? ""
+						: " (loading...)");
+	}
+
+	/**
 	 * Force the children to be wrapped
 	 */
 	@Override
 	protected boolean isWrappingNeeded(Object object) {
 		return true;
+	}
+
+	/**
+	 * This handles model notifications by calling {@link #updateChildren} to update any cached children and by creating
+	 * a viewer notification, which it passes to {@link #fireNotifyChanged}. <!-- begin-user-doc --> <!-- end-user-doc
+	 * -->
+	 * 
+	 * @generated NOT
+	 */
+	@Override
+	public void notifyChanged(Notification notification) {
+		notifyChangedGen(notification);
+
+		if(notification.getFeatureID(MetadataRepositoryStructuredView.class) == P2viewPackage.METADATA_REPOSITORY_STRUCTURED_VIEW__LOADED) {
+			MetadataRepositoryStructuredView mdrView = (MetadataRepositoryStructuredView) notification.getNotifier();
+			Aggregator aggregator = ResourceUtils.getAggregator(((EObject) mdrView).eResource().getResourceSet());
+
+			if(aggregator != null)
+				fireNotifyChanged(new ViewerNotification(notification, aggregator, true, true));
+		}
+	}
+
+	/**
+	 * This handles model notifications by calling {@link #updateChildren} to update any cached children and by creating
+	 * a viewer notification, which it passes to {@link #fireNotifyChanged}. <!-- begin-user-doc --> <!-- end-user-doc
+	 * -->
+	 * 
+	 * @generated
+	 */
+	public void notifyChangedGen(Notification notification) {
+		updateChildren(notification);
+
+		switch(notification.getFeatureID(MetadataRepositoryStructuredView.class)) {
+			case P2viewPackage.METADATA_REPOSITORY_STRUCTURED_VIEW__NAME:
+			case P2viewPackage.METADATA_REPOSITORY_STRUCTURED_VIEW__METADATA_REPOSITORY:
+			case P2viewPackage.METADATA_REPOSITORY_STRUCTURED_VIEW__LOADED:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
+			case P2viewPackage.METADATA_REPOSITORY_STRUCTURED_VIEW__INSTALLABLE_UNIT_LIST:
+			case P2viewPackage.METADATA_REPOSITORY_STRUCTURED_VIEW__PROPERTIES:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
+				return;
+		}
+		super.notifyChanged(notification);
 	}
 
 }

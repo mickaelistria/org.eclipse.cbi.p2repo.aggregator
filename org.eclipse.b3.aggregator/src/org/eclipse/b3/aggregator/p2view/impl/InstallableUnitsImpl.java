@@ -456,6 +456,16 @@ public class InstallableUnitsImpl extends MinimalEObjectImpl.Container implement
 	 * @generated
 	 */
 	@Override
+	protected EClass eStaticClass() {
+		return P2viewPackage.Literals.INSTALLABLE_UNITS;
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
 			case P2viewPackage.INSTALLABLE_UNITS__ALL_IUS:
@@ -903,16 +913,6 @@ public class InstallableUnitsImpl extends MinimalEObjectImpl.Container implement
 			eNotify(new ENotificationImpl(
 				this, Notification.SET, P2viewPackage.INSTALLABLE_UNITS__PRODUCT_CONTAINER, newProductContainer,
 				newProductContainer));
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return P2viewPackage.Literals.INSTALLABLE_UNITS;
 	}
 
 } // InstallableUnitsImpl

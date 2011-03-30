@@ -164,6 +164,16 @@ public class PropertyImpl extends MinimalEObjectImpl.Container implements Proper
 	 * @generated
 	 */
 	@Override
+	protected EClass eStaticClass() {
+		return AggregatorPackage.Literals.PROPERTY;
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
 			case AggregatorPackage.PROPERTY__KEY:
@@ -235,16 +245,6 @@ public class PropertyImpl extends MinimalEObjectImpl.Container implements Proper
 		result.append(value);
 		result.append(')');
 		return result.toString();
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return AggregatorPackage.Literals.PROPERTY;
 	}
 
 } // PropertyImpl

@@ -68,108 +68,6 @@ public class MappedRepositoryItemProvider extends MetadataRepositoryReferenceIte
 	}
 
 	/**
-	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
-	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
-	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
-		if(childrenFeatures == null) {
-			super.getChildrenFeatures(object);
-			childrenFeatures.add(AggregatorPackage.Literals.MAPPED_REPOSITORY__PRODUCTS);
-			childrenFeatures.add(AggregatorPackage.Literals.MAPPED_REPOSITORY__BUNDLES);
-			childrenFeatures.add(AggregatorPackage.Literals.MAPPED_REPOSITORY__FEATURES);
-			childrenFeatures.add(AggregatorPackage.Literals.MAPPED_REPOSITORY__CATEGORIES);
-			childrenFeatures.add(AggregatorPackage.Literals.MAPPED_REPOSITORY__MAP_RULES);
-		}
-		return childrenFeatures;
-	}
-
-	/**
-	 * This returns MappedRepository.gif. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated NOT
-	 */
-	@Override
-	public Object getImage(Object object) {
-		return super.getImage(object);
-	}
-
-	/**
-	 * Allow adding children only if the repository enabled
-	 */
-	@Override
-	public Collection<?> getNewChildDescriptors(Object object, EditingDomain editingDomain, Object sibling) {
-		if(!(((MappedRepository) object).isBranchEnabled()) ||
-				((MappedRepository) object).getMetadataRepository(false) == null ||
-				((EObject) ((MappedRepository) object).getMetadataRepository(false)).eIsProxy())
-			return Collections.emptySet();
-
-		return super.getNewChildDescriptors(object, editingDomain, sibling);
-	}
-
-	/**
-	 * This returns the property descriptors for the adapted class.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-		if(itemPropertyDescriptors == null) {
-			super.getPropertyDescriptors(object);
-
-			addDescriptionPropertyDescriptor(object);
-			addMirrorArtifactsPropertyDescriptor(object);
-			addCategoryPrefixPropertyDescriptor(object);
-		}
-		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This returns the label text for the adapted class. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated NOT
-	 */
-	@Override
-	public String getText(Object object) {
-		return super.getText(object);
-	}
-
-	/**
-	 * This handles model notifications by calling {@link #updateChildren} to update any cached children and by creating
-	 * a viewer notification, which it passes to {@link #fireNotifyChanged}. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
-	 * 
-	 * @generated NOT
-	 */
-	@Override
-	public void notifyChanged(Notification notification) {
-		updateChildren(notification);
-
-		switch(notification.getFeatureID(MappedRepository.class)) {
-			case AggregatorPackage.MAPPED_REPOSITORY__DESCRIPTION:
-			case AggregatorPackage.MAPPED_REPOSITORY__MIRROR_ARTIFACTS:
-			case AggregatorPackage.MAPPED_REPOSITORY__CATEGORY_PREFIX:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-				return;
-			case AggregatorPackage.MAPPED_REPOSITORY__PRODUCTS:
-			case AggregatorPackage.MAPPED_REPOSITORY__BUNDLES:
-			case AggregatorPackage.MAPPED_REPOSITORY__FEATURES:
-			case AggregatorPackage.MAPPED_REPOSITORY__CATEGORIES:
-			case AggregatorPackage.MAPPED_REPOSITORY__MAP_RULES:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
-				GeneralUtils.getAggregatorResource((EObject) notification.getNotifier()).analyzeResource();
-				return;
-		}
-		super.notifyChanged(notification);
-	}
-
-	/**
 	 * This adds a property descriptor for the Category Prefix feature.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -249,6 +147,53 @@ public class MappedRepositoryItemProvider extends MetadataRepositoryReferenceIte
 		newChildDescriptors.add(createChildParameter(
 			AggregatorPackage.Literals.MAPPED_REPOSITORY__MAP_RULES,
 			AggregatorFactory.eINSTANCE.createValidConfigurationsRule()));
+	}
+
+	@SuppressWarnings("unchecked")
+	private Command createAddIUsToMappedRepositoryCommand(Object owner, Collection<?> collection, int operation) {
+		ItemSorter itemSorter = new ItemSorter(collection);
+
+		if(((MappedRepository) owner).isEnabled() &&
+				itemSorter.getTotalItemCount() > 0 &&
+				(itemSorter.getTotalItemCount() == itemSorter.getGroupItems(ItemGroup.IU).size() &&
+						ItemUtils.haveSameLocation(
+							(MappedRepository) owner, (List<InstallableUnit>) itemSorter.getGroupItems(ItemGroup.IU)) || itemSorter.getTotalItemCount() == itemSorter.getGroupItems(
+					ItemGroup.IU_STRUCTURED).size() &&
+						ItemUtils.haveSameLocation(
+							(MappedRepository) owner,
+							ItemUtils.getIUs((List<IUPresentation>) itemSorter.getGroupItems(ItemGroup.IU_STRUCTURED))))) {
+			List<IInstallableUnit> ius = new ArrayList<IInstallableUnit>();
+
+			ius.addAll((List<InstallableUnit>) itemSorter.getGroupItems(ItemGroup.IU));
+			ius.addAll(ItemUtils.getIUs((List<IUPresentation>) itemSorter.getGroupItems(ItemGroup.IU_STRUCTURED)));
+
+			return new AddIUsToMappedRepositoryCommand((MappedRepository) owner, ius, operation);
+		}
+
+		return null;
+	}
+
+	private Command createCompoundRemoveCommand(EditingDomain domain, MappedRepository mappedRepository,
+			EStructuralFeature feature, Collection<?> collection) {
+		List<Command> commands = new ArrayList<Command>();
+		commands.add(new RemoveCommand(domain, (EObject) mappedRepository, feature, collection));
+
+		if(feature.getFeatureID() == AggregatorPackage.MAPPED_REPOSITORY__FEATURES) {
+			for(Object object : collection) {
+				Feature removedFeature = (Feature) object;
+				for(CustomCategory category : removedFeature.getCategories()) {
+					IEditingDomainItemProvider editingDomainItemProvider = (IEditingDomainItemProvider) adapterFactory.adapt(
+						category, IEditingDomainItemProvider.class);
+
+					Command cmd = editingDomainItemProvider.createCommand(
+						category, domain, RemoveCommand.class,
+						new CommandParameter(category, null, Collections.singleton(removedFeature)));
+					commands.add(cmd);
+				}
+			}
+		}
+
+		return new CompoundCommand("Delete", commands);
 	}
 
 	/**
@@ -341,55 +286,110 @@ public class MappedRepositoryItemProvider extends MetadataRepositoryReferenceIte
 		return super.getChildFeature(object, child);
 	}
 
+	/**
+	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
+	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
+	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
+	 * <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
+		if(childrenFeatures == null) {
+			super.getChildrenFeatures(object);
+			childrenFeatures.add(AggregatorPackage.Literals.MAPPED_REPOSITORY__PRODUCTS);
+			childrenFeatures.add(AggregatorPackage.Literals.MAPPED_REPOSITORY__BUNDLES);
+			childrenFeatures.add(AggregatorPackage.Literals.MAPPED_REPOSITORY__FEATURES);
+			childrenFeatures.add(AggregatorPackage.Literals.MAPPED_REPOSITORY__CATEGORIES);
+			childrenFeatures.add(AggregatorPackage.Literals.MAPPED_REPOSITORY__MAP_RULES);
+		}
+		return childrenFeatures;
+	}
+
+	/**
+	 * This returns MappedRepository.gif. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated NOT
+	 */
+	@Override
+	public Object getImage(Object object) {
+		return super.getImage(object);
+	}
+
+	/**
+	 * Allow adding children only if the repository enabled
+	 */
+	@Override
+	public Collection<?> getNewChildDescriptors(Object object, EditingDomain editingDomain, Object sibling) {
+		if(!(((MappedRepository) object).isBranchEnabled()) ||
+				((MappedRepository) object).getMetadataRepository(false) == null ||
+				((EObject) ((MappedRepository) object).getMetadataRepository(false)).eIsProxy())
+			return Collections.emptySet();
+
+		return super.getNewChildDescriptors(object, editingDomain, sibling);
+	}
+
+	/**
+	 * This returns the property descriptors for the adapted class.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
+		if(itemPropertyDescriptors == null) {
+			super.getPropertyDescriptors(object);
+
+			addDescriptionPropertyDescriptor(object);
+			addMirrorArtifactsPropertyDescriptor(object);
+			addCategoryPrefixPropertyDescriptor(object);
+		}
+		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This returns the label text for the adapted class. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated NOT
+	 */
+	@Override
+	public String getText(Object object) {
+		return super.getText(object);
+	}
+
 	@Override
 	protected String getTypeName() {
 		return "_UI_MappedRepository_type";
 	}
 
-	@SuppressWarnings("unchecked")
-	private Command createAddIUsToMappedRepositoryCommand(Object owner, Collection<?> collection, int operation) {
-		ItemSorter itemSorter = new ItemSorter(collection);
+	/**
+	 * This handles model notifications by calling {@link #updateChildren} to update any cached children and by creating
+	 * a viewer notification, which it passes to {@link #fireNotifyChanged}. <!-- begin-user-doc --> <!-- end-user-doc
+	 * -->
+	 * 
+	 * @generated NOT
+	 */
+	@Override
+	public void notifyChanged(Notification notification) {
+		updateChildren(notification);
 
-		if(((MappedRepository) owner).isEnabled() &&
-				itemSorter.getTotalItemCount() > 0 &&
-				(itemSorter.getTotalItemCount() == itemSorter.getGroupItems(ItemGroup.IU).size() &&
-						ItemUtils.haveSameLocation(
-							(MappedRepository) owner, (List<InstallableUnit>) itemSorter.getGroupItems(ItemGroup.IU)) || itemSorter.getTotalItemCount() == itemSorter.getGroupItems(
-					ItemGroup.IU_STRUCTURED).size() &&
-						ItemUtils.haveSameLocation(
-							(MappedRepository) owner,
-							ItemUtils.getIUs((List<IUPresentation>) itemSorter.getGroupItems(ItemGroup.IU_STRUCTURED))))) {
-			List<IInstallableUnit> ius = new ArrayList<IInstallableUnit>();
-
-			ius.addAll((List<InstallableUnit>) itemSorter.getGroupItems(ItemGroup.IU));
-			ius.addAll(ItemUtils.getIUs((List<IUPresentation>) itemSorter.getGroupItems(ItemGroup.IU_STRUCTURED)));
-
-			return new AddIUsToMappedRepositoryCommand((MappedRepository) owner, ius, operation);
+		switch(notification.getFeatureID(MappedRepository.class)) {
+			case AggregatorPackage.MAPPED_REPOSITORY__DESCRIPTION:
+			case AggregatorPackage.MAPPED_REPOSITORY__MIRROR_ARTIFACTS:
+			case AggregatorPackage.MAPPED_REPOSITORY__CATEGORY_PREFIX:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
+			case AggregatorPackage.MAPPED_REPOSITORY__PRODUCTS:
+			case AggregatorPackage.MAPPED_REPOSITORY__BUNDLES:
+			case AggregatorPackage.MAPPED_REPOSITORY__FEATURES:
+			case AggregatorPackage.MAPPED_REPOSITORY__CATEGORIES:
+			case AggregatorPackage.MAPPED_REPOSITORY__MAP_RULES:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
+				GeneralUtils.getAggregatorResource((EObject) notification.getNotifier()).analyzeResource();
+				return;
 		}
-
-		return null;
-	}
-
-	private Command createCompoundRemoveCommand(EditingDomain domain, MappedRepository mappedRepository,
-			EStructuralFeature feature, Collection<?> collection) {
-		List<Command> commands = new ArrayList<Command>();
-		commands.add(new RemoveCommand(domain, (EObject) mappedRepository, feature, collection));
-
-		if(feature.getFeatureID() == AggregatorPackage.MAPPED_REPOSITORY__FEATURES) {
-			for(Object object : collection) {
-				Feature removedFeature = (Feature) object;
-				for(CustomCategory category : removedFeature.getCategories()) {
-					IEditingDomainItemProvider editingDomainItemProvider = (IEditingDomainItemProvider) adapterFactory.adapt(
-						category, IEditingDomainItemProvider.class);
-
-					Command cmd = editingDomainItemProvider.createCommand(
-						category, domain, RemoveCommand.class,
-						new CommandParameter(category, null, Collections.singleton(removedFeature)));
-					commands.add(cmd);
-				}
-			}
-		}
-
-		return new CompoundCommand("Delete", commands);
+		super.notifyChanged(notification);
 	}
 }

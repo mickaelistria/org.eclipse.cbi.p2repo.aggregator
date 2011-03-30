@@ -46,6 +46,23 @@ public class ProductItemProvider extends MappedUnitItemProvider implements IEdit
 	}
 
 	/**
+	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
+	 * that can be created under this object.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
+		super.collectNewChildDescriptors(newChildDescriptors, object);
+	}
+
+	@Override
+	protected List<? extends InstallableUnitRequest> getContainerChildren(MappedRepository container) {
+		return container.getProducts();
+	}
+
+	/**
 	 * This returns Product.gif. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated NOT
@@ -58,6 +75,11 @@ public class ProductItemProvider extends MappedUnitItemProvider implements IEdit
 				"full/obj16/Product" + (!((Product) object).isBranchDisabledOrMappedRepositoryBroken()
 						? ""
 						: "Disabled")));
+	}
+
+	@Override
+	protected IQuery<IInstallableUnit> getInstallableUnitQuery() {
+		return SpecialQueries.createProductQuery();
 	}
 
 	/**
@@ -100,27 +122,5 @@ public class ProductItemProvider extends MappedUnitItemProvider implements IEdit
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 		super.notifyChanged(notification);
-	}
-
-	/**
-	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
-	 * that can be created under this object.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
-		super.collectNewChildDescriptors(newChildDescriptors, object);
-	}
-
-	@Override
-	protected List<? extends InstallableUnitRequest> getContainerChildren(MappedRepository container) {
-		return container.getProducts();
-	}
-
-	@Override
-	protected IQuery<IInstallableUnit> getInstallableUnitQuery() {
-		return SpecialQueries.createProductQuery();
 	}
 }

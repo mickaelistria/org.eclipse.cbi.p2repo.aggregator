@@ -228,6 +228,22 @@ public class P2viewModelWizard extends Wizard implements INewWizard {
 		 * 
 		 * @generated
 		 */
+		protected Collection<String> getEncodings() {
+			if(encodings == null) {
+				encodings = new ArrayList<String>();
+				for(StringTokenizer stringTokenizer = new StringTokenizer(
+					AggregatorEditorPlugin.INSTANCE.getString("_UI_XMLEncodingChoices")); stringTokenizer.hasMoreTokens();) {
+					encodings.add(stringTokenizer.nextToken());
+				}
+			}
+			return encodings;
+		}
+
+		/**
+		 * <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
 		public String getInitialObjectName() {
 			String label = initialObjectField.getText();
 
@@ -237,6 +253,21 @@ public class P2viewModelWizard extends Wizard implements INewWizard {
 				}
 			}
 			return null;
+		}
+
+		/**
+		 * Returns the label for the specified type name. <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		protected String getLabel(String typeName) {
+			try {
+				return AggregatorEditPlugin.INSTANCE.getString("_UI_" + typeName + "_type");
+			}
+			catch(MissingResourceException mre) {
+				AggregatorEditorPlugin.INSTANCE.log(mre);
+			}
+			return typeName;
 		}
 
 		/**
@@ -257,37 +288,6 @@ public class P2viewModelWizard extends Wizard implements INewWizard {
 					initialObjectField.setFocus();
 				}
 			}
-		}
-
-		/**
-		 * <!-- begin-user-doc --> <!-- end-user-doc -->
-		 * 
-		 * @generated
-		 */
-		protected Collection<String> getEncodings() {
-			if(encodings == null) {
-				encodings = new ArrayList<String>();
-				for(StringTokenizer stringTokenizer = new StringTokenizer(
-					AggregatorEditorPlugin.INSTANCE.getString("_UI_XMLEncodingChoices")); stringTokenizer.hasMoreTokens();) {
-					encodings.add(stringTokenizer.nextToken());
-				}
-			}
-			return encodings;
-		}
-
-		/**
-		 * Returns the label for the specified type name. <!-- begin-user-doc --> <!-- end-user-doc -->
-		 * 
-		 * @generated
-		 */
-		protected String getLabel(String typeName) {
-			try {
-				return AggregatorEditPlugin.INSTANCE.getString("_UI_" + typeName + "_type");
-			}
-			catch(MissingResourceException mre) {
-				AggregatorEditorPlugin.INSTANCE.log(mre);
-			}
-			return typeName;
 		}
 
 		/**
@@ -471,6 +471,39 @@ public class P2viewModelWizard extends Wizard implements INewWizard {
 	}
 
 	/**
+	 * Create a new model. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	protected EObject createInitialModel() {
+		EClass eClass = (EClass) p2viewPackage.getEClassifier(initialObjectCreationPage.getInitialObjectName());
+		EObject rootObject = p2viewFactory.create(eClass);
+		return rootObject;
+	}
+
+	/**
+	 * Returns the names of the types that can be created as the root object. <!-- begin-user-doc --> <!-- end-user-doc
+	 * -->
+	 * 
+	 * @generated
+	 */
+	protected Collection<String> getInitialObjectNames() {
+		if(initialObjectNames == null) {
+			initialObjectNames = new ArrayList<String>();
+			for(EClassifier eClassifier : p2viewPackage.getEClassifiers()) {
+				if(eClassifier instanceof EClass) {
+					EClass eClass = (EClass) eClassifier;
+					if(!eClass.isAbstract()) {
+						initialObjectNames.add(eClass.getName());
+					}
+				}
+			}
+			Collections.sort(initialObjectNames, CommonPlugin.INSTANCE.getComparator());
+		}
+		return initialObjectNames;
+	}
+
+	/**
 	 * Get the file from the page. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
@@ -579,39 +612,6 @@ public class P2viewModelWizard extends Wizard implements INewWizard {
 			AggregatorEditorPlugin.INSTANCE.log(exception);
 			return false;
 		}
-	}
-
-	/**
-	 * Create a new model. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	protected EObject createInitialModel() {
-		EClass eClass = (EClass) p2viewPackage.getEClassifier(initialObjectCreationPage.getInitialObjectName());
-		EObject rootObject = p2viewFactory.create(eClass);
-		return rootObject;
-	}
-
-	/**
-	 * Returns the names of the types that can be created as the root object. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
-	 * 
-	 * @generated
-	 */
-	protected Collection<String> getInitialObjectNames() {
-		if(initialObjectNames == null) {
-			initialObjectNames = new ArrayList<String>();
-			for(EClassifier eClassifier : p2viewPackage.getEClassifiers()) {
-				if(eClassifier instanceof EClass) {
-					EClass eClass = (EClass) eClassifier;
-					if(!eClass.isAbstract()) {
-						initialObjectNames.add(eClass.getName());
-					}
-				}
-			}
-			Collections.sort(initialObjectNames, CommonPlugin.INSTANCE.getComparator());
-		}
-		return initialObjectNames;
 	}
 
 }

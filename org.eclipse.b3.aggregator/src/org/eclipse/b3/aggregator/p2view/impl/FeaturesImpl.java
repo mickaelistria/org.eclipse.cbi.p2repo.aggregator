@@ -120,6 +120,16 @@ public class FeaturesImpl extends MinimalEObjectImpl.Container implements Featur
 	 * @generated
 	 */
 	@Override
+	protected EClass eStaticClass() {
+		return P2viewPackage.Literals.FEATURES;
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
 			case P2viewPackage.FEATURES__FEATURES:
@@ -148,16 +158,6 @@ public class FeaturesImpl extends MinimalEObjectImpl.Container implements Featur
 			features = new EObjectResolvingEList<Feature>(Feature.class, this, P2viewPackage.FEATURES__FEATURES);
 		}
 		return features;
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return P2viewPackage.Literals.FEATURES;
 	}
 
 } // FeaturesImpl

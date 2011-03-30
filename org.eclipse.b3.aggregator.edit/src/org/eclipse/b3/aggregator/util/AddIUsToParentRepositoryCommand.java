@@ -98,16 +98,6 @@ public class AddIUsToParentRepositoryCommand extends AbstractCommand {
 
 	}
 
-	public void redo() {
-		for(MappedRepository mappedRepo : unitsAddedToMappedRepo.keySet()) {
-			for(MappedUnit unit : unitsAddedToMappedRepo.get(mappedRepo))
-				mappedRepo.removeUnit(unit);
-
-			for(MapRule rule : rulesAddedToMappedRepo.get(mappedRepo))
-				mappedRepo.getMapRules().remove(rule);
-		}
-	}
-
 	@Override
 	protected boolean prepare() {
 		boolean someEnabled = false;
@@ -130,6 +120,16 @@ public class AddIUsToParentRepositoryCommand extends AbstractCommand {
 		}
 
 		return mapIUMappedRepo.size() > 0 && someEnabled;
+	}
+
+	public void redo() {
+		for(MappedRepository mappedRepo : unitsAddedToMappedRepo.keySet()) {
+			for(MappedUnit unit : unitsAddedToMappedRepo.get(mappedRepo))
+				mappedRepo.removeUnit(unit);
+
+			for(MapRule rule : rulesAddedToMappedRepo.get(mappedRepo))
+				mappedRepo.getMapRules().remove(rule);
+		}
 	}
 
 }

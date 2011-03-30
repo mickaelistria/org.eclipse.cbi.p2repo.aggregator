@@ -139,6 +139,17 @@ public class RequirementsImpl extends MinimalEObjectImpl.Container implements Re
 	 * @generated
 	 */
 	@Override
+	protected EClass eStaticClass() {
+		return P2viewPackage.Literals.REQUIREMENTS;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
 			case P2viewPackage.REQUIREMENTS__REQUIREMENTS:
@@ -160,17 +171,6 @@ public class RequirementsImpl extends MinimalEObjectImpl.Container implements Re
 				RequirementWrapper.class, this, P2viewPackage.REQUIREMENTS__REQUIREMENTS);
 		}
 		return requirements;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return P2viewPackage.Literals.REQUIREMENTS;
 	}
 
 } // RequirementsImpl

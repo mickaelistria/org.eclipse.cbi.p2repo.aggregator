@@ -264,6 +264,16 @@ public class FeatureImpl extends IUPresentationWithDetailsImpl implements Featur
 	 * @generated
 	 */
 	@Override
+	protected EClass eStaticClass() {
+		return P2viewPackage.Literals.FEATURE;
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
 			case P2viewPackage.FEATURE__FEATURE_CONTAINER:
@@ -473,16 +483,6 @@ public class FeatureImpl extends IUPresentationWithDetailsImpl implements Featur
 			eNotify(new ENotificationImpl(
 				this, Notification.SET, P2viewPackage.FEATURE__FRAGMENT_CONTAINER, newFragmentContainer,
 				newFragmentContainer));
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return P2viewPackage.Literals.FEATURE;
 	}
 
 } // FeatureImpl

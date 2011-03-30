@@ -123,6 +123,16 @@ public class DescriptionProviderImpl extends MinimalEObjectImpl.Container implem
 	 * @generated
 	 */
 	@Override
+	protected EClass eStaticClass() {
+		return AggregatorPackage.Literals.DESCRIPTION_PROVIDER;
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
 			case AggregatorPackage.DESCRIPTION_PROVIDER__DESCRIPTION:
@@ -170,16 +180,6 @@ public class DescriptionProviderImpl extends MinimalEObjectImpl.Container implem
 		result.append(description);
 		result.append(')');
 		return result.toString();
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return AggregatorPackage.Literals.DESCRIPTION_PROVIDER;
 	}
 
 } // DescriptionProviderImpl
