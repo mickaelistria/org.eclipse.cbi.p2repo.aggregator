@@ -85,6 +85,15 @@ public interface AggregatorPackage extends EPackage {
 		EReference AGGREGATOR__MAVEN_MAPPINGS = eINSTANCE.getAggregator_MavenMappings();
 
 		/**
+		 * The meta object literal for the '<em><b>Aggregations</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EReference AGGREGATOR__AGGREGATIONS = eINSTANCE.getAggregator_Aggregations();
+
+		/**
 		 * The meta object literal for the '<em><b>Build Root</b></em>' attribute feature.
 		 * <!-- begin-user-doc --> <!--
 		 * end-user-doc -->
@@ -765,6 +774,84 @@ public interface AggregatorPackage extends EPackage {
 		EAttribute AVAILABLE_VERSION__FILTER = eINSTANCE.getAvailableVersion_Filter();
 
 		/**
+		 * The meta object literal for the '{@link org.eclipse.b3.aggregator.Separable <em>Separable</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @see org.eclipse.b3.aggregator.Separable
+		 * @see org.eclipse.b3.aggregator.impl.AggregatorPackageImpl#getSeparable()
+		 * @generated
+		 */
+		EClass SEPARABLE = eINSTANCE.getSeparable();
+
+		/**
+		 * The meta object literal for the '<em><b>Aggregation</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EReference SEPARABLE__AGGREGATION = eINSTANCE.getSeparable_Aggregation();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.b3.aggregator.impl.AggregationImpl <em>Aggregation</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @see org.eclipse.b3.aggregator.impl.AggregationImpl
+		 * @see org.eclipse.b3.aggregator.impl.AggregatorPackageImpl#getAggregation()
+		 * @generated
+		 */
+		EClass AGGREGATION = eINSTANCE.getAggregation();
+
+		/**
+		 * The meta object literal for the '<em><b>Label</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EAttribute AGGREGATION__LABEL = eINSTANCE.getAggregation_Label();
+
+		/**
+		 * The meta object literal for the '<em><b>Contributions</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EReference AGGREGATION__CONTRIBUTIONS = eINSTANCE.getAggregation_Contributions();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.b3.aggregator.impl.AggregatorResourceViewImpl_bak <em>Resource View</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @see org.eclipse.b3.aggregator.impl.AggregatorResourceViewImpl_bak
+		 * @see org.eclipse.b3.aggregator.impl.AggregatorPackageImpl#getAggregatorResourceView()
+		 * @generated
+		 */
+		EClass AGGREGATOR_RESOURCE_VIEW = eINSTANCE.getAggregatorResourceView();
+
+		/**
+		 * The meta object literal for the '<em><b>Aggregator</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EReference AGGREGATOR_RESOURCE_VIEW__AGGREGATOR = eINSTANCE.getAggregatorResourceView_Aggregator();
+
+		/**
+		 * The meta object literal for the '<em><b>Aggregations</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EReference AGGREGATOR_RESOURCE_VIEW__AGGREGATIONS = eINSTANCE.getAggregatorResourceView_Aggregations();
+
+		/**
 		 * The meta object literal for the '{@link java.lang.Comparable <em>Comparable</em>}' class.
 		 * <!-- begin-user-doc
 		 * --> <!-- end-user-doc -->
@@ -1247,13 +1334,23 @@ public interface AggregatorPackage extends EPackage {
 	int AGGREGATOR__MAVEN_MAPPINGS = DESCRIPTION_PROVIDER_FEATURE_COUNT + 16;
 
 	/**
+	 * The feature id for the '<em><b>Aggregations</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int AGGREGATOR__AGGREGATIONS = DESCRIPTION_PROVIDER_FEATURE_COUNT + 17;
+
+	/**
 	 * The number of structural features of the '<em>Aggregator</em>' class. <!-- begin-user-doc --> <!-- end-user-doc
 	 * -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int AGGREGATOR_FEATURE_COUNT = DESCRIPTION_PROVIDER_FEATURE_COUNT + 17;
+	int AGGREGATOR_FEATURE_COUNT = DESCRIPTION_PROVIDER_FEATURE_COUNT + 18;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.aggregator.EnabledStatusProvider <em>Enabled Status Provider</em>}' class.
@@ -1687,13 +1784,23 @@ public interface AggregatorPackage extends EPackage {
 	int CONTRIBUTION__INFOS = ENABLED_STATUS_PROVIDER_FEATURE_COUNT + 4;
 
 	/**
+	 * The feature id for the '<em><b>Aggregation</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int CONTRIBUTION__AGGREGATION = ENABLED_STATUS_PROVIDER_FEATURE_COUNT + 5;
+
+	/**
 	 * The feature id for the '<em><b>Label</b></em>' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int CONTRIBUTION__LABEL = ENABLED_STATUS_PROVIDER_FEATURE_COUNT + 5;
+	int CONTRIBUTION__LABEL = ENABLED_STATUS_PROVIDER_FEATURE_COUNT + 6;
 
 	/**
 	 * The feature id for the '<em><b>Repositories</b></em>' containment reference list.
@@ -1703,7 +1810,7 @@ public interface AggregatorPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONTRIBUTION__REPOSITORIES = ENABLED_STATUS_PROVIDER_FEATURE_COUNT + 6;
+	int CONTRIBUTION__REPOSITORIES = ENABLED_STATUS_PROVIDER_FEATURE_COUNT + 7;
 
 	/**
 	 * The feature id for the '<em><b>Contacts</b></em>' reference list.
@@ -1712,7 +1819,7 @@ public interface AggregatorPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONTRIBUTION__CONTACTS = ENABLED_STATUS_PROVIDER_FEATURE_COUNT + 7;
+	int CONTRIBUTION__CONTACTS = ENABLED_STATUS_PROVIDER_FEATURE_COUNT + 8;
 
 	/**
 	 * The feature id for the '<em><b>Maven Mappings</b></em>' reference list. <!-- begin-user-doc --> <!-- end-user-doc
@@ -1721,7 +1828,7 @@ public interface AggregatorPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONTRIBUTION__MAVEN_MAPPINGS = ENABLED_STATUS_PROVIDER_FEATURE_COUNT + 8;
+	int CONTRIBUTION__MAVEN_MAPPINGS = ENABLED_STATUS_PROVIDER_FEATURE_COUNT + 9;
 
 	/**
 	 * The number of structural features of the '<em>Contribution</em>' class. <!-- begin-user-doc --> <!-- end-user-doc
@@ -1730,7 +1837,7 @@ public interface AggregatorPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONTRIBUTION_FEATURE_COUNT = ENABLED_STATUS_PROVIDER_FEATURE_COUNT + 9;
+	int CONTRIBUTION_FEATURE_COUNT = ENABLED_STATUS_PROVIDER_FEATURE_COUNT + 10;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -3365,6 +3472,179 @@ public interface AggregatorPackage extends EPackage {
 	int AVAILABLE_VERSION_FEATURE_COUNT = 3;
 
 	/**
+	 * The meta object id for the '{@link org.eclipse.b3.aggregator.Separable <em>Separable</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see org.eclipse.b3.aggregator.Separable
+	 * @see org.eclipse.b3.aggregator.impl.AggregatorPackageImpl#getSeparable()
+	 * @generated
+	 */
+	int SEPARABLE = 29;
+
+	/**
+	 * The feature id for the '<em><b>Aggregation</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int SEPARABLE__AGGREGATION = 0;
+
+	/**
+	 * The number of structural features of the '<em>Separable</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int SEPARABLE_FEATURE_COUNT = 1;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.b3.aggregator.impl.AggregationImpl <em>Aggregation</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see org.eclipse.b3.aggregator.impl.AggregationImpl
+	 * @see org.eclipse.b3.aggregator.impl.AggregatorPackageImpl#getAggregation()
+	 * @generated
+	 */
+	int AGGREGATION = 30;
+
+	/**
+	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int AGGREGATION__ENABLED = ENABLED_STATUS_PROVIDER__ENABLED;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int AGGREGATION__DESCRIPTION = ENABLED_STATUS_PROVIDER_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Status</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int AGGREGATION__STATUS = ENABLED_STATUS_PROVIDER_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Errors</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int AGGREGATION__ERRORS = ENABLED_STATUS_PROVIDER_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Warnings</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int AGGREGATION__WARNINGS = ENABLED_STATUS_PROVIDER_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Infos</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int AGGREGATION__INFOS = ENABLED_STATUS_PROVIDER_FEATURE_COUNT + 4;
+
+	/**
+	 * The feature id for the '<em><b>Label</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int AGGREGATION__LABEL = ENABLED_STATUS_PROVIDER_FEATURE_COUNT + 5;
+
+	/**
+	 * The feature id for the '<em><b>Contributions</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int AGGREGATION__CONTRIBUTIONS = ENABLED_STATUS_PROVIDER_FEATURE_COUNT + 6;
+
+	/**
+	 * The number of structural features of the '<em>Aggregation</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int AGGREGATION_FEATURE_COUNT = ENABLED_STATUS_PROVIDER_FEATURE_COUNT + 7;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.b3.aggregator.impl.AggregatorResourceViewImpl_bak <em>Resource View</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see org.eclipse.b3.aggregator.impl.AggregatorResourceViewImpl_bak
+	 * @see org.eclipse.b3.aggregator.impl.AggregatorPackageImpl#getAggregatorResourceView()
+	 * @generated
+	 */
+	int AGGREGATOR_RESOURCE_VIEW = 31;
+
+	/**
+	 * The feature id for the '<em><b>Aggregator</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int AGGREGATOR_RESOURCE_VIEW__AGGREGATOR = 0;
+
+	/**
+	 * The feature id for the '<em><b>Aggregations</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int AGGREGATOR_RESOURCE_VIEW__AGGREGATIONS = 1;
+
+	/**
+	 * The number of structural features of the '<em>Resource View</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int AGGREGATOR_RESOURCE_VIEW_FEATURE_COUNT = 2;
+
+	/**
 	 * The meta object id for the '{@link org.eclipse.b3.aggregator.AggregateType <em>Aggregate Type</em>}' enum.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -3372,7 +3652,7 @@ public interface AggregatorPackage extends EPackage {
 	 * @see org.eclipse.b3.aggregator.impl.AggregatorPackageImpl#getAggregateType()
 	 * @generated
 	 */
-	int AGGREGATE_TYPE = 29;
+	int AGGREGATE_TYPE = 32;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.aggregator.OperatingSystem <em>Operating System</em>}' enum.
@@ -3382,7 +3662,7 @@ public interface AggregatorPackage extends EPackage {
 	 * @see org.eclipse.b3.aggregator.impl.AggregatorPackageImpl#getOperatingSystem()
 	 * @generated
 	 */
-	int OPERATING_SYSTEM = 30;
+	int OPERATING_SYSTEM = 33;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.aggregator.WindowSystem <em>Window System</em>}' enum.
@@ -3392,7 +3672,7 @@ public interface AggregatorPackage extends EPackage {
 	 * @see org.eclipse.b3.aggregator.impl.AggregatorPackageImpl#getWindowSystem()
 	 * @generated
 	 */
-	int WINDOW_SYSTEM = 31;
+	int WINDOW_SYSTEM = 34;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.aggregator.Architecture <em>Architecture</em>}' enum.
@@ -3402,7 +3682,7 @@ public interface AggregatorPackage extends EPackage {
 	 * @see org.eclipse.b3.aggregator.impl.AggregatorPackageImpl#getArchitecture()
 	 * @generated
 	 */
-	int ARCHITECTURE = 32;
+	int ARCHITECTURE = 35;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.aggregator.PackedStrategy <em>Packed Strategy</em>}' enum.
@@ -3412,7 +3692,7 @@ public interface AggregatorPackage extends EPackage {
 	 * @see org.eclipse.b3.aggregator.impl.AggregatorPackageImpl#getPackedStrategy()
 	 * @generated
 	 */
-	int PACKED_STRATEGY = 33;
+	int PACKED_STRATEGY = 36;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.aggregator.InstallableUnitType <em>Installable Unit Type</em>}' enum.
@@ -3422,7 +3702,7 @@ public interface AggregatorPackage extends EPackage {
 	 * @see org.eclipse.b3.aggregator.impl.AggregatorPackageImpl#getInstallableUnitType()
 	 * @generated
 	 */
-	int INSTALLABLE_UNIT_TYPE = 34;
+	int INSTALLABLE_UNIT_TYPE = 37;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.aggregator.StatusCode <em>Status Code</em>}' enum.
@@ -3432,7 +3712,7 @@ public interface AggregatorPackage extends EPackage {
 	 * @see org.eclipse.b3.aggregator.impl.AggregatorPackageImpl#getStatusCode()
 	 * @generated
 	 */
-	int STATUS_CODE = 35;
+	int STATUS_CODE = 38;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.aggregator.VersionMatch <em>Version Match</em>}' enum.
@@ -3443,7 +3723,7 @@ public interface AggregatorPackage extends EPackage {
 	 * @see org.eclipse.b3.aggregator.impl.AggregatorPackageImpl#getVersionMatch()
 	 * @generated
 	 */
-	int VERSION_MATCH = 36;
+	int VERSION_MATCH = 39;
 
 	/**
 	 * Returns the meta object for enum '{@link org.eclipse.b3.aggregator.AggregateType <em>Aggregate Type</em>}'.
@@ -3559,6 +3839,19 @@ public interface AggregatorPackage extends EPackage {
 	EReference getAggregator_MavenMappings();
 
 	/**
+	 * Returns the meta object for the containment reference list '{@link org.eclipse.b3.aggregator.Aggregator#getAggregations <em>Aggregations</em>}
+	 * '.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the containment reference list '<em>Aggregations</em>'.
+	 * @see org.eclipse.b3.aggregator.Aggregator#getAggregations()
+	 * @see #getAggregator()
+	 * @generated
+	 */
+	EReference getAggregator_Aggregations();
+
+	/**
 	 * Returns the meta object for the attribute '{@link org.eclipse.b3.aggregator.Aggregator#isMavenResult <em>Maven Result</em>}'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -3656,6 +3949,101 @@ public interface AggregatorPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getAvailableVersion_Filter();
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipse.b3.aggregator.Separable <em>Separable</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for class '<em>Separable</em>'.
+	 * @see org.eclipse.b3.aggregator.Separable
+	 * @generated
+	 */
+	EClass getSeparable();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.eclipse.b3.aggregator.Separable#getAggregation <em>Aggregation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the containment reference '<em>Aggregation</em>'.
+	 * @see org.eclipse.b3.aggregator.Separable#getAggregation()
+	 * @see #getSeparable()
+	 * @generated
+	 */
+	EReference getSeparable_Aggregation();
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipse.b3.aggregator.Aggregation <em>Aggregation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for class '<em>Aggregation</em>'.
+	 * @see org.eclipse.b3.aggregator.Aggregation
+	 * @generated
+	 */
+	EClass getAggregation();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.b3.aggregator.Aggregation#getLabel <em>Label</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the attribute '<em>Label</em>'.
+	 * @see org.eclipse.b3.aggregator.Aggregation#getLabel()
+	 * @see #getAggregation()
+	 * @generated
+	 */
+	EAttribute getAggregation_Label();
+
+	/**
+	 * Returns the meta object for the reference list '{@link org.eclipse.b3.aggregator.Aggregation#getContributions <em>Contributions</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the reference list '<em>Contributions</em>'.
+	 * @see org.eclipse.b3.aggregator.Aggregation#getContributions()
+	 * @see #getAggregation()
+	 * @generated
+	 */
+	EReference getAggregation_Contributions();
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipse.b3.aggregator.AggregatorResourceView <em>Resource View</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for class '<em>Resource View</em>'.
+	 * @see org.eclipse.b3.aggregator.AggregatorResourceView
+	 * @generated
+	 */
+	EClass getAggregatorResourceView();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.eclipse.b3.aggregator.AggregatorResourceView#getAggregator
+	 * <em>Aggregator</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the containment reference '<em>Aggregator</em>'.
+	 * @see org.eclipse.b3.aggregator.AggregatorResourceView#getAggregator()
+	 * @see #getAggregatorResourceView()
+	 * @generated
+	 */
+	EReference getAggregatorResourceView_Aggregator();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.eclipse.b3.aggregator.AggregatorResourceView#getAggregations
+	 * <em>Aggregations</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the containment reference list '<em>Aggregations</em>'.
+	 * @see org.eclipse.b3.aggregator.AggregatorResourceView#getAggregations()
+	 * @see #getAggregatorResourceView()
+	 * @generated
+	 */
+	EReference getAggregatorResourceView_Aggregations();
 
 	/**
 	 * Returns the meta object for the attribute '{@link org.eclipse.b3.aggregator.AvailableVersion#getVersion <em>Version</em>}'.

@@ -6,8 +6,10 @@
  */
 package org.eclipse.b3.aggregator.util;
 
+import org.eclipse.b3.aggregator.Aggregation;
 import org.eclipse.b3.aggregator.Aggregator;
 import org.eclipse.b3.aggregator.AggregatorPackage;
+import org.eclipse.b3.aggregator.AggregatorResourceView;
 import org.eclipse.b3.aggregator.AvailableVersion;
 import org.eclipse.b3.aggregator.AvailableVersionsHeader;
 import org.eclipse.b3.aggregator.Bundle;
@@ -32,6 +34,7 @@ import org.eclipse.b3.aggregator.MavenMapping;
 import org.eclipse.b3.aggregator.MetadataRepositoryReference;
 import org.eclipse.b3.aggregator.Product;
 import org.eclipse.b3.aggregator.Property;
+import org.eclipse.b3.aggregator.Separable;
 import org.eclipse.b3.aggregator.Status;
 import org.eclipse.b3.aggregator.StatusProvider;
 import org.eclipse.b3.aggregator.ValidConfigurationsRule;
@@ -64,8 +67,18 @@ public class AggregatorAdapterFactory extends AdapterFactoryImpl {
 	 */
 	protected AggregatorSwitch<Adapter> modelSwitch = new AggregatorSwitch<Adapter>() {
 		@Override
+		public Adapter caseAggregation(Aggregation object) {
+			return createAggregationAdapter();
+		}
+
+		@Override
 		public Adapter caseAggregator(Aggregator object) {
 			return createAggregatorAdapter();
+		}
+
+		@Override
+		public Adapter caseAggregatorResourceView(AggregatorResourceView object) {
+			return createAggregatorResourceViewAdapter();
 		}
 
 		@Override
@@ -194,6 +207,11 @@ public class AggregatorAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
+		public Adapter caseSeparable(Separable object) {
+			return createSeparableAdapter();
+		}
+
+		@Override
 		public Adapter caseStatus(Status object) {
 			return createStatusAdapter();
 		}
@@ -241,6 +259,21 @@ public class AggregatorAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.aggregator.Aggregation <em>Aggregation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the new adapter.
+	 * @see org.eclipse.b3.aggregator.Aggregation
+	 * @generated
+	 */
+	public Adapter createAggregationAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.aggregator.Aggregator
 	 * <em>Aggregator</em>}'. <!-- begin-user-doc --> This default implementation returns null so that we can easily
 	 * ignore cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc
@@ -251,6 +284,21 @@ public class AggregatorAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createAggregatorAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.aggregator.AggregatorResourceView <em>Resource View</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the new adapter.
+	 * @see org.eclipse.b3.aggregator.AggregatorResourceView
+	 * @generated
+	 */
+	public Adapter createAggregatorResourceViewAdapter() {
 		return null;
 	}
 
@@ -611,6 +659,21 @@ public class AggregatorAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createPropertyAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.aggregator.Separable <em>Separable</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the new adapter.
+	 * @see org.eclipse.b3.aggregator.Separable
+	 * @generated
+	 */
+	public Adapter createSeparableAdapter() {
 		return null;
 	}
 

@@ -8,8 +8,10 @@ package org.eclipse.b3.aggregator.util;
 
 import java.util.List;
 
+import org.eclipse.b3.aggregator.Aggregation;
 import org.eclipse.b3.aggregator.Aggregator;
 import org.eclipse.b3.aggregator.AggregatorPackage;
+import org.eclipse.b3.aggregator.AggregatorResourceView;
 import org.eclipse.b3.aggregator.AvailableVersion;
 import org.eclipse.b3.aggregator.AvailableVersionsHeader;
 import org.eclipse.b3.aggregator.Bundle;
@@ -34,6 +36,7 @@ import org.eclipse.b3.aggregator.MavenMapping;
 import org.eclipse.b3.aggregator.MetadataRepositoryReference;
 import org.eclipse.b3.aggregator.Product;
 import org.eclipse.b3.aggregator.Property;
+import org.eclipse.b3.aggregator.Separable;
 import org.eclipse.b3.aggregator.Status;
 import org.eclipse.b3.aggregator.StatusProvider;
 import org.eclipse.b3.aggregator.ValidConfigurationsRule;
@@ -71,6 +74,23 @@ public class AggregatorSwitch<T1> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Aggregation</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * 
+	 * @param object
+	 *            the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Aggregation</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseAggregation(Aggregation object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Aggregator</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
@@ -82,6 +102,23 @@ public class AggregatorSwitch<T1> {
 	 * @generated
 	 */
 	public T1 caseAggregator(Aggregator object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Resource View</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * 
+	 * @param object
+	 *            the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Resource View</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseAggregatorResourceView(AggregatorResourceView object) {
 		return null;
 	}
 
@@ -467,6 +504,23 @@ public class AggregatorSwitch<T1> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Separable</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * 
+	 * @param object
+	 *            the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Separable</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseSeparable(Separable object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Status</em>'.
 	 * <!-- begin-user-doc --> This
 	 * implementation returns null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
@@ -534,17 +588,6 @@ public class AggregatorSwitch<T1> {
 	 * @return the first non-null result returned by a <code>caseXXX</code> call.
 	 * @generated
 	 */
-	public T1 doSwitch(EObject theEObject) {
-		return doSwitch(theEObject.eClass(), theEObject);
-	}
-
-	/**
-	 * Calls <code>caseXXX</code> for each class of the model until one returns a non null result; it yields that result.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @return the first non-null result returned by a <code>caseXXX</code> call.
-	 * @generated
-	 */
 	protected T1 doSwitch(EClass theEClass, EObject theEObject) {
 		if(theEClass.eContainer() == modelPackage) {
 			return doSwitch(theEClass.getClassifierID(), theEObject);
@@ -555,6 +598,17 @@ public class AggregatorSwitch<T1> {
 					? defaultCase(theEObject)
 					: doSwitch(eSuperTypes.get(0), theEObject);
 		}
+	}
+
+	/**
+	 * Calls <code>caseXXX</code> for each class of the model until one returns a non null result; it yields that result.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @return the first non-null result returned by a <code>caseXXX</code> call.
+	 * @generated
+	 */
+	public T1 doSwitch(EObject theEObject) {
+		return doSwitch(theEObject.eClass(), theEObject);
 	}
 
 	/**
@@ -616,6 +670,8 @@ public class AggregatorSwitch<T1> {
 					result = caseStatusProvider(contribution);
 				if(result == null)
 					result = caseInfosProvider(contribution);
+				if(result == null)
+					result = caseSeparable(contribution);
 				if(result == null)
 					result = defaultCase(theEObject);
 				return result;
@@ -892,6 +948,35 @@ public class AggregatorSwitch<T1> {
 			case AggregatorPackage.AVAILABLE_VERSION: {
 				AvailableVersion availableVersion = (AvailableVersion) theEObject;
 				T1 result = caseAvailableVersion(availableVersion);
+				if(result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
+			case AggregatorPackage.SEPARABLE: {
+				Separable separable = (Separable) theEObject;
+				T1 result = caseSeparable(separable);
+				if(result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
+			case AggregatorPackage.AGGREGATION: {
+				Aggregation aggregation = (Aggregation) theEObject;
+				T1 result = caseAggregation(aggregation);
+				if(result == null)
+					result = caseEnabledStatusProvider(aggregation);
+				if(result == null)
+					result = caseDescriptionProvider(aggregation);
+				if(result == null)
+					result = caseStatusProvider(aggregation);
+				if(result == null)
+					result = caseInfosProvider(aggregation);
+				if(result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
+			case AggregatorPackage.AGGREGATOR_RESOURCE_VIEW: {
+				AggregatorResourceView aggregatorResourceView = (AggregatorResourceView) theEObject;
+				T1 result = caseAggregatorResourceView(aggregatorResourceView);
 				if(result == null)
 					result = defaultCase(theEObject);
 				return result;

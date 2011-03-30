@@ -13,6 +13,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import org.eclipse.b3.aggregator.Aggregation;
 import org.eclipse.b3.aggregator.Aggregator;
 import org.eclipse.b3.aggregator.AggregatorFactory;
 import org.eclipse.b3.aggregator.AggregatorPackage;
@@ -26,6 +27,7 @@ import org.eclipse.b3.aggregator.MavenMapping;
 import org.eclipse.b3.aggregator.p2view.IUPresentation;
 import org.eclipse.b3.aggregator.p2view.MetadataRepositoryStructuredView;
 import org.eclipse.b3.aggregator.util.AddIUsToContributionCommand;
+import org.eclipse.b3.aggregator.util.FilteringCollection;
 import org.eclipse.b3.aggregator.util.ItemSorter;
 import org.eclipse.b3.aggregator.util.ItemSorter.ItemGroup;
 import org.eclipse.b3.aggregator.util.ItemUtils;
@@ -129,6 +131,257 @@ public class ContributionItemProvider extends AggregatorItemProviderAdapter impl
 	}
 
 	/**
+	 * This adds a property descriptor for the Contacts feature.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	protected void addContactsPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+			getResourceLocator(),
+			getString("_UI_Contribution_contacts_feature"),
+			getString(
+				"_UI_PropertyDescriptor_description", "_UI_Contribution_contacts_feature", "_UI_Contribution_type"),
+			AggregatorPackage.Literals.CONTRIBUTION__CONTACTS, true, false, false, null, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Description feature.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	protected void addDescriptionPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+			getResourceLocator(),
+			getString("_UI_DescriptionProvider_description_feature"),
+			getString(
+				"_UI_PropertyDescriptor_description", "_UI_DescriptionProvider_description_feature",
+				"_UI_DescriptionProvider_type"), AggregatorPackage.Literals.DESCRIPTION_PROVIDER__DESCRIPTION, true,
+			true, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Enabled feature.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	protected void addEnabledPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+			getResourceLocator(),
+			getString("_UI_EnabledStatusProvider_enabled_feature"),
+			getString(
+				"_UI_PropertyDescriptor_description", "_UI_EnabledStatusProvider_enabled_feature",
+				"_UI_EnabledStatusProvider_type"), AggregatorPackage.Literals.ENABLED_STATUS_PROVIDER__ENABLED, true,
+			false, false, ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Label feature.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	protected void addLabelPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+			getString("_UI_Contribution_label_feature"),
+			getString("_UI_PropertyDescriptor_description", "_UI_Contribution_label_feature", "_UI_Contribution_type"),
+			AggregatorPackage.Literals.CONTRIBUTION__LABEL, true, false, false,
+			ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Maven Mappings feature.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	protected void addMavenMappingsPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+			getResourceLocator(),
+			getString("_UI_Contribution_mavenMappings_feature"),
+			getString(
+				"_UI_PropertyDescriptor_description", "_UI_Contribution_mavenMappings_feature", "_UI_Contribution_type"),
+			AggregatorPackage.Literals.CONTRIBUTION__MAVEN_MAPPINGS, true, false, true, null, null, null));
+	}
+
+	/**
+	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
+	 * that can be created under this object.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated NOT
+	 */
+	@Override
+	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
+		collectNewChildDescriptorsGen(new FilteringCollection<Object>() {
+			@Override
+			public boolean add(Object e) {
+				if(e instanceof CommandParameter) {
+					Object newChildValue = ((CommandParameter) e).getValue();
+
+					// filter these out
+					if(newChildValue instanceof Aggregation)
+						return false;
+				}
+				return super.add(e);
+			}
+		}.setDelegate(newChildDescriptors), object);
+	}
+
+	/**
+	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
+	 * that can be created under this object.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	protected void collectNewChildDescriptorsGen(Collection<Object> newChildDescriptors, Object object) {
+		super.collectNewChildDescriptors(newChildDescriptors, object);
+
+		newChildDescriptors.add(createChildParameter(
+			AggregatorPackage.Literals.SEPARABLE__AGGREGATION, AggregatorFactory.eINSTANCE.createAggregation()));
+
+		newChildDescriptors.add(createChildParameter(
+			AggregatorPackage.Literals.CONTRIBUTION__REPOSITORIES, AggregatorFactory.eINSTANCE.createMappedRepository()));
+
+		newChildDescriptors.add(createChildParameter(
+			AggregatorPackage.Literals.CONTRIBUTION__MAVEN_MAPPINGS, AggregatorFactory.eINSTANCE.createMavenMapping()));
+	}
+
+	@SuppressWarnings("unchecked")
+	private Command createAddIUsToContributionCommand(Object owner, Collection<?> collection) {
+		ItemSorter itemSorter = new ItemSorter(collection);
+
+		if(((EnabledStatusProvider) owner).isEnabled() &&
+				itemSorter.getTotalItemCount() > 0 &&
+				(itemSorter.getTotalItemCount() == (itemSorter.getGroupItems(ItemGroup.MDR).size() + itemSorter.getGroupItems(
+					ItemGroup.IU).size()) || itemSorter.getTotalItemCount() == (itemSorter.getGroupItems(
+					ItemGroup.MDR_STRUCTURED).size() + itemSorter.getGroupItems(ItemGroup.IU_STRUCTURED).size()))) {
+			List<MetadataRepository> mdrs = new ArrayList<MetadataRepository>();
+			List<IInstallableUnit> ius = new ArrayList<IInstallableUnit>();
+
+			mdrs.addAll((List<MetadataRepository>) itemSorter.getGroupItems(ItemGroup.MDR));
+			mdrs.addAll(ItemUtils.getMDRs((List<MetadataRepositoryStructuredView>) itemSorter.getGroupItems(ItemGroup.MDR_STRUCTURED)));
+			ius.addAll((List<InstallableUnit>) itemSorter.getGroupItems(ItemGroup.IU));
+			ius.addAll(ItemUtils.getIUs((List<IUPresentation>) itemSorter.getGroupItems(ItemGroup.IU_STRUCTURED)));
+
+			return new AddIUsToContributionCommand((Contribution) owner, mdrs, ius);
+		}
+
+		return null;
+	}
+
+	/**
+	 * Supports DnD from MDRs and IUs to Contribution
+	 */
+	@Override
+	protected Command createDragAndDropCommand(EditingDomain domain, Object owner, float location, int operations,
+			int operation, Collection<?> collection) {
+		Command command = createAddIUsToContributionCommand(owner, collection);
+
+		if(command != null)
+			return command.canExecute()
+					? command
+					: UnexecutableCommand.INSTANCE;
+
+		return super.createDragAndDropCommand(domain, owner, location, operations, operation, collection);
+	}
+
+	/**
+	 * Creates a dynamic property descriptor which alters the readonly attribute according to the "enabled" flag
+	 */
+	@Override
+	protected ItemPropertyDescriptor createItemPropertyDescriptor(AdapterFactory adapterFactory,
+			ResourceLocator resourceLocator, String displayName, String description, EStructuralFeature feature,
+			boolean isSettable, boolean multiLine, boolean sortChoices, Object staticImage, String category,
+			String[] filterFlags) {
+		return new ContributionItemProvider.DynamicItemPropertyDescriptor(
+			adapterFactory, resourceLocator, displayName, description, feature, isSettable, multiLine, sortChoices,
+			staticImage, category, filterFlags);
+	}
+
+	/**
+	 * Allow deleting a child from mapped repository only if the contribution is enabled
+	 */
+	@Override
+	@Deprecated
+	protected Command createRemoveCommand(EditingDomain domain, EObject owner, EReference feature,
+			Collection<?> collection) {
+		if(((Contribution) owner).isEnabled())
+			return new RemoveCommand(domain, owner, feature, collection);
+
+		return UnexecutableCommand.INSTANCE;
+	}
+
+	/**
+	 * Allow deleting a child from mapped repository only if the contribution is enabled
+	 */
+	@Override
+	protected Command createRemoveCommand(EditingDomain domain, EObject owner, EStructuralFeature feature,
+			Collection<?> collection) {
+		if(feature instanceof EReference) {
+			return createRemoveCommand(domain, owner, (EReference) feature, collection);
+		}
+
+		if(((Contribution) owner).isEnabled())
+			return new RemoveCommand(domain, owner, feature, collection);
+
+		return UnexecutableCommand.INSTANCE;
+	}
+
+	/**
+	 * Supports copy&paste from IUs to COntribution
+	 */
+	@Override
+	protected Command factorAddCommand(EditingDomain domain, CommandParameter commandParameter) {
+		Command command = createAddIUsToContributionCommand(
+			commandParameter.getOwner(), commandParameter.getCollection());
+
+		if(command != null)
+			return command;
+
+		return super.factorAddCommand(domain, commandParameter);
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected EStructuralFeature getChildFeature(Object object, Object child) {
+		// Check the type of the specified child object and return the proper feature to use for
+		// adding (see {@link AddCommand}) it as a child.
+
+		return super.getChildFeature(object, child);
+	}
+
+	/**
+	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
+	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
+	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
+	 * <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
+	 * @generated NOT
+	 */
+	@Override
+	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
+		if(childrenFeatures == null) {
+			getChildrenFeaturesGen(object);
+			childrenFeatures.remove(AggregatorPackage.Literals.SEPARABLE__AGGREGATION);
+		}
+		return childrenFeatures;
+	}
+
+	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -137,10 +390,10 @@ public class ContributionItemProvider extends AggregatorItemProviderAdapter impl
 	 * 
 	 * @generated
 	 */
-	@Override
-	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
+	public Collection<? extends EStructuralFeature> getChildrenFeaturesGen(Object object) {
 		if(childrenFeatures == null) {
 			super.getChildrenFeatures(object);
+			childrenFeatures.add(AggregatorPackage.Literals.SEPARABLE__AGGREGATION);
 			childrenFeatures.add(AggregatorPackage.Literals.CONTRIBUTION__REPOSITORIES);
 			childrenFeatures.add(AggregatorPackage.Literals.CONTRIBUTION__MAVEN_MAPPINGS);
 		}
@@ -328,219 +581,12 @@ public class ContributionItemProvider extends AggregatorItemProviderAdapter impl
 			case AggregatorPackage.CONTRIBUTION__CONTACTS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
+			case AggregatorPackage.CONTRIBUTION__AGGREGATION:
 			case AggregatorPackage.CONTRIBUTION__REPOSITORIES:
 			case AggregatorPackage.CONTRIBUTION__MAVEN_MAPPINGS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
 		super.notifyChanged(notification);
-	}
-
-	/**
-	 * This adds a property descriptor for the Contacts feature.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	protected void addContactsPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-			getResourceLocator(),
-			getString("_UI_Contribution_contacts_feature"),
-			getString(
-				"_UI_PropertyDescriptor_description", "_UI_Contribution_contacts_feature", "_UI_Contribution_type"),
-			AggregatorPackage.Literals.CONTRIBUTION__CONTACTS, true, false, false, null, null, null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Description feature.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	protected void addDescriptionPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-			getResourceLocator(),
-			getString("_UI_DescriptionProvider_description_feature"),
-			getString(
-				"_UI_PropertyDescriptor_description", "_UI_DescriptionProvider_description_feature",
-				"_UI_DescriptionProvider_type"), AggregatorPackage.Literals.DESCRIPTION_PROVIDER__DESCRIPTION, true,
-			true, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Enabled feature.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	protected void addEnabledPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-			getResourceLocator(),
-			getString("_UI_EnabledStatusProvider_enabled_feature"),
-			getString(
-				"_UI_PropertyDescriptor_description", "_UI_EnabledStatusProvider_enabled_feature",
-				"_UI_EnabledStatusProvider_type"), AggregatorPackage.Literals.ENABLED_STATUS_PROVIDER__ENABLED, true,
-			false, false, ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Label feature.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	protected void addLabelPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-			getString("_UI_Contribution_label_feature"),
-			getString("_UI_PropertyDescriptor_description", "_UI_Contribution_label_feature", "_UI_Contribution_type"),
-			AggregatorPackage.Literals.CONTRIBUTION__LABEL, true, false, false,
-			ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Maven Mappings feature.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	protected void addMavenMappingsPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-			getResourceLocator(),
-			getString("_UI_Contribution_mavenMappings_feature"),
-			getString(
-				"_UI_PropertyDescriptor_description", "_UI_Contribution_mavenMappings_feature", "_UI_Contribution_type"),
-			AggregatorPackage.Literals.CONTRIBUTION__MAVEN_MAPPINGS, true, false, true, null, null, null));
-	}
-
-	/**
-	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
-	 * that can be created under this object.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
-		super.collectNewChildDescriptors(newChildDescriptors, object);
-
-		newChildDescriptors.add(createChildParameter(
-			AggregatorPackage.Literals.CONTRIBUTION__REPOSITORIES, AggregatorFactory.eINSTANCE.createMappedRepository()));
-
-		newChildDescriptors.add(createChildParameter(
-			AggregatorPackage.Literals.CONTRIBUTION__MAVEN_MAPPINGS, AggregatorFactory.eINSTANCE.createMavenMapping()));
-	}
-
-	/**
-	 * Supports DnD from MDRs and IUs to Contribution
-	 */
-	@Override
-	protected Command createDragAndDropCommand(EditingDomain domain, Object owner, float location, int operations,
-			int operation, Collection<?> collection) {
-		Command command = createAddIUsToContributionCommand(owner, collection);
-
-		if(command != null)
-			if(command.canExecute())
-				return command;
-			else
-				return UnexecutableCommand.INSTANCE;
-
-		return super.createDragAndDropCommand(domain, owner, location, operations, operation, collection);
-	}
-
-	/**
-	 * Creates a dynamic property descriptor which alters the readonly attribute according to the "enabled" flag
-	 */
-	@Override
-	protected ItemPropertyDescriptor createItemPropertyDescriptor(AdapterFactory adapterFactory,
-			ResourceLocator resourceLocator, String displayName, String description, EStructuralFeature feature,
-			boolean isSettable, boolean multiLine, boolean sortChoices, Object staticImage, String category,
-			String[] filterFlags) {
-		return new ContributionItemProvider.DynamicItemPropertyDescriptor(
-			adapterFactory, resourceLocator, displayName, description, feature, isSettable, multiLine, sortChoices,
-			staticImage, category, filterFlags);
-	}
-
-	/**
-	 * Allow deleting a child from mapped repository only if the contribution is enabled
-	 */
-	@Override
-	@Deprecated
-	protected Command createRemoveCommand(EditingDomain domain, EObject owner, EReference feature,
-			Collection<?> collection) {
-		if(((Contribution) owner).isEnabled())
-			return new RemoveCommand(domain, owner, feature, collection);
-
-		return UnexecutableCommand.INSTANCE;
-	}
-
-	/**
-	 * Allow deleting a child from mapped repository only if the contribution is enabled
-	 */
-	@Override
-	protected Command createRemoveCommand(EditingDomain domain, EObject owner, EStructuralFeature feature,
-			Collection<?> collection) {
-		if(feature instanceof EReference) {
-			return createRemoveCommand(domain, owner, (EReference) feature, collection);
-		}
-
-		if(((Contribution) owner).isEnabled())
-			return new RemoveCommand(domain, owner, feature, collection);
-
-		return UnexecutableCommand.INSTANCE;
-	}
-
-	/**
-	 * Supports copy&paste from IUs to COntribution
-	 */
-	@Override
-	protected Command factorAddCommand(EditingDomain domain, CommandParameter commandParameter) {
-		Command command = createAddIUsToContributionCommand(
-			commandParameter.getOwner(), commandParameter.getCollection());
-
-		if(command != null)
-			return command;
-
-		return super.factorAddCommand(domain, commandParameter);
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected EStructuralFeature getChildFeature(Object object, Object child) {
-		// Check the type of the specified child object and return the proper feature to use for
-		// adding (see {@link AddCommand}) it as a child.
-
-		return super.getChildFeature(object, child);
-	}
-
-	@SuppressWarnings("unchecked")
-	private Command createAddIUsToContributionCommand(Object owner, Collection<?> collection) {
-		ItemSorter itemSorter = new ItemSorter(collection);
-
-		if(((EnabledStatusProvider) owner).isEnabled() &&
-				itemSorter.getTotalItemCount() > 0 &&
-				(itemSorter.getTotalItemCount() == (itemSorter.getGroupItems(ItemGroup.MDR).size() + itemSorter.getGroupItems(
-					ItemGroup.IU).size()) || itemSorter.getTotalItemCount() == (itemSorter.getGroupItems(
-					ItemGroup.MDR_STRUCTURED).size() + itemSorter.getGroupItems(ItemGroup.IU_STRUCTURED).size()))) {
-			List<MetadataRepository> mdrs = new ArrayList<MetadataRepository>();
-			List<IInstallableUnit> ius = new ArrayList<IInstallableUnit>();
-
-			mdrs.addAll((List<MetadataRepository>) itemSorter.getGroupItems(ItemGroup.MDR));
-			mdrs.addAll(ItemUtils.getMDRs((List<MetadataRepositoryStructuredView>) itemSorter.getGroupItems(ItemGroup.MDR_STRUCTURED)));
-			ius.addAll((List<InstallableUnit>) itemSorter.getGroupItems(ItemGroup.IU));
-			ius.addAll(ItemUtils.getIUs((List<IUPresentation>) itemSorter.getGroupItems(ItemGroup.IU_STRUCTURED)));
-
-			return new AddIUsToContributionCommand((Contribution) owner, mdrs, ius);
-		}
-
-		return null;
 	}
 }

@@ -83,6 +83,30 @@ public class AggregatorResourceImpl extends XMIResourceImpl implements Aggregato
 		super(uri);
 	}
 
+	private void analyze(EObject object) {
+		if(object instanceof EnabledStatusProvider && !((EnabledStatusProvider) object).isEnabled())
+			return;
+
+		if(object instanceof InfosProvider) {
+			InfosProvider iProvider = (InfosProvider) object;
+
+			for(String error : iProvider.getErrors())
+				getErrors().add(new ResourceDiagnosticImpl(error, EcoreUtil.getURI(object).toString()));
+
+			for(String warning : iProvider.getWarnings())
+				getWarnings().add(new ResourceDiagnosticImpl(warning, EcoreUtil.getURI(object).toString()));
+
+			for(String info : iProvider.getInfos())
+				getInfos().add(new ResourceDiagnosticImpl(info, EcoreUtil.getURI(object).toString()));
+		}
+
+		if(object.eContents() == null)
+			return;
+
+		for(EObject childObject : object.eContents())
+			analyze(childObject);
+	}
+
 	/*
 	 * Analysis aggregator errors, warnings & infos
 	 */
@@ -167,30 +191,6 @@ public class AggregatorResourceImpl extends XMIResourceImpl implements Aggregato
 			};
 		}
 		return infos;
-	}
-
-	private void analyze(EObject object) {
-		if(object instanceof EnabledStatusProvider && !((EnabledStatusProvider) object).isEnabled())
-			return;
-
-		if(object instanceof InfosProvider) {
-			InfosProvider iProvider = (InfosProvider) object;
-
-			for(String error : iProvider.getErrors())
-				getErrors().add(new ResourceDiagnosticImpl(error, EcoreUtil.getURI(object).toString()));
-
-			for(String warning : iProvider.getWarnings())
-				getWarnings().add(new ResourceDiagnosticImpl(warning, EcoreUtil.getURI(object).toString()));
-
-			for(String info : iProvider.getInfos())
-				getInfos().add(new ResourceDiagnosticImpl(info, EcoreUtil.getURI(object).toString()));
-		}
-
-		if(object.eContents() == null)
-			return;
-
-		for(EObject childObject : object.eContents())
-			analyze(childObject);
 	}
 
 } // AggregatorResourceImpl

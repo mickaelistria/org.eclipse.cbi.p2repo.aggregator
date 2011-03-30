@@ -6,11 +6,12 @@
  */
 package org.eclipse.b3.aggregator.impl;
 
-import java.lang.Comparable;
 import org.eclipse.b3.aggregator.AggregateType;
+import org.eclipse.b3.aggregator.Aggregation;
 import org.eclipse.b3.aggregator.Aggregator;
 import org.eclipse.b3.aggregator.AggregatorFactory;
 import org.eclipse.b3.aggregator.AggregatorPackage;
+import org.eclipse.b3.aggregator.AggregatorResourceView;
 import org.eclipse.b3.aggregator.Architecture;
 import org.eclipse.b3.aggregator.AvailableVersion;
 import org.eclipse.b3.aggregator.AvailableVersionsHeader;
@@ -39,6 +40,7 @@ import org.eclipse.b3.aggregator.OperatingSystem;
 import org.eclipse.b3.aggregator.PackedStrategy;
 import org.eclipse.b3.aggregator.Product;
 import org.eclipse.b3.aggregator.Property;
+import org.eclipse.b3.aggregator.Separable;
 import org.eclipse.b3.aggregator.Status;
 import org.eclipse.b3.aggregator.StatusCode;
 import org.eclipse.b3.aggregator.StatusProvider;
@@ -271,6 +273,30 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 	private EClass availableVersionEClass = null;
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	private EClass separableEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	private EClass aggregationEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	private EClass aggregatorResourceViewEClass = null;
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
@@ -441,6 +467,7 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 		createEAttribute(aggregatorEClass, AGGREGATOR__MAVEN_RESULT);
 		createEReference(aggregatorEClass, AGGREGATOR__VALIDATION_REPOSITORIES);
 		createEReference(aggregatorEClass, AGGREGATOR__MAVEN_MAPPINGS);
+		createEReference(aggregatorEClass, AGGREGATOR__AGGREGATIONS);
 
 		mappedRepositoryEClass = createEClass(MAPPED_REPOSITORY);
 		createEReference(mappedRepositoryEClass, MAPPED_REPOSITORY__PRODUCTS);
@@ -552,6 +579,17 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 		createEAttribute(availableVersionEClass, AVAILABLE_VERSION__VERSION);
 		createEAttribute(availableVersionEClass, AVAILABLE_VERSION__FILTER);
 
+		separableEClass = createEClass(SEPARABLE);
+		createEReference(separableEClass, SEPARABLE__AGGREGATION);
+
+		aggregationEClass = createEClass(AGGREGATION);
+		createEAttribute(aggregationEClass, AGGREGATION__LABEL);
+		createEReference(aggregationEClass, AGGREGATION__CONTRIBUTIONS);
+
+		aggregatorResourceViewEClass = createEClass(AGGREGATOR_RESOURCE_VIEW);
+		createEReference(aggregatorResourceViewEClass, AGGREGATOR_RESOURCE_VIEW__AGGREGATOR);
+		createEReference(aggregatorResourceViewEClass, AGGREGATOR_RESOURCE_VIEW__AGGREGATIONS);
+
 		// Create enums
 		aggregateTypeEEnum = createEEnum(AGGREGATE_TYPE);
 		operatingSystemEEnum = createEEnum(OPERATING_SYSTEM);
@@ -573,12 +611,52 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EClass getAggregation() {
+		return aggregationEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EReference getAggregation_Contributions() {
+		return (EReference) aggregationEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EAttribute getAggregation_Label() {
+		return (EAttribute) aggregationEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 */
 	public EClass getAggregator() {
 		return aggregatorEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EReference getAggregator_Aggregations() {
+		return (EReference) aggregatorEClass.getEStructuralFeatures().get(13);
 	}
 
 	/**
@@ -705,6 +783,36 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 	 */
 	public AggregatorFactory getAggregatorFactory() {
 		return (AggregatorFactory) getEFactoryInstance();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EClass getAggregatorResourceView() {
+		return aggregatorResourceViewEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EReference getAggregatorResourceView_Aggregations() {
+		return (EReference) aggregatorResourceViewEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EReference getAggregatorResourceView_Aggregator() {
+		return (EReference) aggregatorResourceViewEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -1431,6 +1539,26 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EClass getSeparable() {
+		return separableEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EReference getSeparable_Aggregation() {
+		return (EReference) separableEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
@@ -1563,6 +1691,7 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 		contributionEClass.getESuperTypes().add(this.getDescriptionProvider());
 		contributionEClass.getESuperTypes().add(this.getStatusProvider());
 		contributionEClass.getESuperTypes().add(this.getInfosProvider());
+		contributionEClass.getESuperTypes().add(this.getSeparable());
 		featureEClass.getESuperTypes().add(this.getMappedUnit());
 		bundleEClass.getESuperTypes().add(this.getMappedUnit());
 		mappedUnitEClass.getESuperTypes().add(this.getInstallableUnitRequest());
@@ -1587,6 +1716,10 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 		metadataRepositoryReferenceEClass.getESuperTypes().add(this.getInfosProvider());
 		mavenMappingEClass.getESuperTypes().add(this.getStatusProvider());
 		mavenMappingEClass.getESuperTypes().add(this.getInfosProvider());
+		aggregationEClass.getESuperTypes().add(this.getEnabledStatusProvider());
+		aggregationEClass.getESuperTypes().add(this.getDescriptionProvider());
+		aggregationEClass.getESuperTypes().add(this.getStatusProvider());
+		aggregationEClass.getESuperTypes().add(this.getInfosProvider());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(
@@ -1642,6 +1775,11 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 			getAggregator_MavenMappings(), this.getMavenMapping(), null, "mavenMappings", null, 0, -1,
 			Aggregator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES,
 			!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(
+			getAggregator_Aggregations(), this.getAggregation(), null, "aggregations", null, 0, -1, Aggregator.class,
+			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,
+			!IS_DERIVED, IS_ORDERED);
+		getAggregator_Aggregations().getEKeys().add(this.getAggregation_Label());
 
 		EOperation op = addEOperation(
 			aggregatorEClass, this.getContribution(), "getContributions", 0, -1, IS_UNIQUE, IS_ORDERED);
@@ -2016,6 +2154,39 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 		initEAttribute(
 			getAvailableVersion_Filter(), g1, "filter", null, 0, 1, AvailableVersion.class, !IS_TRANSIENT,
 			!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(
+			separableEClass, Separable.class, "Separable", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(
+			getSeparable_Aggregation(), this.getAggregation(), null, "aggregation", null, 0, 1, Separable.class,
+			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,
+			!IS_DERIVED, IS_ORDERED);
+
+		initEClass(
+			aggregationEClass, Aggregation.class, "Aggregation", !IS_ABSTRACT, !IS_INTERFACE,
+			IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(
+			getAggregation_Label(), ecorePackage.getEString(), "label", null, 1, 1, Aggregation.class, !IS_TRANSIENT,
+			!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(
+			getAggregation_Contributions(), this.getContribution(), null, "contributions", null, 0, -1,
+			Aggregation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
+			!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		getAggregation_Contributions().getEKeys().add(this.getContribution_Label());
+
+		initEClass(
+			aggregatorResourceViewEClass, AggregatorResourceView.class, "AggregatorResourceView", !IS_ABSTRACT,
+			!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(
+			getAggregatorResourceView_Aggregator(), this.getAggregator(), null, "aggregator", null, 1, 1,
+			AggregatorResourceView.class, !IS_TRANSIENT, !IS_VOLATILE, !IS_CHANGEABLE, IS_COMPOSITE,
+			IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		getAggregatorResourceView_Aggregator().getEKeys().add(this.getAggregator_Label());
+		initEReference(
+			getAggregatorResourceView_Aggregations(), this.getAggregation(), null, "aggregations", null, 0, -1,
+			AggregatorResourceView.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES,
+			!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		getAggregatorResourceView_Aggregations().getEKeys().add(this.getAggregation_Label());
 
 		// Initialize enums and add enum literals
 		initEEnum(aggregateTypeEEnum, AggregateType.class, "AggregateType");

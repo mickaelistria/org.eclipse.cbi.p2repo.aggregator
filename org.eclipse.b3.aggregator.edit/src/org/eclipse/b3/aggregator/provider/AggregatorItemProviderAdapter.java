@@ -44,15 +44,6 @@ public class AggregatorItemProviderAdapter extends ItemProviderAdapter implement
 			return result;
 		}
 
-		@Override
-		public void setPropertyValue(Object object, Object value) {
-			// Replaces empty string with null
-			if(value instanceof String)
-				value = StringUtils.trimmedOrNull((String) value);
-
-			super.setPropertyValue(object, value);
-		}
-
 		private boolean parentsEnabled(Object object) {
 			if(object instanceof EObject) {
 				EObject eObject = (EObject) object;
@@ -70,6 +61,15 @@ public class AggregatorItemProviderAdapter extends ItemProviderAdapter implement
 			}
 
 			return true;
+		}
+
+		@Override
+		public void setPropertyValue(Object object, Object value) {
+			// Replaces empty string with null
+			if(value instanceof String)
+				value = StringUtils.trimmedOrNull((String) value);
+
+			super.setPropertyValue(object, value);
 		}
 	}
 
@@ -99,6 +99,16 @@ public class AggregatorItemProviderAdapter extends ItemProviderAdapter implement
 		super(adapterFactory);
 	}
 
+	@Override
+	protected ItemPropertyDescriptor createItemPropertyDescriptor(AdapterFactory adapterFactory,
+			ResourceLocator resourceLocator, String displayName, String description, EStructuralFeature feature,
+			boolean isSettable, boolean multiLine, boolean sortChoices, Object staticImage, String category,
+			String[] filterFlags) {
+		return new AggregatorItemPropertyDescriptor(
+			adapterFactory, resourceLocator, displayName, description, feature, isSettable, multiLine, sortChoices,
+			staticImage, category, filterFlags);
+	}
+
 	/**
 	 * Grey out the label if this item is (directly or indirectly) disabled
 	 */
@@ -115,16 +125,6 @@ public class AggregatorItemProviderAdapter extends ItemProviderAdapter implement
 	// default implementation
 	public String getTooltipText(Object object) {
 		return getTooltipText(object, this);
-	}
-
-	@Override
-	protected ItemPropertyDescriptor createItemPropertyDescriptor(AdapterFactory adapterFactory,
-			ResourceLocator resourceLocator, String displayName, String description, EStructuralFeature feature,
-			boolean isSettable, boolean multiLine, boolean sortChoices, Object staticImage, String category,
-			String[] filterFlags) {
-		return new AggregatorItemPropertyDescriptor(
-			adapterFactory, resourceLocator, displayName, description, feature, isSettable, multiLine, sortChoices,
-			staticImage, category, filterFlags);
 	}
 
 	@Override

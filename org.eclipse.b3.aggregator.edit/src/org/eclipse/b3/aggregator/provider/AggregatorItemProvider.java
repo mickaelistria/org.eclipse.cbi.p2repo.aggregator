@@ -9,6 +9,7 @@ package org.eclipse.b3.aggregator.provider;
 import java.util.Collection;
 import java.util.List;
 
+import org.eclipse.b3.aggregator.Aggregation;
 import org.eclipse.b3.aggregator.Aggregator;
 import org.eclipse.b3.aggregator.AggregatorFactory;
 import org.eclipse.b3.aggregator.AggregatorPackage;
@@ -16,10 +17,13 @@ import org.eclipse.b3.aggregator.Contribution;
 import org.eclipse.b3.aggregator.MappedRepository;
 import org.eclipse.b3.aggregator.MavenMapping;
 import org.eclipse.b3.aggregator.MetadataRepositoryReference;
+import org.eclipse.b3.aggregator.util.FilteringCollection;
 import org.eclipse.b3.aggregator.util.ResourceUtils;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EStructuralFeature;
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.edit.command.CommandParameter;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemColorProvider;
@@ -49,135 +53,6 @@ public class AggregatorItemProvider extends DescriptionProviderItemProvider impl
 	 */
 	public AggregatorItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
-	}
-
-	/**
-	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
-	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
-	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
-		if(childrenFeatures == null) {
-			super.getChildrenFeatures(object);
-			childrenFeatures.add(AggregatorPackage.Literals.AGGREGATOR__CONFIGURATIONS);
-			childrenFeatures.add(AggregatorPackage.Literals.AGGREGATOR__CONTRIBUTIONS);
-			childrenFeatures.add(AggregatorPackage.Literals.AGGREGATOR__CONTACTS);
-			childrenFeatures.add(AggregatorPackage.Literals.AGGREGATOR__CUSTOM_CATEGORIES);
-			childrenFeatures.add(AggregatorPackage.Literals.AGGREGATOR__VALIDATION_REPOSITORIES);
-			childrenFeatures.add(AggregatorPackage.Literals.AGGREGATOR__MAVEN_MAPPINGS);
-		}
-		return childrenFeatures;
-	}
-
-	/**
-	 * This returns Aggregator.gif.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/Aggregator"));
-	}
-
-	/**
-	 * This returns the property descriptors for the adapted class.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-		if(itemPropertyDescriptors == null) {
-			super.getPropertyDescriptors(object);
-
-			addBuildmasterPropertyDescriptor(object);
-			addLabelPropertyDescriptor(object);
-			addBuildRootPropertyDescriptor(object);
-			addPackedStrategyPropertyDescriptor(object);
-			addSendmailPropertyDescriptor(object);
-			addTypePropertyDescriptor(object);
-			addMavenResultPropertyDescriptor(object);
-			addMavenMappingsPropertyDescriptor(object);
-		}
-		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This returns the label text for the adapted class.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	public String getText(Object object) {
-		String label = ((Aggregator) object).getLabel();
-		return label == null || label.length() == 0
-				? getString("_UI_Aggregator_type")
-				: getString("_UI_Aggregator_type") + " " + label;
-	}
-
-	@Override
-	public void notifyChanged(Notification notification) {
-		notifyChangedGen(notification);
-
-		if(notification.getEventType() == Notification.REMOVE) {
-			Object oldV = notification.getOldValue();
-			if(oldV instanceof Contribution || oldV instanceof MetadataRepositoryReference)
-				ResourceUtils.cleanUpResources((Aggregator) notification.getNotifier());
-			if(oldV instanceof MetadataRepositoryReference || oldV instanceof MavenMapping)
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-		}
-		else if(notification.getEventType() == Notification.ADD) {
-			Object newV = notification.getNewValue();
-			if(newV instanceof Contribution) {
-				for(MappedRepository mappedRepository : ((Contribution) newV).getRepositories(true))
-					ResourceUtils.loadResourceForMappedRepository(mappedRepository);
-			}
-			else if(newV instanceof MetadataRepositoryReference) {
-				ResourceUtils.loadResourceForMappedRepository((MetadataRepositoryReference) newV);
-			}
-
-			if(newV instanceof MetadataRepositoryReference || newV instanceof MavenMapping)
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-		}
-	}
-
-	/**
-	 * This handles model notifications by calling {@link #updateChildren} to update any cached children and by creating
-	 * a viewer notification, which it passes to {@link #fireNotifyChanged}. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
-	 * 
-	 * @generated
-	 */
-	public void notifyChangedGen(Notification notification) {
-		updateChildren(notification);
-
-		switch(notification.getFeatureID(Aggregator.class)) {
-			case AggregatorPackage.AGGREGATOR__BUILDMASTER:
-			case AggregatorPackage.AGGREGATOR__LABEL:
-			case AggregatorPackage.AGGREGATOR__BUILD_ROOT:
-			case AggregatorPackage.AGGREGATOR__PACKED_STRATEGY:
-			case AggregatorPackage.AGGREGATOR__SENDMAIL:
-			case AggregatorPackage.AGGREGATOR__TYPE:
-			case AggregatorPackage.AGGREGATOR__MAVEN_RESULT:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-				return;
-			case AggregatorPackage.AGGREGATOR__CONFIGURATIONS:
-			case AggregatorPackage.AGGREGATOR__CONTRIBUTIONS:
-			case AggregatorPackage.AGGREGATOR__CONTACTS:
-			case AggregatorPackage.AGGREGATOR__CUSTOM_CATEGORIES:
-			case AggregatorPackage.AGGREGATOR__VALIDATION_REPOSITORIES:
-			case AggregatorPackage.AGGREGATOR__MAVEN_MAPPINGS:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
-				return;
-		}
-		super.notifyChanged(notification);
 	}
 
 	/**
@@ -305,13 +180,37 @@ public class AggregatorItemProvider extends DescriptionProviderItemProvider impl
 	}
 
 	/**
-	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children that can be created
-	 * under this object. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
+	 * that can be created under this object.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated NOT
 	 */
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
+		collectNewChildDescriptorsGen(new FilteringCollection<Object>() {
+			@Override
+			public boolean add(Object e) {
+				if(e instanceof CommandParameter) {
+					Object newChildValue = ((CommandParameter) e).getValue();
+
+					// filter these out
+					if(newChildValue instanceof Aggregation || newChildValue instanceof MappedRepository)
+						return false;
+				}
+				return super.add(e);
+			}
+		}.setDelegate(newChildDescriptors), object);
+	}
+
+	/**
+	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
+	 * that can be created under this object.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	protected void collectNewChildDescriptorsGen(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 
 		newChildDescriptors.add(createChildParameter(
@@ -332,7 +231,14 @@ public class AggregatorItemProvider extends DescriptionProviderItemProvider impl
 			AggregatorFactory.eINSTANCE.createMetadataRepositoryReference()));
 
 		newChildDescriptors.add(createChildParameter(
+			AggregatorPackage.Literals.AGGREGATOR__VALIDATION_REPOSITORIES,
+			AggregatorFactory.eINSTANCE.createMappedRepository()));
+
+		newChildDescriptors.add(createChildParameter(
 			AggregatorPackage.Literals.AGGREGATOR__MAVEN_MAPPINGS, AggregatorFactory.eINSTANCE.createMavenMapping()));
+
+		newChildDescriptors.add(createChildParameter(
+			AggregatorPackage.Literals.AGGREGATOR__AGGREGATIONS, AggregatorFactory.eINSTANCE.createAggregation()));
 	}
 
 	/**
@@ -346,6 +252,192 @@ public class AggregatorItemProvider extends DescriptionProviderItemProvider impl
 		// adding (see {@link AddCommand}) it as a child.
 
 		return super.getChildFeature(object, child);
+	}
+
+	/**
+	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
+	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
+	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
+	 * <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
+	 * @generated NOT
+	 */
+	@Override
+	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
+		if(childrenFeatures == null) {
+			getChildrenFeaturesGen(object);
+			childrenFeatures.remove(AggregatorPackage.Literals.AGGREGATOR__AGGREGATIONS);
+		}
+		return childrenFeatures;
+	}
+
+	/**
+	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
+	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
+	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
+	 * <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public Collection<? extends EStructuralFeature> getChildrenFeaturesGen(Object object) {
+		if(childrenFeatures == null) {
+			super.getChildrenFeatures(object);
+			childrenFeatures.add(AggregatorPackage.Literals.AGGREGATOR__CONFIGURATIONS);
+			childrenFeatures.add(AggregatorPackage.Literals.AGGREGATOR__CONTRIBUTIONS);
+			childrenFeatures.add(AggregatorPackage.Literals.AGGREGATOR__CONTACTS);
+			childrenFeatures.add(AggregatorPackage.Literals.AGGREGATOR__CUSTOM_CATEGORIES);
+			childrenFeatures.add(AggregatorPackage.Literals.AGGREGATOR__VALIDATION_REPOSITORIES);
+			childrenFeatures.add(AggregatorPackage.Literals.AGGREGATOR__MAVEN_MAPPINGS);
+			childrenFeatures.add(AggregatorPackage.Literals.AGGREGATOR__AGGREGATIONS);
+		}
+		return childrenFeatures;
+	}
+
+	/**
+	 * This returns Aggregator.gif.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public Object getImage(Object object) {
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/Aggregator"));
+	}
+
+	/**
+	 * This returns the property descriptors for the adapted class.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
+		if(itemPropertyDescriptors == null) {
+			super.getPropertyDescriptors(object);
+
+			addBuildmasterPropertyDescriptor(object);
+			addLabelPropertyDescriptor(object);
+			addBuildRootPropertyDescriptor(object);
+			addPackedStrategyPropertyDescriptor(object);
+			addSendmailPropertyDescriptor(object);
+			addTypePropertyDescriptor(object);
+			addMavenResultPropertyDescriptor(object);
+			addMavenMappingsPropertyDescriptor(object);
+		}
+		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This returns the label text for the adapted class.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public String getText(Object object) {
+		String label = ((Aggregator) object).getLabel();
+		return label == null || label.length() == 0
+				? getString("_UI_Aggregator_type")
+				: getString("_UI_Aggregator_type") + " " + label;
+	}
+
+	@Override
+	public void notifyChanged(Notification notification) {
+		// send notification to the parent (display tree wise) of the changed aggregation node
+		if(notification.getFeatureID(AggregatorPackage.class) == AggregatorPackage.AGGREGATOR__AGGREGATIONS) {
+			SEND_NOTIFICATION: {
+				if(!(notification instanceof ENotificationImpl))
+					break SEND_NOTIFICATION;
+
+				ENotificationImpl eNotification = (ENotificationImpl) notification;
+				Object value;
+
+				switch(notification.getEventType()) {
+					case Notification.ADD:
+					case Notification.MOVE:
+						value = eNotification.getNewValue();
+						break;
+					case Notification.ADD_MANY:
+						value = eNotification.getNewValue();
+						if(value instanceof List<?>)
+							value = ((List<?>) value).get(0);
+						break;
+					case Notification.REMOVE:
+						value = eNotification.getOldValue();
+						break;
+					case Notification.REMOVE_MANY:
+						value = eNotification.getOldValue();
+						if(value instanceof List<?>)
+							value = ((List<?>) value).get(0);
+						break;
+					default:
+						break SEND_NOTIFICATION;
+				}
+
+				IEditingDomainItemProvider valueItemProvider = (IEditingDomainItemProvider) getRootAdapterFactory().adapt(
+					value, IEditingDomainItemProvider.class);
+				fireNotifyChanged(new ViewerNotification(notification, valueItemProvider.getParent(value), true, false));
+			}
+			return;
+		}
+
+		notifyChangedGen(notification);
+
+		if(notification.getEventType() == Notification.REMOVE) {
+			Object oldV = notification.getOldValue();
+			if(oldV instanceof Contribution || oldV instanceof MetadataRepositoryReference)
+				ResourceUtils.cleanUpResources((Aggregator) notification.getNotifier());
+			if(oldV instanceof MetadataRepositoryReference || oldV instanceof MavenMapping)
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+		}
+		else if(notification.getEventType() == Notification.ADD) {
+			Object newV = notification.getNewValue();
+			if(newV instanceof Contribution) {
+				for(MappedRepository mappedRepository : ((Contribution) newV).getRepositories(true))
+					ResourceUtils.loadResourceForMappedRepository(mappedRepository);
+			}
+			else if(newV instanceof MetadataRepositoryReference) {
+				ResourceUtils.loadResourceForMappedRepository((MetadataRepositoryReference) newV);
+			}
+
+			if(newV instanceof MetadataRepositoryReference || newV instanceof MavenMapping)
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+		}
+	}
+
+	/**
+	 * This handles model notifications by calling {@link #updateChildren} to update any cached children and by creating
+	 * a viewer notification, which it passes to {@link #fireNotifyChanged}. <!-- begin-user-doc --> <!-- end-user-doc
+	 * -->
+	 * 
+	 * @generated
+	 */
+	public void notifyChangedGen(Notification notification) {
+		updateChildren(notification);
+
+		switch(notification.getFeatureID(Aggregator.class)) {
+			case AggregatorPackage.AGGREGATOR__BUILDMASTER:
+			case AggregatorPackage.AGGREGATOR__LABEL:
+			case AggregatorPackage.AGGREGATOR__BUILD_ROOT:
+			case AggregatorPackage.AGGREGATOR__PACKED_STRATEGY:
+			case AggregatorPackage.AGGREGATOR__SENDMAIL:
+			case AggregatorPackage.AGGREGATOR__TYPE:
+			case AggregatorPackage.AGGREGATOR__MAVEN_RESULT:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
+			case AggregatorPackage.AGGREGATOR__CONFIGURATIONS:
+			case AggregatorPackage.AGGREGATOR__CONTRIBUTIONS:
+			case AggregatorPackage.AGGREGATOR__CONTACTS:
+			case AggregatorPackage.AGGREGATOR__CUSTOM_CATEGORIES:
+			case AggregatorPackage.AGGREGATOR__VALIDATION_REPOSITORIES:
+			case AggregatorPackage.AGGREGATOR__MAVEN_MAPPINGS:
+			case AggregatorPackage.AGGREGATOR__AGGREGATIONS:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
+				return;
+		}
+		super.notifyChanged(notification);
 	}
 
 }

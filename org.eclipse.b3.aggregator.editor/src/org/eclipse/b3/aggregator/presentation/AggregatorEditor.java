@@ -24,14 +24,15 @@ import org.eclipse.b3.aggregator.Aggregator;
 import org.eclipse.b3.aggregator.AggregatorPlugin;
 import org.eclipse.b3.aggregator.MetadataRepositoryReference;
 import org.eclipse.b3.aggregator.StatusCode;
+import org.eclipse.b3.aggregator.impl.AggregatorResourceViewImpl;
 import org.eclipse.b3.aggregator.p2.provider.MetadataRepositoryItemProvider;
 import org.eclipse.b3.aggregator.p2.provider.ProvidedCapabilityItemProvider;
 import org.eclipse.b3.aggregator.p2.provider.RequiredCapabilityItemProvider;
 import org.eclipse.b3.aggregator.p2.util.MetadataRepositoryResourceImpl;
 import org.eclipse.b3.aggregator.p2view.provider.P2viewItemProviderAdapterFactory;
-import org.eclipse.b3.aggregator.provider.AggregatorEditPlugin;
 import org.eclipse.b3.aggregator.provider.AggregatorItemProviderAdapter;
 import org.eclipse.b3.aggregator.provider.AggregatorItemProviderAdapterFactory;
+import org.eclipse.b3.aggregator.provider.AggregatorResourceViewItemProvider;
 import org.eclipse.b3.aggregator.provider.TooltipTextProvider;
 import org.eclipse.b3.aggregator.util.AggregatorResource;
 import org.eclipse.b3.aggregator.util.AggregatorResourceImpl;
@@ -62,6 +63,7 @@ import org.eclipse.emf.common.command.CommandStackListener;
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.ui.MarkerHelper;
 import org.eclipse.emf.common.ui.celleditor.ExtendedDialogCellEditor;
 import org.eclipse.emf.common.ui.editor.ProblemEditorPart;
@@ -78,6 +80,8 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.util.EContentAdapter;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.emf.edit.command.CommandParameter;
+import org.eclipse.emf.edit.command.RemoveCommand;
 import org.eclipse.emf.edit.domain.AdapterFactoryEditingDomain;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.domain.IEditingDomainProvider;
@@ -177,6 +181,73 @@ import org.eclipse.ui.views.properties.PropertySheetPage;
 @SuppressWarnings("unused")
 public class AggregatorEditor extends MultiPageEditorPart implements IEditingDomainProvider, ISelectionProvider,
 		IMenuListener, IViewerProvider, IGotoMarker {
+	class AggregatorMarkerHelper extends EditUIMarkerHelper {
+		@Override
+		protected void adjustMarker(IMarker marker, Diagnostic diagnostic, Diagnostic parentDiagnostic)
+				throws CoreException {
+			List<?> data = diagnostic.getData();
+			StringBuilder relatedURIs = new StringBuilder();
+			boolean first = true;
+
+			for(Object object : data) {
+				String uriString = null;
+
+				if(object instanceof Resource.Diagnostic)
+					uriString = ((Resource.Diagnostic) object).getLocation();
+				else {
+					URI uri = null;
+
+					if(object instanceof EObject)
+						uri = EcoreUtil.getURI((EObject) object);
+					else if(object instanceof Resource)
+						uri = ((Resource) object).getURI();
+
+					if(uri != null)
+						uriString = uri.toString();
+				}
+
+				if(uriString != null) {
+					if(first) {
+						first = false;
+						marker.setAttribute(EValidator.URI_ATTRIBUTE, uriString);
+					}
+					else {
+						if(relatedURIs.length() != 0) {
+							relatedURIs.append(' ');
+						}
+						relatedURIs.append(URI.encodeFragment(uriString, false));
+					}
+				}
+			}
+
+			if(relatedURIs.length() > 0) {
+				marker.setAttribute(EValidator.RELATED_URIS_ATTRIBUTE, relatedURIs.toString());
+			}
+		}
+
+		public void createMarkers(Resource markerResource, Diagnostic diagnostic) throws CoreException {
+			if(diagnostic.getChildren().isEmpty()) {
+				if(diagnostic.getSeverity() != Diagnostic.OK)
+					createMarkers(getFile(markerResource), diagnostic, null);
+			}
+			else if(diagnostic.getMessage() == null) {
+				for(Diagnostic childDiagnostic : diagnostic.getChildren()) {
+					createMarkers(markerResource, childDiagnostic);
+				}
+			}
+			else {
+				for(Diagnostic childDiagnostic : diagnostic.getChildren()) {
+					createMarkers(getFile(markerResource), childDiagnostic, diagnostic);
+				}
+			}
+		}
+
+		@Override
+		protected String getMarkerID() {
+			return AGGREGATOR_NONPERSISTENT_PROBLEM_MARKER;
+		}
+	}
+
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -237,73 +308,6 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 		public boolean hasChildren(Object object) {
 			Object parent = super.getParent(object);
 			return parent != null;
-		}
-	}
-
-	class AggregatorMarkerHelper extends EditUIMarkerHelper {
-		public void createMarkers(Resource markerResource, Diagnostic diagnostic) throws CoreException {
-			if(diagnostic.getChildren().isEmpty()) {
-				if(diagnostic.getSeverity() != Diagnostic.OK)
-					createMarkers(getFile(markerResource), diagnostic, null);
-			}
-			else if(diagnostic.getMessage() == null) {
-				for(Diagnostic childDiagnostic : diagnostic.getChildren()) {
-					createMarkers(markerResource, childDiagnostic);
-				}
-			}
-			else {
-				for(Diagnostic childDiagnostic : diagnostic.getChildren()) {
-					createMarkers(getFile(markerResource), childDiagnostic, diagnostic);
-				}
-			}
-		}
-
-		@Override
-		protected void adjustMarker(IMarker marker, Diagnostic diagnostic, Diagnostic parentDiagnostic)
-				throws CoreException {
-			List<?> data = diagnostic.getData();
-			StringBuilder relatedURIs = new StringBuilder();
-			boolean first = true;
-
-			for(Object object : data) {
-				String uriString = null;
-
-				if(object instanceof Resource.Diagnostic)
-					uriString = ((Resource.Diagnostic) object).getLocation();
-				else {
-					URI uri = null;
-
-					if(object instanceof EObject)
-						uri = EcoreUtil.getURI((EObject) object);
-					else if(object instanceof Resource)
-						uri = ((Resource) object).getURI();
-
-					if(uri != null)
-						uriString = uri.toString();
-				}
-
-				if(uriString != null) {
-					if(first) {
-						first = false;
-						marker.setAttribute(EValidator.URI_ATTRIBUTE, uriString);
-					}
-					else {
-						if(relatedURIs.length() != 0) {
-							relatedURIs.append(' ');
-						}
-						relatedURIs.append(URI.encodeFragment(uriString, false));
-					}
-				}
-			}
-
-			if(relatedURIs.length() > 0) {
-				marker.setAttribute(EValidator.RELATED_URIS_ATTRIBUTE, relatedURIs.toString());
-			}
-		}
-
-		@Override
-		protected String getMarkerID() {
-			return AGGREGATOR_NONPERSISTENT_PROBLEM_MARKER;
 		}
 	}
 
@@ -810,6 +814,120 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 		}
 	}
 
+	private Diagnostic computeDiagnostic(Resource resource, boolean includeWarnings, boolean includeInfos,
+			boolean managedProblems) {
+		if(resource.getErrors().isEmpty() && (!includeWarnings || resource.getWarnings().isEmpty()))
+			return Diagnostic.OK_INSTANCE;
+
+		BasicDiagnostic basicDiagnostic = new BasicDiagnostic();
+		for(Resource.Diagnostic resourceDiagnostic : resource.getErrors()) {
+			if(managedProblems) {
+				if(!(resourceDiagnostic instanceof ResourceDiagnosticImpl))
+					continue;
+			}
+			else {
+				if(resourceDiagnostic instanceof ResourceDiagnosticImpl)
+					continue;
+			}
+
+			Diagnostic diagnostic = null;
+			if(resourceDiagnostic instanceof Throwable) {
+				diagnostic = BasicDiagnostic.toDiagnostic((Throwable) resourceDiagnostic);
+			}
+			else {
+				String messagePrefix = "";
+
+				if(resourceDiagnostic instanceof ResourceDiagnosticImpl)
+					messagePrefix = getLabelPrefix(resourceDiagnostic.getLocation());
+
+				diagnostic = new BasicDiagnostic(Diagnostic.ERROR, "org.eclipse.emf.ecore.resource", 0, messagePrefix +
+						resourceDiagnostic.getMessage(), new Object[] { resourceDiagnostic });
+			}
+			basicDiagnostic.add(diagnostic);
+		}
+
+		if(includeWarnings) {
+			for(Resource.Diagnostic resourceDiagnostic : resource.getWarnings()) {
+				if(managedProblems) {
+					if(!(resourceDiagnostic instanceof ResourceDiagnosticImpl))
+						continue;
+				}
+				else {
+					if(resourceDiagnostic instanceof ResourceDiagnosticImpl)
+						continue;
+				}
+
+				Diagnostic diagnostic = null;
+				if(resourceDiagnostic instanceof Throwable) {
+					diagnostic = BasicDiagnostic.toDiagnostic((Throwable) resourceDiagnostic);
+				}
+				else {
+					String messagePrefix = "";
+
+					if(resourceDiagnostic instanceof ResourceDiagnosticImpl)
+						messagePrefix = getLabelPrefix(resourceDiagnostic.getLocation());
+
+					diagnostic = new BasicDiagnostic(
+						Diagnostic.WARNING, "org.eclipse.emf.ecore.resource", 0, messagePrefix +
+								resourceDiagnostic.getMessage(), new Object[] { resourceDiagnostic });
+				}
+				basicDiagnostic.add(diagnostic);
+			}
+		}
+
+		if(includeInfos && resource instanceof AggregatorResource) {
+			for(Resource.Diagnostic resourceDiagnostic : ((AggregatorResource) resource).getInfos()) {
+				if(managedProblems) {
+					if(!(resourceDiagnostic instanceof ResourceDiagnosticImpl))
+						continue;
+				}
+				else {
+					if(resourceDiagnostic instanceof ResourceDiagnosticImpl)
+						continue;
+				}
+
+				Diagnostic diagnostic = null;
+				if(resourceDiagnostic instanceof Throwable) {
+					diagnostic = BasicDiagnostic.toDiagnostic((Throwable) resourceDiagnostic);
+				}
+				else {
+					String messagePrefix = "";
+
+					if(resourceDiagnostic instanceof ResourceDiagnosticImpl)
+						messagePrefix = getLabelPrefix(resourceDiagnostic.getLocation());
+
+					diagnostic = new BasicDiagnostic(
+						Diagnostic.INFO, "org.eclipse.emf.ecore.resource", 0, messagePrefix +
+								resourceDiagnostic.getMessage(), new Object[] { resourceDiagnostic });
+				}
+				basicDiagnostic.add(diagnostic);
+			}
+		}
+
+		return basicDiagnostic;
+	}
+
+	/**
+	 * This creates a context menu for the viewer and adds a listener as well registering the menu for extension. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	protected void createContextMenuFor(StructuredViewer viewer) {
+		MenuManager contextMenu = new MenuManager("#PopUp");
+		contextMenu.add(new Separator("additions"));
+		contextMenu.setRemoveAllWhenShown(true);
+		contextMenu.addMenuListener(this);
+		Menu menu = contextMenu.createContextMenu(viewer.getControl());
+		viewer.getControl().setMenu(menu);
+		getSite().registerContextMenu(contextMenu, new UnwrappingSelectionProvider(viewer));
+
+		int dndOperations = DND.DROP_COPY | DND.DROP_MOVE | DND.DROP_LINK;
+		Transfer[] transfers = new Transfer[] { LocalTransfer.getInstance() };
+		viewer.addDragSupport(dndOperations, transfers, new ViewerDragAdapter(viewer));
+		viewer.addDropSupport(dndOperations, transfers, new EditingDomainViewerDropAdapter(editingDomain, viewer));
+	}
+
 	/**
 	 * Get model instance resource and then initialize all repositories contained in the model using a progress bar.
 	 */
@@ -1146,6 +1264,21 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 		}
 	}
 
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	protected void doSaveAs(URI uri, IEditorInput editorInput) {
+		(editingDomain.getResourceSet().getResources().get(0)).setURI(uri);
+		setInputWithNotify(editorInput);
+		setPartName(editorInput.getName());
+		IProgressMonitor progressMonitor = getActionBars().getStatusLineManager() != null
+				? getActionBars().getStatusLineManager().getProgressMonitor()
+				: new NullProgressMonitor();
+		doSave(progressMonitor);
+	}
+
 	public boolean findNextIU(boolean forward) {
 		if(findIUIdPattern == null || findIUVersionRange == null)
 			return false;
@@ -1195,6 +1328,28 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 		}
 
 		return false;
+	}
+
+	private Resource findResource(URI uri) {
+		if(uri == null)
+			return null;
+
+		for(Resource resource : editingDomain.getResourceSet().getResources())
+			if(uri.equals(resource.getURI()))
+				return resource;
+
+		return null;
+	}
+
+	/**
+	 * This is here for the listener to be able to call it.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected void firePropertyChange(int action) {
+		super.firePropertyChange(action);
 	}
 
 	/**
@@ -1327,6 +1482,24 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 		return editingDomain;
 	}
 
+	private String getLabelPrefix(String location) {
+		if(location != null) {
+			URI uri = URI.createURI(location);
+			if(uri != null && uri.fragment() != null) {
+				EObject eObject = editingDomain.getResourceSet().getEObject(uri, true);
+				if(eObject != null) {
+					IItemLabelProvider labelProvider = (IItemLabelProvider) adapterFactory.getRootAdapterFactory().adapt(
+						eObject, IItemLabelProvider.class);
+
+					if(labelProvider != null)
+						return labelProvider.getText(eObject) + ": ";
+				}
+			}
+		}
+
+		return "";
+	}
+
 	/**
 	 * This accesses a cached version of the property sheet. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -1391,6 +1564,17 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 		return propertySheetPage;
 	}
 
+	private Resource getResourceByURI(URI uri) {
+		if(uri == null)
+			return null;
+
+		for(Resource resource : editingDomain.getResourceSet().getResources())
+			if(uri.equals(resource.getURI()))
+				return resource;
+
+		return null;
+	}
+
 	/**
 	 * This implements {@link org.eclipse.jface.viewers.ISelectionProvider} to return this editor's overall selection.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -1442,6 +1626,81 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 	}
 
 	/**
+	 * Handles activation of the editor or it's associated views. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated NOT
+	 */
+	protected void handleActivate() {
+		// Recompute the read only state.
+		//
+		if(editingDomain.getResourceToReadOnlyMap() != null) {
+			editingDomain.getResourceToReadOnlyMap().clear();
+
+			// Refresh any actions that may become enabled or disabled.
+			//
+			setSelection(getSelection());
+		}
+
+		if(!removedResources.isEmpty()) {
+			if(handleDirtyConflict()) {
+				getSite().getPage().closeEditor(AggregatorEditor.this, false);
+			}
+			else {
+				removedResources.clear();
+				changedResources.clear();
+				savedResources.clear();
+			}
+		}
+		else if(!changedResources.isEmpty()) {
+			changedResources.removeAll(savedResources);
+			handleChangedResources();
+			changedResources.clear();
+			savedResources.clear();
+		}
+
+		AggregatorEditorPlugin.INSTANCE.setActiveEditingDomain(editingDomain);
+		contextActivation = ((IContextService) getSite().getWorkbenchWindow().getWorkbench().getAdapter(
+			IContextService.class)).activateContext(AGGREGATOR_EDITOR_SCOPE);
+	}
+
+	/**
+	 * Handles what to do with changed resources on activation.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	protected void handleChangedResources() {
+		if(!changedResources.isEmpty() && (!isDirty() || handleDirtyConflict())) {
+			if(isDirty()) {
+				changedResources.addAll(editingDomain.getResourceSet().getResources());
+			}
+			editingDomain.getCommandStack().flush();
+
+			updateProblemIndication = false;
+			for(Resource resource : changedResources) {
+				if(resource.isLoaded()) {
+					resource.unload();
+					try {
+						resource.load(Collections.EMPTY_MAP);
+					}
+					catch(IOException exception) {
+						if(!resourceToDiagnosticMap.containsKey(resource)) {
+							resourceToDiagnosticMap.put(resource, analyzeResourceProblems(resource, exception));
+						}
+					}
+				}
+			}
+
+			if(AdapterFactoryEditingDomain.isStale(editorSelection)) {
+				setSelection(StructuredSelection.EMPTY);
+			}
+
+			updateProblemIndication = true;
+			updateProblemIndication();
+		}
+	}
+
+	/**
 	 * This deals with how we want selection in the outliner to affect the other views.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
@@ -1469,6 +1728,41 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 		}
 	}
 
+	protected void handleDeactivate() {
+		AggregatorEditorPlugin.INSTANCE.setActiveEditingDomain(null);
+
+		if(contextActivation != null)
+			((IContextService) getSite().getWorkbenchWindow().getWorkbench().getAdapter(IContextService.class)).deactivateContext(contextActivation);
+	}
+
+	/**
+	 * Shows a dialog that asks if conflicting changes should be discarded. <!-- begin-user-doc --> <!-- end-user-doc
+	 * -->
+	 * 
+	 * @generated
+	 */
+	protected boolean handleDirtyConflict() {
+		return MessageDialog.openQuestion(
+			getSite().getShell(), getString("_UI_FileConflict_label"), getString("_WARN_FileConflict"));
+	}
+
+	/**
+	 * If there is just one page in the multi-page editor part, this hides the single tab at the bottom. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	protected void hideTabs() {
+		if(getPageCount() <= 1) {
+			setPageText(0, "");
+			if(getContainer() instanceof CTabFolder) {
+				((CTabFolder) getContainer()).setTabHeight(1);
+				Point point = getContainer().getSize();
+				getContainer().setSize(point.x, point.y + 6);
+			}
+		}
+	}
+
 	/**
 	 * This is called during startup.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -1487,6 +1781,288 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 	}
 
 	/**
+	 * This sets up the editing domain for the model editor. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated NOT
+	 */
+	protected void initializeEditingDomain() {
+		// Create an adapter factory that yields item providers.
+		//
+		adapterFactory = new ComposedAdapterFactory(ComposedAdapterFactory.Descriptor.Registry.INSTANCE);
+
+		// Assign specific images to resources
+		adapterFactory.addAdapterFactory(new ResourceItemProviderAdapterFactory() {
+			class ResourceItemProviderWithFontSupport extends ResourceItemProvider implements IItemFontProvider,
+					TooltipTextProvider {
+
+				protected AggregatorResource adaptedResource;
+
+				protected AggregatorResourceViewImpl adaptingObject;
+
+				protected AggregatorResourceViewItemProvider delegateItemProviderAdapter;
+
+				ResourceItemProviderWithFontSupport(AdapterFactory adapterFactory, AggregatorResource resource) {
+					super(adapterFactory);
+					adaptedResource = resource;
+					adaptingObject = new AggregatorResourceViewImpl(resource);
+					delegateItemProviderAdapter = (AggregatorResourceViewItemProvider) getRootAdapterFactory().adapt(
+						adaptingObject, IEditingDomainItemProvider.class);
+					if(delegateItemProviderAdapter == null)
+						throw new NullPointerException();
+				}
+
+				@Override
+				public Command createCommand(Object object, EditingDomain domain,
+						Class<? extends Command> commandClass, CommandParameter commandParameter) {
+					DELEGATE_COMMAND_CREATION: {
+						if(adaptedResource == null)
+							break DELEGATE_COMMAND_CREATION;
+
+						Object owner = commandParameter.getOwner();
+						if(owner != adaptedResource)
+							break DELEGATE_COMMAND_CREATION;
+
+						if(commandClass == RemoveCommand.class) {
+							Collection<?> selection = commandParameter.getCollection();
+							if(selection != null && selection.contains(adaptingObject.getAggregator()))
+								break DELEGATE_COMMAND_CREATION;
+						}
+
+						commandParameter.setOwner(adaptingObject);
+						return delegateItemProviderAdapter.createCommand(object == adaptedResource
+								? adaptingObject
+								: object, domain, commandClass, commandParameter);
+					}
+
+					return super.createCommand(object, domain, commandClass, commandParameter);
+				}
+
+				@Override
+				public Collection<?> getChildren(Object object) {
+					return (adaptedResource != null && object == adaptedResource)
+							? delegateItemProviderAdapter.getChildren(adaptingObject)
+							: super.getChildren(object);
+				}
+
+				@Override
+				public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
+					return (adaptedResource != null && object == adaptedResource)
+							? delegateItemProviderAdapter.getChildrenFeatures(adaptingObject)
+							: super.getChildrenFeatures(object);
+				}
+
+				@Override
+				public Object getFont(Object object) {
+					if(object instanceof MetadataRepositoryResourceImpl) {
+						MetadataRepositoryResourceImpl mdr = (MetadataRepositoryResourceImpl) object;
+
+						if(mdr.getStatus().getCode() == StatusCode.WAITING)
+							return IItemFontProvider.ITALIC_FONT;
+					}
+					return null;
+				}
+
+				@Override
+				public Object getImage(Object object) {
+					Object baseImage = null;
+					Object overlayImage = null;
+
+					if(object instanceof AggregatorResourceImpl) {
+						baseImage = super.getImage(object);
+
+						// avoid querying proxies before loading jobs are scheduled/running
+						if(!Job.getJobManager().isSuspended()) {
+							AggregatorResourceImpl res = (AggregatorResourceImpl) object;
+
+							if(res.getContents().size() > 0 &&
+									((Aggregator) res.getContents().get(0)).getStatus().getCode() != StatusCode.OK)
+								overlayImage = delegateItemProviderAdapter.getImage("full/ovr16/Error");
+						}
+					}
+					else if(object instanceof MetadataRepositoryResourceImpl) {
+						baseImage = delegateItemProviderAdapter.getImage("full/obj16/MetadataRepository");
+
+						MetadataRepositoryResourceImpl mdr = (MetadataRepositoryResourceImpl) object;
+
+						if(mdr.getLastException() != null)
+							overlayImage = delegateItemProviderAdapter.getImage("full/ovr16/Error");
+						else if(mdr.getStatus().getCode() == StatusCode.WAITING)
+							overlayImage = delegateItemProviderAdapter.getImage("full/ovr16/Loading");
+					}
+
+					if(baseImage != null) {
+						if(overlayImage != null) {
+							Object[] images = new Object[2];
+							int[] positions = new int[2];
+
+							images[0] = baseImage;
+							positions[0] = OverlaidImage.BASIC;
+
+							images[1] = overlayImage;
+							positions[1] = OverlaidImage.OVERLAY_BOTTOM_RIGHT;
+
+							return new OverlaidImage(images, positions);
+						}
+
+						return baseImage;
+					}
+
+					return super.getImage(object);
+				}
+
+				@Override
+				public Collection<?> getNewChildDescriptors(Object object, EditingDomain editingDomain, Object sibling) {
+					return (adaptedResource != null && object == adaptedResource)
+							? delegateItemProviderAdapter.getNewChildDescriptors(adaptingObject, editingDomain, sibling)
+							: super.getNewChildDescriptors(object, editingDomain, sibling);
+				}
+
+				@Override
+				public String getText(Object object) {
+					String text = super.getText(object);
+
+					if(!(object instanceof MetadataRepositoryResourceImpl))
+						return text;
+
+					return text.substring(AggregatorPlugin.B3AGGR_URI_SCHEME.length() + 1);
+				}
+
+				public String getTooltipText(Object object) {
+					return AggregatorItemProviderAdapter.getTooltipText(object, this);
+				}
+
+				@Override
+				public void notifyChanged(Notification notification) {
+					super.notifyChanged(notification);
+
+					if(notification.getEventType() == Notification.SET &&
+							notification.getFeatureID(Resource.class) == Resource.RESOURCE__IS_LOADED) {
+						fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+
+						ResourceSet resourceSet = ((Resource) notification.getNotifier()).getResourceSet();
+
+						// if the resource is already excluded from the resource set, ignore this notification
+						if(resourceSet == null)
+							return;
+
+						Aggregator aggregator = (Aggregator) resourceSet.getResources().get(0).getContents().get(0);
+
+						for(MetadataRepositoryReference mdr : aggregator.getAllMetadataRepositoryReferences(true))
+							fireNotifyChanged(new ViewerNotification(notification, mdr, false, true));
+					}
+				}
+
+			}
+
+			{
+				supportedTypes.add(IItemFontProvider.class);
+			}
+
+			@Override
+			public Adapter createAdapter(Notifier target) {
+				if(target instanceof Resource)
+					return new ResourceItemProviderWithFontSupport(this, target instanceof AggregatorResource
+							? (AggregatorResource) target
+							: null);
+				return createResourceSetAdapter();
+			}
+
+			// Present only the main resource and loaded MDR's (not detached contributions)
+			@Override
+			public Adapter createResourceSetAdapter() {
+				return new ResourceSetItemProvider(this) {
+					@Override
+					public Collection<?> getChildren(Object object) {
+						ResourceSet resourceSet = (ResourceSet) object;
+
+						List<Resource> filtered = new ArrayList<Resource>();
+						for(Resource resource : resourceSet.getResources())
+							if(resource instanceof AggregatorResourceImpl ||
+									resource instanceof MetadataRepositoryResourceImpl)
+								filtered.add(resource);
+
+						return filtered;
+					}
+				};
+			}
+		});
+		adapterFactory.addAdapterFactory(new StatusProviderAdapterFactory());
+		adapterFactory.addAdapterFactory(new AggregatorItemProviderAdapterFactory());
+
+		// override item providers that should be more specific to aggregator
+		adapterFactory.addAdapterFactory(new P2ItemProviderAdapterFactory() {
+			@Override
+			public Adapter createMetadataRepositoryAdapter() {
+				if(metadataRepositoryItemProvider == null) {
+					metadataRepositoryItemProvider = new MetadataRepositoryItemProvider(this);
+				}
+
+				return metadataRepositoryItemProvider;
+			}
+
+			@Override
+			public Adapter createProvidedCapabilityAdapter() {
+				if(providedCapabilityItemProvider == null) {
+					providedCapabilityItemProvider = new ProvidedCapabilityItemProvider(this);
+				}
+
+				return providedCapabilityItemProvider;
+			}
+
+			@Override
+			public Adapter createRequiredCapabilityAdapter() {
+				if(requiredCapabilityItemProvider == null) {
+					requiredCapabilityItemProvider = new RequiredCapabilityItemProvider(this);
+				}
+
+				return requiredCapabilityItemProvider;
+			}
+		});
+
+		adapterFactory.addAdapterFactory(new P2viewItemProviderAdapterFactory());
+		adapterFactory.addAdapterFactory(new ReflectiveItemProviderAdapterFactory());
+
+		// Create the command stack that will notify this editor as commands are executed.
+		//
+		BasicCommandStack commandStack = new BasicCommandStack();
+
+		// Add a listener to set the most recent command's affected objects to be the selection of the viewer with
+		// focus.
+		//
+		commandStack.addCommandStackListener(new CommandStackListener() {
+			public void commandStackChanged(final EventObject event) {
+				getContainer().getDisplay().asyncExec(new Runnable() {
+					public void run() {
+						firePropertyChange(IEditorPart.PROP_DIRTY);
+
+						// Try to select the affected objects.
+						//
+						Command mostRecentCommand = ((CommandStack) event.getSource()).getMostRecentCommand();
+						if(mostRecentCommand != null) {
+							setSelectionToViewer(mostRecentCommand.getAffectedObjects());
+						}
+						if(propertySheetPage != null && !propertySheetPage.getControl().isDisposed()) {
+							propertySheetPage.refresh();
+						}
+					}
+				});
+			}
+		});
+
+		// Create the editing domain with a special command stack.
+		//
+		editingDomain = new AdapterFactoryEditingDomain(adapterFactory, commandStack, new HashMap<Resource, Boolean>()) {
+			@Override
+			public boolean isReadOnly(Resource resource) {
+				if(resource instanceof MetadataRepositoryResourceImpl)
+					return true;
+
+				return super.isReadOnly(resource);
+			}
+		};
+	}
+
+	/**
 	 * This is for implementing {@link IEditorPart} and simply tests the command stack.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
@@ -1496,6 +2072,35 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 	@Override
 	public boolean isDirty() {
 		return ((BasicCommandStack) editingDomain.getCommandStack()).isSaveNeeded();
+	}
+
+	protected boolean isPersisted(Resource resource) {
+		return (resource instanceof MetadataRepositoryResourceImpl)
+				? false
+				: isPersistedGen(resource);
+	}
+
+	/**
+	 * This returns whether something has been persisted to the URI of the specified resource.
+	 * The implementation uses the URI converter from the editor's resource set to try to open an input stream.
+	 * <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	protected boolean isPersistedGen(Resource resource) {
+		boolean result = false;
+		try {
+			InputStream stream = editingDomain.getResourceSet().getURIConverter().createInputStream(resource.getURI());
+			if(stream != null) {
+				result = true;
+				stream.close();
+			}
+		}
+		catch(IOException e) {
+			// Ignore
+		}
+		return result;
 	}
 
 	/**
@@ -1517,6 +2122,21 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 	 */
 	public void menuAboutToShow(IMenuManager menuManager) {
 		((IMenuListener) getEditorSite().getActionBarContributor()).menuAboutToShow(menuManager);
+	}
+
+	/**
+	 * This is used to track the active viewer.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected void pageChange(int pageIndex) {
+		super.pageChange(pageIndex);
+
+		if(contentOutlinePage != null) {
+			handleContentOutlineSelection(contentOutlinePage.getSelection());
+		}
 	}
 
 	public void registerFindIUArguments(Pattern idPattern, VersionRange versionRange) {
@@ -1668,423 +2288,6 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 	}
 
 	/**
-	 * This creates a context menu for the viewer and adds a listener as well registering the menu for extension. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	protected void createContextMenuFor(StructuredViewer viewer) {
-		MenuManager contextMenu = new MenuManager("#PopUp");
-		contextMenu.add(new Separator("additions"));
-		contextMenu.setRemoveAllWhenShown(true);
-		contextMenu.addMenuListener(this);
-		Menu menu = contextMenu.createContextMenu(viewer.getControl());
-		viewer.getControl().setMenu(menu);
-		getSite().registerContextMenu(contextMenu, new UnwrappingSelectionProvider(viewer));
-
-		int dndOperations = DND.DROP_COPY | DND.DROP_MOVE | DND.DROP_LINK;
-		Transfer[] transfers = new Transfer[] { LocalTransfer.getInstance() };
-		viewer.addDragSupport(dndOperations, transfers, new ViewerDragAdapter(viewer));
-		viewer.addDropSupport(dndOperations, transfers, new EditingDomainViewerDropAdapter(editingDomain, viewer));
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	protected void doSaveAs(URI uri, IEditorInput editorInput) {
-		(editingDomain.getResourceSet().getResources().get(0)).setURI(uri);
-		setInputWithNotify(editorInput);
-		setPartName(editorInput.getName());
-		IProgressMonitor progressMonitor = getActionBars().getStatusLineManager() != null
-				? getActionBars().getStatusLineManager().getProgressMonitor()
-				: new NullProgressMonitor();
-		doSave(progressMonitor);
-	}
-
-	/**
-	 * This is here for the listener to be able to call it.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected void firePropertyChange(int action) {
-		super.firePropertyChange(action);
-	}
-
-	/**
-	 * Handles activation of the editor or it's associated views. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated NOT
-	 */
-	protected void handleActivate() {
-		// Recompute the read only state.
-		//
-		if(editingDomain.getResourceToReadOnlyMap() != null) {
-			editingDomain.getResourceToReadOnlyMap().clear();
-
-			// Refresh any actions that may become enabled or disabled.
-			//
-			setSelection(getSelection());
-		}
-
-		if(!removedResources.isEmpty()) {
-			if(handleDirtyConflict()) {
-				getSite().getPage().closeEditor(AggregatorEditor.this, false);
-			}
-			else {
-				removedResources.clear();
-				changedResources.clear();
-				savedResources.clear();
-			}
-		}
-		else if(!changedResources.isEmpty()) {
-			changedResources.removeAll(savedResources);
-			handleChangedResources();
-			changedResources.clear();
-			savedResources.clear();
-		}
-
-		AggregatorEditorPlugin.INSTANCE.setActiveEditingDomain(editingDomain);
-		contextActivation = ((IContextService) getSite().getWorkbenchWindow().getWorkbench().getAdapter(
-			IContextService.class)).activateContext(AGGREGATOR_EDITOR_SCOPE);
-	}
-
-	/**
-	 * Handles what to do with changed resources on activation.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	protected void handleChangedResources() {
-		if(!changedResources.isEmpty() && (!isDirty() || handleDirtyConflict())) {
-			if(isDirty()) {
-				changedResources.addAll(editingDomain.getResourceSet().getResources());
-			}
-			editingDomain.getCommandStack().flush();
-
-			updateProblemIndication = false;
-			for(Resource resource : changedResources) {
-				if(resource.isLoaded()) {
-					resource.unload();
-					try {
-						resource.load(Collections.EMPTY_MAP);
-					}
-					catch(IOException exception) {
-						if(!resourceToDiagnosticMap.containsKey(resource)) {
-							resourceToDiagnosticMap.put(resource, analyzeResourceProblems(resource, exception));
-						}
-					}
-				}
-			}
-
-			if(AdapterFactoryEditingDomain.isStale(editorSelection)) {
-				setSelection(StructuredSelection.EMPTY);
-			}
-
-			updateProblemIndication = true;
-			updateProblemIndication();
-		}
-	}
-
-	protected void handleDeactivate() {
-		AggregatorEditorPlugin.INSTANCE.setActiveEditingDomain(null);
-
-		if(contextActivation != null)
-			((IContextService) getSite().getWorkbenchWindow().getWorkbench().getAdapter(IContextService.class)).deactivateContext(contextActivation);
-	}
-
-	/**
-	 * Shows a dialog that asks if conflicting changes should be discarded. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
-	 * 
-	 * @generated
-	 */
-	protected boolean handleDirtyConflict() {
-		return MessageDialog.openQuestion(
-			getSite().getShell(), getString("_UI_FileConflict_label"), getString("_WARN_FileConflict"));
-	}
-
-	/**
-	 * If there is just one page in the multi-page editor part, this hides the single tab at the bottom. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	protected void hideTabs() {
-		if(getPageCount() <= 1) {
-			setPageText(0, "");
-			if(getContainer() instanceof CTabFolder) {
-				((CTabFolder) getContainer()).setTabHeight(1);
-				Point point = getContainer().getSize();
-				getContainer().setSize(point.x, point.y + 6);
-			}
-		}
-	}
-
-	/**
-	 * This sets up the editing domain for the model editor. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated NOT
-	 */
-	protected void initializeEditingDomain() {
-		// Create an adapter factory that yields item providers.
-		//
-		adapterFactory = new ComposedAdapterFactory(ComposedAdapterFactory.Descriptor.Registry.INSTANCE);
-
-		// Assign specific images to resources
-		adapterFactory.addAdapterFactory(new ResourceItemProviderAdapterFactory() {
-			class ResourceItemProviderWithFontSupport extends ResourceItemProvider implements IItemFontProvider,
-					TooltipTextProvider {
-				ResourceItemProviderWithFontSupport(AdapterFactory adapterFactory) {
-					super(adapterFactory);
-				}
-
-				@Override
-				public Object getFont(Object object) {
-					if(object instanceof MetadataRepositoryResourceImpl) {
-						MetadataRepositoryResourceImpl mdr = (MetadataRepositoryResourceImpl) object;
-
-						if(mdr.getStatus().getCode() == StatusCode.WAITING)
-							return IItemFontProvider.ITALIC_FONT;
-					}
-					return null;
-				}
-
-				@Override
-				public Object getImage(Object object) {
-					Object baseImage = null;
-					Object overlayImage = null;
-
-					if(object instanceof AggregatorResourceImpl) {
-						baseImage = super.getImage(object);
-
-						// avoid querying proxies before loading jobs are scheduled/running
-						if(!Job.getJobManager().isSuspended()) {
-							AggregatorResourceImpl res = (AggregatorResourceImpl) object;
-
-							if(res.getContents().size() > 0 &&
-									((Aggregator) res.getContents().get(0)).getStatus().getCode() != StatusCode.OK)
-								overlayImage = AggregatorEditPlugin.INSTANCE.getImage("full/ovr16/Error");
-						}
-					}
-					else if(object instanceof MetadataRepositoryResourceImpl) {
-						baseImage = AggregatorEditPlugin.INSTANCE.getImage("full/obj16/MetadataRepository");
-
-						MetadataRepositoryResourceImpl mdr = (MetadataRepositoryResourceImpl) object;
-
-						if(mdr.getLastException() != null)
-							overlayImage = AggregatorEditPlugin.INSTANCE.getImage("full/ovr16/Error");
-						else if(mdr.getStatus().getCode() == StatusCode.WAITING)
-							overlayImage = AggregatorEditPlugin.INSTANCE.getImage("full/ovr16/Loading");
-					}
-
-					if(baseImage != null) {
-						if(overlayImage != null) {
-							Object[] images = new Object[2];
-							int[] positions = new int[2];
-
-							images[0] = baseImage;
-							positions[0] = OverlaidImage.BASIC;
-
-							images[1] = overlayImage;
-							positions[1] = OverlaidImage.OVERLAY_BOTTOM_RIGHT;
-
-							return new OverlaidImage(images, positions);
-						}
-
-						return baseImage;
-					}
-
-					return super.getImage(object);
-				}
-
-				@Override
-				public String getText(Object object) {
-					String text = super.getText(object);
-					if(object instanceof MetadataRepositoryResourceImpl)
-						return super.getText(object).substring(AggregatorPlugin.B3AGGR_URI_SCHEME.length() + 1);
-
-					return text;
-				}
-
-				public String getTooltipText(Object object) {
-					return AggregatorItemProviderAdapter.getTooltipText(object, this);
-				}
-
-				@Override
-				public void notifyChanged(Notification notification) {
-					super.notifyChanged(notification);
-
-					if(notification.getEventType() == Notification.SET &&
-							notification.getFeatureID(Resource.class) == Resource.RESOURCE__IS_LOADED) {
-						fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-
-						ResourceSet resourceSet = ((Resource) notification.getNotifier()).getResourceSet();
-
-						// if the resource is already excluded from the resource set, ignore this notification
-						if(resourceSet == null)
-							return;
-
-						Aggregator aggregator = (Aggregator) resourceSet.getResources().get(0).getContents().get(0);
-
-						for(MetadataRepositoryReference mdr : aggregator.getAllMetadataRepositoryReferences(true))
-							fireNotifyChanged(new ViewerNotification(notification, mdr, false, true));
-					}
-				}
-			}
-
-			{
-				supportedTypes.add(IItemFontProvider.class);
-			}
-
-			@Override
-			public Adapter createResourceAdapter() {
-				return new ResourceItemProviderWithFontSupport(this);
-			}
-
-			// Present only the main resource and loaded MDR's (not detached contributions)
-			@Override
-			public Adapter createResourceSetAdapter() {
-				return new ResourceSetItemProvider(this) {
-					@Override
-					public Collection<?> getChildren(Object object) {
-						ResourceSet resourceSet = (ResourceSet) object;
-
-						List<Resource> filtered = new ArrayList<Resource>();
-						for(Resource resource : resourceSet.getResources())
-							if(resource instanceof AggregatorResourceImpl ||
-									resource instanceof MetadataRepositoryResourceImpl)
-								filtered.add(resource);
-
-						return filtered;
-					}
-				};
-			}
-		});
-		adapterFactory.addAdapterFactory(new StatusProviderAdapterFactory());
-		adapterFactory.addAdapterFactory(new AggregatorItemProviderAdapterFactory());
-
-		// override item providers that should be more specific to aggregator
-		adapterFactory.addAdapterFactory(new P2ItemProviderAdapterFactory() {
-			@Override
-			public Adapter createMetadataRepositoryAdapter() {
-				if(metadataRepositoryItemProvider == null) {
-					metadataRepositoryItemProvider = new MetadataRepositoryItemProvider(this);
-				}
-
-				return metadataRepositoryItemProvider;
-			}
-
-			@Override
-			public Adapter createProvidedCapabilityAdapter() {
-				if(providedCapabilityItemProvider == null) {
-					providedCapabilityItemProvider = new ProvidedCapabilityItemProvider(this);
-				}
-
-				return providedCapabilityItemProvider;
-			}
-
-			@Override
-			public Adapter createRequiredCapabilityAdapter() {
-				if(requiredCapabilityItemProvider == null) {
-					requiredCapabilityItemProvider = new RequiredCapabilityItemProvider(this);
-				}
-
-				return requiredCapabilityItemProvider;
-			}
-		});
-
-		adapterFactory.addAdapterFactory(new P2viewItemProviderAdapterFactory());
-		adapterFactory.addAdapterFactory(new ReflectiveItemProviderAdapterFactory());
-
-		// Create the command stack that will notify this editor as commands are executed.
-		//
-		BasicCommandStack commandStack = new BasicCommandStack();
-
-		// Add a listener to set the most recent command's affected objects to be the selection of the viewer with
-		// focus.
-		//
-		commandStack.addCommandStackListener(new CommandStackListener() {
-			public void commandStackChanged(final EventObject event) {
-				getContainer().getDisplay().asyncExec(new Runnable() {
-					public void run() {
-						firePropertyChange(IEditorPart.PROP_DIRTY);
-
-						// Try to select the affected objects.
-						//
-						Command mostRecentCommand = ((CommandStack) event.getSource()).getMostRecentCommand();
-						if(mostRecentCommand != null) {
-							setSelectionToViewer(mostRecentCommand.getAffectedObjects());
-						}
-						if(propertySheetPage != null && !propertySheetPage.getControl().isDisposed()) {
-							propertySheetPage.refresh();
-						}
-					}
-				});
-			}
-		});
-
-		// Create the editing domain with a special command stack.
-		//
-		editingDomain = new AdapterFactoryEditingDomain(adapterFactory, commandStack, new HashMap<Resource, Boolean>()) {
-			@Override
-			public boolean isReadOnly(Resource resource) {
-				if(resource instanceof MetadataRepositoryResourceImpl)
-					return true;
-
-				return super.isReadOnly(resource);
-			}
-		};
-	}
-
-	protected boolean isPersisted(Resource resource) {
-		return (resource instanceof MetadataRepositoryResourceImpl)
-				? false
-				: isPersistedGen(resource);
-	}
-
-	/**
-	 * This returns whether something has been persisted to the URI of the specified resource.
-	 * The implementation uses the URI converter from the editor's resource set to try to open an input stream.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	protected boolean isPersistedGen(Resource resource) {
-		boolean result = false;
-		try {
-			InputStream stream = editingDomain.getResourceSet().getURIConverter().createInputStream(resource.getURI());
-			if(stream != null) {
-				result = true;
-				stream.close();
-			}
-		}
-		catch(IOException e) {
-			// Ignore
-		}
-		return result;
-	}
-
-	/**
-	 * This is used to track the active viewer.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected void pageChange(int pageIndex) {
-		super.pageChange(pageIndex);
-
-		if(contentOutlinePage != null) {
-			handleContentOutlineSelection(contentOutlinePage.getSelection());
-		}
-	}
-
-	/**
 	 * Returns whether the outline view should be presented to the user.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -2163,141 +2366,5 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 				}
 			}
 		}
-	}
-
-	private Diagnostic computeDiagnostic(Resource resource, boolean includeWarnings, boolean includeInfos,
-			boolean managedProblems) {
-		if(resource.getErrors().isEmpty() && (!includeWarnings || resource.getWarnings().isEmpty())) {
-			return Diagnostic.OK_INSTANCE;
-		}
-		else {
-			BasicDiagnostic basicDiagnostic = new BasicDiagnostic();
-			for(Resource.Diagnostic resourceDiagnostic : resource.getErrors()) {
-				if(managedProblems) {
-					if(!(resourceDiagnostic instanceof ResourceDiagnosticImpl))
-						continue;
-				}
-				else {
-					if(resourceDiagnostic instanceof ResourceDiagnosticImpl)
-						continue;
-				}
-
-				Diagnostic diagnostic = null;
-				if(resourceDiagnostic instanceof Throwable) {
-					diagnostic = BasicDiagnostic.toDiagnostic((Throwable) resourceDiagnostic);
-				}
-				else {
-					String messagePrefix = "";
-
-					if(resourceDiagnostic instanceof ResourceDiagnosticImpl)
-						messagePrefix = getLabelPrefix(resourceDiagnostic.getLocation());
-
-					diagnostic = new BasicDiagnostic(
-						Diagnostic.ERROR, "org.eclipse.emf.ecore.resource", 0, messagePrefix +
-								resourceDiagnostic.getMessage(), new Object[] { resourceDiagnostic });
-				}
-				basicDiagnostic.add(diagnostic);
-			}
-
-			if(includeWarnings) {
-				for(Resource.Diagnostic resourceDiagnostic : resource.getWarnings()) {
-					if(managedProblems) {
-						if(!(resourceDiagnostic instanceof ResourceDiagnosticImpl))
-							continue;
-					}
-					else {
-						if(resourceDiagnostic instanceof ResourceDiagnosticImpl)
-							continue;
-					}
-
-					Diagnostic diagnostic = null;
-					if(resourceDiagnostic instanceof Throwable) {
-						diagnostic = BasicDiagnostic.toDiagnostic((Throwable) resourceDiagnostic);
-					}
-					else {
-						String messagePrefix = "";
-
-						if(resourceDiagnostic instanceof ResourceDiagnosticImpl)
-							messagePrefix = getLabelPrefix(resourceDiagnostic.getLocation());
-
-						diagnostic = new BasicDiagnostic(
-							Diagnostic.WARNING, "org.eclipse.emf.ecore.resource", 0, messagePrefix +
-									resourceDiagnostic.getMessage(), new Object[] { resourceDiagnostic });
-					}
-					basicDiagnostic.add(diagnostic);
-				}
-			}
-
-			if(includeInfos && resource instanceof AggregatorResource) {
-				for(Resource.Diagnostic resourceDiagnostic : ((AggregatorResource) resource).getInfos()) {
-					if(managedProblems) {
-						if(!(resourceDiagnostic instanceof ResourceDiagnosticImpl))
-							continue;
-					}
-					else {
-						if(resourceDiagnostic instanceof ResourceDiagnosticImpl)
-							continue;
-					}
-
-					Diagnostic diagnostic = null;
-					if(resourceDiagnostic instanceof Throwable) {
-						diagnostic = BasicDiagnostic.toDiagnostic((Throwable) resourceDiagnostic);
-					}
-					else {
-						String messagePrefix = "";
-
-						if(resourceDiagnostic instanceof ResourceDiagnosticImpl)
-							messagePrefix = getLabelPrefix(resourceDiagnostic.getLocation());
-
-						diagnostic = new BasicDiagnostic(
-							Diagnostic.INFO, "org.eclipse.emf.ecore.resource", 0, messagePrefix +
-									resourceDiagnostic.getMessage(), new Object[] { resourceDiagnostic });
-					}
-					basicDiagnostic.add(diagnostic);
-				}
-			}
-
-			return basicDiagnostic;
-		}
-	}
-
-	private Resource findResource(URI uri) {
-		if(uri == null)
-			return null;
-
-		for(Resource resource : editingDomain.getResourceSet().getResources())
-			if(uri.equals(resource.getURI()))
-				return resource;
-
-		return null;
-	}
-
-	private String getLabelPrefix(String location) {
-		if(location != null) {
-			URI uri = URI.createURI(location);
-			if(uri != null && uri.fragment() != null) {
-				EObject eObject = editingDomain.getResourceSet().getEObject(uri, true);
-				if(eObject != null) {
-					IItemLabelProvider labelProvider = (IItemLabelProvider) adapterFactory.getRootAdapterFactory().adapt(
-						eObject, IItemLabelProvider.class);
-
-					if(labelProvider != null)
-						return labelProvider.getText(eObject) + ": ";
-				}
-			}
-		}
-
-		return "";
-	}
-
-	private Resource getResourceByURI(URI uri) {
-		if(uri == null)
-			return null;
-
-		for(Resource resource : editingDomain.getResourceSet().getResources())
-			if(uri.equals(resource.getURI()))
-				return resource;
-
-		return null;
 	}
 }

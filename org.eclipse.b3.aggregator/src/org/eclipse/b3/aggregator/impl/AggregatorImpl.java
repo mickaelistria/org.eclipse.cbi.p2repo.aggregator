@@ -9,6 +9,7 @@ package org.eclipse.b3.aggregator.impl;
 import java.util.Collection;
 
 import org.eclipse.b3.aggregator.AggregateType;
+import org.eclipse.b3.aggregator.Aggregation;
 import org.eclipse.b3.aggregator.Aggregator;
 import org.eclipse.b3.aggregator.AggregatorFactory;
 import org.eclipse.b3.aggregator.AggregatorPackage;
@@ -59,6 +60,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <li>{@link org.eclipse.b3.aggregator.impl.AggregatorImpl#isMavenResult <em>Maven Result</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.impl.AggregatorImpl#getValidationRepositories <em>Validation Repositories</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.impl.AggregatorImpl#getMavenMappings <em>Maven Mappings</em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.impl.AggregatorImpl#getAggregations <em>Aggregations</em>}</li>
  * </ul>
  * </p>
  * 
@@ -354,6 +356,17 @@ public class AggregatorImpl extends DescriptionProviderImpl implements Aggregato
 	protected EList<MavenMapping> mavenMappings;
 
 	/**
+	 * The cached value of the '{@link #getAggregations() <em>Aggregations</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see #getAggregations()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Aggregation> aggregations;
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
@@ -475,6 +488,8 @@ public class AggregatorImpl extends DescriptionProviderImpl implements Aggregato
 				return getValidationRepositories();
 			case AggregatorPackage.AGGREGATOR__MAVEN_MAPPINGS:
 				return getMavenMappings();
+			case AggregatorPackage.AGGREGATOR__AGGREGATIONS:
+				return getAggregations();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -514,6 +529,8 @@ public class AggregatorImpl extends DescriptionProviderImpl implements Aggregato
 				return ((InternalEList<?>) getValidationRepositories()).basicRemove(otherEnd, msgs);
 			case AggregatorPackage.AGGREGATOR__MAVEN_MAPPINGS:
 				return ((InternalEList<?>) getMavenMappings()).basicRemove(otherEnd, msgs);
+			case AggregatorPackage.AGGREGATOR__AGGREGATIONS:
+				return ((InternalEList<?>) getAggregations()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -564,6 +581,8 @@ public class AggregatorImpl extends DescriptionProviderImpl implements Aggregato
 				return validationRepositories != null && !validationRepositories.isEmpty();
 			case AggregatorPackage.AGGREGATOR__MAVEN_MAPPINGS:
 				return mavenMappings != null && !mavenMappings.isEmpty();
+			case AggregatorPackage.AGGREGATOR__AGGREGATIONS:
+				return aggregations != null && !aggregations.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -634,6 +653,10 @@ public class AggregatorImpl extends DescriptionProviderImpl implements Aggregato
 				getMavenMappings().clear();
 				getMavenMappings().addAll((Collection<? extends MavenMapping>) newValue);
 				return;
+			case AggregatorPackage.AGGREGATOR__AGGREGATIONS:
+				getAggregations().clear();
+				getAggregations().addAll((Collection<? extends Aggregation>) newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -693,6 +716,9 @@ public class AggregatorImpl extends DescriptionProviderImpl implements Aggregato
 				return;
 			case AggregatorPackage.AGGREGATOR__MAVEN_MAPPINGS:
 				getMavenMappings().clear();
+				return;
+			case AggregatorPackage.AGGREGATOR__AGGREGATIONS:
+				getAggregations().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -869,6 +895,20 @@ public class AggregatorImpl extends DescriptionProviderImpl implements Aggregato
 				MavenMapping.class, this, AggregatorPackage.AGGREGATOR__MAVEN_MAPPINGS);
 		}
 		return mavenMappings;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EList<Aggregation> getAggregations() {
+		if(aggregations == null) {
+			aggregations = new EObjectContainmentEList.Resolving<Aggregation>(
+				Aggregation.class, this, AggregatorPackage.AGGREGATOR__AGGREGATIONS);
+		}
+		return aggregations;
 	}
 
 	/**

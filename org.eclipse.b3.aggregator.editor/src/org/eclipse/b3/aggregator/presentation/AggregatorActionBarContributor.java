@@ -72,6 +72,7 @@ import org.eclipse.emf.edit.command.SetCommand;
 import org.eclipse.emf.edit.domain.AdapterFactoryEditingDomain;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.domain.IEditingDomainProvider;
+import org.eclipse.emf.edit.ui.action.ControlAction;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
@@ -80,6 +81,7 @@ import org.eclipse.emf.edit.ui.action.CreateChildAction;
 import org.eclipse.emf.edit.ui.action.CreateSiblingAction;
 import org.eclipse.emf.edit.ui.action.EditingDomainActionBarContributor;
 import org.eclipse.emf.edit.ui.action.LoadResourceAction;
+import org.eclipse.emf.edit.ui.action.ValidateAction;
 import org.eclipse.emf.edit.ui.provider.ExtendedImageRegistry;
 import org.eclipse.equinox.app.IApplication;
 import org.eclipse.equinox.p2.metadata.IInstallableUnit;
@@ -373,13 +375,11 @@ public class AggregatorActionBarContributor extends EditingDomainActionBarContri
 					IItemPropertyDescriptor itemPropertyDescriptor = itemProviderAdapter.getPropertyDescriptor(
 						enabledStatusProvider, AggregatorPackage.Literals.ENABLED_STATUS_PROVIDER__ENABLED.getName());
 					setEnabled(itemPropertyDescriptor.canSetProperty(enabledStatusProvider));
-					return;
 				}
 				else {
 					setEnabled(false);
-					return;
 				}
-
+				return;
 			}
 			setEnabled(false);
 		}
@@ -495,6 +495,14 @@ public class AggregatorActionBarContributor extends EditingDomainActionBarContri
 			metadataRepositoryResources = new HashSet<MetadataRepositoryResourceImpl>();
 		}
 
+		synchronized private boolean isLoading() {
+			for(MetadataRepositoryResourceImpl mdr : metadataRepositoryResources)
+				if(mdr.getStatus().getCode() == StatusCode.WAITING)
+					return true;
+
+			return false;
+		}
+
 		@Override
 		synchronized public void run() {
 			for(MetadataRepositoryResourceImpl mdr : metadataRepositoryResources)
@@ -507,14 +515,6 @@ public class AggregatorActionBarContributor extends EditingDomainActionBarContri
 
 		public void setLoadText(String loadText) {
 			this.loadText = loadText;
-		}
-
-		synchronized private boolean isLoading() {
-			for(MetadataRepositoryResourceImpl mdr : metadataRepositoryResources)
-				if(mdr.getStatus().getCode() == StatusCode.WAITING)
-					return true;
-
-			return false;
 		}
 	}
 
@@ -638,6 +638,16 @@ public class AggregatorActionBarContributor extends EditingDomainActionBarContri
 											labelProvider.getImage(realElement));
 									}
 
+									private Object getRealElement(Object element) {
+										Object realElement = null;
+										if(element instanceof Entry<?, ?>)
+											realElement = ((Entry<?, ?>) element).getKey();
+										else if(element instanceof TwoColumnMatrix<?, ?>.MatrixEntry)
+											realElement = ((TwoColumnMatrix<?, ?>.MatrixEntry) element).getKey();
+
+										return realElement;
+									}
+
 									@Override
 									public String getText(Object element) {
 										if(element == null)
@@ -658,16 +668,6 @@ public class AggregatorActionBarContributor extends EditingDomainActionBarContri
 									@Override
 									public boolean isLabelProperty(Object element, String property) {
 										return false;
-									}
-
-									private Object getRealElement(Object element) {
-										Object realElement = null;
-										if(element instanceof Entry<?, ?>)
-											realElement = ((Entry<?, ?>) element).getKey();
-										else if(element instanceof TwoColumnMatrix<?, ?>.MatrixEntry)
-											realElement = ((TwoColumnMatrix<?, ?>.MatrixEntry) element).getKey();
-
-										return realElement;
 									}
 								});
 
@@ -896,11 +896,36 @@ public class AggregatorActionBarContributor extends EditingDomainActionBarContri
 		enabledStatusActionVisibility.put(new EnabledStatusAction(true), Boolean.FALSE);
 		enabledStatusActionVisibility.put(new EnabledStatusAction(false), Boolean.FALSE);
 		reloadOrCancelRepoAction = new ReloadOrCancelRepoAction();
-		reloadOrCancelRepoActionVisible = false;
 		cleanRepoAction = new BuildRepoAction(ActionType.CLEAN);
 		verifyRepoAction = new BuildRepoAction(ActionType.VERIFY);
 		buildRepoAction = new BuildRepoAction(ActionType.BUILD);
 		cleanBuildRepoAction = new BuildRepoAction(ActionType.CLEAN_BUILD);
+	}
+
+	@Override
+	protected void addGlobalActions(IMenuManager menuManager) {
+		menuManager.insertBefore("additions", new ActionContributionItem(cleanRepoAction));
+		menuManager.insertBefore("additions", new ActionContributionItem(verifyRepoAction));
+		menuManager.insertBefore("additions", new ActionContributionItem(buildRepoAction));
+		menuManager.insertBefore("additions", new ActionContributionItem(cleanBuildRepoAction));
+		menuManager.insertBefore("additions", new Separator());
+		addGlobalActionsGen(menuManager);
+	}
+
+	/**
+	 * This inserts global actions before the "additions-end" separator.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	protected void addGlobalActionsGen(IMenuManager menuManager) {
+		menuManager.insertAfter("additions-end", new Separator("ui-actions"));
+		menuManager.insertAfter("ui-actions", showPropertiesViewAction);
+
+		refreshViewerAction.setEnabled(refreshViewerAction.isEnabled());
+		menuManager.insertAfter("ui-actions", refreshViewerAction);
+
+		super.addGlobalActions(menuManager);
 	}
 
 	/**
@@ -954,6 +979,157 @@ public class AggregatorActionBarContributor extends EditingDomainActionBarContri
 	public void contributeToToolBar(IToolBarManager toolBarManager) {
 		toolBarManager.add(new Separator("aggregator-settings"));
 		toolBarManager.add(new Separator("aggregator-additions"));
+	}
+
+	/**
+	 * This removes from the specified <code>manager</code> all {@link org.eclipse.jface.action.ActionContributionItem}s
+	 * based on the {@link org.eclipse.jface.action.IAction}s contained in the <code>actions</code> collection. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	protected void depopulateManager(IContributionManager manager, Collection<? extends IAction> actions) {
+		if(actions != null) {
+			IContributionItem[] items = manager.getItems();
+			for(int i = 0; i < items.length; i++) {
+				// Look into SubContributionItems
+				//
+				IContributionItem contributionItem = items[i];
+				while(contributionItem instanceof SubContributionItem) {
+					contributionItem = ((SubContributionItem) contributionItem).getInnerItem();
+				}
+
+				// Delete the ActionContributionItems with matching action.
+				//
+				if(contributionItem instanceof ActionContributionItem) {
+					IAction action = ((ActionContributionItem) contributionItem).getAction();
+					if(actions.contains(action)) {
+						manager.remove(contributionItem);
+					}
+				}
+			}
+		}
+	}
+
+	@SuppressWarnings("unchecked")
+	private List<IAction> generateAddToCustomCategoryActions(ISelection selection) {
+		if(selection instanceof IStructuredSelection && ((IStructuredSelection) selection).size() > 0) {
+			ItemSorter itemSorter = new ItemSorter(((IStructuredSelection) selection).toList());
+
+			List<IAction> addToActions = new ArrayList<IAction>();
+
+			if(itemSorter.getTotalItemCount() > 0 &&
+					(itemSorter.getTotalItemCount() == itemSorter.getGroupItems(ItemGroup.FEATURE).size() || (itemSorter.getTotalItemCount() == itemSorter.getGroupItems(
+						ItemGroup.FEATURE_STRUCTURED).size()))) {
+				List<IInstallableUnit> features = new ArrayList<IInstallableUnit>();
+				features.addAll((List<InstallableUnit>) itemSorter.getGroupItems(ItemGroup.FEATURE));
+				features.addAll(ItemUtils.getIUs((List<org.eclipse.b3.aggregator.p2view.Feature>) itemSorter.getGroupItems(ItemGroup.FEATURE_STRUCTURED)));
+
+				for(CustomCategory customCategory : getAggregator().getCustomCategories())
+					addToActions.add(new AddToCustomCategoryAction(
+						((IEditingDomainProvider) activeEditorPart).getEditingDomain(), customCategory, features));
+			}
+
+			return addToActions;
+		}
+
+		return Collections.emptyList();
+	}
+
+	@SuppressWarnings("unchecked")
+	private List<IAction> generateAddToParentRepositoryAction(ISelection selection) {
+		List<IAction> actions = new ArrayList<IAction>();
+
+		if(selection instanceof IStructuredSelection && ((IStructuredSelection) selection).size() > 0) {
+			ItemSorter itemSorter = new ItemSorter(((IStructuredSelection) selection).toList());
+
+			if(itemSorter.getTotalItemCount() > 0 &&
+					(itemSorter.getTotalItemCount() == itemSorter.getGroupItems(ItemGroup.IU).size() || (itemSorter.getTotalItemCount() == itemSorter.getGroupItems(
+						ItemGroup.IU_STRUCTURED).size()))) {
+				List<IInstallableUnit> ius = new ArrayList<IInstallableUnit>();
+
+				ius.addAll((List<InstallableUnit>) itemSorter.getGroupItems(ItemGroup.IU));
+				ius.addAll(ItemUtils.getIUs((List<IUPresentation>) itemSorter.getGroupItems(ItemGroup.IU_STRUCTURED)));
+
+				if(itemSorter.getTotalItemCount() == itemSorter.getGroupItems(ItemGroup.FEATURE_STRUCTURED).size()) {
+					actions.add(new AddToParentRepositoryAction(
+						((IEditingDomainProvider) activeEditorPart).getEditingDomain(), ius,
+						AggregatorEditPlugin.ADD_IU));
+					actions.add(new AddToParentRepositoryAction(
+						((IEditingDomainProvider) activeEditorPart).getEditingDomain(), ius,
+						AggregatorEditPlugin.ADD_EXCLUSION_RULE));
+					actions.add(new AddToParentRepositoryAction(
+						((IEditingDomainProvider) activeEditorPart).getEditingDomain(), ius,
+						AggregatorEditPlugin.ADD_VALID_CONFIGURATIONS_RULE));
+				}
+				else {
+					actions.add(new AddToParentRepositoryAction(
+						((IEditingDomainProvider) activeEditorPart).getEditingDomain(), ius,
+						AggregatorEditPlugin.ADD_IU));
+				}
+			}
+
+			return actions;
+		}
+
+		return actions;
+	}
+
+	/**
+	 * This generates a {@link org.eclipse.emf.edit.ui.action.CreateChildAction} for each object in <code>descriptors</code>, and returns the
+	 * collection of these actions. <!-- begin-user-doc --> <!-- end-user-doc
+	 * -->
+	 * 
+	 * @generated
+	 */
+	protected Collection<IAction> generateCreateChildActions(Collection<?> descriptors, ISelection selection) {
+		Collection<IAction> actions = new ArrayList<IAction>();
+		if(descriptors != null) {
+			for(Object descriptor : descriptors) {
+				actions.add(new CreateChildAction(activeEditorPart, selection, descriptor));
+			}
+		}
+		return actions;
+	}
+
+	/**
+	 * This generates a {@link org.eclipse.emf.edit.ui.action.CreateSiblingAction} for each object in <code>descriptors</code>, and returns the
+	 * collection of these actions. <!-- begin-user-doc --> <!-- end-user-doc
+	 * -->
+	 * 
+	 * @generated
+	 */
+	protected Collection<IAction> generateCreateSiblingActions(Collection<?> descriptors, ISelection selection) {
+		Collection<IAction> actions = new ArrayList<IAction>();
+		if(descriptors != null) {
+			for(Object descriptor : descriptors) {
+				actions.add(new CreateSiblingAction(activeEditorPart, selection, descriptor));
+			}
+		}
+		return actions;
+	}
+
+	private Aggregator getAggregator() {
+		if(activeEditorPart == null || !(activeEditorPart instanceof IEditingDomainProvider))
+			return null;
+
+		if(lastActiveEditorPart == activeEditorPart)
+			return aggregator;
+
+		lastActiveEditorPart = activeEditorPart;
+
+		IEditingDomainProvider edProvider = (IEditingDomainProvider) activeEditorPart;
+
+		EList<Resource> resources = edProvider.getEditingDomain().getResourceSet().getResources();
+		Resource aggregatorResource = null;
+		for(Resource resource : resources)
+			if(resource instanceof AggregatorResourceImpl) {
+				aggregatorResource = resource;
+				break;
+			}
+		return aggregator = (aggregatorResource == null
+				? null
+				: (Aggregator) aggregatorResource.getContents().get(0));
 	}
 
 	@Override
@@ -1056,6 +1232,41 @@ public class AggregatorActionBarContributor extends EditingDomainActionBarContri
 	}
 
 	/**
+	 * This populates the specified <code>manager</code> with {@link org.eclipse.jface.action.ActionContributionItem}s
+	 * based on the {@link org.eclipse.jface.action.IAction}s contained in the <code>actions</code> collection,
+	 * by inserting them before the specified contribution item <code>contributionID</code>.
+	 * If <code>contributionID</code> is <code>null</code>, they are simply added.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	protected void populateManager(IContributionManager manager, Collection<? extends IAction> actions,
+			String contributionID) {
+		if(actions != null) {
+			for(IAction action : actions) {
+				if(contributionID != null) {
+					manager.insertBefore(contributionID, action);
+				}
+				else {
+					manager.add(action);
+				}
+			}
+		}
+	}
+
+	/**
+	 * This ensures that a delete action will clean up all references to deleted objects.
+	 * <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected boolean removeAllReferencesOnDelete() {
+		return true;
+	}
+
+	/**
 	 * This implements {@link org.eclipse.jface.viewers.ISelectionChangedListener}, handling {@link org.eclipse.jface.viewers.SelectionChangedEvent}s
 	 * by querying for the children and siblings that can be
 	 * added to the selected object and updating the menus accordingly. <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -1065,54 +1276,6 @@ public class AggregatorActionBarContributor extends EditingDomainActionBarContri
 	public void selectionChanged(SelectionChangedEvent event) {
 		lastSelection = event.getSelection();
 		updateContextMenu(event.getSelection());
-	}
-
-	/**
-	 * This implements {@link org.eclipse.jface.viewers.ISelectionChangedListener},
-	 * handling {@link org.eclipse.jface.viewers.SelectionChangedEvent}s by querying for the children and siblings
-	 * that can be added to the selected object and updating the menus accordingly.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	public void selectionChangedGen(SelectionChangedEvent event) {
-		// Remove any menu items for old selection.
-		//
-		if(createChildMenuManager != null) {
-			depopulateManager(createChildMenuManager, createChildActions);
-		}
-		if(createSiblingMenuManager != null) {
-			depopulateManager(createSiblingMenuManager, createSiblingActions);
-		}
-
-		// Query the new selection for appropriate new child/sibling descriptors
-		//
-		Collection<?> newChildDescriptors = null;
-		Collection<?> newSiblingDescriptors = null;
-
-		ISelection selection = event.getSelection();
-		if(selection instanceof IStructuredSelection && ((IStructuredSelection) selection).size() == 1) {
-			Object object = ((IStructuredSelection) selection).getFirstElement();
-
-			EditingDomain domain = ((IEditingDomainProvider) activeEditorPart).getEditingDomain();
-
-			newChildDescriptors = domain.getNewChildDescriptors(object, null);
-			newSiblingDescriptors = domain.getNewChildDescriptors(null, object);
-		}
-
-		// Generate actions for selection; populate and redraw the menus.
-		//
-		createChildActions = generateCreateChildActions(newChildDescriptors, selection);
-		createSiblingActions = generateCreateSiblingActions(newSiblingDescriptors, selection);
-
-		if(createChildMenuManager != null) {
-			populateManager(createChildMenuManager, createChildActions, null);
-			createChildMenuManager.update(true);
-		}
-		if(createSiblingMenuManager != null) {
-			populateManager(createSiblingMenuManager, createSiblingActions, null);
-			createSiblingMenuManager.update(true);
-		}
 	}
 
 	/**
@@ -1274,217 +1437,5 @@ public class AggregatorActionBarContributor extends EditingDomainActionBarContri
 			populateManager(createSiblingMenuManager, createSiblingActions, null);
 			createSiblingMenuManager.update(true);
 		}
-	}
-
-	@Override
-	protected void addGlobalActions(IMenuManager menuManager) {
-		menuManager.insertBefore("additions", new ActionContributionItem(cleanRepoAction));
-		menuManager.insertBefore("additions", new ActionContributionItem(verifyRepoAction));
-		menuManager.insertBefore("additions", new ActionContributionItem(buildRepoAction));
-		menuManager.insertBefore("additions", new ActionContributionItem(cleanBuildRepoAction));
-		menuManager.insertBefore("additions", new Separator());
-		addGlobalActionsGen(menuManager);
-	}
-
-	/**
-	 * This inserts global actions before the "additions-end" separator.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	protected void addGlobalActionsGen(IMenuManager menuManager) {
-		menuManager.insertAfter("additions-end", new Separator("ui-actions"));
-		menuManager.insertAfter("ui-actions", showPropertiesViewAction);
-
-		refreshViewerAction.setEnabled(refreshViewerAction.isEnabled());
-		menuManager.insertAfter("ui-actions", refreshViewerAction);
-
-		super.addGlobalActions(menuManager);
-	}
-
-	/**
-	 * This removes from the specified <code>manager</code> all {@link org.eclipse.jface.action.ActionContributionItem}s
-	 * based on the {@link org.eclipse.jface.action.IAction}s contained in the <code>actions</code> collection. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	protected void depopulateManager(IContributionManager manager, Collection<? extends IAction> actions) {
-		if(actions != null) {
-			IContributionItem[] items = manager.getItems();
-			for(int i = 0; i < items.length; i++) {
-				// Look into SubContributionItems
-				//
-				IContributionItem contributionItem = items[i];
-				while(contributionItem instanceof SubContributionItem) {
-					contributionItem = ((SubContributionItem) contributionItem).getInnerItem();
-				}
-
-				// Delete the ActionContributionItems with matching action.
-				//
-				if(contributionItem instanceof ActionContributionItem) {
-					IAction action = ((ActionContributionItem) contributionItem).getAction();
-					if(actions.contains(action)) {
-						manager.remove(contributionItem);
-					}
-				}
-			}
-		}
-	}
-
-	/**
-	 * This generates a {@link org.eclipse.emf.edit.ui.action.CreateChildAction} for each object in <code>descriptors</code>, and returns the
-	 * collection of these actions. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
-	 * 
-	 * @generated
-	 */
-	protected Collection<IAction> generateCreateChildActions(Collection<?> descriptors, ISelection selection) {
-		Collection<IAction> actions = new ArrayList<IAction>();
-		if(descriptors != null) {
-			for(Object descriptor : descriptors) {
-				actions.add(new CreateChildAction(activeEditorPart, selection, descriptor));
-			}
-		}
-		return actions;
-	}
-
-	/**
-	 * This generates a {@link org.eclipse.emf.edit.ui.action.CreateSiblingAction} for each object in <code>descriptors</code>, and returns the
-	 * collection of these actions. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
-	 * 
-	 * @generated
-	 */
-	protected Collection<IAction> generateCreateSiblingActions(Collection<?> descriptors, ISelection selection) {
-		Collection<IAction> actions = new ArrayList<IAction>();
-		if(descriptors != null) {
-			for(Object descriptor : descriptors) {
-				actions.add(new CreateSiblingAction(activeEditorPart, selection, descriptor));
-			}
-		}
-		return actions;
-	}
-
-	/**
-	 * This populates the specified <code>manager</code> with {@link org.eclipse.jface.action.ActionContributionItem}s
-	 * based on the {@link org.eclipse.jface.action.IAction}s contained in the <code>actions</code> collection,
-	 * by inserting them before the specified contribution item <code>contributionID</code>.
-	 * If <code>contributionID</code> is <code>null</code>, they are simply added.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	protected void populateManager(IContributionManager manager, Collection<? extends IAction> actions,
-			String contributionID) {
-		if(actions != null) {
-			for(IAction action : actions) {
-				if(contributionID != null) {
-					manager.insertBefore(contributionID, action);
-				}
-				else {
-					manager.add(action);
-				}
-			}
-		}
-	}
-
-	/**
-	 * This ensures that a delete action will clean up all references to deleted objects.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected boolean removeAllReferencesOnDelete() {
-		return true;
-	}
-
-	@SuppressWarnings("unchecked")
-	private List<IAction> generateAddToCustomCategoryActions(ISelection selection) {
-		if(selection instanceof IStructuredSelection && ((IStructuredSelection) selection).size() > 0) {
-			ItemSorter itemSorter = new ItemSorter(((IStructuredSelection) selection).toList());
-
-			List<IAction> addToActions = new ArrayList<IAction>();
-
-			if(itemSorter.getTotalItemCount() > 0 &&
-					(itemSorter.getTotalItemCount() == itemSorter.getGroupItems(ItemGroup.FEATURE).size() || (itemSorter.getTotalItemCount() == itemSorter.getGroupItems(
-						ItemGroup.FEATURE_STRUCTURED).size()))) {
-				List<IInstallableUnit> features = new ArrayList<IInstallableUnit>();
-				features.addAll((List<InstallableUnit>) itemSorter.getGroupItems(ItemGroup.FEATURE));
-				features.addAll(ItemUtils.getIUs((List<org.eclipse.b3.aggregator.p2view.Feature>) itemSorter.getGroupItems(ItemGroup.FEATURE_STRUCTURED)));
-
-				for(CustomCategory customCategory : getAggregator().getCustomCategories())
-					addToActions.add(new AddToCustomCategoryAction(
-						((IEditingDomainProvider) activeEditorPart).getEditingDomain(), customCategory, features));
-			}
-
-			return addToActions;
-		}
-
-		return Collections.emptyList();
-	}
-
-	@SuppressWarnings("unchecked")
-	private List<IAction> generateAddToParentRepositoryAction(ISelection selection) {
-		List<IAction> actions = new ArrayList<IAction>();
-
-		if(selection instanceof IStructuredSelection && ((IStructuredSelection) selection).size() > 0) {
-			ItemSorter itemSorter = new ItemSorter(((IStructuredSelection) selection).toList());
-
-			if(itemSorter.getTotalItemCount() > 0 &&
-					(itemSorter.getTotalItemCount() == itemSorter.getGroupItems(ItemGroup.IU).size() || (itemSorter.getTotalItemCount() == itemSorter.getGroupItems(
-						ItemGroup.IU_STRUCTURED).size()))) {
-				List<IInstallableUnit> ius = new ArrayList<IInstallableUnit>();
-
-				ius.addAll((List<InstallableUnit>) itemSorter.getGroupItems(ItemGroup.IU));
-				ius.addAll(ItemUtils.getIUs((List<IUPresentation>) itemSorter.getGroupItems(ItemGroup.IU_STRUCTURED)));
-
-				if(itemSorter.getTotalItemCount() == itemSorter.getGroupItems(ItemGroup.FEATURE_STRUCTURED).size()) {
-					actions.add(new AddToParentRepositoryAction(
-						((IEditingDomainProvider) activeEditorPart).getEditingDomain(), ius,
-						AggregatorEditPlugin.ADD_IU));
-					actions.add(new AddToParentRepositoryAction(
-						((IEditingDomainProvider) activeEditorPart).getEditingDomain(), ius,
-						AggregatorEditPlugin.ADD_EXCLUSION_RULE));
-					actions.add(new AddToParentRepositoryAction(
-						((IEditingDomainProvider) activeEditorPart).getEditingDomain(), ius,
-						AggregatorEditPlugin.ADD_VALID_CONFIGURATIONS_RULE));
-				}
-				else {
-					actions.add(new AddToParentRepositoryAction(
-						((IEditingDomainProvider) activeEditorPart).getEditingDomain(), ius,
-						AggregatorEditPlugin.ADD_IU));
-				}
-			}
-
-			return actions;
-		}
-
-		return actions;
-	}
-
-	private Aggregator getAggregator() {
-		if(activeEditorPart == null || !(activeEditorPart instanceof IEditingDomainProvider))
-			return null;
-
-		if(lastActiveEditorPart == activeEditorPart)
-			return aggregator;
-
-		lastActiveEditorPart = activeEditorPart;
-
-		IEditingDomainProvider edProvider = (IEditingDomainProvider) activeEditorPart;
-
-		EList<Resource> resources = edProvider.getEditingDomain().getResourceSet().getResources();
-		Resource aggregatorResource = null;
-		for(Resource resource : resources)
-			if(resource instanceof AggregatorResourceImpl) {
-				aggregatorResource = resource;
-				break;
-			}
-		return aggregator = (aggregatorResource == null
-				? null
-				: (Aggregator) aggregatorResource.getContents().get(0));
 	}
 }

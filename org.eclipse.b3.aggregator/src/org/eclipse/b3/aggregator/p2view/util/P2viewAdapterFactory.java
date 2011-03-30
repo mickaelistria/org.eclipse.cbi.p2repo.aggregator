@@ -67,48 +67,8 @@ public class P2viewAdapterFactory extends AdapterFactoryImpl {
 	 */
 	protected P2viewSwitch<Adapter> modelSwitch = new P2viewSwitch<Adapter>() {
 		@Override
-		public Adapter caseBundle(Bundle object) {
-			return createBundleAdapter();
-		}
-
-		@Override
-		public Adapter caseBundles(Bundles object) {
-			return createBundlesAdapter();
-		}
-
-		@Override
-		public Adapter caseCategories(Categories object) {
-			return createCategoriesAdapter();
-		}
-
-		@Override
-		public Adapter caseCategory(Category object) {
-			return createCategoryAdapter();
-		}
-
-		@Override
-		public <T> Adapter caseChildrenProvider(ChildrenProvider<T> object) {
-			return createChildrenProviderAdapter();
-		}
-
-		@Override
-		public Adapter caseFeature(Feature object) {
-			return createFeatureAdapter();
-		}
-
-		@Override
-		public Adapter caseFeatures(Features object) {
-			return createFeaturesAdapter();
-		}
-
-		@Override
-		public Adapter caseFragment(Fragment object) {
-			return createFragmentAdapter();
-		}
-
-		@Override
-		public Adapter caseFragments(Fragments object) {
-			return createFragmentsAdapter();
+		public Adapter caseMetadataRepositoryStructuredView(MetadataRepositoryStructuredView object) {
+			return createMetadataRepositoryStructuredViewAdapter();
 		}
 
 		@Override
@@ -117,18 +77,33 @@ public class P2viewAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
-		public Adapter caseIProvidedCapability(IProvidedCapability object) {
-			return createIProvidedCapabilityAdapter();
+		public Adapter caseCategories(Categories object) {
+			return createCategoriesAdapter();
 		}
 
 		@Override
-		public Adapter caseIRequirement(IRequirement object) {
-			return createIRequirementAdapter();
+		public Adapter caseFeatures(Features object) {
+			return createFeaturesAdapter();
 		}
 
 		@Override
-		public Adapter caseIUDetails(IUDetails object) {
-			return createIUDetailsAdapter();
+		public Adapter caseProducts(Products object) {
+			return createProductsAdapter();
+		}
+
+		@Override
+		public Adapter caseBundles(Bundles object) {
+			return createBundlesAdapter();
+		}
+
+		@Override
+		public Adapter caseFragments(Fragments object) {
+			return createFragmentsAdapter();
+		}
+
+		@Override
+		public Adapter caseMiscellaneous(Miscellaneous object) {
+			return createMiscellaneousAdapter();
 		}
 
 		@Override
@@ -142,28 +117,13 @@ public class P2viewAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
-		public Adapter caseLabelProvider(LabelProvider object) {
-			return createLabelProviderAdapter();
+		public Adapter caseCategory(Category object) {
+			return createCategoryAdapter();
 		}
 
 		@Override
-		public Adapter caseLicenses(Licenses object) {
-			return createLicensesAdapter();
-		}
-
-		@Override
-		public Adapter caseMetadataRepositoryStructuredView(MetadataRepositoryStructuredView object) {
-			return createMetadataRepositoryStructuredViewAdapter();
-		}
-
-		@Override
-		public Adapter caseMiscellaneous(Miscellaneous object) {
-			return createMiscellaneousAdapter();
-		}
-
-		@Override
-		public Adapter caseOtherIU(OtherIU object) {
-			return createOtherIUAdapter();
+		public Adapter caseFeature(Feature object) {
+			return createFeatureAdapter();
 		}
 
 		@Override
@@ -172,8 +132,18 @@ public class P2viewAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
-		public Adapter caseProducts(Products object) {
-			return createProductsAdapter();
+		public Adapter caseBundle(Bundle object) {
+			return createBundleAdapter();
+		}
+
+		@Override
+		public Adapter caseFragment(Fragment object) {
+			return createFragmentAdapter();
+		}
+
+		@Override
+		public Adapter caseOtherIU(OtherIU object) {
+			return createOtherIUAdapter();
 		}
 
 		@Override
@@ -182,18 +152,28 @@ public class P2viewAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
+		public Adapter caseRequirements(Requirements object) {
+			return createRequirementsAdapter();
+		}
+
+		@Override
 		public Adapter caseProvidedCapabilities(ProvidedCapabilities object) {
 			return createProvidedCapabilitiesAdapter();
 		}
 
 		@Override
-		public Adapter caseProvidedCapabilityWrapper(ProvidedCapabilityWrapper object) {
-			return createProvidedCapabilityWrapperAdapter();
+		public Adapter caseTouchpoints(Touchpoints object) {
+			return createTouchpointsAdapter();
 		}
 
 		@Override
-		public Adapter caseRequirements(Requirements object) {
-			return createRequirementsAdapter();
+		public Adapter caseLicenses(Licenses object) {
+			return createLicensesAdapter();
+		}
+
+		@Override
+		public Adapter caseIUDetails(IUDetails object) {
+			return createIUDetailsAdapter();
 		}
 
 		@Override
@@ -202,8 +182,28 @@ public class P2viewAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
-		public Adapter caseTouchpoints(Touchpoints object) {
-			return createTouchpointsAdapter();
+		public Adapter caseProvidedCapabilityWrapper(ProvidedCapabilityWrapper object) {
+			return createProvidedCapabilityWrapperAdapter();
+		}
+
+		@Override
+		public <T> Adapter caseChildrenProvider(ChildrenProvider<T> object) {
+			return createChildrenProviderAdapter();
+		}
+
+		@Override
+		public Adapter caseIRequirement(IRequirement object) {
+			return createIRequirementAdapter();
+		}
+
+		@Override
+		public Adapter caseLabelProvider(LabelProvider object) {
+			return createLabelProviderAdapter();
+		}
+
+		@Override
+		public Adapter caseIProvidedCapability(IProvidedCapability object) {
+			return createIProvidedCapabilityAdapter();
 		}
 
 		@Override

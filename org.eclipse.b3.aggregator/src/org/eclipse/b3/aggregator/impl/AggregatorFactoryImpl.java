@@ -7,9 +7,11 @@
 package org.eclipse.b3.aggregator.impl;
 
 import org.eclipse.b3.aggregator.AggregateType;
+import org.eclipse.b3.aggregator.Aggregation;
 import org.eclipse.b3.aggregator.Aggregator;
 import org.eclipse.b3.aggregator.AggregatorFactory;
 import org.eclipse.b3.aggregator.AggregatorPackage;
+import org.eclipse.b3.aggregator.AggregatorResourceView;
 import org.eclipse.b3.aggregator.Architecture;
 import org.eclipse.b3.aggregator.AvailableVersion;
 import org.eclipse.b3.aggregator.AvailableVersionsHeader;
@@ -266,6 +268,10 @@ public class AggregatorFactoryImpl extends EFactoryImpl implements AggregatorFac
 				return (EObject) createAvailableVersionsHeader();
 			case AggregatorPackage.AVAILABLE_VERSION:
 				return (EObject) createAvailableVersion();
+			case AggregatorPackage.AGGREGATION:
+				return (EObject) createAggregation();
+			case AggregatorPackage.AGGREGATOR_RESOURCE_VIEW:
+				return (EObject) createAggregatorResourceView();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -285,6 +291,17 @@ public class AggregatorFactoryImpl extends EFactoryImpl implements AggregatorFac
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public Aggregation createAggregation() {
+		AggregationImpl aggregation = new AggregationImpl();
+		return aggregation;
+	}
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
@@ -292,6 +309,16 @@ public class AggregatorFactoryImpl extends EFactoryImpl implements AggregatorFac
 	public Aggregator createAggregator() {
 		AggregatorImpl aggregator = new AggregatorImpl();
 		return aggregator;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated NOT
+	 */
+	public AggregatorResourceView createAggregatorResourceView() {
+		throw new UnsupportedOperationException();
 	}
 
 	/**

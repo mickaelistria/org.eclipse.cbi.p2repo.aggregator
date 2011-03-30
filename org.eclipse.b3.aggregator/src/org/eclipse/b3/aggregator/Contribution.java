@@ -26,7 +26,8 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface Contribution extends EnabledStatusProvider, DescriptionProvider, StatusProvider, InfosProvider {
+public interface Contribution extends EnabledStatusProvider, DescriptionProvider, StatusProvider, InfosProvider,
+		Separable {
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 

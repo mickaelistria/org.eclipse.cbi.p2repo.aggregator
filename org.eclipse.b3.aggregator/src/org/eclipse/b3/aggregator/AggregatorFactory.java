@@ -46,6 +46,26 @@ public interface AggregatorFactory extends EFactory {
 	AvailableVersion createAvailableVersion();
 
 	/**
+	 * Returns a new object of class '<em>Aggregation</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return a new object of class '<em>Aggregation</em>'.
+	 * @generated
+	 */
+	Aggregation createAggregation();
+
+	/**
+	 * Returns a new object of class '<em>Resource View</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return a new object of class '<em>Resource View</em>'.
+	 * @generated
+	 */
+	AggregatorResourceView createAggregatorResourceView();
+
+	/**
 	 * Returns a new object of class '<em>Available Versions Header</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

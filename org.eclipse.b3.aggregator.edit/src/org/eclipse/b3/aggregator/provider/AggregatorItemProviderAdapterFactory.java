@@ -315,6 +315,56 @@ public class AggregatorItemProviderAdapterFactory extends AggregatorAdapterFacto
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.aggregator.Aggregation} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	protected AggregationItemProvider aggregationItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.eclipse.b3.aggregator.Aggregation}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public Adapter createAggregationAdapter() {
+		if(aggregationItemProvider == null) {
+			aggregationItemProvider = new AggregationItemProvider(this);
+		}
+
+		return aggregationItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.aggregator.AggregatorResourceView} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	protected AggregatorResourceViewItemProvider aggregatorResourceViewItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.eclipse.b3.aggregator.AggregatorResourceView}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public Adapter createAggregatorResourceViewAdapter() {
+		if(aggregatorResourceViewItemProvider == null) {
+			aggregatorResourceViewItemProvider = new AggregatorResourceViewItemProvider(this);
+		}
+
+		return aggregatorResourceViewItemProvider;
+	}
+
+	/**
 	 * This creates an adapter for a {@link org.eclipse.b3.aggregator.AvailableVersionsHeader}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -647,6 +697,10 @@ public class AggregatorItemProviderAdapterFactory extends AggregatorAdapterFacto
 			availableVersionsHeaderItemProvider.dispose();
 		if(availableVersionItemProvider != null)
 			availableVersionItemProvider.dispose();
+		if(aggregationItemProvider != null)
+			aggregationItemProvider.dispose();
+		if(aggregatorResourceViewItemProvider != null)
+			aggregatorResourceViewItemProvider.dispose();
 	}
 
 	/**

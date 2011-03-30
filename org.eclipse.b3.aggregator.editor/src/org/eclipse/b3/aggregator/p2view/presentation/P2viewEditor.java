@@ -461,14 +461,6 @@ public class P2viewEditor extends MultiPageEditorPart implements IEditingDomainP
 
 					protected Collection<Resource> removedResources = new ArrayList<Resource>();
 
-					public Collection<Resource> getChangedResources() {
-						return changedResources;
-					}
-
-					public Collection<Resource> getRemovedResources() {
-						return removedResources;
-					}
-
 					public boolean visit(IResourceDelta delta) {
 						if(delta.getResource().getType() == IResource.FILE) {
 							if(delta.getKind() == IResourceDelta.REMOVED || delta.getKind() == IResourceDelta.CHANGED &&
@@ -487,6 +479,14 @@ public class P2viewEditor extends MultiPageEditorPart implements IEditingDomainP
 						}
 
 						return true;
+					}
+
+					public Collection<Resource> getChangedResources() {
+						return changedResources;
+					}
+
+					public Collection<Resource> getRemovedResources() {
+						return removedResources;
 					}
 				}
 
@@ -911,15 +911,15 @@ public class P2viewEditor extends MultiPageEditorPart implements IEditingDomainP
 		if(propertySheetPage == null) {
 			propertySheetPage = new ExtendedPropertySheetPage(editingDomain) {
 				@Override
-				public void setActionBars(IActionBars actionBars) {
-					super.setActionBars(actionBars);
-					getActionBarContributor().shareGlobalActions(this, actionBars);
-				}
-
-				@Override
 				public void setSelectionToViewer(List<?> selection) {
 					P2viewEditor.this.setSelectionToViewer(selection);
 					P2viewEditor.this.setFocus();
+				}
+
+				@Override
+				public void setActionBars(IActionBars actionBars) {
+					super.setActionBars(actionBars);
+					getActionBarContributor().shareGlobalActions(this, actionBars);
 				}
 			};
 			propertySheetPage.setPropertySourceProvider(new AdapterFactoryContentProvider(adapterFactory));
