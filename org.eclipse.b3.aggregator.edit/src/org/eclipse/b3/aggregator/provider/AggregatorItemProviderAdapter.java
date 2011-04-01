@@ -19,9 +19,7 @@ public class AggregatorItemProviderAdapter extends ItemProviderAdapter implement
 	static class AggregatorItemPropertyDescriptor extends ItemPropertyDescriptor {
 		public AggregatorItemPropertyDescriptor(AdapterFactory adapterFactory, ResourceLocator resourceLocator,
 				String displayName, String description, EStructuralFeature feature, boolean isSettable,
-				boolean multiLine, boolean sortChoices, Object staticImage, String category, String[] filterFlags)
-
-		{
+				boolean multiLine, boolean sortChoices, Object staticImage, String category, String[] filterFlags) {
 			super(
 				adapterFactory, resourceLocator, displayName, description, feature, isSettable, multiLine, sortChoices,
 				staticImage, category, filterFlags);

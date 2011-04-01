@@ -10,14 +10,16 @@ package org.eclipse.b3.aggregator.provider;
 import java.util.Collection;
 import java.util.List;
 
-import org.eclipse.b3.aggregator.Aggregation;
+import org.eclipse.b3.aggregator.Aggregate;
 import org.eclipse.b3.aggregator.AggregatorPackage;
-import org.eclipse.b3.aggregator.impl.AggregationImpl;
-import org.eclipse.b3.aggregator.impl.AggregatorImpl;
+import org.eclipse.b3.aggregator.impl.AggregateImpl;
+import org.eclipse.b3.aggregator.util.NotificationForwardingAdapter;
+import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemColorProvider;
@@ -31,13 +33,13 @@ import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
- * This is the item provider adapter for a {@link org.eclipse.b3.aggregator.Aggregation} object.
+ * This is the item provider adapter for a {@link org.eclipse.b3.aggregator.Aggregate} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * 
  * @generated
  */
-public class AggregationItemProvider extends AggregatorItemProviderAdapter implements IEditingDomainItemProvider,
+public class AggregateItemProvider extends AggregatorItemProviderAdapter implements IEditingDomainItemProvider,
 		IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource,
 		IItemColorProvider, IItemFontProvider {
 	/**
@@ -47,7 +49,7 @@ public class AggregationItemProvider extends AggregatorItemProviderAdapter imple
 	 * 
 	 * @generated
 	 */
-	public AggregationItemProvider(AdapterFactory adapterFactory) {
+	public AggregateItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -97,9 +99,9 @@ public class AggregationItemProvider extends AggregatorItemProviderAdapter imple
 	protected void addLabelPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
 			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-			getString("_UI_Aggregation_label_feature"),
-			getString("_UI_PropertyDescriptor_description", "_UI_Aggregation_label_feature", "_UI_Aggregation_type"),
-			AggregatorPackage.Literals.AGGREGATION__LABEL, true, false, false,
+			getString("_UI_Aggregate_label_feature"),
+			getString("_UI_PropertyDescriptor_description", "_UI_Aggregate_label_feature", "_UI_Aggregate_type"),
+			AggregatorPackage.Literals.AGGREGATE__LABEL, true, false, false,
 			ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
@@ -119,11 +121,11 @@ public class AggregationItemProvider extends AggregatorItemProviderAdapter imple
 	@Override
 	public Collection<?> getChildren(Object object) {
 
-		return ((AggregationImpl) object).getContributionViews();
+		return ((AggregateImpl) object).getContributionViews();
 	}
 
 	/**
-	 * This returns Aggregation.gif.
+	 * This returns Aggregate.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -131,7 +133,7 @@ public class AggregationItemProvider extends AggregatorItemProviderAdapter imple
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/Aggregation"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/Aggregate"));
 	}
 
 	/*
@@ -143,8 +145,19 @@ public class AggregationItemProvider extends AggregatorItemProviderAdapter imple
 	public Object getParent(Object object) {
 		Object parent = super.getParent(object);
 
-		if(parent instanceof AggregatorImpl)
-			return ((EObject) parent).eResource();
+		if(parent instanceof EObject) {
+			EStructuralFeature containingFeature = ((EObject) object).eContainingFeature();
+
+			for(Adapter adapter : ((EObject) parent).eAdapters()) {
+				if(adapter instanceof NotificationForwardingAdapter) {
+					NotificationForwardingAdapter notificationForwardingAdapter = (NotificationForwardingAdapter) adapter;
+					Collection<EStructuralFeature> forwardedFeatures = notificationForwardingAdapter.getForwardedFeatures();
+
+					if(forwardedFeatures == null || forwardedFeatures.contains(containingFeature))
+						return notificationForwardingAdapter.getForwardingTarget();
+				}
+			}
+		}
 
 		return parent;
 	}
@@ -189,10 +202,10 @@ public class AggregationItemProvider extends AggregatorItemProviderAdapter imple
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Aggregation) object).getLabel();
+		String label = ((Aggregate) object).getLabel();
 		return label == null || label.length() == 0
-				? getString("_UI_Aggregation_type")
-				: getString("_UI_Aggregation_type") + " " + label;
+				? getString("_UI_Aggregate_type")
+				: getString("_UI_Aggregate_type") + " " + label;
 	}
 
 	/**
@@ -207,10 +220,10 @@ public class AggregationItemProvider extends AggregatorItemProviderAdapter imple
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch(notification.getFeatureID(Aggregation.class)) {
-			case AggregatorPackage.AGGREGATION__ENABLED:
-			case AggregatorPackage.AGGREGATION__DESCRIPTION:
-			case AggregatorPackage.AGGREGATION__LABEL:
+		switch(notification.getFeatureID(Aggregate.class)) {
+			case AggregatorPackage.AGGREGATE__ENABLED:
+			case AggregatorPackage.AGGREGATE__DESCRIPTION:
+			case AggregatorPackage.AGGREGATE__LABEL:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

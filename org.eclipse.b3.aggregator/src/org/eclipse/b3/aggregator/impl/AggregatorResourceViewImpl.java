@@ -7,7 +7,7 @@
  */
 package org.eclipse.b3.aggregator.impl;
 
-import org.eclipse.b3.aggregator.Aggregation;
+import org.eclipse.b3.aggregator.Aggregate;
 import org.eclipse.b3.aggregator.Aggregator;
 import org.eclipse.b3.aggregator.AggregatorPackage;
 import org.eclipse.b3.aggregator.AggregatorResourceView;
@@ -35,6 +35,8 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * @generated NOT
  */
 public class AggregatorResourceViewImpl extends MinimalEObjectImpl.Container implements AggregatorResourceView {
+	protected AggregatorResource aggregatorResource;
+
 	/**
 	 * The cached value of the '{@link #getAggregator() <em>Aggregator</em>}' containment reference.
 	 * <!-- begin-user-doc -->
@@ -53,8 +55,8 @@ public class AggregatorResourceViewImpl extends MinimalEObjectImpl.Container imp
 	 * @generated NOT
 	 */
 	public AggregatorResourceViewImpl(AggregatorResource aggregatorResource) {
-		if(aggregatorResource != null)
-			aggregator = (AggregatorImpl) aggregatorResource.getContents().get(0);
+		this.aggregatorResource = aggregatorResource;
+		this.aggregator = (AggregatorImpl) aggregatorResource.getContents().get(0);
 	}
 
 	/**
@@ -89,8 +91,8 @@ public class AggregatorResourceViewImpl extends MinimalEObjectImpl.Container imp
 		switch(featureID) {
 			case AggregatorPackage.AGGREGATOR_RESOURCE_VIEW__AGGREGATOR:
 				return getAggregator();
-			case AggregatorPackage.AGGREGATOR_RESOURCE_VIEW__AGGREGATIONS:
-				return getAggregations();
+			case AggregatorPackage.AGGREGATOR_RESOURCE_VIEW__AGGREGATES:
+				return getAggregates();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -106,8 +108,8 @@ public class AggregatorResourceViewImpl extends MinimalEObjectImpl.Container imp
 		switch(featureID) {
 			case AggregatorPackage.AGGREGATOR_RESOURCE_VIEW__AGGREGATOR:
 				return basicSetAggregator(null, msgs);
-			case AggregatorPackage.AGGREGATOR_RESOURCE_VIEW__AGGREGATIONS:
-				return aggregator.eInverseRemove(otherEnd, AggregatorPackage.AGGREGATOR__AGGREGATIONS, msgs);
+			case AggregatorPackage.AGGREGATOR_RESOURCE_VIEW__AGGREGATES:
+				return aggregator.eInverseRemove(otherEnd, AggregatorPackage.AGGREGATOR__AGGREGATES, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -123,8 +125,8 @@ public class AggregatorResourceViewImpl extends MinimalEObjectImpl.Container imp
 		switch(featureID) {
 			case AggregatorPackage.AGGREGATOR_RESOURCE_VIEW__AGGREGATOR:
 				return aggregator != null;
-			case AggregatorPackage.AGGREGATOR_RESOURCE_VIEW__AGGREGATIONS:
-				return getAggregations().isEmpty();
+			case AggregatorPackage.AGGREGATOR_RESOURCE_VIEW__AGGREGATES:
+				return getAggregates().isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -138,8 +140,8 @@ public class AggregatorResourceViewImpl extends MinimalEObjectImpl.Container imp
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch(featureID) {
-			case AggregatorPackage.AGGREGATOR_RESOURCE_VIEW__AGGREGATIONS:
-				aggregator.eSet(AggregatorPackage.AGGREGATOR__AGGREGATIONS, newValue);
+			case AggregatorPackage.AGGREGATOR_RESOURCE_VIEW__AGGREGATES:
+				aggregator.eSet(AggregatorPackage.AGGREGATOR__AGGREGATES, newValue);
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -164,8 +166,8 @@ public class AggregatorResourceViewImpl extends MinimalEObjectImpl.Container imp
 	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
-			case AggregatorPackage.AGGREGATOR_RESOURCE_VIEW__AGGREGATIONS:
-				getAggregations().clear();
+			case AggregatorPackage.AGGREGATOR_RESOURCE_VIEW__AGGREGATES:
+				getAggregates().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -177,8 +179,8 @@ public class AggregatorResourceViewImpl extends MinimalEObjectImpl.Container imp
 	 * 
 	 * @generated NOT
 	 */
-	public EList<Aggregation> getAggregations() {
-		return aggregator.getAggregations();
+	public EList<Aggregate> getAggregates() {
+		return aggregator.getAggregates();
 	}
 
 	/**
@@ -189,6 +191,13 @@ public class AggregatorResourceViewImpl extends MinimalEObjectImpl.Container imp
 	 */
 	public Aggregator getAggregator() {
 		return aggregator;
+	}
+
+	/**
+	 * @return the aggregatorResource
+	 */
+	public AggregatorResource getAggregatorResource() {
+		return aggregatorResource;
 	}
 
 } // AggregatorViewImpl

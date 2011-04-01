@@ -9,7 +9,7 @@ package org.eclipse.b3.aggregator.provider;
 import java.util.Collection;
 import java.util.List;
 
-import org.eclipse.b3.aggregator.Aggregation;
+import org.eclipse.b3.aggregator.Aggregate;
 import org.eclipse.b3.aggregator.Aggregator;
 import org.eclipse.b3.aggregator.AggregatorFactory;
 import org.eclipse.b3.aggregator.AggregatorPackage;
@@ -22,7 +22,6 @@ import org.eclipse.b3.aggregator.util.ResourceUtils;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EStructuralFeature;
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.edit.command.CommandParameter;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
@@ -195,7 +194,7 @@ public class AggregatorItemProvider extends DescriptionProviderItemProvider impl
 					Object newChildValue = ((CommandParameter) e).getValue();
 
 					// filter these out
-					if(newChildValue instanceof Aggregation || newChildValue instanceof MappedRepository)
+					if(newChildValue instanceof Aggregate || newChildValue instanceof MappedRepository)
 						return false;
 				}
 				return super.add(e);
@@ -212,6 +211,9 @@ public class AggregatorItemProvider extends DescriptionProviderItemProvider impl
 	 */
 	protected void collectNewChildDescriptorsGen(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
+
+		newChildDescriptors.add(createChildParameter(
+			AggregatorPackage.Literals.AGGREGATOR__AGGREGATES, AggregatorFactory.eINSTANCE.createAggregate()));
 
 		newChildDescriptors.add(createChildParameter(
 			AggregatorPackage.Literals.AGGREGATOR__CONFIGURATIONS, AggregatorFactory.eINSTANCE.createConfiguration()));
@@ -236,9 +238,6 @@ public class AggregatorItemProvider extends DescriptionProviderItemProvider impl
 
 		newChildDescriptors.add(createChildParameter(
 			AggregatorPackage.Literals.AGGREGATOR__MAVEN_MAPPINGS, AggregatorFactory.eINSTANCE.createMavenMapping()));
-
-		newChildDescriptors.add(createChildParameter(
-			AggregatorPackage.Literals.AGGREGATOR__AGGREGATIONS, AggregatorFactory.eINSTANCE.createAggregation()));
 	}
 
 	/**
@@ -267,7 +266,7 @@ public class AggregatorItemProvider extends DescriptionProviderItemProvider impl
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if(childrenFeatures == null) {
 			getChildrenFeaturesGen(object);
-			childrenFeatures.remove(AggregatorPackage.Literals.AGGREGATOR__AGGREGATIONS);
+			childrenFeatures.remove(AggregatorPackage.Literals.AGGREGATOR__AGGREGATES);
 		}
 		return childrenFeatures;
 	}
@@ -284,13 +283,13 @@ public class AggregatorItemProvider extends DescriptionProviderItemProvider impl
 	public Collection<? extends EStructuralFeature> getChildrenFeaturesGen(Object object) {
 		if(childrenFeatures == null) {
 			super.getChildrenFeatures(object);
+			childrenFeatures.add(AggregatorPackage.Literals.AGGREGATOR__AGGREGATES);
 			childrenFeatures.add(AggregatorPackage.Literals.AGGREGATOR__CONFIGURATIONS);
 			childrenFeatures.add(AggregatorPackage.Literals.AGGREGATOR__CONTRIBUTIONS);
 			childrenFeatures.add(AggregatorPackage.Literals.AGGREGATOR__CONTACTS);
 			childrenFeatures.add(AggregatorPackage.Literals.AGGREGATOR__CUSTOM_CATEGORIES);
 			childrenFeatures.add(AggregatorPackage.Literals.AGGREGATOR__VALIDATION_REPOSITORIES);
 			childrenFeatures.add(AggregatorPackage.Literals.AGGREGATOR__MAVEN_MAPPINGS);
-			childrenFeatures.add(AggregatorPackage.Literals.AGGREGATOR__AGGREGATIONS);
 		}
 		return childrenFeatures;
 	}
@@ -345,44 +344,6 @@ public class AggregatorItemProvider extends DescriptionProviderItemProvider impl
 
 	@Override
 	public void notifyChanged(Notification notification) {
-		// send notification to the parent (display tree wise) of the changed aggregation node
-		if(notification.getFeatureID(AggregatorPackage.class) == AggregatorPackage.AGGREGATOR__AGGREGATIONS) {
-			SEND_NOTIFICATION: {
-				if(!(notification instanceof ENotificationImpl))
-					break SEND_NOTIFICATION;
-
-				ENotificationImpl eNotification = (ENotificationImpl) notification;
-				Object value;
-
-				switch(notification.getEventType()) {
-					case Notification.ADD:
-					case Notification.MOVE:
-						value = eNotification.getNewValue();
-						break;
-					case Notification.ADD_MANY:
-						value = eNotification.getNewValue();
-						if(value instanceof List<?>)
-							value = ((List<?>) value).get(0);
-						break;
-					case Notification.REMOVE:
-						value = eNotification.getOldValue();
-						break;
-					case Notification.REMOVE_MANY:
-						value = eNotification.getOldValue();
-						if(value instanceof List<?>)
-							value = ((List<?>) value).get(0);
-						break;
-					default:
-						break SEND_NOTIFICATION;
-				}
-
-				IEditingDomainItemProvider valueItemProvider = (IEditingDomainItemProvider) getRootAdapterFactory().adapt(
-					value, IEditingDomainItemProvider.class);
-				fireNotifyChanged(new ViewerNotification(notification, valueItemProvider.getParent(value), true, false));
-			}
-			return;
-		}
-
 		notifyChangedGen(notification);
 
 		if(notification.getEventType() == Notification.REMOVE) {
@@ -427,13 +388,13 @@ public class AggregatorItemProvider extends DescriptionProviderItemProvider impl
 			case AggregatorPackage.AGGREGATOR__MAVEN_RESULT:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
+			case AggregatorPackage.AGGREGATOR__AGGREGATES:
 			case AggregatorPackage.AGGREGATOR__CONFIGURATIONS:
 			case AggregatorPackage.AGGREGATOR__CONTRIBUTIONS:
 			case AggregatorPackage.AGGREGATOR__CONTACTS:
 			case AggregatorPackage.AGGREGATOR__CUSTOM_CATEGORIES:
 			case AggregatorPackage.AGGREGATOR__VALIDATION_REPOSITORIES:
 			case AggregatorPackage.AGGREGATOR__MAVEN_MAPPINGS:
-			case AggregatorPackage.AGGREGATOR__AGGREGATIONS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}

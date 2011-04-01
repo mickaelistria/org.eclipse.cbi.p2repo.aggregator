@@ -26,23 +26,8 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface Contribution extends EnabledStatusProvider, DescriptionProvider, StatusProvider, InfosProvider {
-	/**
-	 * Returns the value of the '<em><b>Aggregation</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Aggregation</em>' reference isn't clear, there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * 
-	 * @return the value of the '<em>Aggregation</em>' reference.
-	 * @see #setAggregation(Aggregation)
-	 * @see org.eclipse.b3.aggregator.AggregatorPackage#getContribution_Aggregation()
-	 * @model keys="label"
-	 * @generated
-	 */
-	Aggregation getAggregation();
-
+public interface Contribution extends EnabledStatusProvider, DescriptionProvider, StatusProvider, InfosProvider,
+		LinkSource {
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -122,18 +107,6 @@ public interface Contribution extends EnabledStatusProvider, DescriptionProvider
 	 * @generated
 	 */
 	EList<MappedRepository> getRepositories(boolean enabledOnly);
-
-	/**
-	 * Sets the value of the '{@link org.eclipse.b3.aggregator.Contribution#getAggregation <em>Aggregation</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @param value
-	 *            the new value of the '<em>Aggregation</em>' reference.
-	 * @see #getAggregation()
-	 * @generated
-	 */
-	void setAggregation(Aggregation value);
 
 	/**
 	 * Sets the value of the '{@link org.eclipse.b3.aggregator.Contribution#getLabel <em>Label</em>}' attribute.

@@ -30,6 +30,7 @@ import org.eclipse.b3.aggregator.p2.provider.ProvidedCapabilityItemProvider;
 import org.eclipse.b3.aggregator.p2.provider.RequiredCapabilityItemProvider;
 import org.eclipse.b3.aggregator.p2.util.MetadataRepositoryResourceImpl;
 import org.eclipse.b3.aggregator.p2view.provider.P2viewItemProviderAdapterFactory;
+import org.eclipse.b3.aggregator.provider.AggregatorEditPlugin;
 import org.eclipse.b3.aggregator.provider.AggregatorItemProviderAdapter;
 import org.eclipse.b3.aggregator.provider.AggregatorItemProviderAdapterFactory;
 import org.eclipse.b3.aggregator.provider.AggregatorResourceViewItemProvider;
@@ -71,6 +72,7 @@ import org.eclipse.emf.common.ui.viewer.IViewerProvider;
 import org.eclipse.emf.common.util.BasicDiagnostic;
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.ecore.EObject;
@@ -81,7 +83,6 @@ import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.util.EContentAdapter;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.edit.command.CommandParameter;
-import org.eclipse.emf.edit.command.RemoveCommand;
 import org.eclipse.emf.edit.domain.AdapterFactoryEditingDomain;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.domain.IEditingDomainProvider;
@@ -1792,143 +1793,188 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 
 		// Assign specific images to resources
 		adapterFactory.addAdapterFactory(new ResourceItemProviderAdapterFactory() {
-			class ResourceItemProviderWithFontSupport extends ResourceItemProvider implements IItemFontProvider,
-					TooltipTextProvider {
 
-				protected AggregatorResource adaptedResource;
+			class AggregatorResourceBaseItemProvider extends ResourceItemProvider implements TooltipTextProvider {
 
-				protected AggregatorResourceViewImpl adaptingObject;
+				public AggregatorResourceBaseItemProvider(AdapterFactory adapterFactory) {
+					super(adapterFactory);
+				}
+
+				public Object getOverlaidImage(Object baseImage, Object overlayImage) {
+					if(overlayImage != null) {
+						Object[] images = new Object[2];
+						int[] positions = new int[2];
+
+						images[0] = baseImage;
+						positions[0] = OverlaidImage.BASIC;
+
+						images[1] = overlayImage;
+						positions[1] = OverlaidImage.OVERLAY_BOTTOM_RIGHT;
+
+						return new OverlaidImage(images, positions);
+					}
+
+					return baseImage;
+				}
+
+				public String getTooltipText(Object object) {
+					return AggregatorItemProviderAdapter.getTooltipText(object, this);
+				}
+
+			}
+
+			class AggregatorResourceItemProvider extends AggregatorResourceBaseItemProvider {
 
 				protected AggregatorResourceViewItemProvider delegateItemProviderAdapter;
 
-				ResourceItemProviderWithFontSupport(AdapterFactory adapterFactory, AggregatorResource resource) {
+				public AggregatorResourceItemProvider(AdapterFactory adapterFactory) {
 					super(adapterFactory);
-					adaptedResource = resource;
-					adaptingObject = new AggregatorResourceViewImpl(resource);
-					delegateItemProviderAdapter = (AggregatorResourceViewItemProvider) getRootAdapterFactory().adapt(
-						adaptingObject, IEditingDomainItemProvider.class);
-					if(delegateItemProviderAdapter == null)
-						throw new NullPointerException();
 				}
 
 				@Override
 				public Command createCommand(Object object, EditingDomain domain,
 						Class<? extends Command> commandClass, CommandParameter commandParameter) {
-					DELEGATE_COMMAND_CREATION: {
-						if(adaptedResource == null)
-							break DELEGATE_COMMAND_CREATION;
+					Notifier adaptedObject = getTarget();
 
-						Object owner = commandParameter.getOwner();
-						if(owner != adaptedResource)
-							break DELEGATE_COMMAND_CREATION;
+					if(adaptedObject == null || object != adaptedObject || commandParameter.getOwner() != adaptedObject)
+						throw new IllegalStateException();
 
-						if(commandClass == RemoveCommand.class) {
-							Collection<?> selection = commandParameter.getCollection();
-							if(selection != null && selection.contains(adaptingObject.getAggregator()))
-								break DELEGATE_COMMAND_CREATION;
-						}
+					Notifier adaptingObject = delegateItemProviderAdapter.getTarget();
 
-						commandParameter.setOwner(adaptingObject);
-						return delegateItemProviderAdapter.createCommand(object == adaptedResource
-								? adaptingObject
-								: object, domain, commandClass, commandParameter);
-					}
+					commandParameter.setOwner(adaptingObject);
 
-					return super.createCommand(object, domain, commandClass, commandParameter);
+					return delegateItemProviderAdapter.createCommand(
+						adaptingObject, domain, commandClass, commandParameter);
 				}
 
 				@Override
 				public Collection<?> getChildren(Object object) {
-					return (adaptedResource != null && object == adaptedResource)
-							? delegateItemProviderAdapter.getChildren(adaptingObject)
-							: super.getChildren(object);
+					Notifier adaptedObject = getTarget();
+
+					if(adaptedObject == null || object != adaptedObject)
+						throw new IllegalStateException();
+
+					return delegateItemProviderAdapter.getChildren(delegateItemProviderAdapter.getTarget());
 				}
 
 				@Override
 				public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
-					return (adaptedResource != null && object == adaptedResource)
-							? delegateItemProviderAdapter.getChildrenFeatures(adaptingObject)
-							: super.getChildrenFeatures(object);
-				}
+					Notifier adaptedObject = getTarget();
 
-				@Override
-				public Object getFont(Object object) {
-					if(object instanceof MetadataRepositoryResourceImpl) {
-						MetadataRepositoryResourceImpl mdr = (MetadataRepositoryResourceImpl) object;
+					if(adaptedObject == null || object != adaptedObject)
+						throw new IllegalStateException();
 
-						if(mdr.getStatus().getCode() == StatusCode.WAITING)
-							return IItemFontProvider.ITALIC_FONT;
-					}
-					return null;
+					return delegateItemProviderAdapter.getChildrenFeatures(delegateItemProviderAdapter.getTarget());
 				}
 
 				@Override
 				public Object getImage(Object object) {
-					Object baseImage = null;
-					Object overlayImage = null;
+					Object baseImage = super.getImage(object);
 
-					if(object instanceof AggregatorResourceImpl) {
-						baseImage = super.getImage(object);
+					OVERLAID_IMAGE: {
+						// there is nothing to overlay if baseImage is null
+						if(baseImage == null)
+							break OVERLAID_IMAGE;
 
 						// avoid querying proxies before loading jobs are scheduled/running
-						if(!Job.getJobManager().isSuspended()) {
-							AggregatorResourceImpl res = (AggregatorResourceImpl) object;
+						if(Job.getJobManager().isSuspended())
+							break OVERLAID_IMAGE;
 
-							if(res.getContents().size() > 0 &&
-									((Aggregator) res.getContents().get(0)).getStatus().getCode() != StatusCode.OK)
-								overlayImage = delegateItemProviderAdapter.getImage("full/ovr16/Error");
-						}
+						AggregatorResourceImpl res = (AggregatorResourceImpl) object;
+						Object overlayImage;
+
+						if(res.getContents().size() > 0 &&
+								((Aggregator) res.getContents().get(0)).getStatus().getCode() != StatusCode.OK)
+							overlayImage = delegateItemProviderAdapter.getImage("full/ovr16/Error");
+						else
+							break OVERLAID_IMAGE;
+
+						return getOverlaidImage(baseImage, overlayImage);
 					}
-					else if(object instanceof MetadataRepositoryResourceImpl) {
-						baseImage = delegateItemProviderAdapter.getImage("full/obj16/MetadataRepository");
 
+					return baseImage;
+				}
+
+				@Override
+				public Collection<?> getNewChildDescriptors(Object object, EditingDomain editingDomain, Object sibling) {
+					Notifier adaptedObject = getTarget();
+
+					if(adaptedObject == null || object != adaptedObject)
+						throw new IllegalStateException();
+
+					return delegateItemProviderAdapter.getNewChildDescriptors(
+						delegateItemProviderAdapter.getTarget(), editingDomain, sibling);
+				}
+
+				@Override
+				public void setTarget(Notifier target) {
+					super.setTarget(target);
+
+					AggregatorResourceViewImpl adaptingObject = new AggregatorResourceViewImpl(
+						(AggregatorResource) target);
+
+					Adapter adapter = getRootAdapterFactory().adapt(adaptingObject, IEditingDomainItemProvider.class);
+					if(adapter == null)
+						throw new NullPointerException();
+
+					delegateItemProviderAdapter = (AggregatorResourceViewItemProvider) adapter;
+				}
+
+			}
+
+			class MdrResourceItemProvider extends AggregatorResourceBaseItemProvider implements IItemFontProvider {
+
+				class AggregatorEditorItemProviderAdapter extends AggregatorItemProviderAdapter {
+					public AggregatorEditorItemProviderAdapter(AdapterFactory adapterFactory) {
+						super(adapterFactory);
+					}
+
+					@Override
+					public ResourceLocator getResourceLocator() {
+						return AggregatorEditPlugin.INSTANCE;
+					}
+				}
+
+				protected AggregatorItemProviderAdapter delegateItemProviderAdapter;
+
+				public MdrResourceItemProvider(AdapterFactory adapterFactory) {
+					super(adapterFactory);
+					delegateItemProviderAdapter = new AggregatorEditorItemProviderAdapter(getAdapterFactory());
+				}
+
+				@Override
+				public Object getFont(Object object) {
+					MetadataRepositoryResourceImpl mdr = (MetadataRepositoryResourceImpl) object;
+
+					return (mdr.getStatus().getCode() == StatusCode.WAITING)
+							? IItemFontProvider.ITALIC_FONT
+							: null;
+				}
+
+				@Override
+				public Object getImage(Object object) {
+					Object baseImage = delegateItemProviderAdapter.getImage("full/obj16/MetadataRepository");
+
+					if(baseImage != null) {
 						MetadataRepositoryResourceImpl mdr = (MetadataRepositoryResourceImpl) object;
+						Object overlayImage;
 
 						if(mdr.getLastException() != null)
 							overlayImage = delegateItemProviderAdapter.getImage("full/ovr16/Error");
 						else if(mdr.getStatus().getCode() == StatusCode.WAITING)
 							overlayImage = delegateItemProviderAdapter.getImage("full/ovr16/Loading");
-					}
+						else
+							return baseImage;
 
-					if(baseImage != null) {
-						if(overlayImage != null) {
-							Object[] images = new Object[2];
-							int[] positions = new int[2];
-
-							images[0] = baseImage;
-							positions[0] = OverlaidImage.BASIC;
-
-							images[1] = overlayImage;
-							positions[1] = OverlaidImage.OVERLAY_BOTTOM_RIGHT;
-
-							return new OverlaidImage(images, positions);
-						}
-
-						return baseImage;
+						return getOverlaidImage(baseImage, overlayImage);
 					}
 
 					return super.getImage(object);
 				}
 
 				@Override
-				public Collection<?> getNewChildDescriptors(Object object, EditingDomain editingDomain, Object sibling) {
-					return (adaptedResource != null && object == adaptedResource)
-							? delegateItemProviderAdapter.getNewChildDescriptors(adaptingObject, editingDomain, sibling)
-							: super.getNewChildDescriptors(object, editingDomain, sibling);
-				}
-
-				@Override
 				public String getText(Object object) {
-					String text = super.getText(object);
-
-					if(!(object instanceof MetadataRepositoryResourceImpl))
-						return text;
-
-					return text.substring(AggregatorPlugin.B3AGGR_URI_SCHEME.length() + 1);
-				}
-
-				public String getTooltipText(Object object) {
-					return AggregatorItemProviderAdapter.getTooltipText(object, this);
+					return super.getText(object).substring(AggregatorPlugin.B3AGGR_URI_SCHEME.length() + 1);
 				}
 
 				@Override
@@ -1958,12 +2004,17 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 				supportedTypes.add(IItemFontProvider.class);
 			}
 
+			MdrResourceItemProvider mdrResourceItemProvider = new MdrResourceItemProvider(this);
+
 			@Override
 			public Adapter createAdapter(Notifier target) {
-				if(target instanceof Resource)
-					return new ResourceItemProviderWithFontSupport(this, target instanceof AggregatorResource
-							? (AggregatorResource) target
-							: null);
+				if(target instanceof Resource) {
+					if(target instanceof AggregatorResourceImpl)
+						return new AggregatorResourceItemProvider(this);
+					if(target instanceof MetadataRepositoryResourceImpl)
+						return mdrResourceItemProvider;
+					throw new IllegalStateException();
+				}
 				return createResourceSetAdapter();
 			}
 

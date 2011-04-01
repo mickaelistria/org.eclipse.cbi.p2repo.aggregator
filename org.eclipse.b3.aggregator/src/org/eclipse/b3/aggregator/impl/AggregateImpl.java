@@ -9,7 +9,7 @@ package org.eclipse.b3.aggregator.impl;
 
 import java.util.Collection;
 
-import org.eclipse.b3.aggregator.Aggregation;
+import org.eclipse.b3.aggregator.Aggregate;
 import org.eclipse.b3.aggregator.Aggregator;
 import org.eclipse.b3.aggregator.AggregatorFactory;
 import org.eclipse.b3.aggregator.AggregatorPackage;
@@ -17,6 +17,8 @@ import org.eclipse.b3.aggregator.Contribution;
 import org.eclipse.b3.aggregator.ContributionView;
 import org.eclipse.b3.aggregator.DescriptionProvider;
 import org.eclipse.b3.aggregator.InfosProvider;
+import org.eclipse.b3.aggregator.LinkReceiver;
+import org.eclipse.b3.aggregator.LinkSource;
 import org.eclipse.b3.aggregator.Status;
 import org.eclipse.b3.aggregator.StatusCode;
 import org.eclipse.b3.aggregator.StatusProvider;
@@ -30,24 +32,24 @@ import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Aggregation</b></em>'.
+ * An implementation of the model object '<em><b>Aggregate</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link org.eclipse.b3.aggregator.impl.AggregationImpl#isEnabled <em>Enabled</em>}</li>
- * <li>{@link org.eclipse.b3.aggregator.impl.AggregationImpl#getDescription <em>Description</em>}</li>
- * <li>{@link org.eclipse.b3.aggregator.impl.AggregationImpl#getStatus <em>Status</em>}</li>
- * <li>{@link org.eclipse.b3.aggregator.impl.AggregationImpl#getErrors <em>Errors</em>}</li>
- * <li>{@link org.eclipse.b3.aggregator.impl.AggregationImpl#getWarnings <em>Warnings</em>}</li>
- * <li>{@link org.eclipse.b3.aggregator.impl.AggregationImpl#getInfos <em>Infos</em>}</li>
- * <li>{@link org.eclipse.b3.aggregator.impl.AggregationImpl#getLabel <em>Label</em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.impl.AggregateImpl#isEnabled <em>Enabled</em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.impl.AggregateImpl#getDescription <em>Description</em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.impl.AggregateImpl#getStatus <em>Status</em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.impl.AggregateImpl#getErrors <em>Errors</em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.impl.AggregateImpl#getWarnings <em>Warnings</em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.impl.AggregateImpl#getInfos <em>Infos</em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.impl.AggregateImpl#getLabel <em>Label</em>}</li>
  * </ul>
  * </p>
  * 
  * @generated
  */
-public class AggregationImpl extends MinimalEObjectImpl.Container implements Aggregation {
+public class AggregateImpl extends MinimalEObjectImpl.Container implements Aggregate {
 	/**
 	 * A set of bit flags representing the values of boolean attributes and whether unsettable features have been set.
 	 * <!-- begin-user-doc -->
@@ -163,9 +165,21 @@ public class AggregationImpl extends MinimalEObjectImpl.Container implements Agg
 	 * 
 	 * @generated
 	 */
-	protected AggregationImpl() {
+	protected AggregateImpl() {
 		super();
 		eFlags |= ENABLED_EFLAG;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public boolean acceptsSource(LinkSource source) {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -178,7 +192,7 @@ public class AggregationImpl extends MinimalEObjectImpl.Container implements Agg
 	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
 		if(baseClass == DescriptionProvider.class) {
 			switch(derivedFeatureID) {
-				case AggregatorPackage.AGGREGATION__DESCRIPTION:
+				case AggregatorPackage.AGGREGATE__DESCRIPTION:
 					return AggregatorPackage.DESCRIPTION_PROVIDER__DESCRIPTION;
 				default:
 					return -1;
@@ -186,7 +200,7 @@ public class AggregationImpl extends MinimalEObjectImpl.Container implements Agg
 		}
 		if(baseClass == StatusProvider.class) {
 			switch(derivedFeatureID) {
-				case AggregatorPackage.AGGREGATION__STATUS:
+				case AggregatorPackage.AGGREGATE__STATUS:
 					return AggregatorPackage.STATUS_PROVIDER__STATUS;
 				default:
 					return -1;
@@ -194,12 +208,18 @@ public class AggregationImpl extends MinimalEObjectImpl.Container implements Agg
 		}
 		if(baseClass == InfosProvider.class) {
 			switch(derivedFeatureID) {
-				case AggregatorPackage.AGGREGATION__ERRORS:
+				case AggregatorPackage.AGGREGATE__ERRORS:
 					return AggregatorPackage.INFOS_PROVIDER__ERRORS;
-				case AggregatorPackage.AGGREGATION__WARNINGS:
+				case AggregatorPackage.AGGREGATE__WARNINGS:
 					return AggregatorPackage.INFOS_PROVIDER__WARNINGS;
-				case AggregatorPackage.AGGREGATION__INFOS:
+				case AggregatorPackage.AGGREGATE__INFOS:
 					return AggregatorPackage.INFOS_PROVIDER__INFOS;
+				default:
+					return -1;
+			}
+		}
+		if(baseClass == LinkReceiver.class) {
+			switch(derivedFeatureID) {
 				default:
 					return -1;
 			}
@@ -218,7 +238,7 @@ public class AggregationImpl extends MinimalEObjectImpl.Container implements Agg
 		if(baseClass == DescriptionProvider.class) {
 			switch(baseFeatureID) {
 				case AggregatorPackage.DESCRIPTION_PROVIDER__DESCRIPTION:
-					return AggregatorPackage.AGGREGATION__DESCRIPTION;
+					return AggregatorPackage.AGGREGATE__DESCRIPTION;
 				default:
 					return -1;
 			}
@@ -226,7 +246,7 @@ public class AggregationImpl extends MinimalEObjectImpl.Container implements Agg
 		if(baseClass == StatusProvider.class) {
 			switch(baseFeatureID) {
 				case AggregatorPackage.STATUS_PROVIDER__STATUS:
-					return AggregatorPackage.AGGREGATION__STATUS;
+					return AggregatorPackage.AGGREGATE__STATUS;
 				default:
 					return -1;
 			}
@@ -234,11 +254,17 @@ public class AggregationImpl extends MinimalEObjectImpl.Container implements Agg
 		if(baseClass == InfosProvider.class) {
 			switch(baseFeatureID) {
 				case AggregatorPackage.INFOS_PROVIDER__ERRORS:
-					return AggregatorPackage.AGGREGATION__ERRORS;
+					return AggregatorPackage.AGGREGATE__ERRORS;
 				case AggregatorPackage.INFOS_PROVIDER__WARNINGS:
-					return AggregatorPackage.AGGREGATION__WARNINGS;
+					return AggregatorPackage.AGGREGATE__WARNINGS;
 				case AggregatorPackage.INFOS_PROVIDER__INFOS:
-					return AggregatorPackage.AGGREGATION__INFOS;
+					return AggregatorPackage.AGGREGATE__INFOS;
+				default:
+					return -1;
+			}
+		}
+		if(baseClass == LinkReceiver.class) {
+			switch(baseFeatureID) {
 				default:
 					return -1;
 			}
@@ -255,19 +281,19 @@ public class AggregationImpl extends MinimalEObjectImpl.Container implements Agg
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch(featureID) {
-			case AggregatorPackage.AGGREGATION__ENABLED:
+			case AggregatorPackage.AGGREGATE__ENABLED:
 				return isEnabled();
-			case AggregatorPackage.AGGREGATION__DESCRIPTION:
+			case AggregatorPackage.AGGREGATE__DESCRIPTION:
 				return getDescription();
-			case AggregatorPackage.AGGREGATION__STATUS:
+			case AggregatorPackage.AGGREGATE__STATUS:
 				return getStatus();
-			case AggregatorPackage.AGGREGATION__ERRORS:
+			case AggregatorPackage.AGGREGATE__ERRORS:
 				return getErrors();
-			case AggregatorPackage.AGGREGATION__WARNINGS:
+			case AggregatorPackage.AGGREGATE__WARNINGS:
 				return getWarnings();
-			case AggregatorPackage.AGGREGATION__INFOS:
+			case AggregatorPackage.AGGREGATE__INFOS:
 				return getInfos();
-			case AggregatorPackage.AGGREGATION__LABEL:
+			case AggregatorPackage.AGGREGATE__LABEL:
 				return getLabel();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -282,21 +308,21 @@ public class AggregationImpl extends MinimalEObjectImpl.Container implements Agg
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch(featureID) {
-			case AggregatorPackage.AGGREGATION__ENABLED:
+			case AggregatorPackage.AGGREGATE__ENABLED:
 				return ((eFlags & ENABLED_EFLAG) != 0) != ENABLED_EDEFAULT;
-			case AggregatorPackage.AGGREGATION__DESCRIPTION:
+			case AggregatorPackage.AGGREGATE__DESCRIPTION:
 				return DESCRIPTION_EDEFAULT == null
 						? description != null
 						: !DESCRIPTION_EDEFAULT.equals(description);
-			case AggregatorPackage.AGGREGATION__STATUS:
+			case AggregatorPackage.AGGREGATE__STATUS:
 				return getStatus() != null;
-			case AggregatorPackage.AGGREGATION__ERRORS:
+			case AggregatorPackage.AGGREGATE__ERRORS:
 				return errors != null && !errors.isEmpty();
-			case AggregatorPackage.AGGREGATION__WARNINGS:
+			case AggregatorPackage.AGGREGATE__WARNINGS:
 				return warnings != null && !warnings.isEmpty();
-			case AggregatorPackage.AGGREGATION__INFOS:
+			case AggregatorPackage.AGGREGATE__INFOS:
 				return infos != null && !infos.isEmpty();
-			case AggregatorPackage.AGGREGATION__LABEL:
+			case AggregatorPackage.AGGREGATE__LABEL:
 				return LABEL_EDEFAULT == null
 						? label != null
 						: !LABEL_EDEFAULT.equals(label);
@@ -314,25 +340,25 @@ public class AggregationImpl extends MinimalEObjectImpl.Container implements Agg
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch(featureID) {
-			case AggregatorPackage.AGGREGATION__ENABLED:
+			case AggregatorPackage.AGGREGATE__ENABLED:
 				setEnabled((Boolean) newValue);
 				return;
-			case AggregatorPackage.AGGREGATION__DESCRIPTION:
+			case AggregatorPackage.AGGREGATE__DESCRIPTION:
 				setDescription((String) newValue);
 				return;
-			case AggregatorPackage.AGGREGATION__ERRORS:
+			case AggregatorPackage.AGGREGATE__ERRORS:
 				getErrors().clear();
 				getErrors().addAll((Collection<? extends String>) newValue);
 				return;
-			case AggregatorPackage.AGGREGATION__WARNINGS:
+			case AggregatorPackage.AGGREGATE__WARNINGS:
 				getWarnings().clear();
 				getWarnings().addAll((Collection<? extends String>) newValue);
 				return;
-			case AggregatorPackage.AGGREGATION__INFOS:
+			case AggregatorPackage.AGGREGATE__INFOS:
 				getInfos().clear();
 				getInfos().addAll((Collection<? extends String>) newValue);
 				return;
-			case AggregatorPackage.AGGREGATION__LABEL:
+			case AggregatorPackage.AGGREGATE__LABEL:
 				setLabel((String) newValue);
 				return;
 		}
@@ -347,7 +373,7 @@ public class AggregationImpl extends MinimalEObjectImpl.Container implements Agg
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return AggregatorPackage.Literals.AGGREGATION;
+		return AggregatorPackage.Literals.AGGREGATE;
 	}
 
 	/**
@@ -359,22 +385,22 @@ public class AggregationImpl extends MinimalEObjectImpl.Container implements Agg
 	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
-			case AggregatorPackage.AGGREGATION__ENABLED:
+			case AggregatorPackage.AGGREGATE__ENABLED:
 				setEnabled(ENABLED_EDEFAULT);
 				return;
-			case AggregatorPackage.AGGREGATION__DESCRIPTION:
+			case AggregatorPackage.AGGREGATE__DESCRIPTION:
 				setDescription(DESCRIPTION_EDEFAULT);
 				return;
-			case AggregatorPackage.AGGREGATION__ERRORS:
+			case AggregatorPackage.AGGREGATE__ERRORS:
 				getErrors().clear();
 				return;
-			case AggregatorPackage.AGGREGATION__WARNINGS:
+			case AggregatorPackage.AGGREGATE__WARNINGS:
 				getWarnings().clear();
 				return;
-			case AggregatorPackage.AGGREGATION__INFOS:
+			case AggregatorPackage.AGGREGATE__INFOS:
 				getInfos().clear();
 				return;
-			case AggregatorPackage.AGGREGATION__LABEL:
+			case AggregatorPackage.AGGREGATE__LABEL:
 				setLabel(LABEL_EDEFAULT);
 				return;
 		}
@@ -386,12 +412,13 @@ public class AggregationImpl extends MinimalEObjectImpl.Container implements Agg
 	}
 
 	public EList<ContributionView> getContributionViews() {
+		// TODO check if not obsolete
 		EList<Contribution> allContributions = getAggregator().getContributions();
 
 		BasicEList<ContributionView> separatedContributions = new BasicEList<ContributionView>(allContributions.size());
 
 		for(Contribution contribution : allContributions)
-			if(contribution.getAggregation() == this)
+			if(contribution.getReceiver() == this)
 				separatedContributions.add(new ContributionViewImpl(contribution));
 
 		return separatedContributions;
@@ -415,7 +442,7 @@ public class AggregationImpl extends MinimalEObjectImpl.Container implements Agg
 	 */
 	public EList<String> getErrors() {
 		if(errors == null) {
-			errors = new EDataTypeUniqueEList<String>(String.class, this, AggregatorPackage.AGGREGATION__ERRORS);
+			errors = new EDataTypeUniqueEList<String>(String.class, this, AggregatorPackage.AGGREGATE__ERRORS);
 		}
 		return errors;
 	}
@@ -428,7 +455,7 @@ public class AggregationImpl extends MinimalEObjectImpl.Container implements Agg
 	 */
 	public EList<String> getInfos() {
 		if(infos == null) {
-			infos = new EDataTypeUniqueEList<String>(String.class, this, AggregatorPackage.AGGREGATION__INFOS);
+			infos = new EDataTypeUniqueEList<String>(String.class, this, AggregatorPackage.AGGREGATE__INFOS);
 		}
 		return infos;
 	}
@@ -462,7 +489,7 @@ public class AggregationImpl extends MinimalEObjectImpl.Container implements Agg
 	 */
 	public EList<String> getWarnings() {
 		if(warnings == null) {
-			warnings = new EDataTypeUniqueEList<String>(String.class, this, AggregatorPackage.AGGREGATION__WARNINGS);
+			warnings = new EDataTypeUniqueEList<String>(String.class, this, AggregatorPackage.AGGREGATE__WARNINGS);
 		}
 		return warnings;
 	}
@@ -483,12 +510,24 @@ public class AggregationImpl extends MinimalEObjectImpl.Container implements Agg
 	 * 
 	 * @generated
 	 */
+	public void linkSource(LinkSource source) {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
 	public void setDescription(String newDescription) {
 		String oldDescription = description;
 		description = newDescription;
 		if(eNotificationRequired())
 			eNotify(new ENotificationImpl(
-				this, Notification.SET, AggregatorPackage.AGGREGATION__DESCRIPTION, oldDescription, description));
+				this, Notification.SET, AggregatorPackage.AGGREGATE__DESCRIPTION, oldDescription, description));
 	}
 
 	/**
@@ -505,7 +544,7 @@ public class AggregationImpl extends MinimalEObjectImpl.Container implements Agg
 			eFlags &= ~ENABLED_EFLAG;
 		if(eNotificationRequired())
 			eNotify(new ENotificationImpl(
-				this, Notification.SET, AggregatorPackage.AGGREGATION__ENABLED, oldEnabled, newEnabled));
+				this, Notification.SET, AggregatorPackage.AGGREGATE__ENABLED, oldEnabled, newEnabled));
 	}
 
 	/**
@@ -518,7 +557,7 @@ public class AggregationImpl extends MinimalEObjectImpl.Container implements Agg
 		String oldLabel = label;
 		label = newLabel;
 		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, AggregatorPackage.AGGREGATION__LABEL, oldLabel, label));
+			eNotify(new ENotificationImpl(this, Notification.SET, AggregatorPackage.AGGREGATE__LABEL, oldLabel, label));
 	}
 
 	/**
@@ -549,4 +588,4 @@ public class AggregationImpl extends MinimalEObjectImpl.Container implements Agg
 		return result.toString();
 	}
 
-} // AggregationImpl
+} // AggregateImpl

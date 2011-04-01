@@ -18,13 +18,13 @@
   <genPackages prefix="Aggregator" basePackage="org.eclipse.b3" resource="XMI" disposableProviderFactory="true"
       multipleEditorPages="false" contentTypeIdentifier="" fileExtensions="b3aggr"
       ecorePackage="Aggregator.ecore#/">
-    <genEnums typeSafeEnumCompatible="false" ecoreEnum="Aggregator.ecore#//AggregateType">
-      <genEnumLiterals ecoreEnumLiteral="Aggregator.ecore#//AggregateType/Stable"/>
-      <genEnumLiterals ecoreEnumLiteral="Aggregator.ecore#//AggregateType/Integration"/>
-      <genEnumLiterals ecoreEnumLiteral="Aggregator.ecore#//AggregateType/Nightly"/>
-      <genEnumLiterals ecoreEnumLiteral="Aggregator.ecore#//AggregateType/Maintenance"/>
-      <genEnumLiterals ecoreEnumLiteral="Aggregator.ecore#//AggregateType/Continuous"/>
-      <genEnumLiterals ecoreEnumLiteral="Aggregator.ecore#//AggregateType/Release"/>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="Aggregator.ecore#//AggregationType">
+      <genEnumLiterals ecoreEnumLiteral="Aggregator.ecore#//AggregationType/Stable"/>
+      <genEnumLiterals ecoreEnumLiteral="Aggregator.ecore#//AggregationType/Integration"/>
+      <genEnumLiterals ecoreEnumLiteral="Aggregator.ecore#//AggregationType/Nightly"/>
+      <genEnumLiterals ecoreEnumLiteral="Aggregator.ecore#//AggregationType/Maintenance"/>
+      <genEnumLiterals ecoreEnumLiteral="Aggregator.ecore#//AggregationType/Continuous"/>
+      <genEnumLiterals ecoreEnumLiteral="Aggregator.ecore#//AggregationType/Release"/>
     </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="Aggregator.ecore#//OperatingSystem">
       <genEnumLiterals ecoreEnumLiteral="Aggregator.ecore#//OperatingSystem/Win32"/>
@@ -80,6 +80,7 @@
       <genEnumLiterals ecoreEnumLiteral="Aggregator.ecore#//VersionMatch/ABOVE"/>
     </genEnums>
     <genClasses ecoreClass="Aggregator.ecore#//Aggregator" labelFeature="#//aggregator/Aggregator/label">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Aggregator.ecore#//Aggregator/aggregates"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Aggregator.ecore#//Aggregator/configurations"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Aggregator.ecore#//Aggregator/contributions"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EReference Aggregator.ecore#//Aggregator/buildmaster"/>
@@ -93,7 +94,6 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Aggregator.ecore#//Aggregator/mavenResult"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Aggregator.ecore#//Aggregator/validationRepositories"/>
       <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference Aggregator.ecore#//Aggregator/mavenMappings"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Aggregator.ecore#//Aggregator/aggregations"/>
       <genOperations ecoreOperation="Aggregator.ecore#//Aggregator/getContributions">
         <genParameters ecoreParameter="Aggregator.ecore#//Aggregator/getContributions/enabledOnly"/>
       </genOperations>
@@ -103,6 +103,9 @@
       <genOperations ecoreOperation="Aggregator.ecore#//Aggregator/getAllMetadataRepositoryReferences">
         <genParameters ecoreParameter="Aggregator.ecore#//Aggregator/getAllMetadataRepositoryReferences/enabledOnly"/>
       </genOperations>
+    </genClasses>
+    <genClasses ecoreClass="Aggregator.ecore#//Aggregate" labelFeature="#//aggregator/Aggregate/label">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Aggregator.ecore#//Aggregate/label"/>
     </genClasses>
     <genClasses ecoreClass="Aggregator.ecore#//MappedRepository">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Aggregator.ecore#//MappedRepository/products"/>
@@ -128,8 +131,8 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Aggregator.ecore#//Contribution/label"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Aggregator.ecore#//Contribution/repositories"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EReference Aggregator.ecore#//Contribution/contacts"/>
-      <genFeatures children="true" createChild="true" propertyCategory="" propertySortChoices="true"
-          ecoreFeature="ecore:EReference Aggregator.ecore#//Contribution/mavenMappings"/>
+      <genFeatures property="None" children="true" createChild="true" propertyCategory=""
+          propertySortChoices="true" ecoreFeature="ecore:EReference Aggregator.ecore#//Contribution/mavenMappings"/>
       <genOperations ecoreOperation="Aggregator.ecore#//Contribution/getRepositories">
         <genParameters ecoreParameter="Aggregator.ecore#//Contribution/getRepositories/enabledOnly"/>
       </genOperations>
@@ -250,13 +253,23 @@
       <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute Aggregator.ecore#//AvailableVersion/version"/>
       <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute Aggregator.ecore#//AvailableVersion/filter"/>
     </genClasses>
-    <genClasses image="false" ecoreClass="Aggregator.ecore#//Separable">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Aggregator.ecore#//Separable/aggregation"/>
+    <genClasses image="false" ecoreClass="Aggregator.ecore#//LinkSource">
+      <genFeatures property="None" createChild="false" propertySortChoices="true"
+          ecoreFeature="ecore:EReference Aggregator.ecore#//LinkSource/receiver"/>
     </genClasses>
-    <genClasses ecoreClass="Aggregator.ecore#//Aggregation" labelFeature="#//aggregator/Aggregation/label">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Aggregator.ecore#//Aggregation/label"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Aggregator.ecore#//Aggregation/contributions"/>
+    <genClasses image="false" ecoreClass="Aggregator.ecore#//LinkReceiver">
+      <genOperations ecoreOperation="Aggregator.ecore#//LinkReceiver/acceptsSource">
+        <genParameters ecoreParameter="Aggregator.ecore#//LinkReceiver/acceptsSource/source"/>
+      </genOperations>
+      <genOperations ecoreOperation="Aggregator.ecore#//LinkReceiver/linkSource">
+        <genParameters ecoreParameter="Aggregator.ecore#//LinkReceiver/linkSource/source"/>
+      </genOperations>
     </genClasses>
+    <genClasses provider="Stateful" image="false" ecoreClass="Aggregator.ecore#//AggregatorResourceView">
+      <genFeatures property="None" children="true" createChild="false" ecoreFeature="ecore:EReference Aggregator.ecore#//AggregatorResourceView/aggregator"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Aggregator.ecore#//AggregatorResourceView/aggregates"/>
+    </genClasses>
+    <genClasses ecoreClass="Aggregator.ecore#//ContributionView"/>
     <nestedGenPackages prefix="P2view" resource="XML" disposableProviderFactory="true"
         multipleEditorPages="false" generateModelWizard="false" ecorePackage="Aggregator.ecore#//p2view">
       <genClasses ecoreClass="Aggregator.ecore#//p2view/MetadataRepositoryStructuredView">

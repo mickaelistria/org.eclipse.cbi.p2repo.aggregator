@@ -13,7 +13,6 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import org.eclipse.b3.aggregator.Aggregation;
 import org.eclipse.b3.aggregator.Aggregator;
 import org.eclipse.b3.aggregator.AggregatorFactory;
 import org.eclipse.b3.aggregator.AggregatorPackage;
@@ -27,7 +26,6 @@ import org.eclipse.b3.aggregator.MavenMapping;
 import org.eclipse.b3.aggregator.p2view.IUPresentation;
 import org.eclipse.b3.aggregator.p2view.MetadataRepositoryStructuredView;
 import org.eclipse.b3.aggregator.util.AddIUsToContributionCommand;
-import org.eclipse.b3.aggregator.util.FilteringCollection;
 import org.eclipse.b3.aggregator.util.ItemSorter;
 import org.eclipse.b3.aggregator.util.ItemSorter.ItemGroup;
 import org.eclipse.b3.aggregator.util.ItemUtils;
@@ -131,23 +129,6 @@ public class ContributionItemProvider extends AggregatorItemProviderAdapter impl
 	}
 
 	/**
-	 * This adds a property descriptor for the Aggregation feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	protected void addAggregationPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-			getResourceLocator(),
-			getString("_UI_Contribution_aggregation_feature"),
-			getString(
-				"_UI_PropertyDescriptor_description", "_UI_Contribution_aggregation_feature", "_UI_Contribution_type"),
-			AggregatorPackage.Literals.CONTRIBUTION__AGGREGATION, true, false, true, null, null, null));
-	}
-
-	/**
 	 * This adds a property descriptor for the Contacts feature.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -213,53 +194,14 @@ public class ContributionItemProvider extends AggregatorItemProviderAdapter impl
 	}
 
 	/**
-	 * This adds a property descriptor for the Maven Mappings feature.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	protected void addMavenMappingsPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-			getResourceLocator(),
-			getString("_UI_Contribution_mavenMappings_feature"),
-			getString(
-				"_UI_PropertyDescriptor_description", "_UI_Contribution_mavenMappings_feature", "_UI_Contribution_type"),
-			AggregatorPackage.Literals.CONTRIBUTION__MAVEN_MAPPINGS, true, false, true, null, null, null));
-	}
-
-	/**
 	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
 	 * that can be created under this object.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
-	 * @generated NOT
+	 * @generated
 	 */
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
-		collectNewChildDescriptorsGen(new FilteringCollection<Object>() {
-			@Override
-			public boolean add(Object e) {
-				if(e instanceof CommandParameter) {
-					Object newChildValue = ((CommandParameter) e).getValue();
-
-					// filter these out
-					if(newChildValue instanceof Aggregation)
-						return false;
-				}
-				return super.add(e);
-			}
-		}.setDelegate(newChildDescriptors), object);
-	}
-
-	/**
-	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
-	 * that can be created under this object.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	protected void collectNewChildDescriptorsGen(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 
 		newChildDescriptors.add(createChildParameter(
@@ -384,27 +326,10 @@ public class ContributionItemProvider extends AggregatorItemProviderAdapter impl
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
 	 * 
-	 * @generated NOT
+	 * @generated
 	 */
 	@Override
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
-		if(childrenFeatures == null) {
-			getChildrenFeaturesGen(object);
-			childrenFeatures.remove(AggregatorPackage.Literals.SEPARABLE__AGGREGATION);
-		}
-		return childrenFeatures;
-	}
-
-	/**
-	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
-	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
-	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	public Collection<? extends EStructuralFeature> getChildrenFeaturesGen(Object object) {
 		if(childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(AggregatorPackage.Literals.CONTRIBUTION__REPOSITORIES);
@@ -452,8 +377,6 @@ public class ContributionItemProvider extends AggregatorItemProviderAdapter impl
 			addDescriptionPropertyDescriptor(object);
 			addLabelPropertyDescriptor(object);
 			addContactsPropertyDescriptor(object);
-			addMavenMappingsPropertyDescriptor(object);
-			addAggregationPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -534,20 +457,20 @@ public class ContributionItemProvider extends AggregatorItemProviderAdapter impl
 			if(!newValue)
 				ResourceUtils.cleanUpResources((Aggregator) ((EObject) notification.getNotifier()).eContainer());
 		}
-		else if(notification.getFeatureID(Contribution.class) == AggregatorPackage.CONTRIBUTION__AGGREGATION) {
-			NOTIFY_AGGREGATION: {
-				Object aggregation;
+		else if(notification.getFeatureID(Contribution.class) == AggregatorPackage.CONTRIBUTION__RECEIVER) {
+			NOTIFY_RECEIVER: {
+				Object receiver;
 				switch(notification.getEventType()) {
 					case Notification.ADD:
-						aggregation = notification.getNewValue();
+						receiver = notification.getNewValue();
 						break;
 					case Notification.REMOVE:
-						aggregation = notification.getOldValue();
+						receiver = notification.getOldValue();
 						break;
 					default:
-						break NOTIFY_AGGREGATION;
+						break NOTIFY_RECEIVER;
 				}
-				fireNotifyChanged(new ViewerNotification(notification, aggregation, false, true));
+				fireNotifyChanged(new ViewerNotification(notification, receiver, false, true));
 			}
 		}
 		// If a repository is removed, update possible warning overlays
@@ -607,6 +530,7 @@ public class ContributionItemProvider extends AggregatorItemProviderAdapter impl
 		switch(notification.getFeatureID(Contribution.class)) {
 			case AggregatorPackage.CONTRIBUTION__ENABLED:
 			case AggregatorPackage.CONTRIBUTION__DESCRIPTION:
+			case AggregatorPackage.CONTRIBUTION__RECEIVER:
 			case AggregatorPackage.CONTRIBUTION__LABEL:
 			case AggregatorPackage.CONTRIBUTION__CONTACTS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));

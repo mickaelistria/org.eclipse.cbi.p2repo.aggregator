@@ -36,20 +36,20 @@ import org.eclipse.emf.common.util.EList;
  */
 public interface Aggregator extends DescriptionProvider, StatusProvider, InfosProvider {
 	/**
-	 * Returns the value of the '<em><b>Aggregations</b></em>' containment reference list.
-	 * The list contents are of type {@link org.eclipse.b3.aggregator.Aggregation}.
+	 * Returns the value of the '<em><b>Aggregates</b></em>' containment reference list.
+	 * The list contents are of type {@link org.eclipse.b3.aggregator.Aggregate}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Aggregations</em>' containment reference list isn't clear, there really should be more of a description here...
+	 * If the meaning of the '<em>Aggregates</em>' containment reference list isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
-	 * @return the value of the '<em>Aggregations</em>' containment reference list.
-	 * @see org.eclipse.b3.aggregator.AggregatorPackage#getAggregator_Aggregations()
+	 * @return the value of the '<em>Aggregates</em>' containment reference list.
+	 * @see org.eclipse.b3.aggregator.AggregatorPackage#getAggregator_Aggregates()
 	 * @model containment="true" resolveProxies="true" keys="label"
 	 * @generated
 	 */
-	EList<Aggregation> getAggregations();
+	EList<Aggregate> getAggregates();
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -218,7 +218,7 @@ public interface Aggregator extends DescriptionProvider, StatusProvider, InfosPr
 
 	/**
 	 * Returns the value of the '<em><b>Type</b></em>' attribute.
-	 * The literals are from the enumeration {@link org.eclipse.b3.aggregator.AggregateType}.
+	 * The literals are from the enumeration {@link org.eclipse.b3.aggregator.AggregationType}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Type</em>' attribute isn't clear, there really should be more of a description here...
@@ -226,13 +226,13 @@ public interface Aggregator extends DescriptionProvider, StatusProvider, InfosPr
 	 * <!-- end-user-doc -->
 	 * 
 	 * @return the value of the '<em>Type</em>' attribute.
-	 * @see org.eclipse.b3.aggregator.AggregateType
-	 * @see #setType(AggregateType)
+	 * @see org.eclipse.b3.aggregator.AggregationType
+	 * @see #setType(AggregationType)
 	 * @see org.eclipse.b3.aggregator.AggregatorPackage#getAggregator_Type()
 	 * @model required="true"
 	 * @generated
 	 */
-	AggregateType getType();
+	AggregationType getType();
 
 	/**
 	 * Returns the value of the '<em><b>Validation Repositories</b></em>' containment reference list.
@@ -360,14 +360,15 @@ public interface Aggregator extends DescriptionProvider, StatusProvider, InfosPr
 
 	/**
 	 * Sets the value of the '{@link org.eclipse.b3.aggregator.Aggregator#getType <em>Type</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @param value
 	 *            the new value of the '<em>Type</em>' attribute.
-	 * @see org.eclipse.b3.aggregator.AggregateType
+	 * @see org.eclipse.b3.aggregator.AggregationType
 	 * @see #getType()
 	 * @generated
 	 */
-	void setType(AggregateType value);
+	void setType(AggregationType value);
 
 } // Aggregator

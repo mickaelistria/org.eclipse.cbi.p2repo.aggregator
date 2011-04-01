@@ -2,8 +2,8 @@ package org.eclipse.b3.aggregator.presentation;
 
 import java.util.Collection;
 
-import org.eclipse.b3.aggregator.Aggregation;
 import org.eclipse.b3.aggregator.AggregatorPackage;
+import org.eclipse.b3.aggregator.LinkReceiver;
 import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.edit.command.SetCommand;
@@ -16,16 +16,19 @@ import org.eclipse.ui.IEditorPart;
  * A action to link/unlink a contribution to/from an aggregation.
  * It is implemented by creating a {@link SetCommand}.
  */
-public class LinkAggregationCommand extends StaticSelectionCommandAction {
-	protected Aggregation aggregation;
+public class LinkCommand extends StaticSelectionCommandAction {
+	protected LinkReceiver linkReceiver;
 
 	protected boolean doLink;
 
-	public LinkAggregationCommand(IEditorPart activeEditorPart, ISelection selection, Aggregation aggregation,
+	protected String label;
+
+	public LinkCommand(IEditorPart activeEditorPart, ISelection selection, LinkReceiver linkReceiver, String label,
 			boolean doLink) {
 		super(activeEditorPart);
 
-		this.aggregation = aggregation;
+		this.linkReceiver = linkReceiver;
+		this.label = label;
 		this.doLink = doLink;
 
 		configureAction(selection);
@@ -34,18 +37,17 @@ public class LinkAggregationCommand extends StaticSelectionCommandAction {
 	@Override
 	protected Command createActionCommand(EditingDomain editingDomain, Collection<?> collection) {
 		SetCommand command = new SetCommand(
-			editingDomain, (EObject) collection.iterator().next(),
-			AggregatorPackage.Literals.CONTRIBUTION__AGGREGATION, doLink
-					? aggregation
-					: null);
+			editingDomain, (EObject) collection.iterator().next(), AggregatorPackage.Literals.LINK_SOURCE__RECEIVER,
+			doLink
+					? linkReceiver
+					: SetCommand.UNSET_VALUE);
 
-		String name = aggregation.getLabel();
-		command.setLabel(name);
-		setText(name);
+		command.setLabel(label);
+		setText(label);
 
 		String description = (doLink
-				? "Add contribution to"
-				: "Remove contribution from") + " \"" + name + "\"";
+				? "Link to"
+				: "Unlink from") + " \"" + label + "\"";
 		command.setDescription(description);
 		setDescription(description);
 

@@ -27,14 +27,14 @@ public interface AggregatorFactory extends EFactory {
 	AggregatorFactory eINSTANCE = org.eclipse.b3.aggregator.impl.AggregatorFactoryImpl.init();
 
 	/**
-	 * Returns a new object of class '<em>Aggregation</em>'.
+	 * Returns a new object of class '<em>Aggregate</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
-	 * @return a new object of class '<em>Aggregation</em>'.
+	 * @return a new object of class '<em>Aggregate</em>'.
 	 * @generated
 	 */
-	Aggregation createAggregation();
+	Aggregate createAggregate();
 
 	/**
 	 * Returns a new object of class '<em>Aggregator</em>'.
@@ -254,16 +254,6 @@ public interface AggregatorFactory extends EFactory {
 	 * @generated NOT
 	 */
 	Property createProperty(String key, String value);
-
-	/**
-	 * Returns a new object of class '<em>Separable</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @return a new object of class '<em>Separable</em>'.
-	 * @generated
-	 */
-	Separable createSeparable();
 
 	/**
 	 * Returns a new object of class '<em>Status</em>'.

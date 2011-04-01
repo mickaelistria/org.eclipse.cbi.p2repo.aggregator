@@ -8,15 +8,23 @@
 package org.eclipse.b3.aggregator.provider;
 
 import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
 import org.eclipse.b3.aggregator.AggregatorFactory;
 import org.eclipse.b3.aggregator.AggregatorPackage;
 import org.eclipse.b3.aggregator.AggregatorResourceView;
+import org.eclipse.b3.aggregator.impl.AggregatorResourceViewImpl;
+import org.eclipse.b3.aggregator.util.NotificationForwardingAdapter;
+import org.eclipse.emf.common.command.Command;
+import org.eclipse.emf.common.command.UnexecutableCommand;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.util.ResourceLocator;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
+import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemColorProvider;
 import org.eclipse.emf.edit.provider.IItemFontProvider;
@@ -37,6 +45,24 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
 public class AggregatorResourceViewItemProvider extends AggregatorItemProviderAdapter implements
 		IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider,
 		IItemPropertySource, IItemColorProvider, IItemFontProvider {
+
+	protected class ViewerRefreshForwardingAdapter extends NotificationForwardingAdapter {
+
+		public ViewerRefreshForwardingAdapter(Object forwardingTarget) {
+			super(
+				forwardingTarget, AggregatorPackage.Literals.AGGREGATOR,
+				Collections.singleton((EStructuralFeature) AggregatorPackage.Literals.AGGREGATOR__AGGREGATES));
+		}
+
+		@Override
+		protected void forwardNotification(Notification notification) {
+			fireNotifyChanged(new ViewerNotification(notification, getForwardingTarget(), true, false));
+		}
+
+	}
+
+	protected ViewerRefreshForwardingAdapter viewerRefreshForwarder;
+
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -61,8 +87,22 @@ public class AggregatorResourceViewItemProvider extends AggregatorItemProviderAd
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 
 		newChildDescriptors.add(createChildParameter(
-			AggregatorPackage.Literals.AGGREGATOR_RESOURCE_VIEW__AGGREGATIONS,
-			AggregatorFactory.eINSTANCE.createAggregation()));
+			AggregatorPackage.Literals.AGGREGATOR_RESOURCE_VIEW__AGGREGATES,
+			AggregatorFactory.eINSTANCE.createAggregate()));
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see org.eclipse.emf.edit.provider.ItemProviderAdapter#createSetCommand(org.eclipse.emf.edit.domain.EditingDomain,
+	 * org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EStructuralFeature, java.lang.Object)
+	 */
+	@Override
+	protected Command createSetCommand(EditingDomain domain, EObject owner, EStructuralFeature feature, Object value) {
+		// disable unsetting/deletion of the Aggregator node
+		if(feature == AggregatorPackage.Literals.AGGREGATOR_RESOURCE_VIEW__AGGREGATOR)
+			return UnexecutableCommand.INSTANCE;
+		return super.createSetCommand(domain, owner, feature, value);
 	}
 
 	/**
@@ -93,21 +133,9 @@ public class AggregatorResourceViewItemProvider extends AggregatorItemProviderAd
 		if(childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(AggregatorPackage.Literals.AGGREGATOR_RESOURCE_VIEW__AGGREGATOR);
-			childrenFeatures.add(AggregatorPackage.Literals.AGGREGATOR_RESOURCE_VIEW__AGGREGATIONS);
+			childrenFeatures.add(AggregatorPackage.Literals.AGGREGATOR_RESOURCE_VIEW__AGGREGATES);
 		}
 		return childrenFeatures;
-	}
-
-	/**
-	 * This returns AggregatorResourceView.gif.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/AggregatorResourceView"));
 	}
 
 	/**
@@ -164,10 +192,37 @@ public class AggregatorResourceViewItemProvider extends AggregatorItemProviderAd
 
 		switch(notification.getFeatureID(AggregatorResourceView.class)) {
 			case AggregatorPackage.AGGREGATOR_RESOURCE_VIEW__AGGREGATOR:
-			case AggregatorPackage.AGGREGATOR_RESOURCE_VIEW__AGGREGATIONS:
+			case AggregatorPackage.AGGREGATOR_RESOURCE_VIEW__AGGREGATES:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
 		super.notifyChanged(notification);
+	}
+
+	@Override
+	public void setTarget(Notifier target) {
+		if(target != null) {
+			if(getTarget() != null)
+				throw new IllegalStateException();
+
+			super.setTarget(target);
+
+			viewerRefreshForwarder = new ViewerRefreshForwardingAdapter(
+				((AggregatorResourceViewImpl) target).getAggregatorResource());
+
+			((Notifier) ((AggregatorResourceView) target).getAggregator()).eAdapters().add(viewerRefreshForwarder);
+		}
+		else {
+			if(getTarget() == null)
+				throw new IllegalStateException();
+
+			target = getTarget();
+
+			((Notifier) ((AggregatorResourceView) target).getAggregator()).eAdapters().remove(viewerRefreshForwarder);
+
+			viewerRefreshForwarder = null;
+
+			super.setTarget(null);
+		}
 	}
 }

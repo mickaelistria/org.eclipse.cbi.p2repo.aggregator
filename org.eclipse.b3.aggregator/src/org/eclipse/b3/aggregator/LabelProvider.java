@@ -30,27 +30,25 @@ public interface LabelProvider {
 	static class LabelProviderComparator implements Comparator<LabelProvider> {
 
 		public int compare(LabelProvider lp1, LabelProvider lp2) {
-			if(lp1 != null)
+			if(lp1 != null) {
 				if(lp2 == null)
 					return 1;
-				else {
-					String label1 = lp1.getLabel();
-					String label2 = lp2.getLabel();
 
-					if(label1 != null)
-						if(label2 == null)
-							return 1;
-						else
-							return label1.toLowerCase().compareTo(label2.toLowerCase());
-					else if(label2 != null)
-						return -1;
-					else
-						return 0;
-				}
+				String label1 = lp1.getLabel();
+				String label2 = lp2.getLabel();
+
+				if(label1 != null)
+					return (label2 == null)
+							? 1
+							: label1.toLowerCase().compareTo(label2.toLowerCase());
+
+				if(label2 != null)
+					return -1;
+			}
 			else if(lp2 != null)
 				return -1;
-			else
-				return 0;
+
+			return 0;
 		}
 	}
 

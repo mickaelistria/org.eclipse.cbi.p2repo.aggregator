@@ -8,8 +8,8 @@ package org.eclipse.b3.aggregator.impl;
 
 import java.util.Collection;
 
-import org.eclipse.b3.aggregator.AggregateType;
-import org.eclipse.b3.aggregator.Aggregation;
+import org.eclipse.b3.aggregator.Aggregate;
+import org.eclipse.b3.aggregator.AggregationType;
 import org.eclipse.b3.aggregator.Aggregator;
 import org.eclipse.b3.aggregator.AggregatorFactory;
 import org.eclipse.b3.aggregator.AggregatorPackage;
@@ -47,6 +47,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <li>{@link org.eclipse.b3.aggregator.impl.AggregatorImpl#getErrors <em>Errors</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.impl.AggregatorImpl#getWarnings <em>Warnings</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.impl.AggregatorImpl#getInfos <em>Infos</em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.impl.AggregatorImpl#getAggregates <em>Aggregates</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.impl.AggregatorImpl#getConfigurations <em>Configurations</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.impl.AggregatorImpl#getContributions <em>Contributions</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.impl.AggregatorImpl#getBuildmaster <em>Buildmaster</em>}</li>
@@ -60,7 +61,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <li>{@link org.eclipse.b3.aggregator.impl.AggregatorImpl#isMavenResult <em>Maven Result</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.impl.AggregatorImpl#getValidationRepositories <em>Validation Repositories</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.impl.AggregatorImpl#getMavenMappings <em>Maven Mappings</em>}</li>
- * <li>{@link org.eclipse.b3.aggregator.impl.AggregatorImpl#getAggregations <em>Aggregations</em>}</li>
  * </ul>
  * </p>
  * 
@@ -99,6 +99,17 @@ public class AggregatorImpl extends DescriptionProviderImpl implements Aggregato
 	 * @ordered
 	 */
 	protected EList<String> infos;
+
+	/**
+	 * The cached value of the '{@link #getAggregates() <em>Aggregates</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see #getAggregates()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Aggregate> aggregates;
 
 	/**
 	 * The cached value of the '{@link #getConfigurations() <em>Configurations</em>}' containment reference list. <!--
@@ -272,7 +283,7 @@ public class AggregatorImpl extends DescriptionProviderImpl implements Aggregato
 	 * @generated
 	 * @ordered
 	 */
-	protected static final AggregateType TYPE_EDEFAULT = AggregateType.STABLE;
+	protected static final AggregationType TYPE_EDEFAULT = AggregationType.STABLE;
 
 	/**
 	 * The offset of the flags representing the value of the '{@link #getType() <em>Type</em>}' attribute. <!--
@@ -294,14 +305,14 @@ public class AggregatorImpl extends DescriptionProviderImpl implements Aggregato
 	protected static final int TYPE_EFLAG_DEFAULT = TYPE_EDEFAULT.ordinal() << TYPE_EFLAG_OFFSET;
 
 	/**
-	 * The array of enumeration values for '{@link AggregateType Aggregate Type}'
+	 * The array of enumeration values for '{@link AggregationType Aggregation Type}'
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	private static final AggregateType[] TYPE_EFLAG_VALUES = AggregateType.values();
+	private static final AggregationType[] TYPE_EFLAG_VALUES = AggregationType.values();
 
 	/**
 	 * The flags representing the value of the '{@link #getType() <em>Type</em>}' attribute.
@@ -354,17 +365,6 @@ public class AggregatorImpl extends DescriptionProviderImpl implements Aggregato
 	 * @ordered
 	 */
 	protected EList<MavenMapping> mavenMappings;
-
-	/**
-	 * The cached value of the '{@link #getAggregations() <em>Aggregations</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @see #getAggregations()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Aggregation> aggregations;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -460,6 +460,8 @@ public class AggregatorImpl extends DescriptionProviderImpl implements Aggregato
 				return getWarnings();
 			case AggregatorPackage.AGGREGATOR__INFOS:
 				return getInfos();
+			case AggregatorPackage.AGGREGATOR__AGGREGATES:
+				return getAggregates();
 			case AggregatorPackage.AGGREGATOR__CONFIGURATIONS:
 				return getConfigurations();
 			case AggregatorPackage.AGGREGATOR__CONTRIBUTIONS:
@@ -488,8 +490,6 @@ public class AggregatorImpl extends DescriptionProviderImpl implements Aggregato
 				return getValidationRepositories();
 			case AggregatorPackage.AGGREGATOR__MAVEN_MAPPINGS:
 				return getMavenMappings();
-			case AggregatorPackage.AGGREGATOR__AGGREGATIONS:
-				return getAggregations();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -517,6 +517,8 @@ public class AggregatorImpl extends DescriptionProviderImpl implements Aggregato
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch(featureID) {
+			case AggregatorPackage.AGGREGATOR__AGGREGATES:
+				return ((InternalEList<?>) getAggregates()).basicRemove(otherEnd, msgs);
 			case AggregatorPackage.AGGREGATOR__CONFIGURATIONS:
 				return ((InternalEList<?>) getConfigurations()).basicRemove(otherEnd, msgs);
 			case AggregatorPackage.AGGREGATOR__CONTRIBUTIONS:
@@ -529,8 +531,6 @@ public class AggregatorImpl extends DescriptionProviderImpl implements Aggregato
 				return ((InternalEList<?>) getValidationRepositories()).basicRemove(otherEnd, msgs);
 			case AggregatorPackage.AGGREGATOR__MAVEN_MAPPINGS:
 				return ((InternalEList<?>) getMavenMappings()).basicRemove(otherEnd, msgs);
-			case AggregatorPackage.AGGREGATOR__AGGREGATIONS:
-				return ((InternalEList<?>) getAggregations()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -551,6 +551,8 @@ public class AggregatorImpl extends DescriptionProviderImpl implements Aggregato
 				return warnings != null && !warnings.isEmpty();
 			case AggregatorPackage.AGGREGATOR__INFOS:
 				return infos != null && !infos.isEmpty();
+			case AggregatorPackage.AGGREGATOR__AGGREGATES:
+				return aggregates != null && !aggregates.isEmpty();
 			case AggregatorPackage.AGGREGATOR__CONFIGURATIONS:
 				return configurations != null && !configurations.isEmpty();
 			case AggregatorPackage.AGGREGATOR__CONTRIBUTIONS:
@@ -581,8 +583,6 @@ public class AggregatorImpl extends DescriptionProviderImpl implements Aggregato
 				return validationRepositories != null && !validationRepositories.isEmpty();
 			case AggregatorPackage.AGGREGATOR__MAVEN_MAPPINGS:
 				return mavenMappings != null && !mavenMappings.isEmpty();
-			case AggregatorPackage.AGGREGATOR__AGGREGATIONS:
-				return aggregations != null && !aggregations.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -607,6 +607,10 @@ public class AggregatorImpl extends DescriptionProviderImpl implements Aggregato
 			case AggregatorPackage.AGGREGATOR__INFOS:
 				getInfos().clear();
 				getInfos().addAll((Collection<? extends String>) newValue);
+				return;
+			case AggregatorPackage.AGGREGATOR__AGGREGATES:
+				getAggregates().clear();
+				getAggregates().addAll((Collection<? extends Aggregate>) newValue);
 				return;
 			case AggregatorPackage.AGGREGATOR__CONFIGURATIONS:
 				getConfigurations().clear();
@@ -640,7 +644,7 @@ public class AggregatorImpl extends DescriptionProviderImpl implements Aggregato
 				setSendmail((Boolean) newValue);
 				return;
 			case AggregatorPackage.AGGREGATOR__TYPE:
-				setType((AggregateType) newValue);
+				setType((AggregationType) newValue);
 				return;
 			case AggregatorPackage.AGGREGATOR__MAVEN_RESULT:
 				setMavenResult((Boolean) newValue);
@@ -652,10 +656,6 @@ public class AggregatorImpl extends DescriptionProviderImpl implements Aggregato
 			case AggregatorPackage.AGGREGATOR__MAVEN_MAPPINGS:
 				getMavenMappings().clear();
 				getMavenMappings().addAll((Collection<? extends MavenMapping>) newValue);
-				return;
-			case AggregatorPackage.AGGREGATOR__AGGREGATIONS:
-				getAggregations().clear();
-				getAggregations().addAll((Collection<? extends Aggregation>) newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -687,6 +687,9 @@ public class AggregatorImpl extends DescriptionProviderImpl implements Aggregato
 				return;
 			case AggregatorPackage.AGGREGATOR__INFOS:
 				getInfos().clear();
+				return;
+			case AggregatorPackage.AGGREGATOR__AGGREGATES:
+				getAggregates().clear();
 				return;
 			case AggregatorPackage.AGGREGATOR__CONFIGURATIONS:
 				getConfigurations().clear();
@@ -727,9 +730,6 @@ public class AggregatorImpl extends DescriptionProviderImpl implements Aggregato
 			case AggregatorPackage.AGGREGATOR__MAVEN_MAPPINGS:
 				getMavenMappings().clear();
 				return;
-			case AggregatorPackage.AGGREGATOR__AGGREGATIONS:
-				getAggregations().clear();
-				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -740,12 +740,12 @@ public class AggregatorImpl extends DescriptionProviderImpl implements Aggregato
 	 * 
 	 * @generated
 	 */
-	public EList<Aggregation> getAggregations() {
-		if(aggregations == null) {
-			aggregations = new EObjectContainmentEList.Resolving<Aggregation>(
-				Aggregation.class, this, AggregatorPackage.AGGREGATOR__AGGREGATIONS);
+	public EList<Aggregate> getAggregates() {
+		if(aggregates == null) {
+			aggregates = new EObjectContainmentEList.Resolving<Aggregate>(
+				Aggregate.class, this, AggregatorPackage.AGGREGATOR__AGGREGATES);
 		}
-		return aggregations;
+		return aggregates;
 	}
 
 	/**
@@ -952,7 +952,7 @@ public class AggregatorImpl extends DescriptionProviderImpl implements Aggregato
 	 * 
 	 * @generated
 	 */
-	public AggregateType getType() {
+	public AggregationType getType() {
 		return TYPE_EFLAG_VALUES[(eFlags & TYPE_EFLAG) >>> TYPE_EFLAG_OFFSET];
 	}
 
@@ -1117,12 +1117,13 @@ public class AggregatorImpl extends DescriptionProviderImpl implements Aggregato
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 */
-	public void setType(AggregateType newType) {
-		AggregateType oldType = TYPE_EFLAG_VALUES[(eFlags & TYPE_EFLAG) >>> TYPE_EFLAG_OFFSET];
+	public void setType(AggregationType newType) {
+		AggregationType oldType = TYPE_EFLAG_VALUES[(eFlags & TYPE_EFLAG) >>> TYPE_EFLAG_OFFSET];
 		if(newType == null)
 			newType = TYPE_EDEFAULT;
 		eFlags = eFlags & ~TYPE_EFLAG | newType.ordinal() << TYPE_EFLAG_OFFSET;

@@ -6,8 +6,8 @@
  */
 package org.eclipse.b3.aggregator.impl;
 
-import org.eclipse.b3.aggregator.AggregateType;
-import org.eclipse.b3.aggregator.Aggregation;
+import org.eclipse.b3.aggregator.Aggregate;
+import org.eclipse.b3.aggregator.AggregationType;
 import org.eclipse.b3.aggregator.Aggregator;
 import org.eclipse.b3.aggregator.AggregatorFactory;
 import org.eclipse.b3.aggregator.AggregatorPackage;
@@ -37,7 +37,6 @@ import org.eclipse.b3.aggregator.OperatingSystem;
 import org.eclipse.b3.aggregator.PackedStrategy;
 import org.eclipse.b3.aggregator.Product;
 import org.eclipse.b3.aggregator.Property;
-import org.eclipse.b3.aggregator.Separable;
 import org.eclipse.b3.aggregator.Status;
 import org.eclipse.b3.aggregator.StatusCode;
 import org.eclipse.b3.aggregator.ValidConfigurationsRule;
@@ -102,11 +101,12 @@ public class AggregatorFactoryImpl extends EFactoryImpl implements AggregatorFac
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 */
-	public String convertAggregateTypeToString(EDataType eDataType, Object instanceValue) {
+	public String convertAggregationTypeToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null
 				? null
 				: instanceValue.toString();
@@ -175,8 +175,8 @@ public class AggregatorFactoryImpl extends EFactoryImpl implements AggregatorFac
 	@Override
 	public String convertToString(EDataType eDataType, Object instanceValue) {
 		switch(eDataType.getClassifierID()) {
-			case AggregatorPackage.AGGREGATE_TYPE:
-				return convertAggregateTypeToString(eDataType, instanceValue);
+			case AggregatorPackage.AGGREGATION_TYPE:
+				return convertAggregationTypeToString(eDataType, instanceValue);
 			case AggregatorPackage.OPERATING_SYSTEM:
 				return convertOperatingSystemToString(eDataType, instanceValue);
 			case AggregatorPackage.WINDOW_SYSTEM:
@@ -230,6 +230,8 @@ public class AggregatorFactoryImpl extends EFactoryImpl implements AggregatorFac
 		switch(eClass.getClassifierID()) {
 			case AggregatorPackage.AGGREGATOR:
 				return (EObject) createAggregator();
+			case AggregatorPackage.AGGREGATE:
+				return (EObject) createAggregate();
 			case AggregatorPackage.MAPPED_REPOSITORY:
 				return (EObject) createMappedRepository();
 			case AggregatorPackage.CONFIGURATION:
@@ -270,10 +272,6 @@ public class AggregatorFactoryImpl extends EFactoryImpl implements AggregatorFac
 				return (EObject) createAvailableVersionsHeader();
 			case AggregatorPackage.AVAILABLE_VERSION:
 				return (EObject) createAvailableVersion();
-			case AggregatorPackage.SEPARABLE:
-				return (EObject) createSeparable();
-			case AggregatorPackage.AGGREGATION:
-				return (EObject) createAggregation();
 			case AggregatorPackage.AGGREGATOR_RESOURCE_VIEW:
 				return (EObject) createAggregatorResourceView();
 			case AggregatorPackage.CONTRIBUTION_VIEW:
@@ -284,16 +282,14 @@ public class AggregatorFactoryImpl extends EFactoryImpl implements AggregatorFac
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 */
-	public AggregateType createAggregateTypeFromString(EDataType eDataType, String initialValue) {
-		AggregateType result = AggregateType.get(initialValue);
-		if(result == null)
-			throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" +
-					eDataType.getName() + "'");
-		return result;
+	public Aggregate createAggregate() {
+		AggregateImpl aggregate = new AggregateImpl();
+		return aggregate;
 	}
 
 	/**
@@ -302,9 +298,12 @@ public class AggregatorFactoryImpl extends EFactoryImpl implements AggregatorFac
 	 * 
 	 * @generated
 	 */
-	public Aggregation createAggregation() {
-		AggregationImpl aggregation = new AggregationImpl();
-		return aggregation;
+	public AggregationType createAggregationTypeFromString(EDataType eDataType, String initialValue) {
+		AggregationType result = AggregationType.get(initialValue);
+		if(result == null)
+			throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" +
+					eDataType.getName() + "'");
+		return result;
 	}
 
 	/**
@@ -471,8 +470,8 @@ public class AggregatorFactoryImpl extends EFactoryImpl implements AggregatorFac
 	@Override
 	public Object createFromString(EDataType eDataType, String initialValue) {
 		switch(eDataType.getClassifierID()) {
-			case AggregatorPackage.AGGREGATE_TYPE:
-				return createAggregateTypeFromString(eDataType, initialValue);
+			case AggregatorPackage.AGGREGATION_TYPE:
+				return createAggregationTypeFromString(eDataType, initialValue);
 			case AggregatorPackage.OPERATING_SYSTEM:
 				return createOperatingSystemFromString(eDataType, initialValue);
 			case AggregatorPackage.WINDOW_SYSTEM:
@@ -676,17 +675,6 @@ public class AggregatorFactoryImpl extends EFactoryImpl implements AggregatorFac
 	public Property createProperty(String key, String value) {
 		PropertyImpl property = new PropertyImpl(key, value);
 		return property;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	public Separable createSeparable() {
-		SeparableImpl separable = new SeparableImpl();
-		return separable;
 	}
 
 	/**

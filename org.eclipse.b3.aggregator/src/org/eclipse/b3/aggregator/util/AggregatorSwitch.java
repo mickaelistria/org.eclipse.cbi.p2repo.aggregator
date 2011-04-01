@@ -8,7 +8,7 @@ package org.eclipse.b3.aggregator.util;
 
 import java.util.List;
 
-import org.eclipse.b3.aggregator.Aggregation;
+import org.eclipse.b3.aggregator.Aggregate;
 import org.eclipse.b3.aggregator.Aggregator;
 import org.eclipse.b3.aggregator.AggregatorPackage;
 import org.eclipse.b3.aggregator.AggregatorResourceView;
@@ -29,6 +29,8 @@ import org.eclipse.b3.aggregator.Feature;
 import org.eclipse.b3.aggregator.InfosProvider;
 import org.eclipse.b3.aggregator.InstallableUnitRequest;
 import org.eclipse.b3.aggregator.LabelProvider;
+import org.eclipse.b3.aggregator.LinkReceiver;
+import org.eclipse.b3.aggregator.LinkSource;
 import org.eclipse.b3.aggregator.MapRule;
 import org.eclipse.b3.aggregator.MappedRepository;
 import org.eclipse.b3.aggregator.MappedUnit;
@@ -37,7 +39,6 @@ import org.eclipse.b3.aggregator.MavenMapping;
 import org.eclipse.b3.aggregator.MetadataRepositoryReference;
 import org.eclipse.b3.aggregator.Product;
 import org.eclipse.b3.aggregator.Property;
-import org.eclipse.b3.aggregator.Separable;
 import org.eclipse.b3.aggregator.Status;
 import org.eclipse.b3.aggregator.StatusProvider;
 import org.eclipse.b3.aggregator.ValidConfigurationsRule;
@@ -75,7 +76,7 @@ public class AggregatorSwitch<T1> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Aggregation</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Aggregate</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
@@ -83,11 +84,11 @@ public class AggregatorSwitch<T1> {
 	 * 
 	 * @param object
 	 *            the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Aggregation</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Aggregate</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T1 caseAggregation(Aggregation object) {
+	public T1 caseAggregate(Aggregate object) {
 		return null;
 	}
 
@@ -402,6 +403,40 @@ public class AggregatorSwitch<T1> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Link Receiver</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * 
+	 * @param object
+	 *            the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Link Receiver</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseLinkReceiver(LinkReceiver object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Link Source</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * 
+	 * @param object
+	 *            the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Link Source</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseLinkSource(LinkSource object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Mapped Repository</em>'. <!-- begin-user-doc
 	 * --> This implementation returns null; returning a non-null result will terminate the switch. <!-- end-user-doc
 	 * -->
@@ -522,23 +557,6 @@ public class AggregatorSwitch<T1> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Separable</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * 
-	 * @param object
-	 *            the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Separable</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T1 caseSeparable(Separable object) {
-		return null;
-	}
-
-	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Status</em>'.
 	 * <!-- begin-user-doc --> This
 	 * implementation returns null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
@@ -651,6 +669,23 @@ public class AggregatorSwitch<T1> {
 					result = defaultCase(theEObject);
 				return result;
 			}
+			case AggregatorPackage.AGGREGATE: {
+				Aggregate aggregate = (Aggregate) theEObject;
+				T1 result = caseAggregate(aggregate);
+				if(result == null)
+					result = caseEnabledStatusProvider(aggregate);
+				if(result == null)
+					result = caseDescriptionProvider(aggregate);
+				if(result == null)
+					result = caseStatusProvider(aggregate);
+				if(result == null)
+					result = caseInfosProvider(aggregate);
+				if(result == null)
+					result = caseLinkReceiver(aggregate);
+				if(result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
 			case AggregatorPackage.MAPPED_REPOSITORY: {
 				MappedRepository mappedRepository = (MappedRepository) theEObject;
 				T1 result = caseMappedRepository(mappedRepository);
@@ -688,6 +723,8 @@ public class AggregatorSwitch<T1> {
 					result = caseStatusProvider(contribution);
 				if(result == null)
 					result = caseInfosProvider(contribution);
+				if(result == null)
+					result = caseLinkSource(contribution);
 				if(result == null)
 					result = defaultCase(theEObject);
 				return result;
@@ -968,24 +1005,16 @@ public class AggregatorSwitch<T1> {
 					result = defaultCase(theEObject);
 				return result;
 			}
-			case AggregatorPackage.SEPARABLE: {
-				Separable separable = (Separable) theEObject;
-				T1 result = caseSeparable(separable);
+			case AggregatorPackage.LINK_SOURCE: {
+				LinkSource linkSource = (LinkSource) theEObject;
+				T1 result = caseLinkSource(linkSource);
 				if(result == null)
 					result = defaultCase(theEObject);
 				return result;
 			}
-			case AggregatorPackage.AGGREGATION: {
-				Aggregation aggregation = (Aggregation) theEObject;
-				T1 result = caseAggregation(aggregation);
-				if(result == null)
-					result = caseEnabledStatusProvider(aggregation);
-				if(result == null)
-					result = caseDescriptionProvider(aggregation);
-				if(result == null)
-					result = caseStatusProvider(aggregation);
-				if(result == null)
-					result = caseInfosProvider(aggregation);
+			case AggregatorPackage.LINK_RECEIVER: {
+				LinkReceiver linkReceiver = (LinkReceiver) theEObject;
+				T1 result = caseLinkReceiver(linkReceiver);
 				if(result == null)
 					result = defaultCase(theEObject);
 				return result;
