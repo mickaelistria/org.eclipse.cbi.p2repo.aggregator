@@ -8,7 +8,6 @@ package org.eclipse.b3.aggregator.impl;
 
 import java.lang.Comparable;
 import org.eclipse.b3.aggregator.Aggregate;
-import org.eclipse.b3.aggregator.AggregateView;
 import org.eclipse.b3.aggregator.AggregationType;
 import org.eclipse.b3.aggregator.Aggregator;
 import org.eclipse.b3.aggregator.AggregatorFactory;
@@ -313,14 +312,6 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 	 * 
 	 * @generated
 	 */
-	private EClass aggregateViewEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
 	private EEnum aggregationTypeEEnum = null;
 
 	/**
@@ -611,9 +602,6 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 		createEReference(aggregatorResourceViewEClass, AGGREGATOR_RESOURCE_VIEW__AGGREGATOR);
 		createEReference(aggregatorResourceViewEClass, AGGREGATOR_RESOURCE_VIEW__AGGREGATES);
 
-		aggregateViewEClass = createEClass(AGGREGATE_VIEW);
-		createEReference(aggregateViewEClass, AGGREGATE_VIEW__CONTRIBUTIONS);
-
 		// Create enums
 		aggregationTypeEEnum = createEEnum(AGGREGATION_TYPE);
 		operatingSystemEEnum = createEEnum(OPERATING_SYSTEM);
@@ -643,26 +631,6 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 	 */
 	public EAttribute getAggregate_Label() {
 		return (EAttribute) aggregateEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	public EClass getAggregateView() {
-		return aggregateViewEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	public EReference getAggregateView_Contributions() {
-		return (EReference) aggregateViewEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -2251,15 +2219,6 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 			AggregatorResourceView.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES,
 			!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		getAggregatorResourceView_Aggregates().getEKeys().add(this.getAggregate_Label());
-
-		initEClass(
-			aggregateViewEClass, AggregateView.class, "AggregateView", !IS_ABSTRACT, !IS_INTERFACE,
-			IS_GENERATED_INSTANCE_CLASS);
-		initEReference(
-			getAggregateView_Contributions(), this.getContribution(), null, "contributions", null, 0, -1,
-			AggregateView.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES,
-			!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		getAggregateView_Contributions().getEKeys().add(this.getContribution_Label());
 
 		// Initialize enums and add enum literals
 		initEEnum(aggregationTypeEEnum, AggregationType.class, "AggregationType");

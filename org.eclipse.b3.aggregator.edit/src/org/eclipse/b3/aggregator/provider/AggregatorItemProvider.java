@@ -19,10 +19,12 @@ import org.eclipse.b3.aggregator.MavenMapping;
 import org.eclipse.b3.aggregator.MetadataRepositoryReference;
 import org.eclipse.b3.aggregator.util.FilteringCollection;
 import org.eclipse.b3.aggregator.util.ResourceUtils;
+import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.command.CommandParameter;
+import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemColorProvider;
@@ -44,6 +46,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
 public class AggregatorItemProvider extends DescriptionProviderItemProvider implements IEditingDomainItemProvider,
 		IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource,
 		IItemColorProvider, IItemFontProvider {
+
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -238,6 +241,13 @@ public class AggregatorItemProvider extends DescriptionProviderItemProvider impl
 
 		newChildDescriptors.add(createChildParameter(
 			AggregatorPackage.Literals.AGGREGATOR__MAVEN_MAPPINGS, AggregatorFactory.eINSTANCE.createMavenMapping()));
+	}
+
+	@Override
+	protected Command createDragAndDropCommand(EditingDomain domain, Object owner, float location, int operations,
+			int operation, Collection<?> collection) {
+		// TODO implement a drop command for configurations from the aggregates
+		return super.createDragAndDropCommand(domain, owner, location, operations, operation, collection);
 	}
 
 	/**

@@ -237,15 +237,6 @@ public class AggregatorItemProviderAdapterFactory extends AggregatorAdapterFacto
 	protected AggregateItemProvider aggregateItemProvider;
 
 	/**
-	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.aggregator.AggregateView} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	protected AggregateViewItemProvider aggregateViewItemProvider;
-
-	/**
 	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.aggregator.AggregatorResourceView} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -323,22 +314,6 @@ public class AggregatorItemProviderAdapterFactory extends AggregatorAdapterFacto
 		}
 
 		return aggregateItemProvider;
-	}
-
-	/**
-	 * This creates an adapter for a {@link org.eclipse.b3.aggregator.AggregateView}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	public Adapter createAggregateViewAdapter() {
-		if(aggregateViewItemProvider == null) {
-			aggregateViewItemProvider = new AggregateViewItemProvider(this);
-		}
-
-		return aggregateViewItemProvider;
 	}
 
 	/**
@@ -726,8 +701,6 @@ public class AggregatorItemProviderAdapterFactory extends AggregatorAdapterFacto
 			availableVersionItemProvider.dispose();
 		if(aggregatorResourceViewItemProvider != null)
 			aggregatorResourceViewItemProvider.dispose();
-		if(aggregateViewItemProvider != null)
-			aggregateViewItemProvider.dispose();
 	}
 
 	/**

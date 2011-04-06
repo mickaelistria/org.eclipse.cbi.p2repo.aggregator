@@ -52,6 +52,7 @@ import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
+import org.eclipse.emf.edit.provider.IWrapperItemProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.eclipse.equinox.p2.metadata.IInstallableUnit;
@@ -209,6 +210,18 @@ public class ContributionItemProvider extends AggregatorItemProviderAdapter impl
 
 		newChildDescriptors.add(createChildParameter(
 			AggregatorPackage.Literals.CONTRIBUTION__MAVEN_MAPPINGS, AggregatorFactory.eINSTANCE.createMavenMapping()));
+	}
+
+	@Override
+	protected Command createAddCommand(EditingDomain domain, EObject owner, EStructuralFeature feature,
+			Collection<?> collection, int index) {
+		for(Object value : collection) {
+			if(value instanceof IWrapperItemProvider &&
+					((IWrapperItemProvider) value).getValue() instanceof Contribution)
+				return UnexecutableCommand.INSTANCE;
+		}
+
+		return super.createAddCommand(domain, owner, feature, collection, index);
 	}
 
 	@SuppressWarnings("unchecked")

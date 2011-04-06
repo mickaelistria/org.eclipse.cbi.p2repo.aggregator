@@ -8,21 +8,15 @@
 package org.eclipse.b3.aggregator.provider;
 
 import java.util.Collection;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import org.eclipse.b3.aggregator.Aggregate;
 import org.eclipse.b3.aggregator.AggregatorPackage;
 import org.eclipse.b3.aggregator.impl.AggregateImpl;
-import org.eclipse.b3.aggregator.impl.AggregateViewImpl;
 import org.eclipse.emf.common.command.Command;
-import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.util.ResourceLocator;
-import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.command.CommandParameter;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
@@ -47,8 +41,6 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
 public class AggregateItemProvider extends AggregatorItemProviderAdapter implements IEditingDomainItemProvider,
 		IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource,
 		IItemColorProvider, IItemFontProvider {
-
-	protected Map<Object, AggregateViewImpl> delegateObjectMap = new HashMap<Object, AggregateViewImpl>();
 
 	/**
 	 * This constructs an instance from a factory and a notifier.
@@ -129,45 +121,17 @@ public class AggregateItemProvider extends AggregatorItemProviderAdapter impleme
 	@Override
 	public Command createCommand(Object object, EditingDomain domain, Class<? extends Command> commandClass,
 			CommandParameter commandParameter) {
-		AggregateViewImpl delegateObject = getDelegateObject(object);
-
-		if(commandParameter.getOwner() == object)
-			commandParameter.setOwner(delegateObject);
-
-		return getDelegateItemProviderAdapter(delegateObject).createCommand(
-			delegateObject, domain, commandClass, commandParameter);
+		return super.createCommand(object, domain, commandClass, commandParameter);
 	}
 
 	@Override
 	public Collection<?> getChildren(Object object) {
-		AggregateViewImpl delegateObject = getDelegateObject(object);
+		@SuppressWarnings("unchecked")
+		Collection<Object> children = (Collection<Object>) super.getChildren(object);
 
-		return getDelegateItemProviderAdapter(delegateObject).getChildren(delegateObject);
-	}
+		children.addAll(((AggregateImpl) object).getLinkedContributions());
 
-	@Override
-	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
-		AggregateViewImpl delegateObject = getDelegateObject(object);
-
-		return getDelegateItemProviderAdapter(delegateObject).getChildrenFeatures(delegateObject);
-	}
-
-	public AggregateViewItemProvider getDelegateItemProviderAdapter(AggregateViewImpl delegateObject) {
-		Adapter adapter = getRootAdapterFactory().adapt(delegateObject, IEditingDomainItemProvider.class);
-
-		return (AggregateViewItemProvider) adapter;
-	}
-
-	public AggregateViewImpl getDelegateObject(Object object) {
-		AggregateViewImpl delegateObject = delegateObjectMap.get(object);
-
-		if(delegateObject == null) {
-			delegateObject = new AggregateViewImpl((AggregateImpl) object);
-
-			delegateObjectMap.put(object, delegateObject);
-		}
-
-		return delegateObject;
+		return children;
 	}
 
 	/**
@@ -180,14 +144,6 @@ public class AggregateItemProvider extends AggregatorItemProviderAdapter impleme
 	@Override
 	public Object getImage(Object object) {
 		return overlayImage(object, getResourceLocator().getImage("full/obj16/Aggregate"));
-	}
-
-	@Override
-	public Collection<?> getNewChildDescriptors(Object object, EditingDomain editingDomain, Object sibling) {
-		AggregateViewImpl delegateObject = getDelegateObject(object);
-
-		return getDelegateItemProviderAdapter(delegateObject).getNewChildDescriptors(
-			delegateObject, editingDomain, sibling);
 	}
 
 	/**
@@ -242,10 +198,29 @@ public class AggregateItemProvider extends AggregatorItemProviderAdapter impleme
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public void notifyChanged(Notification notification) {
+		if(notification.getFeatureID(AggregatorPackage.class) == AggregatorPackage.AGGREGATE) {
+			updateChildren(notification);
+
+			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
+			return;
+		}
+
+		notifyChangedGen(notification);
+	}
+
+	/**
+	 * This handles model notifications by calling {@link #updateChildren} to update any cached
+	 * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public void notifyChangedGen(Notification notification) {
 		updateChildren(notification);
 
 		switch(notification.getFeatureID(Aggregate.class)) {
@@ -256,16 +231,6 @@ public class AggregateItemProvider extends AggregatorItemProviderAdapter impleme
 				return;
 		}
 		super.notifyChanged(notification);
-	}
-
-	@Override
-	public void unsetTarget(Notifier target) {
-		super.unsetTarget(target);
-
-		AggregateViewImpl delegateObject = delegateObjectMap.remove(target);
-
-		if(delegateObject != null)
-			delegateObject.dispose();
 	}
 
 }

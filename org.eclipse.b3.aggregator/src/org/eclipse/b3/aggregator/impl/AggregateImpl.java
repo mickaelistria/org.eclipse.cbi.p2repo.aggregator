@@ -7,7 +7,9 @@
  */
 package org.eclipse.b3.aggregator.impl;
 
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
 import org.eclipse.b3.aggregator.Aggregate;
 import org.eclipse.b3.aggregator.Aggregator;
@@ -456,6 +458,18 @@ public class AggregateImpl extends MinimalEObjectImpl.Container implements Aggre
 		return label;
 	}
 
+	public Collection<Contribution> getLinkedContributions() {
+		EList<LinkSource> linkedSources = getLinkedSources();
+		List<Contribution> contributions = new ArrayList<Contribution>(linkedSources.size());
+
+		for(LinkSource linkedSource : linkedSources) {
+			if(linkedSource instanceof Contribution)
+				contributions.add((Contribution) linkedSource);
+		}
+
+		return contributions;
+	}
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -464,7 +478,7 @@ public class AggregateImpl extends MinimalEObjectImpl.Container implements Aggre
 	 */
 	public EList<LinkSource> getLinkedSources() {
 		if(linkedSources == null) {
-			linkedSources = new EObjectEList<LinkSource>(LinkSource.class, this, Notification.NO_FEATURE_ID);
+			linkedSources = new EObjectEList<LinkSource>(LinkSource.class, this, AggregatorPackage.AGGREGATE);
 		}
 		return linkedSources;
 	}
@@ -594,5 +608,4 @@ public class AggregateImpl extends MinimalEObjectImpl.Container implements Aggre
 	public void unlinkSource(LinkSource source) {
 		linkedSources.remove(source);
 	}
-
 } // AggregateImpl

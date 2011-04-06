@@ -37,16 +37,6 @@ public interface AggregatorFactory extends EFactory {
 	Aggregate createAggregate();
 
 	/**
-	 * Returns a new object of class '<em>Aggregate View</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @return a new object of class '<em>Aggregate View</em>'.
-	 * @generated
-	 */
-	AggregateView createAggregateView();
-
-	/**
 	 * Returns a new object of class '<em>Aggregator</em>'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 

@@ -409,40 +409,6 @@ public class ContributionImpl extends MinimalEObjectImpl.Container implements Co
 		return super.eIsSet(featureID);
 	}
 
-	@Override
-	public boolean eNotificationRequired() {
-		// we need this so that link receivers are notified of changes
-		return true;
-	}
-
-	@Override
-	public void eNotify(Notification notification) {
-		super.eNotify(notification);
-		// let the LinkReceiver know this source has been linked to/unlinked from it
-		if(notification.getFeatureID(LinkSource.class) == AggregatorPackage.LINK_SOURCE__RECEIVER) {
-			Object receiver;
-
-			switch(notification.getEventType()) {
-				case Notification.SET:
-					receiver = notification.getOldValue();
-					if(receiver != null)
-						((LinkReceiver) receiver).unlinkSource((LinkSource) notification.getNotifier());
-					receiver = notification.getNewValue();
-					if(receiver != null)
-						((LinkReceiver) receiver).linkSource((LinkSource) notification.getNotifier());
-					break;
-				case Notification.ADD:
-					receiver = notification.getNewValue();
-					((LinkReceiver) receiver).linkSource((LinkSource) notification.getNotifier());
-					break;
-				case Notification.REMOVE:
-					receiver = notification.getOldValue();
-					((LinkReceiver) receiver).unlinkSource((LinkSource) notification.getNotifier());
-					break;
-			}
-		}
-	}
-
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 

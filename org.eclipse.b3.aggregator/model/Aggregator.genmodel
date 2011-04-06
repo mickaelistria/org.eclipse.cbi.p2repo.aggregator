@@ -273,9 +273,6 @@
       <genFeatures property="None" children="true" createChild="false" ecoreFeature="ecore:EReference Aggregator.ecore#//AggregatorResourceView/aggregator"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Aggregator.ecore#//AggregatorResourceView/aggregates"/>
     </genClasses>
-    <genClasses ecoreClass="Aggregator.ecore#//AggregateView">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Aggregator.ecore#//AggregateView/contributions"/>
-    </genClasses>
     <nestedGenPackages prefix="P2view" resource="XML" disposableProviderFactory="true"
         multipleEditorPages="false" generateModelWizard="false" ecorePackage="Aggregator.ecore#//p2view">
       <genClasses ecoreClass="Aggregator.ecore#//p2view/MetadataRepositoryStructuredView">

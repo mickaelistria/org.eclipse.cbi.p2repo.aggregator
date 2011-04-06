@@ -497,7 +497,7 @@ public class AggregatorActionBarContributor extends EditingDomainActionBarContri
 
 		synchronized private boolean isLoading() {
 			for(MetadataRepositoryResourceImpl mdr : metadataRepositoryResources)
-				if(mdr.getStatus().getCode() == StatusCode.WAITING)
+				if(mdr != null && mdr.getStatus().getCode() == StatusCode.WAITING)
 					return true;
 
 			return false;

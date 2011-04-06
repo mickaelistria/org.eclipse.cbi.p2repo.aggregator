@@ -854,26 +854,6 @@ public interface AggregatorPackage extends EPackage {
 		EReference AGGREGATOR_RESOURCE_VIEW__AGGREGATES = eINSTANCE.getAggregatorResourceView_Aggregates();
 
 		/**
-		 * The meta object literal for the '{@link org.eclipse.b3.aggregator.impl.AggregateViewImpl <em>Aggregate View</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * 
-		 * @see org.eclipse.b3.aggregator.impl.AggregateViewImpl
-		 * @see org.eclipse.b3.aggregator.impl.AggregatorPackageImpl#getAggregateView()
-		 * @generated
-		 */
-		EClass AGGREGATE_VIEW = eINSTANCE.getAggregateView();
-
-		/**
-		 * The meta object literal for the '<em><b>Contributions</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * 
-		 * @generated
-		 */
-		EReference AGGREGATE_VIEW__CONTRIBUTIONS = eINSTANCE.getAggregateView_Contributions();
-
-		/**
 		 * The meta object literal for the '{@link org.eclipse.b3.aggregator.AggregationType <em>Aggregation Type</em>}' enum.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -3679,37 +3659,6 @@ public interface AggregatorPackage extends EPackage {
 	int AGGREGATOR_RESOURCE_VIEW_FEATURE_COUNT = 2;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.b3.aggregator.impl.AggregateViewImpl <em>Aggregate View</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @see org.eclipse.b3.aggregator.impl.AggregateViewImpl
-	 * @see org.eclipse.b3.aggregator.impl.AggregatorPackageImpl#getAggregateView()
-	 * @generated
-	 */
-	int AGGREGATE_VIEW = 33;
-
-	/**
-	 * The feature id for the '<em><b>Contributions</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int AGGREGATE_VIEW__CONTRIBUTIONS = 0;
-
-	/**
-	 * The number of structural features of the '<em>Aggregate View</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int AGGREGATE_VIEW_FEATURE_COUNT = 1;
-
-	/**
 	 * The meta object id for the '{@link org.eclipse.b3.aggregator.AggregationType <em>Aggregation Type</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3718,7 +3667,7 @@ public interface AggregatorPackage extends EPackage {
 	 * @see org.eclipse.b3.aggregator.impl.AggregatorPackageImpl#getAggregationType()
 	 * @generated
 	 */
-	int AGGREGATION_TYPE = 34;
+	int AGGREGATION_TYPE = 33;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.aggregator.OperatingSystem <em>Operating System</em>}' enum.
@@ -3728,7 +3677,7 @@ public interface AggregatorPackage extends EPackage {
 	 * @see org.eclipse.b3.aggregator.impl.AggregatorPackageImpl#getOperatingSystem()
 	 * @generated
 	 */
-	int OPERATING_SYSTEM = 35;
+	int OPERATING_SYSTEM = 34;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.aggregator.WindowSystem <em>Window System</em>}' enum.
@@ -3738,7 +3687,7 @@ public interface AggregatorPackage extends EPackage {
 	 * @see org.eclipse.b3.aggregator.impl.AggregatorPackageImpl#getWindowSystem()
 	 * @generated
 	 */
-	int WINDOW_SYSTEM = 36;
+	int WINDOW_SYSTEM = 35;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.aggregator.Architecture <em>Architecture</em>}' enum.
@@ -3748,7 +3697,7 @@ public interface AggregatorPackage extends EPackage {
 	 * @see org.eclipse.b3.aggregator.impl.AggregatorPackageImpl#getArchitecture()
 	 * @generated
 	 */
-	int ARCHITECTURE = 37;
+	int ARCHITECTURE = 36;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.aggregator.PackedStrategy <em>Packed Strategy</em>}' enum.
@@ -3758,7 +3707,7 @@ public interface AggregatorPackage extends EPackage {
 	 * @see org.eclipse.b3.aggregator.impl.AggregatorPackageImpl#getPackedStrategy()
 	 * @generated
 	 */
-	int PACKED_STRATEGY = 38;
+	int PACKED_STRATEGY = 37;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.aggregator.InstallableUnitType <em>Installable Unit Type</em>}' enum.
@@ -3768,7 +3717,7 @@ public interface AggregatorPackage extends EPackage {
 	 * @see org.eclipse.b3.aggregator.impl.AggregatorPackageImpl#getInstallableUnitType()
 	 * @generated
 	 */
-	int INSTALLABLE_UNIT_TYPE = 39;
+	int INSTALLABLE_UNIT_TYPE = 38;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.aggregator.StatusCode <em>Status Code</em>}' enum.
@@ -3778,7 +3727,7 @@ public interface AggregatorPackage extends EPackage {
 	 * @see org.eclipse.b3.aggregator.impl.AggregatorPackageImpl#getStatusCode()
 	 * @generated
 	 */
-	int STATUS_CODE = 40;
+	int STATUS_CODE = 39;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.aggregator.VersionMatch <em>Version Match</em>}' enum.
@@ -3789,7 +3738,7 @@ public interface AggregatorPackage extends EPackage {
 	 * @see org.eclipse.b3.aggregator.impl.AggregatorPackageImpl#getVersionMatch()
 	 * @generated
 	 */
-	int VERSION_MATCH = 41;
+	int VERSION_MATCH = 40;
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.b3.aggregator.Aggregate <em>Aggregate</em>}'.
@@ -3813,30 +3762,6 @@ public interface AggregatorPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getAggregate_Label();
-
-	/**
-	 * Returns the meta object for class '{@link org.eclipse.b3.aggregator.AggregateView <em>Aggregate View</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @return the meta object for class '<em>Aggregate View</em>'.
-	 * @see org.eclipse.b3.aggregator.AggregateView
-	 * @generated
-	 */
-	EClass getAggregateView();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link org.eclipse.b3.aggregator.AggregateView#getContributions
-	 * <em>Contributions</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @return the meta object for the containment reference list '<em>Contributions</em>'.
-	 * @see org.eclipse.b3.aggregator.AggregateView#getContributions()
-	 * @see #getAggregateView()
-	 * @generated
-	 */
-	EReference getAggregateView_Contributions();
 
 	/**
 	 * Returns the meta object for enum '{@link org.eclipse.b3.aggregator.AggregationType <em>Aggregation Type</em>}'.

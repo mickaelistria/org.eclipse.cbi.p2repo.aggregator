@@ -9,7 +9,6 @@ package org.eclipse.b3.aggregator.util;
 import java.util.List;
 
 import org.eclipse.b3.aggregator.Aggregate;
-import org.eclipse.b3.aggregator.AggregateView;
 import org.eclipse.b3.aggregator.Aggregator;
 import org.eclipse.b3.aggregator.AggregatorPackage;
 import org.eclipse.b3.aggregator.AggregatorResourceView;
@@ -89,23 +88,6 @@ public class AggregatorSwitch<T1> {
 	 * @generated
 	 */
 	public T1 caseAggregate(Aggregate object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Aggregate View</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * 
-	 * @param object
-	 *            the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Aggregate View</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T1 caseAggregateView(AggregateView object) {
 		return null;
 	}
 
@@ -1022,13 +1004,6 @@ public class AggregatorSwitch<T1> {
 			case AggregatorPackage.AGGREGATOR_RESOURCE_VIEW: {
 				AggregatorResourceView aggregatorResourceView = (AggregatorResourceView) theEObject;
 				T1 result = caseAggregatorResourceView(aggregatorResourceView);
-				if(result == null)
-					result = defaultCase(theEObject);
-				return result;
-			}
-			case AggregatorPackage.AGGREGATE_VIEW: {
-				AggregateView aggregateView = (AggregateView) theEObject;
-				T1 result = caseAggregateView(aggregateView);
 				if(result == null)
 					result = defaultCase(theEObject);
 				return result;

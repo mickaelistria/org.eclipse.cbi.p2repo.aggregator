@@ -7,7 +7,6 @@
 package org.eclipse.b3.aggregator.impl;
 
 import org.eclipse.b3.aggregator.Aggregate;
-import org.eclipse.b3.aggregator.AggregateView;
 import org.eclipse.b3.aggregator.AggregationType;
 import org.eclipse.b3.aggregator.Aggregator;
 import org.eclipse.b3.aggregator.AggregatorFactory;
@@ -274,8 +273,6 @@ public class AggregatorFactoryImpl extends EFactoryImpl implements AggregatorFac
 				return (EObject) createAvailableVersion();
 			case AggregatorPackage.AGGREGATOR_RESOURCE_VIEW:
 				return (EObject) createAggregatorResourceView();
-			case AggregatorPackage.AGGREGATE_VIEW:
-				return (EObject) createAggregateView();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -290,19 +287,6 @@ public class AggregatorFactoryImpl extends EFactoryImpl implements AggregatorFac
 	public Aggregate createAggregate() {
 		AggregateImpl aggregate = new AggregateImpl();
 		return aggregate;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated NOT
-	 */
-	public AggregateView createAggregateView() {
-		// TODO objects of this class are not supposed to be part of the model
-		// they are used as a view helpers
-		throw new UnsupportedOperationException();
-		// TODO return null;
 	}
 
 	/**

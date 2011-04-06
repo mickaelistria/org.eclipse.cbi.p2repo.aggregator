@@ -2010,37 +2010,36 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 
 			MdrResourceItemProvider mdrResourceItemProvider = new MdrResourceItemProvider(this);
 
+			AggregatorResourceItemProvider aggregatorResourceItemProvider = new AggregatorResourceItemProvider(this);
+
+			ResourceSetItemProvider resourceSetItemProvider = new ResourceSetItemProvider(this) {
+				@Override
+				public Collection<?> getChildren(Object object) {
+					ResourceSet resourceSet = (ResourceSet) object;
+
+					List<Resource> filtered = new ArrayList<Resource>();
+					for(Resource resource : resourceSet.getResources())
+						if(resource instanceof AggregatorResourceImpl ||
+								resource instanceof MetadataRepositoryResourceImpl)
+							filtered.add(resource);
+
+					return filtered;
+				}
+			};
+
 			@Override
 			public Adapter createAdapter(Notifier target) {
-				if(target instanceof Resource) {
-					if(target instanceof AggregatorResourceImpl)
-						return new AggregatorResourceItemProvider(this);
-					if(target instanceof MetadataRepositoryResourceImpl)
-						return mdrResourceItemProvider;
-					throw new IllegalStateException();
-				}
-				return createResourceSetAdapter();
-			}
-
-			// Present only the main resource and loaded MDR's (not detached contributions)
-			@Override
-			public Adapter createResourceSetAdapter() {
-				return new ResourceSetItemProvider(this) {
-					@Override
-					public Collection<?> getChildren(Object object) {
-						ResourceSet resourceSet = (ResourceSet) object;
-
-						List<Resource> filtered = new ArrayList<Resource>();
-						for(Resource resource : resourceSet.getResources())
-							if(resource instanceof AggregatorResourceImpl ||
-									resource instanceof MetadataRepositoryResourceImpl)
-								filtered.add(resource);
-
-						return filtered;
-					}
-				};
+				if(target instanceof AggregatorResourceImpl)
+					return aggregatorResourceItemProvider;
+				if(target instanceof MetadataRepositoryResourceImpl)
+					return mdrResourceItemProvider;
+				if(target instanceof ResourceSet)
+					return resourceSetItemProvider;
+				// TODO should we perhaps return null?
+				throw new IllegalStateException();
 			}
 		});
+
 		adapterFactory.addAdapterFactory(new StatusProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new AggregatorItemProviderAdapterFactory());
 

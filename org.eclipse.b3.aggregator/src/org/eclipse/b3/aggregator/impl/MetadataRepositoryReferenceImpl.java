@@ -458,12 +458,14 @@ public class MetadataRepositoryReferenceImpl extends MinimalEObjectImpl.Containe
 			return errors;
 		}
 
-		MetadataRepositoryResourceImpl res = (MetadataRepositoryResourceImpl) MetadataRepositoryResourceImpl.getResourceForNatureAndLocation(
-			nature, location, getAggregator(), false);
+		if(eResource() != null) {
+			MetadataRepositoryResourceImpl res = (MetadataRepositoryResourceImpl) MetadataRepositoryResourceImpl.getResourceForNatureAndLocation(
+				nature, location, getAggregator(), false);
 
-		if(res == null) {
-			errors.add(getString("_UI_ErrorMessage_RepositoryIsNotAvailable"));
-			return errors;
+			if(res == null) {
+				errors.add(getString("_UI_ErrorMessage_RepositoryIsNotAvailable"));
+				return errors;
+			}
 		}
 
 		return errors;

@@ -7,7 +7,6 @@
 package org.eclipse.b3.aggregator.util;
 
 import org.eclipse.b3.aggregator.Aggregate;
-import org.eclipse.b3.aggregator.AggregateView;
 import org.eclipse.b3.aggregator.Aggregator;
 import org.eclipse.b3.aggregator.AggregatorPackage;
 import org.eclipse.b3.aggregator.AggregatorResourceView;
@@ -71,11 +70,6 @@ public class AggregatorAdapterFactory extends AdapterFactoryImpl {
 		@Override
 		public Adapter caseAggregate(Aggregate object) {
 			return createAggregateAdapter();
-		}
-
-		@Override
-		public Adapter caseAggregateView(AggregateView object) {
-			return createAggregateViewAdapter();
 		}
 
 		@Override
@@ -282,21 +276,6 @@ public class AggregatorAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createAggregateAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.aggregator.AggregateView <em>Aggregate View</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * 
-	 * @return the new adapter.
-	 * @see org.eclipse.b3.aggregator.AggregateView
-	 * @generated
-	 */
-	public Adapter createAggregateViewAdapter() {
 		return null;
 	}
 
