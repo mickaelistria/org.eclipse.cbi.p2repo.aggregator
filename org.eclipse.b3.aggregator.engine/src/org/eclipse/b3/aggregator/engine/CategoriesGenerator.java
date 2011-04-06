@@ -6,6 +6,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.eclipse.b3.aggregator.Aggregate;
 import org.eclipse.b3.aggregator.Aggregator;
 import org.eclipse.b3.aggregator.Category;
 import org.eclipse.b3.aggregator.Contribution;
@@ -70,35 +71,11 @@ public class CategoriesGenerator extends BuilderPhase {
 		providedCaps.add(providedCap);
 	}
 
-	public CategoriesGenerator(Builder builder) {
+	private final Aggregate aggregate;
+
+	public CategoriesGenerator(Builder builder, Aggregate aggregate) {
 		super(builder);
-	}
-
-	@Override
-	public void run(IProgressMonitor monitor) throws CoreException {
-		long start = TimeUtils.getNow();
-		MonitorUtils.begin(monitor, 10);
-		String info = "Starting generation of categories";
-		MonitorUtils.subTask(monitor, info);
-		LogUtils.info(info);
-		try {
-			List<IInstallableUnit> results = new ArrayList<IInstallableUnit>();
-			Aggregator aggregator = getBuilder().getAggregator();
-			for(CustomCategory category : aggregator.getCustomCategories())
-				results.add(createCategoryIU(category));
-
-			MonitorUtils.worked(monitor, 5);
-			for(Contribution contrib : aggregator.getContributions(true))
-				for(MappedRepository repo : contrib.getRepositories(true))
-					results.addAll(getRepositoryCategories(repo));
-
-			results = normalizeCategories(results);
-			getBuilder().setCategoryIUs(results);
-		}
-		finally {
-			MonitorUtils.done(monitor);
-		}
-		LogUtils.info("Done. Took %s", TimeUtils.getFormattedDuration(start)); //$NON-NLS-1$
+		this.aggregate = aggregate;
 	}
 
 	private InstallableUnit createCategoryIU(CustomCategory category) {
@@ -273,6 +250,39 @@ public class CategoriesGenerator extends BuilderPhase {
 		return normalized;
 	}
 
+	@Override
+	public void run(IProgressMonitor monitor) throws CoreException {
+		String taskLabel = Builder.getAggregateLabel(aggregate);
+
+		long start = TimeUtils.getNow();
+		MonitorUtils.begin(monitor, 10);
+		String info = "Starting generation of categories for aggregate: " + taskLabel;
+		MonitorUtils.subTask(monitor, info);
+		LogUtils.info(info);
+		try {
+			List<IInstallableUnit> results = new ArrayList<IInstallableUnit>();
+			Aggregator aggregator = getBuilder().getAggregatorr();
+
+			// only process custom categories in the main (implicit) aggregate
+			if(aggregate == null) {
+				for(CustomCategory category : aggregator.getCustomCategories())
+					results.add(createCategoryIU(category));
+			}
+
+			MonitorUtils.worked(monitor, 5);
+			for(Contribution contrib : aggregator.getAggregateContributions(aggregate, true))
+				for(MappedRepository repo : contrib.getRepositories(true))
+					results.addAll(getRepositoryCategories(repo));
+
+			results = normalizeCategories(results);
+			getBuilder().setCategoryIUs(results);
+		}
+		finally {
+			MonitorUtils.done(monitor);
+		}
+		LogUtils.info("Done. Took %s", TimeUtils.getFormattedDuration(start)); //$NON-NLS-1$
+	}
+
 	/**
 	 * Ensure that mapped repositories that reference the given category IU are not mapped verbatim.
 	 * 
@@ -282,7 +292,7 @@ public class CategoriesGenerator extends BuilderPhase {
 	private void tossCategory(IInstallableUnit category) {
 		MetadataRepository parent = (MetadataRepository) ((EObject) category).eContainer();
 		Builder builder = getBuilder();
-		for(Contribution contrib : builder.getAggregator().getContributions(true)) {
+		for(Contribution contrib : builder.getAggregatorr().getAggregateContributions(aggregate, true)) {
 			for(MappedRepository mappedRepo : contrib.getRepositories(true)) {
 				if(mappedRepo.getMetadataRepository() == parent && builder.isMapVerbatim(mappedRepo)) {
 					LogUtils.debug(

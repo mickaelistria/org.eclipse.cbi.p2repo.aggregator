@@ -8,6 +8,7 @@ package org.eclipse.b3.aggregator.impl;
 
 import java.lang.Comparable;
 import org.eclipse.b3.aggregator.Aggregate;
+import org.eclipse.b3.aggregator.AggregateView;
 import org.eclipse.b3.aggregator.AggregationType;
 import org.eclipse.b3.aggregator.Aggregator;
 import org.eclipse.b3.aggregator.AggregatorFactory;
@@ -22,7 +23,6 @@ import org.eclipse.b3.aggregator.ChildrenProvider;
 import org.eclipse.b3.aggregator.Configuration;
 import org.eclipse.b3.aggregator.Contact;
 import org.eclipse.b3.aggregator.Contribution;
-import org.eclipse.b3.aggregator.ContributionView;
 import org.eclipse.b3.aggregator.CustomCategory;
 import org.eclipse.b3.aggregator.DescriptionProvider;
 import org.eclipse.b3.aggregator.EnabledStatusProvider;
@@ -313,7 +313,7 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 	 * 
 	 * @generated
 	 */
-	private EClass contributionViewEClass = null;
+	private EClass aggregateViewEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -477,9 +477,9 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 		createEReference(aggregatorEClass, AGGREGATOR__AGGREGATES);
 		createEReference(aggregatorEClass, AGGREGATOR__CONFIGURATIONS);
 		createEReference(aggregatorEClass, AGGREGATOR__CONTRIBUTIONS);
-		createEReference(aggregatorEClass, AGGREGATOR__BUILDMASTER);
-		createEReference(aggregatorEClass, AGGREGATOR__CONTACTS);
 		createEReference(aggregatorEClass, AGGREGATOR__CUSTOM_CATEGORIES);
+		createEReference(aggregatorEClass, AGGREGATOR__CONTACTS);
+		createEReference(aggregatorEClass, AGGREGATOR__BUILDMASTER);
 		createEAttribute(aggregatorEClass, AGGREGATOR__LABEL);
 		createEAttribute(aggregatorEClass, AGGREGATOR__BUILD_ROOT);
 		createEAttribute(aggregatorEClass, AGGREGATOR__PACKED_STRATEGY);
@@ -611,7 +611,8 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 		createEReference(aggregatorResourceViewEClass, AGGREGATOR_RESOURCE_VIEW__AGGREGATOR);
 		createEReference(aggregatorResourceViewEClass, AGGREGATOR_RESOURCE_VIEW__AGGREGATES);
 
-		contributionViewEClass = createEClass(CONTRIBUTION_VIEW);
+		aggregateViewEClass = createEClass(AGGREGATE_VIEW);
+		createEReference(aggregateViewEClass, AGGREGATE_VIEW__CONTRIBUTIONS);
 
 		// Create enums
 		aggregationTypeEEnum = createEEnum(AGGREGATION_TYPE);
@@ -650,6 +651,26 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 	 * 
 	 * @generated
 	 */
+	public EClass getAggregateView() {
+		return aggregateViewEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EReference getAggregateView_Contributions() {
+		return (EReference) aggregateViewEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
 	public EEnum getAggregationType() {
 		return aggregationTypeEEnum;
 	}
@@ -679,7 +700,7 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 	 * @generated
 	 */
 	public EReference getAggregator_Buildmaster() {
-		return (EReference) aggregatorEClass.getEStructuralFeatures().get(3);
+		return (EReference) aggregatorEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -724,7 +745,7 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 	 * @generated
 	 */
 	public EReference getAggregator_CustomCategories() {
-		return (EReference) aggregatorEClass.getEStructuralFeatures().get(5);
+		return (EReference) aggregatorEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -1077,16 +1098,6 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 	 */
 	public EReference getContribution_Repositories() {
 		return (EReference) contributionEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	public EClass getContributionView() {
-		return contributionViewEClass;
 	}
 
 	/**
@@ -1755,7 +1766,6 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 		metadataRepositoryReferenceEClass.getESuperTypes().add(this.getInfosProvider());
 		mavenMappingEClass.getESuperTypes().add(this.getStatusProvider());
 		mavenMappingEClass.getESuperTypes().add(this.getInfosProvider());
-		contributionViewEClass.getESuperTypes().add(this.getLabelProvider());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(
@@ -1775,20 +1785,20 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 			!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		getAggregator_Contributions().getEKeys().add(this.getContribution_Label());
 		initEReference(
-			getAggregator_Buildmaster(), this.getContact(), null, "buildmaster", null, 0, 1, Aggregator.class,
-			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,
-			!IS_DERIVED, IS_ORDERED);
-		getAggregator_Buildmaster().getEKeys().add(this.getContact_Email());
+			getAggregator_CustomCategories(), this.getCustomCategory(), null, "customCategories", null, 0, -1,
+			Aggregator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES,
+			!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		getAggregator_CustomCategories().getEKeys().add(this.getCustomCategory_Identifier());
 		initEReference(
 			getAggregator_Contacts(), this.getContact(), this.getContact_Aggregator(), "contacts", null, 0, -1,
 			Aggregator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES,
 			!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		getAggregator_Contacts().getEKeys().add(this.getContact_Email());
 		initEReference(
-			getAggregator_CustomCategories(), this.getCustomCategory(), null, "customCategories", null, 0, -1,
-			Aggregator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES,
-			!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		getAggregator_CustomCategories().getEKeys().add(this.getCustomCategory_Identifier());
+			getAggregator_Buildmaster(), this.getContact(), null, "buildmaster", null, 0, 1, Aggregator.class,
+			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,
+			!IS_DERIVED, IS_ORDERED);
+		getAggregator_Buildmaster().getEKeys().add(this.getContact_Email());
 		initEAttribute(
 			getAggregator_Label(), ecorePackage.getEString(), "label", null, 1, 1, Aggregator.class, !IS_TRANSIENT,
 			!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1819,6 +1829,15 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 
 		EOperation op = addEOperation(
 			aggregatorEClass, this.getContribution(), "getContributions", 0, -1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEBoolean(), "enabledOnly", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = addEOperation(
+			aggregatorEClass, this.getContribution(), "getAggregateContributions", 0, -1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getAggregate(), "aggregate", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = addEOperation(
+			aggregatorEClass, this.getContribution(), "getAggregateContributions", 0, -1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getAggregate(), "aggregate", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEBoolean(), "enabledOnly", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		op = addEOperation(
@@ -2214,6 +2233,11 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 		op = addEOperation(linkReceiverEClass, null, "linkSource", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getLinkSource(), "source", 1, 1, IS_UNIQUE, IS_ORDERED);
 
+		op = addEOperation(linkReceiverEClass, null, "unlinkSource", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getLinkSource(), "source", 1, 1, IS_UNIQUE, IS_ORDERED);
+
+		addEOperation(linkReceiverEClass, this.getLinkSource(), "getLinkedSources", 0, -1, IS_UNIQUE, IS_ORDERED);
+
 		initEClass(
 			aggregatorResourceViewEClass, AggregatorResourceView.class, "AggregatorResourceView", !IS_ABSTRACT,
 			!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -2229,8 +2253,13 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 		getAggregatorResourceView_Aggregates().getEKeys().add(this.getAggregate_Label());
 
 		initEClass(
-			contributionViewEClass, ContributionView.class, "ContributionView", !IS_ABSTRACT, !IS_INTERFACE,
+			aggregateViewEClass, AggregateView.class, "AggregateView", !IS_ABSTRACT, !IS_INTERFACE,
 			IS_GENERATED_INSTANCE_CLASS);
+		initEReference(
+			getAggregateView_Contributions(), this.getContribution(), null, "contributions", null, 0, -1,
+			AggregateView.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES,
+			!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		getAggregateView_Contributions().getEKeys().add(this.getContribution_Label());
 
 		// Initialize enums and add enum literals
 		initEEnum(aggregationTypeEEnum, AggregationType.class, "AggregationType");

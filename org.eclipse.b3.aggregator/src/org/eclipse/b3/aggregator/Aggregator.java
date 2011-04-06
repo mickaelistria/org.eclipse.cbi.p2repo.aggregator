@@ -36,6 +36,24 @@ import org.eclipse.emf.common.util.EList;
  */
 public interface Aggregator extends DescriptionProvider, StatusProvider, InfosProvider {
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @model
+	 * @generated
+	 */
+	EList<Contribution> getAggregateContributions(Aggregate aggregate);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @model
+	 * @generated
+	 */
+	EList<Contribution> getAggregateContributions(Aggregate aggregate, boolean enabledOnly);
+
+	/**
 	 * Returns the value of the '<em><b>Aggregates</b></em>' containment reference list.
 	 * The list contents are of type {@link org.eclipse.b3.aggregator.Aggregate}.
 	 * <!-- begin-user-doc -->

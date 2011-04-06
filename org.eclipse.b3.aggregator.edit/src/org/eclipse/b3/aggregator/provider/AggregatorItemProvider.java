@@ -222,11 +222,11 @@ public class AggregatorItemProvider extends DescriptionProviderItemProvider impl
 			AggregatorPackage.Literals.AGGREGATOR__CONTRIBUTIONS, AggregatorFactory.eINSTANCE.createContribution()));
 
 		newChildDescriptors.add(createChildParameter(
-			AggregatorPackage.Literals.AGGREGATOR__CONTACTS, AggregatorFactory.eINSTANCE.createContact()));
-
-		newChildDescriptors.add(createChildParameter(
 			AggregatorPackage.Literals.AGGREGATOR__CUSTOM_CATEGORIES,
 			AggregatorFactory.eINSTANCE.createCustomCategory()));
+
+		newChildDescriptors.add(createChildParameter(
+			AggregatorPackage.Literals.AGGREGATOR__CONTACTS, AggregatorFactory.eINSTANCE.createContact()));
 
 		newChildDescriptors.add(createChildParameter(
 			AggregatorPackage.Literals.AGGREGATOR__VALIDATION_REPOSITORIES,
@@ -286,8 +286,8 @@ public class AggregatorItemProvider extends DescriptionProviderItemProvider impl
 			childrenFeatures.add(AggregatorPackage.Literals.AGGREGATOR__AGGREGATES);
 			childrenFeatures.add(AggregatorPackage.Literals.AGGREGATOR__CONFIGURATIONS);
 			childrenFeatures.add(AggregatorPackage.Literals.AGGREGATOR__CONTRIBUTIONS);
-			childrenFeatures.add(AggregatorPackage.Literals.AGGREGATOR__CONTACTS);
 			childrenFeatures.add(AggregatorPackage.Literals.AGGREGATOR__CUSTOM_CATEGORIES);
+			childrenFeatures.add(AggregatorPackage.Literals.AGGREGATOR__CONTACTS);
 			childrenFeatures.add(AggregatorPackage.Literals.AGGREGATOR__VALIDATION_REPOSITORIES);
 			childrenFeatures.add(AggregatorPackage.Literals.AGGREGATOR__MAVEN_MAPPINGS);
 		}
@@ -391,8 +391,8 @@ public class AggregatorItemProvider extends DescriptionProviderItemProvider impl
 			case AggregatorPackage.AGGREGATOR__AGGREGATES:
 			case AggregatorPackage.AGGREGATOR__CONFIGURATIONS:
 			case AggregatorPackage.AGGREGATOR__CONTRIBUTIONS:
-			case AggregatorPackage.AGGREGATOR__CONTACTS:
 			case AggregatorPackage.AGGREGATOR__CUSTOM_CATEGORIES:
+			case AggregatorPackage.AGGREGATOR__CONTACTS:
 			case AggregatorPackage.AGGREGATOR__VALIDATION_REPOSITORIES:
 			case AggregatorPackage.AGGREGATOR__MAVEN_MAPPINGS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));

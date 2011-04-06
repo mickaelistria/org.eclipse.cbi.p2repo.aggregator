@@ -10,6 +10,7 @@ package org.eclipse.b3.aggregator.util;
 
 import java.util.Map;
 
+import org.eclipse.b3.aggregator.Aggregator;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.xmi.XMIResource;
 
@@ -31,6 +32,13 @@ public interface AggregatorResource extends XMIResource {
 	 * Analysis aggregator errors, warnings & infos
 	 */
 	void analyzeResource();
+
+	/**
+	 * Returns the {@link Aggregator} instance contained in this {@link Resource}.
+	 * 
+	 * @return the {@code Aggregator} instance contained in this {@code Resource}.
+	 */
+	Aggregator getAggregator();
 
 	/**
 	 * Returns a list of the infos in the resource; each error will be of type {@link org.eclipse.emf.ecore.resource.Resource.Diagnostic}.

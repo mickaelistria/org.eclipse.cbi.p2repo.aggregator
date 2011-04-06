@@ -7,6 +7,8 @@
  */
 package org.eclipse.b3.aggregator;
 
+import org.eclipse.emf.common.util.EList;
+
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Link Receiver</b></em>'.
@@ -31,9 +33,27 @@ public interface LinkReceiver {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
+	 * @model kind="operation"
+	 * @generated
+	 */
+	EList<LinkSource> getLinkedSources();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
 	 * @model sourceRequired="true"
 	 * @generated
 	 */
 	void linkSource(LinkSource source);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @model sourceRequired="true"
+	 * @generated
+	 */
+	void unlinkSource(LinkSource source);
 
 } // LinkReceiver

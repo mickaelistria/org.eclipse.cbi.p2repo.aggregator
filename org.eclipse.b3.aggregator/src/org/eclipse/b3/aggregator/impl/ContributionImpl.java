@@ -409,6 +409,40 @@ public class ContributionImpl extends MinimalEObjectImpl.Container implements Co
 		return super.eIsSet(featureID);
 	}
 
+	@Override
+	public boolean eNotificationRequired() {
+		// we need this so that link receivers are notified of changes
+		return true;
+	}
+
+	@Override
+	public void eNotify(Notification notification) {
+		super.eNotify(notification);
+		// let the LinkReceiver know this source has been linked to/unlinked from it
+		if(notification.getFeatureID(LinkSource.class) == AggregatorPackage.LINK_SOURCE__RECEIVER) {
+			Object receiver;
+
+			switch(notification.getEventType()) {
+				case Notification.SET:
+					receiver = notification.getOldValue();
+					if(receiver != null)
+						((LinkReceiver) receiver).unlinkSource((LinkSource) notification.getNotifier());
+					receiver = notification.getNewValue();
+					if(receiver != null)
+						((LinkReceiver) receiver).linkSource((LinkSource) notification.getNotifier());
+					break;
+				case Notification.ADD:
+					receiver = notification.getNewValue();
+					((LinkReceiver) receiver).linkSource((LinkSource) notification.getNotifier());
+					break;
+				case Notification.REMOVE:
+					receiver = notification.getOldValue();
+					((LinkReceiver) receiver).unlinkSource((LinkSource) notification.getNotifier());
+					break;
+			}
+		}
+	}
+
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -630,28 +664,40 @@ public class ContributionImpl extends MinimalEObjectImpl.Container implements Co
 	 * @generated NOT
 	 */
 	public EList<MappedRepository> getRepositories(boolean enabledOnly) {
-		EList<MappedRepository> repos = getRepositories();
-		if(enabledOnly) {
-			EList<MappedRepository> enabledRepos = null;
-			int top = repos.size();
-			for(int idx = 0; idx < top; ++idx) {
-				MappedRepository repo = repos.get(idx);
-				if(repo.isEnabled()) {
-					if(enabledRepos != null)
-						enabledRepos.add(repo);
-					continue;
-				}
+		EList<MappedRepository> repositories = getRepositories();
 
-				if(enabledRepos == null) {
-					enabledRepos = new BasicEList<MappedRepository>(repos.size() - 1);
-					for(int sdx = 0; sdx < idx; ++sdx)
-						enabledRepos.add(repos.get(sdx));
-				}
+		if(!enabledOnly)
+			return repositories;
+
+		int count = repositories.size();
+		int idx = 0;
+
+		ALL_PASS: {
+			for(; idx < count; ++idx) {
+				MappedRepository repository = repositories.get(idx);
+				if(!(repository.isEnabled()))
+					// we have found an entry that doesn't pass - exit the ALL_PASS block to create a list containing only those entries that pass
+					break ALL_PASS;
 			}
-			if(enabledRepos != null)
-				repos = enabledRepos;
+
+			// all entries pass - return the original list
+			return repositories;
 		}
-		return repos;
+
+		// there is at least one entry that doesn't pass - we need to build a new list containing only those entries that pass
+		EList<MappedRepository> passingRepositories = new BasicEList<MappedRepository>(repositories.size() - 1);
+
+		// we don't need to check these again - we know they are matching
+		for(int sdx = 0; sdx < idx; ++sdx)
+			passingRepositories.add(repositories.get(sdx));
+
+		while(++idx < count) {
+			MappedRepository repository = repositories.get(idx);
+			if(repository.isEnabled())
+				passingRepositories.add(repository);
+		}
+
+		return passingRepositories;
 	}
 
 	synchronized public Status getStatus() {
@@ -771,5 +817,4 @@ public class ContributionImpl extends MinimalEObjectImpl.Container implements Co
 		result.append(')');
 		return result.toString();
 	}
-
 } // ContributionImpl

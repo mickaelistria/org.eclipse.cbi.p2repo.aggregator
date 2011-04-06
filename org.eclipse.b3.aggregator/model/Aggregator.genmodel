@@ -264,12 +264,18 @@
       <genOperations ecoreOperation="Aggregator.ecore#//LinkReceiver/linkSource">
         <genParameters ecoreParameter="Aggregator.ecore#//LinkReceiver/linkSource/source"/>
       </genOperations>
+      <genOperations ecoreOperation="Aggregator.ecore#//LinkReceiver/unlinkSource">
+        <genParameters ecoreParameter="Aggregator.ecore#//LinkReceiver/unlinkSource/source"/>
+      </genOperations>
+      <genOperations ecoreOperation="Aggregator.ecore#//LinkReceiver/getLinkedSources"/>
     </genClasses>
-    <genClasses provider="Stateful" image="false" ecoreClass="Aggregator.ecore#//AggregatorResourceView">
+    <genClasses image="false" ecoreClass="Aggregator.ecore#//AggregatorResourceView">
       <genFeatures property="None" children="true" createChild="false" ecoreFeature="ecore:EReference Aggregator.ecore#//AggregatorResourceView/aggregator"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Aggregator.ecore#//AggregatorResourceView/aggregates"/>
     </genClasses>
-    <genClasses ecoreClass="Aggregator.ecore#//ContributionView"/>
+    <genClasses ecoreClass="Aggregator.ecore#//AggregateView">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Aggregator.ecore#//AggregateView/contributions"/>
+    </genClasses>
     <nestedGenPackages prefix="P2view" resource="XML" disposableProviderFactory="true"
         multipleEditorPages="false" generateModelWizard="false" ecorePackage="Aggregator.ecore#//p2view">
       <genClasses ecoreClass="Aggregator.ecore#//p2view/MetadataRepositoryStructuredView">

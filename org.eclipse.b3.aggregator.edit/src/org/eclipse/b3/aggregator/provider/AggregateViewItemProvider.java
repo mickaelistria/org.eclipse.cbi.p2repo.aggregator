@@ -10,10 +10,10 @@ package org.eclipse.b3.aggregator.provider;
 import java.util.Collection;
 import java.util.List;
 
+import org.eclipse.b3.aggregator.AggregateView;
 import org.eclipse.b3.aggregator.AggregatorFactory;
 import org.eclipse.b3.aggregator.AggregatorPackage;
-import org.eclipse.b3.aggregator.AggregatorResourceView;
-import org.eclipse.b3.aggregator.impl.AggregatorResourceViewImpl;
+import org.eclipse.b3.aggregator.impl.AggregateViewImpl;
 import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.command.UnexecutableCommand;
 import org.eclipse.emf.common.notify.AdapterFactory;
@@ -23,7 +23,6 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.command.CopyCommand.Helper;
 import org.eclipse.emf.edit.domain.EditingDomain;
-import org.eclipse.emf.edit.provider.DelegatingWrapperItemProvider;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemColorProvider;
 import org.eclipse.emf.edit.provider.IItemFontProvider;
@@ -35,16 +34,15 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
- * This is the item provider adapter for a {@link org.eclipse.b3.aggregator.AggregatorResourceView} object.
+ * This is the item provider adapter for a {@link org.eclipse.b3.aggregator.AggregateView} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * 
  * @generated
  */
-public class AggregatorResourceViewItemProvider extends AggregatorItemProviderAdapter implements
-		IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider,
-		IItemPropertySource, IItemColorProvider, IItemFontProvider {
-
+public class AggregateViewItemProvider extends AggregatorItemProviderAdapter implements IEditingDomainItemProvider,
+		IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource,
+		IItemColorProvider, IItemFontProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -52,7 +50,7 @@ public class AggregatorResourceViewItemProvider extends AggregatorItemProviderAd
 	 * 
 	 * @generated
 	 */
-	public AggregatorResourceViewItemProvider(AdapterFactory adapterFactory) {
+	public AggregateViewItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -69,117 +67,76 @@ public class AggregatorResourceViewItemProvider extends AggregatorItemProviderAd
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 
 		newChildDescriptors.add(createChildParameter(
-			AggregatorPackage.Literals.AGGREGATOR_RESOURCE_VIEW__AGGREGATES,
-			AggregatorFactory.eINSTANCE.createAggregate()));
+			AggregatorPackage.Literals.AGGREGATE_VIEW__CONTRIBUTIONS, AggregatorFactory.eINSTANCE.createContribution()));
 	}
 
+	// @Override
+	// protected Object createWrapper(EObject object, EStructuralFeature feature, Object value, int index) {
+	// // we need to wrap Contribution objects so that they appear to be children of the Aggregate instance
+	// // that the object we adapt is a view of
+	// if(feature == AggregatorPackage.Literals.AGGREGATE_VIEW__CONTRIBUTIONS)
+	// return new DelegatingWrapperItemProvider(
+	// value, ((AggregateViewImpl) object).getAggregate(), feature, index, adapterFactory);
+	// return super.createWrapper(object, feature, value, index);
+	// }
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see org.eclipse.emf.edit.provider.ItemProviderAdapter#createAddCommand(org.eclipse.emf.edit.domain.EditingDomain,
+	 * org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EStructuralFeature, java.util.Collection, int)
+	 */
 	@Override
 	protected Command createAddCommand(EditingDomain domain, EObject owner, EStructuralFeature feature,
 			Collection<?> collection, int index) {
-		if(feature == AggregatorPackage.Literals.AGGREGATOR_RESOURCE_VIEW__AGGREGATES) {
-			return super.createAddCommand(
-				domain, (EObject) ((AggregatorResourceViewImpl) owner).getAggregator(),
-				(EStructuralFeature) AggregatorPackage.Literals.AGGREGATOR__AGGREGATES, collection, index);
-		}
 		return UnexecutableCommand.INSTANCE;
 	}
 
 	@Override
 	protected Command createCopyCommand(EditingDomain domain, EObject owner, Helper helper) {
-		return UnexecutableCommand.INSTANCE;
+		return super.createCopyCommand(domain, (EObject) ((AggregateViewImpl) owner).getAggregate(), helper);
 	}
 
 	@Override
 	protected Command createCreateChildCommand(EditingDomain domain, EObject owner, EStructuralFeature feature,
 			Object value, int index, Collection<?> collection) {
-		if(feature == AggregatorPackage.Literals.AGGREGATOR_RESOURCE_VIEW__AGGREGATES) {
-			return super.createCreateChildCommand(
-				domain, (EObject) ((AggregatorResourceViewImpl) owner).getAggregator(),
-				AggregatorPackage.Literals.AGGREGATOR__AGGREGATES, value, index, collection);
-		}
 		return UnexecutableCommand.INSTANCE;
 	}
 
 	@Override
 	protected Command createCreateCopyCommand(EditingDomain domain, EObject owner, Helper helper) {
-		return UnexecutableCommand.INSTANCE;
+		return super.createCreateCopyCommand(domain, (EObject) ((AggregateViewImpl) owner).getAggregate(), helper);
 	}
 
 	@Override
 	protected Command createDragAndDropCommand(EditingDomain domain, Object owner, float location, int operations,
 			int operation, Collection<?> collection) {
 		return super.createDragAndDropCommand(
-			domain, ((AggregatorResourceViewImpl) owner).getAggregatorResource(), location, operations, operation,
-			collection);
+			domain, ((AggregateViewImpl) owner).getAggregate(), location, operations, operation, collection);
 	}
 
 	@Override
 	protected Command createInitializeCopyCommand(EditingDomain domain, EObject owner, Helper helper) {
-		return UnexecutableCommand.INSTANCE;
+		return super.createInitializeCopyCommand(domain, (EObject) ((AggregateViewImpl) owner).getAggregate(), helper);
 	}
 
 	@Override
 	protected Command createMoveCommand(EditingDomain domain, EObject owner, EStructuralFeature feature, Object value,
 			int index) {
-		if(feature == AggregatorPackage.Literals.AGGREGATOR_RESOURCE_VIEW__AGGREGATES) {
-			return super.createMoveCommand(
-				domain, (EObject) ((AggregatorResourceViewImpl) owner).getAggregator(),
-				(EStructuralFeature) AggregatorPackage.Literals.AGGREGATOR__AGGREGATES, value, index);
-		}
 		return UnexecutableCommand.INSTANCE;
 	}
 
 	@Override
 	protected Command createRemoveCommand(EditingDomain domain, EObject owner, EStructuralFeature feature,
 			Collection<?> collection) {
-		if(feature == AggregatorPackage.Literals.AGGREGATOR_RESOURCE_VIEW__AGGREGATES) {
-			return super.createRemoveCommand(
-				domain, (EObject) ((AggregatorResourceViewImpl) owner).getAggregator(),
-				(EStructuralFeature) AggregatorPackage.Literals.AGGREGATOR__AGGREGATES, collection);
-		}
-		return UnexecutableCommand.INSTANCE;
-	}
-
-	@Override
-	protected Command createReplaceCommand(EditingDomain domain, EObject owner, EStructuralFeature feature,
-			EObject value, Collection<?> collection) {
+		// TODO create unlink command
 		return UnexecutableCommand.INSTANCE;
 	}
 
 	@Override
 	protected Command createSetCommand(EditingDomain domain, EObject owner, EStructuralFeature feature, Object value,
 			int index) {
-		// disable unsetting/deletion of the Aggregator node
-		if(feature == AggregatorPackage.Literals.AGGREGATOR_RESOURCE_VIEW__AGGREGATOR)
-			return UnexecutableCommand.INSTANCE;
-		return super.createSetCommand(domain, owner, feature, value);
-	}
-
-	@Override
-	protected Object createWrapper(EObject object, EStructuralFeature feature, Object value, int index) {
-		// we need to wrap Aggregate objects so that they appear to be children of the AggregatorResource instance
-		// that the object we adapt is a view of
-		if(feature == AggregatorPackage.Literals.AGGREGATOR_RESOURCE_VIEW__AGGREGATES)
-			return new DelegatingWrapperItemProvider(
-				value, ((AggregatorResourceViewImpl) object).getAggregatorResource(), feature, index, adapterFactory);
-		return super.createWrapper(object, feature, value, index);
-	}
-
-	@Override
-	public void fireNotifyChanged(Notification notification) {
-		// send ViewerNotification targeted at AggregatorResourceViewImpl instances to the respective
-		// AggregatorResource instances instead
-		if(notification instanceof ViewerNotification) {
-			ViewerNotification viewerNotification = (ViewerNotification) notification;
-			Object element = viewerNotification.getElement();
-
-			if(element instanceof AggregatorResourceViewImpl) {
-				notification = new ViewerNotification(
-					viewerNotification, ((AggregatorResourceViewImpl) element).getAggregatorResource(),
-					viewerNotification.isContentRefresh(), viewerNotification.isLabelUpdate());
-			}
-		}
-		super.fireNotifyChanged(notification);
+		return super.createSetCommand(domain, owner, feature, value, index);
 	}
 
 	/**
@@ -209,10 +166,21 @@ public class AggregatorResourceViewItemProvider extends AggregatorItemProviderAd
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if(childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(AggregatorPackage.Literals.AGGREGATOR_RESOURCE_VIEW__AGGREGATOR);
-			childrenFeatures.add(AggregatorPackage.Literals.AGGREGATOR_RESOURCE_VIEW__AGGREGATES);
+			childrenFeatures.add(AggregatorPackage.Literals.AGGREGATE_VIEW__CONTRIBUTIONS);
 		}
 		return childrenFeatures;
+	}
+
+	/**
+	 * This returns AggregateView.gif.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public Object getImage(Object object) {
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/AggregateView"));
 	}
 
 	/**
@@ -252,16 +220,16 @@ public class AggregatorResourceViewItemProvider extends AggregatorItemProviderAd
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_AggregatorResourceView_type");
+		return getString("_UI_AggregateView_type");
 	}
 
-	@Override
-	protected boolean isWrappingNeeded(Object object) {
-		// we need to set this to true since we are wrapping the Aggregate objects
-		// so that they appear to be children of the AggregatorResource instance
-		// that the object we adapt is a view of
-		return true;
-	}
+	// @Override
+	// protected boolean isWrappingNeeded(Object object) {
+	// // we need to set this to true since we are wrapping the Contribution objects
+	// // so that they appear to be children of the Aggregate instance that the object
+	// // we adapt is a view of
+	// return true;
+	// }
 
 	/**
 	 * This handles model notifications by calling {@link #updateChildren} to update any cached
@@ -275,9 +243,8 @@ public class AggregatorResourceViewItemProvider extends AggregatorItemProviderAd
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch(notification.getFeatureID(AggregatorResourceView.class)) {
-			case AggregatorPackage.AGGREGATOR_RESOURCE_VIEW__AGGREGATOR:
-			case AggregatorPackage.AGGREGATOR_RESOURCE_VIEW__AGGREGATES:
+		switch(notification.getFeatureID(AggregateView.class)) {
+			case AggregatorPackage.AGGREGATE_VIEW__CONTRIBUTIONS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}

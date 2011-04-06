@@ -7,6 +7,7 @@
 package org.eclipse.b3.aggregator.impl;
 
 import org.eclipse.b3.aggregator.Aggregate;
+import org.eclipse.b3.aggregator.AggregateView;
 import org.eclipse.b3.aggregator.AggregationType;
 import org.eclipse.b3.aggregator.Aggregator;
 import org.eclipse.b3.aggregator.AggregatorFactory;
@@ -20,7 +21,6 @@ import org.eclipse.b3.aggregator.Category;
 import org.eclipse.b3.aggregator.Configuration;
 import org.eclipse.b3.aggregator.Contact;
 import org.eclipse.b3.aggregator.Contribution;
-import org.eclipse.b3.aggregator.ContributionView;
 import org.eclipse.b3.aggregator.CustomCategory;
 import org.eclipse.b3.aggregator.DescriptionProvider;
 import org.eclipse.b3.aggregator.ExclusionRule;
@@ -274,8 +274,8 @@ public class AggregatorFactoryImpl extends EFactoryImpl implements AggregatorFac
 				return (EObject) createAvailableVersion();
 			case AggregatorPackage.AGGREGATOR_RESOURCE_VIEW:
 				return (EObject) createAggregatorResourceView();
-			case AggregatorPackage.CONTRIBUTION_VIEW:
-				return (EObject) createContributionView();
+			case AggregatorPackage.AGGREGATE_VIEW:
+				return (EObject) createAggregateView();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -290,6 +290,19 @@ public class AggregatorFactoryImpl extends EFactoryImpl implements AggregatorFac
 	public Aggregate createAggregate() {
 		AggregateImpl aggregate = new AggregateImpl();
 		return aggregate;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated NOT
+	 */
+	public AggregateView createAggregateView() {
+		// TODO objects of this class are not supposed to be part of the model
+		// they are used as a view helpers
+		throw new UnsupportedOperationException();
+		// TODO return null;
 	}
 
 	/**
@@ -323,6 +336,8 @@ public class AggregatorFactoryImpl extends EFactoryImpl implements AggregatorFac
 	 * @generated NOT
 	 */
 	public AggregatorResourceView createAggregatorResourceView() {
+		// objects of this class are not supposed to be part of the model
+		// they are used as a view helpers
 		throw new UnsupportedOperationException();
 	}
 
@@ -409,17 +424,6 @@ public class AggregatorFactoryImpl extends EFactoryImpl implements AggregatorFac
 	public Contribution createContribution() {
 		ContributionImpl contribution = new ContributionImpl();
 		return contribution;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	public ContributionView createContributionView() {
-		ContributionViewImpl contributionView = new ContributionViewImpl();
-		return contributionView;
 	}
 
 	/**

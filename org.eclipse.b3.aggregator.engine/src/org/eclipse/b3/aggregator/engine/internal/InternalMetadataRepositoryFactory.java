@@ -62,6 +62,54 @@ public class InternalMetadataRepositoryFactory extends SimpleMetadataRepositoryF
 		throw new UnsupportedOperationException();
 	}
 
+	private File getLocalFile(URI location, IProgressMonitor monitor) throws IOException, ProvisionException {
+		File localFile = null;
+		URI jarLocation = getActualLocation(location, JAR_EXTENSION);
+		URI xmlLocation = getActualLocation(location, XML_EXTENSION);
+		// If the repository is local, we can return the repository file directly
+		if(PROTOCOL_FILE.equals(xmlLocation.getScheme())) {
+			// look for a compressed local file
+			localFile = URIUtil.toFile(jarLocation);
+			if(localFile.exists())
+				return localFile;
+			// look for an uncompressed local file
+			localFile = URIUtil.toFile(xmlLocation);
+			if(localFile.exists())
+				return localFile;
+			String msg = NLS.bind(Messages.io_failedRead, location);
+			throw new ProvisionException(new Status(
+				IStatus.ERROR, Activator.ID, ProvisionException.REPOSITORY_NOT_FOUND, msg, null));
+		}
+		// file is not local, create a cache of the repository metadata
+		CacheManager cache = (CacheManager) getAgent().getService(CacheManager.SERVICE_NAME);
+		if(cache == null)
+			throw new IllegalArgumentException("Cache manager service not available"); //$NON-NLS-1$
+		localFile = cache.createCache(location, InternalMetadataRepository.CONTENT_FILENAME, monitor);
+		if(localFile == null) {
+			// there is no remote file in either form - this should not really happen as
+			// createCache should bail out with exception if something is wrong. This is an internal
+			// error.
+			throw new ProvisionException(new Status(
+				IStatus.ERROR, Activator.ID, ProvisionException.REPOSITORY_NOT_FOUND, Messages.repoMan_internalError,
+				null));
+		}
+		return localFile;
+	}
+
+	/**
+	 * Closes a stream, ignoring any secondary exceptions
+	 */
+	private void safeClose(InputStream stream) {
+		if(stream == null)
+			return;
+		try {
+			stream.close();
+		}
+		catch(IOException e) {
+			// ignore
+		}
+	}
+
 	protected IMetadataRepository validateAndLoad(URI location, boolean doLoad, int flags, IProgressMonitor monitor)
 			throws ProvisionException {
 		long time = 0;
@@ -131,54 +179,6 @@ public class InternalMetadataRepositoryFactory extends SimpleMetadataRepositoryF
 				monitor.done();
 		}
 		return null;
-	}
-
-	private File getLocalFile(URI location, IProgressMonitor monitor) throws IOException, ProvisionException {
-		File localFile = null;
-		URI jarLocation = getActualLocation(location, JAR_EXTENSION);
-		URI xmlLocation = getActualLocation(location, XML_EXTENSION);
-		// If the repository is local, we can return the repository file directly
-		if(PROTOCOL_FILE.equals(xmlLocation.getScheme())) {
-			// look for a compressed local file
-			localFile = URIUtil.toFile(jarLocation);
-			if(localFile.exists())
-				return localFile;
-			// look for an uncompressed local file
-			localFile = URIUtil.toFile(xmlLocation);
-			if(localFile.exists())
-				return localFile;
-			String msg = NLS.bind(Messages.io_failedRead, location);
-			throw new ProvisionException(new Status(
-				IStatus.ERROR, Activator.ID, ProvisionException.REPOSITORY_NOT_FOUND, msg, null));
-		}
-		// file is not local, create a cache of the repository metadata
-		CacheManager cache = (CacheManager) getAgent().getService(CacheManager.SERVICE_NAME);
-		if(cache == null)
-			throw new IllegalArgumentException("Cache manager service not available"); //$NON-NLS-1$
-		localFile = cache.createCache(location, InternalMetadataRepository.CONTENT_FILENAME, monitor);
-		if(localFile == null) {
-			// there is no remote file in either form - this should not really happen as
-			// createCache should bail out with exception if something is wrong. This is an internal
-			// error.
-			throw new ProvisionException(new Status(
-				IStatus.ERROR, Activator.ID, ProvisionException.REPOSITORY_NOT_FOUND, Messages.repoMan_internalError,
-				null));
-		}
-		return localFile;
-	}
-
-	/**
-	 * Closes a stream, ignoring any secondary exceptions
-	 */
-	private void safeClose(InputStream stream) {
-		if(stream == null)
-			return;
-		try {
-			stream.close();
-		}
-		catch(IOException e) {
-			// ignore
-		}
 	}
 
 }

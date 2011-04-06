@@ -12,8 +12,11 @@ import org.eclipse.b3.aggregator.Aggregator;
 import org.eclipse.b3.aggregator.AggregatorPackage;
 import org.eclipse.b3.aggregator.AggregatorResourceView;
 import org.eclipse.b3.aggregator.util.AggregatorResource;
+import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.common.notify.impl.AdapterImpl;
+import org.eclipse.emf.common.notify.impl.NotificationImpl;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
@@ -35,6 +38,43 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * @generated NOT
  */
 public class AggregatorResourceViewImpl extends MinimalEObjectImpl.Container implements AggregatorResourceView {
+
+	/**
+	 * An adapter we register with the {@link Aggregator} instance contained within the {@link AggregatorResource} we are a view of in order to
+	 * receive (and forward) notifications of changes to its <em>aggregates</em> feature.
+	 * Before we forward the notifications we modify them such that they appear to be result of manipulation with the <em>aggregates</em> feature of
+	 * <code>this</code> object.
+	 */
+	protected Adapter notificationForwardingAdapter = new AdapterImpl() {
+
+		@Override
+		public void notifyChanged(Notification notification) {
+			if(notification.getFeature() == AggregatorPackage.Literals.AGGREGATOR__AGGREGATES) {
+				eNotify(new NotificationImpl(
+					notification.getEventType(), notification.getOldValue(), notification.getNewValue(),
+					notification.getPosition(), notification.wasSet()) {
+
+					@Override
+					public Object getFeature() {
+						return AggregatorPackage.Literals.AGGREGATOR_RESOURCE_VIEW__AGGREGATES;
+					}
+
+					@Override
+					public int getFeatureID(Class<?> expectedClass) {
+						return AggregatorPackage.AGGREGATOR_RESOURCE_VIEW__AGGREGATES;
+					}
+
+					@Override
+					public Object getNotifier() {
+						return AggregatorResourceViewImpl.this;
+					}
+
+				});
+			}
+		}
+
+	};
+
 	protected AggregatorResource aggregatorResource;
 
 	/**
@@ -56,7 +96,8 @@ public class AggregatorResourceViewImpl extends MinimalEObjectImpl.Container imp
 	 */
 	public AggregatorResourceViewImpl(AggregatorResource aggregatorResource) {
 		this.aggregatorResource = aggregatorResource;
-		this.aggregator = (AggregatorImpl) aggregatorResource.getContents().get(0);
+		this.aggregator = (AggregatorImpl) aggregatorResource.getAggregator();
+		aggregator.eAdapters().add(notificationForwardingAdapter);
 	}
 
 	/**
@@ -78,6 +119,10 @@ public class AggregatorResourceViewImpl extends MinimalEObjectImpl.Container imp
 				msgs.add(notification);
 		}
 		return msgs;
+	}
+
+	public void dispose() {
+		aggregator.eAdapters().remove(notificationForwardingAdapter);
 	}
 
 	/**

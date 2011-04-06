@@ -16,7 +16,6 @@ import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.edit.provider.ChangeNotifier;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
-import org.eclipse.emf.edit.provider.Disposable;
 import org.eclipse.emf.edit.provider.IChangeNotifier;
 import org.eclipse.emf.edit.provider.IDisposable;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
@@ -55,15 +54,6 @@ public class AggregatorItemProviderAdapterFactory extends AggregatorAdapterFacto
 	 * @generated
 	 */
 	protected IChangeNotifier changeNotifier = new ChangeNotifier();
-
-	/**
-	 * This keeps track of all the item providers created, so that they can be {@link #dispose disposed}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	protected Disposable disposable = new Disposable();
 
 	/**
 	 * This keeps track of all the supported types checked by {@link #isFactoryForType isFactoryForType}. <!--
@@ -238,15 +228,6 @@ public class AggregatorItemProviderAdapterFactory extends AggregatorAdapterFacto
 	protected AvailableVersionsHeaderItemProvider availableVersionsHeaderItemProvider;
 
 	/**
-	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.aggregator.ContributionView} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	protected ContributionViewItemProvider contributionViewItemProvider;
-
-	/**
 	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.aggregator.Aggregate} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -254,6 +235,24 @@ public class AggregatorItemProviderAdapterFactory extends AggregatorAdapterFacto
 	 * @generated
 	 */
 	protected AggregateItemProvider aggregateItemProvider;
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.aggregator.AggregateView} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	protected AggregateViewItemProvider aggregateViewItemProvider;
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.aggregator.AggregatorResourceView} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	protected AggregatorResourceViewItemProvider aggregatorResourceViewItemProvider;
 
 	/**
 	 * This constructs an instance. <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -311,21 +310,6 @@ public class AggregatorItemProviderAdapterFactory extends AggregatorAdapterFacto
 	}
 
 	/**
-	 * Associates an adapter with a notifier via the base implementation, then records it to ensure it will be disposed.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected void associate(Adapter adapter, Notifier target) {
-		super.associate(adapter, target);
-		if(adapter != null) {
-			disposable.add(adapter);
-		}
-	}
-
-	/**
 	 * This creates an adapter for a {@link org.eclipse.b3.aggregator.Aggregate}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -339,6 +323,22 @@ public class AggregatorItemProviderAdapterFactory extends AggregatorAdapterFacto
 		}
 
 		return aggregateItemProvider;
+	}
+
+	/**
+	 * This creates an adapter for a {@link org.eclipse.b3.aggregator.AggregateView}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public Adapter createAggregateViewAdapter() {
+		if(aggregateViewItemProvider == null) {
+			aggregateViewItemProvider = new AggregateViewItemProvider(this);
+		}
+
+		return aggregateViewItemProvider;
 	}
 
 	/**
@@ -366,7 +366,11 @@ public class AggregatorItemProviderAdapterFactory extends AggregatorAdapterFacto
 	 */
 	@Override
 	public Adapter createAggregatorResourceViewAdapter() {
-		return new AggregatorResourceViewItemProvider(this);
+		if(aggregatorResourceViewItemProvider == null) {
+			aggregatorResourceViewItemProvider = new AggregatorResourceViewItemProvider(this);
+		}
+
+		return aggregatorResourceViewItemProvider;
 	}
 
 	/**
@@ -479,22 +483,6 @@ public class AggregatorItemProviderAdapterFactory extends AggregatorAdapterFacto
 		}
 
 		return contributionItemProvider;
-	}
-
-	/**
-	 * This creates an adapter for a {@link org.eclipse.b3.aggregator.ContributionView}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	public Adapter createContributionViewAdapter() {
-		if(contributionViewItemProvider == null) {
-			contributionViewItemProvider = new ContributionViewItemProvider(this);
-		}
-
-		return contributionViewItemProvider;
 	}
 
 	/**
@@ -694,7 +682,52 @@ public class AggregatorItemProviderAdapterFactory extends AggregatorAdapterFacto
 	 * @generated
 	 */
 	public void dispose() {
-		disposable.dispose();
+		if(aggregatorItemProvider != null)
+			aggregatorItemProvider.dispose();
+		if(aggregateItemProvider != null)
+			aggregateItemProvider.dispose();
+		if(mappedRepositoryItemProvider != null)
+			mappedRepositoryItemProvider.dispose();
+		if(configurationItemProvider != null)
+			configurationItemProvider.dispose();
+		if(contributionItemProvider != null)
+			contributionItemProvider.dispose();
+		if(contactItemProvider != null)
+			contactItemProvider.dispose();
+		if(featureItemProvider != null)
+			featureItemProvider.dispose();
+		if(bundleItemProvider != null)
+			bundleItemProvider.dispose();
+		if(productItemProvider != null)
+			productItemProvider.dispose();
+		if(propertyItemProvider != null)
+			propertyItemProvider.dispose();
+		if(categoryItemProvider != null)
+			categoryItemProvider.dispose();
+		if(customCategoryItemProvider != null)
+			customCategoryItemProvider.dispose();
+		if(exclusionRuleItemProvider != null)
+			exclusionRuleItemProvider.dispose();
+		if(validConfigurationsRuleItemProvider != null)
+			validConfigurationsRuleItemProvider.dispose();
+		if(metadataRepositoryReferenceItemProvider != null)
+			metadataRepositoryReferenceItemProvider.dispose();
+		if(descriptionProviderItemProvider != null)
+			descriptionProviderItemProvider.dispose();
+		if(mavenMappingItemProvider != null)
+			mavenMappingItemProvider.dispose();
+		if(mavenItemItemProvider != null)
+			mavenItemItemProvider.dispose();
+		if(statusItemProvider != null)
+			statusItemProvider.dispose();
+		if(availableVersionsHeaderItemProvider != null)
+			availableVersionsHeaderItemProvider.dispose();
+		if(availableVersionItemProvider != null)
+			availableVersionItemProvider.dispose();
+		if(aggregatorResourceViewItemProvider != null)
+			aggregatorResourceViewItemProvider.dispose();
+		if(aggregateViewItemProvider != null)
+			aggregateViewItemProvider.dispose();
 	}
 
 	/**

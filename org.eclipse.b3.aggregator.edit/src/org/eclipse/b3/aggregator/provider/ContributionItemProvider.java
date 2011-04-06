@@ -457,22 +457,6 @@ public class ContributionItemProvider extends AggregatorItemProviderAdapter impl
 			if(!newValue)
 				ResourceUtils.cleanUpResources((Aggregator) ((EObject) notification.getNotifier()).eContainer());
 		}
-		else if(notification.getFeatureID(Contribution.class) == AggregatorPackage.CONTRIBUTION__RECEIVER) {
-			NOTIFY_RECEIVER: {
-				Object receiver;
-				switch(notification.getEventType()) {
-					case Notification.ADD:
-						receiver = notification.getNewValue();
-						break;
-					case Notification.REMOVE:
-						receiver = notification.getOldValue();
-						break;
-					default:
-						break NOTIFY_RECEIVER;
-				}
-				fireNotifyChanged(new ViewerNotification(notification, receiver, false, true));
-			}
-		}
 		// If a repository is removed, update possible warning overlays
 		else if(notification.getEventType() == Notification.REMOVE &&
 				(notification.getOldValue() instanceof MappedRepository || notification.getOldValue() instanceof MavenMapping)) {

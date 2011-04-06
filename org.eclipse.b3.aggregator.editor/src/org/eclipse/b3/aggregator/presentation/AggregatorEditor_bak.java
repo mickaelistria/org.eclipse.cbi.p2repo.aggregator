@@ -21,23 +21,16 @@ import java.util.Map;
 import java.util.regex.Pattern;
 
 import org.eclipse.b3.aggregator.Aggregator;
-import org.eclipse.b3.aggregator.AggregatorPlugin;
 import org.eclipse.b3.aggregator.MetadataRepositoryReference;
-import org.eclipse.b3.aggregator.StatusCode;
-import org.eclipse.b3.aggregator.impl.AggregatorResourceViewImpl;
 import org.eclipse.b3.aggregator.p2.provider.MetadataRepositoryItemProvider;
 import org.eclipse.b3.aggregator.p2.provider.ProvidedCapabilityItemProvider;
 import org.eclipse.b3.aggregator.p2.provider.RequiredCapabilityItemProvider;
 import org.eclipse.b3.aggregator.p2.util.MetadataRepositoryResourceImpl;
 import org.eclipse.b3.aggregator.p2view.provider.P2viewItemProviderAdapterFactory;
-import org.eclipse.b3.aggregator.provider.AggregatorEditPlugin;
-import org.eclipse.b3.aggregator.provider.AggregatorItemProviderAdapter;
 import org.eclipse.b3.aggregator.provider.AggregatorItemProviderAdapterFactory;
-import org.eclipse.b3.aggregator.provider.AggregatorResourceViewItemProvider;
 import org.eclipse.b3.aggregator.provider.TooltipTextProvider;
 import org.eclipse.b3.aggregator.util.AggregatorResource;
 import org.eclipse.b3.aggregator.util.AggregatorResourceImpl;
-import org.eclipse.b3.aggregator.util.OverlaidImage;
 import org.eclipse.b3.aggregator.util.ResourceDiagnosticImpl;
 import org.eclipse.b3.aggregator.util.ResourceUtils;
 import org.eclipse.b3.aggregator.util.StatusProviderAdapterFactory;
@@ -72,7 +65,6 @@ import org.eclipse.emf.common.ui.viewer.IViewerProvider;
 import org.eclipse.emf.common.util.BasicDiagnostic;
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.EList;
-import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.ecore.EObject;
@@ -82,7 +74,6 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.util.EContentAdapter;
 import org.eclipse.emf.ecore.util.EcoreUtil;
-import org.eclipse.emf.edit.command.CommandParameter;
 import org.eclipse.emf.edit.domain.AdapterFactoryEditingDomain;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.domain.IEditingDomainProvider;
@@ -94,8 +85,6 @@ import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.ReflectiveItemProviderAdapterFactory;
-import org.eclipse.emf.edit.provider.ViewerNotification;
-import org.eclipse.emf.edit.provider.resource.ResourceItemProvider;
 import org.eclipse.emf.edit.provider.resource.ResourceItemProviderAdapterFactory;
 import org.eclipse.emf.edit.provider.resource.ResourceSetItemProvider;
 import org.eclipse.emf.edit.ui.action.EditingDomainActionBarContributor;
@@ -180,8 +169,9 @@ import org.eclipse.ui.views.properties.PropertySheetPage;
  * @generated
  */
 @SuppressWarnings("unused")
-public class AggregatorEditor extends MultiPageEditorPart implements IEditingDomainProvider, ISelectionProvider,
+public class AggregatorEditor_bak extends MultiPageEditorPart implements IEditingDomainProvider, ISelectionProvider,
 		IMenuListener, IViewerProvider, IGotoMarker {
+
 	class AggregatorMarkerHelper extends EditUIMarkerHelper {
 		@Override
 		protected void adjustMarker(IMarker marker, Diagnostic diagnostic, Diagnostic parentDiagnostic)
@@ -466,18 +456,18 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 		public void partActivated(IWorkbenchPart p) {
 			if(p instanceof ContentOutline) {
 				if(((ContentOutline) p).getCurrentPage() == contentOutlinePage) {
-					getActionBarContributor().setActiveEditor(AggregatorEditor.this);
+					getActionBarContributor().setActiveEditor(AggregatorEditor_bak.this);
 
 					setCurrentViewer(contentOutlineViewer);
 				}
 			}
 			else if(p instanceof PropertySheet) {
 				if(((PropertySheet) p).getCurrentPage() == propertySheetPage) {
-					getActionBarContributor().setActiveEditor(AggregatorEditor.this);
+					getActionBarContributor().setActiveEditor(AggregatorEditor_bak.this);
 					handleActivate();
 				}
 			}
-			else if(p == AggregatorEditor.this) {
+			else if(p == AggregatorEditor_bak.this) {
 				handleActivate();
 			}
 		}
@@ -635,7 +625,7 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 		private void updateMarkers() {
 			Runnable runnable = new Runnable() {
 				public void run() {
-					synchronized(AggregatorEditor.this) {
+					synchronized(AggregatorEditor_bak.this) {
 						while(updateMarkers)
 							try {
 								updateMarkers = false;
@@ -732,7 +722,7 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 						public void run() {
 							removedResources.addAll(visitor.getRemovedResources());
 							if(!isDirty()) {
-								getSite().getPage().closeEditor(AggregatorEditor.this, false);
+								getSite().getPage().closeEditor(AggregatorEditor_bak.this, false);
 							}
 						}
 					});
@@ -742,7 +732,7 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 					getSite().getShell().getDisplay().asyncExec(new Runnable() {
 						public void run() {
 							changedResources.addAll(visitor.getChangedResources());
-							if(getSite().getPage().getActiveEditor() == AggregatorEditor.this) {
+							if(getSite().getPage().getActiveEditor() == AggregatorEditor_bak.this) {
 								handleActivate();
 							}
 						}
@@ -761,7 +751,7 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 	 * 
 	 * @generated
 	 */
-	public AggregatorEditor() {
+	public AggregatorEditor_bak() {
 		super();
 		initializeEditingDomain();
 	}
@@ -1517,8 +1507,8 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 
 				@Override
 				public void setSelectionToViewer(List<?> selection) {
-					AggregatorEditor.this.setSelectionToViewer(selection);
-					AggregatorEditor.this.setFocus();
+					AggregatorEditor_bak.this.setSelectionToViewer(selection);
+					AggregatorEditor_bak.this.setFocus();
 				}
 			};
 			propertySheetPage.setPropertySourceProvider(new AdapterFactoryContentProvider(adapterFactory) {
@@ -1644,7 +1634,7 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 
 		if(!removedResources.isEmpty()) {
 			if(handleDirtyConflict()) {
-				getSite().getPage().closeEditor(AggregatorEditor.this, false);
+				getSite().getPage().closeEditor(AggregatorEditor_bak.this, false);
 			}
 			else {
 				removedResources.clear();
@@ -1794,252 +1784,43 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 		// Assign specific images to resources
 		adapterFactory.addAdapterFactory(new ResourceItemProviderAdapterFactory() {
 
-			class AggregatorResourceBaseItemProvider extends ResourceItemProvider implements TooltipTextProvider {
-				protected Map<Object, AggregatorResourceViewImpl> delegateObjectMap = new HashMap<Object, AggregatorResourceViewImpl>();
-
-				public AggregatorResourceBaseItemProvider(AdapterFactory adapterFactory) {
-					super(adapterFactory);
-				}
-
-				public Object getOverlaidImage(Object baseImage, Object overlayImage) {
-					if(overlayImage != null) {
-						Object[] images = new Object[2];
-						int[] positions = new int[2];
-
-						images[0] = baseImage;
-						positions[0] = OverlaidImage.BASIC;
-
-						images[1] = overlayImage;
-						positions[1] = OverlaidImage.OVERLAY_BOTTOM_RIGHT;
-
-						return new OverlaidImage(images, positions);
-					}
-
-					return baseImage;
-				}
-
-				public String getTooltipText(Object object) {
-					return AggregatorItemProviderAdapter.getTooltipText(object, this);
-				}
-
-			}
-
-			class AggregatorResourceItemProvider extends AggregatorResourceBaseItemProvider {
-
-				public AggregatorResourceItemProvider(AdapterFactory adapterFactory) {
-					super(adapterFactory);
-				}
-
-				@Override
-				public Command createCommand(Object object, EditingDomain domain,
-						Class<? extends Command> commandClass, CommandParameter commandParameter) {
-					AggregatorResourceViewImpl delegateObject = getDelegateObject(object);
-
-					if(commandParameter.getOwner() == object)
-						commandParameter.setOwner(delegateObject);
-
-					return getDelegateItemProviderAdapter(delegateObject).createCommand(
-						delegateObject, domain, commandClass, commandParameter);
-				}
-
-				@Override
-				public Collection<?> getChildren(Object object) {
-					AggregatorResourceViewImpl delegateObject = getDelegateObject(object);
-
-					return getDelegateItemProviderAdapter(delegateObject).getChildren(delegateObject);
-				}
-
-				@Override
-				public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
-					AggregatorResourceViewImpl delegateObject = getDelegateObject(object);
-
-					return getDelegateItemProviderAdapter(delegateObject).getChildrenFeatures(delegateObject);
-				}
-
-				protected AggregatorResourceViewItemProvider getDelegateItemProviderAdapter(
-						AggregatorResourceViewImpl aggregatorView) {
-					return (AggregatorResourceViewItemProvider) getRootAdapterFactory().adapt(
-						aggregatorView, IEditingDomainItemProvider.class);
-				}
-
-				protected AggregatorResourceViewItemProvider getDelegateItemProviderAdapter(Object object) {
-					return getDelegateItemProviderAdapter(getDelegateObject(object));
-				}
-
-				public AggregatorResourceViewImpl getDelegateObject(Object object) {
-					AggregatorResourceViewImpl delegateObject = delegateObjectMap.get(object);
-
-					if(delegateObject == null) {
-						delegateObject = new AggregatorResourceViewImpl((AggregatorResource) object);
-
-						delegateObjectMap.put(object, delegateObject);
-					}
-
-					return delegateObject;
-				}
-
-				@Override
-				public Object getImage(Object object) {
-					Object baseImage = super.getImage(object);
-
-					OVERLAID_IMAGE: {
-						// there is nothing to overlay if baseImage is null
-						if(baseImage == null)
-							break OVERLAID_IMAGE;
-
-						// avoid querying proxies before loading jobs are scheduled/running
-						if(Job.getJobManager().isSuspended())
-							break OVERLAID_IMAGE;
-
-						AggregatorResourceImpl res = (AggregatorResourceImpl) object;
-						Object overlayImage;
-
-						if(res.getContents().size() > 0 &&
-								((Aggregator) res.getContents().get(0)).getStatus().getCode() != StatusCode.OK)
-							overlayImage = getDelegateItemProviderAdapter(object).getImage("full/ovr16/Error");
-						else
-							break OVERLAID_IMAGE;
-
-						return getOverlaidImage(baseImage, overlayImage);
-					}
-
-					return baseImage;
-				}
-
-				@Override
-				public Collection<?> getNewChildDescriptors(Object object, EditingDomain editingDomain, Object sibling) {
-					AggregatorResourceViewImpl delegateObject = getDelegateObject(object);
-
-					return getDelegateItemProviderAdapter(delegateObject).getNewChildDescriptors(
-						delegateObject, editingDomain, sibling);
-				}
-
-				@Override
-				public void unsetTarget(Notifier target) {
-					super.unsetTarget(target);
-
-					AggregatorResourceViewImpl delegateObject = delegateObjectMap.remove(target);
-
-					if(delegateObject != null)
-						delegateObject.dispose();
-				}
-
-			}
-
-			class MdrResourceItemProvider extends AggregatorResourceBaseItemProvider implements IItemFontProvider {
-
-				class AggregatorEditorItemProviderAdapter extends AggregatorItemProviderAdapter {
-					public AggregatorEditorItemProviderAdapter(AdapterFactory adapterFactory) {
-						super(adapterFactory);
-					}
-
-					@Override
-					public ResourceLocator getResourceLocator() {
-						return AggregatorEditPlugin.INSTANCE;
-					}
-				}
-
-				protected AggregatorItemProviderAdapter delegateItemProviderAdapter;
-
-				public MdrResourceItemProvider(AdapterFactory adapterFactory) {
-					super(adapterFactory);
-					delegateItemProviderAdapter = new AggregatorEditorItemProviderAdapter(getAdapterFactory());
-				}
-
-				@Override
-				public Object getFont(Object object) {
-					MetadataRepositoryResourceImpl mdr = (MetadataRepositoryResourceImpl) object;
-
-					return (mdr.getStatus().getCode() == StatusCode.WAITING)
-							? IItemFontProvider.ITALIC_FONT
-							: null;
-				}
-
-				@Override
-				public Object getImage(Object object) {
-					Object baseImage = delegateItemProviderAdapter.getImage("full/obj16/MetadataRepository");
-
-					if(baseImage != null) {
-						MetadataRepositoryResourceImpl mdr = (MetadataRepositoryResourceImpl) object;
-						Object overlayImage;
-
-						if(mdr.getLastException() != null)
-							overlayImage = delegateItemProviderAdapter.getImage("full/ovr16/Error");
-						else if(mdr.getStatus().getCode() == StatusCode.WAITING)
-							overlayImage = delegateItemProviderAdapter.getImage("full/ovr16/Loading");
-						else
-							return baseImage;
-
-						return getOverlaidImage(baseImage, overlayImage);
-					}
-
-					return super.getImage(object);
-				}
-
-				@Override
-				public String getText(Object object) {
-					return super.getText(object).substring(AggregatorPlugin.B3AGGR_URI_SCHEME.length() + 1);
-				}
-
-				@Override
-				public void notifyChanged(Notification notification) {
-					super.notifyChanged(notification);
-
-					if(notification.getEventType() == Notification.SET &&
-							notification.getFeatureID(Resource.class) == Resource.RESOURCE__IS_LOADED) {
-						fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-
-						ResourceSet resourceSet = ((Resource) notification.getNotifier()).getResourceSet();
-
-						// if the resource is already excluded from the resource set, ignore this notification
-						if(resourceSet == null)
-							return;
-
-						Aggregator aggregator = (Aggregator) resourceSet.getResources().get(0).getContents().get(0);
-
-						for(MetadataRepositoryReference mdr : aggregator.getAllMetadataRepositoryReferences(true))
-							fireNotifyChanged(new ViewerNotification(notification, mdr, false, true));
-					}
-				}
-
-			}
-
 			{
 				supportedTypes.add(IItemFontProvider.class);
 			}
 
+			AggregatorResourceItemProvider aggregatorResourceItemProvider = new AggregatorResourceItemProvider(this);
+
 			MdrResourceItemProvider mdrResourceItemProvider = new MdrResourceItemProvider(this);
+
+			ResourceSetItemProvider resourceSetItemProvider = new ResourceSetItemProvider(this) {
+				@Override
+				public Collection<?> getChildren(Object object) {
+					ResourceSet resourceSet = (ResourceSet) object;
+
+					List<Resource> filtered = new ArrayList<Resource>();
+					for(Resource resource : resourceSet.getResources())
+						if(resource instanceof AggregatorResourceImpl ||
+								resource instanceof MetadataRepositoryResourceImpl)
+							filtered.add(resource);
+
+					return filtered;
+				}
+			};
 
 			@Override
 			public Adapter createAdapter(Notifier target) {
 				if(target instanceof Resource) {
 					if(target instanceof AggregatorResourceImpl)
-						return new AggregatorResourceItemProvider(this);
+						return aggregatorResourceItemProvider;
 					if(target instanceof MetadataRepositoryResourceImpl)
 						return mdrResourceItemProvider;
-					throw new IllegalStateException();
 				}
-				return createResourceSetAdapter();
+				else if(target instanceof ResourceSet)
+					return resourceSetItemProvider;
+				// TODO should we rather return null?
+				throw new IllegalStateException();
 			}
 
-			// Present only the main resource and loaded MDR's (not detached contributions)
-			@Override
-			public Adapter createResourceSetAdapter() {
-				return new ResourceSetItemProvider(this) {
-					@Override
-					public Collection<?> getChildren(Object object) {
-						ResourceSet resourceSet = (ResourceSet) object;
-
-						List<Resource> filtered = new ArrayList<Resource>();
-						for(Resource resource : resourceSet.getResources())
-							if(resource instanceof AggregatorResourceImpl ||
-									resource instanceof MetadataRepositoryResourceImpl)
-								filtered.add(resource);
-
-						return filtered;
-					}
-				};
-			}
 		});
 		adapterFactory.addAdapterFactory(new StatusProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new AggregatorItemProviderAdapterFactory());

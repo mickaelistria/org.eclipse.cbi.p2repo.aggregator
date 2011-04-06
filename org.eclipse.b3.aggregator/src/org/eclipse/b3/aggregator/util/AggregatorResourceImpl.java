@@ -169,6 +169,15 @@ public class AggregatorResourceImpl extends XMIResourceImpl implements Aggregato
 		new Thread(runnable).start();
 	}
 
+	/**
+	 * Returns the {@link Aggregator} instance contained in this {@link Resource}.
+	 * 
+	 * @return the {@code Aggregator} instance contained in this {@code Resource}.
+	 */
+	public Aggregator getAggregator() {
+		return (Aggregator) getContents().get(0);
+	}
+
 	public EList<Diagnostic> getInfos() {
 		if(infos == null) {
 			infos = new NotifyingListImpl<Diagnostic>() {

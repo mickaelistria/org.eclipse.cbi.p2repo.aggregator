@@ -9,6 +9,7 @@ package org.eclipse.b3.aggregator.util;
 import java.util.List;
 
 import org.eclipse.b3.aggregator.Aggregate;
+import org.eclipse.b3.aggregator.AggregateView;
 import org.eclipse.b3.aggregator.Aggregator;
 import org.eclipse.b3.aggregator.AggregatorPackage;
 import org.eclipse.b3.aggregator.AggregatorResourceView;
@@ -20,7 +21,6 @@ import org.eclipse.b3.aggregator.ChildrenProvider;
 import org.eclipse.b3.aggregator.Configuration;
 import org.eclipse.b3.aggregator.Contact;
 import org.eclipse.b3.aggregator.Contribution;
-import org.eclipse.b3.aggregator.ContributionView;
 import org.eclipse.b3.aggregator.CustomCategory;
 import org.eclipse.b3.aggregator.DescriptionProvider;
 import org.eclipse.b3.aggregator.EnabledStatusProvider;
@@ -89,6 +89,23 @@ public class AggregatorSwitch<T1> {
 	 * @generated
 	 */
 	public T1 caseAggregate(Aggregate object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Aggregate View</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * 
+	 * @param object
+	 *            the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Aggregate View</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseAggregateView(AggregateView object) {
 		return null;
 	}
 
@@ -260,23 +277,6 @@ public class AggregatorSwitch<T1> {
 	 * @generated
 	 */
 	public T1 caseContribution(Contribution object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Contribution View</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * 
-	 * @param object
-	 *            the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Contribution View</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T1 caseContributionView(ContributionView object) {
 		return null;
 	}
 
@@ -1026,11 +1026,9 @@ public class AggregatorSwitch<T1> {
 					result = defaultCase(theEObject);
 				return result;
 			}
-			case AggregatorPackage.CONTRIBUTION_VIEW: {
-				ContributionView contributionView = (ContributionView) theEObject;
-				T1 result = caseContributionView(contributionView);
-				if(result == null)
-					result = caseLabelProvider(contributionView);
+			case AggregatorPackage.AGGREGATE_VIEW: {
+				AggregateView aggregateView = (AggregateView) theEObject;
+				T1 result = caseAggregateView(aggregateView);
 				if(result == null)
 					result = defaultCase(theEObject);
 				return result;

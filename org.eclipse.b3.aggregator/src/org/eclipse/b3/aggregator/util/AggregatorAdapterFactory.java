@@ -7,6 +7,7 @@
 package org.eclipse.b3.aggregator.util;
 
 import org.eclipse.b3.aggregator.Aggregate;
+import org.eclipse.b3.aggregator.AggregateView;
 import org.eclipse.b3.aggregator.Aggregator;
 import org.eclipse.b3.aggregator.AggregatorPackage;
 import org.eclipse.b3.aggregator.AggregatorResourceView;
@@ -18,7 +19,6 @@ import org.eclipse.b3.aggregator.ChildrenProvider;
 import org.eclipse.b3.aggregator.Configuration;
 import org.eclipse.b3.aggregator.Contact;
 import org.eclipse.b3.aggregator.Contribution;
-import org.eclipse.b3.aggregator.ContributionView;
 import org.eclipse.b3.aggregator.CustomCategory;
 import org.eclipse.b3.aggregator.DescriptionProvider;
 import org.eclipse.b3.aggregator.EnabledStatusProvider;
@@ -74,6 +74,11 @@ public class AggregatorAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
+		public Adapter caseAggregateView(AggregateView object) {
+			return createAggregateViewAdapter();
+		}
+
+		@Override
 		public Adapter caseAggregator(Aggregator object) {
 			return createAggregatorAdapter();
 		}
@@ -126,11 +131,6 @@ public class AggregatorAdapterFactory extends AdapterFactoryImpl {
 		@Override
 		public Adapter caseContribution(Contribution object) {
 			return createContributionAdapter();
-		}
-
-		@Override
-		public Adapter caseContributionView(ContributionView object) {
-			return createContributionViewAdapter();
 		}
 
 		@Override
@@ -286,6 +286,21 @@ public class AggregatorAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.aggregator.AggregateView <em>Aggregate View</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the new adapter.
+	 * @see org.eclipse.b3.aggregator.AggregateView
+	 * @generated
+	 */
+	public Adapter createAggregateViewAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.aggregator.Aggregator
 	 * <em>Aggregator</em>}'. <!-- begin-user-doc --> This default implementation returns null so that we can easily
 	 * ignore cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc
@@ -436,21 +451,6 @@ public class AggregatorAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createContributionAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.aggregator.ContributionView <em>Contribution View</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * 
-	 * @return the new adapter.
-	 * @see org.eclipse.b3.aggregator.ContributionView
-	 * @generated
-	 */
-	public Adapter createContributionViewAdapter() {
 		return null;
 	}
 

@@ -61,14 +61,12 @@ import org.eclipse.equinox.p2.metadata.IInstallableUnit;
 import org.eclipse.equinox.p2.publisher.Publisher;
 import org.eclipse.equinox.p2.query.IQueryResult;
 import org.eclipse.equinox.p2.repository.IRepository;
-import org.eclipse.equinox.p2.repository.IRepositoryReference;
 import org.eclipse.equinox.p2.repository.artifact.ArtifactKeyQuery;
 import org.eclipse.equinox.p2.repository.artifact.IArtifactDescriptor;
 import org.eclipse.equinox.p2.repository.artifact.IArtifactRepository;
 import org.eclipse.equinox.p2.repository.artifact.IArtifactRepositoryManager;
 import org.eclipse.equinox.p2.repository.artifact.IFileArtifactRepository;
 import org.eclipse.equinox.p2.repository.artifact.spi.ArtifactDescriptor;
-import org.eclipse.equinox.p2.repository.metadata.IMetadataRepository;
 import org.eclipse.equinox.p2.repository.metadata.IMetadataRepositoryManager;
 import org.eclipse.equinox.spi.p2.publisher.PublisherHelper;
 
@@ -130,6 +128,75 @@ public class MirrorGenerator extends BuilderPhase {
 			fbTarget.addDescriptor(canonical);
 			setResult(Status.OK_STATUS);
 		}
+	}
+
+	private static boolean checkIfTargetPresent(IArtifactRepository destination, IArtifactKey key, boolean packed) {
+		IArtifactDescriptor found = getArtifactDescriptor(destination, key, packed);
+		if(found != null) {
+			LogUtils.debug("    %s artifact is already present", packed
+					? "optimized"
+					: "canonical");
+			return true;
+		}
+		return false;
+	}
+
+	private static IStatus extractDeeperRootCause(IStatus status) {
+		if(status == null)
+			return null;
+
+		if(status.isMultiStatus()) {
+			IStatus[] children = ((MultiStatus) status).getChildren();
+			for(int i = 0; i < children.length; i++) {
+				IStatus deeper = extractDeeperRootCause(children[i]);
+				if(deeper != null)
+					return deeper;
+			}
+		}
+
+		Throwable t = status.getException();
+		if(t instanceof CoreException) {
+			IStatus deeper = extractDeeperRootCause(((CoreException) t).getStatus());
+			if(deeper != null)
+				return deeper;
+		}
+		return status.getSeverity() == IStatus.ERROR
+				? status
+				: null;
+	}
+
+	/**
+	 * Extract the root cause. The root cause is the first severe non-MultiStatus status containing an exception when
+	 * searching depth first otherwise null.
+	 * 
+	 * @param status
+	 * @return root cause
+	 */
+	private static IStatus extractRootCause(IStatus status) {
+		IStatus rootCause = extractDeeperRootCause(status);
+		return rootCause == null
+				? status
+				: rootCause;
+	}
+
+	private static IArtifactDescriptor getArtifactDescriptor(IArtifactRepository destination, IArtifactKey key,
+			boolean packed) {
+		for(IArtifactDescriptor candidate : destination.getArtifactDescriptors(key)) {
+			if(isPacked(candidate)) {
+				if(packed)
+					return candidate;
+			}
+			else {
+				if(!packed)
+					return candidate;
+			}
+		}
+		return null;
+	}
+
+	private static boolean isPacked(IArtifactDescriptor desc) {
+		return desc != null && "packed".equals(desc.getProperty(IArtifactDescriptor.FORMAT)) &&
+				ProcessingStepHandler.canProcess(desc);
 	}
 
 	static void mirror(Collection<IArtifactKey> keysToInstall, IArtifactRepository cache, IArtifactRepository source,
@@ -308,75 +375,6 @@ public class MirrorGenerator extends BuilderPhase {
 			source.getLocation(), result.getMessage());
 	}
 
-	private static boolean checkIfTargetPresent(IArtifactRepository destination, IArtifactKey key, boolean packed) {
-		IArtifactDescriptor found = getArtifactDescriptor(destination, key, packed);
-		if(found != null) {
-			LogUtils.debug("    %s artifact is already present", packed
-					? "optimized"
-					: "canonical");
-			return true;
-		}
-		return false;
-	}
-
-	private static IStatus extractDeeperRootCause(IStatus status) {
-		if(status == null)
-			return null;
-
-		if(status.isMultiStatus()) {
-			IStatus[] children = ((MultiStatus) status).getChildren();
-			for(int i = 0; i < children.length; i++) {
-				IStatus deeper = extractDeeperRootCause(children[i]);
-				if(deeper != null)
-					return deeper;
-			}
-		}
-
-		Throwable t = status.getException();
-		if(t instanceof CoreException) {
-			IStatus deeper = extractDeeperRootCause(((CoreException) t).getStatus());
-			if(deeper != null)
-				return deeper;
-		}
-		return status.getSeverity() == IStatus.ERROR
-				? status
-				: null;
-	}
-
-	/**
-	 * Extract the root cause. The root cause is the first severe non-MultiStatus status containing an exception when
-	 * searching depth first otherwise null.
-	 * 
-	 * @param status
-	 * @return root cause
-	 */
-	private static IStatus extractRootCause(IStatus status) {
-		IStatus rootCause = extractDeeperRootCause(status);
-		return rootCause == null
-				? status
-				: rootCause;
-	}
-
-	private static IArtifactDescriptor getArtifactDescriptor(IArtifactRepository destination, IArtifactKey key,
-			boolean packed) {
-		for(IArtifactDescriptor candidate : destination.getArtifactDescriptors(key)) {
-			if(isPacked(candidate)) {
-				if(packed)
-					return candidate;
-			}
-			else {
-				if(!packed)
-					return candidate;
-			}
-		}
-		return null;
-	}
-
-	private static boolean isPacked(IArtifactDescriptor desc) {
-		return desc != null && "packed".equals(desc.getProperty(IArtifactDescriptor.FORMAT)) &&
-				ProcessingStepHandler.canProcess(desc);
-	}
-
 	private static void unpack(IArtifactRepository source, IFileArtifactRepository target,
 			IArtifactDescriptor optimized, IProgressMonitor monitor) throws CoreException {
 		CanonicalizeRequest request = new CanonicalizeRequest(optimized, source, target);
@@ -423,7 +421,7 @@ public class MirrorGenerator extends BuilderPhase {
 
 	public Set<IArtifactKey> getArtifactKeysToExclude() throws CoreException {
 		Builder builder = getBuilder();
-		Aggregator aggregator = builder.getAggregator();
+		Aggregator aggregator = builder.getAggregatorr();
 
 		HashSet<IArtifactKey> keysToExclude = new HashSet<IArtifactKey>();
 		List<Contribution> contribs = aggregator.getContributions();
@@ -439,9 +437,26 @@ public class MirrorGenerator extends BuilderPhase {
 		return keysToExclude;
 	}
 
+	private IArtifactRepository getArtifactRepository(MetadataRepositoryReference repo, IProgressMonitor monitor)
+			throws CoreException {
+		if(arCache == null)
+			arCache = new HashMap<MetadataRepositoryReference, IArtifactRepository>();
+
+		IArtifactRepository ar = arCache.get(repo);
+		if(ar == null) {
+			IConfigurationElement config = RepositoryLoaderUtils.getLoaderFor(repo.getNature());
+			if(config == null)
+				throw ExceptionUtils.fromMessage("No loader for %s", repo.getNature());
+			IRepositoryLoader repoLoader = (IRepositoryLoader) config.createExecutableExtension("class");
+			arCache.put(repo, ar = repoLoader.getArtifactRepository(ResourceUtils.getMetadataRepository(repo), monitor));
+		}
+
+		return ar;
+	}
+
 	@Override
 	public void run(IProgressMonitor monitor) throws CoreException {
-		LogUtils.info("Starting mirror generation");
+		LogUtils.info("Starting artifacts mirroring");
 		long start = TimeUtils.getNow();
 
 		Builder builder = getBuilder();
@@ -451,16 +466,18 @@ public class MirrorGenerator extends BuilderPhase {
 		File aggregateDestination = new File(destination, Builder.REPO_FOLDER_AGGREGATE);
 		URI aggregateURI = Builder.createURI(aggregateDestination);
 
-		mdrMgr = P2Utils.getRepositoryManager(getBuilder().getProvisioningAgent(), IMetadataRepositoryManager.class);
 		arMgr = P2Utils.getRepositoryManager(getBuilder().getProvisioningAgent(), IArtifactRepositoryManager.class);
 		arCache = null;
+
+		Aggregator aggregator = builder.getAggregatorr();
+		String aggregatorLabel = aggregator.getLabel();
+
 		SubMonitor subMon = SubMonitor.convert(monitor, 1000);
 		boolean artifactErrors = false;
 		try {
 			boolean isCleanBuild = builder.isCleanBuild();
-			Aggregator aggregator = builder.getAggregator();
 
-			subMon.setTaskName("Mirroring meta-data and artifacts...");
+			subMon.setTaskName("Mirroring artifacts...");
 			MonitorUtils.subTask(subMon, "Initializing");
 			IFileArtifactRepository aggregateAr = null;
 			if(!isCleanBuild) {
@@ -477,7 +494,7 @@ public class MirrorGenerator extends BuilderPhase {
 					}
 
 					File newLocation = new File(aggregateDestination, oldLocation.getName());
-					if (!oldLocation.renameTo(newLocation))
+					if(!oldLocation.renameTo(newLocation))
 						throw ExceptionUtils.fromMessage(
 							"Unable to move %s to %s", oldLocation.getAbsolutePath(), newLocation.getAbsolutePath());
 				}
@@ -492,9 +509,8 @@ public class MirrorGenerator extends BuilderPhase {
 				Map<String, String> properties = new HashMap<String, String>();
 				properties.put(IRepository.PROP_COMPRESSED, Boolean.toString(true));
 				properties.put(Publisher.PUBLISH_PACK_FILES_AS_SIBLINGS, Boolean.toString(true));
-				String label = builder.getAggregator().getLabel();
-				aggregateAr = (IFileArtifactRepository) arMgr.createRepository(
-					aggregateURI, label + " artifacts", Builder.SIMPLE_ARTIFACTS_TYPE, properties); //$NON-NLS-1$
+				aggregateAr = (IFileArtifactRepository) arMgr.createRepository(aggregateURI, aggregatorLabel +
+						" artifacts", Builder.SIMPLE_ARTIFACTS_TYPE, properties); //$NON-NLS-1$
 			}
 			MonitorUtils.worked(subMon, 5);
 
@@ -508,20 +524,17 @@ public class MirrorGenerator extends BuilderPhase {
 
 			Map<String, String> properties = new HashMap<String, String>();
 			properties.put(IRepository.PROP_COMPRESSED, Boolean.toString(true));
-			String label = aggregator.getLabel();
-			IMetadataRepository aggregateMdr = mdrMgr.createRepository(
-				aggregateURI, label, Builder.SIMPLE_METADATA_TYPE, properties);
 			MonitorUtils.worked(subMon, 10);
 
-			Set<IInstallableUnit> unitsToAggregate = builder.getUnitsToAggregate();
+			Set<IInstallableUnit> allUnitsToAggregate = builder.getAllUnitsToAggregate();
 			Set<IArtifactKey> keysToExclude = getArtifactKeysToExclude();
 
 			SubMonitor childMonitor = subMon.newChild(900, SubMonitor.SUPPRESS_BEGINTASK |
 					SubMonitor.SUPPRESS_SETTASKNAME);
-			List<Contribution> contribs = aggregator.getContributions(true);
+			// get contributions of the main (implicit) aggregate
+			List<Contribution> allContribs = aggregator.getContributions(true);
 
-			MonitorUtils.begin(childMonitor, contribs.size() * 100 + 20);
-			boolean aggregatedMdrIsEmpty = true;
+			MonitorUtils.begin(childMonitor, allContribs.size() * 100 + 20);
 			boolean aggregatedArIsEmpty = true;
 
 			PackedStrategy packedStrategy = aggregator.getPackedStrategy();
@@ -529,9 +542,9 @@ public class MirrorGenerator extends BuilderPhase {
 			// If maven result is required, prepare the maven metadata structure
 			MavenRepositoryHelper mavenHelper = null;
 			if(aggregator.isMavenResult()) {
-				Set<IInstallableUnit> copyOfUnitsToAggregate = new HashSet<IInstallableUnit>(unitsToAggregate);
+				Set<IInstallableUnit> copyOfAllUnitsToAggregate = new HashSet<IInstallableUnit>(allUnitsToAggregate);
 				List<InstallableUnitMapping> iusToMaven = new ArrayList<InstallableUnitMapping>();
-				for(Contribution contrib : contribs) {
+				for(Contribution contrib : allContribs) {
 					SubMonitor contribMonitor = childMonitor.newChild(10);
 					List<MappedRepository> repos = contrib.getRepositories(true);
 					List<String> errors = new ArrayList<String>();
@@ -550,7 +563,7 @@ public class MirrorGenerator extends BuilderPhase {
 						MetadataRepository childMdr = ResourceUtils.getMetadataRepository(repo);
 						ArrayList<IInstallableUnit> iusToMirror = null;
 						for(IInstallableUnit iu : childMdr.getInstallableUnits()) {
-							if(!copyOfUnitsToAggregate.remove(iu))
+							if(!copyOfAllUnitsToAggregate.remove(iu))
 								continue;
 
 							if(iusToMirror == null)
@@ -599,7 +612,8 @@ public class MirrorGenerator extends BuilderPhase {
 			List<ArtifactDescriptor> referencedArtifacts = new ArrayList<ArtifactDescriptor>();
 			Set<IInstallableUnit> copyOfUnitsToAggregate = null;
 
-			for(Contribution contrib : contribs) {
+			// add rules for artifacts mapped from non-p2 repositories
+			for(Contribution contrib : allContribs) {
 				SubMonitor contribMonitor = childMonitor.newChild(10);
 				List<MappedRepository> repos = contrib.getRepositories(true);
 				MonitorUtils.begin(contribMonitor, repos.size() * 100);
@@ -613,7 +627,7 @@ public class MirrorGenerator extends BuilderPhase {
 					}
 
 					if(copyOfUnitsToAggregate == null)
-						copyOfUnitsToAggregate = new HashSet<IInstallableUnit>(unitsToAggregate);
+						copyOfUnitsToAggregate = new HashSet<IInstallableUnit>(allUnitsToAggregate);
 
 					MetadataRepository childMdr = ResourceUtils.getMetadataRepository(repo);
 					ArrayList<IInstallableUnit> iusToRefer = null;
@@ -689,7 +703,7 @@ public class MirrorGenerator extends BuilderPhase {
 						SimpleArtifactRepository.class.getName(), aggregateAr.getClass().getName());
 			}
 
-			for(Contribution contrib : contribs) {
+			for(Contribution contrib : allContribs) {
 				SubMonitor contribMonitor = childMonitor.newChild(100);
 				List<MappedRepository> repos = contrib.getRepositories(true);
 				List<String> errors = new ArrayList<String>();
@@ -701,15 +715,11 @@ public class MirrorGenerator extends BuilderPhase {
 					}
 
 					MetadataRepository childMdr = ResourceUtils.getMetadataRepository(repo);
-					ArrayList<IInstallableUnit> iusToMirror = null;
 					ArrayList<IArtifactKey> keysToMirror = null;
 					for(IInstallableUnit iu : childMdr.getInstallableUnits()) {
-						if(!unitsToAggregate.remove(iu))
+						if(!allUnitsToAggregate.remove(iu))
 							continue;
 
-						if(iusToMirror == null)
-							iusToMirror = new ArrayList<IInstallableUnit>();
-						iusToMirror.add(iu);
 						if(!repo.isMirrorArtifacts())
 							continue;
 
@@ -723,20 +733,8 @@ public class MirrorGenerator extends BuilderPhase {
 						}
 					}
 
-					if(iusToMirror != null) {
-						String msg = format("Mirroring meta-data from from %s", childMdr.getLocation());
-						LogUtils.info(msg);
-						contribMonitor.subTask(msg);
-						mirror(
-							iusToMirror, childMdr, aggregateMdr,
-							contribMonitor.newChild(5, SubMonitor.SUPPRESS_BEGINTASK | SubMonitor.SUPPRESS_SETTASKNAME));
-						aggregatedMdrIsEmpty = false;
-					}
-					else
-						MonitorUtils.worked(contribMonitor, 5);
-
 					if(keysToMirror != null) {
-						String msg = format("Mirroring artifacts from from %s", childMdr.getLocation());
+						String msg = format("Mirroring artifacts from %s", childMdr.getLocation());
 						LogUtils.info(msg);
 						contribMonitor.subTask(msg);
 						IArtifactRepository childAr = getArtifactRepository(
@@ -760,12 +758,6 @@ public class MirrorGenerator extends BuilderPhase {
 					builder.sendEmail(contrib, errors);
 				}
 				MonitorUtils.done(contribMonitor);
-			}
-
-			List<IInstallableUnit> categories = builder.getCategoryIUs();
-			if(!categories.isEmpty()) {
-				mirror(categories, null, aggregateMdr, childMonitor.newChild(20));
-				aggregatedMdrIsEmpty = false;
 			}
 
 			// @fmtOff
@@ -815,7 +807,9 @@ public class MirrorGenerator extends BuilderPhase {
 				LogUtils.info("Done adding maven metadata");
 			}
 
-			if(reposWithReferencedMetadata.isEmpty()) {
+			Collection<String> aggregateChildrenSubdirectories = builder.getChildrenSubdirectories();
+
+			if(reposWithReferencedMetadata.isEmpty() && aggregateChildrenSubdirectories.isEmpty()) {
 				// The aggregated meta-data can serve as the final repository so
 				// let's move it.
 				//
@@ -833,22 +827,15 @@ public class MirrorGenerator extends BuilderPhase {
 				properties = new HashMap<String, String>();
 				properties.put(IRepository.PROP_COMPRESSED, Boolean.toString(true));
 
-				String name = builder.getAggregator().getLabel();
 				mdrMgr.removeRepository(finalURI);
 				CompositeMetadataRepository compositeMdr = (CompositeMetadataRepository) mdrMgr.createRepository(
-					finalURI, name, Builder.COMPOSITE_METADATA_TYPE, properties);
+					finalURI, aggregatorLabel, Builder.COMPOSITE_METADATA_TYPE, properties);
+
+				for(String aggregateChildrenSubdirectory : aggregateChildrenSubdirectories)
+					compositeMdr.addChild(URI.create(Builder.REPO_FOLDER_AGGREGATE + aggregateChildrenSubdirectory));
 
 				for(MappedRepository referenced : reposWithReferencedMetadata)
 					compositeMdr.addChild(referenced.getMetadataRepository().getLocation());
-
-				if(aggregatedMdrIsEmpty) {
-					mdrMgr.removeRepository(aggregateURI);
-					File mdrFile = new File(aggregateDestination, "content.jar");
-					if(!mdrFile.delete())
-						throw ExceptionUtils.fromMessage("Unable to remove %s", aggregateDestination.getAbsolutePath());
-				}
-				else
-					compositeMdr.addChild(finalURI.relativize(aggregateURI));
 
 				LogUtils.info("Done building final metadata composite");
 			}
@@ -876,10 +863,9 @@ public class MirrorGenerator extends BuilderPhase {
 				properties = new HashMap<String, String>();
 				properties.put(IRepository.PROP_COMPRESSED, Boolean.toString(true));
 
-				String name = builder.getAggregator().getLabel();
 				arMgr.removeRepository(finalURI);
 				CompositeArtifactRepository compositeAr = (CompositeArtifactRepository) arMgr.createRepository(
-					finalURI, name + " artifacts", Builder.COMPOSITE_ARTIFACTS_TYPE, properties); //$NON-NLS-1$
+					finalURI, aggregatorLabel + " artifacts", Builder.COMPOSITE_ARTIFACTS_TYPE, properties); //$NON-NLS-1$
 
 				for(MappedRepository referenced : reposWithReferencedArtifacts)
 					compositeAr.addChild(referenced.getMetadataRepository().getLocation());
@@ -916,52 +902,4 @@ public class MirrorGenerator extends BuilderPhase {
 		if(artifactErrors)
 			throw ExceptionUtils.fromMessage("Not all artifacts could be mirrored, see log for details");
 	}
-
-	private IArtifactRepository getArtifactRepository(MetadataRepositoryReference repo, IProgressMonitor monitor)
-			throws CoreException {
-		if(arCache == null)
-			arCache = new HashMap<MetadataRepositoryReference, IArtifactRepository>();
-		IArtifactRepository ar = arCache.get(repo);
-		if(ar == null) {
-			IConfigurationElement config = RepositoryLoaderUtils.getLoaderFor(repo.getNature());
-			if(config == null)
-				throw ExceptionUtils.fromMessage("No loader for %s", repo.getNature());
-			IRepositoryLoader repoLoader = (IRepositoryLoader) config.createExecutableExtension("class");
-			arCache.put(repo, ar = repoLoader.getArtifactRepository(ResourceUtils.getMetadataRepository(repo), monitor));
-		}
-
-		return ar;
-	}
-
-	private void mirror(List<IInstallableUnit> iusToMirror, MetadataRepository source, final IMetadataRepository dest,
-			IProgressMonitor monitor) throws CoreException {
-		dest.addInstallableUnits(iusToMirror);
-
-		Builder builder = getBuilder();
-		if(source != null && builder.isMirrorReferences()) {
-			List<IRepositoryReference> refs = new ArrayList<IRepositoryReference>();
-			for(IRepositoryReference ref : source.getReferences()) {
-				URI location = ref.getLocation();
-				String refKey = location.toString();
-				String refType = ref.getType() == IRepository.TYPE_METADATA
-						? "meta-data"
-						: "artifacts";
-				if(!builder.isMatchedReference(refKey)) {
-					LogUtils.debug("- %s reference %s was ruled out by inclusion/exclusion patterns", refType, refKey);
-					continue;
-				}
-
-				if(refKey.endsWith("/site.xml"))
-					location = URI.create(refKey.substring(0, refKey.length() - 8));
-
-				LogUtils.debug("- mirroring %s reference %s", refType, refKey);
-
-				refs.add(new org.eclipse.equinox.p2.repository.spi.RepositoryReference(
-					location, ref.getNickname(), ref.getType(), 0));
-			}
-
-			dest.addReferences(refs);
-		}
-	}
-
 }

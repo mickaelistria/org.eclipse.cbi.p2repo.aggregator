@@ -50,9 +50,9 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <li>{@link org.eclipse.b3.aggregator.impl.AggregatorImpl#getAggregates <em>Aggregates</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.impl.AggregatorImpl#getConfigurations <em>Configurations</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.impl.AggregatorImpl#getContributions <em>Contributions</em>}</li>
- * <li>{@link org.eclipse.b3.aggregator.impl.AggregatorImpl#getBuildmaster <em>Buildmaster</em>}</li>
- * <li>{@link org.eclipse.b3.aggregator.impl.AggregatorImpl#getContacts <em>Contacts</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.impl.AggregatorImpl#getCustomCategories <em>Custom Categories</em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.impl.AggregatorImpl#getContacts <em>Contacts</em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.impl.AggregatorImpl#getBuildmaster <em>Buildmaster</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.impl.AggregatorImpl#getLabel <em>Label</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.impl.AggregatorImpl#getBuildRoot <em>Build Root</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.impl.AggregatorImpl#getPackedStrategy <em>Packed Strategy</em>}</li>
@@ -132,14 +132,14 @@ public class AggregatorImpl extends DescriptionProviderImpl implements Aggregato
 	protected EList<Contribution> contributions;
 
 	/**
-	 * The cached value of the '{@link #getBuildmaster() <em>Buildmaster</em>}' containment reference. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
+	 * The cached value of the '{@link #getCustomCategories() <em>Custom Categories</em>}' containment reference list.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
-	 * @see #getBuildmaster()
+	 * @see #getCustomCategories()
 	 * @generated
 	 * @ordered
 	 */
-	protected Contact buildmaster;
+	protected EList<CustomCategory> customCategories;
 
 	/**
 	 * The cached value of the '{@link #getContacts() <em>Contacts</em>}' containment reference list. <!--
@@ -152,14 +152,14 @@ public class AggregatorImpl extends DescriptionProviderImpl implements Aggregato
 	protected EList<Contact> contacts;
 
 	/**
-	 * The cached value of the '{@link #getCustomCategories() <em>Custom Categories</em>}' containment reference list.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The cached value of the '{@link #getBuildmaster() <em>Buildmaster</em>}' containment reference. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
-	 * @see #getCustomCategories()
+	 * @see #getBuildmaster()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<CustomCategory> customCategories;
+	protected Contact buildmaster;
 
 	/**
 	 * The default value of the '{@link #getLabel() <em>Label</em>}' attribute.
@@ -466,14 +466,14 @@ public class AggregatorImpl extends DescriptionProviderImpl implements Aggregato
 				return getConfigurations();
 			case AggregatorPackage.AGGREGATOR__CONTRIBUTIONS:
 				return getContributions();
+			case AggregatorPackage.AGGREGATOR__CUSTOM_CATEGORIES:
+				return getCustomCategories();
+			case AggregatorPackage.AGGREGATOR__CONTACTS:
+				return getContacts();
 			case AggregatorPackage.AGGREGATOR__BUILDMASTER:
 				if(resolve)
 					return getBuildmaster();
 				return basicGetBuildmaster();
-			case AggregatorPackage.AGGREGATOR__CONTACTS:
-				return getContacts();
-			case AggregatorPackage.AGGREGATOR__CUSTOM_CATEGORIES:
-				return getCustomCategories();
 			case AggregatorPackage.AGGREGATOR__LABEL:
 				return getLabel();
 			case AggregatorPackage.AGGREGATOR__BUILD_ROOT:
@@ -523,10 +523,10 @@ public class AggregatorImpl extends DescriptionProviderImpl implements Aggregato
 				return ((InternalEList<?>) getConfigurations()).basicRemove(otherEnd, msgs);
 			case AggregatorPackage.AGGREGATOR__CONTRIBUTIONS:
 				return ((InternalEList<?>) getContributions()).basicRemove(otherEnd, msgs);
-			case AggregatorPackage.AGGREGATOR__CONTACTS:
-				return ((InternalEList<?>) getContacts()).basicRemove(otherEnd, msgs);
 			case AggregatorPackage.AGGREGATOR__CUSTOM_CATEGORIES:
 				return ((InternalEList<?>) getCustomCategories()).basicRemove(otherEnd, msgs);
+			case AggregatorPackage.AGGREGATOR__CONTACTS:
+				return ((InternalEList<?>) getContacts()).basicRemove(otherEnd, msgs);
 			case AggregatorPackage.AGGREGATOR__VALIDATION_REPOSITORIES:
 				return ((InternalEList<?>) getValidationRepositories()).basicRemove(otherEnd, msgs);
 			case AggregatorPackage.AGGREGATOR__MAVEN_MAPPINGS:
@@ -557,12 +557,12 @@ public class AggregatorImpl extends DescriptionProviderImpl implements Aggregato
 				return configurations != null && !configurations.isEmpty();
 			case AggregatorPackage.AGGREGATOR__CONTRIBUTIONS:
 				return contributions != null && !contributions.isEmpty();
-			case AggregatorPackage.AGGREGATOR__BUILDMASTER:
-				return buildmaster != null;
-			case AggregatorPackage.AGGREGATOR__CONTACTS:
-				return contacts != null && !contacts.isEmpty();
 			case AggregatorPackage.AGGREGATOR__CUSTOM_CATEGORIES:
 				return customCategories != null && !customCategories.isEmpty();
+			case AggregatorPackage.AGGREGATOR__CONTACTS:
+				return contacts != null && !contacts.isEmpty();
+			case AggregatorPackage.AGGREGATOR__BUILDMASTER:
+				return buildmaster != null;
 			case AggregatorPackage.AGGREGATOR__LABEL:
 				return LABEL_EDEFAULT == null
 						? label != null
@@ -620,16 +620,16 @@ public class AggregatorImpl extends DescriptionProviderImpl implements Aggregato
 				getContributions().clear();
 				getContributions().addAll((Collection<? extends Contribution>) newValue);
 				return;
-			case AggregatorPackage.AGGREGATOR__BUILDMASTER:
-				setBuildmaster((Contact) newValue);
+			case AggregatorPackage.AGGREGATOR__CUSTOM_CATEGORIES:
+				getCustomCategories().clear();
+				getCustomCategories().addAll((Collection<? extends CustomCategory>) newValue);
 				return;
 			case AggregatorPackage.AGGREGATOR__CONTACTS:
 				getContacts().clear();
 				getContacts().addAll((Collection<? extends Contact>) newValue);
 				return;
-			case AggregatorPackage.AGGREGATOR__CUSTOM_CATEGORIES:
-				getCustomCategories().clear();
-				getCustomCategories().addAll((Collection<? extends CustomCategory>) newValue);
+			case AggregatorPackage.AGGREGATOR__BUILDMASTER:
+				setBuildmaster((Contact) newValue);
 				return;
 			case AggregatorPackage.AGGREGATOR__LABEL:
 				setLabel((String) newValue);
@@ -697,14 +697,14 @@ public class AggregatorImpl extends DescriptionProviderImpl implements Aggregato
 			case AggregatorPackage.AGGREGATOR__CONTRIBUTIONS:
 				getContributions().clear();
 				return;
-			case AggregatorPackage.AGGREGATOR__BUILDMASTER:
-				setBuildmaster((Contact) null);
+			case AggregatorPackage.AGGREGATOR__CUSTOM_CATEGORIES:
+				getCustomCategories().clear();
 				return;
 			case AggregatorPackage.AGGREGATOR__CONTACTS:
 				getContacts().clear();
 				return;
-			case AggregatorPackage.AGGREGATOR__CUSTOM_CATEGORIES:
-				getCustomCategories().clear();
+			case AggregatorPackage.AGGREGATOR__BUILDMASTER:
+				setBuildmaster((Contact) null);
 				return;
 			case AggregatorPackage.AGGREGATOR__LABEL:
 				setLabel(LABEL_EDEFAULT);
@@ -732,6 +732,89 @@ public class AggregatorImpl extends DescriptionProviderImpl implements Aggregato
 				return;
 		}
 		super.eUnset(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated NOT
+	 */
+	public EList<Contribution> getAggregateContributions(Aggregate aggregate) {
+		EList<Contribution> contribs = getContributions();
+
+		int count = contribs.size();
+		int idx = 0;
+
+		ALL_PASS: {
+			for(; idx < count; ++idx) {
+				Contribution contrib = contribs.get(idx);
+				if(!(contrib.getReceiver() == aggregate))
+					// we have found an entry that doesn't pass - exit the ALL_PASS block to create a list containing only those entries that pass
+					break ALL_PASS;
+			}
+
+			// all entries pass - return the original list
+			return contribs;
+		}
+
+		// there is at least one entry that doesn't pass - we need to build a new list containing only those entries that pass
+		EList<Contribution> passingContribs = new BasicEList<Contribution>(contribs.size() - 1);
+
+		// we don't need to check these again - we know they are matching
+		for(int sdx = 0; sdx < idx; ++sdx)
+			passingContribs.add(contribs.get(sdx));
+
+		while(++idx < count) {
+			Contribution contrib = contribs.get(idx);
+			if(contrib.getReceiver() == aggregate)
+				passingContribs.add(contrib);
+		}
+
+		return passingContribs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated NOT
+	 */
+	public EList<Contribution> getAggregateContributions(Aggregate aggregate, boolean enabledOnly) {
+		EList<Contribution> contribs = getContributions();
+
+		if(!enabledOnly)
+			return getAggregateContributions(aggregate);
+
+		int count = contribs.size();
+		int idx = 0;
+
+		ALL_PASS: {
+			for(; idx < count; ++idx) {
+				Contribution contrib = contribs.get(idx);
+				if(!(contrib.isEnabled() && contrib.getReceiver() == aggregate))
+					// we have found an entry that doesn't pass - exit the ALL_PASS block to create a list containing only those entries that pass
+					break ALL_PASS;
+			}
+
+			// all entries pass - return the original list
+			return contribs;
+		}
+
+		// there is at least one entry that doesn't pass - we need to build a new list containing only those entries that pass
+		EList<Contribution> passingContribs = new BasicEList<Contribution>(contribs.size() - 1);
+
+		// we don't need to check these again - we know they are matching
+		for(int sdx = 0; sdx < idx; ++sdx)
+			passingContribs.add(contribs.get(sdx));
+
+		while(++idx < count) {
+			Contribution contrib = contribs.get(idx);
+			if(contrib.isEnabled() && contrib.getReceiver() == aggregate)
+				passingContribs.add(contrib);
+		}
+
+		return passingContribs;
 	}
 
 	/**
@@ -839,27 +922,39 @@ public class AggregatorImpl extends DescriptionProviderImpl implements Aggregato
 	 */
 	public EList<Contribution> getContributions(boolean enabledOnly) {
 		EList<Contribution> contribs = getContributions();
-		if(enabledOnly) {
-			EList<Contribution> enabledContribs = null;
-			int top = contribs.size();
-			for(int idx = 0; idx < top; ++idx) {
-				Contribution contrib = contribs.get(idx);
-				if(contrib.isEnabled()) {
-					if(enabledContribs != null)
-						enabledContribs.add(contrib);
-					continue;
-				}
 
-				if(enabledContribs == null) {
-					enabledContribs = new BasicEList<Contribution>(contribs.size() - 1);
-					for(int sdx = 0; sdx < idx; ++sdx)
-						enabledContribs.add(contribs.get(sdx));
-				}
+		if(!enabledOnly)
+			return contribs;
+
+		int count = contribs.size();
+		int idx = 0;
+
+		ALL_PASS: {
+			for(; idx < count; ++idx) {
+				Contribution contrib = contribs.get(idx);
+				if(!(contrib.isEnabled()))
+					// we have found an entry that doesn't pass - exit the ALL_PASS block to create a list containing only those entries that pass
+					break ALL_PASS;
 			}
-			if(enabledContribs != null)
-				contribs = enabledContribs;
+
+			// all entries pass - return the original list
+			return contribs;
 		}
-		return contribs;
+
+		// there is at least one entry that doesn't pass - we need to build a new list containing only those entries that pass
+		EList<Contribution> passingContribs = new BasicEList<Contribution>(contribs.size() - 1);
+
+		// we don't need to check these again - we know they are matching
+		for(int sdx = 0; sdx < idx; ++sdx)
+			passingContribs.add(contribs.get(sdx));
+
+		while(++idx < count) {
+			Contribution contrib = contribs.get(idx);
+			if(contrib.isEnabled())
+				passingContribs.add(contrib);
+		}
+
+		return passingContribs;
 	}
 
 	/**
@@ -976,28 +1071,40 @@ public class AggregatorImpl extends DescriptionProviderImpl implements Aggregato
 	 */
 	public EList<MetadataRepositoryReference> getValidationRepositories(boolean enabledOnly) {
 		EList<MetadataRepositoryReference> validationRepositories = getValidationRepositories();
-		if(enabledOnly) {
-			EList<MetadataRepositoryReference> enabledValidationRepositories = null;
-			int top = validationRepositories.size();
-			for(int idx = 0; idx < top; ++idx) {
-				MetadataRepositoryReference validationRepository = validationRepositories.get(idx);
-				if(validationRepository.isEnabled()) {
-					if(enabledValidationRepositories != null)
-						enabledValidationRepositories.add(validationRepository);
-					continue;
-				}
 
-				if(enabledValidationRepositories == null) {
-					enabledValidationRepositories = new BasicEList<MetadataRepositoryReference>(
-						validationRepositories.size() - 1);
-					for(int sdx = 0; sdx < idx; ++sdx)
-						enabledValidationRepositories.add(validationRepositories.get(sdx));
-				}
+		if(!enabledOnly)
+			return validationRepositories;
+
+		int count = validationRepositories.size();
+		int idx = 0;
+
+		ALL_PASS: {
+			for(; idx < count; ++idx) {
+				MetadataRepositoryReference validationRepository = validationRepositories.get(idx);
+				if(!(validationRepository.isEnabled()))
+					// we have found an entry that doesn't pass - exit the ALL_PASS block to create a list containing only those entries that pass
+					break ALL_PASS;
 			}
-			if(enabledValidationRepositories != null)
-				validationRepositories = enabledValidationRepositories;
+
+			// all entries pass - return the original list
+			return validationRepositories;
 		}
-		return validationRepositories;
+
+		// there is at least one entry that doesn't pass - we need to build a new list containing only those entries that pass
+		EList<MetadataRepositoryReference> passingValidationRepositories = new BasicEList<MetadataRepositoryReference>(
+			validationRepositories.size() - 1);
+
+		// we don't need to check these again - we know they are matching
+		for(int sdx = 0; sdx < idx; ++sdx)
+			passingValidationRepositories.add(validationRepositories.get(sdx));
+
+		while(++idx < count) {
+			MetadataRepositoryReference validationRepository = validationRepositories.get(idx);
+			if(validationRepository.isEnabled())
+				passingValidationRepositories.add(validationRepository);
+		}
+
+		return passingValidationRepositories;
 	}
 
 	/**

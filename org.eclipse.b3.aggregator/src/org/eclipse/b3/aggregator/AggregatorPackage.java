@@ -854,15 +854,24 @@ public interface AggregatorPackage extends EPackage {
 		EReference AGGREGATOR_RESOURCE_VIEW__AGGREGATES = eINSTANCE.getAggregatorResourceView_Aggregates();
 
 		/**
-		 * The meta object literal for the '{@link org.eclipse.b3.aggregator.impl.ContributionViewImpl <em>Contribution View</em>}' class.
+		 * The meta object literal for the '{@link org.eclipse.b3.aggregator.impl.AggregateViewImpl <em>Aggregate View</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * 
-		 * @see org.eclipse.b3.aggregator.impl.ContributionViewImpl
-		 * @see org.eclipse.b3.aggregator.impl.AggregatorPackageImpl#getContributionView()
+		 * @see org.eclipse.b3.aggregator.impl.AggregateViewImpl
+		 * @see org.eclipse.b3.aggregator.impl.AggregatorPackageImpl#getAggregateView()
 		 * @generated
 		 */
-		EClass CONTRIBUTION_VIEW = eINSTANCE.getContributionView();
+		EClass AGGREGATE_VIEW = eINSTANCE.getAggregateView();
+
+		/**
+		 * The meta object literal for the '<em><b>Contributions</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EReference AGGREGATE_VIEW__CONTRIBUTIONS = eINSTANCE.getAggregateView_Contributions();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.b3.aggregator.AggregationType <em>Aggregation Type</em>}' enum.
@@ -1256,13 +1265,14 @@ public interface AggregatorPackage extends EPackage {
 	int AGGREGATOR__CONTRIBUTIONS = DESCRIPTION_PROVIDER_FEATURE_COUNT + 6;
 
 	/**
-	 * The feature id for the '<em><b>Buildmaster</b></em>' reference.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Custom Categories</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int AGGREGATOR__BUILDMASTER = DESCRIPTION_PROVIDER_FEATURE_COUNT + 7;
+	int AGGREGATOR__CUSTOM_CATEGORIES = DESCRIPTION_PROVIDER_FEATURE_COUNT + 7;
 
 	/**
 	 * The feature id for the '<em><b>Contacts</b></em>' containment reference list.
@@ -1275,14 +1285,13 @@ public interface AggregatorPackage extends EPackage {
 	int AGGREGATOR__CONTACTS = DESCRIPTION_PROVIDER_FEATURE_COUNT + 8;
 
 	/**
-	 * The feature id for the '<em><b>Custom Categories</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Buildmaster</b></em>' reference.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int AGGREGATOR__CUSTOM_CATEGORIES = DESCRIPTION_PROVIDER_FEATURE_COUNT + 9;
+	int AGGREGATOR__BUILDMASTER = DESCRIPTION_PROVIDER_FEATURE_COUNT + 9;
 
 	/**
 	 * The feature id for the '<em><b>Label</b></em>' attribute.
@@ -3670,35 +3679,35 @@ public interface AggregatorPackage extends EPackage {
 	int AGGREGATOR_RESOURCE_VIEW_FEATURE_COUNT = 2;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.b3.aggregator.impl.ContributionViewImpl <em>Contribution View</em>}' class.
+	 * The meta object id for the '{@link org.eclipse.b3.aggregator.impl.AggregateViewImpl <em>Aggregate View</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
-	 * @see org.eclipse.b3.aggregator.impl.ContributionViewImpl
-	 * @see org.eclipse.b3.aggregator.impl.AggregatorPackageImpl#getContributionView()
+	 * @see org.eclipse.b3.aggregator.impl.AggregateViewImpl
+	 * @see org.eclipse.b3.aggregator.impl.AggregatorPackageImpl#getAggregateView()
 	 * @generated
 	 */
-	int CONTRIBUTION_VIEW = 33;
+	int AGGREGATE_VIEW = 33;
 
 	/**
-	 * The feature id for the '<em><b>Label</b></em>' attribute.
+	 * The feature id for the '<em><b>Contributions</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int CONTRIBUTION_VIEW__LABEL = LABEL_PROVIDER__LABEL;
+	int AGGREGATE_VIEW__CONTRIBUTIONS = 0;
 
 	/**
-	 * The number of structural features of the '<em>Contribution View</em>' class.
+	 * The number of structural features of the '<em>Aggregate View</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int CONTRIBUTION_VIEW_FEATURE_COUNT = LABEL_PROVIDER_FEATURE_COUNT + 0;
+	int AGGREGATE_VIEW_FEATURE_COUNT = 1;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.aggregator.AggregationType <em>Aggregation Type</em>}' enum.
@@ -3804,6 +3813,30 @@ public interface AggregatorPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getAggregate_Label();
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipse.b3.aggregator.AggregateView <em>Aggregate View</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for class '<em>Aggregate View</em>'.
+	 * @see org.eclipse.b3.aggregator.AggregateView
+	 * @generated
+	 */
+	EClass getAggregateView();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.eclipse.b3.aggregator.AggregateView#getContributions
+	 * <em>Contributions</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the containment reference list '<em>Contributions</em>'.
+	 * @see org.eclipse.b3.aggregator.AggregateView#getContributions()
+	 * @see #getAggregateView()
+	 * @generated
+	 */
+	EReference getAggregateView_Contributions();
 
 	/**
 	 * Returns the meta object for enum '{@link org.eclipse.b3.aggregator.AggregationType <em>Aggregation Type</em>}'.
@@ -4339,17 +4372,6 @@ public interface AggregatorPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getContribution_Repositories();
-
-	/**
-	 * Returns the meta object for class '{@link org.eclipse.b3.aggregator.ContributionView <em>Contribution View</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @return the meta object for class '<em>Contribution View</em>'.
-	 * @see org.eclipse.b3.aggregator.ContributionView
-	 * @generated
-	 */
-	EClass getContributionView();
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.b3.aggregator.CustomCategory <em>Custom Category</em>}'.

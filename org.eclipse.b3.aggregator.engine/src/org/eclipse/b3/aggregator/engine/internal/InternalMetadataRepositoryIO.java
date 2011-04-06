@@ -58,46 +58,6 @@ import org.xml.sax.SAXException;
 @Deprecated
 public class InternalMetadataRepositoryIO extends MetadataRepositoryIO {
 
-	protected class InternalWriter extends Writer {
-
-		public InternalWriter(OutputStream output, Class<? extends IMetadataRepository> repositoryClass)
-				throws IOException {
-			super(output, repositoryClass);
-		}
-
-		protected void writeRequiredCapability(IRequirement requirement) {
-			if(requirement instanceof MultiRangeRequirement) {
-				MultiRangeRequirement req = (MultiRangeRequirement) requirement;
-				start(REQUIREMENT_ELEMENT);
-				attribute(NAMESPACE_ATTRIBUTE, req.getNamespace());
-				attribute(NAME_ATTRIBUTE, req.getName());
-				start(REQUIREMENT_VERSIONS_ELEMENT);
-				for(Version version : req.getVersions()) {
-					start(REQUIREMENT_VERSION_ELEMENT);
-					attribute(REQUIREMENT_VERSION_SERIALIZED_ATTRIBUTE, version);
-					end(REQUIREMENT_VERSION_ELEMENT);
-				}
-				end(REQUIREMENT_VERSIONS_ELEMENT);
-				if(requirement.getFilter() != null)
-					writeTrimmedCdata(CAPABILITY_FILTER_ELEMENT, requirement.getFilter().toString());
-				end(REQUIREMENT_ELEMENT);
-			}
-			else {
-				super.writeRequirement(requirement);
-			}
-		}
-
-		private void writeTrimmedCdata(String element, String filter) {
-			String trimmed;
-			if(filter != null && (trimmed = filter.trim()).length() > 0) {
-				start(element);
-				cdata(trimmed);
-				end(element);
-			}
-		}
-
-	}
-
 	private class InternalParser extends MetadataParser implements XMLConstants {
 
 		protected class InternalInstallableUnitHandler extends InstallableUnitHandler {
@@ -110,6 +70,19 @@ public class InternalMetadataRepositoryIO extends MetadataRepositoryIO {
 					List<InstallableUnitDescription> units) {
 				super(parentHandler, attributes, units);
 				unitsPointer = units;
+			}
+
+			@Override
+			protected void finished() {
+				if(isValidXML()) {
+					super.finished();
+					// get the recently added unit and add requirements
+					InstallableUnitDescription currentUnit = unitsPointer.get(unitsPointer.size() - 1);
+					IRequirement[] requiredCapabilities = (requirementsHandler == null
+							? new IRequirement[0]
+							: requirementsHandler.getRequirements());
+					currentUnit.setRequiredCapabilities(requiredCapabilities);
+				}
 			}
 
 			@Override
@@ -126,19 +99,6 @@ public class InternalMetadataRepositoryIO extends MetadataRepositoryIO {
 				}
 				else
 					super.startElement(name, attributes);
-			}
-
-			@Override
-			protected void finished() {
-				if(isValidXML()) {
-					super.finished();
-					// get the recently added unit and add requirements
-					InstallableUnitDescription currentUnit = unitsPointer.get(unitsPointer.size() - 1);
-					IRequirement[] requiredCapabilities = (requirementsHandler == null
-							? new IRequirement[0]
-							: requirementsHandler.getRequirements());
-					currentUnit.setRequiredCapabilities(requiredCapabilities);
-				}
 			}
 		}
 
@@ -163,173 +123,6 @@ public class InternalMetadataRepositoryIO extends MetadataRepositoryIO {
 			public void startElement(String name, Attributes attributes) {
 				if(name.equals(INSTALLABLE_UNIT_ELEMENT)) {
 					new InternalInstallableUnitHandler(this, attributes, units);
-				}
-				else {
-					invalidElement(name, attributes);
-				}
-			}
-		}
-
-		protected class InternalRequirementHandler extends AbstractHandler {
-			private List<IRequirement> requirements;
-
-			private String namespace;
-
-			private String name;
-
-			private Set<Version> versions = null;
-
-			private Set<VersionRange> versionRanges = null;
-
-			private TextHandler filterHandler = null;
-
-			private InternalRequirementVersionsHandler versionsHandler = null;
-
-			public InternalRequirementHandler(AbstractHandler parentHandler, Attributes attributes,
-					List<IRequirement> requirements) {
-				super(parentHandler, REQUIREMENT_ELEMENT);
-				this.requirements = requirements;
-				String[] values = parseAttributes(
-					attributes, MANDATORY_REQIUREMENT_ATTRIBUTES, OPTIONAL_REQIUREMENT_ATTRIBUTES);
-				namespace = values[0];
-				name = values[1];
-			}
-
-			@Override
-			public void startElement(String name, Attributes attributes) {
-				if(name.equals(CAPABILITY_FILTER_ELEMENT)) {
-					filterHandler = new TextHandler(this, CAPABILITY_FILTER_ELEMENT, attributes);
-				}
-				else if(name.equals(REQUIREMENT_VERSIONS_ELEMENT)) {
-					versionsHandler = new InternalRequirementVersionsHandler(this);
-				}
-				else {
-					invalidElement(name, attributes);
-				}
-			}
-
-			@Override
-			protected void finished() {
-				if(isValidXML()) {
-					IMatchExpression<IInstallableUnit> filter = null;
-					if(filterHandler != null)
-						filter = ExpressionUtil.getFactory().matchExpression(
-							ExpressionUtil.parse(filterHandler.getText()));
-					if(versionsHandler != null) {
-						versions = versionsHandler.getVersions();
-						versionRanges = versionsHandler.getVersionRanges();
-					}
-					requirements.add(new MultiRangeRequirement(name, namespace, versions, versionRanges, filter));
-				}
-			}
-		}
-
-		protected class InternalRequirementsHandler extends AbstractMetadataHandler {
-			private List<IRequirement> requirements;
-
-			public InternalRequirementsHandler(AbstractHandler parentHandler, Attributes attributes) {
-				super(parentHandler, REQUIREMENTS_ELEMENT);
-				requirements = new ArrayList<IRequirement>();
-			}
-
-			public IRequirement[] getRequirements() {
-				return requirements.toArray(new IRequirement[requirements.size()]);
-			}
-
-			@Override
-			public void startElement(String name, Attributes attributes) {
-				if(name.equals(REQUIREMENT_ELEMENT)) {
-					if(attributes.getIndex(VERSION_RANGE_ATTRIBUTE) != -1)
-						new RequirementHandler(this, attributes, requirements);
-					else
-						new InternalRequirementHandler(this, attributes, requirements);
-				}
-				else {
-					invalidElement(name, attributes);
-				}
-			}
-		}
-
-		protected class InternalRequirementVersionHandler extends AbstractHandler {
-			private Version version;
-
-			private Set<Version> versions;
-
-			public InternalRequirementVersionHandler(InternalRequirementVersionsHandler parentHandler,
-					Attributes attributes, Set<Version> versions) {
-				super(parentHandler, REQUIREMENT_VERSION_ELEMENT);
-				this.versions = versions;
-
-				String[] versionString = parseAttributes(
-					attributes, new String[] { REQUIREMENT_VERSION_SERIALIZED_ATTRIBUTE }, new String[0]);
-				version = Version.create(versionString[0]);
-			}
-
-			@Override
-			public void startElement(String name, Attributes attributes) throws SAXException {
-				invalidElement(name, attributes);
-			}
-
-			@Override
-			protected void finished() {
-				if(isValidXML())
-					versions.add(version);
-			}
-		}
-
-		protected class InternalRequirementVersionRangeHandler extends AbstractHandler {
-			private VersionRange versionRange;
-
-			private Set<VersionRange> versionRanges;
-
-			public InternalRequirementVersionRangeHandler(InternalRequirementVersionsHandler parentHandler,
-					Attributes attributes, Set<VersionRange> versionRanges) {
-				super(parentHandler, REQUIREMENT_VERSION_RANGE_ELEMENT);
-				this.versionRanges = versionRanges;
-
-				String[] versionRangeString = parseAttributes(
-					attributes, new String[] { REQUIREMENT_VERSION_SERIALIZED_ATTRIBUTE }, new String[0]);
-				versionRange = new VersionRange(versionRangeString[0]);
-			}
-
-			@Override
-			public void startElement(String name, Attributes attributes) throws SAXException {
-				invalidElement(name, attributes);
-			}
-
-			@Override
-			protected void finished() {
-				if(isValidXML())
-					versionRanges.add(versionRange);
-			}
-		}
-
-		protected class InternalRequirementVersionsHandler extends AbstractHandler {
-			private Set<Version> versions;
-
-			private Set<VersionRange> versionRanges;
-
-			public InternalRequirementVersionsHandler(InternalRequirementHandler parentHandler) {
-				super(parentHandler, REQUIREMENT_VERSIONS_ELEMENT);
-				versions = new LinkedHashSet<Version>();
-				versionRanges = new LinkedHashSet<VersionRange>();
-			}
-
-			public Set<VersionRange> getVersionRanges() {
-				return versionRanges;
-			}
-
-			public Set<Version> getVersions() {
-				return versions;
-			}
-
-			@Override
-			public void startElement(String name, Attributes attributes) throws SAXException {
-				if(name.equals(REQUIREMENT_VERSION_ELEMENT)) {
-					new InternalRequirementVersionHandler(this, attributes, versions);
-				}
-				else if(name.equals(REQUIREMENT_VERSION_RANGE_ELEMENT)) {
-					new InternalRequirementVersionRangeHandler(this, attributes, versionRanges);
 				}
 				else {
 					invalidElement(name, attributes);
@@ -376,42 +169,6 @@ public class InternalMetadataRepositoryIO extends MetadataRepositoryIO {
 				super();
 			}
 
-			public IMetadataRepository getRepository() {
-				return repository;
-			}
-
-			@Override
-			public void startElement(String name, Attributes attributes) {
-				checkCancel();
-				if(PROPERTIES_ELEMENT.equals(name)) {
-					if(propertiesHandler == null) {
-						propertiesHandler = new PropertiesHandler(this, attributes);
-					}
-					else {
-						duplicateElement(this, name, attributes);
-					}
-				}
-				else if(INSTALLABLE_UNITS_ELEMENT.equals(name)) {
-					if(unitsHandler == null) {
-						unitsHandler = new InternalInstallableUnitsHandler(this, attributes);
-					}
-					else {
-						duplicateElement(this, name, attributes);
-					}
-				}
-				else if(REPOSITORY_REFERENCES_ELEMENT.equals(name)) {
-					if(repositoryReferencesHandler == null) {
-						repositoryReferencesHandler = new RepositoryReferencesHandler(this, attributes);
-					}
-					else {
-						duplicateElement(this, name, attributes);
-					}
-				}
-				else {
-					invalidElement(name, attributes);
-				}
-			}
-
 			@Override
 			protected void finished() {
 				if(isValidXML()) {
@@ -450,6 +207,10 @@ public class InternalMetadataRepositoryIO extends MetadataRepositoryIO {
 				}
 			}
 
+			public IMetadataRepository getRepository() {
+				return repository;
+			}
+
 			@Override
 			protected void handleRootAttributes(Attributes attributes) {
 				String[] values = parseAttributes(attributes, required, optional);
@@ -461,6 +222,205 @@ public class InternalMetadataRepositoryIO extends MetadataRepositoryIO {
 				state.Provider = values[4];
 				state.Location = null;
 			}
+
+			@Override
+			public void startElement(String name, Attributes attributes) {
+				checkCancel();
+				if(PROPERTIES_ELEMENT.equals(name)) {
+					if(propertiesHandler == null) {
+						propertiesHandler = new PropertiesHandler(this, attributes);
+					}
+					else {
+						duplicateElement(this, name, attributes);
+					}
+				}
+				else if(INSTALLABLE_UNITS_ELEMENT.equals(name)) {
+					if(unitsHandler == null) {
+						unitsHandler = new InternalInstallableUnitsHandler(this, attributes);
+					}
+					else {
+						duplicateElement(this, name, attributes);
+					}
+				}
+				else if(REPOSITORY_REFERENCES_ELEMENT.equals(name)) {
+					if(repositoryReferencesHandler == null) {
+						repositoryReferencesHandler = new RepositoryReferencesHandler(this, attributes);
+					}
+					else {
+						duplicateElement(this, name, attributes);
+					}
+				}
+				else {
+					invalidElement(name, attributes);
+				}
+			}
+		}
+
+		protected class InternalRequirementHandler extends AbstractHandler {
+			private List<IRequirement> requirements;
+
+			private String namespace;
+
+			private String name;
+
+			private Set<Version> versions = null;
+
+			private Set<VersionRange> versionRanges = null;
+
+			private TextHandler filterHandler = null;
+
+			private InternalRequirementVersionsHandler versionsHandler = null;
+
+			public InternalRequirementHandler(AbstractHandler parentHandler, Attributes attributes,
+					List<IRequirement> requirements) {
+				super(parentHandler, REQUIREMENT_ELEMENT);
+				this.requirements = requirements;
+				String[] values = parseAttributes(
+					attributes, MANDATORY_REQIUREMENT_ATTRIBUTES, OPTIONAL_REQIUREMENT_ATTRIBUTES);
+				namespace = values[0];
+				name = values[1];
+			}
+
+			@Override
+			protected void finished() {
+				if(isValidXML()) {
+					IMatchExpression<IInstallableUnit> filter = null;
+					if(filterHandler != null)
+						filter = ExpressionUtil.getFactory().matchExpression(
+							ExpressionUtil.parse(filterHandler.getText()));
+					if(versionsHandler != null) {
+						versions = versionsHandler.getVersions();
+						versionRanges = versionsHandler.getVersionRanges();
+					}
+					requirements.add(new MultiRangeRequirement(name, namespace, versions, versionRanges, filter));
+				}
+			}
+
+			@Override
+			public void startElement(String name, Attributes attributes) {
+				if(name.equals(CAPABILITY_FILTER_ELEMENT)) {
+					filterHandler = new TextHandler(this, CAPABILITY_FILTER_ELEMENT, attributes);
+				}
+				else if(name.equals(REQUIREMENT_VERSIONS_ELEMENT)) {
+					versionsHandler = new InternalRequirementVersionsHandler(this);
+				}
+				else {
+					invalidElement(name, attributes);
+				}
+			}
+		}
+
+		protected class InternalRequirementsHandler extends AbstractMetadataHandler {
+			private List<IRequirement> requirements;
+
+			public InternalRequirementsHandler(AbstractHandler parentHandler, Attributes attributes) {
+				super(parentHandler, REQUIREMENTS_ELEMENT);
+				requirements = new ArrayList<IRequirement>();
+			}
+
+			public IRequirement[] getRequirements() {
+				return requirements.toArray(new IRequirement[requirements.size()]);
+			}
+
+			@Override
+			public void startElement(String name, Attributes attributes) {
+				if(name.equals(REQUIREMENT_ELEMENT)) {
+					if(attributes.getIndex(VERSION_RANGE_ATTRIBUTE) != -1)
+						new RequirementHandler(this, attributes, requirements);
+					else
+						new InternalRequirementHandler(this, attributes, requirements);
+				}
+				else {
+					invalidElement(name, attributes);
+				}
+			}
+		}
+
+		protected class InternalRequirementVersionHandler extends AbstractHandler {
+			private Version version;
+
+			private Set<Version> versions;
+
+			public InternalRequirementVersionHandler(InternalRequirementVersionsHandler parentHandler,
+					Attributes attributes, Set<Version> versions) {
+				super(parentHandler, REQUIREMENT_VERSION_ELEMENT);
+				this.versions = versions;
+
+				String[] versionString = parseAttributes(
+					attributes, new String[] { REQUIREMENT_VERSION_SERIALIZED_ATTRIBUTE }, new String[0]);
+				version = Version.create(versionString[0]);
+			}
+
+			@Override
+			protected void finished() {
+				if(isValidXML())
+					versions.add(version);
+			}
+
+			@Override
+			public void startElement(String name, Attributes attributes) throws SAXException {
+				invalidElement(name, attributes);
+			}
+		}
+
+		protected class InternalRequirementVersionRangeHandler extends AbstractHandler {
+			private VersionRange versionRange;
+
+			private Set<VersionRange> versionRanges;
+
+			public InternalRequirementVersionRangeHandler(InternalRequirementVersionsHandler parentHandler,
+					Attributes attributes, Set<VersionRange> versionRanges) {
+				super(parentHandler, REQUIREMENT_VERSION_RANGE_ELEMENT);
+				this.versionRanges = versionRanges;
+
+				String[] versionRangeString = parseAttributes(
+					attributes, new String[] { REQUIREMENT_VERSION_SERIALIZED_ATTRIBUTE }, new String[0]);
+				versionRange = new VersionRange(versionRangeString[0]);
+			}
+
+			@Override
+			protected void finished() {
+				if(isValidXML())
+					versionRanges.add(versionRange);
+			}
+
+			@Override
+			public void startElement(String name, Attributes attributes) throws SAXException {
+				invalidElement(name, attributes);
+			}
+		}
+
+		protected class InternalRequirementVersionsHandler extends AbstractHandler {
+			private Set<Version> versions;
+
+			private Set<VersionRange> versionRanges;
+
+			public InternalRequirementVersionsHandler(InternalRequirementHandler parentHandler) {
+				super(parentHandler, REQUIREMENT_VERSIONS_ELEMENT);
+				versions = new LinkedHashSet<Version>();
+				versionRanges = new LinkedHashSet<VersionRange>();
+			}
+
+			public Set<VersionRange> getVersionRanges() {
+				return versionRanges;
+			}
+
+			public Set<Version> getVersions() {
+				return versions;
+			}
+
+			@Override
+			public void startElement(String name, Attributes attributes) throws SAXException {
+				if(name.equals(REQUIREMENT_VERSION_ELEMENT)) {
+					new InternalRequirementVersionHandler(this, attributes, versions);
+				}
+				else if(name.equals(REQUIREMENT_VERSION_RANGE_ELEMENT)) {
+					new InternalRequirementVersionRangeHandler(this, attributes, versionRanges);
+				}
+				else {
+					invalidElement(name, attributes);
+				}
+			}
 		}
 
 		private IMetadataRepository theRepository = null;
@@ -469,7 +429,17 @@ public class InternalMetadataRepositoryIO extends MetadataRepositoryIO {
 			super(context, bundleId);
 		}
 
+		@Override
+		protected String getErrorMessage() {
+			return Messages.io_parseError;
+		}
+
 		public IMetadataRepository getRepository() {
+			return theRepository;
+		}
+
+		@Override
+		protected Object getRootObject() {
 			return theRepository;
 		}
 
@@ -506,16 +476,46 @@ public class InternalMetadataRepositoryIO extends MetadataRepositoryIO {
 			// TODO:
 			return null;
 		}
+	}
 
-		@Override
-		protected String getErrorMessage() {
-			return Messages.io_parseError;
+	protected class InternalWriter extends Writer {
+
+		public InternalWriter(OutputStream output, Class<? extends IMetadataRepository> repositoryClass)
+				throws IOException {
+			super(output, repositoryClass);
 		}
 
-		@Override
-		protected Object getRootObject() {
-			return theRepository;
+		protected void writeRequiredCapability(IRequirement requirement) {
+			if(requirement instanceof MultiRangeRequirement) {
+				MultiRangeRequirement req = (MultiRangeRequirement) requirement;
+				start(REQUIREMENT_ELEMENT);
+				attribute(NAMESPACE_ATTRIBUTE, req.getNamespace());
+				attribute(NAME_ATTRIBUTE, req.getName());
+				start(REQUIREMENT_VERSIONS_ELEMENT);
+				for(Version version : req.getVersions()) {
+					start(REQUIREMENT_VERSION_ELEMENT);
+					attribute(REQUIREMENT_VERSION_SERIALIZED_ATTRIBUTE, version);
+					end(REQUIREMENT_VERSION_ELEMENT);
+				}
+				end(REQUIREMENT_VERSIONS_ELEMENT);
+				if(requirement.getFilter() != null)
+					writeTrimmedCdata(CAPABILITY_FILTER_ELEMENT, requirement.getFilter().toString());
+				end(REQUIREMENT_ELEMENT);
+			}
+			else {
+				super.writeRequirement(requirement);
+			}
 		}
+
+		private void writeTrimmedCdata(String element, String filter) {
+			String trimmed;
+			if(filter != null && (trimmed = filter.trim()).length() > 0) {
+				start(element);
+				cdata(trimmed);
+				end(element);
+			}
+		}
+
 	}
 
 	private interface XMLConstants extends org.eclipse.equinox.internal.p2.metadata.repository.io.XMLConstants {

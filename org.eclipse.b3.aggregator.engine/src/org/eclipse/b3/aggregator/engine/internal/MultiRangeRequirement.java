@@ -250,8 +250,12 @@ public class MultiRangeRequirement implements IRequirement {
 		RequiredCapability fakeCapability = new RequiredCapability(namespace, name, null, null, false, true);
 		Expression fakeOperand = ((Unary) fakeCapability.getMatches()).operand;
 		matchExpression = new HackingMatchExpression(
-			(Expression) factory.exists(pvMember, factory.lambda(xVar, factory.and(
-				nameEqual, namespaceEqual, factory.or(expressions.toArray(new IExpression[expressions.size()]))))),
+			(Expression) factory.exists(
+				pvMember,
+				factory.lambda(
+					xVar,
+					factory.and(
+						nameEqual, namespaceEqual, factory.or(expressions.toArray(new IExpression[expressions.size()]))))),
 			fakeOperand, parameters.toArray(new Object[parameters.size()]));
 	}
 

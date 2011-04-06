@@ -7,6 +7,13 @@
     <eOperations name="getContributions" upperBound="-1" eType="#//Contribution">
       <eParameters name="enabledOnly" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     </eOperations>
+    <eOperations name="getAggregateContributions" upperBound="-1" eType="#//Contribution">
+      <eParameters name="aggregate" eType="#//Aggregate"/>
+    </eOperations>
+    <eOperations name="getAggregateContributions" upperBound="-1" eType="#//Contribution">
+      <eParameters name="aggregate" eType="#//Aggregate"/>
+      <eParameters name="enabledOnly" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    </eOperations>
     <eOperations name="getValidationRepositories" upperBound="-1" eType="#//MetadataRepositoryReference">
       <eParameters name="enabledOnly" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     </eOperations>
@@ -19,12 +26,12 @@
         upperBound="-1" eType="#//Configuration" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="contributions" upperBound="-1"
         eType="#//Contribution" containment="true" eKeys="#//Contribution/label"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="buildmaster" eType="#//Contact"
-        eKeys="#//Contact/email"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="contacts" upperBound="-1"
-        eType="#//Contact" containment="true" eOpposite="#//Contact/aggregator" eKeys="#//Contact/email"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="customCategories" upperBound="-1"
         eType="#//CustomCategory" containment="true" eKeys="#//CustomCategory/identifier"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="contacts" upperBound="-1"
+        eType="#//Contact" containment="true" eOpposite="#//Contact/aggregator" eKeys="#//Contact/email"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="buildmaster" eType="#//Contact"
+        eKeys="#//Contact/email"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="label" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="buildRoot" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         defaultValueLiteral="${user.home}/build"/>
@@ -313,6 +320,10 @@
     <eOperations name="linkSource" lowerBound="1">
       <eParameters name="source" lowerBound="1" eType="#//LinkSource"/>
     </eOperations>
+    <eOperations name="unlinkSource" lowerBound="1">
+      <eParameters name="source" lowerBound="1" eType="#//LinkSource"/>
+    </eOperations>
+    <eOperations name="getLinkedSources" upperBound="-1" eType="#//LinkSource"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="AggregatorResourceView">
     <eStructuralFeatures xsi:type="ecore:EReference" name="aggregator" lowerBound="1"
@@ -320,7 +331,10 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="aggregates" upperBound="-1"
         eType="#//Aggregate" containment="true" eKeys="#//Aggregate/label"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ContributionView" eSuperTypes="#//LabelProvider"/>
+  <eClassifiers xsi:type="ecore:EClass" name="AggregateView">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="contributions" upperBound="-1"
+        eType="#//Contribution" containment="true" eKeys="#//Contribution/label"/>
+  </eClassifiers>
   <eSubpackages name="p2view" nsURI="http://www.eclipse.org/b3/2010/aggregator/p2view/1.0.0"
       nsPrefix="p2view">
     <eClassifiers xsi:type="ecore:EClass" name="MetadataRepositoryStructuredView">

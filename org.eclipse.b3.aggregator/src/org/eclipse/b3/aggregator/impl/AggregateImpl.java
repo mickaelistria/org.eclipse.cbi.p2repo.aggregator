@@ -14,7 +14,6 @@ import org.eclipse.b3.aggregator.Aggregator;
 import org.eclipse.b3.aggregator.AggregatorFactory;
 import org.eclipse.b3.aggregator.AggregatorPackage;
 import org.eclipse.b3.aggregator.Contribution;
-import org.eclipse.b3.aggregator.ContributionView;
 import org.eclipse.b3.aggregator.DescriptionProvider;
 import org.eclipse.b3.aggregator.InfosProvider;
 import org.eclipse.b3.aggregator.LinkReceiver;
@@ -23,12 +22,12 @@ import org.eclipse.b3.aggregator.Status;
 import org.eclipse.b3.aggregator.StatusCode;
 import org.eclipse.b3.aggregator.StatusProvider;
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
+import org.eclipse.emf.ecore.util.EObjectEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -137,6 +136,8 @@ public class AggregateImpl extends MinimalEObjectImpl.Container implements Aggre
 	 */
 	protected EList<String> infos;
 
+	protected EList<LinkSource> linkedSources;
+
 	/**
 	 * The default value of the '{@link #getLabel() <em>Label</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -174,12 +175,10 @@ public class AggregateImpl extends MinimalEObjectImpl.Container implements Aggre
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
-	 * @generated
+	 * @generated NOT
 	 */
 	public boolean acceptsSource(LinkSource source) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		return (source instanceof Contribution);
 	}
 
 	/**
@@ -411,19 +410,6 @@ public class AggregateImpl extends MinimalEObjectImpl.Container implements Aggre
 		return (Aggregator) eContainer();
 	}
 
-	public EList<ContributionView> getContributionViews() {
-		// TODO check if not obsolete
-		EList<Contribution> allContributions = getAggregator().getContributions();
-
-		BasicEList<ContributionView> separatedContributions = new BasicEList<ContributionView>(allContributions.size());
-
-		for(Contribution contribution : allContributions)
-			if(contribution.getReceiver() == this)
-				separatedContributions.add(new ContributionViewImpl(contribution));
-
-		return separatedContributions;
-	}
-
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -476,8 +462,21 @@ public class AggregateImpl extends MinimalEObjectImpl.Container implements Aggre
 	 * 
 	 * @generated NOT
 	 */
+	public EList<LinkSource> getLinkedSources() {
+		if(linkedSources == null) {
+			linkedSources = new EObjectEList<LinkSource>(LinkSource.class, this, Notification.NO_FEATURE_ID);
+		}
+		return linkedSources;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated NOT
+	 */
 	public Status getStatus() {
-		// TODO composite - loop through contained contributions and propagate their status
+		// TODO composite - loop through linked contributions and propagate their status
 		return AggregatorFactory.eINSTANCE.createStatus(StatusCode.OK);
 	}
 
@@ -508,12 +507,10 @@ public class AggregateImpl extends MinimalEObjectImpl.Container implements Aggre
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
-	 * @generated
+	 * @generated NOT
 	 */
 	public void linkSource(LinkSource source) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		getLinkedSources().add(source);
 	}
 
 	/**
@@ -586,6 +583,16 @@ public class AggregateImpl extends MinimalEObjectImpl.Container implements Aggre
 		result.append(label);
 		result.append(')');
 		return result.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated NOT
+	 */
+	public void unlinkSource(LinkSource source) {
+		linkedSources.remove(source);
 	}
 
 } // AggregateImpl

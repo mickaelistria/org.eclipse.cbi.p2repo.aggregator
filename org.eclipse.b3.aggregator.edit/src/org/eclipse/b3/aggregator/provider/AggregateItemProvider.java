@@ -8,18 +8,23 @@
 package org.eclipse.b3.aggregator.provider;
 
 import java.util.Collection;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.eclipse.b3.aggregator.Aggregate;
 import org.eclipse.b3.aggregator.AggregatorPackage;
 import org.eclipse.b3.aggregator.impl.AggregateImpl;
-import org.eclipse.b3.aggregator.util.NotificationForwardingAdapter;
+import org.eclipse.b3.aggregator.impl.AggregateViewImpl;
+import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.util.ResourceLocator;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
+import org.eclipse.emf.edit.command.CommandParameter;
+import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemColorProvider;
@@ -42,6 +47,9 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
 public class AggregateItemProvider extends AggregatorItemProviderAdapter implements IEditingDomainItemProvider,
 		IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource,
 		IItemColorProvider, IItemFontProvider {
+
+	protected Map<Object, AggregateViewImpl> delegateObjectMap = new HashMap<Object, AggregateViewImpl>();
+
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -119,9 +127,47 @@ public class AggregateItemProvider extends AggregatorItemProviderAdapter impleme
 	}
 
 	@Override
-	public Collection<?> getChildren(Object object) {
+	public Command createCommand(Object object, EditingDomain domain, Class<? extends Command> commandClass,
+			CommandParameter commandParameter) {
+		AggregateViewImpl delegateObject = getDelegateObject(object);
 
-		return ((AggregateImpl) object).getContributionViews();
+		if(commandParameter.getOwner() == object)
+			commandParameter.setOwner(delegateObject);
+
+		return getDelegateItemProviderAdapter(delegateObject).createCommand(
+			delegateObject, domain, commandClass, commandParameter);
+	}
+
+	@Override
+	public Collection<?> getChildren(Object object) {
+		AggregateViewImpl delegateObject = getDelegateObject(object);
+
+		return getDelegateItemProviderAdapter(delegateObject).getChildren(delegateObject);
+	}
+
+	@Override
+	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
+		AggregateViewImpl delegateObject = getDelegateObject(object);
+
+		return getDelegateItemProviderAdapter(delegateObject).getChildrenFeatures(delegateObject);
+	}
+
+	public AggregateViewItemProvider getDelegateItemProviderAdapter(AggregateViewImpl delegateObject) {
+		Adapter adapter = getRootAdapterFactory().adapt(delegateObject, IEditingDomainItemProvider.class);
+
+		return (AggregateViewItemProvider) adapter;
+	}
+
+	public AggregateViewImpl getDelegateObject(Object object) {
+		AggregateViewImpl delegateObject = delegateObjectMap.get(object);
+
+		if(delegateObject == null) {
+			delegateObject = new AggregateViewImpl((AggregateImpl) object);
+
+			delegateObjectMap.put(object, delegateObject);
+		}
+
+		return delegateObject;
 	}
 
 	/**
@@ -136,30 +182,12 @@ public class AggregateItemProvider extends AggregatorItemProviderAdapter impleme
 		return overlayImage(object, getResourceLocator().getImage("full/obj16/Aggregate"));
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see org.eclipse.b3.aggregator.provider.AggregatorItemProviderAdapter#getParent(java.lang.Object)
-	 */
 	@Override
-	public Object getParent(Object object) {
-		Object parent = super.getParent(object);
+	public Collection<?> getNewChildDescriptors(Object object, EditingDomain editingDomain, Object sibling) {
+		AggregateViewImpl delegateObject = getDelegateObject(object);
 
-		if(parent instanceof EObject) {
-			EStructuralFeature containingFeature = ((EObject) object).eContainingFeature();
-
-			for(Adapter adapter : ((EObject) parent).eAdapters()) {
-				if(adapter instanceof NotificationForwardingAdapter) {
-					NotificationForwardingAdapter notificationForwardingAdapter = (NotificationForwardingAdapter) adapter;
-					Collection<EStructuralFeature> forwardedFeatures = notificationForwardingAdapter.getForwardedFeatures();
-
-					if(forwardedFeatures == null || forwardedFeatures.contains(containingFeature))
-						return notificationForwardingAdapter.getForwardingTarget();
-				}
-			}
-		}
-
-		return parent;
+		return getDelegateItemProviderAdapter(delegateObject).getNewChildDescriptors(
+			delegateObject, editingDomain, sibling);
 	}
 
 	/**
@@ -228,6 +256,16 @@ public class AggregateItemProvider extends AggregatorItemProviderAdapter impleme
 				return;
 		}
 		super.notifyChanged(notification);
+	}
+
+	@Override
+	public void unsetTarget(Notifier target) {
+		super.unsetTarget(target);
+
+		AggregateViewImpl delegateObject = delegateObjectMap.remove(target);
+
+		if(delegateObject != null)
+			delegateObject.dispose();
 	}
 
 }

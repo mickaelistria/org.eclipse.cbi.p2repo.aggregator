@@ -19,6 +19,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import org.eclipse.b3.aggregator.Aggregate;
 import org.eclipse.b3.aggregator.Category;
 import org.eclipse.b3.aggregator.Configuration;
 import org.eclipse.b3.aggregator.Contribution;
@@ -54,11 +55,12 @@ import org.eclipse.equinox.p2.publisher.IPublisherResult;
 import org.eclipse.equinox.p2.repository.metadata.IMetadataRepository;
 
 /**
- * This action creates the feature that contains all features and bundles that are listed in the build contributions.
+ * This action creates the feature that contains all features and bundles that are listed contributions in the Aggregate passed to the constructor
+ * of this class.
  * 
- * @see Builder#ALL_CONTRIBUTED_CONTENT_FEATURE
+ * @see Builder#getVerifyIUName(Aggregate)
  */
-public class VerificationFeatureAction extends AbstractPublisherAction {
+public class VerificationIUAction extends AbstractPublisherAction {
 	static class RepositoryRequirement {
 		MappedRepository repository;
 
@@ -114,126 +116,14 @@ public class VerificationFeatureAction extends AbstractPublisherAction {
 
 	private final Builder builder;
 
+	private final Aggregate aggregate;
+
 	private final IMetadataRepository mdr;
 
-	public VerificationFeatureAction(Builder builder, IMetadataRepository mdr) {
+	public VerificationIUAction(Builder builder, Aggregate aggregate, IMetadataRepository mdr) {
 		this.builder = builder;
+		this.aggregate = aggregate;
 		this.mdr = mdr;
-	}
-
-	@Override
-	public IStatus perform(IPublisherInfo publisherInfo, IPublisherResult results, IProgressMonitor monitor) {
-		InstallableUnitDescription iu = new MetadataFactory.InstallableUnitDescription();
-		iu.setId(Builder.ALL_CONTRIBUTED_CONTENT_FEATURE);
-		iu.setVersion(Builder.ALL_CONTRIBUTED_CONTENT_VERSION);
-		iu.setProperty(InstallableUnitDescription.PROP_TYPE_GROUP, Boolean.TRUE.toString());
-		iu.addProvidedCapabilities(Collections.singletonList(createSelfCapability(iu.getId(), iu.getVersion())));
-
-		Map<String, Set<RepositoryRequirement>> required = new HashMap<String, Set<RepositoryRequirement>>();
-
-		boolean errorsFound = false;
-		List<Contribution> contribs = builder.getAggregator().getContributions();
-		SubMonitor subMon = SubMonitor.convert(monitor, 2 + contribs.size());
-		try {
-			Set<String> explicit = new HashSet<String>();
-			for(Contribution contrib : builder.getAggregator().getContributions(true)) {
-				ArrayList<String> errors = new ArrayList<String>();
-				for(MappedRepository repository : contrib.getRepositories(true)) {
-					List<IInstallableUnit> allIUs;
-
-					try {
-						allIUs = ResourceUtils.getMetadataRepository(repository).getInstallableUnits();
-					}
-					catch(CoreException e) {
-						LogUtils.error(e, e.getMessage());
-						errors.add(e.getMessage());
-						continue;
-					}
-
-					if(repository.isMapExclusive()) {
-						for(MappedUnit mu : repository.getUnits(true)) {
-							if(mu instanceof Category) {
-								addCategoryContent(
-									mu.resolveAsSingleton(true), repository, allIUs, required, errors, explicit);
-								continue;
-							}
-							addRequirementFor(repository, mu.getRequirement(), required, errors, explicit, true);
-						}
-					}
-					else {
-						// Verify that all products and features can be installed.
-						//
-						List<MapRule> mapRules = repository.getMapRules();
-						Map<IMatchExpression<IInstallableUnit>, List<IInstallableUnit>> preSelectedIUs = new HashMap<IMatchExpression<IInstallableUnit>, List<IInstallableUnit>>();
-						allIUs: for(IInstallableUnit riu : allIUs) {
-
-							// don't include patches as root IUs
-							if(riu instanceof IInstallableUnitPatch)
-								continue;
-
-							// We assume that all groups that are not categories are either products or
-							// features.
-							//
-							InstallableUnitType riuType = InstallableUnitUtils.getType(riu);
-							if(riuType == InstallableUnitType.PRODUCT || riuType == InstallableUnitType.FEATURE) {
-								IMatchExpression<IInstallableUnit> filter = null;
-								for(MapRule rule : mapRules) {
-									if(riu.getId().equals(rule.getName()) &&
-											rule.getVersionRange().isIncluded(riu.getVersion())) {
-										if(rule instanceof ExclusionRule) {
-											builder.addMappingExclusion(repository);
-											continue allIUs;
-										}
-										if(rule instanceof ValidConfigurationsRule) {
-											if(filter != null)
-												throw new IllegalStateException(
-													"Only one configuration rule per IU name can be specified");
-											filter = createFilter(((ValidConfigurationsRule) rule).getValidConfigurations());
-										}
-									}
-								}
-								List<IInstallableUnit> units = preSelectedIUs.get(filter);
-								if(units == null)
-									preSelectedIUs.put(filter, units = new ArrayList<IInstallableUnit>());
-								units.add(riu);
-							}
-						}
-
-						for(Map.Entry<IMatchExpression<IInstallableUnit>, List<IInstallableUnit>> entry : preSelectedIUs.entrySet())
-							for(IRequirement req : RequirementUtils.createAllAvailableVersionsRequirements(
-								entry.getValue(), entry.getKey()))
-								addRequirementFor(repository, req, required, errors, explicit, false);
-					}
-				}
-				if(errors.size() > 0) {
-					errorsFound = true;
-					builder.sendEmail(contrib, errors);
-				}
-				MonitorUtils.worked(subMon, 1);
-			}
-			if(errorsFound)
-				return new Status(IStatus.ERROR, Engine.PLUGIN_ID, "Features without repositories");
-
-			Set<IRequirement> rcList = new HashSet<IRequirement>();
-			for(Set<RepositoryRequirement> rcSet : required.values())
-				for(RepositoryRequirement req : rcSet)
-					rcList.add(req.requirement);
-
-			iu.setRequirements(rcList.toArray(new IRequirement[rcList.size()]));
-
-			InstallableUnitDescription pdePlatform = new MetadataFactory.InstallableUnitDescription();
-			pdePlatform.setId(Builder.PDE_TARGET_PLATFORM_NAME);
-			pdePlatform.setVersion(Version.emptyVersion);
-			pdePlatform.addProvidedCapabilities(Collections.singletonList(MetadataFactory.createProvidedCapability(
-				Builder.PDE_TARGET_PLATFORM_NAMESPACE, pdePlatform.getId(), pdePlatform.getVersion())));
-
-			mdr.addInstallableUnits(Arrays.asList(new IInstallableUnit[] {
-					MetadataFactory.createInstallableUnit(iu), MetadataFactory.createInstallableUnit(pdePlatform) }));
-			return Status.OK_STATUS;
-		}
-		finally {
-			MonitorUtils.done(subMon);
-		}
 	}
 
 	private void addCategoryContent(IInstallableUnit category, MappedRepository repository,
@@ -381,5 +271,120 @@ public class VerificationFeatureAction extends AbstractPublisherAction {
 
 		for(RepositoryRequirement req : repoReqs)
 			req.requirement = modifiedReq;
+	}
+
+	@Override
+	public IStatus perform(IPublisherInfo publisherInfo, IPublisherResult results, IProgressMonitor monitor) {
+		InstallableUnitDescription iu = new MetadataFactory.InstallableUnitDescription();
+		iu.setId(builder.getVerifyIUName(aggregate));
+		iu.setVersion(Builder.ALL_CONTRIBUTED_CONTENT_VERSION);
+		iu.setProperty(InstallableUnitDescription.PROP_TYPE_GROUP, Boolean.TRUE.toString());
+		iu.addProvidedCapabilities(Collections.singletonList(createSelfCapability(iu.getId(), iu.getVersion())));
+
+		Map<String, Set<RepositoryRequirement>> required = new HashMap<String, Set<RepositoryRequirement>>();
+
+		boolean errorsFound = false;
+		List<Contribution> aggregateContribs = builder.getAggregatorr().getAggregateContributions(aggregate, true);
+		SubMonitor subMon = SubMonitor.convert(monitor, 2 + aggregateContribs.size());
+		try {
+			Set<String> explicit = new HashSet<String>();
+			for(Contribution contrib : aggregateContribs) {
+				ArrayList<String> errors = new ArrayList<String>();
+				for(MappedRepository repository : contrib.getRepositories(true)) {
+					List<IInstallableUnit> allIUs;
+
+					try {
+						allIUs = ResourceUtils.getMetadataRepository(repository).getInstallableUnits();
+					}
+					catch(CoreException e) {
+						LogUtils.error(e, e.getMessage());
+						errors.add(e.getMessage());
+						continue;
+					}
+
+					if(repository.isMapExclusive()) {
+						for(MappedUnit mu : repository.getUnits(true)) {
+							if(mu instanceof Category) {
+								addCategoryContent(
+									mu.resolveAsSingleton(true), repository, allIUs, required, errors, explicit);
+								continue;
+							}
+							addRequirementFor(repository, mu.getRequirement(), required, errors, explicit, true);
+						}
+					}
+					else {
+						// Verify that all products and features can be installed.
+						//
+						List<MapRule> mapRules = repository.getMapRules();
+						Map<IMatchExpression<IInstallableUnit>, List<IInstallableUnit>> preSelectedIUs = new HashMap<IMatchExpression<IInstallableUnit>, List<IInstallableUnit>>();
+						allIUs: for(IInstallableUnit riu : allIUs) {
+
+							// don't include patches as root IUs
+							if(riu instanceof IInstallableUnitPatch)
+								continue;
+
+							// We assume that all groups that are not categories are either products or
+							// features.
+							//
+							InstallableUnitType riuType = InstallableUnitUtils.getType(riu);
+							if(riuType == InstallableUnitType.PRODUCT || riuType == InstallableUnitType.FEATURE) {
+								IMatchExpression<IInstallableUnit> filter = null;
+								for(MapRule rule : mapRules) {
+									if(riu.getId().equals(rule.getName()) &&
+											rule.getVersionRange().isIncluded(riu.getVersion())) {
+										if(rule instanceof ExclusionRule) {
+											builder.addMappingExclusion(repository);
+											continue allIUs;
+										}
+										if(rule instanceof ValidConfigurationsRule) {
+											if(filter != null)
+												throw new IllegalStateException(
+													"Only one configuration rule per IU name can be specified");
+											filter = createFilter(((ValidConfigurationsRule) rule).getValidConfigurations());
+										}
+									}
+								}
+								List<IInstallableUnit> units = preSelectedIUs.get(filter);
+								if(units == null)
+									preSelectedIUs.put(filter, units = new ArrayList<IInstallableUnit>());
+								units.add(riu);
+							}
+						}
+
+						for(Map.Entry<IMatchExpression<IInstallableUnit>, List<IInstallableUnit>> entry : preSelectedIUs.entrySet())
+							for(IRequirement req : RequirementUtils.createAllAvailableVersionsRequirements(
+								entry.getValue(), entry.getKey()))
+								addRequirementFor(repository, req, required, errors, explicit, false);
+					}
+				}
+				if(errors.size() > 0) {
+					errorsFound = true;
+					builder.sendEmail(contrib, errors);
+				}
+				MonitorUtils.worked(subMon, 1);
+			}
+			if(errorsFound)
+				return new Status(IStatus.ERROR, Engine.PLUGIN_ID, "Features without repositories");
+
+			Set<IRequirement> rcList = new HashSet<IRequirement>();
+			for(Set<RepositoryRequirement> rcSet : required.values())
+				for(RepositoryRequirement req : rcSet)
+					rcList.add(req.requirement);
+
+			iu.setRequirements(rcList.toArray(new IRequirement[rcList.size()]));
+
+			InstallableUnitDescription pdePlatform = new MetadataFactory.InstallableUnitDescription();
+			pdePlatform.setId(Builder.PDE_TARGET_PLATFORM_NAME);
+			pdePlatform.setVersion(Version.emptyVersion);
+			pdePlatform.addProvidedCapabilities(Collections.singletonList(MetadataFactory.createProvidedCapability(
+				Builder.PDE_TARGET_PLATFORM_NAMESPACE, pdePlatform.getId(), pdePlatform.getVersion())));
+
+			mdr.addInstallableUnits(Arrays.asList(new IInstallableUnit[] {
+					MetadataFactory.createInstallableUnit(iu), MetadataFactory.createInstallableUnit(pdePlatform) }));
+			return Status.OK_STATUS;
+		}
+		finally {
+			MonitorUtils.done(subMon);
+		}
 	}
 }
