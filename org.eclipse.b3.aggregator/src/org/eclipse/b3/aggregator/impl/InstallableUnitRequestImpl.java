@@ -740,7 +740,11 @@ public abstract class InstallableUnitRequestImpl extends MinimalEObjectImpl.Cont
 			}
 			catch(IllegalArgumentException e) {
 				// the aggregator resource is probably temporarily unavailable (e.g. during drag&drop)
-				availableVersions = null;
+				// but in that case (the drag&drop case) chances are that we are actually creating a copy of
+				// another (already initialized) source instance and that this list will be populated by
+				// copying the entries from the source list so it should be safe to return an empty list
+				// TODO verify it is safe to return the empty list in all situations
+				// availableVersions = null;
 				return;
 			}
 		}

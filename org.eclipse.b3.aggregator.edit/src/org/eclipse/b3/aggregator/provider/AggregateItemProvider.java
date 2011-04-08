@@ -305,8 +305,8 @@ public class AggregateItemProvider extends AggregatorItemProviderAdapter impleme
 	}
 
 	/**
-	 * This handles model notifications by calling {@link #updateChildren} to update any cached
-	 * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
+	 * This handles notifications sent by the aggregate object instances when other objects are
+	 * linked to/unlinked from it.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 

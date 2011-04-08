@@ -320,6 +320,8 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 
 	public static final String AGGREGATOR_NONPERSISTENT_PROBLEM_MARKER = "org.eclipse.b3.aggregator.editor.diagnostic.nonpersistent";
 
+	protected static Collection<Object> CLIPBOARD;
+
 	/**
 	 * This looks up a string in the plugin's plugin.properties file.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -2095,9 +2097,14 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 			}
 		});
 
-		// Create the editing domain with a special command stack.
+		// Create the editing domain with a special command stack and a shared clipboard.
 		//
 		editingDomain = new AdapterFactoryEditingDomain(adapterFactory, commandStack, new HashMap<Resource, Boolean>()) {
+			@Override
+			public Collection<Object> getClipboard() {
+				return CLIPBOARD;
+			}
+
 			@Override
 			public boolean isReadOnly(Resource resource) {
 				if(resource instanceof MetadataRepositoryResourceImpl)
@@ -2105,6 +2112,12 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 
 				return super.isReadOnly(resource);
 			}
+
+			@Override
+			public void setClipboard(Collection<Object> clipboard) {
+				CLIPBOARD = clipboard;
+			}
+
 		};
 	}
 

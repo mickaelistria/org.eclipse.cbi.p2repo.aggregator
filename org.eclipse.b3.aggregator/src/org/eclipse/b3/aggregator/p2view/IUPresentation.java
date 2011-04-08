@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2006-2009, Cloudsmith Inc.
+ * Copyright (c) 2006-2011, Cloudsmith Inc.
  * The code, documentation and other materials contained herein have been
  * licensed under the Eclipse Public License - v 1.0 by the copyright holder
  * listed above, as the Initial Contributor under such license. The text of
@@ -12,7 +12,6 @@ package org.eclipse.b3.aggregator.p2view;
 import java.util.Comparator;
 
 import org.eclipse.b3.aggregator.InstallableUnitType;
-import org.eclipse.b3.p2.util.IUSelectionComparator;
 import org.eclipse.equinox.p2.metadata.IInstallableUnit;
 import org.eclipse.equinox.p2.metadata.Version;
 
@@ -38,18 +37,23 @@ import org.eclipse.equinox.p2.metadata.Version;
  * @generated
  */
 public interface IUPresentation {
-	// Compares IU presentation by id (ascending) and version (descending)
+	// Compares IU presentation by label
 	static class IUPresentationComparator implements Comparator<IUPresentation> {
 
 		public int compare(IUPresentation iup1, IUPresentation iup2) {
-			IInstallableUnit iu1 = iup1 != null
-					? iup1.getInstallableUnit()
+			String label1 = iup1 != null
+					? iup1.getLabel()
 					: null;
-			IInstallableUnit iu2 = iup2 != null
-					? iup2.getInstallableUnit()
+			String label2 = iup2 != null
+					? iup2.getLabel()
 					: null;
-
-			return IUSelectionComparator.INSTANCE.compare(iu1, iu2);
+			return label1 != null
+					? (label2 == null
+							? 1
+							: label1.compareTo(label2))
+					: (label2 != null
+							? -1
+							: 0);
 		}
 	}
 

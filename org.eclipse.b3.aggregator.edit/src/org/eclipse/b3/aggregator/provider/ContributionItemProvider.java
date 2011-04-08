@@ -78,7 +78,7 @@ public class ContributionItemProvider extends AggregatorItemProviderAdapter impl
 		@Override
 		public Command createCommand(Object object, EditingDomain domain, Class<? extends Command> commandClass,
 				CommandParameter commandParameter) {
-			// we need to disable copying of the wrapped Contribution nodes, that is why this specialized wrapper
+			// this disables copying of the wrapped Contribution nodes
 			if(commandClass == CopyCommand.class)
 				return UnexecutableCommand.INSTANCE;
 

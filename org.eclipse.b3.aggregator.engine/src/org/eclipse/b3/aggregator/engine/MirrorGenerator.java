@@ -811,7 +811,7 @@ public class MirrorGenerator extends BuilderPhase {
 
 			Collection<String> aggregateChildrenSubdirectories = builder.getChildrenSubdirectories();
 
-			if(reposWithReferencedMetadata.isEmpty() && aggregateChildrenSubdirectories.isEmpty()) {
+			if(reposWithReferencedMetadata.isEmpty() && aggregateChildrenSubdirectories.size() <= 1) {
 				// The aggregated meta-data can serve as the final repository so
 				// let's move it.
 				//

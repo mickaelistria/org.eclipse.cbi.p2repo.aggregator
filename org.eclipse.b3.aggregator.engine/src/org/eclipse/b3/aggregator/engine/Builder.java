@@ -421,7 +421,7 @@ public class Builder extends ModelAbstractCommand {
 
 	final private Set<IInstallableUnit> allUnitsToAggregate = new HashSet<IInstallableUnit>();
 
-	final private Map<String, Set<IInstallableUnit>> unitsToAggregate = new HashMap<String, Set<IInstallableUnit>>();
+	final private Map<Aggregate, Set<IInstallableUnit>> unitsToAggregateMap = new HashMap<Aggregate, Set<IInstallableUnit>>();
 
 	private Set<MappedRepository> exclusions;
 
@@ -460,7 +460,7 @@ public class Builder extends ModelAbstractCommand {
 		safeAggregateNameMap.clear();
 		categoryIUs = null;
 		allUnitsToAggregate.clear();
-		unitsToAggregate.clear();
+		unitsToAggregateMap.clear();
 	}
 
 	private void cleanMetadata(IProvisioningAgent agent) throws CoreException {
@@ -510,7 +510,13 @@ public class Builder extends ModelAbstractCommand {
 	}
 
 	public Collection<String> getChildrenSubdirectories() {
-		return unitsToAggregate.keySet();
+		ArrayList<String> childrenSubdirectories = new ArrayList<String>(unitsToAggregateMap.size());
+
+		for(Aggregate aggregate : unitsToAggregateMap.keySet()) {
+			childrenSubdirectories.add(getAggregateSubdirectory(aggregate));
+		}
+
+		return childrenSubdirectories;
 	}
 
 	/**
@@ -562,12 +568,11 @@ public class Builder extends ModelAbstractCommand {
 	}
 
 	public Set<IInstallableUnit> getUnitsToAggregate(Aggregate aggregate) {
-		String directory = getAggregateSubdirectory(aggregate);
-		Set<IInstallableUnit> units = unitsToAggregate.get(directory);
+		Set<IInstallableUnit> units = unitsToAggregateMap.get(aggregate);
 
 		if(units == null) {
 			units = new HashSet<IInstallableUnit>();
-			unitsToAggregate.put(directory, units);
+			unitsToAggregateMap.put(aggregate, units);
 		}
 
 		return units;
@@ -835,8 +840,7 @@ public class Builder extends ModelAbstractCommand {
 	}
 
 	public void removeUnitsToAggregate(Aggregate aggregate) {
-		String safeName = getSafeAggregateName(aggregate);
-		unitsToAggregate.remove(safeName);
+		unitsToAggregateMap.remove(aggregate);
 	}
 
 	/**
