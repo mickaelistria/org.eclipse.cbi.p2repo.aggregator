@@ -155,7 +155,7 @@ public class RepositoryVerifier extends BuilderPhase {
 	}
 
 	private ProvisioningContext createContext(URI site) {
-		List<MetadataRepositoryReference> validationRepos = getBuilder().getAggregatorr().getValidationRepositories();
+		List<MetadataRepositoryReference> validationRepos = getBuilder().getAggregator().getValidationRepositories();
 		int top = validationRepos.size();
 		List<URI> sites = new ArrayList<URI>(top + 1);
 		sites.add(site);
@@ -190,7 +190,7 @@ public class RepositoryVerifier extends BuilderPhase {
 	}
 
 	private Contribution findContribution(String componentId) {
-		for(Contribution contrib : getBuilder().getAggregatorr().getAggregateContributions(aggregate, true))
+		for(Contribution contrib : getBuilder().getAggregator().getAggregateContributions(aggregate, true))
 			for(MappedRepository repository : contrib.getRepositories(true))
 				for(MappedUnit mu : repository.getUnits(true))
 					if(componentId.equals(mu.getName()))
@@ -259,7 +259,7 @@ public class RepositoryVerifier extends BuilderPhase {
 			//
 			IInstallableUnit miu = null;
 			MetadataRepository mdr = null;
-			contribs: for(Contribution contrib : getBuilder().getAggregatorr().getContributions(true))
+			contribs: for(Contribution contrib : getBuilder().getAggregator().getContributions(true))
 
 				for(MappedRepository repo : contrib.getRepositories(true)) {
 					MetadataRepository candidate = repo.getMetadataRepository();
@@ -334,7 +334,7 @@ public class RepositoryVerifier extends BuilderPhase {
 		String taskLabel = Builder.getAggregateLabel(aggregate);
 
 		Builder builder = getBuilder();
-		Aggregator aggregator = builder.getAggregatorr();
+		Aggregator aggregator = builder.getAggregator();
 		List<Configuration> configs = aggregator.getConfigurations();
 		int configCount = configs.size();
 		SubMonitor subMon = SubMonitor.convert(monitor, configCount * 100);
@@ -382,9 +382,8 @@ public class RepositoryVerifier extends BuilderPhase {
 
 				IProfile profile = null;
 				String profileId = profilePrefix + configName;
-				if(builder.isCleanBuild())
-					profile = profileRegistry.getProfile(profileId);
 
+				profile = profileRegistry.getProfile(profileId);
 				if(profile == null)
 					profile = profileRegistry.addProfile(profileId, props);
 
@@ -534,7 +533,7 @@ public class RepositoryVerifier extends BuilderPhase {
 
 	private void sendEmails(PlannerStatus plannerStatus) {
 		Builder builder = getBuilder();
-		if(!builder.getAggregatorr().isSendmail())
+		if(!builder.getAggregator().isSendmail())
 			return;
 
 		ArrayList<String> errors = new ArrayList<String>();

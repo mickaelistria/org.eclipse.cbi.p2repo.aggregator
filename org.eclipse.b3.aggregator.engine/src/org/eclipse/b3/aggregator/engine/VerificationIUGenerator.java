@@ -42,7 +42,7 @@ public class VerificationIUGenerator extends BuilderPhase {
 		LogUtils.info(info);
 		MonitorUtils.subTask(monitor, info);
 
-		String name = getBuilder().getAggregatorr().getLabel();
+		String name = getBuilder().getAggregator().getLabel();
 		if(aggregate != null)
 			name += " / " + aggregate.getLabel();
 		name += " Verification repository";
@@ -64,10 +64,8 @@ public class VerificationIUGenerator extends BuilderPhase {
 			// TODO Use this to activate the "version enumeration" policy workaround
 			// IMetadataRepository mdr = mdrMgr.createRepository(locationURI, name, Builder.INTERNAL_METADATA_TYPE,
 			// properties);
-			IMetadataRepository mdr = (aggregate == null)
-					? mdrMgr.createRepository(locationURI, name, Builder.SIMPLE_METADATA_TYPE, properties)
-					: mdrMgr.loadRepository(locationURI, MonitorUtils.subMonitor(monitor, 5));
-
+			IMetadataRepository mdr = mdrMgr.createRepository(
+				locationURI, name, Builder.SIMPLE_METADATA_TYPE, properties);
 			PublisherInfo pubInfo = new PublisherInfo();
 			pubInfo.setMetadataRepository(mdr);
 			Publisher publisher = new Publisher(pubInfo);

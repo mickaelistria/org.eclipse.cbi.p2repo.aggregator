@@ -57,7 +57,7 @@ public class SourceCompositeGenerator extends BuilderPhase {
 
 	@Override
 	public void run(IProgressMonitor monitor) throws CoreException {
-		List<Contribution> contribs = getBuilder().getAggregatorr().getContributions(true);
+		List<Contribution> contribs = getBuilder().getAggregator().getContributions(true);
 
 		SubMonitor subMon = SubMonitor.convert(monitor, 100 + contribs.size() * 100);
 		String info = "Starting generation of composite repository";
@@ -66,7 +66,7 @@ public class SourceCompositeGenerator extends BuilderPhase {
 
 		long start = TimeUtils.getNow();
 
-		String name = getBuilder().getAggregatorr().getLabel() + " Source Composite";
+		String name = getBuilder().getAggregator().getLabel() + " Source Composite";
 		Map<String, String> properties = new HashMap<String, String>();
 		properties.put(IRepository.PROP_COMPRESSED, Boolean.toString(true));
 		boolean errorsFound = false;

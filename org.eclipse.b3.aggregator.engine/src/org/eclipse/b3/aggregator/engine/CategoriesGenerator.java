@@ -261,7 +261,7 @@ public class CategoriesGenerator extends BuilderPhase {
 		LogUtils.info(info);
 		try {
 			List<IInstallableUnit> results = new ArrayList<IInstallableUnit>();
-			Aggregator aggregator = getBuilder().getAggregatorr();
+			Aggregator aggregator = getBuilder().getAggregator();
 
 			// only process custom categories in the main (implicit) aggregate
 			if(aggregate == null) {
@@ -292,7 +292,7 @@ public class CategoriesGenerator extends BuilderPhase {
 	private void tossCategory(IInstallableUnit category) {
 		MetadataRepository parent = (MetadataRepository) ((EObject) category).eContainer();
 		Builder builder = getBuilder();
-		for(Contribution contrib : builder.getAggregatorr().getAggregateContributions(aggregate, true)) {
+		for(Contribution contrib : builder.getAggregator().getAggregateContributions(aggregate, true)) {
 			for(MappedRepository mappedRepo : contrib.getRepositories(true)) {
 				if(mappedRepo.getMetadataRepository() == parent && builder.isMapVerbatim(mappedRepo)) {
 					LogUtils.debug(

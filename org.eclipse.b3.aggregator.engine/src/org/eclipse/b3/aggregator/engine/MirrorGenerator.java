@@ -409,9 +409,9 @@ public class MirrorGenerator extends BuilderPhase {
 			target.getLocation(), result.getMessage());
 	}
 
-	private IMetadataRepositoryManager mdrMgr = null;
+	private IMetadataRepositoryManager mdrMgr;
 
-	private IArtifactRepositoryManager arMgr = null;
+	private IArtifactRepositoryManager arMgr;
 
 	private Map<MetadataRepositoryReference, IArtifactRepository> arCache;
 
@@ -421,7 +421,7 @@ public class MirrorGenerator extends BuilderPhase {
 
 	public Set<IArtifactKey> getArtifactKeysToExclude() throws CoreException {
 		Builder builder = getBuilder();
-		Aggregator aggregator = builder.getAggregatorr();
+		Aggregator aggregator = builder.getAggregator();
 
 		HashSet<IArtifactKey> keysToExclude = new HashSet<IArtifactKey>();
 		List<Contribution> contribs = aggregator.getContributions();
@@ -469,7 +469,7 @@ public class MirrorGenerator extends BuilderPhase {
 		arMgr = P2Utils.getRepositoryManager(getBuilder().getProvisioningAgent(), IArtifactRepositoryManager.class);
 		arCache = null;
 
-		Aggregator aggregator = builder.getAggregatorr();
+		Aggregator aggregator = builder.getAggregator();
 		String aggregatorLabel = aggregator.getLabel();
 
 		SubMonitor subMon = SubMonitor.convert(monitor, 1000);
@@ -807,6 +807,8 @@ public class MirrorGenerator extends BuilderPhase {
 				LogUtils.info("Done adding maven metadata");
 			}
 
+			mdrMgr = P2Utils.getRepositoryManager(getBuilder().getProvisioningAgent(), IMetadataRepositoryManager.class);
+
 			Collection<String> aggregateChildrenSubdirectories = builder.getChildrenSubdirectories();
 
 			if(reposWithReferencedMetadata.isEmpty() && aggregateChildrenSubdirectories.isEmpty()) {
@@ -846,7 +848,7 @@ public class MirrorGenerator extends BuilderPhase {
 				//
 				LogUtils.info("Making the aggregated artifact repository final at %s", finalURI);
 				for(String name : aggregateDestination.list()) {
-					if("content.jar".equals(name))
+					if("content.jar".equals(name) || aggregateChildrenSubdirectories.contains("/" + name))
 						continue;
 
 					File oldLocation = new File(aggregateDestination, name);

@@ -253,11 +253,14 @@ public class Builder extends ModelAbstractCommand {
 			throws CoreException {
 		deleteMetadataRepository(mdrMgr, repoFolder);
 
-		for(File repoSubFolder : repoFolder.listFiles()) {
-			if(repoSubFolder.isDirectory()) {
-				if(deleteMetadataRepository(mdrMgr, repoSubFolder))
-					// try to delete the directory if it seems it used to be a metadata repository
-					repoSubFolder.delete();
+		File[] secondLevelRepositories = repoFolder.listFiles();
+		if(secondLevelRepositories != null) {
+			for(File repoSubFolder : repoFolder.listFiles()) {
+				if(repoSubFolder.isDirectory()) {
+					if(deleteMetadataRepository(mdrMgr, repoSubFolder))
+						// try to delete the directory if it seems it used to be a metadata repository
+						repoSubFolder.delete();
+				}
 			}
 		}
 	}
@@ -404,7 +407,7 @@ public class Builder extends ModelAbstractCommand {
 	@Argument
 	private List<String> unparsed = new ArrayList<String>();
 
-	private Aggregator aggregatorr;
+	private Aggregator aggregator;
 
 	private String buildLabel;
 
@@ -436,7 +439,7 @@ public class Builder extends ModelAbstractCommand {
 	 * @param repository
 	 *            The repository for which to exclude a mapping
 	 * @param rc
-	 *            The required capability to be excluded/replaceed
+	 *            The required capability to be excluded/replaced
 	 */
 	public void addMappingExclusion(MappedRepository repository) {
 		if(exclusions == null) {
@@ -455,7 +458,7 @@ public class Builder extends ModelAbstractCommand {
 
 	private void cleanMemoryCaches() {
 		safeAggregateNameMap.clear();
-		categoryIUs.clear();
+		categoryIUs = null;
 		allUnitsToAggregate.clear();
 		unitsToAggregate.clear();
 	}
@@ -482,8 +485,8 @@ public class Builder extends ModelAbstractCommand {
 		return "/aggregate_" + safeName;
 	}
 
-	public Aggregator getAggregatorr() {
-		return aggregatorr;
+	public Aggregator getAggregator() {
+		return aggregator;
 	}
 
 	public Set<IInstallableUnit> getAllUnitsToAggregate() {
@@ -549,7 +552,7 @@ public class Builder extends ModelAbstractCommand {
 	}
 
 	public URI getTargetCompositeURI() throws CoreException {
-		if(aggregatorr.getAggregates().isEmpty())
+		if(aggregator.getAggregates().isEmpty())
 			return null;
 		return createURI(new File(buildRoot, REPO_FOLDER_FINAL));
 	}
@@ -636,7 +639,7 @@ public class Builder extends ModelAbstractCommand {
 
 		Set<MetadataRepositoryReference> repositoriesToLoad = new HashSet<MetadataRepositoryReference>();
 
-		Aggregator aggregator = getAggregatorr();
+		Aggregator aggregator = getAggregator();
 		ResourceSet topSet = ((EObject) aggregator).eResource().getResourceSet();
 		// first, set up asynchronous loading jobs so that the repos are loaded in parallel
 		for(MetadataRepositoryReference repo : aggregator.getAllMetadataRepositoryReferences(true)) {
@@ -693,12 +696,12 @@ public class Builder extends ModelAbstractCommand {
 	 */
 	private void loadModel() throws CoreException {
 		try {
-			aggregatorr = loadModelFromFile();
+			aggregator = loadModelFromFile();
 
 			verifyContributions();
 
 			if(packedStrategy != null)
-				aggregatorr.setPackedStrategy(packedStrategy);
+				aggregator.setPackedStrategy(packedStrategy);
 
 			if(trustedContributions != null) {
 				for(String contributionLabel : trustedContributions.split(",")) {
@@ -706,7 +709,7 @@ public class Builder extends ModelAbstractCommand {
 					boolean found = false;
 
 					if(contributionLabel != null)
-						for(Contribution contribution : aggregatorr.getContributions()) {
+						for(Contribution contribution : aggregator.getContributions()) {
 							if(contributionLabel.equals(contribution.getLabel())) {
 								for(MappedRepository repository : contribution.getRepositories(true))
 									repository.setMirrorArtifacts(false);
@@ -727,7 +730,7 @@ public class Builder extends ModelAbstractCommand {
 					HashSet<MappedUnit> removedMappings = new HashSet<MappedUnit>();
 
 					if(contributionLabel != null) {
-						Iterator<Contribution> iterator = aggregatorr.getContributions().iterator();
+						Iterator<Contribution> iterator = aggregator.getContributions().iterator();
 						while(iterator.hasNext()) {
 							Contribution contribution = iterator.next();
 
@@ -736,7 +739,7 @@ public class Builder extends ModelAbstractCommand {
 									MetadataRepositoryReferenceImpl validationRepo = (MetadataRepositoryReferenceImpl) AggregatorFactory.eINSTANCE.createMetadataRepositoryReference();
 									validationRepo.setNature(repository.getNature());
 									validationRepo.setLocation(repository.getLocation());
-									aggregatorr.getValidationRepositories().add(validationRepo);
+									aggregator.getValidationRepositories().add(validationRepo);
 
 									removedMappings.addAll(repository.getFeatures());
 								}
@@ -750,7 +753,7 @@ public class Builder extends ModelAbstractCommand {
 						throw ExceptionUtils.fromMessage("Unable to use contribution " + contributionLabel +
 								" for validation only: contribution does not exist");
 
-					for(CustomCategory customCategory : aggregatorr.getCustomCategories()) {
+					for(CustomCategory customCategory : aggregator.getCustomCategories()) {
 						Iterator<Feature> iterator = customCategory.getFeatures().iterator();
 						while(iterator.hasNext()) {
 							Feature feature = iterator.next();
@@ -760,18 +763,18 @@ public class Builder extends ModelAbstractCommand {
 					}
 				}
 
-				EList<Aggregate> aggregates = aggregatorr.getAggregates();
+				EList<Aggregate> aggregates = aggregator.getAggregates();
 				if(aggregates.size() > 0) {
 					// TODO handle custom categories spanning aggregates - for now we remove all but features contributed
 					// by contributions which are part of the main (implicit) aggregate from the custom categories
 					HashSet<MappedUnit> allMainAggregateFeatures = new HashSet<MappedUnit>();
 
-					for(Contribution mainAggregateContribution : aggregatorr.getAggregateContributions(null)) {
+					for(Contribution mainAggregateContribution : aggregator.getAggregateContributions(null)) {
 						for(MappedRepository mainAggregateRepository : mainAggregateContribution.getRepositories())
 							allMainAggregateFeatures.addAll(mainAggregateRepository.getFeatures());
 					}
 
-					for(CustomCategory customCategory : aggregatorr.getCustomCategories()) {
+					for(CustomCategory customCategory : aggregator.getCustomCategories()) {
 						Iterator<Feature> iterator = customCategory.getFeatures().iterator();
 						while(iterator.hasNext()) {
 							Feature feature = iterator.next();
@@ -783,21 +786,21 @@ public class Builder extends ModelAbstractCommand {
 			}
 
 			if(mavenResult != null)
-				aggregatorr.setMavenResult(mavenResult.booleanValue());
+				aggregator.setMavenResult(mavenResult.booleanValue());
 
-			if(trustedContributions != null && aggregatorr.isMavenResult())
+			if(trustedContributions != null && aggregator.isMavenResult())
 				throw ExceptionUtils.fromMessage("Options --trustedContributions cannot be used if maven result is required");
 
-			sendmail = aggregatorr.isSendmail();
-			buildLabel = aggregatorr.getLabel();
+			sendmail = aggregator.isSendmail();
+			buildLabel = aggregator.getLabel();
 
-			Contact buildMaster = aggregatorr.getBuildmaster();
+			Contact buildMaster = aggregator.getBuildmaster();
 			if(buildMaster != null) {
 				buildMasterName = buildMaster.getName();
 				buildMasterEmail = buildMaster.getEmail();
 			}
 
-			Diagnostic diag = Diagnostician.INSTANCE.validate((EObject) aggregatorr);
+			Diagnostic diag = Diagnostician.INSTANCE.validate((EObject) aggregator);
 			if(diag.getSeverity() == Diagnostic.ERROR) {
 				for(Diagnostic childDiag : diag.getChildren())
 					LogUtils.error(childDiag.getMessage());
@@ -805,7 +808,7 @@ public class Builder extends ModelAbstractCommand {
 			}
 
 			if(buildRoot == null) {
-				setBuildRoot(new File(PROPERTY_REPLACER.replaceProperties(aggregatorr.getBuildRoot())));
+				setBuildRoot(new File(PROPERTY_REPLACER.replaceProperties(aggregator.getBuildRoot())));
 
 				if(!buildRoot.isAbsolute())
 					setBuildRoot(new File(buildModelLocation.getParent(), buildRoot.getPath()).getAbsoluteFile());
@@ -916,8 +919,8 @@ public class Builder extends ModelAbstractCommand {
 				Map<String, String> props = new HashMap<String, String>();
 				// TODO Where is PROP_FLAVOR gone?
 				//props.put(IProfile.PROP_FLAVOR, "tooling"); //$NON-NLS-1$
-				props.put(IProfile.PROP_NAME, aggregatorr.getLabel());
-				props.put(IProfile.PROP_DESCRIPTION, format("Default profile during %s build", aggregatorr.getLabel()));
+				props.put(IProfile.PROP_NAME, aggregator.getLabel());
+				props.put(IProfile.PROP_DESCRIPTION, format("Default profile during %s build", aggregator.getLabel()));
 				props.put(IProfile.PROP_CACHE, instArea);
 				props.put(IProfile.PROP_INSTALL_FOLDER, instArea);
 				profileRegistry.addProfile(PROFILE_ID, props);
@@ -928,10 +931,13 @@ public class Builder extends ModelAbstractCommand {
 
 			loadAllMappedRepositories();
 
-			List<Aggregate> aggregates = aggregatorr.getAggregates();
+			List<Aggregate> aggregates = aggregator.getAggregates();
 			List<Aggregate> aggregatesIncludingMain = new ArrayList<Aggregate>(1 + aggregates.size());
+			// null aggregate is the main (implicit) one
+			// note that it must come first otherwise some directories created during
+			// creation of aggregates will be deleted
+			aggregatesIncludingMain.add(null);
 			aggregatesIncludingMain.addAll(aggregates);
-			aggregatesIncludingMain.add(null); // null aggregate is the main (implicit) one
 
 			runCompositeGenerator(MonitorUtils.subMonitor(monitor, 70));
 
@@ -1195,7 +1201,7 @@ public class Builder extends ModelAbstractCommand {
 
 	private void verifyContributions() throws CoreException {
 		List<String> errors = new ArrayList<String>();
-		for(Contribution contribution : aggregatorr.getContributions()) {
+		for(Contribution contribution : aggregator.getContributions()) {
 			Resource res = ((EObject) contribution).eResource();
 			for(Resource.Diagnostic diag : res.getErrors()) {
 				String msg = res.getURI() + ": " + diag.toString();

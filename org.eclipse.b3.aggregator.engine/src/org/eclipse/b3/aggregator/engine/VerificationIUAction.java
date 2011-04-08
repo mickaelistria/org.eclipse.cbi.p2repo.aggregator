@@ -284,7 +284,7 @@ public class VerificationIUAction extends AbstractPublisherAction {
 		Map<String, Set<RepositoryRequirement>> required = new HashMap<String, Set<RepositoryRequirement>>();
 
 		boolean errorsFound = false;
-		List<Contribution> aggregateContribs = builder.getAggregatorr().getAggregateContributions(aggregate, true);
+		List<Contribution> aggregateContribs = builder.getAggregator().getAggregateContributions(aggregate, true);
 		SubMonitor subMon = SubMonitor.convert(monitor, 2 + aggregateContribs.size());
 		try {
 			Set<String> explicit = new HashSet<String>();

@@ -32,7 +32,7 @@ import org.eclipse.equinox.p2.repository.metadata.IMetadataRepositoryManager;
 
 public class MetadataMirrorGenerator extends BuilderPhase {
 
-	private IMetadataRepositoryManager mdrMgr = null;
+	private IMetadataRepositoryManager mdrMgr;
 
 	private Aggregate aggregate;
 
@@ -89,7 +89,7 @@ public class MetadataMirrorGenerator extends BuilderPhase {
 		SubMonitor subMon = SubMonitor.convert(monitor, 1000);
 		boolean artifactErrors = false;
 		try {
-			Aggregator aggregator = builder.getAggregatorr();
+			Aggregator aggregator = builder.getAggregator();
 
 			subMon.setTaskName("Mirroring meta-data for aggregate: " + taskLabel + "...");
 			MonitorUtils.subTask(subMon, "Initializing");
