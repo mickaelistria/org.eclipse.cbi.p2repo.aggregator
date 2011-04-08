@@ -6,7 +6,9 @@
  */
 package org.eclipse.b3.aggregator.provider;
 
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Iterator;
 import java.util.List;
 
 import org.eclipse.b3.aggregator.Aggregate;
@@ -14,16 +16,21 @@ import org.eclipse.b3.aggregator.Aggregator;
 import org.eclipse.b3.aggregator.AggregatorFactory;
 import org.eclipse.b3.aggregator.AggregatorPackage;
 import org.eclipse.b3.aggregator.Contribution;
+import org.eclipse.b3.aggregator.LinkSource;
 import org.eclipse.b3.aggregator.MappedRepository;
 import org.eclipse.b3.aggregator.MavenMapping;
 import org.eclipse.b3.aggregator.MetadataRepositoryReference;
 import org.eclipse.b3.aggregator.util.FilteringCollection;
 import org.eclipse.b3.aggregator.util.ResourceUtils;
 import org.eclipse.emf.common.command.Command;
+import org.eclipse.emf.common.command.CompoundCommand;
+import org.eclipse.emf.common.command.UnexecutableCommand;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.command.CommandParameter;
+import org.eclipse.emf.edit.command.SetCommand;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
@@ -244,10 +251,59 @@ public class AggregatorItemProvider extends DescriptionProviderItemProvider impl
 	}
 
 	@Override
-	protected Command createDragAndDropCommand(EditingDomain domain, Object owner, float location, int operations,
-			int operation, Collection<?> collection) {
-		// TODO implement a drop command for configurations from the aggregates
-		return super.createDragAndDropCommand(domain, owner, location, operations, operation, collection);
+	public Command createCommand(Object object, EditingDomain domain, Class<? extends Command> commandClass,
+			CommandParameter commandParameter) {
+		CREATE_CUSTOM_COMMAND: {
+			if(commandClass == SetCommand.class) {
+				if(commandParameter.getEStructuralFeature() != null)
+					break CREATE_CUSTOM_COMMAND;
+
+				List<?> valueList;
+				Object setValue = commandParameter.getValue();
+				if(setValue instanceof Collection) {
+					Collection<?> collection = (Collection<?>) setValue;
+					if(collection.isEmpty())
+						break CREATE_CUSTOM_COMMAND;
+					valueList = new ArrayList<Object>(collection);
+				}
+				else
+					break CREATE_CUSTOM_COMMAND;
+
+				CompoundCommand compoundCommand = createCompoundLinkCommand(domain, valueList);
+
+				if(compoundCommand.isEmpty()) {
+					compoundCommand.dispose();
+					break CREATE_CUSTOM_COMMAND;
+				}
+
+				if(!valueList.isEmpty()) {
+					compoundCommand.dispose();
+					return UnexecutableCommand.INSTANCE;
+				}
+
+				return compoundCommand.unwrap();
+			}
+		}
+
+		return super.createCommand(object, domain, commandClass, commandParameter);
+	}
+
+	public CompoundCommand createCompoundLinkCommand(EditingDomain domain, List<?> valueList) {
+		CompoundCommand compoundCommand = new CompoundCommand(CompoundCommand.MERGE_COMMAND_ALL);
+
+		for(Iterator<?> valueIterator = valueList.iterator(); valueIterator.hasNext();) {
+			Object value = valueIterator.next();
+			Object unwrappedValue = unwrap(value);
+
+			if(unwrappedValue instanceof LinkSource && unwrappedValue != value) {
+				compoundCommand.append(new SetCommand(
+					domain, (EObject) unwrappedValue, AggregatorPackage.Literals.LINK_SOURCE__RECEIVER,
+					SetCommand.UNSET_VALUE));
+				valueIterator.remove();
+			}
+		}
+
+		return compoundCommand;
 	}
 
 	/**

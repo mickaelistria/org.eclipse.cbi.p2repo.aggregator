@@ -36,11 +36,11 @@ public class SortCommand<T> extends AbstractCommand {
 
 		public int compare(T o1, T o2) {
 
-			if(o1 == null)
+			if(o1 == null) {
 				if(o2 == null)
 					return 0;
-				else
-					return -1;
+				return -1;
+			}
 			else if(o2 == null)
 				return 1;
 			else {
@@ -53,7 +53,6 @@ public class SortCommand<T> extends AbstractCommand {
 				return result;
 			}
 		}
-
 	};
 
 	private EList<T> containment;

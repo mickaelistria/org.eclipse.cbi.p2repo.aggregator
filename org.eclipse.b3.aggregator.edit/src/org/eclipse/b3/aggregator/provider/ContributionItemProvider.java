@@ -29,6 +29,7 @@ import org.eclipse.b3.aggregator.util.AddIUsToContributionCommand;
 import org.eclipse.b3.aggregator.util.ItemSorter;
 import org.eclipse.b3.aggregator.util.ItemSorter.ItemGroup;
 import org.eclipse.b3.aggregator.util.ItemUtils;
+import org.eclipse.b3.aggregator.util.OverlaidImage;
 import org.eclipse.b3.aggregator.util.ResourceUtils;
 import org.eclipse.b3.p2.InstallableUnit;
 import org.eclipse.b3.p2.MetadataRepository;
@@ -41,9 +42,10 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.command.CommandParameter;
-import org.eclipse.emf.edit.command.RemoveCommand;
+import org.eclipse.emf.edit.command.CopyCommand;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
+import org.eclipse.emf.edit.provider.DelegatingWrapperItemProvider;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemColorProvider;
 import org.eclipse.emf.edit.provider.IItemFontProvider;
@@ -52,7 +54,6 @@ import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
-import org.eclipse.emf.edit.provider.IWrapperItemProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.eclipse.equinox.p2.metadata.IInstallableUnit;
@@ -66,6 +67,38 @@ import org.eclipse.equinox.p2.metadata.IInstallableUnit;
 public class ContributionItemProvider extends AggregatorItemProviderAdapter implements IEditingDomainItemProvider,
 		IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource,
 		IItemColorProvider, IItemFontProvider {
+
+	public class ContributionWrapperItemProvider extends DelegatingWrapperItemProvider {
+
+		public ContributionWrapperItemProvider(Object value, Object owner, EStructuralFeature feature, int index,
+				AdapterFactory adapterFactory) {
+			super(value, owner, feature, index, adapterFactory);
+		}
+
+		@Override
+		public Command createCommand(Object object, EditingDomain domain, Class<? extends Command> commandClass,
+				CommandParameter commandParameter) {
+			// we need to disable copying of the wrapped Contribution nodes, that is why this specialized wrapper
+			if(commandClass == CopyCommand.class)
+				return UnexecutableCommand.INSTANCE;
+
+			return super.createCommand(object, domain, commandClass, commandParameter);
+		}
+
+		@Override
+		public Object getImage(Object object) {
+			Object image = super.getImage(object);
+
+			if(image != null)
+				image = new OverlaidImage(
+					new Object[] { image, getResourceLocator().getImage("full/ovr16/Link") },
+					OverlaidImage.BASIC_BOTTOM_LEFT);
+
+			return image;
+		}
+
+	}
+
 	static class DynamicItemPropertyDescriptor extends AggregatorItemPropertyDescriptor {
 
 		public DynamicItemPropertyDescriptor(AdapterFactory adapterFactory, ResourceLocator resourceLocator,
@@ -117,6 +150,7 @@ public class ContributionItemProvider extends AggregatorItemProviderAdapter impl
 
 			return null;
 		}
+
 	}
 
 	/**
@@ -212,18 +246,6 @@ public class ContributionItemProvider extends AggregatorItemProviderAdapter impl
 			AggregatorPackage.Literals.CONTRIBUTION__MAVEN_MAPPINGS, AggregatorFactory.eINSTANCE.createMavenMapping()));
 	}
 
-	@Override
-	protected Command createAddCommand(EditingDomain domain, EObject owner, EStructuralFeature feature,
-			Collection<?> collection, int index) {
-		for(Object value : collection) {
-			if(value instanceof IWrapperItemProvider &&
-					((IWrapperItemProvider) value).getValue() instanceof Contribution)
-				return UnexecutableCommand.INSTANCE;
-		}
-
-		return super.createAddCommand(domain, owner, feature, collection, index);
-	}
-
 	@SuppressWarnings("unchecked")
 	private Command createAddIUsToContributionCommand(Object owner, Collection<?> collection) {
 		ItemSorter itemSorter = new ItemSorter(collection);
@@ -256,9 +278,7 @@ public class ContributionItemProvider extends AggregatorItemProviderAdapter impl
 		Command command = createAddIUsToContributionCommand(owner, collection);
 
 		if(command != null)
-			return command.canExecute()
-					? command
-					: UnexecutableCommand.INSTANCE;
+			return command;
 
 		return super.createDragAndDropCommand(domain, owner, location, operations, operation, collection);
 	}
@@ -277,32 +297,28 @@ public class ContributionItemProvider extends AggregatorItemProviderAdapter impl
 	}
 
 	/**
-	 * Allow deleting a child from mapped repository only if the contribution is enabled
+	 * Allow deleting a child from contribution only if the contribution is enabled
 	 */
 	@Override
 	@Deprecated
 	protected Command createRemoveCommand(EditingDomain domain, EObject owner, EReference feature,
 			Collection<?> collection) {
-		if(((Contribution) owner).isEnabled())
-			return new RemoveCommand(domain, owner, feature, collection);
+		if(!((Contribution) owner).isEnabled())
+			return UnexecutableCommand.INSTANCE;
 
-		return UnexecutableCommand.INSTANCE;
+		return super.createRemoveCommand(domain, owner, feature, collection);
 	}
 
 	/**
-	 * Allow deleting a child from mapped repository only if the contribution is enabled
+	 * Allow deleting a child from contribution only if the contribution is enabled
 	 */
 	@Override
 	protected Command createRemoveCommand(EditingDomain domain, EObject owner, EStructuralFeature feature,
 			Collection<?> collection) {
-		if(feature instanceof EReference) {
-			return createRemoveCommand(domain, owner, (EReference) feature, collection);
-		}
+		if(!((Contribution) owner).isEnabled())
+			return UnexecutableCommand.INSTANCE;
 
-		if(((Contribution) owner).isEnabled())
-			return new RemoveCommand(domain, owner, feature, collection);
-
-		return UnexecutableCommand.INSTANCE;
+		return super.createRemoveCommand(domain, owner, feature, collection);
 	}
 
 	/**

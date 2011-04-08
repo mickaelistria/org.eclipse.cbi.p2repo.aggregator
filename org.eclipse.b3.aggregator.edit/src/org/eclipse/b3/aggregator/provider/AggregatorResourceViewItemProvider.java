@@ -13,12 +13,8 @@ import java.util.List;
 import org.eclipse.b3.aggregator.AggregatorFactory;
 import org.eclipse.b3.aggregator.AggregatorPackage;
 import org.eclipse.b3.aggregator.AggregatorResourceView;
-import org.eclipse.b3.aggregator.Contribution;
 import org.eclipse.b3.aggregator.impl.AggregatorResourceViewImpl;
-import org.eclipse.b3.aggregator.util.CompoundCommandWithFeedback;
-import org.eclipse.b3.aggregator.util.LinkCommand;
 import org.eclipse.emf.common.command.Command;
-import org.eclipse.emf.common.command.CompoundCommand;
 import org.eclipse.emf.common.command.UnexecutableCommand;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
@@ -27,7 +23,6 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.command.CopyCommand.Helper;
 import org.eclipse.emf.edit.domain.EditingDomain;
-import org.eclipse.emf.edit.provider.DelegatingWrapperItemProvider;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemColorProvider;
 import org.eclipse.emf.edit.provider.IItemFontProvider;
@@ -147,12 +142,16 @@ public class AggregatorResourceViewItemProvider extends AggregatorItemProviderAd
 	@Override
 	protected Command createReplaceCommand(EditingDomain domain, EObject owner, EStructuralFeature feature,
 			EObject value, Collection<?> collection) {
+		if(feature == AggregatorPackage.Literals.AGGREGATOR_RESOURCE_VIEW__AGGREGATES) {
+			return super.createReplaceCommand(
+				domain, (EObject) ((AggregatorResourceViewImpl) owner).getAggregator(),
+				(EStructuralFeature) AggregatorPackage.Literals.AGGREGATOR__AGGREGATES, value, collection);
+		}
 		return UnexecutableCommand.INSTANCE;
 	}
 
 	@Override
-	protected Command createSetCommand(EditingDomain domain, EObject owner, EStructuralFeature feature, Object value,
-			int index) {
+	protected Command createSetCommand(EditingDomain domain, EObject owner, EStructuralFeature feature, Object value) {
 		if(feature == AggregatorPackage.Literals.AGGREGATOR_RESOURCE_VIEW__AGGREGATES) {
 			return super.createSetCommand(
 				domain, (EObject) ((AggregatorResourceViewImpl) owner).getAggregator(),
@@ -162,46 +161,26 @@ public class AggregatorResourceViewItemProvider extends AggregatorItemProviderAd
 	}
 
 	@Override
+	protected Command createSetCommand(EditingDomain domain, EObject owner, EStructuralFeature feature, Object value,
+			int index) {
+		if(feature == AggregatorPackage.Literals.AGGREGATOR_RESOURCE_VIEW__AGGREGATES) {
+			return super.createSetCommand(
+				domain, (EObject) ((AggregatorResourceViewImpl) owner).getAggregator(),
+				(EStructuralFeature) AggregatorPackage.Literals.AGGREGATOR__AGGREGATES, value, index);
+		}
+		return UnexecutableCommand.INSTANCE;
+	}
+
+	@Override
 	protected Object createWrapper(EObject object, EStructuralFeature feature, Object value, int index) {
 		// we need to wrap Aggregate objects so that they appear to be children of the AggregatorResource instance
 		// that the object we adapt is a view of
 		if(feature == AggregatorPackage.Literals.AGGREGATOR_RESOURCE_VIEW__AGGREGATES) {
-			return new DelegatingWrapperItemProvider(
-				value, ((AggregatorResourceViewImpl) object).getAggregatorResource(), feature, index, adapterFactory) {
+			AggregateItemProvider aggregateItemProvider = (AggregateItemProvider) getRootAdapterFactory().adapt(
+				value, IEditingDomainItemProvider.class);
 
-				@Override
-				protected Command createDragAndDropCommand(EditingDomain domain, Object owner, float location,
-						int operations, int operation, Collection<?> collection) {
-					CREATE_LINK_COMMAND: {
-						Object realOwner = unwrap(owner);
-
-						if(collection == null || collection.isEmpty())
-							break CREATE_LINK_COMMAND;
-
-						CompoundCommand compoundLinkCommand = new CompoundCommandWithFeedback(
-							CompoundCommand.MERGE_COMMAND_ALL);
-
-						for(Object value : collection) {
-							value = unwrap(value);
-							if(!(value instanceof Contribution)) {
-								compoundLinkCommand.dispose();
-								break CREATE_LINK_COMMAND;
-							}
-							compoundLinkCommand.append(new LinkCommand(domain, (EObject) value, realOwner));
-						}
-
-						if(!compoundLinkCommand.canExecute()) {
-							compoundLinkCommand.dispose();
-							return UnexecutableCommand.INSTANCE;
-						}
-
-						return compoundLinkCommand.unwrap();
-					}
-
-					return super.createDragAndDropCommand(domain, owner, location, operations, operation, collection);
-				}
-
-			};
+			return aggregateItemProvider.new AggregateWrapperItemProvider(
+				value, ((AggregatorResourceViewImpl) object).getAggregatorResource(), feature, index, adapterFactory);
 		}
 		return super.createWrapper(object, feature, value, index);
 	}

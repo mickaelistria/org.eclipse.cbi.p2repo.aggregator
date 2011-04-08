@@ -1021,7 +1021,8 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 									repo.getNature(), repo.getResolvedLocation(), repo.getAggregator());
 								if(monitor.isCanceled())
 									break;
-								res.startAsynchronousLoad(false);
+								if(res != null)
+									res.startAsynchronousLoad(false);
 							}
 
 							return Status.OK_STATUS;
@@ -1802,18 +1803,9 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 				}
 
 				public Object getOverlaidImage(Object baseImage, Object overlayImage) {
-					if(overlayImage != null) {
-						Object[] images = new Object[2];
-						int[] positions = new int[2];
-
-						images[0] = baseImage;
-						positions[0] = OverlaidImage.BASIC;
-
-						images[1] = overlayImage;
-						positions[1] = OverlaidImage.OVERLAY_BOTTOM_RIGHT;
-
-						return new OverlaidImage(images, positions);
-					}
+					if(overlayImage != null)
+						return new OverlaidImage(
+							new Object[] { baseImage, overlayImage }, OverlaidImage.BASIC_BOTTOM_RIGHT);
 
 					return baseImage;
 				}

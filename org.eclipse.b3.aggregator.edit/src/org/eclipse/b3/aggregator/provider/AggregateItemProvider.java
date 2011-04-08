@@ -7,19 +7,30 @@
  */
 package org.eclipse.b3.aggregator.provider;
 
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Iterator;
 import java.util.List;
 
 import org.eclipse.b3.aggregator.Aggregate;
 import org.eclipse.b3.aggregator.AggregatorPackage;
+import org.eclipse.b3.aggregator.Contribution;
+import org.eclipse.b3.aggregator.LinkSource;
 import org.eclipse.b3.aggregator.impl.AggregateImpl;
 import org.eclipse.emf.common.command.Command;
+import org.eclipse.emf.common.command.CompoundCommand;
+import org.eclipse.emf.common.command.UnexecutableCommand;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.ResourceLocator;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.command.CommandParameter;
+import org.eclipse.emf.edit.command.RemoveCommand;
+import org.eclipse.emf.edit.command.SetCommand;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
+import org.eclipse.emf.edit.provider.DelegatingWrapperItemProvider;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemColorProvider;
 import org.eclipse.emf.edit.provider.IItemFontProvider;
@@ -28,6 +39,7 @@ import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
+import org.eclipse.emf.edit.provider.IWrapperItemProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
@@ -41,6 +53,107 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
 public class AggregateItemProvider extends AggregatorItemProviderAdapter implements IEditingDomainItemProvider,
 		IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource,
 		IItemColorProvider, IItemFontProvider {
+
+	public class AggregateWrapperItemProvider extends DelegatingWrapperItemProvider {
+
+		public AggregateWrapperItemProvider(Object value, Object owner, EStructuralFeature feature, int index,
+				AdapterFactory adapterFactory) {
+			super(value, owner, feature, index, adapterFactory);
+		}
+
+		@Override
+		public Command createCommand(Object object, EditingDomain domain, Class<? extends Command> commandClass,
+				CommandParameter commandParameter) {
+			CREATE_CUSTOM_COMMAND: {
+				if(commandClass == SetCommand.class) {
+					if(commandParameter.getEStructuralFeature() != null)
+						break CREATE_CUSTOM_COMMAND;
+
+					List<?> valueList;
+					Object setValue = commandParameter.getValue();
+					if(setValue instanceof Collection) {
+						Collection<?> collection = (Collection<?>) setValue;
+						if(collection.isEmpty())
+							break CREATE_CUSTOM_COMMAND;
+						valueList = new ArrayList<Object>(collection);
+					}
+					else
+						break CREATE_CUSTOM_COMMAND;
+
+					CompoundCommand compoundCommand = createCompoundLinkCommand(domain, valueList, getDelegateValue());
+
+					if(compoundCommand.isEmpty()) {
+						compoundCommand.dispose();
+						break CREATE_CUSTOM_COMMAND;
+					}
+
+					if(!valueList.isEmpty()) {
+						compoundCommand.dispose();
+						return UnexecutableCommand.INSTANCE;
+					}
+
+					return compoundCommand.unwrap();
+				}
+				else if(commandClass == RemoveCommand.class) {
+					Collection<?> collection = commandParameter.getCollection();
+					if(collection == null || collection.isEmpty())
+						break CREATE_CUSTOM_COMMAND;
+
+					List<?> valueList = new ArrayList<Object>(collection);
+
+					CompoundCommand compoundCommand = createCompoundLinkCommand(
+						domain, valueList, SetCommand.UNSET_VALUE);
+
+					if(!valueList.isEmpty()) {
+						commandParameter.collection = valueList;
+						compoundCommand.append(super.createCommand(object, domain, commandClass, commandParameter));
+					}
+
+					return compoundCommand.unwrap();
+				}
+			}
+
+			return super.createCommand(object, domain, commandClass, commandParameter);
+		}
+
+		public CompoundCommand createCompoundLinkCommand(EditingDomain domain, List<?> valueList, Object linkReceiver) {
+			CompoundCommand compoundCommand = new CompoundCommand(CompoundCommand.MERGE_COMMAND_ALL);
+			Object realLinkReceiver = unwrap(linkReceiver);
+
+			for(Iterator<?> valueIterator = valueList.iterator(); valueIterator.hasNext();) {
+				Object value = valueIterator.next();
+				Object unwrappedValue = unwrap(value);
+
+				if(unwrappedValue instanceof LinkSource) {
+					if(((EObject) unwrappedValue).eGet(AggregatorPackage.Literals.LINK_SOURCE__RECEIVER) != realLinkReceiver)
+						compoundCommand.append(new SetCommand(
+							domain, (EObject) unwrappedValue, AggregatorPackage.Literals.LINK_SOURCE__RECEIVER,
+							realLinkReceiver));
+					else
+						compoundCommand.append(UnexecutableCommand.INSTANCE); // disable linking to where the LinkSource is already linked
+
+					valueIterator.remove();
+				}
+			}
+
+			return compoundCommand;
+		}
+
+		@Override
+		protected IWrapperItemProvider createWrapper(Object value, Object owner, AdapterFactory adapterFactory) {
+			Object unwrappedValue = unwrap(value);
+
+			if(unwrappedValue instanceof Contribution) {
+				ContributionItemProvider contributionItemProvider = (ContributionItemProvider) getRootAdapterFactory().adapt(
+					unwrappedValue, IEditingDomainItemProvider.class);
+
+				return contributionItemProvider.new ContributionWrapperItemProvider(
+					value, owner, null, CommandParameter.NO_INDEX, adapterFactory);
+			}
+			return super.createWrapper(value, owner, adapterFactory);
+		}
+
+	}
 
 	/**
 	 * This constructs an instance from a factory and a notifier.
@@ -118,12 +231,11 @@ public class AggregateItemProvider extends AggregatorItemProviderAdapter impleme
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 	}
 
-	@Override
-	public Command createCommand(Object object, EditingDomain domain, Class<? extends Command> commandClass,
-			CommandParameter commandParameter) {
-		return super.createCommand(object, domain, commandClass, commandParameter);
-	}
-
+	/**
+	 * {@inheritDoc} <br />
+	 * Please note that {@link AggregateItemProvider this} class can't handle all the children returned by this
+	 * method but {@link AggregateWrapperItemProvider} can.
+	 */
 	@Override
 	public Collection<?> getChildren(Object object) {
 		@SuppressWarnings("unchecked")

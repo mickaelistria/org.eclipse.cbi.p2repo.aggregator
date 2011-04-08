@@ -26,6 +26,16 @@ public class OverlaidImage extends ComposedImage {
 
 	public static final int OVERLAY_CENTER = 5;
 
+	public static final int[] BASIC_TOP_LEFT = new int[] { BASIC, OVERLAY_TOP_LEFT };
+
+	public static final int[] BASIC_TOP_RIGHT = new int[] { BASIC, OVERLAY_TOP_RIGHT };
+
+	public static final int[] BASIC_BOTTOM_LEFT = new int[] { BASIC, OVERLAY_BOTTOM_LEFT };
+
+	public static final int[] BASIC_BOTTOM_RIGHT = new int[] { BASIC, OVERLAY_BOTTOM_RIGHT };
+
+	public static final int[] BASIC_CENTER = new int[] { BASIC, OVERLAY_CENTER };
+
 	private int[] positions;
 
 	public OverlaidImage(Object[] images, int[] positions) {

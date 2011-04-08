@@ -490,7 +490,18 @@ public class AggregateImpl extends MinimalEObjectImpl.Container implements Aggre
 	 * @generated NOT
 	 */
 	public Status getStatus() {
-		// TODO composite - loop through linked contributions and propagate their status
+		StatusCode statusCode;
+
+		for(LinkSource linkedSource : getLinkedSources()) {
+			if(!(linkedSource instanceof Contribution))
+				continue;
+
+			Contribution contribution = (Contribution) linkedSource;
+
+			if((statusCode = contribution.getStatus().getCode()) != StatusCode.OK && statusCode != StatusCode.WAITING)
+				return AggregatorFactory.eINSTANCE.createStatus(StatusCode.BROKEN);
+		}
+
 		return AggregatorFactory.eINSTANCE.createStatus(StatusCode.OK);
 	}
 

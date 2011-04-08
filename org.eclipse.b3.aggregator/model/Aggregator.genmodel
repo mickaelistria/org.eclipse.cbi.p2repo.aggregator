@@ -83,9 +83,9 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Aggregator.ecore#//Aggregator/aggregates"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Aggregator.ecore#//Aggregator/configurations"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Aggregator.ecore#//Aggregator/contributions"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EReference Aggregator.ecore#//Aggregator/buildmaster"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Aggregator.ecore#//Aggregator/contacts"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Aggregator.ecore#//Aggregator/customCategories"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Aggregator.ecore#//Aggregator/contacts"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EReference Aggregator.ecore#//Aggregator/buildmaster"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Aggregator.ecore#//Aggregator/label"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Aggregator.ecore#//Aggregator/buildRoot"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Aggregator.ecore#//Aggregator/packedStrategy"/>
@@ -96,6 +96,13 @@
       <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference Aggregator.ecore#//Aggregator/mavenMappings"/>
       <genOperations ecoreOperation="Aggregator.ecore#//Aggregator/getContributions">
         <genParameters ecoreParameter="Aggregator.ecore#//Aggregator/getContributions/enabledOnly"/>
+      </genOperations>
+      <genOperations ecoreOperation="Aggregator.ecore#//Aggregator/getAggregateContributions">
+        <genParameters ecoreParameter="Aggregator.ecore#//Aggregator/getAggregateContributions/aggregate"/>
+      </genOperations>
+      <genOperations ecoreOperation="Aggregator.ecore#//Aggregator/getAggregateContributions.1">
+        <genParameters ecoreParameter="Aggregator.ecore#//Aggregator/getAggregateContributions.1/aggregate"/>
+        <genParameters ecoreParameter="Aggregator.ecore#//Aggregator/getAggregateContributions.1/enabledOnly"/>
       </genOperations>
       <genOperations ecoreOperation="Aggregator.ecore#//Aggregator/getValidationRepositories">
         <genParameters ecoreParameter="Aggregator.ecore#//Aggregator/getValidationRepositories/enabledOnly"/>
@@ -229,7 +236,7 @@
       <genTypeParameters ecoreTypeParameter="Aggregator.ecore#//ChildrenProvider/T"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference Aggregator.ecore#//ChildrenProvider/children"/>
     </genClasses>
-    <genClasses ecoreClass="Aggregator.ecore#//Status">
+    <genClasses provider="None" image="false" ecoreClass="Aggregator.ecore#//Status">
       <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute Aggregator.ecore#//Status/code"/>
       <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute Aggregator.ecore#//Status/message"/>
     </genClasses>

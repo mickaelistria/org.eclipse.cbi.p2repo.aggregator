@@ -202,14 +202,6 @@ public class AggregatorItemProviderAdapterFactory extends AggregatorAdapterFacto
 	protected DescriptionProviderItemProvider descriptionProviderItemProvider;
 
 	/**
-	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.aggregator.Status} instances.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	protected StatusItemProvider statusItemProvider;
-
-	/**
 	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.aggregator.AvailableVersion} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -620,22 +612,6 @@ public class AggregatorItemProviderAdapterFactory extends AggregatorAdapterFacto
 	}
 
 	/**
-	 * This creates an adapter for a {@link org.eclipse.b3.aggregator.Status}.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	public Adapter createStatusAdapter() {
-		if(statusItemProvider == null) {
-			statusItemProvider = new StatusItemProvider(this);
-		}
-
-		return statusItemProvider;
-	}
-
-	/**
 	 * This creates an adapter for a {@link org.eclipse.b3.aggregator.ValidConfigurationsRule}. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -693,8 +669,6 @@ public class AggregatorItemProviderAdapterFactory extends AggregatorAdapterFacto
 			mavenMappingItemProvider.dispose();
 		if(mavenItemItemProvider != null)
 			mavenItemItemProvider.dispose();
-		if(statusItemProvider != null)
-			statusItemProvider.dispose();
 		if(availableVersionsHeaderItemProvider != null)
 			availableVersionsHeaderItemProvider.dispose();
 		if(availableVersionItemProvider != null)

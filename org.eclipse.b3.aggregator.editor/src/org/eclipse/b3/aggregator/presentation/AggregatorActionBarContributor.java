@@ -44,6 +44,7 @@ import org.eclipse.b3.aggregator.p2.util.MetadataRepositoryResourceImpl;
 import org.eclipse.b3.aggregator.p2view.IUPresentation;
 import org.eclipse.b3.aggregator.p2view.RequirementWrapper;
 import org.eclipse.b3.aggregator.provider.AggregatorEditPlugin;
+import org.eclipse.b3.aggregator.provider.AggregatorItemProvider;
 import org.eclipse.b3.aggregator.util.AddIUsToContributionCommand;
 import org.eclipse.b3.aggregator.util.AddIUsToCustomCategoryCommand;
 import org.eclipse.b3.aggregator.util.AddIUsToParentRepositoryCommand;
@@ -64,6 +65,7 @@ import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.core.runtime.jobs.Job;
 import org.eclipse.emf.common.command.CompoundCommand;
+import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.ui.viewer.IViewerProvider;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
@@ -109,6 +111,7 @@ import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.ITreeContentProvider;
 import org.eclipse.jface.viewers.LabelProvider;
 import org.eclipse.jface.viewers.SelectionChangedEvent;
+import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.jface.viewers.TreePath;
 import org.eclipse.jface.viewers.TreeSelection;
 import org.eclipse.jface.viewers.TreeViewer;
@@ -890,6 +893,8 @@ public class AggregatorActionBarContributor extends EditingDomainActionBarContri
 
 	private Collection<? extends IAction> unlinkAggregateActions;
 
+	private AggregatorItemProvider aggregatorItemProvider;
+
 	/**
 	 * This creates an instance of the contributor. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -911,6 +916,24 @@ public class AggregatorActionBarContributor extends EditingDomainActionBarContri
 
 		linkMenuManager = new MenuManager("Link to");
 		unlinkMenuManager = new MenuManager("Unlink from");
+	}
+
+	@Override
+	public void activate() {
+		super.activate();
+		INITIALIZE_AGGREGATOR_ITEM_PROVIDER: {
+			if(activeEditor instanceof IEditingDomainProvider) {
+				EditingDomain editingDomain = ((IEditingDomainProvider) activeEditor).getEditingDomain();
+
+				if(editingDomain instanceof AdapterFactoryEditingDomain) {
+					AdapterFactory adapterFactory = ((AdapterFactoryEditingDomain) editingDomain).getAdapterFactory();
+					aggregatorItemProvider = new AggregatorItemProvider(adapterFactory);
+					break INITIALIZE_AGGREGATOR_ITEM_PROVIDER;
+				}
+			}
+
+			aggregatorItemProvider = null;
+		}
 	}
 
 	@Override
@@ -990,6 +1013,12 @@ public class AggregatorActionBarContributor extends EditingDomainActionBarContri
 	public void contributeToToolBar(IToolBarManager toolBarManager) {
 		toolBarManager.add(new Separator("aggregator-settings"));
 		toolBarManager.add(new Separator("aggregator-additions"));
+	}
+
+	@Override
+	public void deactivate() {
+		aggregatorItemProvider = null;
+		super.deactivate();
 	}
 
 	/**
@@ -1177,30 +1206,45 @@ public class AggregatorActionBarContributor extends EditingDomainActionBarContri
 	public void menuAboutToShow(IMenuManager menuManager) {
 		menuAboutToShowGen(menuManager);
 
-		if(lastSelection instanceof IStructuredSelection) {
+		INSTALL_AGGREGATE_LINKING_MENU_ENTRIES: {
+			if(!(lastSelection instanceof IStructuredSelection))
+				break INSTALL_AGGREGATE_LINKING_MENU_ENTRIES;
+
 			IStructuredSelection structuredSelection = (IStructuredSelection) lastSelection;
+			if(structuredSelection.size() != 1)
+				break INSTALL_AGGREGATE_LINKING_MENU_ENTRIES;
 
-			if(structuredSelection.getFirstElement() instanceof Contribution) {
-				EList<Aggregate> aggregates = getAggregator().getAggregates();
+			{
+				Object selectedObject = structuredSelection.getFirstElement();
+				Object unwrappedSelectedObject = aggregatorItemProvider.unwrap(selectedObject);
 
-				if(linkMenuManager != null) {
-					depopulateManager(linkMenuManager, linkAggregateActions);
-					linkAggregateActions = generateLinkAggregateActions(structuredSelection, aggregates);
-					if(!linkAggregateActions.isEmpty()) {
-						populateManager(linkMenuManager, linkAggregateActions, null);
-						linkMenuManager.update(true);
-						menuManager.insertBefore("edit", linkMenuManager);
-					}
+				if(!(unwrappedSelectedObject instanceof Contribution))
+					break INSTALL_AGGREGATE_LINKING_MENU_ENTRIES;
+
+				// if the unwrapped object is different from the original then we need to create a new selection object
+				if(unwrappedSelectedObject != selectedObject)
+					structuredSelection = new StructuredSelection(Collections.singletonList(unwrappedSelectedObject));
+			}
+
+			EList<Aggregate> aggregates = getAggregator().getAggregates();
+
+			if(linkMenuManager != null) {
+				depopulateManager(linkMenuManager, linkAggregateActions);
+				linkAggregateActions = generateLinkAggregateActions(structuredSelection, aggregates);
+				if(!linkAggregateActions.isEmpty()) {
+					populateManager(linkMenuManager, linkAggregateActions, null);
+					linkMenuManager.update(true);
+					menuManager.insertBefore("edit", linkMenuManager);
 				}
+			}
 
-				if(unlinkMenuManager != null) {
-					depopulateManager(unlinkMenuManager, unlinkAggregateActions);
-					unlinkAggregateActions = generateUnlinkAggregateActions(structuredSelection, aggregates);
-					if(!unlinkAggregateActions.isEmpty()) {
-						populateManager(unlinkMenuManager, unlinkAggregateActions, null);
-						unlinkMenuManager.update(true);
-						menuManager.insertBefore("edit", unlinkMenuManager);
-					}
+			if(unlinkMenuManager != null) {
+				depopulateManager(unlinkMenuManager, unlinkAggregateActions);
+				unlinkAggregateActions = generateUnlinkAggregateActions(structuredSelection, aggregates);
+				if(!unlinkAggregateActions.isEmpty()) {
+					populateManager(unlinkMenuManager, unlinkAggregateActions, null);
+					unlinkMenuManager.update(true);
+					menuManager.insertBefore("edit", unlinkMenuManager);
 				}
 			}
 		}

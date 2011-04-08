@@ -16,7 +16,9 @@ import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 
 public class AggregatorItemProviderAdapter extends ItemProviderAdapter implements TooltipTextProvider {
+
 	static class AggregatorItemPropertyDescriptor extends ItemPropertyDescriptor {
+
 		public AggregatorItemPropertyDescriptor(AdapterFactory adapterFactory, ResourceLocator resourceLocator,
 				String displayName, String description, EStructuralFeature feature, boolean isSettable,
 				boolean multiLine, boolean sortChoices, Object staticImage, String category, String[] filterFlags) {
@@ -69,6 +71,7 @@ public class AggregatorItemProviderAdapter extends ItemProviderAdapter implement
 
 			super.setPropertyValue(object, value);
 		}
+
 	}
 
 	public static String getTooltipText(Object object, ItemProviderAdapter itemProvider) {
@@ -134,26 +137,22 @@ public class AggregatorItemProviderAdapter extends ItemProviderAdapter implement
 		if(sp != null) {
 			StatusCode sc = sp.getStatus().getCode();
 
-			if(sc == StatusCode.BROKEN || sc == StatusCode.WAITING) {
-				Object[] images = new Object[2];
-				int[] positions = new int[2];
-
-				images[0] = image;
-				positions[0] = OverlaidImage.BASIC;
-
-				if(sc == StatusCode.WAITING) {
-					images[1] = getResourceLocator().getImage("full/ovr16/Loading");
-				}
-				else {
-					images[1] = getResourceLocator().getImage("full/ovr16/Error");
-				}
-				positions[1] = OverlaidImage.OVERLAY_BOTTOM_RIGHT;
-
-				image = new OverlaidImage(images, positions);
-			}
+			if(sc == StatusCode.WAITING || sc == StatusCode.BROKEN)
+				image = new OverlaidImage(new Object[] { image, getResourceLocator().getImage(sc == StatusCode.WAITING
+						? "full/ovr16/Loading"
+						: "full/ovr16/Error") }, OverlaidImage.BASIC_BOTTOM_RIGHT);
 		}
 
 		return image;
+	}
+
+	/**
+	 * {@inheritDoc} <br />
+	 * This only changes the visibility of the method to public.
+	 */
+	@Override
+	public Object unwrap(Object object) {
+		return super.unwrap(object);
 	}
 
 }
