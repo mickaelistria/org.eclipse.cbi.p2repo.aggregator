@@ -15,15 +15,21 @@ import java.util.Map;
 import java.util.Set;
 
 import org.eclipse.b3.p2.MetadataRepository;
-import org.eclipse.b3.util.LogUtils;
+import org.eclipse.buckminster.osgi.filter.Filter;
+import org.eclipse.buckminster.osgi.filter.FilterFactory;
 import org.eclipse.equinox.internal.p2.metadata.IRequiredCapability;
 import org.eclipse.equinox.internal.p2.metadata.expression.ExpressionFactory;
+import org.eclipse.equinox.internal.p2.metadata.expression.LDAPFilter;
+import org.eclipse.equinox.internal.p2.metadata.expression.MatchExpression;
 import org.eclipse.equinox.p2.metadata.IInstallableUnit;
 import org.eclipse.equinox.p2.metadata.IRequirement;
 import org.eclipse.equinox.p2.metadata.MetadataFactory;
 import org.eclipse.equinox.p2.metadata.Version;
 import org.eclipse.equinox.p2.metadata.VersionRange;
+import org.eclipse.equinox.p2.metadata.expression.ExpressionUtil;
+import org.eclipse.equinox.p2.metadata.expression.IFilterExpression;
 import org.eclipse.equinox.p2.metadata.expression.IMatchExpression;
+import org.osgi.framework.InvalidSyntaxException;
 
 /**
  * @author filip.hrbek@cloudsmith.com
@@ -36,61 +42,67 @@ public class RequirementUtils {
 
 	public static IRequirement[] createAllAvailableVersionsRequirements(List<IInstallableUnit> ius,
 			final IMatchExpression<IInstallableUnit> filter) {
-		Map<String, Set<Version>> versionMap = new HashMap<String, Set<Version>>();
-		Map<String, Set<IMatchExpression<IInstallableUnit>>> filterMap = new HashMap<String, Set<IMatchExpression<IInstallableUnit>>>();
-		for(IInstallableUnit iu : ius) {
-			Set<Version> versionSet = versionMap.get(iu.getId());
-			if(versionSet == null) {
-				versionMap.put(iu.getId(), versionSet = new HashSet<Version>());
-			}
-			Set<IMatchExpression<IInstallableUnit>> filterSet = filterMap.get(iu.getId());
-			if(filterSet == null) {
-				filterMap.put(iu.getId(), filterSet = new HashSet<IMatchExpression<IInstallableUnit>>());
-			}
 
-			versionSet.add(iu.getVersion());
-			filterSet.add(iu.getFilter());
+		Map<String, Set<IInstallableUnit>> iuMap = new HashMap<String, Set<IInstallableUnit>>();
+		for(IInstallableUnit iu : ius) {
+			Set<IInstallableUnit> iuSet = iuMap.get(iu.getId());
+			if(iuSet == null)
+				iuMap.put(iu.getId(), iuSet = new HashSet<IInstallableUnit>());
+			iuSet.add(iu);
 		}
 
-		IRequirement[] requirements = new IRequirement[versionMap.size()];
+		IRequirement[] requirements = new IRequirement[iuMap.size()];
 
 		int i = 0;
-		for(Map.Entry<String, Set<Version>> iuEntry : versionMap.entrySet()) {
+		for(Map.Entry<String, Set<IInstallableUnit>> iuEntry : iuMap.entrySet()) {
 			String name = iuEntry.getKey();
-			String namespace = IInstallableUnit.NAMESPACE_IU_ID;
-
-			IMatchExpression<IInstallableUnit> inheritedFilter = null;
-
-			for(IMatchExpression<IInstallableUnit> iuFilter : filterMap.get(name)) {
-				if(inheritedFilter == null)
-					inheritedFilter = iuFilter;
-				else if(!inheritedFilter.equals(iuFilter)) {
-					LogUtils.info("More than one filter definition found on %s; using an empty filter", name);
-					inheritedFilter = null;
-					break;
-				}
-			}
-
 			IMatchExpression<IInstallableUnit> requirementFilter = filter;
-			if(inheritedFilter != null) {
-				if(requirementFilter == null)
-					requirementFilter = inheritedFilter;
-				else {
-					Object[] inheritedFilterParams = inheritedFilter.getParameters();
-					Object[] filterParams = filter.getParameters();
-					Object[] compoundParams = new Object[inheritedFilterParams.length + filterParams.length];
-					System.arraycopy(inheritedFilterParams, 0, compoundParams, 0, inheritedFilterParams.length);
-					System.arraycopy(filterParams, 0, compoundParams, inheritedFilterParams.length, filterParams.length);
-					requirementFilter = ExpressionFactory.INSTANCE.matchExpression(
-						ExpressionFactory.INSTANCE.and(inheritedFilter, filter), compoundParams);
+			for(IInstallableUnit iu : iuEntry.getValue()) {
+				IMatchExpression<IInstallableUnit> iuFilter = iu.getFilter();
+				if(iuFilter == null)
+					continue;
+				if(requirementFilter == null) {
+					requirementFilter = iuFilter;
+					continue;
 				}
+				if(requirementFilter.equals(iuFilter))
+					continue;
+
+				// TODO: See if merge produces one of the filters. If so, use that
+
+				Object[] p1 = iuFilter.getParameters();
+				Object[] p2 = requirementFilter.getParameters();
+				if(p1.length == 1 && p2.length == 1 && p1[0] instanceof LDAPFilter && p2[0] instanceof LDAPFilter) {
+					// Attempt an LDAPFilter merge.
+					LDAPFilter f1 = (LDAPFilter) p1[0];
+					LDAPFilter f2 = (LDAPFilter) p2[0];
+					try {
+						// Perform buckminster style LDAP merge
+						Filter bf1 = FilterFactory.newInstance(f1.toString());
+						Filter bf2 = FilterFactory.newInstance(f2.toString());
+						Filter t1 = bf1.addFilterWithOr(bf2);
+						IFilterExpression expr = ExpressionUtil.parseLDAP(t1.toString());
+						requirementFilter = ExpressionUtil.getFactory().matchExpression(
+							((MatchExpression<IInstallableUnit>) iuFilter).getOperand(), new Object[] { expr });
+						continue;
+					}
+					catch(InvalidSyntaxException e) {
+						// Should never happen, but just in case...
+						throw new RuntimeException(e);
+					}
+				}
+				Object[] compoundParams = new Object[p1.length + p2.length];
+				System.arraycopy(p1, 0, compoundParams, 0, p1.length);
+				System.arraycopy(p2, 0, compoundParams, p1.length, p2.length);
+				requirementFilter = ExpressionFactory.INSTANCE.matchExpression(
+					ExpressionFactory.INSTANCE.or(iuFilter, requirementFilter), compoundParams);
 			}
 
 			// TODO Use this to activate the "version enumeration" policy workaround
 			// requirements[i++] = new MultiRangeRequirement(name, namespace, iuEntry.getValue(), null, filter);
 
 			requirements[i++] = MetadataFactory.createRequirement(
-				namespace, name, ANY_VERSION, requirementFilter, false, false);
+				IInstallableUnit.NAMESPACE_IU_ID, name, ANY_VERSION, requirementFilter, false, false);
 		}
 
 		return requirements;
