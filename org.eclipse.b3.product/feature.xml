@@ -575,4 +575,11 @@ such license is available at www.eclipse.org.
          install-size="0"
          version="0.0.0"/>
 
+   <plugin
+         id="org.eclipse.buckminster.osgi.filter"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
 </feature>
