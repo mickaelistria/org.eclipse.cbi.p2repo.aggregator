@@ -193,11 +193,9 @@ public class AggregatorResourceViewItemProvider extends AggregatorItemProviderAd
 			ViewerNotification viewerNotification = (ViewerNotification) notification;
 			Object element = viewerNotification.getElement();
 
-			if(element instanceof AggregatorResourceViewImpl) {
+			if(element instanceof AggregatorResourceViewImpl)
 				notification = new ViewerNotification(
-					viewerNotification, ((AggregatorResourceViewImpl) element).getAggregatorResource(),
-					viewerNotification.isContentRefresh(), viewerNotification.isLabelUpdate());
-			}
+					viewerNotification, ((AggregatorResourceViewImpl) element).getAggregatorResource());
 		}
 		super.fireNotifyChanged(notification);
 	}
