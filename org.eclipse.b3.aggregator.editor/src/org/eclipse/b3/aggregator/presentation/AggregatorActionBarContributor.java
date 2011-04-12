@@ -393,7 +393,7 @@ public class AggregatorActionBarContributor extends EditingDomainActionBarContri
 
 		public boolean isSupportedFor(List<Object> items) {
 			for(Object object : items) {
-				if(!(object instanceof EnabledStatusProvider)) {
+				if(!(aggregatorItemProvider.unwrap(object) instanceof EnabledStatusProvider)) {
 					return false;
 				}
 			}
@@ -1452,7 +1452,7 @@ public class AggregatorActionBarContributor extends EditingDomainActionBarContri
 					if(sa.getKey().isSupportedFor(selectedItems)) {
 						List<EnabledStatusProvider> items = new ArrayList<EnabledStatusProvider>();
 						for(Object obj : selectedItems)
-							items.add((EnabledStatusProvider) obj);
+							items.add((EnabledStatusProvider) aggregatorItemProvider.unwrap(obj));
 
 						sa.getKey().setReference(items);
 

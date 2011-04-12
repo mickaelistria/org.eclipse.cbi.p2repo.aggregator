@@ -251,6 +251,21 @@ public class AggregatorItemProvider extends DescriptionProviderItemProvider impl
 	}
 
 	@Override
+	protected Command createAddCommand(EditingDomain domain, EObject owner, EStructuralFeature feature,
+			Collection<?> collection, int index) {
+		if(feature == AggregatorPackage.Literals.AGGREGATOR__VALIDATION_REPOSITORIES) {
+			// disable drag & drop of Mapped Repositories to Aggregator's validation repositories list;
+			// although - given the class hierarchy - this should be theoretically possible in reality
+			// it isn't as the code in MappedRepositoryImpl expects its container to be a "Contribution"
+			for(Object object : collection) {
+				if(unwrap(object) instanceof MappedRepository)
+					return UnexecutableCommand.INSTANCE;
+			}
+		}
+		return super.createAddCommand(domain, owner, feature, collection, index);
+	}
+
+	@Override
 	public Command createCommand(Object object, EditingDomain domain, Class<? extends Command> commandClass,
 			CommandParameter commandParameter) {
 		CREATE_CUSTOM_COMMAND: {
@@ -295,7 +310,8 @@ public class AggregatorItemProvider extends DescriptionProviderItemProvider impl
 			Object value = valueIterator.next();
 			Object unwrappedValue = unwrap(value);
 
-			if(unwrappedValue instanceof LinkSource && unwrappedValue != value) {
+			// only allow linking of objects parented by some other objects then their natural parents
+			if(unwrappedValue instanceof LinkSource && getObjectParent(value) != getObjectParent(unwrappedValue)) {
 				compoundCommand.append(new SetCommand(
 					domain, (EObject) unwrappedValue, AggregatorPackage.Literals.LINK_SOURCE__RECEIVER,
 					SetCommand.UNSET_VALUE));
@@ -304,6 +320,20 @@ public class AggregatorItemProvider extends DescriptionProviderItemProvider impl
 		}
 
 		return compoundCommand;
+	}
+
+	@Override
+	protected Object createWrapper(EObject object, EStructuralFeature feature, Object value, int index) {
+		Object unwrappedValue = unwrap(value);
+
+		if(unwrappedValue instanceof Contribution) {
+			ContributionItemProvider contributionItemProvider = (ContributionItemProvider) getRootAdapterFactory().adapt(
+				unwrappedValue, IEditingDomainItemProvider.class);
+
+			return contributionItemProvider.new HidingContributionWrapperItemProvider(
+				value, object, feature, index, adapterFactory);
+		}
+		return super.createWrapper(object, feature, value, index);
 	}
 
 	/**
@@ -371,6 +401,13 @@ public class AggregatorItemProvider extends DescriptionProviderItemProvider impl
 		return overlayImage(object, getResourceLocator().getImage("full/obj16/Aggregator"));
 	}
 
+	public Object getObjectParent(Object object) {
+		IEditingDomainItemProvider objectItemProvider = (IEditingDomainItemProvider) getRootAdapterFactory().adapt(
+			object, IEditingDomainItemProvider.class);
+
+		return objectItemProvider.getParent(object);
+	}
+
 	/**
 	 * This returns the property descriptors for the adapted class.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -406,6 +443,11 @@ public class AggregatorItemProvider extends DescriptionProviderItemProvider impl
 		return label == null || label.length() == 0
 				? getString("_UI_Aggregator_type")
 				: getString("_UI_Aggregator_type") + " " + label;
+	}
+
+	@Override
+	protected boolean isWrappingNeeded(Object object) {
+		return true;
 	}
 
 	@Override

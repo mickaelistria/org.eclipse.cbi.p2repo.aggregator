@@ -20,6 +20,7 @@ import org.eclipse.b3.aggregator.Contribution;
 import org.eclipse.b3.aggregator.CustomCategory;
 import org.eclipse.b3.aggregator.EnabledStatusProvider;
 import org.eclipse.b3.aggregator.Feature;
+import org.eclipse.b3.aggregator.LinkSource;
 import org.eclipse.b3.aggregator.MappedRepository;
 import org.eclipse.b3.aggregator.MappedUnit;
 import org.eclipse.b3.aggregator.MavenMapping;
@@ -41,6 +42,7 @@ import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EStructuralFeature;
+import org.eclipse.emf.edit.command.AddCommand;
 import org.eclipse.emf.edit.command.CommandParameter;
 import org.eclipse.emf.edit.command.CopyCommand;
 import org.eclipse.emf.edit.domain.EditingDomain;
@@ -83,18 +85,6 @@ public class ContributionItemProvider extends AggregatorItemProviderAdapter impl
 				return UnexecutableCommand.INSTANCE;
 
 			return super.createCommand(object, domain, commandClass, commandParameter);
-		}
-
-		@Override
-		public Object getImage(Object object) {
-			Object image = super.getImage(object);
-
-			if(image != null)
-				image = new OverlaidImage(
-					new Object[] { image, getResourceLocator().getImage("full/ovr16/Link") },
-					OverlaidImage.BASIC_BOTTOM_LEFT);
-
-			return image;
 		}
 
 	}
@@ -149,6 +139,61 @@ public class ContributionItemProvider extends AggregatorItemProviderAdapter impl
 			}
 
 			return null;
+		}
+
+	}
+
+	public class HidingContributionWrapperItemProvider extends DelegatingWrapperItemProvider {
+
+		public HidingContributionWrapperItemProvider(Object value, Object owner, EStructuralFeature feature, int index,
+				AdapterFactory adapterFactory) {
+			super(value, owner, feature, index, adapterFactory);
+		}
+
+		@Override
+		public Command createCommand(Object object, EditingDomain domain, Class<? extends Command> commandClass,
+				CommandParameter commandParameter) {
+			if(((Contribution) getDelegateValue()).getReceiver() != null)
+				if(commandClass == AddCommand.class)
+					return UnexecutableCommand.INSTANCE;
+
+			return super.createCommand(object, domain, commandClass, commandParameter);
+		}
+
+		@Override
+		public Collection<?> getChildren(Object object) {
+			if(((Contribution) getDelegateValue()).getReceiver() != null)
+				return Collections.emptyList();
+
+			return super.getChildren(object);
+		}
+
+		@Override
+		public Object getImage(Object object) {
+			Object image = super.getImage(object);
+
+			if(((Contribution) getDelegateValue()).getReceiver() != null && image != null)
+				image = new OverlaidImage(
+					new Object[] { image, getResourceLocator().getImage("full/ovr16/Link") },
+					OverlaidImage.BASIC_BOTTOM_LEFT);
+
+			return image;
+		}
+
+		@Override
+		public Collection<?> getNewChildDescriptors(Object object, EditingDomain editingDomain, Object sibling) {
+			if(((Contribution) getDelegateValue()).getReceiver() != null)
+				return Collections.emptyList();
+
+			return super.getNewChildDescriptors(object, editingDomain, sibling);
+		}
+
+		@Override
+		public boolean hasChildren(Object object) {
+			if(((Contribution) getDelegateValue()).getReceiver() != null)
+				return false;
+
+			return super.hasChildren(object);
 		}
 
 	}
@@ -445,8 +490,12 @@ public class ContributionItemProvider extends AggregatorItemProviderAdapter impl
 	public void notifyChanged(Notification notification) {
 		notifyChangedGen(notification);
 
-		// Update also content if enabled flag has been changed
-		if(notification.getFeatureID(Contribution.class) == AggregatorPackage.CONTRIBUTION__ENABLED) {
+		if(notification.getFeatureID(LinkSource.class) == AggregatorPackage.LINK_SOURCE__RECEIVER) {
+			// Update content if the contribution has been linked somewhere (to an Aggregate)
+			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
+		}
+		else if(notification.getFeatureID(Contribution.class) == AggregatorPackage.CONTRIBUTION__ENABLED) {
+			// Update also content if enabled flag has been changed
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 
 			Set<Object> affectedNodeLabels = new HashSet<Object>();
