@@ -29,7 +29,7 @@ public class VerificationIUGenerator extends BuilderPhase {
 	}
 
 	private IPublisherAction[] createActions(IMetadataRepository mdr) {
-		return new IPublisherAction[] { new VerificationIUAction(getBuilder(), aggregate, mdr) };
+		return new IPublisherAction[] { new VerificationIUAction(getBuilder(), aggregate) };
 	}
 
 	@Override

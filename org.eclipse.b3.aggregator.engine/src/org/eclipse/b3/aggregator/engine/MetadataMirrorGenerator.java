@@ -89,89 +89,94 @@ public class MetadataMirrorGenerator extends BuilderPhase {
 		SubMonitor subMon = SubMonitor.convert(monitor, 1000);
 		boolean artifactErrors = false;
 		try {
-			Aggregator aggregator = builder.getAggregator();
-
-			subMon.setTaskName("Mirroring meta-data for aggregate: " + taskLabel + "...");
-			MonitorUtils.subTask(subMon, "Initializing");
-
-			MonitorUtils.worked(subMon, 5);
-
-			Map<String, String> properties = new HashMap<String, String>();
-			properties.put(IRepository.PROP_COMPRESSED, Boolean.toString(true));
-			String label = aggregator.getLabel() + (aggregate == null
-					? ""
-					: " / " + aggregate.getLabel());
-			IMetadataRepository aggregateMdr = mdrMgr.createRepository(
-				aggregateURI, label, Builder.SIMPLE_METADATA_TYPE, properties);
-			MonitorUtils.worked(subMon, 10);
-
 			Set<IInstallableUnit> unitsToAggregate = builder.getUnitsToAggregate(aggregate);
 
-			SubMonitor childMonitor = subMon.newChild(900, SubMonitor.SUPPRESS_BEGINTASK |
-					SubMonitor.SUPPRESS_SETTASKNAME);
-			List<Contribution> contribs = aggregator.getAggregateContributions(aggregate, true);
+			if(unitsToAggregate.size() > 0) {
+				subMon.setTaskName("Mirroring meta-data for aggregate: " + taskLabel + "...");
+				MonitorUtils.subTask(subMon, "Initializing");
 
-			MonitorUtils.begin(childMonitor, contribs.size() * 100 + 20);
+				MonitorUtils.worked(subMon, 5);
 
-			for(Contribution contrib : contribs) {
-				SubMonitor contribMonitor = childMonitor.newChild(100);
-				List<MappedRepository> repos = contrib.getRepositories(true);
-				List<String> errors = new ArrayList<String>();
-				MonitorUtils.begin(contribMonitor, repos.size() * 100);
+				Aggregator aggregator = builder.getAggregator();
 
-				for(MappedRepository repo : repos) {
-					if(builder.isMapVerbatim(repo)) {
-						MonitorUtils.worked(contribMonitor, 100);
-						continue;
-					}
+				Map<String, String> properties = new HashMap<String, String>();
+				properties.put(IRepository.PROP_COMPRESSED, Boolean.toString(true));
+				String label = aggregator.getLabel() + (aggregate == null
+						? ""
+						: " / " + aggregate.getLabel());
+				IMetadataRepository aggregateMdr = mdrMgr.createRepository(
+					aggregateURI, label, Builder.SIMPLE_METADATA_TYPE, properties);
+				MonitorUtils.worked(subMon, 10);
 
-					MetadataRepository childMdr = ResourceUtils.getMetadataRepository(repo);
-					ArrayList<IInstallableUnit> iusToMirror = null;
-					for(IInstallableUnit iu : childMdr.getInstallableUnits()) {
-						if(!unitsToAggregate.remove(iu))
+				SubMonitor childMonitor = subMon.newChild(900, SubMonitor.SUPPRESS_BEGINTASK |
+						SubMonitor.SUPPRESS_SETTASKNAME);
+				List<Contribution> contribs = aggregator.getAggregateContributions(aggregate, true);
+
+				MonitorUtils.begin(childMonitor, contribs.size() * 100 + 20);
+
+				for(Contribution contrib : contribs) {
+					SubMonitor contribMonitor = childMonitor.newChild(100);
+					List<MappedRepository> repos = contrib.getRepositories(true);
+					MonitorUtils.begin(contribMonitor, repos.size() * 100);
+
+					for(MappedRepository repo : repos) {
+						if(builder.isMapVerbatim(repo)) {
+							MonitorUtils.worked(contribMonitor, 100);
 							continue;
+						}
 
-						if(iusToMirror == null)
-							iusToMirror = new ArrayList<IInstallableUnit>();
+						MetadataRepository childMdr = ResourceUtils.getMetadataRepository(repo);
+						ArrayList<IInstallableUnit> iusToMirror = null;
+						for(IInstallableUnit iu : childMdr.getInstallableUnits()) {
+							if(!unitsToAggregate.remove(iu))
+								continue;
 
-						iusToMirror.add(iu);
+							if(iusToMirror == null)
+								iusToMirror = new ArrayList<IInstallableUnit>();
+
+							iusToMirror.add(iu);
+						}
+
+						if(iusToMirror != null) {
+							String msg = format("Mirroring meta-data from %s", childMdr.getLocation());
+							LogUtils.info(msg);
+							contribMonitor.subTask(msg);
+							mirror(
+								iusToMirror,
+								childMdr,
+								aggregateMdr,
+								contribMonitor.newChild(5, SubMonitor.SUPPRESS_BEGINTASK |
+										SubMonitor.SUPPRESS_SETTASKNAME));
+						}
+						else
+							MonitorUtils.worked(contribMonitor, 5);
 					}
+					MonitorUtils.done(contribMonitor);
+				}
 
-					if(iusToMirror != null) {
-						String msg = format("Mirroring meta-data from %s", childMdr.getLocation());
-						LogUtils.info(msg);
-						contribMonitor.subTask(msg);
-						mirror(
-							iusToMirror, childMdr, aggregateMdr,
-							contribMonitor.newChild(5, SubMonitor.SUPPRESS_BEGINTASK | SubMonitor.SUPPRESS_SETTASKNAME));
+				// TODO currently we mirror the custom categories for the main/implicit aggregate only - make this work with other aggregates too
+				if(aggregate == null) {
+					List<IInstallableUnit> categories = builder.getCategoryIUs();
+					if(!categories.isEmpty()) {
+						mirror(categories, null, aggregateMdr, childMonitor.newChild(20));
 					}
-					else
-						MonitorUtils.worked(contribMonitor, 5);
 				}
-				if(errors.size() > 0) {
-					artifactErrors = true;
-					builder.sendEmail(contrib, errors);
+
+				// Remove the aggregation in case it's now empty.
+				//
+				String[] content = aggregateDestination.list();
+				if(content != null && content.length == 0) {
+					// remove the entry from the map of units to aggregate too, as the keys from the map are used to generate children
+					// of the final composite repository by the final phase of the build process
+					builder.removeUnitsToAggregate(aggregate);
+					if(!aggregateDestination.delete())
+						throw ExceptionUtils.fromMessage("Unable to remove %s", aggregateDestination.getAbsolutePath());
 				}
-				MonitorUtils.done(contribMonitor);
-			}
 
-			List<IInstallableUnit> categories = builder.getCategoryIUs();
-			if(!categories.isEmpty()) {
-				mirror(categories, null, aggregateMdr, childMonitor.newChild(20));
+				MonitorUtils.done(childMonitor);
 			}
-
-			// Remove the aggregation in case it's now empty.
-			//
-			String[] content = aggregateDestination.list();
-			if(content != null && content.length == 0) {
-				// remove the entry from the map of units to aggregate too, as the keys from the map are used to generate children
-				// of the final composite repository by the final phase of the build process
+			else
 				builder.removeUnitsToAggregate(aggregate);
-				if(!aggregateDestination.delete())
-					throw ExceptionUtils.fromMessage("Unable to remove %s", aggregateDestination.getAbsolutePath());
-			}
-
-			MonitorUtils.done(childMonitor);
 		}
 		finally {
 			P2Utils.ungetRepositoryManager(getBuilder().getProvisioningAgent(), mdrMgr);

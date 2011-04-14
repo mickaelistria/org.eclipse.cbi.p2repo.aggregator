@@ -10,7 +10,6 @@ package org.eclipse.b3.aggregator.engine;
 import static java.lang.String.format;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -39,6 +38,8 @@ import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.core.runtime.SubMonitor;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.equinox.internal.p2.metadata.expression.ExpressionFactory;
 import org.eclipse.equinox.p2.metadata.IInstallableUnit;
 import org.eclipse.equinox.p2.metadata.IInstallableUnitPatch;
@@ -52,21 +53,32 @@ import org.eclipse.equinox.p2.metadata.expression.IMatchExpression;
 import org.eclipse.equinox.p2.publisher.AbstractPublisherAction;
 import org.eclipse.equinox.p2.publisher.IPublisherInfo;
 import org.eclipse.equinox.p2.publisher.IPublisherResult;
-import org.eclipse.equinox.p2.repository.metadata.IMetadataRepository;
+import org.eclipse.equinox.spi.p2.publisher.PublisherHelper;
 
 /**
  * This action creates the feature that contains all features and bundles that are listed contributions in the Aggregate passed to the constructor
  * of this class.
  * 
- * @see Builder#getVerifyIUName(Aggregate)
+ * @see Builder#getVerificationIUName(Aggregate)
  */
 public class VerificationIUAction extends AbstractPublisherAction {
 	static class RepositoryRequirement {
+		Contribution contribution;
+
 		MappedRepository repository;
 
 		IRequirement requirement;
 
 		boolean explicit;
+
+		public RepositoryRequirement(Contribution contribution, MappedRepository repository, IRequirement requirement,
+				boolean explicit) {
+			super();
+			this.contribution = contribution;
+			this.repository = repository;
+			this.requirement = requirement;
+			this.explicit = explicit;
+		}
 
 		@Override
 		public boolean equals(Object o) {
@@ -118,15 +130,12 @@ public class VerificationIUAction extends AbstractPublisherAction {
 
 	private final Aggregate aggregate;
 
-	private final IMetadataRepository mdr;
-
-	public VerificationIUAction(Builder builder, Aggregate aggregate, IMetadataRepository mdr) {
+	public VerificationIUAction(Builder builder, Aggregate aggregate) {
 		this.builder = builder;
 		this.aggregate = aggregate;
-		this.mdr = mdr;
 	}
 
-	private void addCategoryContent(IInstallableUnit category, MappedRepository repository,
+	private void addCategoryContent(IInstallableUnit category, Contribution contribution, MappedRepository repository,
 			List<IInstallableUnit> allIUs, Map<String, Set<RepositoryRequirement>> required, List<String> errors,
 			Set<String> explicit) {
 		// We don't map categories verbatim here. They are added elsewhere. We do
@@ -136,11 +145,11 @@ public class VerificationIUAction extends AbstractPublisherAction {
 				if(riu.satisfies(rc)) {
 					if("true".equalsIgnoreCase(riu.getProperty(InstallableUnitDescription.PROP_TYPE_CATEGORY))) {
 						// Nested category
-						addCategoryContent(riu, repository, allIUs, required, errors, explicit);
+						addCategoryContent(riu, contribution, repository, allIUs, required, errors, explicit);
 						continue requirements;
 					}
 
-					addRequirementFor(repository, riu, rc.getFilter(), required, errors, explicit, false);
+					addRequirementFor(contribution, repository, riu, rc.getFilter(), required, errors, explicit, false);
 					continue requirements;
 				}
 			}
@@ -154,9 +163,9 @@ public class VerificationIUAction extends AbstractPublisherAction {
 		}
 	}
 
-	private void addRequirementFor(MappedRepository mr, IInstallableUnit iu, IMatchExpression<IInstallableUnit> filter,
-			Map<String, Set<RepositoryRequirement>> requirements, List<String> errors, Set<String> explicit,
-			boolean isExplicit) {
+	private void addRequirementFor(Contribution contribution, MappedRepository mr, IInstallableUnit iu,
+			IMatchExpression<IInstallableUnit> filter, Map<String, Set<RepositoryRequirement>> requirements,
+			List<String> errors, Set<String> explicit, boolean isExplicit) {
 		String id = iu.getId();
 		Version v = iu.getVersion();
 		VersionRange range = null;
@@ -177,23 +186,20 @@ public class VerificationIUAction extends AbstractPublisherAction {
 			}
 		}
 		IRequirement rc = MetadataFactory.createRequirement(
-			IInstallableUnit.NAMESPACE_IU_ID, id, range, iuFilter, false, false);
+			PublisherHelper.IU_NAMESPACE, id, range, iuFilter, false, false);
 		// TODO Use this to activate the "version enumeration" policy workaround
 		// IRequirement req = RequirementUtils.createMultiRangeRequirement(mr.getMetadataRepository(), rc);
 		IRequirement req = rc;
 
-		addRequirementFor(mr, req, requirements, errors, explicit, isExplicit);
+		addRequirementFor(contribution, mr, req, requirements, errors, explicit, isExplicit);
 	}
 
-	private void addRequirementFor(MappedRepository mr, IRequirement rc,
+	private void addRequirementFor(Contribution contribution, MappedRepository mr, IRequirement rc,
 			Map<String, Set<RepositoryRequirement>> requirements, List<String> errors, Set<String> explicit,
 			boolean isExplicit) {
 
 		String id = RequirementUtils.getName(rc);
-		RepositoryRequirement rq = new RepositoryRequirement();
-		rq.repository = mr;
-		rq.requirement = rc;
-		rq.explicit = isExplicit;
+		RepositoryRequirement rq = new RepositoryRequirement(contribution, mr, rc, isExplicit);
 
 		Set<RepositoryRequirement> repoReqs = requirements.get(id);
 		if(repoReqs == null)
@@ -267,20 +273,18 @@ public class VerificationIUAction extends AbstractPublisherAction {
 		// TODO Use this to activate the "version enumeration" policy workaround
 		// IRequirement modifiedReq = RequirementUtils.versionUnion(orig, rq.requirement);
 		IRequirement modifiedReq = MetadataFactory.createRequirement(
-			IInstallableUnit.NAMESPACE_IU_ID, id, VersionRange.emptyRange, orig.getFilter(), false, false);
+			PublisherHelper.IU_NAMESPACE, id, VersionRange.emptyRange, orig.getFilter(), false, false);
 
 		for(RepositoryRequirement req : repoReqs)
 			req.requirement = modifiedReq;
 	}
 
+	public String getRelativeEObjectURI(EObject eObject) {
+		return EcoreUtil.getURI(eObject).deresolve(eObject.eResource().getURI()).toString();
+	}
+
 	@Override
 	public IStatus perform(IPublisherInfo publisherInfo, IPublisherResult results, IProgressMonitor monitor) {
-		InstallableUnitDescription iu = new MetadataFactory.InstallableUnitDescription();
-		iu.setId(builder.getVerifyIUName(aggregate));
-		iu.setVersion(Builder.ALL_CONTRIBUTED_CONTENT_VERSION);
-		iu.setProperty(InstallableUnitDescription.PROP_TYPE_GROUP, Boolean.TRUE.toString());
-		iu.addProvidedCapabilities(Collections.singletonList(createSelfCapability(iu.getId(), iu.getVersion())));
-
 		Map<String, Set<RepositoryRequirement>> required = new HashMap<String, Set<RepositoryRequirement>>();
 
 		boolean errorsFound = false;
@@ -304,12 +308,13 @@ public class VerificationIUAction extends AbstractPublisherAction {
 
 					if(repository.isMapExclusive()) {
 						for(MappedUnit mu : repository.getUnits(true)) {
-							if(mu instanceof Category) {
+							if(mu instanceof Category)
 								addCategoryContent(
-									mu.resolveAsSingleton(true), repository, allIUs, required, errors, explicit);
-								continue;
-							}
-							addRequirementFor(repository, mu.getRequirement(), required, errors, explicit, true);
+									mu.resolveAsSingleton(true), contrib, repository, allIUs, required, errors,
+									explicit);
+							else
+								addRequirementFor(
+									contrib, repository, mu.getRequirement(), required, errors, explicit, true);
 						}
 					}
 					else {
@@ -354,7 +359,7 @@ public class VerificationIUAction extends AbstractPublisherAction {
 						for(Map.Entry<IMatchExpression<IInstallableUnit>, List<IInstallableUnit>> entry : preSelectedIUs.entrySet())
 							for(IRequirement req : RequirementUtils.createAllAvailableVersionsRequirements(
 								entry.getValue(), entry.getKey()))
-								addRequirementFor(repository, req, required, errors, explicit, false);
+								addRequirementFor(contrib, repository, req, required, errors, explicit, false);
 					}
 				}
 				if(errors.size() > 0) {
@@ -366,21 +371,62 @@ public class VerificationIUAction extends AbstractPublisherAction {
 			if(errorsFound)
 				return new Status(IStatus.ERROR, Engine.PLUGIN_ID, "Features without repositories");
 
-			Set<IRequirement> rcList = new HashSet<IRequirement>();
+			// create a map using contributions as keys
+			HashMap<Contribution, ArrayList<IRequirement>> crMap = new HashMap<Contribution, ArrayList<IRequirement>>();
 			for(Set<RepositoryRequirement> rcSet : required.values())
-				for(RepositoryRequirement req : rcSet)
-					rcList.add(req.requirement);
+				for(RepositoryRequirement req : rcSet) {
+					ArrayList<IRequirement> rList = crMap.get(req.contribution);
 
-			iu.setRequirements(rcList.toArray(new IRequirement[rcList.size()]));
+					if(rList == null) {
+						rList = new ArrayList<IRequirement>();
+						crMap.put(req.contribution, rList);
+					}
 
-			InstallableUnitDescription pdePlatform = new MetadataFactory.InstallableUnitDescription();
-			pdePlatform.setId(Builder.PDE_TARGET_PLATFORM_NAME);
-			pdePlatform.setVersion(Version.emptyVersion);
-			pdePlatform.addProvidedCapabilities(Collections.singletonList(MetadataFactory.createProvidedCapability(
-				Builder.PDE_TARGET_PLATFORM_NAMESPACE, pdePlatform.getId(), pdePlatform.getVersion())));
+					rList.add(req.requirement);
+				}
 
-			mdr.addInstallableUnits(Arrays.asList(new IInstallableUnit[] {
-					MetadataFactory.createInstallableUnit(iu), MetadataFactory.createInstallableUnit(pdePlatform) }));
+			InstallableUnitDescription iuDescription = new MetadataFactory.InstallableUnitDescription();
+
+			// add the "Cannot be installed into the IDE" IU
+			iuDescription.setId(Builder.PDE_TARGET_PLATFORM_NAME);
+			iuDescription.setVersion(Version.emptyVersion);
+			iuDescription.addProvidedCapabilities(Collections.singletonList(MetadataFactory.createProvidedCapability(
+				Builder.PDE_TARGET_PLATFORM_NAMESPACE, iuDescription.getId(), iuDescription.getVersion())));
+			results.addIU(MetadataFactory.createInstallableUnit(iuDescription), IPublisherResult.NON_ROOT);
+
+			// add the IUs representing contributions
+			// (and build the list of requirements of the verification IU)
+			ArrayList<IRequirement> rList = new ArrayList<IRequirement>(crMap.size());
+			for(Map.Entry<Contribution, ArrayList<IRequirement>> crEntry : crMap.entrySet()) {
+				Contribution contrib = crEntry.getKey();
+				ArrayList<IRequirement> crList = crEntry.getValue();
+
+				iuDescription.setId(builder.getContributionVerifyIUName(contrib));
+				iuDescription.setVersion(Builder.ALL_CONTRIBUTED_CONTENT_VERSION);
+				iuDescription.setProperty(InstallableUnitDescription.PROP_TYPE_GROUP, Boolean.TRUE.toString());
+				iuDescription.setProperty(
+					Builder.CONTRIBUTION_LOCATION_PROPERTY, getRelativeEObjectURI((EObject) contrib));
+				iuDescription.addProvidedCapabilities(Collections.singletonList(createSelfCapability(
+					iuDescription.getId(), iuDescription.getVersion())));
+				iuDescription.setRequirements(crList.toArray(new IRequirement[crList.size()]));
+
+				rList.add(MetadataFactory.createRequirement(
+					PublisherHelper.IU_NAMESPACE, iuDescription.getId(), new VersionRange(
+						iuDescription.getVersion(), true, iuDescription.getVersion(), true), null, false, false));
+
+				results.addIU(MetadataFactory.createInstallableUnit(iuDescription), IPublisherResult.NON_ROOT);
+			}
+
+			// add the verification IU
+			iuDescription.setId(builder.getVerificationIUName(aggregate));
+			iuDescription.setVersion(Builder.ALL_CONTRIBUTED_CONTENT_VERSION);
+			iuDescription.setProperty(InstallableUnitDescription.PROP_TYPE_GROUP, Boolean.TRUE.toString());
+			iuDescription.addProvidedCapabilities(Collections.singletonList(createSelfCapability(
+				iuDescription.getId(), iuDescription.getVersion())));
+			// add the IUs representing contributions as requirements of the verification IU
+			iuDescription.setRequirements(rList.toArray(new IRequirement[rList.size()]));
+			results.addIU(MetadataFactory.createInstallableUnit(iuDescription), IPublisherResult.ROOT);
+
 			return Status.OK_STATUS;
 		}
 		finally {

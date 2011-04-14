@@ -10,8 +10,10 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
+import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
 
 import org.eclipse.b3.aggregator.Aggregate;
@@ -23,6 +25,7 @@ import org.eclipse.b3.aggregator.MappedUnit;
 import org.eclipse.b3.aggregator.MetadataRepositoryReference;
 import org.eclipse.b3.aggregator.PackedStrategy;
 import org.eclipse.b3.aggregator.util.SpecialQueries;
+import org.eclipse.b3.aggregator.util.VerificationDiagnostic;
 import org.eclipse.b3.p2.InstallableUnit;
 import org.eclipse.b3.p2.MetadataRepository;
 import org.eclipse.b3.p2.util.P2Bridge;
@@ -72,8 +75,146 @@ import org.eclipse.equinox.p2.repository.metadata.IMetadataRepository;
 import org.eclipse.equinox.p2.repository.metadata.IMetadataRepositoryManager;
 
 public class RepositoryVerifier extends BuilderPhase {
-	private static Set<Explanation> getExplanations(RequestStatus requestStatus) {
-		return requestStatus.getExplanations();
+
+	public static class AnalyzedPlannerStatus implements IStatus {
+
+		protected PlannerStatus plannerStatus;
+
+		protected ArrayList<VerificationDiagnostic> verificationDiagnostics = new ArrayList<VerificationDiagnostic>();
+
+		public AnalyzedPlannerStatus(PlannerStatus plannerStatus) {
+			this.plannerStatus = plannerStatus;
+
+			RequestStatus requestStatus = plannerStatus.getRequestStatus();
+			if(requestStatus == null)
+				return;
+
+			Set<Explanation> explanations = requestStatus.getExplanations();
+			if(explanations == null)
+				return;
+
+			// The set of the root problem explanations
+			LinkedHashSet<Explanation> rootProblems = new LinkedHashSet<Explanation>();
+
+			// The set of dependency chain explanations
+			HashMap<IInstallableUnit, IRequirement> links = new HashMap<IInstallableUnit, IRequirement>();
+
+			for(Explanation explanation : explanations) {
+				if(explanation instanceof HardRequirement) {
+					// This represents one link in the chain of dependencies from the root requirement
+					// (the verification IU) to the conflicting/missing IU
+					HardRequirement link = (HardRequirement) explanation;
+
+					links.put(link.iu, link.req);
+				}
+				else if(explanation instanceof MissingIU || explanation instanceof Singleton)
+					// MissingIU means we have a missing dependency problem
+					// Singleton means we have a dependency version conflict problem
+					rootProblems.add(explanation);
+			}
+
+			// The cache of IInstallableUnit to Contribution locations mappings
+			HashMap<IInstallableUnit, String> contributionLocationCache = new HashMap<IInstallableUnit, String>();
+
+			for(Explanation rootProblem : rootProblems) {
+				if(rootProblem instanceof MissingIU) {
+					IInstallableUnit iu = ((MissingIU) rootProblem).iu;
+					String contributionLocation = findContributionLocation(iu, links, contributionLocationCache);
+
+					if(contributionLocation != null)
+						verificationDiagnostics.add(new VerificationDiagnostic(
+							rootProblem.toString(), org.eclipse.emf.common.util.URI.createURI(contributionLocation),
+							VerificationDiagnostic.MISSING_IU));
+				}
+				else if(rootProblem instanceof Singleton) {
+					IInstallableUnit[] ius = ((Singleton) rootProblem).ius;
+					HashSet<String> contributionLocations = new HashSet<String>(ius.length);
+
+					for(IInstallableUnit iu : ius)
+						contributionLocations.add(findContributionLocation(iu, links, contributionLocationCache));
+					// just in case we failed to find the location of a contribution contributing some of the conflicting IUs
+					contributionLocations.remove(null);
+
+					for(String contributionLocation : contributionLocations)
+						verificationDiagnostics.add(new VerificationDiagnostic(
+							rootProblem.toString(), org.eclipse.emf.common.util.URI.createURI(contributionLocation),
+							VerificationDiagnostic.CONFLICTING_IU, contributionLocations));
+				}
+			}
+		}
+
+		protected String findContributionLocation(IInstallableUnit iu, HashMap<IInstallableUnit, IRequirement> links,
+				HashMap<IInstallableUnit, String> contributionLocationCache) {
+			if(contributionLocationCache.containsKey(iu))
+				return contributionLocationCache.get(iu); // may return null in case of a dependency loop
+
+			String contributionLocation = iu.getProperty(Builder.CONTRIBUTION_LOCATION_PROPERTY);
+
+			// we need to put the value to the map even when it is null to prevent possible infinite loop
+			contributionLocationCache.put(iu, contributionLocation);
+
+			// if the contributionLocation is non-null then this is the verification IU
+			// representing a Contribution and the location is the contribution location
+			// we are looking for
+			if(contributionLocation == null) {
+				for(Entry<IInstallableUnit, IRequirement> link : links.entrySet()) {
+					if(link.getValue().isMatch(iu)) {
+						contributionLocation = findContributionLocation(link.getKey(), links, contributionLocationCache);
+						if(contributionLocation != null) {
+							contributionLocationCache.put(iu, contributionLocation);
+							break;
+						}
+					}
+				}
+			}
+
+			return contributionLocation;
+		}
+
+		public IStatus[] getChildren() {
+			return plannerStatus.getChildren();
+		}
+
+		public int getCode() {
+			return plannerStatus.getCode();
+		}
+
+		public Throwable getException() {
+			return plannerStatus.getException();
+		}
+
+		public String getMessage() {
+			return plannerStatus.getMessage();
+		}
+
+		public PlannerStatus getPlannerStatus() {
+			return plannerStatus;
+		}
+
+		public String getPlugin() {
+			return plannerStatus.getPlugin();
+		}
+
+		public int getSeverity() {
+			return plannerStatus.getSeverity();
+		}
+
+		public List<VerificationDiagnostic> getVerificationDiagnostics() {
+			return verificationDiagnostics;
+		}
+
+		public boolean isMultiStatus() {
+			return plannerStatus.isMultiStatus();
+		}
+
+		public boolean isOK() {
+			return plannerStatus.isOK();
+		}
+
+		public boolean matches(int severityMask) {
+			return plannerStatus.matches(severityMask);
+		}
+
 	}
 
 	private static IInstallableUnit[] getRootIUs(IMetadataRepository site, String iuName, Version version,
@@ -343,7 +484,7 @@ public class RepositoryVerifier extends BuilderPhase {
 		long start = TimeUtils.getNow();
 
 		String profilePrefix = Builder.PROFILE_ID + '_';
-		String verifyIUName = getBuilder().getVerifyIUName(aggregate);
+		String verificationIUName = getBuilder().getVerificationIUName(aggregate);
 
 		final Set<IInstallableUnit> unitsToAggregate = builder.getUnitsToAggregate(aggregate);
 		IProfileRegistry profileRegistry = P2Utils.getProfileRegistry(getBuilder().getProvisioningAgent());
@@ -388,7 +529,7 @@ public class RepositoryVerifier extends BuilderPhase {
 					profile = profileRegistry.addProfile(profileId, props);
 
 				IInstallableUnit[] rootArr = getRootIUs(
-					sourceRepo, verifyIUName, Builder.ALL_CONTRIBUTED_CONTENT_VERSION, subMon.newChild(9));
+					sourceRepo, verificationIUName, Builder.ALL_CONTRIBUTED_CONTENT_VERSION, subMon.newChild(9));
 
 				// Add as root IU's to a request
 				ProfileChangeRequest request = new ProfileChangeRequest(profile);
@@ -409,7 +550,7 @@ public class RepositoryVerifier extends BuilderPhase {
 					if(status.getSeverity() == IStatus.ERROR) {
 						sendEmails((PlannerStatus) status);
 						LogUtils.info("Done. Took %s", TimeUtils.getFormattedDuration(start)); //$NON-NLS-1$
-						throw new CoreException(status);
+						throw new CoreException(new AnalyzedPlannerStatus((PlannerStatus) status));
 					}
 
 					Set<IInstallableUnit> suspectedValidationOnlyIUs = null;
@@ -424,7 +565,7 @@ public class RepositoryVerifier extends BuilderPhase {
 							continue;
 
 						String id = iu.getId();
-						if(verifyIUName.equals(id) || Builder.PDE_TARGET_PLATFORM_NAME.equals(id))
+						if(verificationIUName.equals(id) || Builder.PDE_TARGET_PLATFORM_NAME.equals(id))
 							continue;
 
 						if(validationOnlyIUs.contains(iu)) {
@@ -541,7 +682,7 @@ public class RepositoryVerifier extends BuilderPhase {
 		if(requestStatus == null)
 			return;
 
-		Set<Explanation> explanations = getExplanations(requestStatus);
+		Set<Explanation> explanations = requestStatus.getExplanations();
 		Map<String, Contribution> contribs = new HashMap<String, Contribution>();
 		for(Explanation explanation : explanations) {
 			String msg = explanation.toString();

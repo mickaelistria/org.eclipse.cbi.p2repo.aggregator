@@ -447,6 +447,8 @@ public class AggregatorItemProvider extends DescriptionProviderItemProvider impl
 
 	@Override
 	protected boolean isWrappingNeeded(Object object) {
+		// we need to set this to true since we are wrapping the Contribution objects
+		// so that they can be collapsed when linked to an Aggregate
 		return true;
 	}
 

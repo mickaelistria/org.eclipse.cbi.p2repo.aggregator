@@ -7,6 +7,7 @@
 package org.eclipse.b3.aggregator.util;
 
 import java.util.Iterator;
+import java.util.List;
 
 import org.eclipse.b3.aggregator.Aggregator;
 import org.eclipse.b3.aggregator.AggregatorPackage;
@@ -161,7 +162,7 @@ public class AggregatorResourceImpl extends XMIResourceImpl implements Aggregato
 								Iterator<Diagnostic> iterator = errors.iterator();
 
 								while(iterator.hasNext())
-									if(iterator.next() instanceof ResourceDiagnosticImpl)
+									if(iterator.next().getClass() == ResourceDiagnosticImpl.class)
 										iterator.remove();
 							}
 
@@ -169,7 +170,7 @@ public class AggregatorResourceImpl extends XMIResourceImpl implements Aggregato
 								Iterator<Diagnostic> iterator = warnings.iterator();
 
 								while(iterator.hasNext())
-									if(iterator.next() instanceof ResourceDiagnosticImpl)
+									if(iterator.next().getClass() == ResourceDiagnosticImpl.class)
 										iterator.remove();
 							}
 
@@ -177,7 +178,7 @@ public class AggregatorResourceImpl extends XMIResourceImpl implements Aggregato
 								Iterator<Diagnostic> iterator = infos.iterator();
 
 								while(iterator.hasNext())
-									if(iterator.next() instanceof ResourceDiagnosticImpl)
+									if(iterator.next().getClass() == ResourceDiagnosticImpl.class)
 										iterator.remove();
 							}
 
@@ -270,4 +271,22 @@ public class AggregatorResourceImpl extends XMIResourceImpl implements Aggregato
 		return infos;
 	}
 
+	public void updateVerificationMarkers(List<VerificationDiagnostic> verificationDiagnostics) {
+		synchronized(this) {
+			if(errors != null) {
+				Iterator<Diagnostic> iterator = errors.iterator();
+
+				while(iterator.hasNext())
+					if(iterator.next() instanceof VerificationDiagnostic)
+						iterator.remove();
+			}
+
+			URI baseURI = getURI();
+			EList<Diagnostic> errors = getErrors();
+			for(VerificationDiagnostic verificationDiagnostic : verificationDiagnostics) {
+				verificationDiagnostic.resolveLocation(baseURI);
+				errors.add(verificationDiagnostic);
+			}
+		}
+	}
 } // AggregatorResourceImpl

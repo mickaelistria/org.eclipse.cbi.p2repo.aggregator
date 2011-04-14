@@ -136,6 +136,8 @@ public class Builder extends ModelAbstractCommand {
 
 	public static final String AGGREGATE_CONTRIBUTED_CONTENT_IU_PREFIX = "aggregate.contributed.content_"; //$NON-NLS-1$
 
+	public static final String CONTRIBUTION_CONTRIBUTED_CONTENT_IU_PREFIX = "contribution.contributed.content_"; //$NON-NLS-1$
+
 	public static final String PDE_TARGET_PLATFORM_NAMESPACE = "A.PDE.Target.Platform";
 
 	public static final String PDE_TARGET_PLATFORM_NAME = "Cannot be installed into the IDE";
@@ -171,6 +173,9 @@ public class Builder extends ModelAbstractCommand {
 			".simpleRepository"; //$NON-NLS-1$
 
 	public static final String INTERNAL_METADATA_TYPE = "org.eclipse.b3.aggregator.engine.internalRepository"; //$NON-NLS-1$
+
+	public static final String CONTRIBUTION_LOCATION_PROPERTY = Contribution.class.getName().toLowerCase() +
+			".location"; //$NON-NLS-1$
 
 	public static final SimpleDateFormat TIMESTAMP_FORMAT = new SimpleDateFormat("yyyyMMdd-HHmm"); //$NON-NLS-1$
 
@@ -433,8 +438,10 @@ public class Builder extends ModelAbstractCommand {
 
 	private Map<Aggregate, String> safeAggregateNameMap = new HashMap<Aggregate, String>();
 
+	private Map<Contribution, String> safeContributionNameMap = new HashMap<Contribution, String>();
+
 	/**
-	 * Prevent that the {@link IInstallableUnit} identified by <code>versionedName</code> is mapped from <code>repository</code>.
+	 * Mark the specified repository as not eligible for verbatim mapping.
 	 * 
 	 * @param repository
 	 *            The repository for which to exclude a mapping
@@ -458,6 +465,7 @@ public class Builder extends ModelAbstractCommand {
 
 	private void cleanMemoryCaches() {
 		safeAggregateNameMap.clear();
+		safeContributionNameMap.clear();
 		categoryIUs = null;
 		allUnitsToAggregate.clear();
 		unitsToAggregateMap.clear();
@@ -519,6 +527,10 @@ public class Builder extends ModelAbstractCommand {
 		return childrenSubdirectories;
 	}
 
+	public String getContributionVerifyIUName(Contribution contribution) {
+		return CONTRIBUTION_CONTRIBUTED_CONTENT_IU_PREFIX + getSafeContributionName(contribution);
+	}
+
 	/**
 	 * @return the provisioningAgent
 	 */
@@ -540,6 +552,21 @@ public class Builder extends ModelAbstractCommand {
 		if(safeAggregateNameMap.values().contains(safeName))
 			throw new IllegalArgumentException("Could not generate safe unique name for aggregate: " +
 					aggregate.getLabel());
+
+		return safeName;
+	}
+
+	public String getSafeContributionName(Contribution contribution) {
+		String safeName = safeContributionNameMap.get(contribution);
+
+		if(safeName != null)
+			return safeName;
+
+		safeName = contribution.getLabel().replaceAll("[^-0-9a-zA-Z_.~]", "_");
+
+		if(safeContributionNameMap.values().contains(safeName))
+			throw new IllegalArgumentException("Could not generate safe unique name for contribution: " +
+					contribution.getLabel());
 
 		return safeName;
 	}
@@ -578,7 +605,7 @@ public class Builder extends ModelAbstractCommand {
 		return units;
 	}
 
-	public String getVerifyIUName(Aggregate aggregate) {
+	public String getVerificationIUName(Aggregate aggregate) {
 		if(aggregate == null)
 			return MAIN_CONTRIBUTED_CONTENT_IU;
 

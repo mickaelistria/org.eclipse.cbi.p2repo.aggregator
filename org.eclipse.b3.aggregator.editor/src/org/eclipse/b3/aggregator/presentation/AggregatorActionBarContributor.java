@@ -39,6 +39,7 @@ import org.eclipse.b3.aggregator.StatusCode;
 import org.eclipse.b3.aggregator.engine.Builder;
 import org.eclipse.b3.aggregator.engine.Builder.ActionType;
 import org.eclipse.b3.aggregator.engine.Engine;
+import org.eclipse.b3.aggregator.engine.RepositoryVerifier.AnalyzedPlannerStatus;
 import org.eclipse.b3.aggregator.impl.AggregatorImpl;
 import org.eclipse.b3.aggregator.p2.util.MetadataRepositoryResourceImpl;
 import org.eclipse.b3.aggregator.p2view.IUPresentation;
@@ -255,10 +256,13 @@ public class AggregatorActionBarContributor extends EditingDomainActionBarContri
 
 					@Override
 					protected IStatus run(IProgressMonitor monitor) {
+						Resource resource = null;
 						try {
-							Builder builder = new Builder();
-							Resource resource = ((IEditingDomainProvider) activeEditorPart).getEditingDomain().getResourceSet().getResources().get(
+							resource = ((IEditingDomainProvider) activeEditorPart).getEditingDomain().getResourceSet().getResources().get(
 								0);
+
+							Builder builder = new Builder();
+
 							org.eclipse.emf.common.util.URI emfURI = resource.getURI();
 							URL fileURL = FileLocator.toFileURL(new URI(emfURI.toString()).toURL());
 							if(!"file".equals(fileURL.getProtocol()))
@@ -277,6 +281,9 @@ public class AggregatorActionBarContributor extends EditingDomainActionBarContri
 							IStatus status = (cause instanceof CoreException)
 									? ((CoreException) cause).getStatus()
 									: new Status(IStatus.ERROR, Engine.PLUGIN_ID, IStatus.OK, cause.getMessage(), cause);
+
+							if(resource != null && status instanceof AnalyzedPlannerStatus)
+								((AggregatorResourceImpl) resource).updateVerificationMarkers(((AnalyzedPlannerStatus) status).getVerificationDiagnostics());
 
 							return status;
 						}

@@ -15,9 +15,9 @@ import org.eclipse.emf.ecore.resource.Resource.Diagnostic;
  * 
  */
 public class ResourceDiagnosticImpl implements Diagnostic {
-	private String location;
+	protected String location;
 
-	private String message;
+	protected String message;
 
 	public ResourceDiagnosticImpl(String message, String location) {
 		this.message = message;
