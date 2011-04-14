@@ -139,7 +139,7 @@ public class RequirementUtils {
 		else if(req instanceof MultiRangeRequirement)
 			return ((MultiRangeRequirement) req).getName();
 
-		throw new RuntimeException("Unable to extrace IU name from requirement of class " + req.getClass().getName());
+		throw new RuntimeException("Unable to extract IU name from requirement of class " + req.getClass().getName());
 	}
 
 	/**
