@@ -35,7 +35,11 @@ public class VerificationDiagnostic extends ResourceDiagnosticImpl {
 	}
 
 	public void resolveLocation(URI base) {
-		location = locationURI.resolve(base).toString();
+		URI newLocationURI = locationURI.resolve(base);
+		if(newLocationURI != locationURI) {
+			location = newLocationURI.toString();
+			locationURI = newLocationURI;
+		}
 	}
 
 }
