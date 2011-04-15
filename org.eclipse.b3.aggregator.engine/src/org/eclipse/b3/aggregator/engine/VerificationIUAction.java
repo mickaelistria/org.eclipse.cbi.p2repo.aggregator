@@ -63,18 +63,13 @@ import org.eclipse.equinox.spi.p2.publisher.PublisherHelper;
  */
 public class VerificationIUAction extends AbstractPublisherAction {
 	static class RepositoryRequirement {
-		Contribution contribution;
-
 		MappedRepository repository;
 
 		IRequirement requirement;
 
 		boolean explicit;
 
-		public RepositoryRequirement(Contribution contribution, MappedRepository repository, IRequirement requirement,
-				boolean explicit) {
-			super();
-			this.contribution = contribution;
+		public RepositoryRequirement(MappedRepository repository, IRequirement requirement, boolean explicit) {
 			this.repository = repository;
 			this.requirement = requirement;
 			this.explicit = explicit;
@@ -135,7 +130,7 @@ public class VerificationIUAction extends AbstractPublisherAction {
 		this.aggregate = aggregate;
 	}
 
-	private void addCategoryContent(IInstallableUnit category, Contribution contribution, MappedRepository repository,
+	private void addCategoryContent(IInstallableUnit category, MappedRepository repository,
 			List<IInstallableUnit> allIUs, Map<String, Set<RepositoryRequirement>> required, List<String> errors,
 			Set<String> explicit) {
 		// We don't map categories verbatim here. They are added elsewhere. We do
@@ -145,11 +140,11 @@ public class VerificationIUAction extends AbstractPublisherAction {
 				if(riu.satisfies(rc)) {
 					if("true".equalsIgnoreCase(riu.getProperty(InstallableUnitDescription.PROP_TYPE_CATEGORY))) {
 						// Nested category
-						addCategoryContent(riu, contribution, repository, allIUs, required, errors, explicit);
+						addCategoryContent(riu, repository, allIUs, required, errors, explicit);
 						continue requirements;
 					}
 
-					addRequirementFor(contribution, repository, riu, rc.getFilter(), required, errors, explicit, false);
+					addRequirementFor(repository, riu, rc.getFilter(), required, errors, explicit, false);
 					continue requirements;
 				}
 			}
@@ -163,9 +158,9 @@ public class VerificationIUAction extends AbstractPublisherAction {
 		}
 	}
 
-	private void addRequirementFor(Contribution contribution, MappedRepository mr, IInstallableUnit iu,
-			IMatchExpression<IInstallableUnit> filter, Map<String, Set<RepositoryRequirement>> requirements,
-			List<String> errors, Set<String> explicit, boolean isExplicit) {
+	private void addRequirementFor(MappedRepository mr, IInstallableUnit iu, IMatchExpression<IInstallableUnit> filter,
+			Map<String, Set<RepositoryRequirement>> requirements, List<String> errors, Set<String> explicit,
+			boolean isExplicit) {
 		String id = iu.getId();
 		Version v = iu.getVersion();
 		VersionRange range = null;
@@ -191,15 +186,15 @@ public class VerificationIUAction extends AbstractPublisherAction {
 		// IRequirement req = RequirementUtils.createMultiRangeRequirement(mr.getMetadataRepository(), rc);
 		IRequirement req = rc;
 
-		addRequirementFor(contribution, mr, req, requirements, errors, explicit, isExplicit);
+		addRequirementFor(mr, req, requirements, errors, explicit, isExplicit);
 	}
 
-	private void addRequirementFor(Contribution contribution, MappedRepository mr, IRequirement rc,
+	private void addRequirementFor(MappedRepository mr, IRequirement rc,
 			Map<String, Set<RepositoryRequirement>> requirements, List<String> errors, Set<String> explicit,
 			boolean isExplicit) {
 
 		String id = RequirementUtils.getName(rc);
-		RepositoryRequirement rq = new RepositoryRequirement(contribution, mr, rc, isExplicit);
+		RepositoryRequirement rq = new RepositoryRequirement(mr, rc, isExplicit);
 
 		Set<RepositoryRequirement> repoReqs = requirements.get(id);
 		if(repoReqs == null)
@@ -310,11 +305,9 @@ public class VerificationIUAction extends AbstractPublisherAction {
 						for(MappedUnit mu : repository.getUnits(true)) {
 							if(mu instanceof Category)
 								addCategoryContent(
-									mu.resolveAsSingleton(true), contrib, repository, allIUs, required, errors,
-									explicit);
+									mu.resolveAsSingleton(true), repository, allIUs, required, errors, explicit);
 							else
-								addRequirementFor(
-									contrib, repository, mu.getRequirement(), required, errors, explicit, true);
+								addRequirementFor(repository, mu.getRequirement(), required, errors, explicit, true);
 						}
 					}
 					else {
@@ -359,7 +352,7 @@ public class VerificationIUAction extends AbstractPublisherAction {
 						for(Map.Entry<IMatchExpression<IInstallableUnit>, List<IInstallableUnit>> entry : preSelectedIUs.entrySet())
 							for(IRequirement req : RequirementUtils.createAllAvailableVersionsRequirements(
 								entry.getValue(), entry.getKey()))
-								addRequirementFor(contrib, repository, req, required, errors, explicit, false);
+								addRequirementFor(repository, req, required, errors, explicit, false);
 					}
 				}
 				if(errors.size() > 0) {
@@ -375,11 +368,12 @@ public class VerificationIUAction extends AbstractPublisherAction {
 			HashMap<Contribution, ArrayList<IRequirement>> crMap = new HashMap<Contribution, ArrayList<IRequirement>>();
 			for(Set<RepositoryRequirement> rcSet : required.values())
 				for(RepositoryRequirement req : rcSet) {
-					ArrayList<IRequirement> rList = crMap.get(req.contribution);
+					Contribution contribution = (Contribution) ((EObject) (req.repository)).eContainer();
+					ArrayList<IRequirement> rList = crMap.get(contribution);
 
 					if(rList == null) {
 						rList = new ArrayList<IRequirement>();
-						crMap.put(req.contribution, rList);
+						crMap.put(contribution, rList);
 					}
 
 					rList.add(req.requirement);
