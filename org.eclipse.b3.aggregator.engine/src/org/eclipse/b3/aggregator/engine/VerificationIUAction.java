@@ -396,7 +396,7 @@ public class VerificationIUAction extends AbstractPublisherAction {
 				Contribution contrib = crEntry.getKey();
 				ArrayList<IRequirement> crList = crEntry.getValue();
 
-				iuDescription.setId(builder.getContributionVerifyIUName(contrib));
+				iuDescription.setId(builder.getContributionVerificationIUName(contrib));
 				iuDescription.setVersion(Builder.ALL_CONTRIBUTED_CONTENT_VERSION);
 				iuDescription.setProperty(InstallableUnitDescription.PROP_TYPE_GROUP, Boolean.TRUE.toString());
 				iuDescription.setProperty(

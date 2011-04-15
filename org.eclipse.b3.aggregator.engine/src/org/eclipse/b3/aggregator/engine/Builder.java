@@ -132,7 +132,7 @@ public class Builder extends ModelAbstractCommand {
 		}
 	}
 
-	public static final String CONTRIBUTED_CONTENT_IU_PREFIX = "contributed.content."; //$NON-NLS-1$
+	public static final String VERIFICATION_IU_PREFIX = "contributed.content."; //$NON-NLS-1$
 
 	public static final String PDE_TARGET_PLATFORM_NAMESPACE = "A.PDE.Target.Platform";
 
@@ -524,8 +524,8 @@ public class Builder extends ModelAbstractCommand {
 		return childrenSubdirectories;
 	}
 
-	public String getContributionVerifyIUName(Contribution contribution) {
-		return CONTRIBUTED_CONTENT_IU_PREFIX + "contribution_" + getSafeContributionName(contribution);
+	public String getContributionVerificationIUName(Contribution contribution) {
+		return VERIFICATION_IU_PREFIX + "contribution_" + getSafeContributionName(contribution);
 	}
 
 	/**
@@ -604,9 +604,9 @@ public class Builder extends ModelAbstractCommand {
 
 	public String getVerificationIUName(Aggregate aggregate) {
 		if(aggregate == null)
-			return CONTRIBUTED_CONTENT_IU_PREFIX + "main";
+			return VERIFICATION_IU_PREFIX + "main";
 
-		return CONTRIBUTED_CONTENT_IU_PREFIX + "aggregate_" + getSafeAggregateName(aggregate);
+		return VERIFICATION_IU_PREFIX + "aggregate_" + getSafeAggregateName(aggregate);
 	}
 
 	public boolean isCleanBuild() {
