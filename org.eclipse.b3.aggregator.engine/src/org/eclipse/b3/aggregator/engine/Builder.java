@@ -132,11 +132,7 @@ public class Builder extends ModelAbstractCommand {
 		}
 	}
 
-	public static final String MAIN_CONTRIBUTED_CONTENT_IU = "main.contributed.content"; //$NON-NLS-1$
-
-	public static final String AGGREGATE_CONTRIBUTED_CONTENT_IU_PREFIX = "aggregate.contributed.content_"; //$NON-NLS-1$
-
-	public static final String CONTRIBUTION_CONTRIBUTED_CONTENT_IU_PREFIX = "contribution.contributed.content_"; //$NON-NLS-1$
+	public static final String CONTRIBUTED_CONTENT_IU_PREFIX = "contributed.content."; //$NON-NLS-1$
 
 	public static final String PDE_TARGET_PLATFORM_NAMESPACE = "A.PDE.Target.Platform";
 
@@ -174,8 +170,9 @@ public class Builder extends ModelAbstractCommand {
 
 	public static final String INTERNAL_METADATA_TYPE = "org.eclipse.b3.aggregator.engine.internalRepository"; //$NON-NLS-1$
 
-	public static final String CONTRIBUTION_LOCATION_PROPERTY = Contribution.class.getName().toLowerCase() +
-			".location"; //$NON-NLS-1$
+	public static final String PROP_AGGREGATOR_MODEL_ELEMENT_URI = "org.eclipse.b3.aggregator.model.element.URI"; //$NON-NLS-1$
+
+	public static final String PROP_AGGREGATOR_VERIFICATION_IU = "org.eclipse.b3.aggregator.verification.IU"; //$NON-NLS-1$
 
 	public static final SimpleDateFormat TIMESTAMP_FORMAT = new SimpleDateFormat("yyyyMMdd-HHmm"); //$NON-NLS-1$
 
@@ -528,7 +525,7 @@ public class Builder extends ModelAbstractCommand {
 	}
 
 	public String getContributionVerifyIUName(Contribution contribution) {
-		return CONTRIBUTION_CONTRIBUTED_CONTENT_IU_PREFIX + getSafeContributionName(contribution);
+		return CONTRIBUTED_CONTENT_IU_PREFIX + "contribution_" + getSafeContributionName(contribution);
 	}
 
 	/**
@@ -607,9 +604,9 @@ public class Builder extends ModelAbstractCommand {
 
 	public String getVerificationIUName(Aggregate aggregate) {
 		if(aggregate == null)
-			return MAIN_CONTRIBUTED_CONTENT_IU;
+			return CONTRIBUTED_CONTENT_IU_PREFIX + "main";
 
-		return AGGREGATE_CONTRIBUTED_CONTENT_IU_PREFIX + getSafeAggregateName(aggregate);
+		return CONTRIBUTED_CONTENT_IU_PREFIX + "aggregate_" + getSafeAggregateName(aggregate);
 	}
 
 	public boolean isCleanBuild() {

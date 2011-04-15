@@ -390,6 +390,7 @@ public class VerificationIUAction extends AbstractPublisherAction {
 			// add the "Cannot be installed into the IDE" IU
 			iuDescription.setId(Builder.PDE_TARGET_PLATFORM_NAME);
 			iuDescription.setVersion(Version.emptyVersion);
+			iuDescription.setProperty(Builder.PROP_AGGREGATOR_VERIFICATION_IU, Boolean.TRUE.toString());
 			iuDescription.addProvidedCapabilities(Collections.singletonList(MetadataFactory.createProvidedCapability(
 				Builder.PDE_TARGET_PLATFORM_NAMESPACE, iuDescription.getId(), iuDescription.getVersion())));
 			results.addIU(MetadataFactory.createInstallableUnit(iuDescription), IPublisherResult.NON_ROOT);
@@ -405,7 +406,8 @@ public class VerificationIUAction extends AbstractPublisherAction {
 				iuDescription.setVersion(Builder.ALL_CONTRIBUTED_CONTENT_VERSION);
 				iuDescription.setProperty(InstallableUnitDescription.PROP_TYPE_GROUP, Boolean.TRUE.toString());
 				iuDescription.setProperty(
-					Builder.CONTRIBUTION_LOCATION_PROPERTY, getRelativeEObjectURI((EObject) contrib));
+					Builder.PROP_AGGREGATOR_MODEL_ELEMENT_URI, getRelativeEObjectURI((EObject) contrib));
+				iuDescription.setProperty(Builder.PROP_AGGREGATOR_VERIFICATION_IU, Boolean.TRUE.toString());
 				iuDescription.addProvidedCapabilities(Collections.singletonList(createSelfCapability(
 					iuDescription.getId(), iuDescription.getVersion())));
 				iuDescription.setRequirements(crList.toArray(new IRequirement[crList.size()]));
@@ -421,6 +423,7 @@ public class VerificationIUAction extends AbstractPublisherAction {
 			iuDescription.setId(builder.getVerificationIUName(aggregate));
 			iuDescription.setVersion(Builder.ALL_CONTRIBUTED_CONTENT_VERSION);
 			iuDescription.setProperty(InstallableUnitDescription.PROP_TYPE_GROUP, Boolean.TRUE.toString());
+			iuDescription.setProperty(Builder.PROP_AGGREGATOR_VERIFICATION_IU, Boolean.TRUE.toString());
 			iuDescription.addProvidedCapabilities(Collections.singletonList(createSelfCapability(
 				iuDescription.getId(), iuDescription.getVersion())));
 			// add the IUs representing contributions as requirements of the verification IU

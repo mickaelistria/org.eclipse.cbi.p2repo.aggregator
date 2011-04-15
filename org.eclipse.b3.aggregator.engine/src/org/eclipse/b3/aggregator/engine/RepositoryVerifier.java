@@ -96,7 +96,7 @@ public class RepositoryVerifier extends BuilderPhase {
 			// The set of the root problem explanations
 			LinkedHashSet<Explanation> rootProblems = new LinkedHashSet<Explanation>();
 
-			// The set of dependency chain explanations
+			// The map of dependency chain explanations
 			HashMap<IInstallableUnit, IRequirement> links = new HashMap<IInstallableUnit, IRequirement>();
 
 			for(Explanation explanation : explanations) {
@@ -113,62 +113,73 @@ public class RepositoryVerifier extends BuilderPhase {
 					rootProblems.add(explanation);
 			}
 
-			// The cache of IInstallableUnit to Contribution locations mappings
-			HashMap<IInstallableUnit, String> contributionLocationCache = new HashMap<IInstallableUnit, String>();
+			// The cache of IInstallableUnit to aggregator model element URI mappings
+			HashMap<IInstallableUnit, String> modelElementURICache = new HashMap<IInstallableUnit, String>();
 
 			for(Explanation rootProblem : rootProblems) {
 				if(rootProblem instanceof MissingIU) {
 					IInstallableUnit iu = ((MissingIU) rootProblem).iu;
-					String contributionLocation = findContributionLocation(iu, links, contributionLocationCache);
+					String elementURI = findModelElementURI(iu, links, modelElementURICache);
 
-					if(contributionLocation != null)
+					if(elementURI != null)
 						verificationDiagnostics.add(new VerificationDiagnostic(
-							rootProblem.toString(), org.eclipse.emf.common.util.URI.createURI(contributionLocation),
+							rootProblem.toString(), org.eclipse.emf.common.util.URI.createURI(elementURI),
 							VerificationDiagnostic.MISSING_IU));
 				}
 				else if(rootProblem instanceof Singleton) {
 					IInstallableUnit[] ius = ((Singleton) rootProblem).ius;
-					HashSet<String> contributionLocations = new HashSet<String>(ius.length);
+					HashSet<String> elementURIs = new HashSet<String>(ius.length);
 
 					for(IInstallableUnit iu : ius)
-						contributionLocations.add(findContributionLocation(iu, links, contributionLocationCache));
-					// just in case we failed to find the location of a contribution contributing some of the conflicting IUs
-					contributionLocations.remove(null);
+						elementURIs.add(findModelElementURI(iu, links, modelElementURICache));
+					// just in case we failed to find the model element URIs for some of the conflicting IUs
+					elementURIs.remove(null);
 
-					for(String contributionLocation : contributionLocations)
+					for(String elementURI : elementURIs)
 						verificationDiagnostics.add(new VerificationDiagnostic(
-							rootProblem.toString(), org.eclipse.emf.common.util.URI.createURI(contributionLocation),
-							VerificationDiagnostic.CONFLICTING_IU, contributionLocations));
+							rootProblem.toString(), org.eclipse.emf.common.util.URI.createURI(elementURI),
+							VerificationDiagnostic.CONFLICTING_IU, elementURIs));
 				}
 			}
 		}
 
-		protected String findContributionLocation(IInstallableUnit iu, HashMap<IInstallableUnit, IRequirement> links,
-				HashMap<IInstallableUnit, String> contributionLocationCache) {
-			if(contributionLocationCache.containsKey(iu))
-				return contributionLocationCache.get(iu); // may return null in case of a dependency loop
+		/**
+		 * Walk the dependency chain from the specified IU up and return the model element URI for the first encountered IU for which the model
+		 * element URI information is known (either because it was cached or because the IU happens to have the information directly attached).
+		 * 
+		 * @param iu
+		 *            the IU from which to fun the model element URI
+		 * @param links
+		 *            a map of dependency chain links
+		 * @param modelElementURICache
+		 *            a cache if the model element URIs
+		 * @return the model element URI of the first IU found in the dependency chain for which the information is known or <code>null</code> if the
+		 *         information is not know for any IU from the chain
+		 */
+		protected String findModelElementURI(IInstallableUnit iu, HashMap<IInstallableUnit, IRequirement> links,
+				HashMap<IInstallableUnit, String> modelElementURICache) {
+			if(modelElementURICache.containsKey(iu))
+				return modelElementURICache.get(iu); // may return null in case of a dependency loop
 
-			String contributionLocation = iu.getProperty(Builder.CONTRIBUTION_LOCATION_PROPERTY);
+			String elementURI = iu.getProperty(Builder.PROP_AGGREGATOR_MODEL_ELEMENT_URI);
 
 			// we need to put the value to the map even when it is null to prevent possible infinite loop
-			contributionLocationCache.put(iu, contributionLocation);
+			modelElementURICache.put(iu, elementURI);
 
-			// if the contributionLocation is non-null then this is the verification IU
-			// representing a Contribution and the location is the contribution location
-			// we are looking for
-			if(contributionLocation == null) {
+			// walk the dependency chain up if the IU doesn't have the model element URI information attached
+			if(elementURI == null) {
 				for(Entry<IInstallableUnit, IRequirement> link : links.entrySet()) {
 					if(link.getValue().isMatch(iu)) {
-						contributionLocation = findContributionLocation(link.getKey(), links, contributionLocationCache);
-						if(contributionLocation != null) {
-							contributionLocationCache.put(iu, contributionLocation);
+						elementURI = findModelElementURI(link.getKey(), links, modelElementURICache);
+						if(elementURI != null) {
+							modelElementURICache.put(iu, elementURI);
 							break;
 						}
 					}
 				}
 			}
 
-			return contributionLocation;
+			return elementURI;
 		}
 
 		public IStatus[] getChildren() {
@@ -484,13 +495,12 @@ public class RepositoryVerifier extends BuilderPhase {
 		long start = TimeUtils.getNow();
 
 		String profilePrefix = Builder.PROFILE_ID + '_';
-		String verificationIUName = getBuilder().getVerificationIUName(aggregate);
 
 		final Set<IInstallableUnit> unitsToAggregate = builder.getUnitsToAggregate(aggregate);
-		IProfileRegistry profileRegistry = P2Utils.getProfileRegistry(getBuilder().getProvisioningAgent());
-		IPlanner planner = P2Utils.getPlanner(getBuilder().getProvisioningAgent());
+		IProfileRegistry profileRegistry = P2Utils.getProfileRegistry(builder.getProvisioningAgent());
+		IPlanner planner = P2Utils.getPlanner(builder.getProvisioningAgent());
 		IMetadataRepositoryManager mdrMgr = P2Utils.getRepositoryManager(
-			getBuilder().getProvisioningAgent(), IMetadataRepositoryManager.class);
+			builder.getProvisioningAgent(), IMetadataRepositoryManager.class);
 		try {
 			URI repoLocation = builder.getSourceCompositeURI();
 			Set<IInstallableUnit> validationOnlyIUs = null;
@@ -529,7 +539,8 @@ public class RepositoryVerifier extends BuilderPhase {
 					profile = profileRegistry.addProfile(profileId, props);
 
 				IInstallableUnit[] rootArr = getRootIUs(
-					sourceRepo, verificationIUName, Builder.ALL_CONTRIBUTED_CONTENT_VERSION, subMon.newChild(9));
+					sourceRepo, builder.getVerificationIUName(aggregate), Builder.ALL_CONTRIBUTED_CONTENT_VERSION,
+					subMon.newChild(9));
 
 				// Add as root IU's to a request
 				ProfileChangeRequest request = new ProfileChangeRequest(profile);
@@ -538,9 +549,7 @@ public class RepositoryVerifier extends BuilderPhase {
 						rootIU, IProfile.PROP_PROFILE_ROOT_IU, Boolean.TRUE.toString());
 				request.addInstallableUnits(rootArr);
 
-				boolean hadPartials = true;
-				while(hadPartials) {
-					hadPartials = false;
+				while(true) {
 					ProvisioningContext context = createContext(repoLocation);
 					ProvisioningPlan plan = (ProvisioningPlan) planner.getProvisioningPlan(
 						request, context,
@@ -553,6 +562,8 @@ public class RepositoryVerifier extends BuilderPhase {
 						throw new CoreException(new AnalyzedPlannerStatus((PlannerStatus) status));
 					}
 
+					boolean hadPartials = false;
+
 					Set<IInstallableUnit> suspectedValidationOnlyIUs = null;
 					Operand[] ops = plan.getOperands();
 					for(Operand op : ops) {
@@ -564,8 +575,8 @@ public class RepositoryVerifier extends BuilderPhase {
 						if(iu == null)
 							continue;
 
-						String id = iu.getId();
-						if(verificationIUName.equals(id) || Builder.PDE_TARGET_PLATFORM_NAME.equals(id))
+						// skip all IUs generated for verification purposes
+						if(Boolean.parseBoolean(iu.getProperty(org.eclipse.b3.aggregator.engine.Builder.PROP_AGGREGATOR_VERIFICATION_IU)))
 							continue;
 
 						if(validationOnlyIUs.contains(iu)) {
@@ -649,9 +660,11 @@ public class RepositoryVerifier extends BuilderPhase {
 						}
 					}
 
-					if(hadPartials)
-						// Rerun the validation
-						LogUtils.info("Partial IU's encountered. Verifying %s again...", configName); //$NON-NLS-1$
+					// exit the loop if there are no more partial IUs
+					if(!hadPartials)
+						break;
+
+					LogUtils.info("Partial IU's encountered. Verifying %s again...", configName); //$NON-NLS-1$
 				}
 			}
 
@@ -664,9 +677,9 @@ public class RepositoryVerifier extends BuilderPhase {
 		}
 		finally {
 			MonitorUtils.done(subMon);
-			P2Utils.ungetProfileRegistry(getBuilder().getProvisioningAgent(), profileRegistry);
-			P2Utils.ungetPlanner(getBuilder().getProvisioningAgent(), planner);
-			P2Utils.ungetRepositoryManager(getBuilder().getProvisioningAgent(), mdrMgr);
+			P2Utils.ungetProfileRegistry(builder.getProvisioningAgent(), profileRegistry);
+			P2Utils.ungetPlanner(builder.getProvisioningAgent(), planner);
+			P2Utils.ungetRepositoryManager(builder.getProvisioningAgent(), mdrMgr);
 
 			LogUtils.info("Done. Took %s", TimeUtils.getFormattedDuration(start)); //$NON-NLS-1$
 		}
@@ -716,8 +729,7 @@ public class RepositoryVerifier extends BuilderPhase {
 				continue;
 
 			// Find the leafmost contributions for the problem. We don't want to
-			// blame
-			// consuming contributors
+			// blame consuming contributors
 			if(!addLeafmostContributions(explanations, contribs, crq)) {
 				Contribution contrib = findContribution(iu, crq);
 				if(contrib == null)
