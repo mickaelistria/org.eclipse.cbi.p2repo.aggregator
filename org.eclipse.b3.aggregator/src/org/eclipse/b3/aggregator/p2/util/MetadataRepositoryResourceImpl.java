@@ -73,6 +73,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceImpl;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.equinox.internal.p2.metadata.IRequiredCapability;
 import org.eclipse.equinox.p2.core.IProvisioningAgent;
 import org.eclipse.equinox.p2.metadata.IInstallableUnit;
@@ -83,9 +84,9 @@ import org.eclipse.equinox.p2.metadata.expression.IMatchExpression;
 
 public class MetadataRepositoryResourceImpl extends ResourceImpl implements StatusProvider {
 	class AsynchronousLoader extends Job {
-		private Job replaceJob;
+		private final Job replaceJob;
 
-		private boolean force;
+		private final boolean force;
 
 		public AsynchronousLoader(String name, Job replaceJob, boolean force) {
 			super(name);
@@ -796,6 +797,23 @@ public class MetadataRepositoryResourceImpl extends ResourceImpl implements Stat
 		return new java.net.URI(opaquePart.substring(pos + 1));
 	}
 
+	private MappedRepository getMappedRepository() {
+		Aggregator aggregator = ResourceUtils.getAggregator(getResourceSet());
+		if(aggregator == null)
+			return null;
+
+		String uriString = getURI().toString();
+		if(!uriString.startsWith("b3aggr:p2:"))
+			return null;
+
+		uriString = uriString.substring(10);
+		for(Contribution contribution : aggregator.getContributions())
+			for(MappedRepository mappedRepo : contribution.getRepositories())
+				if(uriString.equals(mappedRepo.getLocation()))
+					return mappedRepo;
+		return null;
+	}
+
 	public MetadataRepository getMetadataRepository() {
 		if(repoView != null)
 			return repoView.getMetadataRepository();
@@ -963,7 +981,14 @@ public class MetadataRepositoryResourceImpl extends ResourceImpl implements Stat
 		}
 		finally {
 			if(loadException != null) {
-				getErrors().add(new ResourceDiagnosticImpl(loadException.getMessage(), getURI().toString()));
+				MappedRepository mr = getMappedRepository();
+				URI uri;
+				if(mr != null)
+					uri = EcoreUtil.getURI((EObject) mr);
+				else
+					uri = getURI();
+
+				getErrors().add(new ResourceDiagnosticImpl(loadException.getMessage(), uri.toString()));
 				String message = StringUtils.trimmedOrNull(loadException.getMessage());
 				if(message == null && unwrap(loadException) instanceof OperationCanceledException)
 					message = "Repository loading was cancelled";

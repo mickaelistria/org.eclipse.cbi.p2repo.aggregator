@@ -172,7 +172,7 @@ public class Builder extends ModelAbstractCommand {
 
 	public static final String PROP_AGGREGATOR_MODEL_ELEMENT_URI = "org.eclipse.b3.aggregator.model.element.URI"; //$NON-NLS-1$
 
-	public static final String PROP_AGGREGATOR_VERIFICATION_IU = "org.eclipse.b3.aggregator.verification.IU"; //$NON-NLS-1$
+	public static final String PROP_AGGREGATOR_GENERATED_IU = "org.eclipse.b3.aggregator.generated.IU"; //$NON-NLS-1$
 
 	public static final SimpleDateFormat TIMESTAMP_FORMAT = new SimpleDateFormat("yyyyMMdd-HHmm"); //$NON-NLS-1$
 
@@ -419,6 +419,8 @@ public class Builder extends ModelAbstractCommand {
 
 	private List<IInstallableUnit> categoryIUs;
 
+	private List<IInstallableUnit> validationIUs;
+
 	private boolean sendmail = false;
 
 	final private Set<IInstallableUnit> allUnitsToAggregate = new HashSet<IInstallableUnit>();
@@ -600,6 +602,10 @@ public class Builder extends ModelAbstractCommand {
 		}
 
 		return units;
+	}
+
+	public List<IInstallableUnit> getValidationIUs() {
+		return validationIUs;
 	}
 
 	public String getVerificationIUName(Aggregate aggregate) {
@@ -1225,6 +1231,10 @@ public class Builder extends ModelAbstractCommand {
 
 	public void setSubjectPrefix(String subjectPrefix) {
 		this.subjectPrefix = subjectPrefix;
+	}
+
+	public void setValidationIUs(List<IInstallableUnit> validationIUs) {
+		this.validationIUs = validationIUs;
 	}
 
 	private void verifyContributions() throws CoreException {

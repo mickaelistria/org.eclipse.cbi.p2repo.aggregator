@@ -584,7 +584,7 @@ public class RepositoryVerifier extends BuilderPhase {
 							continue;
 
 						// skip all IUs generated for verification purposes
-						if(Boolean.parseBoolean(iu.getProperty(org.eclipse.b3.aggregator.engine.Builder.PROP_AGGREGATOR_VERIFICATION_IU)))
+						if(Boolean.parseBoolean(iu.getProperty(Builder.PROP_AGGREGATOR_GENERATED_IU)))
 							continue;
 
 						if(validationOnlyIUs.contains(iu)) {
