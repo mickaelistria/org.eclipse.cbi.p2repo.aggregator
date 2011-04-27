@@ -41,6 +41,7 @@ import org.eclipse.b3.aggregator.engine.Builder.ActionType;
 import org.eclipse.b3.aggregator.engine.Engine;
 import org.eclipse.b3.aggregator.engine.RepositoryVerifier.AnalyzedPlannerStatus;
 import org.eclipse.b3.aggregator.impl.AggregatorImpl;
+import org.eclipse.b3.aggregator.impl.ContributionImpl;
 import org.eclipse.b3.aggregator.p2.util.MetadataRepositoryResourceImpl;
 import org.eclipse.b3.aggregator.p2view.IUPresentation;
 import org.eclipse.b3.aggregator.p2view.RequirementWrapper;
@@ -49,6 +50,7 @@ import org.eclipse.b3.aggregator.provider.AggregatorItemProvider;
 import org.eclipse.b3.aggregator.util.AddIUsToContributionCommand;
 import org.eclipse.b3.aggregator.util.AddIUsToCustomCategoryCommand;
 import org.eclipse.b3.aggregator.util.AddIUsToParentRepositoryCommand;
+import org.eclipse.b3.aggregator.util.AggregatorResource;
 import org.eclipse.b3.aggregator.util.AggregatorResourceImpl;
 import org.eclipse.b3.aggregator.util.ItemSorter;
 import org.eclipse.b3.aggregator.util.ItemSorter.ItemGroup;
@@ -256,11 +258,12 @@ public class AggregatorActionBarContributor extends EditingDomainActionBarContri
 
 					@Override
 					protected IStatus run(IProgressMonitor monitor) {
-						Resource resource = null;
+						AggregatorResource resource = null;
 						try {
-							resource = ((IEditingDomainProvider) activeEditorPart).getEditingDomain().getResourceSet().getResources().get(
+							resource = (AggregatorResource) ((IEditingDomainProvider) activeEditorPart).getEditingDomain().getResourceSet().getResources().get(
 								0);
 
+							clearVerificationMarkers(resource);
 							Builder builder = new Builder();
 
 							org.eclipse.emf.common.util.URI emfURI = resource.getURI();
@@ -967,6 +970,11 @@ public class AggregatorActionBarContributor extends EditingDomainActionBarContri
 		menuManager.insertAfter("ui-actions", refreshViewerAction);
 
 		super.addGlobalActions(menuManager);
+	}
+
+	void clearVerificationMarkers(AggregatorResource aggregator) {
+		for(Contribution contrib : aggregator.getAggregator().getContributions())
+			((ContributionImpl) contrib).setStatus(null);
 	}
 
 	/**

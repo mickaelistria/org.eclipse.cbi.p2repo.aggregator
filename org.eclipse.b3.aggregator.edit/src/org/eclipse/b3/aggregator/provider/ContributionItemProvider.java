@@ -494,6 +494,14 @@ public class ContributionItemProvider extends AggregatorItemProviderAdapter impl
 			// Update content if the contribution has been linked somewhere (to an Aggregate)
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 		}
+		else if(notification.getFeatureID(Contribution.class) == AggregatorPackage.CONTRIBUTION__STATUS) {
+			// Make sure that all error overlays are added or removed on the contribution and its parents.
+			EObject container = ((EObject) notification.getNotifier());
+			while(container != null) {
+				fireNotifyChanged(new ViewerNotification(notification, container, false, true));
+				container = container.eContainer();
+			}
+		}
 		else if(notification.getFeatureID(Contribution.class) == AggregatorPackage.CONTRIBUTION__ENABLED) {
 			// Update also content if enabled flag has been changed
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));

@@ -13,7 +13,6 @@ import java.util.List;
 
 import org.eclipse.b3.aggregator.ChildrenProvider;
 import org.eclipse.b3.aggregator.LabelProvider;
-import org.eclipse.b3.aggregator.p2view.*;
 import org.eclipse.b3.aggregator.p2view.Bundle;
 import org.eclipse.b3.aggregator.p2view.Bundles;
 import org.eclipse.b3.aggregator.p2view.Categories;
@@ -26,6 +25,7 @@ import org.eclipse.b3.aggregator.p2view.IUDetails;
 import org.eclipse.b3.aggregator.p2view.IUPresentation;
 import org.eclipse.b3.aggregator.p2view.IUPresentationWithDetails;
 import org.eclipse.b3.aggregator.p2view.InstallableUnits;
+import org.eclipse.b3.aggregator.p2view.Licenses;
 import org.eclipse.b3.aggregator.p2view.MetadataRepositoryStructuredView;
 import org.eclipse.b3.aggregator.p2view.Miscellaneous;
 import org.eclipse.b3.aggregator.p2view.OtherIU;
@@ -528,12 +528,10 @@ public class P2viewSwitch<T1> {
 		if(theEClass.eContainer() == modelPackage) {
 			return doSwitch(theEClass.getClassifierID(), theEObject);
 		}
-		else {
-			List<EClass> eSuperTypes = theEClass.getESuperTypes();
-			return eSuperTypes.isEmpty()
-					? defaultCase(theEObject)
-					: doSwitch(eSuperTypes.get(0), theEObject);
-		}
+		List<EClass> eSuperTypes = theEClass.getESuperTypes();
+		return eSuperTypes.isEmpty()
+				? defaultCase(theEObject)
+				: doSwitch(eSuperTypes.get(0), theEObject);
 	}
 
 	/**

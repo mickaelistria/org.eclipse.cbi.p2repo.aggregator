@@ -10,11 +10,14 @@ import java.util.Iterator;
 import java.util.List;
 
 import org.eclipse.b3.aggregator.Aggregator;
+import org.eclipse.b3.aggregator.AggregatorFactory;
 import org.eclipse.b3.aggregator.AggregatorPackage;
 import org.eclipse.b3.aggregator.EnabledStatusProvider;
 import org.eclipse.b3.aggregator.InfosProvider;
 import org.eclipse.b3.aggregator.LinkReceiver;
 import org.eclipse.b3.aggregator.LinkSource;
+import org.eclipse.b3.aggregator.StatusCode;
+import org.eclipse.b3.aggregator.impl.ContributionImpl;
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.impl.AdapterImpl;
@@ -285,6 +288,10 @@ public class AggregatorResourceImpl extends XMIResourceImpl implements Aggregato
 			EList<Diagnostic> errors = getErrors();
 			for(VerificationDiagnostic verificationDiagnostic : verificationDiagnostics) {
 				verificationDiagnostic.resolveLocation(baseURI);
+				EObject eObject = getResourceSet().getEObject(verificationDiagnostic.locationURI, true);
+				if(eObject instanceof ContributionImpl) {
+					((ContributionImpl) eObject).setStatus(AggregatorFactory.eINSTANCE.createStatus(StatusCode.BROKEN));
+				}
 				errors.add(verificationDiagnostic);
 			}
 		}

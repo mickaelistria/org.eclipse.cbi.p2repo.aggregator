@@ -24,6 +24,7 @@ import org.eclipse.b3.aggregator.MappedRepository;
 import org.eclipse.b3.aggregator.MappedUnit;
 import org.eclipse.b3.aggregator.MetadataRepositoryReference;
 import org.eclipse.b3.aggregator.PackedStrategy;
+import org.eclipse.b3.aggregator.impl.ContributionImpl;
 import org.eclipse.b3.aggregator.util.SpecialQueries;
 import org.eclipse.b3.aggregator.util.VerificationDiagnostic;
 import org.eclipse.b3.p2.InstallableUnit;
@@ -253,20 +254,18 @@ public class RepositoryVerifier extends BuilderPhase {
 			if(explanation instanceof Singleton) {
 				if(contribsFound)
 					// All explicit contributions for Singletons are added at
-					// top level. We just
-					// want to find out if this Singleton is the leaf problem
-					// here, not add anything
+					// top level. We just want to find out if this Singleton
+					// is the leaf problem here, not add anything
 					continue;
 
 				for(IInstallableUnit iu : ((Singleton) explanation).ius) {
 					if(prq.isMatch(iu)) {
 						// A singleton is always a leaf problem. Add
-						// contributions
-						// if we can find any
-						Contribution contrib = findContribution(iu.getId());
-						if(contrib == null)
-							continue;
-						contribsFound = true;
+						// contributions if we can find any
+						if(!findContributions(iu.getId()).isEmpty()) {
+							contribsFound = true;
+							break;
+						}
 					}
 				}
 				continue;
@@ -289,17 +288,16 @@ public class RepositoryVerifier extends BuilderPhase {
 
 			if(prq.isMatch(iu)) {
 				// This IU would have fulfilled the failing request but it
-				// has
-				// apparent problems of its own.
+				// has apparent problems of its own.
 				if(addLeafmostContributions(explanations, contributions, crq)) {
 					contribsFound = true;
 					continue;
 				}
 
-				Contribution contrib = findContribution(iu, crq);
-				if(contrib == null)
-					continue;
-				contributions.put(contrib.getLabel(), contrib);
+				for(Contribution contrib : findContributions(iu, crq)) {
+					contributions.put(contrib.getLabel(), contrib);
+					contribsFound = true;
+				}
 				continue;
 			}
 		}
@@ -325,29 +323,35 @@ public class RepositoryVerifier extends BuilderPhase {
 		return context;
 	}
 
-	private Contribution findContribution(IInstallableUnit iu, IRequirement rq) {
+	private List<Contribution> findContributions(IInstallableUnit iu, IRequirement rq) {
+		List<Contribution> contribs = Collections.emptyList();
 		if(!(rq instanceof IRequiredCapability))
-			return null;
+			return contribs;
 
 		IRequiredCapability cap = (IRequiredCapability) rq;
-		Contribution contrib = null;
 		if(Builder.NAMESPACE_OSGI_BUNDLE.equals(cap.getNamespace()) ||
 				IInstallableUnit.NAMESPACE_IU_ID.equals(cap.getNamespace()))
-			contrib = findContribution(cap.getName());
+			contribs = findContributions(cap.getName());
 
-		if(contrib == null)
+		if(contribs.isEmpty())
 			// Not found, try the owner of the requirement
-			contrib = findContribution(iu.getId());
-		return contrib;
+			contribs = findContributions(iu.getId());
+		return contribs;
 	}
 
-	private Contribution findContribution(String componentId) {
+	private List<Contribution> findContributions(String componentId) {
+		List<Contribution> result = null;
 		for(Contribution contrib : getBuilder().getAggregator().getAggregateContributions(aggregate, true))
 			for(MappedRepository repository : contrib.getRepositories(true))
 				for(MappedUnit mu : repository.getUnits(true))
-					if(componentId.equals(mu.getName()))
-						return contrib;
-		return null;
+					if(componentId.equals(mu.getName())) {
+						if(result == null)
+							result = new ArrayList<Contribution>();
+						result.add(contrib);
+					}
+		return result == null
+				? Collections.<Contribution> emptyList()
+				: result;
 	}
 
 	private Set<IInstallableUnit> getUnpatchedTransitiveScope(IQueryable<IInstallableUnit> collectedStuff,
@@ -473,7 +477,8 @@ public class RepositoryVerifier extends BuilderPhase {
 			return newIU;
 		}
 		catch(CoreException e) {
-			getBuilder().sendEmail(findContribution(iu.getId()), Collections.singletonList(e.getMessage()));
+			for(Contribution contrib : findContributions(iu.getId()))
+				getBuilder().sendEmail(contrib, Collections.singletonList(e.getMessage()));
 			throw e;
 		}
 		finally {
@@ -495,6 +500,9 @@ public class RepositoryVerifier extends BuilderPhase {
 		long start = TimeUtils.getNow();
 
 		String profilePrefix = Builder.PROFILE_ID + '_';
+
+		for(Contribution contrib : aggregator.getAggregateContributions(aggregate, true))
+			((ContributionImpl) contrib).setStatus(null);
 
 		final Set<IInstallableUnit> unitsToAggregate = builder.getUnitsToAggregate(aggregate);
 		IProfileRegistry profileRegistry = P2Utils.getProfileRegistry(builder.getProvisioningAgent());
@@ -705,10 +713,8 @@ public class RepositoryVerifier extends BuilderPhase {
 				// A singleton is always a leaf problem. Add contributions
 				// if we can find any. They are all culprits
 				for(IInstallableUnit iu : ((Singleton) explanation).ius) {
-					Contribution contrib = findContribution(iu.getId());
-					if(contrib == null)
-						continue;
-					contribs.put(contrib.getLabel(), contrib);
+					for(Contribution contrib : findContributions(iu.getId()))
+						contribs.put(contrib.getLabel(), contrib);
 				}
 				continue;
 			}
@@ -731,10 +737,8 @@ public class RepositoryVerifier extends BuilderPhase {
 			// Find the leafmost contributions for the problem. We don't want to
 			// blame consuming contributors
 			if(!addLeafmostContributions(explanations, contribs, crq)) {
-				Contribution contrib = findContribution(iu, crq);
-				if(contrib == null)
-					continue;
-				contribs.put(contrib.getLabel(), contrib);
+				for(Contribution contrib : findContributions(iu, crq))
+					contribs.put(contrib.getLabel(), contrib);
 			}
 		}
 		if(contribs.isEmpty())
@@ -744,5 +748,4 @@ public class RepositoryVerifier extends BuilderPhase {
 				builder.sendEmail(contrib, errors);
 		}
 	}
-
 }

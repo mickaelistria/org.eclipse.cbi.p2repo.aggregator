@@ -610,12 +610,10 @@ public class AggregatorSwitch<T1> {
 		if(theEClass.eContainer() == modelPackage) {
 			return doSwitch(theEClass.getClassifierID(), theEObject);
 		}
-		else {
-			List<EClass> eSuperTypes = theEClass.getESuperTypes();
-			return eSuperTypes.isEmpty()
-					? defaultCase(theEObject)
-					: doSwitch(eSuperTypes.get(0), theEObject);
-		}
+		List<EClass> eSuperTypes = theEClass.getESuperTypes();
+		return eSuperTypes.isEmpty()
+				? defaultCase(theEObject)
+				: doSwitch(eSuperTypes.get(0), theEObject);
 	}
 
 	/**

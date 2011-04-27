@@ -456,7 +456,6 @@ public abstract class IUPresentationWithDetailsImpl extends IUPresentationImpl i
 	 * 
 	 * @generated
 	 */
-	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch(featureID) {

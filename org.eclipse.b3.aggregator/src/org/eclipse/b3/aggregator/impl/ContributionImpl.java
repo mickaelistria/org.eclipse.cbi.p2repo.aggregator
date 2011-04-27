@@ -207,6 +207,8 @@ public class ContributionImpl extends MinimalEObjectImpl.Container implements Co
 	 */
 	protected EList<MavenMapping> mavenMappings;
 
+	private Status status;
+
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -667,8 +669,10 @@ public class ContributionImpl extends MinimalEObjectImpl.Container implements Co
 	}
 
 	synchronized public Status getStatus() {
-		StatusCode statusCode;
+		if(status != null && status.getCode() != StatusCode.OK)
+			return status;
 
+		StatusCode statusCode;
 		for(MappedRepository repo : getRepositories()) {
 			if((statusCode = repo.getStatus().getCode()) != StatusCode.OK && statusCode != StatusCode.WAITING)
 				return AggregatorFactory.eINSTANCE.createStatus(StatusCode.BROKEN);
@@ -755,6 +759,14 @@ public class ContributionImpl extends MinimalEObjectImpl.Container implements Co
 		if(eNotificationRequired())
 			eNotify(new ENotificationImpl(
 				this, Notification.SET, AggregatorPackage.CONTRIBUTION__RECEIVER, oldReceiver, receiver));
+	}
+
+	public void setStatus(Status newStatus) {
+		Status oldStatus = status;
+		status = newStatus;
+		if(eNotificationRequired())
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, AggregatorPackage.CONTRIBUTION__STATUS, oldStatus, newStatus));
 	}
 
 	/**
