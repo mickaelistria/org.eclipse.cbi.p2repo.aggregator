@@ -121,5 +121,12 @@
       <super type="org.eclipse.emf.ecore.diagnostic"/>
       <persistent value="false"/>
    </extension>
+    <extension
+          point="org.eclipse.ui.ide.markerResolution">
+         <markerResolutionGenerator
+         	markerType="org.eclipse.b3.aggregator.editor.diagnostic.nonpersistent"
+         	class="org.eclipse.b3.aggregator.presentation.DiagnosticMarkerResolutionGenerator">
+         </markerResolutionGenerator>
+    </extension>
  
 </plugin>

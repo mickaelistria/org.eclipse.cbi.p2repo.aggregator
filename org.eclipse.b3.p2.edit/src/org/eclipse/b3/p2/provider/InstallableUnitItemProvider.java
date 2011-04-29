@@ -72,6 +72,7 @@ public class InstallableUnitItemProvider extends ItemProviderAdapter implements 
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(P2Package.Literals.IINSTALLABLE_UNIT__ARTIFACTS);
 			childrenFeatures.add(P2Package.Literals.IINSTALLABLE_UNIT__COPYRIGHT);
+			childrenFeatures.add(P2Package.Literals.IINSTALLABLE_UNIT__FILTER);
 			childrenFeatures.add(P2Package.Literals.IINSTALLABLE_UNIT__FRAGMENTS);
 			childrenFeatures.add(P2Package.Literals.IINSTALLABLE_UNIT__LICENSES);
 			childrenFeatures.add(P2Package.Literals.IINSTALLABLE_UNIT__META_REQUIREMENTS);
@@ -208,13 +209,13 @@ public class InstallableUnitItemProvider extends ItemProviderAdapter implements 
 		switch(notification.getFeatureID(InstallableUnit.class)) {
 			case P2Package.INSTALLABLE_UNIT__ID:
 			case P2Package.INSTALLABLE_UNIT__VERSION:
-			case P2Package.INSTALLABLE_UNIT__FILTER:
 			case P2Package.INSTALLABLE_UNIT__RESOLVED:
 			case P2Package.INSTALLABLE_UNIT__SINGLETON:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case P2Package.INSTALLABLE_UNIT__ARTIFACTS:
 			case P2Package.INSTALLABLE_UNIT__COPYRIGHT:
+			case P2Package.INSTALLABLE_UNIT__FILTER:
 			case P2Package.INSTALLABLE_UNIT__LICENSES:
 			case P2Package.INSTALLABLE_UNIT__META_REQUIREMENTS:
 			case P2Package.INSTALLABLE_UNIT__PROVIDED_CAPABILITIES:

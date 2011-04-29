@@ -12,11 +12,11 @@ import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 
-import org.eclipse.b3.aggregator.Aggregate;
 import org.eclipse.b3.aggregator.AggregatorPackage;
+import org.eclipse.b3.aggregator.CompositeChild;
 import org.eclipse.b3.aggregator.Contribution;
 import org.eclipse.b3.aggregator.LinkSource;
-import org.eclipse.b3.aggregator.impl.AggregateImpl;
+import org.eclipse.b3.aggregator.impl.CompositeChildImpl;
 import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.command.CompoundCommand;
 import org.eclipse.emf.common.command.UnexecutableCommand;
@@ -44,19 +44,19 @@ import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
- * This is the item provider adapter for a {@link org.eclipse.b3.aggregator.Aggregate} object.
+ * This is the item provider adapter for a {@link org.eclipse.b3.aggregator.CompositeChild} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * 
  * @generated
  */
-public class AggregateItemProvider extends AggregatorItemProviderAdapter implements IEditingDomainItemProvider,
+public class CompositeChildItemProvider extends AggregatorItemProviderAdapter implements IEditingDomainItemProvider,
 		IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource,
 		IItemColorProvider, IItemFontProvider {
 
-	public class AggregateWrapperItemProvider extends DelegatingWrapperItemProvider {
+	public class CompositeChildWrapperItemProvider extends DelegatingWrapperItemProvider {
 
-		public AggregateWrapperItemProvider(Object value, Object owner, EStructuralFeature feature, int index,
+		public CompositeChildWrapperItemProvider(Object value, Object owner, EStructuralFeature feature, int index,
 				AdapterFactory adapterFactory) {
 			super(value, owner, feature, index, adapterFactory);
 		}
@@ -162,7 +162,7 @@ public class AggregateItemProvider extends AggregatorItemProviderAdapter impleme
 	 * 
 	 * @generated
 	 */
-	public AggregateItemProvider(AdapterFactory adapterFactory) {
+	public CompositeChildItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -211,9 +211,11 @@ public class AggregateItemProvider extends AggregatorItemProviderAdapter impleme
 	 */
 	protected void addLabelPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-			getString("_UI_Aggregate_label_feature"),
-			getString("_UI_PropertyDescriptor_description", "_UI_Aggregate_label_feature", "_UI_Aggregate_type"),
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+			getResourceLocator(),
+			getString("_UI_CompositeChild_label_feature"),
+			getString(
+				"_UI_PropertyDescriptor_description", "_UI_CompositeChild_label_feature", "_UI_CompositeChild_type"),
 			AggregatorPackage.Literals.AGGREGATE__LABEL, true, false, false,
 			ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
@@ -233,21 +235,21 @@ public class AggregateItemProvider extends AggregatorItemProviderAdapter impleme
 
 	/**
 	 * {@inheritDoc} <br />
-	 * Please note that {@link AggregateItemProvider this} class can't handle all the children returned by this
-	 * method but {@link AggregateWrapperItemProvider} can.
+	 * Please note that {@link CompositeChildItemProvider this} class can't handle all the children returned by this
+	 * method but {@link CompositeChildWrapperItemProvider} can.
 	 */
 	@Override
 	public Collection<?> getChildren(Object object) {
 		@SuppressWarnings("unchecked")
 		Collection<Object> children = (Collection<Object>) super.getChildren(object);
 
-		children.addAll(((AggregateImpl) object).getLinkedContributions());
+		children.addAll(((CompositeChildImpl) object).getLinkedContributions());
 
 		return children;
 	}
 
 	/**
-	 * This returns Aggregate.gif.
+	 * This returns CompositeChild.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -256,7 +258,7 @@ public class AggregateItemProvider extends AggregatorItemProviderAdapter impleme
 	@Override
 	public Object getImage(Object object) {
 		return overlayImage(
-			object, getResourceLocator().getImage("full/obj16/Aggregate" + (((Aggregate) object).isEnabled()
+			object, getResourceLocator().getImage("full/obj16/CompositeChild" + (((CompositeChild) object).isEnabled()
 					? ""
 					: "Disabled")));
 	}
@@ -301,14 +303,14 @@ public class AggregateItemProvider extends AggregatorItemProviderAdapter impleme
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Aggregate) object).getLabel();
+		String label = ((CompositeChild) object).getLabel();
 		return label == null || label.length() == 0
-				? getString("_UI_Aggregate_type")
-				: getString("_UI_Aggregate_type") + " " + label;
+				? getString("_UI_CompositeChild_type")
+				: getString("_UI_CompositeChild_type") + " " + label;
 	}
 
 	/**
-	 * This handles notifications sent by the aggregate object instances when other objects are
+	 * This handles notifications sent by the compositeChild object instances when other objects are
 	 * linked to/unlinked from it.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -338,7 +340,7 @@ public class AggregateItemProvider extends AggregatorItemProviderAdapter impleme
 	public void notifyChangedGen(Notification notification) {
 		updateChildren(notification);
 
-		switch(notification.getFeatureID(Aggregate.class)) {
+		switch(notification.getFeatureID(CompositeChild.class)) {
 			case AggregatorPackage.AGGREGATE__ENABLED:
 			case AggregatorPackage.AGGREGATE__DESCRIPTION:
 			case AggregatorPackage.AGGREGATE__LABEL:

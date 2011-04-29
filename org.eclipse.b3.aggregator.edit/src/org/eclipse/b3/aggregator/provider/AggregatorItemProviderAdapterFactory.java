@@ -220,13 +220,13 @@ public class AggregatorItemProviderAdapterFactory extends AggregatorAdapterFacto
 	protected AvailableVersionsHeaderItemProvider availableVersionsHeaderItemProvider;
 
 	/**
-	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.aggregator.Aggregate} instances.
+	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.aggregator.CompositeChild} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 */
-	protected AggregateItemProvider aggregateItemProvider;
+	protected CompositeChildItemProvider compositeChildItemProvider;
 
 	/**
 	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.aggregator.AggregatorResourceView} instances.
@@ -290,22 +290,6 @@ public class AggregatorItemProviderAdapterFactory extends AggregatorAdapterFacto
 	 */
 	public void addListener(INotifyChangedListener notifyChangedListener) {
 		changeNotifier.addListener(notifyChangedListener);
-	}
-
-	/**
-	 * This creates an adapter for a {@link org.eclipse.b3.aggregator.Aggregate}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	public Adapter createAggregateAdapter() {
-		if(aggregateItemProvider == null) {
-			aggregateItemProvider = new AggregateItemProvider(this);
-		}
-
-		return aggregateItemProvider;
 	}
 
 	/**
@@ -402,6 +386,22 @@ public class AggregatorItemProviderAdapterFactory extends AggregatorAdapterFacto
 		}
 
 		return categoryItemProvider;
+	}
+
+	/**
+	 * This creates an adapter for a {@link org.eclipse.b3.aggregator.CompositeChild}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public Adapter createCompositeChildAdapter() {
+		if(compositeChildItemProvider == null) {
+			compositeChildItemProvider = new CompositeChildItemProvider(this);
+		}
+
+		return compositeChildItemProvider;
 	}
 
 	/**
@@ -635,8 +635,8 @@ public class AggregatorItemProviderAdapterFactory extends AggregatorAdapterFacto
 	public void dispose() {
 		if(aggregatorItemProvider != null)
 			aggregatorItemProvider.dispose();
-		if(aggregateItemProvider != null)
-			aggregateItemProvider.dispose();
+		if(compositeChildItemProvider != null)
+			compositeChildItemProvider.dispose();
 		if(mappedRepositoryItemProvider != null)
 			mappedRepositoryItemProvider.dispose();
 		if(configurationItemProvider != null)

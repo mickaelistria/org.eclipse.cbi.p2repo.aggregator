@@ -16,7 +16,7 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
-import org.eclipse.b3.aggregator.Aggregate;
+import org.eclipse.b3.aggregator.CompositeChild;
 import org.eclipse.b3.aggregator.Aggregator;
 import org.eclipse.b3.aggregator.Configuration;
 import org.eclipse.b3.aggregator.Contribution;
@@ -240,11 +240,11 @@ public class RepositoryVerifier extends BuilderPhase {
 		return roots.toArray(IInstallableUnit.class);
 	}
 
-	private Aggregate aggregate;
+	private CompositeChild compositeChild;
 
-	public RepositoryVerifier(Builder builder, Aggregate aggregate) {
+	public RepositoryVerifier(Builder builder, CompositeChild compositeChild) {
 		super(builder);
-		this.aggregate = aggregate;
+		this.compositeChild = compositeChild;
 	}
 
 	private boolean addLeafmostContributions(Set<Explanation> explanations, Map<String, Contribution> contributions,
@@ -341,7 +341,7 @@ public class RepositoryVerifier extends BuilderPhase {
 
 	private List<Contribution> findContributions(String componentId) {
 		List<Contribution> result = null;
-		for(Contribution contrib : getBuilder().getAggregator().getAggregateContributions(aggregate, true))
+		for(Contribution contrib : getBuilder().getAggregator().getCompositeChildContributions(compositeChild, true))
 			for(MappedRepository repository : contrib.getRepositories(true))
 				for(MappedUnit mu : repository.getUnits(true))
 					if(componentId.equals(mu.getName())) {
@@ -488,7 +488,7 @@ public class RepositoryVerifier extends BuilderPhase {
 
 	@Override
 	public void run(IProgressMonitor monitor) throws CoreException {
-		String taskLabel = Builder.getAggregateLabel(aggregate);
+		String taskLabel = Builder.getCompositeChildLabel(compositeChild);
 
 		Builder builder = getBuilder();
 		Aggregator aggregator = builder.getAggregator();
@@ -496,15 +496,15 @@ public class RepositoryVerifier extends BuilderPhase {
 		int configCount = configs.size();
 		SubMonitor subMon = SubMonitor.convert(monitor, configCount * 100);
 
-		LogUtils.info("Starting planner verification for aggregate: " + taskLabel); //$NON-NLS-1$
+		LogUtils.info("Starting planner verification for compositeChild: " + taskLabel); //$NON-NLS-1$
 		long start = TimeUtils.getNow();
 
 		String profilePrefix = Builder.PROFILE_ID + '_';
 
-		for(Contribution contrib : aggregator.getAggregateContributions(aggregate, true))
+		for(Contribution contrib : aggregator.getCompositeChildContributions(compositeChild, true))
 			((ContributionImpl) contrib).setStatus(null);
 
-		final Set<IInstallableUnit> unitsToAggregate = builder.getUnitsToAggregate(aggregate);
+		final Set<IInstallableUnit> unitsToCompositeChild = builder.getUnitsToCompositeChild(compositeChild);
 		IProfileRegistry profileRegistry = P2Utils.getProfileRegistry(builder.getProvisioningAgent());
 		IPlanner planner = P2Utils.getPlanner(builder.getProvisioningAgent());
 		IMetadataRepositoryManager mdrMgr = P2Utils.getRepositoryManager(
@@ -547,7 +547,7 @@ public class RepositoryVerifier extends BuilderPhase {
 					profile = profileRegistry.addProfile(profileId, props);
 
 				IInstallableUnit[] rootArr = getRootIUs(
-					sourceRepo, builder.getVerificationIUName(aggregate), Builder.ALL_CONTRIBUTED_CONTENT_VERSION,
+					sourceRepo, builder.getVerificationIUName(compositeChild), Builder.ALL_CONTRIBUTED_CONTENT_VERSION,
 					subMon.newChild(9));
 
 				// Add as root IU's to a request
@@ -595,12 +595,12 @@ public class RepositoryVerifier extends BuilderPhase {
 							suspectedValidationOnlyIUs.add(iu);
 						}
 						else {
-							if(!unitsToAggregate.contains(iu)) {
+							if(!unitsToCompositeChild.contains(iu)) {
 								if(Boolean.valueOf(iu.getProperty(IInstallableUnit.PROP_PARTIAL_IU)).booleanValue()) {
 									iu = resolvePartialIU(iu, subMon.newChild(1));
 									hadPartials = true;
 								}
-								unitsToAggregate.add(iu);
+								unitsToCompositeChild.add(iu);
 							}
 						}
 					}
@@ -611,12 +611,12 @@ public class RepositoryVerifier extends BuilderPhase {
 					IQueryable<IInstallableUnit> collectedStuff = null;
 					while(itor.hasNext()) {
 						IInstallableUnitPatch patch = (IInstallableUnitPatch) itor.next();
-						if(!unitsToAggregate.contains(patch))
+						if(!unitsToCompositeChild.contains(patch))
 							continue;
 
 						if(collectedStuff == null) {
 							collectedStuff = new QueryableArray(
-								unitsToAggregate.toArray(new IInstallableUnit[unitsToAggregate.size()]));
+								unitsToCompositeChild.toArray(new IInstallableUnit[unitsToCompositeChild.size()]));
 						}
 
 						Set<IInstallableUnit> units = getUnpatchedTransitiveScope(
@@ -630,12 +630,12 @@ public class RepositoryVerifier extends BuilderPhase {
 								suspectedValidationOnlyIUs.add(iu);
 							}
 							else {
-								if(!unitsToAggregate.contains(iu)) {
+								if(!unitsToCompositeChild.contains(iu)) {
 									if(Boolean.valueOf(iu.getProperty(IInstallableUnit.PROP_PARTIAL_IU)).booleanValue()) {
 										iu = resolvePartialIU(iu, subMon.newChild(1));
 										hadPartials = true;
 									}
-									unitsToAggregate.add(iu);
+									unitsToCompositeChild.add(iu);
 								}
 							}
 						}
@@ -653,7 +653,7 @@ public class RepositoryVerifier extends BuilderPhase {
 
 						while(allIUs.hasNext()) {
 							IInstallableUnit iu = allIUs.next();
-							if(candidates.contains(iu) && !unitsToAggregate.contains(iu)) {
+							if(candidates.contains(iu) && !unitsToCompositeChild.contains(iu)) {
 								try {
 									if(Boolean.valueOf(iu.getProperty(IInstallableUnit.PROP_PARTIAL_IU)).booleanValue()) {
 										iu = resolvePartialIU(iu, SubMonitor.convert(new NullProgressMonitor()));
@@ -663,7 +663,7 @@ public class RepositoryVerifier extends BuilderPhase {
 								catch(CoreException e) {
 									throw new RuntimeException(e);
 								}
-								unitsToAggregate.add(iu);
+								unitsToCompositeChild.add(iu);
 							}
 						}
 					}
@@ -676,7 +676,7 @@ public class RepositoryVerifier extends BuilderPhase {
 				}
 			}
 
-			builder.getAllUnitsToAggregate().addAll(unitsToAggregate);
+			builder.getAllUnitsToCompositeChild().addAll(unitsToCompositeChild);
 
 			LogUtils.info("Verification successful"); //$NON-NLS-1$
 		}

@@ -18,7 +18,7 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * <ul>
  * <li>{@link org.eclipse.b3.aggregator.AggregatorResourceView#getAggregator <em>Aggregator</em>}</li>
- * <li>{@link org.eclipse.b3.aggregator.AggregatorResourceView#getAggregates <em>Aggregates</em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.AggregatorResourceView#getCompositeChilds <em>CompositeChilds</em>}</li>
  * </ul>
  * </p>
  * 
@@ -28,20 +28,20 @@ import org.eclipse.emf.common.util.EList;
  */
 public interface AggregatorResourceView {
 	/**
-	 * Returns the value of the '<em><b>Aggregates</b></em>' containment reference list.
-	 * The list contents are of type {@link org.eclipse.b3.aggregator.Aggregate}.
+	 * Returns the value of the '<em><b>CompositeChilds</b></em>' containment reference list.
+	 * The list contents are of type {@link org.eclipse.b3.aggregator.CompositeChild}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Aggregates</em>' containment reference list isn't clear, there really should be more of a description here...
+	 * If the meaning of the '<em>CompositeChilds</em>' containment reference list isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
-	 * @return the value of the '<em>Aggregates</em>' containment reference list.
-	 * @see org.eclipse.b3.aggregator.AggregatorPackage#getAggregatorResourceView_Aggregates()
+	 * @return the value of the '<em>CompositeChilds</em>' containment reference list.
+	 * @see org.eclipse.b3.aggregator.AggregatorPackage#getAggregatorResourceView_CompositeChilds()
 	 * @model containment="true" resolveProxies="true" keys="label"
 	 * @generated
 	 */
-	EList<Aggregate> getAggregates();
+	EList<CompositeChild> getCompositeChilds();
 
 	/**
 	 * Returns the value of the '<em><b>Aggregator</b></em>' containment reference.

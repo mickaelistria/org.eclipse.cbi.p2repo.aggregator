@@ -8,7 +8,7 @@ package org.eclipse.b3.aggregator.impl;
 
 import java.util.Collection;
 
-import org.eclipse.b3.aggregator.Aggregate;
+import org.eclipse.b3.aggregator.CompositeChild;
 import org.eclipse.b3.aggregator.AggregationType;
 import org.eclipse.b3.aggregator.Aggregator;
 import org.eclipse.b3.aggregator.AggregatorFactory;
@@ -47,7 +47,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <li>{@link org.eclipse.b3.aggregator.impl.AggregatorImpl#getErrors <em>Errors</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.impl.AggregatorImpl#getWarnings <em>Warnings</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.impl.AggregatorImpl#getInfos <em>Infos</em>}</li>
- * <li>{@link org.eclipse.b3.aggregator.impl.AggregatorImpl#getAggregates <em>Aggregates</em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.impl.AggregatorImpl#getCompositeChilds <em>CompositeChilds</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.impl.AggregatorImpl#getConfigurations <em>Configurations</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.impl.AggregatorImpl#getContributions <em>Contributions</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.impl.AggregatorImpl#getCustomCategories <em>Custom Categories</em>}</li>
@@ -101,15 +101,15 @@ public class AggregatorImpl extends DescriptionProviderImpl implements Aggregato
 	protected EList<String> infos;
 
 	/**
-	 * The cached value of the '{@link #getAggregates() <em>Aggregates</em>}' containment reference list.
+	 * The cached value of the '{@link #getCompositeChilds() <em>CompositeChilds</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
-	 * @see #getAggregates()
+	 * @see #getCompositeChilds()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Aggregate> aggregates;
+	protected EList<CompositeChild> compositeChilds;
 
 	/**
 	 * The cached value of the '{@link #getConfigurations() <em>Configurations</em>}' containment reference list. <!--
@@ -461,7 +461,7 @@ public class AggregatorImpl extends DescriptionProviderImpl implements Aggregato
 			case AggregatorPackage.AGGREGATOR__INFOS:
 				return getInfos();
 			case AggregatorPackage.AGGREGATOR__AGGREGATES:
-				return getAggregates();
+				return getCompositeChilds();
 			case AggregatorPackage.AGGREGATOR__CONFIGURATIONS:
 				return getConfigurations();
 			case AggregatorPackage.AGGREGATOR__CONTRIBUTIONS:
@@ -518,7 +518,7 @@ public class AggregatorImpl extends DescriptionProviderImpl implements Aggregato
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch(featureID) {
 			case AggregatorPackage.AGGREGATOR__AGGREGATES:
-				return ((InternalEList<?>) getAggregates()).basicRemove(otherEnd, msgs);
+				return ((InternalEList<?>) getCompositeChilds()).basicRemove(otherEnd, msgs);
 			case AggregatorPackage.AGGREGATOR__CONFIGURATIONS:
 				return ((InternalEList<?>) getConfigurations()).basicRemove(otherEnd, msgs);
 			case AggregatorPackage.AGGREGATOR__CONTRIBUTIONS:
@@ -552,7 +552,7 @@ public class AggregatorImpl extends DescriptionProviderImpl implements Aggregato
 			case AggregatorPackage.AGGREGATOR__INFOS:
 				return infos != null && !infos.isEmpty();
 			case AggregatorPackage.AGGREGATOR__AGGREGATES:
-				return aggregates != null && !aggregates.isEmpty();
+				return compositeChilds != null && !compositeChilds.isEmpty();
 			case AggregatorPackage.AGGREGATOR__CONFIGURATIONS:
 				return configurations != null && !configurations.isEmpty();
 			case AggregatorPackage.AGGREGATOR__CONTRIBUTIONS:
@@ -609,8 +609,8 @@ public class AggregatorImpl extends DescriptionProviderImpl implements Aggregato
 				getInfos().addAll((Collection<? extends String>) newValue);
 				return;
 			case AggregatorPackage.AGGREGATOR__AGGREGATES:
-				getAggregates().clear();
-				getAggregates().addAll((Collection<? extends Aggregate>) newValue);
+				getCompositeChilds().clear();
+				getCompositeChilds().addAll((Collection<? extends CompositeChild>) newValue);
 				return;
 			case AggregatorPackage.AGGREGATOR__CONFIGURATIONS:
 				getConfigurations().clear();
@@ -689,7 +689,7 @@ public class AggregatorImpl extends DescriptionProviderImpl implements Aggregato
 				getInfos().clear();
 				return;
 			case AggregatorPackage.AGGREGATOR__AGGREGATES:
-				getAggregates().clear();
+				getCompositeChilds().clear();
 				return;
 			case AggregatorPackage.AGGREGATOR__CONFIGURATIONS:
 				getConfigurations().clear();
@@ -740,7 +740,7 @@ public class AggregatorImpl extends DescriptionProviderImpl implements Aggregato
 	 * 
 	 * @generated NOT
 	 */
-	public EList<Contribution> getAggregateContributions(Aggregate aggregate) {
+	public EList<Contribution> getCompositeChildContributions(CompositeChild compositeChild) {
 		EList<Contribution> contribs = getContributions();
 
 		int count = contribs.size();
@@ -749,7 +749,7 @@ public class AggregatorImpl extends DescriptionProviderImpl implements Aggregato
 		ALL_PASS: {
 			for(; idx < count; ++idx) {
 				Contribution contrib = contribs.get(idx);
-				if(!(contrib.getReceiver() == aggregate))
+				if(!(contrib.getReceiver() == compositeChild))
 					// we have found an entry that doesn't pass - exit the ALL_PASS block to create a list containing only those entries that pass
 					break ALL_PASS;
 			}
@@ -767,7 +767,7 @@ public class AggregatorImpl extends DescriptionProviderImpl implements Aggregato
 
 		while(++idx < count) {
 			Contribution contrib = contribs.get(idx);
-			if(contrib.getReceiver() == aggregate)
+			if(contrib.getReceiver() == compositeChild)
 				passingContribs.add(contrib);
 		}
 
@@ -780,11 +780,11 @@ public class AggregatorImpl extends DescriptionProviderImpl implements Aggregato
 	 * 
 	 * @generated NOT
 	 */
-	public EList<Contribution> getAggregateContributions(Aggregate aggregate, boolean enabledOnly) {
+	public EList<Contribution> getCompositeChildContributions(CompositeChild compositeChild, boolean enabledOnly) {
 		EList<Contribution> contribs = getContributions();
 
 		if(!enabledOnly)
-			return getAggregateContributions(aggregate);
+			return getCompositeChildContributions(compositeChild);
 
 		int count = contribs.size();
 		int idx = 0;
@@ -792,7 +792,7 @@ public class AggregatorImpl extends DescriptionProviderImpl implements Aggregato
 		ALL_PASS: {
 			for(; idx < count; ++idx) {
 				Contribution contrib = contribs.get(idx);
-				if(!(contrib.isEnabled() && contrib.getReceiver() == aggregate))
+				if(!(contrib.isEnabled() && contrib.getReceiver() == compositeChild))
 					// we have found an entry that doesn't pass - exit the ALL_PASS block to create a list containing only those entries that pass
 					break ALL_PASS;
 			}
@@ -810,7 +810,7 @@ public class AggregatorImpl extends DescriptionProviderImpl implements Aggregato
 
 		while(++idx < count) {
 			Contribution contrib = contribs.get(idx);
-			if(contrib.isEnabled() && contrib.getReceiver() == aggregate)
+			if(contrib.isEnabled() && contrib.getReceiver() == compositeChild)
 				passingContribs.add(contrib);
 		}
 
@@ -823,12 +823,12 @@ public class AggregatorImpl extends DescriptionProviderImpl implements Aggregato
 	 * 
 	 * @generated
 	 */
-	public EList<Aggregate> getAggregates() {
-		if(aggregates == null) {
-			aggregates = new EObjectContainmentEList.Resolving<Aggregate>(
-				Aggregate.class, this, AggregatorPackage.AGGREGATOR__AGGREGATES);
+	public EList<CompositeChild> getCompositeChilds() {
+		if(compositeChilds == null) {
+			compositeChilds = new EObjectContainmentEList.Resolving<CompositeChild>(
+				CompositeChild.class, this, AggregatorPackage.AGGREGATOR__AGGREGATES);
 		}
-		return aggregates;
+		return compositeChilds;
 	}
 
 	/**

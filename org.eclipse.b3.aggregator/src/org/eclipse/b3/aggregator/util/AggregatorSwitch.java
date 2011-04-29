@@ -8,7 +8,7 @@ package org.eclipse.b3.aggregator.util;
 
 import java.util.List;
 
-import org.eclipse.b3.aggregator.Aggregate;
+import org.eclipse.b3.aggregator.CompositeChild;
 import org.eclipse.b3.aggregator.Aggregator;
 import org.eclipse.b3.aggregator.AggregatorPackage;
 import org.eclipse.b3.aggregator.AggregatorResourceView;
@@ -75,7 +75,7 @@ public class AggregatorSwitch<T1> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Aggregate</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>CompositeChild</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
@@ -83,11 +83,11 @@ public class AggregatorSwitch<T1> {
 	 * 
 	 * @param object
 	 *            the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Aggregate</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>CompositeChild</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T1 caseAggregate(Aggregate object) {
+	public T1 caseCompositeChild(CompositeChild object) {
 		return null;
 	}
 
@@ -650,18 +650,18 @@ public class AggregatorSwitch<T1> {
 				return result;
 			}
 			case AggregatorPackage.AGGREGATE: {
-				Aggregate aggregate = (Aggregate) theEObject;
-				T1 result = caseAggregate(aggregate);
+				CompositeChild compositeChild = (CompositeChild) theEObject;
+				T1 result = caseCompositeChild(compositeChild);
 				if(result == null)
-					result = caseEnabledStatusProvider(aggregate);
+					result = caseEnabledStatusProvider(compositeChild);
 				if(result == null)
-					result = caseDescriptionProvider(aggregate);
+					result = caseDescriptionProvider(compositeChild);
 				if(result == null)
-					result = caseStatusProvider(aggregate);
+					result = caseStatusProvider(compositeChild);
 				if(result == null)
-					result = caseInfosProvider(aggregate);
+					result = caseInfosProvider(compositeChild);
 				if(result == null)
-					result = caseLinkReceiver(aggregate);
+					result = caseLinkReceiver(compositeChild);
 				if(result == null)
 					result = defaultCase(theEObject);
 				return result;

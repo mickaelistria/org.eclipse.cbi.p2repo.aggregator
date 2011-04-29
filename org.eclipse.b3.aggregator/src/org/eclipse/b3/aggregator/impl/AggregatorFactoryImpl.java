@@ -6,7 +6,6 @@
  */
 package org.eclipse.b3.aggregator.impl;
 
-import org.eclipse.b3.aggregator.Aggregate;
 import org.eclipse.b3.aggregator.AggregationType;
 import org.eclipse.b3.aggregator.Aggregator;
 import org.eclipse.b3.aggregator.AggregatorFactory;
@@ -17,6 +16,7 @@ import org.eclipse.b3.aggregator.AvailableVersion;
 import org.eclipse.b3.aggregator.AvailableVersionsHeader;
 import org.eclipse.b3.aggregator.Bundle;
 import org.eclipse.b3.aggregator.Category;
+import org.eclipse.b3.aggregator.CompositeChild;
 import org.eclipse.b3.aggregator.Configuration;
 import org.eclipse.b3.aggregator.Contact;
 import org.eclipse.b3.aggregator.Contribution;
@@ -230,7 +230,7 @@ public class AggregatorFactoryImpl extends EFactoryImpl implements AggregatorFac
 			case AggregatorPackage.AGGREGATOR:
 				return (EObject) createAggregator();
 			case AggregatorPackage.AGGREGATE:
-				return (EObject) createAggregate();
+				return (EObject) createCompositeChild();
 			case AggregatorPackage.MAPPED_REPOSITORY:
 				return (EObject) createMappedRepository();
 			case AggregatorPackage.CONFIGURATION:
@@ -276,17 +276,6 @@ public class AggregatorFactoryImpl extends EFactoryImpl implements AggregatorFac
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	public Aggregate createAggregate() {
-		AggregateImpl aggregate = new AggregateImpl();
-		return aggregate;
 	}
 
 	/**
@@ -378,6 +367,17 @@ public class AggregatorFactoryImpl extends EFactoryImpl implements AggregatorFac
 	public Category createCategory() {
 		CategoryImpl category = new CategoryImpl();
 		return category;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public CompositeChild createCompositeChild() {
+		CompositeChildImpl compositeChild = new CompositeChildImpl();
+		return compositeChild;
 	}
 
 	/**

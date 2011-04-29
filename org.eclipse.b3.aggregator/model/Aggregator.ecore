@@ -7,11 +7,11 @@
     <eOperations name="getContributions" upperBound="-1" eType="#//Contribution">
       <eParameters name="enabledOnly" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     </eOperations>
-    <eOperations name="getAggregateContributions" upperBound="-1" eType="#//Contribution">
-      <eParameters name="aggregate" eType="#//Aggregate"/>
+    <eOperations name="getCompositeChildContributions" upperBound="-1" eType="#//Contribution">
+      <eParameters name="compositeChild" eType="#//CompositeChild"/>
     </eOperations>
-    <eOperations name="getAggregateContributions" upperBound="-1" eType="#//Contribution">
-      <eParameters name="aggregate" eType="#//Aggregate"/>
+    <eOperations name="getCompositeChildContributions" upperBound="-1" eType="#//Contribution">
+      <eParameters name="compositeChild" eType="#//CompositeChild"/>
       <eParameters name="enabledOnly" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     </eOperations>
     <eOperations name="getValidationRepositories" upperBound="-1" eType="#//MetadataRepositoryReference">
@@ -20,8 +20,8 @@
     <eOperations name="getAllMetadataRepositoryReferences" upperBound="-1" eType="#//MetadataRepositoryReference">
       <eParameters name="enabledOnly" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     </eOperations>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="aggregates" upperBound="-1"
-        eType="#//Aggregate" containment="true" eKeys="#//Aggregate/label"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="compositeChilds" upperBound="-1"
+        eType="#//CompositeChild" containment="true" eKeys="#//CompositeChild/label"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="configurations" lowerBound="1"
         upperBound="-1" eType="#//Configuration" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="contributions" upperBound="-1"
@@ -44,7 +44,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="mavenMappings" upperBound="-1"
         eType="#//MavenMapping" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Aggregate" eSuperTypes="#//EnabledStatusProvider #//DescriptionProvider #//StatusProvider #//InfosProvider #//LinkReceiver">
+  <eClassifiers xsi:type="ecore:EClass" name="CompositeChild" eSuperTypes="#//EnabledStatusProvider #//DescriptionProvider #//StatusProvider #//InfosProvider #//LinkReceiver">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="label" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MappedRepository" eSuperTypes="#//MetadataRepositoryReference #//DescriptionProvider">
@@ -328,8 +328,8 @@
   <eClassifiers xsi:type="ecore:EClass" name="AggregatorResourceView">
     <eStructuralFeatures xsi:type="ecore:EReference" name="aggregator" lowerBound="1"
         eType="#//Aggregator" changeable="false" containment="true" eKeys="#//Aggregator/label"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="aggregates" upperBound="-1"
-        eType="#//Aggregate" containment="true" eKeys="#//Aggregate/label"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="compositeChilds" upperBound="-1"
+        eType="#//CompositeChild" containment="true" eKeys="#//CompositeChild/label"/>
   </eClassifiers>
   <eSubpackages name="p2view" nsURI="http://www.eclipse.org/b3/2010/aggregator/p2view/1.0.0"
       nsPrefix="p2view">

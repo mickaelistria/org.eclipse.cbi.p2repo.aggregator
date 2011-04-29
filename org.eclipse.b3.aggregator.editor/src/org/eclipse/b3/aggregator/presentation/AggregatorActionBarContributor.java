@@ -22,7 +22,7 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
-import org.eclipse.b3.aggregator.Aggregate;
+import org.eclipse.b3.aggregator.CompositeChild;
 import org.eclipse.b3.aggregator.Aggregator;
 import org.eclipse.b3.aggregator.AggregatorFactory;
 import org.eclipse.b3.aggregator.AggregatorPackage;
@@ -897,11 +897,11 @@ public class AggregatorActionBarContributor extends EditingDomainActionBarContri
 
 	private IMenuManager linkMenuManager;
 
-	private Collection<? extends IAction> linkAggregateActions;
+	private Collection<? extends IAction> linkCompositeChildActions;
 
 	private IMenuManager unlinkMenuManager;
 
-	private Collection<? extends IAction> unlinkAggregateActions;
+	private Collection<? extends IAction> unlinkCompositeChildActions;
 
 	private AggregatorItemProvider aggregatorItemProvider;
 
@@ -1164,30 +1164,30 @@ public class AggregatorActionBarContributor extends EditingDomainActionBarContri
 		return actions;
 	}
 
-	protected Collection<? extends IAction> generateLinkAggregateActions(IStructuredSelection structuredSelection,
-			EList<Aggregate> aggregates) {
-		Aggregate linkedAggregate = (Aggregate) ((Contribution) structuredSelection.getFirstElement()).getReceiver();
-		ArrayList<IAction> linkActions = new ArrayList<IAction>(aggregates.size());
+	protected Collection<? extends IAction> generateLinkCompositeChildActions(IStructuredSelection structuredSelection,
+			EList<CompositeChild> compositeChilds) {
+		CompositeChild linkedCompositeChild = (CompositeChild) ((Contribution) structuredSelection.getFirstElement()).getReceiver();
+		ArrayList<IAction> linkActions = new ArrayList<IAction>(compositeChilds.size());
 
-		for(Aggregate aggregate : aggregates) {
-			if(linkedAggregate != aggregate)
+		for(CompositeChild compositeChild : compositeChilds) {
+			if(linkedCompositeChild != compositeChild)
 				linkActions.add(new LinkCommand(
-					activeEditorPart, structuredSelection, aggregate, aggregate.getLabel(), true));
+					activeEditorPart, structuredSelection, compositeChild, compositeChild.getLabel(), true));
 		}
 
 		return linkActions;
 	}
 
-	protected Collection<? extends IAction> generateUnlinkAggregateActions(IStructuredSelection structuredSelection,
-			EList<Aggregate> aggregates) {
+	protected Collection<? extends IAction> generateUnlinkCompositeChildActions(IStructuredSelection structuredSelection,
+			EList<CompositeChild> compositeChilds) {
 		LinkReceiver linkReceiver = ((Contribution) structuredSelection.getFirstElement()).getReceiver();
-		ArrayList<IAction> unlinkActions = new ArrayList<IAction>(aggregates.size());
+		ArrayList<IAction> unlinkActions = new ArrayList<IAction>(compositeChilds.size());
 
-		if(linkReceiver instanceof Aggregate) {
-			for(Aggregate aggregate : aggregates) {
-				if(aggregate == linkReceiver)
+		if(linkReceiver instanceof CompositeChild) {
+			for(CompositeChild compositeChild : compositeChilds) {
+				if(compositeChild == linkReceiver)
 					unlinkActions.add(new LinkCommand(
-						activeEditorPart, structuredSelection, aggregate, aggregate.getLabel(), false));
+						activeEditorPart, structuredSelection, compositeChild, compositeChild.getLabel(), false));
 			}
 		}
 
@@ -1241,23 +1241,23 @@ public class AggregatorActionBarContributor extends EditingDomainActionBarContri
 					structuredSelection = new StructuredSelection(Collections.singletonList(unwrappedSelectedObject));
 			}
 
-			EList<Aggregate> aggregates = getAggregator().getAggregates();
+			EList<CompositeChild> compositeChilds = getAggregator().getCompositeChilds();
 
 			if(linkMenuManager != null) {
-				depopulateManager(linkMenuManager, linkAggregateActions);
-				linkAggregateActions = generateLinkAggregateActions(structuredSelection, aggregates);
-				if(!linkAggregateActions.isEmpty()) {
-					populateManager(linkMenuManager, linkAggregateActions, null);
+				depopulateManager(linkMenuManager, linkCompositeChildActions);
+				linkCompositeChildActions = generateLinkCompositeChildActions(structuredSelection, compositeChilds);
+				if(!linkCompositeChildActions.isEmpty()) {
+					populateManager(linkMenuManager, linkCompositeChildActions, null);
 					linkMenuManager.update(true);
 					menuManager.insertBefore("edit", linkMenuManager);
 				}
 			}
 
 			if(unlinkMenuManager != null) {
-				depopulateManager(unlinkMenuManager, unlinkAggregateActions);
-				unlinkAggregateActions = generateUnlinkAggregateActions(structuredSelection, aggregates);
-				if(!unlinkAggregateActions.isEmpty()) {
-					populateManager(unlinkMenuManager, unlinkAggregateActions, null);
+				depopulateManager(unlinkMenuManager, unlinkCompositeChildActions);
+				unlinkCompositeChildActions = generateUnlinkCompositeChildActions(structuredSelection, compositeChilds);
+				if(!unlinkCompositeChildActions.isEmpty()) {
+					populateManager(unlinkMenuManager, unlinkCompositeChildActions, null);
 					unlinkMenuManager.update(true);
 					menuManager.insertBefore("edit", unlinkMenuManager);
 				}

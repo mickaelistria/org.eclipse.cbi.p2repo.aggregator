@@ -6,7 +6,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.eclipse.b3.aggregator.Aggregate;
+import org.eclipse.b3.aggregator.CompositeChild;
 import org.eclipse.b3.aggregator.Aggregator;
 import org.eclipse.b3.aggregator.Category;
 import org.eclipse.b3.aggregator.Contribution;
@@ -71,11 +71,11 @@ public class CategoriesGenerator extends BuilderPhase {
 		providedCaps.add(providedCap);
 	}
 
-	private final Aggregate aggregate;
+	private final CompositeChild compositeChild;
 
-	public CategoriesGenerator(Builder builder, Aggregate aggregate) {
+	public CategoriesGenerator(Builder builder, CompositeChild compositeChild) {
 		super(builder);
-		this.aggregate = aggregate;
+		this.compositeChild = compositeChild;
 	}
 
 	private InstallableUnit createCategoryIU(CustomCategory category) {
@@ -252,25 +252,25 @@ public class CategoriesGenerator extends BuilderPhase {
 
 	@Override
 	public void run(IProgressMonitor monitor) throws CoreException {
-		String taskLabel = Builder.getAggregateLabel(aggregate);
+		String taskLabel = Builder.getCompositeChildLabel(compositeChild);
 
 		long start = TimeUtils.getNow();
 		MonitorUtils.begin(monitor, 10);
-		String info = "Starting generation of categories for aggregate: " + taskLabel;
+		String info = "Starting generation of categories for compositeChild: " + taskLabel;
 		MonitorUtils.subTask(monitor, info);
 		LogUtils.info(info);
 		try {
 			List<IInstallableUnit> results = new ArrayList<IInstallableUnit>();
 			Aggregator aggregator = getBuilder().getAggregator();
 
-			// only process custom categories in the main (implicit) aggregate
-			if(aggregate == null) {
+			// only process custom categories in the main (implicit) compositeChild
+			if(compositeChild == null) {
 				for(CustomCategory category : aggregator.getCustomCategories())
 					results.add(createCategoryIU(category));
 			}
 
 			MonitorUtils.worked(monitor, 5);
-			for(Contribution contrib : aggregator.getAggregateContributions(aggregate, true))
+			for(Contribution contrib : aggregator.getCompositeChildContributions(compositeChild, true))
 				for(MappedRepository repo : contrib.getRepositories(true))
 					results.addAll(getRepositoryCategories(repo));
 
@@ -292,7 +292,7 @@ public class CategoriesGenerator extends BuilderPhase {
 	private void tossCategory(IInstallableUnit category) {
 		MetadataRepository parent = (MetadataRepository) ((EObject) category).eContainer();
 		Builder builder = getBuilder();
-		for(Contribution contrib : builder.getAggregator().getAggregateContributions(aggregate, true)) {
+		for(Contribution contrib : builder.getAggregator().getCompositeChildContributions(compositeChild, true)) {
 			for(MappedRepository mappedRepo : contrib.getRepositories(true)) {
 				if(mappedRepo.getMetadataRepository() == parent && builder.isMapVerbatim(mappedRepo)) {
 					LogUtils.debug(

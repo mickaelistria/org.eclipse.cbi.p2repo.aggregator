@@ -11,10 +11,10 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-import org.eclipse.b3.aggregator.Aggregate;
 import org.eclipse.b3.aggregator.Aggregator;
 import org.eclipse.b3.aggregator.AggregatorFactory;
 import org.eclipse.b3.aggregator.AggregatorPackage;
+import org.eclipse.b3.aggregator.CompositeChild;
 import org.eclipse.b3.aggregator.Contribution;
 import org.eclipse.b3.aggregator.DescriptionProvider;
 import org.eclipse.b3.aggregator.InfosProvider;
@@ -33,24 +33,24 @@ import org.eclipse.emf.ecore.util.EObjectEList;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Aggregate</b></em>'.
+ * An implementation of the model object '<em><b>CompositeChild</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link org.eclipse.b3.aggregator.impl.AggregateImpl#isEnabled <em>Enabled</em>}</li>
- * <li>{@link org.eclipse.b3.aggregator.impl.AggregateImpl#getDescription <em>Description</em>}</li>
- * <li>{@link org.eclipse.b3.aggregator.impl.AggregateImpl#getStatus <em>Status</em>}</li>
- * <li>{@link org.eclipse.b3.aggregator.impl.AggregateImpl#getErrors <em>Errors</em>}</li>
- * <li>{@link org.eclipse.b3.aggregator.impl.AggregateImpl#getWarnings <em>Warnings</em>}</li>
- * <li>{@link org.eclipse.b3.aggregator.impl.AggregateImpl#getInfos <em>Infos</em>}</li>
- * <li>{@link org.eclipse.b3.aggregator.impl.AggregateImpl#getLabel <em>Label</em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.impl.CompositeChildImpl#isEnabled <em>Enabled</em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.impl.CompositeChildImpl#getDescription <em>Description</em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.impl.CompositeChildImpl#getStatus <em>Status</em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.impl.CompositeChildImpl#getErrors <em>Errors</em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.impl.CompositeChildImpl#getWarnings <em>Warnings</em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.impl.CompositeChildImpl#getInfos <em>Infos</em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.impl.CompositeChildImpl#getLabel <em>Label</em>}</li>
  * </ul>
  * </p>
  * 
  * @generated
  */
-public class AggregateImpl extends MinimalEObjectImpl.Container implements Aggregate {
+public class CompositeChildImpl extends MinimalEObjectImpl.Container implements CompositeChild {
 	/**
 	 * A set of bit flags representing the values of boolean attributes and whether unsettable features have been set.
 	 * <!-- begin-user-doc -->
@@ -168,7 +168,7 @@ public class AggregateImpl extends MinimalEObjectImpl.Container implements Aggre
 	 * 
 	 * @generated
 	 */
-	protected AggregateImpl() {
+	protected CompositeChildImpl() {
 		super();
 		eFlags |= ENABLED_EFLAG;
 	}
@@ -619,4 +619,4 @@ public class AggregateImpl extends MinimalEObjectImpl.Container implements Aggre
 	public void unlinkSource(LinkSource source) {
 		linkedSources.remove(source);
 	}
-} // AggregateImpl
+} // CompositeChildImpl

@@ -27,7 +27,7 @@ import java.util.regex.PatternSyntaxException;
 import org.apache.tools.ant.Project;
 import org.apache.tools.ant.util.DateUtils;
 import org.apache.tools.mail.MailMessage;
-import org.eclipse.b3.aggregator.Aggregate;
+import org.eclipse.b3.aggregator.CompositeChild;
 import org.eclipse.b3.aggregator.Aggregator;
 import org.eclipse.b3.aggregator.AggregatorFactory;
 import org.eclipse.b3.aggregator.Contact;
@@ -160,7 +160,7 @@ public class Builder extends ModelAbstractCommand {
 
 	public static final String REPO_FOLDER_TEMP = "temp"; //$NON-NLS-1$
 
-	public static final String REPO_FOLDER_AGGREGATE = "aggregate"; //$NON-NLS-1$
+	public static final String REPO_FOLDER_AGGREGATE = "compositeChild"; //$NON-NLS-1$
 
 	public static final String SIMPLE_ARTIFACTS_TYPE = org.eclipse.equinox.internal.p2.artifact.repository.Activator.ID +
 			".simpleRepository"; //$NON-NLS-1$
@@ -267,10 +267,10 @@ public class Builder extends ModelAbstractCommand {
 		}
 	}
 
-	public static String getAggregateLabel(Aggregate aggregate) {
-		return aggregate == null
+	public static String getCompositeChildLabel(CompositeChild compositeChild) {
+		return compositeChild == null
 				? "<main>"
-				: aggregate.getLabel();
+				: compositeChild.getLabel();
 	}
 
 	public static String getExceptionMessages(Throwable e) {
@@ -423,9 +423,9 @@ public class Builder extends ModelAbstractCommand {
 
 	private boolean sendmail = false;
 
-	final private Set<IInstallableUnit> allUnitsToAggregate = new HashSet<IInstallableUnit>();
+	final private Set<IInstallableUnit> allUnitsToCompositeChild = new HashSet<IInstallableUnit>();
 
-	final private Map<Aggregate, Set<IInstallableUnit>> unitsToAggregateMap = new HashMap<Aggregate, Set<IInstallableUnit>>();
+	final private Map<CompositeChild, Set<IInstallableUnit>> unitsToCompositeChildMap = new HashMap<CompositeChild, Set<IInstallableUnit>>();
 
 	private Set<MappedRepository> exclusions;
 
@@ -435,7 +435,7 @@ public class Builder extends ModelAbstractCommand {
 
 	private boolean fromIDE;
 
-	private Map<Aggregate, String> safeAggregateNameMap = new HashMap<Aggregate, String>();
+	private Map<CompositeChild, String> safeCompositeChildNameMap = new HashMap<CompositeChild, String>();
 
 	private Map<Contribution, String> safeContributionNameMap = new HashMap<Contribution, String>();
 
@@ -463,11 +463,11 @@ public class Builder extends ModelAbstractCommand {
 	}
 
 	private void cleanMemoryCaches() {
-		safeAggregateNameMap.clear();
+		safeCompositeChildNameMap.clear();
 		safeContributionNameMap.clear();
 		categoryIUs = null;
-		allUnitsToAggregate.clear();
-		unitsToAggregateMap.clear();
+		allUnitsToCompositeChild.clear();
+		unitsToCompositeChildMap.clear();
 	}
 
 	private void cleanMetadata(IProvisioningAgent agent) throws CoreException {
@@ -485,19 +485,19 @@ public class Builder extends ModelAbstractCommand {
 		}
 	}
 
-	public String getAggregateSubdirectory(Aggregate aggregate) {
-		String safeName = getSafeAggregateName(aggregate);
+	public String getCompositeChildSubdirectory(CompositeChild compositeChild) {
+		String safeName = getSafeCompositeChildName(compositeChild);
 		if(safeName == null)
 			return "";
-		return "/aggregate_" + safeName;
+		return "/compositeChild_" + safeName;
 	}
 
 	public Aggregator getAggregator() {
 		return aggregator;
 	}
 
-	public Set<IInstallableUnit> getAllUnitsToAggregate() {
-		return allUnitsToAggregate;
+	public Set<IInstallableUnit> getAllUnitsToCompositeChild() {
+		return allUnitsToCompositeChild;
 	}
 
 	public String getBuildID() {
@@ -517,10 +517,10 @@ public class Builder extends ModelAbstractCommand {
 	}
 
 	public Collection<String> getChildrenSubdirectories() {
-		ArrayList<String> childrenSubdirectories = new ArrayList<String>(unitsToAggregateMap.size());
+		ArrayList<String> childrenSubdirectories = new ArrayList<String>(unitsToCompositeChildMap.size());
 
-		for(Aggregate aggregate : unitsToAggregateMap.keySet()) {
-			childrenSubdirectories.add(getAggregateSubdirectory(aggregate));
+		for(CompositeChild compositeChild : unitsToCompositeChildMap.keySet()) {
+			childrenSubdirectories.add(getCompositeChildSubdirectory(compositeChild));
 		}
 
 		return childrenSubdirectories;
@@ -537,20 +537,20 @@ public class Builder extends ModelAbstractCommand {
 		return provisioningAgent;
 	}
 
-	public String getSafeAggregateName(Aggregate aggregate) {
-		if(aggregate == null)
+	public String getSafeCompositeChildName(CompositeChild compositeChild) {
+		if(compositeChild == null)
 			return null;
 
-		String safeName = safeAggregateNameMap.get(aggregate);
+		String safeName = safeCompositeChildNameMap.get(compositeChild);
 
 		if(safeName != null)
 			return safeName;
 
-		safeName = aggregate.getLabel().replaceAll("[^-0-9a-zA-Z_.~]", "_");
+		safeName = compositeChild.getLabel().replaceAll("[^-0-9a-zA-Z_.~]", "_");
 
-		if(safeAggregateNameMap.values().contains(safeName))
-			throw new IllegalArgumentException("Could not generate safe unique name for aggregate: " +
-					aggregate.getLabel());
+		if(safeCompositeChildNameMap.values().contains(safeName))
+			throw new IllegalArgumentException("Could not generate safe unique name for compositeChild: " +
+					compositeChild.getLabel());
 
 		return safeName;
 	}
@@ -572,7 +572,7 @@ public class Builder extends ModelAbstractCommand {
 
 	@Override
 	public String getShortDescription() {
-		return "Aggregates source repositories into a resulting repository using aggregator definition";
+		return "CompositeChilds source repositories into a resulting repository using aggregator definition";
 	}
 
 	public CompositeMetadataRepository getSourceComposite() {
@@ -584,7 +584,7 @@ public class Builder extends ModelAbstractCommand {
 	}
 
 	public URI getTargetCompositeURI() throws CoreException {
-		if(aggregator.getAggregates().isEmpty())
+		if(aggregator.getCompositeChilds().isEmpty())
 			return null;
 		return createURI(new File(buildRoot, REPO_FOLDER_FINAL));
 	}
@@ -593,12 +593,12 @@ public class Builder extends ModelAbstractCommand {
 		return new File(buildRoot, REPO_FOLDER_TEMP);
 	}
 
-	public Set<IInstallableUnit> getUnitsToAggregate(Aggregate aggregate) {
-		Set<IInstallableUnit> units = unitsToAggregateMap.get(aggregate);
+	public Set<IInstallableUnit> getUnitsToCompositeChild(CompositeChild compositeChild) {
+		Set<IInstallableUnit> units = unitsToCompositeChildMap.get(compositeChild);
 
 		if(units == null) {
 			units = new HashSet<IInstallableUnit>();
-			unitsToAggregateMap.put(aggregate, units);
+			unitsToCompositeChildMap.put(compositeChild, units);
 		}
 
 		return units;
@@ -608,11 +608,11 @@ public class Builder extends ModelAbstractCommand {
 		return validationIUs;
 	}
 
-	public String getVerificationIUName(Aggregate aggregate) {
-		if(aggregate == null)
+	public String getVerificationIUName(CompositeChild compositeChild) {
+		if(compositeChild == null)
 			return VERIFICATION_IU_PREFIX + "main";
 
-		return VERIFICATION_IU_PREFIX + "aggregate_" + getSafeAggregateName(aggregate);
+		return VERIFICATION_IU_PREFIX + "compositeChild_" + getSafeCompositeChildName(compositeChild);
 	}
 
 	public boolean isCleanBuild() {
@@ -621,7 +621,7 @@ public class Builder extends ModelAbstractCommand {
 
 	/**
 	 * Checks if the repository can be included verbatim. If it can, the builder will include a reference to it in a
-	 * composite repository instead of copying everything into an aggregate
+	 * composite repository instead of copying everything into an compositeChild
 	 * 
 	 * @param repo
 	 *            The repository to check
@@ -798,22 +798,22 @@ public class Builder extends ModelAbstractCommand {
 					}
 				}
 
-				EList<Aggregate> aggregates = aggregator.getAggregates();
-				if(aggregates.size() > 0) {
-					// TODO handle custom categories spanning aggregates - for now we remove all but features contributed
-					// by contributions which are part of the main (implicit) aggregate from the custom categories
-					HashSet<MappedUnit> allMainAggregateFeatures = new HashSet<MappedUnit>();
+				EList<CompositeChild> compositeChilds = aggregator.getCompositeChilds();
+				if(compositeChilds.size() > 0) {
+					// TODO handle custom categories spanning compositeChilds - for now we remove all but features contributed
+					// by contributions which are part of the main (implicit) compositeChild from the custom categories
+					HashSet<MappedUnit> allMainCompositeChildFeatures = new HashSet<MappedUnit>();
 
-					for(Contribution mainAggregateContribution : aggregator.getAggregateContributions(null)) {
-						for(MappedRepository mainAggregateRepository : mainAggregateContribution.getRepositories())
-							allMainAggregateFeatures.addAll(mainAggregateRepository.getFeatures());
+					for(Contribution mainCompositeChildContribution : aggregator.getCompositeChildContributions(null)) {
+						for(MappedRepository mainCompositeChildRepository : mainCompositeChildContribution.getRepositories())
+							allMainCompositeChildFeatures.addAll(mainCompositeChildRepository.getFeatures());
 					}
 
 					for(CustomCategory customCategory : aggregator.getCustomCategories()) {
 						Iterator<Feature> iterator = customCategory.getFeatures().iterator();
 						while(iterator.hasNext()) {
 							Feature feature = iterator.next();
-							if(!allMainAggregateFeatures.contains(feature))
+							if(!allMainCompositeChildFeatures.contains(feature))
 								iterator.remove();
 						}
 					}
@@ -869,8 +869,8 @@ public class Builder extends ModelAbstractCommand {
 		return Collections.emptyList();
 	}
 
-	public void removeUnitsToAggregate(Aggregate aggregate) {
-		unitsToAggregateMap.remove(aggregate);
+	public void removeUnitsToCompositeChild(CompositeChild compositeChild) {
+		unitsToCompositeChildMap.remove(compositeChild);
 	}
 
 	/**
@@ -965,27 +965,27 @@ public class Builder extends ModelAbstractCommand {
 
 			loadAllMappedRepositories();
 
-			List<Aggregate> aggregates = aggregator.getAggregates();
-			List<Aggregate> aggregatesIncludingMain = new ArrayList<Aggregate>(1 + aggregates.size());
-			// null aggregate is the main (implicit) one
+			List<CompositeChild> compositeChilds = aggregator.getCompositeChilds();
+			List<CompositeChild> compositeChildsIncludingMain = new ArrayList<CompositeChild>(1 + compositeChilds.size());
+			// null compositeChild is the main (implicit) one
 			// note that it must come first otherwise some directories created during
-			// creation of aggregates will be deleted
-			aggregatesIncludingMain.add(null);
-			aggregatesIncludingMain.addAll(aggregates);
+			// creation of compositeChilds will be deleted
+			compositeChildsIncludingMain.add(null);
+			compositeChildsIncludingMain.addAll(compositeChilds);
 
 			runCompositeGenerator(MonitorUtils.subMonitor(monitor, 70));
 
 			// we generate the verification IUs in a separate loop
 			// to detect non p2 related problems early
-			for(Aggregate aggregate : aggregatesIncludingMain)
-				runVerificationIUGenerator(aggregate, MonitorUtils.subMonitor(monitor, 15));
-			for(Aggregate aggregate : aggregatesIncludingMain) {
-				runCategoriesRepoGenerator(aggregate, MonitorUtils.subMonitor(monitor, 15));
-				runRepositoryVerifier(aggregate, MonitorUtils.subMonitor(monitor, 100));
+			for(CompositeChild compositeChild : compositeChildsIncludingMain)
+				runVerificationIUGenerator(compositeChild, MonitorUtils.subMonitor(monitor, 15));
+			for(CompositeChild compositeChild : compositeChildsIncludingMain) {
+				runCategoriesRepoGenerator(compositeChild, MonitorUtils.subMonitor(monitor, 15));
+				runRepositoryVerifier(compositeChild, MonitorUtils.subMonitor(monitor, 100));
 			}
 			if(action != ActionType.VERIFY) {
-				for(Aggregate aggregate : aggregatesIncludingMain)
-					runMetadataMirroring(aggregate, MonitorUtils.subMonitor(monitor, 100));
+				for(CompositeChild compositeChild : compositeChildsIncludingMain)
+					runMetadataMirroring(compositeChild, MonitorUtils.subMonitor(monitor, 100));
 				runMirroring(MonitorUtils.subMonitor(monitor, 2000));
 			}
 			return 0;
@@ -1025,8 +1025,8 @@ public class Builder extends ModelAbstractCommand {
 		return run(false, monitor);
 	}
 
-	private void runCategoriesRepoGenerator(Aggregate aggregate, IProgressMonitor monitor) throws CoreException {
-		CategoriesGenerator generator = new CategoriesGenerator(this, aggregate);
+	private void runCategoriesRepoGenerator(CompositeChild compositeChild, IProgressMonitor monitor) throws CoreException {
+		CategoriesGenerator generator = new CategoriesGenerator(this, compositeChild);
 		generator.run(monitor);
 	}
 
@@ -1035,8 +1035,8 @@ public class Builder extends ModelAbstractCommand {
 		generator.run(monitor);
 	}
 
-	private void runMetadataMirroring(Aggregate aggregate, IProgressMonitor monitor) throws CoreException {
-		MetadataMirrorGenerator generator = new MetadataMirrorGenerator(this, aggregate);
+	private void runMetadataMirroring(CompositeChild compositeChild, IProgressMonitor monitor) throws CoreException {
+		MetadataMirrorGenerator generator = new MetadataMirrorGenerator(this, compositeChild);
 		generator.run(monitor);
 	}
 
@@ -1045,13 +1045,13 @@ public class Builder extends ModelAbstractCommand {
 		generator.run(monitor);
 	}
 
-	private void runRepositoryVerifier(Aggregate aggregate, IProgressMonitor monitor) throws CoreException {
-		RepositoryVerifier ipt = new RepositoryVerifier(this, aggregate);
+	private void runRepositoryVerifier(CompositeChild compositeChild, IProgressMonitor monitor) throws CoreException {
+		RepositoryVerifier ipt = new RepositoryVerifier(this, compositeChild);
 		ipt.run(monitor);
 	}
 
-	private void runVerificationIUGenerator(Aggregate aggregate, IProgressMonitor monitor) throws CoreException {
-		VerificationIUGenerator generator = new VerificationIUGenerator(this, aggregate);
+	private void runVerificationIUGenerator(CompositeChild compositeChild, IProgressMonitor monitor) throws CoreException {
+		VerificationIUGenerator generator = new VerificationIUGenerator(this, compositeChild);
 		generator.run(monitor);
 	}
 

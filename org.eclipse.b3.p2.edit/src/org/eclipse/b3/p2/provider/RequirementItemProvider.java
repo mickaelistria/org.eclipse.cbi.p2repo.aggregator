@@ -13,12 +13,10 @@ import java.util.List;
 
 import org.eclipse.b3.p2.P2Package;
 import org.eclipse.b3.p2.Requirement;
-
+import org.eclipse.b3.p2.util.P2Utils;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.common.util.ResourceLocator;
-
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -29,7 +27,7 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
-
+import org.eclipse.equinox.p2.metadata.IInstallableUnit;
 import org.eclipse.equinox.p2.metadata.expression.IMatchExpression;
 
 /**
@@ -103,14 +101,14 @@ public class RequirementItemProvider extends ItemProviderAdapter implements IEdi
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public String getText(Object object) {
-		IMatchExpression labelValue = ((Requirement) object).getFilter();
+		IMatchExpression<IInstallableUnit> labelValue = ((Requirement) object).getFilter();
 		String label = labelValue == null
 				? null
-				: labelValue.toString();
+				: P2Utils.filterToString(labelValue);
 		return label == null || label.length() == 0
 				? getString("_UI_Requirement_type")
 				: getString("_UI_Requirement_type") + " " + label;

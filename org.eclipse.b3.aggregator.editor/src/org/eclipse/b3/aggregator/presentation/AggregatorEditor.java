@@ -41,6 +41,7 @@ import org.eclipse.b3.aggregator.util.OverlaidImage;
 import org.eclipse.b3.aggregator.util.ResourceDiagnosticImpl;
 import org.eclipse.b3.aggregator.util.ResourceUtils;
 import org.eclipse.b3.aggregator.util.StatusProviderAdapterFactory;
+import org.eclipse.b3.aggregator.util.VerificationDiagnostic;
 import org.eclipse.b3.p2.provider.P2ItemProviderAdapterFactory;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IMarker;
@@ -193,8 +194,13 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 			for(Object object : data) {
 				String uriString = null;
 
-				if(object instanceof Resource.Diagnostic)
+				if(object instanceof Resource.Diagnostic) {
 					uriString = ((Resource.Diagnostic) object).getLocation();
+					if(object instanceof VerificationDiagnostic) {
+						marker.setAttribute(
+							VerificationDiagnostic.ATTR_VERIFICATION_TYPE, ((VerificationDiagnostic) object).getCode());
+					}
+				}
 				else {
 					URI uri = null;
 
@@ -311,6 +317,8 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 			return parent != null;
 		}
 	}
+
+	public static final String AGGREGATOR_EDITOR_ID = "org.eclipse.b3.aggregator.presentation.AggregatorEditorID";
 
 	public static final String AGGREGATOR_EDITOR_SCOPE = "org.eclipse.b3.aggregator.presentation.aggregatorEditorScope";
 

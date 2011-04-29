@@ -69,7 +69,7 @@ public class AggregatorResourceViewItemProvider extends AggregatorItemProviderAd
 
 		newChildDescriptors.add(createChildParameter(
 			AggregatorPackage.Literals.AGGREGATOR_RESOURCE_VIEW__AGGREGATES,
-			AggregatorFactory.eINSTANCE.createAggregate()));
+			AggregatorFactory.eINSTANCE.createCompositeChild()));
 	}
 
 	@Override
@@ -173,13 +173,13 @@ public class AggregatorResourceViewItemProvider extends AggregatorItemProviderAd
 
 	@Override
 	protected Object createWrapper(EObject object, EStructuralFeature feature, Object value, int index) {
-		// we need to wrap Aggregate objects so that they appear to be children of the AggregatorResource instance
+		// we need to wrap CompositeChild objects so that they appear to be children of the AggregatorResource instance
 		// that the object we adapt is a view of
 		if(feature == AggregatorPackage.Literals.AGGREGATOR_RESOURCE_VIEW__AGGREGATES) {
-			AggregateItemProvider aggregateItemProvider = (AggregateItemProvider) getRootAdapterFactory().adapt(
+			CompositeChildItemProvider compositeChildItemProvider = (CompositeChildItemProvider) getRootAdapterFactory().adapt(
 				value, IEditingDomainItemProvider.class);
 
-			return aggregateItemProvider.new AggregateWrapperItemProvider(
+			return compositeChildItemProvider.new CompositeChildWrapperItemProvider(
 				value, ((AggregatorResourceViewImpl) object).getAggregatorResource(), feature, index, adapterFactory);
 		}
 		return super.createWrapper(object, feature, value, index);
@@ -275,7 +275,7 @@ public class AggregatorResourceViewItemProvider extends AggregatorItemProviderAd
 
 	@Override
 	protected boolean isWrappingNeeded(Object object) {
-		// we need to set this to true since we are wrapping the Aggregate objects
+		// we need to set this to true since we are wrapping the CompositeChild objects
 		// so that they appear to be children of the AggregatorResource instance
 		// that the object we adapt is a view of
 		return true;

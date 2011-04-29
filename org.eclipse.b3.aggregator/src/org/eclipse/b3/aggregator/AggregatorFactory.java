@@ -27,14 +27,14 @@ public interface AggregatorFactory extends EFactory {
 	AggregatorFactory eINSTANCE = org.eclipse.b3.aggregator.impl.AggregatorFactoryImpl.init();
 
 	/**
-	 * Returns a new object of class '<em>Aggregate</em>'.
+	 * Returns a new object of class '<em>CompositeChild</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
-	 * @return a new object of class '<em>Aggregate</em>'.
+	 * @return a new object of class '<em>CompositeChild</em>'.
 	 * @generated
 	 */
-	Aggregate createAggregate();
+	CompositeChild createCompositeChild();
 
 	/**
 	 * Returns a new object of class '<em>Aggregator</em>'.

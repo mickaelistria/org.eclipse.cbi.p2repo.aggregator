@@ -5,7 +5,7 @@ import java.net.URI;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.eclipse.b3.aggregator.Aggregate;
+import org.eclipse.b3.aggregator.CompositeChild;
 import org.eclipse.b3.p2.util.P2Utils;
 import org.eclipse.b3.util.LogUtils;
 import org.eclipse.b3.util.MonitorUtils;
@@ -21,35 +21,35 @@ import org.eclipse.equinox.p2.repository.metadata.IMetadataRepository;
 import org.eclipse.equinox.p2.repository.metadata.IMetadataRepositoryManager;
 
 public class VerificationIUGenerator extends BuilderPhase {
-	private Aggregate aggregate;
+	private CompositeChild compositeChild;
 
-	public VerificationIUGenerator(Builder builder, Aggregate aggregate) {
+	public VerificationIUGenerator(Builder builder, CompositeChild compositeChild) {
 		super(builder);
-		this.aggregate = aggregate;
+		this.compositeChild = compositeChild;
 	}
 
 	private IPublisherAction[] createActions(IMetadataRepository mdr) {
-		return new IPublisherAction[] { new VerificationIUAction(getBuilder(), aggregate) };
+		return new IPublisherAction[] { new VerificationIUAction(getBuilder(), compositeChild) };
 	}
 
 	@Override
 	public void run(IProgressMonitor monitor) throws CoreException {
-		String taskLabel = Builder.getAggregateLabel(aggregate);
+		String taskLabel = Builder.getCompositeChildLabel(compositeChild);
 
 		long start = TimeUtils.getNow();
-		MonitorUtils.begin(monitor, "Verifying Features for aggregate: " + taskLabel, 100);
-		String info = "Starting generation of verification feature for aggregate: " + taskLabel;
+		MonitorUtils.begin(monitor, "Verifying Features for compositeChild: " + taskLabel, 100);
+		String info = "Starting generation of verification feature for compositeChild: " + taskLabel;
 		LogUtils.info(info);
 		MonitorUtils.subTask(monitor, info);
 
 		String name = getBuilder().getAggregator().getLabel();
-		if(aggregate != null)
-			name += " / " + aggregate.getLabel();
+		if(compositeChild != null)
+			name += " / " + compositeChild.getLabel();
 		name += " Verification repository";
 
 		File globalLocation = new File(getBuilder().getBuildRoot(), Builder.REPO_FOLDER_INTERIM);
 		File location = new File(globalLocation, Builder.REPO_FOLDER_VERIFICATION +
-				getBuilder().getAggregateSubdirectory(aggregate));
+				getBuilder().getCompositeChildSubdirectory(compositeChild));
 		FileUtils.deleteAll(location);
 
 		Map<String, String> properties = new HashMap<String, String>();

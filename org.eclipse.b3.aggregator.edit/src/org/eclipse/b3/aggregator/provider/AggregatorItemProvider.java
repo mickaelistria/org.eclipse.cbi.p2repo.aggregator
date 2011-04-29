@@ -11,7 +11,7 @@ import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 
-import org.eclipse.b3.aggregator.Aggregate;
+import org.eclipse.b3.aggregator.CompositeChild;
 import org.eclipse.b3.aggregator.Aggregator;
 import org.eclipse.b3.aggregator.AggregatorFactory;
 import org.eclipse.b3.aggregator.AggregatorPackage;
@@ -204,7 +204,7 @@ public class AggregatorItemProvider extends DescriptionProviderItemProvider impl
 					Object newChildValue = ((CommandParameter) e).getValue();
 
 					// filter these out
-					if(newChildValue instanceof Aggregate || newChildValue instanceof MappedRepository)
+					if(newChildValue instanceof CompositeChild || newChildValue instanceof MappedRepository)
 						return false;
 				}
 				return super.add(e);
@@ -223,7 +223,7 @@ public class AggregatorItemProvider extends DescriptionProviderItemProvider impl
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 
 		newChildDescriptors.add(createChildParameter(
-			AggregatorPackage.Literals.AGGREGATOR__AGGREGATES, AggregatorFactory.eINSTANCE.createAggregate()));
+			AggregatorPackage.Literals.AGGREGATOR__AGGREGATES, AggregatorFactory.eINSTANCE.createCompositeChild()));
 
 		newChildDescriptors.add(createChildParameter(
 			AggregatorPackage.Literals.AGGREGATOR__CONFIGURATIONS, AggregatorFactory.eINSTANCE.createConfiguration()));
@@ -448,7 +448,7 @@ public class AggregatorItemProvider extends DescriptionProviderItemProvider impl
 	@Override
 	protected boolean isWrappingNeeded(Object object) {
 		// we need to set this to true since we are wrapping the Contribution objects
-		// so that they can be collapsed when linked to an Aggregate
+		// so that they can be collapsed when linked to an CompositeChild
 		return true;
 	}
 

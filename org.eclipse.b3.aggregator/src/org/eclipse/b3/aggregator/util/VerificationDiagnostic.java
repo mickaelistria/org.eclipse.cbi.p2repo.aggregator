@@ -4,6 +4,8 @@ import org.eclipse.emf.common.util.URI;
 
 public class VerificationDiagnostic extends ResourceDiagnosticImpl {
 
+	public static final String ATTR_VERIFICATION_TYPE = "p2.verification.error.type";
+
 	public static int MISSING_IU = 0;
 
 	public static int CONFLICTING_IU = 1;

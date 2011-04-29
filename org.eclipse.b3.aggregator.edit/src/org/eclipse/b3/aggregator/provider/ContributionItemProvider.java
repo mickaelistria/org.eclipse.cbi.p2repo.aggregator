@@ -491,7 +491,7 @@ public class ContributionItemProvider extends AggregatorItemProviderAdapter impl
 		notifyChangedGen(notification);
 
 		if(notification.getFeatureID(LinkSource.class) == AggregatorPackage.LINK_SOURCE__RECEIVER) {
-			// Update content if the contribution has been linked somewhere (to an Aggregate)
+			// Update content if the contribution has been linked somewhere (to an CompositeChild)
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 		}
 		else if(notification.getFeatureID(Contribution.class) == AggregatorPackage.CONTRIBUTION__STATUS) {

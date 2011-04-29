@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import org.eclipse.b3.aggregator.Aggregate;
+import org.eclipse.b3.aggregator.CompositeChild;
 import org.eclipse.b3.aggregator.Aggregator;
 import org.eclipse.b3.aggregator.Contribution;
 import org.eclipse.b3.aggregator.MappedRepository;
@@ -34,11 +34,11 @@ public class MetadataMirrorGenerator extends BuilderPhase {
 
 	private IMetadataRepositoryManager mdrMgr;
 
-	private Aggregate aggregate;
+	private CompositeChild compositeChild;
 
-	public MetadataMirrorGenerator(Builder builder, Aggregate aggregate) {
+	public MetadataMirrorGenerator(Builder builder, CompositeChild compositeChild) {
 		super(builder);
-		this.aggregate = aggregate;
+		this.compositeChild = compositeChild;
 	}
 
 	private void mirror(List<IInstallableUnit> iusToMirror, MetadataRepository source, final IMetadataRepository dest,
@@ -74,25 +74,25 @@ public class MetadataMirrorGenerator extends BuilderPhase {
 
 	@Override
 	public void run(IProgressMonitor monitor) throws CoreException {
-		String taskLabel = Builder.getAggregateLabel(aggregate);
+		String taskLabel = Builder.getCompositeChildLabel(compositeChild);
 
-		LogUtils.info("Starting mirroring of meta-data for aggregate: " + taskLabel);
+		LogUtils.info("Starting mirroring of meta-data for compositeChild: " + taskLabel);
 		long start = TimeUtils.getNow();
 
 		Builder builder = getBuilder();
 		File destination = new File(builder.getBuildRoot(), Builder.REPO_FOLDER_FINAL);
-		File aggregateDestination = new File(destination, Builder.REPO_FOLDER_AGGREGATE +
-				builder.getAggregateSubdirectory(aggregate));
-		URI aggregateURI = Builder.createURI(aggregateDestination);
+		File compositeChildDestination = new File(destination, Builder.REPO_FOLDER_AGGREGATE +
+				builder.getCompositeChildSubdirectory(compositeChild));
+		URI compositeChildURI = Builder.createURI(compositeChildDestination);
 
 		mdrMgr = P2Utils.getRepositoryManager(getBuilder().getProvisioningAgent(), IMetadataRepositoryManager.class);
 		SubMonitor subMon = SubMonitor.convert(monitor, 1000);
 		boolean artifactErrors = false;
 		try {
-			Set<IInstallableUnit> unitsToAggregate = builder.getUnitsToAggregate(aggregate);
+			Set<IInstallableUnit> unitsToCompositeChild = builder.getUnitsToCompositeChild(compositeChild);
 
-			if(unitsToAggregate.size() > 0) {
-				subMon.setTaskName("Mirroring meta-data for aggregate: " + taskLabel + "...");
+			if(unitsToCompositeChild.size() > 0) {
+				subMon.setTaskName("Mirroring meta-data for compositeChild: " + taskLabel + "...");
 				MonitorUtils.subTask(subMon, "Initializing");
 
 				MonitorUtils.worked(subMon, 5);
@@ -101,16 +101,16 @@ public class MetadataMirrorGenerator extends BuilderPhase {
 
 				Map<String, String> properties = new HashMap<String, String>();
 				properties.put(IRepository.PROP_COMPRESSED, Boolean.toString(true));
-				String label = aggregator.getLabel() + (aggregate == null
+				String label = aggregator.getLabel() + (compositeChild == null
 						? ""
-						: " / " + aggregate.getLabel());
-				IMetadataRepository aggregateMdr = mdrMgr.createRepository(
-					aggregateURI, label, Builder.SIMPLE_METADATA_TYPE, properties);
+						: " / " + compositeChild.getLabel());
+				IMetadataRepository compositeChildMdr = mdrMgr.createRepository(
+					compositeChildURI, label, Builder.SIMPLE_METADATA_TYPE, properties);
 				MonitorUtils.worked(subMon, 10);
 
 				SubMonitor childMonitor = subMon.newChild(900, SubMonitor.SUPPRESS_BEGINTASK |
 						SubMonitor.SUPPRESS_SETTASKNAME);
-				List<Contribution> contribs = aggregator.getAggregateContributions(aggregate, true);
+				List<Contribution> contribs = aggregator.getCompositeChildContributions(compositeChild, true);
 
 				MonitorUtils.begin(childMonitor, contribs.size() * 100 + 20);
 
@@ -128,7 +128,7 @@ public class MetadataMirrorGenerator extends BuilderPhase {
 						MetadataRepository childMdr = ResourceUtils.getMetadataRepository(repo);
 						ArrayList<IInstallableUnit> iusToMirror = null;
 						for(IInstallableUnit iu : childMdr.getInstallableUnits()) {
-							if(!unitsToAggregate.remove(iu))
+							if(!unitsToCompositeChild.remove(iu))
 								continue;
 
 							if(iusToMirror == null)
@@ -144,7 +144,7 @@ public class MetadataMirrorGenerator extends BuilderPhase {
 							mirror(
 								iusToMirror,
 								childMdr,
-								aggregateMdr,
+								compositeChildMdr,
 								contribMonitor.newChild(5, SubMonitor.SUPPRESS_BEGINTASK |
 										SubMonitor.SUPPRESS_SETTASKNAME));
 						}
@@ -154,29 +154,29 @@ public class MetadataMirrorGenerator extends BuilderPhase {
 					MonitorUtils.done(contribMonitor);
 				}
 
-				// TODO currently we mirror the custom categories for the main/implicit aggregate only - make this work with other aggregates too
-				if(aggregate == null) {
+				// TODO currently we mirror the custom categories for the main/implicit compositeChild only - make this work with other compositeChilds too
+				if(compositeChild == null) {
 					List<IInstallableUnit> categories = builder.getCategoryIUs();
 					if(!categories.isEmpty()) {
-						mirror(categories, null, aggregateMdr, childMonitor.newChild(20));
+						mirror(categories, null, compositeChildMdr, childMonitor.newChild(20));
 					}
 				}
 
 				// Remove the aggregation in case it's now empty.
 				//
-				String[] content = aggregateDestination.list();
+				String[] content = compositeChildDestination.list();
 				if(content != null && content.length == 0) {
-					// remove the entry from the map of units to aggregate too, as the keys from the map are used to generate children
+					// remove the entry from the map of units to compositeChild too, as the keys from the map are used to generate children
 					// of the final composite repository by the final phase of the build process
-					builder.removeUnitsToAggregate(aggregate);
-					if(!aggregateDestination.delete())
-						throw ExceptionUtils.fromMessage("Unable to remove %s", aggregateDestination.getAbsolutePath());
+					builder.removeUnitsToCompositeChild(compositeChild);
+					if(!compositeChildDestination.delete())
+						throw ExceptionUtils.fromMessage("Unable to remove %s", compositeChildDestination.getAbsolutePath());
 				}
 
 				MonitorUtils.done(childMonitor);
 			}
 			else
-				builder.removeUnitsToAggregate(aggregate);
+				builder.removeUnitsToCompositeChild(compositeChild);
 		}
 		finally {
 			P2Utils.ungetRepositoryManager(getBuilder().getProvisioningAgent(), mdrMgr);
