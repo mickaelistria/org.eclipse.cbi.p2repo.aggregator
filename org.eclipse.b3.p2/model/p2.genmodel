@@ -9,52 +9,153 @@
   <foreignModel>p2.ecore</foreignModel>
   <genPackages prefix="P2" basePackage="org.eclipse.b3" resource="XML" disposableProviderFactory="true"
       multipleEditorPages="false" generateModelWizard="false" ecorePackage="p2.ecore#/">
-    <genDataTypes ecoreDataType="p2.ecore#//Version"/>
-    <genDataTypes ecoreDataType="p2.ecore#//VersionRange"/>
-    <genDataTypes ecoreDataType="p2.ecore#//IInstallableUnitArray"/>
     <genDataTypes ecoreDataType="p2.ecore#//Collection">
       <genTypeParameters ecoreTypeParameter="p2.ecore#//Collection/T"/>
     </genDataTypes>
-    <genDataTypes ecoreDataType="p2.ecore#//IProvidedCapabilityArray"/>
-    <genDataTypes ecoreDataType="p2.ecore#//IInstallableUnitFragmentArray"/>
+    <genDataTypes ecoreDataType="p2.ecore#//Collector"/>
+    <genDataTypes ecoreDataType="p2.ecore#//File"/>
+    <genDataTypes ecoreDataType="p2.ecore#//IArtifactDescriptorArray"/>
     <genDataTypes ecoreDataType="p2.ecore#//IArtifactKeyArray"/>
-    <genDataTypes ecoreDataType="p2.ecore#//ITouchpointDataArray"/>
-    <genDataTypes ecoreDataType="p2.ecore#//StringArray"/>
-    <genDataTypes ecoreDataType="p2.ecore#//UntypedMap"/>
-    <genDataTypes ecoreDataType="p2.ecore#//Map">
-      <genTypeParameters ecoreTypeParameter="p2.ecore#//Map/K"/>
-      <genTypeParameters ecoreTypeParameter="p2.ecore#//Map/V"/>
-    </genDataTypes>
+    <genDataTypes ecoreDataType="p2.ecore#//IArtifactRequestArray"/>
+    <genDataTypes ecoreDataType="p2.ecore#//IInstallableUnitArray"/>
+    <genDataTypes ecoreDataType="p2.ecore#//IInstallableUnitFragmentArray"/>
     <genDataTypes ecoreDataType="p2.ecore#//ILicenseArray"/>
-    <genDataTypes ecoreDataType="p2.ecore#//IQueryResult">
-      <genTypeParameters ecoreTypeParameter="p2.ecore#//IQueryResult/T"/>
+    <genDataTypes ecoreDataType="p2.ecore#//IMatchExpression">
+      <genTypeParameters ecoreTypeParameter="p2.ecore#//IMatchExpression/T"/>
     </genDataTypes>
     <genDataTypes ecoreDataType="p2.ecore#//IQuery">
       <genTypeParameters ecoreTypeParameter="p2.ecore#//IQuery/T"/>
     </genDataTypes>
-    <genDataTypes ecoreDataType="p2.ecore#//Collector"/>
+    <genDataTypes ecoreDataType="p2.ecore#//IQueryResult">
+      <genTypeParameters ecoreTypeParameter="p2.ecore#//IQueryResult/T"/>
+    </genDataTypes>
+    <genDataTypes ecoreDataType="p2.ecore#//IProvidedCapabilityArray"/>
+    <genDataTypes ecoreDataType="p2.ecore#//IProvisioningAgent"/>
+    <genDataTypes ecoreDataType="p2.ecore#//IRequirementArrayArray"/>
+    <genDataTypes ecoreDataType="p2.ecore#//IProcessingDescriptorArray"/>
     <genDataTypes ecoreDataType="p2.ecore#//IProgressMonitor"/>
     <genDataTypes ecoreDataType="p2.ecore#//IRunnableWithProgress"/>
     <genDataTypes ecoreDataType="p2.ecore#//IStatus"/>
-    <genDataTypes ecoreDataType="p2.ecore#//IMatchExpression">
-      <genTypeParameters ecoreTypeParameter="p2.ecore#//IMatchExpression/T"/>
+    <genDataTypes ecoreDataType="p2.ecore#//ITouchpointDataArray"/>
+    <genDataTypes ecoreDataType="p2.ecore#//Map">
+      <genTypeParameters ecoreTypeParameter="p2.ecore#//Map/K"/>
+      <genTypeParameters ecoreTypeParameter="p2.ecore#//Map/V"/>
     </genDataTypes>
-    <genDataTypes ecoreDataType="p2.ecore#//IProvisioningAgent"/>
+    <genDataTypes ecoreDataType="p2.ecore#//OutputStream"/>
+    <genDataTypes ecoreDataType="p2.ecore#//StringArray"/>
+    <genDataTypes ecoreDataType="p2.ecore#//UntypedMap"/>
     <genDataTypes ecoreDataType="p2.ecore#//URI"/>
+    <genDataTypes ecoreDataType="p2.ecore#//Version"/>
+    <genDataTypes ecoreDataType="p2.ecore#//VersionRange"/>
+    <genClasses ecoreClass="p2.ecore#//ArtifactKey"/>
+    <genClasses ecoreClass="p2.ecore#//ArtifactDescriptor">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference p2.ecore#//ArtifactDescriptor/propertyMap"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference p2.ecore#//ArtifactDescriptor/processingStepList"/>
+    </genClasses>
+    <genClasses ecoreClass="p2.ecore#//ArtifactRepository">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference p2.ecore#//ArtifactRepository/artifactMap"/>
+    </genClasses>
+    <genClasses ecoreClass="p2.ecore#//ArtifactsByKey">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference p2.ecore#//ArtifactsByKey/key"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference p2.ecore#//ArtifactsByKey/value"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="p2.ecore#//Comparable">
+      <genTypeParameters ecoreTypeParameter="p2.ecore#//Comparable/T"/>
+      <genOperations ecoreOperation="p2.ecore#//Comparable/compareTo">
+        <genParameters ecoreParameter="p2.ecore#//Comparable/compareTo/o"/>
+      </genOperations>
+    </genClasses>
+    <genClasses ecoreClass="p2.ecore#//Copyright"/>
+    <genClasses image="false" ecoreClass="p2.ecore#//IAdaptable">
+      <genOperations ecoreOperation="p2.ecore#//IAdaptable/getAdapter">
+        <genParameters ecoreParameter="p2.ecore#//IAdaptable/getAdapter/adapter"/>
+      </genOperations>
+    </genClasses>
+    <genClasses image="false" ecoreClass="p2.ecore#//IArtifactDescriptor">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference p2.ecore#//IArtifactDescriptor/artifactKey"/>
+      <genOperations ecoreOperation="p2.ecore#//IArtifactDescriptor/getProperties"/>
+      <genOperations ecoreOperation="p2.ecore#//IArtifactDescriptor/getProperty">
+        <genParameters ecoreParameter="p2.ecore#//IArtifactDescriptor/getProperty/key"/>
+      </genOperations>
+      <genOperations ecoreOperation="p2.ecore#//IArtifactDescriptor/getProcessingSteps"/>
+      <genOperations ecoreOperation="p2.ecore#//IArtifactDescriptor/getRepository"/>
+    </genClasses>
     <genClasses image="false" ecoreClass="p2.ecore#//IArtifactKey">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute p2.ecore#//IArtifactKey/classifier"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute p2.ecore#//IArtifactKey/id"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute p2.ecore#//IArtifactKey/version"/>
       <genOperations ecoreOperation="p2.ecore#//IArtifactKey/toExternalForm"/>
     </genClasses>
+    <genClasses image="false" ecoreClass="p2.ecore#//IArtifactRepository">
+      <genOperations ecoreOperation="p2.ecore#//IArtifactRepository/createArtifactDescriptor">
+        <genParameters ecoreParameter="p2.ecore#//IArtifactRepository/createArtifactDescriptor/key"/>
+      </genOperations>
+      <genOperations ecoreOperation="p2.ecore#//IArtifactRepository/createArtifactKey">
+        <genParameters ecoreParameter="p2.ecore#//IArtifactRepository/createArtifactKey/classifier"/>
+        <genParameters ecoreParameter="p2.ecore#//IArtifactRepository/createArtifactKey/id"/>
+        <genParameters ecoreParameter="p2.ecore#//IArtifactRepository/createArtifactKey/version"/>
+      </genOperations>
+      <genOperations ecoreOperation="p2.ecore#//IArtifactRepository/addDescriptor">
+        <genParameters ecoreParameter="p2.ecore#//IArtifactRepository/addDescriptor/descriptor"/>
+      </genOperations>
+      <genOperations ecoreOperation="p2.ecore#//IArtifactRepository/addDescriptors">
+        <genParameters ecoreParameter="p2.ecore#//IArtifactRepository/addDescriptors/descriptors"/>
+      </genOperations>
+      <genOperations ecoreOperation="p2.ecore#//IArtifactRepository/contains">
+        <genParameters ecoreParameter="p2.ecore#//IArtifactRepository/contains/descriptor"/>
+      </genOperations>
+      <genOperations ecoreOperation="p2.ecore#//IArtifactRepository/contains.1">
+        <genParameters ecoreParameter="p2.ecore#//IArtifactRepository/contains.1/key"/>
+      </genOperations>
+      <genOperations ecoreOperation="p2.ecore#//IArtifactRepository/getArtifact">
+        <genParameters ecoreParameter="p2.ecore#//IArtifactRepository/getArtifact/descriptor"/>
+        <genParameters ecoreParameter="p2.ecore#//IArtifactRepository/getArtifact/destination"/>
+        <genParameters ecoreParameter="p2.ecore#//IArtifactRepository/getArtifact/monitor"/>
+      </genOperations>
+      <genOperations ecoreOperation="p2.ecore#//IArtifactRepository/getRawArtifact">
+        <genParameters ecoreParameter="p2.ecore#//IArtifactRepository/getRawArtifact/descriptor"/>
+        <genParameters ecoreParameter="p2.ecore#//IArtifactRepository/getRawArtifact/destination"/>
+        <genParameters ecoreParameter="p2.ecore#//IArtifactRepository/getRawArtifact/monitor"/>
+      </genOperations>
+      <genOperations ecoreOperation="p2.ecore#//IArtifactRepository/getArtifactDescriptors">
+        <genParameters ecoreParameter="p2.ecore#//IArtifactRepository/getArtifactDescriptors/key"/>
+      </genOperations>
+      <genOperations ecoreOperation="p2.ecore#//IArtifactRepository/getArtifacts">
+        <genParameters ecoreParameter="p2.ecore#//IArtifactRepository/getArtifacts/requests"/>
+        <genParameters ecoreParameter="p2.ecore#//IArtifactRepository/getArtifacts/monitor"/>
+      </genOperations>
+      <genOperations ecoreOperation="p2.ecore#//IArtifactRepository/getOutputStream">
+        <genParameters ecoreParameter="p2.ecore#//IArtifactRepository/getOutputStream/descriptor"/>
+      </genOperations>
+      <genOperations ecoreOperation="p2.ecore#//IArtifactRepository/descriptorQueryable"/>
+      <genOperations ecoreOperation="p2.ecore#//IArtifactRepository/removeAll"/>
+      <genOperations ecoreOperation="p2.ecore#//IArtifactRepository/removeDescriptor">
+        <genParameters ecoreParameter="p2.ecore#//IArtifactRepository/removeDescriptor/descriptor"/>
+      </genOperations>
+      <genOperations ecoreOperation="p2.ecore#//IArtifactRepository/removeDescriptor.1">
+        <genParameters ecoreParameter="p2.ecore#//IArtifactRepository/removeDescriptor.1/key"/>
+      </genOperations>
+      <genOperations ecoreOperation="p2.ecore#//IArtifactRepository/executeBatch">
+        <genParameters ecoreParameter="p2.ecore#//IArtifactRepository/executeBatch/runnable"/>
+        <genParameters ecoreParameter="p2.ecore#//IArtifactRepository/executeBatch/monitor"/>
+      </genOperations>
+    </genClasses>
     <genClasses image="false" ecoreClass="p2.ecore#//ICopyright">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute p2.ecore#//ICopyright/location"/>
       <genFeatures createChild="false" propertyMultiLine="true" ecoreFeature="ecore:EAttribute p2.ecore#//ICopyright/body"/>
     </genClasses>
+    <genClasses image="false" ecoreClass="p2.ecore#//IFileArtifactRepository">
+      <genOperations ecoreOperation="p2.ecore#//IFileArtifactRepository/getArtifactFile">
+        <genParameters ecoreParameter="p2.ecore#//IFileArtifactRepository/getArtifactFile/key"/>
+      </genOperations>
+      <genOperations ecoreOperation="p2.ecore#//IFileArtifactRepository/getArtifactFile.1">
+        <genParameters ecoreParameter="p2.ecore#//IFileArtifactRepository/getArtifactFile.1/descriptor"/>
+      </genOperations>
+    </genClasses>
     <genClasses image="false" ecoreClass="p2.ecore#//IInstallableUnit">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference p2.ecore#//IInstallableUnit/artifacts"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference p2.ecore#//IInstallableUnit/copyright"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute p2.ecore#//IInstallableUnit/filter"/>
+      <genFeatures children="true" createChild="false" ecoreFeature="ecore:EAttribute p2.ecore#//IInstallableUnit/filter"/>
       <genFeatures property="None" notify="false" children="true" createChild="true"
           propertySortChoices="true" ecoreFeature="ecore:EReference p2.ecore#//IInstallableUnit/fragments"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference p2.ecore#//IInstallableUnit/licenses"/>
@@ -86,16 +187,82 @@
       </genOperations>
     </genClasses>
     <genClasses image="false" ecoreClass="p2.ecore#//IInstallableUnitFragment"/>
+    <genClasses image="false" ecoreClass="p2.ecore#//IInstallableUnitPatch">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference p2.ecore#//IInstallableUnitPatch/requirementsChange"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference p2.ecore#//IInstallableUnitPatch/lifeCycle"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference p2.ecore#//IInstallableUnitPatch/appliesTo"/>
+    </genClasses>
     <genClasses image="false" ecoreClass="p2.ecore#//ILicense">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute p2.ecore#//ILicense/location"/>
       <genFeatures createChild="false" propertyMultiLine="true" ecoreFeature="ecore:EAttribute p2.ecore#//ILicense/body"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute p2.ecore#//ILicense/UUID"/>
+    </genClasses>
+    <genClasses ecoreClass="p2.ecore#//InstallableUnit">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference p2.ecore#//InstallableUnit/propertyMap"/>
+    </genClasses>
+    <genClasses ecoreClass="p2.ecore#//InstallableUnitFragment">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference p2.ecore#//InstallableUnitFragment/host"/>
+    </genClasses>
+    <genClasses ecoreClass="p2.ecore#//InstallableUnitPatch">
+      <genOperations ecoreOperation="p2.ecore#//InstallableUnitPatch/getApplicabilityScope"/>
+    </genClasses>
+    <genClasses ecoreClass="p2.ecore#//InstructionMap">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute p2.ecore#//InstructionMap/key"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference p2.ecore#//InstructionMap/value"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="p2.ecore#//IMetadataRepository">
+      <genOperations ecoreOperation="p2.ecore#//IMetadataRepository/addInstallableUnits">
+        <genParameters ecoreParameter="p2.ecore#//IMetadataRepository/addInstallableUnits/installableUnits"/>
+      </genOperations>
+      <genOperations ecoreOperation="p2.ecore#//IMetadataRepository/addReferences">
+        <genParameters ecoreParameter="p2.ecore#//IMetadataRepository/addReferences/references"/>
+      </genOperations>
+      <genOperations ecoreOperation="p2.ecore#//IMetadataRepository/removeAll"/>
+      <genOperations ecoreOperation="p2.ecore#//IMetadataRepository/removeInstallableUnits">
+        <genParameters ecoreParameter="p2.ecore#//IMetadataRepository/removeInstallableUnits/installableUnits"/>
+      </genOperations>
+      <genOperations ecoreOperation="p2.ecore#//IMetadataRepository/executeBatch">
+        <genParameters ecoreParameter="p2.ecore#//IMetadataRepository/executeBatch/runnable"/>
+        <genParameters ecoreParameter="p2.ecore#//IMetadataRepository/executeBatch/monitor"/>
+      </genOperations>
+    </genClasses>
+    <genClasses image="false" ecoreClass="p2.ecore#//IProcessingStepDescriptor">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute p2.ecore#//IProcessingStepDescriptor/processorId"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute p2.ecore#//IProcessingStepDescriptor/data"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute p2.ecore#//IProcessingStepDescriptor/required"/>
     </genClasses>
     <genClasses image="false" ecoreClass="p2.ecore#//IProvidedCapability">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute p2.ecore#//IProvidedCapability/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute p2.ecore#//IProvidedCapability/namespace"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute p2.ecore#//IProvidedCapability/version"/>
     </genClasses>
+    <genClasses image="false" ecoreClass="p2.ecore#//IQueryable">
+      <genTypeParameters ecoreTypeParameter="p2.ecore#//IQueryable/T"/>
+      <genOperations ecoreOperation="p2.ecore#//IQueryable/query">
+        <genParameters ecoreParameter="p2.ecore#//IQueryable/query/query"/>
+        <genParameters ecoreParameter="p2.ecore#//IQueryable/query/progress"/>
+      </genOperations>
+    </genClasses>
+    <genClasses image="false" ecoreClass="p2.ecore#//IRepository">
+      <genTypeParameters ecoreTypeParameter="p2.ecore#//IRepository/T"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute p2.ecore#//IRepository/location"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute p2.ecore#//IRepository/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute p2.ecore#//IRepository/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute p2.ecore#//IRepository/version"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute p2.ecore#//IRepository/description"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute p2.ecore#//IRepository/provider"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute p2.ecore#//IRepository/modifiable"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute p2.ecore#//IRepository/provisioningAgent"/>
+      <genOperations ecoreOperation="p2.ecore#//IRepository/getProperties"/>
+      <genOperations ecoreOperation="p2.ecore#//IRepository/setProperty">
+        <genParameters ecoreParameter="p2.ecore#//IRepository/setProperty/key"/>
+        <genParameters ecoreParameter="p2.ecore#//IRepository/setProperty/value"/>
+      </genOperations>
+      <genOperations ecoreOperation="p2.ecore#//IRepository/getProperty">
+        <genParameters ecoreParameter="p2.ecore#//IRepository/getProperty/key"/>
+      </genOperations>
+    </genClasses>
+    <genClasses image="false" ecoreClass="p2.ecore#//IRepositoryReference"/>
     <genClasses image="false" ecoreClass="p2.ecore#//IRequirement">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute p2.ecore#//IRequirement/filter"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute p2.ecore#//IRequirement/max"/>
@@ -111,6 +278,15 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute p2.ecore#//IRequiredCapability/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute p2.ecore#//IRequiredCapability/namespace"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute p2.ecore#//IRequiredCapability/range"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="p2.ecore#//IRequirementChange">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference p2.ecore#//IRequirementChange/applyOn.1"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference p2.ecore#//IRequirementChange/newValue.1"/>
+      <genOperations ecoreOperation="p2.ecore#//IRequirementChange/applyOn"/>
+      <genOperations ecoreOperation="p2.ecore#//IRequirementChange/newValue"/>
+      <genOperations ecoreOperation="p2.ecore#//IRequirementChange/matches">
+        <genParameters ecoreParameter="p2.ecore#//IRequirementChange/matches/toMatch"/>
+      </genOperations>
     </genClasses>
     <genClasses image="false" ecoreClass="p2.ecore#//ITouchpointData">
       <genOperations ecoreOperation="p2.ecore#//ITouchpointData/getInstructions"/>
@@ -139,96 +315,49 @@
       </genOperations>
       <genOperations ecoreOperation="p2.ecore#//IUpdateDescriptor/getIUsBeingUpdated"/>
     </genClasses>
-    <genClasses ecoreClass="p2.ecore#//ArtifactKey"/>
-    <genClasses ecoreClass="p2.ecore#//Copyright"/>
+    <genClasses ecoreClass="p2.ecore#//License"/>
+    <genClasses ecoreClass="p2.ecore#//MappingRule">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute p2.ecore#//MappingRule/filter"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute p2.ecore#//MappingRule/output"/>
+    </genClasses>
     <genClasses ecoreClass="p2.ecore#//MetadataRepository">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference p2.ecore#//MetadataRepository/installableUnits"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference p2.ecore#//MetadataRepository/references"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference p2.ecore#//MetadataRepository/propertyMap"/>
     </genClasses>
-    <genClasses ecoreClass="p2.ecore#//InstallableUnit">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference p2.ecore#//InstallableUnit/propertyMap"/>
-    </genClasses>
-    <genClasses ecoreClass="p2.ecore#//InstallableUnitFragment">
-      <genOperations ecoreOperation="p2.ecore#//InstallableUnitFragment/getHost"/>
-    </genClasses>
-    <genClasses ecoreClass="p2.ecore#//License"/>
-    <genClasses ecoreClass="p2.ecore#//ProvidedCapability"/>
-    <genClasses ecoreClass="p2.ecore#//RequiredCapability"/>
-    <genClasses ecoreClass="p2.ecore#//Requirement"/>
-    <genClasses ecoreClass="p2.ecore#//TouchpointData">
-      <genFeatures property="Readonly" children="true" createChild="true" ecoreFeature="ecore:EReference p2.ecore#//TouchpointData/instructionMap"/>
-    </genClasses>
-    <genClasses ecoreClass="p2.ecore#//TouchpointInstruction"/>
-    <genClasses ecoreClass="p2.ecore#//TouchpointType"/>
-    <genClasses ecoreClass="p2.ecore#//UpdateDescriptor"/>
+    <genClasses ecoreClass="p2.ecore#//ProcessingStepDescriptor"/>
     <genClasses ecoreClass="p2.ecore#//Property">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute p2.ecore#//Property/key"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute p2.ecore#//Property/value"/>
     </genClasses>
-    <genClasses ecoreClass="p2.ecore#//InstructionMap">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute p2.ecore#//InstructionMap/key"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference p2.ecore#//InstructionMap/value"/>
+    <genClasses ecoreClass="p2.ecore#//ProvidedCapability"/>
+    <genClasses image="false" ecoreClass="p2.ecore#//Repository">
+      <genTypeParameters ecoreTypeParameter="p2.ecore#//Repository/T"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference p2.ecore#//Repository/propertyMap"/>
     </genClasses>
-    <genClasses image="false" ecoreClass="p2.ecore#//IQueryable">
-      <genTypeParameters ecoreTypeParameter="p2.ecore#//IQueryable/T"/>
-      <genOperations ecoreOperation="p2.ecore#//IQueryable/query">
-        <genParameters ecoreParameter="p2.ecore#//IQueryable/query/query"/>
-        <genParameters ecoreParameter="p2.ecore#//IQueryable/query/progress"/>
-      </genOperations>
-    </genClasses>
-    <genClasses image="false" ecoreClass="p2.ecore#//IMetadataRepository">
-      <genOperations ecoreOperation="p2.ecore#//IMetadataRepository/addInstallableUnits">
-        <genParameters ecoreParameter="p2.ecore#//IMetadataRepository/addInstallableUnits/installableUnits"/>
-      </genOperations>
-      <genOperations ecoreOperation="p2.ecore#//IMetadataRepository/addReferences">
-        <genParameters ecoreParameter="p2.ecore#//IMetadataRepository/addReferences/references"/>
-      </genOperations>
-      <genOperations ecoreOperation="p2.ecore#//IMetadataRepository/removeAll"/>
-      <genOperations ecoreOperation="p2.ecore#//IMetadataRepository/removeInstallableUnits">
-        <genParameters ecoreParameter="p2.ecore#//IMetadataRepository/removeInstallableUnits/installableUnits"/>
-      </genOperations>
-      <genOperations ecoreOperation="p2.ecore#//IMetadataRepository/executeBatch">
-        <genParameters ecoreParameter="p2.ecore#//IMetadataRepository/executeBatch/runnable"/>
-        <genParameters ecoreParameter="p2.ecore#//IMetadataRepository/executeBatch/monitor"/>
-      </genOperations>
-    </genClasses>
-    <genClasses image="false" ecoreClass="p2.ecore#//IRepository">
-      <genTypeParameters ecoreTypeParameter="p2.ecore#//IRepository/T"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute p2.ecore#//IRepository/location"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute p2.ecore#//IRepository/name"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute p2.ecore#//IRepository/type"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute p2.ecore#//IRepository/version"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute p2.ecore#//IRepository/description"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute p2.ecore#//IRepository/provider"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute p2.ecore#//IRepository/modifiable"/>
-      <genOperations ecoreOperation="p2.ecore#//IRepository/getProperties"/>
-      <genOperations ecoreOperation="p2.ecore#//IRepository/setProperty">
-        <genParameters ecoreParameter="p2.ecore#//IRepository/setProperty/key"/>
-        <genParameters ecoreParameter="p2.ecore#//IRepository/setProperty/value"/>
-      </genOperations>
-      <genOperations ecoreOperation="p2.ecore#//IRepository/getProvisioningAgent"/>
-      <genOperations ecoreOperation="p2.ecore#//IRepository/getProperty">
-        <genParameters ecoreParameter="p2.ecore#//IRepository/getProperty/key"/>
-      </genOperations>
-    </genClasses>
-    <genClasses image="false" ecoreClass="p2.ecore#//IRepositoryReference"/>
     <genClasses ecoreClass="p2.ecore#//RepositoryReference">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute p2.ecore#//RepositoryReference/location"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute p2.ecore#//RepositoryReference/type"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute p2.ecore#//RepositoryReference/options"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute p2.ecore#//RepositoryReference/nickname"/>
     </genClasses>
-    <genClasses image="false" ecoreClass="p2.ecore#//IAdaptable">
-      <genOperations ecoreOperation="p2.ecore#//IAdaptable/getAdapter">
-        <genParameters ecoreParameter="p2.ecore#//IAdaptable/getAdapter/adapter"/>
+    <genClasses ecoreClass="p2.ecore#//RequiredCapability"/>
+    <genClasses ecoreClass="p2.ecore#//Requirement"/>
+    <genClasses ecoreClass="p2.ecore#//RequirementChange"/>
+    <genClasses ecoreClass="p2.ecore#//SimpleArtifactRepository">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference p2.ecore#//SimpleArtifactRepository/rules"/>
+    </genClasses>
+    <genClasses ecoreClass="p2.ecore#//SimpleArtifactDescriptor">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference p2.ecore#//SimpleArtifactDescriptor/repositoryPropertyMap"/>
+      <genOperations ecoreOperation="p2.ecore#//SimpleArtifactDescriptor/getRepositoryProperties"/>
+      <genOperations ecoreOperation="p2.ecore#//SimpleArtifactDescriptor/getRepositoryProperty">
+        <genParameters ecoreParameter="p2.ecore#//SimpleArtifactDescriptor/getRepositoryProperty/key"/>
       </genOperations>
     </genClasses>
-    <genClasses image="false" ecoreClass="p2.ecore#//Comparable">
-      <genTypeParameters ecoreTypeParameter="p2.ecore#//Comparable/T"/>
-      <genOperations ecoreOperation="p2.ecore#//Comparable/compareTo">
-        <genParameters ecoreParameter="p2.ecore#//Comparable/compareTo/o"/>
-      </genOperations>
+    <genClasses ecoreClass="p2.ecore#//TouchpointData">
+      <genFeatures property="Readonly" children="true" createChild="true" ecoreFeature="ecore:EReference p2.ecore#//TouchpointData/instructionMap"/>
     </genClasses>
+    <genClasses ecoreClass="p2.ecore#//TouchpointInstruction"/>
+    <genClasses ecoreClass="p2.ecore#//TouchpointType"/>
+    <genClasses ecoreClass="p2.ecore#//UpdateDescriptor"/>
   </genPackages>
 </genmodel:GenModel>

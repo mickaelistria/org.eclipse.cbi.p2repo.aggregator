@@ -12,10 +12,15 @@ import java.net.URI;
 
 import org.eclipse.b3.util.B3Util;
 import org.eclipse.core.runtime.CoreException;
+import org.eclipse.equinox.internal.p2.metadata.expression.LDAPFilter;
 import org.eclipse.equinox.p2.core.IProvisioningAgent;
 import org.eclipse.equinox.p2.core.IProvisioningAgentProvider;
 import org.eclipse.equinox.p2.core.spi.IAgentServiceFactory;
 import org.eclipse.equinox.p2.engine.IProfileRegistry;
+import org.eclipse.equinox.p2.metadata.IInstallableUnit;
+import org.eclipse.equinox.p2.metadata.expression.ExpressionUtil;
+import org.eclipse.equinox.p2.metadata.expression.IExpression;
+import org.eclipse.equinox.p2.metadata.expression.IMatchExpression;
 import org.eclipse.equinox.p2.planner.IPlanner;
 import org.eclipse.equinox.p2.repository.IRepositoryManager;
 
@@ -115,6 +120,28 @@ public class P2Utils {
 		}
 
 		throw new RuntimeException("p2 service " + clazz.getName() + "not available");
+	}
+
+	public static String filterToString(IMatchExpression<IInstallableUnit> filter) {
+		if(filter == null)
+			return null;
+	
+		Object[] params = filter.getParameters();
+		if(params.length == 1) {
+			Object param = params[0];
+			if(param instanceof LDAPFilter) {
+				IExpression expr = ExpressionUtil.getOperand(filter);
+				if(expr.getExpressionType() == IExpression.TYPE_MATCHES) {
+					IExpression lhs = ExpressionUtil.getLHS(expr);
+					if(lhs.getExpressionType() == IExpression.TYPE_MEMBER &&
+							"properties".equals(ExpressionUtil.getName(lhs)) &&
+							ExpressionUtil.getRHS(expr).getExpressionType() == IExpression.TYPE_PARAMETER) {
+						return "LDAP Filter: " + param.toString();
+					}
+				}
+			}
+		}
+		return filter.toString();
 	}
 
 }
