@@ -89,9 +89,9 @@ public class MetadataMirrorGenerator extends BuilderPhase {
 		SubMonitor subMon = SubMonitor.convert(monitor, 1000);
 		boolean artifactErrors = false;
 		try {
-			Set<IInstallableUnit> unitsToCompositeChild = builder.getUnitsToCompositeChild(compositeChild);
+			Set<IInstallableUnit> unitsToAggregate = builder.getUnitsToAggregate(compositeChild);
 
-			if(unitsToCompositeChild.size() > 0) {
+			if(unitsToAggregate.size() > 0) {
 				subMon.setTaskName("Mirroring meta-data for compositeChild: " + taskLabel + "...");
 				MonitorUtils.subTask(subMon, "Initializing");
 
@@ -128,7 +128,7 @@ public class MetadataMirrorGenerator extends BuilderPhase {
 						MetadataRepository childMdr = ResourceUtils.getMetadataRepository(repo);
 						ArrayList<IInstallableUnit> iusToMirror = null;
 						for(IInstallableUnit iu : childMdr.getInstallableUnits()) {
-							if(!unitsToCompositeChild.remove(iu))
+							if(!unitsToAggregate.remove(iu))
 								continue;
 
 							if(iusToMirror == null)
@@ -166,9 +166,9 @@ public class MetadataMirrorGenerator extends BuilderPhase {
 				//
 				String[] content = compositeChildDestination.list();
 				if(content != null && content.length == 0) {
-					// remove the entry from the map of units to compositeChild too, as the keys from the map are used to generate children
-					// of the final composite repository by the final phase of the build process
-					builder.removeUnitsToCompositeChild(compositeChild);
+					// remove the entry from the map of units to aggregate too, as the keys from the map are used to generate children
+					// of the final composite repository during the final phase of the build process
+					builder.removeUnitsToAggregate(compositeChild);
 					if(!compositeChildDestination.delete())
 						throw ExceptionUtils.fromMessage("Unable to remove %s", compositeChildDestination.getAbsolutePath());
 				}
@@ -176,7 +176,7 @@ public class MetadataMirrorGenerator extends BuilderPhase {
 				MonitorUtils.done(childMonitor);
 			}
 			else
-				builder.removeUnitsToCompositeChild(compositeChild);
+				builder.removeUnitsToAggregate(compositeChild);
 		}
 		finally {
 			P2Utils.ungetRepositoryManager(getBuilder().getProvisioningAgent(), mdrMgr);

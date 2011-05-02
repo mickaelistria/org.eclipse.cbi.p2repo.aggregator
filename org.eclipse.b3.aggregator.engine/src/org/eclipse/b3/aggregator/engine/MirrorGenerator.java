@@ -526,7 +526,7 @@ public class MirrorGenerator extends BuilderPhase {
 			properties.put(IRepository.PROP_COMPRESSED, Boolean.toString(true));
 			MonitorUtils.worked(subMon, 10);
 
-			Set<IInstallableUnit> allUnitsToCompositeChild = builder.getAllUnitsToCompositeChild();
+			Set<IInstallableUnit> allUnitsToAggregate = builder.getAllUnitsToAggregate();
 			Set<IArtifactKey> keysToExclude = getArtifactKeysToExclude();
 
 			SubMonitor childMonitor = subMon.newChild(900, SubMonitor.SUPPRESS_BEGINTASK |
@@ -542,7 +542,7 @@ public class MirrorGenerator extends BuilderPhase {
 			// If maven result is required, prepare the maven metadata structure
 			MavenRepositoryHelper mavenHelper = null;
 			if(aggregator.isMavenResult()) {
-				Set<IInstallableUnit> copyOfAllUnitsToCompositeChild = new HashSet<IInstallableUnit>(allUnitsToCompositeChild);
+				Set<IInstallableUnit> copyOfAllUnitsToAggregate = new HashSet<IInstallableUnit>(allUnitsToAggregate);
 				List<InstallableUnitMapping> iusToMaven = new ArrayList<InstallableUnitMapping>();
 				for(Contribution contrib : allContribs) {
 					SubMonitor contribMonitor = childMonitor.newChild(10);
@@ -563,7 +563,7 @@ public class MirrorGenerator extends BuilderPhase {
 						MetadataRepository childMdr = ResourceUtils.getMetadataRepository(repo);
 						ArrayList<IInstallableUnit> iusToMirror = null;
 						for(IInstallableUnit iu : childMdr.getInstallableUnits()) {
-							if(!copyOfAllUnitsToCompositeChild.remove(iu))
+							if(!copyOfAllUnitsToAggregate.remove(iu))
 								continue;
 
 							if(iusToMirror == null)
@@ -627,7 +627,7 @@ public class MirrorGenerator extends BuilderPhase {
 					}
 
 					if(copyOfUnitsToCompositeChild == null)
-						copyOfUnitsToCompositeChild = new HashSet<IInstallableUnit>(allUnitsToCompositeChild);
+						copyOfUnitsToCompositeChild = new HashSet<IInstallableUnit>(allUnitsToAggregate);
 
 					MetadataRepository childMdr = ResourceUtils.getMetadataRepository(repo);
 					ArrayList<IInstallableUnit> iusToRefer = null;
@@ -717,7 +717,7 @@ public class MirrorGenerator extends BuilderPhase {
 					MetadataRepository childMdr = ResourceUtils.getMetadataRepository(repo);
 					ArrayList<IArtifactKey> keysToMirror = null;
 					for(IInstallableUnit iu : childMdr.getInstallableUnits()) {
-						if(!allUnitsToCompositeChild.remove(iu))
+						if(!allUnitsToAggregate.remove(iu))
 							continue;
 
 						if(!repo.isMirrorArtifacts())

@@ -16,8 +16,8 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
-import org.eclipse.b3.aggregator.CompositeChild;
 import org.eclipse.b3.aggregator.Aggregator;
+import org.eclipse.b3.aggregator.CompositeChild;
 import org.eclipse.b3.aggregator.Configuration;
 import org.eclipse.b3.aggregator.Contribution;
 import org.eclipse.b3.aggregator.MappedRepository;
@@ -149,7 +149,7 @@ public class RepositoryVerifier extends BuilderPhase {
 		 * element URI information is known (either because it was cached or because the IU happens to have the information directly attached).
 		 * 
 		 * @param iu
-		 *            the IU from which to fun the model element URI
+		 *            the IU for which to find the model element URI
 		 * @param links
 		 *            a map of dependency chain links
 		 * @param modelElementURICache
@@ -504,7 +504,7 @@ public class RepositoryVerifier extends BuilderPhase {
 		for(Contribution contrib : aggregator.getCompositeChildContributions(compositeChild, true))
 			((ContributionImpl) contrib).setStatus(null);
 
-		final Set<IInstallableUnit> unitsToCompositeChild = builder.getUnitsToCompositeChild(compositeChild);
+		final Set<IInstallableUnit> unitsToAggregate = builder.getUnitsToAggregate(compositeChild);
 		IProfileRegistry profileRegistry = P2Utils.getProfileRegistry(builder.getProvisioningAgent());
 		IPlanner planner = P2Utils.getPlanner(builder.getProvisioningAgent());
 		IMetadataRepositoryManager mdrMgr = P2Utils.getRepositoryManager(
@@ -595,12 +595,12 @@ public class RepositoryVerifier extends BuilderPhase {
 							suspectedValidationOnlyIUs.add(iu);
 						}
 						else {
-							if(!unitsToCompositeChild.contains(iu)) {
+							if(!unitsToAggregate.contains(iu)) {
 								if(Boolean.valueOf(iu.getProperty(IInstallableUnit.PROP_PARTIAL_IU)).booleanValue()) {
 									iu = resolvePartialIU(iu, subMon.newChild(1));
 									hadPartials = true;
 								}
-								unitsToCompositeChild.add(iu);
+								unitsToAggregate.add(iu);
 							}
 						}
 					}
@@ -611,12 +611,12 @@ public class RepositoryVerifier extends BuilderPhase {
 					IQueryable<IInstallableUnit> collectedStuff = null;
 					while(itor.hasNext()) {
 						IInstallableUnitPatch patch = (IInstallableUnitPatch) itor.next();
-						if(!unitsToCompositeChild.contains(patch))
+						if(!unitsToAggregate.contains(patch))
 							continue;
 
 						if(collectedStuff == null) {
 							collectedStuff = new QueryableArray(
-								unitsToCompositeChild.toArray(new IInstallableUnit[unitsToCompositeChild.size()]));
+								unitsToAggregate.toArray(new IInstallableUnit[unitsToAggregate.size()]));
 						}
 
 						Set<IInstallableUnit> units = getUnpatchedTransitiveScope(
@@ -630,12 +630,12 @@ public class RepositoryVerifier extends BuilderPhase {
 								suspectedValidationOnlyIUs.add(iu);
 							}
 							else {
-								if(!unitsToCompositeChild.contains(iu)) {
+								if(!unitsToAggregate.contains(iu)) {
 									if(Boolean.valueOf(iu.getProperty(IInstallableUnit.PROP_PARTIAL_IU)).booleanValue()) {
 										iu = resolvePartialIU(iu, subMon.newChild(1));
 										hadPartials = true;
 									}
-									unitsToCompositeChild.add(iu);
+									unitsToAggregate.add(iu);
 								}
 							}
 						}
@@ -653,7 +653,7 @@ public class RepositoryVerifier extends BuilderPhase {
 
 						while(allIUs.hasNext()) {
 							IInstallableUnit iu = allIUs.next();
-							if(candidates.contains(iu) && !unitsToCompositeChild.contains(iu)) {
+							if(candidates.contains(iu) && !unitsToAggregate.contains(iu)) {
 								try {
 									if(Boolean.valueOf(iu.getProperty(IInstallableUnit.PROP_PARTIAL_IU)).booleanValue()) {
 										iu = resolvePartialIU(iu, SubMonitor.convert(new NullProgressMonitor()));
@@ -663,7 +663,7 @@ public class RepositoryVerifier extends BuilderPhase {
 								catch(CoreException e) {
 									throw new RuntimeException(e);
 								}
-								unitsToCompositeChild.add(iu);
+								unitsToAggregate.add(iu);
 							}
 						}
 					}
@@ -676,7 +676,7 @@ public class RepositoryVerifier extends BuilderPhase {
 				}
 			}
 
-			builder.getAllUnitsToCompositeChild().addAll(unitsToCompositeChild);
+			builder.getAllUnitsToAggregate().addAll(unitsToAggregate);
 
 			LogUtils.info("Verification successful"); //$NON-NLS-1$
 		}
