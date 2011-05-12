@@ -47,7 +47,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <li>{@link org.eclipse.b3.aggregator.impl.AggregatorImpl#getErrors <em>Errors</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.impl.AggregatorImpl#getWarnings <em>Warnings</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.impl.AggregatorImpl#getInfos <em>Infos</em>}</li>
- * <li>{@link org.eclipse.b3.aggregator.impl.AggregatorImpl#getCompositeChilds <em>CompositeChilds</em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.impl.AggregatorImpl#getCompositeChilds <em>Composite Childs</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.impl.AggregatorImpl#getConfigurations <em>Configurations</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.impl.AggregatorImpl#getContributions <em>Contributions</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.impl.AggregatorImpl#getCustomCategories <em>Custom Categories</em>}</li>
@@ -101,7 +101,7 @@ public class AggregatorImpl extends DescriptionProviderImpl implements Aggregato
 	protected EList<String> infos;
 
 	/**
-	 * The cached value of the '{@link #getCompositeChilds() <em>CompositeChilds</em>}' containment reference list.
+	 * The cached value of the '{@link #getCompositeChilds() <em>Composite Childs</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -460,7 +460,7 @@ public class AggregatorImpl extends DescriptionProviderImpl implements Aggregato
 				return getWarnings();
 			case AggregatorPackage.AGGREGATOR__INFOS:
 				return getInfos();
-			case AggregatorPackage.AGGREGATOR__AGGREGATES:
+			case AggregatorPackage.AGGREGATOR__COMPOSITE_CHILDS:
 				return getCompositeChilds();
 			case AggregatorPackage.AGGREGATOR__CONFIGURATIONS:
 				return getConfigurations();
@@ -517,7 +517,7 @@ public class AggregatorImpl extends DescriptionProviderImpl implements Aggregato
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch(featureID) {
-			case AggregatorPackage.AGGREGATOR__AGGREGATES:
+			case AggregatorPackage.AGGREGATOR__COMPOSITE_CHILDS:
 				return ((InternalEList<?>) getCompositeChilds()).basicRemove(otherEnd, msgs);
 			case AggregatorPackage.AGGREGATOR__CONFIGURATIONS:
 				return ((InternalEList<?>) getConfigurations()).basicRemove(otherEnd, msgs);
@@ -551,7 +551,7 @@ public class AggregatorImpl extends DescriptionProviderImpl implements Aggregato
 				return warnings != null && !warnings.isEmpty();
 			case AggregatorPackage.AGGREGATOR__INFOS:
 				return infos != null && !infos.isEmpty();
-			case AggregatorPackage.AGGREGATOR__AGGREGATES:
+			case AggregatorPackage.AGGREGATOR__COMPOSITE_CHILDS:
 				return compositeChilds != null && !compositeChilds.isEmpty();
 			case AggregatorPackage.AGGREGATOR__CONFIGURATIONS:
 				return configurations != null && !configurations.isEmpty();
@@ -608,7 +608,7 @@ public class AggregatorImpl extends DescriptionProviderImpl implements Aggregato
 				getInfos().clear();
 				getInfos().addAll((Collection<? extends String>) newValue);
 				return;
-			case AggregatorPackage.AGGREGATOR__AGGREGATES:
+			case AggregatorPackage.AGGREGATOR__COMPOSITE_CHILDS:
 				getCompositeChilds().clear();
 				getCompositeChilds().addAll((Collection<? extends CompositeChild>) newValue);
 				return;
@@ -688,7 +688,7 @@ public class AggregatorImpl extends DescriptionProviderImpl implements Aggregato
 			case AggregatorPackage.AGGREGATOR__INFOS:
 				getInfos().clear();
 				return;
-			case AggregatorPackage.AGGREGATOR__AGGREGATES:
+			case AggregatorPackage.AGGREGATOR__COMPOSITE_CHILDS:
 				getCompositeChilds().clear();
 				return;
 			case AggregatorPackage.AGGREGATOR__CONFIGURATIONS:
@@ -732,6 +732,51 @@ public class AggregatorImpl extends DescriptionProviderImpl implements Aggregato
 				return;
 		}
 		super.eUnset(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated NOT
+	 */
+	public EList<MetadataRepositoryReference> getAllMetadataRepositoryReferences(boolean enabledOnly) {
+		EList<MetadataRepositoryReference> allRepos = new BasicEList<MetadataRepositoryReference>();
+
+		for(Contribution contribution : getContributions(enabledOnly))
+			for(MappedRepository mappedRepository : contribution.getRepositories(enabledOnly))
+				allRepos.add(mappedRepository);
+
+		allRepos.addAll(getValidationRepositories(enabledOnly));
+
+		return allRepos;
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public Contact getBuildmaster() {
+		if(buildmaster != null && ((EObject) buildmaster).eIsProxy()) {
+			InternalEObject oldBuildmaster = (InternalEObject) buildmaster;
+			buildmaster = (Contact) eResolveProxy(oldBuildmaster);
+			if(buildmaster != oldBuildmaster) {
+				if(eNotificationRequired())
+					eNotify(new ENotificationImpl(
+						this, Notification.RESOLVE, AggregatorPackage.AGGREGATOR__BUILDMASTER, oldBuildmaster,
+						buildmaster));
+			}
+		}
+		return buildmaster;
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public String getBuildRoot() {
+		return buildRoot;
 	}
 
 	/**
@@ -826,54 +871,9 @@ public class AggregatorImpl extends DescriptionProviderImpl implements Aggregato
 	public EList<CompositeChild> getCompositeChilds() {
 		if(compositeChilds == null) {
 			compositeChilds = new EObjectContainmentEList.Resolving<CompositeChild>(
-				CompositeChild.class, this, AggregatorPackage.AGGREGATOR__AGGREGATES);
+				CompositeChild.class, this, AggregatorPackage.AGGREGATOR__COMPOSITE_CHILDS);
 		}
 		return compositeChilds;
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated NOT
-	 */
-	public EList<MetadataRepositoryReference> getAllMetadataRepositoryReferences(boolean enabledOnly) {
-		EList<MetadataRepositoryReference> allRepos = new BasicEList<MetadataRepositoryReference>();
-
-		for(Contribution contribution : getContributions(enabledOnly))
-			for(MappedRepository mappedRepository : contribution.getRepositories(enabledOnly))
-				allRepos.add(mappedRepository);
-
-		allRepos.addAll(getValidationRepositories(enabledOnly));
-
-		return allRepos;
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	public Contact getBuildmaster() {
-		if(buildmaster != null && ((EObject) buildmaster).eIsProxy()) {
-			InternalEObject oldBuildmaster = (InternalEObject) buildmaster;
-			buildmaster = (Contact) eResolveProxy(oldBuildmaster);
-			if(buildmaster != oldBuildmaster) {
-				if(eNotificationRequired())
-					eNotify(new ENotificationImpl(
-						this, Notification.RESOLVE, AggregatorPackage.AGGREGATOR__BUILDMASTER, oldBuildmaster,
-						buildmaster));
-			}
-		}
-		return buildmaster;
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	public String getBuildRoot() {
-		return buildRoot;
 	}
 
 	/**

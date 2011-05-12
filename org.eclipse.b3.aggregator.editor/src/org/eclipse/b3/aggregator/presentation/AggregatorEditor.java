@@ -197,8 +197,7 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 				if(object instanceof Resource.Diagnostic) {
 					uriString = ((Resource.Diagnostic) object).getLocation();
 					if(object instanceof VerificationDiagnostic) {
-						marker.setAttribute(
-							VerificationDiagnostic.ATTR_VERIFICATION_TYPE, ((VerificationDiagnostic) object).getCode());
+						marker.setAttribute(VerificationDiagnostic.ATTR_VERIFICATION_TYPE, object.getClass().getName());
 					}
 				}
 				else {

@@ -18,8 +18,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import org.eclipse.b3.aggregator.CompositeChild;
 import org.eclipse.b3.aggregator.Category;
+import org.eclipse.b3.aggregator.CompositeChild;
 import org.eclipse.b3.aggregator.Configuration;
 import org.eclipse.b3.aggregator.Contribution;
 import org.eclipse.b3.aggregator.ExclusionRule;
@@ -31,6 +31,7 @@ import org.eclipse.b3.aggregator.ValidConfigurationsRule;
 import org.eclipse.b3.aggregator.engine.internal.RequirementUtils;
 import org.eclipse.b3.aggregator.util.InstallableUnitUtils;
 import org.eclipse.b3.aggregator.util.ResourceUtils;
+import org.eclipse.b3.aggregator.util.VerificationDiagnostic;
 import org.eclipse.b3.util.LogUtils;
 import org.eclipse.b3.util.MonitorUtils;
 import org.eclipse.core.runtime.CoreException;
@@ -56,7 +57,8 @@ import org.eclipse.equinox.p2.publisher.IPublisherResult;
 import org.eclipse.equinox.spi.p2.publisher.PublisherHelper;
 
 /**
- * This action creates the feature that contains all features and bundles that are listed contributions in the CompositeChild passed to the constructor
+ * This action creates the feature that contains all features and bundles that are listed contributions in the CompositeChild passed to the
+ * constructor
  * of this class.
  * 
  * @see Builder#getVerificationIUName(CompositeChild)
@@ -283,7 +285,8 @@ public class VerificationIUAction extends AbstractPublisherAction {
 		Map<String, Set<RepositoryRequirement>> required = new HashMap<String, Set<RepositoryRequirement>>();
 
 		boolean errorsFound = false;
-		List<Contribution> compositeChildContribs = builder.getAggregator().getCompositeChildContributions(compositeChild, true);
+		List<Contribution> compositeChildContribs = builder.getAggregator().getCompositeChildContributions(
+			compositeChild, true);
 		SubMonitor subMon = SubMonitor.convert(monitor, 2 + compositeChildContribs.size());
 		try {
 			Set<String> explicit = new HashSet<String>();
@@ -364,16 +367,16 @@ public class VerificationIUAction extends AbstractPublisherAction {
 			if(errorsFound)
 				return new Status(IStatus.ERROR, Engine.PLUGIN_ID, "Features without repositories");
 
-			// create a map using contributions as keys
-			HashMap<Contribution, ArrayList<IRequirement>> crMap = new HashMap<Contribution, ArrayList<IRequirement>>();
+			// create a map using MappedRepositories as keys
+			HashMap<MappedRepository, ArrayList<IRequirement>> crMap = new HashMap<MappedRepository, ArrayList<IRequirement>>();
 			for(Set<RepositoryRequirement> rcSet : required.values())
 				for(RepositoryRequirement req : rcSet) {
-					Contribution contribution = (Contribution) ((EObject) (req.repository)).eContainer();
-					ArrayList<IRequirement> rList = crMap.get(contribution);
+					MappedRepository mappedRepository = req.repository;
+					ArrayList<IRequirement> rList = crMap.get(mappedRepository);
 
 					if(rList == null) {
 						rList = new ArrayList<IRequirement>();
-						crMap.put(contribution, rList);
+						crMap.put(mappedRepository, rList);
 					}
 
 					rList.add(req.requirement);
@@ -389,18 +392,19 @@ public class VerificationIUAction extends AbstractPublisherAction {
 				Builder.PDE_TARGET_PLATFORM_NAMESPACE, iuDescription.getId(), iuDescription.getVersion())));
 			results.addIU(MetadataFactory.createInstallableUnit(iuDescription), IPublisherResult.NON_ROOT);
 
-			// add the IUs representing contributions
+			// add the IUs representing MappedRepositories
 			// (and build the list of requirements of the verification IU)
 			ArrayList<IRequirement> rList = new ArrayList<IRequirement>(crMap.size());
-			for(Map.Entry<Contribution, ArrayList<IRequirement>> crEntry : crMap.entrySet()) {
-				Contribution contrib = crEntry.getKey();
+			for(Map.Entry<MappedRepository, ArrayList<IRequirement>> crEntry : crMap.entrySet()) {
+				MappedRepository repository = crEntry.getKey();
 				ArrayList<IRequirement> crList = crEntry.getValue();
 
-				iuDescription.setId(builder.getContributionVerificationIUName(contrib));
+				iuDescription.setId(builder.getMappedRepositoryVerificationIUName(repository));
 				iuDescription.setVersion(Builder.ALL_CONTRIBUTED_CONTENT_VERSION);
 				iuDescription.setProperty(InstallableUnitDescription.PROP_TYPE_GROUP, Boolean.TRUE.toString());
 				iuDescription.setProperty(
-					Builder.PROP_AGGREGATOR_MODEL_ELEMENT_URI, getRelativeEObjectURI((EObject) contrib));
+					VerificationDiagnostic.PROP_AGGREGATOR_MODEL_ELEMENT_URI,
+					getRelativeEObjectURI((EObject) repository));
 				iuDescription.setProperty(Builder.PROP_AGGREGATOR_GENERATED_IU, Boolean.TRUE.toString());
 				iuDescription.addProvidedCapabilities(Collections.singletonList(createSelfCapability(
 					iuDescription.getId(), iuDescription.getVersion())));

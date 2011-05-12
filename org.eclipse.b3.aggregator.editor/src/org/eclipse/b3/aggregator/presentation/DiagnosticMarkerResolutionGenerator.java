@@ -272,7 +272,7 @@ public class DiagnosticMarkerResolutionGenerator implements IMarkerResolutionGen
 		if(!(severity instanceof Integer && ((Integer) severity).intValue() == IMarker.SEVERITY_ERROR))
 			return false;
 
-		Object verCode = marker.getAttribute(VerificationDiagnostic.ATTR_VERIFICATION_TYPE);
-		return verCode instanceof Integer && ((Integer) verCode).intValue() == VerificationDiagnostic.CONFLICTING_IU;
+		Object verType = marker.getAttribute(VerificationDiagnostic.ATTR_VERIFICATION_TYPE);
+		return VerificationDiagnostic.Singleton.class.getName().equals(verType);
 	}
 }

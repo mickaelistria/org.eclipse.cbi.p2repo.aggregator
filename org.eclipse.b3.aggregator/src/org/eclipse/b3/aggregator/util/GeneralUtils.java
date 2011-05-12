@@ -41,4 +41,5 @@ public class GeneralUtils {
 
 		throw new IllegalArgumentException("AggregatorResource was not found");
 	}
+
 }

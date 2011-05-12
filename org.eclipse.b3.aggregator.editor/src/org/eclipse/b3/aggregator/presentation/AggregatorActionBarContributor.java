@@ -1178,8 +1178,8 @@ public class AggregatorActionBarContributor extends EditingDomainActionBarContri
 		return linkActions;
 	}
 
-	protected Collection<? extends IAction> generateUnlinkCompositeChildActions(IStructuredSelection structuredSelection,
-			EList<CompositeChild> compositeChilds) {
+	protected Collection<? extends IAction> generateUnlinkCompositeChildActions(
+			IStructuredSelection structuredSelection, EList<CompositeChild> compositeChilds) {
 		LinkReceiver linkReceiver = ((Contribution) structuredSelection.getFirstElement()).getReceiver();
 		ArrayList<IAction> unlinkActions = new ArrayList<IAction>(compositeChilds.size());
 

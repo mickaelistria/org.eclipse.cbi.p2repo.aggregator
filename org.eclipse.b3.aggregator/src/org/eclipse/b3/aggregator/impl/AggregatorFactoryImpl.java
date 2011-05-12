@@ -229,7 +229,7 @@ public class AggregatorFactoryImpl extends EFactoryImpl implements AggregatorFac
 		switch(eClass.getClassifierID()) {
 			case AggregatorPackage.AGGREGATOR:
 				return (EObject) createAggregator();
-			case AggregatorPackage.AGGREGATE:
+			case AggregatorPackage.COMPOSITE_CHILD:
 				return (EObject) createCompositeChild();
 			case AggregatorPackage.MAPPED_REPOSITORY:
 				return (EObject) createMappedRepository();

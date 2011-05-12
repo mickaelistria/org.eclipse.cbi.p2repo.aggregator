@@ -13,6 +13,7 @@ import org.eclipse.b3.aggregator.AggregatorPackage;
 import org.eclipse.b3.aggregator.AvailableVersion;
 import org.eclipse.b3.aggregator.Configuration;
 import org.eclipse.b3.aggregator.EnabledStatusProvider;
+import org.eclipse.b3.aggregator.IdentificationProvider;
 import org.eclipse.b3.aggregator.MappedUnit;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.EList;
@@ -153,6 +154,12 @@ public abstract class MappedUnitImpl extends InstallableUnitRequestImpl implemen
 					return -1;
 			}
 		}
+		if(baseClass == IdentificationProvider.class) {
+			switch(derivedFeatureID) {
+				default:
+					return -1;
+			}
+		}
 		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
 	}
 
@@ -167,6 +174,12 @@ public abstract class MappedUnitImpl extends InstallableUnitRequestImpl implemen
 			switch(baseFeatureID) {
 				case AggregatorPackage.ENABLED_STATUS_PROVIDER__ENABLED:
 					return AggregatorPackage.MAPPED_UNIT__ENABLED;
+				default:
+					return -1;
+			}
+		}
+		if(baseClass == IdentificationProvider.class) {
+			switch(baseFeatureID) {
 				default:
 					return -1;
 			}
@@ -262,6 +275,16 @@ public abstract class MappedUnitImpl extends InstallableUnitRequestImpl implemen
 	 */
 	public IMatchExpression<IInstallableUnit> getFilter() {
 		return createFilter(getAvailableVersions(), getValidConfigurations());
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated NOT
+	 */
+	public String getIdentification() {
+		return getRequirement().toString();
 	}
 
 	/**

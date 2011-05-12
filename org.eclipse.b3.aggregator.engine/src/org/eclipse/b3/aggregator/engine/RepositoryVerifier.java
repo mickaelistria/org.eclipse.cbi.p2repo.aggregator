@@ -44,6 +44,7 @@ import org.eclipse.core.runtime.Status;
 import org.eclipse.core.runtime.SubMonitor;
 import org.eclipse.equinox.internal.p2.director.Explanation;
 import org.eclipse.equinox.internal.p2.director.Explanation.HardRequirement;
+import org.eclipse.equinox.internal.p2.director.Explanation.MissingGreedyIU;
 import org.eclipse.equinox.internal.p2.director.Explanation.MissingIU;
 import org.eclipse.equinox.internal.p2.director.Explanation.Singleton;
 import org.eclipse.equinox.internal.p2.director.QueryableArray;
@@ -108,79 +109,48 @@ public class RepositoryVerifier extends BuilderPhase {
 
 					links.put(link.iu, link.req);
 				}
-				else if(explanation instanceof MissingIU || explanation instanceof Singleton)
+				else if(explanation instanceof MissingIU || explanation instanceof MissingGreedyIU ||
+						explanation instanceof Singleton)
 					// MissingIU means we have a missing dependency problem
 					// Singleton means we have a dependency version conflict problem
 					rootProblems.add(explanation);
 			}
 
-			// The cache of IInstallableUnit to aggregator model element URI mappings
-			HashMap<IInstallableUnit, String> modelElementURICache = new HashMap<IInstallableUnit, String>();
+			// a cache of IInstallableUnit parents
+			HashMap<IInstallableUnit, VerificationDiagnostic.DependencyLink> dependencyChainsCache = new HashMap<IInstallableUnit, VerificationDiagnostic.DependencyLink>();
 
 			for(Explanation rootProblem : rootProblems) {
-				if(rootProblem instanceof MissingIU) {
-					IInstallableUnit iu = ((MissingIU) rootProblem).iu;
-					String elementURI = findModelElementURI(iu, links, modelElementURICache);
-
-					if(elementURI != null)
-						verificationDiagnostics.add(new VerificationDiagnostic(
-							rootProblem.toString(), org.eclipse.emf.common.util.URI.createURI(elementURI),
-							VerificationDiagnostic.MISSING_IU));
-				}
-				else if(rootProblem instanceof Singleton) {
+				if(rootProblem instanceof Singleton) {
 					IInstallableUnit[] ius = ((Singleton) rootProblem).ius;
-					HashSet<String> elementURIs = new HashSet<String>(ius.length);
+					LinkedHashSet<VerificationDiagnostic.DependencyLink> dependencyChains = new LinkedHashSet<VerificationDiagnostic.DependencyLink>(
+						ius.length);
 
 					for(IInstallableUnit iu : ius)
-						elementURIs.add(findModelElementURI(iu, links, modelElementURICache));
-					// just in case we failed to find the model element URIs for some of the conflicting IUs
-					elementURIs.remove(null);
+						dependencyChains.add(getDependencyChain(iu, links, dependencyChainsCache));
+					// just in case we failed to construct some dependency chain
+					dependencyChains.remove(null);
 
-					for(String elementURI : elementURIs)
-						verificationDiagnostics.add(new VerificationDiagnostic(
-							rootProblem.toString(), org.eclipse.emf.common.util.URI.createURI(elementURI),
-							VerificationDiagnostic.CONFLICTING_IU, elementURIs));
+					VerificationDiagnostic.Singleton.SharedData sharedData = new VerificationDiagnostic.Singleton.SharedData();
+					for(VerificationDiagnostic.DependencyLink dependencyChain : dependencyChains)
+						verificationDiagnostics.add(new VerificationDiagnostic.Singleton(dependencyChain, sharedData));
+				}
+				else if(rootProblem instanceof MissingIU) {
+					MissingIU missingIU = ((MissingIU) rootProblem);
+					VerificationDiagnostic.DependencyLink dependencyChain = getDependencyChain(
+						missingIU.iu, links, dependencyChainsCache);
+
+					if(dependencyChain != null)
+						verificationDiagnostics.add(new VerificationDiagnostic.MissingIU(dependencyChain, missingIU.req));
+				}
+				else if(rootProblem instanceof MissingGreedyIU) {
+					MissingGreedyIU missingGreedyIU = ((MissingGreedyIU) rootProblem);
+					VerificationDiagnostic.DependencyLink dependencyChain = getDependencyChain(
+						missingGreedyIU.iu, links, dependencyChainsCache);
+
+					if(dependencyChain != null)
+						verificationDiagnostics.add(new VerificationDiagnostic.MissingIU(dependencyChain, null));
 				}
 			}
-		}
-
-		/**
-		 * Walk the dependency chain from the specified IU up and return the model element URI for the first encountered IU for which the model
-		 * element URI information is known (either because it was cached or because the IU happens to have the information directly attached).
-		 * 
-		 * @param iu
-		 *            the IU for which to find the model element URI
-		 * @param links
-		 *            a map of dependency chain links
-		 * @param modelElementURICache
-		 *            a cache if the model element URIs
-		 * @return the model element URI of the first IU found in the dependency chain for which the information is known or <code>null</code> if the
-		 *         information is not know for any IU from the chain
-		 */
-		protected String findModelElementURI(IInstallableUnit iu, HashMap<IInstallableUnit, IRequirement> links,
-				HashMap<IInstallableUnit, String> modelElementURICache) {
-			if(modelElementURICache.containsKey(iu))
-				return modelElementURICache.get(iu); // may return null in case of a dependency loop
-
-			String elementURI = iu.getProperty(Builder.PROP_AGGREGATOR_MODEL_ELEMENT_URI);
-
-			// we need to put the value to the map even when it is null to prevent possible infinite loop
-			modelElementURICache.put(iu, elementURI);
-
-			// walk the dependency chain up if the IU doesn't have the model element URI information attached
-			if(elementURI == null) {
-				for(Entry<IInstallableUnit, IRequirement> link : links.entrySet()) {
-					if(link.getValue().isMatch(iu)) {
-						elementURI = findModelElementURI(link.getKey(), links, modelElementURICache);
-						if(elementURI != null) {
-							modelElementURICache.put(iu, elementURI);
-							break;
-						}
-					}
-				}
-			}
-
-			return elementURI;
 		}
 
 		public IStatus[] getChildren() {
@@ -189,6 +159,58 @@ public class RepositoryVerifier extends BuilderPhase {
 
 		public int getCode() {
 			return plannerStatus.getCode();
+		}
+
+		/**
+		 * Build the dependency chain from the specified IU up to an UI which has the model element URI information attached. Use a cache to store the
+		 * built chains so that they can be reused in case other chain(s) need to be built which contain any of the cached chains as a prefix.
+		 * 
+		 * @param iu
+		 *            the IU for which to build the dependency chain
+		 * @param links
+		 *            a map of dependency chain links
+		 * @param dependencyChainsCache
+		 *            a cache of the dependency chains
+		 * @return the dependency chain from the specified IU up to an UI which has the model element URI information attached, or <code>null</code>
+		 *         if no such IU was found
+		 */
+		protected VerificationDiagnostic.DependencyLink getDependencyChain(IInstallableUnit iu,
+				HashMap<IInstallableUnit, IRequirement> links,
+				HashMap<IInstallableUnit, VerificationDiagnostic.DependencyLink> dependencyChainsCache) {
+			if(dependencyChainsCache.containsKey(iu))
+				return dependencyChainsCache.get(iu); // may return null in case of a dependency loop
+
+			String elementURI = iu.getProperty(VerificationDiagnostic.PROP_AGGREGATOR_MODEL_ELEMENT_URI);
+			VerificationDiagnostic.DependencyLink lastLink;
+
+			GET_DEPENDENCY_CHAIN: {
+				// if the IU has the model element URI information attached then it is the head of the dependency chain and it means that we are done
+				if(elementURI != null) {
+					lastLink = new VerificationDiagnostic.DependencyLink(iu, null);
+					break GET_DEPENDENCY_CHAIN;
+				}
+
+				// we need to put a null value to the cache to prevent (otherwise) possible infinite loop
+				dependencyChainsCache.put(iu, null);
+
+				// walk the dependency chain up and in an attempt to build a dependency chain from the given IU to an IU with the model element
+				// URI information attached
+				for(Entry<IInstallableUnit, IRequirement> link : links.entrySet()) {
+					if(link.getValue().isMatch(iu)) {
+						lastLink = getDependencyChain(link.getKey(), links, dependencyChainsCache);
+						if(lastLink != null) {
+							lastLink = new VerificationDiagnostic.DependencyLink(iu, lastLink);
+							break GET_DEPENDENCY_CHAIN;
+						}
+					}
+				}
+
+				return null;
+			}
+
+			dependencyChainsCache.put(iu, lastLink);
+
+			return lastLink;
 		}
 
 		public Throwable getException() {
@@ -226,7 +248,6 @@ public class RepositoryVerifier extends BuilderPhase {
 		public boolean matches(int severityMask) {
 			return plannerStatus.matches(severityMask);
 		}
-
 	}
 
 	private static IInstallableUnit[] getRootIUs(IMetadataRepository site, String iuName, Version version,

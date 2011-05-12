@@ -9,6 +9,7 @@
  */
 package org.eclipse.b3.aggregator.impl;
 
+import java.io.File;
 import java.util.Collection;
 
 import org.eclipse.b3.aggregator.Aggregator;
@@ -38,7 +39,6 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
-import org.eclipse.equinox.internal.p2.core.helpers.StringHelper;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object '<em><b>Metadata Repository Reference</b></em>'. <!--
@@ -561,43 +561,23 @@ public class MetadataRepositoryReferenceImpl extends MinimalEObjectImpl.Containe
 		if(location == null)
 			return null;
 
-		location = location.replaceAll("\\s", "%20").replace('\\', '/');
-		if(location.charAt(location.length() - 1) == '/')
-			location = location.substring(0, location.length() - 1);
+		{
+			// if the location happens to specify an absolute pathname,
+			// then use it as such
+			File locationFile = new File(location);
 
-		if(location.length() > 1 && location.charAt(1) == ':' && Character.isLetter(location.charAt(0)))
-			// Path starting with a Windows drive letter
-			return "file:/" + location;
-
-		if(location.charAt(0) == '/')
-			// Absolute path
-			return "file:" + location;
-
-		int colonIdx = location.indexOf(':');
-		if(colonIdx > 0) {
-			// Check that characters from start to colon is a valid scheme.
-			int idx = 0;
-			char c = location.charAt(0);
-			if((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z')) {
-				for(++idx; idx < colonIdx; ++idx) {
-					c = location.charAt(idx);
-					if(!((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z') || (c >= '0' && c <= '9') || c == '-' ||
-							c == '+' || c == '.'))
-						break;
-				}
-			}
-			if(idx < colonIdx)
-				colonIdx = -1;
+			if(locationFile.isAbsolute())
+				return locationFile.toURI().toString();
 		}
 
-		if(colonIdx <= 0) {
-			// Not a valid scheme so assume relative path
+		URI uri = URI.createURI(location, true);
+		if(!uri.isHierarchical()) { // try to resolve the location URI if not hierarchical
 			URI base = ((EObject) getAggregator()).eResource().getURI();
 			if(base != null)
-				location = base.trimSegments(1).appendSegments(StringHelper.getArrayFromString(location, '/')).toString();
+				uri = uri.resolve(base.trimSegments(1));
 		}
 
-		return location;
+		return uri.toString();
 	}
 
 	/**

@@ -8,7 +8,6 @@ package org.eclipse.b3.aggregator.util;
 
 import java.util.List;
 
-import org.eclipse.b3.aggregator.CompositeChild;
 import org.eclipse.b3.aggregator.Aggregator;
 import org.eclipse.b3.aggregator.AggregatorPackage;
 import org.eclipse.b3.aggregator.AggregatorResourceView;
@@ -17,6 +16,7 @@ import org.eclipse.b3.aggregator.AvailableVersionsHeader;
 import org.eclipse.b3.aggregator.Bundle;
 import org.eclipse.b3.aggregator.Category;
 import org.eclipse.b3.aggregator.ChildrenProvider;
+import org.eclipse.b3.aggregator.CompositeChild;
 import org.eclipse.b3.aggregator.Configuration;
 import org.eclipse.b3.aggregator.Contact;
 import org.eclipse.b3.aggregator.Contribution;
@@ -25,6 +25,7 @@ import org.eclipse.b3.aggregator.DescriptionProvider;
 import org.eclipse.b3.aggregator.EnabledStatusProvider;
 import org.eclipse.b3.aggregator.ExclusionRule;
 import org.eclipse.b3.aggregator.Feature;
+import org.eclipse.b3.aggregator.IdentificationProvider;
 import org.eclipse.b3.aggregator.InfosProvider;
 import org.eclipse.b3.aggregator.InstallableUnitRequest;
 import org.eclipse.b3.aggregator.LabelProvider;
@@ -72,23 +73,6 @@ public class AggregatorSwitch<T1> {
 		if(modelPackage == null) {
 			modelPackage = AggregatorPackage.eINSTANCE;
 		}
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>CompositeChild</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * 
-	 * @param object
-	 *            the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>CompositeChild</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T1 caseCompositeChild(CompositeChild object) {
-		return null;
 	}
 
 	/**
@@ -218,6 +202,23 @@ public class AggregatorSwitch<T1> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Composite Child</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * 
+	 * @param object
+	 *            the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Composite Child</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseCompositeChild(CompositeChild object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Configuration</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
@@ -334,6 +335,23 @@ public class AggregatorSwitch<T1> {
 	 * @generated
 	 */
 	public T1 caseFeature(Feature object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Identification Provider</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * 
+	 * @param object
+	 *            the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Identification Provider</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseIdentificationProvider(IdentificationProvider object) {
 		return null;
 	}
 
@@ -649,7 +667,7 @@ public class AggregatorSwitch<T1> {
 					result = defaultCase(theEObject);
 				return result;
 			}
-			case AggregatorPackage.AGGREGATE: {
+			case AggregatorPackage.COMPOSITE_CHILD: {
 				CompositeChild compositeChild = (CompositeChild) theEObject;
 				T1 result = caseCompositeChild(compositeChild);
 				if(result == null)
@@ -673,6 +691,8 @@ public class AggregatorSwitch<T1> {
 					result = caseMetadataRepositoryReference(mappedRepository);
 				if(result == null)
 					result = caseDescriptionProvider(mappedRepository);
+				if(result == null)
+					result = caseIdentificationProvider(mappedRepository);
 				if(result == null)
 					result = caseEnabledStatusProvider(mappedRepository);
 				if(result == null)
@@ -706,6 +726,8 @@ public class AggregatorSwitch<T1> {
 				if(result == null)
 					result = caseLinkSource(contribution);
 				if(result == null)
+					result = caseIdentificationProvider(contribution);
+				if(result == null)
 					result = defaultCase(theEObject);
 				return result;
 			}
@@ -726,6 +748,8 @@ public class AggregatorSwitch<T1> {
 				if(result == null)
 					result = caseEnabledStatusProvider(feature);
 				if(result == null)
+					result = caseIdentificationProvider(feature);
+				if(result == null)
 					result = caseStatusProvider(feature);
 				if(result == null)
 					result = caseInfosProvider(feature);
@@ -745,6 +769,8 @@ public class AggregatorSwitch<T1> {
 				if(result == null)
 					result = caseEnabledStatusProvider(bundle);
 				if(result == null)
+					result = caseIdentificationProvider(bundle);
+				if(result == null)
 					result = caseStatusProvider(bundle);
 				if(result == null)
 					result = caseInfosProvider(bundle);
@@ -761,6 +787,8 @@ public class AggregatorSwitch<T1> {
 					result = caseInstallableUnitRequest(mappedUnit);
 				if(result == null)
 					result = caseEnabledStatusProvider(mappedUnit);
+				if(result == null)
+					result = caseIdentificationProvider(mappedUnit);
 				if(result == null)
 					result = caseStatusProvider(mappedUnit);
 				if(result == null)
@@ -780,6 +808,8 @@ public class AggregatorSwitch<T1> {
 					result = caseInstallableUnitRequest(product);
 				if(result == null)
 					result = caseEnabledStatusProvider(product);
+				if(result == null)
+					result = caseIdentificationProvider(product);
 				if(result == null)
 					result = caseStatusProvider(product);
 				if(result == null)
@@ -808,6 +838,8 @@ public class AggregatorSwitch<T1> {
 					result = caseInstallableUnitRequest(category);
 				if(result == null)
 					result = caseEnabledStatusProvider(category);
+				if(result == null)
+					result = caseIdentificationProvider(category);
 				if(result == null)
 					result = caseStatusProvider(category);
 				if(result == null)
@@ -921,6 +953,13 @@ public class AggregatorSwitch<T1> {
 			case AggregatorPackage.DESCRIPTION_PROVIDER: {
 				DescriptionProvider descriptionProvider = (DescriptionProvider) theEObject;
 				T1 result = caseDescriptionProvider(descriptionProvider);
+				if(result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
+			case AggregatorPackage.IDENTIFICATION_PROVIDER: {
+				IdentificationProvider identificationProvider = (IdentificationProvider) theEObject;
+				T1 result = caseIdentificationProvider(identificationProvider);
 				if(result == null)
 					result = defaultCase(theEObject);
 				return result;

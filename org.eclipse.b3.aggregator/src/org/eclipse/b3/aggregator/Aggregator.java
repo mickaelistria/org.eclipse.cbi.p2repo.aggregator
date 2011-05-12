@@ -36,40 +36,6 @@ import org.eclipse.emf.common.util.EList;
  */
 public interface Aggregator extends DescriptionProvider, StatusProvider, InfosProvider {
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @model
-	 * @generated
-	 */
-	EList<Contribution> getCompositeChildContributions(CompositeChild compositeChild);
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @model
-	 * @generated
-	 */
-	EList<Contribution> getCompositeChildContributions(CompositeChild compositeChild, boolean enabledOnly);
-
-	/**
-	 * Returns the value of the '<em><b>CompositeChilds</b></em>' containment reference list.
-	 * The list contents are of type {@link org.eclipse.b3.aggregator.CompositeChild}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>CompositeChilds</em>' containment reference list isn't clear, there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * 
-	 * @return the value of the '<em>CompositeChilds</em>' containment reference list.
-	 * @see org.eclipse.b3.aggregator.AggregatorPackage#getAggregator_CompositeChilds()
-	 * @model containment="true" resolveProxies="true" keys="label"
-	 * @generated
-	 */
-	EList<CompositeChild> getCompositeChilds();
-
-	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @model
@@ -109,6 +75,40 @@ public interface Aggregator extends DescriptionProvider, StatusProvider, InfosPr
 	 * @generated
 	 */
 	String getBuildRoot();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @model
+	 * @generated
+	 */
+	EList<Contribution> getCompositeChildContributions(CompositeChild compositeChild);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @model
+	 * @generated
+	 */
+	EList<Contribution> getCompositeChildContributions(CompositeChild compositeChild, boolean enabledOnly);
+
+	/**
+	 * Returns the value of the '<em><b>Composite Childs</b></em>' containment reference list.
+	 * The list contents are of type {@link org.eclipse.b3.aggregator.CompositeChild}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>CompositeChilds</em>' containment reference list isn't clear, there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the value of the '<em>Composite Childs</em>' containment reference list.
+	 * @see org.eclipse.b3.aggregator.AggregatorPackage#getAggregator_CompositeChilds()
+	 * @model containment="true" resolveProxies="true" keys="label"
+	 * @generated
+	 */
+	EList<CompositeChild> getCompositeChilds();
 
 	/**
 	 * Returns the value of the '<em><b>Configurations</b></em>' containment reference list.

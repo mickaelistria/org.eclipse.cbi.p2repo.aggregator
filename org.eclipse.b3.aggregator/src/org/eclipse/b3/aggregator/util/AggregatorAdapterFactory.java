@@ -23,6 +23,7 @@ import org.eclipse.b3.aggregator.DescriptionProvider;
 import org.eclipse.b3.aggregator.EnabledStatusProvider;
 import org.eclipse.b3.aggregator.ExclusionRule;
 import org.eclipse.b3.aggregator.Feature;
+import org.eclipse.b3.aggregator.IdentificationProvider;
 import org.eclipse.b3.aggregator.InfosProvider;
 import org.eclipse.b3.aggregator.InstallableUnitRequest;
 import org.eclipse.b3.aggregator.LabelProvider;
@@ -68,11 +69,6 @@ public class AggregatorAdapterFactory extends AdapterFactoryImpl {
 	 */
 	protected AggregatorSwitch<Adapter> modelSwitch = new AggregatorSwitch<Adapter>() {
 		@Override
-		public Adapter caseCompositeChild(CompositeChild object) {
-			return createCompositeChildAdapter();
-		}
-
-		@Override
 		public Adapter caseAggregator(Aggregator object) {
 			return createAggregatorAdapter();
 		}
@@ -113,6 +109,11 @@ public class AggregatorAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
+		public Adapter caseCompositeChild(CompositeChild object) {
+			return createCompositeChildAdapter();
+		}
+
+		@Override
 		public Adapter caseConfiguration(Configuration object) {
 			return createConfigurationAdapter();
 		}
@@ -150,6 +151,11 @@ public class AggregatorAdapterFactory extends AdapterFactoryImpl {
 		@Override
 		public Adapter caseFeature(Feature object) {
 			return createFeatureAdapter();
+		}
+
+		@Override
+		public Adapter caseIdentificationProvider(IdentificationProvider object) {
+			return createIdentificationProviderAdapter();
 		}
 
 		@Override
@@ -265,21 +271,6 @@ public class AggregatorAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.aggregator.CompositeChild <em>CompositeChild</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * 
-	 * @return the new adapter.
-	 * @see org.eclipse.b3.aggregator.CompositeChild
-	 * @generated
-	 */
-	public Adapter createCompositeChildAdapter() {
-		return null;
-	}
-
-	/**
 	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.aggregator.Aggregator
 	 * <em>Aggregator</em>}'. <!-- begin-user-doc --> This default implementation returns null so that we can easily
 	 * ignore cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc
@@ -389,6 +380,21 @@ public class AggregatorAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createComparableAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.aggregator.CompositeChild <em>Composite Child</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the new adapter.
+	 * @see org.eclipse.b3.aggregator.CompositeChild
+	 * @generated
+	 */
+	public Adapter createCompositeChildAdapter() {
 		return null;
 	}
 
@@ -511,6 +517,21 @@ public class AggregatorAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createFeatureAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.aggregator.IdentificationProvider <em>Identification Provider</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the new adapter.
+	 * @see org.eclipse.b3.aggregator.IdentificationProvider
+	 * @generated
+	 */
+	public Adapter createIdentificationProviderAdapter() {
 		return null;
 	}
 

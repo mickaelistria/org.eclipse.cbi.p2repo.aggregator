@@ -27,7 +27,7 @@ import org.eclipse.equinox.p2.metadata.expression.IMatchExpression;
  * @model abstract="true"
  * @generated
  */
-public interface MappedUnit extends InstallableUnitRequest, EnabledStatusProvider {
+public interface MappedUnit extends InstallableUnitRequest, EnabledStatusProvider, IdentificationProvider {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

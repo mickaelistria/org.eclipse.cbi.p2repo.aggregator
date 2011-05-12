@@ -6,6 +6,7 @@
  */
 package org.eclipse.b3.aggregator.util;
 
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
@@ -284,11 +285,17 @@ public class AggregatorResourceImpl extends XMIResourceImpl implements Aggregato
 						iterator.remove();
 			}
 
-			URI baseURI = getURI();
+			// wee need to resolve all the diagnostics first as they may link to each other which may result in unresolved diagnostics being used
+			// and consequently in exceptions being thrown
+			ArrayList<VerificationDiagnostic> resolvedVerificationDiagnostics = new ArrayList<VerificationDiagnostic>(
+				verificationDiagnostics.size());
+			for(VerificationDiagnostic verificationDiagnostic : verificationDiagnostics)
+				if(verificationDiagnostic.resolve(this))
+					resolvedVerificationDiagnostics.add(verificationDiagnostic);
+
 			EList<Diagnostic> errors = getErrors();
-			for(VerificationDiagnostic verificationDiagnostic : verificationDiagnostics) {
-				verificationDiagnostic.resolveLocation(baseURI);
-				EObject eObject = getResourceSet().getEObject(verificationDiagnostic.locationURI, true);
+			for(VerificationDiagnostic verificationDiagnostic : resolvedVerificationDiagnostics) {
+				EObject eObject = getResourceSet().getEObject(verificationDiagnostic.getLocationURI(), true);
 				if(eObject instanceof ContributionImpl) {
 					((ContributionImpl) eObject).setStatus(AggregatorFactory.eINSTANCE.createStatus(StatusCode.BROKEN));
 				}

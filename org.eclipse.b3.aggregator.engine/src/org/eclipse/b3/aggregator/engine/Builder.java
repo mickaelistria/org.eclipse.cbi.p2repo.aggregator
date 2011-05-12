@@ -170,8 +170,6 @@ public class Builder extends ModelAbstractCommand {
 
 	public static final String INTERNAL_METADATA_TYPE = "org.eclipse.b3.aggregator.engine.internalRepository"; //$NON-NLS-1$
 
-	public static final String PROP_AGGREGATOR_MODEL_ELEMENT_URI = "org.eclipse.b3.aggregator.model.element.URI"; //$NON-NLS-1$
-
 	public static final String PROP_AGGREGATOR_GENERATED_IU = "org.eclipse.b3.aggregator.generated.IU"; //$NON-NLS-1$
 
 	public static final SimpleDateFormat TIMESTAMP_FORMAT = new SimpleDateFormat("yyyyMMdd-HHmm"); //$NON-NLS-1$
@@ -437,7 +435,9 @@ public class Builder extends ModelAbstractCommand {
 
 	private Map<CompositeChild, String> safeCompositeChildNameMap = new HashMap<CompositeChild, String>();
 
-	private Map<Contribution, String> safeContributionNameMap = new HashMap<Contribution, String>();
+	private Map<MappedRepository, String> safeRepositoryNameMap = new HashMap<MappedRepository, String>();
+
+	private Set<String> safeRepositoryNames = new HashSet<String>();
 
 	/**
 	 * Mark the specified repository as not eligible for verbatim mapping.
@@ -464,7 +464,8 @@ public class Builder extends ModelAbstractCommand {
 
 	private void cleanMemoryCaches() {
 		safeCompositeChildNameMap.clear();
-		safeContributionNameMap.clear();
+		safeRepositoryNameMap.clear();
+		safeRepositoryNames.clear();
 		categoryIUs = null;
 		allUnitsToAggregate.clear();
 		unitsToAggregateMap.clear();
@@ -526,8 +527,8 @@ public class Builder extends ModelAbstractCommand {
 		return "/compositeChild_" + safeName;
 	}
 
-	public String getContributionVerificationIUName(Contribution contribution) {
-		return VERIFICATION_IU_PREFIX + "contribution_" + getSafeContributionName(contribution);
+	public String getMappedRepositoryVerificationIUName(MappedRepository repository) {
+		return VERIFICATION_IU_PREFIX + "repository_" + getSafeRepositoryName(repository);
 	}
 
 	/**
@@ -552,20 +553,53 @@ public class Builder extends ModelAbstractCommand {
 			throw new IllegalArgumentException("Could not generate safe unique name for compositeChild: " +
 					compositeChild.getLabel());
 
+		safeCompositeChildNameMap.put(compositeChild, safeName);
+
 		return safeName;
 	}
 
-	public String getSafeContributionName(Contribution contribution) {
-		String safeName = safeContributionNameMap.get(contribution);
+	public String getSafeRepositoryName(MappedRepository repository) {
+		String safeName = safeRepositoryNameMap.get(repository);
 
 		if(safeName != null)
 			return safeName;
 
-		safeName = contribution.getLabel().replaceAll("[^-0-9a-zA-Z_.~]", "_");
+		int i;
+		String location;
+		{
+			org.eclipse.emf.common.util.URI repoURI = org.eclipse.emf.common.util.URI.createURI(repository.getResolvedLocation());
+			String scheme = repoURI.scheme();
 
-		if(safeContributionNameMap.values().contains(safeName))
-			throw new IllegalArgumentException("Could not generate safe unique name for contribution: " +
-					contribution.getLabel());
+			location = repoURI.toString();
+
+			// discard scheme, if present
+			i = (scheme != null)
+					? scheme.length() + 1
+					: 0;
+
+			// discard leading slashes
+			while(location.charAt(i) == '/')
+				++i;
+
+			if(i > 0)
+				location = location.substring(i);
+
+			// make a safe name out of the rest of the URI
+			location = location.replaceAll("[^-0-9a-zA-Z_.~]", "_");
+		}
+
+		i = 0;
+		safeName = location;
+		while(safeRepositoryNames.contains(safeName)) {
+			if(++i < 0) // if overflow
+				throw new IllegalArgumentException("Could not generate safe unique name for mapped repository: " +
+						repository.getLocation());
+
+			safeName = location + '_' + i;
+		}
+
+		safeRepositoryNames.add(safeName);
+		safeRepositoryNameMap.put(repository, safeName);
 
 		return safeName;
 	}

@@ -216,7 +216,7 @@ public class CompositeChildItemProvider extends AggregatorItemProviderAdapter im
 			getString("_UI_CompositeChild_label_feature"),
 			getString(
 				"_UI_PropertyDescriptor_description", "_UI_CompositeChild_label_feature", "_UI_CompositeChild_type"),
-			AggregatorPackage.Literals.AGGREGATE__LABEL, true, false, false,
+			AggregatorPackage.Literals.COMPOSITE_CHILD__LABEL, true, false, false,
 			ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
@@ -319,7 +319,7 @@ public class CompositeChildItemProvider extends AggregatorItemProviderAdapter im
 	 */
 	@Override
 	public void notifyChanged(Notification notification) {
-		if(notification.getFeatureID(AggregatorPackage.class) == AggregatorPackage.AGGREGATE) {
+		if(notification.getFeatureID(AggregatorPackage.class) == AggregatorPackage.COMPOSITE_CHILD) {
 			updateChildren(notification);
 
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
@@ -341,9 +341,9 @@ public class CompositeChildItemProvider extends AggregatorItemProviderAdapter im
 		updateChildren(notification);
 
 		switch(notification.getFeatureID(CompositeChild.class)) {
-			case AggregatorPackage.AGGREGATE__ENABLED:
-			case AggregatorPackage.AGGREGATE__DESCRIPTION:
-			case AggregatorPackage.AGGREGATE__LABEL:
+			case AggregatorPackage.COMPOSITE_CHILD__ENABLED:
+			case AggregatorPackage.COMPOSITE_CHILD__DESCRIPTION:
+			case AggregatorPackage.COMPOSITE_CHILD__LABEL:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

@@ -11,10 +11,10 @@ import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 
-import org.eclipse.b3.aggregator.CompositeChild;
 import org.eclipse.b3.aggregator.Aggregator;
 import org.eclipse.b3.aggregator.AggregatorFactory;
 import org.eclipse.b3.aggregator.AggregatorPackage;
+import org.eclipse.b3.aggregator.CompositeChild;
 import org.eclipse.b3.aggregator.Contribution;
 import org.eclipse.b3.aggregator.LinkSource;
 import org.eclipse.b3.aggregator.MappedRepository;
@@ -223,7 +223,7 @@ public class AggregatorItemProvider extends DescriptionProviderItemProvider impl
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 
 		newChildDescriptors.add(createChildParameter(
-			AggregatorPackage.Literals.AGGREGATOR__AGGREGATES, AggregatorFactory.eINSTANCE.createCompositeChild()));
+			AggregatorPackage.Literals.AGGREGATOR__COMPOSITE_CHILDS, AggregatorFactory.eINSTANCE.createCompositeChild()));
 
 		newChildDescriptors.add(createChildParameter(
 			AggregatorPackage.Literals.AGGREGATOR__CONFIGURATIONS, AggregatorFactory.eINSTANCE.createConfiguration()));
@@ -362,7 +362,7 @@ public class AggregatorItemProvider extends DescriptionProviderItemProvider impl
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if(childrenFeatures == null) {
 			getChildrenFeaturesGen(object);
-			childrenFeatures.remove(AggregatorPackage.Literals.AGGREGATOR__AGGREGATES);
+			childrenFeatures.remove(AggregatorPackage.Literals.AGGREGATOR__COMPOSITE_CHILDS);
 		}
 		return childrenFeatures;
 	}
@@ -379,7 +379,7 @@ public class AggregatorItemProvider extends DescriptionProviderItemProvider impl
 	public Collection<? extends EStructuralFeature> getChildrenFeaturesGen(Object object) {
 		if(childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(AggregatorPackage.Literals.AGGREGATOR__AGGREGATES);
+			childrenFeatures.add(AggregatorPackage.Literals.AGGREGATOR__COMPOSITE_CHILDS);
 			childrenFeatures.add(AggregatorPackage.Literals.AGGREGATOR__CONFIGURATIONS);
 			childrenFeatures.add(AggregatorPackage.Literals.AGGREGATOR__CONTRIBUTIONS);
 			childrenFeatures.add(AggregatorPackage.Literals.AGGREGATOR__CUSTOM_CATEGORIES);
@@ -498,7 +498,7 @@ public class AggregatorItemProvider extends DescriptionProviderItemProvider impl
 			case AggregatorPackage.AGGREGATOR__MAVEN_RESULT:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
-			case AggregatorPackage.AGGREGATOR__AGGREGATES:
+			case AggregatorPackage.AGGREGATOR__COMPOSITE_CHILDS:
 			case AggregatorPackage.AGGREGATOR__CONFIGURATIONS:
 			case AggregatorPackage.AGGREGATOR__CONTRIBUTIONS:
 			case AggregatorPackage.AGGREGATOR__CUSTOM_CATEGORIES:

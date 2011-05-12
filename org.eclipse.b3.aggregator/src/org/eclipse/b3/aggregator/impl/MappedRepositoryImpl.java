@@ -16,6 +16,7 @@ import org.eclipse.b3.aggregator.Category;
 import org.eclipse.b3.aggregator.Contribution;
 import org.eclipse.b3.aggregator.DescriptionProvider;
 import org.eclipse.b3.aggregator.Feature;
+import org.eclipse.b3.aggregator.IdentificationProvider;
 import org.eclipse.b3.aggregator.MapRule;
 import org.eclipse.b3.aggregator.MappedRepository;
 import org.eclipse.b3.aggregator.MappedUnit;
@@ -206,6 +207,12 @@ public class MappedRepositoryImpl extends MetadataRepositoryReferenceImpl implem
 					return -1;
 			}
 		}
+		if(baseClass == IdentificationProvider.class) {
+			switch(derivedFeatureID) {
+				default:
+					return -1;
+			}
+		}
 		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
 	}
 
@@ -220,6 +227,12 @@ public class MappedRepositoryImpl extends MetadataRepositoryReferenceImpl implem
 			switch(baseFeatureID) {
 				case AggregatorPackage.DESCRIPTION_PROVIDER__DESCRIPTION:
 					return AggregatorPackage.MAPPED_REPOSITORY__DESCRIPTION;
+				default:
+					return -1;
+			}
+		}
+		if(baseClass == IdentificationProvider.class) {
+			switch(baseFeatureID) {
 				default:
 					return -1;
 			}
@@ -488,6 +501,16 @@ public class MappedRepositoryImpl extends MetadataRepositoryReferenceImpl implem
 				Feature.class, this, AggregatorPackage.MAPPED_REPOSITORY__FEATURES);
 		}
 		return features;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public String getIdentification() {
+		return getLocation();
 	}
 
 	/**

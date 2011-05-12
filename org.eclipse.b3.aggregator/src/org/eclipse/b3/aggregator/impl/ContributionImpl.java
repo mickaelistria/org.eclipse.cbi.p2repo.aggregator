@@ -14,6 +14,7 @@ import org.eclipse.b3.aggregator.AggregatorPackage;
 import org.eclipse.b3.aggregator.Contact;
 import org.eclipse.b3.aggregator.Contribution;
 import org.eclipse.b3.aggregator.DescriptionProvider;
+import org.eclipse.b3.aggregator.IdentificationProvider;
 import org.eclipse.b3.aggregator.InfosProvider;
 import org.eclipse.b3.aggregator.LinkReceiver;
 import org.eclipse.b3.aggregator.LinkSource;
@@ -272,6 +273,12 @@ public class ContributionImpl extends MinimalEObjectImpl.Container implements Co
 					return -1;
 			}
 		}
+		if(baseClass == IdentificationProvider.class) {
+			switch(derivedFeatureID) {
+				default:
+					return -1;
+			}
+		}
 		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
 	}
 
@@ -314,6 +321,12 @@ public class ContributionImpl extends MinimalEObjectImpl.Container implements Co
 			switch(baseFeatureID) {
 				case AggregatorPackage.LINK_SOURCE__RECEIVER:
 					return AggregatorPackage.CONTRIBUTION__RECEIVER;
+				default:
+					return -1;
+			}
+		}
+		if(baseClass == IdentificationProvider.class) {
+			switch(baseFeatureID) {
 				default:
 					return -1;
 			}
@@ -558,6 +571,16 @@ public class ContributionImpl extends MinimalEObjectImpl.Container implements Co
 			errors = new EDataTypeUniqueEList<String>(String.class, this, AggregatorPackage.CONTRIBUTION__ERRORS);
 		}
 		return errors;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated NOT
+	 */
+	public String getIdentification() {
+		return getLabel();
 	}
 
 	/**

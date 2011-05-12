@@ -7,10 +7,10 @@
  */
 package org.eclipse.b3.aggregator.impl;
 
-import org.eclipse.b3.aggregator.CompositeChild;
 import org.eclipse.b3.aggregator.Aggregator;
 import org.eclipse.b3.aggregator.AggregatorPackage;
 import org.eclipse.b3.aggregator.AggregatorResourceView;
+import org.eclipse.b3.aggregator.CompositeChild;
 import org.eclipse.b3.aggregator.util.AggregatorResource;
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notification;
@@ -42,26 +42,26 @@ public class AggregatorResourceViewImpl extends MinimalEObjectImpl.Container imp
 	/**
 	 * An adapter we register with the {@link Aggregator} instance contained within the {@link AggregatorResource} we are a view of in order to
 	 * receive (and forward) notifications of changes to its <em>compositeChilds</em> feature.
-	 * Before we forward the notifications we modify them such that they appear to be result of manipulation with the <em>compositeChilds</em> feature of
-	 * <code>this</code> object.
+	 * Before we forward the notifications we modify them such that they appear to be result of manipulation with the <em>compositeChilds</em> feature
+	 * of <code>this</code> object.
 	 */
 	protected Adapter notificationForwardingAdapter = new AdapterImpl() {
 
 		@Override
 		public void notifyChanged(Notification notification) {
-			if(notification.getFeature() == AggregatorPackage.Literals.AGGREGATOR__AGGREGATES) {
+			if(notification.getFeature() == AggregatorPackage.Literals.AGGREGATOR__COMPOSITE_CHILDS) {
 				eNotify(new NotificationImpl(
 					notification.getEventType(), notification.getOldValue(), notification.getNewValue(),
 					notification.getPosition(), notification.wasSet()) {
 
 					@Override
 					public Object getFeature() {
-						return AggregatorPackage.Literals.AGGREGATOR_RESOURCE_VIEW__AGGREGATES;
+						return AggregatorPackage.Literals.AGGREGATOR_RESOURCE_VIEW__COMPOSITE_CHILDS;
 					}
 
 					@Override
 					public int getFeatureID(Class<?> expectedClass) {
-						return AggregatorPackage.AGGREGATOR_RESOURCE_VIEW__AGGREGATES;
+						return AggregatorPackage.AGGREGATOR_RESOURCE_VIEW__COMPOSITE_CHILDS;
 					}
 
 					@Override
@@ -136,7 +136,7 @@ public class AggregatorResourceViewImpl extends MinimalEObjectImpl.Container imp
 		switch(featureID) {
 			case AggregatorPackage.AGGREGATOR_RESOURCE_VIEW__AGGREGATOR:
 				return getAggregator();
-			case AggregatorPackage.AGGREGATOR_RESOURCE_VIEW__AGGREGATES:
+			case AggregatorPackage.AGGREGATOR_RESOURCE_VIEW__COMPOSITE_CHILDS:
 				return getCompositeChilds();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -153,8 +153,8 @@ public class AggregatorResourceViewImpl extends MinimalEObjectImpl.Container imp
 		switch(featureID) {
 			case AggregatorPackage.AGGREGATOR_RESOURCE_VIEW__AGGREGATOR:
 				return basicSetAggregator(null, msgs);
-			case AggregatorPackage.AGGREGATOR_RESOURCE_VIEW__AGGREGATES:
-				return aggregator.eInverseRemove(otherEnd, AggregatorPackage.AGGREGATOR__AGGREGATES, msgs);
+			case AggregatorPackage.AGGREGATOR_RESOURCE_VIEW__COMPOSITE_CHILDS:
+				return aggregator.eInverseRemove(otherEnd, AggregatorPackage.AGGREGATOR__COMPOSITE_CHILDS, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -170,7 +170,7 @@ public class AggregatorResourceViewImpl extends MinimalEObjectImpl.Container imp
 		switch(featureID) {
 			case AggregatorPackage.AGGREGATOR_RESOURCE_VIEW__AGGREGATOR:
 				return aggregator != null;
-			case AggregatorPackage.AGGREGATOR_RESOURCE_VIEW__AGGREGATES:
+			case AggregatorPackage.AGGREGATOR_RESOURCE_VIEW__COMPOSITE_CHILDS:
 				return getCompositeChilds().isEmpty();
 		}
 		return super.eIsSet(featureID);
@@ -185,8 +185,8 @@ public class AggregatorResourceViewImpl extends MinimalEObjectImpl.Container imp
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch(featureID) {
-			case AggregatorPackage.AGGREGATOR_RESOURCE_VIEW__AGGREGATES:
-				aggregator.eSet(AggregatorPackage.AGGREGATOR__AGGREGATES, newValue);
+			case AggregatorPackage.AGGREGATOR_RESOURCE_VIEW__COMPOSITE_CHILDS:
+				aggregator.eSet(AggregatorPackage.AGGREGATOR__COMPOSITE_CHILDS, newValue);
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -211,21 +211,11 @@ public class AggregatorResourceViewImpl extends MinimalEObjectImpl.Container imp
 	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
-			case AggregatorPackage.AGGREGATOR_RESOURCE_VIEW__AGGREGATES:
+			case AggregatorPackage.AGGREGATOR_RESOURCE_VIEW__COMPOSITE_CHILDS:
 				getCompositeChilds().clear();
 				return;
 		}
 		super.eUnset(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated NOT
-	 */
-	public EList<CompositeChild> getCompositeChilds() {
-		return aggregator.getCompositeChilds();
 	}
 
 	/**
@@ -243,6 +233,16 @@ public class AggregatorResourceViewImpl extends MinimalEObjectImpl.Container imp
 	 */
 	public AggregatorResource getAggregatorResource() {
 		return aggregatorResource;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated NOT
+	 */
+	public EList<CompositeChild> getCompositeChilds() {
+		return aggregator.getCompositeChilds();
 	}
 
 } // AggregatorViewImpl
