@@ -161,21 +161,18 @@ public abstract class VerificationDiagnostic extends ResourceDiagnosticImpl {
 		}
 
 		@Override
-		public boolean resolve(Resource resource) {
-			if(location != null)
-				return true;
+		public String setup() {
+			String location = super.setup();
 
-			if(!super.resolve(resource))
-				return false;
-
-			this.message = (requirement != null)
+			message = (requirement != null)
 					? NLS.bind(
 						org.eclipse.equinox.internal.p2.director.Messages.Explanation_missingRequired,
 						problemIU.getIdentification(), requirement)
 					: NLS.bind(
 						org.eclipse.equinox.internal.p2.director.Messages.Explanation_missingNonGreedyRequired,
 						problemIU.getIdentification());
-			return true;
+
+			return location;
 		}
 
 	}
@@ -202,10 +199,9 @@ public abstract class VerificationDiagnostic extends ResourceDiagnosticImpl {
 
 			protected void buildMessage(String identification) {
 				StringBuilder messageBuilder = getMessageBuilder();
+				int diagnosticsLeftToIdentify = messageBuilder.charAt(0) - 1;
 
 				messageBuilder.append(CONFLICTING_IUS_SEPEATOR).append(identification);
-
-				int diagnosticsLeftToIdentify = messageBuilder.charAt(0) - 1;
 
 				if(diagnosticsLeftToIdentify == 0) { // seal the shared data if we do not expect any more diagnostics
 					message = NLS.bind(
@@ -239,6 +235,7 @@ public abstract class VerificationDiagnostic extends ResourceDiagnosticImpl {
 
 				URI locationURI = singleton.getLocationURI();
 
+				// don't create more than one problem marker for this Singleton problem and the locationURI combination
 				if(identifiedDiagnosticMap.containsKey(locationURI))
 					return false;
 
@@ -246,32 +243,13 @@ public abstract class VerificationDiagnostic extends ResourceDiagnosticImpl {
 				return true;
 			}
 
-			protected boolean isDuplicateDiagnostic(Singleton singleton) {
-				return identifiedDiagnosticMap.containsKey(singleton.getLocationURI());
-			}
-
 			protected SharedData registerDiagnostic(Singleton singleton) {
 				StringBuilder messageBuilder = getMessageBuilder();
+				int diagnosticsLeftToIdentify = messageBuilder.charAt(0) + 1;
 
-				int registeredDiagnosticsCount = messageBuilder.charAt(0) + 1;
-
-				messageBuilder.setCharAt(0, (char) registeredDiagnosticsCount);
+				messageBuilder.setCharAt(0, (char) diagnosticsLeftToIdentify);
 
 				return this;
-			}
-
-			public void unregisterDiagnostics(Singleton singleton) {
-				StringBuilder messageBuilder;
-				try {
-					messageBuilder = getMessageBuilder();
-				}
-				catch(IllegalStateException e) {
-					return;
-				}
-
-				int registeredDiagnosticsCount = messageBuilder.charAt(0) - 1;
-
-				messageBuilder.setCharAt(0, (char) registeredDiagnosticsCount);
 			}
 
 		}
@@ -291,16 +269,12 @@ public abstract class VerificationDiagnostic extends ResourceDiagnosticImpl {
 		}
 
 		@Override
-		public boolean resolve(Resource resource) {
-			if(location != null)
-				return sharedData.isDuplicateDiagnostic(this);
+		public String setup() {
+			String location = super.setup();
 
-			if(!super.resolve(resource)) {
-				sharedData.unregisterDiagnostics(this);
-				return false;
-			}
-
-			return sharedData.identifyDiagnostic(this);
+			return sharedData.identifyDiagnostic(this)
+					? location
+					: null;
 		}
 
 	}
@@ -402,18 +376,21 @@ public abstract class VerificationDiagnostic extends ResourceDiagnosticImpl {
 	}
 
 	public boolean resolve(Resource resource) {
-		if(location == null) {
+		if(problemIU.getIdentification() == null) {
 			identifyDependencyChain(resource, problemIU);
 
-			URI modelElementURI = problemIU.getModelElementURI();
-
-			if(modelElementURI == null)
-				return false;
-
-			this.location = modelElementURI.toString();
+			location = setup();
 		}
 
-		return true;
+		return location != null;
+	}
+
+	public String setup() {
+		URI modelElementURI = problemIU.getModelElementURI();
+
+		return modelElementURI != null
+				? modelElementURI.toString()
+				: null;
 	}
 
 }

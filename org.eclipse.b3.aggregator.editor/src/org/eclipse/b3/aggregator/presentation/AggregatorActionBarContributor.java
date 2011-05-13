@@ -22,11 +22,11 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
-import org.eclipse.b3.aggregator.CompositeChild;
 import org.eclipse.b3.aggregator.Aggregator;
 import org.eclipse.b3.aggregator.AggregatorFactory;
 import org.eclipse.b3.aggregator.AggregatorPackage;
 import org.eclipse.b3.aggregator.AvailableVersion;
+import org.eclipse.b3.aggregator.CompositeChild;
 import org.eclipse.b3.aggregator.Configuration;
 import org.eclipse.b3.aggregator.Contact;
 import org.eclipse.b3.aggregator.Contribution;
@@ -1505,8 +1505,9 @@ public class AggregatorActionBarContributor extends EditingDomainActionBarContri
 				else {
 					reloadOrCancelRepoAction.setLoadText("Reload Repository");
 					for(Object object : selectedItems) {
-						if(object instanceof MetadataRepositoryReference) {
-							MetadataRepositoryReference metadataRepositoryReference = (MetadataRepositoryReference) object;
+						Object unwrappedObejct = aggregatorItemProvider.unwrap(object);
+						if(unwrappedObejct instanceof MetadataRepositoryReference) {
+							MetadataRepositoryReference metadataRepositoryReference = (MetadataRepositoryReference) unwrappedObejct;
 							if(metadataRepositoryReference.isBranchEnabled()) {
 								MetadataRepositoryResourceImpl res = (MetadataRepositoryResourceImpl) MetadataRepositoryResourceImpl.getResourceForNatureAndLocation(
 									metadataRepositoryReference.getNature(),
@@ -1518,8 +1519,8 @@ public class AggregatorActionBarContributor extends EditingDomainActionBarContri
 							}
 							reloadOrCancelRepoActionVisible = true;
 						}
-						else if(object instanceof MetadataRepositoryResourceImpl) {
-							MetadataRepositoryResourceImpl res = (MetadataRepositoryResourceImpl) object;
+						else if(unwrappedObejct instanceof MetadataRepositoryResourceImpl) {
+							MetadataRepositoryResourceImpl res = (MetadataRepositoryResourceImpl) unwrappedObejct;
 							reloadOrCancelRepoAction.addMetadataRepositoryResource(res);
 							reloadOrCancelRepoActionVisible = true;
 						}
@@ -1534,15 +1535,17 @@ public class AggregatorActionBarContributor extends EditingDomainActionBarContri
 
 				if(structuredSelection.size() == 1) {
 					Object object = structuredSelection.getFirstElement();
+					Object unwrappedObejct = aggregatorItemProvider.unwrap(object);
 
-					newChildDescriptors = domain.getNewChildDescriptors(object, null);
-					newSiblingDescriptors = domain.getNewChildDescriptors(null, object);
+					newChildDescriptors = domain.getNewChildDescriptors(unwrappedObejct, null);
+					newSiblingDescriptors = domain.getNewChildDescriptors(null, unwrappedObejct);
 
-					if(object instanceof RequirementWrapper) {
-						selectMatchingIUAction = new SelectMatchingIUAction(((RequirementWrapper) object).getGenuine());
+					if(unwrappedObejct instanceof RequirementWrapper) {
+						selectMatchingIUAction = new SelectMatchingIUAction(
+							((RequirementWrapper) unwrappedObejct).getGenuine());
 					}
-					else if(object instanceof AvailableVersion) {
-						AvailableVersion av = (AvailableVersion) object;
+					else if(unwrappedObejct instanceof AvailableVersion) {
+						AvailableVersion av = (AvailableVersion) unwrappedObejct;
 						InstallableUnitRequest mappedUnit = (InstallableUnitRequest) ((EObject) av).eContainer();
 
 						IRequirement requiredCapability = MetadataFactory.createRequirement(
