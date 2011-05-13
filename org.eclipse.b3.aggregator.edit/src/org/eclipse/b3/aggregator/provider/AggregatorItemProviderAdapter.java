@@ -146,13 +146,4 @@ public class AggregatorItemProviderAdapter extends ItemProviderAdapter implement
 		return image;
 	}
 
-	/**
-	 * {@inheritDoc} <br />
-	 * This only changes the visibility of the method to public.
-	 */
-	@Override
-	public Object unwrap(Object object) {
-		return super.unwrap(object);
-	}
-
 }

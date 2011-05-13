@@ -46,7 +46,6 @@ import org.eclipse.b3.aggregator.p2.util.MetadataRepositoryResourceImpl;
 import org.eclipse.b3.aggregator.p2view.IUPresentation;
 import org.eclipse.b3.aggregator.p2view.RequirementWrapper;
 import org.eclipse.b3.aggregator.provider.AggregatorEditPlugin;
-import org.eclipse.b3.aggregator.provider.AggregatorItemProvider;
 import org.eclipse.b3.aggregator.util.AddIUsToContributionCommand;
 import org.eclipse.b3.aggregator.util.AddIUsToCustomCategoryCommand;
 import org.eclipse.b3.aggregator.util.AddIUsToParentRepositoryCommand;
@@ -68,7 +67,6 @@ import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.core.runtime.jobs.Job;
 import org.eclipse.emf.common.command.CompoundCommand;
-import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.ui.viewer.IViewerProvider;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
@@ -403,7 +401,7 @@ public class AggregatorActionBarContributor extends EditingDomainActionBarContri
 
 		public boolean isSupportedFor(List<Object> items) {
 			for(Object object : items) {
-				if(!(aggregatorItemProvider.unwrap(object) instanceof EnabledStatusProvider)) {
+				if(!(AdapterFactoryEditingDomain.unwrap(object) instanceof EnabledStatusProvider)) {
 					return false;
 				}
 			}
@@ -903,8 +901,6 @@ public class AggregatorActionBarContributor extends EditingDomainActionBarContri
 
 	private Collection<? extends IAction> unlinkCompositeChildActions;
 
-	private AggregatorItemProvider aggregatorItemProvider;
-
 	/**
 	 * This creates an instance of the contributor. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -926,24 +922,6 @@ public class AggregatorActionBarContributor extends EditingDomainActionBarContri
 
 		linkMenuManager = new MenuManager("Link to");
 		unlinkMenuManager = new MenuManager("Unlink from");
-	}
-
-	@Override
-	public void activate() {
-		super.activate();
-		INITIALIZE_AGGREGATOR_ITEM_PROVIDER: {
-			if(activeEditor instanceof IEditingDomainProvider) {
-				EditingDomain editingDomain = ((IEditingDomainProvider) activeEditor).getEditingDomain();
-
-				if(editingDomain instanceof AdapterFactoryEditingDomain) {
-					AdapterFactory adapterFactory = ((AdapterFactoryEditingDomain) editingDomain).getAdapterFactory();
-					aggregatorItemProvider = new AggregatorItemProvider(adapterFactory);
-					break INITIALIZE_AGGREGATOR_ITEM_PROVIDER;
-				}
-			}
-
-			aggregatorItemProvider = null;
-		}
 	}
 
 	@Override
@@ -1028,12 +1006,6 @@ public class AggregatorActionBarContributor extends EditingDomainActionBarContri
 	public void contributeToToolBar(IToolBarManager toolBarManager) {
 		toolBarManager.add(new Separator("aggregator-settings"));
 		toolBarManager.add(new Separator("aggregator-additions"));
-	}
-
-	@Override
-	public void deactivate() {
-		aggregatorItemProvider = null;
-		super.deactivate();
 	}
 
 	/**
@@ -1231,7 +1203,7 @@ public class AggregatorActionBarContributor extends EditingDomainActionBarContri
 
 			{
 				Object selectedObject = structuredSelection.getFirstElement();
-				Object unwrappedSelectedObject = aggregatorItemProvider.unwrap(selectedObject);
+				Object unwrappedSelectedObject = AdapterFactoryEditingDomain.unwrap(selectedObject);
 
 				if(!(unwrappedSelectedObject instanceof Contribution))
 					break INSTALL_AGGREGATE_LINKING_MENU_ENTRIES;
@@ -1467,7 +1439,7 @@ public class AggregatorActionBarContributor extends EditingDomainActionBarContri
 					if(sa.getKey().isSupportedFor(selectedItems)) {
 						List<EnabledStatusProvider> items = new ArrayList<EnabledStatusProvider>();
 						for(Object obj : selectedItems)
-							items.add((EnabledStatusProvider) aggregatorItemProvider.unwrap(obj));
+							items.add((EnabledStatusProvider) AdapterFactoryEditingDomain.unwrap(obj));
 
 						sa.getKey().setReference(items);
 
@@ -1505,7 +1477,7 @@ public class AggregatorActionBarContributor extends EditingDomainActionBarContri
 				else {
 					reloadOrCancelRepoAction.setLoadText("Reload Repository");
 					for(Object object : selectedItems) {
-						Object unwrappedObejct = aggregatorItemProvider.unwrap(object);
+						Object unwrappedObejct = AdapterFactoryEditingDomain.unwrap(object);
 						if(unwrappedObejct instanceof MetadataRepositoryReference) {
 							MetadataRepositoryReference metadataRepositoryReference = (MetadataRepositoryReference) unwrappedObejct;
 							if(metadataRepositoryReference.isBranchEnabled()) {
@@ -1535,7 +1507,7 @@ public class AggregatorActionBarContributor extends EditingDomainActionBarContri
 
 				if(structuredSelection.size() == 1) {
 					Object object = structuredSelection.getFirstElement();
-					Object unwrappedObejct = aggregatorItemProvider.unwrap(object);
+					Object unwrappedObejct = AdapterFactoryEditingDomain.unwrap(object);
 
 					newChildDescriptors = domain.getNewChildDescriptors(unwrappedObejct, null);
 					newSiblingDescriptors = domain.getNewChildDescriptors(null, unwrappedObejct);
@@ -1570,4 +1542,5 @@ public class AggregatorActionBarContributor extends EditingDomainActionBarContri
 			}
 		}
 	}
+
 }
