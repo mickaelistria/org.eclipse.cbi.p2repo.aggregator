@@ -18,6 +18,7 @@ import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.regex.Pattern;
 
 import org.eclipse.b3.aggregator.Aggregator;
@@ -37,6 +38,7 @@ import org.eclipse.b3.aggregator.provider.AggregatorResourceViewItemProvider;
 import org.eclipse.b3.aggregator.provider.TooltipTextProvider;
 import org.eclipse.b3.aggregator.util.AggregatorResource;
 import org.eclipse.b3.aggregator.util.AggregatorResourceImpl;
+import org.eclipse.b3.aggregator.util.BaseAggregatorResourceFactoryImpl;
 import org.eclipse.b3.aggregator.util.OverlaidImage;
 import org.eclipse.b3.aggregator.util.ResourceDiagnosticImpl;
 import org.eclipse.b3.aggregator.util.ResourceUtils;
@@ -81,6 +83,8 @@ import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.EValidator;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
+import org.eclipse.emf.ecore.resource.URIConverter;
+import org.eclipse.emf.ecore.resource.impl.ResourceFactoryRegistryImpl;
 import org.eclipse.emf.ecore.util.EContentAdapter;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.edit.command.CommandParameter;
@@ -183,7 +187,9 @@ import org.eclipse.ui.views.properties.PropertySheetPage;
 @SuppressWarnings("unused")
 public class AggregatorEditor extends MultiPageEditorPart implements IEditingDomainProvider, ISelectionProvider,
 		IMenuListener, IViewerProvider, IGotoMarker {
+
 	class AggregatorMarkerHelper extends EditUIMarkerHelper {
+
 		@Override
 		protected void adjustMarker(IMarker marker, Diagnostic diagnostic, Diagnostic parentDiagnostic)
 				throws CoreException {
@@ -252,6 +258,85 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 		protected String getMarkerID() {
 			return AGGREGATOR_NONPERSISTENT_PROBLEM_MARKER;
 		}
+
+	}
+
+	@SuppressWarnings("serial")
+	static class OverrideMap<K, V> extends HashMap<K, V> {
+
+		protected Map<? extends K, ? extends V> base;
+
+		public OverrideMap(Map<? extends K, ? extends V> m) {
+			super(m);
+		}
+
+		@Override
+		public void clear() {
+			throw new UnsupportedOperationException();
+		}
+
+		@Override
+		public boolean containsKey(Object key) {
+			return super.containsKey(key) || base.containsKey(key);
+		}
+
+		@Override
+		public boolean containsValue(Object value) {
+			throw new UnsupportedOperationException();
+		}
+
+		@Override
+		public Set<java.util.Map.Entry<K, V>> entrySet() {
+			throw new UnsupportedOperationException();
+		}
+
+		@Override
+		public V get(Object key) {
+			if(super.containsKey(key))
+				return super.get(key);
+			return base.get(key);
+		}
+
+		@Override
+		public boolean isEmpty() {
+			return super.isEmpty() && base.isEmpty();
+		}
+
+		@Override
+		public Set<K> keySet() {
+			throw new UnsupportedOperationException();
+		}
+
+		public Map<K, V> override(Map<? extends K, ? extends V> base) {
+			this.base = base;
+			return this;
+		}
+
+		@Override
+		public V put(K key, V value) {
+			throw new UnsupportedOperationException();
+		}
+
+		@Override
+		public void putAll(Map<? extends K, ? extends V> m) {
+			throw new UnsupportedOperationException();
+		}
+
+		@Override
+		public V remove(Object key) {
+			throw new UnsupportedOperationException();
+		}
+
+		@Override
+		public int size() {
+			throw new UnsupportedOperationException();
+		}
+
+		@Override
+		public Collection<V> values() {
+			throw new UnsupportedOperationException();
+		}
+
 	}
 
 	/**
@@ -260,6 +345,7 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 	 * @generated
 	 */
 	public class ReverseAdapterFactoryContentProvider extends AdapterFactoryContentProvider {
+
 		/**
 		 * <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
@@ -315,6 +401,7 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 			Object parent = super.getParent(object);
 			return parent != null;
 		}
+
 	}
 
 	public static final String AGGREGATOR_EDITOR_ID = "org.eclipse.b3.aggregator.presentation.AggregatorEditorID";
@@ -448,10 +535,12 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 	 * @generated NOT
 	 */
 	protected MarkerHelper markerHelper = new EditUIMarkerHelper() {
+
 		@Override
 		protected String getMarkerID() {
 			return AGGREGATOR_PROBLEM_MARKER;
 		}
+
 	};
 
 	protected AggregatorMarkerHelper managedMarkerHelper = new AggregatorMarkerHelper();
@@ -472,6 +561,7 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 	 * @generated NOT
 	 */
 	protected IPartListener partListener = new IPartListener() {
+
 		public void partActivated(IWorkbenchPart p) {
 			if(p instanceof ContentOutline) {
 				if(((ContentOutline) p).getCurrentPage() == contentOutlinePage) {
@@ -506,6 +596,7 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 		public void partOpened(IWorkbenchPart p) {
 			// Ignore.
 		}
+
 	};
 
 	/**
@@ -557,6 +648,7 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 	 * @generated NOT
 	 */
 	protected EContentAdapter problemIndicationAdapter = new EContentAdapter() {
+
 		private boolean analysisStarted = false;
 
 		@Override
@@ -567,11 +659,13 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 				// If a repository is loaded, force updating the context menu by setting selection to current selection
 				if(featureID == Resource.RESOURCE__IS_LOADED) {
 					getSite().getShell().getDisplay().asyncExec(new Runnable() {
+
 						public void run() {
 							setSelection(currentViewer == null
 									? StructuredSelection.EMPTY
 									: currentViewer.getSelection());
 						}
+
 					});
 				}
 
@@ -603,9 +697,11 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 
 							if(updateProblemIndication) {
 								getSite().getShell().getDisplay().asyncExec(new Runnable() {
+
 									public void run() {
 										updateProblemIndication();
 									}
+
 								});
 							}
 						}
@@ -643,6 +739,7 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 
 		private void updateMarkers() {
 			Runnable runnable = new Runnable() {
+
 				public void run() {
 					synchronized(AggregatorEditor.this) {
 						while(updateMarkers)
@@ -673,6 +770,7 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 							}
 					}
 				}
+
 			};
 
 			if(updateMarkers)
@@ -685,6 +783,7 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 
 			new Thread(runnable).start();
 		}
+
 	};
 
 	/**
@@ -694,10 +793,12 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 	 * @generated
 	 */
 	protected IResourceChangeListener resourceChangeListener = new IResourceChangeListener() {
+
 		public void resourceChanged(IResourceChangeEvent event) {
 			IResourceDelta delta = event.getDelta();
 			try {
 				class ResourceDeltaVisitor implements IResourceDeltaVisitor {
+
 					protected ResourceSet resourceSet = editingDomain.getResourceSet();
 
 					protected Collection<Resource> changedResources = new ArrayList<Resource>();
@@ -731,6 +832,7 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 
 						return true;
 					}
+
 				}
 
 				final ResourceDeltaVisitor visitor = new ResourceDeltaVisitor();
@@ -738,23 +840,27 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 
 				if(!visitor.getRemovedResources().isEmpty()) {
 					getSite().getShell().getDisplay().asyncExec(new Runnable() {
+
 						public void run() {
 							removedResources.addAll(visitor.getRemovedResources());
 							if(!isDirty()) {
 								getSite().getPage().closeEditor(AggregatorEditor.this, false);
 							}
 						}
+
 					});
 				}
 
 				if(!visitor.getChangedResources().isEmpty()) {
 					getSite().getShell().getDisplay().asyncExec(new Runnable() {
+
 						public void run() {
 							changedResources.addAll(visitor.getChangedResources());
 							if(getSite().getPage().getActiveEditor() == AggregatorEditor.this) {
 								handleActivate();
 							}
 						}
+
 					});
 				}
 			}
@@ -762,6 +868,7 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 				AggregatorEditorPlugin.INSTANCE.log(exception);
 			}
 		}
+
 	};
 
 	/**
@@ -1059,6 +1166,7 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 		createPagesGen();
 
 		selectionViewer.addDoubleClickListener(new IDoubleClickListener() {
+
 			public void doubleClick(DoubleClickEvent event) {
 				TreePath path = ((TreeSelection) event.getSelection()).getPaths()[0];
 
@@ -1067,9 +1175,11 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 				else
 					selectionViewer.expandToLevel(path, 1);
 			}
+
 		});
 
 		selectionViewer.getTree().addMouseMoveListener(new MouseMoveListener() {
+
 			private TreeItem lastTreeItem;
 
 			public void mouseMove(MouseEvent e) {
@@ -1092,6 +1202,7 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 
 				lastTreeItem = item;
 			}
+
 		});
 
 		if(repositoryLoadingJob != null) {
@@ -1134,9 +1245,11 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 			setPageText(pageIndex, getString("_UI_SelectionPage_label"));
 
 			getSite().getShell().getDisplay().asyncExec(new Runnable() {
+
 				public void run() {
 					setActivePage(0);
 				}
+
 			});
 		}
 
@@ -1144,6 +1257,7 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 		// area if there are more than one page
 		//
 		getContainer().addControlListener(new ControlAdapter() {
+
 			boolean guard = false;
 
 			@Override
@@ -1154,12 +1268,15 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 					guard = false;
 				}
 			}
+
 		});
 
 		getSite().getShell().getDisplay().asyncExec(new Runnable() {
+
 			public void run() {
 				updateProblemIndication();
 			}
+
 		});
 	}
 
@@ -1210,6 +1327,7 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 		// Do the work within an operation because this is a long running activity that modifies the workbench.
 		//
 		WorkspaceModifyOperation operation = new WorkspaceModifyOperation() {
+
 			// This is the method that gets invoked when the operation runs.
 			//
 			@Override
@@ -1234,6 +1352,7 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 					}
 				}
 			}
+
 		};
 
 		updateProblemIndication = false;
@@ -1426,6 +1545,7 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 			// The content outline is just a tree.
 			//
 			class MyContentOutlinePage extends ContentOutlinePage {
+
 				@Override
 				public void createControl(Composite parent) {
 					super.createControl(parent);
@@ -1463,6 +1583,7 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 					super.setActionBars(actionBars);
 					getActionBarContributor().shareGlobalActions(this, actionBars);
 				}
+
 			}
 
 			contentOutlinePage = new MyContentOutlinePage();
@@ -1470,11 +1591,13 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 			// Listen to selection so that we can handle it is a special way.
 			//
 			contentOutlinePage.addSelectionChangedListener(new ISelectionChangedListener() {
+
 				// This ensures that we handle selections correctly.
 				//
 				public void selectionChanged(SelectionChangedEvent event) {
 					handleContentOutlineSelection(event.getSelection());
 				}
+
 			});
 		}
 
@@ -1519,6 +1642,7 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 	public IPropertySheetPage getPropertySheetPage() {
 		if(propertySheetPage == null) {
 			propertySheetPage = new ExtendedPropertySheetPage(editingDomain) {
+
 				@Override
 				public void setActionBars(IActionBars actionBars) {
 					super.setActionBars(actionBars);
@@ -1530,15 +1654,19 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 					AggregatorEditor.this.setSelectionToViewer(selection);
 					AggregatorEditor.this.setFocus();
 				}
+
 			};
 			propertySheetPage.setPropertySourceProvider(new AdapterFactoryContentProvider(adapterFactory) {
+
 				@Override
 				protected IPropertySource createPropertySource(Object object, IItemPropertySource itemPropertySource) {
 					return new PropertySource(object, itemPropertySource) {
+
 						@Override
 						protected IPropertyDescriptor createPropertyDescriptor(
 								IItemPropertyDescriptor itemPropertyDescriptor) {
 							return new PropertyDescriptor(object, itemPropertyDescriptor) {
+
 								@Override
 								public CellEditor createPropertyEditor(Composite composite) {
 									if(!itemPropertyDescriptor.canSetProperty(object)) {
@@ -1552,6 +1680,7 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 										final ILabelProvider editLabelProvider = getEditLabelProvider();
 
 										return new ExtendedDialogCellEditor(composite, editLabelProvider) {
+
 											@Override
 											protected Object openDialogBox(Control cellEditorWindow) {
 												VersionRangeEditorDialog dialog = new VersionRangeEditorDialog(
@@ -1559,16 +1688,19 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 												dialog.open();
 												return dialog.getResult();
 											}
+
 										};
 									}
 
 									return super.createPropertyEditor(composite);
 								}
+
 							};
 						}
 
 					};
 				}
+
 			});
 		}
 
@@ -1805,6 +1937,7 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 		adapterFactory.addAdapterFactory(new ResourceItemProviderAdapterFactory() {
 
 			class AggregatorResourceBaseItemProvider extends ResourceItemProvider implements TooltipTextProvider {
+
 				protected Map<Object, AggregatorResourceViewImpl> delegateObjectMap = new HashMap<Object, AggregatorResourceViewImpl>();
 
 				public AggregatorResourceBaseItemProvider(AdapterFactory adapterFactory) {
@@ -1930,6 +2063,7 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 			class MdrResourceItemProvider extends AggregatorResourceBaseItemProvider implements IItemFontProvider {
 
 				class AggregatorEditorItemProviderAdapter extends AggregatorItemProviderAdapter {
+
 					public AggregatorEditorItemProviderAdapter(AdapterFactory adapterFactory) {
 						super(adapterFactory);
 					}
@@ -1938,6 +2072,7 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 					public ResourceLocator getResourceLocator() {
 						return AggregatorEditPlugin.INSTANCE;
 					}
+
 				}
 
 				protected AggregatorItemProviderAdapter delegateItemProviderAdapter;
@@ -2014,6 +2149,7 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 			AggregatorResourceItemProvider aggregatorResourceItemProvider = new AggregatorResourceItemProvider(this);
 
 			ResourceSetItemProvider resourceSetItemProvider = new ResourceSetItemProvider(this) {
+
 				@Override
 				public Collection<?> getChildren(Object object) {
 					ResourceSet resourceSet = (ResourceSet) object;
@@ -2026,6 +2162,7 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 
 					return filtered;
 				}
+
 			};
 
 			@Override
@@ -2039,6 +2176,7 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 				// TODO should we perhaps return null?
 				throw new IllegalStateException();
 			}
+
 		});
 
 		adapterFactory.addAdapterFactory(new StatusProviderAdapterFactory());
@@ -2046,6 +2184,7 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 
 		// override item providers that should be more specific to aggregator
 		adapterFactory.addAdapterFactory(new P2ItemProviderAdapterFactory() {
+
 			@Override
 			public Adapter createMetadataRepositoryAdapter() {
 				if(metadataRepositoryItemProvider == null) {
@@ -2072,6 +2211,7 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 
 				return requiredCapabilityItemProvider;
 			}
+
 		});
 
 		adapterFactory.addAdapterFactory(new P2viewItemProviderAdapterFactory());
@@ -2085,8 +2225,10 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 		// focus.
 		//
 		commandStack.addCommandStackListener(new CommandStackListener() {
+
 			public void commandStackChanged(final EventObject event) {
 				getContainer().getDisplay().asyncExec(new Runnable() {
+
 					public void run() {
 						firePropertyChange(IEditorPart.PROP_DIRTY);
 
@@ -2100,13 +2242,48 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 							propertySheetPage.refresh();
 						}
 					}
+
 				});
 			}
+
 		});
 
 		// Create the editing domain with a special command stack and a shared clipboard.
 		//
 		editingDomain = new AdapterFactoryEditingDomain(adapterFactory, commandStack, new HashMap<Resource, Boolean>()) {
+
+			{
+				final ResourceSet resourceSet = getResourceSet();
+
+				resourceSet.setResourceFactoryRegistry(new ResourceFactoryRegistryImpl() {
+
+					private OverrideMap<String, Object> extensionToFactoryOverrideMap = new OverrideMap<String, Object>(
+						Collections.singletonMap(
+							Resource.Factory.Registry.DEFAULT_EXTENSION, new BaseAggregatorResourceFactoryImpl()));
+
+					@Override
+					protected Resource.Factory delegatedGetFactory(URI uri, String contentTypeIdentifier) {
+						return convert(getFactory(
+							uri,
+							Resource.Factory.Registry.INSTANCE.getProtocolToFactoryMap(),
+							extensionToFactoryOverrideMap.override(Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap()),
+							Resource.Factory.Registry.INSTANCE.getContentTypeToFactoryMap(), contentTypeIdentifier,
+							false));
+					}
+
+					@Override
+					protected Map<?, ?> getContentDescriptionOptions() {
+						return resourceSet.getLoadOptions();
+					}
+
+					@Override
+					protected URIConverter getURIConverter() {
+						return resourceSet.getURIConverter();
+					}
+
+				});
+			}
+
 			@Override
 			public Collection<Object> getClipboard() {
 				return CLIPBOARD;
@@ -2235,11 +2412,13 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 				// Create the listener on demand.
 				//
 				selectionChangedListener = new ISelectionChangedListener() {
+
 					// This just notifies those things that are affected by the section.
 					//
 					public void selectionChanged(SelectionChangedEvent selectionChangedEvent) {
 						setSelection(selectionChangedEvent.getSelection());
 					}
+
 				};
 			}
 
@@ -2305,6 +2484,7 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 		//
 		if(theSelection != null && !theSelection.isEmpty()) {
 			Runnable runnable = new Runnable() {
+
 				public void run() {
 					// Try to select the items in the current content viewer of the editor.
 					//
@@ -2312,6 +2492,7 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 						currentViewer.setSelection(new StructuredSelection(theSelection.toArray()), true);
 					}
 				}
+
 			};
 			getSite().getShell().getDisplay().asyncExec(runnable);
 		}
@@ -2433,4 +2614,5 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 			}
 		}
 	}
+
 }
