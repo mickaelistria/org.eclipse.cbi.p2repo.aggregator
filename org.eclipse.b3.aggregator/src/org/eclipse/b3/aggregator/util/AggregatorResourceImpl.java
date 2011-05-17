@@ -22,16 +22,19 @@ import org.eclipse.emf.common.notify.impl.NotifyingListImpl;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 
 /**
- * <!-- begin-user-doc --> The <b>Resource </b> associated with the package.
+ * <!-- begin-user-doc --> The <b>Resource</b> associated with the package.
  * 
  * @extends AggregatorResource <!-- end-user-doc -->
  * @see org.eclipse.b3.aggregator.util.AggregatorResourceFactoryImpl
  */
 public class AggregatorResourceImpl extends BaseAggregatorResourceImpl implements AggregatorResource {
+
 	class NotifyAnalyzeResourceFinished extends NotificationImpl {
+
 		public NotifyAnalyzeResourceFinished() {
 			super(Notification.SET, false, true);
 		}
@@ -45,9 +48,11 @@ public class AggregatorResourceImpl extends BaseAggregatorResourceImpl implement
 		public Object getNotifier() {
 			return AggregatorResourceImpl.this;
 		}
+
 	}
 
 	class NotifyAnalyzeResourceStarted extends NotificationImpl {
+
 		public NotifyAnalyzeResourceStarted() {
 			super(Notification.SET, true, false);
 		}
@@ -61,6 +66,7 @@ public class AggregatorResourceImpl extends BaseAggregatorResourceImpl implement
 		public Object getNotifier() {
 			return AggregatorResourceImpl.this;
 		}
+
 	}
 
 	/**
@@ -115,6 +121,7 @@ public class AggregatorResourceImpl extends BaseAggregatorResourceImpl implement
 	 */
 	public void analyzeResource() {
 		Runnable runnable = new Runnable() {
+
 			public void run() {
 				synchronized(AggregatorResourceImpl.this) {
 					while(analysisRequest)
@@ -159,6 +166,7 @@ public class AggregatorResourceImpl extends BaseAggregatorResourceImpl implement
 						}
 				}
 			}
+
 		};
 
 		if(analysisRequest)
@@ -184,6 +192,7 @@ public class AggregatorResourceImpl extends BaseAggregatorResourceImpl implement
 	public EList<Diagnostic> getInfos() {
 		if(infos == null) {
 			infos = new NotifyingListImpl<Diagnostic>() {
+
 				private static final long serialVersionUID = 1L;
 
 				@Override
@@ -200,6 +209,7 @@ public class AggregatorResourceImpl extends BaseAggregatorResourceImpl implement
 				protected boolean isNotificationRequired() {
 					return AggregatorResourceImpl.this.eNotificationRequired();
 				}
+
 			};
 		}
 		return infos;
@@ -233,4 +243,5 @@ public class AggregatorResourceImpl extends BaseAggregatorResourceImpl implement
 			}
 		}
 	}
+
 } // AggregatorResourceImpl

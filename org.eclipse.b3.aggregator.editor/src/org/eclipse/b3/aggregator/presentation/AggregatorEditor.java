@@ -1095,6 +1095,9 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 		resource = editingDomain.getResourceSet().getResource(resourceURI, false);
 
 		if(resource != null) {
+			// make sure detached resources are resolved
+			EcoreUtil.resolveAll(resource);
+
 			EList<EObject> contents = resource.getContents();
 			if(contents.size() == 1 && contents.get(0) instanceof Aggregator) {
 				Aggregator aggregator = (Aggregator) contents.get(0);
@@ -2266,6 +2269,7 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 						return convert(getFactory(
 							uri,
 							Resource.Factory.Registry.INSTANCE.getProtocolToFactoryMap(),
+							// override the default extension resource factory
 							extensionToFactoryOverrideMap.override(Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap()),
 							Resource.Factory.Registry.INSTANCE.getContentTypeToFactoryMap(), contentTypeIdentifier,
 							false));

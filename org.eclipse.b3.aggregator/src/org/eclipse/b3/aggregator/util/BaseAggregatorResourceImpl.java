@@ -14,7 +14,6 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.impl.AdapterImpl;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceImpl;
 
 /** A resource implementation which maintains linking of objects */
@@ -38,6 +37,7 @@ public class BaseAggregatorResourceImpl extends XMIResourceImpl {
 							((LinkReceiver) receiver).linkSource((LinkSource) notification.getNotifier());
 						break;
 					case Notification.ADD:
+					case Notification.RESOLVE:
 						receiver = notification.getNewValue();
 						((LinkReceiver) receiver).linkSource((LinkSource) notification.getNotifier());
 						break;
@@ -64,9 +64,7 @@ public class BaseAggregatorResourceImpl extends XMIResourceImpl {
 		super.attached(eObject);
 
 		if(eObject instanceof LinkSource) {
-			LinkSource linkSource = eObject.eIsProxy()
-					? (LinkSource) EcoreUtil.resolve(eObject, this)
-					: (LinkSource) eObject;
+			LinkSource linkSource = (LinkSource) eObject;
 			LinkReceiver linkReceiver = linkSource.getReceiver();
 
 			if(linkReceiver != null)

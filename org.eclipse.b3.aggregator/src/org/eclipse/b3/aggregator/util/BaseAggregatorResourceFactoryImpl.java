@@ -12,13 +12,9 @@ import org.eclipse.emf.ecore.resource.impl.ResourceFactoryImpl;
 
 public class BaseAggregatorResourceFactoryImpl extends ResourceFactoryImpl {
 
-	public BaseAggregatorResourceFactoryImpl() {
-	}
-
 	@Override
 	public Resource createResource(URI uri) {
-		Resource result = new BaseAggregatorResourceImpl(uri);
-		return result;
+		return new BaseAggregatorResourceImpl(uri);
 	}
 
 }
