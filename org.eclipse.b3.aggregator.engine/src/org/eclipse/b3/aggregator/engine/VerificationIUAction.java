@@ -277,7 +277,7 @@ public class VerificationIUAction extends AbstractPublisherAction {
 	}
 
 	public String getRelativeEObjectURI(EObject eObject) {
-		return EcoreUtil.getURI(eObject).deresolve(eObject.eResource().getURI()).toString();
+		return EcoreUtil.getURI(eObject).deresolve(((EObject) builder.getAggregator()).eResource().getURI()).toString();
 	}
 
 	@Override
