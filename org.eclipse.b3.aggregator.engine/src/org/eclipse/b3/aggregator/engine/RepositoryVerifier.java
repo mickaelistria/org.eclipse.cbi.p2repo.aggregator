@@ -42,6 +42,8 @@ import org.eclipse.core.runtime.MultiStatus;
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.core.runtime.SubMonitor;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.equinox.internal.p2.director.Explanation;
 import org.eclipse.equinox.internal.p2.director.Explanation.HardRequirement;
 import org.eclipse.equinox.internal.p2.director.Explanation.MissingGreedyIU;
@@ -84,7 +86,9 @@ public class RepositoryVerifier extends BuilderPhase {
 
 		protected ArrayList<VerificationDiagnostic> verificationDiagnostics = new ArrayList<VerificationDiagnostic>();
 
-		public AnalyzedPlannerStatus(PlannerStatus plannerStatus) {
+		protected String message;
+
+		public AnalyzedPlannerStatus(Resource resource, PlannerStatus plannerStatus) {
 			this.plannerStatus = plannerStatus;
 
 			RequestStatus requestStatus = plannerStatus.getRequestStatus();
@@ -130,27 +134,103 @@ public class RepositoryVerifier extends BuilderPhase {
 					// just in case we failed to construct some dependency chain
 					dependencyChains.remove(null);
 
-					VerificationDiagnostic.Singleton.SharedData sharedData = new VerificationDiagnostic.Singleton.SharedData();
-					for(VerificationDiagnostic.DependencyLink dependencyChain : dependencyChains)
-						verificationDiagnostics.add(new VerificationDiagnostic.Singleton(dependencyChain, sharedData));
+					org.eclipse.emf.common.util.URI resourceURI = resource.getURI();
+					LinkedHashSet<org.eclipse.emf.common.util.URI> modelElementURISet = new LinkedHashSet<org.eclipse.emf.common.util.URI>(
+						dependencyChains.size());
+					StringBuilder messageBuilder = new StringBuilder(rootProblem.toString());
+
+					for(VerificationDiagnostic.DependencyLink dependencyChain : dependencyChains) {
+						VerificationDiagnostic.identifyDependencyChain(dependencyChain, resource, "\n", "  ");
+
+						modelElementURISet.add(dependencyChain.getModelElementURI().deresolve(resourceURI));
+
+						messageBuilder.append("\n").append(dependencyChain.getInstallableUnit().toString()).append(
+							" is required by:");
+
+						VerificationDiagnostic.DependencyLink parent = dependencyChain.getParent();
+						if(parent != null)
+							messageBuilder.append(parent.getIdentifier());
+					}
+
+					String message = messageBuilder.toString();
+
+					appendMessage(message);
+					LogUtils.error(message);
+
+					// just in case we could not find URI of a model element corresponding to some of the dependency chains
+					modelElementURISet.remove(null);
+
+					VerificationDiagnostic.Singleton[] relatedDiagnostics = new VerificationDiagnostic.Singleton[modelElementURISet.size()];
+					int i = 0;
+					for(org.eclipse.emf.common.util.URI modelElementURI : modelElementURISet) {
+						VerificationDiagnostic.Singleton singleton = new VerificationDiagnostic.Singleton(
+							rootProblem.toString(), modelElementURI, relatedDiagnostics);
+						relatedDiagnostics[i++] = singleton;
+						verificationDiagnostics.add(singleton);
+					}
 				}
 				else if(rootProblem instanceof MissingIU) {
 					MissingIU missingIU = ((MissingIU) rootProblem);
 					VerificationDiagnostic.DependencyLink dependencyChain = getDependencyChain(
 						missingIU.iu, links, dependencyChainsCache);
 
-					if(dependencyChain != null)
-						verificationDiagnostics.add(new VerificationDiagnostic.MissingIU(dependencyChain, missingIU.req));
+					if(dependencyChain != null) {
+						VerificationDiagnostic.identifyDependencyChain(dependencyChain, resource, "\n", "  ");
+						StringBuilder messageBuilder = new StringBuilder(rootProblem.toString());
+
+						messageBuilder.append("\n").append(missingIU.req.toString()).append(" is required by:");
+
+						messageBuilder.append(dependencyChain.getIdentifier()).append("\n");
+
+						String message = messageBuilder.toString();
+
+						appendMessage(message);
+						LogUtils.error(message);
+
+						org.eclipse.emf.common.util.URI modelElementURI = dependencyChain.getModelElementURI();
+
+						if(modelElementURI != null)
+							verificationDiagnostics.add(new VerificationDiagnostic(
+								rootProblem.toString(), dependencyChain.getModelElementURI().deresolve(
+									resource.getURI())));
+					}
 				}
 				else if(rootProblem instanceof MissingGreedyIU) {
 					MissingGreedyIU missingGreedyIU = ((MissingGreedyIU) rootProblem);
 					VerificationDiagnostic.DependencyLink dependencyChain = getDependencyChain(
 						missingGreedyIU.iu, links, dependencyChainsCache);
 
-					if(dependencyChain != null)
-						verificationDiagnostics.add(new VerificationDiagnostic.MissingIU(dependencyChain, null));
+					if(dependencyChain != null) {
+						VerificationDiagnostic.identifyDependencyChain(dependencyChain, resource, "\n", "  ");
+						StringBuilder messageBuilder = new StringBuilder(rootProblem.toString());
+
+						messageBuilder.append("\n").append(missingGreedyIU.iu.toString()).append(" is required by:");
+
+						VerificationDiagnostic.DependencyLink parent = dependencyChain.getParent();
+						if(parent != null)
+							messageBuilder.append(parent.getIdentifier());
+
+						String message = messageBuilder.toString();
+
+						appendMessage(message);
+						LogUtils.error(message);
+
+						org.eclipse.emf.common.util.URI modelElementURI = dependencyChain.getModelElementURI();
+
+						if(modelElementURI != null)
+							verificationDiagnostics.add(new VerificationDiagnostic(
+								rootProblem.toString(), dependencyChain.getModelElementURI().deresolve(
+									resource.getURI())));
+					}
 				}
 			}
+		}
+
+		protected void appendMessage(String message) {
+			if(this.message == null)
+				this.message = message;
+			else
+				this.message += '\n' + message;
 		}
 
 		public IStatus[] getChildren() {
@@ -218,7 +298,9 @@ public class RepositoryVerifier extends BuilderPhase {
 		}
 
 		public String getMessage() {
-			return plannerStatus.getMessage();
+			return message == null
+					? plannerStatus.getMessage()
+					: message;
 		}
 
 		public PlannerStatus getPlannerStatus() {
@@ -588,7 +670,8 @@ public class RepositoryVerifier extends BuilderPhase {
 					if(status.getSeverity() == IStatus.ERROR) {
 						sendEmails((PlannerStatus) status);
 						LogUtils.info("Done. Took %s", TimeUtils.getFormattedDuration(start)); //$NON-NLS-1$
-						throw new CoreException(new AnalyzedPlannerStatus((PlannerStatus) status));
+						throw new CoreException(new AnalyzedPlannerStatus(
+							((EObject) aggregator).eResource(), (PlannerStatus) status));
 					}
 
 					boolean hadPartials = false;

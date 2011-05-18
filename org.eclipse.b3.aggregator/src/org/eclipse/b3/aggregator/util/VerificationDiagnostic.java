@@ -1,7 +1,7 @@
 package org.eclipse.b3.aggregator.util;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.Iterator;
+import java.util.LinkedList;
 
 import org.eclipse.b3.aggregator.Contribution;
 import org.eclipse.b3.aggregator.IdentificationProvider;
@@ -12,269 +12,64 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.equinox.p2.metadata.IInstallableUnit;
-import org.eclipse.equinox.p2.metadata.IRequirement;
-import org.eclipse.osgi.util.NLS;
 
-public abstract class VerificationDiagnostic extends ResourceDiagnosticImpl {
-
-	private static class DependencyChainIdentifier {
-
-		private static final String IDENTIFICATION_SEPEATOR = "/";
-
-		private CharSequence identification = new StringBuilder();
-
-		private URI modelElementURI;
-
-		private StringBuilder reverser = new StringBuilder();
-
-		public String getIdentification(int stripLength) {
-			if(reverser != null)
-				throw new IllegalStateException("The identification has not been sealed yet.");
-
-			return identification.subSequence(0, identification.length() - stripLength).toString();
-		}
-
-		public URI getModelElementURI() {
-			return modelElementURI;
-		}
-
-		protected StringBuilder getReverser() {
-			if(reverser == null)
-				throw new IllegalStateException("The identification has already been sealed.");
-
-			reverser.setLength(0);
-			return reverser;
-		}
-
-		public int length() {
-			return identification.length();
-		}
-
-		public boolean prepend(DependencyLink link, EObject eObject) {
-			if(link != null) {
-				String identification = link.getIdentification();
-
-				if(identification != null) { // if the link already has an identifier then we can finish the current identification right away
-					if(length() == 0) { // reuse the identification directly if our own is empty
-						this.identification = identification;
-						modelElementURI = link.getModelElementURI();
-						reverser = null;
-					}
-					else { // prepend the identification to our own
-						prepend(identification);
-						seal(link.getModelElementURI());
-					}
-					return true;
-				}
-
-				link.setIdentifier(this);
-				if(eObject == null) {
-					prepend("InstallableUnit", link.getInstallableUnit().toString());
-					return false;
-				} // else fall through
-			}
-
-			prepend(eObject.eClass().getName(), eObject instanceof IdentificationProvider
-					? ((IdentificationProvider) eObject).getIdentification()
-					: eObject.toString());
-			return false;
-		}
-
-		protected void prepend(String value) {
-			StringBuilder reverser = getReverser();
-
-			reverser.append(value);
-
-			prepend(reverser);
-		}
-
-		public void prepend(String type, String instance) {
-			StringBuilder reverser = getReverser();
-
-			reverser.append(type).append('(').append(instance).append(')');
-
-			prepend(reverser);
-		}
-
-		protected void prepend(StringBuilder reverser) {
-			((StringBuilder) identification).append(reverser.reverse()).append(IDENTIFICATION_SEPEATOR);
-		}
-
-		public void seal(URI modelElementURI) {
-			getReverser(); // check that the identification is not sealed yet
-			identification = ((StringBuilder) identification).reverse().substring(IDENTIFICATION_SEPEATOR.length());
-			this.modelElementURI = modelElementURI;
-			reverser = null;
-		}
-
-	}
+public class VerificationDiagnostic extends ResourceDiagnosticImpl {
 
 	public static class DependencyLink {
 
-		private IInstallableUnit installableUnit;
+		IInstallableUnit installableUnit;
 
-		private DependencyLink parent;
+		DependencyLink parent;
 
-		private DependencyChainIdentifier identifier;
+		URI modelElementURI;
 
-		private int downstreamLinksLabelLength;
+		String identifier;
+
+		int level = -1;
 
 		public DependencyLink(IInstallableUnit value, DependencyLink parent) {
 			this.installableUnit = value;
 			this.parent = parent;
 		}
 
-		public String getIdentification() {
-			return identifier != null
-					? identifier.getIdentification(downstreamLinksLabelLength)
-					: null;
+		public String getIdentifier() {
+			return identifier;
 		}
 
 		public IInstallableUnit getInstallableUnit() {
 			return installableUnit;
 		}
 
+		public int getLevel() {
+			return level;
+		}
+
 		public URI getModelElementURI() {
-			return identifier != null
-					? identifier.getModelElementURI()
-					: null;
+			return modelElementURI;
 		}
 
 		public DependencyLink getParent() {
 			return parent;
 		}
 
-		public void setIdentifier(DependencyChainIdentifier identifier) {
-			this.identifier = identifier;
-			this.downstreamLinksLabelLength = identifier.length();
-		}
-
-	}
-
-	public static class MissingIU extends VerificationDiagnostic {
-
-		protected IRequirement requirement;
-
-		public MissingIU(DependencyLink missingIU, IRequirement requirement) {
-			super(missingIU);
-			this.requirement = requirement;
-		}
-
 		@Override
-		public String setup() {
-			String location = super.setup();
-
-			message = (requirement != null)
-					? NLS.bind(
-						org.eclipse.equinox.internal.p2.director.Messages.Explanation_missingRequired,
-						problemIU.getIdentification(), requirement)
-					: NLS.bind(
-						org.eclipse.equinox.internal.p2.director.Messages.Explanation_missingNonGreedyRequired,
-						problemIU.getIdentification());
-
-			return location;
+		public String toString() {
+			return identifier;
 		}
 
 	}
 
 	public static class Singleton extends VerificationDiagnostic {
 
-		/** A helper class to hold data shared among related instances of {@link Singleton}. */
-		public static class SharedData {
+		private Singleton[] relatedDiagnostics;
 
-			protected static final String CONFLICTING_IUS_SEPEATOR = ", ";
-
-			/** map of unique identified (matched to model nodes) diagnostics */
-			protected Map<URI, Singleton> identifiedDiagnosticMap = new HashMap<URI, Singleton>();
-
-			/** the message shared by all related diagnostics */
-			protected CharSequence message;
-
-			{
-				StringBuilder messageBuilder = new StringBuilder();
-
-				// the first character of the StringBuilder is used as a counter of the related diagnostics
-				message = messageBuilder.append((char) 0);
-			}
-
-			protected void buildMessage(String identification) {
-				StringBuilder messageBuilder = getMessageBuilder();
-				int diagnosticsLeftToIdentify = messageBuilder.charAt(0) - 1;
-
-				messageBuilder.append(CONFLICTING_IUS_SEPEATOR).append(identification);
-
-				if(diagnosticsLeftToIdentify == 0) { // seal the shared data if we do not expect any more diagnostics
-					message = NLS.bind(
-						org.eclipse.equinox.internal.p2.director.Messages.Explanation_singleton,
-						messageBuilder.substring(1 + CONFLICTING_IUS_SEPEATOR.length()));
-				}
-				else
-					messageBuilder.setCharAt(0, (char) diagnosticsLeftToIdentify);
-			}
-
-			protected String getMessage() {
-				if(!(message instanceof String))
-					throw new IllegalStateException("The shared data has not been sealed yet.");
-
-				return (String) message;
-			}
-
-			protected StringBuilder getMessageBuilder() {
-				if(!(message instanceof StringBuilder))
-					throw new IllegalStateException("The shared data has already been sealed.");
-
-				return (StringBuilder) message;
-			}
-
-			protected Map<URI, Singleton> getRelatedDiagnosticMap() {
-				return identifiedDiagnosticMap;
-			}
-
-			protected boolean identifyDiagnostic(Singleton singleton) {
-				buildMessage(singleton.problemIU.getIdentification());
-
-				URI locationURI = singleton.getLocationURI();
-
-				// don't create more than one problem marker for this Singleton problem and the locationURI combination
-				if(identifiedDiagnosticMap.containsKey(locationURI))
-					return false;
-
-				identifiedDiagnosticMap.put(locationURI, singleton);
-				return true;
-			}
-
-			protected SharedData registerDiagnostic(Singleton singleton) {
-				StringBuilder messageBuilder = getMessageBuilder();
-				int diagnosticsLeftToIdentify = messageBuilder.charAt(0) + 1;
-
-				messageBuilder.setCharAt(0, (char) diagnosticsLeftToIdentify);
-
-				return this;
-			}
-
+		public Singleton(String message, URI locationURI, Singleton[] relatedDiagnostics) {
+			super(message, locationURI);
+			this.relatedDiagnostics = relatedDiagnostics;
 		}
 
-		protected SharedData sharedData;
-
-		public Singleton(DependencyLink conflictingIU, SharedData sharedData) {
-			super(conflictingIU);
-			this.sharedData = sharedData.registerDiagnostic(this);
-		}
-
-		@Override
-		public String getMessage() {
-			if(message == null)
-				message = sharedData.getMessage();
-			return message;
-		}
-
-		@Override
-		public String setup() {
-			String location = super.setup();
-
-			return sharedData.identifyDiagnostic(this)
-					? location
-					: null;
+		public Singleton[] getRelatedDiagnostics() {
+			return relatedDiagnostics;
 		}
 
 	}
@@ -283,114 +78,188 @@ public abstract class VerificationDiagnostic extends ResourceDiagnosticImpl {
 
 	public static final String PROP_AGGREGATOR_MODEL_ELEMENT_URI = "org.eclipse.b3.aggregator.model.element.URI"; //$NON-NLS-1$
 
-	protected DependencyLink problemIU;
-
-	public VerificationDiagnostic(DependencyLink problemIU) {
-		super(null, null);
-		this.problemIU = problemIU;
-	}
-
-	protected EObject getCorrespondingModelObject(Resource resource, DependencyLink link) {
+	public static EObject getCorrespondingModelObject(Resource resource, DependencyLink link) {
 		String relativeEObjectURI = link.getInstallableUnit().getProperty(PROP_AGGREGATOR_MODEL_ELEMENT_URI);
 		URI absoluteEObjectURI = URI.createURI(relativeEObjectURI).resolve(resource.getURI());
 
 		return resource.getResourceSet().getEObject(absoluteEObjectURI, true);
 	}
 
-	public URI getLocationURI() {
-		return problemIU.getModelElementURI();
+	public static String getIdentifierSegment(String type, String value) {
+		return type + '(' + value + ')';
 	}
 
-	protected void identifyDependencyChain(Resource resource, DependencyLink dependencyChain) {
-		DependencyChainIdentifier chainIdentifier = new DependencyChainIdentifier();
+	/** Build and set identifiers of all links in the dependency chain. */
+	public static void identifyDependencyChain(DependencyLink dependencyChain, Resource resource, String separator,
+			String indent) {
+		LinkedList<Object> identifierSegmentList = new LinkedList<Object>();
+		URI modelElementURI;
+		int level;
+		StringBuilder identifierBuilder = new StringBuilder();
 
-		DependencyLink currentLink = problemIU;
-		DependencyLink parentLink = currentLink.getParent();
-		EObject modelObject;
+		// build a list of segments of the identifier
+		BUILD_IDENTIFIER_SEGMENT_LIST: {
+			DependencyLink currentLink = dependencyChain;
+			DependencyLink parentLink = currentLink.getParent();
+			EObject modelObject;
 
-		// build the path of dependencies up to a dependency which corresponds to a model element
-		if(parentLink != null) {
-			LINK_LOOP: while(true) {
-				DependencyLink previousLink = currentLink;
+			if(parentLink != null) {
+				LINK_LOOP: while(true) {
+					DependencyLink previousLink = currentLink;
 
-				currentLink = parentLink;
-				parentLink = currentLink.getParent();
+					currentLink = parentLink;
+					parentLink = currentLink.getParent();
 
-				if(parentLink == null) { // the current link is the head of the chain
-					// the head of the chain must have the model URI information attached
-					modelObject = getCorrespondingModelObject(resource, currentLink);
+					if(parentLink == null) { // the current link is the head of the chain
+						// the head of the chain must have the model URI information attached
+						modelObject = getCorrespondingModelObject(resource, currentLink);
 
-					// try to locate a more specific model object corresponding to the currentIU
-					if(modelObject instanceof MappedRepository) {
-						IInstallableUnit previousIU = previousLink.getInstallableUnit();
+						// try to locate a more specific model object corresponding to the currentLink
+						if(modelObject instanceof MappedRepository) {
+							IInstallableUnit previousIU = previousLink.getInstallableUnit();
 
-						for(MappedUnit mu : ((MappedRepository) modelObject).getUnits(true)) {
-							if(mu.getRequirement().isMatch(previousIU)) {
-								currentLink = previousLink;
-								modelObject = (EObject) mu;
-								// we don't want to prepend the current link to the chainIdentifier as the corresponding model node will be prepended
-								// instead
-								break LINK_LOOP;
+							for(MappedUnit mu : ((MappedRepository) modelObject).getUnits(true)) {
+								if(mu.getRequirement().isMatch(previousIU)) {
+									currentLink = previousLink;
+									modelObject = (EObject) mu;
+									// we don't prepend the current link, we will rather prepend its corresponding model node
+									break LINK_LOOP;
+								}
 							}
 						}
+
+						if((level = prependIdentifierSegment(identifierSegmentList, previousLink, null)) >= 0) {
+							// the link had been already identified, which allows us to short circuit the current identification
+							modelElementURI = previousLink.getModelElementURI();
+							identifierBuilder.append(previousLink.getIdentifier());
+							break BUILD_IDENTIFIER_SEGMENT_LIST;
+						}
+
+						// we've reached the head of the chain
+						break LINK_LOOP;
 					}
 
-					if(chainIdentifier.prepend(previousLink, null)) // if the link already has an identifier then we are done
-						return;
+					if((level = prependIdentifierSegment(identifierSegmentList, previousLink, null)) >= 0) {
+						// the link had been already identified, which allows us to short circuit the current identification
+						modelElementURI = previousLink.getModelElementURI();
+						identifierBuilder.append(previousLink.getIdentifier());
+						break BUILD_IDENTIFIER_SEGMENT_LIST;
+					}
+				}
+			}
+			else
+				// the chain consists of just one link - which is its head (which must have the model URI information attached)
+				modelObject = getCorrespondingModelObject(resource, currentLink);
 
-					// we've reached the head of the chain
+			if((level = prependIdentifierSegment(identifierSegmentList, currentLink, modelObject)) >= 0) {
+				// the link had been already identified, which allows us to short circuit the current identification
+				modelElementURI = currentLink.getModelElementURI();
+				identifierBuilder.append(currentLink.getIdentifier());
+				break BUILD_IDENTIFIER_SEGMENT_LIST;
+			}
+
+			// build a path of model elements up to a Contribution (or root) node
+			while(true) {
+				if(modelObject instanceof Contribution) {
+					modelElementURI = EcoreUtil.getURI(modelObject);
 					break;
 				}
 
-				if(chainIdentifier.prepend(previousLink, null)) // if the link already has an identifier then we are done
-					return;
+				modelObject = modelObject.eContainer();
+
+				if(modelObject == null) {
+					modelElementURI = null;
+					break;
+				}
+
+				prependIdentifierSegment(identifierSegmentList, null, modelObject);
 			}
 		}
-		else
-			// the chain consists of just one link - which is its head (which must have the model URI information attached)
-			modelObject = getCorrespondingModelObject(resource, currentLink);
 
-		if(chainIdentifier.prepend(currentLink, modelObject)) // if the link already has an identifier then we are done
-			return;
+		// build the identifier string
+		String identifier;
+		{
+			Iterator<Object> segmentIterator = identifierSegmentList.iterator();
 
-		// build a path of model elements up to a Contribution (or root) node
-		URI modelElementURI;
-		while(true) {
-			if(modelObject instanceof Contribution) {
-				modelElementURI = EcoreUtil.getURI(modelObject);
-				break;
+			while(segmentIterator.hasNext()) {
+				++level;
+
+				identifierBuilder.append(separator);
+				for(int i = 0; i <= level; ++i)
+					identifierBuilder.append(indent);
+
+				identifierBuilder.append(segmentIterator.next().toString());
 			}
 
-			modelObject = modelObject.eContainer();
-
-			if(modelObject == null) {
-				modelElementURI = null;
-				break;
-			}
-
-			chainIdentifier.prepend(null, modelObject);
+			identifier = identifierBuilder.toString();
 		}
 
-		// finish the chain identification
-		chainIdentifier.seal(modelElementURI);
+		// set the identifiers (and other info) in the dependency chain links
+		int length = 0;
+
+		while(!identifierSegmentList.isEmpty()) {
+			Object segment = identifierSegmentList.removeLast();
+			if(!(segment instanceof DependencyLink))
+				break;
+
+			DependencyLink link = (DependencyLink) segment;
+			if(link.level >= 0)
+				break;
+
+			identifier = identifier.substring(0, identifier.length() - length);
+			length = link.identifier.length() + separator.length() + indent.length() * (level + 1);
+
+			link.identifier = identifier;
+			link.level = level--;
+			link.modelElementURI = modelElementURI;
+		}
 	}
 
-	public boolean resolve(Resource resource) {
-		if(problemIU.getIdentification() == null) {
-			identifyDependencyChain(resource, problemIU);
+	protected static int prependIdentifierSegment(LinkedList<Object> identifierSegmentList, DependencyLink link,
+			EObject eObject) {
+		if(link != null) {
+			String identifier = link.getIdentifier();
 
-			location = setup();
+			if(identifier != null) { // if the link already has an identifier then we can finish the current identification right away
+				identifierSegmentList.addFirst(identifier);
+				return link.level;
+			}
+
+			// we temporarily store the segment text in the dependency link, it will be later replaced by the full identifier string
+			link.identifier = (eObject == null)
+					? getIdentifierSegment("InstallableUnit", link.getInstallableUnit().toString())
+					: getIdentifierSegment(eObject.eClass().getName(), (eObject instanceof IdentificationProvider)
+							? ((IdentificationProvider) eObject).getIdentification()
+							: eObject.toString());
+
+			identifierSegmentList.addFirst(link);
+			return -1;
 		}
 
-		return location != null;
+		identifierSegmentList.addFirst(getIdentifierSegment(
+			eObject.eClass().getName(), (eObject instanceof IdentificationProvider)
+					? ((IdentificationProvider) eObject).getIdentification()
+					: eObject.toString()));
+		return -1;
 	}
 
-	public String setup() {
-		URI modelElementURI = problemIU.getModelElementURI();
+	protected URI locationURI;
 
-		return modelElementURI != null
-				? modelElementURI.toString()
-				: null;
+	public VerificationDiagnostic(String message, URI locationURI) {
+		super(message, locationURI.toString());
+		this.locationURI = locationURI;
+	}
+
+	public URI getLocationURI() {
+		return locationURI;
+	}
+
+	public void resolveLocation(URI base) {
+		URI newLocationURI = locationURI.resolve(base);
+		if(newLocationURI != locationURI) {
+			location = newLocationURI.toString();
+			locationURI = newLocationURI;
+		}
 	}
 
 }
