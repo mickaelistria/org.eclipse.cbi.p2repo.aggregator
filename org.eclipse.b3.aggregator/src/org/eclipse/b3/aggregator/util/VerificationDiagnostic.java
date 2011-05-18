@@ -54,7 +54,9 @@ public class VerificationDiagnostic extends ResourceDiagnosticImpl {
 
 		@Override
 		public String toString() {
-			return identifier;
+			return identifier == null && installableUnit != null
+					? installableUnit.toString()
+					: identifier;
 		}
 
 	}
@@ -221,7 +223,6 @@ public class VerificationDiagnostic extends ResourceDiagnosticImpl {
 			String identifier = link.getIdentifier();
 
 			if(identifier != null) { // if the link already has an identifier then we can finish the current identification right away
-				identifierSegmentList.addFirst(identifier);
 				return link.level;
 			}
 

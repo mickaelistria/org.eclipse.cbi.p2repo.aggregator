@@ -103,15 +103,20 @@ public class RepositoryVerifier extends BuilderPhase {
 			LinkedHashSet<Explanation> rootProblems = new LinkedHashSet<Explanation>();
 
 			// The map of dependency chain explanations
-			HashMap<IInstallableUnit, IRequirement> links = new HashMap<IInstallableUnit, IRequirement>();
+			HashMap<IInstallableUnit, HashSet<IRequirement>> links = new HashMap<IInstallableUnit, HashSet<IRequirement>>();
 
 			for(Explanation explanation : explanations) {
 				if(explanation instanceof HardRequirement) {
 					// This represents one link in the chain of dependencies from the root requirement
 					// (the verification IU) to the conflicting/missing IU
 					HardRequirement link = (HardRequirement) explanation;
+					HashSet<IRequirement> requirementSet = links.get(link.iu);
+					if(requirementSet == null) {
+						requirementSet = new HashSet<IRequirement>();
+						links.put(link.iu, requirementSet);
+					}
 
-					links.put(link.iu, link.req);
+					requirementSet.add(link.req);
 				}
 				else if(explanation instanceof MissingIU || explanation instanceof MissingGreedyIU ||
 						explanation instanceof Singleton)
@@ -255,7 +260,7 @@ public class RepositoryVerifier extends BuilderPhase {
 		 *         if no such IU was found
 		 */
 		protected VerificationDiagnostic.DependencyLink getDependencyChain(IInstallableUnit iu,
-				HashMap<IInstallableUnit, IRequirement> links,
+				HashMap<IInstallableUnit, HashSet<IRequirement>> links,
 				HashMap<IInstallableUnit, VerificationDiagnostic.DependencyLink> dependencyChainsCache) {
 			if(dependencyChainsCache.containsKey(iu))
 				return dependencyChainsCache.get(iu); // may return null in case of a dependency loop
@@ -275,12 +280,14 @@ public class RepositoryVerifier extends BuilderPhase {
 
 				// walk the dependency chain up and in an attempt to build a dependency chain from the given IU to an IU with the model element
 				// URI information attached
-				for(Entry<IInstallableUnit, IRequirement> link : links.entrySet()) {
-					if(link.getValue().isMatch(iu)) {
-						lastLink = getDependencyChain(link.getKey(), links, dependencyChainsCache);
-						if(lastLink != null) {
-							lastLink = new VerificationDiagnostic.DependencyLink(iu, lastLink);
-							break GET_DEPENDENCY_CHAIN;
+				for(Entry<IInstallableUnit, HashSet<IRequirement>> link : links.entrySet()) {
+					for(IRequirement requirement : link.getValue()) {
+						if(requirement.isMatch(iu)) {
+							lastLink = getDependencyChain(link.getKey(), links, dependencyChainsCache);
+							if(lastLink != null) {
+								lastLink = new VerificationDiagnostic.DependencyLink(iu, lastLink);
+								break GET_DEPENDENCY_CHAIN;
+							}
 						}
 					}
 				}

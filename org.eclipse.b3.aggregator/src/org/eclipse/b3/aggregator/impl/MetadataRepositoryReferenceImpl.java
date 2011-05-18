@@ -561,20 +561,31 @@ public class MetadataRepositoryReferenceImpl extends MinimalEObjectImpl.Containe
 		if(location == null)
 			return null;
 
-		{
-			// if the location happens to specify an absolute pathname,
-			// then use it as such
-			File locationFile = new File(location);
+		URI uri;
+		File locationFile = new File(location);
 
-			if(locationFile.isAbsolute())
-				return locationFile.toURI().toString();
+		// if the location happens to specify an absolute pathname (or a pathname starting at the root of the current drive on Windows), then
+		// use it as such
+		if(locationFile.isAbsolute() || location.startsWith(File.separator) || location.startsWith("/")) {
+			uri = URI.createURI(locationFile.toURI().toString());
+		}
+		else {
+			uri = URI.createURI(location, true);
+			if(!uri.isHierarchical()) { // try to resolve the location URI if not hierarchical
+				URI base = ((EObject) getAggregator()).eResource().getURI();
+				if(base != null)
+					uri = uri.resolve(base.trimSegments(1));
+			}
 		}
 
-		URI uri = URI.createURI(location, true);
-		if(!uri.isHierarchical()) { // try to resolve the location URI if not hierarchical
-			URI base = ((EObject) getAggregator()).eResource().getURI();
-			if(base != null)
-				uri = uri.resolve(base.trimSegments(1));
+		// strip any trailing empty segments if there is at least one non-empty segment preceding them
+		String[] uriSegments = uri.segments();
+		for(int i = uriSegments.length; i > 0;) {
+			String segment = uriSegments[--i];
+			if(segment.length() != 0) {
+				uri = uri.trimSegments(uriSegments.length - i - 1);
+				break;
+			}
 		}
 
 		return uri.toString();
