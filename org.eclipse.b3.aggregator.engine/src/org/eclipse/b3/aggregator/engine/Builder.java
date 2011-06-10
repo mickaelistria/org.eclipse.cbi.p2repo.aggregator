@@ -520,6 +520,17 @@ public class Builder extends ModelAbstractCommand {
 		return childrenSubdirectories;
 	}
 
+	public List<CompositeChild> getCompositeChildrenIncludingMain() {
+		List<CompositeChild> compositeChildren = aggregator.getCompositeChildren();
+		List<CompositeChild> compositeChildrenIncludingMain = new ArrayList<CompositeChild>(1 + compositeChildren.size());
+		// null compositeChild is the main (implicit) one
+		// note that it must come first otherwise some directories created during
+		// creation of compositeChildren will be deleted
+		compositeChildrenIncludingMain.add(null);
+		compositeChildrenIncludingMain.addAll(compositeChildren);
+		return compositeChildrenIncludingMain;
+	}
+
 	public String getCompositeChildSubdirectory(CompositeChild compositeChild) {
 		String safeName = getSafeCompositeChildName(compositeChild);
 		if(safeName == null)
@@ -618,7 +629,7 @@ public class Builder extends ModelAbstractCommand {
 	}
 
 	public URI getTargetCompositeURI() throws CoreException {
-		if(aggregator.getCompositeChilds().isEmpty())
+		if(aggregator.getCompositeChildren().isEmpty())
 			return null;
 		return createURI(new File(buildRoot, REPO_FOLDER_FINAL));
 	}
@@ -832,9 +843,9 @@ public class Builder extends ModelAbstractCommand {
 					}
 				}
 
-				EList<CompositeChild> compositeChilds = aggregator.getCompositeChilds();
-				if(compositeChilds.size() > 0) {
-					// TODO handle custom categories spanning compositeChilds - for now we remove all but features contributed
+				EList<CompositeChild> compositeChildren = aggregator.getCompositeChildren();
+				if(compositeChildren.size() > 0) {
+					// TODO handle custom categories spanning compositeChildren - for now we remove all but features contributed
 					// by contributions which are part of the main (implicit) compositeChild from the custom categories
 					HashSet<MappedUnit> allMainCompositeChildFeatures = new HashSet<MappedUnit>();
 
@@ -999,27 +1010,21 @@ public class Builder extends ModelAbstractCommand {
 
 			loadAllMappedRepositories();
 
-			List<CompositeChild> compositeChilds = aggregator.getCompositeChilds();
-			List<CompositeChild> compositeChildsIncludingMain = new ArrayList<CompositeChild>(
-				1 + compositeChilds.size());
-			// null compositeChild is the main (implicit) one
-			// note that it must come first otherwise some directories created during
-			// creation of compositeChilds will be deleted
-			compositeChildsIncludingMain.add(null);
-			compositeChildsIncludingMain.addAll(compositeChilds);
-
+			List<CompositeChild> compositeChildrenIncludingMain = getCompositeChildrenIncludingMain();
 			runCompositeGenerator(MonitorUtils.subMonitor(monitor, 70));
 
 			// we generate the verification IUs in a separate loop
 			// to detect non p2 related problems early
-			for(CompositeChild compositeChild : compositeChildsIncludingMain)
+			for(CompositeChild compositeChild : compositeChildrenIncludingMain)
 				runVerificationIUGenerator(compositeChild, MonitorUtils.subMonitor(monitor, 15));
-			for(CompositeChild compositeChild : compositeChildsIncludingMain) {
-				runCategoriesRepoGenerator(compositeChild, MonitorUtils.subMonitor(monitor, 15));
+
+			for(CompositeChild compositeChild : compositeChildrenIncludingMain)
 				runRepositoryVerifier(compositeChild, MonitorUtils.subMonitor(monitor, 100));
-			}
+
+			runCategoriesRepoGenerator(MonitorUtils.subMonitor(monitor, 15));
+
 			if(action != ActionType.VERIFY) {
-				for(CompositeChild compositeChild : compositeChildsIncludingMain)
+				for(CompositeChild compositeChild : compositeChildrenIncludingMain)
 					runMetadataMirroring(compositeChild, MonitorUtils.subMonitor(monitor, 100));
 				runMirroring(MonitorUtils.subMonitor(monitor, 2000));
 			}
@@ -1060,9 +1065,8 @@ public class Builder extends ModelAbstractCommand {
 		return run(false, monitor);
 	}
 
-	private void runCategoriesRepoGenerator(CompositeChild compositeChild, IProgressMonitor monitor)
-			throws CoreException {
-		CategoriesGenerator generator = new CategoriesGenerator(this, compositeChild);
+	private void runCategoriesRepoGenerator(IProgressMonitor monitor) throws CoreException {
+		CategoriesGenerator generator = new CategoriesGenerator(this);
 		generator.run(monitor);
 	}
 

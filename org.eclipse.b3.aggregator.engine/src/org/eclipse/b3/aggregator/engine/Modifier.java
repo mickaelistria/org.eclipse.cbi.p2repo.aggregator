@@ -46,7 +46,7 @@ public class Modifier extends ModelAbstractCommand {
 	 */
 	@Override
 	public String getShortDescription() {
-		return "Modifies the compositeChilds model from the command line";
+		return "Modifies the compositeChildren model from the command line";
 	}
 
 	/*

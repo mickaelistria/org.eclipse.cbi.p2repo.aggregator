@@ -51,13 +51,13 @@ public interface AggregatorPackage extends EPackage {
 		EClass AGGREGATOR = eINSTANCE.getAggregator();
 
 		/**
-		 * The meta object literal for the '<em><b>Composite Childs</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Composite Children</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
-		EReference AGGREGATOR__COMPOSITE_CHILDS = eINSTANCE.getAggregator_CompositeChilds();
+		EReference AGGREGATOR__COMPOSITE_CHILDREN = eINSTANCE.getAggregator_CompositeChildren();
 
 		/**
 		 * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
@@ -845,13 +845,13 @@ public interface AggregatorPackage extends EPackage {
 		EReference AGGREGATOR_RESOURCE_VIEW__AGGREGATOR = eINSTANCE.getAggregatorResourceView_Aggregator();
 
 		/**
-		 * The meta object literal for the '<em><b>Composite Childs</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Composite Children</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
-		EReference AGGREGATOR_RESOURCE_VIEW__COMPOSITE_CHILDS = eINSTANCE.getAggregatorResourceView_CompositeChilds();
+		EReference AGGREGATOR_RESOURCE_VIEW__COMPOSITE_CHILDREN = eINSTANCE.getAggregatorResourceView_CompositeChildren();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.b3.aggregator.AggregationType <em>Aggregation Type</em>}' enum.
@@ -1226,14 +1226,14 @@ public interface AggregatorPackage extends EPackage {
 	int AGGREGATOR__INFOS = DESCRIPTION_PROVIDER_FEATURE_COUNT + 3;
 
 	/**
-	 * The feature id for the '<em><b>Composite Childs</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Composite Children</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int AGGREGATOR__COMPOSITE_CHILDS = DESCRIPTION_PROVIDER_FEATURE_COUNT + 4;
+	int AGGREGATOR__COMPOSITE_CHILDREN = DESCRIPTION_PROVIDER_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Configurations</b></em>' containment reference list.
@@ -3671,14 +3671,14 @@ public interface AggregatorPackage extends EPackage {
 	int AGGREGATOR_RESOURCE_VIEW__AGGREGATOR = 0;
 
 	/**
-	 * The feature id for the '<em><b>Composite Childs</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Composite Children</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int AGGREGATOR_RESOURCE_VIEW__COMPOSITE_CHILDS = 1;
+	int AGGREGATOR_RESOURCE_VIEW__COMPOSITE_CHILDREN = 1;
 
 	/**
 	 * The number of structural features of the '<em>Resource View</em>' class.
@@ -3816,17 +3816,17 @@ public interface AggregatorPackage extends EPackage {
 	EAttribute getAggregator_BuildRoot();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link org.eclipse.b3.aggregator.Aggregator#getCompositeChilds
-	 * <em>Composite Childs</em>}'.
+	 * Returns the meta object for the containment reference list '{@link org.eclipse.b3.aggregator.Aggregator#getCompositeChildren
+	 * <em>Composite Children</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
-	 * @return the meta object for the containment reference list '<em>Composite Childs</em>'.
-	 * @see org.eclipse.b3.aggregator.Aggregator#getCompositeChilds()
+	 * @return the meta object for the containment reference list '<em>Composite Children</em>'.
+	 * @see org.eclipse.b3.aggregator.Aggregator#getCompositeChildren()
 	 * @see #getAggregator()
 	 * @generated
 	 */
-	EReference getAggregator_CompositeChilds();
+	EReference getAggregator_CompositeChildren();
 
 	/**
 	 * Returns the meta object for the containment reference list ' {@link org.eclipse.b3.aggregator.Aggregator#getConfigurations
@@ -3990,17 +3990,17 @@ public interface AggregatorPackage extends EPackage {
 	EReference getAggregatorResourceView_Aggregator();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link org.eclipse.b3.aggregator.AggregatorResourceView#getCompositeChilds
-	 * <em>Composite Childs</em>}'.
+	 * Returns the meta object for the containment reference list '{@link org.eclipse.b3.aggregator.AggregatorResourceView#getCompositeChildren
+	 * <em>Composite Children</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
-	 * @return the meta object for the containment reference list '<em>Composite Childs</em>'.
-	 * @see org.eclipse.b3.aggregator.AggregatorResourceView#getCompositeChilds()
+	 * @return the meta object for the containment reference list '<em>Composite Children</em>'.
+	 * @see org.eclipse.b3.aggregator.AggregatorResourceView#getCompositeChildren()
 	 * @see #getAggregatorResourceView()
 	 * @generated
 	 */
-	EReference getAggregatorResourceView_CompositeChilds();
+	EReference getAggregatorResourceView_CompositeChildren();
 
 	/**
 	 * Returns the meta object for enum '{@link org.eclipse.b3.aggregator.Architecture <em>Architecture</em>}'.

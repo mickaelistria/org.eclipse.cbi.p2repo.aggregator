@@ -474,7 +474,7 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 
 		// Create classes and their features
 		aggregatorEClass = createEClass(AGGREGATOR);
-		createEReference(aggregatorEClass, AGGREGATOR__COMPOSITE_CHILDS);
+		createEReference(aggregatorEClass, AGGREGATOR__COMPOSITE_CHILDREN);
 		createEReference(aggregatorEClass, AGGREGATOR__CONFIGURATIONS);
 		createEReference(aggregatorEClass, AGGREGATOR__CONTRIBUTIONS);
 		createEReference(aggregatorEClass, AGGREGATOR__CUSTOM_CATEGORIES);
@@ -611,7 +611,7 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 
 		aggregatorResourceViewEClass = createEClass(AGGREGATOR_RESOURCE_VIEW);
 		createEReference(aggregatorResourceViewEClass, AGGREGATOR_RESOURCE_VIEW__AGGREGATOR);
-		createEReference(aggregatorResourceViewEClass, AGGREGATOR_RESOURCE_VIEW__COMPOSITE_CHILDS);
+		createEReference(aggregatorResourceViewEClass, AGGREGATOR_RESOURCE_VIEW__COMPOSITE_CHILDREN);
 
 		// Create enums
 		aggregationTypeEEnum = createEEnum(AGGREGATION_TYPE);
@@ -667,7 +667,7 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 	 * 
 	 * @generated
 	 */
-	public EReference getAggregator_CompositeChilds() {
+	public EReference getAggregator_CompositeChildren() {
 		return (EReference) aggregatorEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -805,7 +805,7 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 	 * 
 	 * @generated
 	 */
-	public EReference getAggregatorResourceView_CompositeChilds() {
+	public EReference getAggregatorResourceView_CompositeChildren() {
 		return (EReference) aggregatorResourceViewEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -1763,10 +1763,10 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 		initEClass(
 			aggregatorEClass, Aggregator.class, "Aggregator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(
-			getAggregator_CompositeChilds(), this.getCompositeChild(), null, "compositeChilds", null, 0, -1,
+			getAggregator_CompositeChildren(), this.getCompositeChild(), null, "compositeChildren", null, 0, -1,
 			Aggregator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES,
 			!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		getAggregator_CompositeChilds().getEKeys().add(this.getCompositeChild_Label());
+		getAggregator_CompositeChildren().getEKeys().add(this.getCompositeChild_Label());
 		initEReference(
 			getAggregator_Configurations(), this.getConfiguration(), null, "configurations", null, 1, -1,
 			Aggregator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES,
@@ -2247,10 +2247,10 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 			IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		getAggregatorResourceView_Aggregator().getEKeys().add(this.getAggregator_Label());
 		initEReference(
-			getAggregatorResourceView_CompositeChilds(), this.getCompositeChild(), null, "compositeChilds", null, 0,
+			getAggregatorResourceView_CompositeChildren(), this.getCompositeChild(), null, "compositeChildren", null, 0,
 			-1, AggregatorResourceView.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
 			IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		getAggregatorResourceView_CompositeChilds().getEKeys().add(this.getCompositeChild_Label());
+		getAggregatorResourceView_CompositeChildren().getEKeys().add(this.getCompositeChild_Label());
 
 		// Initialize enums and add enum literals
 		initEEnum(aggregationTypeEEnum, AggregationType.class, "AggregationType");

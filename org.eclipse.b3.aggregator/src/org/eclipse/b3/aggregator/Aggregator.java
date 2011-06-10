@@ -95,20 +95,20 @@ public interface Aggregator extends DescriptionProvider, StatusProvider, InfosPr
 	EList<Contribution> getCompositeChildContributions(CompositeChild compositeChild, boolean enabledOnly);
 
 	/**
-	 * Returns the value of the '<em><b>Composite Childs</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>Composite Children</b></em>' containment reference list.
 	 * The list contents are of type {@link org.eclipse.b3.aggregator.CompositeChild}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>CompositeChilds</em>' containment reference list isn't clear, there really should be more of a description here...
+	 * If the meaning of the '<em>CompositeChildren</em>' containment reference list isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
-	 * @return the value of the '<em>Composite Childs</em>' containment reference list.
-	 * @see org.eclipse.b3.aggregator.AggregatorPackage#getAggregator_CompositeChilds()
+	 * @return the value of the '<em>Composite Children</em>' containment reference list.
+	 * @see org.eclipse.b3.aggregator.AggregatorPackage#getAggregator_CompositeChildren()
 	 * @model containment="true" resolveProxies="true" keys="label"
 	 * @generated
 	 */
-	EList<CompositeChild> getCompositeChilds();
+	EList<CompositeChild> getCompositeChildren();
 
 	/**
 	 * Returns the value of the '<em><b>Configurations</b></em>' containment reference list.

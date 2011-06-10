@@ -68,17 +68,17 @@ public class AggregatorResourceViewItemProvider extends AggregatorItemProviderAd
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 
 		newChildDescriptors.add(createChildParameter(
-			AggregatorPackage.Literals.AGGREGATOR_RESOURCE_VIEW__COMPOSITE_CHILDS,
+			AggregatorPackage.Literals.AGGREGATOR_RESOURCE_VIEW__COMPOSITE_CHILDREN,
 			AggregatorFactory.eINSTANCE.createCompositeChild()));
 	}
 
 	@Override
 	protected Command createAddCommand(EditingDomain domain, EObject owner, EStructuralFeature feature,
 			Collection<?> collection, int index) {
-		if(feature == AggregatorPackage.Literals.AGGREGATOR_RESOURCE_VIEW__COMPOSITE_CHILDS) {
+		if(feature == AggregatorPackage.Literals.AGGREGATOR_RESOURCE_VIEW__COMPOSITE_CHILDREN) {
 			return super.createAddCommand(
 				domain, (EObject) ((AggregatorResourceViewImpl) owner).getAggregator(),
-				(EStructuralFeature) AggregatorPackage.Literals.AGGREGATOR__COMPOSITE_CHILDS, collection, index);
+				(EStructuralFeature) AggregatorPackage.Literals.AGGREGATOR__COMPOSITE_CHILDREN, collection, index);
 		}
 		return UnexecutableCommand.INSTANCE;
 	}
@@ -91,10 +91,10 @@ public class AggregatorResourceViewItemProvider extends AggregatorItemProviderAd
 	@Override
 	protected Command createCreateChildCommand(EditingDomain domain, EObject owner, EStructuralFeature feature,
 			Object value, int index, Collection<?> collection) {
-		if(feature == AggregatorPackage.Literals.AGGREGATOR_RESOURCE_VIEW__COMPOSITE_CHILDS) {
+		if(feature == AggregatorPackage.Literals.AGGREGATOR_RESOURCE_VIEW__COMPOSITE_CHILDREN) {
 			return super.createCreateChildCommand(
 				domain, (EObject) ((AggregatorResourceViewImpl) owner).getAggregator(),
-				AggregatorPackage.Literals.AGGREGATOR__COMPOSITE_CHILDS, value, index, collection);
+				AggregatorPackage.Literals.AGGREGATOR__COMPOSITE_CHILDREN, value, index, collection);
 		}
 		return UnexecutableCommand.INSTANCE;
 	}
@@ -120,10 +120,10 @@ public class AggregatorResourceViewItemProvider extends AggregatorItemProviderAd
 	@Override
 	protected Command createMoveCommand(EditingDomain domain, EObject owner, EStructuralFeature feature, Object value,
 			int index) {
-		if(feature == AggregatorPackage.Literals.AGGREGATOR_RESOURCE_VIEW__COMPOSITE_CHILDS) {
+		if(feature == AggregatorPackage.Literals.AGGREGATOR_RESOURCE_VIEW__COMPOSITE_CHILDREN) {
 			return super.createMoveCommand(
 				domain, (EObject) ((AggregatorResourceViewImpl) owner).getAggregator(),
-				(EStructuralFeature) AggregatorPackage.Literals.AGGREGATOR__COMPOSITE_CHILDS, value, index);
+				(EStructuralFeature) AggregatorPackage.Literals.AGGREGATOR__COMPOSITE_CHILDREN, value, index);
 		}
 		return UnexecutableCommand.INSTANCE;
 	}
@@ -131,10 +131,10 @@ public class AggregatorResourceViewItemProvider extends AggregatorItemProviderAd
 	@Override
 	protected Command createRemoveCommand(EditingDomain domain, EObject owner, EStructuralFeature feature,
 			Collection<?> collection) {
-		if(feature == AggregatorPackage.Literals.AGGREGATOR_RESOURCE_VIEW__COMPOSITE_CHILDS) {
+		if(feature == AggregatorPackage.Literals.AGGREGATOR_RESOURCE_VIEW__COMPOSITE_CHILDREN) {
 			return super.createRemoveCommand(
 				domain, (EObject) ((AggregatorResourceViewImpl) owner).getAggregator(),
-				(EStructuralFeature) AggregatorPackage.Literals.AGGREGATOR__COMPOSITE_CHILDS, collection);
+				(EStructuralFeature) AggregatorPackage.Literals.AGGREGATOR__COMPOSITE_CHILDREN, collection);
 		}
 		return UnexecutableCommand.INSTANCE;
 	}
@@ -142,20 +142,20 @@ public class AggregatorResourceViewItemProvider extends AggregatorItemProviderAd
 	@Override
 	protected Command createReplaceCommand(EditingDomain domain, EObject owner, EStructuralFeature feature,
 			EObject value, Collection<?> collection) {
-		if(feature == AggregatorPackage.Literals.AGGREGATOR_RESOURCE_VIEW__COMPOSITE_CHILDS) {
+		if(feature == AggregatorPackage.Literals.AGGREGATOR_RESOURCE_VIEW__COMPOSITE_CHILDREN) {
 			return super.createReplaceCommand(
 				domain, (EObject) ((AggregatorResourceViewImpl) owner).getAggregator(),
-				(EStructuralFeature) AggregatorPackage.Literals.AGGREGATOR__COMPOSITE_CHILDS, value, collection);
+				(EStructuralFeature) AggregatorPackage.Literals.AGGREGATOR__COMPOSITE_CHILDREN, value, collection);
 		}
 		return UnexecutableCommand.INSTANCE;
 	}
 
 	@Override
 	protected Command createSetCommand(EditingDomain domain, EObject owner, EStructuralFeature feature, Object value) {
-		if(feature == AggregatorPackage.Literals.AGGREGATOR_RESOURCE_VIEW__COMPOSITE_CHILDS) {
+		if(feature == AggregatorPackage.Literals.AGGREGATOR_RESOURCE_VIEW__COMPOSITE_CHILDREN) {
 			return super.createSetCommand(
 				domain, (EObject) ((AggregatorResourceViewImpl) owner).getAggregator(),
-				(EStructuralFeature) AggregatorPackage.Literals.AGGREGATOR__COMPOSITE_CHILDS, value);
+				(EStructuralFeature) AggregatorPackage.Literals.AGGREGATOR__COMPOSITE_CHILDREN, value);
 		}
 		return UnexecutableCommand.INSTANCE;
 	}
@@ -163,10 +163,10 @@ public class AggregatorResourceViewItemProvider extends AggregatorItemProviderAd
 	@Override
 	protected Command createSetCommand(EditingDomain domain, EObject owner, EStructuralFeature feature, Object value,
 			int index) {
-		if(feature == AggregatorPackage.Literals.AGGREGATOR_RESOURCE_VIEW__COMPOSITE_CHILDS) {
+		if(feature == AggregatorPackage.Literals.AGGREGATOR_RESOURCE_VIEW__COMPOSITE_CHILDREN) {
 			return super.createSetCommand(
 				domain, (EObject) ((AggregatorResourceViewImpl) owner).getAggregator(),
-				(EStructuralFeature) AggregatorPackage.Literals.AGGREGATOR__COMPOSITE_CHILDS, value, index);
+				(EStructuralFeature) AggregatorPackage.Literals.AGGREGATOR__COMPOSITE_CHILDREN, value, index);
 		}
 		return UnexecutableCommand.INSTANCE;
 	}
@@ -175,7 +175,7 @@ public class AggregatorResourceViewItemProvider extends AggregatorItemProviderAd
 	protected Object createWrapper(EObject object, EStructuralFeature feature, Object value, int index) {
 		// we need to wrap CompositeChild objects so that they appear to be children of the AggregatorResource instance
 		// that the object we adapt is a view of
-		if(feature == AggregatorPackage.Literals.AGGREGATOR_RESOURCE_VIEW__COMPOSITE_CHILDS) {
+		if(feature == AggregatorPackage.Literals.AGGREGATOR_RESOURCE_VIEW__COMPOSITE_CHILDREN) {
 			CompositeChildItemProvider compositeChildItemProvider = (CompositeChildItemProvider) getRootAdapterFactory().adapt(
 				value, IEditingDomainItemProvider.class);
 
@@ -228,7 +228,7 @@ public class AggregatorResourceViewItemProvider extends AggregatorItemProviderAd
 		if(childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(AggregatorPackage.Literals.AGGREGATOR_RESOURCE_VIEW__AGGREGATOR);
-			childrenFeatures.add(AggregatorPackage.Literals.AGGREGATOR_RESOURCE_VIEW__COMPOSITE_CHILDS);
+			childrenFeatures.add(AggregatorPackage.Literals.AGGREGATOR_RESOURCE_VIEW__COMPOSITE_CHILDREN);
 		}
 		return childrenFeatures;
 	}
@@ -295,7 +295,7 @@ public class AggregatorResourceViewItemProvider extends AggregatorItemProviderAd
 
 		switch(notification.getFeatureID(AggregatorResourceView.class)) {
 			case AggregatorPackage.AGGREGATOR_RESOURCE_VIEW__AGGREGATOR:
-			case AggregatorPackage.AGGREGATOR_RESOURCE_VIEW__COMPOSITE_CHILDS:
+			case AggregatorPackage.AGGREGATOR_RESOURCE_VIEW__COMPOSITE_CHILDREN:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}

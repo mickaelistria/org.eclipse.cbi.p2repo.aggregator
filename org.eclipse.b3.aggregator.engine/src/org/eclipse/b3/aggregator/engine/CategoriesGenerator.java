@@ -6,9 +6,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.eclipse.b3.aggregator.CompositeChild;
 import org.eclipse.b3.aggregator.Aggregator;
 import org.eclipse.b3.aggregator.Category;
+import org.eclipse.b3.aggregator.CompositeChild;
 import org.eclipse.b3.aggregator.Contribution;
 import org.eclipse.b3.aggregator.CustomCategory;
 import org.eclipse.b3.aggregator.ExclusionRule;
@@ -71,11 +71,8 @@ public class CategoriesGenerator extends BuilderPhase {
 		providedCaps.add(providedCap);
 	}
 
-	private final CompositeChild compositeChild;
-
-	public CategoriesGenerator(Builder builder, CompositeChild compositeChild) {
+	public CategoriesGenerator(Builder builder) {
 		super(builder);
-		this.compositeChild = compositeChild;
 	}
 
 	private InstallableUnit createCategoryIU(CustomCategory category) {
@@ -252,27 +249,28 @@ public class CategoriesGenerator extends BuilderPhase {
 
 	@Override
 	public void run(IProgressMonitor monitor) throws CoreException {
-		String taskLabel = Builder.getCompositeChildLabel(compositeChild);
-
 		long start = TimeUtils.getNow();
 		MonitorUtils.begin(monitor, 10);
-		String info = "Starting generation of categories for compositeChild: " + taskLabel;
+		String info = "Starting generation of categories";
 		MonitorUtils.subTask(monitor, info);
 		LogUtils.info(info);
 		try {
-			List<IInstallableUnit> results = new ArrayList<IInstallableUnit>();
+			List<IInstallableUnit> results = getBuilder().getCategoryIUs();
+			if(results == null)
+				results = new ArrayList<IInstallableUnit>();
+
 			Aggregator aggregator = getBuilder().getAggregator();
 
 			// only process custom categories in the main (implicit) compositeChild
-			if(compositeChild == null) {
-				for(CustomCategory category : aggregator.getCustomCategories())
-					results.add(createCategoryIU(category));
-			}
+			for(CustomCategory category : aggregator.getCustomCategories())
+				results.add(createCategoryIU(category));
 
 			MonitorUtils.worked(monitor, 5);
-			for(Contribution contrib : aggregator.getCompositeChildContributions(compositeChild, true))
-				for(MappedRepository repo : contrib.getRepositories(true))
-					results.addAll(getRepositoryCategories(repo));
+			List<CompositeChild> all = getBuilder().getCompositeChildrenIncludingMain();
+			for(CompositeChild child : all)
+				for(Contribution contrib : aggregator.getCompositeChildContributions(child, true))
+					for(MappedRepository repo : contrib.getRepositories(true))
+						results.addAll(getRepositoryCategories(repo));
 
 			results = normalizeCategories(results);
 			getBuilder().setCategoryIUs(results);
@@ -292,13 +290,16 @@ public class CategoriesGenerator extends BuilderPhase {
 	private void tossCategory(IInstallableUnit category) {
 		MetadataRepository parent = (MetadataRepository) ((EObject) category).eContainer();
 		Builder builder = getBuilder();
-		for(Contribution contrib : builder.getAggregator().getCompositeChildContributions(compositeChild, true)) {
-			for(MappedRepository mappedRepo : contrib.getRepositories(true)) {
-				if(mappedRepo.getMetadataRepository() == parent && builder.isMapVerbatim(mappedRepo)) {
-					LogUtils.debug(
-						"Excluding %s from verbatim mapping since category %s has been normalized",
-						mappedRepo.getLocation(), category.getProperty(IInstallableUnit.PROP_NAME));
-					builder.addMappingExclusion(mappedRepo);
+		List<CompositeChild> all = builder.getCompositeChildrenIncludingMain();
+		for(CompositeChild child : all) {
+			for(Contribution contrib : builder.getAggregator().getCompositeChildContributions(child, true)) {
+				for(MappedRepository mappedRepo : contrib.getRepositories(true)) {
+					if(mappedRepo.getMetadataRepository() == parent && builder.isMapVerbatim(mappedRepo)) {
+						LogUtils.debug(
+							"Excluding %s from verbatim mapping since category %s has been normalized",
+							mappedRepo.getLocation(), category.getProperty(IInstallableUnit.PROP_NAME));
+						builder.addMappingExclusion(mappedRepo);
+					}
 				}
 			}
 		}

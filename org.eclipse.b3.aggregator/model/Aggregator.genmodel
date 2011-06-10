@@ -80,7 +80,7 @@
       <genEnumLiterals ecoreEnumLiteral="Aggregator.ecore#//VersionMatch/ABOVE"/>
     </genEnums>
     <genClasses ecoreClass="Aggregator.ecore#//Aggregator" labelFeature="#//aggregator/Aggregator/label">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Aggregator.ecore#//Aggregator/compositeChilds"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Aggregator.ecore#//Aggregator/compositeChildren"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Aggregator.ecore#//Aggregator/configurations"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Aggregator.ecore#//Aggregator/contributions"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Aggregator.ecore#//Aggregator/customCategories"/>
@@ -278,7 +278,7 @@
     </genClasses>
     <genClasses image="false" ecoreClass="Aggregator.ecore#//AggregatorResourceView">
       <genFeatures property="None" children="true" createChild="false" ecoreFeature="ecore:EReference Aggregator.ecore#//AggregatorResourceView/aggregator"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Aggregator.ecore#//AggregatorResourceView/compositeChilds"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Aggregator.ecore#//AggregatorResourceView/compositeChildren"/>
     </genClasses>
     <nestedGenPackages prefix="P2view" resource="XML" disposableProviderFactory="true"
         multipleEditorPages="false" generateModelWizard="false" ecorePackage="Aggregator.ecore#//p2view">

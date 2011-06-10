@@ -106,7 +106,7 @@ public class DiagnosticMarkerResolutionGenerator implements IMarkerResolutionGen
 			Aggregator aggregator = ResourceUtils.getAggregator(resourceSet);
 			CompositeChild child = AggregatorFactory.eINSTANCE.createCompositeChild();
 			child.setLabel(contrib.getLabel());
-			aggregator.getCompositeChilds().add(child);
+			aggregator.getCompositeChildren().add(child);
 			return child;
 		}
 	};
@@ -235,7 +235,7 @@ public class DiagnosticMarkerResolutionGenerator implements IMarkerResolutionGen
 		Aggregator aggregator = ResourceUtils.getAggregator(resourceSet);
 		ArrayList<IMarkerResolution> resolutions = new ArrayList<IMarkerResolution>();
 		boolean hasSelf = false;
-		nextCompositeChild: for(CompositeChild child : aggregator.getCompositeChilds()) {
+		nextCompositeChild: for(CompositeChild child : aggregator.getCompositeChildren()) {
 			for(LinkSource link : child.getLinkedSources()) {
 				if(link == contrib)
 					continue nextCompositeChild;

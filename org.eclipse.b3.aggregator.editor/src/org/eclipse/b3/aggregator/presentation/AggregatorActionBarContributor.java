@@ -1137,11 +1137,11 @@ public class AggregatorActionBarContributor extends EditingDomainActionBarContri
 	}
 
 	protected Collection<? extends IAction> generateLinkCompositeChildActions(IStructuredSelection structuredSelection,
-			EList<CompositeChild> compositeChilds) {
+			EList<CompositeChild> compositeChildren) {
 		CompositeChild linkedCompositeChild = (CompositeChild) ((Contribution) structuredSelection.getFirstElement()).getReceiver();
-		ArrayList<IAction> linkActions = new ArrayList<IAction>(compositeChilds.size());
+		ArrayList<IAction> linkActions = new ArrayList<IAction>(compositeChildren.size());
 
-		for(CompositeChild compositeChild : compositeChilds) {
+		for(CompositeChild compositeChild : compositeChildren) {
 			if(linkedCompositeChild != compositeChild)
 				linkActions.add(new LinkCommand(
 					activeEditorPart, structuredSelection, compositeChild, compositeChild.getLabel(), true));
@@ -1151,12 +1151,12 @@ public class AggregatorActionBarContributor extends EditingDomainActionBarContri
 	}
 
 	protected Collection<? extends IAction> generateUnlinkCompositeChildActions(
-			IStructuredSelection structuredSelection, EList<CompositeChild> compositeChilds) {
+			IStructuredSelection structuredSelection, EList<CompositeChild> compositeChildren) {
 		LinkReceiver linkReceiver = ((Contribution) structuredSelection.getFirstElement()).getReceiver();
-		ArrayList<IAction> unlinkActions = new ArrayList<IAction>(compositeChilds.size());
+		ArrayList<IAction> unlinkActions = new ArrayList<IAction>(compositeChildren.size());
 
 		if(linkReceiver instanceof CompositeChild) {
-			for(CompositeChild compositeChild : compositeChilds) {
+			for(CompositeChild compositeChild : compositeChildren) {
 				if(compositeChild == linkReceiver)
 					unlinkActions.add(new LinkCommand(
 						activeEditorPart, structuredSelection, compositeChild, compositeChild.getLabel(), false));
@@ -1213,11 +1213,11 @@ public class AggregatorActionBarContributor extends EditingDomainActionBarContri
 					structuredSelection = new StructuredSelection(Collections.singletonList(unwrappedSelectedObject));
 			}
 
-			EList<CompositeChild> compositeChilds = getAggregator().getCompositeChilds();
+			EList<CompositeChild> compositeChildren = getAggregator().getCompositeChildren();
 
 			if(linkMenuManager != null) {
 				depopulateManager(linkMenuManager, linkCompositeChildActions);
-				linkCompositeChildActions = generateLinkCompositeChildActions(structuredSelection, compositeChilds);
+				linkCompositeChildActions = generateLinkCompositeChildActions(structuredSelection, compositeChildren);
 				if(!linkCompositeChildActions.isEmpty()) {
 					populateManager(linkMenuManager, linkCompositeChildActions, null);
 					linkMenuManager.update(true);
@@ -1227,7 +1227,7 @@ public class AggregatorActionBarContributor extends EditingDomainActionBarContri
 
 			if(unlinkMenuManager != null) {
 				depopulateManager(unlinkMenuManager, unlinkCompositeChildActions);
-				unlinkCompositeChildActions = generateUnlinkCompositeChildActions(structuredSelection, compositeChilds);
+				unlinkCompositeChildActions = generateUnlinkCompositeChildActions(structuredSelection, compositeChildren);
 				if(!unlinkCompositeChildActions.isEmpty()) {
 					populateManager(unlinkMenuManager, unlinkCompositeChildActions, null);
 					unlinkMenuManager.update(true);

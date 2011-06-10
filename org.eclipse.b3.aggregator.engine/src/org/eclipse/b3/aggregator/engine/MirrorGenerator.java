@@ -16,6 +16,7 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.Properties;
 import java.util.Set;
 
 import org.eclipse.b3.aggregator.Aggregator;
@@ -463,8 +464,8 @@ public class MirrorGenerator extends BuilderPhase {
 		File destination = new File(builder.getBuildRoot(), Builder.REPO_FOLDER_FINAL);
 		URI finalURI = Builder.createURI(destination);
 
-		File compositeChildDestination = new File(destination, Builder.REPO_FOLDER_AGGREGATE);
-		URI compositeChildURI = Builder.createURI(compositeChildDestination);
+		File aggregateDestination = new File(destination, Builder.REPO_FOLDER_AGGREGATE);
+		URI aggregateURI = Builder.createURI(aggregateDestination);
 
 		arMgr = P2Utils.getRepositoryManager(getBuilder().getProvisioningAgent(), IArtifactRepositoryManager.class);
 		arCache = null;
@@ -479,13 +480,13 @@ public class MirrorGenerator extends BuilderPhase {
 
 			subMon.setTaskName("Mirroring artifacts...");
 			MonitorUtils.subTask(subMon, "Initializing");
-			IFileArtifactRepository compositeChildAr = null;
+			IFileArtifactRepository aggregateAr = null;
 			if(!isCleanBuild) {
 				arMgr.removeRepository(finalURI);
-				arMgr.removeRepository(compositeChildURI);
-				compositeChildDestination.mkdirs();
+				arMgr.removeRepository(aggregateURI);
+				aggregateDestination.mkdirs();
 				for(File oldLocation : destination.listFiles()) {
-					if(oldLocation.equals(compositeChildDestination))
+					if(oldLocation.equals(aggregateDestination))
 						continue;
 					if(oldLocation.equals(new File(destination, "compositeArtifacts.jar"))) {
 						if(!oldLocation.delete())
@@ -493,23 +494,23 @@ public class MirrorGenerator extends BuilderPhase {
 						continue;
 					}
 
-					File newLocation = new File(compositeChildDestination, oldLocation.getName());
+					File newLocation = new File(aggregateDestination, oldLocation.getName());
 					if(!oldLocation.renameTo(newLocation))
 						throw ExceptionUtils.fromMessage(
 							"Unable to move %s to %s", oldLocation.getAbsolutePath(), newLocation.getAbsolutePath());
 				}
 				try {
-					compositeChildAr = (IFileArtifactRepository) arMgr.loadRepository(compositeChildURI, subMon.newChild(5));
+					aggregateAr = (IFileArtifactRepository) arMgr.loadRepository(aggregateURI, subMon.newChild(5));
 				}
 				catch(ProvisionException e) {
 				}
 			}
 
-			if(compositeChildAr == null) {
+			if(aggregateAr == null) {
 				Map<String, String> properties = new HashMap<String, String>();
 				properties.put(IRepository.PROP_COMPRESSED, Boolean.toString(true));
 				properties.put(Publisher.PUBLISH_PACK_FILES_AS_SIBLINGS, Boolean.toString(true));
-				compositeChildAr = (IFileArtifactRepository) arMgr.createRepository(compositeChildURI, aggregatorLabel +
+				aggregateAr = (IFileArtifactRepository) arMgr.createRepository(aggregateURI, aggregatorLabel +
 						" artifacts", Builder.SIMPLE_ARTIFACTS_TYPE, properties); //$NON-NLS-1$
 			}
 			MonitorUtils.worked(subMon, 5);
@@ -589,15 +590,15 @@ public class MirrorGenerator extends BuilderPhase {
 
 				mavenHelper = MavenManager.createMavenStructure(iusToMaven);
 
-				if(compositeChildAr instanceof SimpleArtifactRepository) {
-					SimpleArtifactRepository simpleAr = ((SimpleArtifactRepository) compositeChildAr);
+				if(aggregateAr instanceof SimpleArtifactRepository) {
+					SimpleArtifactRepository simpleAr = ((SimpleArtifactRepository) aggregateAr);
 					simpleAr.setRules(mavenHelper.getMappingRules());
-					simpleAr.initializeAfterLoad(compositeChildURI);
+					simpleAr.initializeAfterLoad(aggregateURI);
 				}
 				else
 					throw ExceptionUtils.fromMessage(
 						"Unexpected repository implementation: Expected %s, found %s",
-						SimpleArtifactRepository.class.getName(), compositeChildAr.getClass().getName());
+						SimpleArtifactRepository.class.getName(), aggregateAr.getClass().getName());
 
 				if(packedStrategy != PackedStrategy.SKIP && packedStrategy != PackedStrategy.UNPACK &&
 						packedStrategy != PackedStrategy.UNPACK_AS_SIBLING) {
@@ -686,12 +687,12 @@ public class MirrorGenerator extends BuilderPhase {
 			}
 
 			if(mappingRules.size() > 0 || referencedArtifacts.size() > 0) {
-				if(compositeChildAr instanceof SimpleArtifactRepository) {
-					SimpleArtifactRepository simpleAr = ((SimpleArtifactRepository) compositeChildAr);
+				if(aggregateAr instanceof SimpleArtifactRepository) {
+					SimpleArtifactRepository simpleAr = ((SimpleArtifactRepository) aggregateAr);
 					List<String[]> ruleList = new ArrayList<String[]>(Arrays.asList(simpleAr.getRules()));
 					ruleList.addAll(mappingRules);
 					simpleAr.setRules(ruleList.toArray(new String[ruleList.size()][]));
-					simpleAr.initializeAfterLoad(compositeChildURI);
+					simpleAr.initializeAfterLoad(aggregateURI);
 					for(IArtifactDescriptor ad : referencedArtifacts)
 						simpleAr.addDescriptor(ad);
 					simpleAr.save();
@@ -700,7 +701,7 @@ public class MirrorGenerator extends BuilderPhase {
 				else
 					throw ExceptionUtils.fromMessage(
 						"Unexpected repository implementation: Expected %s, found %s",
-						SimpleArtifactRepository.class.getName(), compositeChildAr.getClass().getName());
+						SimpleArtifactRepository.class.getName(), aggregateAr.getClass().getName());
 			}
 
 			for(Contribution contrib : allContribs) {
@@ -744,7 +745,7 @@ public class MirrorGenerator extends BuilderPhase {
 							keysToMirror,
 							tempAr,
 							childAr,
-							compositeChildAr,
+							aggregateAr,
 							packedStrategy,
 							errors,
 							contribMonitor.newChild(94, SubMonitor.SUPPRESS_BEGINTASK | SubMonitor.SUPPRESS_SETTASKNAME));
@@ -789,7 +790,7 @@ public class MirrorGenerator extends BuilderPhase {
 				Map<Contribution, List<String>> errors = new HashMap<Contribution, List<String>>();
 
 				MavenManager.saveMetadata(
-					org.eclipse.emf.common.util.URI.createFileURI(compositeChildDestination.getAbsolutePath()),
+					org.eclipse.emf.common.util.URI.createFileURI(aggregateDestination.getAbsolutePath()),
 					mavenHelper.getTop(), errors);
 
 				if(errors.size() > 0) {
@@ -801,7 +802,7 @@ public class MirrorGenerator extends BuilderPhase {
 				IMaven2Indexer indexer = IndexerUtils.getIndexer("nexus");
 				if(indexer != null) {
 					LogUtils.info("Adding maven index");
-					indexer.updateLocalIndex(new File(compositeChildDestination.getAbsolutePath()).toURI(), false);
+					indexer.updateLocalIndex(new File(aggregateDestination.getAbsolutePath()).toURI(), false);
 				}
 				MonitorUtils.worked(childMonitor, 10);
 				LogUtils.info("Done adding maven metadata");
@@ -809,19 +810,21 @@ public class MirrorGenerator extends BuilderPhase {
 
 			mdrMgr = P2Utils.getRepositoryManager(getBuilder().getProvisioningAgent(), IMetadataRepositoryManager.class);
 
-			Collection<String> compositeChildChildrenSubdirectories = builder.getChildrenSubdirectories();
+			Collection<String> aggregateChildrenSubdirectories = builder.getChildrenSubdirectories();
 
-			if(reposWithReferencedMetadata.isEmpty() && compositeChildChildrenSubdirectories.size() <= 1) {
+			// Initialize a p2Index property file. It might not be used.
+			Properties p2Index = new Properties();
+			if(reposWithReferencedMetadata.isEmpty() && aggregateChildrenSubdirectories.size() <= 1) {
 				// The compositeChildd meta-data can serve as the final repository so
 				// let's move it.
 				//
 				LogUtils.info("Making the compositeChildd metadata repository final at %s", finalURI);
-				File oldLocation = new File(compositeChildDestination, "content.jar");
+				File oldLocation = new File(aggregateDestination, "content.jar");
 				File newLocation = new File(destination, oldLocation.getName());
 				if(!oldLocation.renameTo(newLocation))
 					throw ExceptionUtils.fromMessage(
 						"Unable to move %s to %s", oldLocation.getAbsolutePath(), newLocation.getAbsolutePath());
-				mdrMgr.removeRepository(compositeChildURI);
+				mdrMgr.removeRepository(aggregateURI);
 			}
 			else {
 				// Set up the final composite repositories
@@ -833,12 +836,13 @@ public class MirrorGenerator extends BuilderPhase {
 				CompositeMetadataRepository compositeMdr = (CompositeMetadataRepository) mdrMgr.createRepository(
 					finalURI, aggregatorLabel, Builder.COMPOSITE_METADATA_TYPE, properties);
 
-				for(String compositeChildChildrenSubdirectory : compositeChildChildrenSubdirectories)
-					compositeMdr.addChild(URI.create(Builder.REPO_FOLDER_AGGREGATE + compositeChildChildrenSubdirectory));
+				for(String aggregateChildrenSubdirectory : aggregateChildrenSubdirectories)
+					compositeMdr.addChild(URI.create(Builder.REPO_FOLDER_AGGREGATE + aggregateChildrenSubdirectory));
 
 				for(MappedRepository referenced : reposWithReferencedMetadata)
 					compositeMdr.addChild(referenced.getMetadataRepository().getLocation());
 
+				p2Index.setProperty("metadata.repository.factory.order", "compositeContent.xml,!");
 				LogUtils.info("Done building final metadata composite");
 			}
 			MonitorUtils.worked(childMonitor, 10);
@@ -847,17 +851,17 @@ public class MirrorGenerator extends BuilderPhase {
 				// The aggregation can serve as the final repository.
 				//
 				LogUtils.info("Making the compositeChildd artifact repository final at %s", finalURI);
-				for(String name : compositeChildDestination.list()) {
-					if("content.jar".equals(name) || compositeChildChildrenSubdirectories.contains("/" + name))
+				for(String name : aggregateDestination.list()) {
+					if("content.jar".equals(name) || aggregateChildrenSubdirectories.contains("/" + name))
 						continue;
 
-					File oldLocation = new File(compositeChildDestination, name);
+					File oldLocation = new File(aggregateDestination, name);
 					File newLocation = new File(destination, name);
 					if(!oldLocation.renameTo(newLocation))
 						throw ExceptionUtils.fromMessage(
 							"Unable to move %s to %s", oldLocation.getAbsolutePath(), newLocation.getAbsolutePath());
 				}
-				arMgr.removeRepository(compositeChildURI);
+				arMgr.removeRepository(aggregateURI);
 			}
 			else {
 				// Set up the final composite repositories
@@ -873,23 +877,39 @@ public class MirrorGenerator extends BuilderPhase {
 					compositeAr.addChild(referenced.getMetadataRepository().getLocation());
 
 				if(compositeChilddArIsEmpty) {
-					arMgr.removeRepository(compositeChildURI);
-					File arFile = new File(compositeChildDestination, "artifacts.jar");
+					arMgr.removeRepository(aggregateURI);
+					File arFile = new File(aggregateDestination, "artifacts.jar");
 					if(!arFile.delete())
 						throw ExceptionUtils.fromMessage("Unable to remove %s", arFile.getAbsolutePath());
 				}
 				else
-					compositeAr.addChild(finalURI.relativize(compositeChildURI));
+					compositeAr.addChild(finalURI.relativize(aggregateURI));
 
+				p2Index.setProperty("artifact.repository.factory.order", "compositeArtifacts.xml,!");
 				LogUtils.info("Done building final artifact composite");
+			}
+			if(!p2Index.isEmpty()) {
+				p2Index.setProperty("version", "1");
+				File p2IndexFile = new File(destination, "p2.index");
+				OutputStream out = null;
+				try {
+					out = new BufferedOutputStream(new FileOutputStream(p2IndexFile));
+					p2Index.store(out, "p2 index file to speed things up");
+				}
+				catch(IOException e) {
+					LogUtils.error("Unable to create p2.index file", e);
+				}
+				finally {
+					IOUtils.close(out);
+				}
 			}
 
 			// Remove the aggregation in case it's now empty.
 			//
-			String[] content = compositeChildDestination.list();
+			String[] content = aggregateDestination.list();
 			if(content != null && content.length == 0)
-				if(!compositeChildDestination.delete())
-					throw ExceptionUtils.fromMessage("Unable to remove %s", compositeChildDestination.getAbsolutePath());
+				if(!aggregateDestination.delete())
+					throw ExceptionUtils.fromMessage("Unable to remove %s", aggregateDestination.getAbsolutePath());
 
 			MonitorUtils.done(childMonitor);
 		}

@@ -47,7 +47,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <li>{@link org.eclipse.b3.aggregator.impl.AggregatorImpl#getErrors <em>Errors</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.impl.AggregatorImpl#getWarnings <em>Warnings</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.impl.AggregatorImpl#getInfos <em>Infos</em>}</li>
- * <li>{@link org.eclipse.b3.aggregator.impl.AggregatorImpl#getCompositeChilds <em>Composite Childs</em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.impl.AggregatorImpl#getCompositeChildren <em>Composite Children</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.impl.AggregatorImpl#getConfigurations <em>Configurations</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.impl.AggregatorImpl#getContributions <em>Contributions</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.impl.AggregatorImpl#getCustomCategories <em>Custom Categories</em>}</li>
@@ -101,15 +101,15 @@ public class AggregatorImpl extends DescriptionProviderImpl implements Aggregato
 	protected EList<String> infos;
 
 	/**
-	 * The cached value of the '{@link #getCompositeChilds() <em>Composite Childs</em>}' containment reference list.
+	 * The cached value of the '{@link #getCompositeChildren() <em>Composite Children</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
-	 * @see #getCompositeChilds()
+	 * @see #getCompositeChildren()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<CompositeChild> compositeChilds;
+	protected EList<CompositeChild> compositeChildren;
 
 	/**
 	 * The cached value of the '{@link #getConfigurations() <em>Configurations</em>}' containment reference list. <!--
@@ -460,8 +460,8 @@ public class AggregatorImpl extends DescriptionProviderImpl implements Aggregato
 				return getWarnings();
 			case AggregatorPackage.AGGREGATOR__INFOS:
 				return getInfos();
-			case AggregatorPackage.AGGREGATOR__COMPOSITE_CHILDS:
-				return getCompositeChilds();
+			case AggregatorPackage.AGGREGATOR__COMPOSITE_CHILDREN:
+				return getCompositeChildren();
 			case AggregatorPackage.AGGREGATOR__CONFIGURATIONS:
 				return getConfigurations();
 			case AggregatorPackage.AGGREGATOR__CONTRIBUTIONS:
@@ -517,8 +517,8 @@ public class AggregatorImpl extends DescriptionProviderImpl implements Aggregato
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch(featureID) {
-			case AggregatorPackage.AGGREGATOR__COMPOSITE_CHILDS:
-				return ((InternalEList<?>) getCompositeChilds()).basicRemove(otherEnd, msgs);
+			case AggregatorPackage.AGGREGATOR__COMPOSITE_CHILDREN:
+				return ((InternalEList<?>) getCompositeChildren()).basicRemove(otherEnd, msgs);
 			case AggregatorPackage.AGGREGATOR__CONFIGURATIONS:
 				return ((InternalEList<?>) getConfigurations()).basicRemove(otherEnd, msgs);
 			case AggregatorPackage.AGGREGATOR__CONTRIBUTIONS:
@@ -551,8 +551,8 @@ public class AggregatorImpl extends DescriptionProviderImpl implements Aggregato
 				return warnings != null && !warnings.isEmpty();
 			case AggregatorPackage.AGGREGATOR__INFOS:
 				return infos != null && !infos.isEmpty();
-			case AggregatorPackage.AGGREGATOR__COMPOSITE_CHILDS:
-				return compositeChilds != null && !compositeChilds.isEmpty();
+			case AggregatorPackage.AGGREGATOR__COMPOSITE_CHILDREN:
+				return compositeChildren != null && !compositeChildren.isEmpty();
 			case AggregatorPackage.AGGREGATOR__CONFIGURATIONS:
 				return configurations != null && !configurations.isEmpty();
 			case AggregatorPackage.AGGREGATOR__CONTRIBUTIONS:
@@ -608,9 +608,9 @@ public class AggregatorImpl extends DescriptionProviderImpl implements Aggregato
 				getInfos().clear();
 				getInfos().addAll((Collection<? extends String>) newValue);
 				return;
-			case AggregatorPackage.AGGREGATOR__COMPOSITE_CHILDS:
-				getCompositeChilds().clear();
-				getCompositeChilds().addAll((Collection<? extends CompositeChild>) newValue);
+			case AggregatorPackage.AGGREGATOR__COMPOSITE_CHILDREN:
+				getCompositeChildren().clear();
+				getCompositeChildren().addAll((Collection<? extends CompositeChild>) newValue);
 				return;
 			case AggregatorPackage.AGGREGATOR__CONFIGURATIONS:
 				getConfigurations().clear();
@@ -688,8 +688,8 @@ public class AggregatorImpl extends DescriptionProviderImpl implements Aggregato
 			case AggregatorPackage.AGGREGATOR__INFOS:
 				getInfos().clear();
 				return;
-			case AggregatorPackage.AGGREGATOR__COMPOSITE_CHILDS:
-				getCompositeChilds().clear();
+			case AggregatorPackage.AGGREGATOR__COMPOSITE_CHILDREN:
+				getCompositeChildren().clear();
 				return;
 			case AggregatorPackage.AGGREGATOR__CONFIGURATIONS:
 				getConfigurations().clear();
@@ -868,12 +868,12 @@ public class AggregatorImpl extends DescriptionProviderImpl implements Aggregato
 	 * 
 	 * @generated
 	 */
-	public EList<CompositeChild> getCompositeChilds() {
-		if(compositeChilds == null) {
-			compositeChilds = new EObjectContainmentEList.Resolving<CompositeChild>(
-				CompositeChild.class, this, AggregatorPackage.AGGREGATOR__COMPOSITE_CHILDS);
+	public EList<CompositeChild> getCompositeChildren() {
+		if(compositeChildren == null) {
+			compositeChildren = new EObjectContainmentEList.Resolving<CompositeChild>(
+				CompositeChild.class, this, AggregatorPackage.AGGREGATOR__COMPOSITE_CHILDREN);
 		}
-		return compositeChilds;
+		return compositeChildren;
 	}
 
 	/**

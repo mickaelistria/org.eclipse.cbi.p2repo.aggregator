@@ -223,7 +223,7 @@ public class AggregatorItemProvider extends DescriptionProviderItemProvider impl
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 
 		newChildDescriptors.add(createChildParameter(
-			AggregatorPackage.Literals.AGGREGATOR__COMPOSITE_CHILDS, AggregatorFactory.eINSTANCE.createCompositeChild()));
+			AggregatorPackage.Literals.AGGREGATOR__COMPOSITE_CHILDREN, AggregatorFactory.eINSTANCE.createCompositeChild()));
 
 		newChildDescriptors.add(createChildParameter(
 			AggregatorPackage.Literals.AGGREGATOR__CONFIGURATIONS, AggregatorFactory.eINSTANCE.createConfiguration()));
@@ -362,7 +362,7 @@ public class AggregatorItemProvider extends DescriptionProviderItemProvider impl
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if(childrenFeatures == null) {
 			getChildrenFeaturesGen(object);
-			childrenFeatures.remove(AggregatorPackage.Literals.AGGREGATOR__COMPOSITE_CHILDS);
+			childrenFeatures.remove(AggregatorPackage.Literals.AGGREGATOR__COMPOSITE_CHILDREN);
 		}
 		return childrenFeatures;
 	}
@@ -379,7 +379,7 @@ public class AggregatorItemProvider extends DescriptionProviderItemProvider impl
 	public Collection<? extends EStructuralFeature> getChildrenFeaturesGen(Object object) {
 		if(childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(AggregatorPackage.Literals.AGGREGATOR__COMPOSITE_CHILDS);
+			childrenFeatures.add(AggregatorPackage.Literals.AGGREGATOR__COMPOSITE_CHILDREN);
 			childrenFeatures.add(AggregatorPackage.Literals.AGGREGATOR__CONFIGURATIONS);
 			childrenFeatures.add(AggregatorPackage.Literals.AGGREGATOR__CONTRIBUTIONS);
 			childrenFeatures.add(AggregatorPackage.Literals.AGGREGATOR__CUSTOM_CATEGORIES);
@@ -498,7 +498,7 @@ public class AggregatorItemProvider extends DescriptionProviderItemProvider impl
 			case AggregatorPackage.AGGREGATOR__MAVEN_RESULT:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
-			case AggregatorPackage.AGGREGATOR__COMPOSITE_CHILDS:
+			case AggregatorPackage.AGGREGATOR__COMPOSITE_CHILDREN:
 			case AggregatorPackage.AGGREGATOR__CONFIGURATIONS:
 			case AggregatorPackage.AGGREGATOR__CONTRIBUTIONS:
 			case AggregatorPackage.AGGREGATOR__CUSTOM_CATEGORIES:
