@@ -704,6 +704,16 @@ public class B3BackendTypeProvider extends DeclarativeTypeProvider {
 			return functionUtils.getReturnType(f, types);
 		}
 		catch(Exception e) {
+			// INFERENCE
+			ITypeExpression lE = TypeUtils.isDefaultInferred(lhsT)
+					? ts.variable(o.getLeftExpr())
+					: ts.type(lhsT);
+			ITypeExpression rE = TypeUtils.isDefaultInferred(rhsT)
+					? ts.variable(o.getRightExpr())
+					: ts.type(lhsT);
+			ITypeExpression oE = ts.product(ts.select(o.getFunctionName(), o, lE, rE));
+			setTypeAdapterTypeExpression(o, oE);
+			// END INFERENCE
 			return TypeUtils.getDefaultInferredObjectType();
 		}
 	}
@@ -804,18 +814,36 @@ public class B3BackendTypeProvider extends DeclarativeTypeProvider {
 		return ((B3MetaClass) t).getInstanceClass();
 	}
 
+	/**
+	 * Declared type or value expression's type.
+	 * 
+	 * @param o
+	 * @return
+	 */
 	public Type type(BDefProperty o) {
-		final Type t = o.getType();
-		return t == null
-				? doGetInferredType(o.getValueExpr())
-				: t;
+		Type t = o.getType();
+		if(t != null)
+			return t;
+		t = doGetInferredType(o.getValueExpr());
+		if(t == null || TypeUtils.isDefaultInferred(t))
+			setTypeAdapterTypeExpression(o, ts.variable(o.getValueExpr()));
+		return t;
 	}
 
+	/**
+	 * Declared type or value expression's type.
+	 * 
+	 * @param o
+	 * @return
+	 */
 	public Type type(BDefValue o) {
-		final Type t = o.getType();
-		return t == null
-				? doGetInferredType(o.getValueExpr())
-				: t;
+		Type t = o.getType();
+		if(t != null)
+			return t;
+		t = doGetInferredType(o.getValueExpr());
+		if(t == null || TypeUtils.isDefaultInferred(t))
+			setTypeAdapterTypeExpression(o, ts.variable(o.getValueExpr()));
+		return t;
 	}
 
 	/**
@@ -1165,6 +1193,9 @@ public class B3BackendTypeProvider extends DeclarativeTypeProvider {
 					}
 			}
 			else {
+				// Use constraint rules
+				// find the parameter's position in the container and use that type
+
 				if(B3Debug.typer)
 					B3Debug.trace("type(BParameterDeclaration) returns default inferred Object because call signature was null.");
 
@@ -1292,9 +1323,14 @@ public class B3BackendTypeProvider extends DeclarativeTypeProvider {
 		// catch needs special processing, as it declares a variable of Exception type
 		// but the type of the entire catch expression is the type of the catch body.
 		INamedValue nv = o.getNamedValue();
-		return (nv instanceof BCatch)
+		Type t = (nv instanceof BCatch)
 				? ((BCatch) nv).getType()
 				: doGetInferredType(nv);
+
+		// Unresolved - set constraint
+		if(!(nv instanceof BCatch) && (t == null || TypeUtils.isDefaultInferred(t)))
+			setTypeAdapterTypeExpression(o, ts.variable(nv));
+		return t;
 	}
 
 	public Type type(BWithContextExpression o) {
