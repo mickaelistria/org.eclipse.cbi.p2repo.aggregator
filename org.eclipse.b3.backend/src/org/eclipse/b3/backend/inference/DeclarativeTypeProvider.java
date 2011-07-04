@@ -251,6 +251,13 @@ public class DeclarativeTypeProvider implements ITypeProvider, ITypeSchemeVariab
 		return ta.getAssociatedType(typeDispatcher);
 	}
 
+	public ITypeExpression getTypeAdapterTypeExpression(Object element) {
+		if(!(element instanceof EObject))
+			return null;
+		TypeAdapter ta = TypeAdapterFactory.eINSTANCE.adapt((EObject) element);
+		return ta.getAssociatedTypeExpression(typeDispatcher);
+	}
+
 	/**
 	 * Returns they key (this) for all variables.
 	 */
@@ -263,6 +270,13 @@ public class DeclarativeTypeProvider implements ITypeProvider, ITypeSchemeVariab
 			return;
 		TypeAdapter ta = TypeAdapterFactory.eINSTANCE.adapt((EObject) element);
 		ta.setAssociatedType(typeDispatcher, type);
+	}
+
+	public void setTypeAdapterTypeExpression(Object element, ITypeExpression typeExpr) {
+		if(!(element instanceof EObject))
+			return;
+		TypeAdapter ta = TypeAdapterFactory.eINSTANCE.adapt((EObject) element);
+		ta.setAssociatedTypeExpression(typeDispatcher, typeExpr);
 	}
 
 	public B3FunctionType signature(Object o) {
