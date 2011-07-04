@@ -959,11 +959,14 @@ public class TypeUtils {
 	/**
 	 * If the Type t directly, or indirectly refers to a type that is default inferred
 	 * true is returned - this indicates that inference can be improved.
+	 * Also returns true if t is null.
 	 * 
 	 * @param t
 	 * @return
 	 */
 	public static boolean isDefaultInferred(Type t) {
+		if(t == null)
+			return true;
 		if(t instanceof B3Type && ((B3Type) t).isDefaultInference())
 			return true;
 		if(t instanceof B3FunctionType) {
