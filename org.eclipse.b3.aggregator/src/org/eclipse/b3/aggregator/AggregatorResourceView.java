@@ -18,7 +18,7 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * <ul>
  * <li>{@link org.eclipse.b3.aggregator.AggregatorResourceView#getAggregator <em>Aggregator</em>}</li>
- * <li>{@link org.eclipse.b3.aggregator.AggregatorResourceView#getCompositeChildren <em>Composite Children</em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.AggregatorResourceView#getValidationSets <em>Validation Sets</em>}</li>
  * </ul>
  * </p>
  * 
@@ -40,22 +40,22 @@ public interface AggregatorResourceView {
 	 * @model containment="true" resolveProxies="true" keys="label" required="true" changeable="false"
 	 * @generated
 	 */
-	Aggregator getAggregator();
+	Aggregation getAggregator();
 
 	/**
-	 * Returns the value of the '<em><b>Composite Children</b></em>' containment reference list.
-	 * The list contents are of type {@link org.eclipse.b3.aggregator.CompositeChild}.
+	 * Returns the value of the '<em><b>Validation Sets</b></em>' containment reference list.
+	 * The list contents are of type {@link org.eclipse.b3.aggregator.ValidationSet}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>CompositeChildren</em>' containment reference list isn't clear, there really should be more of a description here...
+	 * If the meaning of the '<em>ValidationSets</em>' containment reference list isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
-	 * @return the value of the '<em>Composite Children</em>' containment reference list.
-	 * @see org.eclipse.b3.aggregator.AggregatorPackage#getAggregatorResourceView_CompositeChildren()
+	 * @return the value of the '<em>Validation Sets</em>' containment reference list.
+	 * @see org.eclipse.b3.aggregator.AggregatorPackage#getAggregatorResourceView_ValidationSets()
 	 * @model containment="true" resolveProxies="true" keys="label"
 	 * @generated
 	 */
-	EList<CompositeChild> getCompositeChildren();
+	EList<ValidationSet> getValidationSets();
 
 } // AggregatorResourceView

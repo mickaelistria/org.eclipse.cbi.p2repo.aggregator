@@ -80,7 +80,7 @@
       <genEnumLiterals ecoreEnumLiteral="Aggregator.ecore#//VersionMatch/ABOVE"/>
     </genEnums>
     <genClasses ecoreClass="Aggregator.ecore#//Aggregator" labelFeature="#//aggregator/Aggregator/label">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Aggregator.ecore#//Aggregator/compositeChildren"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Aggregator.ecore#//Aggregator/validationSets"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Aggregator.ecore#//Aggregator/configurations"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Aggregator.ecore#//Aggregator/contributions"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Aggregator.ecore#//Aggregator/customCategories"/>
@@ -97,12 +97,12 @@
       <genOperations ecoreOperation="Aggregator.ecore#//Aggregator/getContributions">
         <genParameters ecoreParameter="Aggregator.ecore#//Aggregator/getContributions/enabledOnly"/>
       </genOperations>
-      <genOperations ecoreOperation="Aggregator.ecore#//Aggregator/getCompositeChildContributions">
-        <genParameters ecoreParameter="Aggregator.ecore#//Aggregator/getCompositeChildContributions/compositeChild"/>
+      <genOperations ecoreOperation="Aggregator.ecore#//Aggregator/getValidationSetContributions">
+        <genParameters ecoreParameter="Aggregator.ecore#//Aggregator/getValidationSetContributions/validationSet"/>
       </genOperations>
-      <genOperations ecoreOperation="Aggregator.ecore#//Aggregator/getCompositeChildContributions.1">
-        <genParameters ecoreParameter="Aggregator.ecore#//Aggregator/getCompositeChildContributions.1/compositeChild"/>
-        <genParameters ecoreParameter="Aggregator.ecore#//Aggregator/getCompositeChildContributions.1/enabledOnly"/>
+      <genOperations ecoreOperation="Aggregator.ecore#//Aggregator/getValidationSetContributions.1">
+        <genParameters ecoreParameter="Aggregator.ecore#//Aggregator/getValidationSetContributions.1/validationSet"/>
+        <genParameters ecoreParameter="Aggregator.ecore#//Aggregator/getValidationSetContributions.1/enabledOnly"/>
       </genOperations>
       <genOperations ecoreOperation="Aggregator.ecore#//Aggregator/getValidationRepositories">
         <genParameters ecoreParameter="Aggregator.ecore#//Aggregator/getValidationRepositories/enabledOnly"/>
@@ -111,8 +111,8 @@
         <genParameters ecoreParameter="Aggregator.ecore#//Aggregator/getAllMetadataRepositoryReferences/enabledOnly"/>
       </genOperations>
     </genClasses>
-    <genClasses ecoreClass="Aggregator.ecore#//CompositeChild" labelFeature="#//aggregator/CompositeChild/label">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Aggregator.ecore#//CompositeChild/label"/>
+    <genClasses ecoreClass="Aggregator.ecore#//ValidationSet" labelFeature="#//aggregator/ValidationSet/label">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Aggregator.ecore#//ValidationSet/label"/>
     </genClasses>
     <genClasses ecoreClass="Aggregator.ecore#//MappedRepository">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Aggregator.ecore#//MappedRepository/products"/>
@@ -278,7 +278,7 @@
     </genClasses>
     <genClasses image="false" ecoreClass="Aggregator.ecore#//AggregatorResourceView">
       <genFeatures property="None" children="true" createChild="false" ecoreFeature="ecore:EReference Aggregator.ecore#//AggregatorResourceView/aggregator"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Aggregator.ecore#//AggregatorResourceView/compositeChildren"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Aggregator.ecore#//AggregatorResourceView/validationSets"/>
     </genClasses>
     <nestedGenPackages prefix="P2view" resource="XML" disposableProviderFactory="true"
         multipleEditorPages="false" generateModelWizard="false" ecorePackage="Aggregator.ecore#//p2view">

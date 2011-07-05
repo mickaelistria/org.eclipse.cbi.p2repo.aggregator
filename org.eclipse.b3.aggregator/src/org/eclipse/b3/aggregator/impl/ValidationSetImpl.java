@@ -11,10 +11,10 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-import org.eclipse.b3.aggregator.Aggregator;
+import org.eclipse.b3.aggregator.Aggregation;
 import org.eclipse.b3.aggregator.AggregatorFactory;
 import org.eclipse.b3.aggregator.AggregatorPackage;
-import org.eclipse.b3.aggregator.CompositeChild;
+import org.eclipse.b3.aggregator.ValidationSet;
 import org.eclipse.b3.aggregator.Contribution;
 import org.eclipse.b3.aggregator.DescriptionProvider;
 import org.eclipse.b3.aggregator.InfosProvider;
@@ -33,24 +33,24 @@ import org.eclipse.emf.ecore.util.EObjectEList;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>CompositeChild</b></em>'.
+ * An implementation of the model object '<em><b>ValidationSet</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link org.eclipse.b3.aggregator.impl.CompositeChildImpl#isEnabled <em>Enabled</em>}</li>
- * <li>{@link org.eclipse.b3.aggregator.impl.CompositeChildImpl#getDescription <em>Description</em>}</li>
- * <li>{@link org.eclipse.b3.aggregator.impl.CompositeChildImpl#getStatus <em>Status</em>}</li>
- * <li>{@link org.eclipse.b3.aggregator.impl.CompositeChildImpl#getErrors <em>Errors</em>}</li>
- * <li>{@link org.eclipse.b3.aggregator.impl.CompositeChildImpl#getWarnings <em>Warnings</em>}</li>
- * <li>{@link org.eclipse.b3.aggregator.impl.CompositeChildImpl#getInfos <em>Infos</em>}</li>
- * <li>{@link org.eclipse.b3.aggregator.impl.CompositeChildImpl#getLabel <em>Label</em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.impl.ValidationSetImpl#isEnabled <em>Enabled</em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.impl.ValidationSetImpl#getDescription <em>Description</em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.impl.ValidationSetImpl#getStatus <em>Status</em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.impl.ValidationSetImpl#getErrors <em>Errors</em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.impl.ValidationSetImpl#getWarnings <em>Warnings</em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.impl.ValidationSetImpl#getInfos <em>Infos</em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.impl.ValidationSetImpl#getLabel <em>Label</em>}</li>
  * </ul>
  * </p>
  * 
  * @generated
  */
-public class CompositeChildImpl extends MinimalEObjectImpl.Container implements CompositeChild {
+public class ValidationSetImpl extends MinimalEObjectImpl.Container implements ValidationSet {
 	/**
 	 * A set of bit flags representing the values of boolean attributes and whether unsettable features have been set.
 	 * <!-- begin-user-doc -->
@@ -168,7 +168,7 @@ public class CompositeChildImpl extends MinimalEObjectImpl.Container implements 
 	 * 
 	 * @generated
 	 */
-	protected CompositeChildImpl() {
+	protected ValidationSetImpl() {
 		super();
 		eFlags |= ENABLED_EFLAG;
 	}
@@ -193,7 +193,7 @@ public class CompositeChildImpl extends MinimalEObjectImpl.Container implements 
 	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
 		if(baseClass == DescriptionProvider.class) {
 			switch(derivedFeatureID) {
-				case AggregatorPackage.COMPOSITE_CHILD__DESCRIPTION:
+				case AggregatorPackage.VALIDATION_SET__DESCRIPTION:
 					return AggregatorPackage.DESCRIPTION_PROVIDER__DESCRIPTION;
 				default:
 					return -1;
@@ -201,7 +201,7 @@ public class CompositeChildImpl extends MinimalEObjectImpl.Container implements 
 		}
 		if(baseClass == StatusProvider.class) {
 			switch(derivedFeatureID) {
-				case AggregatorPackage.COMPOSITE_CHILD__STATUS:
+				case AggregatorPackage.VALIDATION_SET__STATUS:
 					return AggregatorPackage.STATUS_PROVIDER__STATUS;
 				default:
 					return -1;
@@ -209,11 +209,11 @@ public class CompositeChildImpl extends MinimalEObjectImpl.Container implements 
 		}
 		if(baseClass == InfosProvider.class) {
 			switch(derivedFeatureID) {
-				case AggregatorPackage.COMPOSITE_CHILD__ERRORS:
+				case AggregatorPackage.VALIDATION_SET__ERRORS:
 					return AggregatorPackage.INFOS_PROVIDER__ERRORS;
-				case AggregatorPackage.COMPOSITE_CHILD__WARNINGS:
+				case AggregatorPackage.VALIDATION_SET__WARNINGS:
 					return AggregatorPackage.INFOS_PROVIDER__WARNINGS;
-				case AggregatorPackage.COMPOSITE_CHILD__INFOS:
+				case AggregatorPackage.VALIDATION_SET__INFOS:
 					return AggregatorPackage.INFOS_PROVIDER__INFOS;
 				default:
 					return -1;
@@ -239,7 +239,7 @@ public class CompositeChildImpl extends MinimalEObjectImpl.Container implements 
 		if(baseClass == DescriptionProvider.class) {
 			switch(baseFeatureID) {
 				case AggregatorPackage.DESCRIPTION_PROVIDER__DESCRIPTION:
-					return AggregatorPackage.COMPOSITE_CHILD__DESCRIPTION;
+					return AggregatorPackage.VALIDATION_SET__DESCRIPTION;
 				default:
 					return -1;
 			}
@@ -247,7 +247,7 @@ public class CompositeChildImpl extends MinimalEObjectImpl.Container implements 
 		if(baseClass == StatusProvider.class) {
 			switch(baseFeatureID) {
 				case AggregatorPackage.STATUS_PROVIDER__STATUS:
-					return AggregatorPackage.COMPOSITE_CHILD__STATUS;
+					return AggregatorPackage.VALIDATION_SET__STATUS;
 				default:
 					return -1;
 			}
@@ -255,11 +255,11 @@ public class CompositeChildImpl extends MinimalEObjectImpl.Container implements 
 		if(baseClass == InfosProvider.class) {
 			switch(baseFeatureID) {
 				case AggregatorPackage.INFOS_PROVIDER__ERRORS:
-					return AggregatorPackage.COMPOSITE_CHILD__ERRORS;
+					return AggregatorPackage.VALIDATION_SET__ERRORS;
 				case AggregatorPackage.INFOS_PROVIDER__WARNINGS:
-					return AggregatorPackage.COMPOSITE_CHILD__WARNINGS;
+					return AggregatorPackage.VALIDATION_SET__WARNINGS;
 				case AggregatorPackage.INFOS_PROVIDER__INFOS:
-					return AggregatorPackage.COMPOSITE_CHILD__INFOS;
+					return AggregatorPackage.VALIDATION_SET__INFOS;
 				default:
 					return -1;
 			}
@@ -282,19 +282,19 @@ public class CompositeChildImpl extends MinimalEObjectImpl.Container implements 
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch(featureID) {
-			case AggregatorPackage.COMPOSITE_CHILD__ENABLED:
+			case AggregatorPackage.VALIDATION_SET__ENABLED:
 				return isEnabled();
-			case AggregatorPackage.COMPOSITE_CHILD__DESCRIPTION:
+			case AggregatorPackage.VALIDATION_SET__DESCRIPTION:
 				return getDescription();
-			case AggregatorPackage.COMPOSITE_CHILD__STATUS:
+			case AggregatorPackage.VALIDATION_SET__STATUS:
 				return getStatus();
-			case AggregatorPackage.COMPOSITE_CHILD__ERRORS:
+			case AggregatorPackage.VALIDATION_SET__ERRORS:
 				return getErrors();
-			case AggregatorPackage.COMPOSITE_CHILD__WARNINGS:
+			case AggregatorPackage.VALIDATION_SET__WARNINGS:
 				return getWarnings();
-			case AggregatorPackage.COMPOSITE_CHILD__INFOS:
+			case AggregatorPackage.VALIDATION_SET__INFOS:
 				return getInfos();
-			case AggregatorPackage.COMPOSITE_CHILD__LABEL:
+			case AggregatorPackage.VALIDATION_SET__LABEL:
 				return getLabel();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -309,21 +309,21 @@ public class CompositeChildImpl extends MinimalEObjectImpl.Container implements 
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch(featureID) {
-			case AggregatorPackage.COMPOSITE_CHILD__ENABLED:
+			case AggregatorPackage.VALIDATION_SET__ENABLED:
 				return ((eFlags & ENABLED_EFLAG) != 0) != ENABLED_EDEFAULT;
-			case AggregatorPackage.COMPOSITE_CHILD__DESCRIPTION:
+			case AggregatorPackage.VALIDATION_SET__DESCRIPTION:
 				return DESCRIPTION_EDEFAULT == null
 						? description != null
 						: !DESCRIPTION_EDEFAULT.equals(description);
-			case AggregatorPackage.COMPOSITE_CHILD__STATUS:
+			case AggregatorPackage.VALIDATION_SET__STATUS:
 				return getStatus() != null;
-			case AggregatorPackage.COMPOSITE_CHILD__ERRORS:
+			case AggregatorPackage.VALIDATION_SET__ERRORS:
 				return errors != null && !errors.isEmpty();
-			case AggregatorPackage.COMPOSITE_CHILD__WARNINGS:
+			case AggregatorPackage.VALIDATION_SET__WARNINGS:
 				return warnings != null && !warnings.isEmpty();
-			case AggregatorPackage.COMPOSITE_CHILD__INFOS:
+			case AggregatorPackage.VALIDATION_SET__INFOS:
 				return infos != null && !infos.isEmpty();
-			case AggregatorPackage.COMPOSITE_CHILD__LABEL:
+			case AggregatorPackage.VALIDATION_SET__LABEL:
 				return LABEL_EDEFAULT == null
 						? label != null
 						: !LABEL_EDEFAULT.equals(label);
@@ -341,25 +341,25 @@ public class CompositeChildImpl extends MinimalEObjectImpl.Container implements 
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch(featureID) {
-			case AggregatorPackage.COMPOSITE_CHILD__ENABLED:
+			case AggregatorPackage.VALIDATION_SET__ENABLED:
 				setEnabled((Boolean) newValue);
 				return;
-			case AggregatorPackage.COMPOSITE_CHILD__DESCRIPTION:
+			case AggregatorPackage.VALIDATION_SET__DESCRIPTION:
 				setDescription((String) newValue);
 				return;
-			case AggregatorPackage.COMPOSITE_CHILD__ERRORS:
+			case AggregatorPackage.VALIDATION_SET__ERRORS:
 				getErrors().clear();
 				getErrors().addAll((Collection<? extends String>) newValue);
 				return;
-			case AggregatorPackage.COMPOSITE_CHILD__WARNINGS:
+			case AggregatorPackage.VALIDATION_SET__WARNINGS:
 				getWarnings().clear();
 				getWarnings().addAll((Collection<? extends String>) newValue);
 				return;
-			case AggregatorPackage.COMPOSITE_CHILD__INFOS:
+			case AggregatorPackage.VALIDATION_SET__INFOS:
 				getInfos().clear();
 				getInfos().addAll((Collection<? extends String>) newValue);
 				return;
-			case AggregatorPackage.COMPOSITE_CHILD__LABEL:
+			case AggregatorPackage.VALIDATION_SET__LABEL:
 				setLabel((String) newValue);
 				return;
 		}
@@ -374,7 +374,7 @@ public class CompositeChildImpl extends MinimalEObjectImpl.Container implements 
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return AggregatorPackage.Literals.COMPOSITE_CHILD;
+		return AggregatorPackage.Literals.VALIDATION_SET;
 	}
 
 	/**
@@ -386,30 +386,30 @@ public class CompositeChildImpl extends MinimalEObjectImpl.Container implements 
 	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
-			case AggregatorPackage.COMPOSITE_CHILD__ENABLED:
+			case AggregatorPackage.VALIDATION_SET__ENABLED:
 				setEnabled(ENABLED_EDEFAULT);
 				return;
-			case AggregatorPackage.COMPOSITE_CHILD__DESCRIPTION:
+			case AggregatorPackage.VALIDATION_SET__DESCRIPTION:
 				setDescription(DESCRIPTION_EDEFAULT);
 				return;
-			case AggregatorPackage.COMPOSITE_CHILD__ERRORS:
+			case AggregatorPackage.VALIDATION_SET__ERRORS:
 				getErrors().clear();
 				return;
-			case AggregatorPackage.COMPOSITE_CHILD__WARNINGS:
+			case AggregatorPackage.VALIDATION_SET__WARNINGS:
 				getWarnings().clear();
 				return;
-			case AggregatorPackage.COMPOSITE_CHILD__INFOS:
+			case AggregatorPackage.VALIDATION_SET__INFOS:
 				getInfos().clear();
 				return;
-			case AggregatorPackage.COMPOSITE_CHILD__LABEL:
+			case AggregatorPackage.VALIDATION_SET__LABEL:
 				setLabel(LABEL_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
 	}
 
-	public Aggregator getAggregator() {
-		return (Aggregator) eContainer();
+	public Aggregation getAggregator() {
+		return (Aggregation) eContainer();
 	}
 
 	/**
@@ -430,7 +430,7 @@ public class CompositeChildImpl extends MinimalEObjectImpl.Container implements 
 	 */
 	public EList<String> getErrors() {
 		if(errors == null) {
-			errors = new EDataTypeUniqueEList<String>(String.class, this, AggregatorPackage.COMPOSITE_CHILD__ERRORS);
+			errors = new EDataTypeUniqueEList<String>(String.class, this, AggregatorPackage.VALIDATION_SET__ERRORS);
 		}
 		return errors;
 	}
@@ -443,7 +443,7 @@ public class CompositeChildImpl extends MinimalEObjectImpl.Container implements 
 	 */
 	public EList<String> getInfos() {
 		if(infos == null) {
-			infos = new EDataTypeUniqueEList<String>(String.class, this, AggregatorPackage.COMPOSITE_CHILD__INFOS);
+			infos = new EDataTypeUniqueEList<String>(String.class, this, AggregatorPackage.VALIDATION_SET__INFOS);
 		}
 		return infos;
 	}
@@ -478,7 +478,7 @@ public class CompositeChildImpl extends MinimalEObjectImpl.Container implements 
 	 */
 	public EList<LinkSource> getLinkedSources() {
 		if(linkedSources == null) {
-			linkedSources = new EObjectEList<LinkSource>(LinkSource.class, this, AggregatorPackage.COMPOSITE_CHILD);
+			linkedSources = new EObjectEList<LinkSource>(LinkSource.class, this, AggregatorPackage.VALIDATION_SET);
 		}
 		return linkedSources;
 	}
@@ -513,7 +513,7 @@ public class CompositeChildImpl extends MinimalEObjectImpl.Container implements 
 	 */
 	public EList<String> getWarnings() {
 		if(warnings == null) {
-			warnings = new EDataTypeUniqueEList<String>(String.class, this, AggregatorPackage.COMPOSITE_CHILD__WARNINGS);
+			warnings = new EDataTypeUniqueEList<String>(String.class, this, AggregatorPackage.VALIDATION_SET__WARNINGS);
 		}
 		return warnings;
 	}
@@ -549,7 +549,7 @@ public class CompositeChildImpl extends MinimalEObjectImpl.Container implements 
 		description = newDescription;
 		if(eNotificationRequired())
 			eNotify(new ENotificationImpl(
-				this, Notification.SET, AggregatorPackage.COMPOSITE_CHILD__DESCRIPTION, oldDescription, description));
+				this, Notification.SET, AggregatorPackage.VALIDATION_SET__DESCRIPTION, oldDescription, description));
 	}
 
 	/**
@@ -566,7 +566,7 @@ public class CompositeChildImpl extends MinimalEObjectImpl.Container implements 
 			eFlags &= ~ENABLED_EFLAG;
 		if(eNotificationRequired())
 			eNotify(new ENotificationImpl(
-				this, Notification.SET, AggregatorPackage.COMPOSITE_CHILD__ENABLED, oldEnabled, newEnabled));
+				this, Notification.SET, AggregatorPackage.VALIDATION_SET__ENABLED, oldEnabled, newEnabled));
 	}
 
 	/**
@@ -580,7 +580,7 @@ public class CompositeChildImpl extends MinimalEObjectImpl.Container implements 
 		label = newLabel;
 		if(eNotificationRequired())
 			eNotify(new ENotificationImpl(
-				this, Notification.SET, AggregatorPackage.COMPOSITE_CHILD__LABEL, oldLabel, label));
+				this, Notification.SET, AggregatorPackage.VALIDATION_SET__LABEL, oldLabel, label));
 	}
 
 	/**
@@ -620,4 +620,4 @@ public class CompositeChildImpl extends MinimalEObjectImpl.Container implements 
 	public void unlinkSource(LinkSource source) {
 		linkedSources.remove(source);
 	}
-} // CompositeChildImpl
+} // ValidationSetImpl

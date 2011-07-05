@@ -7,7 +7,7 @@
 package org.eclipse.b3.aggregator.impl;
 
 import org.eclipse.b3.aggregator.AggregationType;
-import org.eclipse.b3.aggregator.Aggregator;
+import org.eclipse.b3.aggregator.Aggregation;
 import org.eclipse.b3.aggregator.AggregatorFactory;
 import org.eclipse.b3.aggregator.AggregatorPackage;
 import org.eclipse.b3.aggregator.AggregatorResourceView;
@@ -16,7 +16,7 @@ import org.eclipse.b3.aggregator.AvailableVersion;
 import org.eclipse.b3.aggregator.AvailableVersionsHeader;
 import org.eclipse.b3.aggregator.Bundle;
 import org.eclipse.b3.aggregator.Category;
-import org.eclipse.b3.aggregator.CompositeChild;
+import org.eclipse.b3.aggregator.ValidationSet;
 import org.eclipse.b3.aggregator.Configuration;
 import org.eclipse.b3.aggregator.Contact;
 import org.eclipse.b3.aggregator.Contribution;
@@ -227,10 +227,10 @@ public class AggregatorFactoryImpl extends EFactoryImpl implements AggregatorFac
 	@Override
 	public EObject create(EClass eClass) {
 		switch(eClass.getClassifierID()) {
-			case AggregatorPackage.AGGREGATOR:
-				return (EObject) createAggregator();
-			case AggregatorPackage.COMPOSITE_CHILD:
-				return (EObject) createCompositeChild();
+			case AggregatorPackage.AGGREGATION:
+				return (EObject) createAggregation();
+			case AggregatorPackage.VALIDATION_SET:
+				return (EObject) createValidationSet();
 			case AggregatorPackage.MAPPED_REPOSITORY:
 				return (EObject) createMappedRepository();
 			case AggregatorPackage.CONFIGURATION:
@@ -284,22 +284,23 @@ public class AggregatorFactoryImpl extends EFactoryImpl implements AggregatorFac
 	 * 
 	 * @generated
 	 */
+	public Aggregation createAggregation() {
+		AggregationImpl aggregation = new AggregationImpl();
+		return aggregation;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
 	public AggregationType createAggregationTypeFromString(EDataType eDataType, String initialValue) {
 		AggregationType result = AggregationType.get(initialValue);
 		if(result == null)
 			throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" +
 					eDataType.getName() + "'");
 		return result;
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	public Aggregator createAggregator() {
-		AggregatorImpl aggregator = new AggregatorImpl();
-		return aggregator;
 	}
 
 	/**
@@ -375,9 +376,9 @@ public class AggregatorFactoryImpl extends EFactoryImpl implements AggregatorFac
 	 * 
 	 * @generated
 	 */
-	public CompositeChild createCompositeChild() {
-		CompositeChildImpl compositeChild = new CompositeChildImpl();
-		return compositeChild;
+	public ValidationSet createValidationSet() {
+		ValidationSetImpl validationSet = new ValidationSetImpl();
+		return validationSet;
 	}
 
 	/**

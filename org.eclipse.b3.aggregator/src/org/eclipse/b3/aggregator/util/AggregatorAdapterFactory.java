@@ -6,8 +6,8 @@
  */
 package org.eclipse.b3.aggregator.util;
 
-import org.eclipse.b3.aggregator.CompositeChild;
-import org.eclipse.b3.aggregator.Aggregator;
+import org.eclipse.b3.aggregator.ValidationSet;
+import org.eclipse.b3.aggregator.Aggregation;
 import org.eclipse.b3.aggregator.AggregatorPackage;
 import org.eclipse.b3.aggregator.AggregatorResourceView;
 import org.eclipse.b3.aggregator.AvailableVersion;
@@ -69,8 +69,8 @@ public class AggregatorAdapterFactory extends AdapterFactoryImpl {
 	 */
 	protected AggregatorSwitch<Adapter> modelSwitch = new AggregatorSwitch<Adapter>() {
 		@Override
-		public Adapter caseAggregator(Aggregator object) {
-			return createAggregatorAdapter();
+		public Adapter caseAggregation(Aggregation object) {
+			return createAggregationAdapter();
 		}
 
 		@Override
@@ -109,8 +109,8 @@ public class AggregatorAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
-		public Adapter caseCompositeChild(CompositeChild object) {
-			return createCompositeChildAdapter();
+		public Adapter caseValidationSet(ValidationSet object) {
+			return createValidationSetAdapter();
 		}
 
 		@Override
@@ -271,16 +271,17 @@ public class AggregatorAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.aggregator.Aggregator
-	 * <em>Aggregator</em>}'. <!-- begin-user-doc --> This default implementation returns null so that we can easily
-	 * ignore cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc
-	 * -->
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.aggregator.Aggregation <em>Aggregation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
 	 * 
 	 * @return the new adapter.
-	 * @see org.eclipse.b3.aggregator.Aggregator
+	 * @see org.eclipse.b3.aggregator.Aggregation
 	 * @generated
 	 */
-	public Adapter createAggregatorAdapter() {
+	public Adapter createAggregationAdapter() {
 		return null;
 	}
 
@@ -384,17 +385,17 @@ public class AggregatorAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.aggregator.CompositeChild <em>Composite Child</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.aggregator.ValidationSet <em>Validation Set</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * 
 	 * @return the new adapter.
-	 * @see org.eclipse.b3.aggregator.CompositeChild
+	 * @see org.eclipse.b3.aggregator.ValidationSet
 	 * @generated
 	 */
-	public Adapter createCompositeChildAdapter() {
+	public Adapter createValidationSetAdapter() {
 		return null;
 	}
 

@@ -7,11 +7,11 @@ import java.net.URL;
 import java.net.URLEncoder;
 import java.util.ArrayList;
 
-import org.eclipse.b3.aggregator.Aggregator;
+import org.eclipse.b3.aggregator.Aggregation;
 import org.eclipse.b3.aggregator.AggregatorFactory;
-import org.eclipse.b3.aggregator.CompositeChild;
 import org.eclipse.b3.aggregator.Contribution;
 import org.eclipse.b3.aggregator.LinkSource;
+import org.eclipse.b3.aggregator.ValidationSet;
 import org.eclipse.b3.aggregator.engine.Builder;
 import org.eclipse.b3.aggregator.engine.Engine;
 import org.eclipse.b3.aggregator.engine.RepositoryVerifier.AnalyzedPlannerStatus;
@@ -49,7 +49,7 @@ import org.xml.sax.SAXException;
 public class DiagnosticMarkerResolutionGenerator implements IMarkerResolutionGenerator2 {
 
 	static abstract class AggregatorMarkerResolution implements IMarkerResolution {
-		abstract CompositeChild getReceiver(IMarker marker, AggregatorEditor editor);
+		abstract ValidationSet getReceiver(IMarker marker, AggregatorEditor editor);
 
 		public void run(IMarker marker) {
 			String uriAttribute = marker.getAttribute(EValidator.URI_ATTRIBUTE, null);
@@ -63,19 +63,19 @@ public class DiagnosticMarkerResolutionGenerator implements IMarkerResolutionGen
 
 			ResourceSet resourceSet = editor.getEditingDomain().getResourceSet();
 			Contribution contrib = (Contribution) resourceSet.getEObject(uri, true);
-			CompositeChild child = getReceiver(marker, editor);
+			ValidationSet child = getReceiver(marker, editor);
 			child.getLinkedSources().add(contrib);
 			contrib.setReceiver(child);
 			editor.doSave(new NullProgressMonitor());
-			Aggregator aggregator = ResourceUtils.getAggregator(resourceSet);
+			Aggregation aggregator = ResourceUtils.getAggregator(resourceSet);
 			verifyAggregation(aggregator);
 		}
 	}
 
 	static class MoveToExistingChild extends AggregatorMarkerResolution {
-		private final CompositeChild receiver;
+		private final ValidationSet receiver;
 
-		MoveToExistingChild(CompositeChild receiver) {
+		MoveToExistingChild(ValidationSet receiver) {
 			this.receiver = receiver;
 		}
 
@@ -84,7 +84,7 @@ public class DiagnosticMarkerResolutionGenerator implements IMarkerResolutionGen
 		}
 
 		@Override
-		CompositeChild getReceiver(IMarker marker, AggregatorEditor editor) {
+		ValidationSet getReceiver(IMarker marker, AggregatorEditor editor) {
 			return receiver;
 		}
 	}
@@ -92,26 +92,26 @@ public class DiagnosticMarkerResolutionGenerator implements IMarkerResolutionGen
 	static final IMarkerResolution moveToNew = new AggregatorMarkerResolution() {
 
 		public String getLabel() {
-			return "Move contribution into a new composite child";
+			return "Move contribution into a new validation set";
 		}
 
 		@Override
-		CompositeChild getReceiver(IMarker marker, AggregatorEditor editor) {
+		ValidationSet getReceiver(IMarker marker, AggregatorEditor editor) {
 			ResourceSet resourceSet = editor.getEditingDomain().getResourceSet();
 			Contribution contrib = getContribution(marker, resourceSet);
 			if(contrib == null)
 				return null;
 
 			((ContributionImpl) contrib).setStatus(null);
-			Aggregator aggregator = ResourceUtils.getAggregator(resourceSet);
-			CompositeChild child = AggregatorFactory.eINSTANCE.createCompositeChild();
+			Aggregation aggregator = ResourceUtils.getAggregator(resourceSet);
+			ValidationSet child = AggregatorFactory.eINSTANCE.createValidationSet();
 			child.setLabel(contrib.getLabel());
-			aggregator.getCompositeChildren().add(child);
+			aggregator.getValidationSets().add(child);
 			return child;
 		}
 	};
 
-	static void clearVerificationMarkers(Aggregator aggregator) {
+	static void clearVerificationMarkers(Aggregation aggregator) {
 		for(Contribution contrib : aggregator.getContributions())
 			((ContributionImpl) contrib).setStatus(null);
 	}
@@ -184,7 +184,7 @@ public class DiagnosticMarkerResolutionGenerator implements IMarkerResolutionGen
 		return t;
 	}
 
-	static void verifyAggregation(final Aggregator aggregator) {
+	static void verifyAggregation(final Aggregation aggregator) {
 		new Job("b3 Aggregator") {
 			{
 				setUser(true);
@@ -232,13 +232,13 @@ public class DiagnosticMarkerResolutionGenerator implements IMarkerResolutionGen
 		AggregatorEditor editor = getAggregatorEditor(marker);
 		ResourceSet resourceSet = editor.getEditingDomain().getResourceSet();
 		Contribution contrib = getContribution(marker, resourceSet);
-		Aggregator aggregator = ResourceUtils.getAggregator(resourceSet);
+		Aggregation aggregator = ResourceUtils.getAggregator(resourceSet);
 		ArrayList<IMarkerResolution> resolutions = new ArrayList<IMarkerResolution>();
 		boolean hasSelf = false;
-		nextCompositeChild: for(CompositeChild child : aggregator.getCompositeChildren()) {
+		nextValidationSet: for(ValidationSet child : aggregator.getValidationSets()) {
 			for(LinkSource link : child.getLinkedSources()) {
 				if(link == contrib)
-					continue nextCompositeChild;
+					continue nextValidationSet;
 			}
 			if(child.getLabel().equals(contrib.getLabel()))
 				hasSelf = true;

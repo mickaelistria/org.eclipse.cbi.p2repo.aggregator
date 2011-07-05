@@ -24,6 +24,16 @@
             targetEcoreUri="platform:/plugin/org.eclipse.b3.aggregator.legacy/models/aggregator_1.0.0.ecore"
             targetNS="http://www.eclipse.org/b3/2010/aggregator/1.0.0">
       </transformer>
+      <transformer
+            class="org.eclipse.b3.aggregator.legacy.AggregatorTransformer_100_2_110"
+            name="1.0.0_1.1.0"
+            sourceEcoreUri="platform:/plugin/org.eclipse.b3.aggregator.legacy/models/aggregator_1.0.0.ecore"
+            sourceNS="http://www.eclipse.org/b3/2010/aggregator/1.0.0"
+            sourceNSAttribute="xmlns:aggregator"
+            sourceTopElement="aggregator:Aggregator"
+            targetEcoreUri="platform:/plugin/org.eclipse.b3.aggregator.legacy/models/aggregator_1.1.0.ecore"
+            targetNS="http://www.eclipse.org/b3/2011/aggregator/1.1.0">
+      </transformer>
    </extension>
 
 </plugin>

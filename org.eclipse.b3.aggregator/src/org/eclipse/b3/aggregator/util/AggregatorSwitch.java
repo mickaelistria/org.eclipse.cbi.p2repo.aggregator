@@ -6,9 +6,7 @@
  */
 package org.eclipse.b3.aggregator.util;
 
-import java.util.List;
-
-import org.eclipse.b3.aggregator.Aggregator;
+import org.eclipse.b3.aggregator.Aggregation;
 import org.eclipse.b3.aggregator.AggregatorPackage;
 import org.eclipse.b3.aggregator.AggregatorResourceView;
 import org.eclipse.b3.aggregator.AvailableVersion;
@@ -16,7 +14,7 @@ import org.eclipse.b3.aggregator.AvailableVersionsHeader;
 import org.eclipse.b3.aggregator.Bundle;
 import org.eclipse.b3.aggregator.Category;
 import org.eclipse.b3.aggregator.ChildrenProvider;
-import org.eclipse.b3.aggregator.CompositeChild;
+import org.eclipse.b3.aggregator.ValidationSet;
 import org.eclipse.b3.aggregator.Configuration;
 import org.eclipse.b3.aggregator.Contact;
 import org.eclipse.b3.aggregator.Contribution;
@@ -42,8 +40,9 @@ import org.eclipse.b3.aggregator.Property;
 import org.eclipse.b3.aggregator.Status;
 import org.eclipse.b3.aggregator.StatusProvider;
 import org.eclipse.b3.aggregator.ValidConfigurationsRule;
-import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EPackage;
+import org.eclipse.emf.ecore.util.Switch;
 
 /**
  * <!-- begin-user-doc --> The <b>Switch</b> for the model's inheritance hierarchy. It supports the call {@link #doSwitch(EObject) doSwitch(object)}
@@ -54,7 +53,7 @@ import org.eclipse.emf.ecore.EObject;
  * @see org.eclipse.b3.aggregator.AggregatorPackage
  * @generated
  */
-public class AggregatorSwitch<T1> {
+public class AggregatorSwitch<T1> extends Switch<T1> {
 	/**
 	 * The cached model package
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -76,17 +75,19 @@ public class AggregatorSwitch<T1> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Aggregator</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Aggregation</em>'.
 	 * <!-- begin-user-doc -->
-	 * This implementation returns null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
 	 * 
 	 * @param object
 	 *            the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Aggregator</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Aggregation</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T1 caseAggregator(Aggregator object) {
+	public T1 caseAggregation(Aggregation object) {
 		return null;
 	}
 
@@ -202,7 +203,7 @@ public class AggregatorSwitch<T1> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Composite Child</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Validation Set</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
@@ -210,11 +211,11 @@ public class AggregatorSwitch<T1> {
 	 * 
 	 * @param object
 	 *            the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Composite Child</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Validation Set</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T1 caseCompositeChild(CompositeChild object) {
+	public T1 caseValidationSet(ValidationSet object) {
 		return null;
 	}
 
@@ -613,6 +614,7 @@ public class AggregatorSwitch<T1> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject)
 	 * @generated
 	 */
+	@Override
 	public T1 defaultCase(EObject object) {
 		return null;
 	}
@@ -624,62 +626,35 @@ public class AggregatorSwitch<T1> {
 	 * @return the first non-null result returned by a <code>caseXXX</code> call.
 	 * @generated
 	 */
-	protected T1 doSwitch(EClass theEClass, EObject theEObject) {
-		if(theEClass.eContainer() == modelPackage) {
-			return doSwitch(theEClass.getClassifierID(), theEObject);
-		}
-		List<EClass> eSuperTypes = theEClass.getESuperTypes();
-		return eSuperTypes.isEmpty()
-				? defaultCase(theEObject)
-				: doSwitch(eSuperTypes.get(0), theEObject);
-	}
-
-	/**
-	 * Calls <code>caseXXX</code> for each class of the model until one returns a non null result; it yields that result.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @return the first non-null result returned by a <code>caseXXX</code> call.
-	 * @generated
-	 */
-	public T1 doSwitch(EObject theEObject) {
-		return doSwitch(theEObject.eClass(), theEObject);
-	}
-
-	/**
-	 * Calls <code>caseXXX</code> for each class of the model until one returns a non null result; it yields that result.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @return the first non-null result returned by a <code>caseXXX</code> call.
-	 * @generated
-	 */
+	@Override
 	protected T1 doSwitch(int classifierID, EObject theEObject) {
 		switch(classifierID) {
-			case AggregatorPackage.AGGREGATOR: {
-				Aggregator aggregator = (Aggregator) theEObject;
-				T1 result = caseAggregator(aggregator);
+			case AggregatorPackage.AGGREGATION: {
+				Aggregation aggregation = (Aggregation) theEObject;
+				T1 result = caseAggregation(aggregation);
 				if(result == null)
-					result = caseDescriptionProvider(aggregator);
+					result = caseDescriptionProvider(aggregation);
 				if(result == null)
-					result = caseStatusProvider(aggregator);
+					result = caseStatusProvider(aggregation);
 				if(result == null)
-					result = caseInfosProvider(aggregator);
+					result = caseInfosProvider(aggregation);
 				if(result == null)
 					result = defaultCase(theEObject);
 				return result;
 			}
-			case AggregatorPackage.COMPOSITE_CHILD: {
-				CompositeChild compositeChild = (CompositeChild) theEObject;
-				T1 result = caseCompositeChild(compositeChild);
+			case AggregatorPackage.VALIDATION_SET: {
+				ValidationSet validationSet = (ValidationSet) theEObject;
+				T1 result = caseValidationSet(validationSet);
 				if(result == null)
-					result = caseEnabledStatusProvider(compositeChild);
+					result = caseEnabledStatusProvider(validationSet);
 				if(result == null)
-					result = caseDescriptionProvider(compositeChild);
+					result = caseDescriptionProvider(validationSet);
 				if(result == null)
-					result = caseStatusProvider(compositeChild);
+					result = caseStatusProvider(validationSet);
 				if(result == null)
-					result = caseInfosProvider(compositeChild);
+					result = caseInfosProvider(validationSet);
 				if(result == null)
-					result = caseLinkReceiver(compositeChild);
+					result = caseLinkReceiver(validationSet);
 				if(result == null)
 					result = defaultCase(theEObject);
 				return result;
@@ -1048,6 +1023,20 @@ public class AggregatorSwitch<T1> {
 			default:
 				return defaultCase(theEObject);
 		}
+	}
+
+	/**
+	 * Checks whether this is a switch for the given package.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @parameter ePackage the package in question.
+	 * @return whether this is a switch for the given package.
+	 * @generated
+	 */
+	@Override
+	protected boolean isSwitchFor(EPackage ePackage) {
+		return ePackage == modelPackage;
 	}
 
 } // AggregatorSwitch

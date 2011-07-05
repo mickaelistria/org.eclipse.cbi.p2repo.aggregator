@@ -8,7 +8,7 @@
 
 package org.eclipse.b3.aggregator.util;
 
-import org.eclipse.b3.aggregator.Aggregator;
+import org.eclipse.b3.aggregator.Aggregation;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
@@ -19,11 +19,11 @@ import org.eclipse.emf.ecore.resource.Resource;
  */
 public class GeneralUtils {
 
-	public static Aggregator getAggregator(EObject eObject) {
+	public static Aggregation getAggregator(EObject eObject) {
 		EList<EObject> contents = getAggregatorResource(eObject).getContents();
 
 		if(contents != null && contents.size() > 0)
-			return (Aggregator) contents.get(0);
+			return (Aggregation) contents.get(0);
 
 		throw new IllegalArgumentException("Aggregator was not found");
 	}

@@ -13,7 +13,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.eclipse.b3.aggregator.Aggregator;
+import org.eclipse.b3.aggregator.Aggregation;
 import org.eclipse.b3.aggregator.AggregatorFactory;
 import org.eclipse.b3.aggregator.ExclusionRule;
 import org.eclipse.b3.aggregator.MapRule;
@@ -31,7 +31,7 @@ import org.eclipse.equinox.p2.metadata.IInstallableUnit;
  * 
  */
 public class AddIUsToParentRepositoryCommand extends AbstractCommand {
-	private Aggregator aggregator;
+	private Aggregation aggregator;
 
 	private List<IInstallableUnit> selectedIUs;
 
@@ -43,7 +43,7 @@ public class AddIUsToParentRepositoryCommand extends AbstractCommand {
 
 	private Map<MappedRepository, List<MapRule>> rulesAddedToMappedRepo = new HashMap<MappedRepository, List<MapRule>>();
 
-	public AddIUsToParentRepositoryCommand(Aggregator aggregator, List<IInstallableUnit> selectedIUs, int operation) {
+	public AddIUsToParentRepositoryCommand(Aggregation aggregator, List<IInstallableUnit> selectedIUs, int operation) {
 		super(AggregatorEditPlugin.INSTANCE.getString("_UI_Add_to_parent_Mapped_Repository"));
 
 		this.aggregator = aggregator;

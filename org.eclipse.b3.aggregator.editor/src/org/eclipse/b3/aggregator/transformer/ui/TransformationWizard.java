@@ -6,7 +6,7 @@
  * such license is available at www.eclipse.org.
  */
 
-package org.eclipse.b3.aggregator.presentation;
+package org.eclipse.b3.aggregator.transformer.ui;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
@@ -16,9 +16,9 @@ import java.util.List;
 
 import org.eclipse.b3.aggregator.AggregatorFactory;
 import org.eclipse.b3.aggregator.AggregatorPackage;
+import org.eclipse.b3.aggregator.presentation.AggregatorEditorPlugin;
 import org.eclipse.b3.aggregator.transformer.TransformationManager;
 import org.eclipse.b3.aggregator.transformer.TransformerContextContributor;
-import org.eclipse.b3.aggregator.transformer.ui.TransformerContributorWizardPage;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
@@ -95,6 +95,7 @@ public class TransformationWizard extends Wizard implements INewWizard {
 		 */
 		public NewFileCreationPage(String pageId, IStructuredSelection selection) {
 			super(pageId, selection);
+			setAllowExistingResources(true);
 		}
 
 		/**

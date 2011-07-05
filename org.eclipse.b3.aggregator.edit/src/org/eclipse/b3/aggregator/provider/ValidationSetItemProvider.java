@@ -13,10 +13,10 @@ import java.util.Iterator;
 import java.util.List;
 
 import org.eclipse.b3.aggregator.AggregatorPackage;
-import org.eclipse.b3.aggregator.CompositeChild;
+import org.eclipse.b3.aggregator.ValidationSet;
 import org.eclipse.b3.aggregator.Contribution;
 import org.eclipse.b3.aggregator.LinkSource;
-import org.eclipse.b3.aggregator.impl.CompositeChildImpl;
+import org.eclipse.b3.aggregator.impl.ValidationSetImpl;
 import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.command.CompoundCommand;
 import org.eclipse.emf.common.command.UnexecutableCommand;
@@ -44,19 +44,19 @@ import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
- * This is the item provider adapter for a {@link org.eclipse.b3.aggregator.CompositeChild} object.
+ * This is the item provider adapter for a {@link org.eclipse.b3.aggregator.ValidationSet} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * 
  * @generated
  */
-public class CompositeChildItemProvider extends AggregatorItemProviderAdapter implements IEditingDomainItemProvider,
+public class ValidationSetItemProvider extends AggregatorItemProviderAdapter implements IEditingDomainItemProvider,
 		IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource,
 		IItemColorProvider, IItemFontProvider {
 
-	public class CompositeChildWrapperItemProvider extends DelegatingWrapperItemProvider {
+	public class ValidationSetWrapperItemProvider extends DelegatingWrapperItemProvider {
 
-		public CompositeChildWrapperItemProvider(Object value, Object owner, EStructuralFeature feature, int index,
+		public ValidationSetWrapperItemProvider(Object value, Object owner, EStructuralFeature feature, int index,
 				AdapterFactory adapterFactory) {
 			super(value, owner, feature, index, adapterFactory);
 		}
@@ -162,7 +162,7 @@ public class CompositeChildItemProvider extends AggregatorItemProviderAdapter im
 	 * 
 	 * @generated
 	 */
-	public CompositeChildItemProvider(AdapterFactory adapterFactory) {
+	public ValidationSetItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -213,10 +213,10 @@ public class CompositeChildItemProvider extends AggregatorItemProviderAdapter im
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
 			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
 			getResourceLocator(),
-			getString("_UI_CompositeChild_label_feature"),
+			getString("_UI_ValidationSet_label_feature"),
 			getString(
-				"_UI_PropertyDescriptor_description", "_UI_CompositeChild_label_feature", "_UI_CompositeChild_type"),
-			AggregatorPackage.Literals.COMPOSITE_CHILD__LABEL, true, false, false,
+				"_UI_PropertyDescriptor_description", "_UI_ValidationSet_label_feature", "_UI_ValidationSet_type"),
+			AggregatorPackage.Literals.VALIDATION_SET__LABEL, true, false, false,
 			ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
@@ -235,21 +235,21 @@ public class CompositeChildItemProvider extends AggregatorItemProviderAdapter im
 
 	/**
 	 * {@inheritDoc} <br />
-	 * Please note that {@link CompositeChildItemProvider this} class can't handle all the children returned by this
-	 * method but {@link CompositeChildWrapperItemProvider} can.
+	 * Please note that {@link ValidationSetItemProvider this} class can't handle all the children returned by this
+	 * method but {@link ValidationSetWrapperItemProvider} can.
 	 */
 	@Override
 	public Collection<?> getChildren(Object object) {
 		@SuppressWarnings("unchecked")
 		Collection<Object> children = (Collection<Object>) super.getChildren(object);
 
-		children.addAll(((CompositeChildImpl) object).getLinkedContributions());
+		children.addAll(((ValidationSetImpl) object).getLinkedContributions());
 
 		return children;
 	}
 
 	/**
-	 * This returns CompositeChild.gif.
+	 * This returns ValidationSet.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -258,7 +258,7 @@ public class CompositeChildItemProvider extends AggregatorItemProviderAdapter im
 	@Override
 	public Object getImage(Object object) {
 		return overlayImage(
-			object, getResourceLocator().getImage("full/obj16/CompositeChild" + (((CompositeChild) object).isEnabled()
+			object, getResourceLocator().getImage("full/obj16/ValidationSet" + (((ValidationSet) object).isEnabled()
 					? ""
 					: "Disabled")));
 	}
@@ -303,14 +303,14 @@ public class CompositeChildItemProvider extends AggregatorItemProviderAdapter im
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((CompositeChild) object).getLabel();
+		String label = ((ValidationSet) object).getLabel();
 		return label == null || label.length() == 0
-				? getString("_UI_CompositeChild_type")
-				: getString("_UI_CompositeChild_type") + " " + label;
+				? getString("_UI_ValidationSet_type")
+				: getString("_UI_ValidationSet_type") + " " + label;
 	}
 
 	/**
-	 * This handles notifications sent by the compositeChild object instances when other objects are
+	 * This handles notifications sent by the validationSet object instances when other objects are
 	 * linked to/unlinked from it.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -319,7 +319,7 @@ public class CompositeChildItemProvider extends AggregatorItemProviderAdapter im
 	 */
 	@Override
 	public void notifyChanged(Notification notification) {
-		if(notification.getFeatureID(AggregatorPackage.class) == AggregatorPackage.COMPOSITE_CHILD) {
+		if(notification.getFeatureID(AggregatorPackage.class) == AggregatorPackage.VALIDATION_SET) {
 			updateChildren(notification);
 
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
@@ -340,10 +340,10 @@ public class CompositeChildItemProvider extends AggregatorItemProviderAdapter im
 	public void notifyChangedGen(Notification notification) {
 		updateChildren(notification);
 
-		switch(notification.getFeatureID(CompositeChild.class)) {
-			case AggregatorPackage.COMPOSITE_CHILD__ENABLED:
-			case AggregatorPackage.COMPOSITE_CHILD__DESCRIPTION:
-			case AggregatorPackage.COMPOSITE_CHILD__LABEL:
+		switch(notification.getFeatureID(ValidationSet.class)) {
+			case AggregatorPackage.VALIDATION_SET__ENABLED:
+			case AggregatorPackage.VALIDATION_SET__DESCRIPTION:
+			case AggregatorPackage.VALIDATION_SET__LABEL:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

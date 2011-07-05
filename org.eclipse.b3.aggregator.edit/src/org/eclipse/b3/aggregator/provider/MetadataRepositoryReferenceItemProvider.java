@@ -17,7 +17,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import org.eclipse.b3.aggregator.Aggregator;
+import org.eclipse.b3.aggregator.Aggregation;
 import org.eclipse.b3.aggregator.AggregatorPackage;
 import org.eclipse.b3.aggregator.AggregatorPlugin;
 import org.eclipse.b3.aggregator.Contribution;
@@ -120,7 +120,7 @@ public class MetadataRepositoryReferenceItemProvider extends AggregatorItemProvi
 				// Provide a list of repositories that has not already been mapped
 				//
 				MetadataRepositoryReference self = (MetadataRepositoryReference) object;
-				Aggregator aggregator = self.getAggregator();
+				Aggregation aggregator = self.getAggregator();
 				Collection<?> repos = super.getChoiceOfValues(object);
 				for(Contribution contribution : aggregator.getContributions()) {
 					for(MappedRepository mappedRepo : contribution.getRepositories()) {
@@ -379,7 +379,7 @@ public class MetadataRepositoryReferenceItemProvider extends AggregatorItemProvi
 				for(Object affectedNode : affectedNodeLabels)
 					fireNotifyChanged(new ViewerNotification(notification, affectedNode, false, true));
 
-				Aggregator aggregator = repoRef.getAggregator();
+				Aggregation aggregator = repoRef.getAggregator();
 				if(notification.getFeatureID(MetadataRepositoryReference.class) == AggregatorPackage.METADATA_REPOSITORY_REFERENCE__ENABLED) {
 					if(notification.getNewBooleanValue())
 						ResourceUtils.loadResourceForMappedRepository(repoRef);

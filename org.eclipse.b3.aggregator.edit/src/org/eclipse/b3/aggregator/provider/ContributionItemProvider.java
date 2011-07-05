@@ -13,7 +13,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import org.eclipse.b3.aggregator.Aggregator;
+import org.eclipse.b3.aggregator.Aggregation;
 import org.eclipse.b3.aggregator.AggregatorFactory;
 import org.eclipse.b3.aggregator.AggregatorPackage;
 import org.eclipse.b3.aggregator.Contribution;
@@ -491,7 +491,7 @@ public class ContributionItemProvider extends AggregatorItemProviderAdapter impl
 		notifyChangedGen(notification);
 
 		if(notification.getFeatureID(LinkSource.class) == AggregatorPackage.LINK_SOURCE__RECEIVER) {
-			// Update content if the contribution has been linked somewhere (to an CompositeChild)
+			// Update content if the contribution has been linked somewhere (to an ValidationSet)
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 		}
 		else if(notification.getFeatureID(Contribution.class) == AggregatorPackage.CONTRIBUTION__STATUS) {
@@ -541,7 +541,7 @@ public class ContributionItemProvider extends AggregatorItemProviderAdapter impl
 				fireNotifyChanged(new ViewerNotification(notification, affectedNode, false, true));
 
 			if(!newValue)
-				ResourceUtils.cleanUpResources((Aggregator) ((EObject) notification.getNotifier()).eContainer());
+				ResourceUtils.cleanUpResources((Aggregation) ((EObject) notification.getNotifier()).eContainer());
 		}
 		// If a repository is removed, update possible warning overlays
 		else if(notification.getEventType() == Notification.REMOVE &&
@@ -562,7 +562,7 @@ public class ContributionItemProvider extends AggregatorItemProviderAdapter impl
 					for(CustomCategory category : mappedFeature.getCategories())
 						affectedNodes.add(category);
 
-				ResourceUtils.cleanUpResources((Aggregator) ((EObject) notification.getNotifier()).eContainer());
+				ResourceUtils.cleanUpResources((Aggregation) ((EObject) notification.getNotifier()).eContainer());
 			}
 
 			for(Object affectedNode : affectedNodes)

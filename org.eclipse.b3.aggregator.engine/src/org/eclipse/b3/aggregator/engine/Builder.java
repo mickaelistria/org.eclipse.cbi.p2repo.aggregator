@@ -27,9 +27,9 @@ import java.util.regex.PatternSyntaxException;
 import org.apache.tools.ant.Project;
 import org.apache.tools.ant.util.DateUtils;
 import org.apache.tools.mail.MailMessage;
-import org.eclipse.b3.aggregator.Aggregator;
+import org.eclipse.b3.aggregator.Aggregation;
 import org.eclipse.b3.aggregator.AggregatorFactory;
-import org.eclipse.b3.aggregator.CompositeChild;
+import org.eclipse.b3.aggregator.ValidationSet;
 import org.eclipse.b3.aggregator.Contact;
 import org.eclipse.b3.aggregator.Contribution;
 import org.eclipse.b3.aggregator.CustomCategory;
@@ -220,10 +220,10 @@ public class Builder extends ModelAbstractCommand {
 		throw ExceptionUtils.fromMessage("File %s is not an absolute path", repoLocation);
 	}
 
-	public static String getCompositeChildLabel(CompositeChild compositeChild) {
-		return compositeChild == null
+	public static String getValidationSetLabel(ValidationSet validationSet) {
+		return validationSet == null
 				? "<main>"
-				: compositeChild.getLabel();
+				: validationSet.getLabel();
 	}
 
 	public static String getExceptionMessages(Throwable e) {
@@ -408,7 +408,7 @@ public class Builder extends ModelAbstractCommand {
 	@Argument
 	private List<String> unparsed = new ArrayList<String>();
 
-	private Aggregator aggregator;
+	private Aggregation aggregator;
 
 	private String buildLabel;
 
@@ -424,7 +424,7 @@ public class Builder extends ModelAbstractCommand {
 
 	final private Set<IInstallableUnit> allUnitsToAggregate = new HashSet<IInstallableUnit>();
 
-	final private Map<CompositeChild, Set<IInstallableUnit>> unitsToAggregateMap = new HashMap<CompositeChild, Set<IInstallableUnit>>();
+	final private Map<ValidationSet, Set<IInstallableUnit>> unitsToAggregateMap = new HashMap<ValidationSet, Set<IInstallableUnit>>();
 
 	private Set<MappedRepository> exclusions;
 
@@ -434,7 +434,7 @@ public class Builder extends ModelAbstractCommand {
 
 	private boolean fromIDE;
 
-	private Map<CompositeChild, String> safeCompositeChildNameMap = new HashMap<CompositeChild, String>();
+	private Map<ValidationSet, String> safeValidationSetNameMap = new HashMap<ValidationSet, String>();
 
 	private Map<MappedRepository, String> safeRepositoryNameMap = new HashMap<MappedRepository, String>();
 
@@ -455,7 +455,7 @@ public class Builder extends ModelAbstractCommand {
 		exclusions.add(repository);
 	}
 
-	public Aggregator getAggregator() {
+	public Aggregation getAggregator() {
 		return aggregator;
 	}
 
@@ -482,30 +482,30 @@ public class Builder extends ModelAbstractCommand {
 	public Collection<String> getChildrenSubdirectories() {
 		ArrayList<String> childrenSubdirectories = new ArrayList<String>(unitsToAggregateMap.size());
 
-		for(CompositeChild compositeChild : unitsToAggregateMap.keySet()) {
-			childrenSubdirectories.add(getCompositeChildSubdirectory(compositeChild));
+		for(ValidationSet validationSet : unitsToAggregateMap.keySet()) {
+			childrenSubdirectories.add(getValidationSetSubdirectory(validationSet));
 		}
 
 		return childrenSubdirectories;
 	}
 
-	public List<CompositeChild> getCompositeChildrenIncludingMain() {
-		List<CompositeChild> compositeChildren = aggregator.getCompositeChildren();
-		List<CompositeChild> compositeChildrenIncludingMain = new ArrayList<CompositeChild>(
-			1 + compositeChildren.size());
-		// null compositeChild is the main (implicit) one
+	public List<ValidationSet> getValidationSetsIncludingMain() {
+		List<ValidationSet> validationSets = aggregator.getValidationSets();
+		List<ValidationSet> validationSetsIncludingMain = new ArrayList<ValidationSet>(
+			1 + validationSets.size());
+		// null validationSet is the main (implicit) one
 		// note that it must come first otherwise some directories created during
-		// creation of compositeChildren will be deleted
-		compositeChildrenIncludingMain.add(null);
-		compositeChildrenIncludingMain.addAll(compositeChildren);
-		return compositeChildrenIncludingMain;
+		// creation of validationSets will be deleted
+		validationSetsIncludingMain.add(null);
+		validationSetsIncludingMain.addAll(validationSets);
+		return validationSetsIncludingMain;
 	}
 
-	public String getCompositeChildSubdirectory(CompositeChild compositeChild) {
-		String safeName = getSafeCompositeChildName(compositeChild);
+	public String getValidationSetSubdirectory(ValidationSet validationSet) {
+		String safeName = getSafeValidationSetName(validationSet);
 		if(safeName == null)
 			return "";
-		return "/compositeChild_" + safeName;
+		return "/validationSet_" + safeName;
 	}
 
 	public String getMappedRepositoryVerificationIUName(MappedRepository repository) {
@@ -519,22 +519,22 @@ public class Builder extends ModelAbstractCommand {
 		return provisioningAgent;
 	}
 
-	public String getSafeCompositeChildName(CompositeChild compositeChild) {
-		if(compositeChild == null)
+	public String getSafeValidationSetName(ValidationSet validationSet) {
+		if(validationSet == null)
 			return null;
 
-		String safeName = safeCompositeChildNameMap.get(compositeChild);
+		String safeName = safeValidationSetNameMap.get(validationSet);
 
 		if(safeName != null)
 			return safeName;
 
-		safeName = compositeChild.getLabel().replaceAll("[^-0-9a-zA-Z_.~]", "_");
+		safeName = validationSet.getLabel().replaceAll("[^-0-9a-zA-Z_.~]", "_");
 
-		if(safeCompositeChildNameMap.values().contains(safeName))
-			throw new IllegalArgumentException("Could not generate safe unique name for compositeChild: " +
-					compositeChild.getLabel());
+		if(safeValidationSetNameMap.values().contains(safeName))
+			throw new IllegalArgumentException("Could not generate safe unique name for validationSet: " +
+					validationSet.getLabel());
 
-		safeCompositeChildNameMap.put(compositeChild, safeName);
+		safeValidationSetNameMap.put(validationSet, safeName);
 
 		return safeName;
 	}
@@ -599,7 +599,7 @@ public class Builder extends ModelAbstractCommand {
 	}
 
 	public URI getTargetCompositeURI() throws CoreException {
-		if(aggregator.getCompositeChildren().isEmpty())
+		if(aggregator.getValidationSets().isEmpty())
 			return null;
 		return createURI(new File(buildRoot, REPO_FOLDER_FINAL));
 	}
@@ -612,12 +612,12 @@ public class Builder extends ModelAbstractCommand {
 		return (Transport) provisioningAgent.getService(Transport.SERVICE_NAME);
 	}
 
-	public Set<IInstallableUnit> getUnitsToAggregate(CompositeChild compositeChild) {
-		Set<IInstallableUnit> units = unitsToAggregateMap.get(compositeChild);
+	public Set<IInstallableUnit> getUnitsToAggregate(ValidationSet validationSet) {
+		Set<IInstallableUnit> units = unitsToAggregateMap.get(validationSet);
 
 		if(units == null) {
 			units = new HashSet<IInstallableUnit>();
-			unitsToAggregateMap.put(compositeChild, units);
+			unitsToAggregateMap.put(validationSet, units);
 		}
 
 		return units;
@@ -627,11 +627,11 @@ public class Builder extends ModelAbstractCommand {
 		return validationIUs;
 	}
 
-	public String getVerificationIUName(CompositeChild compositeChild) {
-		if(compositeChild == null)
+	public String getVerificationIUName(ValidationSet validationSet) {
+		if(validationSet == null)
 			return VERIFICATION_IU_PREFIX + "main";
 
-		return VERIFICATION_IU_PREFIX + "compositeChild_" + getSafeCompositeChildName(compositeChild);
+		return VERIFICATION_IU_PREFIX + "validationSet_" + getSafeValidationSetName(validationSet);
 	}
 
 	public boolean isCleanBuild() {
@@ -688,8 +688,8 @@ public class Builder extends ModelAbstractCommand {
 		return action == ActionType.VERIFY;
 	}
 
-	public void removeUnitsToAggregate(CompositeChild compositeChild) {
-		unitsToAggregateMap.remove(compositeChild);
+	public void removeUnitsToAggregate(ValidationSet validationSet) {
+		unitsToAggregateMap.remove(validationSet);
 	}
 
 	/**
@@ -784,22 +784,22 @@ public class Builder extends ModelAbstractCommand {
 
 			loadAllMappedRepositories();
 
-			List<CompositeChild> compositeChildrenIncludingMain = getCompositeChildrenIncludingMain();
+			List<ValidationSet> validationSetsIncludingMain = getValidationSetsIncludingMain();
 			runCompositeGenerator(MonitorUtils.subMonitor(monitor, 70));
 
 			// we generate the verification IUs in a separate loop
 			// to detect non p2 related problems early
-			for(CompositeChild compositeChild : compositeChildrenIncludingMain)
-				runVerificationIUGenerator(compositeChild, MonitorUtils.subMonitor(monitor, 15));
+			for(ValidationSet validationSet : validationSetsIncludingMain)
+				runVerificationIUGenerator(validationSet, MonitorUtils.subMonitor(monitor, 15));
 
-			for(CompositeChild compositeChild : compositeChildrenIncludingMain)
-				runRepositoryVerifier(compositeChild, MonitorUtils.subMonitor(monitor, 100));
+			for(ValidationSet validationSet : validationSetsIncludingMain)
+				runRepositoryVerifier(validationSet, MonitorUtils.subMonitor(monitor, 100));
 
 			runCategoriesRepoGenerator(MonitorUtils.subMonitor(monitor, 15));
 
 			if(action != ActionType.VERIFY) {
-				for(CompositeChild compositeChild : compositeChildrenIncludingMain)
-					runMetadataMirroring(compositeChild, MonitorUtils.subMonitor(monitor, 100));
+				for(ValidationSet validationSet : validationSetsIncludingMain)
+					runMetadataMirroring(validationSet, MonitorUtils.subMonitor(monitor, 100));
 				runMirroring(MonitorUtils.subMonitor(monitor, 2000));
 			}
 			return 0;
@@ -1030,7 +1030,7 @@ public class Builder extends ModelAbstractCommand {
 	}
 
 	private void cleanMemoryCaches() {
-		safeCompositeChildNameMap.clear();
+		safeValidationSetNameMap.clear();
 		safeRepositoryNameMap.clear();
 		safeRepositoryNames.clear();
 		categoryIUs = null;
@@ -1058,7 +1058,7 @@ public class Builder extends ModelAbstractCommand {
 
 		Set<MetadataRepositoryReference> repositoriesToLoad = new HashSet<MetadataRepositoryReference>();
 
-		Aggregator aggregator = getAggregator();
+		Aggregation aggregator = getAggregator();
 		ResourceSet topSet = ((EObject) aggregator).eResource().getResourceSet();
 		// first, set up asynchronous loading jobs so that the repos are loaded in parallel
 		for(MetadataRepositoryReference repo : aggregator.getAllMetadataRepositoryReferences(true)) {
@@ -1182,22 +1182,22 @@ public class Builder extends ModelAbstractCommand {
 					}
 				}
 
-				EList<CompositeChild> compositeChildren = aggregator.getCompositeChildren();
-				if(compositeChildren.size() > 0) {
-					// TODO handle custom categories spanning compositeChildren - for now we remove all but features contributed
-					// by contributions which are part of the main (implicit) compositeChild from the custom categories
-					HashSet<MappedUnit> allMainCompositeChildFeatures = new HashSet<MappedUnit>();
+				EList<ValidationSet> validationSets = aggregator.getValidationSets();
+				if(validationSets.size() > 0) {
+					// TODO handle custom categories spanning validationSets - for now we remove all but features contributed
+					// by contributions which are part of the main (implicit) validationSet from the custom categories
+					HashSet<MappedUnit> allMainValidationSetFeatures = new HashSet<MappedUnit>();
 
-					for(Contribution mainCompositeChildContribution : aggregator.getCompositeChildContributions(null)) {
-						for(MappedRepository mainCompositeChildRepository : mainCompositeChildContribution.getRepositories())
-							allMainCompositeChildFeatures.addAll(mainCompositeChildRepository.getFeatures());
+					for(Contribution mainValidationSetContribution : aggregator.getValidationSetContributions(null)) {
+						for(MappedRepository mainValidationSetRepository : mainValidationSetContribution.getRepositories())
+							allMainValidationSetFeatures.addAll(mainValidationSetRepository.getFeatures());
 					}
 
 					for(CustomCategory customCategory : aggregator.getCustomCategories()) {
 						Iterator<Feature> iterator = customCategory.getFeatures().iterator();
 						while(iterator.hasNext()) {
 							Feature feature = iterator.next();
-							if(!allMainCompositeChildFeatures.contains(feature))
+							if(!allMainValidationSetFeatures.contains(feature))
 								iterator.remove();
 						}
 					}
@@ -1263,8 +1263,8 @@ public class Builder extends ModelAbstractCommand {
 		generator.run(monitor);
 	}
 
-	private void runMetadataMirroring(CompositeChild compositeChild, IProgressMonitor monitor) throws CoreException {
-		MetadataMirrorGenerator generator = new MetadataMirrorGenerator(this, compositeChild);
+	private void runMetadataMirroring(ValidationSet validationSet, IProgressMonitor monitor) throws CoreException {
+		MetadataMirrorGenerator generator = new MetadataMirrorGenerator(this, validationSet);
 		generator.run(monitor);
 	}
 
@@ -1273,14 +1273,14 @@ public class Builder extends ModelAbstractCommand {
 		generator.run(monitor);
 	}
 
-	private void runRepositoryVerifier(CompositeChild compositeChild, IProgressMonitor monitor) throws CoreException {
-		RepositoryVerifier ipt = new RepositoryVerifier(this, compositeChild);
+	private void runRepositoryVerifier(ValidationSet validationSet, IProgressMonitor monitor) throws CoreException {
+		RepositoryVerifier ipt = new RepositoryVerifier(this, validationSet);
 		ipt.run(monitor);
 	}
 
-	private void runVerificationIUGenerator(CompositeChild compositeChild, IProgressMonitor monitor)
+	private void runVerificationIUGenerator(ValidationSet validationSet, IProgressMonitor monitor)
 			throws CoreException {
-		VerificationIUGenerator generator = new VerificationIUGenerator(this, compositeChild);
+		VerificationIUGenerator generator = new VerificationIUGenerator(this, validationSet);
 		generator.run(monitor);
 	}
 

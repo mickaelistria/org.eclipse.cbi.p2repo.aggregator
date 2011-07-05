@@ -77,8 +77,8 @@ public class TransformationManager {
 					return result;
 			}
 		}
-
-		return null;
+		throw new IllegalArgumentException("Unable to resolve transformation sequence from " + requiredSourceNS +
+				" to " + requiredTargetNS);
 	}
 
 	private boolean srcNamespaceFound;

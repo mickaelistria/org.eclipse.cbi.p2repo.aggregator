@@ -83,7 +83,7 @@ public class AggregatorTransformer_080_2_100 extends ResourceTransformer {
 
 	private static final String CONTACTS_REF = "contacts";
 
-	private static final String AGGREGATETYPE_ENUM = "CompositeChildType";
+	private static final String AGGREGATETYPE_ENUM = "ValidationSetType";
 
 	private static final String AGGREGATOR_REF = "aggregator";
 

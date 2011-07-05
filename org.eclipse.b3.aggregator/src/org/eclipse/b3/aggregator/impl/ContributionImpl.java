@@ -8,7 +8,7 @@ package org.eclipse.b3.aggregator.impl;
 
 import java.util.Collection;
 
-import org.eclipse.b3.aggregator.Aggregator;
+import org.eclipse.b3.aggregator.Aggregation;
 import org.eclipse.b3.aggregator.AggregatorFactory;
 import org.eclipse.b3.aggregator.AggregatorPackage;
 import org.eclipse.b3.aggregator.Contact;
@@ -532,7 +532,7 @@ public class ContributionImpl extends MinimalEObjectImpl.Container implements Co
 	 */
 	public EList<MavenMapping> getAllMavenMappings() {
 		EList<MavenMapping> myMappings = getMavenMappings();
-		EList<MavenMapping> parentMappings = ((Aggregator) eContainer()).getMavenMappings();
+		EList<MavenMapping> parentMappings = ((Aggregation) eContainer()).getMavenMappings();
 		EList<MavenMapping> allMappings = new BasicEList<MavenMapping>(myMappings.size() + parentMappings.size());
 		allMappings.addAll(myMappings);
 		allMappings.addAll(parentMappings);

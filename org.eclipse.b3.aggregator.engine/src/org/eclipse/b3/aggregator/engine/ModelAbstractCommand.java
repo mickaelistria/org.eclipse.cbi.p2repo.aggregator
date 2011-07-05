@@ -10,7 +10,7 @@ package org.eclipse.b3.aggregator.engine;
 
 import java.io.File;
 
-import org.eclipse.b3.aggregator.Aggregator;
+import org.eclipse.b3.aggregator.Aggregation;
 import org.eclipse.b3.aggregator.transformer.TransformationManager;
 import org.eclipse.b3.aggregator.util.ResourceUtils;
 import org.eclipse.b3.cli.AbstractCommand;
@@ -40,7 +40,7 @@ public abstract class ModelAbstractCommand extends AbstractCommand {
 	 * @throws CoreException
 	 *             If something goes wrong with during the process
 	 */
-	protected Aggregator loadModelFromFile() throws CoreException {
+	protected Aggregation loadModelFromFile() throws CoreException {
 		try {
 			// Load the Java model into memory
 			resourceSet = new ResourceSetWithAgent();
@@ -71,7 +71,7 @@ public abstract class ModelAbstractCommand extends AbstractCommand {
 				throw ExceptionUtils.fromMessage(
 					"ECore Resource did not contain one resource. It had %d", Integer.valueOf(content.size()));
 
-			return (Aggregator) content.get(0);
+			return (Aggregation) content.get(0);
 		}
 		catch(Exception e) {
 			throw ExceptionUtils.wrap(e);

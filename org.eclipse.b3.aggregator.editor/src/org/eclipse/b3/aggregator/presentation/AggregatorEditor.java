@@ -21,7 +21,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.regex.Pattern;
 
-import org.eclipse.b3.aggregator.Aggregator;
+import org.eclipse.b3.aggregator.Aggregation;
 import org.eclipse.b3.aggregator.AggregatorPlugin;
 import org.eclipse.b3.aggregator.MetadataRepositoryReference;
 import org.eclipse.b3.aggregator.StatusCode;
@@ -36,6 +36,7 @@ import org.eclipse.b3.aggregator.provider.AggregatorItemProviderAdapter;
 import org.eclipse.b3.aggregator.provider.AggregatorItemProviderAdapterFactory;
 import org.eclipse.b3.aggregator.provider.AggregatorResourceViewItemProvider;
 import org.eclipse.b3.aggregator.provider.TooltipTextProvider;
+import org.eclipse.b3.aggregator.transformer.ui.TransformationWizard;
 import org.eclipse.b3.aggregator.util.AggregatorResource;
 import org.eclipse.b3.aggregator.util.AggregatorResourceImpl;
 import org.eclipse.b3.aggregator.util.BaseAggregatorResourceFactoryImpl;
@@ -793,12 +794,10 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 	 * @generated
 	 */
 	protected IResourceChangeListener resourceChangeListener = new IResourceChangeListener() {
-
 		public void resourceChanged(IResourceChangeEvent event) {
 			IResourceDelta delta = event.getDelta();
 			try {
 				class ResourceDeltaVisitor implements IResourceDeltaVisitor {
-
 					protected ResourceSet resourceSet = editingDomain.getResourceSet();
 
 					protected Collection<Resource> changedResources = new ArrayList<Resource>();
@@ -832,7 +831,6 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 
 						return true;
 					}
-
 				}
 
 				final ResourceDeltaVisitor visitor = new ResourceDeltaVisitor();
@@ -840,27 +838,23 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 
 				if(!visitor.getRemovedResources().isEmpty()) {
 					getSite().getShell().getDisplay().asyncExec(new Runnable() {
-
 						public void run() {
 							removedResources.addAll(visitor.getRemovedResources());
 							if(!isDirty()) {
 								getSite().getPage().closeEditor(AggregatorEditor.this, false);
 							}
 						}
-
 					});
 				}
 
 				if(!visitor.getChangedResources().isEmpty()) {
 					getSite().getShell().getDisplay().asyncExec(new Runnable() {
-
 						public void run() {
 							changedResources.addAll(visitor.getChangedResources());
 							if(getSite().getPage().getActiveEditor() == AggregatorEditor.this) {
 								handleActivate();
 							}
 						}
-
 					});
 				}
 			}
@@ -868,7 +862,6 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 				AggregatorEditorPlugin.INSTANCE.log(exception);
 			}
 		}
-
 	};
 
 	/**
@@ -1099,8 +1092,8 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 			EcoreUtil.resolveAll(resource);
 
 			EList<EObject> contents = resource.getContents();
-			if(contents.size() == 1 && contents.get(0) instanceof Aggregator) {
-				Aggregator aggregator = (Aggregator) contents.get(0);
+			if(contents.size() == 1 && contents.get(0) instanceof Aggregation) {
+				Aggregation aggregator = (Aggregation) contents.get(0);
 
 				// initialize item providers for all MDR references so that they could handle notifications from
 				// repository loaders
@@ -1248,11 +1241,9 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 			setPageText(pageIndex, getString("_UI_SelectionPage_label"));
 
 			getSite().getShell().getDisplay().asyncExec(new Runnable() {
-
 				public void run() {
 					setActivePage(0);
 				}
-
 			});
 		}
 
@@ -1260,7 +1251,6 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 		// area if there are more than one page
 		//
 		getContainer().addControlListener(new ControlAdapter() {
-
 			boolean guard = false;
 
 			@Override
@@ -1271,15 +1261,12 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 					guard = false;
 				}
 			}
-
 		});
 
 		getSite().getShell().getDisplay().asyncExec(new Runnable() {
-
 			public void run() {
 				updateProblemIndication();
 			}
-
 		});
 	}
 
@@ -1330,7 +1317,6 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 		// Do the work within an operation because this is a long running activity that modifies the workbench.
 		//
 		WorkspaceModifyOperation operation = new WorkspaceModifyOperation() {
-
 			// This is the method that gets invoked when the operation runs.
 			//
 			@Override
@@ -1355,7 +1341,6 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 					}
 				}
 			}
-
 		};
 
 		updateProblemIndication = false;
@@ -1548,7 +1533,6 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 			// The content outline is just a tree.
 			//
 			class MyContentOutlinePage extends ContentOutlinePage {
-
 				@Override
 				public void createControl(Composite parent) {
 					super.createControl(parent);
@@ -1586,7 +1570,6 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 					super.setActionBars(actionBars);
 					getActionBarContributor().shareGlobalActions(this, actionBars);
 				}
-
 			}
 
 			contentOutlinePage = new MyContentOutlinePage();
@@ -1594,13 +1577,11 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 			// Listen to selection so that we can handle it is a special way.
 			//
 			contentOutlinePage.addSelectionChangedListener(new ISelectionChangedListener() {
-
 				// This ensures that we handle selections correctly.
 				//
 				public void selectionChanged(SelectionChangedEvent event) {
 					handleContentOutlineSelection(event.getSelection());
 				}
-
 			});
 		}
 
@@ -2032,7 +2013,7 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 						Object overlayImage;
 
 						if(res.getContents().size() > 0 &&
-								((Aggregator) res.getContents().get(0)).getStatus().getCode() != StatusCode.OK)
+								((Aggregation) res.getContents().get(0)).getStatus().getCode() != StatusCode.OK)
 							overlayImage = getDelegateItemProviderAdapter(object).getImage("full/ovr16/Error");
 						else
 							break OVERLAID_IMAGE;
@@ -2134,7 +2115,7 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 						if(resourceSet == null)
 							return;
 
-						Aggregator aggregator = (Aggregator) resourceSet.getResources().get(0).getContents().get(0);
+						Aggregation aggregator = (Aggregation) resourceSet.getResources().get(0).getContents().get(0);
 
 						for(MetadataRepositoryReference mdr : aggregator.getAllMetadataRepositoryReferences(true))
 							fireNotifyChanged(new ViewerNotification(notification, mdr, false, true));
@@ -2416,13 +2397,11 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 				// Create the listener on demand.
 				//
 				selectionChangedListener = new ISelectionChangedListener() {
-
 					// This just notifies those things that are affected by the section.
 					//
 					public void selectionChanged(SelectionChangedEvent selectionChangedEvent) {
 						setSelection(selectionChangedEvent.getSelection());
 					}
-
 				};
 			}
 
@@ -2488,7 +2467,6 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 		//
 		if(theSelection != null && !theSelection.isEmpty()) {
 			Runnable runnable = new Runnable() {
-
 				public void run() {
 					// Try to select the items in the current content viewer of the editor.
 					//
@@ -2496,7 +2474,6 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 						currentViewer.setSelection(new StructuredSelection(theSelection.toArray()), true);
 					}
 				}
-
 			};
 			getSite().getShell().getDisplay().asyncExec(runnable);
 		}

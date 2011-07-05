@@ -25,7 +25,7 @@ package org.eclipse.b3.aggregator;
 public interface Contact {
 	/**
 	 * Returns the value of the '<em><b>Aggregator</b></em>' container reference.
-	 * It is bidirectional and its opposite is '{@link org.eclipse.b3.aggregator.Aggregator#getContacts <em>Contacts</em>}'.
+	 * It is bidirectional and its opposite is '{@link org.eclipse.b3.aggregator.Aggregation#getContacts <em>Contacts</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Aggregator</em>' container reference isn't clear, there really should be more of a description here...
@@ -33,13 +33,13 @@ public interface Contact {
 	 * <!-- end-user-doc -->
 	 * 
 	 * @return the value of the '<em>Aggregator</em>' container reference.
-	 * @see #setAggregator(Aggregator)
+	 * @see #setAggregator(Aggregation)
 	 * @see org.eclipse.b3.aggregator.AggregatorPackage#getContact_Aggregator()
-	 * @see org.eclipse.b3.aggregator.Aggregator#getContacts
+	 * @see org.eclipse.b3.aggregator.Aggregation#getContacts
 	 * @model opposite="contacts" required="true" transient="false"
 	 * @generated
 	 */
-	Aggregator getAggregator();
+	Aggregation getAggregator();
 
 	/**
 	 * Returns the value of the '<em><b>Email</b></em>' attribute.
@@ -82,7 +82,7 @@ public interface Contact {
 	 * @see #getAggregator()
 	 * @generated
 	 */
-	void setAggregator(Aggregator value);
+	void setAggregator(Aggregation value);
 
 	/**
 	 * Sets the value of the '{@link org.eclipse.b3.aggregator.Contact#getEmail <em>Email</em>}' attribute.

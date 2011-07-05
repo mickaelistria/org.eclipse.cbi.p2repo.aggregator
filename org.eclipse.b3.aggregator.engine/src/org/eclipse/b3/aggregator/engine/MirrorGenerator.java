@@ -19,7 +19,7 @@ import java.util.Map;
 import java.util.Properties;
 import java.util.Set;
 
-import org.eclipse.b3.aggregator.Aggregator;
+import org.eclipse.b3.aggregator.Aggregation;
 import org.eclipse.b3.aggregator.Contribution;
 import org.eclipse.b3.aggregator.MappedRepository;
 import org.eclipse.b3.aggregator.MavenMapping;
@@ -439,7 +439,7 @@ public class MirrorGenerator extends BuilderPhase {
 
 	public Set<IArtifactKey> getArtifactKeysToExclude() throws CoreException {
 		Builder builder = getBuilder();
-		Aggregator aggregator = builder.getAggregator();
+		Aggregation aggregator = builder.getAggregator();
 
 		HashSet<IArtifactKey> keysToExclude = new HashSet<IArtifactKey>();
 		List<Contribution> contribs = aggregator.getContributions();
@@ -470,7 +470,7 @@ public class MirrorGenerator extends BuilderPhase {
 		arMgr = P2Utils.getRepositoryManager(getBuilder().getProvisioningAgent(), IArtifactRepositoryManager.class);
 		arCache = null;
 
-		Aggregator aggregator = builder.getAggregator();
+		Aggregation aggregator = builder.getAggregator();
 		String aggregatorLabel = aggregator.getLabel();
 
 		SubMonitor subMon = SubMonitor.convert(monitor, 1000);
@@ -532,11 +532,11 @@ public class MirrorGenerator extends BuilderPhase {
 
 			SubMonitor childMonitor = subMon.newChild(900, SubMonitor.SUPPRESS_BEGINTASK |
 					SubMonitor.SUPPRESS_SETTASKNAME);
-			// get contributions of the main (implicit) compositeChild
+			// get contributions of the main (implicit) validationSet
 			List<Contribution> allContribs = aggregator.getContributions(true);
 
 			MonitorUtils.begin(childMonitor, allContribs.size() * 100 + 22);
-			boolean compositeChilddArIsEmpty = true;
+			boolean validationSetdArIsEmpty = true;
 
 			PackedStrategy packedStrategy = aggregator.getPackedStrategy();
 
@@ -611,7 +611,7 @@ public class MirrorGenerator extends BuilderPhase {
 
 			List<String[]> mappingRules = new ArrayList<String[]>();
 			List<ArtifactDescriptor> referencedArtifacts = new ArrayList<ArtifactDescriptor>();
-			Set<IInstallableUnit> copyOfUnitsToCompositeChild = null;
+			Set<IInstallableUnit> copyOfUnitsToValidationSet = null;
 
 			// add rules for artifacts mapped from non-p2 repositories
 			for(Contribution contrib : allContribs) {
@@ -627,13 +627,13 @@ public class MirrorGenerator extends BuilderPhase {
 						continue;
 					}
 
-					if(copyOfUnitsToCompositeChild == null)
-						copyOfUnitsToCompositeChild = new HashSet<IInstallableUnit>(allUnitsToAggregate);
+					if(copyOfUnitsToValidationSet == null)
+						copyOfUnitsToValidationSet = new HashSet<IInstallableUnit>(allUnitsToAggregate);
 
 					MetadataRepository childMdr = ResourceUtils.getMetadataRepository(repo);
 					ArrayList<IInstallableUnit> iusToRefer = null;
 					for(IInstallableUnit iu : childMdr.getInstallableUnits()) {
-						if(!copyOfUnitsToCompositeChild.remove(iu))
+						if(!copyOfUnitsToValidationSet.remove(iu))
 							continue;
 
 						if(iusToRefer == null)
@@ -697,7 +697,7 @@ public class MirrorGenerator extends BuilderPhase {
 						referencedArtifacts.toArray(new IArtifactDescriptor[referencedArtifacts.size()]),
 						childMonitor.newChild(2));
 					simpleAr.save();
-					compositeChilddArIsEmpty = false;
+					validationSetdArIsEmpty = false;
 				}
 				else
 					throw ExceptionUtils.fromMessage(
@@ -751,7 +751,7 @@ public class MirrorGenerator extends BuilderPhase {
 							packedStrategy,
 							errors,
 							contribMonitor.newChild(94, SubMonitor.SUPPRESS_BEGINTASK | SubMonitor.SUPPRESS_SETTASKNAME));
-						compositeChilddArIsEmpty = false;
+						validationSetdArIsEmpty = false;
 					}
 					else
 						MonitorUtils.worked(contribMonitor, 95);
@@ -817,10 +817,10 @@ public class MirrorGenerator extends BuilderPhase {
 			// Initialize a p2Index property file. It might not be used.
 			Properties p2Index = new Properties();
 			if(reposWithReferencedMetadata.isEmpty() && aggregateChildrenSubdirectories.size() <= 1) {
-				// The compositeChildd meta-data can serve as the final repository so
+				// The validationSetd meta-data can serve as the final repository so
 				// let's move it.
 				//
-				LogUtils.info("Making the compositeChildd metadata repository final at %s", finalURI);
+				LogUtils.info("Making the validationSetd metadata repository final at %s", finalURI);
 				File oldLocation = new File(aggregateDestination, "content.jar");
 				File newLocation = new File(destination, oldLocation.getName());
 				if(!oldLocation.renameTo(newLocation))
@@ -852,7 +852,7 @@ public class MirrorGenerator extends BuilderPhase {
 			if(reposWithReferencedArtifacts.isEmpty()) {
 				// The aggregation can serve as the final repository.
 				//
-				LogUtils.info("Making the compositeChildd artifact repository final at %s", finalURI);
+				LogUtils.info("Making the validationSetd artifact repository final at %s", finalURI);
 				for(String name : aggregateDestination.list()) {
 					if("content.jar".equals(name) || aggregateChildrenSubdirectories.contains("/" + name))
 						continue;
@@ -878,7 +878,7 @@ public class MirrorGenerator extends BuilderPhase {
 				for(MappedRepository referenced : reposWithReferencedArtifacts)
 					compositeAr.addChild(referenced.getMetadataRepository().getLocation());
 
-				if(compositeChilddArIsEmpty) {
+				if(validationSetdArIsEmpty) {
 					arMgr.removeRepository(aggregateURI);
 					File arFile = new File(aggregateDestination, "artifacts.jar");
 					if(!arFile.delete())

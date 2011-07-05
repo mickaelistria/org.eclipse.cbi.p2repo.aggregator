@@ -9,21 +9,21 @@ package org.eclipse.b3.aggregator;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>CompositeChild</b></em>'.
+ * A representation of the model object '<em><b>ValidationSet</b></em>'.
  * <!-- end-user-doc -->
  * 
  * <p>
  * The following features are supported:
  * <ul>
- * <li>{@link org.eclipse.b3.aggregator.CompositeChild#getLabel <em>Label</em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.ValidationSet#getLabel <em>Label</em>}</li>
  * </ul>
  * </p>
  * 
- * @see org.eclipse.b3.aggregator.AggregatorPackage#getCompositeChild()
+ * @see org.eclipse.b3.aggregator.AggregatorPackage#getValidationSet()
  * @model
  * @generated
  */
-public interface CompositeChild extends EnabledStatusProvider, DescriptionProvider, StatusProvider, InfosProvider,
+public interface ValidationSet extends EnabledStatusProvider, DescriptionProvider, StatusProvider, InfosProvider,
 		LinkReceiver {
 	/**
 	 * Returns the value of the '<em><b>Label</b></em>' attribute.
@@ -35,14 +35,14 @@ public interface CompositeChild extends EnabledStatusProvider, DescriptionProvid
 	 * 
 	 * @return the value of the '<em>Label</em>' attribute.
 	 * @see #setLabel(String)
-	 * @see org.eclipse.b3.aggregator.AggregatorPackage#getCompositeChild_Label()
+	 * @see org.eclipse.b3.aggregator.AggregatorPackage#getValidationSet_Label()
 	 * @model required="true"
 	 * @generated
 	 */
 	String getLabel();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.aggregator.CompositeChild#getLabel <em>Label</em>}' attribute.
+	 * Sets the value of the '{@link org.eclipse.b3.aggregator.ValidationSet#getLabel <em>Label</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -53,4 +53,4 @@ public interface CompositeChild extends EnabledStatusProvider, DescriptionProvid
 	 */
 	void setLabel(String value);
 
-} // CompositeChild
+} // ValidationSet

@@ -5,7 +5,7 @@ import java.net.URI;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.eclipse.b3.aggregator.CompositeChild;
+import org.eclipse.b3.aggregator.ValidationSet;
 import org.eclipse.b3.p2.util.P2Utils;
 import org.eclipse.b3.util.LogUtils;
 import org.eclipse.b3.util.MonitorUtils;
@@ -21,35 +21,35 @@ import org.eclipse.equinox.p2.repository.metadata.IMetadataRepository;
 import org.eclipse.equinox.p2.repository.metadata.IMetadataRepositoryManager;
 
 public class VerificationIUGenerator extends BuilderPhase {
-	private CompositeChild compositeChild;
+	private ValidationSet validationSet;
 
-	public VerificationIUGenerator(Builder builder, CompositeChild compositeChild) {
+	public VerificationIUGenerator(Builder builder, ValidationSet validationSet) {
 		super(builder);
-		this.compositeChild = compositeChild;
+		this.validationSet = validationSet;
 	}
 
 	private IPublisherAction[] createActions(IMetadataRepository mdr) {
-		return new IPublisherAction[] { new VerificationIUAction(getBuilder(), compositeChild) };
+		return new IPublisherAction[] { new VerificationIUAction(getBuilder(), validationSet) };
 	}
 
 	@Override
 	public void run(IProgressMonitor monitor) throws CoreException {
-		String taskLabel = Builder.getCompositeChildLabel(compositeChild);
+		String taskLabel = Builder.getValidationSetLabel(validationSet);
 
 		long start = TimeUtils.getNow();
-		MonitorUtils.begin(monitor, "Verifying Features for compositeChild: " + taskLabel, 100);
-		String info = "Starting generation of verification feature for compositeChild: " + taskLabel;
+		MonitorUtils.begin(monitor, "Verifying Features for validationSet: " + taskLabel, 100);
+		String info = "Starting generation of verification feature for validationSet: " + taskLabel;
 		LogUtils.info(info);
 		MonitorUtils.subTask(monitor, info);
 
 		String name = getBuilder().getAggregator().getLabel();
-		if(compositeChild != null)
-			name += " / " + compositeChild.getLabel();
+		if(validationSet != null)
+			name += " / " + validationSet.getLabel();
 		name += " Verification repository";
 
 		File globalLocation = new File(getBuilder().getBuildRoot(), Builder.REPO_FOLDER_INTERIM);
 		File location = new File(globalLocation, Builder.REPO_FOLDER_VERIFICATION +
-				getBuilder().getCompositeChildSubdirectory(compositeChild));
+				getBuilder().getValidationSetSubdirectory(validationSet));
 		FileUtils.deleteAll(location);
 
 		Map<String, String> properties = new HashMap<String, String>();

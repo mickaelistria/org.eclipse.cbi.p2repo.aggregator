@@ -10,8 +10,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import org.eclipse.b3.aggregator.Aggregator;
-import org.eclipse.b3.aggregator.CompositeChild;
+import org.eclipse.b3.aggregator.Aggregation;
+import org.eclipse.b3.aggregator.ValidationSet;
 import org.eclipse.b3.aggregator.Contribution;
 import org.eclipse.b3.aggregator.MappedRepository;
 import org.eclipse.b3.aggregator.util.ResourceUtils;
@@ -34,11 +34,11 @@ public class MetadataMirrorGenerator extends BuilderPhase {
 
 	private IMetadataRepositoryManager mdrMgr;
 
-	private CompositeChild compositeChild;
+	private ValidationSet validationSet;
 
-	public MetadataMirrorGenerator(Builder builder, CompositeChild compositeChild) {
+	public MetadataMirrorGenerator(Builder builder, ValidationSet validationSet) {
 		super(builder);
-		this.compositeChild = compositeChild;
+		this.validationSet = validationSet;
 	}
 
 	private void mirror(List<IInstallableUnit> iusToMirror, MetadataRepository source, final IMetadataRepository dest,
@@ -74,43 +74,43 @@ public class MetadataMirrorGenerator extends BuilderPhase {
 
 	@Override
 	public void run(IProgressMonitor monitor) throws CoreException {
-		String taskLabel = Builder.getCompositeChildLabel(compositeChild);
+		String taskLabel = Builder.getValidationSetLabel(validationSet);
 
-		LogUtils.info("Starting mirroring of meta-data for compositeChild: " + taskLabel);
+		LogUtils.info("Starting mirroring of meta-data for validationSet: " + taskLabel);
 		long start = TimeUtils.getNow();
 
 		Builder builder = getBuilder();
 		File destination = new File(builder.getBuildRoot(), Builder.REPO_FOLDER_FINAL);
 		File aggregateDestination = new File(destination, Builder.REPO_FOLDER_AGGREGATE +
-				builder.getCompositeChildSubdirectory(compositeChild));
+				builder.getValidationSetSubdirectory(validationSet));
 		URI aggregateURI = Builder.createURI(aggregateDestination);
 
 		mdrMgr = P2Utils.getRepositoryManager(getBuilder().getProvisioningAgent(), IMetadataRepositoryManager.class);
 		SubMonitor subMon = SubMonitor.convert(monitor, 1000);
 		boolean artifactErrors = false;
 		try {
-			Set<IInstallableUnit> unitsToAggregate = builder.getUnitsToAggregate(compositeChild);
+			Set<IInstallableUnit> unitsToAggregate = builder.getUnitsToAggregate(validationSet);
 
 			if(unitsToAggregate.size() > 0) {
-				subMon.setTaskName("Mirroring meta-data for compositeChild: " + taskLabel + "...");
+				subMon.setTaskName("Mirroring meta-data for validationSet: " + taskLabel + "...");
 				MonitorUtils.subTask(subMon, "Initializing");
 
 				MonitorUtils.worked(subMon, 5);
 
-				Aggregator aggregator = builder.getAggregator();
+				Aggregation aggregator = builder.getAggregator();
 
 				Map<String, String> properties = new HashMap<String, String>();
 				properties.put(IRepository.PROP_COMPRESSED, Boolean.toString(true));
-				String label = aggregator.getLabel() + (compositeChild == null
+				String label = aggregator.getLabel() + (validationSet == null
 						? ""
-						: " / " + compositeChild.getLabel());
-				IMetadataRepository compositeChildMdr = mdrMgr.createRepository(
+						: " / " + validationSet.getLabel());
+				IMetadataRepository validationSetMdr = mdrMgr.createRepository(
 					aggregateURI, label, Builder.SIMPLE_METADATA_TYPE, properties);
 				MonitorUtils.worked(subMon, 10);
 
 				SubMonitor childMonitor = subMon.newChild(900, SubMonitor.SUPPRESS_BEGINTASK |
 						SubMonitor.SUPPRESS_SETTASKNAME);
-				List<Contribution> contribs = aggregator.getCompositeChildContributions(compositeChild, true);
+				List<Contribution> contribs = aggregator.getValidationSetContributions(validationSet, true);
 
 				MonitorUtils.begin(childMonitor, contribs.size() * 100 + 20);
 
@@ -144,7 +144,7 @@ public class MetadataMirrorGenerator extends BuilderPhase {
 							mirror(
 								iusToMirror,
 								childMdr,
-								compositeChildMdr,
+								validationSetMdr,
 								contribMonitor.newChild(5, SubMonitor.SUPPRESS_BEGINTASK |
 										SubMonitor.SUPPRESS_SETTASKNAME));
 						}
@@ -154,18 +154,18 @@ public class MetadataMirrorGenerator extends BuilderPhase {
 					MonitorUtils.done(contribMonitor);
 				}
 
-				// TODO currently we mirror the custom categories for the main/implicit compositeChild only - make this work with other
-				// compositeChildren too
-				if(compositeChild == null) {
+				// TODO currently we mirror the custom categories for the main/implicit validationSet only - make this work with other
+				// validationSets too
+				if(validationSet == null) {
 					List<IInstallableUnit> categories = builder.getCategoryIUs();
 					if(!categories.isEmpty()) {
-						mirror(categories, null, compositeChildMdr, childMonitor.newChild(20));
+						mirror(categories, null, validationSetMdr, childMonitor.newChild(20));
 					}
 				}
 				MonitorUtils.done(childMonitor);
 			}
 			else
-				builder.removeUnitsToAggregate(compositeChild);
+				builder.removeUnitsToAggregate(validationSet);
 		}
 		finally {
 			P2Utils.ungetRepositoryManager(getBuilder().getProvisioningAgent(), mdrMgr);

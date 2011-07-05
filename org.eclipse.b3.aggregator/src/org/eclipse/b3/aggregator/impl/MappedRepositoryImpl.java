@@ -8,7 +8,7 @@ package org.eclipse.b3.aggregator.impl;
 
 import java.util.Collection;
 
-import org.eclipse.b3.aggregator.Aggregator;
+import org.eclipse.b3.aggregator.Aggregation;
 import org.eclipse.b3.aggregator.AggregatorFactory;
 import org.eclipse.b3.aggregator.AggregatorPackage;
 import org.eclipse.b3.aggregator.Bundle;
@@ -411,8 +411,8 @@ public class MappedRepositoryImpl extends MetadataRepositoryReferenceImpl implem
 	}
 
 	@Override
-	public Aggregator getAggregator() {
-		Aggregator aggregator = (Aggregator) eContainer().eContainer();
+	public Aggregation getAggregator() {
+		Aggregation aggregator = (Aggregation) eContainer().eContainer();
 
 		return aggregator != null
 				? aggregator
@@ -510,7 +510,9 @@ public class MappedRepositoryImpl extends MetadataRepositoryReferenceImpl implem
 	 * @generated
 	 */
 	public String getIdentification() {
-		return getLocation();
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
 	}
 
 	/**

@@ -19,7 +19,7 @@ import java.util.Map;
 import java.util.Set;
 
 import org.eclipse.b3.aggregator.Category;
-import org.eclipse.b3.aggregator.CompositeChild;
+import org.eclipse.b3.aggregator.ValidationSet;
 import org.eclipse.b3.aggregator.Configuration;
 import org.eclipse.b3.aggregator.Contribution;
 import org.eclipse.b3.aggregator.ExclusionRule;
@@ -57,11 +57,11 @@ import org.eclipse.equinox.p2.publisher.IPublisherResult;
 import org.eclipse.equinox.spi.p2.publisher.PublisherHelper;
 
 /**
- * This action creates the feature that contains all features and bundles that are listed contributions in the CompositeChild passed to the
+ * This action creates the feature that contains all features and bundles that are listed contributions in the ValidationSet passed to the
  * constructor
  * of this class.
  * 
- * @see Builder#getVerificationIUName(CompositeChild)
+ * @see Builder#getVerificationIUName(ValidationSet)
  */
 public class VerificationIUAction extends AbstractPublisherAction {
 	static class RepositoryRequirement {
@@ -125,11 +125,11 @@ public class VerificationIUAction extends AbstractPublisherAction {
 
 	private final Builder builder;
 
-	private final CompositeChild compositeChild;
+	private final ValidationSet validationSet;
 
-	public VerificationIUAction(Builder builder, CompositeChild compositeChild) {
+	public VerificationIUAction(Builder builder, ValidationSet validationSet) {
 		this.builder = builder;
-		this.compositeChild = compositeChild;
+		this.validationSet = validationSet;
 	}
 
 	private void addCategoryContent(IInstallableUnit category, MappedRepository repository,
@@ -285,12 +285,12 @@ public class VerificationIUAction extends AbstractPublisherAction {
 		Map<String, Set<RepositoryRequirement>> required = new HashMap<String, Set<RepositoryRequirement>>();
 
 		boolean errorsFound = false;
-		List<Contribution> compositeChildContribs = builder.getAggregator().getCompositeChildContributions(
-			compositeChild, true);
-		SubMonitor subMon = SubMonitor.convert(monitor, 2 + compositeChildContribs.size());
+		List<Contribution> validationSetContribs = builder.getAggregator().getValidationSetContributions(
+			validationSet, true);
+		SubMonitor subMon = SubMonitor.convert(monitor, 2 + validationSetContribs.size());
 		try {
 			Set<String> explicit = new HashSet<String>();
-			for(Contribution contrib : compositeChildContribs) {
+			for(Contribution contrib : validationSetContribs) {
 				ArrayList<String> errors = new ArrayList<String>();
 				for(MappedRepository repository : contrib.getRepositories(true)) {
 					List<IInstallableUnit> allIUs;
@@ -418,7 +418,7 @@ public class VerificationIUAction extends AbstractPublisherAction {
 			}
 
 			// add the verification IU
-			iuDescription.setId(builder.getVerificationIUName(compositeChild));
+			iuDescription.setId(builder.getVerificationIUName(validationSet));
 			iuDescription.setVersion(Builder.ALL_CONTRIBUTED_CONTENT_VERSION);
 			iuDescription.setProperty(InstallableUnitDescription.PROP_TYPE_GROUP, Boolean.TRUE.toString());
 			iuDescription.setProperty(Builder.PROP_AGGREGATOR_GENERATED_IU, Boolean.TRUE.toString());

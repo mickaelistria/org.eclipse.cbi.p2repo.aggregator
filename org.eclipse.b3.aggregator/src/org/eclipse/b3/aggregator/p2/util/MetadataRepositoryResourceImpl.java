@@ -21,7 +21,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.regex.Pattern;
 
-import org.eclipse.b3.aggregator.Aggregator;
+import org.eclipse.b3.aggregator.Aggregation;
 import org.eclipse.b3.aggregator.AggregatorFactory;
 import org.eclipse.b3.aggregator.AggregatorPlugin;
 import org.eclipse.b3.aggregator.ChildrenProvider;
@@ -147,7 +147,7 @@ public class MetadataRepositoryResourceImpl extends ResourceImpl implements Stat
 
 				synchronized(MetadataRepositoryResourceImpl.this) {
 					String myLocation = getURI().opaquePart();
-					Aggregator aggregator = getAggregator();
+					Aggregation aggregator = getAggregator();
 
 					// check if the aggregator is still available - if not, it means that the resource has already been excluded
 					if(aggregator != null)
@@ -355,7 +355,7 @@ public class MetadataRepositoryResourceImpl extends ResourceImpl implements Stat
 			repoView.setLoaded(true);
 			getContents().add((EObject) repoView);
 
-			Aggregator aggregator = ResourceUtils.getAggregator(getResourceSet());
+			Aggregation aggregator = ResourceUtils.getAggregator(getResourceSet());
 			if(aggregator != null) {
 				for(MetadataRepositoryReference mdrReference : aggregator.getAllMetadataRepositoryReferences(true)) {
 					String refLocation = mdrReference.getLocation();
@@ -494,7 +494,7 @@ public class MetadataRepositoryResourceImpl extends ResourceImpl implements Stat
 		 * 
 		 */
 		private void updateAvailableVersions() {
-			Aggregator aggregator = ResourceUtils.getAggregator(getResourceSet());
+			Aggregation aggregator = ResourceUtils.getAggregator(getResourceSet());
 
 			if(aggregator != null)
 				for(Contribution contribution : aggregator.getContributions())
@@ -514,7 +514,7 @@ public class MetadataRepositoryResourceImpl extends ResourceImpl implements Stat
 
 	private static final String NOTIFICATION_KEY = "notification";
 
-	public static void cancelLoadRepository(String nature, String repositoryLocation, Aggregator aggregator) {
+	public static void cancelLoadRepository(String nature, String repositoryLocation, Aggregation aggregator) {
 		Resource mdr = getResourceForNatureAndLocation(nature, repositoryLocation, aggregator);
 
 		if(mdr instanceof MetadataRepositoryResourceImpl)
@@ -522,12 +522,12 @@ public class MetadataRepositoryResourceImpl extends ResourceImpl implements Stat
 	}
 
 	public static Resource getResourceForNatureAndLocation(String nature, String repositoryLocation,
-			Aggregator aggregator) {
+			Aggregation aggregator) {
 		return getResourceForNatureAndLocation(nature, repositoryLocation, aggregator, true);
 	}
 
 	public static Resource getResourceForNatureAndLocation(String nature, String repositoryLocation,
-			Aggregator aggregator, boolean create) {
+			Aggregation aggregator, boolean create) {
 		if(nature == null || repositoryLocation == null)
 			return null;
 
@@ -734,14 +734,14 @@ public class MetadataRepositoryResourceImpl extends ResourceImpl implements Stat
 		setModified(false);
 	}
 
-	private Aggregator getAggregator() {
+	private Aggregation getAggregator() {
 		ResourceSet rs = getResourceSet();
 		if(rs != null) {
 			List<Resource> resources = rs.getResources();
 			if(resources != null && resources.size() > 0) {
 				Resource aggrResource = resources.get(0);
 				if(aggrResource != null)
-					return (Aggregator) aggrResource.getContents().get(0);
+					return (Aggregation) aggrResource.getContents().get(0);
 			}
 		}
 
@@ -796,7 +796,7 @@ public class MetadataRepositoryResourceImpl extends ResourceImpl implements Stat
 	}
 
 	private MappedRepository getMappedRepository() {
-		Aggregator aggregator = ResourceUtils.getAggregator(getResourceSet());
+		Aggregation aggregator = ResourceUtils.getAggregator(getResourceSet());
 		if(aggregator == null)
 			return null;
 
@@ -1030,7 +1030,7 @@ public class MetadataRepositoryResourceImpl extends ResourceImpl implements Stat
 		else
 			myMDR = null;
 
-		Aggregator aggregator = getAggregator();
+		Aggregation aggregator = getAggregator();
 		if(aggregator == null)
 			// the resource was removed before it was loaded
 			return;

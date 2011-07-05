@@ -14,7 +14,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.eclipse.b3.aggregator.Aggregator;
+import org.eclipse.b3.aggregator.Aggregation;
 import org.eclipse.b3.aggregator.AggregatorFactory;
 import org.eclipse.b3.aggregator.CustomCategory;
 import org.eclipse.b3.aggregator.Feature;
@@ -111,7 +111,7 @@ public class AddIUsToCustomCategoryCommand extends AbstractCommand implements Dr
 
 	@Override
 	protected boolean prepare() {
-		Aggregator aggregator = (Aggregator) ((EObject) customCategory).eContainer();
+		Aggregation aggregator = (Aggregation) ((EObject) customCategory).eContainer();
 
 		for(IInstallableUnit feature : selectedFeatures) {
 			if(!(((EObject) feature).eContainer() instanceof MetadataRepository))

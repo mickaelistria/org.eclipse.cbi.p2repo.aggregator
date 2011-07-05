@@ -9,7 +9,7 @@ package org.eclipse.b3.aggregator.util;
 import java.util.Iterator;
 import java.util.List;
 
-import org.eclipse.b3.aggregator.Aggregator;
+import org.eclipse.b3.aggregator.Aggregation;
 import org.eclipse.b3.aggregator.AggregatorFactory;
 import org.eclipse.b3.aggregator.EnabledStatusProvider;
 import org.eclipse.b3.aggregator.InfosProvider;
@@ -154,7 +154,7 @@ public class AggregatorResourceImpl extends BaseAggregatorResourceImpl implement
 										iterator.remove();
 							}
 
-							Aggregator aggregator = (Aggregator) getContents().get(0);
+							Aggregation aggregator = (Aggregation) getContents().get(0);
 
 							analyze((EObject) aggregator);
 						}
@@ -180,12 +180,12 @@ public class AggregatorResourceImpl extends BaseAggregatorResourceImpl implement
 	}
 
 	/**
-	 * Returns the {@link Aggregator} instance contained in this {@link Resource}.
+	 * Returns the {@link Aggregation} instance contained in this {@link Resource}.
 	 * 
 	 * @return the {@code Aggregator} instance contained in this {@code Resource}.
 	 */
-	public Aggregator getAggregator() {
-		return (Aggregator) getContents().get(0);
+	public Aggregation getAggregator() {
+		return (Aggregation) getContents().get(0);
 	}
 
 	public EList<Diagnostic> getInfos() {

@@ -458,7 +458,7 @@ public class AggregatorModelWizard extends Wizard implements INewWizard {
 	 * @generated NOT
 	 */
 	protected EObject createInitialModel() {
-		EClass eClass = aggregatorPackage.getAggregator();
+		EClass eClass = aggregatorPackage.getAggregation();
 		EObject rootObject = aggregatorFactory.create(eClass);
 		return rootObject;
 	}

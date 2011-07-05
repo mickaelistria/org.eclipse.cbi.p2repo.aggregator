@@ -16,8 +16,8 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
-import org.eclipse.b3.aggregator.Aggregator;
-import org.eclipse.b3.aggregator.CompositeChild;
+import org.eclipse.b3.aggregator.Aggregation;
+import org.eclipse.b3.aggregator.ValidationSet;
 import org.eclipse.b3.aggregator.Configuration;
 import org.eclipse.b3.aggregator.Contribution;
 import org.eclipse.b3.aggregator.MappedRepository;
@@ -375,32 +375,32 @@ public class RepositoryVerifier extends BuilderPhase {
 		return roots.toArray(IInstallableUnit.class);
 	}
 
-	private CompositeChild compositeChild;
+	private ValidationSet validationSet;
 
-	public RepositoryVerifier(Builder builder, CompositeChild compositeChild) {
+	public RepositoryVerifier(Builder builder, ValidationSet validationSet) {
 		super(builder);
-		this.compositeChild = compositeChild;
+		this.validationSet = validationSet;
 	}
 
 	@Override
 	public void run(IProgressMonitor monitor) throws CoreException {
-		String taskLabel = Builder.getCompositeChildLabel(compositeChild);
+		String taskLabel = Builder.getValidationSetLabel(validationSet);
 
 		Builder builder = getBuilder();
-		Aggregator aggregator = builder.getAggregator();
+		Aggregation aggregator = builder.getAggregator();
 		List<Configuration> configs = aggregator.getConfigurations();
 		int configCount = configs.size();
 		SubMonitor subMon = SubMonitor.convert(monitor, configCount * 100);
 
-		LogUtils.info("Starting planner verification for compositeChild: " + taskLabel); //$NON-NLS-1$
+		LogUtils.info("Starting planner verification for validationSet: " + taskLabel); //$NON-NLS-1$
 		long start = TimeUtils.getNow();
 
 		String profilePrefix = Builder.PROFILE_ID + '_';
 
-		for(Contribution contrib : aggregator.getCompositeChildContributions(compositeChild, true))
+		for(Contribution contrib : aggregator.getValidationSetContributions(validationSet, true))
 			((ContributionImpl) contrib).setStatus(null);
 
-		final Set<IInstallableUnit> unitsToAggregate = builder.getUnitsToAggregate(compositeChild);
+		final Set<IInstallableUnit> unitsToAggregate = builder.getUnitsToAggregate(validationSet);
 		IProfileRegistry profileRegistry = P2Utils.getProfileRegistry(builder.getProvisioningAgent());
 		IPlanner planner = P2Utils.getPlanner(builder.getProvisioningAgent());
 		IMetadataRepositoryManager mdrMgr = P2Utils.getRepositoryManager(
@@ -443,7 +443,7 @@ public class RepositoryVerifier extends BuilderPhase {
 					profile = profileRegistry.addProfile(profileId, props);
 
 				IInstallableUnit[] rootArr = getRootIUs(
-					sourceRepo, builder.getVerificationIUName(compositeChild), Builder.ALL_CONTRIBUTED_CONTENT_VERSION,
+					sourceRepo, builder.getVerificationIUName(validationSet), Builder.ALL_CONTRIBUTED_CONTENT_VERSION,
 					subMon.newChild(9));
 
 				// Add as root IU's to a request
@@ -768,7 +768,7 @@ public class RepositoryVerifier extends BuilderPhase {
 
 	private List<Contribution> findContributions(String componentId) {
 		List<Contribution> result = null;
-		for(Contribution contrib : getBuilder().getAggregator().getCompositeChildContributions(compositeChild, true))
+		for(Contribution contrib : getBuilder().getAggregator().getValidationSetContributions(validationSet, true))
 			for(MappedRepository repository : contrib.getRepositories(true))
 				for(MappedUnit mu : repository.getUnits(true))
 					if(componentId.equals(mu.getName())) {

@@ -14,19 +14,19 @@ import org.eclipse.emf.common.util.EList;
  * <p>
  * The following features are supported:
  * <ul>
- * <li>{@link org.eclipse.b3.aggregator.Aggregator#getConfigurations <em>Configurations</em>}</li>
- * <li>{@link org.eclipse.b3.aggregator.Aggregator#getContributions <em>Contributions</em>}</li>
- * <li>{@link org.eclipse.b3.aggregator.Aggregator#getBuildmaster <em>Buildmaster</em>}</li>
- * <li>{@link org.eclipse.b3.aggregator.Aggregator#getContacts <em>Contacts</em>}</li>
- * <li>{@link org.eclipse.b3.aggregator.Aggregator#getCustomCategories <em>Custom Categories</em>}</li>
- * <li>{@link org.eclipse.b3.aggregator.Aggregator#getLabel <em>Label</em>}</li>
- * <li>{@link org.eclipse.b3.aggregator.Aggregator#getBuildRoot <em>Build Root</em>}</li>
- * <li>{@link org.eclipse.b3.aggregator.Aggregator#getPackedStrategy <em>Packed Strategy</em>}</li>
- * <li>{@link org.eclipse.b3.aggregator.Aggregator#isSendmail <em>Sendmail</em>}</li>
- * <li>{@link org.eclipse.b3.aggregator.Aggregator#getType <em>Type</em>}</li>
- * <li>{@link org.eclipse.b3.aggregator.Aggregator#isMavenResult <em>Maven Result</em>}</li>
- * <li>{@link org.eclipse.b3.aggregator.Aggregator#getValidationRepositories <em>Validation Repositories</em>}</li>
- * <li>{@link org.eclipse.b3.aggregator.Aggregator#getMavenMappings <em>Maven Mappings</em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.Aggregation#getConfigurations <em>Configurations</em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.Aggregation#getContributions <em>Contributions</em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.Aggregation#getBuildmaster <em>Buildmaster</em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.Aggregation#getContacts <em>Contacts</em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.Aggregation#getCustomCategories <em>Custom Categories</em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.Aggregation#getLabel <em>Label</em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.Aggregation#getBuildRoot <em>Build Root</em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.Aggregation#getPackedStrategy <em>Packed Strategy</em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.Aggregation#isSendmail <em>Sendmail</em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.Aggregation#getType <em>Type</em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.Aggregation#isMavenResult <em>Maven Result</em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.Aggregation#getValidationRepositories <em>Validation Repositories</em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.Aggregation#getMavenMappings <em>Maven Mappings</em>}</li>
  * </ul>
  * </p>
  * 
@@ -34,7 +34,7 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface Aggregator extends DescriptionProvider, StatusProvider, InfosProvider {
+public interface Aggregation extends DescriptionProvider, StatusProvider, InfosProvider {
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -53,7 +53,7 @@ public interface Aggregator extends DescriptionProvider, StatusProvider, InfosPr
 	 * 
 	 * @return the value of the '<em>Buildmaster</em>' reference.
 	 * @see #setBuildmaster(Contact)
-	 * @see org.eclipse.b3.aggregator.AggregatorPackage#getAggregator_Buildmaster()
+	 * @see org.eclipse.b3.aggregator.AggregatorPackage#getAggregation_Buildmaster()
 	 * @model keys="email"
 	 * @generated
 	 */
@@ -70,7 +70,7 @@ public interface Aggregator extends DescriptionProvider, StatusProvider, InfosPr
 	 * 
 	 * @return the value of the '<em>Build Root</em>' attribute.
 	 * @see #setBuildRoot(String)
-	 * @see org.eclipse.b3.aggregator.AggregatorPackage#getAggregator_BuildRoot()
+	 * @see org.eclipse.b3.aggregator.AggregatorPackage#getAggregation_BuildRoot()
 	 * @model default="${user.home}/build"
 	 * @generated
 	 */
@@ -83,7 +83,7 @@ public interface Aggregator extends DescriptionProvider, StatusProvider, InfosPr
 	 * @model
 	 * @generated
 	 */
-	EList<Contribution> getCompositeChildContributions(CompositeChild compositeChild);
+	EList<Contribution> getValidationSetContributions(ValidationSet validationSet);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -92,23 +92,23 @@ public interface Aggregator extends DescriptionProvider, StatusProvider, InfosPr
 	 * @model
 	 * @generated
 	 */
-	EList<Contribution> getCompositeChildContributions(CompositeChild compositeChild, boolean enabledOnly);
+	EList<Contribution> getValidationSetContributions(ValidationSet validationSet, boolean enabledOnly);
 
 	/**
-	 * Returns the value of the '<em><b>Composite Children</b></em>' containment reference list.
-	 * The list contents are of type {@link org.eclipse.b3.aggregator.CompositeChild}.
+	 * Returns the value of the '<em><b>Validation Sets</b></em>' containment reference list.
+	 * The list contents are of type {@link org.eclipse.b3.aggregator.ValidationSet}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>CompositeChildren</em>' containment reference list isn't clear, there really should be more of a description here...
+	 * If the meaning of the '<em>ValidationSets</em>' containment reference list isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
-	 * @return the value of the '<em>Composite Children</em>' containment reference list.
-	 * @see org.eclipse.b3.aggregator.AggregatorPackage#getAggregator_CompositeChildren()
+	 * @return the value of the '<em>Validation Sets</em>' containment reference list.
+	 * @see org.eclipse.b3.aggregator.AggregatorPackage#getAggregation_ValidationSets()
 	 * @model containment="true" resolveProxies="true" keys="label"
 	 * @generated
 	 */
-	EList<CompositeChild> getCompositeChildren();
+	EList<ValidationSet> getValidationSets();
 
 	/**
 	 * Returns the value of the '<em><b>Configurations</b></em>' containment reference list.
@@ -120,7 +120,7 @@ public interface Aggregator extends DescriptionProvider, StatusProvider, InfosPr
 	 * <!-- end-user-doc -->
 	 * 
 	 * @return the value of the '<em>Configurations</em>' containment reference list.
-	 * @see org.eclipse.b3.aggregator.AggregatorPackage#getAggregator_Configurations()
+	 * @see org.eclipse.b3.aggregator.AggregatorPackage#getAggregation_Configurations()
 	 * @model containment="true" resolveProxies="true" required="true"
 	 * @generated
 	 */
@@ -137,7 +137,7 @@ public interface Aggregator extends DescriptionProvider, StatusProvider, InfosPr
 	 * <!-- end-user-doc -->
 	 * 
 	 * @return the value of the '<em>Contacts</em>' containment reference list.
-	 * @see org.eclipse.b3.aggregator.AggregatorPackage#getAggregator_Contacts()
+	 * @see org.eclipse.b3.aggregator.AggregatorPackage#getAggregation_Contacts()
 	 * @see org.eclipse.b3.aggregator.Contact#getAggregator
 	 * @model opposite="aggregator" containment="true" resolveProxies="true" keys="email"
 	 * @generated
@@ -154,7 +154,7 @@ public interface Aggregator extends DescriptionProvider, StatusProvider, InfosPr
 	 * <!-- end-user-doc -->
 	 * 
 	 * @return the value of the '<em>Contributions</em>' containment reference list.
-	 * @see org.eclipse.b3.aggregator.AggregatorPackage#getAggregator_Contributions()
+	 * @see org.eclipse.b3.aggregator.AggregatorPackage#getAggregation_Contributions()
 	 * @model containment="true" resolveProxies="true" keys="label"
 	 * @generated
 	 */
@@ -178,7 +178,7 @@ public interface Aggregator extends DescriptionProvider, StatusProvider, InfosPr
 	 * <!-- end-user-doc -->
 	 * 
 	 * @return the value of the '<em>Custom Categories</em>' containment reference list.
-	 * @see org.eclipse.b3.aggregator.AggregatorPackage#getAggregator_CustomCategories()
+	 * @see org.eclipse.b3.aggregator.AggregatorPackage#getAggregation_CustomCategories()
 	 * @model containment="true" resolveProxies="true" keys="identifier"
 	 * @generated
 	 */
@@ -194,7 +194,7 @@ public interface Aggregator extends DescriptionProvider, StatusProvider, InfosPr
 	 * 
 	 * @return the value of the '<em>Label</em>' attribute.
 	 * @see #setLabel(String)
-	 * @see org.eclipse.b3.aggregator.AggregatorPackage#getAggregator_Label()
+	 * @see org.eclipse.b3.aggregator.AggregatorPackage#getAggregation_Label()
 	 * @model required="true"
 	 * @generated
 	 */
@@ -210,7 +210,7 @@ public interface Aggregator extends DescriptionProvider, StatusProvider, InfosPr
 	 * <!-- end-user-doc -->
 	 * 
 	 * @return the value of the '<em>Maven Mappings</em>' containment reference list.
-	 * @see org.eclipse.b3.aggregator.AggregatorPackage#getAggregator_MavenMappings()
+	 * @see org.eclipse.b3.aggregator.AggregatorPackage#getAggregation_MavenMappings()
 	 * @model containment="true" resolveProxies="true"
 	 * @generated
 	 */
@@ -228,7 +228,7 @@ public interface Aggregator extends DescriptionProvider, StatusProvider, InfosPr
 	 * @return the value of the '<em>Packed Strategy</em>' attribute.
 	 * @see org.eclipse.b3.aggregator.PackedStrategy
 	 * @see #setPackedStrategy(PackedStrategy)
-	 * @see org.eclipse.b3.aggregator.AggregatorPackage#getAggregator_PackedStrategy()
+	 * @see org.eclipse.b3.aggregator.AggregatorPackage#getAggregation_PackedStrategy()
 	 * @model
 	 * @generated
 	 */
@@ -246,7 +246,7 @@ public interface Aggregator extends DescriptionProvider, StatusProvider, InfosPr
 	 * @return the value of the '<em>Type</em>' attribute.
 	 * @see org.eclipse.b3.aggregator.AggregationType
 	 * @see #setType(AggregationType)
-	 * @see org.eclipse.b3.aggregator.AggregatorPackage#getAggregator_Type()
+	 * @see org.eclipse.b3.aggregator.AggregatorPackage#getAggregation_Type()
 	 * @model required="true"
 	 * @generated
 	 */
@@ -263,7 +263,7 @@ public interface Aggregator extends DescriptionProvider, StatusProvider, InfosPr
 	 * <!-- end-user-doc -->
 	 * 
 	 * @return the value of the '<em>Validation Repositories</em>' containment reference list.
-	 * @see org.eclipse.b3.aggregator.AggregatorPackage#getAggregator_ValidationRepositories()
+	 * @see org.eclipse.b3.aggregator.AggregatorPackage#getAggregation_ValidationRepositories()
 	 * @model containment="true" resolveProxies="true"
 	 * @generated
 	 */
@@ -287,7 +287,7 @@ public interface Aggregator extends DescriptionProvider, StatusProvider, InfosPr
 	 * 
 	 * @return the value of the '<em>Maven Result</em>' attribute.
 	 * @see #setMavenResult(boolean)
-	 * @see org.eclipse.b3.aggregator.AggregatorPackage#getAggregator_MavenResult()
+	 * @see org.eclipse.b3.aggregator.AggregatorPackage#getAggregation_MavenResult()
 	 * @model
 	 * @generated
 	 */
@@ -303,14 +303,14 @@ public interface Aggregator extends DescriptionProvider, StatusProvider, InfosPr
 	 * 
 	 * @return the value of the '<em>Sendmail</em>' attribute.
 	 * @see #setSendmail(boolean)
-	 * @see org.eclipse.b3.aggregator.AggregatorPackage#getAggregator_Sendmail()
+	 * @see org.eclipse.b3.aggregator.AggregatorPackage#getAggregation_Sendmail()
 	 * @model
 	 * @generated
 	 */
 	boolean isSendmail();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.aggregator.Aggregator#getBuildmaster <em>Buildmaster</em>}' reference.
+	 * Sets the value of the '{@link org.eclipse.b3.aggregator.Aggregation#getBuildmaster <em>Buildmaster</em>}' reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value
@@ -321,7 +321,7 @@ public interface Aggregator extends DescriptionProvider, StatusProvider, InfosPr
 	void setBuildmaster(Contact value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.aggregator.Aggregator#getBuildRoot <em>Build Root</em>}' attribute.
+	 * Sets the value of the '{@link org.eclipse.b3.aggregator.Aggregation#getBuildRoot <em>Build Root</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value
@@ -332,7 +332,7 @@ public interface Aggregator extends DescriptionProvider, StatusProvider, InfosPr
 	void setBuildRoot(String value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.aggregator.Aggregator#getLabel <em>Label</em>}' attribute.
+	 * Sets the value of the '{@link org.eclipse.b3.aggregator.Aggregation#getLabel <em>Label</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value
@@ -343,7 +343,7 @@ public interface Aggregator extends DescriptionProvider, StatusProvider, InfosPr
 	void setLabel(String value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.aggregator.Aggregator#isMavenResult <em>Maven Result</em>}' attribute.
+	 * Sets the value of the '{@link org.eclipse.b3.aggregator.Aggregation#isMavenResult <em>Maven Result</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value
@@ -354,7 +354,7 @@ public interface Aggregator extends DescriptionProvider, StatusProvider, InfosPr
 	void setMavenResult(boolean value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.aggregator.Aggregator#getPackedStrategy <em>Packed Strategy</em>}' attribute.
+	 * Sets the value of the '{@link org.eclipse.b3.aggregator.Aggregation#getPackedStrategy <em>Packed Strategy</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value
@@ -366,7 +366,7 @@ public interface Aggregator extends DescriptionProvider, StatusProvider, InfosPr
 	void setPackedStrategy(PackedStrategy value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.aggregator.Aggregator#isSendmail <em>Sendmail</em>}' attribute.
+	 * Sets the value of the '{@link org.eclipse.b3.aggregator.Aggregation#isSendmail <em>Sendmail</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value
@@ -377,7 +377,7 @@ public interface Aggregator extends DescriptionProvider, StatusProvider, InfosPr
 	void setSendmail(boolean value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.aggregator.Aggregator#getType <em>Type</em>}' attribute.
+	 * Sets the value of the '{@link org.eclipse.b3.aggregator.Aggregation#getType <em>Type</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 

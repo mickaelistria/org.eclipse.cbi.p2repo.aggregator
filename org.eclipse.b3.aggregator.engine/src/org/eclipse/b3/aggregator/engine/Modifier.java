@@ -13,7 +13,7 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
-import org.eclipse.b3.aggregator.Aggregator;
+import org.eclipse.b3.aggregator.Aggregation;
 import org.eclipse.b3.aggregator.AggregatorFactory;
 import org.eclipse.b3.aggregator.MetadataRepositoryReference;
 import org.eclipse.b3.aggregator.impl.MetadataRepositoryReferenceImpl;
@@ -46,7 +46,7 @@ public class Modifier extends ModelAbstractCommand {
 	 */
 	@Override
 	public String getShortDescription() {
-		return "Modifies the compositeChildren model from the command line";
+		return "Modifies the validationSets model from the command line";
 	}
 
 	/*
@@ -57,7 +57,7 @@ public class Modifier extends ModelAbstractCommand {
 	@Override
 	protected int run(IProgressMonitor monitor) throws Exception {
 		try {
-			final Aggregator aggregator = loadModelFromFile();
+			final Aggregation aggregator = loadModelFromFile();
 
 			if(action == ActionType.ADD) {
 				// create a b3 metadata repo from the String

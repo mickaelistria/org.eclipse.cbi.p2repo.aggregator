@@ -27,13 +27,14 @@ public interface AggregatorFactory extends EFactory {
 	AggregatorFactory eINSTANCE = org.eclipse.b3.aggregator.impl.AggregatorFactoryImpl.init();
 
 	/**
-	 * Returns a new object of class '<em>Aggregator</em>'.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns a new object of class '<em>Aggregation</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
-	 * @return a new object of class '<em>Aggregator</em>'.
+	 * @return a new object of class '<em>Aggregation</em>'.
 	 * @generated
 	 */
-	Aggregator createAggregator();
+	Aggregation createAggregation();
 
 	/**
 	 * Returns a new object of class '<em>Resource View</em>'.
@@ -84,14 +85,14 @@ public interface AggregatorFactory extends EFactory {
 	Category createCategory();
 
 	/**
-	 * Returns a new object of class '<em>Composite Child</em>'.
+	 * Returns a new object of class '<em>Validation Set</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
-	 * @return a new object of class '<em>Composite Child</em>'.
+	 * @return a new object of class '<em>Validation Set</em>'.
 	 * @generated
 	 */
-	CompositeChild createCompositeChild();
+	ValidationSet createValidationSet();
 
 	/**
 	 * Returns a new object of class '<em>Configuration</em>'.

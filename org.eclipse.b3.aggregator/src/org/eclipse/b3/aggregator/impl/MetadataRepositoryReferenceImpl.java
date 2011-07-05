@@ -12,7 +12,7 @@ package org.eclipse.b3.aggregator.impl;
 import java.io.File;
 import java.util.Collection;
 
-import org.eclipse.b3.aggregator.Aggregator;
+import org.eclipse.b3.aggregator.Aggregation;
 import org.eclipse.b3.aggregator.AggregatorFactory;
 import org.eclipse.b3.aggregator.AggregatorPackage;
 import org.eclipse.b3.aggregator.AggregatorPlugin;
@@ -418,10 +418,10 @@ public class MetadataRepositoryReferenceImpl extends MinimalEObjectImpl.Containe
 	 * 
 	 * @generated NOT
 	 */
-	public Aggregator getAggregator() {
+	public Aggregation getAggregator() {
 		// TODO check it
 		// return GeneralUtils.getAggregator(this);
-		return (Aggregator) eContainer();
+		return (Aggregation) eContainer();
 	}
 
 	private AggregatorResource getAggregatorResource() {
@@ -433,7 +433,7 @@ public class MetadataRepositoryReferenceImpl extends MinimalEObjectImpl.Containe
 		// return GeneralUtils.getAggregatorResource(this);
 
 		EObject parent = this.eContainer;
-		while(parent != null && !(parent instanceof Aggregator))
+		while(parent != null && !(parent instanceof Aggregation))
 			parent = parent.eContainer();
 
 		if(parent == null)
@@ -751,7 +751,7 @@ public class MetadataRepositoryReferenceImpl extends MinimalEObjectImpl.Containe
 
 		String nature = getNature();
 		String resolvedLocation = getResolvedLocation();
-		Aggregator aggregator = getAggregator();
+		Aggregation aggregator = getAggregator();
 		Resource res = MetadataRepositoryResourceImpl.getResourceForNatureAndLocation(
 			nature, resolvedLocation, aggregator);
 		if(res != null)

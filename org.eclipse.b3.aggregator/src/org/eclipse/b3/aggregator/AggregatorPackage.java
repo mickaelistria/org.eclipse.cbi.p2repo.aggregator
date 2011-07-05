@@ -41,68 +41,69 @@ public interface AggregatorPackage extends EPackage {
 	 */
 	interface Literals {
 		/**
-		 * The meta object literal for the '{@link org.eclipse.b3.aggregator.impl.AggregatorImpl <em>Aggregator</em>}' class.
-		 * <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * The meta object literal for the '{@link org.eclipse.b3.aggregator.impl.AggregationImpl <em>Aggregation</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
 		 * 
-		 * @see org.eclipse.b3.aggregator.impl.AggregatorImpl
-		 * @see org.eclipse.b3.aggregator.impl.AggregatorPackageImpl#getAggregator()
+		 * @see org.eclipse.b3.aggregator.impl.AggregationImpl
+		 * @see org.eclipse.b3.aggregator.impl.AggregatorPackageImpl#getAggregation()
 		 * @generated
 		 */
-		EClass AGGREGATOR = eINSTANCE.getAggregator();
+		EClass AGGREGATION = eINSTANCE.getAggregation();
 
 		/**
-		 * The meta object literal for the '<em><b>Composite Children</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Validation Sets</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
-		EReference AGGREGATOR__COMPOSITE_CHILDREN = eINSTANCE.getAggregator_CompositeChildren();
+		EReference AGGREGATION__VALIDATION_SETS = eINSTANCE.getAggregation_ValidationSets();
 
 		/**
-		 * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
-		 * <!-- begin-user-doc --> <!--
-		 * end-user-doc -->
-		 * 
-		 * @generated
-		 */
-		EAttribute AGGREGATOR__TYPE = eINSTANCE.getAggregator_Type();
-
-		/**
-		 * The meta object literal for the '<em><b>Maven Result</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Configurations</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
-		EAttribute AGGREGATOR__MAVEN_RESULT = eINSTANCE.getAggregator_MavenResult();
+		EReference AGGREGATION__CONFIGURATIONS = eINSTANCE.getAggregation_Configurations();
 
 		/**
-		 * The meta object literal for the '<em><b>Validation Repositories</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc --> <!-- end-user-doc -->
-		 * 
-		 * @generated
-		 */
-		EReference AGGREGATOR__VALIDATION_REPOSITORIES = eINSTANCE.getAggregator_ValidationRepositories();
-
-		/**
-		 * The meta object literal for the '<em><b>Maven Mappings</b></em>' containment reference list feature. <!--
-		 * begin-user-doc --> <!-- end-user-doc -->
-		 * 
-		 * @generated
-		 */
-		EReference AGGREGATOR__MAVEN_MAPPINGS = eINSTANCE.getAggregator_MavenMappings();
-
-		/**
-		 * The meta object literal for the '{@link org.eclipse.b3.aggregator.impl.CompositeChildImpl <em>Composite Child</em>}' class.
+		 * The meta object literal for the '<em><b>Contributions</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * 
-		 * @see org.eclipse.b3.aggregator.impl.CompositeChildImpl
-		 * @see org.eclipse.b3.aggregator.impl.AggregatorPackageImpl#getCompositeChild()
 		 * @generated
 		 */
-		EClass COMPOSITE_CHILD = eINSTANCE.getCompositeChild();
+		EReference AGGREGATION__CONTRIBUTIONS = eINSTANCE.getAggregation_Contributions();
+
+		/**
+		 * The meta object literal for the '<em><b>Custom Categories</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EReference AGGREGATION__CUSTOM_CATEGORIES = eINSTANCE.getAggregation_CustomCategories();
+
+		/**
+		 * The meta object literal for the '<em><b>Contacts</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EReference AGGREGATION__CONTACTS = eINSTANCE.getAggregation_Contacts();
+
+		/**
+		 * The meta object literal for the '<em><b>Buildmaster</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EReference AGGREGATION__BUILDMASTER = eINSTANCE.getAggregation_Buildmaster();
 
 		/**
 		 * The meta object literal for the '<em><b>Label</b></em>' attribute feature.
@@ -111,74 +112,16 @@ public interface AggregatorPackage extends EPackage {
 		 * 
 		 * @generated
 		 */
-		EAttribute COMPOSITE_CHILD__LABEL = eINSTANCE.getCompositeChild_Label();
+		EAttribute AGGREGATION__LABEL = eINSTANCE.getAggregation_Label();
 
 		/**
 		 * The meta object literal for the '<em><b>Build Root</b></em>' attribute feature.
-		 * <!-- begin-user-doc --> <!--
-		 * end-user-doc -->
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
-		EAttribute AGGREGATOR__BUILD_ROOT = eINSTANCE.getAggregator_BuildRoot();
-
-		/**
-		 * The meta object literal for the '<em><b>Configurations</b></em>' containment reference list feature. <!--
-		 * begin-user-doc --> <!-- end-user-doc -->
-		 * 
-		 * @generated
-		 */
-		EReference AGGREGATOR__CONFIGURATIONS = eINSTANCE.getAggregator_Configurations();
-
-		/**
-		 * The meta object literal for the '<em><b>Contributions</b></em>' containment reference list feature. <!--
-		 * begin-user-doc --> <!-- end-user-doc -->
-		 * 
-		 * @generated
-		 */
-		EReference AGGREGATOR__CONTRIBUTIONS = eINSTANCE.getAggregator_Contributions();
-
-		/**
-		 * The meta object literal for the '<em><b>Label</b></em>' attribute feature.
-		 * <!-- begin-user-doc --> <!--
-		 * end-user-doc -->
-		 * 
-		 * @generated
-		 */
-		EAttribute AGGREGATOR__LABEL = eINSTANCE.getAggregator_Label();
-
-		/**
-		 * The meta object literal for the '<em><b>Buildmaster</b></em>' containment reference feature. <!--
-		 * begin-user-doc --> <!-- end-user-doc -->
-		 * 
-		 * @generated
-		 */
-		EReference AGGREGATOR__BUILDMASTER = eINSTANCE.getAggregator_Buildmaster();
-
-		/**
-		 * The meta object literal for the '<em><b>Sendmail</b></em>' attribute feature.
-		 * <!-- begin-user-doc --> <!--
-		 * end-user-doc -->
-		 * 
-		 * @generated
-		 */
-		EAttribute AGGREGATOR__SENDMAIL = eINSTANCE.getAggregator_Sendmail();
-
-		/**
-		 * The meta object literal for the '<em><b>Contacts</b></em>' containment reference list feature. <!--
-		 * begin-user-doc --> <!-- end-user-doc -->
-		 * 
-		 * @generated
-		 */
-		EReference AGGREGATOR__CONTACTS = eINSTANCE.getAggregator_Contacts();
-
-		/**
-		 * The meta object literal for the '<em><b>Custom Categories</b></em>' containment reference list feature. <!--
-		 * begin-user-doc --> <!-- end-user-doc -->
-		 * 
-		 * @generated
-		 */
-		EReference AGGREGATOR__CUSTOM_CATEGORIES = eINSTANCE.getAggregator_CustomCategories();
+		EAttribute AGGREGATION__BUILD_ROOT = eINSTANCE.getAggregation_BuildRoot();
 
 		/**
 		 * The meta object literal for the '<em><b>Packed Strategy</b></em>' attribute feature.
@@ -187,7 +130,72 @@ public interface AggregatorPackage extends EPackage {
 		 * 
 		 * @generated
 		 */
-		EAttribute AGGREGATOR__PACKED_STRATEGY = eINSTANCE.getAggregator_PackedStrategy();
+		EAttribute AGGREGATION__PACKED_STRATEGY = eINSTANCE.getAggregation_PackedStrategy();
+
+		/**
+		 * The meta object literal for the '<em><b>Sendmail</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EAttribute AGGREGATION__SENDMAIL = eINSTANCE.getAggregation_Sendmail();
+
+		/**
+		 * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EAttribute AGGREGATION__TYPE = eINSTANCE.getAggregation_Type();
+
+		/**
+		 * The meta object literal for the '<em><b>Maven Result</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EAttribute AGGREGATION__MAVEN_RESULT = eINSTANCE.getAggregation_MavenResult();
+
+		/**
+		 * The meta object literal for the '<em><b>Validation Repositories</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EReference AGGREGATION__VALIDATION_REPOSITORIES = eINSTANCE.getAggregation_ValidationRepositories();
+
+		/**
+		 * The meta object literal for the '<em><b>Maven Mappings</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EReference AGGREGATION__MAVEN_MAPPINGS = eINSTANCE.getAggregation_MavenMappings();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.b3.aggregator.impl.ValidationSetImpl <em>Validation Set</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @see org.eclipse.b3.aggregator.impl.ValidationSetImpl
+		 * @see org.eclipse.b3.aggregator.impl.AggregatorPackageImpl#getValidationSet()
+		 * @generated
+		 */
+		EClass VALIDATION_SET = eINSTANCE.getValidationSet();
+
+		/**
+		 * The meta object literal for the '<em><b>Label</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EAttribute VALIDATION_SET__LABEL = eINSTANCE.getValidationSet_Label();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.b3.aggregator.impl.MappedRepositoryImpl <em>Mapped Repository</em>}' class.
@@ -845,13 +853,13 @@ public interface AggregatorPackage extends EPackage {
 		EReference AGGREGATOR_RESOURCE_VIEW__AGGREGATOR = eINSTANCE.getAggregatorResourceView_Aggregator();
 
 		/**
-		 * The meta object literal for the '<em><b>Composite Children</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Validation Sets</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
-		EReference AGGREGATOR_RESOURCE_VIEW__COMPOSITE_CHILDREN = eINSTANCE.getAggregatorResourceView_CompositeChildren();
+		EReference AGGREGATOR_RESOURCE_VIEW__VALIDATION_SETS = eINSTANCE.getAggregatorResourceView_ValidationSets();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.b3.aggregator.AggregationType <em>Aggregation Type</em>}' enum.
@@ -1123,7 +1131,7 @@ public interface AggregatorPackage extends EPackage {
 	 * 
 	 * @generated
 	 */
-	String eNS_URI = "http://www.eclipse.org/b3/2010/aggregator/1.0.0";
+	String eNS_URI = "http://www.eclipse.org/b3/2011/aggregator/1.1.0";
 
 	/**
 	 * The package namespace name.
@@ -1171,89 +1179,95 @@ public interface AggregatorPackage extends EPackage {
 	int DESCRIPTION_PROVIDER_FEATURE_COUNT = 1;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.b3.aggregator.impl.AggregatorImpl <em>Aggregator</em>}' class.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The meta object id for the '{@link org.eclipse.b3.aggregator.impl.AggregationImpl <em>Aggregation</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
-	 * @see org.eclipse.b3.aggregator.impl.AggregatorImpl
-	 * @see org.eclipse.b3.aggregator.impl.AggregatorPackageImpl#getAggregator()
+	 * @see org.eclipse.b3.aggregator.impl.AggregationImpl
+	 * @see org.eclipse.b3.aggregator.impl.AggregatorPackageImpl#getAggregation()
 	 * @generated
 	 */
-	int AGGREGATOR = 0;
+	int AGGREGATION = 0;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int AGGREGATOR__DESCRIPTION = DESCRIPTION_PROVIDER__DESCRIPTION;
-
-	/**
-	 * The feature id for the '<em><b>Status</b></em>' reference.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int AGGREGATOR__STATUS = DESCRIPTION_PROVIDER_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Errors</b></em>' attribute list.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int AGGREGATOR__ERRORS = DESCRIPTION_PROVIDER_FEATURE_COUNT + 1;
-
-	/**
-	 * The feature id for the '<em><b>Warnings</b></em>' attribute list.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int AGGREGATOR__WARNINGS = DESCRIPTION_PROVIDER_FEATURE_COUNT + 2;
-
-	/**
-	 * The feature id for the '<em><b>Infos</b></em>' attribute list.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int AGGREGATOR__INFOS = DESCRIPTION_PROVIDER_FEATURE_COUNT + 3;
-
-	/**
-	 * The feature id for the '<em><b>Composite Children</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int AGGREGATOR__COMPOSITE_CHILDREN = DESCRIPTION_PROVIDER_FEATURE_COUNT + 4;
+	int AGGREGATION__DESCRIPTION = DESCRIPTION_PROVIDER__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Status</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int AGGREGATION__STATUS = DESCRIPTION_PROVIDER_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Errors</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int AGGREGATION__ERRORS = DESCRIPTION_PROVIDER_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Warnings</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int AGGREGATION__WARNINGS = DESCRIPTION_PROVIDER_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Infos</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int AGGREGATION__INFOS = DESCRIPTION_PROVIDER_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Validation Sets</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int AGGREGATION__VALIDATION_SETS = DESCRIPTION_PROVIDER_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Configurations</b></em>' containment reference list.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int AGGREGATOR__CONFIGURATIONS = DESCRIPTION_PROVIDER_FEATURE_COUNT + 5;
+	int AGGREGATION__CONFIGURATIONS = DESCRIPTION_PROVIDER_FEATURE_COUNT + 5;
 
 	/**
 	 * The feature id for the '<em><b>Contributions</b></em>' containment reference list.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int AGGREGATOR__CONTRIBUTIONS = DESCRIPTION_PROVIDER_FEATURE_COUNT + 6;
+	int AGGREGATION__CONTRIBUTIONS = DESCRIPTION_PROVIDER_FEATURE_COUNT + 6;
 
 	/**
 	 * The feature id for the '<em><b>Custom Categories</b></em>' containment reference list.
@@ -1263,108 +1277,117 @@ public interface AggregatorPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AGGREGATOR__CUSTOM_CATEGORIES = DESCRIPTION_PROVIDER_FEATURE_COUNT + 7;
+	int AGGREGATION__CUSTOM_CATEGORIES = DESCRIPTION_PROVIDER_FEATURE_COUNT + 7;
 
 	/**
 	 * The feature id for the '<em><b>Contacts</b></em>' containment reference list.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int AGGREGATOR__CONTACTS = DESCRIPTION_PROVIDER_FEATURE_COUNT + 8;
+	int AGGREGATION__CONTACTS = DESCRIPTION_PROVIDER_FEATURE_COUNT + 8;
 
 	/**
 	 * The feature id for the '<em><b>Buildmaster</b></em>' reference.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int AGGREGATOR__BUILDMASTER = DESCRIPTION_PROVIDER_FEATURE_COUNT + 9;
+	int AGGREGATION__BUILDMASTER = DESCRIPTION_PROVIDER_FEATURE_COUNT + 9;
 
 	/**
 	 * The feature id for the '<em><b>Label</b></em>' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int AGGREGATOR__LABEL = DESCRIPTION_PROVIDER_FEATURE_COUNT + 10;
+	int AGGREGATION__LABEL = DESCRIPTION_PROVIDER_FEATURE_COUNT + 10;
 
 	/**
 	 * The feature id for the '<em><b>Build Root</b></em>' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int AGGREGATOR__BUILD_ROOT = DESCRIPTION_PROVIDER_FEATURE_COUNT + 11;
+	int AGGREGATION__BUILD_ROOT = DESCRIPTION_PROVIDER_FEATURE_COUNT + 11;
 
 	/**
 	 * The feature id for the '<em><b>Packed Strategy</b></em>' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int AGGREGATOR__PACKED_STRATEGY = DESCRIPTION_PROVIDER_FEATURE_COUNT + 12;
+	int AGGREGATION__PACKED_STRATEGY = DESCRIPTION_PROVIDER_FEATURE_COUNT + 12;
 
 	/**
 	 * The feature id for the '<em><b>Sendmail</b></em>' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int AGGREGATOR__SENDMAIL = DESCRIPTION_PROVIDER_FEATURE_COUNT + 13;
+	int AGGREGATION__SENDMAIL = DESCRIPTION_PROVIDER_FEATURE_COUNT + 13;
 
 	/**
 	 * The feature id for the '<em><b>Type</b></em>' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int AGGREGATOR__TYPE = DESCRIPTION_PROVIDER_FEATURE_COUNT + 14;
+	int AGGREGATION__TYPE = DESCRIPTION_PROVIDER_FEATURE_COUNT + 14;
 
 	/**
 	 * The feature id for the '<em><b>Maven Result</b></em>' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int AGGREGATOR__MAVEN_RESULT = DESCRIPTION_PROVIDER_FEATURE_COUNT + 15;
+	int AGGREGATION__MAVEN_RESULT = DESCRIPTION_PROVIDER_FEATURE_COUNT + 15;
 
 	/**
 	 * The feature id for the '<em><b>Validation Repositories</b></em>' containment reference list.
-	 * <!-- begin-user-doc
-	 * --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int AGGREGATOR__VALIDATION_REPOSITORIES = DESCRIPTION_PROVIDER_FEATURE_COUNT + 16;
+	int AGGREGATION__VALIDATION_REPOSITORIES = DESCRIPTION_PROVIDER_FEATURE_COUNT + 16;
 
 	/**
-	 * The feature id for the '<em><b>Maven Mappings</b></em>' reference list. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
+	 * The feature id for the '<em><b>Maven Mappings</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int AGGREGATOR__MAVEN_MAPPINGS = DESCRIPTION_PROVIDER_FEATURE_COUNT + 17;
+	int AGGREGATION__MAVEN_MAPPINGS = DESCRIPTION_PROVIDER_FEATURE_COUNT + 17;
 
 	/**
-	 * The number of structural features of the '<em>Aggregator</em>' class. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
+	 * The number of structural features of the '<em>Aggregation</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int AGGREGATOR_FEATURE_COUNT = DESCRIPTION_PROVIDER_FEATURE_COUNT + 18;
+	int AGGREGATION_FEATURE_COUNT = DESCRIPTION_PROVIDER_FEATURE_COUNT + 18;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.aggregator.EnabledStatusProvider <em>Enabled Status Provider</em>}' class.
@@ -1396,15 +1419,15 @@ public interface AggregatorPackage extends EPackage {
 	int ENABLED_STATUS_PROVIDER_FEATURE_COUNT = 1;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.b3.aggregator.impl.CompositeChildImpl <em>Composite Child</em>}' class.
+	 * The meta object id for the '{@link org.eclipse.b3.aggregator.impl.ValidationSetImpl <em>Validation Set</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
-	 * @see org.eclipse.b3.aggregator.impl.CompositeChildImpl
-	 * @see org.eclipse.b3.aggregator.impl.AggregatorPackageImpl#getCompositeChild()
+	 * @see org.eclipse.b3.aggregator.impl.ValidationSetImpl
+	 * @see org.eclipse.b3.aggregator.impl.AggregatorPackageImpl#getValidationSet()
 	 * @generated
 	 */
-	int COMPOSITE_CHILD = 1;
+	int VALIDATION_SET = 1;
 
 	/**
 	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
@@ -1414,7 +1437,7 @@ public interface AggregatorPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPOSITE_CHILD__ENABLED = ENABLED_STATUS_PROVIDER__ENABLED;
+	int VALIDATION_SET__ENABLED = ENABLED_STATUS_PROVIDER__ENABLED;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -1424,7 +1447,7 @@ public interface AggregatorPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPOSITE_CHILD__DESCRIPTION = ENABLED_STATUS_PROVIDER_FEATURE_COUNT + 0;
+	int VALIDATION_SET__DESCRIPTION = ENABLED_STATUS_PROVIDER_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Status</b></em>' reference.
@@ -1434,7 +1457,7 @@ public interface AggregatorPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPOSITE_CHILD__STATUS = ENABLED_STATUS_PROVIDER_FEATURE_COUNT + 1;
+	int VALIDATION_SET__STATUS = ENABLED_STATUS_PROVIDER_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Errors</b></em>' attribute list.
@@ -1444,7 +1467,7 @@ public interface AggregatorPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPOSITE_CHILD__ERRORS = ENABLED_STATUS_PROVIDER_FEATURE_COUNT + 2;
+	int VALIDATION_SET__ERRORS = ENABLED_STATUS_PROVIDER_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Warnings</b></em>' attribute list.
@@ -1454,7 +1477,7 @@ public interface AggregatorPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPOSITE_CHILD__WARNINGS = ENABLED_STATUS_PROVIDER_FEATURE_COUNT + 3;
+	int VALIDATION_SET__WARNINGS = ENABLED_STATUS_PROVIDER_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Infos</b></em>' attribute list.
@@ -1464,7 +1487,7 @@ public interface AggregatorPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPOSITE_CHILD__INFOS = ENABLED_STATUS_PROVIDER_FEATURE_COUNT + 4;
+	int VALIDATION_SET__INFOS = ENABLED_STATUS_PROVIDER_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Label</b></em>' attribute.
@@ -1474,17 +1497,17 @@ public interface AggregatorPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPOSITE_CHILD__LABEL = ENABLED_STATUS_PROVIDER_FEATURE_COUNT + 5;
+	int VALIDATION_SET__LABEL = ENABLED_STATUS_PROVIDER_FEATURE_COUNT + 5;
 
 	/**
-	 * The number of structural features of the '<em>Composite Child</em>' class.
+	 * The number of structural features of the '<em>Validation Set</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int COMPOSITE_CHILD_FEATURE_COUNT = ENABLED_STATUS_PROVIDER_FEATURE_COUNT + 6;
+	int VALIDATION_SET_FEATURE_COUNT = ENABLED_STATUS_PROVIDER_FEATURE_COUNT + 6;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.aggregator.impl.MetadataRepositoryReferenceImpl <em>Metadata Repository Reference</em>}'
@@ -3671,14 +3694,14 @@ public interface AggregatorPackage extends EPackage {
 	int AGGREGATOR_RESOURCE_VIEW__AGGREGATOR = 0;
 
 	/**
-	 * The feature id for the '<em><b>Composite Children</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Validation Sets</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int AGGREGATOR_RESOURCE_VIEW__COMPOSITE_CHILDREN = 1;
+	int AGGREGATOR_RESOURCE_VIEW__VALIDATION_SETS = 1;
 
 	/**
 	 * The number of structural features of the '<em>Resource View</em>' class.
@@ -3773,6 +3796,191 @@ public interface AggregatorPackage extends EPackage {
 	int VERSION_MATCH = 41;
 
 	/**
+	 * Returns the meta object for class '{@link org.eclipse.b3.aggregator.Aggregation <em>Aggregation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for class '<em>Aggregation</em>'.
+	 * @see org.eclipse.b3.aggregator.Aggregation
+	 * @generated
+	 */
+	EClass getAggregation();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.eclipse.b3.aggregator.Aggregation#getBuildmaster <em>Buildmaster</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the reference '<em>Buildmaster</em>'.
+	 * @see org.eclipse.b3.aggregator.Aggregation#getBuildmaster()
+	 * @see #getAggregation()
+	 * @generated
+	 */
+	EReference getAggregation_Buildmaster();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.b3.aggregator.Aggregation#getBuildRoot <em>Build Root</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the attribute '<em>Build Root</em>'.
+	 * @see org.eclipse.b3.aggregator.Aggregation#getBuildRoot()
+	 * @see #getAggregation()
+	 * @generated
+	 */
+	EAttribute getAggregation_BuildRoot();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.eclipse.b3.aggregator.Aggregation#getValidationSets
+	 * <em>Validation Sets</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the containment reference list '<em>Validation Sets</em>'.
+	 * @see org.eclipse.b3.aggregator.Aggregation#getValidationSets()
+	 * @see #getAggregation()
+	 * @generated
+	 */
+	EReference getAggregation_ValidationSets();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.eclipse.b3.aggregator.Aggregation#getConfigurations
+	 * <em>Configurations</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the containment reference list '<em>Configurations</em>'.
+	 * @see org.eclipse.b3.aggregator.Aggregation#getConfigurations()
+	 * @see #getAggregation()
+	 * @generated
+	 */
+	EReference getAggregation_Configurations();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.eclipse.b3.aggregator.Aggregation#getContacts <em>Contacts</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the containment reference list '<em>Contacts</em>'.
+	 * @see org.eclipse.b3.aggregator.Aggregation#getContacts()
+	 * @see #getAggregation()
+	 * @generated
+	 */
+	EReference getAggregation_Contacts();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.eclipse.b3.aggregator.Aggregation#getContributions
+	 * <em>Contributions</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the containment reference list '<em>Contributions</em>'.
+	 * @see org.eclipse.b3.aggregator.Aggregation#getContributions()
+	 * @see #getAggregation()
+	 * @generated
+	 */
+	EReference getAggregation_Contributions();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.eclipse.b3.aggregator.Aggregation#getCustomCategories
+	 * <em>Custom Categories</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the containment reference list '<em>Custom Categories</em>'.
+	 * @see org.eclipse.b3.aggregator.Aggregation#getCustomCategories()
+	 * @see #getAggregation()
+	 * @generated
+	 */
+	EReference getAggregation_CustomCategories();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.b3.aggregator.Aggregation#getLabel <em>Label</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the attribute '<em>Label</em>'.
+	 * @see org.eclipse.b3.aggregator.Aggregation#getLabel()
+	 * @see #getAggregation()
+	 * @generated
+	 */
+	EAttribute getAggregation_Label();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.eclipse.b3.aggregator.Aggregation#getMavenMappings
+	 * <em>Maven Mappings</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the containment reference list '<em>Maven Mappings</em>'.
+	 * @see org.eclipse.b3.aggregator.Aggregation#getMavenMappings()
+	 * @see #getAggregation()
+	 * @generated
+	 */
+	EReference getAggregation_MavenMappings();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.b3.aggregator.Aggregation#isMavenResult <em>Maven Result</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the attribute '<em>Maven Result</em>'.
+	 * @see org.eclipse.b3.aggregator.Aggregation#isMavenResult()
+	 * @see #getAggregation()
+	 * @generated
+	 */
+	EAttribute getAggregation_MavenResult();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.b3.aggregator.Aggregation#getPackedStrategy <em>Packed Strategy</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the attribute '<em>Packed Strategy</em>'.
+	 * @see org.eclipse.b3.aggregator.Aggregation#getPackedStrategy()
+	 * @see #getAggregation()
+	 * @generated
+	 */
+	EAttribute getAggregation_PackedStrategy();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.b3.aggregator.Aggregation#isSendmail <em>Sendmail</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the attribute '<em>Sendmail</em>'.
+	 * @see org.eclipse.b3.aggregator.Aggregation#isSendmail()
+	 * @see #getAggregation()
+	 * @generated
+	 */
+	EAttribute getAggregation_Sendmail();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.b3.aggregator.Aggregation#getType <em>Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the attribute '<em>Type</em>'.
+	 * @see org.eclipse.b3.aggregator.Aggregation#getType()
+	 * @see #getAggregation()
+	 * @generated
+	 */
+	EAttribute getAggregation_Type();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.eclipse.b3.aggregator.Aggregation#getValidationRepositories
+	 * <em>Validation Repositories</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the containment reference list '<em>Validation Repositories</em>'.
+	 * @see org.eclipse.b3.aggregator.Aggregation#getValidationRepositories()
+	 * @see #getAggregation()
+	 * @generated
+	 */
+	EReference getAggregation_ValidationRepositories();
+
+	/**
 	 * Returns the meta object for enum '{@link org.eclipse.b3.aggregator.AggregationType <em>Aggregation Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3782,179 +3990,6 @@ public interface AggregatorPackage extends EPackage {
 	 * @generated
 	 */
 	EEnum getAggregationType();
-
-	/**
-	 * Returns the meta object for class '{@link org.eclipse.b3.aggregator.Aggregator <em>Aggregator</em>}'.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @return the meta object for class '<em>Aggregator</em>'.
-	 * @see org.eclipse.b3.aggregator.Aggregator
-	 * @generated
-	 */
-	EClass getAggregator();
-
-	/**
-	 * Returns the meta object for the reference '{@link org.eclipse.b3.aggregator.Aggregator#getBuildmaster <em>Buildmaster</em>}'.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @return the meta object for the reference '<em>Buildmaster</em>'.
-	 * @see org.eclipse.b3.aggregator.Aggregator#getBuildmaster()
-	 * @see #getAggregator()
-	 * @generated
-	 */
-	EReference getAggregator_Buildmaster();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.b3.aggregator.Aggregator#getBuildRoot <em>Build Root</em>}'.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @return the meta object for the attribute '<em>Build Root</em>'.
-	 * @see org.eclipse.b3.aggregator.Aggregator#getBuildRoot()
-	 * @see #getAggregator()
-	 * @generated
-	 */
-	EAttribute getAggregator_BuildRoot();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link org.eclipse.b3.aggregator.Aggregator#getCompositeChildren
-	 * <em>Composite Children</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @return the meta object for the containment reference list '<em>Composite Children</em>'.
-	 * @see org.eclipse.b3.aggregator.Aggregator#getCompositeChildren()
-	 * @see #getAggregator()
-	 * @generated
-	 */
-	EReference getAggregator_CompositeChildren();
-
-	/**
-	 * Returns the meta object for the containment reference list ' {@link org.eclipse.b3.aggregator.Aggregator#getConfigurations
-	 * <em>Configurations</em>}'. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @return the meta object for the containment reference list '<em>Configurations</em>'.
-	 * @see org.eclipse.b3.aggregator.Aggregator#getConfigurations()
-	 * @see #getAggregator()
-	 * @generated
-	 */
-	EReference getAggregator_Configurations();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link org.eclipse.b3.aggregator.Aggregator#getContacts <em>Contacts</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @return the meta object for the containment reference list '<em>Contacts</em>'.
-	 * @see org.eclipse.b3.aggregator.Aggregator#getContacts()
-	 * @see #getAggregator()
-	 * @generated
-	 */
-	EReference getAggregator_Contacts();
-
-	/**
-	 * Returns the meta object for the containment reference list ' {@link org.eclipse.b3.aggregator.Aggregator#getContributions
-	 * <em>Contributions</em>}'. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @return the meta object for the containment reference list '<em>Contributions</em>'.
-	 * @see org.eclipse.b3.aggregator.Aggregator#getContributions()
-	 * @see #getAggregator()
-	 * @generated
-	 */
-	EReference getAggregator_Contributions();
-
-	/**
-	 * Returns the meta object for the containment reference list ' {@link org.eclipse.b3.aggregator.Aggregator#getCustomCategories
-	 * <em>Custom Categories</em>}'. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @return the meta object for the containment reference list '<em>Custom Categories</em>'.
-	 * @see org.eclipse.b3.aggregator.Aggregator#getCustomCategories()
-	 * @see #getAggregator()
-	 * @generated
-	 */
-	EReference getAggregator_CustomCategories();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.b3.aggregator.Aggregator#getLabel <em>Label</em>}'.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @return the meta object for the attribute '<em>Label</em>'.
-	 * @see org.eclipse.b3.aggregator.Aggregator#getLabel()
-	 * @see #getAggregator()
-	 * @generated
-	 */
-	EAttribute getAggregator_Label();
-
-	/**
-	 * Returns the meta object for the reference list ' {@link org.eclipse.b3.aggregator.Aggregator#getMavenMappings
-	 * <em>Maven Mappings</em>}'. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @return the meta object for the reference list '<em>Maven Mappings</em>'.
-	 * @see org.eclipse.b3.aggregator.Aggregator#getMavenMappings()
-	 * @see #getAggregator()
-	 * @generated
-	 */
-	EReference getAggregator_MavenMappings();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.b3.aggregator.Aggregator#isMavenResult <em>Maven Result</em>}'.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @return the meta object for the attribute '<em>Maven Result</em>'.
-	 * @see org.eclipse.b3.aggregator.Aggregator#isMavenResult()
-	 * @see #getAggregator()
-	 * @generated
-	 */
-	EAttribute getAggregator_MavenResult();
-
-	/**
-	 * Returns the meta object for the attribute ' {@link org.eclipse.b3.aggregator.Aggregator#getPackedStrategy
-	 * <em>Packed Strategy</em>}'. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @return the meta object for the attribute '<em>Packed Strategy</em>'.
-	 * @see org.eclipse.b3.aggregator.Aggregator#getPackedStrategy()
-	 * @see #getAggregator()
-	 * @generated
-	 */
-	EAttribute getAggregator_PackedStrategy();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.b3.aggregator.Aggregator#isSendmail <em>Sendmail</em>}'.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @return the meta object for the attribute '<em>Sendmail</em>'.
-	 * @see org.eclipse.b3.aggregator.Aggregator#isSendmail()
-	 * @see #getAggregator()
-	 * @generated
-	 */
-	EAttribute getAggregator_Sendmail();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.b3.aggregator.Aggregator#getType <em>Type</em>}'.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @return the meta object for the attribute '<em>Type</em>'.
-	 * @see org.eclipse.b3.aggregator.Aggregator#getType()
-	 * @see #getAggregator()
-	 * @generated
-	 */
-	EAttribute getAggregator_Type();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link org.eclipse.b3.aggregator.Aggregator#getValidationRepositories
-	 * <em>Validation Repositories</em>}'.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @return the meta object for the containment reference list '<em>Validation Repositories</em>'.
-	 * @see org.eclipse.b3.aggregator.Aggregator#getValidationRepositories()
-	 * @see #getAggregator()
-	 * @generated
-	 */
-	EReference getAggregator_ValidationRepositories();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -3990,17 +4025,17 @@ public interface AggregatorPackage extends EPackage {
 	EReference getAggregatorResourceView_Aggregator();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link org.eclipse.b3.aggregator.AggregatorResourceView#getCompositeChildren
-	 * <em>Composite Children</em>}'.
+	 * Returns the meta object for the containment reference list '{@link org.eclipse.b3.aggregator.AggregatorResourceView#getValidationSets
+	 * <em>Validation Sets</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
-	 * @return the meta object for the containment reference list '<em>Composite Children</em>'.
-	 * @see org.eclipse.b3.aggregator.AggregatorResourceView#getCompositeChildren()
+	 * @return the meta object for the containment reference list '<em>Validation Sets</em>'.
+	 * @see org.eclipse.b3.aggregator.AggregatorResourceView#getValidationSets()
 	 * @see #getAggregatorResourceView()
 	 * @generated
 	 */
-	EReference getAggregatorResourceView_CompositeChildren();
+	EReference getAggregatorResourceView_ValidationSets();
 
 	/**
 	 * Returns the meta object for enum '{@link org.eclipse.b3.aggregator.Architecture <em>Architecture</em>}'.
@@ -4162,27 +4197,27 @@ public interface AggregatorPackage extends EPackage {
 	EClass getComparable();
 
 	/**
-	 * Returns the meta object for class '{@link org.eclipse.b3.aggregator.CompositeChild <em>Composite Child</em>}'.
+	 * Returns the meta object for class '{@link org.eclipse.b3.aggregator.ValidationSet <em>Validation Set</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
-	 * @return the meta object for class '<em>Composite Child</em>'.
-	 * @see org.eclipse.b3.aggregator.CompositeChild
+	 * @return the meta object for class '<em>Validation Set</em>'.
+	 * @see org.eclipse.b3.aggregator.ValidationSet
 	 * @generated
 	 */
-	EClass getCompositeChild();
+	EClass getValidationSet();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.b3.aggregator.CompositeChild#getLabel <em>Label</em>}'.
+	 * Returns the meta object for the attribute '{@link org.eclipse.b3.aggregator.ValidationSet#getLabel <em>Label</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>Label</em>'.
-	 * @see org.eclipse.b3.aggregator.CompositeChild#getLabel()
-	 * @see #getCompositeChild()
+	 * @see org.eclipse.b3.aggregator.ValidationSet#getLabel()
+	 * @see #getValidationSet()
 	 * @generated
 	 */
-	EAttribute getCompositeChild_Label();
+	EAttribute getValidationSet_Label();
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.b3.aggregator.Configuration <em>Configuration</em>}'.

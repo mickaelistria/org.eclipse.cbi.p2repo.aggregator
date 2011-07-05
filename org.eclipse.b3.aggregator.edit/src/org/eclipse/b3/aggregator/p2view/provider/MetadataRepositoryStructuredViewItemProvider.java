@@ -12,7 +12,7 @@ package org.eclipse.b3.aggregator.p2view.provider;
 import java.util.Collection;
 import java.util.List;
 
-import org.eclipse.b3.aggregator.Aggregator;
+import org.eclipse.b3.aggregator.Aggregation;
 import org.eclipse.b3.aggregator.p2view.MetadataRepositoryStructuredView;
 import org.eclipse.b3.aggregator.p2view.P2viewPackage;
 import org.eclipse.b3.aggregator.provider.AggregatorEditPlugin;
@@ -253,7 +253,7 @@ public class MetadataRepositoryStructuredViewItemProvider extends AggregatorItem
 
 		if(notification.getFeatureID(MetadataRepositoryStructuredView.class) == P2viewPackage.METADATA_REPOSITORY_STRUCTURED_VIEW__LOADED) {
 			MetadataRepositoryStructuredView mdrView = (MetadataRepositoryStructuredView) notification.getNotifier();
-			Aggregator aggregator = ResourceUtils.getAggregator(((EObject) mdrView).eResource().getResourceSet());
+			Aggregation aggregator = ResourceUtils.getAggregator(((EObject) mdrView).eResource().getResourceSet());
 
 			if(aggregator != null)
 				fireNotifyChanged(new ViewerNotification(notification, aggregator, true, true));

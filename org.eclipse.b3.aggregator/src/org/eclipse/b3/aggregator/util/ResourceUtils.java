@@ -13,7 +13,7 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
 
-import org.eclipse.b3.aggregator.Aggregator;
+import org.eclipse.b3.aggregator.Aggregation;
 import org.eclipse.b3.aggregator.AggregatorPackage;
 import org.eclipse.b3.aggregator.Contribution;
 import org.eclipse.b3.aggregator.MappedRepository;
@@ -48,7 +48,7 @@ public class ResourceUtils {
 	 * 
 	 * @param aggregator
 	 */
-	public static void cleanUpResources(Aggregator aggregator) {
+	public static void cleanUpResources(Aggregation aggregator) {
 		cleanUpResources(aggregator, true);
 	}
 
@@ -58,7 +58,7 @@ public class ResourceUtils {
 	 * @param aggregator
 	 * @param updateMarkers
 	 */
-	public static void cleanUpResources(Aggregator aggregator, boolean updateMarkers) {
+	public static void cleanUpResources(Aggregation aggregator, boolean updateMarkers) {
 		Resource topResource = ((EObject) aggregator).eResource();
 		ResourceSet topSet = topResource.getResourceSet();
 
@@ -117,7 +117,7 @@ public class ResourceUtils {
 	 * @param resourceSet
 	 * @return the aggregator instance, or null if it is not available
 	 */
-	public static Aggregator getAggregator(ResourceSet resourceSet) {
+	public static Aggregation getAggregator(ResourceSet resourceSet) {
 		if(resourceSet == null)
 			return null;
 
@@ -130,7 +130,7 @@ public class ResourceUtils {
 			}
 		return aggregatorResource == null
 				? null
-				: (Aggregator) aggregatorResource.getContents().get(0);
+				: (Aggregation) aggregatorResource.getContents().get(0);
 	}
 
 	/**
@@ -211,7 +211,7 @@ public class ResourceUtils {
 	 * @return
 	 */
 	public static boolean isCurrentModel(URI resourceURI) {
-		String topElement = AggregatorPackage.eNS_PREFIX + ":" + AggregatorPackage.eINSTANCE.getAggregator().getName();
+		String topElement = AggregatorPackage.eNS_PREFIX + ":" + AggregatorPackage.eINSTANCE.getAggregation().getName();
 		String nsAttribute = XMLResource.XML_NS + ":" + AggregatorPackage.eNAME;
 
 		String xmlns = getResourceXMLNS(resourceURI, topElement, nsAttribute);

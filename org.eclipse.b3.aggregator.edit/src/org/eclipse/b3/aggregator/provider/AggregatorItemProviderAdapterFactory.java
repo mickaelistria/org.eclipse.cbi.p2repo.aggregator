@@ -64,14 +64,6 @@ public class AggregatorItemProviderAdapterFactory extends AggregatorAdapterFacto
 	protected Collection<Object> supportedTypes = new ArrayList<Object>();
 
 	/**
-	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.aggregator.Aggregator} instances.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	protected AggregatorItemProvider aggregatorItemProvider;
-
-	/**
 	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.aggregator.MappedRepository} instances.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -220,13 +212,13 @@ public class AggregatorItemProviderAdapterFactory extends AggregatorAdapterFacto
 	protected AvailableVersionsHeaderItemProvider availableVersionsHeaderItemProvider;
 
 	/**
-	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.aggregator.CompositeChild} instances.
+	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.aggregator.ValidationSet} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 */
-	protected CompositeChildItemProvider compositeChildItemProvider;
+	protected ValidationSetItemProvider validationSetItemProvider;
 
 	/**
 	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.aggregator.AggregatorResourceView} instances.
@@ -236,6 +228,15 @@ public class AggregatorItemProviderAdapterFactory extends AggregatorAdapterFacto
 	 * @generated
 	 */
 	protected AggregatorResourceViewItemProvider aggregatorResourceViewItemProvider;
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.aggregator.Aggregation} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	protected AggregationItemProvider aggregationItemProvider;
 
 	/**
 	 * This constructs an instance. <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -293,19 +294,19 @@ public class AggregatorItemProviderAdapterFactory extends AggregatorAdapterFacto
 	}
 
 	/**
-	 * This creates an adapter for a {@link org.eclipse.b3.aggregator.Aggregator}.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * This creates an adapter for a {@link org.eclipse.b3.aggregator.Aggregation}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 */
 	@Override
-	public Adapter createAggregatorAdapter() {
-		if(aggregatorItemProvider == null) {
-			aggregatorItemProvider = new AggregatorItemProvider(this);
+	public Adapter createAggregationAdapter() {
+		if(aggregationItemProvider == null) {
+			aggregationItemProvider = new AggregationItemProvider(this);
 		}
 
-		return aggregatorItemProvider;
+		return aggregationItemProvider;
 	}
 
 	/**
@@ -389,19 +390,19 @@ public class AggregatorItemProviderAdapterFactory extends AggregatorAdapterFacto
 	}
 
 	/**
-	 * This creates an adapter for a {@link org.eclipse.b3.aggregator.CompositeChild}.
+	 * This creates an adapter for a {@link org.eclipse.b3.aggregator.ValidationSet}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 */
 	@Override
-	public Adapter createCompositeChildAdapter() {
-		if(compositeChildItemProvider == null) {
-			compositeChildItemProvider = new CompositeChildItemProvider(this);
+	public Adapter createValidationSetAdapter() {
+		if(validationSetItemProvider == null) {
+			validationSetItemProvider = new ValidationSetItemProvider(this);
 		}
 
-		return compositeChildItemProvider;
+		return validationSetItemProvider;
 	}
 
 	/**
@@ -633,10 +634,10 @@ public class AggregatorItemProviderAdapterFactory extends AggregatorAdapterFacto
 	 * @generated
 	 */
 	public void dispose() {
-		if(aggregatorItemProvider != null)
-			aggregatorItemProvider.dispose();
-		if(compositeChildItemProvider != null)
-			compositeChildItemProvider.dispose();
+		if(aggregationItemProvider != null)
+			aggregationItemProvider.dispose();
+		if(validationSetItemProvider != null)
+			validationSetItemProvider.dispose();
 		if(mappedRepositoryItemProvider != null)
 			mappedRepositoryItemProvider.dispose();
 		if(configurationItemProvider != null)

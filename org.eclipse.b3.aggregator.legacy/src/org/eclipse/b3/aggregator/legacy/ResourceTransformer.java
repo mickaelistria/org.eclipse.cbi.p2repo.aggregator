@@ -61,42 +61,10 @@ public class ResourceTransformer implements ITransformer {
 
 	private List<Diagnostic> resourceErrors = new ArrayList<Diagnostic>();
 
-	public List<Diagnostic> getResourceErrors() {
-		return resourceErrors;
-	}
-
-	public void initTransformer(Resource srcResource, Resource trgtResource, EPackage trgtPackage,
-			Map<String, Object> context) {
-		this.srcResource = srcResource;
-		this.trgtResource = trgtResource;
-		this.trgtPackage = trgtPackage;
-		this.context = context;
-
-		if(this.context == null)
-			this.context = new HashMap<String, Object>();
-
-		trgtPackageFactory = trgtPackage.getEFactoryInstance();
-	}
-
-	/**
-	 * Starts transformation
-	 */
-	public final void startTransformation() {
-		for(EObject srcEObject : srcResource.getContents())
-			transform(srcEObject, new TreePath(trgtResource));
-
-		for(EObject srcEObject : srcResource.getContents())
-			transformRef(srcEObject);
-	}
-
-	public final void transform(EObject srcEObject, TreePath treePath) {
-		checkResource(srcEObject);
-		doTransform(srcEObject, treePath);
-	}
-
-	public final void transformRef(EObject srcEObject) {
-		checkResource(srcEObject);
-		doTransformRef(srcEObject);
+	private void checkResource(EObject srcEObject) {
+		Resource res = srcEObject.eResource();
+		if(checkedResources.add(res))
+			resourceErrors.addAll(res.getErrors());
 	}
 
 	protected void copyAttributes(EObject srcEObject, EObject trgtEObject) {
@@ -126,11 +94,36 @@ public class ResourceTransformer implements ITransformer {
 		}
 	}
 
-	protected Object createTrgtEEnumLiteral(String enumName, String literal) {
-		EDataType trgtEDataType = (EDataType) trgtPackage.getEClassifier(enumName);
+	@SuppressWarnings("unchecked")
+	protected void copyReferences(EObject srcEObject, EObject trgtEObject, TreePath trgtParentTreePath) {
+		for(EReference srcERef : srcEObject.eClass().getEAllContainments()) {
+			Object srcERefValue = srcEObject.eGet(srcERef);
 
+			if(srcERefValue == null)
+				continue;
+
+			EReference trgtERef = (EReference) trgtEObject.eClass().getEStructuralFeature(srcERef.getName());
+
+			if(trgtERef == null)
+				continue;
+			// throw new IllegalArgumentException(srcEObject.eClass().getName() + "." + srcERef.getName()
+			// + " is not a valid EReference in the target model");
+
+			TreePath trgtTreePath = trgtParentTreePath.createChildTreePath(trgtEObject, trgtERef);
+
+			if(!srcERef.isMany())
+				transform((EObject) srcERefValue, trgtTreePath);
+			else
+				for(EObject srcChild : (List<EObject>) srcERefValue)
+					transform(srcChild, trgtTreePath);
+		}
+	}
+
+	protected Object createTrgtEEnumLiteral(String enumName, String literal) {
 		if(enumName == null)
 			throw new IllegalArgumentException(enumName + " is not a valid EEnum in the target model");
+
+		EDataType trgtEDataType = (EDataType) trgtPackage.getEClassifier(enumName);
 
 		Object enumerator = trgtPackageFactory.createFromString(trgtEDataType, literal);
 
@@ -162,36 +155,13 @@ public class ResourceTransformer implements ITransformer {
 	 * @param trgtParentTreePath
 	 *            tree path in the target structure
 	 */
-	@SuppressWarnings("unchecked")
 	protected void doTransform(EObject srcEObject, TreePath trgtParentTreePath) {
 		EClass scrEClass = srcEObject.eClass();
 		EObject trgtEObject = createTrgtEObject(scrEClass.getName(), srcEObject);
 
 		trgtParentTreePath.addToLastSegmentContainer(trgtEObject);
-
 		copyAttributes(srcEObject, trgtEObject);
-
-		for(EReference srcERef : scrEClass.getEAllContainments()) {
-			Object srcERefValue = srcEObject.eGet(srcERef);
-
-			if(srcERefValue == null)
-				continue;
-
-			EReference trgtERef = (EReference) trgtEObject.eClass().getEStructuralFeature(srcERef.getName());
-
-			if(trgtERef == null)
-				continue;
-			// throw new IllegalArgumentException(srcEObject.eClass().getName() + "." + srcERef.getName()
-			// + " is not a valid EReference in the target model");
-
-			TreePath trgtTreePath = trgtParentTreePath.createChildTreePath(trgtEObject, trgtERef);
-
-			if(!srcERef.isMany())
-				transform((EObject) srcERefValue, trgtTreePath);
-			else
-				for(EObject srcChild : (List<EObject>) srcERefValue)
-					transform(srcChild, trgtTreePath);
-		}
+		copyReferences(srcEObject, trgtEObject, trgtParentTreePath);
 	}
 
 	/**
@@ -249,6 +219,10 @@ public class ResourceTransformer implements ITransformer {
 		}
 	}
 
+	public List<Diagnostic> getResourceErrors() {
+		return resourceErrors;
+	}
+
 	protected Object getValue(EObject eobject, String featureName) {
 		EStructuralFeature feature = eobject.eClass().getEStructuralFeature(featureName);
 
@@ -259,9 +233,37 @@ public class ResourceTransformer implements ITransformer {
 		return eobject.eGet(feature);
 	}
 
-	private void checkResource(EObject srcEObject) {
-		Resource res = srcEObject.eResource();
-		if(checkedResources.add(res))
-			resourceErrors.addAll(res.getErrors());
+	public void initTransformer(Resource srcResource, Resource trgtResource, EPackage trgtPackage,
+			Map<String, Object> context) {
+		this.srcResource = srcResource;
+		this.trgtResource = trgtResource;
+		this.trgtPackage = trgtPackage;
+		this.context = context;
+
+		if(this.context == null)
+			this.context = new HashMap<String, Object>();
+
+		trgtPackageFactory = trgtPackage.getEFactoryInstance();
+	}
+
+	/**
+	 * Starts transformation
+	 */
+	public final void startTransformation() {
+		for(EObject srcEObject : srcResource.getContents())
+			transform(srcEObject, new TreePath(trgtResource));
+
+		for(EObject srcEObject : srcResource.getContents())
+			transformRef(srcEObject);
+	}
+
+	public final void transform(EObject srcEObject, TreePath treePath) {
+		checkResource(srcEObject);
+		doTransform(srcEObject, treePath);
+	}
+
+	public final void transformRef(EObject srcEObject) {
+		checkResource(srcEObject);
+		doTransformRef(srcEObject);
 	}
 }

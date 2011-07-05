@@ -14,7 +14,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import org.eclipse.b3.aggregator.Aggregator;
+import org.eclipse.b3.aggregator.Aggregation;
 import org.eclipse.b3.aggregator.AggregatorFactory;
 import org.eclipse.b3.aggregator.Contribution;
 import org.eclipse.b3.aggregator.MapRule;
@@ -118,7 +118,7 @@ public class ItemUtils {
 		return newMappedRepo;
 	}
 
-	public static MappedRepository findMappedRepository(Aggregator aggregator, MetadataRepository mdr) {
+	public static MappedRepository findMappedRepository(Aggregation aggregator, MetadataRepository mdr) {
 		for(Contribution contribution : aggregator.getContributions()) {
 			MappedRepository repo = findMappedRepository(contribution, mdr);
 			if(repo != null)

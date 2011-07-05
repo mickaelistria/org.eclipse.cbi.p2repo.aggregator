@@ -22,11 +22,11 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
-import org.eclipse.b3.aggregator.Aggregator;
+import org.eclipse.b3.aggregator.Aggregation;
 import org.eclipse.b3.aggregator.AggregatorFactory;
 import org.eclipse.b3.aggregator.AggregatorPackage;
 import org.eclipse.b3.aggregator.AvailableVersion;
-import org.eclipse.b3.aggregator.CompositeChild;
+import org.eclipse.b3.aggregator.ValidationSet;
 import org.eclipse.b3.aggregator.Configuration;
 import org.eclipse.b3.aggregator.Contact;
 import org.eclipse.b3.aggregator.Contribution;
@@ -40,7 +40,7 @@ import org.eclipse.b3.aggregator.engine.Builder;
 import org.eclipse.b3.aggregator.engine.Builder.ActionType;
 import org.eclipse.b3.aggregator.engine.Engine;
 import org.eclipse.b3.aggregator.engine.RepositoryVerifier.AnalyzedPlannerStatus;
-import org.eclipse.b3.aggregator.impl.AggregatorImpl;
+import org.eclipse.b3.aggregator.impl.AggregationImpl;
 import org.eclipse.b3.aggregator.impl.ContributionImpl;
 import org.eclipse.b3.aggregator.p2.util.MetadataRepositoryResourceImpl;
 import org.eclipse.b3.aggregator.p2view.IUPresentation;
@@ -885,7 +885,7 @@ public class AggregatorActionBarContributor extends EditingDomainActionBarContri
 
 	protected IAction selectMatchingIUAction;
 
-	private Aggregator aggregator;
+	private Aggregation aggregator;
 
 	private IEditorPart lastActiveEditorPart;
 
@@ -895,11 +895,11 @@ public class AggregatorActionBarContributor extends EditingDomainActionBarContri
 
 	private IMenuManager linkMenuManager;
 
-	private Collection<? extends IAction> linkCompositeChildActions;
+	private Collection<? extends IAction> linkValidationSetActions;
 
 	private IMenuManager unlinkMenuManager;
 
-	private Collection<? extends IAction> unlinkCompositeChildActions;
+	private Collection<? extends IAction> unlinkValidationSetActions;
 
 	/**
 	 * This creates an instance of the contributor. <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -1136,37 +1136,37 @@ public class AggregatorActionBarContributor extends EditingDomainActionBarContri
 		return actions;
 	}
 
-	protected Collection<? extends IAction> generateLinkCompositeChildActions(IStructuredSelection structuredSelection,
-			EList<CompositeChild> compositeChildren) {
-		CompositeChild linkedCompositeChild = (CompositeChild) ((Contribution) structuredSelection.getFirstElement()).getReceiver();
-		ArrayList<IAction> linkActions = new ArrayList<IAction>(compositeChildren.size());
+	protected Collection<? extends IAction> generateLinkValidationSetActions(IStructuredSelection structuredSelection,
+			EList<ValidationSet> validationSets) {
+		ValidationSet linkedValidationSet = (ValidationSet) ((Contribution) structuredSelection.getFirstElement()).getReceiver();
+		ArrayList<IAction> linkActions = new ArrayList<IAction>(validationSets.size());
 
-		for(CompositeChild compositeChild : compositeChildren) {
-			if(linkedCompositeChild != compositeChild)
+		for(ValidationSet validationSet : validationSets) {
+			if(linkedValidationSet != validationSet)
 				linkActions.add(new LinkCommand(
-					activeEditorPart, structuredSelection, compositeChild, compositeChild.getLabel(), true));
+					activeEditorPart, structuredSelection, validationSet, validationSet.getLabel(), true));
 		}
 
 		return linkActions;
 	}
 
-	protected Collection<? extends IAction> generateUnlinkCompositeChildActions(
-			IStructuredSelection structuredSelection, EList<CompositeChild> compositeChildren) {
+	protected Collection<? extends IAction> generateUnlinkValidationSetActions(
+			IStructuredSelection structuredSelection, EList<ValidationSet> validationSets) {
 		LinkReceiver linkReceiver = ((Contribution) structuredSelection.getFirstElement()).getReceiver();
-		ArrayList<IAction> unlinkActions = new ArrayList<IAction>(compositeChildren.size());
+		ArrayList<IAction> unlinkActions = new ArrayList<IAction>(validationSets.size());
 
-		if(linkReceiver instanceof CompositeChild) {
-			for(CompositeChild compositeChild : compositeChildren) {
-				if(compositeChild == linkReceiver)
+		if(linkReceiver instanceof ValidationSet) {
+			for(ValidationSet validationSet : validationSets) {
+				if(validationSet == linkReceiver)
 					unlinkActions.add(new LinkCommand(
-						activeEditorPart, structuredSelection, compositeChild, compositeChild.getLabel(), false));
+						activeEditorPart, structuredSelection, validationSet, validationSet.getLabel(), false));
 			}
 		}
 
 		return unlinkActions;
 	}
 
-	private Aggregator getAggregator() {
+	private Aggregation getAggregator() {
 		if(activeEditorPart == null || !(activeEditorPart instanceof IEditingDomainProvider))
 			return null;
 
@@ -1186,7 +1186,7 @@ public class AggregatorActionBarContributor extends EditingDomainActionBarContri
 			}
 		return aggregator = (aggregatorResource == null
 				? null
-				: (Aggregator) aggregatorResource.getContents().get(0));
+				: (Aggregation) aggregatorResource.getContents().get(0));
 	}
 
 	@Override
@@ -1213,23 +1213,24 @@ public class AggregatorActionBarContributor extends EditingDomainActionBarContri
 					structuredSelection = new StructuredSelection(Collections.singletonList(unwrappedSelectedObject));
 			}
 
-			EList<CompositeChild> compositeChildren = getAggregator().getCompositeChildren();
+			EList<ValidationSet> validationSets = getAggregator().getValidationSets();
 
 			if(linkMenuManager != null) {
-				depopulateManager(linkMenuManager, linkCompositeChildActions);
-				linkCompositeChildActions = generateLinkCompositeChildActions(structuredSelection, compositeChildren);
-				if(!linkCompositeChildActions.isEmpty()) {
-					populateManager(linkMenuManager, linkCompositeChildActions, null);
+				depopulateManager(linkMenuManager, linkValidationSetActions);
+				linkValidationSetActions = generateLinkValidationSetActions(structuredSelection, validationSets);
+				if(!linkValidationSetActions.isEmpty()) {
+					populateManager(linkMenuManager, linkValidationSetActions, null);
 					linkMenuManager.update(true);
 					menuManager.insertBefore("edit", linkMenuManager);
 				}
 			}
 
 			if(unlinkMenuManager != null) {
-				depopulateManager(unlinkMenuManager, unlinkCompositeChildActions);
-				unlinkCompositeChildActions = generateUnlinkCompositeChildActions(structuredSelection, compositeChildren);
-				if(!unlinkCompositeChildActions.isEmpty()) {
-					populateManager(unlinkMenuManager, unlinkCompositeChildActions, null);
+				depopulateManager(unlinkMenuManager, unlinkValidationSetActions);
+				unlinkValidationSetActions = generateUnlinkValidationSetActions(
+					structuredSelection, validationSets);
+				if(!unlinkValidationSetActions.isEmpty()) {
+					populateManager(unlinkMenuManager, unlinkValidationSetActions, null);
 					unlinkMenuManager.update(true);
 					menuManager.insertBefore("edit", unlinkMenuManager);
 				}
@@ -1462,14 +1463,14 @@ public class AggregatorActionBarContributor extends EditingDomainActionBarContri
 
 				reloadOrCancelRepoAction.setEnabled(true);
 				reloadOrCancelRepoAction.initMetadataRepositoryReferences();
-				Aggregator aggregator = getAggregator();
+				Aggregation aggregator = getAggregator();
 
 				aggregatorSelected = false;
 				if(selectedItems.size() == 1 && selectedItems.get(0).equals(aggregator)) {
 					aggregatorSelected = true;
 					reloadOrCancelRepoAction.setLoadText("Reload All Repositories");
 					reloadOrCancelRepoActionVisible = true;
-					ResourceSet resourceSet = ((AggregatorImpl) aggregator).eResource().getResourceSet();
+					ResourceSet resourceSet = ((AggregationImpl) aggregator).eResource().getResourceSet();
 					for(Resource resource : resourceSet.getResources())
 						if(resource instanceof MetadataRepositoryResourceImpl)
 							reloadOrCancelRepoAction.addMetadataRepositoryResource((MetadataRepositoryResourceImpl) resource);

@@ -68,17 +68,17 @@ public class AggregatorResourceViewItemProvider extends AggregatorItemProviderAd
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 
 		newChildDescriptors.add(createChildParameter(
-			AggregatorPackage.Literals.AGGREGATOR_RESOURCE_VIEW__COMPOSITE_CHILDREN,
-			AggregatorFactory.eINSTANCE.createCompositeChild()));
+			AggregatorPackage.Literals.AGGREGATOR_RESOURCE_VIEW__VALIDATION_SETS,
+			AggregatorFactory.eINSTANCE.createValidationSet()));
 	}
 
 	@Override
 	protected Command createAddCommand(EditingDomain domain, EObject owner, EStructuralFeature feature,
 			Collection<?> collection, int index) {
-		if(feature == AggregatorPackage.Literals.AGGREGATOR_RESOURCE_VIEW__COMPOSITE_CHILDREN) {
+		if(feature == AggregatorPackage.Literals.AGGREGATOR_RESOURCE_VIEW__VALIDATION_SETS) {
 			return super.createAddCommand(
 				domain, (EObject) ((AggregatorResourceViewImpl) owner).getAggregator(),
-				(EStructuralFeature) AggregatorPackage.Literals.AGGREGATOR__COMPOSITE_CHILDREN, collection, index);
+				(EStructuralFeature) AggregatorPackage.Literals.AGGREGATION__VALIDATION_SETS, collection, index);
 		}
 		return UnexecutableCommand.INSTANCE;
 	}
@@ -91,10 +91,10 @@ public class AggregatorResourceViewItemProvider extends AggregatorItemProviderAd
 	@Override
 	protected Command createCreateChildCommand(EditingDomain domain, EObject owner, EStructuralFeature feature,
 			Object value, int index, Collection<?> collection) {
-		if(feature == AggregatorPackage.Literals.AGGREGATOR_RESOURCE_VIEW__COMPOSITE_CHILDREN) {
+		if(feature == AggregatorPackage.Literals.AGGREGATOR_RESOURCE_VIEW__VALIDATION_SETS) {
 			return super.createCreateChildCommand(
 				domain, (EObject) ((AggregatorResourceViewImpl) owner).getAggregator(),
-				AggregatorPackage.Literals.AGGREGATOR__COMPOSITE_CHILDREN, value, index, collection);
+				AggregatorPackage.Literals.AGGREGATION__VALIDATION_SETS, value, index, collection);
 		}
 		return UnexecutableCommand.INSTANCE;
 	}
@@ -120,10 +120,10 @@ public class AggregatorResourceViewItemProvider extends AggregatorItemProviderAd
 	@Override
 	protected Command createMoveCommand(EditingDomain domain, EObject owner, EStructuralFeature feature, Object value,
 			int index) {
-		if(feature == AggregatorPackage.Literals.AGGREGATOR_RESOURCE_VIEW__COMPOSITE_CHILDREN) {
+		if(feature == AggregatorPackage.Literals.AGGREGATOR_RESOURCE_VIEW__VALIDATION_SETS) {
 			return super.createMoveCommand(
 				domain, (EObject) ((AggregatorResourceViewImpl) owner).getAggregator(),
-				(EStructuralFeature) AggregatorPackage.Literals.AGGREGATOR__COMPOSITE_CHILDREN, value, index);
+				(EStructuralFeature) AggregatorPackage.Literals.AGGREGATION__VALIDATION_SETS, value, index);
 		}
 		return UnexecutableCommand.INSTANCE;
 	}
@@ -131,10 +131,10 @@ public class AggregatorResourceViewItemProvider extends AggregatorItemProviderAd
 	@Override
 	protected Command createRemoveCommand(EditingDomain domain, EObject owner, EStructuralFeature feature,
 			Collection<?> collection) {
-		if(feature == AggregatorPackage.Literals.AGGREGATOR_RESOURCE_VIEW__COMPOSITE_CHILDREN) {
+		if(feature == AggregatorPackage.Literals.AGGREGATOR_RESOURCE_VIEW__VALIDATION_SETS) {
 			return super.createRemoveCommand(
 				domain, (EObject) ((AggregatorResourceViewImpl) owner).getAggregator(),
-				(EStructuralFeature) AggregatorPackage.Literals.AGGREGATOR__COMPOSITE_CHILDREN, collection);
+				(EStructuralFeature) AggregatorPackage.Literals.AGGREGATION__VALIDATION_SETS, collection);
 		}
 		return UnexecutableCommand.INSTANCE;
 	}
@@ -142,20 +142,20 @@ public class AggregatorResourceViewItemProvider extends AggregatorItemProviderAd
 	@Override
 	protected Command createReplaceCommand(EditingDomain domain, EObject owner, EStructuralFeature feature,
 			EObject value, Collection<?> collection) {
-		if(feature == AggregatorPackage.Literals.AGGREGATOR_RESOURCE_VIEW__COMPOSITE_CHILDREN) {
+		if(feature == AggregatorPackage.Literals.AGGREGATOR_RESOURCE_VIEW__VALIDATION_SETS) {
 			return super.createReplaceCommand(
 				domain, (EObject) ((AggregatorResourceViewImpl) owner).getAggregator(),
-				(EStructuralFeature) AggregatorPackage.Literals.AGGREGATOR__COMPOSITE_CHILDREN, value, collection);
+				(EStructuralFeature) AggregatorPackage.Literals.AGGREGATION__VALIDATION_SETS, value, collection);
 		}
 		return UnexecutableCommand.INSTANCE;
 	}
 
 	@Override
 	protected Command createSetCommand(EditingDomain domain, EObject owner, EStructuralFeature feature, Object value) {
-		if(feature == AggregatorPackage.Literals.AGGREGATOR_RESOURCE_VIEW__COMPOSITE_CHILDREN) {
+		if(feature == AggregatorPackage.Literals.AGGREGATOR_RESOURCE_VIEW__VALIDATION_SETS) {
 			return super.createSetCommand(
 				domain, (EObject) ((AggregatorResourceViewImpl) owner).getAggregator(),
-				(EStructuralFeature) AggregatorPackage.Literals.AGGREGATOR__COMPOSITE_CHILDREN, value);
+				(EStructuralFeature) AggregatorPackage.Literals.AGGREGATION__VALIDATION_SETS, value);
 		}
 		return UnexecutableCommand.INSTANCE;
 	}
@@ -163,23 +163,23 @@ public class AggregatorResourceViewItemProvider extends AggregatorItemProviderAd
 	@Override
 	protected Command createSetCommand(EditingDomain domain, EObject owner, EStructuralFeature feature, Object value,
 			int index) {
-		if(feature == AggregatorPackage.Literals.AGGREGATOR_RESOURCE_VIEW__COMPOSITE_CHILDREN) {
+		if(feature == AggregatorPackage.Literals.AGGREGATOR_RESOURCE_VIEW__VALIDATION_SETS) {
 			return super.createSetCommand(
 				domain, (EObject) ((AggregatorResourceViewImpl) owner).getAggregator(),
-				(EStructuralFeature) AggregatorPackage.Literals.AGGREGATOR__COMPOSITE_CHILDREN, value, index);
+				(EStructuralFeature) AggregatorPackage.Literals.AGGREGATION__VALIDATION_SETS, value, index);
 		}
 		return UnexecutableCommand.INSTANCE;
 	}
 
 	@Override
 	protected Object createWrapper(EObject object, EStructuralFeature feature, Object value, int index) {
-		// we need to wrap CompositeChild objects so that they appear to be children of the AggregatorResource instance
+		// we need to wrap ValidationSet objects so that they appear to be children of the AggregatorResource instance
 		// that the object we adapt is a view of
-		if(feature == AggregatorPackage.Literals.AGGREGATOR_RESOURCE_VIEW__COMPOSITE_CHILDREN) {
-			CompositeChildItemProvider compositeChildItemProvider = (CompositeChildItemProvider) getRootAdapterFactory().adapt(
+		if(feature == AggregatorPackage.Literals.AGGREGATOR_RESOURCE_VIEW__VALIDATION_SETS) {
+			ValidationSetItemProvider validationSetItemProvider = (ValidationSetItemProvider) getRootAdapterFactory().adapt(
 				value, IEditingDomainItemProvider.class);
 
-			return compositeChildItemProvider.new CompositeChildWrapperItemProvider(
+			return validationSetItemProvider.new ValidationSetWrapperItemProvider(
 				value, ((AggregatorResourceViewImpl) object).getAggregatorResource(), feature, index, adapterFactory);
 		}
 		return super.createWrapper(object, feature, value, index);
@@ -228,7 +228,7 @@ public class AggregatorResourceViewItemProvider extends AggregatorItemProviderAd
 		if(childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(AggregatorPackage.Literals.AGGREGATOR_RESOURCE_VIEW__AGGREGATOR);
-			childrenFeatures.add(AggregatorPackage.Literals.AGGREGATOR_RESOURCE_VIEW__COMPOSITE_CHILDREN);
+			childrenFeatures.add(AggregatorPackage.Literals.AGGREGATOR_RESOURCE_VIEW__VALIDATION_SETS);
 		}
 		return childrenFeatures;
 	}
@@ -275,7 +275,7 @@ public class AggregatorResourceViewItemProvider extends AggregatorItemProviderAd
 
 	@Override
 	protected boolean isWrappingNeeded(Object object) {
-		// we need to set this to true since we are wrapping the CompositeChild objects
+		// we need to set this to true since we are wrapping the ValidationSet objects
 		// so that they appear to be children of the AggregatorResource instance
 		// that the object we adapt is a view of
 		return true;
@@ -295,7 +295,7 @@ public class AggregatorResourceViewItemProvider extends AggregatorItemProviderAd
 
 		switch(notification.getFeatureID(AggregatorResourceView.class)) {
 			case AggregatorPackage.AGGREGATOR_RESOURCE_VIEW__AGGREGATOR:
-			case AggregatorPackage.AGGREGATOR_RESOURCE_VIEW__COMPOSITE_CHILDREN:
+			case AggregatorPackage.AGGREGATOR_RESOURCE_VIEW__VALIDATION_SETS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
