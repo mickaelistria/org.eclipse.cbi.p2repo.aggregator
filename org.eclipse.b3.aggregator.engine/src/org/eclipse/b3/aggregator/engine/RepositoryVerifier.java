@@ -49,6 +49,7 @@ import org.eclipse.equinox.internal.p2.director.Explanation.HardRequirement;
 import org.eclipse.equinox.internal.p2.director.Explanation.MissingGreedyIU;
 import org.eclipse.equinox.internal.p2.director.Explanation.MissingIU;
 import org.eclipse.equinox.internal.p2.director.Explanation.Singleton;
+import org.eclipse.equinox.internal.p2.director.ProfileChangeRequest;
 import org.eclipse.equinox.internal.p2.director.QueryableArray;
 import org.eclipse.equinox.internal.p2.engine.InstallableUnitOperand;
 import org.eclipse.equinox.internal.p2.engine.Operand;
@@ -56,7 +57,6 @@ import org.eclipse.equinox.internal.p2.engine.ProvisioningPlan;
 import org.eclipse.equinox.internal.p2.metadata.IRequiredCapability;
 import org.eclipse.equinox.internal.p2.touchpoint.eclipse.PublisherUtil;
 import org.eclipse.equinox.internal.provisional.p2.director.PlannerStatus;
-import org.eclipse.equinox.internal.provisional.p2.director.ProfileChangeRequest;
 import org.eclipse.equinox.internal.provisional.p2.director.RequestStatus;
 import org.eclipse.equinox.p2.core.ProvisionException;
 import org.eclipse.equinox.p2.engine.IProfile;
@@ -256,19 +256,57 @@ public class RepositoryVerifier extends BuilderPhase {
 				message = message.toString();
 		}
 
-		protected void appendMessage(Configuration config, String message) {
-			if(this.message == null)
-				this.message = new StringBuilder("Problems while verifying configuration: ").append(config.getName());
-
-			((StringBuilder) this.message).append("\n\n").append(message);
-		}
-
 		public IStatus[] getChildren() {
 			return plannerStatus.getChildren();
 		}
 
 		public int getCode() {
 			return plannerStatus.getCode();
+		}
+
+		public Throwable getException() {
+			return plannerStatus.getException();
+		}
+
+		public String getMessage() {
+			return message == null
+					? plannerStatus.getMessage()
+					: message.toString();
+		}
+
+		public PlannerStatus getPlannerStatus() {
+			return plannerStatus;
+		}
+
+		public String getPlugin() {
+			return plannerStatus.getPlugin();
+		}
+
+		public int getSeverity() {
+			return plannerStatus.getSeverity();
+		}
+
+		public List<VerificationDiagnostic> getVerificationDiagnostics() {
+			return verificationDiagnostics;
+		}
+
+		public boolean isMultiStatus() {
+			return plannerStatus.isMultiStatus();
+		}
+
+		public boolean isOK() {
+			return plannerStatus.isOK();
+		}
+
+		public boolean matches(int severityMask) {
+			return plannerStatus.matches(severityMask);
+		}
+
+		protected void appendMessage(Configuration config, String message) {
+			if(this.message == null)
+				this.message = new StringBuilder("Problems while verifying configuration: ").append(config.getName());
+
+			((StringBuilder) this.message).append("\n\n").append(message);
 		}
 
 		/**
@@ -324,44 +362,6 @@ public class RepositoryVerifier extends BuilderPhase {
 
 			return lastLink;
 		}
-
-		public Throwable getException() {
-			return plannerStatus.getException();
-		}
-
-		public String getMessage() {
-			return message == null
-					? plannerStatus.getMessage()
-					: message.toString();
-		}
-
-		public PlannerStatus getPlannerStatus() {
-			return plannerStatus;
-		}
-
-		public String getPlugin() {
-			return plannerStatus.getPlugin();
-		}
-
-		public int getSeverity() {
-			return plannerStatus.getSeverity();
-		}
-
-		public List<VerificationDiagnostic> getVerificationDiagnostics() {
-			return verificationDiagnostics;
-		}
-
-		public boolean isMultiStatus() {
-			return plannerStatus.isMultiStatus();
-		}
-
-		public boolean isOK() {
-			return plannerStatus.isOK();
-		}
-
-		public boolean matches(int severityMask) {
-			return plannerStatus.matches(severityMask);
-		}
 	}
 
 	private static IInstallableUnit[] getRootIUs(IMetadataRepository site, String iuName, Version version,
@@ -380,245 +380,6 @@ public class RepositoryVerifier extends BuilderPhase {
 	public RepositoryVerifier(Builder builder, CompositeChild compositeChild) {
 		super(builder);
 		this.compositeChild = compositeChild;
-	}
-
-	private boolean addLeafmostContributions(Set<Explanation> explanations, Map<String, Contribution> contributions,
-			IRequirement prq) {
-		boolean contribsFound = false;
-		for(Explanation explanation : explanations) {
-			if(explanation instanceof Singleton) {
-				if(contribsFound)
-					// All explicit contributions for Singletons are added at
-					// top level. We just want to find out if this Singleton
-					// is the leaf problem here, not add anything
-					continue;
-
-				for(IInstallableUnit iu : ((Singleton) explanation).ius) {
-					if(prq.isMatch(iu)) {
-						// A singleton is always a leaf problem. Add
-						// contributions if we can find any
-						if(!findContributions(iu.getId()).isEmpty()) {
-							contribsFound = true;
-							break;
-						}
-					}
-				}
-				continue;
-			}
-
-			IInstallableUnit iu;
-			IRequirement crq;
-			if(explanation instanceof HardRequirement) {
-				HardRequirement hrq = (HardRequirement) explanation;
-				iu = hrq.iu;
-				crq = hrq.req;
-			}
-			else if(explanation instanceof MissingIU) {
-				MissingIU miu = (MissingIU) explanation;
-				iu = miu.iu;
-				crq = miu.req;
-			}
-			else
-				continue;
-
-			if(prq.isMatch(iu)) {
-				// This IU would have fulfilled the failing request but it
-				// has apparent problems of its own.
-				if(addLeafmostContributions(explanations, contributions, crq)) {
-					contribsFound = true;
-					continue;
-				}
-
-				for(Contribution contrib : findContributions(iu, crq)) {
-					contributions.put(contrib.getLabel(), contrib);
-					contribsFound = true;
-				}
-				continue;
-			}
-		}
-		return contribsFound;
-	}
-
-	private ProvisioningContext createContext(URI site) {
-		List<MetadataRepositoryReference> validationRepos = getBuilder().getAggregator().getValidationRepositories();
-		int top = validationRepos.size();
-		List<URI> sites = new ArrayList<URI>(top + 1);
-		sites.add(site);
-
-		URI[] repoLocations = new URI[top + 1];
-		for(int idx = 0; idx < top; ++idx) {
-			MetadataRepositoryReference mdRef = validationRepos.get(idx);
-			if(mdRef.isEnabled())
-				sites.add(URI.create(mdRef.getResolvedLocation()));
-		}
-		repoLocations = sites.toArray(new URI[sites.size()]);
-		ProvisioningContext context = new ProvisioningContext(getBuilder().getProvisioningAgent());
-		context.setMetadataRepositories(repoLocations);
-		context.setArtifactRepositories(repoLocations);
-		return context;
-	}
-
-	private List<Contribution> findContributions(IInstallableUnit iu, IRequirement rq) {
-		List<Contribution> contribs = Collections.emptyList();
-		if(!(rq instanceof IRequiredCapability))
-			return contribs;
-
-		IRequiredCapability cap = (IRequiredCapability) rq;
-		if(Builder.NAMESPACE_OSGI_BUNDLE.equals(cap.getNamespace()) ||
-				IInstallableUnit.NAMESPACE_IU_ID.equals(cap.getNamespace()))
-			contribs = findContributions(cap.getName());
-
-		if(contribs.isEmpty())
-			// Not found, try the owner of the requirement
-			contribs = findContributions(iu.getId());
-		return contribs;
-	}
-
-	private List<Contribution> findContributions(String componentId) {
-		List<Contribution> result = null;
-		for(Contribution contrib : getBuilder().getAggregator().getCompositeChildContributions(compositeChild, true))
-			for(MappedRepository repository : contrib.getRepositories(true))
-				for(MappedUnit mu : repository.getUnits(true))
-					if(componentId.equals(mu.getName())) {
-						if(result == null)
-							result = new ArrayList<Contribution>();
-						result.add(contrib);
-					}
-		return result == null
-				? Collections.<Contribution> emptyList()
-				: result;
-	}
-
-	private Set<IInstallableUnit> getUnpatchedTransitiveScope(IQueryable<IInstallableUnit> collectedStuff,
-			IInstallableUnitPatch patch, IProfile profile, IPlanner planner, URI repoLocation, SubMonitor monitor)
-			throws CoreException {
-		IMetadataRepositoryManager mdrMgr = P2Utils.getRepositoryManager(
-			getBuilder().getProvisioningAgent(), IMetadataRepositoryManager.class);
-		try {
-			monitor.beginTask(null, 10);
-			IQuery<IInstallableUnit> query = SpecialQueries.createPatchApplicabilityQuery(patch);
-			IQueryResult<IInstallableUnit> result = collectedStuff.query(query, monitor.newChild(1));
-
-			IInstallableUnit[] rootArr = result.toArray(IInstallableUnit.class);
-			// Add as root IU's to a request
-			ProfileChangeRequest request = new ProfileChangeRequest(profile);
-			for(IInstallableUnit rootIU : rootArr)
-				request.setInstallableUnitProfileProperty(
-					rootIU, IProfile.PROP_PROFILE_ROOT_IU, Boolean.TRUE.toString());
-			request.addInstallableUnits(rootArr);
-
-			ProvisioningContext context = new ProvisioningContext(getBuilder().getProvisioningAgent());
-			context.setMetadataRepositories(new URI[] { repoLocation });
-			// we don't pass the main monitor since we expect a possible failure which is silently ignored
-			// to avoid this, we use a null monitor and when the plan is ready, we add the full amount of ticks
-			// to the main monitor
-			ProvisioningPlan plan = (ProvisioningPlan) planner.getProvisioningPlan(
-				request, context, new NullProgressMonitor());
-			monitor.worked(8);
-			IStatus status = plan.getStatus();
-			if(status.isOK()) {
-				HashSet<IInstallableUnit> units = new HashSet<IInstallableUnit>();
-				units.add(patch);
-				Operand[] ops = plan.getOperands();
-				for(Operand op : ops) {
-					if(!(op instanceof InstallableUnitOperand))
-						continue;
-
-					InstallableUnitOperand iuOp = (InstallableUnitOperand) op;
-					IInstallableUnit iu = iuOp.second();
-					if(iu != null)
-						units.add(iu);
-				}
-				return units;
-			}
-			return Collections.emptySet();
-		}
-		finally {
-			P2Utils.ungetRepositoryManager(getBuilder().getProvisioningAgent(), mdrMgr);
-		}
-	}
-
-	InstallableUnit resolvePartialIU(IInstallableUnit iu, SubMonitor subMon) throws CoreException {
-		IArtifactRepositoryManager arMgr = P2Utils.getRepositoryManager(
-			getBuilder().getProvisioningAgent(), IArtifactRepositoryManager.class);
-		String info = "Converting partial IU for " + iu.getId() + "...";
-		subMon.beginTask(info, IProgressMonitor.UNKNOWN);
-		LogUtils.debug(info);
-
-		try {
-			// Scan all mapped repositories for this IU
-			//
-			IInstallableUnit miu = null;
-			MetadataRepository mdr = null;
-			contribs: for(Contribution contrib : getBuilder().getAggregator().getContributions(true))
-
-				for(MappedRepository repo : contrib.getRepositories(true)) {
-					MetadataRepository candidate = repo.getMetadataRepository();
-					for(IInstallableUnit candidateIU : candidate.getInstallableUnits())
-						if(iu.getId().equals(candidateIU.getId()) && iu.getVersion().equals(candidateIU.getVersion())) {
-							mdr = candidate;
-							miu = candidateIU;
-							break contribs;
-						}
-				}
-
-			if(mdr == null)
-				throw ExceptionUtils.fromMessage(
-					"Unable to locate mapped repository for IU %s/%s", iu.getId(), iu.getVersion());
-
-			IArtifactRepository sourceAr = arMgr.loadRepository(mdr.getLocation(), subMon.newChild(10));
-			File tempRepositoryFolder = getBuilder().getTempRepositoryFolder();
-			tempRepositoryFolder.mkdirs();
-
-			URI tempRepositoryURI = Builder.createURI(tempRepositoryFolder);
-			IFileArtifactRepository tempAr;
-			try {
-				tempAr = (IFileArtifactRepository) arMgr.loadRepository(tempRepositoryURI, subMon.newChild(1));
-			}
-			catch(ProvisionException e) {
-				tempAr = (IFileArtifactRepository) arMgr.createRepository(tempRepositoryURI, "temporary artifacts"
-						+ " artifacts", Builder.SIMPLE_ARTIFACTS_TYPE, Collections.<String, String> emptyMap()); //$NON-NLS-1$
-			}
-
-			Collection<IArtifactKey> artifacts = miu.getArtifacts();
-			IArtifactKey key = artifacts.iterator().next();
-			ArrayList<String> errors = new ArrayList<String>();
-			MirrorGenerator.mirror(
-				artifacts, null, sourceAr, tempAr, PackedStrategy.UNPACK_AS_SIBLING, errors, subMon.newChild(1));
-			int numErrors = errors.size();
-			if(numErrors > 0) {
-				IStatus[] children = new IStatus[numErrors];
-				for(int idx = 0; idx < numErrors; ++idx)
-					children[idx] = new Status(IStatus.ERROR, Engine.PLUGIN_ID, errors.get(idx));
-				MultiStatus status = new MultiStatus(
-					Engine.PLUGIN_ID, IStatus.ERROR, children, "Unable to mirror", null);
-				throw new CoreException(status);
-			}
-
-			File bundleFile = tempAr.getArtifactFile(key);
-			if(bundleFile == null)
-				throw ExceptionUtils.fromMessage(
-					"Unable to resolve partial IU. Artifact file for %s could not be found", key);
-
-			IInstallableUnit preparedIU = PublisherUtil.createBundleIU(key, bundleFile);
-			if(preparedIU == null)
-				throw ExceptionUtils.fromMessage(
-					"Unable to resolve partial IU. Artifact file for %s did not contain a bundle manifest", key);
-			InstallableUnit newIU = P2Bridge.importToModel(preparedIU);
-
-			List<IInstallableUnit> allIUs = mdr.getInstallableUnits();
-			allIUs.remove(miu);
-			allIUs.add(newIU);
-			return newIU;
-		}
-		catch(CoreException e) {
-			for(Contribution contrib : findContributions(iu.getId()))
-				getBuilder().sendEmail(contrib, Collections.singletonList(e.getMessage()));
-			throw e;
-		}
-		finally {
-			P2Utils.ungetRepositoryManager(getBuilder().getProvisioningAgent(), arMgr);
-		}
 	}
 
 	@Override
@@ -826,6 +587,246 @@ public class RepositoryVerifier extends BuilderPhase {
 			P2Utils.ungetRepositoryManager(builder.getProvisioningAgent(), mdrMgr);
 
 			LogUtils.info("Done. Took %s", TimeUtils.getFormattedDuration(start)); //$NON-NLS-1$
+		}
+	}
+
+	InstallableUnit resolvePartialIU(IInstallableUnit iu, SubMonitor subMon) throws CoreException {
+		IArtifactRepositoryManager arMgr = P2Utils.getRepositoryManager(
+			getBuilder().getProvisioningAgent(), IArtifactRepositoryManager.class);
+		String info = "Converting partial IU for " + iu.getId() + "...";
+		subMon.beginTask(info, IProgressMonitor.UNKNOWN);
+		LogUtils.debug(info);
+
+		try {
+			// Scan all mapped repositories for this IU
+			//
+			IInstallableUnit miu = null;
+			MetadataRepository mdr = null;
+			contribs: for(Contribution contrib : getBuilder().getAggregator().getContributions(true))
+
+				for(MappedRepository repo : contrib.getRepositories(true)) {
+					MetadataRepository candidate = repo.getMetadataRepository();
+					for(IInstallableUnit candidateIU : candidate.getInstallableUnits())
+						if(iu.getId().equals(candidateIU.getId()) && iu.getVersion().equals(candidateIU.getVersion())) {
+							mdr = candidate;
+							miu = candidateIU;
+							break contribs;
+						}
+				}
+
+			if(mdr == null)
+				throw ExceptionUtils.fromMessage(
+					"Unable to locate mapped repository for IU %s/%s", iu.getId(), iu.getVersion());
+
+			IArtifactRepository sourceAr = arMgr.loadRepository(mdr.getLocation(), subMon.newChild(10));
+			File tempRepositoryFolder = getBuilder().getTempRepositoryFolder();
+			tempRepositoryFolder.mkdirs();
+
+			URI tempRepositoryURI = Builder.createURI(tempRepositoryFolder);
+			IFileArtifactRepository tempAr;
+			try {
+				tempAr = (IFileArtifactRepository) arMgr.loadRepository(tempRepositoryURI, subMon.newChild(1));
+			}
+			catch(ProvisionException e) {
+				tempAr = (IFileArtifactRepository) arMgr.createRepository(tempRepositoryURI, "temporary artifacts"
+						+ " artifacts", Builder.SIMPLE_ARTIFACTS_TYPE, Collections.<String, String> emptyMap()); //$NON-NLS-1$
+			}
+
+			Collection<IArtifactKey> artifacts = miu.getArtifacts();
+			IArtifactKey key = artifacts.iterator().next();
+			ArrayList<String> errors = new ArrayList<String>();
+			MirrorGenerator.mirror(
+				artifacts, null, sourceAr, tempAr, getBuilder().getTransport(), PackedStrategy.UNPACK_AS_SIBLING,
+				errors, subMon.newChild(1));
+			int numErrors = errors.size();
+			if(numErrors > 0) {
+				IStatus[] children = new IStatus[numErrors];
+				for(int idx = 0; idx < numErrors; ++idx)
+					children[idx] = new Status(IStatus.ERROR, Engine.PLUGIN_ID, errors.get(idx));
+				MultiStatus status = new MultiStatus(
+					Engine.PLUGIN_ID, IStatus.ERROR, children, "Unable to mirror", null);
+				throw new CoreException(status);
+			}
+
+			File bundleFile = tempAr.getArtifactFile(key);
+			if(bundleFile == null)
+				throw ExceptionUtils.fromMessage(
+					"Unable to resolve partial IU. Artifact file for %s could not be found", key);
+
+			IInstallableUnit preparedIU = PublisherUtil.createBundleIU(key, bundleFile);
+			if(preparedIU == null)
+				throw ExceptionUtils.fromMessage(
+					"Unable to resolve partial IU. Artifact file for %s did not contain a bundle manifest", key);
+			InstallableUnit newIU = P2Bridge.importToModel(preparedIU);
+
+			List<IInstallableUnit> allIUs = mdr.getInstallableUnits();
+			allIUs.remove(miu);
+			allIUs.add(newIU);
+			return newIU;
+		}
+		catch(CoreException e) {
+			for(Contribution contrib : findContributions(iu.getId()))
+				getBuilder().sendEmail(contrib, Collections.singletonList(e.getMessage()));
+			throw e;
+		}
+		finally {
+			P2Utils.ungetRepositoryManager(getBuilder().getProvisioningAgent(), arMgr);
+		}
+	}
+
+	private boolean addLeafmostContributions(Set<Explanation> explanations, Map<String, Contribution> contributions,
+			IRequirement prq) {
+		boolean contribsFound = false;
+		for(Explanation explanation : explanations) {
+			if(explanation instanceof Singleton) {
+				if(contribsFound)
+					// All explicit contributions for Singletons are added at
+					// top level. We just want to find out if this Singleton
+					// is the leaf problem here, not add anything
+					continue;
+
+				for(IInstallableUnit iu : ((Singleton) explanation).ius) {
+					if(prq.isMatch(iu)) {
+						// A singleton is always a leaf problem. Add
+						// contributions if we can find any
+						if(!findContributions(iu.getId()).isEmpty()) {
+							contribsFound = true;
+							break;
+						}
+					}
+				}
+				continue;
+			}
+
+			IInstallableUnit iu;
+			IRequirement crq;
+			if(explanation instanceof HardRequirement) {
+				HardRequirement hrq = (HardRequirement) explanation;
+				iu = hrq.iu;
+				crq = hrq.req;
+			}
+			else if(explanation instanceof MissingIU) {
+				MissingIU miu = (MissingIU) explanation;
+				iu = miu.iu;
+				crq = miu.req;
+			}
+			else
+				continue;
+
+			if(prq.isMatch(iu)) {
+				// This IU would have fulfilled the failing request but it
+				// has apparent problems of its own.
+				if(addLeafmostContributions(explanations, contributions, crq)) {
+					contribsFound = true;
+					continue;
+				}
+
+				for(Contribution contrib : findContributions(iu, crq)) {
+					contributions.put(contrib.getLabel(), contrib);
+					contribsFound = true;
+				}
+				continue;
+			}
+		}
+		return contribsFound;
+	}
+
+	private ProvisioningContext createContext(URI site) {
+		List<MetadataRepositoryReference> validationRepos = getBuilder().getAggregator().getValidationRepositories();
+		int top = validationRepos.size();
+		List<URI> sites = new ArrayList<URI>(top + 1);
+		sites.add(site);
+
+		URI[] repoLocations = new URI[top + 1];
+		for(int idx = 0; idx < top; ++idx) {
+			MetadataRepositoryReference mdRef = validationRepos.get(idx);
+			if(mdRef.isEnabled())
+				sites.add(URI.create(mdRef.getResolvedLocation()));
+		}
+		repoLocations = sites.toArray(new URI[sites.size()]);
+		ProvisioningContext context = new ProvisioningContext(getBuilder().getProvisioningAgent());
+		context.setMetadataRepositories(repoLocations);
+		context.setArtifactRepositories(repoLocations);
+		return context;
+	}
+
+	private List<Contribution> findContributions(IInstallableUnit iu, IRequirement rq) {
+		List<Contribution> contribs = Collections.emptyList();
+		if(!(rq instanceof IRequiredCapability))
+			return contribs;
+
+		IRequiredCapability cap = (IRequiredCapability) rq;
+		if(Builder.NAMESPACE_OSGI_BUNDLE.equals(cap.getNamespace()) ||
+				IInstallableUnit.NAMESPACE_IU_ID.equals(cap.getNamespace()))
+			contribs = findContributions(cap.getName());
+
+		if(contribs.isEmpty())
+			// Not found, try the owner of the requirement
+			contribs = findContributions(iu.getId());
+		return contribs;
+	}
+
+	private List<Contribution> findContributions(String componentId) {
+		List<Contribution> result = null;
+		for(Contribution contrib : getBuilder().getAggregator().getCompositeChildContributions(compositeChild, true))
+			for(MappedRepository repository : contrib.getRepositories(true))
+				for(MappedUnit mu : repository.getUnits(true))
+					if(componentId.equals(mu.getName())) {
+						if(result == null)
+							result = new ArrayList<Contribution>();
+						result.add(contrib);
+					}
+		return result == null
+				? Collections.<Contribution> emptyList()
+				: result;
+	}
+
+	private Set<IInstallableUnit> getUnpatchedTransitiveScope(IQueryable<IInstallableUnit> collectedStuff,
+			IInstallableUnitPatch patch, IProfile profile, IPlanner planner, URI repoLocation, SubMonitor monitor)
+			throws CoreException {
+		IMetadataRepositoryManager mdrMgr = P2Utils.getRepositoryManager(
+			getBuilder().getProvisioningAgent(), IMetadataRepositoryManager.class);
+		try {
+			monitor.beginTask(null, 10);
+			IQuery<IInstallableUnit> query = SpecialQueries.createPatchApplicabilityQuery(patch);
+			IQueryResult<IInstallableUnit> result = collectedStuff.query(query, monitor.newChild(1));
+
+			IInstallableUnit[] rootArr = result.toArray(IInstallableUnit.class);
+			// Add as root IU's to a request
+			ProfileChangeRequest request = new ProfileChangeRequest(profile);
+			for(IInstallableUnit rootIU : rootArr)
+				request.setInstallableUnitProfileProperty(
+					rootIU, IProfile.PROP_PROFILE_ROOT_IU, Boolean.TRUE.toString());
+			request.addInstallableUnits(rootArr);
+
+			ProvisioningContext context = new ProvisioningContext(getBuilder().getProvisioningAgent());
+			context.setMetadataRepositories(new URI[] { repoLocation });
+			// we don't pass the main monitor since we expect a possible failure which is silently ignored
+			// to avoid this, we use a null monitor and when the plan is ready, we add the full amount of ticks
+			// to the main monitor
+			ProvisioningPlan plan = (ProvisioningPlan) planner.getProvisioningPlan(
+				request, context, new NullProgressMonitor());
+			monitor.worked(8);
+			IStatus status = plan.getStatus();
+			if(status.isOK()) {
+				HashSet<IInstallableUnit> units = new HashSet<IInstallableUnit>();
+				units.add(patch);
+				Operand[] ops = plan.getOperands();
+				for(Operand op : ops) {
+					if(!(op instanceof InstallableUnitOperand))
+						continue;
+
+					InstallableUnitOperand iuOp = (InstallableUnitOperand) op;
+					IInstallableUnit iu = iuOp.second();
+					if(iu != null)
+						units.add(iu);
+				}
+				return units;
+			}
+			return Collections.emptySet();
+		}
+		finally {
+			P2Utils.ungetRepositoryManager(getBuilder().getProvisioningAgent(), mdrMgr);
 		}
 	}
 

@@ -63,6 +63,7 @@ import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.util.Diagnostician;
 import org.eclipse.equinox.internal.p2.core.helpers.FileUtils;
 import org.eclipse.equinox.internal.p2.metadata.repository.CompositeMetadataRepository;
+import org.eclipse.equinox.internal.p2.repository.Transport;
 import org.eclipse.equinox.p2.core.IProvisioningAgent;
 import org.eclipse.equinox.p2.engine.IProfile;
 import org.eclipse.equinox.p2.engine.IProfileRegistry;
@@ -89,25 +90,6 @@ public class Builder extends ModelAbstractCommand {
 		CLEAN, VERIFY, BUILD, CLEAN_BUILD
 	}
 
-	private static class EmailAddress {
-		private final String address;
-
-		private final String personal;
-
-		EmailAddress(String address, String personal) {
-			this.address = address;
-			this.personal = personal;
-		}
-
-		@Override
-		public String toString() {
-			if(personal == null)
-				return address;
-
-			return personal + " <" + address + ">";
-		}
-	}
-
 	public static class PatternOptionHandler extends OptionHandler<Pattern> {
 		public PatternOptionHandler(CmdLineParser parser, OptionDef option, Setter<? super Pattern> setter) {
 			super(parser, option, setter);
@@ -129,6 +111,25 @@ public class Builder extends ModelAbstractCommand {
 				throw new CmdLineException(owner, "");
 			}
 			return 1;
+		}
+	}
+
+	private static class EmailAddress {
+		private final String address;
+
+		private final String personal;
+
+		EmailAddress(String address, String personal) {
+			this.address = address;
+			this.personal = personal;
+		}
+
+		@Override
+		public String toString() {
+			if(personal == null)
+				return address;
+
+			return personal + " <" + address + ">";
 		}
 	}
 
@@ -219,6 +220,29 @@ public class Builder extends ModelAbstractCommand {
 		throw ExceptionUtils.fromMessage("File %s is not an absolute path", repoLocation);
 	}
 
+	public static String getCompositeChildLabel(CompositeChild compositeChild) {
+		return compositeChild == null
+				? "<main>"
+				: compositeChild.getLabel();
+	}
+
+	public static String getExceptionMessages(Throwable e) {
+		StringBuilder bld = new StringBuilder();
+		getExceptionMessages(e, bld);
+		return bld.toString();
+	}
+
+	public static IInstallableUnit getIU(IMetadataRepository mdr, String id, String version) {
+		version = StringUtils.trimmedOrNull(version);
+		IQuery<IInstallableUnit> query = version == null
+				? QueryUtil.createIUQuery(id)
+				: QueryUtil.createIUQuery(id, Version.create(version));
+		IQueryResult<IInstallableUnit> result = mdr.query(query, null);
+		return !result.isEmpty()
+				? result.iterator().next()
+				: null;
+	}
+
 	private static boolean deleteAndCheck(File folder, String fileName) throws CoreException {
 		File file = new File(folder, fileName);
 		try {
@@ -265,17 +289,7 @@ public class Builder extends ModelAbstractCommand {
 		}
 	}
 
-	public static String getCompositeChildLabel(CompositeChild compositeChild) {
-		return compositeChild == null
-				? "<main>"
-				: compositeChild.getLabel();
-	}
-
-	public static String getExceptionMessages(Throwable e) {
-		StringBuilder bld = new StringBuilder();
-		getExceptionMessages(e, bld);
-		return bld.toString();
-	}
+	// === OPTIONS ===
 
 	private static void getExceptionMessages(Throwable e, StringBuilder bld) {
 		bld.append(e.getClass().getName());
@@ -295,19 +309,6 @@ public class Builder extends ModelAbstractCommand {
 			bld.append("\nCaused by: ");
 			getExceptionMessages(e, bld);
 		}
-	}
-
-	// === OPTIONS ===
-
-	public static IInstallableUnit getIU(IMetadataRepository mdr, String id, String version) {
-		version = StringUtils.trimmedOrNull(version);
-		IQuery<IInstallableUnit> query = version == null
-				? QueryUtil.createIUQuery(id)
-				: QueryUtil.createIUQuery(id, Version.create(version));
-		IQueryResult<IInstallableUnit> result = mdr.query(query, null);
-		return !result.isEmpty()
-				? result.iterator().next()
-				: null;
 	}
 
 	// @Option(name = "--buildModel", required = true, usage = "Appoints the aggregation definition that drives the execution")
@@ -454,38 +455,6 @@ public class Builder extends ModelAbstractCommand {
 		exclusions.add(repository);
 	}
 
-	private void cleanAll() throws CoreException {
-		if(buildRoot.exists()) {
-			FileUtils.deleteAll(buildRoot);
-			if(buildRoot.exists())
-				throw ExceptionUtils.fromMessage("Failed to delete folder %s", buildRoot.getAbsolutePath());
-		}
-	}
-
-	private void cleanMemoryCaches() {
-		safeCompositeChildNameMap.clear();
-		safeRepositoryNameMap.clear();
-		safeRepositoryNames.clear();
-		categoryIUs = null;
-		allUnitsToAggregate.clear();
-		unitsToAggregateMap.clear();
-	}
-
-	private void cleanMetadata(IProvisioningAgent agent) throws CoreException {
-		IMetadataRepositoryManager mdrMgr = P2Utils.getRepositoryManager(agent, IMetadataRepositoryManager.class);
-		try {
-			File finalRepo = new File(buildRoot, Builder.REPO_FOLDER_FINAL);
-			deleteMetadataRepository(mdrMgr, finalRepo);
-			deleteTwoLevelMetadataRepository(mdrMgr, new File(finalRepo, Builder.REPO_FOLDER_AGGREGATE));
-			File interimRepo = new File(buildRoot, Builder.REPO_FOLDER_INTERIM);
-			deleteMetadataRepository(mdrMgr, interimRepo);
-			deleteTwoLevelMetadataRepository(mdrMgr, new File(interimRepo, Builder.REPO_FOLDER_VERIFICATION));
-		}
-		finally {
-			P2Utils.ungetRepositoryManager(provisioningAgent, mdrMgr);
-		}
-	}
-
 	public Aggregator getAggregator() {
 		return aggregator;
 	}
@@ -522,7 +491,8 @@ public class Builder extends ModelAbstractCommand {
 
 	public List<CompositeChild> getCompositeChildrenIncludingMain() {
 		List<CompositeChild> compositeChildren = aggregator.getCompositeChildren();
-		List<CompositeChild> compositeChildrenIncludingMain = new ArrayList<CompositeChild>(1 + compositeChildren.size());
+		List<CompositeChild> compositeChildrenIncludingMain = new ArrayList<CompositeChild>(
+			1 + compositeChildren.size());
 		// null compositeChild is the main (implicit) one
 		// note that it must come first otherwise some directories created during
 		// creation of compositeChildren will be deleted
@@ -638,6 +608,10 @@ public class Builder extends ModelAbstractCommand {
 		return new File(buildRoot, REPO_FOLDER_TEMP);
 	}
 
+	public Transport getTransport() {
+		return (Transport) provisioningAgent.getService(Transport.SERVICE_NAME);
+	}
+
 	public Set<IInstallableUnit> getUnitsToAggregate(CompositeChild compositeChild) {
 		Set<IInstallableUnit> units = unitsToAggregateMap.get(compositeChild);
 
@@ -712,6 +686,371 @@ public class Builder extends ModelAbstractCommand {
 
 	public boolean isVerifyOnly() {
 		return action == ActionType.VERIFY;
+	}
+
+	public void removeUnitsToAggregate(CompositeChild compositeChild) {
+		unitsToAggregateMap.remove(compositeChild);
+	}
+
+	/**
+	 * Run the build
+	 * 
+	 * @param monitor
+	 */
+	public int run(boolean fromIDE, IProgressMonitor monitor) throws Exception {
+		this.fromIDE = fromIDE;
+		int ticks;
+		switch(action) {
+			case CLEAN:
+				ticks = 50;
+				break;
+			case VERIFY:
+				ticks = 200;
+				break;
+			case BUILD:
+				ticks = 2150;
+				break;
+			default:
+				ticks = 2200;
+		}
+		MonitorUtils.begin(monitor, ticks);
+
+		try {
+			if(buildModelLocation == null)
+				throw ExceptionUtils.fromMessage("No buildmodel has been set");
+
+			Date now = new Date();
+			if(buildID == null)
+				buildID = "build-" + DATE_FORMAT.format(now) + TIME_FORMAT.format(now);
+
+			if(smtpHost == null)
+				smtpHost = "localhost";
+
+			if(smtpPort <= 0)
+				smtpPort = 25;
+
+			loadModel();
+
+			provisioningAgent = P2Utils.createDedicatedProvisioningAgent(new File(buildRoot, "p2").toURI());
+
+			switch(action) {
+				case CLEAN:
+				case CLEAN_BUILD:
+					cleanAll();
+					break;
+				default:
+					cleanMetadata(provisioningAgent);
+			}
+
+			if(action == ActionType.CLEAN)
+				return 0;
+
+			cleanMemoryCaches();
+
+			// Associate current resource set with the dedicated provisioning agent
+			((ResourceSetWithAgent) resourceSet).setProvisioningAgent(provisioningAgent);
+
+			buildRoot.mkdirs();
+			if(!buildRoot.exists())
+				throw ExceptionUtils.fromMessage("Failed to create folder %s", buildRoot);
+
+			// Remove previously used profiles.
+			//
+			IProfileRegistry profileRegistry = P2Utils.getProfileRegistry(provisioningAgent);
+			try {
+				List<String> knownIDs = new ArrayList<String>();
+				for(IProfile profile : profileRegistry.getProfiles()) {
+					String id = profile.getProfileId();
+					if(id.startsWith(PROFILE_ID))
+						knownIDs.add(id);
+				}
+
+				for(String id : knownIDs)
+					profileRegistry.removeProfile(id);
+
+				String instArea = buildRoot.toString();
+				Map<String, String> props = new HashMap<String, String>();
+				// TODO Where is PROP_FLAVOR gone?
+				//props.put(IProfile.PROP_FLAVOR, "tooling"); //$NON-NLS-1$
+				props.put(IProfile.PROP_NAME, aggregator.getLabel());
+				props.put(IProfile.PROP_DESCRIPTION, format("Default profile during %s build", aggregator.getLabel()));
+				props.put(IProfile.PROP_CACHE, instArea);
+				props.put(IProfile.PROP_INSTALL_FOLDER, instArea);
+				profileRegistry.addProfile(PROFILE_ID, props);
+			}
+			finally {
+				P2Utils.ungetProfileRegistry(provisioningAgent, profileRegistry);
+			}
+
+			loadAllMappedRepositories();
+
+			List<CompositeChild> compositeChildrenIncludingMain = getCompositeChildrenIncludingMain();
+			runCompositeGenerator(MonitorUtils.subMonitor(monitor, 70));
+
+			// we generate the verification IUs in a separate loop
+			// to detect non p2 related problems early
+			for(CompositeChild compositeChild : compositeChildrenIncludingMain)
+				runVerificationIUGenerator(compositeChild, MonitorUtils.subMonitor(monitor, 15));
+
+			for(CompositeChild compositeChild : compositeChildrenIncludingMain)
+				runRepositoryVerifier(compositeChild, MonitorUtils.subMonitor(monitor, 100));
+
+			runCategoriesRepoGenerator(MonitorUtils.subMonitor(monitor, 15));
+
+			if(action != ActionType.VERIFY) {
+				for(CompositeChild compositeChild : compositeChildrenIncludingMain)
+					runMetadataMirroring(compositeChild, MonitorUtils.subMonitor(monitor, 100));
+				runMirroring(MonitorUtils.subMonitor(monitor, 2000));
+			}
+			return 0;
+		}
+		catch(Throwable e) {
+			LogUtils.error(e, "Build failed! Exception was %s", getExceptionMessages(e));
+			if(e instanceof Exception)
+				throw (Exception) e;
+
+			throw new Exception(e);
+		}
+		finally {
+			if(provisioningAgent != null) {
+				P2Utils.destroyProvisioningAgent(provisioningAgent);
+				provisioningAgent = null;
+			}
+
+			if(fromIDE && buildRoot != null) {
+				IWorkspaceRoot wsRoot = ResourcesPlugin.getWorkspace().getRoot();
+				for(IContainer rootContainer : wsRoot.findContainersForLocationURI(buildRoot.toURI()))
+					try {
+						rootContainer.refreshLocal(IResource.DEPTH_INFINITE, MonitorUtils.subMonitor(monitor, 10));
+					}
+					catch(CoreException e) {
+						// ignore
+					}
+			}
+
+			monitor.done();
+		}
+	}
+
+	public void sendEmail(Contribution contrib, List<String> errors) {
+		boolean useMock = (mockEmailTo != null);
+		if(!((production || useMock) && sendmail))
+			return;
+
+		try {
+			EmailAddress buildMaster = new EmailAddress(buildMasterEmail, buildMasterName);
+			EmailAddress emailFromAddr;
+			if(emailFrom != null)
+				emailFromAddr = new EmailAddress(emailFrom, emailFromName);
+			else
+				emailFromAddr = buildMaster;
+
+			List<EmailAddress> toList = new ArrayList<EmailAddress>();
+			if(contrib == null)
+				toList.add(buildMaster);
+			else
+				for(Contact contact : contrib.getContacts())
+					toList.add(new EmailAddress(contact.getEmail(), contact.getName()));
+
+			StringBuilder msgBld = new StringBuilder();
+			msgBld.append("The following error");
+			if(errors.size() > 1)
+				msgBld.append('s');
+			msgBld.append(" occured when building ");
+			msgBld.append(buildLabel);
+			msgBld.append(":\n\n");
+			for(String error : errors) {
+				msgBld.append(error);
+				msgBld.append("\n\n");
+			}
+
+			if(logURL != null) {
+				msgBld.append("Check the log file for more information: ");
+				msgBld.append(logURL);
+				msgBld.append('\n');
+			}
+
+			if(useMock) {
+				msgBld.append("\nThis is a mock mail. Real recipients would have been:\n");
+				for(EmailAddress to : toList) {
+					msgBld.append("  ");
+					msgBld.append(to);
+					msgBld.append('\n');
+				}
+			}
+			String msgContent = msgBld.toString();
+			if(subjectPrefix == null)
+				subjectPrefix = buildLabel;
+
+			String subject = format("[%s] Failed for build %s", subjectPrefix, buildID);
+
+			msgBld.setLength(0);
+			msgBld.append("Sending email to: ");
+			for(EmailAddress to : toList) {
+				msgBld.append(to);
+				msgBld.append(',');
+			}
+			msgBld.append(buildMaster);
+			if(useMock) {
+				msgBld.append(" *** Using mock: ");
+				if(mockEmailTo != null) {
+					msgBld.append(mockEmailTo);
+					if(mockEmailCC != null) {
+						msgBld.append(',');
+						msgBld.append(mockEmailTo);
+					}
+				}
+				else
+					msgBld.append(mockEmailCC);
+				msgBld.append(" ***");
+			}
+			LogUtils.info(msgBld.toString());
+			LogUtils.info("From: %s", emailFromAddr);
+			LogUtils.info("Subject: %s", subject);
+			LogUtils.info("Message content: %s", msgContent);
+
+			List<EmailAddress> recipients;
+			EmailAddress ccRecipient = null;
+			if(useMock) {
+				recipients = mockRecipients();
+				ccRecipient = mockCCRecipient();
+			}
+			else {
+				recipients = toList;
+				if(contrib != null)
+					ccRecipient = buildMaster;
+			}
+			send(smtpHost, smtpPort, emailFromAddr, recipients, ccRecipient, subject, msgContent);
+
+		}
+		catch(IOException e) {
+			LogUtils.error(e, "Failed to send email: %s", e.getMessage());
+		}
+	}
+
+	public void setAction(ActionType action) {
+		this.action = action;
+	}
+
+	public void setBuildID(String buildId) {
+		this.buildID = buildId;
+	}
+
+	public void setBuildModelLocation(File buildModelLocation) {
+		this.buildModelLocation = buildModelLocation;
+	}
+
+	public void setBuildRoot(File buildRoot) {
+		this.buildRoot = buildRoot;
+	}
+
+	public void setCategoryIUs(List<IInstallableUnit> categoryIUs) {
+		this.categoryIUs = categoryIUs;
+	}
+
+	public void setEmailFrom(String emailFrom) {
+		this.emailFrom = emailFrom;
+	}
+
+	public void setEmailFromName(String emailFromName) {
+		this.emailFromName = emailFromName;
+	}
+
+	public void setLogLevel(int level) {
+		throw new UnsupportedOperationException("Log levels are not supported");
+	}
+
+	public void setLogURL(String logURL) {
+		this.logURL = logURL;
+	}
+
+	public void setMirrorReferences(boolean mirrorReferences) {
+		this.mirrorReferences = mirrorReferences;
+	}
+
+	public void setMockEmailCC(String mockEmailCc) {
+		this.mockEmailCC = mockEmailCc;
+	}
+
+	public void setMockEmailTo(String mockEmailTo) {
+		this.mockEmailTo = mockEmailTo;
+	}
+
+	public void setProduction(boolean production) {
+		this.production = production;
+	}
+
+	public void setReferenceExcludePattern(String pattern) {
+		pattern = StringUtils.trimmedOrNull(pattern);
+		referenceExcludePattern = pattern == null
+				? null
+				: Pattern.compile(pattern);
+	}
+
+	public void setReferenceIncludePattern(String pattern) {
+		pattern = StringUtils.trimmedOrNull(pattern);
+		referenceIncludePattern = pattern == null
+				? null
+				: Pattern.compile(pattern);
+	}
+
+	public void setSmtpHost(String smtpHost) {
+		this.smtpHost = smtpHost;
+	}
+
+	public void setSmtpPort(int smtpPort) {
+		this.smtpPort = smtpPort;
+	}
+
+	public void setSourceComposite(CompositeMetadataRepository sourceComposite) {
+		this.sourceComposite = sourceComposite;
+	}
+
+	public void setSubjectPrefix(String subjectPrefix) {
+		this.subjectPrefix = subjectPrefix;
+	}
+
+	public void setValidationIUs(List<IInstallableUnit> validationIUs) {
+		this.validationIUs = validationIUs;
+	}
+
+	@Override
+	protected int run(IProgressMonitor monitor) throws Exception {
+		if(unparsed.size() > 0)
+			throw new Exception("Too many arguments");
+		return run(false, monitor);
+	}
+
+	private void cleanAll() throws CoreException {
+		if(buildRoot.exists()) {
+			FileUtils.deleteAll(buildRoot);
+			if(buildRoot.exists())
+				throw ExceptionUtils.fromMessage("Failed to delete folder %s", buildRoot.getAbsolutePath());
+		}
+	}
+
+	private void cleanMemoryCaches() {
+		safeCompositeChildNameMap.clear();
+		safeRepositoryNameMap.clear();
+		safeRepositoryNames.clear();
+		categoryIUs = null;
+		allUnitsToAggregate.clear();
+		unitsToAggregateMap.clear();
+	}
+
+	private void cleanMetadata(IProvisioningAgent agent) throws CoreException {
+		IMetadataRepositoryManager mdrMgr = P2Utils.getRepositoryManager(agent, IMetadataRepositoryManager.class);
+		try {
+			File finalRepo = new File(buildRoot, Builder.REPO_FOLDER_FINAL);
+			deleteMetadataRepository(mdrMgr, finalRepo);
+			deleteTwoLevelMetadataRepository(mdrMgr, new File(finalRepo, Builder.REPO_FOLDER_AGGREGATE));
+			File interimRepo = new File(buildRoot, Builder.REPO_FOLDER_INTERIM);
+			deleteMetadataRepository(mdrMgr, interimRepo);
+			deleteTwoLevelMetadataRepository(mdrMgr, new File(interimRepo, Builder.REPO_FOLDER_VERIFICATION));
+		}
+		finally {
+			P2Utils.ungetRepositoryManager(provisioningAgent, mdrMgr);
+		}
 	}
 
 	private void loadAllMappedRepositories() throws CoreException {
@@ -914,157 +1253,6 @@ public class Builder extends ModelAbstractCommand {
 		return Collections.emptyList();
 	}
 
-	public void removeUnitsToAggregate(CompositeChild compositeChild) {
-		unitsToAggregateMap.remove(compositeChild);
-	}
-
-	/**
-	 * Run the build
-	 * 
-	 * @param monitor
-	 */
-	public int run(boolean fromIDE, IProgressMonitor monitor) throws Exception {
-		this.fromIDE = fromIDE;
-		int ticks;
-		switch(action) {
-			case CLEAN:
-				ticks = 50;
-				break;
-			case VERIFY:
-				ticks = 200;
-				break;
-			case BUILD:
-				ticks = 2150;
-				break;
-			default:
-				ticks = 2200;
-		}
-		MonitorUtils.begin(monitor, ticks);
-
-		try {
-			if(buildModelLocation == null)
-				throw ExceptionUtils.fromMessage("No buildmodel has been set");
-
-			Date now = new Date();
-			if(buildID == null)
-				buildID = "build-" + DATE_FORMAT.format(now) + TIME_FORMAT.format(now);
-
-			if(smtpHost == null)
-				smtpHost = "localhost";
-
-			if(smtpPort <= 0)
-				smtpPort = 25;
-
-			loadModel();
-
-			provisioningAgent = P2Utils.createDedicatedProvisioningAgent(new File(buildRoot, "p2").toURI());
-
-			switch(action) {
-				case CLEAN:
-				case CLEAN_BUILD:
-					cleanAll();
-					break;
-				default:
-					cleanMetadata(provisioningAgent);
-			}
-
-			if(action == ActionType.CLEAN)
-				return 0;
-
-			cleanMemoryCaches();
-
-			// Associate current resource set with the dedicated provisioning agent
-			((ResourceSetWithAgent) resourceSet).setProvisioningAgent(provisioningAgent);
-
-			buildRoot.mkdirs();
-			if(!buildRoot.exists())
-				throw ExceptionUtils.fromMessage("Failed to create folder %s", buildRoot);
-
-			// Remove previously used profiles.
-			//
-			IProfileRegistry profileRegistry = P2Utils.getProfileRegistry(provisioningAgent);
-			try {
-				List<String> knownIDs = new ArrayList<String>();
-				for(IProfile profile : profileRegistry.getProfiles()) {
-					String id = profile.getProfileId();
-					if(id.startsWith(PROFILE_ID))
-						knownIDs.add(id);
-				}
-
-				for(String id : knownIDs)
-					profileRegistry.removeProfile(id);
-
-				String instArea = buildRoot.toString();
-				Map<String, String> props = new HashMap<String, String>();
-				// TODO Where is PROP_FLAVOR gone?
-				//props.put(IProfile.PROP_FLAVOR, "tooling"); //$NON-NLS-1$
-				props.put(IProfile.PROP_NAME, aggregator.getLabel());
-				props.put(IProfile.PROP_DESCRIPTION, format("Default profile during %s build", aggregator.getLabel()));
-				props.put(IProfile.PROP_CACHE, instArea);
-				props.put(IProfile.PROP_INSTALL_FOLDER, instArea);
-				profileRegistry.addProfile(PROFILE_ID, props);
-			}
-			finally {
-				P2Utils.ungetProfileRegistry(provisioningAgent, profileRegistry);
-			}
-
-			loadAllMappedRepositories();
-
-			List<CompositeChild> compositeChildrenIncludingMain = getCompositeChildrenIncludingMain();
-			runCompositeGenerator(MonitorUtils.subMonitor(monitor, 70));
-
-			// we generate the verification IUs in a separate loop
-			// to detect non p2 related problems early
-			for(CompositeChild compositeChild : compositeChildrenIncludingMain)
-				runVerificationIUGenerator(compositeChild, MonitorUtils.subMonitor(monitor, 15));
-
-			for(CompositeChild compositeChild : compositeChildrenIncludingMain)
-				runRepositoryVerifier(compositeChild, MonitorUtils.subMonitor(monitor, 100));
-
-			runCategoriesRepoGenerator(MonitorUtils.subMonitor(monitor, 15));
-
-			if(action != ActionType.VERIFY) {
-				for(CompositeChild compositeChild : compositeChildrenIncludingMain)
-					runMetadataMirroring(compositeChild, MonitorUtils.subMonitor(monitor, 100));
-				runMirroring(MonitorUtils.subMonitor(monitor, 2000));
-			}
-			return 0;
-		}
-		catch(Throwable e) {
-			LogUtils.error(e, "Build failed! Exception was %s", getExceptionMessages(e));
-			if(e instanceof Exception)
-				throw (Exception) e;
-
-			throw new Exception(e);
-		}
-		finally {
-			if(provisioningAgent != null) {
-				P2Utils.destroyProvisioningAgent(provisioningAgent);
-				provisioningAgent = null;
-			}
-
-			if(fromIDE && buildRoot != null) {
-				IWorkspaceRoot wsRoot = ResourcesPlugin.getWorkspace().getRoot();
-				for(IContainer rootContainer : wsRoot.findContainersForLocationURI(buildRoot.toURI()))
-					try {
-						rootContainer.refreshLocal(IResource.DEPTH_INFINITE, MonitorUtils.subMonitor(monitor, 10));
-					}
-					catch(CoreException e) {
-						// ignore
-					}
-			}
-
-			monitor.done();
-		}
-	}
-
-	@Override
-	protected int run(IProgressMonitor monitor) throws Exception {
-		if(unparsed.size() > 0)
-			throw new Exception("Too many arguments");
-		return run(false, monitor);
-	}
-
 	private void runCategoriesRepoGenerator(IProgressMonitor monitor) throws CoreException {
 		CategoriesGenerator generator = new CategoriesGenerator(this);
 		generator.run(monitor);
@@ -1094,188 +1282,6 @@ public class Builder extends ModelAbstractCommand {
 			throws CoreException {
 		VerificationIUGenerator generator = new VerificationIUGenerator(this, compositeChild);
 		generator.run(monitor);
-	}
-
-	public void sendEmail(Contribution contrib, List<String> errors) {
-		boolean useMock = (mockEmailTo != null);
-		if(!((production || useMock) && sendmail))
-			return;
-
-		try {
-			EmailAddress buildMaster = new EmailAddress(buildMasterEmail, buildMasterName);
-			EmailAddress emailFromAddr;
-			if(emailFrom != null)
-				emailFromAddr = new EmailAddress(emailFrom, emailFromName);
-			else
-				emailFromAddr = buildMaster;
-
-			List<EmailAddress> toList = new ArrayList<EmailAddress>();
-			if(contrib == null)
-				toList.add(buildMaster);
-			else
-				for(Contact contact : contrib.getContacts())
-					toList.add(new EmailAddress(contact.getEmail(), contact.getName()));
-
-			StringBuilder msgBld = new StringBuilder();
-			msgBld.append("The following error");
-			if(errors.size() > 1)
-				msgBld.append('s');
-			msgBld.append(" occured when building ");
-			msgBld.append(buildLabel);
-			msgBld.append(":\n\n");
-			for(String error : errors) {
-				msgBld.append(error);
-				msgBld.append("\n\n");
-			}
-
-			if(logURL != null) {
-				msgBld.append("Check the log file for more information: ");
-				msgBld.append(logURL);
-				msgBld.append('\n');
-			}
-
-			if(useMock) {
-				msgBld.append("\nThis is a mock mail. Real recipients would have been:\n");
-				for(EmailAddress to : toList) {
-					msgBld.append("  ");
-					msgBld.append(to);
-					msgBld.append('\n');
-				}
-			}
-			String msgContent = msgBld.toString();
-			if(subjectPrefix == null)
-				subjectPrefix = buildLabel;
-
-			String subject = format("[%s] Failed for build %s", subjectPrefix, buildID);
-
-			msgBld.setLength(0);
-			msgBld.append("Sending email to: ");
-			for(EmailAddress to : toList) {
-				msgBld.append(to);
-				msgBld.append(',');
-			}
-			msgBld.append(buildMaster);
-			if(useMock) {
-				msgBld.append(" *** Using mock: ");
-				if(mockEmailTo != null) {
-					msgBld.append(mockEmailTo);
-					if(mockEmailCC != null) {
-						msgBld.append(',');
-						msgBld.append(mockEmailTo);
-					}
-				}
-				else
-					msgBld.append(mockEmailCC);
-				msgBld.append(" ***");
-			}
-			LogUtils.info(msgBld.toString());
-			LogUtils.info("From: %s", emailFromAddr);
-			LogUtils.info("Subject: %s", subject);
-			LogUtils.info("Message content: %s", msgContent);
-
-			List<EmailAddress> recipients;
-			EmailAddress ccRecipient = null;
-			if(useMock) {
-				recipients = mockRecipients();
-				ccRecipient = mockCCRecipient();
-			}
-			else {
-				recipients = toList;
-				if(contrib != null)
-					ccRecipient = buildMaster;
-			}
-			send(smtpHost, smtpPort, emailFromAddr, recipients, ccRecipient, subject, msgContent);
-
-		}
-		catch(IOException e) {
-			LogUtils.error(e, "Failed to send email: %s", e.getMessage());
-		}
-	}
-
-	public void setAction(ActionType action) {
-		this.action = action;
-	}
-
-	public void setBuildID(String buildId) {
-		this.buildID = buildId;
-	}
-
-	public void setBuildModelLocation(File buildModelLocation) {
-		this.buildModelLocation = buildModelLocation;
-	}
-
-	public void setBuildRoot(File buildRoot) {
-		this.buildRoot = buildRoot;
-	}
-
-	public void setCategoryIUs(List<IInstallableUnit> categoryIUs) {
-		this.categoryIUs = categoryIUs;
-	}
-
-	public void setEmailFrom(String emailFrom) {
-		this.emailFrom = emailFrom;
-	}
-
-	public void setEmailFromName(String emailFromName) {
-		this.emailFromName = emailFromName;
-	}
-
-	public void setLogLevel(int level) {
-		throw new UnsupportedOperationException("Log levels are not supported");
-	}
-
-	public void setLogURL(String logURL) {
-		this.logURL = logURL;
-	}
-
-	public void setMirrorReferences(boolean mirrorReferences) {
-		this.mirrorReferences = mirrorReferences;
-	}
-
-	public void setMockEmailCC(String mockEmailCc) {
-		this.mockEmailCC = mockEmailCc;
-	}
-
-	public void setMockEmailTo(String mockEmailTo) {
-		this.mockEmailTo = mockEmailTo;
-	}
-
-	public void setProduction(boolean production) {
-		this.production = production;
-	}
-
-	public void setReferenceExcludePattern(String pattern) {
-		pattern = StringUtils.trimmedOrNull(pattern);
-		referenceExcludePattern = pattern == null
-				? null
-				: Pattern.compile(pattern);
-	}
-
-	public void setReferenceIncludePattern(String pattern) {
-		pattern = StringUtils.trimmedOrNull(pattern);
-		referenceIncludePattern = pattern == null
-				? null
-				: Pattern.compile(pattern);
-	}
-
-	public void setSmtpHost(String smtpHost) {
-		this.smtpHost = smtpHost;
-	}
-
-	public void setSmtpPort(int smtpPort) {
-		this.smtpPort = smtpPort;
-	}
-
-	public void setSourceComposite(CompositeMetadataRepository sourceComposite) {
-		this.sourceComposite = sourceComposite;
-	}
-
-	public void setSubjectPrefix(String subjectPrefix) {
-		this.subjectPrefix = subjectPrefix;
-	}
-
-	public void setValidationIUs(List<IInstallableUnit> validationIUs) {
-		this.validationIUs = validationIUs;
 	}
 
 	private void verifyContributions() throws CoreException {

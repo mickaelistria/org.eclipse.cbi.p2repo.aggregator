@@ -7,6 +7,7 @@ import java.util.regex.Pattern;
 
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.equinox.internal.p2.repository.Transport;
 
 public class UriIterator implements Iterator<URI> {
 	private final URI root;
@@ -17,8 +18,9 @@ public class UriIterator implements Iterator<URI> {
 
 	private int index;
 
-	public UriIterator(URI root, Pattern excludePattern, IProgressMonitor monitor) throws CoreException {
-		this.uris = UriUtils.list(UriUtils.appendTrailingSlash(root), monitor);
+	public UriIterator(Transport transport, URI root, Pattern excludePattern, IProgressMonitor monitor)
+			throws CoreException {
+		this.uris = UriUtils.list(transport, UriUtils.appendTrailingSlash(root), monitor);
 		this.excludePattern = excludePattern;
 		this.root = root;
 		index = -1;
@@ -54,14 +56,6 @@ public class UriIterator implements Iterator<URI> {
 		return nextURL;
 	}
 
-	public void remove() {
-		throw new UnsupportedOperationException();
-	}
-
-	public int size() {
-		return uris.length;
-	}
-
 	private void positionNext() {
 		if(excludePattern == null)
 			++index;
@@ -72,5 +66,13 @@ public class UriIterator implements Iterator<URI> {
 					break;
 			}
 		}
+	}
+
+	public void remove() {
+		throw new UnsupportedOperationException();
+	}
+
+	public int size() {
+		return uris.length;
 	}
 }

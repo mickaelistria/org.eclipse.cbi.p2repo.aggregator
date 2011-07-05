@@ -11,6 +11,7 @@ import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.equinox.internal.p2.artifact.repository.ArtifactRequest;
+import org.eclipse.equinox.internal.p2.repository.Transport;
 import org.eclipse.equinox.internal.provisional.p2.artifact.repository.processing.ProcessingStepHandler;
 import org.eclipse.equinox.p2.metadata.IArtifactKey;
 import org.eclipse.equinox.p2.repository.artifact.IArtifactDescriptor;
@@ -19,8 +20,8 @@ import org.eclipse.equinox.p2.repository.artifact.IArtifactRepository;
 public class CopyRequest extends ArtifactRequest {
 	private final File destination;
 
-	public CopyRequest(IArtifactRepository src, IArtifactKey key, File destination) {
-		super(key);
+	public CopyRequest(IArtifactRepository src, IArtifactKey key, Transport transport, File destination) {
+		super(key, transport);
 		setSourceRepository(src);
 		this.destination = destination;
 	}

@@ -22,7 +22,6 @@ import org.eclipse.emf.common.util.ResourceLocator;
 
 import org.eclipse.emf.ecore.EStructuralFeature;
 
-import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
@@ -66,6 +65,7 @@ public class ArtifactsByKeyItemProvider extends ItemProviderAdapter implements I
 		if(childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(P2Package.Literals.ARTIFACTS_BY_KEY__KEY);
+			childrenFeatures.add(P2Package.Literals.ARTIFACTS_BY_KEY__VALUE);
 		}
 		return childrenFeatures;
 	}
@@ -94,7 +94,6 @@ public class ArtifactsByKeyItemProvider extends ItemProviderAdapter implements I
 		if(itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addValuePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -138,27 +137,11 @@ public class ArtifactsByKeyItemProvider extends ItemProviderAdapter implements I
 
 		switch(notification.getFeatureID(Map.Entry.class)) {
 			case P2Package.ARTIFACTS_BY_KEY__KEY:
+			case P2Package.ARTIFACTS_BY_KEY__VALUE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
 		super.notifyChanged(notification);
-	}
-
-	/**
-	 * This adds a property descriptor for the Value feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	protected void addValuePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-			getResourceLocator(),
-			getString("_UI_ArtifactsByKey_value_feature"),
-			getString(
-				"_UI_PropertyDescriptor_description", "_UI_ArtifactsByKey_value_feature", "_UI_ArtifactsByKey_type"),
-			P2Package.Literals.ARTIFACTS_BY_KEY__VALUE, true, false, true, null, null, null));
 	}
 
 	/**
@@ -175,6 +158,12 @@ public class ArtifactsByKeyItemProvider extends ItemProviderAdapter implements I
 
 		newChildDescriptors.add(createChildParameter(
 			P2Package.Literals.ARTIFACTS_BY_KEY__KEY, P2Factory.eINSTANCE.createArtifactKey()));
+
+		newChildDescriptors.add(createChildParameter(
+			P2Package.Literals.ARTIFACTS_BY_KEY__VALUE, P2Factory.eINSTANCE.createArtifactDescriptor()));
+
+		newChildDescriptors.add(createChildParameter(
+			P2Package.Literals.ARTIFACTS_BY_KEY__VALUE, P2Factory.eINSTANCE.createSimpleArtifactDescriptor()));
 	}
 
 	/**

@@ -30,7 +30,7 @@ import org.eclipse.b3.util.LogUtils;
 import org.eclipse.b3.util.MonitorUtils;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
-import org.eclipse.equinox.internal.p2.repository.RepositoryTransport;
+import org.eclipse.equinox.internal.p2.repository.Transport;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
@@ -87,6 +87,21 @@ public class UriUtils {
 
 	public static final URI[] EMPTY_URI_ARRAY = new URI[0];
 
+	private static void addLink(List<URI> links, URI parent, String link) throws URISyntaxException {
+		Matcher m = indexPath.matcher(link.toString());
+		if(m.matches()) {
+			link = m.group(1);
+			if(link == null)
+				return;
+		}
+
+		if(link.equals("../")) //$NON-NLS-1$
+			return;
+
+		links.add(new URI(
+			parent.getScheme(), parent.getAuthority(), parent.getPath() + link, parent.getQuery(), parent.getFragment()));
+	}
+
 	/**
 	 * Appends a trailing slash to <code>uri</code> and returns the result. If the <code>uri</code> already has a
 	 * trailing slash, the argument is returned without modification.
@@ -114,11 +129,27 @@ public class UriUtils {
 		return uri;
 	}
 
-	public static URI[] extractHTMLLinks(URI uriToHTML, IProgressMonitor monitor) throws CoreException {
+	private static void collectLinks(Element element, URI parent, ArrayList<URI> links) throws URISyntaxException {
+		if(element.getNodeName().equals("a")) //$NON-NLS-1$
+		{
+			String link = element.getAttribute("href"); //$NON-NLS-1$
+			if(linkPattern.matcher(link).matches())
+				addLink(links, parent, link);
+		}
+		else {
+			for(Node child = element.getFirstChild(); child != null; child = child.getNextSibling()) {
+				if(child.getNodeType() == Node.ELEMENT_NODE)
+					collectLinks((Element) child, parent, links);
+			}
+		}
+	}
+
+	public static URI[] extractHTMLLinks(Transport transport, URI uriToHTML, IProgressMonitor monitor)
+			throws CoreException {
 		ArrayList<URI> links = new ArrayList<URI>();
 		try {
 			AccessibleByteArrayOutputStream buffer = new AccessibleByteArrayOutputStream(0x2000, 0x200000);
-			RepositoryTransport.getInstance().download(uriToHTML, buffer, monitor);
+			transport.download(uriToHTML, buffer, monitor);
 			try {
 				final DocumentBuilder builder = documentBuilderFactory.newDocumentBuilder();
 
@@ -191,7 +222,7 @@ public class UriUtils {
 		return null;
 	}
 
-	public static URI[] list(URI uri, IProgressMonitor monitor) throws CoreException {
+	public static URI[] list(Transport transport, URI uri, IProgressMonitor monitor) throws CoreException {
 		File dir = null;
 
 		try {
@@ -233,7 +264,7 @@ public class UriUtils {
 			final ArrayList<URI> result = new ArrayList<URI>();
 			Scanner scanner = null;
 			try {
-				scanner = new Scanner(RepositoryTransport.getInstance().stream(uri, monitor));
+				scanner = new Scanner(transport.stream(uri, monitor));
 				uri = appendTrailingSlash(uri);
 				while(scanner.findWithinHorizon(ftpPattern, 0) != null) {
 					MatchResult mr = scanner.match();
@@ -263,7 +294,7 @@ public class UriUtils {
 					scanner.close();
 			}
 		}
-		return extractHTMLLinks(uri, monitor);
+		return extractHTMLLinks(transport, uri, monitor);
 	}
 
 	public static URI normalizeToURI(String pathOrURI, boolean asFolder) throws CoreException {
@@ -317,36 +348,6 @@ public class UriUtils {
 		}
 		catch(URISyntaxException e) {
 			throw ExceptionUtils.wrap(e);
-		}
-	}
-
-	private static void addLink(List<URI> links, URI parent, String link) throws URISyntaxException {
-		Matcher m = indexPath.matcher(link.toString());
-		if(m.matches()) {
-			link = m.group(1);
-			if(link == null)
-				return;
-		}
-
-		if(link.equals("../")) //$NON-NLS-1$
-			return;
-
-		links.add(new URI(
-			parent.getScheme(), parent.getAuthority(), parent.getPath() + link, parent.getQuery(), parent.getFragment()));
-	}
-
-	private static void collectLinks(Element element, URI parent, ArrayList<URI> links) throws URISyntaxException {
-		if(element.getNodeName().equals("a")) //$NON-NLS-1$
-		{
-			String link = element.getAttribute("href"); //$NON-NLS-1$
-			if(linkPattern.matcher(link).matches())
-				addLink(links, parent, link);
-		}
-		else {
-			for(Node child = element.getFirstChild(); child != null; child = child.getNextSibling()) {
-				if(child.getNodeType() == Node.ELEMENT_NODE)
-					collectLinks((Element) child, parent, links);
-			}
 		}
 	}
 

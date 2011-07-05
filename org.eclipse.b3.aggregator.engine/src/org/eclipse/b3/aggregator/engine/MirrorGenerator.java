@@ -55,6 +55,7 @@ import org.eclipse.equinox.internal.p2.artifact.repository.RawMirrorRequest;
 import org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactDescriptor;
 import org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository;
 import org.eclipse.equinox.internal.p2.metadata.repository.CompositeMetadataRepository;
+import org.eclipse.equinox.internal.p2.repository.Transport;
 import org.eclipse.equinox.internal.provisional.p2.artifact.repository.processing.ProcessingStepHandler;
 import org.eclipse.equinox.p2.core.ProvisionException;
 import org.eclipse.equinox.p2.metadata.IArtifactKey;
@@ -79,129 +80,68 @@ public class MirrorGenerator extends BuilderPhase {
 		private IArtifactDescriptor optimizedDescriptor;
 
 		public CanonicalizeRequest(IArtifactDescriptor optimizedDescriptor, IArtifactRepository sourceRepository,
-				IFileArtifactRepository targetRepository) {
-			super(optimizedDescriptor.getArtifactKey(), targetRepository, null, null);
+				IFileArtifactRepository targetRepository, Transport transport) {
+			super(optimizedDescriptor.getArtifactKey(), targetRepository, null, null, transport);
 			this.optimizedDescriptor = optimizedDescriptor;
 			setSourceRepository(sourceRepository);
 		}
 
-		public CanonicalizeRequest(IArtifactDescriptor optimizedDescriptor, IFileArtifactRepository targetRepository) {
-			this(optimizedDescriptor, targetRepository, targetRepository);
+		public CanonicalizeRequest(IArtifactDescriptor optimizedDescriptor, IFileArtifactRepository targetRepository,
+				Transport transport) {
+			this(optimizedDescriptor, targetRepository, targetRepository, transport);
 		}
 
 		@Override
 		public void perform(IArtifactRepository sourceRepository, IProgressMonitor monitor) {
-			IFileArtifactRepository fbTarget = (IFileArtifactRepository) target;
-			IArtifactKey artifactKey = optimizedDescriptor.getArtifactKey();
-			File destination = fbTarget.getArtifactFile(new ArtifactDescriptor(artifactKey));
-			OutputStream out = null;
+			SubMonitor subMon = SubMonitor.convert(monitor, 100);
 			try {
-				File destFolder = destination.getParentFile();
-				destFolder.mkdirs();
-				if(!destFolder.isDirectory())
-					throw new IOException("Unable to create path " + destFolder.getAbsolutePath());
+				IFileArtifactRepository fbTarget = (IFileArtifactRepository) target;
+				IArtifactKey artifactKey = optimizedDescriptor.getArtifactKey();
+				File destination = fbTarget.getArtifactFile(new ArtifactDescriptor(artifactKey));
+				OutputStream out = null;
+				try {
+					File destFolder = destination.getParentFile();
+					destFolder.mkdirs();
+					if(!destFolder.isDirectory())
+						throw new IOException("Unable to create path " + destFolder.getAbsolutePath());
 
-				out = new BufferedOutputStream(new FileOutputStream(destination));
-				IStatus status = sourceRepository.getArtifact(optimizedDescriptor, out, monitor);
-				if(!status.isOK()) {
-					setResult(status);
+					out = new BufferedOutputStream(new FileOutputStream(destination));
+					IStatus status = sourceRepository.getArtifact(optimizedDescriptor, out, subMon.newChild(90));
+					if(!status.isOK()) {
+						setResult(status);
+						return;
+					}
+				}
+				catch(IOException e) {
+					setResult(new Status(IStatus.ERROR, Engine.PLUGIN_ID, e.getMessage(), e));
 					return;
 				}
-			}
-			catch(IOException e) {
-				setResult(new Status(IStatus.ERROR, Engine.PLUGIN_ID, e.getMessage(), e));
-				return;
+				finally {
+					IOUtils.close(out);
+				}
+				ArtifactDescriptor canonical = (ArtifactDescriptor) PublisherHelper.createArtifactDescriptor(
+					artifactKey, destination);
+				for(Map.Entry<String, String> entry : optimizedDescriptor.getProperties().entrySet()) {
+					String propKey = entry.getKey();
+					if(propKey.equals(IArtifactDescriptor.DOWNLOAD_MD5) ||
+							propKey.equals(IArtifactDescriptor.DOWNLOAD_SIZE) ||
+							propKey.equals(IArtifactDescriptor.ARTIFACT_SIZE) ||
+							propKey.equals(IArtifactDescriptor.FORMAT) || propKey.equals("artifact.uuid"))
+						continue;
+					canonical.setProperty(entry.getKey(), entry.getValue());
+				}
+				fbTarget.addDescriptor(canonical, subMon.newChild(10));
+				setResult(Status.OK_STATUS);
 			}
 			finally {
-				IOUtils.close(out);
-			}
-			ArtifactDescriptor canonical = (ArtifactDescriptor) PublisherHelper.createArtifactDescriptor(
-				artifactKey, destination);
-			for(Map.Entry<String, String> entry : optimizedDescriptor.getProperties().entrySet()) {
-				String propKey = entry.getKey();
-				if(propKey.equals(IArtifactDescriptor.DOWNLOAD_MD5) ||
-						propKey.equals(IArtifactDescriptor.DOWNLOAD_SIZE) ||
-						propKey.equals(IArtifactDescriptor.ARTIFACT_SIZE) ||
-						propKey.equals(IArtifactDescriptor.FORMAT) || propKey.equals("artifact.uuid"))
-					continue;
-				canonical.setProperty(entry.getKey(), entry.getValue());
-			}
-			fbTarget.addDescriptor(canonical);
-			setResult(Status.OK_STATUS);
-		}
-	}
-
-	private static boolean checkIfTargetPresent(IArtifactRepository destination, IArtifactKey key, boolean packed) {
-		IArtifactDescriptor found = getArtifactDescriptor(destination, key, packed);
-		if(found != null) {
-			LogUtils.debug("    %s artifact is already present", packed
-					? "optimized"
-					: "canonical");
-			return true;
-		}
-		return false;
-	}
-
-	private static IStatus extractDeeperRootCause(IStatus status) {
-		if(status == null)
-			return null;
-
-		if(status.isMultiStatus()) {
-			IStatus[] children = ((MultiStatus) status).getChildren();
-			for(int i = 0; i < children.length; i++) {
-				IStatus deeper = extractDeeperRootCause(children[i]);
-				if(deeper != null)
-					return deeper;
+				MonitorUtils.done(monitor);
 			}
 		}
-
-		Throwable t = status.getException();
-		if(t instanceof CoreException) {
-			IStatus deeper = extractDeeperRootCause(((CoreException) t).getStatus());
-			if(deeper != null)
-				return deeper;
-		}
-		return status.getSeverity() == IStatus.ERROR
-				? status
-				: null;
-	}
-
-	/**
-	 * Extract the root cause. The root cause is the first severe non-MultiStatus status containing an exception when
-	 * searching depth first otherwise null.
-	 * 
-	 * @param status
-	 * @return root cause
-	 */
-	private static IStatus extractRootCause(IStatus status) {
-		IStatus rootCause = extractDeeperRootCause(status);
-		return rootCause == null
-				? status
-				: rootCause;
-	}
-
-	private static IArtifactDescriptor getArtifactDescriptor(IArtifactRepository destination, IArtifactKey key,
-			boolean packed) {
-		for(IArtifactDescriptor candidate : destination.getArtifactDescriptors(key)) {
-			if(isPacked(candidate)) {
-				if(packed)
-					return candidate;
-			}
-			else {
-				if(!packed)
-					return candidate;
-			}
-		}
-		return null;
-	}
-
-	private static boolean isPacked(IArtifactDescriptor desc) {
-		return desc != null && "packed".equals(desc.getProperty(IArtifactDescriptor.FORMAT)) &&
-				ProcessingStepHandler.canProcess(desc);
 	}
 
 	static void mirror(Collection<IArtifactKey> keysToInstall, IArtifactRepository cache, IArtifactRepository source,
-			IFileArtifactRepository dest, PackedStrategy strategy, List<String> errors, IProgressMonitor monitor) {
+			IFileArtifactRepository dest, Transport transport, PackedStrategy strategy, List<String> errors,
+			IProgressMonitor monitor) {
 		IQueryResult<IArtifactKey> result = source.query(ArtifactKeyQuery.ALL_KEYS, null);
 		IArtifactKey[] keys = result.toArray(IArtifactKey.class);
 		MonitorUtils.begin(monitor, keys.length * 100);
@@ -273,7 +213,7 @@ public class MirrorGenerator extends BuilderPhase {
 						if(!checkIfTargetPresent(dest, key, false)) {
 							LogUtils.debug("    doing copy of canonical artifact");
 							mirror(
-								sourceForCopy, dest, canonical, new ArtifactDescriptor(canonical),
+								sourceForCopy, dest, canonical, new ArtifactDescriptor(canonical), transport,
 								MonitorUtils.subMonitor(monitor, 90));
 						}
 						break;
@@ -281,7 +221,7 @@ public class MirrorGenerator extends BuilderPhase {
 						if(!checkIfTargetPresent(dest, key, true)) {
 							LogUtils.debug("    doing copy of optimized artifact");
 							mirror(
-								sourceForCopy, dest, optimized, new ArtifactDescriptor(optimized),
+								sourceForCopy, dest, optimized, new ArtifactDescriptor(optimized), transport,
 								MonitorUtils.subMonitor(monitor, 90));
 						}
 						break;
@@ -289,7 +229,7 @@ public class MirrorGenerator extends BuilderPhase {
 						if(keyStrategy == PackedStrategy.UNPACK) {
 							if(!checkIfTargetPresent(dest, key, false)) {
 								LogUtils.debug("    doing copy of optimized artifact into canonical target");
-								unpack(sourceForCopy, dest, optimized, MonitorUtils.subMonitor(monitor, 90));
+								unpack(sourceForCopy, dest, optimized, transport, MonitorUtils.subMonitor(monitor, 90));
 							}
 							continue;
 						}
@@ -303,7 +243,7 @@ public class MirrorGenerator extends BuilderPhase {
 						else {
 							LogUtils.debug("    doing copy of optimized artifact");
 							mirror(
-								sourceForCopy, dest, optimized, new ArtifactDescriptor(optimized),
+								sourceForCopy, dest, optimized, new ArtifactDescriptor(optimized), transport,
 								MonitorUtils.subMonitor(monitor, 70));
 						}
 
@@ -316,14 +256,14 @@ public class MirrorGenerator extends BuilderPhase {
 						}
 
 						unpackToSibling(
-							dest, getArtifactDescriptor(dest, key, true), isVerify,
+							dest, getArtifactDescriptor(dest, key, true), transport, isVerify,
 							MonitorUtils.subMonitor(monitor, 20));
 				}
 			}
 			catch(CoreException e) {
 				LogUtils.error(e, e.getMessage());
 				errors.add(Builder.getExceptionMessages(e));
-				dest.removeDescriptor(key);
+				dest.removeDescriptor(key, MonitorUtils.subMonitor(monitor, 2));
 			}
 		}
 
@@ -339,12 +279,12 @@ public class MirrorGenerator extends BuilderPhase {
 	}
 
 	static IArtifactDescriptor mirror(IArtifactRepository source, IArtifactRepository dest,
-			IArtifactDescriptor sourceDesc, IArtifactDescriptor targetDesc, IProgressMonitor monitor)
-			throws CoreException {
+			IArtifactDescriptor sourceDesc, IArtifactDescriptor targetDesc, Transport transport,
+			IProgressMonitor monitor) throws CoreException {
 		if(dest.contains(targetDesc))
 			return targetDesc;
 
-		RawMirrorRequest request = new RawMirrorRequest(sourceDesc, targetDesc, dest);
+		RawMirrorRequest request = new RawMirrorRequest(sourceDesc, targetDesc, dest, transport);
 		request.perform(source, monitor);
 		IStatus result = request.getResult();
 		switch(result.getSeverity()) {
@@ -376,9 +316,78 @@ public class MirrorGenerator extends BuilderPhase {
 			source.getLocation(), result.getMessage());
 	}
 
+	private static boolean checkIfTargetPresent(IArtifactRepository destination, IArtifactKey key, boolean packed) {
+		IArtifactDescriptor found = getArtifactDescriptor(destination, key, packed);
+		if(found != null) {
+			LogUtils.debug("    %s artifact is already present", packed
+					? "optimized"
+					: "canonical");
+			return true;
+		}
+		return false;
+	}
+
+	private static IStatus extractDeeperRootCause(IStatus status) {
+		if(status == null)
+			return null;
+
+		if(status.isMultiStatus()) {
+			IStatus[] children = ((MultiStatus) status).getChildren();
+			for(int i = 0; i < children.length; i++) {
+				IStatus deeper = extractDeeperRootCause(children[i]);
+				if(deeper != null)
+					return deeper;
+			}
+		}
+
+		Throwable t = status.getException();
+		if(t instanceof CoreException) {
+			IStatus deeper = extractDeeperRootCause(((CoreException) t).getStatus());
+			if(deeper != null)
+				return deeper;
+		}
+		return status.getSeverity() == IStatus.ERROR
+				? status
+				: null;
+	}
+
+	/**
+	 * Extract the root cause. The root cause is the first severe non-MultiStatus status containing an exception when
+	 * searching depth first otherwise null.
+	 * 
+	 * @param status
+	 * @return root cause
+	 */
+	private static IStatus extractRootCause(IStatus status) {
+		IStatus rootCause = extractDeeperRootCause(status);
+		return rootCause == null
+				? status
+				: rootCause;
+	}
+
+	private static IArtifactDescriptor getArtifactDescriptor(IArtifactRepository destination, IArtifactKey key,
+			boolean packed) {
+		for(IArtifactDescriptor candidate : destination.getArtifactDescriptors(key)) {
+			if(isPacked(candidate)) {
+				if(packed)
+					return candidate;
+			}
+			else {
+				if(!packed)
+					return candidate;
+			}
+		}
+		return null;
+	}
+
+	private static boolean isPacked(IArtifactDescriptor desc) {
+		return desc != null && "packed".equals(desc.getProperty(IArtifactDescriptor.FORMAT)) &&
+				ProcessingStepHandler.canProcess(desc);
+	}
+
 	private static void unpack(IArtifactRepository source, IFileArtifactRepository target,
-			IArtifactDescriptor optimized, IProgressMonitor monitor) throws CoreException {
-		CanonicalizeRequest request = new CanonicalizeRequest(optimized, source, target);
+			IArtifactDescriptor optimized, Transport transport, IProgressMonitor monitor) throws CoreException {
+		CanonicalizeRequest request = new CanonicalizeRequest(optimized, source, target, transport);
 		request.perform(source, monitor);
 		IStatus result = request.getResult();
 		if(result.getSeverity() != IStatus.ERROR ||
@@ -393,21 +402,29 @@ public class MirrorGenerator extends BuilderPhase {
 	}
 
 	private static void unpackToSibling(IFileArtifactRepository target, IArtifactDescriptor optimized,
-			boolean verifyOnly, IProgressMonitor monitor) throws CoreException {
-		CanonicalizeRequest request = new CanonicalizeRequest(optimized, target);
-		request.perform(target, monitor);
-		IStatus result = request.getResult();
-		if(result.getSeverity() != IStatus.ERROR ||
-				result.getCode() == org.eclipse.equinox.p2.core.ProvisionException.ARTIFACT_EXISTS) {
-			if(verifyOnly)
-				target.removeDescriptor(getArtifactDescriptor(target, optimized.getArtifactKey(), false));
-			return;
-		}
+			Transport transport, boolean verifyOnly, IProgressMonitor monitor) throws CoreException {
+		CanonicalizeRequest request = new CanonicalizeRequest(optimized, target, transport);
+		MonitorUtils.begin(monitor, 20);
+		try {
+			request.perform(target, MonitorUtils.subMonitor(monitor, 18));
+			IStatus result = request.getResult();
+			if(result.getSeverity() != IStatus.ERROR ||
+					result.getCode() == org.eclipse.equinox.p2.core.ProvisionException.ARTIFACT_EXISTS) {
+				if(verifyOnly)
+					target.removeDescriptor(
+						getArtifactDescriptor(target, optimized.getArtifactKey(), false),
+						MonitorUtils.subMonitor(monitor, 2));
+				return;
+			}
 
-		result = extractRootCause(result);
-		throw ExceptionUtils.fromMessage(
-			result.getException(), "Unable to unpack artifact %s in repository %s: %s", optimized.getArtifactKey(),
-			target.getLocation(), result.getMessage());
+			result = extractRootCause(result);
+			throw ExceptionUtils.fromMessage(
+				result.getException(), "Unable to unpack artifact %s in repository %s: %s", optimized.getArtifactKey(),
+				target.getLocation(), result.getMessage());
+		}
+		finally {
+			MonitorUtils.done(monitor);
+		}
 	}
 
 	private IMetadataRepositoryManager mdrMgr;
@@ -436,23 +453,6 @@ public class MirrorGenerator extends BuilderPhase {
 			}
 		}
 		return keysToExclude;
-	}
-
-	private IArtifactRepository getArtifactRepository(MetadataRepositoryReference repo, IProgressMonitor monitor)
-			throws CoreException {
-		if(arCache == null)
-			arCache = new HashMap<MetadataRepositoryReference, IArtifactRepository>();
-
-		IArtifactRepository ar = arCache.get(repo);
-		if(ar == null) {
-			IConfigurationElement config = RepositoryLoaderUtils.getLoaderFor(repo.getNature());
-			if(config == null)
-				throw ExceptionUtils.fromMessage("No loader for %s", repo.getNature());
-			IRepositoryLoader repoLoader = (IRepositoryLoader) config.createExecutableExtension("class");
-			arCache.put(repo, ar = repoLoader.getArtifactRepository(ResourceUtils.getMetadataRepository(repo), monitor));
-		}
-
-		return ar;
 	}
 
 	@Override
@@ -535,7 +535,7 @@ public class MirrorGenerator extends BuilderPhase {
 			// get contributions of the main (implicit) compositeChild
 			List<Contribution> allContribs = aggregator.getContributions(true);
 
-			MonitorUtils.begin(childMonitor, allContribs.size() * 100 + 20);
+			MonitorUtils.begin(childMonitor, allContribs.size() * 100 + 22);
 			boolean compositeChilddArIsEmpty = true;
 
 			PackedStrategy packedStrategy = aggregator.getPackedStrategy();
@@ -693,8 +693,9 @@ public class MirrorGenerator extends BuilderPhase {
 					ruleList.addAll(mappingRules);
 					simpleAr.setRules(ruleList.toArray(new String[ruleList.size()][]));
 					simpleAr.initializeAfterLoad(aggregateURI);
-					for(IArtifactDescriptor ad : referencedArtifacts)
-						simpleAr.addDescriptor(ad);
+					simpleAr.addDescriptors(
+						referencedArtifacts.toArray(new IArtifactDescriptor[referencedArtifacts.size()]),
+						childMonitor.newChild(2));
 					simpleAr.save();
 					compositeChilddArIsEmpty = false;
 				}
@@ -746,6 +747,7 @@ public class MirrorGenerator extends BuilderPhase {
 							tempAr,
 							childAr,
 							aggregateAr,
+							getTransport(),
 							packedStrategy,
 							errors,
 							contribMonitor.newChild(94, SubMonitor.SUPPRESS_BEGINTASK | SubMonitor.SUPPRESS_SETTASKNAME));
@@ -923,5 +925,26 @@ public class MirrorGenerator extends BuilderPhase {
 		LogUtils.info("Done. Took %s", TimeUtils.getFormattedDuration(start)); //$NON-NLS-1$
 		if(artifactErrors)
 			throw ExceptionUtils.fromMessage("Not all artifacts could be mirrored, see log for details");
+	}
+
+	private IArtifactRepository getArtifactRepository(MetadataRepositoryReference repo, IProgressMonitor monitor)
+			throws CoreException {
+		if(arCache == null)
+			arCache = new HashMap<MetadataRepositoryReference, IArtifactRepository>();
+
+		IArtifactRepository ar = arCache.get(repo);
+		if(ar == null) {
+			IConfigurationElement config = RepositoryLoaderUtils.getLoaderFor(repo.getNature());
+			if(config == null)
+				throw ExceptionUtils.fromMessage("No loader for %s", repo.getNature());
+			IRepositoryLoader repoLoader = (IRepositoryLoader) config.createExecutableExtension("class");
+			arCache.put(repo, ar = repoLoader.getArtifactRepository(ResourceUtils.getMetadataRepository(repo), monitor));
+		}
+
+		return ar;
+	}
+
+	private Transport getTransport() {
+		return getBuilder().getTransport();
 	}
 }
