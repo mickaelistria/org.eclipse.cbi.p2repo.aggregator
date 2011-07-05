@@ -10,6 +10,7 @@
   <rm:locator pattern="^org\.eclipse\.buckminster(\..+)?$" searchPathRef="buckminster"/>
   <rm:locator pattern="^org\.maven(\..+)?$" searchPathRef="m2eclipse"/>
   <rm:locator pattern="^com\.ibm\.icu\.base$" searchPathRef="orbit"/>
+  <rm:locator pattern="^org\.aopalliance(\..+)?$" searchPathRef="orbit"/>
   <rm:locator pattern="^org\.kohsuke(\..+)?$" searchPathRef="orbit"/>
   <rm:locator pattern="^org\.apache\.commons(\..+)?$" searchPathRef="orbit"/>
   <rm:locator pattern="^org\.apache\.log4j(\..+)?$" searchPathRef="orbit"/>
