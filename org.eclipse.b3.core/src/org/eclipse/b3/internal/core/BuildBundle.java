@@ -11,8 +11,8 @@
 
 package org.eclipse.b3.internal.core;
 
-import org.eclipse.b3.provisional.core.IBuildContext;
 import org.eclipse.b3.provisional.core.IBuildConstants;
+import org.eclipse.b3.provisional.core.IBuildContext;
 import org.eclipse.b3.provisional.core.ILogger;
 import org.eclipse.b3.provisional.core.ServicesHelper;
 import org.eclipse.core.runtime.Plugin;
@@ -43,7 +43,7 @@ public class BuildBundle extends Plugin {
 		return getDefault().getBundleLogger();
 	}
 
-	private ServiceTracker defaultContextTracker;
+	private ServiceTracker<?, IBuildContext> defaultContextTracker;
 
 	// TODO: Cheating by using Buckminster's Logger
 	//
@@ -57,7 +57,7 @@ public class BuildBundle extends Plugin {
 
 	public IBuildContext getDefaultBuildContext() {
 		defaultContextTracker.open();
-		return (IBuildContext) defaultContextTracker.getService();
+		return defaultContextTracker.getService();
 	}
 
 	/*
@@ -70,9 +70,10 @@ public class BuildBundle extends Plugin {
 		super.start(context);
 		plugin = this;
 		// create trackers
-		defaultContextTracker = new ServiceTracker(getBundle().getBundleContext(), ServicesHelper.getTrackerFilter(
-			IBuildConstants.DEFAULT_BUILD_CONTEXT, IBuildContext.class), null); // no customizer (yet?) - the tracker
-																				// returns available service
+		defaultContextTracker = new ServiceTracker<Object, IBuildContext>(
+			getBundle().getBundleContext(), ServicesHelper.getTrackerFilter(
+				IBuildConstants.DEFAULT_BUILD_CONTEXT, IBuildContext.class), null); // no customizer (yet?) - the tracker
+																					// returns available service
 	}
 
 	/*

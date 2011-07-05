@@ -12,16 +12,22 @@
 package org.eclipse.b3.internal.core;
 
 import java.util.EventObject;
-import org.eclipse.b3.provisional.core.eventbus.*;
-import org.eclipse.osgi.framework.eventmgr.*;
+
+import org.eclipse.b3.provisional.core.eventbus.IBuildEventBus;
+import org.eclipse.b3.provisional.core.eventbus.IBuildListener;
+import org.eclipse.b3.provisional.core.eventbus.ISynchronousBuildListener;
+import org.eclipse.osgi.framework.eventmgr.CopyOnWriteIdentityMap;
+import org.eclipse.osgi.framework.eventmgr.EventDispatcher;
+import org.eclipse.osgi.framework.eventmgr.EventManager;
+import org.eclipse.osgi.framework.eventmgr.ListenerQueue;
 
 /**
  * Default implementation of the {@link IBuildEventBus} service.
  */
-public class BuildEventBus implements EventDispatcher, IBuildEventBus {
-	private final CopyOnWriteIdentityMap syncListeners = new CopyOnWriteIdentityMap();
+public class BuildEventBus implements EventDispatcher<IBuildListener, IBuildListener, EventObject>, IBuildEventBus {
+	private final CopyOnWriteIdentityMap<IBuildListener, IBuildListener> syncListeners = new CopyOnWriteIdentityMap<IBuildListener, IBuildListener>();
 
-	private final CopyOnWriteIdentityMap asyncListeners = new CopyOnWriteIdentityMap();
+	private final CopyOnWriteIdentityMap<IBuildListener, IBuildListener> asyncListeners = new CopyOnWriteIdentityMap<IBuildListener, IBuildListener>();
 
 	private EventManager eventManager = new EventManager("B3 Event Dispatcher"); //$NON-NLS-1$
 
@@ -82,14 +88,15 @@ public class BuildEventBus implements EventDispatcher, IBuildEventBus {
 	 * org.eclipse.equinox.internal.provisional.p2.core.eventbus.IProvisioningEventBus#dispatchEvent(java.lang.Object,
 	 * java.lang.Object, int, java.lang.Object)
 	 */
-	public void dispatchEvent(Object eventListener, Object listenerObject, int eventAction, Object eventObject) {
+	public void dispatchEvent(IBuildListener eventListener, IBuildListener listenerObject, int eventAction,
+			EventObject eventObject) {
 		synchronized(dispatchEventLock) {
 			if(closed)
 				return;
 			dispatchingEvents++;
 		}
 		try {
-			((IBuildListener) eventListener).notify((EventObject) eventObject);
+			eventListener.notify(eventObject);
 		}
 		catch(Exception e) {
 			e.printStackTrace();
@@ -110,7 +117,8 @@ public class BuildEventBus implements EventDispatcher, IBuildEventBus {
 				return;
 		}
 		/* queue to hold set of listeners */
-		ListenerQueue listeners = new ListenerQueue(eventManager);
+		ListenerQueue<IBuildListener, IBuildListener, EventObject> listeners = new ListenerQueue<IBuildListener, IBuildListener, EventObject>(
+			eventManager);
 
 		/* synchronize while building the listener list */
 		synchronized(syncListeners) {
@@ -120,7 +128,7 @@ public class BuildEventBus implements EventDispatcher, IBuildEventBus {
 			listeners.dispatchEventSynchronous(0, event);
 		}
 
-		listeners = new ListenerQueue(eventManager);
+		listeners = new ListenerQueue<IBuildListener, IBuildListener, EventObject>(eventManager);
 		synchronized(asyncListeners) {
 			listeners.queueListeners(asyncListeners.entrySet(), this);
 			synchronized(dispatchEventLock) {

@@ -61,10 +61,8 @@ public class VersionUtil {
 			return new VersionRange(
 				createVersion(m.group(2)), "[".equals(m.group(1)), createVersion(m.group(3)), "[".equals(m.group(4)));
 		}
-		else {
-			Version v = createVersion(vr);
-			return new VersionRange(v, true, Version.MAX_VERSION, true);
-		}
+		Version v = createVersion(vr);
+		return new VersionRange(v, true, Version.MAX_VERSION, true);
 	}
 
 	public static String getVersionString(Version version) {

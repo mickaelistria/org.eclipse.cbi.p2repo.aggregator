@@ -12,13 +12,14 @@
 package org.eclipse.b3.provisional.core.eventbus;
 
 import java.util.EventObject;
+
 import org.eclipse.osgi.framework.eventmgr.EventDispatcher;
 
 /**
  * The bus for events related to b3. This service can be used to register
  * a listener to receive b3 events, or to broadcast events.
  */
-public interface IBuildEventBus extends EventDispatcher {
+public interface IBuildEventBus extends EventDispatcher<IBuildListener, IBuildListener, EventObject> {
 	/**
 	 * The name used for obtaining a reference to the event bus service.
 	 */

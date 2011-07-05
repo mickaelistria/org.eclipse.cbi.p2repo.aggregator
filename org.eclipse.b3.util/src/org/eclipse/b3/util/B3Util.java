@@ -35,7 +35,7 @@ public class B3Util extends Plugin {
 
 	private LogLevel consoleLogLevel = LogLevel.INFO;
 
-	private IdentityHashMap<Object, ServiceReference> services;
+	private IdentityHashMap<Object, ServiceReference<?>> services;
 
 	public B3Util() {
 		plugin = this;
@@ -62,7 +62,7 @@ public class B3Util extends Plugin {
 	public <T> T getService(Class<T> serviceClass, String filter) throws CoreException {
 		BundleContext context = getPlugin().getBundle().getBundleContext();
 		String serviceName = serviceClass.getName();
-		ServiceReference[] serviceRef;
+		ServiceReference<?>[] serviceRef;
 		try {
 			serviceRef = context.getAllServiceReferences(serviceName, filter);
 		}
@@ -73,7 +73,7 @@ public class B3Util extends Plugin {
 			throw ExceptionUtils.fromMessage("Missing OSGi Service %s", serviceName);
 		T service = serviceClass.cast(context.getService(serviceRef[0]));
 		if(services == null)
-			services = new IdentityHashMap<Object, ServiceReference>();
+			services = new IdentityHashMap<Object, ServiceReference<?>>();
 		services.put(service, serviceRef[0]);
 		return service;
 	}
@@ -106,7 +106,7 @@ public class B3Util extends Plugin {
 
 	public void ungetService(Object service) {
 		if(services != null && service != null) {
-			ServiceReference serviceRef = services.remove(service);
+			ServiceReference<?> serviceRef = services.remove(service);
 			if(serviceRef != null)
 				getPlugin().getBundle().getBundleContext().ungetService(serviceRef);
 		}
