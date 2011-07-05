@@ -1,0 +1,5 @@
+setpref -P ${build.props} targetPlatformPath=${build.root}/tp
+import -P ${build.props} ${checkout.root}/org.eclipse.b3.releng/b3.cquery
+build -P ${build.props} --thorough
+# junit -P ${build.props} -l org.eclipse.b3.tests/AllTests.launch -o ${buckminster.output.root}/testReport.xml --terseXML --flatXML
+perform -P ${build.props} org.eclipse.b3.releng#promote

@@ -59,6 +59,7 @@ import org.eclipse.b3.util.ExceptionUtils;
 import org.eclipse.b3.util.MonitorUtils;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.core.runtime.SubMonitor;
 import org.eclipse.emf.common.util.EMap;
 import org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactDescriptor;
 import org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository;
@@ -117,37 +118,42 @@ public class P2Bridge {
 		IArtifactRepository target = arMgr.createRepository(
 			targetLocation, ar.getName(), ar.getType(), ar.getProperties());
 
-		monitor = MonitorUtils.ensureNotNull(monitor);
-		IQueryResult<IArtifactKey> result = ar.query(QUERY_ALL_ARTIFACTS, monitor);
-		Iterator<IArtifactKey> itor = result.iterator();
-		ArrayList<IArtifactKey> artifacts = new ArrayList<IArtifactKey>();
-		while(itor.hasNext())
-			artifacts.add(itor.next());
-		if(sortArtifacts)
-			Collections.sort(artifacts, new Comparator<IArtifactKey>() {
+		SubMonitor subMon = SubMonitor.convert(monitor, 100);
+		try {
+			IQueryResult<IArtifactKey> result = ar.query(QUERY_ALL_ARTIFACTS, subMon.newChild(90));
+			Iterator<IArtifactKey> itor = result.iterator();
+			ArrayList<IArtifactKey> artifacts = new ArrayList<IArtifactKey>();
+			while(itor.hasNext())
+				artifacts.add(itor.next());
+			if(sortArtifacts)
+				Collections.sort(artifacts, new Comparator<IArtifactKey>() {
 
-				public int compare(IArtifactKey a1, IArtifactKey a2) {
-					int result = a1.getId().compareTo(a2.getId());
-					if(result == 0)
-						return a1.getVersion().compareTo(a2.getVersion());
+					public int compare(IArtifactKey a1, IArtifactKey a2) {
+						int result = a1.getId().compareTo(a2.getId());
+						if(result == 0)
+							return a1.getVersion().compareTo(a2.getVersion());
 
-					return result;
+						return result;
+					}
+
+				});
+			for(IArtifactKey key : artifacts) {
+				IArtifactDescriptor[] descriptors = ar.getArtifactDescriptors(key);
+				for(IArtifactDescriptor descriptor : descriptors) {
+					if(descriptor instanceof SimpleArtifactDescriptorImpl) {
+						SimpleArtifactDescriptor p2native = new SimpleArtifactDescriptor(descriptor);
+						p2native.setRepositoryProperty(
+							SimpleArtifactDescriptor.ARTIFACT_REFERENCE,
+							((SimpleArtifactDescriptorImpl) descriptor).getRepositoryProperty(SimpleArtifactDescriptor.ARTIFACT_REFERENCE));
+						target.addDescriptor(p2native, subMon.newChild(1));
+					}
+					else
+						target.addDescriptor(descriptor, subMon.newChild(1));
 				}
-
-			});
-		for(IArtifactKey key : artifacts) {
-			IArtifactDescriptor[] descriptors = ar.getArtifactDescriptors(key);
-			for(IArtifactDescriptor descriptor : descriptors) {
-				if(descriptor instanceof SimpleArtifactDescriptorImpl) {
-					SimpleArtifactDescriptor p2native = new SimpleArtifactDescriptor(descriptor);
-					p2native.setRepositoryProperty(
-						SimpleArtifactDescriptor.ARTIFACT_REFERENCE,
-						((SimpleArtifactDescriptorImpl) descriptor).getRepositoryProperty(SimpleArtifactDescriptor.ARTIFACT_REFERENCE));
-					target.addDescriptor(p2native);
-				}
-				else
-					target.addDescriptor(descriptor);
 			}
+		}
+		finally {
+			MonitorUtils.done(monitor);
 		}
 	}
 

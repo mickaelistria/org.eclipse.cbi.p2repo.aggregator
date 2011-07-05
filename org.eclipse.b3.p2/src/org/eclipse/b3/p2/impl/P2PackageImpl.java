@@ -52,6 +52,7 @@ import org.eclipse.emf.ecore.ETypeParameter;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 import org.eclipse.emf.ecore.xml.type.XMLTypePackage;
 import org.eclipse.equinox.internal.p2.metadata.IRequiredCapability;
+import org.eclipse.equinox.p2.core.IPool;
 import org.eclipse.equinox.p2.core.IProvisioningAgent;
 import org.eclipse.equinox.p2.metadata.IArtifactKey;
 import org.eclipse.equinox.p2.metadata.ICopyright;
@@ -586,6 +587,14 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	 * 
 	 * @generated
 	 */
+	private EDataType iPoolEDataType = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
 	private EDataType iProcessingDescriptorArrayEDataType = null;
 
 	/**
@@ -1011,6 +1020,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 		iProvidedCapabilityArrayEDataType = createEDataType(IPROVIDED_CAPABILITY_ARRAY);
 		iProvisioningAgentEDataType = createEDataType(IPROVISIONING_AGENT);
 		iRequirementArrayArrayEDataType = createEDataType(IREQUIREMENT_ARRAY_ARRAY);
+		iPoolEDataType = createEDataType(IPOOL);
 		iProcessingDescriptorArrayEDataType = createEDataType(IPROCESSING_DESCRIPTOR_ARRAY);
 		iProgressMonitorEDataType = createEDataType(IPROGRESS_MONITOR);
 		iRunnableWithProgressEDataType = createEDataType(IRUNNABLE_WITH_PROGRESS);
@@ -1673,6 +1683,16 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	 */
 	public EReference getInstructionMap_Value() {
 		return (EReference) instructionMapEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EDataType getIPool() {
+		return iPoolEDataType;
 	}
 
 	/**
@@ -2665,6 +2685,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 		addETypeParameter(iMatchExpressionEDataType, "T");
 		addETypeParameter(iQueryEDataType, "T");
 		addETypeParameter(iQueryResultEDataType, "T");
+		addETypeParameter(iPoolEDataType, "T");
 		addETypeParameter(mapEDataType, "K");
 		addETypeParameter(mapEDataType, "V");
 
@@ -2853,8 +2874,16 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 		op = addEOperation(iArtifactRepositoryEClass, null, "addDescriptor", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getIArtifactDescriptor(), "descriptor", 0, 1, IS_UNIQUE, IS_ORDERED);
 
+		op = addEOperation(iArtifactRepositoryEClass, null, "addDescriptor", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getIArtifactDescriptor(), "descriptor", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getIProgressMonitor(), "monitor", 0, 1, IS_UNIQUE, IS_ORDERED);
+
 		op = addEOperation(iArtifactRepositoryEClass, null, "addDescriptors", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getIArtifactDescriptorArray(), "descriptors", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = addEOperation(iArtifactRepositoryEClass, null, "addDescriptors", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getIArtifactDescriptorArray(), "descriptors", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getIProgressMonitor(), "monitor", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		op = addEOperation(
 			iArtifactRepositoryEClass, ecorePackage.getEBoolean(), "contains", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -2895,11 +2924,36 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 
 		addEOperation(iArtifactRepositoryEClass, null, "removeAll", 0, 1, IS_UNIQUE, IS_ORDERED);
 
+		op = addEOperation(iArtifactRepositoryEClass, null, "removeAll", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getIProgressMonitor(), "monitor", 0, 1, IS_UNIQUE, IS_ORDERED);
+
 		op = addEOperation(iArtifactRepositoryEClass, null, "removeDescriptor", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getIArtifactDescriptor(), "descriptor", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		op = addEOperation(iArtifactRepositoryEClass, null, "removeDescriptor", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getIArtifactDescriptor(), "descriptor", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getIProgressMonitor(), "monitor", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = addEOperation(iArtifactRepositoryEClass, null, "removeDescriptor", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getIArtifactKey(), "key", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = addEOperation(iArtifactRepositoryEClass, null, "removeDescriptor", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getIArtifactKey(), "key", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getIProgressMonitor(), "monitor", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = addEOperation(iArtifactRepositoryEClass, null, "removeDescriptors", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getIArtifactDescriptorArray(), "descriptors", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = addEOperation(iArtifactRepositoryEClass, null, "removeDescriptors", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getIArtifactDescriptorArray(), "descriptors", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getIProgressMonitor(), "monitor", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = addEOperation(iArtifactRepositoryEClass, null, "removeDescriptors", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getIArtifactKeyArray(), "keys", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = addEOperation(iArtifactRepositoryEClass, null, "removeDescriptors", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getIArtifactKeyArray(), "keys", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getIProgressMonitor(), "monitor", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		op = addEOperation(iArtifactRepositoryEClass, this.getIStatus(), "executeBatch", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getIRunnableWithProgress(), "runnable", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -3109,6 +3163,12 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 		addEParameter(op, this.getIRunnableWithProgress(), "runnable", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getIProgressMonitor(), "monitor", 0, 1, IS_UNIQUE, IS_ORDERED);
 
+		op = addEOperation(iMetadataRepositoryEClass, null, "compress", 0, 1, IS_UNIQUE, IS_ORDERED);
+		g1 = createEGenericType(this.getIPool());
+		g2 = createEGenericType(this.getIInstallableUnit());
+		g1.getETypeArguments().add(g2);
+		addEParameter(op, g1, "iuPool", 0, 1, IS_UNIQUE, IS_ORDERED);
+
 		initEClass(
 			iProcessingStepDescriptorEClass, IProcessingStepDescriptor.class, "IProcessingStepDescriptor", IS_ABSTRACT,
 			IS_INTERFACE, !IS_GENERATED_INSTANCE_CLASS);
@@ -3182,6 +3242,9 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 			IRepository.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
 			!IS_DERIVED, IS_ORDERED);
 
+		op = addEOperation(iRepositoryEClass, ecorePackage.getEString(), "getProperty", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "key", 0, 1, IS_UNIQUE, IS_ORDERED);
+
 		op = addEOperation(iRepositoryEClass, null, "getProperties", 0, 1, IS_UNIQUE, IS_ORDERED);
 		g1 = createEGenericType(this.getMap());
 		g2 = createEGenericType(theXMLTypePackage.getString());
@@ -3194,8 +3257,10 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 		addEParameter(op, ecorePackage.getEString(), "key", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "value", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		op = addEOperation(iRepositoryEClass, ecorePackage.getEString(), "getProperty", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = addEOperation(iRepositoryEClass, ecorePackage.getEString(), "setProperty", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "key", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "value", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getIProgressMonitor(), "monitor", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(
 			iRepositoryReferenceEClass, IRepositoryReference.class, "IRepositoryReference", IS_ABSTRACT, IS_INTERFACE,
@@ -3504,6 +3569,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 		initEDataType(
 			iRequirementArrayArrayEDataType, IRequirement[][].class, "IRequirementArrayArray", IS_SERIALIZABLE,
 			!IS_GENERATED_INSTANCE_CLASS);
+		initEDataType(iPoolEDataType, IPool.class, "IPool", !IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 		initEDataType(
 			iProcessingDescriptorArrayEDataType, IProcessingStepDescriptor[].class, "IProcessingDescriptorArray",
 			IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);

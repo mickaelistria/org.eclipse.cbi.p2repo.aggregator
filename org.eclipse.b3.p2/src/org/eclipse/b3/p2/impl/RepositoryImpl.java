@@ -13,8 +13,9 @@ import java.util.Map;
 
 import org.eclipse.b3.p2.P2Package;
 import org.eclipse.b3.p2.Repository;
-import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.b3.util.MonitorUtils;
 import org.eclipse.core.internal.runtime.AdapterManager;
+import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EMap;
@@ -561,13 +562,9 @@ public abstract class RepositoryImpl<T> extends MinimalEObjectImpl.Container imp
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
-	 * @generated
+	 * @generated NOT
 	 */
-	public IQueryResult<T> query(IQuery<T> query, IProgressMonitor progress) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
+	public abstract IQueryResult<T> query(IQuery<T> query, IProgressMonitor progress);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -634,6 +631,18 @@ public abstract class RepositoryImpl<T> extends MinimalEObjectImpl.Container imp
 	 */
 	public final String setProperty(String key, String value) {
 		return getPropertyMap().put(key, value);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public String setProperty(String key, String value, IProgressMonitor monitor) {
+		value = setProperty(key, value);
+		MonitorUtils.complete(monitor);
+		return value;
 	}
 
 	/**

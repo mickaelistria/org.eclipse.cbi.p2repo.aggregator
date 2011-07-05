@@ -30,6 +30,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
+import org.eclipse.equinox.p2.core.IPool;
 import org.eclipse.equinox.internal.p2.metadata.repository.CompositeMetadataRepository;
 import org.eclipse.equinox.internal.p2.metadata.repository.LocalMetadataRepository;
 import org.eclipse.equinox.p2.metadata.IInstallableUnit;
@@ -142,6 +143,18 @@ public class MetadataRepositoryImpl extends RepositoryImpl<IInstallableUnit> imp
 			for(URI child : children)
 				addRepositoryReferences(mdrMgr, mdrMgr.loadRepository(child, null));
 		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public void compress(IPool<IInstallableUnit> iuPool) {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
 	}
 
 	/**

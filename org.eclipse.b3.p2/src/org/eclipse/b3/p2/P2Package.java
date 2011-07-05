@@ -1452,6 +1452,17 @@ public interface P2Package extends EPackage {
 		EDataType IREQUIREMENT_ARRAY_ARRAY = eINSTANCE.getIRequirementArrayArray();
 
 		/**
+		 * The meta object literal for the '<em>IPool</em>' data type.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @see org.eclipse.equinox.p2.core.IPool
+		 * @see org.eclipse.b3.p2.impl.P2PackageImpl#getIPool()
+		 * @generated
+		 */
+		EDataType IPOOL = eINSTANCE.getIPool();
+
+		/**
 		 * The meta object literal for the '<em>IProcessing Descriptor Array</em>' data type.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -5474,7 +5485,7 @@ public interface P2Package extends EPackage {
 	 * @see org.eclipse.b3.p2.impl.P2PackageImpl#getVersion()
 	 * @generated
 	 */
-	int VERSION = 76;
+	int VERSION = 77;
 
 	/**
 	 * The meta object id for the '<em>Version Range</em>' data type.
@@ -5485,7 +5496,7 @@ public interface P2Package extends EPackage {
 	 * @see org.eclipse.b3.p2.impl.P2PackageImpl#getVersionRange()
 	 * @generated
 	 */
-	int VERSION_RANGE = 77;
+	int VERSION_RANGE = 78;
 
 	/**
 	 * The meta object id for the '<em>IInstallable Unit Array</em>' data type.
@@ -5556,7 +5567,7 @@ public interface P2Package extends EPackage {
 	 * @see org.eclipse.b3.p2.impl.P2PackageImpl#getITouchpointDataArray()
 	 * @generated
 	 */
-	int ITOUCHPOINT_DATA_ARRAY = 70;
+	int ITOUCHPOINT_DATA_ARRAY = 71;
 
 	/**
 	 * The meta object id for the '<em>IRequirement Array Array</em>' data type.
@@ -5569,6 +5580,17 @@ public interface P2Package extends EPackage {
 	int IREQUIREMENT_ARRAY_ARRAY = 65;
 
 	/**
+	 * The meta object id for the '<em>IPool</em>' data type.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see org.eclipse.equinox.p2.core.IPool
+	 * @see org.eclipse.b3.p2.impl.P2PackageImpl#getIPool()
+	 * @generated
+	 */
+	int IPOOL = 66;
+
+	/**
 	 * The meta object id for the '<em>IProcessing Descriptor Array</em>' data type.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5576,7 +5598,7 @@ public interface P2Package extends EPackage {
 	 * @see org.eclipse.b3.p2.impl.P2PackageImpl#getIProcessingDescriptorArray()
 	 * @generated
 	 */
-	int IPROCESSING_DESCRIPTOR_ARRAY = 66;
+	int IPROCESSING_DESCRIPTOR_ARRAY = 67;
 
 	/**
 	 * The meta object id for the '<em>String Array</em>' data type.
@@ -5586,7 +5608,7 @@ public interface P2Package extends EPackage {
 	 * @see org.eclipse.b3.p2.impl.P2PackageImpl#getStringArray()
 	 * @generated
 	 */
-	int STRING_ARRAY = 73;
+	int STRING_ARRAY = 74;
 
 	/**
 	 * The meta object id for the '<em>Untyped Map</em>' data type.
@@ -5597,7 +5619,7 @@ public interface P2Package extends EPackage {
 	 * @see org.eclipse.b3.p2.impl.P2PackageImpl#getUntypedMap()
 	 * @generated
 	 */
-	int UNTYPED_MAP = 74;
+	int UNTYPED_MAP = 75;
 
 	/**
 	 * The meta object id for the '<em>Map</em>' data type.
@@ -5608,7 +5630,7 @@ public interface P2Package extends EPackage {
 	 * @see org.eclipse.b3.p2.impl.P2PackageImpl#getMap()
 	 * @generated
 	 */
-	int MAP = 71;
+	int MAP = 72;
 
 	/**
 	 * The meta object id for the '<em>Output Stream</em>' data type.
@@ -5619,7 +5641,7 @@ public interface P2Package extends EPackage {
 	 * @see org.eclipse.b3.p2.impl.P2PackageImpl#getOutputStream()
 	 * @generated
 	 */
-	int OUTPUT_STREAM = 72;
+	int OUTPUT_STREAM = 73;
 
 	/**
 	 * The meta object id for the '<em>ILicense Array</em>' data type.
@@ -5694,7 +5716,7 @@ public interface P2Package extends EPackage {
 	 * @see org.eclipse.b3.p2.impl.P2PackageImpl#getIProgressMonitor()
 	 * @generated
 	 */
-	int IPROGRESS_MONITOR = 67;
+	int IPROGRESS_MONITOR = 68;
 
 	/**
 	 * The meta object id for the '<em>IRunnable With Progress</em>' data type.
@@ -5705,7 +5727,7 @@ public interface P2Package extends EPackage {
 	 * @see org.eclipse.b3.p2.impl.P2PackageImpl#getIRunnableWithProgress()
 	 * @generated
 	 */
-	int IRUNNABLE_WITH_PROGRESS = 68;
+	int IRUNNABLE_WITH_PROGRESS = 69;
 
 	/**
 	 * The meta object id for the '<em>IStatus</em>' data type.
@@ -5716,7 +5738,7 @@ public interface P2Package extends EPackage {
 	 * @see org.eclipse.b3.p2.impl.P2PackageImpl#getIStatus()
 	 * @generated
 	 */
-	int ISTATUS = 69;
+	int ISTATUS = 70;
 
 	/**
 	 * The meta object id for the '<em>IMatch Expression</em>' data type.
@@ -5749,7 +5771,7 @@ public interface P2Package extends EPackage {
 	 * @see org.eclipse.b3.p2.impl.P2PackageImpl#getURI()
 	 * @generated
 	 */
-	int URI = 75;
+	int URI = 76;
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.b3.p2.ArtifactDescriptor <em>Artifact Descriptor</em>}'.
@@ -6537,6 +6559,18 @@ public interface P2Package extends EPackage {
 	 * @generated
 	 */
 	EReference getInstructionMap_Value();
+
+	/**
+	 * Returns the meta object for data type '{@link org.eclipse.equinox.p2.core.IPool <em>IPool</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for data type '<em>IPool</em>'.
+	 * @see org.eclipse.equinox.p2.core.IPool
+	 * @model instanceClass="org.eclipse.equinox.p2.core.IPool" serializeable="false" typeParameters="T"
+	 * @generated
+	 */
+	EDataType getIPool();
 
 	/**
 	 * Returns the meta object for data type '<em>IProcessing Descriptor Array</em>'.

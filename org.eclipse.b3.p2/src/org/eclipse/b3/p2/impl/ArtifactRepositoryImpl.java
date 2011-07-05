@@ -14,6 +14,7 @@ import org.eclipse.b3.p2.ArtifactRepository;
 import org.eclipse.b3.p2.P2Factory;
 import org.eclipse.b3.p2.P2Package;
 import org.eclipse.b3.p2.util.P2Bridge;
+import org.eclipse.b3.util.MonitorUtils;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.OperationCanceledException;
@@ -101,9 +102,31 @@ public class ArtifactRepositoryImpl extends RepositoryImpl<IArtifactKey> impleme
 	 * 
 	 * @generated NOT
 	 */
+	public void addDescriptor(IArtifactDescriptor descriptor, IProgressMonitor monitor) {
+		addDescriptor(descriptor);
+		MonitorUtils.complete(monitor);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated NOT
+	 */
 	public void addDescriptors(IArtifactDescriptor[] descriptors) {
 		for(IArtifactDescriptor descriptor : descriptors)
 			addDescriptor(descriptor);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated NOT
+	 */
+	public void addDescriptors(IArtifactDescriptor[] descriptors, IProgressMonitor monitor) {
+		addDescriptors(descriptors);
+		MonitorUtils.complete(monitor);
 	}
 
 	/**
@@ -286,11 +309,9 @@ public class ArtifactRepositoryImpl extends RepositoryImpl<IArtifactKey> impleme
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
-	 * @generated
+	 * @generated NOT
 	 */
 	public IStatus getArtifact(IArtifactDescriptor descriptor, OutputStream destination, IProgressMonitor monitor) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
 	}
 
@@ -326,11 +347,9 @@ public class ArtifactRepositoryImpl extends RepositoryImpl<IArtifactKey> impleme
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
-	 * @generated
+	 * @generated NOT
 	 */
 	public IStatus getArtifacts(IArtifactRequest[] requests, IProgressMonitor monitor) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
 	}
 
@@ -338,11 +357,9 @@ public class ArtifactRepositoryImpl extends RepositoryImpl<IArtifactKey> impleme
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
-	 * @generated
+	 * @generated NOT
 	 */
 	public OutputStream getOutputStream(IArtifactDescriptor descriptor) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
 	}
 
@@ -350,11 +367,9 @@ public class ArtifactRepositoryImpl extends RepositoryImpl<IArtifactKey> impleme
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
-	 * @generated
+	 * @generated NOT
 	 */
 	public IStatus getRawArtifact(IArtifactDescriptor descriptor, OutputStream destination, IProgressMonitor monitor) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
 	}
 
@@ -377,6 +392,17 @@ public class ArtifactRepositoryImpl extends RepositoryImpl<IArtifactKey> impleme
 	 */
 	public void removeAll() {
 		getArtifactMap().clear();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated NOT
+	 */
+	public void removeAll(IProgressMonitor monitor) {
+		removeAll();
+		MonitorUtils.complete(monitor);
 	}
 
 	/**
@@ -410,8 +436,74 @@ public class ArtifactRepositoryImpl extends RepositoryImpl<IArtifactKey> impleme
 	 * 
 	 * @generated NOT
 	 */
+	public void removeDescriptor(IArtifactDescriptor descriptor, IProgressMonitor monitor) {
+		removeDescriptor(descriptor);
+		MonitorUtils.complete(monitor);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated NOT
+	 */
 	public void removeDescriptor(IArtifactKey key) {
 		getArtifactMap().removeKey(key);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated NOT
+	 */
+	public void removeDescriptor(IArtifactKey key, IProgressMonitor monitor) {
+		removeDescriptor(key);
+		MonitorUtils.complete(monitor);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated NOT
+	 */
+	public void removeDescriptors(IArtifactDescriptor[] descriptors) {
+		for(IArtifactDescriptor descriptor : descriptors)
+			removeDescriptor(descriptor);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated NOT
+	 */
+	public void removeDescriptors(IArtifactDescriptor[] descriptors, IProgressMonitor monitor) {
+		removeDescriptors(descriptors);
+		MonitorUtils.complete(monitor);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated NOT
+	 */
+	public void removeDescriptors(IArtifactKey[] keys) {
+		for(IArtifactKey key : keys)
+			removeDescriptor(key);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated NOT
+	 */
+	public void removeDescriptors(IArtifactKey[] keys, IProgressMonitor monitor) {
+		removeDescriptors(keys);
+		MonitorUtils.complete(monitor);
 	}
 
 	/**

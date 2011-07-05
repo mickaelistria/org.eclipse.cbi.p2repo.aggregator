@@ -81,8 +81,16 @@
     <eOperations name="addDescriptor">
       <eParameters name="descriptor" eType="#//IArtifactDescriptor"/>
     </eOperations>
+    <eOperations name="addDescriptor">
+      <eParameters name="descriptor" eType="#//IArtifactDescriptor"/>
+      <eParameters name="monitor" eType="#//IProgressMonitor"/>
+    </eOperations>
     <eOperations name="addDescriptors">
       <eParameters name="descriptors" eType="#//IArtifactDescriptorArray"/>
+    </eOperations>
+    <eOperations name="addDescriptors">
+      <eParameters name="descriptors" eType="#//IArtifactDescriptorArray"/>
+      <eParameters name="monitor" eType="#//IProgressMonitor"/>
     </eOperations>
     <eOperations name="contains" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
       <eParameters name="descriptor" eType="#//IArtifactDescriptor"/>
@@ -116,11 +124,36 @@
       </eGenericType>
     </eOperations>
     <eOperations name="removeAll"/>
+    <eOperations name="removeAll">
+      <eParameters name="monitor" eType="#//IProgressMonitor"/>
+    </eOperations>
     <eOperations name="removeDescriptor">
       <eParameters name="descriptor" eType="#//IArtifactDescriptor"/>
     </eOperations>
     <eOperations name="removeDescriptor">
+      <eParameters name="descriptor" eType="#//IArtifactDescriptor"/>
+      <eParameters name="monitor" eType="#//IProgressMonitor"/>
+    </eOperations>
+    <eOperations name="removeDescriptor">
       <eParameters name="key" eType="#//IArtifactKey"/>
+    </eOperations>
+    <eOperations name="removeDescriptor">
+      <eParameters name="key" eType="#//IArtifactKey"/>
+      <eParameters name="monitor" eType="#//IProgressMonitor"/>
+    </eOperations>
+    <eOperations name="removeDescriptors">
+      <eParameters name="descriptors" eType="#//IArtifactDescriptorArray"/>
+    </eOperations>
+    <eOperations name="removeDescriptors">
+      <eParameters name="descriptors" eType="#//IArtifactDescriptorArray"/>
+      <eParameters name="monitor" eType="#//IProgressMonitor"/>
+    </eOperations>
+    <eOperations name="removeDescriptors">
+      <eParameters name="keys" eType="#//IArtifactKeyArray"/>
+    </eOperations>
+    <eOperations name="removeDescriptors">
+      <eParameters name="keys" eType="#//IArtifactKeyArray"/>
+      <eParameters name="monitor" eType="#//IProgressMonitor"/>
     </eOperations>
     <eOperations name="executeBatch" eType="#//IStatus">
       <eParameters name="runnable" eType="#//IRunnableWithProgress"/>
@@ -264,6 +297,13 @@
       <eParameters name="runnable" eType="#//IRunnableWithProgress"/>
       <eParameters name="monitor" eType="#//IProgressMonitor"/>
     </eOperations>
+    <eOperations name="compress">
+      <eParameters name="iuPool">
+        <eGenericType eClassifier="#//IPool">
+          <eTypeArguments eClassifier="#//IInstallableUnit"/>
+        </eGenericType>
+      </eParameters>
+    </eOperations>
     <eGenericSuperTypes eClassifier="#//IRepository">
       <eTypeArguments eClassifier="#//IInstallableUnit"/>
     </eGenericSuperTypes>
@@ -299,6 +339,9 @@
   <eClassifiers xsi:type="ecore:EClass" name="IRepository" instanceClassName="org.eclipse.equinox.p2.repository.IRepository"
       abstract="true" interface="true">
     <eTypeParameters name="T"/>
+    <eOperations name="getProperty" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eParameters name="key" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eOperations>
     <eOperations name="getProperties">
       <eGenericType eClassifier="#//Map">
         <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String"/>
@@ -309,8 +352,10 @@
       <eParameters name="key" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eParameters name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eOperations>
-    <eOperations name="getProperty" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+    <eOperations name="setProperty" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eParameters name="key" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eParameters name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eParameters name="monitor" eType="#//IProgressMonitor"/>
     </eOperations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="location" lowerBound="1"
         eType="#//URI"/>
@@ -502,6 +547,10 @@
   <eClassifiers xsi:type="ecore:EDataType" name="IProvidedCapabilityArray" instanceClassName="org.eclipse.equinox.p2.metadata.IProvidedCapability[]"/>
   <eClassifiers xsi:type="ecore:EDataType" name="IProvisioningAgent" instanceClassName="org.eclipse.equinox.p2.core.IProvisioningAgent"/>
   <eClassifiers xsi:type="ecore:EDataType" name="IRequirementArrayArray" instanceClassName="org.eclipse.equinox.p2.metadata.IRequirement[][]"/>
+  <eClassifiers xsi:type="ecore:EDataType" name="IPool" instanceClassName="org.eclipse.equinox.p2.core.IPool"
+      serializable="false">
+    <eTypeParameters name="T"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EDataType" name="IProcessingDescriptorArray" instanceClassName="org.eclipse.equinox.p2.repository.artifact.IProcessingStepDescriptor[]"/>
   <eClassifiers xsi:type="ecore:EDataType" name="IProgressMonitor" instanceClassName="org.eclipse.core.runtime.IProgressMonitor"
       serializable="false"/>

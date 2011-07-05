@@ -48,6 +48,28 @@ public class P2Utils {
 			agent.stop();
 	}
 
+	public static String filterToString(IMatchExpression<IInstallableUnit> filter) {
+		if(filter == null)
+			return null;
+
+		Object[] params = filter.getParameters();
+		if(params.length == 1) {
+			Object param = params[0];
+			if(param instanceof LDAPFilter) {
+				IExpression expr = ExpressionUtil.getOperand(filter);
+				if(expr.getExpressionType() == IExpression.TYPE_MATCHES) {
+					IExpression lhs = ExpressionUtil.getLHS(expr);
+					if(lhs.getExpressionType() == IExpression.TYPE_MEMBER &&
+							"properties".equals(ExpressionUtil.getName(lhs)) &&
+							ExpressionUtil.getRHS(expr).getExpressionType() == IExpression.TYPE_PARAMETER) {
+						return "LDAP Filter: " + param.toString();
+					}
+				}
+			}
+		}
+		return filter.toString();
+	}
+
 	public static IPlanner getPlanner(IProvisioningAgent agent) {
 		return getP2Service(agent, IPlanner.class);
 	}
@@ -120,28 +142,6 @@ public class P2Utils {
 		}
 
 		throw new RuntimeException("p2 service " + clazz.getName() + "not available");
-	}
-
-	public static String filterToString(IMatchExpression<IInstallableUnit> filter) {
-		if(filter == null)
-			return null;
-	
-		Object[] params = filter.getParameters();
-		if(params.length == 1) {
-			Object param = params[0];
-			if(param instanceof LDAPFilter) {
-				IExpression expr = ExpressionUtil.getOperand(filter);
-				if(expr.getExpressionType() == IExpression.TYPE_MATCHES) {
-					IExpression lhs = ExpressionUtil.getLHS(expr);
-					if(lhs.getExpressionType() == IExpression.TYPE_MEMBER &&
-							"properties".equals(ExpressionUtil.getName(lhs)) &&
-							ExpressionUtil.getRHS(expr).getExpressionType() == IExpression.TYPE_PARAMETER) {
-						return "LDAP Filter: " + param.toString();
-					}
-				}
-			}
-		}
-		return filter.toString();
 	}
 
 }

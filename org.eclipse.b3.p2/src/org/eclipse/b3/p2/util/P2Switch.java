@@ -6,7 +6,6 @@
  */
 package org.eclipse.b3.p2.util;
 
-import java.util.List;
 import java.util.Map;
 
 import org.eclipse.b3.p2.ArtifactDescriptor;
@@ -35,8 +34,9 @@ import org.eclipse.b3.p2.TouchpointType;
 import org.eclipse.b3.p2.UpdateDescriptor;
 import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.emf.common.util.EList;
-import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EPackage;
+import org.eclipse.emf.ecore.util.Switch;
 import org.eclipse.equinox.internal.p2.metadata.IRequiredCapability;
 import org.eclipse.equinox.p2.metadata.IArtifactKey;
 import org.eclipse.equinox.p2.metadata.ICopyright;
@@ -75,7 +75,7 @@ import org.eclipse.equinox.p2.repository.metadata.IMetadataRepository;
  * @see org.eclipse.b3.p2.P2Package
  * @generated
  */
-public class P2Switch<T1> {
+public class P2Switch<T1> extends Switch<T1> {
 	/**
 	 * The cached model package
 	 * <!-- begin-user-doc -->
@@ -978,6 +978,7 @@ public class P2Switch<T1> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject)
 	 * @generated
 	 */
+	@Override
 	public T1 defaultCase(EObject object) {
 		return null;
 	}
@@ -990,38 +991,7 @@ public class P2Switch<T1> {
 	 * @return the first non-null result returned by a <code>caseXXX</code> call.
 	 * @generated
 	 */
-	public T1 doSwitch(EObject theEObject) {
-		return doSwitch(theEObject.eClass(), theEObject);
-	}
-
-	/**
-	 * Calls <code>caseXXX</code> for each class of the model until one returns a non null result; it yields that result.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @return the first non-null result returned by a <code>caseXXX</code> call.
-	 * @generated
-	 */
-	protected T1 doSwitch(EClass theEClass, EObject theEObject) {
-		if(theEClass.eContainer() == modelPackage) {
-			return doSwitch(theEClass.getClassifierID(), theEObject);
-		}
-		else {
-			List<EClass> eSuperTypes = theEClass.getESuperTypes();
-			return eSuperTypes.isEmpty()
-					? defaultCase(theEObject)
-					: doSwitch(eSuperTypes.get(0), theEObject);
-		}
-	}
-
-	/**
-	 * Calls <code>caseXXX</code> for each class of the model until one returns a non null result; it yields that result.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @return the first non-null result returned by a <code>caseXXX</code> call.
-	 * @generated
-	 */
+	@Override
 	protected T1 doSwitch(int classifierID, EObject theEObject) {
 		switch(classifierID) {
 			case P2Package.ARTIFACT_KEY: {
@@ -1314,6 +1284,20 @@ public class P2Switch<T1> {
 			default:
 				return defaultCase(theEObject);
 		}
+	}
+
+	/**
+	 * Checks whether this is a switch for the given package.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @parameter ePackage the package in question.
+	 * @return whether this is a switch for the given package.
+	 * @generated
+	 */
+	@Override
+	protected boolean isSwitchFor(EPackage ePackage) {
+		return ePackage == modelPackage;
 	}
 
 } // P2Switch
