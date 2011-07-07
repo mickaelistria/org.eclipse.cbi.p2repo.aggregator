@@ -30,11 +30,20 @@ import org.eclipse.emf.common.util.EList;
  * </ul>
  * </p>
  * 
- * @see org.eclipse.b3.aggregator.AggregatorPackage#getAggregator()
+ * @see org.eclipse.b3.aggregator.AggregatorPackage#getAggregation()
  * @model
  * @generated
  */
 public interface Aggregation extends DescriptionProvider, StatusProvider, InfosProvider {
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @model
+	 * @generated
+	 */
+	EList<Contribution> getAllContributions(boolean enabledOnly);
+
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -77,40 +86,6 @@ public interface Aggregation extends DescriptionProvider, StatusProvider, InfosP
 	String getBuildRoot();
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @model
-	 * @generated
-	 */
-	EList<Contribution> getValidationSetContributions(ValidationSet validationSet);
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @model
-	 * @generated
-	 */
-	EList<Contribution> getValidationSetContributions(ValidationSet validationSet, boolean enabledOnly);
-
-	/**
-	 * Returns the value of the '<em><b>Validation Sets</b></em>' containment reference list.
-	 * The list contents are of type {@link org.eclipse.b3.aggregator.ValidationSet}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>ValidationSets</em>' containment reference list isn't clear, there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * 
-	 * @return the value of the '<em>Validation Sets</em>' containment reference list.
-	 * @see org.eclipse.b3.aggregator.AggregatorPackage#getAggregation_ValidationSets()
-	 * @model containment="true" resolveProxies="true" keys="label"
-	 * @generated
-	 */
-	EList<ValidationSet> getValidationSets();
-
-	/**
 	 * Returns the value of the '<em><b>Configurations</b></em>' containment reference list.
 	 * The list contents are of type {@link org.eclipse.b3.aggregator.Configuration}.
 	 * <!-- begin-user-doc -->
@@ -129,7 +104,7 @@ public interface Aggregation extends DescriptionProvider, StatusProvider, InfosP
 	/**
 	 * Returns the value of the '<em><b>Contacts</b></em>' containment reference list.
 	 * The list contents are of type {@link org.eclipse.b3.aggregator.Contact}.
-	 * It is bidirectional and its opposite is '{@link org.eclipse.b3.aggregator.Contact#getAggregator <em>Aggregator</em>}'.
+	 * It is bidirectional and its opposite is '{@link org.eclipse.b3.aggregator.Contact#getAggregation <em>Aggregation</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Contacts</em>' containment reference list isn't clear, there really should be more of a description here...
@@ -138,35 +113,11 @@ public interface Aggregation extends DescriptionProvider, StatusProvider, InfosP
 	 * 
 	 * @return the value of the '<em>Contacts</em>' containment reference list.
 	 * @see org.eclipse.b3.aggregator.AggregatorPackage#getAggregation_Contacts()
-	 * @see org.eclipse.b3.aggregator.Contact#getAggregator
-	 * @model opposite="aggregator" containment="true" resolveProxies="true" keys="email"
+	 * @see org.eclipse.b3.aggregator.Contact#getAggregation
+	 * @model opposite="aggregation" containment="true" resolveProxies="true" keys="email"
 	 * @generated
 	 */
 	EList<Contact> getContacts();
-
-	/**
-	 * Returns the value of the '<em><b>Contributions</b></em>' containment reference list.
-	 * The list contents are of type {@link org.eclipse.b3.aggregator.Contribution}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Contributions</em>' containment reference list isn't clear, there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * 
-	 * @return the value of the '<em>Contributions</em>' containment reference list.
-	 * @see org.eclipse.b3.aggregator.AggregatorPackage#getAggregation_Contributions()
-	 * @model containment="true" resolveProxies="true" keys="label"
-	 * @generated
-	 */
-	EList<Contribution> getContributions();
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @model
-	 * @generated
-	 */
-	EList<Contribution> getContributions(boolean enabledOnly);
 
 	/**
 	 * Returns the value of the '<em><b>Custom Categories</b></em>' containment reference list.
@@ -253,29 +204,29 @@ public interface Aggregation extends DescriptionProvider, StatusProvider, InfosP
 	AggregationType getType();
 
 	/**
-	 * Returns the value of the '<em><b>Validation Repositories</b></em>' containment reference list.
-	 * The list contents are of type {@link org.eclipse.b3.aggregator.MetadataRepositoryReference}.
+	 * Returns the value of the '<em><b>Validation Sets</b></em>' containment reference list.
+	 * The list contents are of type {@link org.eclipse.b3.aggregator.ValidationSet}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Validation Repositories</em>' containment reference list isn't clear, there really should be more of a description
-	 * here...
+	 * If the meaning of the '<em>ValidationSets</em>' containment reference list isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
-	 * @return the value of the '<em>Validation Repositories</em>' containment reference list.
-	 * @see org.eclipse.b3.aggregator.AggregatorPackage#getAggregation_ValidationRepositories()
-	 * @model containment="true" resolveProxies="true"
+	 * @return the value of the '<em>Validation Sets</em>' containment reference list.
+	 * @see org.eclipse.b3.aggregator.AggregatorPackage#getAggregation_ValidationSets()
+	 * @model containment="true" resolveProxies="true" keys="label"
 	 * @generated
 	 */
-	EList<MetadataRepositoryReference> getValidationRepositories();
+	EList<ValidationSet> getValidationSets();
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @model
 	 * @generated
 	 */
-	EList<MetadataRepositoryReference> getValidationRepositories(boolean enabledOnly);
+	EList<ValidationSet> getValidationSets(boolean enabledOnly);
 
 	/**
 	 * Returns the value of the '<em><b>Maven Result</b></em>' attribute.

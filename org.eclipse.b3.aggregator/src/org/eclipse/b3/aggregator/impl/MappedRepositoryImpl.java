@@ -411,12 +411,8 @@ public class MappedRepositoryImpl extends MetadataRepositoryReferenceImpl implem
 	}
 
 	@Override
-	public Aggregation getAggregator() {
-		Aggregation aggregator = (Aggregation) eContainer().eContainer();
-
-		return aggregator != null
-				? aggregator
-				: GeneralUtils.getAggregator(this);
+	public Aggregation getAggregation() {
+		return GeneralUtils.getAggregation(this);
 	}
 
 	/**
@@ -507,12 +503,10 @@ public class MappedRepositoryImpl extends MetadataRepositoryReferenceImpl implem
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
-	 * @generated
+	 * @generated NOT
 	 */
 	public String getIdentification() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		return getLocation();
 	}
 
 	/**
@@ -573,32 +567,24 @@ public class MappedRepositoryImpl extends MetadataRepositoryReferenceImpl implem
 	 */
 	public EList<MappedUnit> getUnits(boolean enabledOnly) {
 		EList<Category> categories = getCategories();
+		if(enabledOnly)
+			categories = GeneralUtils.getEnabled(categories);
 		EList<Product> products = getProducts();
+		if(enabledOnly)
+			products = GeneralUtils.getEnabled(products);
 		EList<Feature> features = getFeatures();
+		if(enabledOnly)
+			features = GeneralUtils.getEnabled(features);
 		EList<Bundle> bundles = getBundles();
+		if(enabledOnly)
+			bundles = GeneralUtils.getEnabled(bundles);
+
 		EList<MappedUnit> units = new BasicEList<MappedUnit>(categories.size() + products.size() + features.size() +
 				bundles.size());
-
-		if(enabledOnly) {
-			for(Category category : categories)
-				if(category.isEnabled())
-					units.add(category);
-			for(Product product : products)
-				if(product.isEnabled())
-					units.add(product);
-			for(Feature feature : features)
-				if(feature.isEnabled())
-					units.add(feature);
-			for(Bundle bundle : bundles)
-				if(bundle.isEnabled())
-					units.add(bundle);
-		}
-		else {
-			units.addAll(categories);
-			units.addAll(products);
-			units.addAll(features);
-			units.addAll(bundles);
-		}
+		units.addAll(categories);
+		units.addAll(products);
+		units.addAll(features);
+		units.addAll(bundles);
 		return units;
 	}
 
@@ -707,13 +693,5 @@ public class MappedRepositoryImpl extends MetadataRepositoryReferenceImpl implem
 		result.append(categoryPrefix);
 		result.append(')');
 		return result.toString();
-	}
-
-	public void updateAvailableVersions() {
-
-		for(Contribution contribution : GeneralUtils.getAggregator(this).getContributions())
-			for(MappedRepository mappedRepository : contribution.getRepositories())
-				for(MappedUnit unit : mappedRepository.getUnits(false))
-					unit.resolveAvailableVersions(true);
 	}
 } // MappedRepositoryImpl

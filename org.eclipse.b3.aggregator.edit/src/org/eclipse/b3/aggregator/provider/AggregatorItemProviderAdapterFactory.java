@@ -221,15 +221,6 @@ public class AggregatorItemProviderAdapterFactory extends AggregatorAdapterFacto
 	protected ValidationSetItemProvider validationSetItemProvider;
 
 	/**
-	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.aggregator.AggregatorResourceView} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	protected AggregatorResourceViewItemProvider aggregatorResourceViewItemProvider;
-
-	/**
 	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.aggregator.Aggregation} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -310,22 +301,6 @@ public class AggregatorItemProviderAdapterFactory extends AggregatorAdapterFacto
 	}
 
 	/**
-	 * This creates an adapter for a {@link org.eclipse.b3.aggregator.AggregatorResourceView}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	public Adapter createAggregatorResourceViewAdapter() {
-		if(aggregatorResourceViewItemProvider == null) {
-			aggregatorResourceViewItemProvider = new AggregatorResourceViewItemProvider(this);
-		}
-
-		return aggregatorResourceViewItemProvider;
-	}
-
-	/**
 	 * This creates an adapter for a {@link org.eclipse.b3.aggregator.AvailableVersion}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -387,22 +362,6 @@ public class AggregatorItemProviderAdapterFactory extends AggregatorAdapterFacto
 		}
 
 		return categoryItemProvider;
-	}
-
-	/**
-	 * This creates an adapter for a {@link org.eclipse.b3.aggregator.ValidationSet}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	public Adapter createValidationSetAdapter() {
-		if(validationSetItemProvider == null) {
-			validationSetItemProvider = new ValidationSetItemProvider(this);
-		}
-
-		return validationSetItemProvider;
 	}
 
 	/**
@@ -613,6 +572,22 @@ public class AggregatorItemProviderAdapterFactory extends AggregatorAdapterFacto
 	}
 
 	/**
+	 * This creates an adapter for a {@link org.eclipse.b3.aggregator.ValidationSet}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public Adapter createValidationSetAdapter() {
+		if(validationSetItemProvider == null) {
+			validationSetItemProvider = new ValidationSetItemProvider(this);
+		}
+
+		return validationSetItemProvider;
+	}
+
+	/**
 	 * This creates an adapter for a {@link org.eclipse.b3.aggregator.ValidConfigurationsRule}. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -636,46 +611,44 @@ public class AggregatorItemProviderAdapterFactory extends AggregatorAdapterFacto
 	public void dispose() {
 		if(aggregationItemProvider != null)
 			aggregationItemProvider.dispose();
-		if(validationSetItemProvider != null)
-			validationSetItemProvider.dispose();
-		if(mappedRepositoryItemProvider != null)
-			mappedRepositoryItemProvider.dispose();
-		if(configurationItemProvider != null)
-			configurationItemProvider.dispose();
-		if(contributionItemProvider != null)
-			contributionItemProvider.dispose();
-		if(contactItemProvider != null)
-			contactItemProvider.dispose();
-		if(featureItemProvider != null)
-			featureItemProvider.dispose();
-		if(bundleItemProvider != null)
-			bundleItemProvider.dispose();
-		if(productItemProvider != null)
-			productItemProvider.dispose();
-		if(propertyItemProvider != null)
-			propertyItemProvider.dispose();
-		if(categoryItemProvider != null)
-			categoryItemProvider.dispose();
-		if(customCategoryItemProvider != null)
-			customCategoryItemProvider.dispose();
-		if(exclusionRuleItemProvider != null)
-			exclusionRuleItemProvider.dispose();
-		if(validConfigurationsRuleItemProvider != null)
-			validConfigurationsRuleItemProvider.dispose();
-		if(metadataRepositoryReferenceItemProvider != null)
-			metadataRepositoryReferenceItemProvider.dispose();
-		if(descriptionProviderItemProvider != null)
-			descriptionProviderItemProvider.dispose();
-		if(mavenMappingItemProvider != null)
-			mavenMappingItemProvider.dispose();
-		if(mavenItemItemProvider != null)
-			mavenItemItemProvider.dispose();
 		if(availableVersionsHeaderItemProvider != null)
 			availableVersionsHeaderItemProvider.dispose();
 		if(availableVersionItemProvider != null)
 			availableVersionItemProvider.dispose();
-		if(aggregatorResourceViewItemProvider != null)
-			aggregatorResourceViewItemProvider.dispose();
+		if(bundleItemProvider != null)
+			bundleItemProvider.dispose();
+		if(categoryItemProvider != null)
+			categoryItemProvider.dispose();
+		if(configurationItemProvider != null)
+			configurationItemProvider.dispose();
+		if(contactItemProvider != null)
+			contactItemProvider.dispose();
+		if(contributionItemProvider != null)
+			contributionItemProvider.dispose();
+		if(featureItemProvider != null)
+			featureItemProvider.dispose();
+		if(customCategoryItemProvider != null)
+			customCategoryItemProvider.dispose();
+		if(descriptionProviderItemProvider != null)
+			descriptionProviderItemProvider.dispose();
+		if(exclusionRuleItemProvider != null)
+			exclusionRuleItemProvider.dispose();
+		if(mappedRepositoryItemProvider != null)
+			mappedRepositoryItemProvider.dispose();
+		if(mavenItemItemProvider != null)
+			mavenItemItemProvider.dispose();
+		if(mavenMappingItemProvider != null)
+			mavenMappingItemProvider.dispose();
+		if(metadataRepositoryReferenceItemProvider != null)
+			metadataRepositoryReferenceItemProvider.dispose();
+		if(productItemProvider != null)
+			productItemProvider.dispose();
+		if(propertyItemProvider != null)
+			propertyItemProvider.dispose();
+		if(validationSetItemProvider != null)
+			validationSetItemProvider.dispose();
+		if(validConfigurationsRuleItemProvider != null)
+			validConfigurationsRuleItemProvider.dispose();
 	}
 
 	/**

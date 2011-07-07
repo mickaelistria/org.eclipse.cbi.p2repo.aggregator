@@ -7,12 +7,10 @@
 package org.eclipse.b3.aggregator.impl;
 
 import java.lang.Comparable;
-import org.eclipse.b3.aggregator.ValidationSet;
-import org.eclipse.b3.aggregator.AggregationType;
 import org.eclipse.b3.aggregator.Aggregation;
+import org.eclipse.b3.aggregator.AggregationType;
 import org.eclipse.b3.aggregator.AggregatorFactory;
 import org.eclipse.b3.aggregator.AggregatorPackage;
-import org.eclipse.b3.aggregator.AggregatorResourceView;
 import org.eclipse.b3.aggregator.Architecture;
 import org.eclipse.b3.aggregator.AvailableVersion;
 import org.eclipse.b3.aggregator.AvailableVersionsHeader;
@@ -32,8 +30,6 @@ import org.eclipse.b3.aggregator.InfosProvider;
 import org.eclipse.b3.aggregator.InstallableUnitRequest;
 import org.eclipse.b3.aggregator.InstallableUnitType;
 import org.eclipse.b3.aggregator.LabelProvider;
-import org.eclipse.b3.aggregator.LinkReceiver;
-import org.eclipse.b3.aggregator.LinkSource;
 import org.eclipse.b3.aggregator.MapRule;
 import org.eclipse.b3.aggregator.MappedRepository;
 import org.eclipse.b3.aggregator.MappedUnit;
@@ -48,6 +44,7 @@ import org.eclipse.b3.aggregator.Status;
 import org.eclipse.b3.aggregator.StatusCode;
 import org.eclipse.b3.aggregator.StatusProvider;
 import org.eclipse.b3.aggregator.ValidConfigurationsRule;
+import org.eclipse.b3.aggregator.ValidationSet;
 import org.eclipse.b3.aggregator.VersionMatch;
 import org.eclipse.b3.aggregator.WindowSystem;
 import org.eclipse.b3.aggregator.p2view.P2viewPackage;
@@ -290,30 +287,6 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 	 * 
 	 * @generated
 	 */
-	private EClass linkSourceEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	private EClass linkReceiverEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	private EClass aggregatorResourceViewEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
 	private EEnum aggregationTypeEEnum = null;
 
 	/**
@@ -477,7 +450,6 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 		aggregationEClass = createEClass(AGGREGATION);
 		createEReference(aggregationEClass, AGGREGATION__VALIDATION_SETS);
 		createEReference(aggregationEClass, AGGREGATION__CONFIGURATIONS);
-		createEReference(aggregationEClass, AGGREGATION__CONTRIBUTIONS);
 		createEReference(aggregationEClass, AGGREGATION__CUSTOM_CATEGORIES);
 		createEReference(aggregationEClass, AGGREGATION__CONTACTS);
 		createEReference(aggregationEClass, AGGREGATION__BUILDMASTER);
@@ -487,114 +459,7 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 		createEAttribute(aggregationEClass, AGGREGATION__SENDMAIL);
 		createEAttribute(aggregationEClass, AGGREGATION__TYPE);
 		createEAttribute(aggregationEClass, AGGREGATION__MAVEN_RESULT);
-		createEReference(aggregationEClass, AGGREGATION__VALIDATION_REPOSITORIES);
 		createEReference(aggregationEClass, AGGREGATION__MAVEN_MAPPINGS);
-
-		validationSetEClass = createEClass(VALIDATION_SET);
-		createEAttribute(validationSetEClass, VALIDATION_SET__LABEL);
-
-		mappedRepositoryEClass = createEClass(MAPPED_REPOSITORY);
-		createEReference(mappedRepositoryEClass, MAPPED_REPOSITORY__PRODUCTS);
-		createEReference(mappedRepositoryEClass, MAPPED_REPOSITORY__BUNDLES);
-		createEReference(mappedRepositoryEClass, MAPPED_REPOSITORY__FEATURES);
-		createEReference(mappedRepositoryEClass, MAPPED_REPOSITORY__CATEGORIES);
-		createEAttribute(mappedRepositoryEClass, MAPPED_REPOSITORY__MIRROR_ARTIFACTS);
-		createEAttribute(mappedRepositoryEClass, MAPPED_REPOSITORY__CATEGORY_PREFIX);
-		createEReference(mappedRepositoryEClass, MAPPED_REPOSITORY__MAP_RULES);
-
-		configurationEClass = createEClass(CONFIGURATION);
-		createEAttribute(configurationEClass, CONFIGURATION__OPERATING_SYSTEM);
-		createEAttribute(configurationEClass, CONFIGURATION__WINDOW_SYSTEM);
-		createEAttribute(configurationEClass, CONFIGURATION__ARCHITECTURE);
-
-		contributionEClass = createEClass(CONTRIBUTION);
-		createEAttribute(contributionEClass, CONTRIBUTION__LABEL);
-		createEReference(contributionEClass, CONTRIBUTION__REPOSITORIES);
-		createEReference(contributionEClass, CONTRIBUTION__CONTACTS);
-		createEReference(contributionEClass, CONTRIBUTION__MAVEN_MAPPINGS);
-
-		contactEClass = createEClass(CONTACT);
-		createEAttribute(contactEClass, CONTACT__NAME);
-		createEAttribute(contactEClass, CONTACT__EMAIL);
-		createEReference(contactEClass, CONTACT__AGGREGATOR);
-
-		featureEClass = createEClass(FEATURE);
-		createEReference(featureEClass, FEATURE__CATEGORIES);
-
-		bundleEClass = createEClass(BUNDLE);
-
-		mappedUnitEClass = createEClass(MAPPED_UNIT);
-		createEReference(mappedUnitEClass, MAPPED_UNIT__VALID_CONFIGURATIONS);
-
-		productEClass = createEClass(PRODUCT);
-
-		propertyEClass = createEClass(PROPERTY);
-		createEAttribute(propertyEClass, PROPERTY__KEY);
-		createEAttribute(propertyEClass, PROPERTY__VALUE);
-
-		categoryEClass = createEClass(CATEGORY);
-		createEAttribute(categoryEClass, CATEGORY__LABEL_OVERRIDE);
-
-		customCategoryEClass = createEClass(CUSTOM_CATEGORY);
-		createEAttribute(customCategoryEClass, CUSTOM_CATEGORY__IDENTIFIER);
-		createEAttribute(customCategoryEClass, CUSTOM_CATEGORY__LABEL);
-		createEAttribute(customCategoryEClass, CUSTOM_CATEGORY__DESCRIPTION);
-		createEReference(customCategoryEClass, CUSTOM_CATEGORY__FEATURES);
-
-		enabledStatusProviderEClass = createEClass(ENABLED_STATUS_PROVIDER);
-		createEAttribute(enabledStatusProviderEClass, ENABLED_STATUS_PROVIDER__ENABLED);
-
-		mapRuleEClass = createEClass(MAP_RULE);
-
-		installableUnitRequestEClass = createEClass(INSTALLABLE_UNIT_REQUEST);
-		createEAttribute(installableUnitRequestEClass, INSTALLABLE_UNIT_REQUEST__NAME);
-		createEAttribute(installableUnitRequestEClass, INSTALLABLE_UNIT_REQUEST__VERSION_RANGE);
-		createEReference(installableUnitRequestEClass, INSTALLABLE_UNIT_REQUEST__AVAILABLE_VERSIONS_HEADER);
-		createEReference(installableUnitRequestEClass, INSTALLABLE_UNIT_REQUEST__AVAILABLE_VERSIONS);
-
-		exclusionRuleEClass = createEClass(EXCLUSION_RULE);
-
-		validConfigurationsRuleEClass = createEClass(VALID_CONFIGURATIONS_RULE);
-		createEReference(validConfigurationsRuleEClass, VALID_CONFIGURATIONS_RULE__VALID_CONFIGURATIONS);
-
-		metadataRepositoryReferenceEClass = createEClass(METADATA_REPOSITORY_REFERENCE);
-		createEReference(metadataRepositoryReferenceEClass, METADATA_REPOSITORY_REFERENCE__METADATA_REPOSITORY);
-		createEAttribute(metadataRepositoryReferenceEClass, METADATA_REPOSITORY_REFERENCE__LOCATION);
-		createEAttribute(metadataRepositoryReferenceEClass, METADATA_REPOSITORY_REFERENCE__NATURE);
-
-		comparableEClass = createEClass(COMPARABLE);
-
-		labelProviderEClass = createEClass(LABEL_PROVIDER);
-		createEAttribute(labelProviderEClass, LABEL_PROVIDER__LABEL);
-
-		descriptionProviderEClass = createEClass(DESCRIPTION_PROVIDER);
-		createEAttribute(descriptionProviderEClass, DESCRIPTION_PROVIDER__DESCRIPTION);
-
-		identificationProviderEClass = createEClass(IDENTIFICATION_PROVIDER);
-
-		mavenMappingEClass = createEClass(MAVEN_MAPPING);
-		createEAttribute(mavenMappingEClass, MAVEN_MAPPING__NAME_PATTERN);
-		createEAttribute(mavenMappingEClass, MAVEN_MAPPING__GROUP_ID);
-		createEAttribute(mavenMappingEClass, MAVEN_MAPPING__ARTIFACT_ID);
-
-		mavenItemEClass = createEClass(MAVEN_ITEM);
-		createEAttribute(mavenItemEClass, MAVEN_ITEM__GROUP_ID);
-		createEAttribute(mavenItemEClass, MAVEN_ITEM__ARTIFACT_ID);
-
-		childrenProviderEClass = createEClass(CHILDREN_PROVIDER);
-		createEReference(childrenProviderEClass, CHILDREN_PROVIDER__CHILDREN);
-
-		statusEClass = createEClass(STATUS);
-		createEAttribute(statusEClass, STATUS__CODE);
-		createEAttribute(statusEClass, STATUS__MESSAGE);
-
-		statusProviderEClass = createEClass(STATUS_PROVIDER);
-		createEReference(statusProviderEClass, STATUS_PROVIDER__STATUS);
-
-		infosProviderEClass = createEClass(INFOS_PROVIDER);
-		createEAttribute(infosProviderEClass, INFOS_PROVIDER__ERRORS);
-		createEAttribute(infosProviderEClass, INFOS_PROVIDER__WARNINGS);
-		createEAttribute(infosProviderEClass, INFOS_PROVIDER__INFOS);
 
 		availableVersionsHeaderEClass = createEClass(AVAILABLE_VERSIONS_HEADER);
 		createEReference(availableVersionsHeaderEClass, AVAILABLE_VERSIONS_HEADER__AVAILABLE_VERSIONS);
@@ -605,24 +470,125 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 		createEAttribute(availableVersionEClass, AVAILABLE_VERSION__VERSION);
 		createEAttribute(availableVersionEClass, AVAILABLE_VERSION__FILTER);
 
-		linkSourceEClass = createEClass(LINK_SOURCE);
-		createEReference(linkSourceEClass, LINK_SOURCE__RECEIVER);
+		bundleEClass = createEClass(BUNDLE);
 
-		linkReceiverEClass = createEClass(LINK_RECEIVER);
+		categoryEClass = createEClass(CATEGORY);
+		createEAttribute(categoryEClass, CATEGORY__LABEL_OVERRIDE);
 
-		aggregatorResourceViewEClass = createEClass(AGGREGATOR_RESOURCE_VIEW);
-		createEReference(aggregatorResourceViewEClass, AGGREGATOR_RESOURCE_VIEW__AGGREGATOR);
-		createEReference(aggregatorResourceViewEClass, AGGREGATOR_RESOURCE_VIEW__VALIDATION_SETS);
+		childrenProviderEClass = createEClass(CHILDREN_PROVIDER);
+		createEReference(childrenProviderEClass, CHILDREN_PROVIDER__CHILDREN);
+
+		configurationEClass = createEClass(CONFIGURATION);
+		createEAttribute(configurationEClass, CONFIGURATION__OPERATING_SYSTEM);
+		createEAttribute(configurationEClass, CONFIGURATION__WINDOW_SYSTEM);
+		createEAttribute(configurationEClass, CONFIGURATION__ARCHITECTURE);
+
+		contactEClass = createEClass(CONTACT);
+		createEAttribute(contactEClass, CONTACT__NAME);
+		createEAttribute(contactEClass, CONTACT__EMAIL);
+		createEReference(contactEClass, CONTACT__AGGREGATION);
+
+		contributionEClass = createEClass(CONTRIBUTION);
+		createEAttribute(contributionEClass, CONTRIBUTION__LABEL);
+		createEReference(contributionEClass, CONTRIBUTION__REPOSITORIES);
+		createEReference(contributionEClass, CONTRIBUTION__CONTACTS);
+		createEReference(contributionEClass, CONTRIBUTION__MAVEN_MAPPINGS);
+
+		featureEClass = createEClass(FEATURE);
+		createEReference(featureEClass, FEATURE__CATEGORIES);
+
+		comparableEClass = createEClass(COMPARABLE);
+
+		customCategoryEClass = createEClass(CUSTOM_CATEGORY);
+		createEAttribute(customCategoryEClass, CUSTOM_CATEGORY__IDENTIFIER);
+		createEAttribute(customCategoryEClass, CUSTOM_CATEGORY__LABEL);
+		createEAttribute(customCategoryEClass, CUSTOM_CATEGORY__DESCRIPTION);
+		createEReference(customCategoryEClass, CUSTOM_CATEGORY__FEATURES);
+
+		descriptionProviderEClass = createEClass(DESCRIPTION_PROVIDER);
+		createEAttribute(descriptionProviderEClass, DESCRIPTION_PROVIDER__DESCRIPTION);
+
+		enabledStatusProviderEClass = createEClass(ENABLED_STATUS_PROVIDER);
+		createEAttribute(enabledStatusProviderEClass, ENABLED_STATUS_PROVIDER__ENABLED);
+
+		exclusionRuleEClass = createEClass(EXCLUSION_RULE);
+
+		identificationProviderEClass = createEClass(IDENTIFICATION_PROVIDER);
+
+		infosProviderEClass = createEClass(INFOS_PROVIDER);
+		createEAttribute(infosProviderEClass, INFOS_PROVIDER__ERRORS);
+		createEAttribute(infosProviderEClass, INFOS_PROVIDER__WARNINGS);
+		createEAttribute(infosProviderEClass, INFOS_PROVIDER__INFOS);
+
+		installableUnitRequestEClass = createEClass(INSTALLABLE_UNIT_REQUEST);
+		createEAttribute(installableUnitRequestEClass, INSTALLABLE_UNIT_REQUEST__NAME);
+		createEAttribute(installableUnitRequestEClass, INSTALLABLE_UNIT_REQUEST__VERSION_RANGE);
+		createEReference(installableUnitRequestEClass, INSTALLABLE_UNIT_REQUEST__AVAILABLE_VERSIONS_HEADER);
+		createEReference(installableUnitRequestEClass, INSTALLABLE_UNIT_REQUEST__AVAILABLE_VERSIONS);
+
+		labelProviderEClass = createEClass(LABEL_PROVIDER);
+		createEAttribute(labelProviderEClass, LABEL_PROVIDER__LABEL);
+
+		mappedRepositoryEClass = createEClass(MAPPED_REPOSITORY);
+		createEReference(mappedRepositoryEClass, MAPPED_REPOSITORY__PRODUCTS);
+		createEReference(mappedRepositoryEClass, MAPPED_REPOSITORY__BUNDLES);
+		createEReference(mappedRepositoryEClass, MAPPED_REPOSITORY__FEATURES);
+		createEReference(mappedRepositoryEClass, MAPPED_REPOSITORY__CATEGORIES);
+		createEAttribute(mappedRepositoryEClass, MAPPED_REPOSITORY__MIRROR_ARTIFACTS);
+		createEAttribute(mappedRepositoryEClass, MAPPED_REPOSITORY__CATEGORY_PREFIX);
+		createEReference(mappedRepositoryEClass, MAPPED_REPOSITORY__MAP_RULES);
+
+		mappedUnitEClass = createEClass(MAPPED_UNIT);
+		createEReference(mappedUnitEClass, MAPPED_UNIT__VALID_CONFIGURATIONS);
+
+		mapRuleEClass = createEClass(MAP_RULE);
+
+		mavenItemEClass = createEClass(MAVEN_ITEM);
+		createEAttribute(mavenItemEClass, MAVEN_ITEM__GROUP_ID);
+		createEAttribute(mavenItemEClass, MAVEN_ITEM__ARTIFACT_ID);
+
+		mavenMappingEClass = createEClass(MAVEN_MAPPING);
+		createEAttribute(mavenMappingEClass, MAVEN_MAPPING__NAME_PATTERN);
+		createEAttribute(mavenMappingEClass, MAVEN_MAPPING__GROUP_ID);
+		createEAttribute(mavenMappingEClass, MAVEN_MAPPING__ARTIFACT_ID);
+
+		metadataRepositoryReferenceEClass = createEClass(METADATA_REPOSITORY_REFERENCE);
+		createEReference(metadataRepositoryReferenceEClass, METADATA_REPOSITORY_REFERENCE__METADATA_REPOSITORY);
+		createEAttribute(metadataRepositoryReferenceEClass, METADATA_REPOSITORY_REFERENCE__LOCATION);
+		createEAttribute(metadataRepositoryReferenceEClass, METADATA_REPOSITORY_REFERENCE__NATURE);
+
+		productEClass = createEClass(PRODUCT);
+
+		propertyEClass = createEClass(PROPERTY);
+		createEAttribute(propertyEClass, PROPERTY__KEY);
+		createEAttribute(propertyEClass, PROPERTY__VALUE);
+
+		statusEClass = createEClass(STATUS);
+		createEAttribute(statusEClass, STATUS__CODE);
+		createEAttribute(statusEClass, STATUS__MESSAGE);
+
+		statusProviderEClass = createEClass(STATUS_PROVIDER);
+		createEReference(statusProviderEClass, STATUS_PROVIDER__STATUS);
+
+		validationSetEClass = createEClass(VALIDATION_SET);
+		createEAttribute(validationSetEClass, VALIDATION_SET__ABSTRACT);
+		createEAttribute(validationSetEClass, VALIDATION_SET__LABEL);
+		createEReference(validationSetEClass, VALIDATION_SET__CONTRIBUTIONS);
+		createEReference(validationSetEClass, VALIDATION_SET__VALIDATION_REPOSITORIES);
+		createEReference(validationSetEClass, VALIDATION_SET__EXTENDS);
+
+		validConfigurationsRuleEClass = createEClass(VALID_CONFIGURATIONS_RULE);
+		createEReference(validConfigurationsRuleEClass, VALID_CONFIGURATIONS_RULE__VALID_CONFIGURATIONS);
 
 		// Create enums
 		aggregationTypeEEnum = createEEnum(AGGREGATION_TYPE);
-		operatingSystemEEnum = createEEnum(OPERATING_SYSTEM);
-		windowSystemEEnum = createEEnum(WINDOW_SYSTEM);
 		architectureEEnum = createEEnum(ARCHITECTURE);
-		packedStrategyEEnum = createEEnum(PACKED_STRATEGY);
 		installableUnitTypeEEnum = createEEnum(INSTALLABLE_UNIT_TYPE);
+		operatingSystemEEnum = createEEnum(OPERATING_SYSTEM);
+		packedStrategyEEnum = createEEnum(PACKED_STRATEGY);
 		statusCodeEEnum = createEEnum(STATUS_CODE);
 		versionMatchEEnum = createEEnum(VERSION_MATCH);
+		windowSystemEEnum = createEEnum(WINDOW_SYSTEM);
 	}
 
 	/**
@@ -642,7 +608,7 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 	 * @generated
 	 */
 	public EReference getAggregation_Buildmaster() {
-		return (EReference) aggregationEClass.getEStructuralFeatures().get(5);
+		return (EReference) aggregationEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -652,17 +618,7 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 	 * @generated
 	 */
 	public EAttribute getAggregation_BuildRoot() {
-		return (EAttribute) aggregationEClass.getEStructuralFeatures().get(7);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	public EReference getAggregation_ValidationSets() {
-		return (EReference) aggregationEClass.getEStructuralFeatures().get(0);
+		return (EAttribute) aggregationEClass.getEStructuralFeatures().get(6);
 	}
 
 	/**
@@ -682,26 +638,6 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 	 * @generated
 	 */
 	public EReference getAggregation_Contacts() {
-		return (EReference) aggregationEClass.getEStructuralFeatures().get(4);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	public EReference getAggregation_Contributions() {
-		return (EReference) aggregationEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	public EReference getAggregation_CustomCategories() {
 		return (EReference) aggregationEClass.getEStructuralFeatures().get(3);
 	}
 
@@ -711,8 +647,18 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 	 * 
 	 * @generated
 	 */
+	public EReference getAggregation_CustomCategories() {
+		return (EReference) aggregationEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
 	public EAttribute getAggregation_Label() {
-		return (EAttribute) aggregationEClass.getEStructuralFeatures().get(6);
+		return (EAttribute) aggregationEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -722,7 +668,7 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 	 * @generated
 	 */
 	public EReference getAggregation_MavenMappings() {
-		return (EReference) aggregationEClass.getEStructuralFeatures().get(13);
+		return (EReference) aggregationEClass.getEStructuralFeatures().get(11);
 	}
 
 	/**
@@ -732,36 +678,6 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 	 * @generated
 	 */
 	public EAttribute getAggregation_MavenResult() {
-		return (EAttribute) aggregationEClass.getEStructuralFeatures().get(11);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	public EAttribute getAggregation_PackedStrategy() {
-		return (EAttribute) aggregationEClass.getEStructuralFeatures().get(8);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	public EAttribute getAggregation_Sendmail() {
-		return (EAttribute) aggregationEClass.getEStructuralFeatures().get(9);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	public EAttribute getAggregation_Type() {
 		return (EAttribute) aggregationEClass.getEStructuralFeatures().get(10);
 	}
 
@@ -771,8 +687,38 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 	 * 
 	 * @generated
 	 */
-	public EReference getAggregation_ValidationRepositories() {
-		return (EReference) aggregationEClass.getEStructuralFeatures().get(12);
+	public EAttribute getAggregation_PackedStrategy() {
+		return (EAttribute) aggregationEClass.getEStructuralFeatures().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EAttribute getAggregation_Sendmail() {
+		return (EAttribute) aggregationEClass.getEStructuralFeatures().get(8);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EAttribute getAggregation_Type() {
+		return (EAttribute) aggregationEClass.getEStructuralFeatures().get(9);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EReference getAggregation_ValidationSets() {
+		return (EReference) aggregationEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -792,36 +738,6 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 	 */
 	public AggregatorFactory getAggregatorFactory() {
 		return (AggregatorFactory) getEFactoryInstance();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	public EClass getAggregatorResourceView() {
-		return aggregatorResourceViewEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	public EReference getAggregatorResourceView_Aggregator() {
-		return (EReference) aggregatorResourceViewEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	public EReference getAggregatorResourceView_ValidationSets() {
-		return (EReference) aggregatorResourceViewEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -958,26 +874,6 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	public EClass getValidationSet() {
-		return validationSetEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	public EAttribute getValidationSet_Label() {
-		return (EAttribute) validationSetEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
@@ -1023,11 +919,12 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 */
-	public EReference getContact_Aggregator() {
+	public EReference getContact_Aggregation() {
 		return (EReference) contactEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -1323,36 +1220,6 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 	 */
 	public EAttribute getLabelProvider_Label() {
 		return (EAttribute) labelProviderEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	public EClass getLinkReceiver() {
-		return linkReceiverEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	public EClass getLinkSource() {
-		return linkSourceEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	public EReference getLinkSource_Receiver() {
-		return (EReference) linkSourceEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -1662,6 +1529,66 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EClass getValidationSet() {
+		return validationSetEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EAttribute getValidationSet_Abstract() {
+		return (EAttribute) validationSetEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EReference getValidationSet_Contributions() {
+		return (EReference) validationSetEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EReference getValidationSet_Extends() {
+		return (EReference) validationSetEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EAttribute getValidationSet_Label() {
+		return (EAttribute) validationSetEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EReference getValidationSet_ValidationRepositories() {
+		return (EReference) validationSetEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
@@ -1724,8 +1651,8 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 		getESubpackages().add(theP2viewPackage);
 
 		// Create type parameters
-		addETypeParameter(comparableEClass, "T");
 		ETypeParameter childrenProviderEClass_T = addETypeParameter(childrenProviderEClass, "T");
+		addETypeParameter(comparableEClass, "T");
 
 		// Set bounds for type parameters
 
@@ -1733,46 +1660,44 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 		aggregationEClass.getESuperTypes().add(this.getDescriptionProvider());
 		aggregationEClass.getESuperTypes().add(this.getStatusProvider());
 		aggregationEClass.getESuperTypes().add(this.getInfosProvider());
-		validationSetEClass.getESuperTypes().add(this.getEnabledStatusProvider());
-		validationSetEClass.getESuperTypes().add(this.getDescriptionProvider());
-		validationSetEClass.getESuperTypes().add(this.getStatusProvider());
-		validationSetEClass.getESuperTypes().add(this.getInfosProvider());
-		validationSetEClass.getESuperTypes().add(this.getLinkReceiver());
-		mappedRepositoryEClass.getESuperTypes().add(this.getMetadataRepositoryReference());
-		mappedRepositoryEClass.getESuperTypes().add(this.getDescriptionProvider());
-		mappedRepositoryEClass.getESuperTypes().add(this.getIdentificationProvider());
+		bundleEClass.getESuperTypes().add(this.getMappedUnit());
+		categoryEClass.getESuperTypes().add(this.getMappedUnit());
 		configurationEClass.getESuperTypes().add(this.getEnabledStatusProvider());
 		contributionEClass.getESuperTypes().add(this.getEnabledStatusProvider());
 		contributionEClass.getESuperTypes().add(this.getDescriptionProvider());
 		contributionEClass.getESuperTypes().add(this.getStatusProvider());
 		contributionEClass.getESuperTypes().add(this.getInfosProvider());
-		contributionEClass.getESuperTypes().add(this.getLinkSource());
 		contributionEClass.getESuperTypes().add(this.getIdentificationProvider());
 		featureEClass.getESuperTypes().add(this.getMappedUnit());
-		bundleEClass.getESuperTypes().add(this.getMappedUnit());
+		customCategoryEClass.getESuperTypes().add(this.getStatusProvider());
+		customCategoryEClass.getESuperTypes().add(this.getInfosProvider());
+		exclusionRuleEClass.getESuperTypes().add(this.getMapRule());
+		installableUnitRequestEClass.getESuperTypes().add(this.getStatusProvider());
+		installableUnitRequestEClass.getESuperTypes().add(this.getInfosProvider());
+		installableUnitRequestEClass.getESuperTypes().add(this.getDescriptionProvider());
+		mappedRepositoryEClass.getESuperTypes().add(this.getMetadataRepositoryReference());
+		mappedRepositoryEClass.getESuperTypes().add(this.getDescriptionProvider());
+		mappedRepositoryEClass.getESuperTypes().add(this.getIdentificationProvider());
 		mappedUnitEClass.getESuperTypes().add(this.getInstallableUnitRequest());
 		mappedUnitEClass.getESuperTypes().add(this.getEnabledStatusProvider());
 		mappedUnitEClass.getESuperTypes().add(this.getIdentificationProvider());
+		mapRuleEClass.getESuperTypes().add(this.getInstallableUnitRequest());
+		mapRuleEClass.getESuperTypes().add(this.getDescriptionProvider());
+		mavenMappingEClass.getESuperTypes().add(this.getStatusProvider());
+		mavenMappingEClass.getESuperTypes().add(this.getInfosProvider());
+		metadataRepositoryReferenceEClass.getESuperTypes().add(this.getEnabledStatusProvider());
+		metadataRepositoryReferenceEClass.getESuperTypes().add(this.getStatusProvider());
+		metadataRepositoryReferenceEClass.getESuperTypes().add(this.getInfosProvider());
 		productEClass.getESuperTypes().add(this.getMappedUnit());
 		EGenericType g1 = createEGenericType(this.getComparable());
 		EGenericType g2 = createEGenericType(this.getProperty());
 		g1.getETypeArguments().add(g2);
 		propertyEClass.getEGenericSuperTypes().add(g1);
-		categoryEClass.getESuperTypes().add(this.getMappedUnit());
-		customCategoryEClass.getESuperTypes().add(this.getStatusProvider());
-		customCategoryEClass.getESuperTypes().add(this.getInfosProvider());
-		mapRuleEClass.getESuperTypes().add(this.getInstallableUnitRequest());
-		mapRuleEClass.getESuperTypes().add(this.getDescriptionProvider());
-		installableUnitRequestEClass.getESuperTypes().add(this.getStatusProvider());
-		installableUnitRequestEClass.getESuperTypes().add(this.getInfosProvider());
-		installableUnitRequestEClass.getESuperTypes().add(this.getDescriptionProvider());
-		exclusionRuleEClass.getESuperTypes().add(this.getMapRule());
+		validationSetEClass.getESuperTypes().add(this.getEnabledStatusProvider());
+		validationSetEClass.getESuperTypes().add(this.getDescriptionProvider());
+		validationSetEClass.getESuperTypes().add(this.getStatusProvider());
+		validationSetEClass.getESuperTypes().add(this.getInfosProvider());
 		validConfigurationsRuleEClass.getESuperTypes().add(this.getMapRule());
-		metadataRepositoryReferenceEClass.getESuperTypes().add(this.getEnabledStatusProvider());
-		metadataRepositoryReferenceEClass.getESuperTypes().add(this.getStatusProvider());
-		metadataRepositoryReferenceEClass.getESuperTypes().add(this.getInfosProvider());
-		mavenMappingEClass.getESuperTypes().add(this.getStatusProvider());
-		mavenMappingEClass.getESuperTypes().add(this.getInfosProvider());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(
@@ -1788,17 +1713,12 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 			Aggregation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES,
 			!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(
-			getAggregation_Contributions(), this.getContribution(), null, "contributions", null, 0, -1,
-			Aggregation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES,
-			!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		getAggregation_Contributions().getEKeys().add(this.getContribution_Label());
-		initEReference(
 			getAggregation_CustomCategories(), this.getCustomCategory(), null, "customCategories", null, 0, -1,
 			Aggregation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES,
 			!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		getAggregation_CustomCategories().getEKeys().add(this.getCustomCategory_Identifier());
 		initEReference(
-			getAggregation_Contacts(), this.getContact(), this.getContact_Aggregator(), "contacts", null, 0, -1,
+			getAggregation_Contacts(), this.getContact(), this.getContact_Aggregation(), "contacts", null, 0, -1,
 			Aggregation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES,
 			!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		getAggregation_Contacts().getEKeys().add(this.getContact_Email());
@@ -1827,80 +1747,68 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 			getAggregation_MavenResult(), ecorePackage.getEBoolean(), "mavenResult", null, 0, 1, Aggregation.class,
 			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(
-			getAggregation_ValidationRepositories(), this.getMetadataRepositoryReference(), null,
-			"validationRepositories", null, 0, -1, Aggregation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
-			IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(
 			getAggregation_MavenMappings(), this.getMavenMapping(), null, "mavenMappings", null, 0, -1,
 			Aggregation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES,
 			!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		EOperation op = addEOperation(
-			aggregationEClass, this.getContribution(), "getContributions", 0, -1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEBoolean(), "enabledOnly", 0, 1, IS_UNIQUE, IS_ORDERED);
-
-		op = addEOperation(
-			aggregationEClass, this.getContribution(), "getValidationSetContributions", 0, -1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getValidationSet(), "validationSet", 0, 1, IS_UNIQUE, IS_ORDERED);
-
-		op = addEOperation(
-			aggregationEClass, this.getContribution(), "getValidationSetContributions", 0, -1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getValidationSet(), "validationSet", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEBoolean(), "enabledOnly", 0, 1, IS_UNIQUE, IS_ORDERED);
-
-		op = addEOperation(
-			aggregationEClass, this.getMetadataRepositoryReference(), "getValidationRepositories", 0, -1, IS_UNIQUE,
-			IS_ORDERED);
-		addEParameter(op, ecorePackage.getEBoolean(), "enabledOnly", 0, 1, IS_UNIQUE, IS_ORDERED);
-
-		op = addEOperation(
 			aggregationEClass, this.getMetadataRepositoryReference(), "getAllMetadataRepositoryReferences", 0, -1,
 			IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEBoolean(), "enabledOnly", 0, 1, IS_UNIQUE, IS_ORDERED);
 
+		op = addEOperation(
+			aggregationEClass, this.getValidationSet(), "getValidationSets", 0, -1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEBoolean(), "enabledOnly", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = addEOperation(
+			aggregationEClass, this.getContribution(), "getAllContributions", 0, -1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEBoolean(), "enabledOnly", 0, 1, IS_UNIQUE, IS_ORDERED);
+
 		initEClass(
-			validationSetEClass, ValidationSet.class, "ValidationSet", !IS_ABSTRACT, !IS_INTERFACE,
+			availableVersionsHeaderEClass, AvailableVersionsHeader.class, "AvailableVersionsHeader", !IS_ABSTRACT,
+			!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(
+			getAvailableVersionsHeader_AvailableVersions(), this.getAvailableVersion(), null, "availableVersions",
+			null, 0, -1, AvailableVersionsHeader.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE,
+			!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(
+			getAvailableVersionsHeader_InstallableUnitRequest(), this.getInstallableUnitRequest(),
+			this.getInstallableUnitRequest_AvailableVersionsHeader(), "installableUnitRequest", null, 1, 1,
+			AvailableVersionsHeader.class, IS_TRANSIENT, !IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE,
+			!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(
+			availableVersionEClass, AvailableVersion.class, "AvailableVersion", !IS_ABSTRACT, !IS_INTERFACE,
 			IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(
-			getValidationSet_Label(), ecorePackage.getEString(), "label", null, 1, 1, ValidationSet.class,
+			getAvailableVersion_VersionMatch(), this.getVersionMatch(), "versionMatch", "", 1, 1,
+			AvailableVersion.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+			!IS_DERIVED, IS_ORDERED);
+		initEAttribute(
+			getAvailableVersion_Version(), theP2Package.getVersion(), "version", null, 0, 1, AvailableVersion.class,
+			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		g1 = createEGenericType(theP2Package.getIMatchExpression());
+		g2 = createEGenericType(theP2Package.getIInstallableUnit());
+		g1.getETypeArguments().add(g2);
+		initEAttribute(
+			getAvailableVersion_Filter(), g1, "filter", null, 0, 1, AvailableVersion.class, !IS_TRANSIENT,
+			!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(bundleEClass, Bundle.class, "Bundle", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(categoryEClass, Category.class, "Category", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(
+			getCategory_LabelOverride(), ecorePackage.getEString(), "labelOverride", null, 0, 1, Category.class,
 			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(
-			mappedRepositoryEClass, MappedRepository.class, "MappedRepository", !IS_ABSTRACT, !IS_INTERFACE,
+			childrenProviderEClass, ChildrenProvider.class, "ChildrenProvider", IS_ABSTRACT, IS_INTERFACE,
 			IS_GENERATED_INSTANCE_CLASS);
+		g1 = createEGenericType(childrenProviderEClass_T);
 		initEReference(
-			getMappedRepository_Products(), this.getProduct(), null, "products", null, 0, -1, MappedRepository.class,
-			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,
-			!IS_DERIVED, IS_ORDERED);
-		initEReference(
-			getMappedRepository_Bundles(), this.getBundle(), null, "bundles", null, 0, -1, MappedRepository.class,
-			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,
-			!IS_DERIVED, IS_ORDERED);
-		initEReference(
-			getMappedRepository_Features(), this.getFeature(), null, "features", null, 0, -1, MappedRepository.class,
-			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,
-			!IS_DERIVED, IS_ORDERED);
-		initEReference(
-			getMappedRepository_Categories(), this.getCategory(), null, "categories", null, 0, -1,
-			MappedRepository.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES,
-			!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(
-			getMappedRepository_MirrorArtifacts(), ecorePackage.getEBoolean(), "mirrorArtifacts", "true", 0, 1,
-			MappedRepository.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
-			!IS_DERIVED, IS_ORDERED);
-		initEAttribute(
-			getMappedRepository_CategoryPrefix(), ecorePackage.getEString(), "categoryPrefix", null, 0, 1,
-			MappedRepository.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
-			!IS_DERIVED, IS_ORDERED);
-		initEReference(
-			getMappedRepository_MapRules(), this.getMapRule(), null, "mapRules", null, 0, -1, MappedRepository.class,
-			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,
-			!IS_DERIVED, IS_ORDERED);
-
-		op = addEOperation(mappedRepositoryEClass, this.getMappedUnit(), "getUnits", 0, -1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEBoolean(), "enabledOnly", 0, 1, IS_UNIQUE, IS_ORDERED);
-
-		addEOperation(mappedRepositoryEClass, ecorePackage.getEBoolean(), "isMapExclusive", 0, 1, IS_UNIQUE, IS_ORDERED);
+			getChildrenProvider_Children(), g1, null, "children", null, 0, -1, ChildrenProvider.class, IS_TRANSIENT,
+			IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
+			IS_ORDERED);
 
 		initEClass(
 			configurationEClass, Configuration.class, "Configuration", !IS_ABSTRACT, !IS_INTERFACE,
@@ -1920,6 +1828,18 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 
 		addEOperation(
 			configurationEClass, ecorePackage.getEString(), "getOSGiEnvironmentString", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEClass(contactEClass, Contact.class, "Contact", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(
+			getContact_Name(), ecorePackage.getEString(), "name", null, 0, 1, Contact.class, !IS_TRANSIENT,
+			!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(
+			getContact_Email(), ecorePackage.getEString(), "email", null, 1, 1, Contact.class, !IS_TRANSIENT,
+			!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(
+			getContact_Aggregation(), this.getAggregation(), this.getAggregation_Contacts(), "aggregation", null, 1, 1,
+			Contact.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
+			!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(
 			contributionEClass, Contribution.class, "Contribution", !IS_ABSTRACT, !IS_INTERFACE,
@@ -1947,58 +1867,14 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 
 		addEOperation(contributionEClass, this.getMavenMapping(), "getAllMavenMappings", 0, -1, IS_UNIQUE, IS_ORDERED);
 
-		initEClass(contactEClass, Contact.class, "Contact", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(
-			getContact_Name(), ecorePackage.getEString(), "name", null, 0, 1, Contact.class, !IS_TRANSIENT,
-			!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(
-			getContact_Email(), ecorePackage.getEString(), "email", null, 1, 1, Contact.class, !IS_TRANSIENT,
-			!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(
-			getContact_Aggregator(), this.getAggregation(), this.getAggregation_Contacts(), "aggregator", null, 1, 1,
-			Contact.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
-			!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
 		initEClass(featureEClass, Feature.class, "Feature", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(
 			getFeature_Categories(), this.getCustomCategory(), this.getCustomCategory_Features(), "categories", null,
 			0, -1, Feature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
 			!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(bundleEClass, Bundle.class, "Bundle", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
 		initEClass(
-			mappedUnitEClass, MappedUnit.class, "MappedUnit", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(
-			getMappedUnit_ValidConfigurations(), this.getConfiguration(), null, "validConfigurations", null, 0, -1,
-			MappedUnit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
-			!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		getMappedUnit_ValidConfigurations().getEKeys().add(this.getConfiguration_OperatingSystem());
-		getMappedUnit_ValidConfigurations().getEKeys().add(this.getConfiguration_WindowSystem());
-		getMappedUnit_ValidConfigurations().getEKeys().add(this.getConfiguration_Architecture());
-
-		addEOperation(mappedUnitEClass, theP2Package.getIRequirement(), "getRequirement", 0, 1, IS_UNIQUE, IS_ORDERED);
-
-		op = addEOperation(mappedUnitEClass, null, "getFilter", 0, 1, IS_UNIQUE, IS_ORDERED);
-		g1 = createEGenericType(theP2Package.getIMatchExpression());
-		g2 = createEGenericType(theP2Package.getIInstallableUnit());
-		g1.getETypeArguments().add(g2);
-		initEOperation(op, g1);
-
-		initEClass(productEClass, Product.class, "Product", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-		initEClass(propertyEClass, Property.class, "Property", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(
-			getProperty_Key(), ecorePackage.getEString(), "key", null, 1, 1, Property.class, !IS_TRANSIENT,
-			!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(
-			getProperty_Value(), ecorePackage.getEString(), "value", null, 0, 1, Property.class, !IS_TRANSIENT,
-			!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(categoryEClass, Category.class, "Category", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(
-			getCategory_LabelOverride(), ecorePackage.getEString(), "labelOverride", null, 0, 1, Category.class,
-			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+			comparableEClass, Comparable.class, "Comparable", IS_ABSTRACT, IS_INTERFACE, !IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(
 			customCategoryEClass, CustomCategory.class, "CustomCategory", !IS_ABSTRACT, !IS_INTERFACE,
@@ -2019,6 +1895,14 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 			!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(
+			descriptionProviderEClass, DescriptionProvider.class, "DescriptionProvider", !IS_ABSTRACT, !IS_INTERFACE,
+			IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(
+			getDescriptionProvider_Description(), theXMLTypePackage.getString(), "description", "", 0, 1,
+			DescriptionProvider.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+			!IS_DERIVED, IS_ORDERED);
+
+		initEClass(
 			enabledStatusProviderEClass, EnabledStatusProvider.class, "EnabledStatusProvider", IS_ABSTRACT,
 			IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(
@@ -2026,7 +1910,29 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 			EnabledStatusProvider.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
 			!IS_DERIVED, IS_ORDERED);
 
-		initEClass(mapRuleEClass, MapRule.class, "MapRule", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(
+			exclusionRuleEClass, ExclusionRule.class, "ExclusionRule", !IS_ABSTRACT, !IS_INTERFACE,
+			IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(
+			identificationProviderEClass, IdentificationProvider.class, "IdentificationProvider", IS_ABSTRACT,
+			IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		addEOperation(
+			identificationProviderEClass, ecorePackage.getEString(), "getIdentification", 1, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEClass(
+			infosProviderEClass, InfosProvider.class, "InfosProvider", !IS_ABSTRACT, !IS_INTERFACE,
+			IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(
+			getInfosProvider_Errors(), theXMLTypePackage.getString(), "errors", null, 0, -1, InfosProvider.class,
+			IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(
+			getInfosProvider_Warnings(), theXMLTypePackage.getString(), "warnings", null, 0, -1, InfosProvider.class,
+			IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(
+			getInfosProvider_Infos(), theXMLTypePackage.getString(), "infos", null, 0, -1, InfosProvider.class,
+			IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(
 			installableUnitRequestEClass, InstallableUnitRequest.class, "InstallableUnitRequest", IS_ABSTRACT,
@@ -2069,55 +1975,6 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 		addEParameter(op, theXMLTypePackage.getBoolean(), "updateOnly", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(
-			exclusionRuleEClass, ExclusionRule.class, "ExclusionRule", !IS_ABSTRACT, !IS_INTERFACE,
-			IS_GENERATED_INSTANCE_CLASS);
-
-		initEClass(
-			validConfigurationsRuleEClass, ValidConfigurationsRule.class, "ValidConfigurationsRule", !IS_ABSTRACT,
-			!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(
-			getValidConfigurationsRule_ValidConfigurations(), this.getConfiguration(), null, "validConfigurations",
-			null, 0, -1, ValidConfigurationsRule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
-			IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(
-			metadataRepositoryReferenceEClass, MetadataRepositoryReference.class, "MetadataRepositoryReference",
-			!IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(
-			getMetadataRepositoryReference_MetadataRepository(), theP2Package.getMetadataRepository(), null,
-			"metadataRepository", null, 0, 1, MetadataRepositoryReference.class, IS_TRANSIENT, !IS_VOLATILE,
-			IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(
-			getMetadataRepositoryReference_Location(), ecorePackage.getEString(), "location", null, 1, 1,
-			MetadataRepositoryReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
-			IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(
-			getMetadataRepositoryReference_Nature(), ecorePackage.getEString(), "nature", "p2", 1, 1,
-			MetadataRepositoryReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
-			IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		addEOperation(
-			metadataRepositoryReferenceEClass, this.getAggregation(), "getAggregator", 0, 1, IS_UNIQUE, IS_ORDERED);
-
-		addEOperation(
-			metadataRepositoryReferenceEClass, ecorePackage.getEBoolean(), "isBranchEnabled", 0, 1, IS_UNIQUE,
-			IS_ORDERED);
-
-		addEOperation(
-			metadataRepositoryReferenceEClass, ecorePackage.getEString(), "getResolvedLocation", 0, 1, IS_UNIQUE,
-			IS_ORDERED);
-
-		op = addEOperation(metadataRepositoryReferenceEClass, null, "startRepositoryLoad", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEBoolean(), "forceReload", 0, 1, IS_UNIQUE, IS_ORDERED);
-
-		addEOperation(metadataRepositoryReferenceEClass, null, "cancelRepositoryLoad", 0, 1, IS_UNIQUE, IS_ORDERED);
-
-		addEOperation(metadataRepositoryReferenceEClass, null, "onRepositoryLoad", 0, 1, IS_UNIQUE, IS_ORDERED);
-
-		initEClass(
-			comparableEClass, Comparable.class, "Comparable", IS_ABSTRACT, IS_INTERFACE, !IS_GENERATED_INSTANCE_CLASS);
-
-		initEClass(
 			labelProviderEClass, LabelProvider.class, "LabelProvider", IS_ABSTRACT, IS_INTERFACE,
 			IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(
@@ -2125,19 +1982,70 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(
-			descriptionProviderEClass, DescriptionProvider.class, "DescriptionProvider", !IS_ABSTRACT, !IS_INTERFACE,
+			mappedRepositoryEClass, MappedRepository.class, "MappedRepository", !IS_ABSTRACT, !IS_INTERFACE,
 			IS_GENERATED_INSTANCE_CLASS);
+		initEReference(
+			getMappedRepository_Products(), this.getProduct(), null, "products", null, 0, -1, MappedRepository.class,
+			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,
+			!IS_DERIVED, IS_ORDERED);
+		initEReference(
+			getMappedRepository_Bundles(), this.getBundle(), null, "bundles", null, 0, -1, MappedRepository.class,
+			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,
+			!IS_DERIVED, IS_ORDERED);
+		initEReference(
+			getMappedRepository_Features(), this.getFeature(), null, "features", null, 0, -1, MappedRepository.class,
+			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,
+			!IS_DERIVED, IS_ORDERED);
+		initEReference(
+			getMappedRepository_Categories(), this.getCategory(), null, "categories", null, 0, -1,
+			MappedRepository.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES,
+			!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(
-			getDescriptionProvider_Description(), theXMLTypePackage.getString(), "description", "", 0, 1,
-			DescriptionProvider.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+			getMappedRepository_MirrorArtifacts(), ecorePackage.getEBoolean(), "mirrorArtifacts", "true", 0, 1,
+			MappedRepository.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+			!IS_DERIVED, IS_ORDERED);
+		initEAttribute(
+			getMappedRepository_CategoryPrefix(), ecorePackage.getEString(), "categoryPrefix", null, 0, 1,
+			MappedRepository.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+			!IS_DERIVED, IS_ORDERED);
+		initEReference(
+			getMappedRepository_MapRules(), this.getMapRule(), null, "mapRules", null, 0, -1, MappedRepository.class,
+			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,
 			!IS_DERIVED, IS_ORDERED);
 
-		initEClass(
-			identificationProviderEClass, IdentificationProvider.class, "IdentificationProvider", IS_ABSTRACT,
-			IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		op = addEOperation(mappedRepositoryEClass, this.getMappedUnit(), "getUnits", 0, -1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEBoolean(), "enabledOnly", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		addEOperation(
-			identificationProviderEClass, ecorePackage.getEString(), "getIdentification", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEOperation(mappedRepositoryEClass, ecorePackage.getEBoolean(), "isMapExclusive", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEClass(
+			mappedUnitEClass, MappedUnit.class, "MappedUnit", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(
+			getMappedUnit_ValidConfigurations(), this.getConfiguration(), null, "validConfigurations", null, 0, -1,
+			MappedUnit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
+			!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		getMappedUnit_ValidConfigurations().getEKeys().add(this.getConfiguration_OperatingSystem());
+		getMappedUnit_ValidConfigurations().getEKeys().add(this.getConfiguration_WindowSystem());
+		getMappedUnit_ValidConfigurations().getEKeys().add(this.getConfiguration_Architecture());
+
+		addEOperation(mappedUnitEClass, theP2Package.getIRequirement(), "getRequirement", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = addEOperation(mappedUnitEClass, null, "getFilter", 0, 1, IS_UNIQUE, IS_ORDERED);
+		g1 = createEGenericType(theP2Package.getIMatchExpression());
+		g2 = createEGenericType(theP2Package.getIInstallableUnit());
+		g1.getETypeArguments().add(g2);
+		initEOperation(op, g1);
+
+		initEClass(mapRuleEClass, MapRule.class, "MapRule", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(
+			mavenItemEClass, MavenItem.class, "MavenItem", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(
+			getMavenItem_GroupId(), theXMLTypePackage.getString(), "groupId", null, 0, 1, MavenItem.class,
+			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(
+			getMavenItem_ArtifactId(), ecorePackage.getEString(), "artifactId", null, 0, 1, MavenItem.class,
+			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(
 			mavenMappingEClass, MavenMapping.class, "MavenMapping", !IS_ABSTRACT, !IS_INTERFACE,
@@ -2156,22 +2064,48 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 		addEParameter(op, ecorePackage.getEString(), "installableUnitID", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(
-			mavenItemEClass, MavenItem.class, "MavenItem", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(
-			getMavenItem_GroupId(), theXMLTypePackage.getString(), "groupId", null, 0, 1, MavenItem.class,
-			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(
-			getMavenItem_ArtifactId(), ecorePackage.getEString(), "artifactId", null, 0, 1, MavenItem.class,
-			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(
-			childrenProviderEClass, ChildrenProvider.class, "ChildrenProvider", IS_ABSTRACT, IS_INTERFACE,
-			IS_GENERATED_INSTANCE_CLASS);
-		g1 = createEGenericType(childrenProviderEClass_T);
+			metadataRepositoryReferenceEClass, MetadataRepositoryReference.class, "MetadataRepositoryReference",
+			!IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(
-			getChildrenProvider_Children(), g1, null, "children", null, 0, -1, ChildrenProvider.class, IS_TRANSIENT,
-			IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
+			getMetadataRepositoryReference_MetadataRepository(), theP2Package.getMetadataRepository(), null,
+			"metadataRepository", null, 0, 1, MetadataRepositoryReference.class, IS_TRANSIENT, !IS_VOLATILE,
+			IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(
+			getMetadataRepositoryReference_Location(), ecorePackage.getEString(), "location", null, 1, 1,
+			MetadataRepositoryReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
+			IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(
+			getMetadataRepositoryReference_Nature(), ecorePackage.getEString(), "nature", "p2", 1, 1,
+			MetadataRepositoryReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
+			IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		addEOperation(
+			metadataRepositoryReferenceEClass, this.getAggregation(), "getAggregation", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		addEOperation(
+			metadataRepositoryReferenceEClass, ecorePackage.getEBoolean(), "isBranchEnabled", 0, 1, IS_UNIQUE,
 			IS_ORDERED);
+
+		addEOperation(
+			metadataRepositoryReferenceEClass, ecorePackage.getEString(), "getResolvedLocation", 0, 1, IS_UNIQUE,
+			IS_ORDERED);
+
+		op = addEOperation(metadataRepositoryReferenceEClass, null, "startRepositoryLoad", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEBoolean(), "forceReload", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		addEOperation(metadataRepositoryReferenceEClass, null, "cancelRepositoryLoad", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		addEOperation(metadataRepositoryReferenceEClass, null, "onRepositoryLoad", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEClass(productEClass, Product.class, "Product", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(propertyEClass, Property.class, "Property", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(
+			getProperty_Key(), ecorePackage.getEString(), "key", null, 1, 1, Property.class, !IS_TRANSIENT,
+			!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(
+			getProperty_Value(), ecorePackage.getEString(), "value", null, 0, 1, Property.class, !IS_TRANSIENT,
+			!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(statusEClass, Status.class, "Status", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(
@@ -2190,83 +2124,52 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 			!IS_DERIVED, IS_ORDERED);
 
 		initEClass(
-			infosProviderEClass, InfosProvider.class, "InfosProvider", !IS_ABSTRACT, !IS_INTERFACE,
+			validationSetEClass, ValidationSet.class, "ValidationSet", !IS_ABSTRACT, !IS_INTERFACE,
 			IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(
-			getInfosProvider_Errors(), theXMLTypePackage.getString(), "errors", null, 0, -1, InfosProvider.class,
-			IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(
-			getInfosProvider_Warnings(), theXMLTypePackage.getString(), "warnings", null, 0, -1, InfosProvider.class,
-			IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(
-			getInfosProvider_Infos(), theXMLTypePackage.getString(), "infos", null, 0, -1, InfosProvider.class,
-			IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(
-			availableVersionsHeaderEClass, AvailableVersionsHeader.class, "AvailableVersionsHeader", !IS_ABSTRACT,
-			!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(
-			getAvailableVersionsHeader_AvailableVersions(), this.getAvailableVersion(), null, "availableVersions",
-			null, 0, -1, AvailableVersionsHeader.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE,
-			!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(
-			getAvailableVersionsHeader_InstallableUnitRequest(), this.getInstallableUnitRequest(),
-			this.getInstallableUnitRequest_AvailableVersionsHeader(), "installableUnitRequest", null, 1, 1,
-			AvailableVersionsHeader.class, IS_TRANSIENT, !IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE,
-			!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(
-			availableVersionEClass, AvailableVersion.class, "AvailableVersion", !IS_ABSTRACT, !IS_INTERFACE,
-			IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(
-			getAvailableVersion_VersionMatch(), this.getVersionMatch(), "versionMatch", "", 1, 1,
-			AvailableVersion.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
-			!IS_DERIVED, IS_ORDERED);
-		initEAttribute(
-			getAvailableVersion_Version(), theP2Package.getVersion(), "version", null, 0, 1, AvailableVersion.class,
+			getValidationSet_Abstract(), ecorePackage.getEBoolean(), "abstract", "false", 0, 1, ValidationSet.class,
 			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		g1 = createEGenericType(theP2Package.getIMatchExpression());
-		g2 = createEGenericType(theP2Package.getIInstallableUnit());
-		g1.getETypeArguments().add(g2);
 		initEAttribute(
-			getAvailableVersion_Filter(), g1, "filter", null, 0, 1, AvailableVersion.class, !IS_TRANSIENT,
-			!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(
-			linkSourceEClass, LinkSource.class, "LinkSource", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+			getValidationSet_Label(), ecorePackage.getEString(), "label", null, 1, 1, ValidationSet.class,
+			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(
-			getLinkSource_Receiver(), this.getLinkReceiver(), null, "receiver", null, 0, 1, LinkSource.class,
+			getValidationSet_Contributions(), this.getContribution(), null, "contributions", null, 0, -1,
+			ValidationSet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES,
+			!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		getValidationSet_Contributions().getEKeys().add(this.getContribution_Label());
+		initEReference(
+			getValidationSet_ValidationRepositories(), this.getMetadataRepositoryReference(), null,
+			"validationRepositories", null, 0, -1, ValidationSet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
+			IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(
+			getValidationSet_Extends(), this.getValidationSet(), null, "extends", null, 0, -1, ValidationSet.class,
 			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,
 			!IS_DERIVED, IS_ORDERED);
 
+		addEOperation(
+			validationSetEClass, this.getMetadataRepositoryReference(), "getAllValidationRepositories", 0, -1,
+			IS_UNIQUE, IS_ORDERED);
+
+		addEOperation(validationSetEClass, this.getContribution(), "getAllContributions", 0, -1, IS_UNIQUE, IS_ORDERED);
+
+		addEOperation(
+			validationSetEClass, this.getContribution(), "getDeclaredContributions", 0, -1, IS_UNIQUE, IS_ORDERED);
+
+		addEOperation(
+			validationSetEClass, this.getMetadataRepositoryReference(), "getDeclaredValidationRepositories", 0, -1,
+			IS_UNIQUE, IS_ORDERED);
+
+		op = addEOperation(
+			validationSetEClass, ecorePackage.getEBoolean(), "isExtensionOf", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getValidationSet(), "validationSet", 0, 1, IS_UNIQUE, IS_ORDERED);
+
 		initEClass(
-			linkReceiverEClass, LinkReceiver.class, "LinkReceiver", IS_ABSTRACT, IS_INTERFACE,
-			IS_GENERATED_INSTANCE_CLASS);
-
-		op = addEOperation(linkReceiverEClass, ecorePackage.getEBoolean(), "acceptsSource", 1, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getLinkSource(), "source", 1, 1, IS_UNIQUE, IS_ORDERED);
-
-		op = addEOperation(linkReceiverEClass, null, "linkSource", 1, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getLinkSource(), "source", 1, 1, IS_UNIQUE, IS_ORDERED);
-
-		op = addEOperation(linkReceiverEClass, null, "unlinkSource", 1, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getLinkSource(), "source", 1, 1, IS_UNIQUE, IS_ORDERED);
-
-		addEOperation(linkReceiverEClass, this.getLinkSource(), "getLinkedSources", 0, -1, IS_UNIQUE, IS_ORDERED);
-
-		initEClass(
-			aggregatorResourceViewEClass, AggregatorResourceView.class, "AggregatorResourceView", !IS_ABSTRACT,
+			validConfigurationsRuleEClass, ValidConfigurationsRule.class, "ValidConfigurationsRule", !IS_ABSTRACT,
 			!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(
-			getAggregatorResourceView_Aggregator(), this.getAggregation(), null, "aggregator", null, 1, 1,
-			AggregatorResourceView.class, !IS_TRANSIENT, !IS_VOLATILE, !IS_CHANGEABLE, IS_COMPOSITE,
+			getValidConfigurationsRule_ValidConfigurations(), this.getConfiguration(), null, "validConfigurations",
+			null, 0, -1, ValidConfigurationsRule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
 			IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		getAggregatorResourceView_Aggregator().getEKeys().add(this.getAggregation_Label());
-		initEReference(
-			getAggregatorResourceView_ValidationSets(), this.getValidationSet(), null, "validationSets", null,
-			0, -1, AggregatorResourceView.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
-			IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		getAggregatorResourceView_ValidationSets().getEKeys().add(this.getValidationSet_Label());
 
 		// Initialize enums and add enum literals
 		initEEnum(aggregationTypeEEnum, AggregationType.class, "AggregationType");
@@ -2276,23 +2179,6 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 		addEEnumLiteral(aggregationTypeEEnum, AggregationType.MAINTENANCE);
 		addEEnumLiteral(aggregationTypeEEnum, AggregationType.CONTINUOUS);
 		addEEnumLiteral(aggregationTypeEEnum, AggregationType.RELEASE);
-
-		initEEnum(operatingSystemEEnum, OperatingSystem.class, "OperatingSystem");
-		addEEnumLiteral(operatingSystemEEnum, OperatingSystem.WIN32);
-		addEEnumLiteral(operatingSystemEEnum, OperatingSystem.LINUX);
-		addEEnumLiteral(operatingSystemEEnum, OperatingSystem.MAC_OSX);
-		addEEnumLiteral(operatingSystemEEnum, OperatingSystem.AIX);
-		addEEnumLiteral(operatingSystemEEnum, OperatingSystem.HPUX);
-		addEEnumLiteral(operatingSystemEEnum, OperatingSystem.SOLARIS);
-		addEEnumLiteral(operatingSystemEEnum, OperatingSystem.QNX);
-
-		initEEnum(windowSystemEEnum, WindowSystem.class, "WindowSystem");
-		addEEnumLiteral(windowSystemEEnum, WindowSystem.WIN32);
-		addEEnumLiteral(windowSystemEEnum, WindowSystem.GTK);
-		addEEnumLiteral(windowSystemEEnum, WindowSystem.CARBON);
-		addEEnumLiteral(windowSystemEEnum, WindowSystem.COCOA);
-		addEEnumLiteral(windowSystemEEnum, WindowSystem.MOTIF);
-		addEEnumLiteral(windowSystemEEnum, WindowSystem.PHOTON);
 
 		initEEnum(architectureEEnum, Architecture.class, "Architecture");
 		addEEnumLiteral(architectureEEnum, Architecture.X86);
@@ -2305,13 +2191,6 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 		addEEnumLiteral(architectureEEnum, Architecture.S390);
 		addEEnumLiteral(architectureEEnum, Architecture.S390X);
 
-		initEEnum(packedStrategyEEnum, PackedStrategy.class, "PackedStrategy");
-		addEEnumLiteral(packedStrategyEEnum, PackedStrategy.COPY);
-		addEEnumLiteral(packedStrategyEEnum, PackedStrategy.VERIFY);
-		addEEnumLiteral(packedStrategyEEnum, PackedStrategy.UNPACK_AS_SIBLING);
-		addEEnumLiteral(packedStrategyEEnum, PackedStrategy.UNPACK);
-		addEEnumLiteral(packedStrategyEEnum, PackedStrategy.SKIP);
-
 		initEEnum(installableUnitTypeEEnum, InstallableUnitType.class, "InstallableUnitType");
 		addEEnumLiteral(installableUnitTypeEEnum, InstallableUnitType.BUNDLE);
 		addEEnumLiteral(installableUnitTypeEEnum, InstallableUnitType.FEATURE);
@@ -2319,6 +2198,22 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 		addEEnumLiteral(installableUnitTypeEEnum, InstallableUnitType.CATEGORY);
 		addEEnumLiteral(installableUnitTypeEEnum, InstallableUnitType.FRAGMENT);
 		addEEnumLiteral(installableUnitTypeEEnum, InstallableUnitType.OTHER);
+
+		initEEnum(operatingSystemEEnum, OperatingSystem.class, "OperatingSystem");
+		addEEnumLiteral(operatingSystemEEnum, OperatingSystem.WIN32);
+		addEEnumLiteral(operatingSystemEEnum, OperatingSystem.LINUX);
+		addEEnumLiteral(operatingSystemEEnum, OperatingSystem.MAC_OSX);
+		addEEnumLiteral(operatingSystemEEnum, OperatingSystem.AIX);
+		addEEnumLiteral(operatingSystemEEnum, OperatingSystem.HPUX);
+		addEEnumLiteral(operatingSystemEEnum, OperatingSystem.SOLARIS);
+		addEEnumLiteral(operatingSystemEEnum, OperatingSystem.QNX);
+
+		initEEnum(packedStrategyEEnum, PackedStrategy.class, "PackedStrategy");
+		addEEnumLiteral(packedStrategyEEnum, PackedStrategy.COPY);
+		addEEnumLiteral(packedStrategyEEnum, PackedStrategy.VERIFY);
+		addEEnumLiteral(packedStrategyEEnum, PackedStrategy.UNPACK_AS_SIBLING);
+		addEEnumLiteral(packedStrategyEEnum, PackedStrategy.UNPACK);
+		addEEnumLiteral(packedStrategyEEnum, PackedStrategy.SKIP);
 
 		initEEnum(statusCodeEEnum, StatusCode.class, "StatusCode");
 		addEEnumLiteral(statusCodeEEnum, StatusCode.OK);
@@ -2329,6 +2224,14 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 		addEEnumLiteral(versionMatchEEnum, VersionMatch.BELOW);
 		addEEnumLiteral(versionMatchEEnum, VersionMatch.MATCHES);
 		addEEnumLiteral(versionMatchEEnum, VersionMatch.ABOVE);
+
+		initEEnum(windowSystemEEnum, WindowSystem.class, "WindowSystem");
+		addEEnumLiteral(windowSystemEEnum, WindowSystem.WIN32);
+		addEEnumLiteral(windowSystemEEnum, WindowSystem.GTK);
+		addEEnumLiteral(windowSystemEEnum, WindowSystem.CARBON);
+		addEEnumLiteral(windowSystemEEnum, WindowSystem.COCOA);
+		addEEnumLiteral(windowSystemEEnum, WindowSystem.MOTIF);
+		addEEnumLiteral(windowSystemEEnum, WindowSystem.PHOTON);
 
 		// Create resource
 		createResource(eNS_URI);

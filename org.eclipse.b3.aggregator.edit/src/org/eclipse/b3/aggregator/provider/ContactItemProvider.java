@@ -135,13 +135,14 @@ public class ContactItemProvider extends AggregatorItemProviderAdapter implement
 	 */
 	@Override
 	public String getText(Object object) {
-		Contact contact = (Contact) object;
-		String label = contact.getName();
+		Contact self = (Contact) object;
+		StringBuilder bld = new StringBuilder(getString("_UI_Contact_type")).append(" : ");
+		String label = self.getName();
 		if(label == null || label.length() == 0)
-			label = contact.getEmail();
-		return label == null || label.length() == 0
-				? getString("_UI_Contact_type")
-				: getString("_UI_Contact_type") + " " + label;
+			label = self.getEmail();
+		if(label != null)
+			bld.append(label);
+		return bld.toString();
 	}
 
 	/**

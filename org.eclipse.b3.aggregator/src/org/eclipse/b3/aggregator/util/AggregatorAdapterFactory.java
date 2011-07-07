@@ -9,7 +9,6 @@ package org.eclipse.b3.aggregator.util;
 import org.eclipse.b3.aggregator.ValidationSet;
 import org.eclipse.b3.aggregator.Aggregation;
 import org.eclipse.b3.aggregator.AggregatorPackage;
-import org.eclipse.b3.aggregator.AggregatorResourceView;
 import org.eclipse.b3.aggregator.AvailableVersion;
 import org.eclipse.b3.aggregator.AvailableVersionsHeader;
 import org.eclipse.b3.aggregator.Bundle;
@@ -27,8 +26,6 @@ import org.eclipse.b3.aggregator.IdentificationProvider;
 import org.eclipse.b3.aggregator.InfosProvider;
 import org.eclipse.b3.aggregator.InstallableUnitRequest;
 import org.eclipse.b3.aggregator.LabelProvider;
-import org.eclipse.b3.aggregator.LinkReceiver;
-import org.eclipse.b3.aggregator.LinkSource;
 import org.eclipse.b3.aggregator.MapRule;
 import org.eclipse.b3.aggregator.MappedRepository;
 import org.eclipse.b3.aggregator.MappedUnit;
@@ -74,11 +71,6 @@ public class AggregatorAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
-		public Adapter caseAggregatorResourceView(AggregatorResourceView object) {
-			return createAggregatorResourceViewAdapter();
-		}
-
-		@Override
 		public Adapter caseAvailableVersion(AvailableVersion object) {
 			return createAvailableVersionAdapter();
 		}
@@ -106,11 +98,6 @@ public class AggregatorAdapterFactory extends AdapterFactoryImpl {
 		@Override
 		public <T> Adapter caseComparable(Comparable<T> object) {
 			return createComparableAdapter();
-		}
-
-		@Override
-		public Adapter caseValidationSet(ValidationSet object) {
-			return createValidationSetAdapter();
 		}
 
 		@Override
@@ -174,16 +161,6 @@ public class AggregatorAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
-		public Adapter caseLinkReceiver(LinkReceiver object) {
-			return createLinkReceiverAdapter();
-		}
-
-		@Override
-		public Adapter caseLinkSource(LinkSource object) {
-			return createLinkSourceAdapter();
-		}
-
-		@Override
 		public Adapter caseMappedRepository(MappedRepository object) {
 			return createMappedRepositoryAdapter();
 		}
@@ -231,6 +208,11 @@ public class AggregatorAdapterFactory extends AdapterFactoryImpl {
 		@Override
 		public Adapter caseStatusProvider(StatusProvider object) {
 			return createStatusProviderAdapter();
+		}
+
+		@Override
+		public Adapter caseValidationSet(ValidationSet object) {
+			return createValidationSetAdapter();
 		}
 
 		@Override
@@ -282,21 +264,6 @@ public class AggregatorAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createAggregationAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.aggregator.AggregatorResourceView <em>Resource View</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * 
-	 * @return the new adapter.
-	 * @see org.eclipse.b3.aggregator.AggregatorResourceView
-	 * @generated
-	 */
-	public Adapter createAggregatorResourceViewAdapter() {
 		return null;
 	}
 
@@ -381,21 +348,6 @@ public class AggregatorAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createComparableAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.aggregator.ValidationSet <em>Validation Set</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * 
-	 * @return the new adapter.
-	 * @see org.eclipse.b3.aggregator.ValidationSet
-	 * @generated
-	 */
-	public Adapter createValidationSetAdapter() {
 		return null;
 	}
 
@@ -580,36 +532,6 @@ public class AggregatorAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.aggregator.LinkReceiver <em>Link Receiver</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * 
-	 * @return the new adapter.
-	 * @see org.eclipse.b3.aggregator.LinkReceiver
-	 * @generated
-	 */
-	public Adapter createLinkReceiverAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.aggregator.LinkSource <em>Link Source</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * 
-	 * @return the new adapter.
-	 * @see org.eclipse.b3.aggregator.LinkSource
-	 * @generated
-	 */
-	public Adapter createLinkSourceAdapter() {
-		return null;
-	}
-
-	/**
 	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.aggregator.MappedRepository <em>Mapped Repository</em>}'.
 	 * <!-- begin-user-doc --> This default implementation returns null so that we can
 	 * easily ignore cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!--
@@ -744,6 +666,21 @@ public class AggregatorAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createStatusProviderAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.aggregator.ValidationSet <em>Validation Set</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the new adapter.
+	 * @see org.eclipse.b3.aggregator.ValidationSet
+	 * @generated
+	 */
+	public Adapter createValidationSetAdapter() {
 		return null;
 	}
 

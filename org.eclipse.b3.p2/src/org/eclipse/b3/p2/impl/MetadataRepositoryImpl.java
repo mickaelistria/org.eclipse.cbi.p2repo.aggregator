@@ -18,7 +18,6 @@ import java.util.regex.Pattern;
 import org.eclipse.b3.p2.MetadataRepository;
 import org.eclipse.b3.p2.P2Factory;
 import org.eclipse.b3.p2.P2Package;
-import org.eclipse.b3.p2.RepositoryReference;
 import org.eclipse.b3.p2.util.P2Bridge;
 import org.eclipse.b3.util.ExceptionUtils;
 import org.eclipse.core.runtime.CoreException;
@@ -30,9 +29,9 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
-import org.eclipse.equinox.p2.core.IPool;
 import org.eclipse.equinox.internal.p2.metadata.repository.CompositeMetadataRepository;
 import org.eclipse.equinox.internal.p2.metadata.repository.LocalMetadataRepository;
+import org.eclipse.equinox.p2.core.IPool;
 import org.eclipse.equinox.p2.metadata.IInstallableUnit;
 import org.eclipse.equinox.p2.query.IQuery;
 import org.eclipse.equinox.p2.query.IQueryResult;
@@ -112,6 +111,20 @@ public class MetadataRepositoryImpl extends RepositoryImpl<IInstallableUnit> imp
 		EList<IInstallableUnit> iuList = getInstallableUnits();
 		for(IInstallableUnit iu : installableUnits)
 			iuList.add(P2Bridge.importToModel(iu));
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated NOT
+	 */
+	private void addReference(URI location, String nickname, int type, int options) {
+		RepositoryReferenceImpl ref = (RepositoryReferenceImpl) P2Factory.eINSTANCE.createRepositoryReference();
+		ref.setLocation(location);
+		ref.setNickname(nickname);
+		ref.setType(type);
+		ref.setOptions(options);
+		getReferences().add(ref);
 	}
 
 	/**
@@ -246,6 +259,17 @@ public class MetadataRepositoryImpl extends RepositoryImpl<IInstallableUnit> imp
 	 * @generated
 	 */
 	@Override
+	protected EClass eStaticClass() {
+		return P2Package.Literals.METADATA_REPOSITORY;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
 			case P2Package.METADATA_REPOSITORY__INSTALLABLE_UNITS:
@@ -353,30 +377,5 @@ public class MetadataRepositoryImpl extends RepositoryImpl<IInstallableUnit> imp
 		List<IInstallableUnit> units = getInstallableUnits();
 
 		return units.removeAll(installableUnits);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return P2Package.Literals.METADATA_REPOSITORY;
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated NOT
-	 */
-	private void addReference(URI location, String nickname, int type, int options) {
-		RepositoryReference ref = P2Factory.eINSTANCE.createRepositoryReference();
-		ref.setLocation(location);
-		ref.setNickname(nickname);
-		ref.setType(type);
-		ref.setOptions(options);
-		getReferences().add(ref);
 	}
 } // MetadataRepositoryImpl

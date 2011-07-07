@@ -29,8 +29,8 @@ public class MetadataRepositoryItemProvider extends org.eclipse.b3.p2.provider.M
 		if(notification.getFeatureID(MetadataRepository.class) != P2Package.METADATA_REPOSITORY__INSTALLABLE_UNITS)
 			return;
 
-		Aggregation aggregator = (Aggregation) ((EObject) notification.getNotifier()).eResource().getResourceSet().getResources().get(
+		Aggregation aggregation = (Aggregation) ((EObject) notification.getNotifier()).eResource().getResourceSet().getResources().get(
 			0).getContents().get(0);
-		fireNotifyChanged(new ViewerNotification(notification, aggregator, true, true));
+		fireNotifyChanged(new ViewerNotification(notification, aggregation, true, true));
 	}
 }

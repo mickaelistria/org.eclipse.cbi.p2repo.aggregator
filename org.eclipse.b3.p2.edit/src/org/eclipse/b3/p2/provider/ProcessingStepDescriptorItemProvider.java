@@ -51,6 +51,73 @@ public class ProcessingStepDescriptorItemProvider extends ItemProviderAdapter im
 	}
 
 	/**
+	 * This adds a property descriptor for the Data feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	protected void addDataPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+			getResourceLocator(),
+			getString("_UI_IProcessingStepDescriptor_data_feature"),
+			getString(
+				"_UI_PropertyDescriptor_description", "_UI_IProcessingStepDescriptor_data_feature",
+				"_UI_IProcessingStepDescriptor_type"), P2Package.Literals.IPROCESSING_STEP_DESCRIPTOR__DATA, true,
+			false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Processor Id feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	protected void addProcessorIdPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+			getResourceLocator(),
+			getString("_UI_IProcessingStepDescriptor_processorId_feature"),
+			getString(
+				"_UI_PropertyDescriptor_description", "_UI_IProcessingStepDescriptor_processorId_feature",
+				"_UI_IProcessingStepDescriptor_type"), P2Package.Literals.IPROCESSING_STEP_DESCRIPTOR__PROCESSOR_ID,
+			true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Required feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	protected void addRequiredPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+			getResourceLocator(),
+			getString("_UI_IProcessingStepDescriptor_required_feature"),
+			getString(
+				"_UI_PropertyDescriptor_description", "_UI_IProcessingStepDescriptor_required_feature",
+				"_UI_IProcessingStepDescriptor_type"), P2Package.Literals.IPROCESSING_STEP_DESCRIPTOR__REQUIRED, true,
+			false, false, ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null));
+	}
+
+	/**
+	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
+	 * that can be created under this object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
+		super.collectNewChildDescriptors(newChildDescriptors, object);
+	}
+
+	/**
 	 * This returns ProcessingStepDescriptor.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -128,73 +195,6 @@ public class ProcessingStepDescriptorItemProvider extends ItemProviderAdapter im
 				return;
 		}
 		super.notifyChanged(notification);
-	}
-
-	/**
-	 * This adds a property descriptor for the Data feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	protected void addDataPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-			getResourceLocator(),
-			getString("_UI_IProcessingStepDescriptor_data_feature"),
-			getString(
-				"_UI_PropertyDescriptor_description", "_UI_IProcessingStepDescriptor_data_feature",
-				"_UI_IProcessingStepDescriptor_type"), P2Package.Literals.IPROCESSING_STEP_DESCRIPTOR__DATA, true,
-			false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Processor Id feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	protected void addProcessorIdPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-			getResourceLocator(),
-			getString("_UI_IProcessingStepDescriptor_processorId_feature"),
-			getString(
-				"_UI_PropertyDescriptor_description", "_UI_IProcessingStepDescriptor_processorId_feature",
-				"_UI_IProcessingStepDescriptor_type"), P2Package.Literals.IPROCESSING_STEP_DESCRIPTOR__PROCESSOR_ID,
-			true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Required feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	protected void addRequiredPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-			getResourceLocator(),
-			getString("_UI_IProcessingStepDescriptor_required_feature"),
-			getString(
-				"_UI_PropertyDescriptor_description", "_UI_IProcessingStepDescriptor_required_feature",
-				"_UI_IProcessingStepDescriptor_type"), P2Package.Literals.IPROCESSING_STEP_DESCRIPTOR__REQUIRED, true,
-			false, false, ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null));
-	}
-
-	/**
-	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
-	 * that can be created under this object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
-		super.collectNewChildDescriptors(newChildDescriptors, object);
 	}
 
 }

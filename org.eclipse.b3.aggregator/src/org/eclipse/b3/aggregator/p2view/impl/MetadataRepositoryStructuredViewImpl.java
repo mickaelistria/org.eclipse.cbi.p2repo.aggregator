@@ -13,6 +13,7 @@ import org.eclipse.b3.aggregator.p2view.InstallableUnits;
 import org.eclipse.b3.aggregator.p2view.MetadataRepositoryStructuredView;
 import org.eclipse.b3.aggregator.p2view.P2viewPackage;
 import org.eclipse.b3.aggregator.p2view.Properties;
+import org.eclipse.b3.aggregator.p2view.RepositoryReferences;
 import org.eclipse.b3.p2.MetadataRepository;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -36,6 +37,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <li>{@link org.eclipse.b3.aggregator.p2view.impl.MetadataRepositoryStructuredViewImpl#getProperties <em>Properties</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.p2view.impl.MetadataRepositoryStructuredViewImpl#getMetadataRepository <em>Metadata Repository</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.p2view.impl.MetadataRepositoryStructuredViewImpl#isLoaded <em>Loaded</em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.p2view.impl.MetadataRepositoryStructuredViewImpl#getRepositoryReferences <em>Repository References</em>}</li>
  * </ul>
  * </p>
  * 
@@ -126,6 +128,17 @@ public class MetadataRepositoryStructuredViewImpl extends MinimalEObjectImpl.Con
 	protected static final int LOADED_EFLAG = 1 << 0;
 
 	/**
+	 * The cached value of the '{@link #getRepositoryReferences() <em>Repository References</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see #getRepositoryReferences()
+	 * @generated
+	 * @ordered
+	 */
+	protected RepositoryReferences repositoryReferences;
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated NOT
@@ -163,6 +176,16 @@ public class MetadataRepositoryStructuredViewImpl extends MinimalEObjectImpl.Con
 	 */
 	public Properties basicGetProperties() {
 		return properties;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public RepositoryReferences basicGetRepositoryReferences() {
+		return repositoryReferences;
 	}
 
 	/**
@@ -249,6 +272,10 @@ public class MetadataRepositoryStructuredViewImpl extends MinimalEObjectImpl.Con
 				return getMetadataRepository();
 			case P2viewPackage.METADATA_REPOSITORY_STRUCTURED_VIEW__LOADED:
 				return isLoaded();
+			case P2viewPackage.METADATA_REPOSITORY_STRUCTURED_VIEW__REPOSITORY_REFERENCES:
+				if(resolve)
+					return getRepositoryReferences();
+				return basicGetRepositoryReferences();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -293,6 +320,8 @@ public class MetadataRepositoryStructuredViewImpl extends MinimalEObjectImpl.Con
 				return metadataRepository != null;
 			case P2viewPackage.METADATA_REPOSITORY_STRUCTURED_VIEW__LOADED:
 				return ((eFlags & LOADED_EFLAG) != 0) != LOADED_EDEFAULT;
+			case P2viewPackage.METADATA_REPOSITORY_STRUCTURED_VIEW__REPOSITORY_REFERENCES:
+				return repositoryReferences != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -319,6 +348,9 @@ public class MetadataRepositoryStructuredViewImpl extends MinimalEObjectImpl.Con
 				return;
 			case P2viewPackage.METADATA_REPOSITORY_STRUCTURED_VIEW__LOADED:
 				setLoaded((Boolean) newValue);
+				return;
+			case P2viewPackage.METADATA_REPOSITORY_STRUCTURED_VIEW__REPOSITORY_REFERENCES:
+				setRepositoryReferences((RepositoryReferences) newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -356,6 +388,9 @@ public class MetadataRepositoryStructuredViewImpl extends MinimalEObjectImpl.Con
 				return;
 			case P2viewPackage.METADATA_REPOSITORY_STRUCTURED_VIEW__LOADED:
 				setLoaded(LOADED_EDEFAULT);
+				return;
+			case P2viewPackage.METADATA_REPOSITORY_STRUCTURED_VIEW__REPOSITORY_REFERENCES:
+				setRepositoryReferences((RepositoryReferences) null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -457,6 +492,27 @@ public class MetadataRepositoryStructuredViewImpl extends MinimalEObjectImpl.Con
 			}
 		}
 		return properties;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public RepositoryReferences getRepositoryReferences() {
+		if(repositoryReferences != null && ((EObject) repositoryReferences).eIsProxy()) {
+			InternalEObject oldRepositoryReferences = (InternalEObject) repositoryReferences;
+			repositoryReferences = (RepositoryReferences) eResolveProxy(oldRepositoryReferences);
+			if(repositoryReferences != oldRepositoryReferences) {
+				if(eNotificationRequired())
+					eNotify(new ENotificationImpl(
+						this, Notification.RESOLVE,
+						P2viewPackage.METADATA_REPOSITORY_STRUCTURED_VIEW__REPOSITORY_REFERENCES,
+						oldRepositoryReferences, repositoryReferences));
+			}
+		}
+		return repositoryReferences;
 	}
 
 	/**
@@ -567,6 +623,21 @@ public class MetadataRepositoryStructuredViewImpl extends MinimalEObjectImpl.Con
 			eNotify(new ENotificationImpl(
 				this, Notification.SET, P2viewPackage.METADATA_REPOSITORY_STRUCTURED_VIEW__PROPERTIES, newProperties,
 				newProperties));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public void setRepositoryReferences(RepositoryReferences newRepositoryReferences) {
+		RepositoryReferences oldRepositoryReferences = repositoryReferences;
+		repositoryReferences = newRepositoryReferences;
+		if(eNotificationRequired())
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, P2viewPackage.METADATA_REPOSITORY_STRUCTURED_VIEW__REPOSITORY_REFERENCES,
+				oldRepositoryReferences, repositoryReferences));
 	}
 
 	/**

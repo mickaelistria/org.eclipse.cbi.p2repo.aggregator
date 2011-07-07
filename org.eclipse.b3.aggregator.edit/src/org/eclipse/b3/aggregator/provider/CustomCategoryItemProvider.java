@@ -258,14 +258,16 @@ public class CustomCategoryItemProvider extends AggregatorItemProviderAdapter im
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((CustomCategory) object).getIdentifier();
-		return label == null || label.length() == 0
-				? getString("_UI_CustomCategory_type")
-				: getString("_UI_CustomCategory_type") + " " + label;
+		CustomCategory self = (CustomCategory) object;
+		String label = self.getLabel();
+		StringBuilder bld = new StringBuilder(getString("_UI_CustomCategory_type")).append(" : ");
+		if(label != null)
+			bld.append(label);
+		return bld.toString();
 	}
 
 	/**

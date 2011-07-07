@@ -6,32 +6,17 @@
  */
 package org.eclipse.b3.aggregator.provider;
 
-import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Iterator;
 import java.util.List;
 
 import org.eclipse.b3.aggregator.Aggregation;
 import org.eclipse.b3.aggregator.AggregatorFactory;
 import org.eclipse.b3.aggregator.AggregatorPackage;
-import org.eclipse.b3.aggregator.Contribution;
-import org.eclipse.b3.aggregator.LinkSource;
-import org.eclipse.b3.aggregator.MappedRepository;
-import org.eclipse.b3.aggregator.MavenMapping;
-import org.eclipse.b3.aggregator.MetadataRepositoryReference;
-import org.eclipse.b3.aggregator.ValidationSet;
-import org.eclipse.b3.aggregator.util.FilteringCollection;
-import org.eclipse.b3.aggregator.util.ResourceUtils;
-import org.eclipse.emf.common.command.Command;
-import org.eclipse.emf.common.command.CompoundCommand;
-import org.eclipse.emf.common.command.UnexecutableCommand;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
-import org.eclipse.emf.edit.command.CommandParameter;
-import org.eclipse.emf.edit.command.SetCommand;
-import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemColorProvider;
@@ -45,18 +30,19 @@ import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
- * This is the item provider adapter for a {@link org.eclipse.b3.aggregator.Aggregation} object. <!--
- * begin-user-doc --> <!-- end-user-doc -->
+ * This is the item provider adapter for a {@link org.eclipse.b3.aggregator.Aggregation} object.
+ * <!-- begin-user-doc -->
+ * <!-- end-user-doc -->
  * 
  * @generated
  */
 public class AggregationItemProvider extends DescriptionProviderItemProvider implements IEditingDomainItemProvider,
 		IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource,
 		IItemColorProvider, IItemFontProvider {
-
 	/**
 	 * This constructs an instance from a factory and a notifier.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 */
@@ -66,7 +52,8 @@ public class AggregationItemProvider extends DescriptionProviderItemProvider imp
 
 	/**
 	 * This adds a property descriptor for the Buildmaster feature.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 */
@@ -77,12 +64,13 @@ public class AggregationItemProvider extends DescriptionProviderItemProvider imp
 			getString("_UI_Aggregation_buildmaster_feature"),
 			getString(
 				"_UI_PropertyDescriptor_description", "_UI_Aggregation_buildmaster_feature", "_UI_Aggregation_type"),
-			AggregatorPackage.Literals.AGGREGATION__BUILDMASTER, true, false, false, null, null, null));
+			AggregatorPackage.Literals.AGGREGATION__BUILDMASTER, true, false, true, null, null, null));
 	}
 
 	/**
 	 * This adds a property descriptor for the Build Root feature.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 */
@@ -98,7 +86,8 @@ public class AggregationItemProvider extends DescriptionProviderItemProvider imp
 
 	/**
 	 * This adds a property descriptor for the Label feature.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 */
@@ -112,24 +101,9 @@ public class AggregationItemProvider extends DescriptionProviderItemProvider imp
 	}
 
 	/**
-	 * This adds a property descriptor for the Maven Mappings feature.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	protected void addMavenMappingsPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-			getResourceLocator(),
-			getString("_UI_Aggregation_mavenMappings_feature"),
-			getString(
-				"_UI_PropertyDescriptor_description", "_UI_Aggregation_mavenMappings_feature", "_UI_Aggregation_type"),
-			AggregatorPackage.Literals.AGGREGATION__MAVEN_MAPPINGS, true, false, true, null, null, null));
-	}
-
-	/**
 	 * This adds a property descriptor for the Maven Result feature.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 */
@@ -146,7 +120,8 @@ public class AggregationItemProvider extends DescriptionProviderItemProvider imp
 
 	/**
 	 * This adds a property descriptor for the Packed Strategy feature.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 */
@@ -163,7 +138,8 @@ public class AggregationItemProvider extends DescriptionProviderItemProvider imp
 
 	/**
 	 * This adds a property descriptor for the Sendmail feature.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 */
@@ -179,7 +155,8 @@ public class AggregationItemProvider extends DescriptionProviderItemProvider imp
 
 	/**
 	 * This adds a property descriptor for the Type feature.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 */
@@ -195,35 +172,13 @@ public class AggregationItemProvider extends DescriptionProviderItemProvider imp
 	/**
 	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
 	 * that can be created under this object.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated NOT
-	 */
-	@Override
-	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
-		collectNewChildDescriptorsGen(new FilteringCollection<Object>() {
-			@Override
-			public boolean add(Object e) {
-				if(e instanceof CommandParameter) {
-					Object newChildValue = ((CommandParameter) e).getValue();
-
-					// filter these out
-					if(newChildValue instanceof ValidationSet || newChildValue instanceof MappedRepository)
-						return false;
-				}
-				return super.add(e);
-			}
-		}.setDelegate(newChildDescriptors), object);
-	}
-
-	/**
-	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
-	 * that can be created under this object.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 */
-	protected void collectNewChildDescriptorsGen(Collection<Object> newChildDescriptors, Object object) {
+	@Override
+	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 
 		newChildDescriptors.add(createChildParameter(
@@ -233,9 +188,6 @@ public class AggregationItemProvider extends DescriptionProviderItemProvider imp
 			AggregatorPackage.Literals.AGGREGATION__CONFIGURATIONS, AggregatorFactory.eINSTANCE.createConfiguration()));
 
 		newChildDescriptors.add(createChildParameter(
-			AggregatorPackage.Literals.AGGREGATION__CONTRIBUTIONS, AggregatorFactory.eINSTANCE.createContribution()));
-
-		newChildDescriptors.add(createChildParameter(
 			AggregatorPackage.Literals.AGGREGATION__CUSTOM_CATEGORIES,
 			AggregatorFactory.eINSTANCE.createCustomCategory()));
 
@@ -243,105 +195,12 @@ public class AggregationItemProvider extends DescriptionProviderItemProvider imp
 			AggregatorPackage.Literals.AGGREGATION__CONTACTS, AggregatorFactory.eINSTANCE.createContact()));
 
 		newChildDescriptors.add(createChildParameter(
-			AggregatorPackage.Literals.AGGREGATION__VALIDATION_REPOSITORIES,
-			AggregatorFactory.eINSTANCE.createMetadataRepositoryReference()));
-
-		newChildDescriptors.add(createChildParameter(
-			AggregatorPackage.Literals.AGGREGATION__VALIDATION_REPOSITORIES,
-			AggregatorFactory.eINSTANCE.createMappedRepository()));
-
-		newChildDescriptors.add(createChildParameter(
 			AggregatorPackage.Literals.AGGREGATION__MAVEN_MAPPINGS, AggregatorFactory.eINSTANCE.createMavenMapping()));
 	}
 
-	@Override
-	protected Command createAddCommand(EditingDomain domain, EObject owner, EStructuralFeature feature,
-			Collection<?> collection, int index) {
-		if(feature == AggregatorPackage.Literals.AGGREGATION__VALIDATION_REPOSITORIES) {
-			// disable drag & drop of Mapped Repositories to Aggregator's validation repositories list;
-			// although - given the class hierarchy - this should be theoretically possible in reality
-			// it isn't as the code in MappedRepositoryImpl expects its container to be a "Contribution"
-			for(Object object : collection) {
-				if(unwrap(object) instanceof MappedRepository)
-					return UnexecutableCommand.INSTANCE;
-			}
-		}
-		return super.createAddCommand(domain, owner, feature, collection, index);
-	}
-
-	@Override
-	public Command createCommand(Object object, EditingDomain domain, Class<? extends Command> commandClass,
-			CommandParameter commandParameter) {
-		CREATE_CUSTOM_COMMAND: {
-			if(commandClass == SetCommand.class) {
-				if(commandParameter.getEStructuralFeature() != null)
-					break CREATE_CUSTOM_COMMAND;
-
-				List<?> valueList;
-				Object setValue = commandParameter.getValue();
-				if(setValue instanceof Collection) {
-					Collection<?> collection = (Collection<?>) setValue;
-					if(collection.isEmpty())
-						break CREATE_CUSTOM_COMMAND;
-					valueList = new ArrayList<Object>(collection);
-				}
-				else
-					break CREATE_CUSTOM_COMMAND;
-
-				CompoundCommand compoundCommand = createCompoundLinkCommand(domain, valueList);
-
-				if(compoundCommand.isEmpty()) {
-					compoundCommand.dispose();
-					break CREATE_CUSTOM_COMMAND;
-				}
-
-				if(!valueList.isEmpty()) {
-					compoundCommand.dispose();
-					return UnexecutableCommand.INSTANCE;
-				}
-
-				return compoundCommand.unwrap();
-			}
-		}
-
-		return super.createCommand(object, domain, commandClass, commandParameter);
-	}
-
-	public CompoundCommand createCompoundLinkCommand(EditingDomain domain, List<?> valueList) {
-		CompoundCommand compoundCommand = new CompoundCommand(CompoundCommand.MERGE_COMMAND_ALL);
-
-		for(Iterator<?> valueIterator = valueList.iterator(); valueIterator.hasNext();) {
-			Object value = valueIterator.next();
-			Object unwrappedValue = unwrap(value);
-
-			// only allow linking of objects parented by some other objects then their natural parents
-			if(unwrappedValue instanceof LinkSource && getObjectParent(value) != getObjectParent(unwrappedValue)) {
-				compoundCommand.append(new SetCommand(
-					domain, (EObject) unwrappedValue, AggregatorPackage.Literals.LINK_SOURCE__RECEIVER,
-					SetCommand.UNSET_VALUE));
-				valueIterator.remove();
-			}
-		}
-
-		return compoundCommand;
-	}
-
-	@Override
-	protected Object createWrapper(EObject object, EStructuralFeature feature, Object value, int index) {
-		Object unwrappedValue = unwrap(value);
-
-		if(unwrappedValue instanceof Contribution) {
-			ContributionItemProvider contributionItemProvider = (ContributionItemProvider) getRootAdapterFactory().adapt(
-				unwrappedValue, IEditingDomainItemProvider.class);
-
-			return contributionItemProvider.new HidingContributionWrapperItemProvider(
-				value, object, feature, index, adapterFactory);
-		}
-		return super.createWrapper(object, feature, value, index);
-	}
-
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 */
@@ -357,46 +216,28 @@ public class AggregationItemProvider extends DescriptionProviderItemProvider imp
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
-	 * @generated NOT
+	 * @generated
 	 */
 	@Override
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if(childrenFeatures == null) {
-			getChildrenFeaturesGen(object);
-			childrenFeatures.remove(AggregatorPackage.Literals.AGGREGATION__VALIDATION_SETS);
-		}
-		return childrenFeatures;
-	}
-
-	/**
-	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
-	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
-	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	public Collection<? extends EStructuralFeature> getChildrenFeaturesGen(Object object) {
-		if(childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(AggregatorPackage.Literals.AGGREGATION__VALIDATION_SETS);
 			childrenFeatures.add(AggregatorPackage.Literals.AGGREGATION__CONFIGURATIONS);
-			childrenFeatures.add(AggregatorPackage.Literals.AGGREGATION__CONTRIBUTIONS);
 			childrenFeatures.add(AggregatorPackage.Literals.AGGREGATION__CUSTOM_CATEGORIES);
 			childrenFeatures.add(AggregatorPackage.Literals.AGGREGATION__CONTACTS);
-			childrenFeatures.add(AggregatorPackage.Literals.AGGREGATION__VALIDATION_REPOSITORIES);
 			childrenFeatures.add(AggregatorPackage.Literals.AGGREGATION__MAVEN_MAPPINGS);
 		}
 		return childrenFeatures;
 	}
 
 	/**
-	 * This returns Aggregator.gif.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * This returns Aggregation.gif.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 */
@@ -405,16 +246,10 @@ public class AggregationItemProvider extends DescriptionProviderItemProvider imp
 		return overlayImage(object, getResourceLocator().getImage("full/obj16/Aggregation"));
 	}
 
-	public Object getObjectParent(Object object) {
-		IEditingDomainItemProvider objectItemProvider = (IEditingDomainItemProvider) getRootAdapterFactory().adapt(
-			object, IEditingDomainItemProvider.class);
-
-		return objectItemProvider.getParent(object);
-	}
-
 	/**
 	 * This returns the property descriptors for the adapted class.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 */
@@ -430,70 +265,46 @@ public class AggregationItemProvider extends DescriptionProviderItemProvider imp
 			addSendmailPropertyDescriptor(object);
 			addTypePropertyDescriptor(object);
 			addMavenResultPropertyDescriptor(object);
-			addMavenMappingsPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
 	 * This returns the label text for the adapted class.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Aggregation) object).getLabel();
-		return label == null || label.length() == 0
-				? getString("_UI_Aggregation_type")
-				: getString("_UI_Aggregation_type") + " " + label;
-	}
-
-	@Override
-	protected boolean isWrappingNeeded(Object object) {
-		// we need to set this to true since we are wrapping the Contribution objects
-		// so that they can be collapsed when linked to an ValidationSet
-		return true;
-	}
-
-	@Override
-	public void notifyChanged(Notification notification) {
-		notifyChangedGen(notification);
-
-		if(notification.getEventType() == Notification.REMOVE) {
-			Object oldV = notification.getOldValue();
-			if(oldV instanceof Contribution || oldV instanceof MetadataRepositoryReference)
-				ResourceUtils.cleanUpResources((Aggregation) notification.getNotifier());
-			if(oldV instanceof MetadataRepositoryReference || oldV instanceof MavenMapping)
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+		Aggregation self = (Aggregation) object;
+		String label = self.getLabel();
+		StringBuilder bld = new StringBuilder(getString("_UI_Aggregation_type")).append(" : ");
+		if(label != null)
+			bld.append(label);
+		URI uri = ((EObject) object).eResource().getURI();
+		if(uri != null) {
+			bld.append(" [");
+			bld.append(uri);
+			bld.append(']');
 		}
-		else if(notification.getEventType() == Notification.ADD) {
-			Object newV = notification.getNewValue();
-			if(newV instanceof Contribution) {
-				for(MappedRepository mappedRepository : ((Contribution) newV).getRepositories(true))
-					ResourceUtils.loadResourceForMappedRepository(mappedRepository);
-			}
-			else if(newV instanceof MetadataRepositoryReference) {
-				ResourceUtils.loadResourceForMappedRepository((MetadataRepositoryReference) newV);
-			}
-
-			if(newV instanceof MetadataRepositoryReference || newV instanceof MavenMapping)
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-		}
+		return bld.toString();
 	}
 
 	/**
-	 * This handles model notifications by calling {@link #updateChildren} to update any cached children and by creating
-	 * a viewer notification, which it passes to {@link #fireNotifyChanged}. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
+	 * This handles model notifications by calling {@link #updateChildren} to update any cached
+	 * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 */
-	public void notifyChangedGen(Notification notification) {
+	@Override
+	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
 		switch(notification.getFeatureID(Aggregation.class)) {
-			case AggregatorPackage.AGGREGATION__BUILDMASTER:
 			case AggregatorPackage.AGGREGATION__LABEL:
 			case AggregatorPackage.AGGREGATION__BUILD_ROOT:
 			case AggregatorPackage.AGGREGATION__PACKED_STRATEGY:
@@ -504,10 +315,8 @@ public class AggregationItemProvider extends DescriptionProviderItemProvider imp
 				return;
 			case AggregatorPackage.AGGREGATION__VALIDATION_SETS:
 			case AggregatorPackage.AGGREGATION__CONFIGURATIONS:
-			case AggregatorPackage.AGGREGATION__CONTRIBUTIONS:
 			case AggregatorPackage.AGGREGATION__CUSTOM_CATEGORIES:
 			case AggregatorPackage.AGGREGATION__CONTACTS:
-			case AggregatorPackage.AGGREGATION__VALIDATION_REPOSITORIES:
 			case AggregatorPackage.AGGREGATION__MAVEN_MAPPINGS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;

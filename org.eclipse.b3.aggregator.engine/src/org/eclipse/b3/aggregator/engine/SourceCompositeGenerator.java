@@ -12,9 +12,9 @@ import java.util.Map;
 
 import org.eclipse.b3.aggregator.Contribution;
 import org.eclipse.b3.aggregator.MappedRepository;
+import org.eclipse.b3.aggregator.ValidationSet;
 import org.eclipse.b3.aggregator.util.ResourceUtils;
 import org.eclipse.b3.p2.MetadataRepository;
-import org.eclipse.b3.p2.util.P2Utils;
 import org.eclipse.b3.util.ExceptionUtils;
 import org.eclipse.b3.util.LogUtils;
 import org.eclipse.b3.util.MonitorUtils;
@@ -30,8 +30,11 @@ import org.eclipse.equinox.p2.repository.IRepository;
 import org.eclipse.equinox.p2.repository.metadata.IMetadataRepositoryManager;
 
 public class SourceCompositeGenerator extends BuilderPhase {
-	public SourceCompositeGenerator(Builder builder) {
+	private final ValidationSet validationSet;
+
+	public SourceCompositeGenerator(Builder builder, ValidationSet validationSet) {
 		super(builder);
+		this.validationSet = validationSet;
 	}
 
 	private IRepository<IInstallableUnit> createLocalMdr(URI locationBase, MetadataRepository mdr)
@@ -57,7 +60,7 @@ public class SourceCompositeGenerator extends BuilderPhase {
 
 	@Override
 	public void run(IProgressMonitor monitor) throws CoreException {
-		List<Contribution> contribs = getBuilder().getAggregator().getContributions(true);
+		List<Contribution> contribs = validationSet.getAllContributions();
 
 		SubMonitor subMon = SubMonitor.convert(monitor, 100 + contribs.size() * 100);
 		String info = "Starting generation of composite repository";
@@ -66,57 +69,49 @@ public class SourceCompositeGenerator extends BuilderPhase {
 
 		long start = TimeUtils.getNow();
 
-		String name = getBuilder().getAggregator().getLabel() + " Source Composite";
-		Map<String, String> properties = new HashMap<String, String>();
-		properties.put(IRepository.PROP_COMPRESSED, Boolean.toString(true));
+		String name = validationSet.getLabel() + " Source Composite";
 		boolean errorsFound = false;
 
-		IMetadataRepositoryManager mdrMgr = P2Utils.getRepositoryManager(
-			getBuilder().getProvisioningAgent(), IMetadataRepositoryManager.class);
+		Builder builder = getBuilder();
+		IMetadataRepositoryManager mdrMgr = builder.getMdrManager();
+		URI sourceLocationURI = builder.getSourceCompositeURI(validationSet);
+		mdrMgr.removeRepository(sourceLocationURI);
+		FileUtils.deleteAll(new File(builder.getBuildRoot(), Builder.REPO_FOLDER_INTERIM));
 
-		try {
-			Builder builder = getBuilder();
-			URI sourceLocationURI = builder.getSourceCompositeURI();
-			mdrMgr.removeRepository(sourceLocationURI);
-			FileUtils.deleteAll(new File(builder.getBuildRoot(), Builder.REPO_FOLDER_INTERIM));
+		Map<String, String> properties = new HashMap<String, String>();
+		CompositeMetadataRepository compositeMdr = (CompositeMetadataRepository) mdrMgr.createRepository(
+			sourceLocationURI, name, Builder.COMPOSITE_METADATA_TYPE, properties);
+		getBuilder().setSourceComposite(validationSet, compositeMdr);
 
-			CompositeMetadataRepository compositeMdr = (CompositeMetadataRepository) mdrMgr.createRepository(
-				sourceLocationURI, name, Builder.COMPOSITE_METADATA_TYPE, properties);
-			getBuilder().setSourceComposite(compositeMdr);
+		MonitorUtils.worked(subMon, 100);
+		for(Contribution contrib : contribs) {
+			SubMonitor contribMonitor = subMon.newChild(100);
+			List<MappedRepository> repos = contrib.getRepositories(true);
+			MonitorUtils.begin(contribMonitor, repos.size() * 200);
+			List<String> errors = new ArrayList<String>();
+			for(MappedRepository repo : repos) {
+				try {
+					URI childLocation = new URI(repo.getResolvedLocation());
+					LogUtils.info("Adding child meta-data repository %s", childLocation);
 
-			MonitorUtils.worked(subMon, 100);
-			for(Contribution contrib : contribs) {
-				SubMonitor contribMonitor = subMon.newChild(100);
-				List<MappedRepository> repos = contrib.getRepositories(true);
-				MonitorUtils.begin(contribMonitor, repos.size() * 200);
-				List<String> errors = new ArrayList<String>();
-				for(MappedRepository repo : repos) {
-					try {
-						URI childLocation = new URI(repo.getResolvedLocation());
-						LogUtils.info("Adding child meta-data repository %s", childLocation);
-
-						// if the original repository is not p2 compatible, persist its virtual metadata as a local p2
-						// repository
-						if(!"p2".equals(repo.getNature()))
-							childLocation = createLocalMdr(sourceLocationURI, ResourceUtils.getMetadataRepository(repo)).getLocation();
-						compositeMdr.addChild(childLocation);
-					}
-					catch(Exception e) {
-						String msg = Builder.getExceptionMessages(e);
-						errors.add(msg);
-						LogUtils.error(e, msg);
-					}
-					contribMonitor.worked(200);
+					// if the original repository is not p2 compatible, persist its virtual metadata as a local p2
+					// repository
+					if(!"p2".equals(repo.getNature()))
+						childLocation = createLocalMdr(sourceLocationURI, ResourceUtils.getMetadataRepository(repo)).getLocation();
+					compositeMdr.addChild(childLocation);
 				}
-				MonitorUtils.done(contribMonitor);
-				if(!errors.isEmpty()) {
-					getBuilder().sendEmail(contrib, errors);
-					errorsFound = true;
+				catch(Exception e) {
+					String msg = Builder.getExceptionMessages(e);
+					errors.add(msg);
+					LogUtils.error(e, msg);
 				}
+				contribMonitor.worked(200);
 			}
-		}
-		finally {
-			P2Utils.ungetRepositoryManager(getBuilder().getProvisioningAgent(), mdrMgr);
+			MonitorUtils.done(contribMonitor);
+			if(!errors.isEmpty()) {
+				getBuilder().sendEmail(contrib, errors);
+				errorsFound = true;
+			}
 		}
 		MonitorUtils.done(subMon);
 		LogUtils.info("Done. Took %s", TimeUtils.getFormattedDuration(start)); //$NON-NLS-1$

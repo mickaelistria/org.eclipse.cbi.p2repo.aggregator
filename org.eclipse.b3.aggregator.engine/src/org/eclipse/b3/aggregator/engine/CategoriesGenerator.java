@@ -8,7 +8,6 @@ import java.util.Map;
 
 import org.eclipse.b3.aggregator.Aggregation;
 import org.eclipse.b3.aggregator.Category;
-import org.eclipse.b3.aggregator.ValidationSet;
 import org.eclipse.b3.aggregator.Contribution;
 import org.eclipse.b3.aggregator.CustomCategory;
 import org.eclipse.b3.aggregator.ExclusionRule;
@@ -252,28 +251,27 @@ public class CategoriesGenerator extends BuilderPhase {
 		long start = TimeUtils.getNow();
 		MonitorUtils.begin(monitor, 10);
 		String info = "Starting generation of categories";
+		Builder builder = getBuilder();
 		MonitorUtils.subTask(monitor, info);
 		LogUtils.info(info);
 		try {
-			List<IInstallableUnit> results = getBuilder().getCategoryIUs();
-			if(results == null)
-				results = new ArrayList<IInstallableUnit>();
+			List<IInstallableUnit> results = new ArrayList<IInstallableUnit>();
 
-			Aggregation aggregator = getBuilder().getAggregator();
+			Aggregation aggregation = builder.getAggregation();
 
 			// only process custom categories in the main (implicit) validationSet
-			for(CustomCategory category : aggregator.getCustomCategories())
+			for(CustomCategory category : aggregation.getCustomCategories())
 				results.add(createCategoryIU(category));
 
 			MonitorUtils.worked(monitor, 5);
-			List<ValidationSet> all = getBuilder().getValidationSetsIncludingMain();
-			for(ValidationSet child : all)
-				for(Contribution contrib : aggregator.getValidationSetContributions(child, true))
-					for(MappedRepository repo : contrib.getRepositories(true))
-						results.addAll(getRepositoryCategories(repo));
+			for(Contribution contrib : getBuilder().getAggregation().getAllContributions(true)) {
+				for(MappedRepository repo : contrib.getRepositories(true))
+					results.addAll(getRepositoryCategories(repo));
+			}
 
 			results = normalizeCategories(results);
-			getBuilder().setCategoryIUs(results);
+			if(!results.isEmpty())
+				builder.getAggregationMetadataRepository().addInstallableUnits(results);
 		}
 		finally {
 			MonitorUtils.done(monitor);
@@ -290,16 +288,13 @@ public class CategoriesGenerator extends BuilderPhase {
 	private void tossCategory(IInstallableUnit category) {
 		MetadataRepository parent = (MetadataRepository) ((EObject) category).eContainer();
 		Builder builder = getBuilder();
-		List<ValidationSet> all = builder.getValidationSetsIncludingMain();
-		for(ValidationSet child : all) {
-			for(Contribution contrib : builder.getAggregator().getValidationSetContributions(child, true)) {
-				for(MappedRepository mappedRepo : contrib.getRepositories(true)) {
-					if(mappedRepo.getMetadataRepository() == parent && builder.isMapVerbatim(mappedRepo)) {
-						LogUtils.debug(
-							"Excluding %s from verbatim mapping since category %s has been normalized",
-							mappedRepo.getLocation(), category.getProperty(IInstallableUnit.PROP_NAME));
-						builder.addMappingExclusion(mappedRepo);
-					}
+		for(Contribution contrib : builder.getAggregation().getAllContributions(true)) {
+			for(MappedRepository mappedRepo : contrib.getRepositories(true)) {
+				if(mappedRepo.getMetadataRepository() == parent && builder.isMapVerbatim(mappedRepo)) {
+					LogUtils.debug(
+						"Excluding %s from verbatim mapping since category %s has been normalized",
+						mappedRepo.getLocation(), category.getProperty(IInstallableUnit.PROP_NAME));
+					builder.addMappingExclusion(mappedRepo);
 				}
 			}
 		}

@@ -38,7 +38,7 @@ public interface AggregatorResource extends XMIResource {
 	 * 
 	 * @return the {@code Aggregator} instance contained in this {@code Resource}.
 	 */
-	Aggregation getAggregator();
+	Aggregation getAggregation();
 
 	/**
 	 * Returns a list of the infos in the resource; each error will be of type {@link org.eclipse.emf.ecore.resource.Resource.Diagnostic}.

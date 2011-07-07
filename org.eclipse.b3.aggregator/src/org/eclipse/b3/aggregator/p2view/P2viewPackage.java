@@ -98,6 +98,15 @@ public interface P2viewPackage extends EPackage {
 		EAttribute METADATA_REPOSITORY_STRUCTURED_VIEW__LOADED = eINSTANCE.getMetadataRepositoryStructuredView_Loaded();
 
 		/**
+		 * The meta object literal for the '<em><b>Repository References</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EReference METADATA_REPOSITORY_STRUCTURED_VIEW__REPOSITORY_REFERENCES = eINSTANCE.getMetadataRepositoryStructuredView_RepositoryReferences();
+
+		/**
 		 * The meta object literal for the '{@link org.eclipse.b3.aggregator.p2view.impl.InstallableUnitsImpl <em>Installable Units</em>}' class.
 		 * <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
@@ -769,6 +778,27 @@ public interface P2viewPackage extends EPackage {
 		 */
 		EReference PROVIDED_CAPABILITY_WRAPPER__GENUINE = eINSTANCE.getProvidedCapabilityWrapper_Genuine();
 
+		/**
+		 * The meta object literal for the '{@link org.eclipse.b3.aggregator.p2view.impl.RepositoryReferencesImpl <em>Repository References</em>}'
+		 * class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @see org.eclipse.b3.aggregator.p2view.impl.RepositoryReferencesImpl
+		 * @see org.eclipse.b3.aggregator.p2view.impl.P2viewPackageImpl#getRepositoryReferences()
+		 * @generated
+		 */
+		EClass REPOSITORY_REFERENCES = eINSTANCE.getRepositoryReferences();
+
+		/**
+		 * The meta object literal for the '<em><b>Repository References</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EReference REPOSITORY_REFERENCES__REPOSITORY_REFERENCES = eINSTANCE.getRepositoryReferences_RepositoryReferences();
+
 	}
 
 	/**
@@ -812,73 +842,7 @@ public interface P2viewPackage extends EPackage {
 	 * @see org.eclipse.b3.aggregator.p2view.impl.P2viewPackageImpl#getMetadataRepositoryStructuredView()
 	 * @generated
 	 */
-	int METADATA_REPOSITORY_STRUCTURED_VIEW = 0;
-
-	/**
-	 * The feature id for the '<em><b>Children</b></em>' reference list.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int METADATA_REPOSITORY_STRUCTURED_VIEW__CHILDREN = AggregatorPackage.CHILDREN_PROVIDER__CHILDREN;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int METADATA_REPOSITORY_STRUCTURED_VIEW__NAME = AggregatorPackage.CHILDREN_PROVIDER_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Installable Unit List</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int METADATA_REPOSITORY_STRUCTURED_VIEW__INSTALLABLE_UNIT_LIST = AggregatorPackage.CHILDREN_PROVIDER_FEATURE_COUNT + 1;
-
-	/**
-	 * The feature id for the '<em><b>Properties</b></em>' containment reference.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int METADATA_REPOSITORY_STRUCTURED_VIEW__PROPERTIES = AggregatorPackage.CHILDREN_PROVIDER_FEATURE_COUNT + 2;
-
-	/**
-	 * The feature id for the '<em><b>Metadata Repository</b></em>' containment reference.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int METADATA_REPOSITORY_STRUCTURED_VIEW__METADATA_REPOSITORY = AggregatorPackage.CHILDREN_PROVIDER_FEATURE_COUNT + 3;
-
-	/**
-	 * The feature id for the '<em><b>Loaded</b></em>' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int METADATA_REPOSITORY_STRUCTURED_VIEW__LOADED = AggregatorPackage.CHILDREN_PROVIDER_FEATURE_COUNT + 4;
-
-	/**
-	 * The number of structural features of the '<em>Metadata Repository Structured View</em>' class. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int METADATA_REPOSITORY_STRUCTURED_VIEW_FEATURE_COUNT = AggregatorPackage.CHILDREN_PROVIDER_FEATURE_COUNT + 5;
+	int METADATA_REPOSITORY_STRUCTURED_VIEW = 13;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.aggregator.p2view.impl.InstallableUnitsImpl <em>Installable Units</em>}' class.
@@ -888,91 +852,7 @@ public interface P2viewPackage extends EPackage {
 	 * @see org.eclipse.b3.aggregator.p2view.impl.P2viewPackageImpl#getInstallableUnits()
 	 * @generated
 	 */
-	int INSTALLABLE_UNITS = 1;
-
-	/**
-	 * The feature id for the '<em><b>Children</b></em>' reference list.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int INSTALLABLE_UNITS__CHILDREN = AggregatorPackage.CHILDREN_PROVIDER__CHILDREN;
-
-	/**
-	 * The feature id for the '<em><b>All IUs</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int INSTALLABLE_UNITS__ALL_IUS = AggregatorPackage.CHILDREN_PROVIDER_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Category Container</b></em>' reference. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int INSTALLABLE_UNITS__CATEGORY_CONTAINER = AggregatorPackage.CHILDREN_PROVIDER_FEATURE_COUNT + 1;
-
-	/**
-	 * The feature id for the '<em><b>Feature Container</b></em>' reference. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int INSTALLABLE_UNITS__FEATURE_CONTAINER = AggregatorPackage.CHILDREN_PROVIDER_FEATURE_COUNT + 2;
-
-	/**
-	 * The feature id for the '<em><b>Product Container</b></em>' reference. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int INSTALLABLE_UNITS__PRODUCT_CONTAINER = AggregatorPackage.CHILDREN_PROVIDER_FEATURE_COUNT + 3;
-
-	/**
-	 * The feature id for the '<em><b>Bundle Container</b></em>' reference. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int INSTALLABLE_UNITS__BUNDLE_CONTAINER = AggregatorPackage.CHILDREN_PROVIDER_FEATURE_COUNT + 4;
-
-	/**
-	 * The feature id for the '<em><b>Fragment Container</b></em>' reference. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int INSTALLABLE_UNITS__FRAGMENT_CONTAINER = AggregatorPackage.CHILDREN_PROVIDER_FEATURE_COUNT + 5;
-
-	/**
-	 * The feature id for the '<em><b>Miscellaneous Container</b></em>' containment reference.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int INSTALLABLE_UNITS__MISCELLANEOUS_CONTAINER = AggregatorPackage.CHILDREN_PROVIDER_FEATURE_COUNT + 6;
-
-	/**
-	 * The number of structural features of the '<em>Installable Units</em>' class.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int INSTALLABLE_UNITS_FEATURE_COUNT = AggregatorPackage.CHILDREN_PROVIDER_FEATURE_COUNT + 7;
+	int INSTALLABLE_UNITS = 8;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.aggregator.p2view.impl.CategoriesImpl <em>Categories</em>}' class.
@@ -982,34 +862,7 @@ public interface P2viewPackage extends EPackage {
 	 * @see org.eclipse.b3.aggregator.p2view.impl.P2viewPackageImpl#getCategories()
 	 * @generated
 	 */
-	int CATEGORIES = 2;
-
-	/**
-	 * The feature id for the '<em><b>Children</b></em>' reference list.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int CATEGORIES__CHILDREN = AggregatorPackage.CHILDREN_PROVIDER__CHILDREN;
-
-	/**
-	 * The feature id for the '<em><b>Categories</b></em>' reference list.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int CATEGORIES__CATEGORIES = AggregatorPackage.CHILDREN_PROVIDER_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of structural features of the '<em>Categories</em>' class. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int CATEGORIES_FEATURE_COUNT = AggregatorPackage.CHILDREN_PROVIDER_FEATURE_COUNT + 1;
+	int CATEGORIES = 3;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.aggregator.p2view.impl.FeaturesImpl <em>Features</em>}' class.
@@ -1019,34 +872,7 @@ public interface P2viewPackage extends EPackage {
 	 * @see org.eclipse.b3.aggregator.p2view.impl.P2viewPackageImpl#getFeatures()
 	 * @generated
 	 */
-	int FEATURES = 3;
-
-	/**
-	 * The feature id for the '<em><b>Children</b></em>' reference list.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int FEATURES__CHILDREN = AggregatorPackage.CHILDREN_PROVIDER__CHILDREN;
-
-	/**
-	 * The feature id for the '<em><b>Features</b></em>' reference list.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int FEATURES__FEATURES = AggregatorPackage.CHILDREN_PROVIDER_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of structural features of the '<em>Features</em>' class.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int FEATURES_FEATURE_COUNT = AggregatorPackage.CHILDREN_PROVIDER_FEATURE_COUNT + 1;
+	int FEATURES = 5;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.aggregator.p2view.impl.ProductsImpl <em>Products</em>}' class.
@@ -1056,34 +882,7 @@ public interface P2viewPackage extends EPackage {
 	 * @see org.eclipse.b3.aggregator.p2view.impl.P2viewPackageImpl#getProducts()
 	 * @generated
 	 */
-	int PRODUCTS = 4;
-
-	/**
-	 * The feature id for the '<em><b>Children</b></em>' reference list.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int PRODUCTS__CHILDREN = AggregatorPackage.CHILDREN_PROVIDER__CHILDREN;
-
-	/**
-	 * The feature id for the '<em><b>Products</b></em>' reference list.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int PRODUCTS__PRODUCTS = AggregatorPackage.CHILDREN_PROVIDER_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of structural features of the '<em>Products</em>' class.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int PRODUCTS_FEATURE_COUNT = AggregatorPackage.CHILDREN_PROVIDER_FEATURE_COUNT + 1;
+	int PRODUCTS = 17;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.aggregator.p2view.impl.BundlesImpl <em>Bundles</em>}' class.
@@ -1093,34 +892,7 @@ public interface P2viewPackage extends EPackage {
 	 * @see org.eclipse.b3.aggregator.p2view.impl.P2viewPackageImpl#getBundles()
 	 * @generated
 	 */
-	int BUNDLES = 5;
-
-	/**
-	 * The feature id for the '<em><b>Children</b></em>' reference list.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int BUNDLES__CHILDREN = AggregatorPackage.CHILDREN_PROVIDER__CHILDREN;
-
-	/**
-	 * The feature id for the '<em><b>Bundles</b></em>' reference list.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int BUNDLES__BUNDLES = AggregatorPackage.CHILDREN_PROVIDER_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of structural features of the '<em>Bundles</em>' class.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int BUNDLES_FEATURE_COUNT = AggregatorPackage.CHILDREN_PROVIDER_FEATURE_COUNT + 1;
+	int BUNDLES = 1;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.aggregator.p2view.impl.FragmentsImpl <em>Fragments</em>}' class.
@@ -1130,34 +902,7 @@ public interface P2viewPackage extends EPackage {
 	 * @see org.eclipse.b3.aggregator.p2view.impl.P2viewPackageImpl#getFragments()
 	 * @generated
 	 */
-	int FRAGMENTS = 6;
-
-	/**
-	 * The feature id for the '<em><b>Children</b></em>' reference list.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int FRAGMENTS__CHILDREN = AggregatorPackage.CHILDREN_PROVIDER__CHILDREN;
-
-	/**
-	 * The feature id for the '<em><b>Fragments</b></em>' reference list.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int FRAGMENTS__FRAGMENTS = AggregatorPackage.CHILDREN_PROVIDER_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of structural features of the '<em>Fragments</em>' class. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int FRAGMENTS_FEATURE_COUNT = AggregatorPackage.CHILDREN_PROVIDER_FEATURE_COUNT + 1;
+	int FRAGMENTS = 7;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.aggregator.p2view.impl.MiscellaneousImpl <em>Miscellaneous</em>}' class.
@@ -1167,35 +912,7 @@ public interface P2viewPackage extends EPackage {
 	 * @see org.eclipse.b3.aggregator.p2view.impl.P2viewPackageImpl#getMiscellaneous()
 	 * @generated
 	 */
-	int MISCELLANEOUS = 7;
-
-	/**
-	 * The feature id for the '<em><b>Children</b></em>' reference list.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int MISCELLANEOUS__CHILDREN = AggregatorPackage.CHILDREN_PROVIDER__CHILDREN;
-
-	/**
-	 * The feature id for the '<em><b>Others</b></em>' reference list.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int MISCELLANEOUS__OTHERS = AggregatorPackage.CHILDREN_PROVIDER_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of structural features of the '<em>Miscellaneous</em>' class.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int MISCELLANEOUS_FEATURE_COUNT = AggregatorPackage.CHILDREN_PROVIDER_FEATURE_COUNT + 1;
+	int MISCELLANEOUS = 14;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.aggregator.p2view.impl.IUPresentationImpl <em>IU Presentation</em>}' class.
@@ -1205,7 +922,7 @@ public interface P2viewPackage extends EPackage {
 	 * @see org.eclipse.b3.aggregator.p2view.impl.P2viewPackageImpl#getIUPresentation()
 	 * @generated
 	 */
-	int IU_PRESENTATION = 8;
+	int IU_PRESENTATION = 10;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.aggregator.p2view.impl.CategoryImpl <em>Category</em>}' class.
@@ -1215,7 +932,7 @@ public interface P2viewPackage extends EPackage {
 	 * @see org.eclipse.b3.aggregator.p2view.impl.P2viewPackageImpl#getCategory()
 	 * @generated
 	 */
-	int CATEGORY = 10;
+	int CATEGORY = 2;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.aggregator.p2view.impl.FeatureImpl <em>Feature</em>}' class.
@@ -1225,7 +942,7 @@ public interface P2viewPackage extends EPackage {
 	 * @see org.eclipse.b3.aggregator.p2view.impl.P2viewPackageImpl#getFeature()
 	 * @generated
 	 */
-	int FEATURE = 11;
+	int FEATURE = 4;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.aggregator.p2view.impl.ProductImpl <em>Product</em>}' class.
@@ -1235,7 +952,7 @@ public interface P2viewPackage extends EPackage {
 	 * @see org.eclipse.b3.aggregator.p2view.impl.P2viewPackageImpl#getProduct()
 	 * @generated
 	 */
-	int PRODUCT = 12;
+	int PRODUCT = 16;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.aggregator.p2view.impl.BundleImpl <em>Bundle</em>}' class.
@@ -1245,7 +962,7 @@ public interface P2viewPackage extends EPackage {
 	 * @see org.eclipse.b3.aggregator.p2view.impl.P2viewPackageImpl#getBundle()
 	 * @generated
 	 */
-	int BUNDLE = 13;
+	int BUNDLE = 0;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.aggregator.p2view.impl.FragmentImpl <em>Fragment</em>}' class.
@@ -1255,7 +972,7 @@ public interface P2viewPackage extends EPackage {
 	 * @see org.eclipse.b3.aggregator.p2view.impl.P2viewPackageImpl#getFragment()
 	 * @generated
 	 */
-	int FRAGMENT = 14;
+	int FRAGMENT = 6;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.aggregator.p2view.impl.OtherIUImpl <em>Other IU</em>}' class.
@@ -1275,7 +992,7 @@ public interface P2viewPackage extends EPackage {
 	 * @see org.eclipse.b3.aggregator.p2view.impl.P2viewPackageImpl#getProperties()
 	 * @generated
 	 */
-	int PROPERTIES = 16;
+	int PROPERTIES = 18;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.aggregator.p2view.impl.ProvidedCapabilitiesImpl <em>Provided Capabilities</em>}' class.
@@ -1285,7 +1002,7 @@ public interface P2viewPackage extends EPackage {
 	 * @see org.eclipse.b3.aggregator.p2view.impl.P2viewPackageImpl#getProvidedCapabilities()
 	 * @generated
 	 */
-	int PROVIDED_CAPABILITIES = 18;
+	int PROVIDED_CAPABILITIES = 19;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.aggregator.p2view.impl.TouchpointsImpl <em>Touchpoints</em>}' class.
@@ -1295,7 +1012,7 @@ public interface P2viewPackage extends EPackage {
 	 * @see org.eclipse.b3.aggregator.p2view.impl.P2viewPackageImpl#getTouchpoints()
 	 * @generated
 	 */
-	int TOUCHPOINTS = 19;
+	int TOUCHPOINTS = 24;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.aggregator.p2view.impl.IUDetailsImpl <em>IU Details</em>}' class.
@@ -1305,7 +1022,7 @@ public interface P2viewPackage extends EPackage {
 	 * @see org.eclipse.b3.aggregator.p2view.impl.P2viewPackageImpl#getIUDetails()
 	 * @generated
 	 */
-	int IU_DETAILS = 21;
+	int IU_DETAILS = 9;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.aggregator.p2view.impl.IUPresentationWithDetailsImpl <em>IU Presentation With Details</em>}'
@@ -1316,7 +1033,7 @@ public interface P2viewPackage extends EPackage {
 	 * @see org.eclipse.b3.aggregator.p2view.impl.P2viewPackageImpl#getIUPresentationWithDetails()
 	 * @generated
 	 */
-	int IU_PRESENTATION_WITH_DETAILS = 9;
+	int IU_PRESENTATION_WITH_DETAILS = 11;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1569,6 +1286,192 @@ public interface P2viewPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
+	int BUNDLE__ID = IU_PRESENTATION_WITH_DETAILS__ID;
+
+	/**
+	 * The feature id for the '<em><b>Version</b></em>' attribute.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int BUNDLE__VERSION = IU_PRESENTATION_WITH_DETAILS__VERSION;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int BUNDLE__NAME = IU_PRESENTATION_WITH_DETAILS__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Label</b></em>' attribute.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int BUNDLE__LABEL = IU_PRESENTATION_WITH_DETAILS__LABEL;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int BUNDLE__DESCRIPTION = IU_PRESENTATION_WITH_DETAILS__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Type</b></em>' attribute.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int BUNDLE__TYPE = IU_PRESENTATION_WITH_DETAILS__TYPE;
+
+	/**
+	 * The feature id for the '<em><b>Filter</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int BUNDLE__FILTER = IU_PRESENTATION_WITH_DETAILS__FILTER;
+
+	/**
+	 * The feature id for the '<em><b>Installable Unit</b></em>' reference. <!-- begin-user-doc --> <!-- end-user-doc
+	 * -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int BUNDLE__INSTALLABLE_UNIT = IU_PRESENTATION_WITH_DETAILS__INSTALLABLE_UNIT;
+
+	/**
+	 * The feature id for the '<em><b>Requirements Container</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int BUNDLE__REQUIREMENTS_CONTAINER = IU_PRESENTATION_WITH_DETAILS__REQUIREMENTS_CONTAINER;
+
+	/**
+	 * The feature id for the '<em><b>Provided Capabilities Container</b></em>' containment reference.
+	 * <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int BUNDLE__PROVIDED_CAPABILITIES_CONTAINER = IU_PRESENTATION_WITH_DETAILS__PROVIDED_CAPABILITIES_CONTAINER;
+
+	/**
+	 * The feature id for the '<em><b>Properties Container</b></em>' containment reference.
+	 * <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int BUNDLE__PROPERTIES_CONTAINER = IU_PRESENTATION_WITH_DETAILS__PROPERTIES_CONTAINER;
+
+	/**
+	 * The feature id for the '<em><b>Touchpoints Container</b></em>' containment reference.
+	 * <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int BUNDLE__TOUCHPOINTS_CONTAINER = IU_PRESENTATION_WITH_DETAILS__TOUCHPOINTS_CONTAINER;
+
+	/**
+	 * The feature id for the '<em><b>Update Descriptor</b></em>' reference. <!-- begin-user-doc --> <!-- end-user-doc
+	 * -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int BUNDLE__UPDATE_DESCRIPTOR = IU_PRESENTATION_WITH_DETAILS__UPDATE_DESCRIPTOR;
+
+	/**
+	 * The feature id for the '<em><b>Copyright</b></em>' containment reference.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int BUNDLE__COPYRIGHT = IU_PRESENTATION_WITH_DETAILS__COPYRIGHT;
+
+	/**
+	 * The feature id for the '<em><b>Licenses Container</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int BUNDLE__LICENSES_CONTAINER = IU_PRESENTATION_WITH_DETAILS__LICENSES_CONTAINER;
+
+	/**
+	 * The feature id for the '<em><b>Details Resolved</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc
+	 * -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int BUNDLE__DETAILS_RESOLVED = IU_PRESENTATION_WITH_DETAILS__DETAILS_RESOLVED;
+
+	/**
+	 * The number of structural features of the '<em>Bundle</em>' class.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int BUNDLE_FEATURE_COUNT = IU_PRESENTATION_WITH_DETAILS_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Children</b></em>' reference list.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int BUNDLES__CHILDREN = AggregatorPackage.CHILDREN_PROVIDER__CHILDREN;
+
+	/**
+	 * The feature id for the '<em><b>Bundles</b></em>' reference list.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int BUNDLES__BUNDLES = AggregatorPackage.CHILDREN_PROVIDER_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Bundles</em>' class.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int BUNDLES_FEATURE_COUNT = AggregatorPackage.CHILDREN_PROVIDER_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
 	int CATEGORY__ID = IU_PRESENTATION__ID;
 
 	/**
@@ -1697,6 +1600,33 @@ public interface P2viewPackage extends EPackage {
 	 * @ordered
 	 */
 	int CATEGORY_FEATURE_COUNT = IU_PRESENTATION_FEATURE_COUNT + 6;
+
+	/**
+	 * The feature id for the '<em><b>Children</b></em>' reference list.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int CATEGORIES__CHILDREN = AggregatorPackage.CHILDREN_PROVIDER__CHILDREN;
+
+	/**
+	 * The feature id for the '<em><b>Categories</b></em>' reference list.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int CATEGORIES__CATEGORIES = AggregatorPackage.CHILDREN_PROVIDER_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Categories</em>' class. <!-- begin-user-doc --> <!-- end-user-doc
+	 * -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int CATEGORIES_FEATURE_COUNT = AggregatorPackage.CHILDREN_PROVIDER_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1885,6 +1815,685 @@ public interface P2viewPackage extends EPackage {
 	int FEATURE_FEATURE_COUNT = IU_PRESENTATION_WITH_DETAILS_FEATURE_COUNT + 3;
 
 	/**
+	 * The feature id for the '<em><b>Children</b></em>' reference list.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int FEATURES__CHILDREN = AggregatorPackage.CHILDREN_PROVIDER__CHILDREN;
+
+	/**
+	 * The feature id for the '<em><b>Features</b></em>' reference list.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int FEATURES__FEATURES = AggregatorPackage.CHILDREN_PROVIDER_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Features</em>' class.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int FEATURES_FEATURE_COUNT = AggregatorPackage.CHILDREN_PROVIDER_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int FRAGMENT__ID = BUNDLE__ID;
+
+	/**
+	 * The feature id for the '<em><b>Version</b></em>' attribute.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int FRAGMENT__VERSION = BUNDLE__VERSION;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int FRAGMENT__NAME = BUNDLE__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Label</b></em>' attribute.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int FRAGMENT__LABEL = BUNDLE__LABEL;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int FRAGMENT__DESCRIPTION = BUNDLE__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Type</b></em>' attribute.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int FRAGMENT__TYPE = BUNDLE__TYPE;
+
+	/**
+	 * The feature id for the '<em><b>Filter</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int FRAGMENT__FILTER = BUNDLE__FILTER;
+
+	/**
+	 * The feature id for the '<em><b>Installable Unit</b></em>' reference. <!-- begin-user-doc --> <!-- end-user-doc
+	 * -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int FRAGMENT__INSTALLABLE_UNIT = BUNDLE__INSTALLABLE_UNIT;
+
+	/**
+	 * The feature id for the '<em><b>Requirements Container</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int FRAGMENT__REQUIREMENTS_CONTAINER = BUNDLE__REQUIREMENTS_CONTAINER;
+
+	/**
+	 * The feature id for the '<em><b>Provided Capabilities Container</b></em>' containment reference.
+	 * <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int FRAGMENT__PROVIDED_CAPABILITIES_CONTAINER = BUNDLE__PROVIDED_CAPABILITIES_CONTAINER;
+
+	/**
+	 * The feature id for the '<em><b>Properties Container</b></em>' containment reference.
+	 * <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int FRAGMENT__PROPERTIES_CONTAINER = BUNDLE__PROPERTIES_CONTAINER;
+
+	/**
+	 * The feature id for the '<em><b>Touchpoints Container</b></em>' containment reference.
+	 * <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int FRAGMENT__TOUCHPOINTS_CONTAINER = BUNDLE__TOUCHPOINTS_CONTAINER;
+
+	/**
+	 * The feature id for the '<em><b>Update Descriptor</b></em>' reference. <!-- begin-user-doc --> <!-- end-user-doc
+	 * -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int FRAGMENT__UPDATE_DESCRIPTOR = BUNDLE__UPDATE_DESCRIPTOR;
+
+	/**
+	 * The feature id for the '<em><b>Copyright</b></em>' containment reference.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int FRAGMENT__COPYRIGHT = BUNDLE__COPYRIGHT;
+
+	/**
+	 * The feature id for the '<em><b>Licenses Container</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int FRAGMENT__LICENSES_CONTAINER = BUNDLE__LICENSES_CONTAINER;
+
+	/**
+	 * The feature id for the '<em><b>Details Resolved</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc
+	 * -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int FRAGMENT__DETAILS_RESOLVED = BUNDLE__DETAILS_RESOLVED;
+
+	/**
+	 * The number of structural features of the '<em>Fragment</em>' class.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int FRAGMENT_FEATURE_COUNT = BUNDLE_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Children</b></em>' reference list.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int FRAGMENTS__CHILDREN = AggregatorPackage.CHILDREN_PROVIDER__CHILDREN;
+
+	/**
+	 * The feature id for the '<em><b>Fragments</b></em>' reference list.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int FRAGMENTS__FRAGMENTS = AggregatorPackage.CHILDREN_PROVIDER_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Fragments</em>' class. <!-- begin-user-doc --> <!-- end-user-doc
+	 * -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int FRAGMENTS_FEATURE_COUNT = AggregatorPackage.CHILDREN_PROVIDER_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Children</b></em>' reference list.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int INSTALLABLE_UNITS__CHILDREN = AggregatorPackage.CHILDREN_PROVIDER__CHILDREN;
+
+	/**
+	 * The feature id for the '<em><b>All IUs</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int INSTALLABLE_UNITS__ALL_IUS = AggregatorPackage.CHILDREN_PROVIDER_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Category Container</b></em>' reference. <!-- begin-user-doc --> <!-- end-user-doc
+	 * -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int INSTALLABLE_UNITS__CATEGORY_CONTAINER = AggregatorPackage.CHILDREN_PROVIDER_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Feature Container</b></em>' reference. <!-- begin-user-doc --> <!-- end-user-doc
+	 * -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int INSTALLABLE_UNITS__FEATURE_CONTAINER = AggregatorPackage.CHILDREN_PROVIDER_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Product Container</b></em>' reference. <!-- begin-user-doc --> <!-- end-user-doc
+	 * -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int INSTALLABLE_UNITS__PRODUCT_CONTAINER = AggregatorPackage.CHILDREN_PROVIDER_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Bundle Container</b></em>' reference. <!-- begin-user-doc --> <!-- end-user-doc
+	 * -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int INSTALLABLE_UNITS__BUNDLE_CONTAINER = AggregatorPackage.CHILDREN_PROVIDER_FEATURE_COUNT + 4;
+
+	/**
+	 * The feature id for the '<em><b>Fragment Container</b></em>' reference. <!-- begin-user-doc --> <!-- end-user-doc
+	 * -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int INSTALLABLE_UNITS__FRAGMENT_CONTAINER = AggregatorPackage.CHILDREN_PROVIDER_FEATURE_COUNT + 5;
+
+	/**
+	 * The feature id for the '<em><b>Miscellaneous Container</b></em>' containment reference.
+	 * <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int INSTALLABLE_UNITS__MISCELLANEOUS_CONTAINER = AggregatorPackage.CHILDREN_PROVIDER_FEATURE_COUNT + 6;
+
+	/**
+	 * The number of structural features of the '<em>Installable Units</em>' class.
+	 * <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int INSTALLABLE_UNITS_FEATURE_COUNT = AggregatorPackage.CHILDREN_PROVIDER_FEATURE_COUNT + 7;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.b3.aggregator.p2view.impl.RequirementsImpl <em>Requirements</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see org.eclipse.b3.aggregator.p2view.impl.RequirementsImpl
+	 * @see org.eclipse.b3.aggregator.p2view.impl.P2viewPackageImpl#getRequirements()
+	 * @generated
+	 */
+	int REQUIREMENTS = 22;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.b3.aggregator.p2view.impl.LicensesImpl <em>Licenses</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see org.eclipse.b3.aggregator.p2view.impl.LicensesImpl
+	 * @see org.eclipse.b3.aggregator.p2view.impl.P2viewPackageImpl#getLicenses()
+	 * @generated
+	 */
+	int LICENSES = 12;
+
+	/**
+	 * The feature id for the '<em><b>Requirements Container</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IU_DETAILS__REQUIREMENTS_CONTAINER = 0;
+
+	/**
+	 * The feature id for the '<em><b>Provided Capabilities Container</b></em>' containment reference.
+	 * <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IU_DETAILS__PROVIDED_CAPABILITIES_CONTAINER = 1;
+
+	/**
+	 * The feature id for the '<em><b>Properties Container</b></em>' containment reference.
+	 * <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IU_DETAILS__PROPERTIES_CONTAINER = 2;
+
+	/**
+	 * The feature id for the '<em><b>Touchpoints Container</b></em>' containment reference.
+	 * <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IU_DETAILS__TOUCHPOINTS_CONTAINER = 3;
+
+	/**
+	 * The feature id for the '<em><b>Update Descriptor</b></em>' reference. <!-- begin-user-doc --> <!-- end-user-doc
+	 * -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IU_DETAILS__UPDATE_DESCRIPTOR = 4;
+
+	/**
+	 * The feature id for the '<em><b>Copyright</b></em>' containment reference.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IU_DETAILS__COPYRIGHT = 5;
+
+	/**
+	 * The feature id for the '<em><b>Licenses Container</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IU_DETAILS__LICENSES_CONTAINER = 6;
+
+	/**
+	 * The number of structural features of the '<em>IU Details</em>' class. <!-- begin-user-doc --> <!-- end-user-doc
+	 * -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IU_DETAILS_FEATURE_COUNT = 7;
+
+	/**
+	 * The feature id for the '<em><b>Licenses</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int LICENSES__LICENSES = 0;
+
+	/**
+	 * The number of structural features of the '<em>Licenses</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int LICENSES_FEATURE_COUNT = 1;
+
+	/**
+	 * The feature id for the '<em><b>Children</b></em>' reference list.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int METADATA_REPOSITORY_STRUCTURED_VIEW__CHILDREN = AggregatorPackage.CHILDREN_PROVIDER__CHILDREN;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int METADATA_REPOSITORY_STRUCTURED_VIEW__NAME = AggregatorPackage.CHILDREN_PROVIDER_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Installable Unit List</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int METADATA_REPOSITORY_STRUCTURED_VIEW__INSTALLABLE_UNIT_LIST = AggregatorPackage.CHILDREN_PROVIDER_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Properties</b></em>' containment reference.
+	 * <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int METADATA_REPOSITORY_STRUCTURED_VIEW__PROPERTIES = AggregatorPackage.CHILDREN_PROVIDER_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Metadata Repository</b></em>' containment reference.
+	 * <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int METADATA_REPOSITORY_STRUCTURED_VIEW__METADATA_REPOSITORY = AggregatorPackage.CHILDREN_PROVIDER_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Loaded</b></em>' attribute.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int METADATA_REPOSITORY_STRUCTURED_VIEW__LOADED = AggregatorPackage.CHILDREN_PROVIDER_FEATURE_COUNT + 4;
+
+	/**
+	 * The feature id for the '<em><b>Repository References</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int METADATA_REPOSITORY_STRUCTURED_VIEW__REPOSITORY_REFERENCES = AggregatorPackage.CHILDREN_PROVIDER_FEATURE_COUNT + 5;
+
+	/**
+	 * The number of structural features of the '<em>Metadata Repository Structured View</em>' class. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int METADATA_REPOSITORY_STRUCTURED_VIEW_FEATURE_COUNT = AggregatorPackage.CHILDREN_PROVIDER_FEATURE_COUNT + 6;
+
+	/**
+	 * The feature id for the '<em><b>Children</b></em>' reference list.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int MISCELLANEOUS__CHILDREN = AggregatorPackage.CHILDREN_PROVIDER__CHILDREN;
+
+	/**
+	 * The feature id for the '<em><b>Others</b></em>' reference list.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int MISCELLANEOUS__OTHERS = AggregatorPackage.CHILDREN_PROVIDER_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Miscellaneous</em>' class.
+	 * <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int MISCELLANEOUS_FEATURE_COUNT = AggregatorPackage.CHILDREN_PROVIDER_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int OTHER_IU__ID = IU_PRESENTATION_WITH_DETAILS__ID;
+
+	/**
+	 * The feature id for the '<em><b>Version</b></em>' attribute.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int OTHER_IU__VERSION = IU_PRESENTATION_WITH_DETAILS__VERSION;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int OTHER_IU__NAME = IU_PRESENTATION_WITH_DETAILS__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Label</b></em>' attribute.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int OTHER_IU__LABEL = IU_PRESENTATION_WITH_DETAILS__LABEL;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int OTHER_IU__DESCRIPTION = IU_PRESENTATION_WITH_DETAILS__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Type</b></em>' attribute.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int OTHER_IU__TYPE = IU_PRESENTATION_WITH_DETAILS__TYPE;
+
+	/**
+	 * The feature id for the '<em><b>Filter</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int OTHER_IU__FILTER = IU_PRESENTATION_WITH_DETAILS__FILTER;
+
+	/**
+	 * The feature id for the '<em><b>Installable Unit</b></em>' reference. <!-- begin-user-doc --> <!-- end-user-doc
+	 * -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int OTHER_IU__INSTALLABLE_UNIT = IU_PRESENTATION_WITH_DETAILS__INSTALLABLE_UNIT;
+
+	/**
+	 * The feature id for the '<em><b>Requirements Container</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int OTHER_IU__REQUIREMENTS_CONTAINER = IU_PRESENTATION_WITH_DETAILS__REQUIREMENTS_CONTAINER;
+
+	/**
+	 * The feature id for the '<em><b>Provided Capabilities Container</b></em>' containment reference.
+	 * <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int OTHER_IU__PROVIDED_CAPABILITIES_CONTAINER = IU_PRESENTATION_WITH_DETAILS__PROVIDED_CAPABILITIES_CONTAINER;
+
+	/**
+	 * The feature id for the '<em><b>Properties Container</b></em>' containment reference.
+	 * <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int OTHER_IU__PROPERTIES_CONTAINER = IU_PRESENTATION_WITH_DETAILS__PROPERTIES_CONTAINER;
+
+	/**
+	 * The feature id for the '<em><b>Touchpoints Container</b></em>' containment reference.
+	 * <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int OTHER_IU__TOUCHPOINTS_CONTAINER = IU_PRESENTATION_WITH_DETAILS__TOUCHPOINTS_CONTAINER;
+
+	/**
+	 * The feature id for the '<em><b>Update Descriptor</b></em>' reference. <!-- begin-user-doc --> <!-- end-user-doc
+	 * -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int OTHER_IU__UPDATE_DESCRIPTOR = IU_PRESENTATION_WITH_DETAILS__UPDATE_DESCRIPTOR;
+
+	/**
+	 * The feature id for the '<em><b>Copyright</b></em>' containment reference.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int OTHER_IU__COPYRIGHT = IU_PRESENTATION_WITH_DETAILS__COPYRIGHT;
+
+	/**
+	 * The feature id for the '<em><b>Licenses Container</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int OTHER_IU__LICENSES_CONTAINER = IU_PRESENTATION_WITH_DETAILS__LICENSES_CONTAINER;
+
+	/**
+	 * The feature id for the '<em><b>Details Resolved</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc
+	 * -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int OTHER_IU__DETAILS_RESOLVED = IU_PRESENTATION_WITH_DETAILS__DETAILS_RESOLVED;
+
+	/**
+	 * The number of structural features of the '<em>Other IU</em>' class.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int OTHER_IU_FEATURE_COUNT = IU_PRESENTATION_WITH_DETAILS_FEATURE_COUNT + 0;
+
+	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -2071,481 +2680,31 @@ public interface P2viewPackage extends EPackage {
 	int PRODUCT_FEATURE_COUNT = IU_PRESENTATION_WITH_DETAILS_FEATURE_COUNT + 3;
 
 	/**
-	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * The feature id for the '<em><b>Children</b></em>' reference list.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int BUNDLE__ID = IU_PRESENTATION_WITH_DETAILS__ID;
+	int PRODUCTS__CHILDREN = AggregatorPackage.CHILDREN_PROVIDER__CHILDREN;
 
 	/**
-	 * The feature id for the '<em><b>Version</b></em>' attribute.
+	 * The feature id for the '<em><b>Products</b></em>' reference list.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int BUNDLE__VERSION = IU_PRESENTATION_WITH_DETAILS__VERSION;
+	int PRODUCTS__PRODUCTS = AggregatorPackage.CHILDREN_PROVIDER_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * The number of structural features of the '<em>Products</em>' class.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int BUNDLE__NAME = IU_PRESENTATION_WITH_DETAILS__NAME;
-
-	/**
-	 * The feature id for the '<em><b>Label</b></em>' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int BUNDLE__LABEL = IU_PRESENTATION_WITH_DETAILS__LABEL;
-
-	/**
-	 * The feature id for the '<em><b>Description</b></em>' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int BUNDLE__DESCRIPTION = IU_PRESENTATION_WITH_DETAILS__DESCRIPTION;
-
-	/**
-	 * The feature id for the '<em><b>Type</b></em>' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int BUNDLE__TYPE = IU_PRESENTATION_WITH_DETAILS__TYPE;
-
-	/**
-	 * The feature id for the '<em><b>Filter</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int BUNDLE__FILTER = IU_PRESENTATION_WITH_DETAILS__FILTER;
-
-	/**
-	 * The feature id for the '<em><b>Installable Unit</b></em>' reference. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int BUNDLE__INSTALLABLE_UNIT = IU_PRESENTATION_WITH_DETAILS__INSTALLABLE_UNIT;
-
-	/**
-	 * The feature id for the '<em><b>Requirements Container</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int BUNDLE__REQUIREMENTS_CONTAINER = IU_PRESENTATION_WITH_DETAILS__REQUIREMENTS_CONTAINER;
-
-	/**
-	 * The feature id for the '<em><b>Provided Capabilities Container</b></em>' containment reference.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int BUNDLE__PROVIDED_CAPABILITIES_CONTAINER = IU_PRESENTATION_WITH_DETAILS__PROVIDED_CAPABILITIES_CONTAINER;
-
-	/**
-	 * The feature id for the '<em><b>Properties Container</b></em>' containment reference.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int BUNDLE__PROPERTIES_CONTAINER = IU_PRESENTATION_WITH_DETAILS__PROPERTIES_CONTAINER;
-
-	/**
-	 * The feature id for the '<em><b>Touchpoints Container</b></em>' containment reference.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int BUNDLE__TOUCHPOINTS_CONTAINER = IU_PRESENTATION_WITH_DETAILS__TOUCHPOINTS_CONTAINER;
-
-	/**
-	 * The feature id for the '<em><b>Update Descriptor</b></em>' reference. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int BUNDLE__UPDATE_DESCRIPTOR = IU_PRESENTATION_WITH_DETAILS__UPDATE_DESCRIPTOR;
-
-	/**
-	 * The feature id for the '<em><b>Copyright</b></em>' containment reference.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int BUNDLE__COPYRIGHT = IU_PRESENTATION_WITH_DETAILS__COPYRIGHT;
-
-	/**
-	 * The feature id for the '<em><b>Licenses Container</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int BUNDLE__LICENSES_CONTAINER = IU_PRESENTATION_WITH_DETAILS__LICENSES_CONTAINER;
-
-	/**
-	 * The feature id for the '<em><b>Details Resolved</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int BUNDLE__DETAILS_RESOLVED = IU_PRESENTATION_WITH_DETAILS__DETAILS_RESOLVED;
-
-	/**
-	 * The number of structural features of the '<em>Bundle</em>' class.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int BUNDLE_FEATURE_COUNT = IU_PRESENTATION_WITH_DETAILS_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Id</b></em>' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int FRAGMENT__ID = BUNDLE__ID;
-
-	/**
-	 * The feature id for the '<em><b>Version</b></em>' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int FRAGMENT__VERSION = BUNDLE__VERSION;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int FRAGMENT__NAME = BUNDLE__NAME;
-
-	/**
-	 * The feature id for the '<em><b>Label</b></em>' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int FRAGMENT__LABEL = BUNDLE__LABEL;
-
-	/**
-	 * The feature id for the '<em><b>Description</b></em>' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int FRAGMENT__DESCRIPTION = BUNDLE__DESCRIPTION;
-
-	/**
-	 * The feature id for the '<em><b>Type</b></em>' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int FRAGMENT__TYPE = BUNDLE__TYPE;
-
-	/**
-	 * The feature id for the '<em><b>Filter</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int FRAGMENT__FILTER = BUNDLE__FILTER;
-
-	/**
-	 * The feature id for the '<em><b>Installable Unit</b></em>' reference. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int FRAGMENT__INSTALLABLE_UNIT = BUNDLE__INSTALLABLE_UNIT;
-
-	/**
-	 * The feature id for the '<em><b>Requirements Container</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int FRAGMENT__REQUIREMENTS_CONTAINER = BUNDLE__REQUIREMENTS_CONTAINER;
-
-	/**
-	 * The feature id for the '<em><b>Provided Capabilities Container</b></em>' containment reference.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int FRAGMENT__PROVIDED_CAPABILITIES_CONTAINER = BUNDLE__PROVIDED_CAPABILITIES_CONTAINER;
-
-	/**
-	 * The feature id for the '<em><b>Properties Container</b></em>' containment reference.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int FRAGMENT__PROPERTIES_CONTAINER = BUNDLE__PROPERTIES_CONTAINER;
-
-	/**
-	 * The feature id for the '<em><b>Touchpoints Container</b></em>' containment reference.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int FRAGMENT__TOUCHPOINTS_CONTAINER = BUNDLE__TOUCHPOINTS_CONTAINER;
-
-	/**
-	 * The feature id for the '<em><b>Update Descriptor</b></em>' reference. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int FRAGMENT__UPDATE_DESCRIPTOR = BUNDLE__UPDATE_DESCRIPTOR;
-
-	/**
-	 * The feature id for the '<em><b>Copyright</b></em>' containment reference.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int FRAGMENT__COPYRIGHT = BUNDLE__COPYRIGHT;
-
-	/**
-	 * The feature id for the '<em><b>Licenses Container</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int FRAGMENT__LICENSES_CONTAINER = BUNDLE__LICENSES_CONTAINER;
-
-	/**
-	 * The feature id for the '<em><b>Details Resolved</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int FRAGMENT__DETAILS_RESOLVED = BUNDLE__DETAILS_RESOLVED;
-
-	/**
-	 * The number of structural features of the '<em>Fragment</em>' class.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int FRAGMENT_FEATURE_COUNT = BUNDLE_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Id</b></em>' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int OTHER_IU__ID = IU_PRESENTATION_WITH_DETAILS__ID;
-
-	/**
-	 * The feature id for the '<em><b>Version</b></em>' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int OTHER_IU__VERSION = IU_PRESENTATION_WITH_DETAILS__VERSION;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int OTHER_IU__NAME = IU_PRESENTATION_WITH_DETAILS__NAME;
-
-	/**
-	 * The feature id for the '<em><b>Label</b></em>' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int OTHER_IU__LABEL = IU_PRESENTATION_WITH_DETAILS__LABEL;
-
-	/**
-	 * The feature id for the '<em><b>Description</b></em>' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int OTHER_IU__DESCRIPTION = IU_PRESENTATION_WITH_DETAILS__DESCRIPTION;
-
-	/**
-	 * The feature id for the '<em><b>Type</b></em>' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int OTHER_IU__TYPE = IU_PRESENTATION_WITH_DETAILS__TYPE;
-
-	/**
-	 * The feature id for the '<em><b>Filter</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int OTHER_IU__FILTER = IU_PRESENTATION_WITH_DETAILS__FILTER;
-
-	/**
-	 * The feature id for the '<em><b>Installable Unit</b></em>' reference. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int OTHER_IU__INSTALLABLE_UNIT = IU_PRESENTATION_WITH_DETAILS__INSTALLABLE_UNIT;
-
-	/**
-	 * The feature id for the '<em><b>Requirements Container</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int OTHER_IU__REQUIREMENTS_CONTAINER = IU_PRESENTATION_WITH_DETAILS__REQUIREMENTS_CONTAINER;
-
-	/**
-	 * The feature id for the '<em><b>Provided Capabilities Container</b></em>' containment reference.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int OTHER_IU__PROVIDED_CAPABILITIES_CONTAINER = IU_PRESENTATION_WITH_DETAILS__PROVIDED_CAPABILITIES_CONTAINER;
-
-	/**
-	 * The feature id for the '<em><b>Properties Container</b></em>' containment reference.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int OTHER_IU__PROPERTIES_CONTAINER = IU_PRESENTATION_WITH_DETAILS__PROPERTIES_CONTAINER;
-
-	/**
-	 * The feature id for the '<em><b>Touchpoints Container</b></em>' containment reference.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int OTHER_IU__TOUCHPOINTS_CONTAINER = IU_PRESENTATION_WITH_DETAILS__TOUCHPOINTS_CONTAINER;
-
-	/**
-	 * The feature id for the '<em><b>Update Descriptor</b></em>' reference. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int OTHER_IU__UPDATE_DESCRIPTOR = IU_PRESENTATION_WITH_DETAILS__UPDATE_DESCRIPTOR;
-
-	/**
-	 * The feature id for the '<em><b>Copyright</b></em>' containment reference.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int OTHER_IU__COPYRIGHT = IU_PRESENTATION_WITH_DETAILS__COPYRIGHT;
-
-	/**
-	 * The feature id for the '<em><b>Licenses Container</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int OTHER_IU__LICENSES_CONTAINER = IU_PRESENTATION_WITH_DETAILS__LICENSES_CONTAINER;
-
-	/**
-	 * The feature id for the '<em><b>Details Resolved</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int OTHER_IU__DETAILS_RESOLVED = IU_PRESENTATION_WITH_DETAILS__DETAILS_RESOLVED;
-
-	/**
-	 * The number of structural features of the '<em>Other IU</em>' class.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int OTHER_IU_FEATURE_COUNT = IU_PRESENTATION_WITH_DETAILS_FEATURE_COUNT + 0;
+	int PRODUCTS_FEATURE_COUNT = AggregatorPackage.CHILDREN_PROVIDER_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Property List</b></em>' reference list. <!-- begin-user-doc --> <!-- end-user-doc
@@ -2564,37 +2723,6 @@ public interface P2viewPackage extends EPackage {
 	 * @ordered
 	 */
 	int PROPERTIES_FEATURE_COUNT = 1;
-
-	/**
-	 * The meta object id for the '{@link org.eclipse.b3.aggregator.p2view.impl.RequirementsImpl <em>Requirements</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @see org.eclipse.b3.aggregator.p2view.impl.RequirementsImpl
-	 * @see org.eclipse.b3.aggregator.p2view.impl.P2viewPackageImpl#getRequirements()
-	 * @generated
-	 */
-	int REQUIREMENTS = 17;
-
-	/**
-	 * The feature id for the '<em><b>Requirements</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int REQUIREMENTS__REQUIREMENTS = 0;
-
-	/**
-	 * The number of structural features of the '<em>Requirements</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int REQUIREMENTS_FEATURE_COUNT = 1;
 
 	/**
 	 * The feature id for the '<em><b>Provided Capabilities</b></em>' containment reference list.
@@ -2617,142 +2745,6 @@ public interface P2viewPackage extends EPackage {
 	int PROVIDED_CAPABILITIES_FEATURE_COUNT = 1;
 
 	/**
-	 * The feature id for the '<em><b>Touchpoint Type</b></em>' reference.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int TOUCHPOINTS__TOUCHPOINT_TYPE = 0;
-
-	/**
-	 * The feature id for the '<em><b>Touchpoint Data List</b></em>' reference list.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int TOUCHPOINTS__TOUCHPOINT_DATA_LIST = 1;
-
-	/**
-	 * The number of structural features of the '<em>Touchpoints</em>' class. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int TOUCHPOINTS_FEATURE_COUNT = 2;
-
-	/**
-	 * The meta object id for the '{@link org.eclipse.b3.aggregator.p2view.impl.LicensesImpl <em>Licenses</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @see org.eclipse.b3.aggregator.p2view.impl.LicensesImpl
-	 * @see org.eclipse.b3.aggregator.p2view.impl.P2viewPackageImpl#getLicenses()
-	 * @generated
-	 */
-	int LICENSES = 20;
-
-	/**
-	 * The feature id for the '<em><b>Licenses</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int LICENSES__LICENSES = 0;
-
-	/**
-	 * The number of structural features of the '<em>Licenses</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int LICENSES_FEATURE_COUNT = 1;
-
-	/**
-	 * The feature id for the '<em><b>Requirements Container</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int IU_DETAILS__REQUIREMENTS_CONTAINER = 0;
-
-	/**
-	 * The feature id for the '<em><b>Provided Capabilities Container</b></em>' containment reference.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int IU_DETAILS__PROVIDED_CAPABILITIES_CONTAINER = 1;
-
-	/**
-	 * The feature id for the '<em><b>Properties Container</b></em>' containment reference.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int IU_DETAILS__PROPERTIES_CONTAINER = 2;
-
-	/**
-	 * The feature id for the '<em><b>Touchpoints Container</b></em>' containment reference.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int IU_DETAILS__TOUCHPOINTS_CONTAINER = 3;
-
-	/**
-	 * The feature id for the '<em><b>Update Descriptor</b></em>' reference. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int IU_DETAILS__UPDATE_DESCRIPTOR = 4;
-
-	/**
-	 * The feature id for the '<em><b>Copyright</b></em>' containment reference.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int IU_DETAILS__COPYRIGHT = 5;
-
-	/**
-	 * The feature id for the '<em><b>Licenses Container</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int IU_DETAILS__LICENSES_CONTAINER = 6;
-
-	/**
-	 * The number of structural features of the '<em>IU Details</em>' class. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int IU_DETAILS_FEATURE_COUNT = 7;
-
-	/**
 	 * The meta object id for the '{@link org.eclipse.b3.aggregator.p2view.impl.RequirementWrapperImpl <em>Requirement Wrapper</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2761,7 +2753,134 @@ public interface P2viewPackage extends EPackage {
 	 * @see org.eclipse.b3.aggregator.p2view.impl.P2viewPackageImpl#getRequirementWrapper()
 	 * @generated
 	 */
-	int REQUIREMENT_WRAPPER = 22;
+	int REQUIREMENT_WRAPPER = 23;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.b3.aggregator.p2view.impl.ProvidedCapabilityWrapperImpl <em>Provided Capability Wrapper</em>}'
+	 * class.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @see org.eclipse.b3.aggregator.p2view.impl.ProvidedCapabilityWrapperImpl
+	 * @see org.eclipse.b3.aggregator.p2view.impl.P2viewPackageImpl#getProvidedCapabilityWrapper()
+	 * @generated
+	 */
+	int PROVIDED_CAPABILITY_WRAPPER = 20;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int PROVIDED_CAPABILITY_WRAPPER__NAME = P2Package.IPROVIDED_CAPABILITY__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Namespace</b></em>' attribute.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int PROVIDED_CAPABILITY_WRAPPER__NAMESPACE = P2Package.IPROVIDED_CAPABILITY__NAMESPACE;
+
+	/**
+	 * The feature id for the '<em><b>Version</b></em>' attribute.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int PROVIDED_CAPABILITY_WRAPPER__VERSION = P2Package.IPROVIDED_CAPABILITY__VERSION;
+
+	/**
+	 * The feature id for the '<em><b>Label</b></em>' attribute.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int PROVIDED_CAPABILITY_WRAPPER__LABEL = P2Package.IPROVIDED_CAPABILITY_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Genuine</b></em>' reference.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int PROVIDED_CAPABILITY_WRAPPER__GENUINE = P2Package.IPROVIDED_CAPABILITY_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Provided Capability Wrapper</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int PROVIDED_CAPABILITY_WRAPPER_FEATURE_COUNT = P2Package.IPROVIDED_CAPABILITY_FEATURE_COUNT + 2;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.b3.aggregator.p2view.impl.RepositoryReferencesImpl <em>Repository References</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see org.eclipse.b3.aggregator.p2view.impl.RepositoryReferencesImpl
+	 * @see org.eclipse.b3.aggregator.p2view.impl.P2viewPackageImpl#getRepositoryReferences()
+	 * @generated
+	 */
+	int REPOSITORY_REFERENCES = 21;
+
+	/**
+	 * The feature id for the '<em><b>Children</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int REPOSITORY_REFERENCES__CHILDREN = AggregatorPackage.CHILDREN_PROVIDER__CHILDREN;
+
+	/**
+	 * The feature id for the '<em><b>Repository References</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int REPOSITORY_REFERENCES__REPOSITORY_REFERENCES = AggregatorPackage.CHILDREN_PROVIDER_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Repository References</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int REPOSITORY_REFERENCES_FEATURE_COUNT = AggregatorPackage.CHILDREN_PROVIDER_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Requirements</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int REQUIREMENTS__REQUIREMENTS = 0;
+
+	/**
+	 * The number of structural features of the '<em>Requirements</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int REQUIREMENTS_FEATURE_COUNT = 1;
 
 	/**
 	 * The feature id for the '<em><b>Filter</b></em>' attribute.
@@ -2854,70 +2973,32 @@ public interface P2viewPackage extends EPackage {
 	int REQUIREMENT_WRAPPER_FEATURE_COUNT = P2Package.IREQUIREMENT_FEATURE_COUNT + 2;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.b3.aggregator.p2view.impl.ProvidedCapabilityWrapperImpl <em>Provided Capability Wrapper</em>}'
-	 * class.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @see org.eclipse.b3.aggregator.p2view.impl.ProvidedCapabilityWrapperImpl
-	 * @see org.eclipse.b3.aggregator.p2view.impl.P2viewPackageImpl#getProvidedCapabilityWrapper()
-	 * @generated
-	 */
-	int PROVIDED_CAPABILITY_WRAPPER = 23;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * The feature id for the '<em><b>Touchpoint Type</b></em>' reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int PROVIDED_CAPABILITY_WRAPPER__NAME = P2Package.IPROVIDED_CAPABILITY__NAME;
+	int TOUCHPOINTS__TOUCHPOINT_TYPE = 0;
 
 	/**
-	 * The feature id for the '<em><b>Namespace</b></em>' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Touchpoint Data List</b></em>' reference list.
+	 * <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int PROVIDED_CAPABILITY_WRAPPER__NAMESPACE = P2Package.IPROVIDED_CAPABILITY__NAMESPACE;
+	int TOUCHPOINTS__TOUCHPOINT_DATA_LIST = 1;
 
 	/**
-	 * The feature id for the '<em><b>Version</b></em>' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The number of structural features of the '<em>Touchpoints</em>' class. <!-- begin-user-doc --> <!-- end-user-doc
+	 * -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int PROVIDED_CAPABILITY_WRAPPER__VERSION = P2Package.IPROVIDED_CAPABILITY__VERSION;
-
-	/**
-	 * The feature id for the '<em><b>Label</b></em>' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int PROVIDED_CAPABILITY_WRAPPER__LABEL = P2Package.IPROVIDED_CAPABILITY_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Genuine</b></em>' reference.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int PROVIDED_CAPABILITY_WRAPPER__GENUINE = P2Package.IPROVIDED_CAPABILITY_FEATURE_COUNT + 1;
-
-	/**
-	 * The number of structural features of the '<em>Provided Capability Wrapper</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int PROVIDED_CAPABILITY_WRAPPER_FEATURE_COUNT = P2Package.IPROVIDED_CAPABILITY_FEATURE_COUNT + 2;
+	int TOUCHPOINTS_FEATURE_COUNT = 2;
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.b3.aggregator.p2view.Bundle <em>Bundle</em>}'.
@@ -3567,6 +3648,19 @@ public interface P2viewPackage extends EPackage {
 	EReference getMetadataRepositoryStructuredView_Properties();
 
 	/**
+	 * Returns the meta object for the reference '{@link org.eclipse.b3.aggregator.p2view.MetadataRepositoryStructuredView#getRepositoryReferences
+	 * <em>Repository References</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the reference '<em>Repository References</em>'.
+	 * @see org.eclipse.b3.aggregator.p2view.MetadataRepositoryStructuredView#getRepositoryReferences()
+	 * @see #getMetadataRepositoryStructuredView()
+	 * @generated
+	 */
+	EReference getMetadataRepositoryStructuredView_RepositoryReferences();
+
+	/**
 	 * Returns the meta object for class '{@link org.eclipse.b3.aggregator.p2view.Miscellaneous <em>Miscellaneous</em>}'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -3740,6 +3834,30 @@ public interface P2viewPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getProvidedCapabilityWrapper_Genuine();
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipse.b3.aggregator.p2view.RepositoryReferences <em>Repository References</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for class '<em>Repository References</em>'.
+	 * @see org.eclipse.b3.aggregator.p2view.RepositoryReferences
+	 * @generated
+	 */
+	EClass getRepositoryReferences();
+
+	/**
+	 * Returns the meta object for the reference list '{@link org.eclipse.b3.aggregator.p2view.RepositoryReferences#getRepositoryReferences
+	 * <em>Repository References</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the reference list '<em>Repository References</em>'.
+	 * @see org.eclipse.b3.aggregator.p2view.RepositoryReferences#getRepositoryReferences()
+	 * @see #getRepositoryReferences()
+	 * @generated
+	 */
+	EReference getRepositoryReferences_RepositoryReferences();
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.b3.aggregator.p2view.Requirements <em>Requirements</em>}'.

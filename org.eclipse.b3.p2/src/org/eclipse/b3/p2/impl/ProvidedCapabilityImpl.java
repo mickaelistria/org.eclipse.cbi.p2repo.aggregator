@@ -205,6 +205,17 @@ public class ProvidedCapabilityImpl extends MinimalEObjectImpl.Container impleme
 	 * @generated
 	 */
 	@Override
+	protected EClass eStaticClass() {
+		return P2Package.Literals.PROVIDED_CAPABILITY;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
 			case P2Package.PROVIDED_CAPABILITY__NAME:
@@ -316,17 +327,6 @@ public class ProvidedCapabilityImpl extends MinimalEObjectImpl.Container impleme
 		result.append('/');
 		version.toString(result);
 		return result.toString();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return P2Package.Literals.PROVIDED_CAPABILITY;
 	}
 
 } // ProvidedCapabilityImpl

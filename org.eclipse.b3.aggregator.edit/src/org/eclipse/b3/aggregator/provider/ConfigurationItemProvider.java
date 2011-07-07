@@ -178,7 +178,7 @@ public class ConfigurationItemProvider extends AggregatorItemProviderAdapter imp
 		Configuration config = (Configuration) object;
 		StringBuilder bld = new StringBuilder();
 		bld.append(getString("_UI_Configuration_type"));
-		bld.append(' ');
+		bld.append(" : ");
 		bld.append(config.getName());
 		return bld.toString();
 	}

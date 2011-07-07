@@ -169,7 +169,7 @@ public interface IUPresentation {
 	 * @return the value of the '<em>Type</em>' attribute.
 	 * @see org.eclipse.b3.aggregator.InstallableUnitType
 	 * @see org.eclipse.b3.aggregator.p2view.P2viewPackage#getIUPresentation_Type()
-	 * @model default="" required="true" changeable="false" volatile="true"
+	 * @model default="" unique="false" required="true" changeable="false" volatile="true"
 	 * @generated
 	 */
 	InstallableUnitType getType();

@@ -16,19 +16,17 @@ import org.eclipse.b3.aggregator.Contribution;
 import org.eclipse.b3.aggregator.DescriptionProvider;
 import org.eclipse.b3.aggregator.IdentificationProvider;
 import org.eclipse.b3.aggregator.InfosProvider;
-import org.eclipse.b3.aggregator.LinkReceiver;
-import org.eclipse.b3.aggregator.LinkSource;
 import org.eclipse.b3.aggregator.MappedRepository;
 import org.eclipse.b3.aggregator.MavenMapping;
 import org.eclipse.b3.aggregator.Status;
 import org.eclipse.b3.aggregator.StatusCode;
 import org.eclipse.b3.aggregator.StatusProvider;
+import org.eclipse.b3.aggregator.util.GeneralUtils;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
@@ -48,7 +46,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <li>{@link org.eclipse.b3.aggregator.impl.ContributionImpl#getErrors <em>Errors</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.impl.ContributionImpl#getWarnings <em>Warnings</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.impl.ContributionImpl#getInfos <em>Infos</em>}</li>
- * <li>{@link org.eclipse.b3.aggregator.impl.ContributionImpl#getReceiver <em>Receiver</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.impl.ContributionImpl#getLabel <em>Label</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.impl.ContributionImpl#getRepositories <em>Repositories</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.impl.ContributionImpl#getContacts <em>Contacts</em>}</li>
@@ -146,17 +143,6 @@ public class ContributionImpl extends MinimalEObjectImpl.Container implements Co
 	protected EList<String> infos;
 
 	/**
-	 * The cached value of the '{@link #getReceiver() <em>Receiver</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @see #getReceiver()
-	 * @generated
-	 * @ordered
-	 */
-	protected LinkReceiver receiver;
-
-	/**
 	 * The default value of the '{@link #getLabel() <em>Label</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
@@ -221,16 +207,6 @@ public class ContributionImpl extends MinimalEObjectImpl.Container implements Co
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	public LinkReceiver basicGetReceiver() {
-		return receiver;
-	}
-
-	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
@@ -261,14 +237,6 @@ public class ContributionImpl extends MinimalEObjectImpl.Container implements Co
 					return AggregatorPackage.INFOS_PROVIDER__WARNINGS;
 				case AggregatorPackage.CONTRIBUTION__INFOS:
 					return AggregatorPackage.INFOS_PROVIDER__INFOS;
-				default:
-					return -1;
-			}
-		}
-		if(baseClass == LinkSource.class) {
-			switch(derivedFeatureID) {
-				case AggregatorPackage.CONTRIBUTION__RECEIVER:
-					return AggregatorPackage.LINK_SOURCE__RECEIVER;
 				default:
 					return -1;
 			}
@@ -317,14 +285,6 @@ public class ContributionImpl extends MinimalEObjectImpl.Container implements Co
 					return -1;
 			}
 		}
-		if(baseClass == LinkSource.class) {
-			switch(baseFeatureID) {
-				case AggregatorPackage.LINK_SOURCE__RECEIVER:
-					return AggregatorPackage.CONTRIBUTION__RECEIVER;
-				default:
-					return -1;
-			}
-		}
 		if(baseClass == IdentificationProvider.class) {
 			switch(baseFeatureID) {
 				default:
@@ -354,10 +314,6 @@ public class ContributionImpl extends MinimalEObjectImpl.Container implements Co
 				return getWarnings();
 			case AggregatorPackage.CONTRIBUTION__INFOS:
 				return getInfos();
-			case AggregatorPackage.CONTRIBUTION__RECEIVER:
-				if(resolve)
-					return getReceiver();
-				return basicGetReceiver();
 			case AggregatorPackage.CONTRIBUTION__LABEL:
 				return getLabel();
 			case AggregatorPackage.CONTRIBUTION__REPOSITORIES:
@@ -408,8 +364,6 @@ public class ContributionImpl extends MinimalEObjectImpl.Container implements Co
 				return warnings != null && !warnings.isEmpty();
 			case AggregatorPackage.CONTRIBUTION__INFOS:
 				return infos != null && !infos.isEmpty();
-			case AggregatorPackage.CONTRIBUTION__RECEIVER:
-				return receiver != null;
 			case AggregatorPackage.CONTRIBUTION__LABEL:
 				return LABEL_EDEFAULT == null
 						? label != null
@@ -450,9 +404,6 @@ public class ContributionImpl extends MinimalEObjectImpl.Container implements Co
 			case AggregatorPackage.CONTRIBUTION__INFOS:
 				getInfos().clear();
 				getInfos().addAll((Collection<? extends String>) newValue);
-				return;
-			case AggregatorPackage.CONTRIBUTION__RECEIVER:
-				setReceiver((LinkReceiver) newValue);
 				return;
 			case AggregatorPackage.CONTRIBUTION__LABEL:
 				setLabel((String) newValue);
@@ -505,9 +456,6 @@ public class ContributionImpl extends MinimalEObjectImpl.Container implements Co
 				return;
 			case AggregatorPackage.CONTRIBUTION__INFOS:
 				getInfos().clear();
-				return;
-			case AggregatorPackage.CONTRIBUTION__RECEIVER:
-				setReceiver((LinkReceiver) null);
 				return;
 			case AggregatorPackage.CONTRIBUTION__LABEL:
 				setLabel(LABEL_EDEFAULT);
@@ -618,25 +566,6 @@ public class ContributionImpl extends MinimalEObjectImpl.Container implements Co
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	public LinkReceiver getReceiver() {
-		if(receiver != null && ((EObject) receiver).eIsProxy()) {
-			InternalEObject oldReceiver = (InternalEObject) receiver;
-			receiver = (LinkReceiver) eResolveProxy(oldReceiver);
-			if(receiver != oldReceiver) {
-				if(eNotificationRequired())
-					eNotify(new ENotificationImpl(
-						this, Notification.RESOLVE, AggregatorPackage.CONTRIBUTION__RECEIVER, oldReceiver, receiver));
-			}
-		}
-		return receiver;
-	}
-
-	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
@@ -655,40 +584,10 @@ public class ContributionImpl extends MinimalEObjectImpl.Container implements Co
 	 * @generated NOT
 	 */
 	public EList<MappedRepository> getRepositories(boolean enabledOnly) {
-		EList<MappedRepository> repositories = getRepositories();
-
-		if(!enabledOnly)
-			return repositories;
-
-		int count = repositories.size();
-		int idx = 0;
-
-		ALL_PASS: {
-			for(; idx < count; ++idx) {
-				MappedRepository repository = repositories.get(idx);
-				if(!(repository.isEnabled()))
-					// we have found an entry that doesn't pass - exit the ALL_PASS block to create a list containing only those entries that pass
-					break ALL_PASS;
-			}
-
-			// all entries pass - return the original list
-			return repositories;
-		}
-
-		// there is at least one entry that doesn't pass - we need to build a new list containing only those entries that pass
-		EList<MappedRepository> passingRepositories = new BasicEList<MappedRepository>(repositories.size() - 1);
-
-		// we don't need to check these again - we know they are matching
-		for(int sdx = 0; sdx < idx; ++sdx)
-			passingRepositories.add(repositories.get(sdx));
-
-		while(++idx < count) {
-			MappedRepository repository = repositories.get(idx);
-			if(repository.isEnabled())
-				passingRepositories.add(repository);
-		}
-
-		return passingRepositories;
+		EList<MappedRepository> repos = getRepositories();
+		if(enabledOnly)
+			repos = GeneralUtils.getEnabled(repos);
+		return repos;
 	}
 
 	synchronized public Status getStatus() {
@@ -696,7 +595,7 @@ public class ContributionImpl extends MinimalEObjectImpl.Container implements Co
 			return status;
 
 		StatusCode statusCode;
-		for(MappedRepository repo : getRepositories()) {
+		for(MappedRepository repo : getRepositories(true)) {
 			if((statusCode = repo.getStatus().getCode()) != StatusCode.OK && statusCode != StatusCode.WAITING)
 				return AggregatorFactory.eINSTANCE.createStatus(StatusCode.BROKEN);
 		}
@@ -768,20 +667,6 @@ public class ContributionImpl extends MinimalEObjectImpl.Container implements Co
 		if(eNotificationRequired())
 			eNotify(new ENotificationImpl(
 				this, Notification.SET, AggregatorPackage.CONTRIBUTION__LABEL, oldLabel, label));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	public void setReceiver(LinkReceiver newReceiver) {
-		LinkReceiver oldReceiver = receiver;
-		receiver = newReceiver;
-		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(
-				this, Notification.SET, AggregatorPackage.CONTRIBUTION__RECEIVER, oldReceiver, receiver));
 	}
 
 	public void setStatus(Status newStatus) {

@@ -70,15 +70,6 @@ public interface AggregatorPackage extends EPackage {
 		EReference AGGREGATION__CONFIGURATIONS = eINSTANCE.getAggregation_Configurations();
 
 		/**
-		 * The meta object literal for the '<em><b>Contributions</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * 
-		 * @generated
-		 */
-		EReference AGGREGATION__CONTRIBUTIONS = eINSTANCE.getAggregation_Contributions();
-
-		/**
 		 * The meta object literal for the '<em><b>Custom Categories</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -160,15 +151,6 @@ public interface AggregatorPackage extends EPackage {
 		EAttribute AGGREGATION__MAVEN_RESULT = eINSTANCE.getAggregation_MavenResult();
 
 		/**
-		 * The meta object literal for the '<em><b>Validation Repositories</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * 
-		 * @generated
-		 */
-		EReference AGGREGATION__VALIDATION_REPOSITORIES = eINSTANCE.getAggregation_ValidationRepositories();
-
-		/**
 		 * The meta object literal for the '<em><b>Maven Mappings</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -189,6 +171,15 @@ public interface AggregatorPackage extends EPackage {
 		EClass VALIDATION_SET = eINSTANCE.getValidationSet();
 
 		/**
+		 * The meta object literal for the '<em><b>Abstract</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EAttribute VALIDATION_SET__ABSTRACT = eINSTANCE.getValidationSet_Abstract();
+
+		/**
 		 * The meta object literal for the '<em><b>Label</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -196,6 +187,33 @@ public interface AggregatorPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute VALIDATION_SET__LABEL = eINSTANCE.getValidationSet_Label();
+
+		/**
+		 * The meta object literal for the '<em><b>Contributions</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EReference VALIDATION_SET__CONTRIBUTIONS = eINSTANCE.getValidationSet_Contributions();
+
+		/**
+		 * The meta object literal for the '<em><b>Validation Repositories</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EReference VALIDATION_SET__VALIDATION_REPOSITORIES = eINSTANCE.getValidationSet_ValidationRepositories();
+
+		/**
+		 * The meta object literal for the '<em><b>Extends</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EReference VALIDATION_SET__EXTENDS = eINSTANCE.getValidationSet_Extends();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.b3.aggregator.impl.MappedRepositoryImpl <em>Mapped Repository</em>}' class.
@@ -375,13 +393,13 @@ public interface AggregatorPackage extends EPackage {
 		EAttribute CONTACT__EMAIL = eINSTANCE.getContact_Email();
 
 		/**
-		 * The meta object literal for the '<em><b>Aggregator</b></em>' container reference feature.
-		 * <!-- begin-user-doc
-		 * --> <!-- end-user-doc -->
+		 * The meta object literal for the '<em><b>Aggregation</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
-		EReference CONTACT__AGGREGATOR = eINSTANCE.getContact_Aggregator();
+		EReference CONTACT__AGGREGATION = eINSTANCE.getContact_Aggregation();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.b3.aggregator.impl.FeatureImpl <em>Feature</em>}' class.
@@ -802,66 +820,6 @@ public interface AggregatorPackage extends EPackage {
 		EAttribute AVAILABLE_VERSION__FILTER = eINSTANCE.getAvailableVersion_Filter();
 
 		/**
-		 * The meta object literal for the '{@link org.eclipse.b3.aggregator.LinkSource <em>Link Source</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * 
-		 * @see org.eclipse.b3.aggregator.LinkSource
-		 * @see org.eclipse.b3.aggregator.impl.AggregatorPackageImpl#getLinkSource()
-		 * @generated
-		 */
-		EClass LINK_SOURCE = eINSTANCE.getLinkSource();
-
-		/**
-		 * The meta object literal for the '<em><b>Receiver</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * 
-		 * @generated
-		 */
-		EReference LINK_SOURCE__RECEIVER = eINSTANCE.getLinkSource_Receiver();
-
-		/**
-		 * The meta object literal for the '{@link org.eclipse.b3.aggregator.LinkReceiver <em>Link Receiver</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * 
-		 * @see org.eclipse.b3.aggregator.LinkReceiver
-		 * @see org.eclipse.b3.aggregator.impl.AggregatorPackageImpl#getLinkReceiver()
-		 * @generated
-		 */
-		EClass LINK_RECEIVER = eINSTANCE.getLinkReceiver();
-
-		/**
-		 * The meta object literal for the '{@link org.eclipse.b3.aggregator.impl.AggregatorResourceViewImpl <em>Resource View</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * 
-		 * @see org.eclipse.b3.aggregator.impl.AggregatorResourceViewImpl
-		 * @see org.eclipse.b3.aggregator.impl.AggregatorPackageImpl#getAggregatorResourceView()
-		 * @generated
-		 */
-		EClass AGGREGATOR_RESOURCE_VIEW = eINSTANCE.getAggregatorResourceView();
-
-		/**
-		 * The meta object literal for the '<em><b>Aggregator</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * 
-		 * @generated
-		 */
-		EReference AGGREGATOR_RESOURCE_VIEW__AGGREGATOR = eINSTANCE.getAggregatorResourceView_Aggregator();
-
-		/**
-		 * The meta object literal for the '<em><b>Validation Sets</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * 
-		 * @generated
-		 */
-		EReference AGGREGATOR_RESOURCE_VIEW__VALIDATION_SETS = eINSTANCE.getAggregatorResourceView_ValidationSets();
-
-		/**
 		 * The meta object literal for the '{@link org.eclipse.b3.aggregator.AggregationType <em>Aggregation Type</em>}' enum.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1157,7 +1115,7 @@ public interface AggregatorPackage extends EPackage {
 	 * @see org.eclipse.b3.aggregator.impl.AggregatorPackageImpl#getDescriptionProvider()
 	 * @generated
 	 */
-	int DESCRIPTION_PROVIDER = 21;
+	int DESCRIPTION_PROVIDER = 12;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -1260,16 +1218,6 @@ public interface AggregatorPackage extends EPackage {
 	int AGGREGATION__CONFIGURATIONS = DESCRIPTION_PROVIDER_FEATURE_COUNT + 5;
 
 	/**
-	 * The feature id for the '<em><b>Contributions</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int AGGREGATION__CONTRIBUTIONS = DESCRIPTION_PROVIDER_FEATURE_COUNT + 6;
-
-	/**
 	 * The feature id for the '<em><b>Custom Categories</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1277,7 +1225,7 @@ public interface AggregatorPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AGGREGATION__CUSTOM_CATEGORIES = DESCRIPTION_PROVIDER_FEATURE_COUNT + 7;
+	int AGGREGATION__CUSTOM_CATEGORIES = DESCRIPTION_PROVIDER_FEATURE_COUNT + 6;
 
 	/**
 	 * The feature id for the '<em><b>Contacts</b></em>' containment reference list.
@@ -1287,7 +1235,7 @@ public interface AggregatorPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AGGREGATION__CONTACTS = DESCRIPTION_PROVIDER_FEATURE_COUNT + 8;
+	int AGGREGATION__CONTACTS = DESCRIPTION_PROVIDER_FEATURE_COUNT + 7;
 
 	/**
 	 * The feature id for the '<em><b>Buildmaster</b></em>' reference.
@@ -1297,7 +1245,7 @@ public interface AggregatorPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AGGREGATION__BUILDMASTER = DESCRIPTION_PROVIDER_FEATURE_COUNT + 9;
+	int AGGREGATION__BUILDMASTER = DESCRIPTION_PROVIDER_FEATURE_COUNT + 8;
 
 	/**
 	 * The feature id for the '<em><b>Label</b></em>' attribute.
@@ -1307,7 +1255,7 @@ public interface AggregatorPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AGGREGATION__LABEL = DESCRIPTION_PROVIDER_FEATURE_COUNT + 10;
+	int AGGREGATION__LABEL = DESCRIPTION_PROVIDER_FEATURE_COUNT + 9;
 
 	/**
 	 * The feature id for the '<em><b>Build Root</b></em>' attribute.
@@ -1317,7 +1265,7 @@ public interface AggregatorPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AGGREGATION__BUILD_ROOT = DESCRIPTION_PROVIDER_FEATURE_COUNT + 11;
+	int AGGREGATION__BUILD_ROOT = DESCRIPTION_PROVIDER_FEATURE_COUNT + 10;
 
 	/**
 	 * The feature id for the '<em><b>Packed Strategy</b></em>' attribute.
@@ -1327,7 +1275,7 @@ public interface AggregatorPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AGGREGATION__PACKED_STRATEGY = DESCRIPTION_PROVIDER_FEATURE_COUNT + 12;
+	int AGGREGATION__PACKED_STRATEGY = DESCRIPTION_PROVIDER_FEATURE_COUNT + 11;
 
 	/**
 	 * The feature id for the '<em><b>Sendmail</b></em>' attribute.
@@ -1337,7 +1285,7 @@ public interface AggregatorPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AGGREGATION__SENDMAIL = DESCRIPTION_PROVIDER_FEATURE_COUNT + 13;
+	int AGGREGATION__SENDMAIL = DESCRIPTION_PROVIDER_FEATURE_COUNT + 12;
 
 	/**
 	 * The feature id for the '<em><b>Type</b></em>' attribute.
@@ -1347,7 +1295,7 @@ public interface AggregatorPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AGGREGATION__TYPE = DESCRIPTION_PROVIDER_FEATURE_COUNT + 14;
+	int AGGREGATION__TYPE = DESCRIPTION_PROVIDER_FEATURE_COUNT + 13;
 
 	/**
 	 * The feature id for the '<em><b>Maven Result</b></em>' attribute.
@@ -1357,17 +1305,7 @@ public interface AggregatorPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AGGREGATION__MAVEN_RESULT = DESCRIPTION_PROVIDER_FEATURE_COUNT + 15;
-
-	/**
-	 * The feature id for the '<em><b>Validation Repositories</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int AGGREGATION__VALIDATION_REPOSITORIES = DESCRIPTION_PROVIDER_FEATURE_COUNT + 16;
+	int AGGREGATION__MAVEN_RESULT = DESCRIPTION_PROVIDER_FEATURE_COUNT + 14;
 
 	/**
 	 * The feature id for the '<em><b>Maven Mappings</b></em>' containment reference list.
@@ -1377,7 +1315,7 @@ public interface AggregatorPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AGGREGATION__MAVEN_MAPPINGS = DESCRIPTION_PROVIDER_FEATURE_COUNT + 17;
+	int AGGREGATION__MAVEN_MAPPINGS = DESCRIPTION_PROVIDER_FEATURE_COUNT + 15;
 
 	/**
 	 * The number of structural features of the '<em>Aggregation</em>' class.
@@ -1387,7 +1325,7 @@ public interface AggregatorPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AGGREGATION_FEATURE_COUNT = DESCRIPTION_PROVIDER_FEATURE_COUNT + 18;
+	int AGGREGATION_FEATURE_COUNT = DESCRIPTION_PROVIDER_FEATURE_COUNT + 16;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.aggregator.EnabledStatusProvider <em>Enabled Status Provider</em>}' class.
@@ -1398,6 +1336,852 @@ public interface AggregatorPackage extends EPackage {
 	 * @generated
 	 */
 	int ENABLED_STATUS_PROVIDER = 13;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.b3.aggregator.impl.ValidationSetImpl <em>Validation Set</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see org.eclipse.b3.aggregator.impl.ValidationSetImpl
+	 * @see org.eclipse.b3.aggregator.impl.AggregatorPackageImpl#getValidationSet()
+	 * @generated
+	 */
+	int VALIDATION_SET = 29;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.b3.aggregator.impl.MetadataRepositoryReferenceImpl <em>Metadata Repository Reference</em>}'
+	 * class.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @see org.eclipse.b3.aggregator.impl.MetadataRepositoryReferenceImpl
+	 * @see org.eclipse.b3.aggregator.impl.AggregatorPackageImpl#getMetadataRepositoryReference()
+	 * @generated
+	 */
+	int METADATA_REPOSITORY_REFERENCE = 24;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.b3.aggregator.impl.MappedRepositoryImpl <em>Mapped Repository</em>}' class.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @see org.eclipse.b3.aggregator.impl.MappedRepositoryImpl
+	 * @see org.eclipse.b3.aggregator.impl.AggregatorPackageImpl#getMappedRepository()
+	 * @generated
+	 */
+	int MAPPED_REPOSITORY = 19;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.b3.aggregator.impl.ConfigurationImpl <em>Configuration</em>}' class.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @see org.eclipse.b3.aggregator.impl.ConfigurationImpl
+	 * @see org.eclipse.b3.aggregator.impl.AggregatorPackageImpl#getConfiguration()
+	 * @generated
+	 */
+	int CONFIGURATION = 6;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.b3.aggregator.impl.ContributionImpl <em>Contribution</em>}' class.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @see org.eclipse.b3.aggregator.impl.ContributionImpl
+	 * @see org.eclipse.b3.aggregator.impl.AggregatorPackageImpl#getContribution()
+	 * @generated
+	 */
+	int CONTRIBUTION = 8;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.b3.aggregator.impl.ContactImpl <em>Contact</em>}' class.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @see org.eclipse.b3.aggregator.impl.ContactImpl
+	 * @see org.eclipse.b3.aggregator.impl.AggregatorPackageImpl#getContact()
+	 * @generated
+	 */
+	int CONTACT = 7;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.b3.aggregator.impl.MappedUnitImpl <em>Mapped Unit</em>}' class.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @see org.eclipse.b3.aggregator.impl.MappedUnitImpl
+	 * @see org.eclipse.b3.aggregator.impl.AggregatorPackageImpl#getMappedUnit()
+	 * @generated
+	 */
+	int MAPPED_UNIT = 20;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.b3.aggregator.StatusProvider <em>Status Provider</em>}' class.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @see org.eclipse.b3.aggregator.StatusProvider
+	 * @see org.eclipse.b3.aggregator.impl.AggregatorPackageImpl#getStatusProvider()
+	 * @generated
+	 */
+	int STATUS_PROVIDER = 28;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.b3.aggregator.impl.InstallableUnitRequestImpl <em>Installable Unit Request</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see org.eclipse.b3.aggregator.impl.InstallableUnitRequestImpl
+	 * @see org.eclipse.b3.aggregator.impl.AggregatorPackageImpl#getInstallableUnitRequest()
+	 * @generated
+	 */
+	int INSTALLABLE_UNIT_REQUEST = 17;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.b3.aggregator.impl.FeatureImpl <em>Feature</em>}' class.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @see org.eclipse.b3.aggregator.impl.FeatureImpl
+	 * @see org.eclipse.b3.aggregator.impl.AggregatorPackageImpl#getFeature()
+	 * @generated
+	 */
+	int FEATURE = 9;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.b3.aggregator.impl.BundleImpl <em>Bundle</em>}' class.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @see org.eclipse.b3.aggregator.impl.BundleImpl
+	 * @see org.eclipse.b3.aggregator.impl.AggregatorPackageImpl#getBundle()
+	 * @generated
+	 */
+	int BUNDLE = 3;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.b3.aggregator.impl.ProductImpl <em>Product</em>}' class.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @see org.eclipse.b3.aggregator.impl.ProductImpl
+	 * @see org.eclipse.b3.aggregator.impl.AggregatorPackageImpl#getProduct()
+	 * @generated
+	 */
+	int PRODUCT = 25;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.b3.aggregator.impl.PropertyImpl <em>Property</em>}' class.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @see org.eclipse.b3.aggregator.impl.PropertyImpl
+	 * @see org.eclipse.b3.aggregator.impl.AggregatorPackageImpl#getProperty()
+	 * @generated
+	 */
+	int PROPERTY = 26;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.b3.aggregator.impl.CategoryImpl <em>Category</em>}' class.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @see org.eclipse.b3.aggregator.impl.CategoryImpl
+	 * @see org.eclipse.b3.aggregator.impl.AggregatorPackageImpl#getCategory()
+	 * @generated
+	 */
+	int CATEGORY = 4;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.b3.aggregator.impl.CustomCategoryImpl <em>Custom Category</em>}' class.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @see org.eclipse.b3.aggregator.impl.CustomCategoryImpl
+	 * @see org.eclipse.b3.aggregator.impl.AggregatorPackageImpl#getCustomCategory()
+	 * @generated
+	 */
+	int CUSTOM_CATEGORY = 11;
+
+	/**
+	 * The meta object id for the '{@link java.lang.Comparable <em>Comparable</em>}' class.
+	 * <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
+	 * @see java.lang.Comparable
+	 * @see org.eclipse.b3.aggregator.impl.AggregatorPackageImpl#getComparable()
+	 * @generated
+	 */
+	int COMPARABLE = 10;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.b3.aggregator.impl.MapRuleImpl <em>Map Rule</em>}' class.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @see org.eclipse.b3.aggregator.impl.MapRuleImpl
+	 * @see org.eclipse.b3.aggregator.impl.AggregatorPackageImpl#getMapRule()
+	 * @generated
+	 */
+	int MAP_RULE = 21;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.b3.aggregator.impl.ExclusionRuleImpl <em>Exclusion Rule</em>}' class.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @see org.eclipse.b3.aggregator.impl.ExclusionRuleImpl
+	 * @see org.eclipse.b3.aggregator.impl.AggregatorPackageImpl#getExclusionRule()
+	 * @generated
+	 */
+	int EXCLUSION_RULE = 14;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.b3.aggregator.impl.ValidConfigurationsRuleImpl <em>Valid Configurations Rule</em>}' class.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @see org.eclipse.b3.aggregator.impl.ValidConfigurationsRuleImpl
+	 * @see org.eclipse.b3.aggregator.impl.AggregatorPackageImpl#getValidConfigurationsRule()
+	 * @generated
+	 */
+	int VALID_CONFIGURATIONS_RULE = 30;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.b3.aggregator.LabelProvider <em>Label Provider</em>}' class.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @see org.eclipse.b3.aggregator.LabelProvider
+	 * @see org.eclipse.b3.aggregator.impl.AggregatorPackageImpl#getLabelProvider()
+	 * @generated
+	 */
+	int LABEL_PROVIDER = 18;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.b3.aggregator.IdentificationProvider <em>Identification Provider</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see org.eclipse.b3.aggregator.IdentificationProvider
+	 * @see org.eclipse.b3.aggregator.impl.AggregatorPackageImpl#getIdentificationProvider()
+	 * @generated
+	 */
+	int IDENTIFICATION_PROVIDER = 15;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.b3.aggregator.impl.MavenMappingImpl <em>Maven Mapping</em>}' class.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @see org.eclipse.b3.aggregator.impl.MavenMappingImpl
+	 * @see org.eclipse.b3.aggregator.impl.AggregatorPackageImpl#getMavenMapping()
+	 * @generated
+	 */
+	int MAVEN_MAPPING = 23;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.b3.aggregator.impl.MavenItemImpl <em>Maven Item</em>}' class.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @see org.eclipse.b3.aggregator.impl.MavenItemImpl
+	 * @see org.eclipse.b3.aggregator.impl.AggregatorPackageImpl#getMavenItem()
+	 * @generated
+	 */
+	int MAVEN_ITEM = 22;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.b3.aggregator.ChildrenProvider <em>Children Provider</em>}' class.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @see org.eclipse.b3.aggregator.ChildrenProvider
+	 * @see org.eclipse.b3.aggregator.impl.AggregatorPackageImpl#getChildrenProvider()
+	 * @generated
+	 */
+	int CHILDREN_PROVIDER = 5;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.b3.aggregator.impl.StatusImpl <em>Status</em>}' class.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @see org.eclipse.b3.aggregator.impl.StatusImpl
+	 * @see org.eclipse.b3.aggregator.impl.AggregatorPackageImpl#getStatus()
+	 * @generated
+	 */
+	int STATUS = 27;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.b3.aggregator.impl.InfosProviderImpl <em>Infos Provider</em>}' class.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @see org.eclipse.b3.aggregator.impl.InfosProviderImpl
+	 * @see org.eclipse.b3.aggregator.impl.AggregatorPackageImpl#getInfosProvider()
+	 * @generated
+	 */
+	int INFOS_PROVIDER = 16;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.b3.aggregator.impl.AvailableVersionsHeaderImpl <em>Available Versions Header</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see org.eclipse.b3.aggregator.impl.AvailableVersionsHeaderImpl
+	 * @see org.eclipse.b3.aggregator.impl.AggregatorPackageImpl#getAvailableVersionsHeader()
+	 * @generated
+	 */
+	int AVAILABLE_VERSIONS_HEADER = 1;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.b3.aggregator.impl.AvailableVersionImpl <em>Available Version</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see org.eclipse.b3.aggregator.impl.AvailableVersionImpl
+	 * @see org.eclipse.b3.aggregator.impl.AggregatorPackageImpl#getAvailableVersion()
+	 * @generated
+	 */
+	int AVAILABLE_VERSION = 2;
+
+	/**
+	 * The feature id for the '<em><b>Available Versions</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int AVAILABLE_VERSIONS_HEADER__AVAILABLE_VERSIONS = 0;
+
+	/**
+	 * The feature id for the '<em><b>Installable Unit Request</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int AVAILABLE_VERSIONS_HEADER__INSTALLABLE_UNIT_REQUEST = 1;
+
+	/**
+	 * The number of structural features of the '<em>Available Versions Header</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int AVAILABLE_VERSIONS_HEADER_FEATURE_COUNT = 2;
+
+	/**
+	 * The feature id for the '<em><b>Version Match</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int AVAILABLE_VERSION__VERSION_MATCH = 0;
+
+	/**
+	 * The feature id for the '<em><b>Version</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int AVAILABLE_VERSION__VERSION = 1;
+
+	/**
+	 * The feature id for the '<em><b>Filter</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int AVAILABLE_VERSION__FILTER = 2;
+
+	/**
+	 * The number of structural features of the '<em>Available Version</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int AVAILABLE_VERSION_FEATURE_COUNT = 3;
+
+	/**
+	 * The feature id for the '<em><b>Status</b></em>' reference.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int STATUS_PROVIDER__STATUS = 0;
+
+	/**
+	 * The number of structural features of the '<em>Status Provider</em>' class.
+	 * <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int STATUS_PROVIDER_FEATURE_COUNT = 1;
+
+	/**
+	 * The feature id for the '<em><b>Status</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int INSTALLABLE_UNIT_REQUEST__STATUS = STATUS_PROVIDER__STATUS;
+
+	/**
+	 * The feature id for the '<em><b>Errors</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int INSTALLABLE_UNIT_REQUEST__ERRORS = STATUS_PROVIDER_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Warnings</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int INSTALLABLE_UNIT_REQUEST__WARNINGS = STATUS_PROVIDER_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Infos</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int INSTALLABLE_UNIT_REQUEST__INFOS = STATUS_PROVIDER_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int INSTALLABLE_UNIT_REQUEST__DESCRIPTION = STATUS_PROVIDER_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int INSTALLABLE_UNIT_REQUEST__NAME = STATUS_PROVIDER_FEATURE_COUNT + 4;
+
+	/**
+	 * The feature id for the '<em><b>Version Range</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int INSTALLABLE_UNIT_REQUEST__VERSION_RANGE = STATUS_PROVIDER_FEATURE_COUNT + 5;
+
+	/**
+	 * The feature id for the '<em><b>Available Versions Header</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int INSTALLABLE_UNIT_REQUEST__AVAILABLE_VERSIONS_HEADER = STATUS_PROVIDER_FEATURE_COUNT + 6;
+
+	/**
+	 * The feature id for the '<em><b>Available Versions</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int INSTALLABLE_UNIT_REQUEST__AVAILABLE_VERSIONS = STATUS_PROVIDER_FEATURE_COUNT + 7;
+
+	/**
+	 * The number of structural features of the '<em>Installable Unit Request</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int INSTALLABLE_UNIT_REQUEST_FEATURE_COUNT = STATUS_PROVIDER_FEATURE_COUNT + 8;
+
+	/**
+	 * The feature id for the '<em><b>Status</b></em>' reference.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int MAPPED_UNIT__STATUS = INSTALLABLE_UNIT_REQUEST__STATUS;
+
+	/**
+	 * The feature id for the '<em><b>Errors</b></em>' attribute list.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int MAPPED_UNIT__ERRORS = INSTALLABLE_UNIT_REQUEST__ERRORS;
+
+	/**
+	 * The feature id for the '<em><b>Warnings</b></em>' attribute list.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int MAPPED_UNIT__WARNINGS = INSTALLABLE_UNIT_REQUEST__WARNINGS;
+
+	/**
+	 * The feature id for the '<em><b>Infos</b></em>' attribute list.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int MAPPED_UNIT__INFOS = INSTALLABLE_UNIT_REQUEST__INFOS;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int MAPPED_UNIT__DESCRIPTION = INSTALLABLE_UNIT_REQUEST__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int MAPPED_UNIT__NAME = INSTALLABLE_UNIT_REQUEST__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Version Range</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int MAPPED_UNIT__VERSION_RANGE = INSTALLABLE_UNIT_REQUEST__VERSION_RANGE;
+
+	/**
+	 * The feature id for the '<em><b>Available Versions Header</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int MAPPED_UNIT__AVAILABLE_VERSIONS_HEADER = INSTALLABLE_UNIT_REQUEST__AVAILABLE_VERSIONS_HEADER;
+
+	/**
+	 * The feature id for the '<em><b>Available Versions</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int MAPPED_UNIT__AVAILABLE_VERSIONS = INSTALLABLE_UNIT_REQUEST__AVAILABLE_VERSIONS;
+
+	/**
+	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int MAPPED_UNIT__ENABLED = INSTALLABLE_UNIT_REQUEST_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Valid Configurations</b></em>' reference list.
+	 * <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int MAPPED_UNIT__VALID_CONFIGURATIONS = INSTALLABLE_UNIT_REQUEST_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Mapped Unit</em>' class. <!-- begin-user-doc --> <!-- end-user-doc
+	 * -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int MAPPED_UNIT_FEATURE_COUNT = INSTALLABLE_UNIT_REQUEST_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Status</b></em>' reference.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int BUNDLE__STATUS = MAPPED_UNIT__STATUS;
+
+	/**
+	 * The feature id for the '<em><b>Errors</b></em>' attribute list.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int BUNDLE__ERRORS = MAPPED_UNIT__ERRORS;
+
+	/**
+	 * The feature id for the '<em><b>Warnings</b></em>' attribute list.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int BUNDLE__WARNINGS = MAPPED_UNIT__WARNINGS;
+
+	/**
+	 * The feature id for the '<em><b>Infos</b></em>' attribute list.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int BUNDLE__INFOS = MAPPED_UNIT__INFOS;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int BUNDLE__DESCRIPTION = MAPPED_UNIT__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int BUNDLE__NAME = MAPPED_UNIT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Version Range</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int BUNDLE__VERSION_RANGE = MAPPED_UNIT__VERSION_RANGE;
+
+	/**
+	 * The feature id for the '<em><b>Available Versions Header</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int BUNDLE__AVAILABLE_VERSIONS_HEADER = MAPPED_UNIT__AVAILABLE_VERSIONS_HEADER;
+
+	/**
+	 * The feature id for the '<em><b>Available Versions</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int BUNDLE__AVAILABLE_VERSIONS = MAPPED_UNIT__AVAILABLE_VERSIONS;
+
+	/**
+	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int BUNDLE__ENABLED = MAPPED_UNIT__ENABLED;
+
+	/**
+	 * The feature id for the '<em><b>Valid Configurations</b></em>' reference list.
+	 * <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int BUNDLE__VALID_CONFIGURATIONS = MAPPED_UNIT__VALID_CONFIGURATIONS;
+
+	/**
+	 * The number of structural features of the '<em>Bundle</em>' class.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int BUNDLE_FEATURE_COUNT = MAPPED_UNIT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Status</b></em>' reference.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int CATEGORY__STATUS = MAPPED_UNIT__STATUS;
+
+	/**
+	 * The feature id for the '<em><b>Errors</b></em>' attribute list.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int CATEGORY__ERRORS = MAPPED_UNIT__ERRORS;
+
+	/**
+	 * The feature id for the '<em><b>Warnings</b></em>' attribute list.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int CATEGORY__WARNINGS = MAPPED_UNIT__WARNINGS;
+
+	/**
+	 * The feature id for the '<em><b>Infos</b></em>' attribute list.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int CATEGORY__INFOS = MAPPED_UNIT__INFOS;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int CATEGORY__DESCRIPTION = MAPPED_UNIT__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int CATEGORY__NAME = MAPPED_UNIT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Version Range</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int CATEGORY__VERSION_RANGE = MAPPED_UNIT__VERSION_RANGE;
+
+	/**
+	 * The feature id for the '<em><b>Available Versions Header</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int CATEGORY__AVAILABLE_VERSIONS_HEADER = MAPPED_UNIT__AVAILABLE_VERSIONS_HEADER;
+
+	/**
+	 * The feature id for the '<em><b>Available Versions</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int CATEGORY__AVAILABLE_VERSIONS = MAPPED_UNIT__AVAILABLE_VERSIONS;
+
+	/**
+	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int CATEGORY__ENABLED = MAPPED_UNIT__ENABLED;
+
+	/**
+	 * The feature id for the '<em><b>Valid Configurations</b></em>' reference list.
+	 * <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int CATEGORY__VALID_CONFIGURATIONS = MAPPED_UNIT__VALID_CONFIGURATIONS;
+
+	/**
+	 * The feature id for the '<em><b>Label Override</b></em>' attribute.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int CATEGORY__LABEL_OVERRIDE = MAPPED_UNIT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Category</em>' class.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int CATEGORY_FEATURE_COUNT = MAPPED_UNIT_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Children</b></em>' reference list.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int CHILDREN_PROVIDER__CHILDREN = 0;
+
+	/**
+	 * The number of structural features of the '<em>Children Provider</em>' class.
+	 * <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int CHILDREN_PROVIDER_FEATURE_COUNT = 1;
 
 	/**
 	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
@@ -1419,25 +2203,223 @@ public interface AggregatorPackage extends EPackage {
 	int ENABLED_STATUS_PROVIDER_FEATURE_COUNT = 1;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.b3.aggregator.impl.ValidationSetImpl <em>Validation Set</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
-	 * @see org.eclipse.b3.aggregator.impl.ValidationSetImpl
-	 * @see org.eclipse.b3.aggregator.impl.AggregatorPackageImpl#getValidationSet()
 	 * @generated
+	 * @ordered
 	 */
-	int VALIDATION_SET = 1;
+	int CONFIGURATION__ENABLED = ENABLED_STATUS_PROVIDER__ENABLED;
 
 	/**
-	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
+	 * The feature id for the '<em><b>Operating System</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc
+	 * -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int CONFIGURATION__OPERATING_SYSTEM = ENABLED_STATUS_PROVIDER_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Window System</b></em>' attribute.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int CONFIGURATION__WINDOW_SYSTEM = ENABLED_STATUS_PROVIDER_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Architecture</b></em>' attribute.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int CONFIGURATION__ARCHITECTURE = ENABLED_STATUS_PROVIDER_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of structural features of the '<em>Configuration</em>' class.
+	 * <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int CONFIGURATION_FEATURE_COUNT = ENABLED_STATUS_PROVIDER_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int CONTACT__NAME = 0;
+
+	/**
+	 * The feature id for the '<em><b>Email</b></em>' attribute.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int CONTACT__EMAIL = 1;
+
+	/**
+	 * The feature id for the '<em><b>Aggregation</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int VALIDATION_SET__ENABLED = ENABLED_STATUS_PROVIDER__ENABLED;
+	int CONTACT__AGGREGATION = 2;
+
+	/**
+	 * The number of structural features of the '<em>Contact</em>' class.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int CONTACT_FEATURE_COUNT = 3;
+
+	/**
+	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int CONTRIBUTION__ENABLED = ENABLED_STATUS_PROVIDER__ENABLED;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int CONTRIBUTION__DESCRIPTION = ENABLED_STATUS_PROVIDER_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Status</b></em>' reference.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int CONTRIBUTION__STATUS = ENABLED_STATUS_PROVIDER_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Errors</b></em>' attribute list.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int CONTRIBUTION__ERRORS = ENABLED_STATUS_PROVIDER_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Warnings</b></em>' attribute list.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int CONTRIBUTION__WARNINGS = ENABLED_STATUS_PROVIDER_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Infos</b></em>' attribute list.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int CONTRIBUTION__INFOS = ENABLED_STATUS_PROVIDER_FEATURE_COUNT + 4;
+
+	/**
+	 * The feature id for the '<em><b>Label</b></em>' attribute.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int CONTRIBUTION__LABEL = ENABLED_STATUS_PROVIDER_FEATURE_COUNT + 5;
+
+	/**
+	 * The feature id for the '<em><b>Repositories</b></em>' containment reference list.
+	 * <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int CONTRIBUTION__REPOSITORIES = ENABLED_STATUS_PROVIDER_FEATURE_COUNT + 6;
+
+	/**
+	 * The feature id for the '<em><b>Contacts</b></em>' reference list.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int CONTRIBUTION__CONTACTS = ENABLED_STATUS_PROVIDER_FEATURE_COUNT + 7;
+
+	/**
+	 * The feature id for the '<em><b>Maven Mappings</b></em>' reference list. <!-- begin-user-doc --> <!-- end-user-doc
+	 * -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int CONTRIBUTION__MAVEN_MAPPINGS = ENABLED_STATUS_PROVIDER_FEATURE_COUNT + 8;
+
+	/**
+	 * The number of structural features of the '<em>Contribution</em>' class. <!-- begin-user-doc --> <!-- end-user-doc
+	 * -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int CONTRIBUTION_FEATURE_COUNT = ENABLED_STATUS_PROVIDER_FEATURE_COUNT + 9;
+
+	/**
+	 * The feature id for the '<em><b>Status</b></em>' reference.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int FEATURE__STATUS = MAPPED_UNIT__STATUS;
+
+	/**
+	 * The feature id for the '<em><b>Errors</b></em>' attribute list.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int FEATURE__ERRORS = MAPPED_UNIT__ERRORS;
+
+	/**
+	 * The feature id for the '<em><b>Warnings</b></em>' attribute list.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int FEATURE__WARNINGS = MAPPED_UNIT__WARNINGS;
+
+	/**
+	 * The feature id for the '<em><b>Infos</b></em>' attribute list.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int FEATURE__INFOS = MAPPED_UNIT__INFOS;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -1447,78 +2429,430 @@ public interface AggregatorPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VALIDATION_SET__DESCRIPTION = ENABLED_STATUS_PROVIDER_FEATURE_COUNT + 0;
+	int FEATURE__DESCRIPTION = MAPPED_UNIT__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int FEATURE__NAME = MAPPED_UNIT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Version Range</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int FEATURE__VERSION_RANGE = MAPPED_UNIT__VERSION_RANGE;
+
+	/**
+	 * The feature id for the '<em><b>Available Versions Header</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int FEATURE__AVAILABLE_VERSIONS_HEADER = MAPPED_UNIT__AVAILABLE_VERSIONS_HEADER;
+
+	/**
+	 * The feature id for the '<em><b>Available Versions</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int FEATURE__AVAILABLE_VERSIONS = MAPPED_UNIT__AVAILABLE_VERSIONS;
+
+	/**
+	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int FEATURE__ENABLED = MAPPED_UNIT__ENABLED;
+
+	/**
+	 * The feature id for the '<em><b>Valid Configurations</b></em>' reference list.
+	 * <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int FEATURE__VALID_CONFIGURATIONS = MAPPED_UNIT__VALID_CONFIGURATIONS;
+
+	/**
+	 * The feature id for the '<em><b>Categories</b></em>' reference list.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int FEATURE__CATEGORIES = MAPPED_UNIT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Feature</em>' class.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int FEATURE_FEATURE_COUNT = MAPPED_UNIT_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Comparable</em>' class. <!-- begin-user-doc --> <!-- end-user-doc
+	 * -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int COMPARABLE_FEATURE_COUNT = 0;
 
 	/**
 	 * The feature id for the '<em><b>Status</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int VALIDATION_SET__STATUS = ENABLED_STATUS_PROVIDER_FEATURE_COUNT + 1;
+	int CUSTOM_CATEGORY__STATUS = STATUS_PROVIDER__STATUS;
 
 	/**
 	 * The feature id for the '<em><b>Errors</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int VALIDATION_SET__ERRORS = ENABLED_STATUS_PROVIDER_FEATURE_COUNT + 2;
+	int CUSTOM_CATEGORY__ERRORS = STATUS_PROVIDER_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Warnings</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int VALIDATION_SET__WARNINGS = ENABLED_STATUS_PROVIDER_FEATURE_COUNT + 3;
+	int CUSTOM_CATEGORY__WARNINGS = STATUS_PROVIDER_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Infos</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int VALIDATION_SET__INFOS = ENABLED_STATUS_PROVIDER_FEATURE_COUNT + 4;
+	int CUSTOM_CATEGORY__INFOS = STATUS_PROVIDER_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Identifier</b></em>' attribute.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int CUSTOM_CATEGORY__IDENTIFIER = STATUS_PROVIDER_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Label</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int VALIDATION_SET__LABEL = ENABLED_STATUS_PROVIDER_FEATURE_COUNT + 5;
-
-	/**
-	 * The number of structural features of the '<em>Validation Set</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int VALIDATION_SET_FEATURE_COUNT = ENABLED_STATUS_PROVIDER_FEATURE_COUNT + 6;
-
-	/**
-	 * The meta object id for the '{@link org.eclipse.b3.aggregator.impl.MetadataRepositoryReferenceImpl <em>Metadata Repository Reference</em>}'
-	 * class.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
-	 * @see org.eclipse.b3.aggregator.impl.MetadataRepositoryReferenceImpl
-	 * @see org.eclipse.b3.aggregator.impl.AggregatorPackageImpl#getMetadataRepositoryReference()
 	 * @generated
+	 * @ordered
 	 */
-	int METADATA_REPOSITORY_REFERENCE = 18;
+	int CUSTOM_CATEGORY__LABEL = STATUS_PROVIDER_FEATURE_COUNT + 4;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int CUSTOM_CATEGORY__DESCRIPTION = STATUS_PROVIDER_FEATURE_COUNT + 5;
+
+	/**
+	 * The feature id for the '<em><b>Features</b></em>' reference list.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int CUSTOM_CATEGORY__FEATURES = STATUS_PROVIDER_FEATURE_COUNT + 6;
+
+	/**
+	 * The number of structural features of the '<em>Custom Category</em>' class.
+	 * <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int CUSTOM_CATEGORY_FEATURE_COUNT = STATUS_PROVIDER_FEATURE_COUNT + 7;
+
+	/**
+	 * The feature id for the '<em><b>Status</b></em>' reference.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int MAP_RULE__STATUS = INSTALLABLE_UNIT_REQUEST__STATUS;
+
+	/**
+	 * The feature id for the '<em><b>Errors</b></em>' attribute list.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int MAP_RULE__ERRORS = INSTALLABLE_UNIT_REQUEST__ERRORS;
+
+	/**
+	 * The feature id for the '<em><b>Warnings</b></em>' attribute list.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int MAP_RULE__WARNINGS = INSTALLABLE_UNIT_REQUEST__WARNINGS;
+
+	/**
+	 * The feature id for the '<em><b>Infos</b></em>' attribute list.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int MAP_RULE__INFOS = INSTALLABLE_UNIT_REQUEST__INFOS;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int MAP_RULE__DESCRIPTION = INSTALLABLE_UNIT_REQUEST__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int MAP_RULE__NAME = INSTALLABLE_UNIT_REQUEST__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Version Range</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int MAP_RULE__VERSION_RANGE = INSTALLABLE_UNIT_REQUEST__VERSION_RANGE;
+
+	/**
+	 * The feature id for the '<em><b>Available Versions Header</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int MAP_RULE__AVAILABLE_VERSIONS_HEADER = INSTALLABLE_UNIT_REQUEST__AVAILABLE_VERSIONS_HEADER;
+
+	/**
+	 * The feature id for the '<em><b>Available Versions</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int MAP_RULE__AVAILABLE_VERSIONS = INSTALLABLE_UNIT_REQUEST__AVAILABLE_VERSIONS;
+
+	/**
+	 * The number of structural features of the '<em>Map Rule</em>' class.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int MAP_RULE_FEATURE_COUNT = INSTALLABLE_UNIT_REQUEST_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Status</b></em>' reference.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int EXCLUSION_RULE__STATUS = MAP_RULE__STATUS;
+
+	/**
+	 * The feature id for the '<em><b>Errors</b></em>' attribute list.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int EXCLUSION_RULE__ERRORS = MAP_RULE__ERRORS;
+
+	/**
+	 * The feature id for the '<em><b>Warnings</b></em>' attribute list.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int EXCLUSION_RULE__WARNINGS = MAP_RULE__WARNINGS;
+
+	/**
+	 * The feature id for the '<em><b>Infos</b></em>' attribute list.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int EXCLUSION_RULE__INFOS = MAP_RULE__INFOS;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int EXCLUSION_RULE__DESCRIPTION = MAP_RULE__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int EXCLUSION_RULE__NAME = MAP_RULE__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Version Range</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int EXCLUSION_RULE__VERSION_RANGE = MAP_RULE__VERSION_RANGE;
+
+	/**
+	 * The feature id for the '<em><b>Available Versions Header</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int EXCLUSION_RULE__AVAILABLE_VERSIONS_HEADER = MAP_RULE__AVAILABLE_VERSIONS_HEADER;
+
+	/**
+	 * The feature id for the '<em><b>Available Versions</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int EXCLUSION_RULE__AVAILABLE_VERSIONS = MAP_RULE__AVAILABLE_VERSIONS;
+
+	/**
+	 * The number of structural features of the '<em>Exclusion Rule</em>' class.
+	 * <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int EXCLUSION_RULE_FEATURE_COUNT = MAP_RULE_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Identification Provider</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IDENTIFICATION_PROVIDER_FEATURE_COUNT = 0;
+
+	/**
+	 * The feature id for the '<em><b>Errors</b></em>' attribute list.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int INFOS_PROVIDER__ERRORS = 0;
+
+	/**
+	 * The feature id for the '<em><b>Warnings</b></em>' attribute list.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int INFOS_PROVIDER__WARNINGS = 1;
+
+	/**
+	 * The feature id for the '<em><b>Infos</b></em>' attribute list.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int INFOS_PROVIDER__INFOS = 2;
+
+	/**
+	 * The number of structural features of the '<em>Infos Provider</em>' class.
+	 * <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int INFOS_PROVIDER_FEATURE_COUNT = 3;
+
+	/**
+	 * The feature id for the '<em><b>Label</b></em>' attribute.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int LABEL_PROVIDER__LABEL = 0;
+
+	/**
+	 * The number of structural features of the '<em>Label Provider</em>' class.
+	 * <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int LABEL_PROVIDER_FEATURE_COUNT = 1;
 
 	/**
 	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
@@ -1601,16 +2935,6 @@ public interface AggregatorPackage extends EPackage {
 	 * @ordered
 	 */
 	int METADATA_REPOSITORY_REFERENCE_FEATURE_COUNT = ENABLED_STATUS_PROVIDER_FEATURE_COUNT + 7;
-
-	/**
-	 * The meta object id for the '{@link org.eclipse.b3.aggregator.impl.MappedRepositoryImpl <em>Mapped Repository</em>}' class.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @see org.eclipse.b3.aggregator.impl.MappedRepositoryImpl
-	 * @see org.eclipse.b3.aggregator.impl.AggregatorPackageImpl#getMappedRepository()
-	 * @generated
-	 */
-	int MAPPED_REPOSITORY = 2;
 
 	/**
 	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
@@ -1772,108 +3096,31 @@ public interface AggregatorPackage extends EPackage {
 	int MAPPED_REPOSITORY_FEATURE_COUNT = METADATA_REPOSITORY_REFERENCE_FEATURE_COUNT + 8;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.b3.aggregator.impl.ConfigurationImpl <em>Configuration</em>}' class.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @see org.eclipse.b3.aggregator.impl.ConfigurationImpl
-	 * @see org.eclipse.b3.aggregator.impl.AggregatorPackageImpl#getConfiguration()
-	 * @generated
-	 */
-	int CONFIGURATION = 3;
-
-	/**
-	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
+	 * The feature id for the '<em><b>Group Id</b></em>' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int CONFIGURATION__ENABLED = ENABLED_STATUS_PROVIDER__ENABLED;
+	int MAVEN_ITEM__GROUP_ID = 0;
 
 	/**
-	 * The feature id for the '<em><b>Operating System</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc
+	 * The feature id for the '<em><b>Artifact Id</b></em>' attribute.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int MAVEN_ITEM__ARTIFACT_ID = 1;
+
+	/**
+	 * The number of structural features of the '<em>Maven Item</em>' class. <!-- begin-user-doc --> <!-- end-user-doc
 	 * -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int CONFIGURATION__OPERATING_SYSTEM = ENABLED_STATUS_PROVIDER_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Window System</b></em>' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int CONFIGURATION__WINDOW_SYSTEM = ENABLED_STATUS_PROVIDER_FEATURE_COUNT + 1;
-
-	/**
-	 * The feature id for the '<em><b>Architecture</b></em>' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int CONFIGURATION__ARCHITECTURE = ENABLED_STATUS_PROVIDER_FEATURE_COUNT + 2;
-
-	/**
-	 * The number of structural features of the '<em>Configuration</em>' class.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int CONFIGURATION_FEATURE_COUNT = ENABLED_STATUS_PROVIDER_FEATURE_COUNT + 3;
-
-	/**
-	 * The meta object id for the '{@link org.eclipse.b3.aggregator.impl.ContributionImpl <em>Contribution</em>}' class.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @see org.eclipse.b3.aggregator.impl.ContributionImpl
-	 * @see org.eclipse.b3.aggregator.impl.AggregatorPackageImpl#getContribution()
-	 * @generated
-	 */
-	int CONTRIBUTION = 4;
-
-	/**
-	 * The meta object id for the '{@link org.eclipse.b3.aggregator.impl.ContactImpl <em>Contact</em>}' class.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @see org.eclipse.b3.aggregator.impl.ContactImpl
-	 * @see org.eclipse.b3.aggregator.impl.AggregatorPackageImpl#getContact()
-	 * @generated
-	 */
-	int CONTACT = 5;
-
-	/**
-	 * The meta object id for the '{@link org.eclipse.b3.aggregator.impl.MappedUnitImpl <em>Mapped Unit</em>}' class.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @see org.eclipse.b3.aggregator.impl.MappedUnitImpl
-	 * @see org.eclipse.b3.aggregator.impl.AggregatorPackageImpl#getMappedUnit()
-	 * @generated
-	 */
-	int MAPPED_UNIT = 8;
-
-	/**
-	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int CONTRIBUTION__ENABLED = ENABLED_STATUS_PROVIDER__ENABLED;
-
-	/**
-	 * The feature id for the '<em><b>Description</b></em>' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int CONTRIBUTION__DESCRIPTION = ENABLED_STATUS_PROVIDER_FEATURE_COUNT + 0;
+	int MAVEN_ITEM_FEATURE_COUNT = 2;
 
 	/**
 	 * The feature id for the '<em><b>Status</b></em>' reference.
@@ -1882,7 +3129,7 @@ public interface AggregatorPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONTRIBUTION__STATUS = ENABLED_STATUS_PROVIDER_FEATURE_COUNT + 1;
+	int MAVEN_MAPPING__STATUS = STATUS_PROVIDER__STATUS;
 
 	/**
 	 * The feature id for the '<em><b>Errors</b></em>' attribute list.
@@ -1891,7 +3138,7 @@ public interface AggregatorPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONTRIBUTION__ERRORS = ENABLED_STATUS_PROVIDER_FEATURE_COUNT + 2;
+	int MAVEN_MAPPING__ERRORS = STATUS_PROVIDER_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Warnings</b></em>' attribute list.
@@ -1900,7 +3147,7 @@ public interface AggregatorPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONTRIBUTION__WARNINGS = ENABLED_STATUS_PROVIDER_FEATURE_COUNT + 3;
+	int MAVEN_MAPPING__WARNINGS = STATUS_PROVIDER_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Infos</b></em>' attribute list.
@@ -1909,651 +3156,44 @@ public interface AggregatorPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONTRIBUTION__INFOS = ENABLED_STATUS_PROVIDER_FEATURE_COUNT + 4;
+	int MAVEN_MAPPING__INFOS = STATUS_PROVIDER_FEATURE_COUNT + 2;
 
 	/**
-	 * The feature id for the '<em><b>Receiver</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int CONTRIBUTION__RECEIVER = ENABLED_STATUS_PROVIDER_FEATURE_COUNT + 5;
-
-	/**
-	 * The feature id for the '<em><b>Label</b></em>' attribute.
+	 * The feature id for the '<em><b>Name Pattern</b></em>' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int CONTRIBUTION__LABEL = ENABLED_STATUS_PROVIDER_FEATURE_COUNT + 6;
+	int MAVEN_MAPPING__NAME_PATTERN = STATUS_PROVIDER_FEATURE_COUNT + 3;
 
 	/**
-	 * The feature id for the '<em><b>Repositories</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Group Id</b></em>' attribute.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int MAVEN_MAPPING__GROUP_ID = STATUS_PROVIDER_FEATURE_COUNT + 4;
+
+	/**
+	 * The feature id for the '<em><b>Artifact Id</b></em>' attribute.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int MAVEN_MAPPING__ARTIFACT_ID = STATUS_PROVIDER_FEATURE_COUNT + 5;
+
+	/**
+	 * The number of structural features of the '<em>Maven Mapping</em>' class.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int CONTRIBUTION__REPOSITORIES = ENABLED_STATUS_PROVIDER_FEATURE_COUNT + 7;
-
-	/**
-	 * The feature id for the '<em><b>Contacts</b></em>' reference list.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int CONTRIBUTION__CONTACTS = ENABLED_STATUS_PROVIDER_FEATURE_COUNT + 8;
-
-	/**
-	 * The feature id for the '<em><b>Maven Mappings</b></em>' reference list. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int CONTRIBUTION__MAVEN_MAPPINGS = ENABLED_STATUS_PROVIDER_FEATURE_COUNT + 9;
-
-	/**
-	 * The number of structural features of the '<em>Contribution</em>' class. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int CONTRIBUTION_FEATURE_COUNT = ENABLED_STATUS_PROVIDER_FEATURE_COUNT + 10;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int CONTACT__NAME = 0;
-
-	/**
-	 * The feature id for the '<em><b>Email</b></em>' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int CONTACT__EMAIL = 1;
-
-	/**
-	 * The feature id for the '<em><b>Aggregator</b></em>' container reference.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int CONTACT__AGGREGATOR = 2;
-
-	/**
-	 * The number of structural features of the '<em>Contact</em>' class.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int CONTACT_FEATURE_COUNT = 3;
-
-	/**
-	 * The meta object id for the '{@link org.eclipse.b3.aggregator.StatusProvider <em>Status Provider</em>}' class.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @see org.eclipse.b3.aggregator.StatusProvider
-	 * @see org.eclipse.b3.aggregator.impl.AggregatorPackageImpl#getStatusProvider()
-	 * @generated
-	 */
-	int STATUS_PROVIDER = 27;
-
-	/**
-	 * The feature id for the '<em><b>Status</b></em>' reference.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int STATUS_PROVIDER__STATUS = 0;
-
-	/**
-	 * The number of structural features of the '<em>Status Provider</em>' class.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int STATUS_PROVIDER_FEATURE_COUNT = 1;
-
-	/**
-	 * The meta object id for the '{@link org.eclipse.b3.aggregator.impl.InstallableUnitRequestImpl <em>Installable Unit Request</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @see org.eclipse.b3.aggregator.impl.InstallableUnitRequestImpl
-	 * @see org.eclipse.b3.aggregator.impl.AggregatorPackageImpl#getInstallableUnitRequest()
-	 * @generated
-	 */
-	int INSTALLABLE_UNIT_REQUEST = 15;
-
-	/**
-	 * The feature id for the '<em><b>Status</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int INSTALLABLE_UNIT_REQUEST__STATUS = STATUS_PROVIDER__STATUS;
-
-	/**
-	 * The feature id for the '<em><b>Errors</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int INSTALLABLE_UNIT_REQUEST__ERRORS = STATUS_PROVIDER_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Warnings</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int INSTALLABLE_UNIT_REQUEST__WARNINGS = STATUS_PROVIDER_FEATURE_COUNT + 1;
-
-	/**
-	 * The feature id for the '<em><b>Infos</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int INSTALLABLE_UNIT_REQUEST__INFOS = STATUS_PROVIDER_FEATURE_COUNT + 2;
-
-	/**
-	 * The feature id for the '<em><b>Description</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int INSTALLABLE_UNIT_REQUEST__DESCRIPTION = STATUS_PROVIDER_FEATURE_COUNT + 3;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int INSTALLABLE_UNIT_REQUEST__NAME = STATUS_PROVIDER_FEATURE_COUNT + 4;
-
-	/**
-	 * The feature id for the '<em><b>Version Range</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int INSTALLABLE_UNIT_REQUEST__VERSION_RANGE = STATUS_PROVIDER_FEATURE_COUNT + 5;
-
-	/**
-	 * The feature id for the '<em><b>Available Versions Header</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int INSTALLABLE_UNIT_REQUEST__AVAILABLE_VERSIONS_HEADER = STATUS_PROVIDER_FEATURE_COUNT + 6;
-
-	/**
-	 * The feature id for the '<em><b>Available Versions</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int INSTALLABLE_UNIT_REQUEST__AVAILABLE_VERSIONS = STATUS_PROVIDER_FEATURE_COUNT + 7;
-
-	/**
-	 * The number of structural features of the '<em>Installable Unit Request</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int INSTALLABLE_UNIT_REQUEST_FEATURE_COUNT = STATUS_PROVIDER_FEATURE_COUNT + 8;
-
-	/**
-	 * The meta object id for the '{@link org.eclipse.b3.aggregator.impl.FeatureImpl <em>Feature</em>}' class.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @see org.eclipse.b3.aggregator.impl.FeatureImpl
-	 * @see org.eclipse.b3.aggregator.impl.AggregatorPackageImpl#getFeature()
-	 * @generated
-	 */
-	int FEATURE = 6;
-
-	/**
-	 * The meta object id for the '{@link org.eclipse.b3.aggregator.impl.BundleImpl <em>Bundle</em>}' class.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @see org.eclipse.b3.aggregator.impl.BundleImpl
-	 * @see org.eclipse.b3.aggregator.impl.AggregatorPackageImpl#getBundle()
-	 * @generated
-	 */
-	int BUNDLE = 7;
-
-	/**
-	 * The meta object id for the '{@link org.eclipse.b3.aggregator.impl.ProductImpl <em>Product</em>}' class.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @see org.eclipse.b3.aggregator.impl.ProductImpl
-	 * @see org.eclipse.b3.aggregator.impl.AggregatorPackageImpl#getProduct()
-	 * @generated
-	 */
-	int PRODUCT = 9;
-
-	/**
-	 * The meta object id for the '{@link org.eclipse.b3.aggregator.impl.PropertyImpl <em>Property</em>}' class.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @see org.eclipse.b3.aggregator.impl.PropertyImpl
-	 * @see org.eclipse.b3.aggregator.impl.AggregatorPackageImpl#getProperty()
-	 * @generated
-	 */
-	int PROPERTY = 10;
-
-	/**
-	 * The meta object id for the '{@link org.eclipse.b3.aggregator.impl.CategoryImpl <em>Category</em>}' class.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @see org.eclipse.b3.aggregator.impl.CategoryImpl
-	 * @see org.eclipse.b3.aggregator.impl.AggregatorPackageImpl#getCategory()
-	 * @generated
-	 */
-	int CATEGORY = 11;
-
-	/**
-	 * The meta object id for the '{@link org.eclipse.b3.aggregator.impl.CustomCategoryImpl <em>Custom Category</em>}' class.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @see org.eclipse.b3.aggregator.impl.CustomCategoryImpl
-	 * @see org.eclipse.b3.aggregator.impl.AggregatorPackageImpl#getCustomCategory()
-	 * @generated
-	 */
-	int CUSTOM_CATEGORY = 12;
-
-	/**
-	 * The feature id for the '<em><b>Status</b></em>' reference.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int MAPPED_UNIT__STATUS = INSTALLABLE_UNIT_REQUEST__STATUS;
-
-	/**
-	 * The feature id for the '<em><b>Errors</b></em>' attribute list.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int MAPPED_UNIT__ERRORS = INSTALLABLE_UNIT_REQUEST__ERRORS;
-
-	/**
-	 * The feature id for the '<em><b>Warnings</b></em>' attribute list.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int MAPPED_UNIT__WARNINGS = INSTALLABLE_UNIT_REQUEST__WARNINGS;
-
-	/**
-	 * The feature id for the '<em><b>Infos</b></em>' attribute list.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int MAPPED_UNIT__INFOS = INSTALLABLE_UNIT_REQUEST__INFOS;
-
-	/**
-	 * The feature id for the '<em><b>Description</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int MAPPED_UNIT__DESCRIPTION = INSTALLABLE_UNIT_REQUEST__DESCRIPTION;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int MAPPED_UNIT__NAME = INSTALLABLE_UNIT_REQUEST__NAME;
-
-	/**
-	 * The feature id for the '<em><b>Version Range</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int MAPPED_UNIT__VERSION_RANGE = INSTALLABLE_UNIT_REQUEST__VERSION_RANGE;
-
-	/**
-	 * The feature id for the '<em><b>Available Versions Header</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int MAPPED_UNIT__AVAILABLE_VERSIONS_HEADER = INSTALLABLE_UNIT_REQUEST__AVAILABLE_VERSIONS_HEADER;
-
-	/**
-	 * The feature id for the '<em><b>Available Versions</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int MAPPED_UNIT__AVAILABLE_VERSIONS = INSTALLABLE_UNIT_REQUEST__AVAILABLE_VERSIONS;
-
-	/**
-	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int MAPPED_UNIT__ENABLED = INSTALLABLE_UNIT_REQUEST_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Valid Configurations</b></em>' reference list.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int MAPPED_UNIT__VALID_CONFIGURATIONS = INSTALLABLE_UNIT_REQUEST_FEATURE_COUNT + 1;
-
-	/**
-	 * The number of structural features of the '<em>Mapped Unit</em>' class. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int MAPPED_UNIT_FEATURE_COUNT = INSTALLABLE_UNIT_REQUEST_FEATURE_COUNT + 2;
-
-	/**
-	 * The feature id for the '<em><b>Status</b></em>' reference.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int FEATURE__STATUS = MAPPED_UNIT__STATUS;
-
-	/**
-	 * The feature id for the '<em><b>Errors</b></em>' attribute list.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int FEATURE__ERRORS = MAPPED_UNIT__ERRORS;
-
-	/**
-	 * The feature id for the '<em><b>Warnings</b></em>' attribute list.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int FEATURE__WARNINGS = MAPPED_UNIT__WARNINGS;
-
-	/**
-	 * The feature id for the '<em><b>Infos</b></em>' attribute list.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int FEATURE__INFOS = MAPPED_UNIT__INFOS;
-
-	/**
-	 * The feature id for the '<em><b>Description</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int FEATURE__DESCRIPTION = MAPPED_UNIT__DESCRIPTION;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int FEATURE__NAME = MAPPED_UNIT__NAME;
-
-	/**
-	 * The feature id for the '<em><b>Version Range</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int FEATURE__VERSION_RANGE = MAPPED_UNIT__VERSION_RANGE;
-
-	/**
-	 * The feature id for the '<em><b>Available Versions Header</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int FEATURE__AVAILABLE_VERSIONS_HEADER = MAPPED_UNIT__AVAILABLE_VERSIONS_HEADER;
-
-	/**
-	 * The feature id for the '<em><b>Available Versions</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int FEATURE__AVAILABLE_VERSIONS = MAPPED_UNIT__AVAILABLE_VERSIONS;
-
-	/**
-	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int FEATURE__ENABLED = MAPPED_UNIT__ENABLED;
-
-	/**
-	 * The feature id for the '<em><b>Valid Configurations</b></em>' reference list.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int FEATURE__VALID_CONFIGURATIONS = MAPPED_UNIT__VALID_CONFIGURATIONS;
-
-	/**
-	 * The feature id for the '<em><b>Categories</b></em>' reference list.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int FEATURE__CATEGORIES = MAPPED_UNIT_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of structural features of the '<em>Feature</em>' class.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int FEATURE_FEATURE_COUNT = MAPPED_UNIT_FEATURE_COUNT + 1;
-
-	/**
-	 * The feature id for the '<em><b>Status</b></em>' reference.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int BUNDLE__STATUS = MAPPED_UNIT__STATUS;
-
-	/**
-	 * The feature id for the '<em><b>Errors</b></em>' attribute list.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int BUNDLE__ERRORS = MAPPED_UNIT__ERRORS;
-
-	/**
-	 * The feature id for the '<em><b>Warnings</b></em>' attribute list.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int BUNDLE__WARNINGS = MAPPED_UNIT__WARNINGS;
-
-	/**
-	 * The feature id for the '<em><b>Infos</b></em>' attribute list.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int BUNDLE__INFOS = MAPPED_UNIT__INFOS;
-
-	/**
-	 * The feature id for the '<em><b>Description</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int BUNDLE__DESCRIPTION = MAPPED_UNIT__DESCRIPTION;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int BUNDLE__NAME = MAPPED_UNIT__NAME;
-
-	/**
-	 * The feature id for the '<em><b>Version Range</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int BUNDLE__VERSION_RANGE = MAPPED_UNIT__VERSION_RANGE;
-
-	/**
-	 * The feature id for the '<em><b>Available Versions Header</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int BUNDLE__AVAILABLE_VERSIONS_HEADER = MAPPED_UNIT__AVAILABLE_VERSIONS_HEADER;
-
-	/**
-	 * The feature id for the '<em><b>Available Versions</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int BUNDLE__AVAILABLE_VERSIONS = MAPPED_UNIT__AVAILABLE_VERSIONS;
-
-	/**
-	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int BUNDLE__ENABLED = MAPPED_UNIT__ENABLED;
-
-	/**
-	 * The feature id for the '<em><b>Valid Configurations</b></em>' reference list.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int BUNDLE__VALID_CONFIGURATIONS = MAPPED_UNIT__VALID_CONFIGURATIONS;
-
-	/**
-	 * The number of structural features of the '<em>Bundle</em>' class.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int BUNDLE_FEATURE_COUNT = MAPPED_UNIT_FEATURE_COUNT + 0;
+	int MAVEN_MAPPING_FEATURE_COUNT = STATUS_PROVIDER_FEATURE_COUNT + 6;
 
 	/**
 	 * The feature id for the '<em><b>Status</b></em>' reference.
@@ -2670,26 +3310,6 @@ public interface AggregatorPackage extends EPackage {
 	int PRODUCT_FEATURE_COUNT = MAPPED_UNIT_FEATURE_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link java.lang.Comparable <em>Comparable</em>}' class.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
-	 * 
-	 * @see java.lang.Comparable
-	 * @see org.eclipse.b3.aggregator.impl.AggregatorPackageImpl#getComparable()
-	 * @generated
-	 */
-	int COMPARABLE = 19;
-
-	/**
-	 * The number of structural features of the '<em>Comparable</em>' class. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int COMPARABLE_FEATURE_COUNT = 0;
-
-	/**
 	 * The feature id for the '<em><b>Key</b></em>' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -2717,428 +3337,151 @@ public interface AggregatorPackage extends EPackage {
 	int PROPERTY_FEATURE_COUNT = COMPARABLE_FEATURE_COUNT + 2;
 
 	/**
-	 * The feature id for the '<em><b>Status</b></em>' reference.
+	 * The feature id for the '<em><b>Code</b></em>' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int CATEGORY__STATUS = MAPPED_UNIT__STATUS;
+	int STATUS__CODE = 0;
 
 	/**
-	 * The feature id for the '<em><b>Errors</b></em>' attribute list.
+	 * The feature id for the '<em><b>Message</b></em>' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int CATEGORY__ERRORS = MAPPED_UNIT__ERRORS;
+	int STATUS__MESSAGE = 1;
 
 	/**
-	 * The feature id for the '<em><b>Warnings</b></em>' attribute list.
+	 * The number of structural features of the '<em>Status</em>' class.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int CATEGORY__WARNINGS = MAPPED_UNIT__WARNINGS;
-
-	/**
-	 * The feature id for the '<em><b>Infos</b></em>' attribute list.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int CATEGORY__INFOS = MAPPED_UNIT__INFOS;
-
-	/**
-	 * The feature id for the '<em><b>Description</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int CATEGORY__DESCRIPTION = MAPPED_UNIT__DESCRIPTION;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int CATEGORY__NAME = MAPPED_UNIT__NAME;
-
-	/**
-	 * The feature id for the '<em><b>Version Range</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int CATEGORY__VERSION_RANGE = MAPPED_UNIT__VERSION_RANGE;
-
-	/**
-	 * The feature id for the '<em><b>Available Versions Header</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int CATEGORY__AVAILABLE_VERSIONS_HEADER = MAPPED_UNIT__AVAILABLE_VERSIONS_HEADER;
-
-	/**
-	 * The feature id for the '<em><b>Available Versions</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int CATEGORY__AVAILABLE_VERSIONS = MAPPED_UNIT__AVAILABLE_VERSIONS;
+	int STATUS_FEATURE_COUNT = 2;
 
 	/**
 	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int CATEGORY__ENABLED = MAPPED_UNIT__ENABLED;
+	int VALIDATION_SET__ENABLED = ENABLED_STATUS_PROVIDER__ENABLED;
 
 	/**
-	 * The feature id for the '<em><b>Valid Configurations</b></em>' reference list.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int CATEGORY__VALID_CONFIGURATIONS = MAPPED_UNIT__VALID_CONFIGURATIONS;
-
-	/**
-	 * The feature id for the '<em><b>Label Override</b></em>' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int CATEGORY__LABEL_OVERRIDE = MAPPED_UNIT_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of structural features of the '<em>Category</em>' class.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int CATEGORY_FEATURE_COUNT = MAPPED_UNIT_FEATURE_COUNT + 1;
+	int VALIDATION_SET__DESCRIPTION = ENABLED_STATUS_PROVIDER_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Status</b></em>' reference.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int CUSTOM_CATEGORY__STATUS = STATUS_PROVIDER__STATUS;
+	int VALIDATION_SET__STATUS = ENABLED_STATUS_PROVIDER_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Errors</b></em>' attribute list.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int CUSTOM_CATEGORY__ERRORS = STATUS_PROVIDER_FEATURE_COUNT + 0;
+	int VALIDATION_SET__ERRORS = ENABLED_STATUS_PROVIDER_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Warnings</b></em>' attribute list.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int CUSTOM_CATEGORY__WARNINGS = STATUS_PROVIDER_FEATURE_COUNT + 1;
+	int VALIDATION_SET__WARNINGS = ENABLED_STATUS_PROVIDER_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Infos</b></em>' attribute list.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int CUSTOM_CATEGORY__INFOS = STATUS_PROVIDER_FEATURE_COUNT + 2;
+	int VALIDATION_SET__INFOS = ENABLED_STATUS_PROVIDER_FEATURE_COUNT + 4;
 
 	/**
-	 * The feature id for the '<em><b>Identifier</b></em>' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Abstract</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int CUSTOM_CATEGORY__IDENTIFIER = STATUS_PROVIDER_FEATURE_COUNT + 3;
+	int VALIDATION_SET__ABSTRACT = ENABLED_STATUS_PROVIDER_FEATURE_COUNT + 5;
 
 	/**
 	 * The feature id for the '<em><b>Label</b></em>' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int CUSTOM_CATEGORY__LABEL = STATUS_PROVIDER_FEATURE_COUNT + 4;
-
-	/**
-	 * The feature id for the '<em><b>Description</b></em>' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int CUSTOM_CATEGORY__DESCRIPTION = STATUS_PROVIDER_FEATURE_COUNT + 5;
-
-	/**
-	 * The feature id for the '<em><b>Features</b></em>' reference list.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int CUSTOM_CATEGORY__FEATURES = STATUS_PROVIDER_FEATURE_COUNT + 6;
-
-	/**
-	 * The number of structural features of the '<em>Custom Category</em>' class.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int CUSTOM_CATEGORY_FEATURE_COUNT = STATUS_PROVIDER_FEATURE_COUNT + 7;
-
-	/**
-	 * The meta object id for the '{@link org.eclipse.b3.aggregator.impl.MapRuleImpl <em>Map Rule</em>}' class.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @see org.eclipse.b3.aggregator.impl.MapRuleImpl
-	 * @see org.eclipse.b3.aggregator.impl.AggregatorPackageImpl#getMapRule()
-	 * @generated
-	 */
-	int MAP_RULE = 14;
-
-	/**
-	 * The feature id for the '<em><b>Status</b></em>' reference.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int MAP_RULE__STATUS = INSTALLABLE_UNIT_REQUEST__STATUS;
-
-	/**
-	 * The feature id for the '<em><b>Errors</b></em>' attribute list.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int MAP_RULE__ERRORS = INSTALLABLE_UNIT_REQUEST__ERRORS;
-
-	/**
-	 * The feature id for the '<em><b>Warnings</b></em>' attribute list.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int MAP_RULE__WARNINGS = INSTALLABLE_UNIT_REQUEST__WARNINGS;
-
-	/**
-	 * The feature id for the '<em><b>Infos</b></em>' attribute list.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int MAP_RULE__INFOS = INSTALLABLE_UNIT_REQUEST__INFOS;
-
-	/**
-	 * The feature id for the '<em><b>Description</b></em>' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int MAP_RULE__DESCRIPTION = INSTALLABLE_UNIT_REQUEST__DESCRIPTION;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int MAP_RULE__NAME = INSTALLABLE_UNIT_REQUEST__NAME;
+	int VALIDATION_SET__LABEL = ENABLED_STATUS_PROVIDER_FEATURE_COUNT + 6;
 
 	/**
-	 * The feature id for the '<em><b>Version Range</b></em>' attribute.
+	 * The feature id for the '<em><b>Contributions</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int MAP_RULE__VERSION_RANGE = INSTALLABLE_UNIT_REQUEST__VERSION_RANGE;
+	int VALIDATION_SET__CONTRIBUTIONS = ENABLED_STATUS_PROVIDER_FEATURE_COUNT + 7;
 
 	/**
-	 * The feature id for the '<em><b>Available Versions Header</b></em>' containment reference.
+	 * The feature id for the '<em><b>Validation Repositories</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int MAP_RULE__AVAILABLE_VERSIONS_HEADER = INSTALLABLE_UNIT_REQUEST__AVAILABLE_VERSIONS_HEADER;
+	int VALIDATION_SET__VALIDATION_REPOSITORIES = ENABLED_STATUS_PROVIDER_FEATURE_COUNT + 8;
 
 	/**
-	 * The feature id for the '<em><b>Available Versions</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Extends</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int MAP_RULE__AVAILABLE_VERSIONS = INSTALLABLE_UNIT_REQUEST__AVAILABLE_VERSIONS;
+	int VALIDATION_SET__EXTENDS = ENABLED_STATUS_PROVIDER_FEATURE_COUNT + 9;
 
 	/**
-	 * The number of structural features of the '<em>Map Rule</em>' class.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int MAP_RULE_FEATURE_COUNT = INSTALLABLE_UNIT_REQUEST_FEATURE_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link org.eclipse.b3.aggregator.impl.ExclusionRuleImpl <em>Exclusion Rule</em>}' class.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @see org.eclipse.b3.aggregator.impl.ExclusionRuleImpl
-	 * @see org.eclipse.b3.aggregator.impl.AggregatorPackageImpl#getExclusionRule()
-	 * @generated
-	 */
-	int EXCLUSION_RULE = 16;
-
-	/**
-	 * The feature id for the '<em><b>Status</b></em>' reference.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int EXCLUSION_RULE__STATUS = MAP_RULE__STATUS;
-
-	/**
-	 * The feature id for the '<em><b>Errors</b></em>' attribute list.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int EXCLUSION_RULE__ERRORS = MAP_RULE__ERRORS;
-
-	/**
-	 * The feature id for the '<em><b>Warnings</b></em>' attribute list.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int EXCLUSION_RULE__WARNINGS = MAP_RULE__WARNINGS;
-
-	/**
-	 * The feature id for the '<em><b>Infos</b></em>' attribute list.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int EXCLUSION_RULE__INFOS = MAP_RULE__INFOS;
-
-	/**
-	 * The feature id for the '<em><b>Description</b></em>' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int EXCLUSION_RULE__DESCRIPTION = MAP_RULE__DESCRIPTION;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * The number of structural features of the '<em>Validation Set</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int EXCLUSION_RULE__NAME = MAP_RULE__NAME;
-
-	/**
-	 * The feature id for the '<em><b>Version Range</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int EXCLUSION_RULE__VERSION_RANGE = MAP_RULE__VERSION_RANGE;
-
-	/**
-	 * The feature id for the '<em><b>Available Versions Header</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int EXCLUSION_RULE__AVAILABLE_VERSIONS_HEADER = MAP_RULE__AVAILABLE_VERSIONS_HEADER;
-
-	/**
-	 * The feature id for the '<em><b>Available Versions</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int EXCLUSION_RULE__AVAILABLE_VERSIONS = MAP_RULE__AVAILABLE_VERSIONS;
-
-	/**
-	 * The number of structural features of the '<em>Exclusion Rule</em>' class.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int EXCLUSION_RULE_FEATURE_COUNT = MAP_RULE_FEATURE_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link org.eclipse.b3.aggregator.impl.ValidConfigurationsRuleImpl <em>Valid Configurations Rule</em>}' class.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @see org.eclipse.b3.aggregator.impl.ValidConfigurationsRuleImpl
-	 * @see org.eclipse.b3.aggregator.impl.AggregatorPackageImpl#getValidConfigurationsRule()
-	 * @generated
-	 */
-	int VALID_CONFIGURATIONS_RULE = 17;
+	int VALIDATION_SET_FEATURE_COUNT = ENABLED_STATUS_PROVIDER_FEATURE_COUNT + 10;
 
 	/**
 	 * The feature id for the '<em><b>Status</b></em>' reference.
@@ -3246,474 +3589,6 @@ public interface AggregatorPackage extends EPackage {
 	int VALID_CONFIGURATIONS_RULE_FEATURE_COUNT = MAP_RULE_FEATURE_COUNT + 1;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.b3.aggregator.LabelProvider <em>Label Provider</em>}' class.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @see org.eclipse.b3.aggregator.LabelProvider
-	 * @see org.eclipse.b3.aggregator.impl.AggregatorPackageImpl#getLabelProvider()
-	 * @generated
-	 */
-	int LABEL_PROVIDER = 20;
-
-	/**
-	 * The feature id for the '<em><b>Label</b></em>' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int LABEL_PROVIDER__LABEL = 0;
-
-	/**
-	 * The number of structural features of the '<em>Label Provider</em>' class.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int LABEL_PROVIDER_FEATURE_COUNT = 1;
-
-	/**
-	 * The meta object id for the '{@link org.eclipse.b3.aggregator.IdentificationProvider <em>Identification Provider</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @see org.eclipse.b3.aggregator.IdentificationProvider
-	 * @see org.eclipse.b3.aggregator.impl.AggregatorPackageImpl#getIdentificationProvider()
-	 * @generated
-	 */
-	int IDENTIFICATION_PROVIDER = 22;
-
-	/**
-	 * The number of structural features of the '<em>Identification Provider</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int IDENTIFICATION_PROVIDER_FEATURE_COUNT = 0;
-
-	/**
-	 * The meta object id for the '{@link org.eclipse.b3.aggregator.impl.MavenMappingImpl <em>Maven Mapping</em>}' class.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @see org.eclipse.b3.aggregator.impl.MavenMappingImpl
-	 * @see org.eclipse.b3.aggregator.impl.AggregatorPackageImpl#getMavenMapping()
-	 * @generated
-	 */
-	int MAVEN_MAPPING = 23;
-
-	/**
-	 * The feature id for the '<em><b>Status</b></em>' reference.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int MAVEN_MAPPING__STATUS = STATUS_PROVIDER__STATUS;
-
-	/**
-	 * The feature id for the '<em><b>Errors</b></em>' attribute list.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int MAVEN_MAPPING__ERRORS = STATUS_PROVIDER_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Warnings</b></em>' attribute list.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int MAVEN_MAPPING__WARNINGS = STATUS_PROVIDER_FEATURE_COUNT + 1;
-
-	/**
-	 * The feature id for the '<em><b>Infos</b></em>' attribute list.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int MAVEN_MAPPING__INFOS = STATUS_PROVIDER_FEATURE_COUNT + 2;
-
-	/**
-	 * The feature id for the '<em><b>Name Pattern</b></em>' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int MAVEN_MAPPING__NAME_PATTERN = STATUS_PROVIDER_FEATURE_COUNT + 3;
-
-	/**
-	 * The feature id for the '<em><b>Group Id</b></em>' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int MAVEN_MAPPING__GROUP_ID = STATUS_PROVIDER_FEATURE_COUNT + 4;
-
-	/**
-	 * The feature id for the '<em><b>Artifact Id</b></em>' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int MAVEN_MAPPING__ARTIFACT_ID = STATUS_PROVIDER_FEATURE_COUNT + 5;
-
-	/**
-	 * The number of structural features of the '<em>Maven Mapping</em>' class.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int MAVEN_MAPPING_FEATURE_COUNT = STATUS_PROVIDER_FEATURE_COUNT + 6;
-
-	/**
-	 * The meta object id for the '{@link org.eclipse.b3.aggregator.impl.MavenItemImpl <em>Maven Item</em>}' class.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @see org.eclipse.b3.aggregator.impl.MavenItemImpl
-	 * @see org.eclipse.b3.aggregator.impl.AggregatorPackageImpl#getMavenItem()
-	 * @generated
-	 */
-	int MAVEN_ITEM = 24;
-
-	/**
-	 * The feature id for the '<em><b>Group Id</b></em>' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int MAVEN_ITEM__GROUP_ID = 0;
-
-	/**
-	 * The feature id for the '<em><b>Artifact Id</b></em>' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int MAVEN_ITEM__ARTIFACT_ID = 1;
-
-	/**
-	 * The number of structural features of the '<em>Maven Item</em>' class. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int MAVEN_ITEM_FEATURE_COUNT = 2;
-
-	/**
-	 * The meta object id for the '{@link org.eclipse.b3.aggregator.ChildrenProvider <em>Children Provider</em>}' class.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @see org.eclipse.b3.aggregator.ChildrenProvider
-	 * @see org.eclipse.b3.aggregator.impl.AggregatorPackageImpl#getChildrenProvider()
-	 * @generated
-	 */
-	int CHILDREN_PROVIDER = 25;
-
-	/**
-	 * The feature id for the '<em><b>Children</b></em>' reference list.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int CHILDREN_PROVIDER__CHILDREN = 0;
-
-	/**
-	 * The number of structural features of the '<em>Children Provider</em>' class.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int CHILDREN_PROVIDER_FEATURE_COUNT = 1;
-
-	/**
-	 * The meta object id for the '{@link org.eclipse.b3.aggregator.impl.StatusImpl <em>Status</em>}' class.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @see org.eclipse.b3.aggregator.impl.StatusImpl
-	 * @see org.eclipse.b3.aggregator.impl.AggregatorPackageImpl#getStatus()
-	 * @generated
-	 */
-	int STATUS = 26;
-
-	/**
-	 * The feature id for the '<em><b>Code</b></em>' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int STATUS__CODE = 0;
-
-	/**
-	 * The feature id for the '<em><b>Message</b></em>' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int STATUS__MESSAGE = 1;
-
-	/**
-	 * The number of structural features of the '<em>Status</em>' class.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int STATUS_FEATURE_COUNT = 2;
-
-	/**
-	 * The meta object id for the '{@link org.eclipse.b3.aggregator.impl.InfosProviderImpl <em>Infos Provider</em>}' class.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @see org.eclipse.b3.aggregator.impl.InfosProviderImpl
-	 * @see org.eclipse.b3.aggregator.impl.AggregatorPackageImpl#getInfosProvider()
-	 * @generated
-	 */
-	int INFOS_PROVIDER = 28;
-
-	/**
-	 * The feature id for the '<em><b>Errors</b></em>' attribute list.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int INFOS_PROVIDER__ERRORS = 0;
-
-	/**
-	 * The feature id for the '<em><b>Warnings</b></em>' attribute list.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int INFOS_PROVIDER__WARNINGS = 1;
-
-	/**
-	 * The feature id for the '<em><b>Infos</b></em>' attribute list.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int INFOS_PROVIDER__INFOS = 2;
-
-	/**
-	 * The number of structural features of the '<em>Infos Provider</em>' class.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int INFOS_PROVIDER_FEATURE_COUNT = 3;
-
-	/**
-	 * The meta object id for the '{@link org.eclipse.b3.aggregator.impl.AvailableVersionsHeaderImpl <em>Available Versions Header</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @see org.eclipse.b3.aggregator.impl.AvailableVersionsHeaderImpl
-	 * @see org.eclipse.b3.aggregator.impl.AggregatorPackageImpl#getAvailableVersionsHeader()
-	 * @generated
-	 */
-	int AVAILABLE_VERSIONS_HEADER = 29;
-
-	/**
-	 * The feature id for the '<em><b>Available Versions</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int AVAILABLE_VERSIONS_HEADER__AVAILABLE_VERSIONS = 0;
-
-	/**
-	 * The feature id for the '<em><b>Installable Unit Request</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int AVAILABLE_VERSIONS_HEADER__INSTALLABLE_UNIT_REQUEST = 1;
-
-	/**
-	 * The number of structural features of the '<em>Available Versions Header</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int AVAILABLE_VERSIONS_HEADER_FEATURE_COUNT = 2;
-
-	/**
-	 * The meta object id for the '{@link org.eclipse.b3.aggregator.impl.AvailableVersionImpl <em>Available Version</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @see org.eclipse.b3.aggregator.impl.AvailableVersionImpl
-	 * @see org.eclipse.b3.aggregator.impl.AggregatorPackageImpl#getAvailableVersion()
-	 * @generated
-	 */
-	int AVAILABLE_VERSION = 30;
-
-	/**
-	 * The feature id for the '<em><b>Version Match</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int AVAILABLE_VERSION__VERSION_MATCH = 0;
-
-	/**
-	 * The feature id for the '<em><b>Version</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int AVAILABLE_VERSION__VERSION = 1;
-
-	/**
-	 * The feature id for the '<em><b>Filter</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int AVAILABLE_VERSION__FILTER = 2;
-
-	/**
-	 * The number of structural features of the '<em>Available Version</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int AVAILABLE_VERSION_FEATURE_COUNT = 3;
-
-	/**
-	 * The meta object id for the '{@link org.eclipse.b3.aggregator.LinkSource <em>Link Source</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @see org.eclipse.b3.aggregator.LinkSource
-	 * @see org.eclipse.b3.aggregator.impl.AggregatorPackageImpl#getLinkSource()
-	 * @generated
-	 */
-	int LINK_SOURCE = 31;
-
-	/**
-	 * The feature id for the '<em><b>Receiver</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int LINK_SOURCE__RECEIVER = 0;
-
-	/**
-	 * The number of structural features of the '<em>Link Source</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int LINK_SOURCE_FEATURE_COUNT = 1;
-
-	/**
-	 * The meta object id for the '{@link org.eclipse.b3.aggregator.LinkReceiver <em>Link Receiver</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @see org.eclipse.b3.aggregator.LinkReceiver
-	 * @see org.eclipse.b3.aggregator.impl.AggregatorPackageImpl#getLinkReceiver()
-	 * @generated
-	 */
-	int LINK_RECEIVER = 32;
-
-	/**
-	 * The number of structural features of the '<em>Link Receiver</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int LINK_RECEIVER_FEATURE_COUNT = 0;
-
-	/**
-	 * The meta object id for the '{@link org.eclipse.b3.aggregator.impl.AggregatorResourceViewImpl <em>Resource View</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @see org.eclipse.b3.aggregator.impl.AggregatorResourceViewImpl
-	 * @see org.eclipse.b3.aggregator.impl.AggregatorPackageImpl#getAggregatorResourceView()
-	 * @generated
-	 */
-	int AGGREGATOR_RESOURCE_VIEW = 33;
-
-	/**
-	 * The feature id for the '<em><b>Aggregator</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int AGGREGATOR_RESOURCE_VIEW__AGGREGATOR = 0;
-
-	/**
-	 * The feature id for the '<em><b>Validation Sets</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int AGGREGATOR_RESOURCE_VIEW__VALIDATION_SETS = 1;
-
-	/**
-	 * The number of structural features of the '<em>Resource View</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int AGGREGATOR_RESOURCE_VIEW_FEATURE_COUNT = 2;
-
-	/**
 	 * The meta object id for the '{@link org.eclipse.b3.aggregator.AggregationType <em>Aggregation Type</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3722,7 +3597,7 @@ public interface AggregatorPackage extends EPackage {
 	 * @see org.eclipse.b3.aggregator.impl.AggregatorPackageImpl#getAggregationType()
 	 * @generated
 	 */
-	int AGGREGATION_TYPE = 34;
+	int AGGREGATION_TYPE = 31;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.aggregator.OperatingSystem <em>Operating System</em>}' enum.
@@ -3732,7 +3607,7 @@ public interface AggregatorPackage extends EPackage {
 	 * @see org.eclipse.b3.aggregator.impl.AggregatorPackageImpl#getOperatingSystem()
 	 * @generated
 	 */
-	int OPERATING_SYSTEM = 35;
+	int OPERATING_SYSTEM = 34;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.aggregator.WindowSystem <em>Window System</em>}' enum.
@@ -3742,7 +3617,7 @@ public interface AggregatorPackage extends EPackage {
 	 * @see org.eclipse.b3.aggregator.impl.AggregatorPackageImpl#getWindowSystem()
 	 * @generated
 	 */
-	int WINDOW_SYSTEM = 36;
+	int WINDOW_SYSTEM = 38;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.aggregator.Architecture <em>Architecture</em>}' enum.
@@ -3752,7 +3627,7 @@ public interface AggregatorPackage extends EPackage {
 	 * @see org.eclipse.b3.aggregator.impl.AggregatorPackageImpl#getArchitecture()
 	 * @generated
 	 */
-	int ARCHITECTURE = 37;
+	int ARCHITECTURE = 32;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.aggregator.PackedStrategy <em>Packed Strategy</em>}' enum.
@@ -3762,7 +3637,7 @@ public interface AggregatorPackage extends EPackage {
 	 * @see org.eclipse.b3.aggregator.impl.AggregatorPackageImpl#getPackedStrategy()
 	 * @generated
 	 */
-	int PACKED_STRATEGY = 38;
+	int PACKED_STRATEGY = 35;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.aggregator.InstallableUnitType <em>Installable Unit Type</em>}' enum.
@@ -3772,7 +3647,7 @@ public interface AggregatorPackage extends EPackage {
 	 * @see org.eclipse.b3.aggregator.impl.AggregatorPackageImpl#getInstallableUnitType()
 	 * @generated
 	 */
-	int INSTALLABLE_UNIT_TYPE = 39;
+	int INSTALLABLE_UNIT_TYPE = 33;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.aggregator.StatusCode <em>Status Code</em>}' enum.
@@ -3782,7 +3657,7 @@ public interface AggregatorPackage extends EPackage {
 	 * @see org.eclipse.b3.aggregator.impl.AggregatorPackageImpl#getStatusCode()
 	 * @generated
 	 */
-	int STATUS_CODE = 40;
+	int STATUS_CODE = 36;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.aggregator.VersionMatch <em>Version Match</em>}' enum.
@@ -3793,7 +3668,7 @@ public interface AggregatorPackage extends EPackage {
 	 * @see org.eclipse.b3.aggregator.impl.AggregatorPackageImpl#getVersionMatch()
 	 * @generated
 	 */
-	int VERSION_MATCH = 41;
+	int VERSION_MATCH = 37;
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.b3.aggregator.Aggregation <em>Aggregation</em>}'.
@@ -3831,19 +3706,6 @@ public interface AggregatorPackage extends EPackage {
 	EAttribute getAggregation_BuildRoot();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link org.eclipse.b3.aggregator.Aggregation#getValidationSets
-	 * <em>Validation Sets</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @return the meta object for the containment reference list '<em>Validation Sets</em>'.
-	 * @see org.eclipse.b3.aggregator.Aggregation#getValidationSets()
-	 * @see #getAggregation()
-	 * @generated
-	 */
-	EReference getAggregation_ValidationSets();
-
-	/**
 	 * Returns the meta object for the containment reference list '{@link org.eclipse.b3.aggregator.Aggregation#getConfigurations
 	 * <em>Configurations</em>}'.
 	 * <!-- begin-user-doc -->
@@ -3867,19 +3729,6 @@ public interface AggregatorPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getAggregation_Contacts();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link org.eclipse.b3.aggregator.Aggregation#getContributions
-	 * <em>Contributions</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @return the meta object for the containment reference list '<em>Contributions</em>'.
-	 * @see org.eclipse.b3.aggregator.Aggregation#getContributions()
-	 * @see #getAggregation()
-	 * @generated
-	 */
-	EReference getAggregation_Contributions();
 
 	/**
 	 * Returns the meta object for the containment reference list '{@link org.eclipse.b3.aggregator.Aggregation#getCustomCategories
@@ -3968,17 +3817,17 @@ public interface AggregatorPackage extends EPackage {
 	EAttribute getAggregation_Type();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link org.eclipse.b3.aggregator.Aggregation#getValidationRepositories
-	 * <em>Validation Repositories</em>}'.
+	 * Returns the meta object for the containment reference list '{@link org.eclipse.b3.aggregator.Aggregation#getValidationSets
+	 * <em>Validation Sets</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
-	 * @return the meta object for the containment reference list '<em>Validation Repositories</em>'.
-	 * @see org.eclipse.b3.aggregator.Aggregation#getValidationRepositories()
+	 * @return the meta object for the containment reference list '<em>Validation Sets</em>'.
+	 * @see org.eclipse.b3.aggregator.Aggregation#getValidationSets()
 	 * @see #getAggregation()
 	 * @generated
 	 */
-	EReference getAggregation_ValidationRepositories();
+	EReference getAggregation_ValidationSets();
 
 	/**
 	 * Returns the meta object for enum '{@link org.eclipse.b3.aggregator.AggregationType <em>Aggregation Type</em>}'.
@@ -3999,43 +3848,6 @@ public interface AggregatorPackage extends EPackage {
 	 * @generated
 	 */
 	AggregatorFactory getAggregatorFactory();
-
-	/**
-	 * Returns the meta object for class '{@link org.eclipse.b3.aggregator.AggregatorResourceView <em>Resource View</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @return the meta object for class '<em>Resource View</em>'.
-	 * @see org.eclipse.b3.aggregator.AggregatorResourceView
-	 * @generated
-	 */
-	EClass getAggregatorResourceView();
-
-	/**
-	 * Returns the meta object for the containment reference '{@link org.eclipse.b3.aggregator.AggregatorResourceView#getAggregator
-	 * <em>Aggregator</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @return the meta object for the containment reference '<em>Aggregator</em>'.
-	 * @see org.eclipse.b3.aggregator.AggregatorResourceView#getAggregator()
-	 * @see #getAggregatorResourceView()
-	 * @generated
-	 */
-	EReference getAggregatorResourceView_Aggregator();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link org.eclipse.b3.aggregator.AggregatorResourceView#getValidationSets
-	 * <em>Validation Sets</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @return the meta object for the containment reference list '<em>Validation Sets</em>'.
-	 * @see org.eclipse.b3.aggregator.AggregatorResourceView#getValidationSets()
-	 * @see #getAggregatorResourceView()
-	 * @generated
-	 */
-	EReference getAggregatorResourceView_ValidationSets();
 
 	/**
 	 * Returns the meta object for enum '{@link org.eclipse.b3.aggregator.Architecture <em>Architecture</em>}'.
@@ -4197,29 +4009,6 @@ public interface AggregatorPackage extends EPackage {
 	EClass getComparable();
 
 	/**
-	 * Returns the meta object for class '{@link org.eclipse.b3.aggregator.ValidationSet <em>Validation Set</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @return the meta object for class '<em>Validation Set</em>'.
-	 * @see org.eclipse.b3.aggregator.ValidationSet
-	 * @generated
-	 */
-	EClass getValidationSet();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.b3.aggregator.ValidationSet#getLabel <em>Label</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @return the meta object for the attribute '<em>Label</em>'.
-	 * @see org.eclipse.b3.aggregator.ValidationSet#getLabel()
-	 * @see #getValidationSet()
-	 * @generated
-	 */
-	EAttribute getValidationSet_Label();
-
-	/**
 	 * Returns the meta object for class '{@link org.eclipse.b3.aggregator.Configuration <em>Configuration</em>}'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -4276,16 +4065,16 @@ public interface AggregatorPackage extends EPackage {
 	EClass getContact();
 
 	/**
-	 * Returns the meta object for the container reference '{@link org.eclipse.b3.aggregator.Contact#getAggregator <em>Aggregator</em>}'.
+	 * Returns the meta object for the container reference '{@link org.eclipse.b3.aggregator.Contact#getAggregation <em>Aggregation</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
-	 * @return the meta object for the container reference '<em>Aggregator</em>'.
-	 * @see org.eclipse.b3.aggregator.Contact#getAggregator()
+	 * @return the meta object for the container reference '<em>Aggregation</em>'.
+	 * @see org.eclipse.b3.aggregator.Contact#getAggregation()
 	 * @see #getContact()
 	 * @generated
 	 */
-	EReference getContact_Aggregator();
+	EReference getContact_Aggregation();
 
 	/**
 	 * Returns the meta object for the attribute '{@link org.eclipse.b3.aggregator.Contact#getEmail <em>Email</em>}'.
@@ -4645,40 +4434,6 @@ public interface AggregatorPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getLabelProvider_Label();
-
-	/**
-	 * Returns the meta object for class '{@link org.eclipse.b3.aggregator.LinkReceiver <em>Link Receiver</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @return the meta object for class '<em>Link Receiver</em>'.
-	 * @see org.eclipse.b3.aggregator.LinkReceiver
-	 * @generated
-	 */
-	EClass getLinkReceiver();
-
-	/**
-	 * Returns the meta object for class '{@link org.eclipse.b3.aggregator.LinkSource <em>Link Source</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @return the meta object for class '<em>Link Source</em>'.
-	 * @see org.eclipse.b3.aggregator.LinkSource
-	 * @generated
-	 */
-	EClass getLinkSource();
-
-	/**
-	 * Returns the meta object for the reference '{@link org.eclipse.b3.aggregator.LinkSource#getReceiver <em>Receiver</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @return the meta object for the reference '<em>Receiver</em>'.
-	 * @see org.eclipse.b3.aggregator.LinkSource#getReceiver()
-	 * @see #getLinkSource()
-	 * @generated
-	 */
-	EReference getLinkSource_Receiver();
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.b3.aggregator.MappedRepository <em>Mapped Repository</em>}'.
@@ -5049,6 +4804,79 @@ public interface AggregatorPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getStatusProvider_Status();
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipse.b3.aggregator.ValidationSet <em>Validation Set</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for class '<em>Validation Set</em>'.
+	 * @see org.eclipse.b3.aggregator.ValidationSet
+	 * @generated
+	 */
+	EClass getValidationSet();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.b3.aggregator.ValidationSet#isAbstract <em>Abstract</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the attribute '<em>Abstract</em>'.
+	 * @see org.eclipse.b3.aggregator.ValidationSet#isAbstract()
+	 * @see #getValidationSet()
+	 * @generated
+	 */
+	EAttribute getValidationSet_Abstract();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.eclipse.b3.aggregator.ValidationSet#getContributions
+	 * <em>Contributions</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the containment reference list '<em>Contributions</em>'.
+	 * @see org.eclipse.b3.aggregator.ValidationSet#getContributions()
+	 * @see #getValidationSet()
+	 * @generated
+	 */
+	EReference getValidationSet_Contributions();
+
+	/**
+	 * Returns the meta object for the reference list '{@link org.eclipse.b3.aggregator.ValidationSet#getExtends <em>Extends</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the reference list '<em>Extends</em>'.
+	 * @see org.eclipse.b3.aggregator.ValidationSet#getExtends()
+	 * @see #getValidationSet()
+	 * @generated
+	 */
+	EReference getValidationSet_Extends();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.b3.aggregator.ValidationSet#getLabel <em>Label</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the attribute '<em>Label</em>'.
+	 * @see org.eclipse.b3.aggregator.ValidationSet#getLabel()
+	 * @see #getValidationSet()
+	 * @generated
+	 */
+	EAttribute getValidationSet_Label();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.eclipse.b3.aggregator.ValidationSet#getValidationRepositories
+	 * <em>Validation Repositories</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the containment reference list '<em>Validation Repositories</em>'.
+	 * @see org.eclipse.b3.aggregator.ValidationSet#getValidationRepositories()
+	 * @see #getValidationSet()
+	 * @generated
+	 */
+	EReference getValidationSet_ValidationRepositories();
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.b3.aggregator.ValidConfigurationsRule <em>Valid Configurations Rule</em>}'.

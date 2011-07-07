@@ -102,14 +102,16 @@ public class MapRuleItemProvider extends InstallableUnitRequestItemProvider impl
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((MapRule) object).getName();
-		return label == null || label.length() == 0
-				? getString("_UI_MapRule_type")
-				: getString("_UI_MapRule_type") + " " + label;
+		MapRule self = (MapRule) object;
+		String name = self.getName();
+		StringBuilder bld = new StringBuilder(getString("_UI_MapRule_type")).append(" : ");
+		if(name != null)
+			bld.append(name);
+		return bld.toString();
 	}
 
 	/**

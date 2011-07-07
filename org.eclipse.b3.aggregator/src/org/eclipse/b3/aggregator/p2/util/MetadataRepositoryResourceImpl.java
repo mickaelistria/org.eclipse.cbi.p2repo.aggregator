@@ -34,6 +34,7 @@ import org.eclipse.b3.aggregator.Property;
 import org.eclipse.b3.aggregator.Status;
 import org.eclipse.b3.aggregator.StatusCode;
 import org.eclipse.b3.aggregator.StatusProvider;
+import org.eclipse.b3.aggregator.ValidationSet;
 import org.eclipse.b3.aggregator.p2view.Bundle;
 import org.eclipse.b3.aggregator.p2view.Categories;
 import org.eclipse.b3.aggregator.p2view.Category;
@@ -44,6 +45,7 @@ import org.eclipse.b3.aggregator.p2view.MetadataRepositoryStructuredView;
 import org.eclipse.b3.aggregator.p2view.OtherIU;
 import org.eclipse.b3.aggregator.p2view.P2viewFactory;
 import org.eclipse.b3.aggregator.p2view.Product;
+import org.eclipse.b3.aggregator.p2view.RepositoryReferences;
 import org.eclipse.b3.aggregator.util.InstallableUnitUtils;
 import org.eclipse.b3.aggregator.util.ResourceDiagnosticImpl;
 import org.eclipse.b3.aggregator.util.ResourceUtils;
@@ -81,6 +83,7 @@ import org.eclipse.equinox.p2.metadata.IInstallableUnit;
 import org.eclipse.equinox.p2.metadata.IRequirement;
 import org.eclipse.equinox.p2.metadata.Version;
 import org.eclipse.equinox.p2.metadata.VersionRange;
+import org.eclipse.equinox.p2.repository.IRepositoryReference;
 
 public class MetadataRepositoryResourceImpl extends ResourceImpl implements StatusProvider {
 	class AsynchronousLoader extends Job {
@@ -147,11 +150,11 @@ public class MetadataRepositoryResourceImpl extends ResourceImpl implements Stat
 
 				synchronized(MetadataRepositoryResourceImpl.this) {
 					String myLocation = getURI().opaquePart();
-					Aggregation aggregator = getAggregator();
+					Aggregation aggregation = getAggregation();
 
 					// check if the aggregator is still available - if not, it means that the resource has already been excluded
-					if(aggregator != null)
-						for(MetadataRepositoryReference repoRef : aggregator.getAllMetadataRepositoryReferences(true)) {
+					if(aggregation != null)
+						for(MetadataRepositoryReference repoRef : aggregation.getAllMetadataRepositoryReferences(true)) {
 							synchronized(repoRef) {
 								String refLocation = repoRef.getNature() + ":" + repoRef.getResolvedLocation();
 								if(myLocation.equals(refLocation)) {
@@ -352,12 +355,19 @@ public class MetadataRepositoryResourceImpl extends ResourceImpl implements Stat
 				repoView.getProperties().getPropertyList().addAll(propList);
 			}
 
+			List<IRepositoryReference> references = repository.getReferences();
+			if(references.size() > 0) {
+				RepositoryReferences repoRefs = P2viewFactory.eINSTANCE.createRepositoryReferences();
+				repoView.setRepositoryReferences(repoRefs);
+				repoRefs.getRepositoryReferences().addAll(references);
+			}
+
 			repoView.setLoaded(true);
 			getContents().add((EObject) repoView);
 
-			Aggregation aggregator = ResourceUtils.getAggregator(getResourceSet());
-			if(aggregator != null) {
-				for(MetadataRepositoryReference mdrReference : aggregator.getAllMetadataRepositoryReferences(true)) {
+			Aggregation aggregation = ResourceUtils.getAggregation(getResourceSet());
+			if(aggregation != null) {
+				for(MetadataRepositoryReference mdrReference : aggregation.getAllMetadataRepositoryReferences(true)) {
 					String refLocation = mdrReference.getLocation();
 					if(refLocation != null && refLocation.endsWith("/"))
 						refLocation = refLocation.substring(0, refLocation.length() - 1);
@@ -494,14 +504,14 @@ public class MetadataRepositoryResourceImpl extends ResourceImpl implements Stat
 		 * 
 		 */
 		private void updateAvailableVersions() {
-			Aggregation aggregator = ResourceUtils.getAggregator(getResourceSet());
-
-			if(aggregator != null)
-				for(Contribution contribution : aggregator.getContributions())
-					for(MappedRepository mappedRepo : contribution.getRepositories())
-						if(repository.getLocation().toString().equals(mappedRepo.getLocation()))
-							for(MappedUnit unit : mappedRepo.getUnits(false))
-								unit.resolveAvailableVersions(true);
+			Aggregation aggregation = ResourceUtils.getAggregation(getResourceSet());
+			if(aggregation != null)
+				for(ValidationSet vs : aggregation.getValidationSets())
+					for(Contribution contribution : vs.getContributions())
+						for(MappedRepository mappedRepo : contribution.getRepositories())
+							if(repository.getLocation().toString().equals(mappedRepo.getLocation()))
+								for(MappedUnit unit : mappedRepo.getUnits(false))
+									unit.resolveAvailableVersions(true);
 		}
 	}
 
@@ -734,7 +744,7 @@ public class MetadataRepositoryResourceImpl extends ResourceImpl implements Stat
 		setModified(false);
 	}
 
-	private Aggregation getAggregator() {
+	private Aggregation getAggregation() {
 		ResourceSet rs = getResourceSet();
 		if(rs != null) {
 			List<Resource> resources = rs.getResources();
@@ -796,8 +806,8 @@ public class MetadataRepositoryResourceImpl extends ResourceImpl implements Stat
 	}
 
 	private MappedRepository getMappedRepository() {
-		Aggregation aggregator = ResourceUtils.getAggregator(getResourceSet());
-		if(aggregator == null)
+		Aggregation aggregation = ResourceUtils.getAggregation(getResourceSet());
+		if(aggregation == null)
 			return null;
 
 		String uriString = getURI().toString();
@@ -805,10 +815,11 @@ public class MetadataRepositoryResourceImpl extends ResourceImpl implements Stat
 			return null;
 
 		uriString = uriString.substring(10);
-		for(Contribution contribution : aggregator.getContributions())
-			for(MappedRepository mappedRepo : contribution.getRepositories())
-				if(uriString.equals(mappedRepo.getLocation()))
-					return mappedRepo;
+		for(ValidationSet vs : aggregation.getValidationSets())
+			for(Contribution contribution : vs.getContributions())
+				for(MappedRepository mappedRepo : contribution.getRepositories())
+					if(uriString.equals(mappedRepo.getLocation()))
+						return mappedRepo;
 		return null;
 	}
 
@@ -1030,12 +1041,12 @@ public class MetadataRepositoryResourceImpl extends ResourceImpl implements Stat
 		else
 			myMDR = null;
 
-		Aggregation aggregator = getAggregator();
-		if(aggregator == null)
+		Aggregation aggregation = getAggregation();
+		if(aggregation == null)
 			// the resource was removed before it was loaded
 			return;
 
-		for(MetadataRepositoryReference mdr : aggregator.getAllMetadataRepositoryReferences(true)) {
+		for(MetadataRepositoryReference mdr : aggregation.getAllMetadataRepositoryReferences(true)) {
 			String refLocation = mdr.getNature() + ":" + mdr.getResolvedLocation();
 			if(myLocation.equals(refLocation)) {
 				mdr.setMetadataRepository(myMDR);
@@ -1044,7 +1055,7 @@ public class MetadataRepositoryResourceImpl extends ResourceImpl implements Stat
 			}
 		}
 
-		ResourceUtils.cleanUpResources(aggregator, false);
+		ResourceUtils.cleanUpResources(aggregation, false);
 
 		if(mdrFinal)
 			return;

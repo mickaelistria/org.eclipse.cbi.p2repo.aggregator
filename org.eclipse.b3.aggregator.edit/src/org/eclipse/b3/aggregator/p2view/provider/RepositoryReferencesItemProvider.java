@@ -4,40 +4,43 @@
  * licensed under the Eclipse Public License - v 1.0 by the copyright holder
  * listed above, as the Initial Contributor under such license. The text of
  * such license is available at www.eclipse.org.
- * 
  */
-package org.eclipse.b3.p2.provider;
+package org.eclipse.b3.aggregator.p2view.provider;
 
 import java.util.Collection;
 import java.util.List;
 
-import org.eclipse.b3.p2.InstallableUnitPatch;
-import org.eclipse.b3.p2.P2Factory;
-import org.eclipse.b3.p2.P2Package;
+import org.eclipse.b3.aggregator.p2view.P2viewPackage;
+
+import org.eclipse.b3.aggregator.provider.AggregatorEditPlugin;
+import org.eclipse.b3.aggregator.provider.AggregatorItemProviderAdapter;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
-import org.eclipse.emf.ecore.EStructuralFeature;
+import org.eclipse.emf.common.util.ResourceLocator;
 
+import org.eclipse.emf.ecore.EStructuralFeature;
+import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
+import org.eclipse.emf.edit.provider.IItemColorProvider;
+import org.eclipse.emf.edit.provider.IItemFontProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
-import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
- * This is the item provider adapter for a {@link org.eclipse.b3.p2.InstallableUnitPatch} object.
+ * This is the item provider adapter for a {@link org.eclipse.b3.aggregator.p2view.RepositoryReferences} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * 
  * @generated
  */
-public class InstallableUnitPatchItemProvider extends InstallableUnitItemProvider implements
+public class RepositoryReferencesItemProvider extends AggregatorItemProviderAdapter implements
 		IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider,
-		IItemPropertySource {
+		IItemPropertySource, IItemColorProvider, IItemFontProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -45,8 +48,26 @@ public class InstallableUnitPatchItemProvider extends InstallableUnitItemProvide
 	 * 
 	 * @generated
 	 */
-	public InstallableUnitPatchItemProvider(AdapterFactory adapterFactory) {
+	public RepositoryReferencesItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
+	}
+
+	/**
+	 * This adds a property descriptor for the Repository References feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	protected void addRepositoryReferencesPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+			getResourceLocator(),
+			getString("_UI_RepositoryReferences_repositoryReferences_feature"),
+			getString(
+				"_UI_PropertyDescriptor_description", "_UI_RepositoryReferences_repositoryReferences_feature",
+				"_UI_RepositoryReferences_type"), P2viewPackage.Literals.REPOSITORY_REFERENCES__REPOSITORY_REFERENCES,
+			false, false, true, null, null, null));
 	}
 
 	/**
@@ -60,22 +81,6 @@ public class InstallableUnitPatchItemProvider extends InstallableUnitItemProvide
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
-
-		newChildDescriptors.add(createChildParameter(
-			P2Package.Literals.IINSTALLABLE_UNIT_PATCH__REQUIREMENTS_CHANGE,
-			P2Factory.eINSTANCE.createRequirementChange()));
-
-		newChildDescriptors.add(createChildParameter(
-			P2Package.Literals.IINSTALLABLE_UNIT_PATCH__LIFE_CYCLE, P2Factory.eINSTANCE.createRequirement()));
-
-		newChildDescriptors.add(createChildParameter(
-			P2Package.Literals.IINSTALLABLE_UNIT_PATCH__LIFE_CYCLE, P2Factory.eINSTANCE.createRequiredCapability()));
-
-		newChildDescriptors.add(createChildParameter(
-			P2Package.Literals.IINSTALLABLE_UNIT_PATCH__APPLIES_TO, P2Factory.eINSTANCE.createRequirement()));
-
-		newChildDescriptors.add(createChildParameter(
-			P2Package.Literals.IINSTALLABLE_UNIT_PATCH__APPLIES_TO, P2Factory.eINSTANCE.createRequiredCapability()));
 	}
 
 	/**
@@ -105,39 +110,13 @@ public class InstallableUnitPatchItemProvider extends InstallableUnitItemProvide
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if(childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(P2Package.Literals.IINSTALLABLE_UNIT_PATCH__REQUIREMENTS_CHANGE);
-			childrenFeatures.add(P2Package.Literals.IINSTALLABLE_UNIT_PATCH__LIFE_CYCLE);
-			childrenFeatures.add(P2Package.Literals.IINSTALLABLE_UNIT_PATCH__APPLIES_TO);
+			childrenFeatures.add(P2viewPackage.Literals.REPOSITORY_REFERENCES__REPOSITORY_REFERENCES);
 		}
 		return childrenFeatures;
 	}
 
 	/**
-	 * This returns the label text for {@link org.eclipse.emf.edit.command.CreateChildCommand}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	public String getCreateChildText(Object owner, Object feature, Object child, Collection<?> selection) {
-		Object childFeature = feature;
-		Object childObject = child;
-
-		boolean qualify = childFeature == P2Package.Literals.IINSTALLABLE_UNIT__META_REQUIREMENTS ||
-				childFeature == P2Package.Literals.IINSTALLABLE_UNIT__REQUIREMENTS ||
-				childFeature == P2Package.Literals.IINSTALLABLE_UNIT_PATCH__LIFE_CYCLE ||
-				childFeature == P2Package.Literals.IINSTALLABLE_UNIT_PATCH__APPLIES_TO;
-
-		if(qualify) {
-			return getString("_UI_CreateChild_text2", new Object[] {
-					getTypeText(childObject), getFeatureText(childFeature), getTypeText(owner) });
-		}
-		return super.getCreateChildText(owner, feature, child, selection);
-	}
-
-	/**
-	 * This returns InstallableUnitPatch.gif.
+	 * This returns RepositoryReferences.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -145,7 +124,7 @@ public class InstallableUnitPatchItemProvider extends InstallableUnitItemProvide
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/InstallableUnitPatch"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/RepositoryReferences"));
 	}
 
 	/**
@@ -160,8 +139,21 @@ public class InstallableUnitPatchItemProvider extends InstallableUnitItemProvide
 		if(itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addRepositoryReferencesPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * Return the resource locator for this item provider's resources.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public ResourceLocator getResourceLocator() {
+		return AggregatorEditPlugin.INSTANCE;
 	}
 
 	/**
@@ -173,10 +165,7 @@ public class InstallableUnitPatchItemProvider extends InstallableUnitItemProvide
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((InstallableUnitPatch) object).getId();
-		return label == null || label.length() == 0
-				? getString("_UI_InstallableUnitPatch_type")
-				: getString("_UI_InstallableUnitPatch_type") + " " + label;
+		return getString("_UI_RepositoryReferences_type");
 	}
 
 	/**
@@ -190,14 +179,6 @@ public class InstallableUnitPatchItemProvider extends InstallableUnitItemProvide
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
-
-		switch(notification.getFeatureID(InstallableUnitPatch.class)) {
-			case P2Package.INSTALLABLE_UNIT_PATCH__REQUIREMENTS_CHANGE:
-			case P2Package.INSTALLABLE_UNIT_PATCH__LIFE_CYCLE:
-			case P2Package.INSTALLABLE_UNIT_PATCH__APPLIES_TO:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
-				return;
-		}
 		super.notifyChanged(notification);
 	}
 

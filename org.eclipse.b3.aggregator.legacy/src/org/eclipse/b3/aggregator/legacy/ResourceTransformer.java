@@ -35,6 +35,13 @@ import org.eclipse.emf.ecore.resource.Resource.Diagnostic;
  * @author Karel Brezina
  */
 public class ResourceTransformer implements ITransformer {
+	public static boolean equalsOneOf(String str, String... candidates) {
+		for(String candidate : candidates)
+			if(str.equals(candidate))
+				return true;
+		return false;
+	}
+
 	protected static Object getFeatureValue(EObject eobject, String featureName) {
 		EStructuralFeature feature = eobject.eClass().getEStructuralFeature(featureName);
 

@@ -9,19 +9,25 @@
 package org.eclipse.b3.aggregator.util;
 
 import org.eclipse.b3.aggregator.Aggregation;
+import org.eclipse.b3.aggregator.EnabledStatusProvider;
+import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 
-/**
- * @author Karel Brezina
- * 
- */
 public class GeneralUtils {
 
-	public static Aggregation getAggregator(EObject eObject) {
-		EList<EObject> contents = getAggregatorResource(eObject).getContents();
-
+	public static Aggregation getAggregation(EObject eObject) {
+		EObject p = eObject;
+		EObject c = p;
+		while(c != null) {
+			if(c instanceof Aggregation)
+				return (Aggregation) c;
+			p = c;
+			c = c.eContainer();
+		}
+		// Not found in parent chain. Get the resource set.
+		EList<EObject> contents = getAggregatorResource(p).getContents();
 		if(contents != null && contents.size() > 0)
 			return (Aggregation) contents.get(0);
 
@@ -42,4 +48,24 @@ public class GeneralUtils {
 		throw new IllegalArgumentException("AggregatorResource was not found");
 	}
 
+	public static <T extends EnabledStatusProvider> EList<T> getEnabled(EList<T> ts) {
+		int count = ts.size();
+		int idx = 0;
+		for(; idx < count; ++idx) {
+			if(!ts.get(idx).isEnabled())
+				break;
+		}
+		if(idx == count)
+			return ts;
+
+		EList<T> enabledTs = new BasicEList<T>(count - 1);
+		for(int sdx = 0; sdx < idx; ++sdx)
+			enabledTs.add(ts.get(sdx));
+		for(++idx; idx < count; ++idx) {
+			T t = ts.get(idx);
+			if(t.isEnabled())
+				enabledTs.add(t);
+		}
+		return enabledTs;
+	}
 }

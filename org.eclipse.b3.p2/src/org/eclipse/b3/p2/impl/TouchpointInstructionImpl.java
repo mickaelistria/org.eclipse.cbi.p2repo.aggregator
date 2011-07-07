@@ -182,6 +182,17 @@ public class TouchpointInstructionImpl extends MinimalEObjectImpl.Container impl
 	 * @generated
 	 */
 	@Override
+	protected EClass eStaticClass() {
+		return P2Package.Literals.TOUCHPOINT_INSTRUCTION;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
 			case P2Package.TOUCHPOINT_INSTRUCTION__BODY:
@@ -273,17 +284,6 @@ public class TouchpointInstructionImpl extends MinimalEObjectImpl.Container impl
 		result.append(importAttribute);
 		result.append(')');
 		return result.toString();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return P2Package.Literals.TOUCHPOINT_INSTRUCTION;
 	}
 
 } // TouchpointInstructionImpl

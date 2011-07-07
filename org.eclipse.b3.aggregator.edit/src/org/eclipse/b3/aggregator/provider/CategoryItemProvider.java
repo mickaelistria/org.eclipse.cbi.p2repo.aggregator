@@ -128,7 +128,7 @@ public class CategoryItemProvider extends MappedUnitItemProvider implements IEdi
 		IInstallableUnit iu = category.resolveAsSingleton();
 		StringBuilder bld = new StringBuilder();
 		bld.append(getString("_UI_Category_type"));
-		bld.append(' ');
+		bld.append(" : ");
 		if(iu != null) {
 			String label = iu.getProperty(IInstallableUnit.PROP_NAME);
 			if(label == null)

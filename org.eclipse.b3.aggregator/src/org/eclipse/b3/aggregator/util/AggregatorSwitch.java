@@ -8,7 +8,6 @@ package org.eclipse.b3.aggregator.util;
 
 import org.eclipse.b3.aggregator.Aggregation;
 import org.eclipse.b3.aggregator.AggregatorPackage;
-import org.eclipse.b3.aggregator.AggregatorResourceView;
 import org.eclipse.b3.aggregator.AvailableVersion;
 import org.eclipse.b3.aggregator.AvailableVersionsHeader;
 import org.eclipse.b3.aggregator.Bundle;
@@ -27,8 +26,6 @@ import org.eclipse.b3.aggregator.IdentificationProvider;
 import org.eclipse.b3.aggregator.InfosProvider;
 import org.eclipse.b3.aggregator.InstallableUnitRequest;
 import org.eclipse.b3.aggregator.LabelProvider;
-import org.eclipse.b3.aggregator.LinkReceiver;
-import org.eclipse.b3.aggregator.LinkSource;
 import org.eclipse.b3.aggregator.MapRule;
 import org.eclipse.b3.aggregator.MappedRepository;
 import org.eclipse.b3.aggregator.MappedUnit;
@@ -88,23 +85,6 @@ public class AggregatorSwitch<T1> extends Switch<T1> {
 	 * @generated
 	 */
 	public T1 caseAggregation(Aggregation object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Resource View</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * 
-	 * @param object
-	 *            the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Resource View</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T1 caseAggregatorResourceView(AggregatorResourceView object) {
 		return null;
 	}
 
@@ -199,23 +179,6 @@ public class AggregatorSwitch<T1> extends Switch<T1> {
 	 * @generated
 	 */
 	public <T> T1 caseComparable(Comparable<T> object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Validation Set</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * 
-	 * @param object
-	 *            the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Validation Set</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T1 caseValidationSet(ValidationSet object) {
 		return null;
 	}
 
@@ -404,40 +367,6 @@ public class AggregatorSwitch<T1> extends Switch<T1> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Link Receiver</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * 
-	 * @param object
-	 *            the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Link Receiver</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T1 caseLinkReceiver(LinkReceiver object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Link Source</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * 
-	 * @param object
-	 *            the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Link Source</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T1 caseLinkSource(LinkSource object) {
-		return null;
-	}
-
-	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Mapped Repository</em>'. <!-- begin-user-doc
 	 * --> This implementation returns null; returning a non-null result will terminate the switch. <!-- end-user-doc
 	 * -->
@@ -588,6 +517,23 @@ public class AggregatorSwitch<T1> extends Switch<T1> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Validation Set</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * 
+	 * @param object
+	 *            the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Validation Set</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseValidationSet(ValidationSet object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Valid Configurations Rule</em>'. <!--
 	 * begin-user-doc --> This implementation returns null; returning a non-null result will terminate the switch. <!--
 	 * end-user-doc -->
@@ -642,94 +588,16 @@ public class AggregatorSwitch<T1> extends Switch<T1> {
 					result = defaultCase(theEObject);
 				return result;
 			}
-			case AggregatorPackage.VALIDATION_SET: {
-				ValidationSet validationSet = (ValidationSet) theEObject;
-				T1 result = caseValidationSet(validationSet);
-				if(result == null)
-					result = caseEnabledStatusProvider(validationSet);
-				if(result == null)
-					result = caseDescriptionProvider(validationSet);
-				if(result == null)
-					result = caseStatusProvider(validationSet);
-				if(result == null)
-					result = caseInfosProvider(validationSet);
-				if(result == null)
-					result = caseLinkReceiver(validationSet);
+			case AggregatorPackage.AVAILABLE_VERSIONS_HEADER: {
+				AvailableVersionsHeader availableVersionsHeader = (AvailableVersionsHeader) theEObject;
+				T1 result = caseAvailableVersionsHeader(availableVersionsHeader);
 				if(result == null)
 					result = defaultCase(theEObject);
 				return result;
 			}
-			case AggregatorPackage.MAPPED_REPOSITORY: {
-				MappedRepository mappedRepository = (MappedRepository) theEObject;
-				T1 result = caseMappedRepository(mappedRepository);
-				if(result == null)
-					result = caseMetadataRepositoryReference(mappedRepository);
-				if(result == null)
-					result = caseDescriptionProvider(mappedRepository);
-				if(result == null)
-					result = caseIdentificationProvider(mappedRepository);
-				if(result == null)
-					result = caseEnabledStatusProvider(mappedRepository);
-				if(result == null)
-					result = caseStatusProvider(mappedRepository);
-				if(result == null)
-					result = caseInfosProvider(mappedRepository);
-				if(result == null)
-					result = defaultCase(theEObject);
-				return result;
-			}
-			case AggregatorPackage.CONFIGURATION: {
-				Configuration configuration = (Configuration) theEObject;
-				T1 result = caseConfiguration(configuration);
-				if(result == null)
-					result = caseEnabledStatusProvider(configuration);
-				if(result == null)
-					result = defaultCase(theEObject);
-				return result;
-			}
-			case AggregatorPackage.CONTRIBUTION: {
-				Contribution contribution = (Contribution) theEObject;
-				T1 result = caseContribution(contribution);
-				if(result == null)
-					result = caseEnabledStatusProvider(contribution);
-				if(result == null)
-					result = caseDescriptionProvider(contribution);
-				if(result == null)
-					result = caseStatusProvider(contribution);
-				if(result == null)
-					result = caseInfosProvider(contribution);
-				if(result == null)
-					result = caseLinkSource(contribution);
-				if(result == null)
-					result = caseIdentificationProvider(contribution);
-				if(result == null)
-					result = defaultCase(theEObject);
-				return result;
-			}
-			case AggregatorPackage.CONTACT: {
-				Contact contact = (Contact) theEObject;
-				T1 result = caseContact(contact);
-				if(result == null)
-					result = defaultCase(theEObject);
-				return result;
-			}
-			case AggregatorPackage.FEATURE: {
-				Feature feature = (Feature) theEObject;
-				T1 result = caseFeature(feature);
-				if(result == null)
-					result = caseMappedUnit(feature);
-				if(result == null)
-					result = caseInstallableUnitRequest(feature);
-				if(result == null)
-					result = caseEnabledStatusProvider(feature);
-				if(result == null)
-					result = caseIdentificationProvider(feature);
-				if(result == null)
-					result = caseStatusProvider(feature);
-				if(result == null)
-					result = caseInfosProvider(feature);
-				if(result == null)
-					result = caseDescriptionProvider(feature);
+			case AggregatorPackage.AVAILABLE_VERSION: {
+				AvailableVersion availableVersion = (AvailableVersion) theEObject;
+				T1 result = caseAvailableVersion(availableVersion);
 				if(result == null)
 					result = defaultCase(theEObject);
 				return result;
@@ -755,6 +623,183 @@ public class AggregatorSwitch<T1> extends Switch<T1> {
 					result = defaultCase(theEObject);
 				return result;
 			}
+			case AggregatorPackage.CATEGORY: {
+				Category category = (Category) theEObject;
+				T1 result = caseCategory(category);
+				if(result == null)
+					result = caseMappedUnit(category);
+				if(result == null)
+					result = caseInstallableUnitRequest(category);
+				if(result == null)
+					result = caseEnabledStatusProvider(category);
+				if(result == null)
+					result = caseIdentificationProvider(category);
+				if(result == null)
+					result = caseStatusProvider(category);
+				if(result == null)
+					result = caseInfosProvider(category);
+				if(result == null)
+					result = caseDescriptionProvider(category);
+				if(result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
+			case AggregatorPackage.CHILDREN_PROVIDER: {
+				ChildrenProvider<?> childrenProvider = (ChildrenProvider<?>) theEObject;
+				T1 result = caseChildrenProvider(childrenProvider);
+				if(result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
+			case AggregatorPackage.CONFIGURATION: {
+				Configuration configuration = (Configuration) theEObject;
+				T1 result = caseConfiguration(configuration);
+				if(result == null)
+					result = caseEnabledStatusProvider(configuration);
+				if(result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
+			case AggregatorPackage.CONTACT: {
+				Contact contact = (Contact) theEObject;
+				T1 result = caseContact(contact);
+				if(result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
+			case AggregatorPackage.CONTRIBUTION: {
+				Contribution contribution = (Contribution) theEObject;
+				T1 result = caseContribution(contribution);
+				if(result == null)
+					result = caseEnabledStatusProvider(contribution);
+				if(result == null)
+					result = caseDescriptionProvider(contribution);
+				if(result == null)
+					result = caseStatusProvider(contribution);
+				if(result == null)
+					result = caseInfosProvider(contribution);
+				if(result == null)
+					result = caseIdentificationProvider(contribution);
+				if(result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
+			case AggregatorPackage.FEATURE: {
+				Feature feature = (Feature) theEObject;
+				T1 result = caseFeature(feature);
+				if(result == null)
+					result = caseMappedUnit(feature);
+				if(result == null)
+					result = caseInstallableUnitRequest(feature);
+				if(result == null)
+					result = caseEnabledStatusProvider(feature);
+				if(result == null)
+					result = caseIdentificationProvider(feature);
+				if(result == null)
+					result = caseStatusProvider(feature);
+				if(result == null)
+					result = caseInfosProvider(feature);
+				if(result == null)
+					result = caseDescriptionProvider(feature);
+				if(result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
+			case AggregatorPackage.CUSTOM_CATEGORY: {
+				CustomCategory customCategory = (CustomCategory) theEObject;
+				T1 result = caseCustomCategory(customCategory);
+				if(result == null)
+					result = caseStatusProvider(customCategory);
+				if(result == null)
+					result = caseInfosProvider(customCategory);
+				if(result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
+			case AggregatorPackage.DESCRIPTION_PROVIDER: {
+				DescriptionProvider descriptionProvider = (DescriptionProvider) theEObject;
+				T1 result = caseDescriptionProvider(descriptionProvider);
+				if(result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
+			case AggregatorPackage.ENABLED_STATUS_PROVIDER: {
+				EnabledStatusProvider enabledStatusProvider = (EnabledStatusProvider) theEObject;
+				T1 result = caseEnabledStatusProvider(enabledStatusProvider);
+				if(result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
+			case AggregatorPackage.EXCLUSION_RULE: {
+				ExclusionRule exclusionRule = (ExclusionRule) theEObject;
+				T1 result = caseExclusionRule(exclusionRule);
+				if(result == null)
+					result = caseMapRule(exclusionRule);
+				if(result == null)
+					result = caseInstallableUnitRequest(exclusionRule);
+				if(result == null)
+					result = caseStatusProvider(exclusionRule);
+				if(result == null)
+					result = caseInfosProvider(exclusionRule);
+				if(result == null)
+					result = caseDescriptionProvider(exclusionRule);
+				if(result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
+			case AggregatorPackage.IDENTIFICATION_PROVIDER: {
+				IdentificationProvider identificationProvider = (IdentificationProvider) theEObject;
+				T1 result = caseIdentificationProvider(identificationProvider);
+				if(result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
+			case AggregatorPackage.INFOS_PROVIDER: {
+				InfosProvider infosProvider = (InfosProvider) theEObject;
+				T1 result = caseInfosProvider(infosProvider);
+				if(result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
+			case AggregatorPackage.INSTALLABLE_UNIT_REQUEST: {
+				InstallableUnitRequest installableUnitRequest = (InstallableUnitRequest) theEObject;
+				T1 result = caseInstallableUnitRequest(installableUnitRequest);
+				if(result == null)
+					result = caseStatusProvider(installableUnitRequest);
+				if(result == null)
+					result = caseInfosProvider(installableUnitRequest);
+				if(result == null)
+					result = caseDescriptionProvider(installableUnitRequest);
+				if(result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
+			case AggregatorPackage.LABEL_PROVIDER: {
+				LabelProvider labelProvider = (LabelProvider) theEObject;
+				T1 result = caseLabelProvider(labelProvider);
+				if(result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
+			case AggregatorPackage.MAPPED_REPOSITORY: {
+				MappedRepository mappedRepository = (MappedRepository) theEObject;
+				T1 result = caseMappedRepository(mappedRepository);
+				if(result == null)
+					result = caseMetadataRepositoryReference(mappedRepository);
+				if(result == null)
+					result = caseDescriptionProvider(mappedRepository);
+				if(result == null)
+					result = caseIdentificationProvider(mappedRepository);
+				if(result == null)
+					result = caseEnabledStatusProvider(mappedRepository);
+				if(result == null)
+					result = caseStatusProvider(mappedRepository);
+				if(result == null)
+					result = caseInfosProvider(mappedRepository);
+				if(result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
 			case AggregatorPackage.MAPPED_UNIT: {
 				MappedUnit mappedUnit = (MappedUnit) theEObject;
 				T1 result = caseMappedUnit(mappedUnit);
@@ -770,6 +815,52 @@ public class AggregatorSwitch<T1> extends Switch<T1> {
 					result = caseInfosProvider(mappedUnit);
 				if(result == null)
 					result = caseDescriptionProvider(mappedUnit);
+				if(result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
+			case AggregatorPackage.MAP_RULE: {
+				MapRule mapRule = (MapRule) theEObject;
+				T1 result = caseMapRule(mapRule);
+				if(result == null)
+					result = caseInstallableUnitRequest(mapRule);
+				if(result == null)
+					result = caseStatusProvider(mapRule);
+				if(result == null)
+					result = caseInfosProvider(mapRule);
+				if(result == null)
+					result = caseDescriptionProvider(mapRule);
+				if(result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
+			case AggregatorPackage.MAVEN_ITEM: {
+				MavenItem mavenItem = (MavenItem) theEObject;
+				T1 result = caseMavenItem(mavenItem);
+				if(result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
+			case AggregatorPackage.MAVEN_MAPPING: {
+				MavenMapping mavenMapping = (MavenMapping) theEObject;
+				T1 result = caseMavenMapping(mavenMapping);
+				if(result == null)
+					result = caseStatusProvider(mavenMapping);
+				if(result == null)
+					result = caseInfosProvider(mavenMapping);
+				if(result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
+			case AggregatorPackage.METADATA_REPOSITORY_REFERENCE: {
+				MetadataRepositoryReference metadataRepositoryReference = (MetadataRepositoryReference) theEObject;
+				T1 result = caseMetadataRepositoryReference(metadataRepositoryReference);
+				if(result == null)
+					result = caseEnabledStatusProvider(metadataRepositoryReference);
+				if(result == null)
+					result = caseStatusProvider(metadataRepositoryReference);
+				if(result == null)
+					result = caseInfosProvider(metadataRepositoryReference);
 				if(result == null)
 					result = defaultCase(theEObject);
 				return result;
@@ -804,86 +895,31 @@ public class AggregatorSwitch<T1> extends Switch<T1> {
 					result = defaultCase(theEObject);
 				return result;
 			}
-			case AggregatorPackage.CATEGORY: {
-				Category category = (Category) theEObject;
-				T1 result = caseCategory(category);
-				if(result == null)
-					result = caseMappedUnit(category);
-				if(result == null)
-					result = caseInstallableUnitRequest(category);
-				if(result == null)
-					result = caseEnabledStatusProvider(category);
-				if(result == null)
-					result = caseIdentificationProvider(category);
-				if(result == null)
-					result = caseStatusProvider(category);
-				if(result == null)
-					result = caseInfosProvider(category);
-				if(result == null)
-					result = caseDescriptionProvider(category);
+			case AggregatorPackage.STATUS: {
+				Status status = (Status) theEObject;
+				T1 result = caseStatus(status);
 				if(result == null)
 					result = defaultCase(theEObject);
 				return result;
 			}
-			case AggregatorPackage.CUSTOM_CATEGORY: {
-				CustomCategory customCategory = (CustomCategory) theEObject;
-				T1 result = caseCustomCategory(customCategory);
-				if(result == null)
-					result = caseStatusProvider(customCategory);
-				if(result == null)
-					result = caseInfosProvider(customCategory);
+			case AggregatorPackage.STATUS_PROVIDER: {
+				StatusProvider statusProvider = (StatusProvider) theEObject;
+				T1 result = caseStatusProvider(statusProvider);
 				if(result == null)
 					result = defaultCase(theEObject);
 				return result;
 			}
-			case AggregatorPackage.ENABLED_STATUS_PROVIDER: {
-				EnabledStatusProvider enabledStatusProvider = (EnabledStatusProvider) theEObject;
-				T1 result = caseEnabledStatusProvider(enabledStatusProvider);
+			case AggregatorPackage.VALIDATION_SET: {
+				ValidationSet validationSet = (ValidationSet) theEObject;
+				T1 result = caseValidationSet(validationSet);
 				if(result == null)
-					result = defaultCase(theEObject);
-				return result;
-			}
-			case AggregatorPackage.MAP_RULE: {
-				MapRule mapRule = (MapRule) theEObject;
-				T1 result = caseMapRule(mapRule);
+					result = caseEnabledStatusProvider(validationSet);
 				if(result == null)
-					result = caseInstallableUnitRequest(mapRule);
+					result = caseDescriptionProvider(validationSet);
 				if(result == null)
-					result = caseStatusProvider(mapRule);
+					result = caseStatusProvider(validationSet);
 				if(result == null)
-					result = caseInfosProvider(mapRule);
-				if(result == null)
-					result = caseDescriptionProvider(mapRule);
-				if(result == null)
-					result = defaultCase(theEObject);
-				return result;
-			}
-			case AggregatorPackage.INSTALLABLE_UNIT_REQUEST: {
-				InstallableUnitRequest installableUnitRequest = (InstallableUnitRequest) theEObject;
-				T1 result = caseInstallableUnitRequest(installableUnitRequest);
-				if(result == null)
-					result = caseStatusProvider(installableUnitRequest);
-				if(result == null)
-					result = caseInfosProvider(installableUnitRequest);
-				if(result == null)
-					result = caseDescriptionProvider(installableUnitRequest);
-				if(result == null)
-					result = defaultCase(theEObject);
-				return result;
-			}
-			case AggregatorPackage.EXCLUSION_RULE: {
-				ExclusionRule exclusionRule = (ExclusionRule) theEObject;
-				T1 result = caseExclusionRule(exclusionRule);
-				if(result == null)
-					result = caseMapRule(exclusionRule);
-				if(result == null)
-					result = caseInstallableUnitRequest(exclusionRule);
-				if(result == null)
-					result = caseStatusProvider(exclusionRule);
-				if(result == null)
-					result = caseInfosProvider(exclusionRule);
-				if(result == null)
-					result = caseDescriptionProvider(exclusionRule);
+					result = caseInfosProvider(validationSet);
 				if(result == null)
 					result = defaultCase(theEObject);
 				return result;
@@ -901,121 +937,6 @@ public class AggregatorSwitch<T1> extends Switch<T1> {
 					result = caseInfosProvider(validConfigurationsRule);
 				if(result == null)
 					result = caseDescriptionProvider(validConfigurationsRule);
-				if(result == null)
-					result = defaultCase(theEObject);
-				return result;
-			}
-			case AggregatorPackage.METADATA_REPOSITORY_REFERENCE: {
-				MetadataRepositoryReference metadataRepositoryReference = (MetadataRepositoryReference) theEObject;
-				T1 result = caseMetadataRepositoryReference(metadataRepositoryReference);
-				if(result == null)
-					result = caseEnabledStatusProvider(metadataRepositoryReference);
-				if(result == null)
-					result = caseStatusProvider(metadataRepositoryReference);
-				if(result == null)
-					result = caseInfosProvider(metadataRepositoryReference);
-				if(result == null)
-					result = defaultCase(theEObject);
-				return result;
-			}
-			case AggregatorPackage.LABEL_PROVIDER: {
-				LabelProvider labelProvider = (LabelProvider) theEObject;
-				T1 result = caseLabelProvider(labelProvider);
-				if(result == null)
-					result = defaultCase(theEObject);
-				return result;
-			}
-			case AggregatorPackage.DESCRIPTION_PROVIDER: {
-				DescriptionProvider descriptionProvider = (DescriptionProvider) theEObject;
-				T1 result = caseDescriptionProvider(descriptionProvider);
-				if(result == null)
-					result = defaultCase(theEObject);
-				return result;
-			}
-			case AggregatorPackage.IDENTIFICATION_PROVIDER: {
-				IdentificationProvider identificationProvider = (IdentificationProvider) theEObject;
-				T1 result = caseIdentificationProvider(identificationProvider);
-				if(result == null)
-					result = defaultCase(theEObject);
-				return result;
-			}
-			case AggregatorPackage.MAVEN_MAPPING: {
-				MavenMapping mavenMapping = (MavenMapping) theEObject;
-				T1 result = caseMavenMapping(mavenMapping);
-				if(result == null)
-					result = caseStatusProvider(mavenMapping);
-				if(result == null)
-					result = caseInfosProvider(mavenMapping);
-				if(result == null)
-					result = defaultCase(theEObject);
-				return result;
-			}
-			case AggregatorPackage.MAVEN_ITEM: {
-				MavenItem mavenItem = (MavenItem) theEObject;
-				T1 result = caseMavenItem(mavenItem);
-				if(result == null)
-					result = defaultCase(theEObject);
-				return result;
-			}
-			case AggregatorPackage.CHILDREN_PROVIDER: {
-				ChildrenProvider<?> childrenProvider = (ChildrenProvider<?>) theEObject;
-				T1 result = caseChildrenProvider(childrenProvider);
-				if(result == null)
-					result = defaultCase(theEObject);
-				return result;
-			}
-			case AggregatorPackage.STATUS: {
-				Status status = (Status) theEObject;
-				T1 result = caseStatus(status);
-				if(result == null)
-					result = defaultCase(theEObject);
-				return result;
-			}
-			case AggregatorPackage.STATUS_PROVIDER: {
-				StatusProvider statusProvider = (StatusProvider) theEObject;
-				T1 result = caseStatusProvider(statusProvider);
-				if(result == null)
-					result = defaultCase(theEObject);
-				return result;
-			}
-			case AggregatorPackage.INFOS_PROVIDER: {
-				InfosProvider infosProvider = (InfosProvider) theEObject;
-				T1 result = caseInfosProvider(infosProvider);
-				if(result == null)
-					result = defaultCase(theEObject);
-				return result;
-			}
-			case AggregatorPackage.AVAILABLE_VERSIONS_HEADER: {
-				AvailableVersionsHeader availableVersionsHeader = (AvailableVersionsHeader) theEObject;
-				T1 result = caseAvailableVersionsHeader(availableVersionsHeader);
-				if(result == null)
-					result = defaultCase(theEObject);
-				return result;
-			}
-			case AggregatorPackage.AVAILABLE_VERSION: {
-				AvailableVersion availableVersion = (AvailableVersion) theEObject;
-				T1 result = caseAvailableVersion(availableVersion);
-				if(result == null)
-					result = defaultCase(theEObject);
-				return result;
-			}
-			case AggregatorPackage.LINK_SOURCE: {
-				LinkSource linkSource = (LinkSource) theEObject;
-				T1 result = caseLinkSource(linkSource);
-				if(result == null)
-					result = defaultCase(theEObject);
-				return result;
-			}
-			case AggregatorPackage.LINK_RECEIVER: {
-				LinkReceiver linkReceiver = (LinkReceiver) theEObject;
-				T1 result = caseLinkReceiver(linkReceiver);
-				if(result == null)
-					result = defaultCase(theEObject);
-				return result;
-			}
-			case AggregatorPackage.AGGREGATOR_RESOURCE_VIEW: {
-				AggregatorResourceView aggregatorResourceView = (AggregatorResourceView) theEObject;
-				T1 result = caseAggregatorResourceView(aggregatorResourceView);
 				if(result == null)
 					result = defaultCase(theEObject);
 				return result;

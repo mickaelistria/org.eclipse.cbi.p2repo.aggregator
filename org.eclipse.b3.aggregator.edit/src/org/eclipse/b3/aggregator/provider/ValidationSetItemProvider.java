@@ -7,30 +7,27 @@
  */
 package org.eclipse.b3.aggregator.provider;
 
-import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Iterator;
 import java.util.List;
 
+import org.eclipse.b3.aggregator.AggregatorFactory;
 import org.eclipse.b3.aggregator.AggregatorPackage;
-import org.eclipse.b3.aggregator.ValidationSet;
 import org.eclipse.b3.aggregator.Contribution;
-import org.eclipse.b3.aggregator.LinkSource;
-import org.eclipse.b3.aggregator.impl.ValidationSetImpl;
+import org.eclipse.b3.aggregator.MappedRepository;
+import org.eclipse.b3.aggregator.MavenMapping;
+import org.eclipse.b3.aggregator.MetadataRepositoryReference;
+import org.eclipse.b3.aggregator.ValidationSet;
+import org.eclipse.b3.aggregator.util.GeneralUtils;
+import org.eclipse.b3.aggregator.util.ResourceUtils;
 import org.eclipse.emf.common.command.Command;
-import org.eclipse.emf.common.command.CompoundCommand;
 import org.eclipse.emf.common.command.UnexecutableCommand;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
-import org.eclipse.emf.edit.command.CommandParameter;
-import org.eclipse.emf.edit.command.RemoveCommand;
-import org.eclipse.emf.edit.command.SetCommand;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
-import org.eclipse.emf.edit.provider.DelegatingWrapperItemProvider;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemColorProvider;
 import org.eclipse.emf.edit.provider.IItemFontProvider;
@@ -39,7 +36,6 @@ import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
-import org.eclipse.emf.edit.provider.IWrapperItemProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
@@ -54,107 +50,6 @@ public class ValidationSetItemProvider extends AggregatorItemProviderAdapter imp
 		IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource,
 		IItemColorProvider, IItemFontProvider {
 
-	public class ValidationSetWrapperItemProvider extends DelegatingWrapperItemProvider {
-
-		public ValidationSetWrapperItemProvider(Object value, Object owner, EStructuralFeature feature, int index,
-				AdapterFactory adapterFactory) {
-			super(value, owner, feature, index, adapterFactory);
-		}
-
-		@Override
-		public Command createCommand(Object object, EditingDomain domain, Class<? extends Command> commandClass,
-				CommandParameter commandParameter) {
-			CREATE_CUSTOM_COMMAND: {
-				if(commandClass == SetCommand.class) {
-					if(commandParameter.getEStructuralFeature() != null)
-						break CREATE_CUSTOM_COMMAND;
-
-					List<?> valueList;
-					Object setValue = commandParameter.getValue();
-					if(setValue instanceof Collection) {
-						Collection<?> collection = (Collection<?>) setValue;
-						if(collection.isEmpty())
-							break CREATE_CUSTOM_COMMAND;
-						valueList = new ArrayList<Object>(collection);
-					}
-					else
-						break CREATE_CUSTOM_COMMAND;
-
-					CompoundCommand compoundCommand = createCompoundLinkCommand(domain, valueList, getDelegateValue());
-
-					if(compoundCommand.isEmpty()) {
-						compoundCommand.dispose();
-						break CREATE_CUSTOM_COMMAND;
-					}
-
-					if(!valueList.isEmpty()) {
-						compoundCommand.dispose();
-						return UnexecutableCommand.INSTANCE;
-					}
-
-					return compoundCommand.unwrap();
-				}
-				else if(commandClass == RemoveCommand.class) {
-					Collection<?> collection = commandParameter.getCollection();
-					if(collection == null || collection.isEmpty())
-						break CREATE_CUSTOM_COMMAND;
-
-					List<?> valueList = new ArrayList<Object>(collection);
-
-					CompoundCommand compoundCommand = createCompoundLinkCommand(
-						domain, valueList, SetCommand.UNSET_VALUE);
-
-					if(!valueList.isEmpty()) {
-						commandParameter.collection = valueList;
-						compoundCommand.append(super.createCommand(object, domain, commandClass, commandParameter));
-					}
-
-					return compoundCommand.unwrap();
-				}
-			}
-
-			return super.createCommand(object, domain, commandClass, commandParameter);
-		}
-
-		public CompoundCommand createCompoundLinkCommand(EditingDomain domain, List<?> valueList, Object linkReceiver) {
-			CompoundCommand compoundCommand = new CompoundCommand(CompoundCommand.MERGE_COMMAND_ALL);
-			Object realLinkReceiver = unwrap(linkReceiver);
-
-			for(Iterator<?> valueIterator = valueList.iterator(); valueIterator.hasNext();) {
-				Object value = valueIterator.next();
-				Object unwrappedValue = unwrap(value);
-
-				if(unwrappedValue instanceof LinkSource) {
-					if(((EObject) unwrappedValue).eGet(AggregatorPackage.Literals.LINK_SOURCE__RECEIVER) != realLinkReceiver)
-						compoundCommand.append(new SetCommand(
-							domain, (EObject) unwrappedValue, AggregatorPackage.Literals.LINK_SOURCE__RECEIVER,
-							realLinkReceiver));
-					else
-						compoundCommand.append(UnexecutableCommand.INSTANCE); // disable linking to where the LinkSource is already linked
-
-					valueIterator.remove();
-				}
-			}
-
-			return compoundCommand;
-		}
-
-		@Override
-		protected IWrapperItemProvider createWrapper(Object value, Object owner, AdapterFactory adapterFactory) {
-			Object unwrappedValue = unwrap(value);
-
-			if(unwrappedValue instanceof Contribution) {
-				ContributionItemProvider contributionItemProvider = (ContributionItemProvider) getRootAdapterFactory().adapt(
-					unwrappedValue, IEditingDomainItemProvider.class);
-
-				return contributionItemProvider.new ContributionWrapperItemProvider(
-					value, owner, null, CommandParameter.NO_INDEX, adapterFactory);
-			}
-			return super.createWrapper(value, owner, adapterFactory);
-		}
-
-	}
-
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -164,6 +59,24 @@ public class ValidationSetItemProvider extends AggregatorItemProviderAdapter imp
 	 */
 	public ValidationSetItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
+	}
+
+	/**
+	 * This adds a property descriptor for the Abstract feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	protected void addAbstractPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+			getResourceLocator(),
+			getString("_UI_ValidationSet_abstract_feature"),
+			getString(
+				"_UI_PropertyDescriptor_description", "_UI_ValidationSet_abstract_feature", "_UI_ValidationSet_type"),
+			AggregatorPackage.Literals.VALIDATION_SET__ABSTRACT, true, false, false,
+			ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -203,6 +116,23 @@ public class ValidationSetItemProvider extends AggregatorItemProviderAdapter imp
 	}
 
 	/**
+	 * This adds a property descriptor for the Extends feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	protected void addExtendsPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+			getResourceLocator(),
+			getString("_UI_ValidationSet_extends_feature"),
+			getString(
+				"_UI_PropertyDescriptor_description", "_UI_ValidationSet_extends_feature", "_UI_ValidationSet_type"),
+			AggregatorPackage.Literals.VALIDATION_SET__EXTENDS, true, false, true, null, null, null));
+	}
+
+	/**
 	 * This adds a property descriptor for the Label feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -214,8 +144,7 @@ public class ValidationSetItemProvider extends AggregatorItemProviderAdapter imp
 			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
 			getResourceLocator(),
 			getString("_UI_ValidationSet_label_feature"),
-			getString(
-				"_UI_PropertyDescriptor_description", "_UI_ValidationSet_label_feature", "_UI_ValidationSet_type"),
+			getString("_UI_PropertyDescriptor_description", "_UI_ValidationSet_label_feature", "_UI_ValidationSet_type"),
 			AggregatorPackage.Literals.VALIDATION_SET__LABEL, true, false, false,
 			ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
@@ -231,21 +160,65 @@ public class ValidationSetItemProvider extends AggregatorItemProviderAdapter imp
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
+
+		newChildDescriptors.add(createChildParameter(
+			AggregatorPackage.Literals.VALIDATION_SET__CONTRIBUTIONS, AggregatorFactory.eINSTANCE.createContribution()));
+
+		newChildDescriptors.add(createChildParameter(
+			AggregatorPackage.Literals.VALIDATION_SET__VALIDATION_REPOSITORIES,
+			AggregatorFactory.eINSTANCE.createMetadataRepositoryReference()));
+
+		newChildDescriptors.add(createChildParameter(
+			AggregatorPackage.Literals.VALIDATION_SET__VALIDATION_REPOSITORIES,
+			AggregatorFactory.eINSTANCE.createMappedRepository()));
+	}
+
+	@Override
+	protected Command createAddCommand(EditingDomain domain, EObject owner, EStructuralFeature feature,
+			Collection<?> collection, int index) {
+		if(feature == AggregatorPackage.Literals.VALIDATION_SET__VALIDATION_REPOSITORIES) {
+			// disable drag & drop of Mapped Repositories to Aggregator's validation repositories list;
+			// although - given the class hierarchy - this should be theoretically possible in reality
+			// it isn't as the code in MappedRepositoryImpl expects its container to be a "Contribution"
+			for(Object object : collection) {
+				if(unwrap(object) instanceof MappedRepository)
+					return UnexecutableCommand.INSTANCE;
+			}
+		}
+		return super.createAddCommand(domain, owner, feature, collection, index);
 	}
 
 	/**
-	 * {@inheritDoc} <br />
-	 * Please note that {@link ValidationSetItemProvider this} class can't handle all the children returned by this
-	 * method but {@link ValidationSetWrapperItemProvider} can.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
 	 */
 	@Override
-	public Collection<?> getChildren(Object object) {
-		@SuppressWarnings("unchecked")
-		Collection<Object> children = (Collection<Object>) super.getChildren(object);
+	protected EStructuralFeature getChildFeature(Object object, Object child) {
+		// Check the type of the specified child object and return the proper feature to use for
+		// adding (see {@link AddCommand}) it as a child.
 
-		children.addAll(((ValidationSetImpl) object).getLinkedContributions());
+		return super.getChildFeature(object, child);
+	}
 
-		return children;
+	/**
+	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
+	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
+	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
+		if(childrenFeatures == null) {
+			super.getChildrenFeatures(object);
+			childrenFeatures.add(AggregatorPackage.Literals.VALIDATION_SET__CONTRIBUTIONS);
+			childrenFeatures.add(AggregatorPackage.Literals.VALIDATION_SET__VALIDATION_REPOSITORIES);
+		}
+		return childrenFeatures;
 	}
 
 	/**
@@ -277,7 +250,9 @@ public class ValidationSetItemProvider extends AggregatorItemProviderAdapter imp
 
 			addEnabledPropertyDescriptor(object);
 			addDescriptionPropertyDescriptor(object);
+			addAbstractPropertyDescriptor(object);
 			addLabelPropertyDescriptor(object);
+			addExtendsPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -299,34 +274,52 @@ public class ValidationSetItemProvider extends AggregatorItemProviderAdapter imp
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
-	 * @generated
-	 */
-	@Override
-	public String getText(Object object) {
-		String label = ((ValidationSet) object).getLabel();
-		return label == null || label.length() == 0
-				? getString("_UI_ValidationSet_type")
-				: getString("_UI_ValidationSet_type") + " " + label;
-	}
-
-	/**
-	 * This handles notifications sent by the validationSet object instances when other objects are
-	 * linked to/unlinked from it.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
 	 * @generated NOT
 	 */
 	@Override
-	public void notifyChanged(Notification notification) {
-		if(notification.getFeatureID(AggregatorPackage.class) == AggregatorPackage.VALIDATION_SET) {
-			updateChildren(notification);
-
-			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
-			return;
+	public String getText(Object object) {
+		ValidationSet self = (ValidationSet) object;
+		String label = self.getLabel();
+		StringBuilder bld = new StringBuilder(getString("_UI_ValidationSet_type")).append(" : ");
+		if(label != null)
+			bld.append(label);
+		List<ValidationSet> exs = self.getExtends();
+		int top = exs.size();
+		if(top > 0) {
+			bld.append(" extends ");
+			bld.append(exs.get(0).getLabel());
+			for(int idx = 1; idx < top; ++idx) {
+				bld.append(", ");
+				bld.append(exs.get(idx).getLabel());
+			}
 		}
+		return bld.toString();
+	}
 
+	@Override
+	public void notifyChanged(Notification notification) {
 		notifyChangedGen(notification);
+
+		if(notification.getEventType() == Notification.REMOVE) {
+			Object oldV = notification.getOldValue();
+			if(oldV instanceof Contribution || oldV instanceof MetadataRepositoryReference)
+				ResourceUtils.cleanUpResources(GeneralUtils.getAggregation((EObject) notification.getNotifier()));
+			if(oldV instanceof MetadataRepositoryReference || oldV instanceof MavenMapping)
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+		}
+		else if(notification.getEventType() == Notification.ADD) {
+			Object newV = notification.getNewValue();
+			if(newV instanceof Contribution) {
+				for(MappedRepository mappedRepository : ((Contribution) newV).getRepositories(true))
+					ResourceUtils.loadResourceForMappedRepository(mappedRepository);
+			}
+			else if(newV instanceof MetadataRepositoryReference) {
+				ResourceUtils.loadResourceForMappedRepository((MetadataRepositoryReference) newV);
+			}
+
+			if(newV instanceof MetadataRepositoryReference || newV instanceof MavenMapping)
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+		}
 	}
 
 	/**
@@ -343,8 +336,13 @@ public class ValidationSetItemProvider extends AggregatorItemProviderAdapter imp
 		switch(notification.getFeatureID(ValidationSet.class)) {
 			case AggregatorPackage.VALIDATION_SET__ENABLED:
 			case AggregatorPackage.VALIDATION_SET__DESCRIPTION:
+			case AggregatorPackage.VALIDATION_SET__ABSTRACT:
 			case AggregatorPackage.VALIDATION_SET__LABEL:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
+			case AggregatorPackage.VALIDATION_SET__CONTRIBUTIONS:
+			case AggregatorPackage.VALIDATION_SET__VALIDATION_REPOSITORIES:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
 		super.notifyChanged(notification);

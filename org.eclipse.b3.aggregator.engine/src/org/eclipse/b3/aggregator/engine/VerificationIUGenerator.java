@@ -6,7 +6,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.eclipse.b3.aggregator.ValidationSet;
-import org.eclipse.b3.p2.util.P2Utils;
 import org.eclipse.b3.util.LogUtils;
 import org.eclipse.b3.util.MonitorUtils;
 import org.eclipse.b3.util.TimeUtils;
@@ -42,7 +41,7 @@ public class VerificationIUGenerator extends BuilderPhase {
 		LogUtils.info(info);
 		MonitorUtils.subTask(monitor, info);
 
-		String name = getBuilder().getAggregator().getLabel();
+		String name = getBuilder().getAggregation().getLabel();
 		if(validationSet != null)
 			name += " / " + validationSet.getLabel();
 		name += " Verification repository";
@@ -55,8 +54,7 @@ public class VerificationIUGenerator extends BuilderPhase {
 		Map<String, String> properties = new HashMap<String, String>();
 		URI locationURI = Builder.createURI(location);
 
-		IMetadataRepositoryManager mdrMgr = P2Utils.getRepositoryManager(
-			getBuilder().getProvisioningAgent(), IMetadataRepositoryManager.class);
+		IMetadataRepositoryManager mdrMgr = getBuilder().getMdrManager();
 
 		try {
 			mdrMgr.removeRepository(locationURI);
@@ -73,10 +71,9 @@ public class VerificationIUGenerator extends BuilderPhase {
 			if(result.getSeverity() == IStatus.ERROR)
 				throw new CoreException(result);
 
-			getBuilder().getSourceComposite().addChild(mdr.getLocation());
+			getBuilder().getSourceComposite(validationSet).addChild(mdr.getLocation());
 		}
 		finally {
-			P2Utils.ungetRepositoryManager(getBuilder().getProvisioningAgent(), mdrMgr);
 			MonitorUtils.done(monitor);
 		}
 		LogUtils.info("Done. Took %s", TimeUtils.getFormattedDuration(start)); //$NON-NLS-1$

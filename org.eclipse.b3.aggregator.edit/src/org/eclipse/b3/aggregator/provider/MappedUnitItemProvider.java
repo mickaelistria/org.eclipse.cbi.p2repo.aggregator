@@ -133,14 +133,16 @@ public class MappedUnitItemProvider extends InstallableUnitRequestItemProvider i
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((MappedUnit) object).getName();
-		return label == null || label.length() == 0
-				? getString("_UI_MappedUnit_type")
-				: getString("_UI_MappedUnit_type") + " " + label;
+		MappedUnit self = (MappedUnit) object;
+		String name = self.getName();
+		StringBuilder bld = new StringBuilder(getString("_UI_MappedUnit_type")).append(" : ");
+		if(name != null)
+			bld.append(name);
+		return bld.toString();
 	}
 
 	/**

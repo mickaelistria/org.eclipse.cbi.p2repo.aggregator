@@ -14,12 +14,9 @@ import java.util.List;
 
 import org.eclipse.b3.aggregator.AggregatorPackage;
 import org.eclipse.b3.aggregator.MavenMapping;
-
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.common.util.ResourceLocator;
-
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
@@ -161,21 +158,22 @@ public class MavenMappingItemProvider extends AggregatorItemProviderAdapter impl
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = getString("_UI_MavenMapping_type");
-		String namePattern = ((MavenMapping) object).getNamePattern();
-		String groupId = ((MavenMapping) object).getGroupId();
-		String artifactId = ((MavenMapping) object).getArtifactId();
-
-		if(namePattern == null)
-			namePattern = "";
-
-		if(groupId == null)
-			groupId = "";
-
-		if(artifactId == null)
-			artifactId = "";
-
-		return label + " ['" + namePattern + "' => '" + groupId + "/" + artifactId + "']";
+		MavenMapping self = (MavenMapping) object;
+		StringBuilder bld = new StringBuilder(getString("_UI_MavenMapping_type")).append(" : ['");
+		String namePattern = self.getNamePattern();
+		if(namePattern != null)
+			bld.append(namePattern);
+		bld.append("' => '");
+		String groupId = self.getGroupId();
+		if(groupId != null)
+			bld.append(groupId);
+		String artifactId = self.getArtifactId();
+		if(artifactId != null) {
+			bld.append('/');
+			bld.append(artifactId);
+		}
+		bld.append("']");
+		return bld.toString();
 	}
 
 	@Override

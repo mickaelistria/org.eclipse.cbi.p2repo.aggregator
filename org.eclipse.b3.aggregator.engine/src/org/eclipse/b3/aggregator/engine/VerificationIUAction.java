@@ -19,7 +19,6 @@ import java.util.Map;
 import java.util.Set;
 
 import org.eclipse.b3.aggregator.Category;
-import org.eclipse.b3.aggregator.ValidationSet;
 import org.eclipse.b3.aggregator.Configuration;
 import org.eclipse.b3.aggregator.Contribution;
 import org.eclipse.b3.aggregator.ExclusionRule;
@@ -28,6 +27,7 @@ import org.eclipse.b3.aggregator.MapRule;
 import org.eclipse.b3.aggregator.MappedRepository;
 import org.eclipse.b3.aggregator.MappedUnit;
 import org.eclipse.b3.aggregator.ValidConfigurationsRule;
+import org.eclipse.b3.aggregator.ValidationSet;
 import org.eclipse.b3.aggregator.engine.internal.RequirementUtils;
 import org.eclipse.b3.aggregator.util.InstallableUnitUtils;
 import org.eclipse.b3.aggregator.util.ResourceUtils;
@@ -277,7 +277,7 @@ public class VerificationIUAction extends AbstractPublisherAction {
 	}
 
 	public String getRelativeEObjectURI(EObject eObject) {
-		return EcoreUtil.getURI(eObject).deresolve(((EObject) builder.getAggregator()).eResource().getURI()).toString();
+		return EcoreUtil.getURI(eObject).deresolve(((EObject) builder.getAggregation()).eResource().getURI()).toString();
 	}
 
 	@Override
@@ -285,8 +285,7 @@ public class VerificationIUAction extends AbstractPublisherAction {
 		Map<String, Set<RepositoryRequirement>> required = new HashMap<String, Set<RepositoryRequirement>>();
 
 		boolean errorsFound = false;
-		List<Contribution> validationSetContribs = builder.getAggregator().getValidationSetContributions(
-			validationSet, true);
+		List<Contribution> validationSetContribs = validationSet.getAllContributions();
 		SubMonitor subMon = SubMonitor.convert(monitor, 2 + validationSetContribs.size());
 		try {
 			Set<String> explicit = new HashSet<String>();

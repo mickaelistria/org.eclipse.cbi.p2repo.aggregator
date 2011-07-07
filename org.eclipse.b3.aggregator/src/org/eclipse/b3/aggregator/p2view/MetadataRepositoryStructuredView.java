@@ -24,6 +24,7 @@ import org.eclipse.b3.p2.MetadataRepository;
  * <li>{@link org.eclipse.b3.aggregator.p2view.MetadataRepositoryStructuredView#getProperties <em>Properties</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.p2view.MetadataRepositoryStructuredView#getMetadataRepository <em>Metadata Repository</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.p2view.MetadataRepositoryStructuredView#isLoaded <em>Loaded</em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.p2view.MetadataRepositoryStructuredView#getRepositoryReferences <em>Repository References</em>}</li>
  * </ul>
  * </p>
  * 
@@ -98,6 +99,22 @@ public interface MetadataRepositoryStructuredView extends ChildrenProvider<Insta
 	Properties getProperties();
 
 	/**
+	 * Returns the value of the '<em><b>Repository References</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Repository References</em>' reference isn't clear, there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the value of the '<em>Repository References</em>' reference.
+	 * @see #setRepositoryReferences(RepositoryReferences)
+	 * @see org.eclipse.b3.aggregator.p2view.P2viewPackage#getMetadataRepositoryStructuredView_RepositoryReferences()
+	 * @model
+	 * @generated
+	 */
+	RepositoryReferences getRepositoryReferences();
+
+	/**
 	 * Returns the value of the '<em><b>Loaded</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -170,5 +187,18 @@ public interface MetadataRepositoryStructuredView extends ChildrenProvider<Insta
 	 * @generated
 	 */
 	void setProperties(Properties value);
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.b3.aggregator.p2view.MetadataRepositoryStructuredView#getRepositoryReferences
+	 * <em>Repository References</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @param value
+	 *            the new value of the '<em>Repository References</em>' reference.
+	 * @see #getRepositoryReferences()
+	 * @generated
+	 */
+	void setRepositoryReferences(RepositoryReferences value);
 
 } // MetadataRepositoryStructuredView

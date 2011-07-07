@@ -1259,6 +1259,42 @@ public interface P2Package extends EPackage {
 		EClass IREPOSITORY_REFERENCE = eINSTANCE.getIRepositoryReference();
 
 		/**
+		 * The meta object literal for the '<em><b>Location</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EAttribute IREPOSITORY_REFERENCE__LOCATION = eINSTANCE.getIRepositoryReference_Location();
+
+		/**
+		 * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EAttribute IREPOSITORY_REFERENCE__TYPE = eINSTANCE.getIRepositoryReference_Type();
+
+		/**
+		 * The meta object literal for the '<em><b>Options</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EAttribute IREPOSITORY_REFERENCE__OPTIONS = eINSTANCE.getIRepositoryReference_Options();
+
+		/**
+		 * The meta object literal for the '<em><b>Nickname</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EAttribute IREPOSITORY_REFERENCE__NICKNAME = eINSTANCE.getIRepositoryReference_Nickname();
+
+		/**
 		 * The meta object literal for the '{@link org.eclipse.b3.p2.impl.RepositoryReferenceImpl <em>Repository Reference</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1268,42 +1304,6 @@ public interface P2Package extends EPackage {
 		 * @generated
 		 */
 		EClass REPOSITORY_REFERENCE = eINSTANCE.getRepositoryReference();
-
-		/**
-		 * The meta object literal for the '<em><b>Location</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * 
-		 * @generated
-		 */
-		EAttribute REPOSITORY_REFERENCE__LOCATION = eINSTANCE.getRepositoryReference_Location();
-
-		/**
-		 * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * 
-		 * @generated
-		 */
-		EAttribute REPOSITORY_REFERENCE__TYPE = eINSTANCE.getRepositoryReference_Type();
-
-		/**
-		 * The meta object literal for the '<em><b>Options</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * 
-		 * @generated
-		 */
-		EAttribute REPOSITORY_REFERENCE__OPTIONS = eINSTANCE.getRepositoryReference_Options();
-
-		/**
-		 * The meta object literal for the '<em><b>Nickname</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * 
-		 * @generated
-		 */
-		EAttribute REPOSITORY_REFERENCE__NICKNAME = eINSTANCE.getRepositoryReference_Nickname();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.core.runtime.IAdaptable <em>IAdaptable</em>}' class.
@@ -4284,6 +4284,46 @@ public interface P2Package extends EPackage {
 	int IQUERYABLE_FEATURE_COUNT = 0;
 
 	/**
+	 * The feature id for the '<em><b>Location</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IREPOSITORY_REFERENCE__LOCATION = 0;
+
+	/**
+	 * The feature id for the '<em><b>Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IREPOSITORY_REFERENCE__TYPE = 1;
+
+	/**
+	 * The feature id for the '<em><b>Options</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IREPOSITORY_REFERENCE__OPTIONS = 2;
+
+	/**
+	 * The feature id for the '<em><b>Nickname</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IREPOSITORY_REFERENCE__NICKNAME = 3;
+
+	/**
 	 * The number of structural features of the '<em>IRepository Reference</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4291,7 +4331,7 @@ public interface P2Package extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int IREPOSITORY_REFERENCE_FEATURE_COUNT = 0;
+	int IREPOSITORY_REFERENCE_FEATURE_COUNT = 4;
 
 	/**
 	 * The feature id for the '<em><b>Filter</b></em>' attribute.
@@ -4922,7 +4962,7 @@ public interface P2Package extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int REPOSITORY_REFERENCE__LOCATION = IREPOSITORY_REFERENCE_FEATURE_COUNT + 0;
+	int REPOSITORY_REFERENCE__LOCATION = IREPOSITORY_REFERENCE__LOCATION;
 
 	/**
 	 * The feature id for the '<em><b>Type</b></em>' attribute.
@@ -4932,7 +4972,7 @@ public interface P2Package extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int REPOSITORY_REFERENCE__TYPE = IREPOSITORY_REFERENCE_FEATURE_COUNT + 1;
+	int REPOSITORY_REFERENCE__TYPE = IREPOSITORY_REFERENCE__TYPE;
 
 	/**
 	 * The feature id for the '<em><b>Options</b></em>' attribute.
@@ -4942,7 +4982,7 @@ public interface P2Package extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int REPOSITORY_REFERENCE__OPTIONS = IREPOSITORY_REFERENCE_FEATURE_COUNT + 2;
+	int REPOSITORY_REFERENCE__OPTIONS = IREPOSITORY_REFERENCE__OPTIONS;
 
 	/**
 	 * The feature id for the '<em><b>Nickname</b></em>' attribute.
@@ -4952,7 +4992,7 @@ public interface P2Package extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int REPOSITORY_REFERENCE__NICKNAME = IREPOSITORY_REFERENCE_FEATURE_COUNT + 3;
+	int REPOSITORY_REFERENCE__NICKNAME = IREPOSITORY_REFERENCE__NICKNAME;
 
 	/**
 	 * The number of structural features of the '<em>Repository Reference</em>' class.
@@ -4962,7 +5002,7 @@ public interface P2Package extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int REPOSITORY_REFERENCE_FEATURE_COUNT = IREPOSITORY_REFERENCE_FEATURE_COUNT + 4;
+	int REPOSITORY_REFERENCE_FEATURE_COUNT = IREPOSITORY_REFERENCE_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Filter</b></em>' attribute.
@@ -6876,6 +6916,54 @@ public interface P2Package extends EPackage {
 	EClass getIRepositoryReference();
 
 	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.equinox.p2.repository.IRepositoryReference#getLocation <em>Location</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the attribute '<em>Location</em>'.
+	 * @see org.eclipse.equinox.p2.repository.IRepositoryReference#getLocation()
+	 * @see #getIRepositoryReference()
+	 * @generated
+	 */
+	EAttribute getIRepositoryReference_Location();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.equinox.p2.repository.IRepositoryReference#getNickname <em>Nickname</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the attribute '<em>Nickname</em>'.
+	 * @see org.eclipse.equinox.p2.repository.IRepositoryReference#getNickname()
+	 * @see #getIRepositoryReference()
+	 * @generated
+	 */
+	EAttribute getIRepositoryReference_Nickname();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.equinox.p2.repository.IRepositoryReference#getOptions <em>Options</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the attribute '<em>Options</em>'.
+	 * @see org.eclipse.equinox.p2.repository.IRepositoryReference#getOptions()
+	 * @see #getIRepositoryReference()
+	 * @generated
+	 */
+	EAttribute getIRepositoryReference_Options();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.equinox.p2.repository.IRepositoryReference#getType <em>Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the attribute '<em>Type</em>'.
+	 * @see org.eclipse.equinox.p2.repository.IRepositoryReference#getType()
+	 * @see #getIRepositoryReference()
+	 * @generated
+	 */
+	EAttribute getIRepositoryReference_Type();
+
+	/**
 	 * Returns the meta object for class '{@link org.eclipse.equinox.internal.p2.metadata.IRequiredCapability <em>IRequired Capability</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -7469,54 +7557,6 @@ public interface P2Package extends EPackage {
 	 * @generated
 	 */
 	EClass getRepositoryReference();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.b3.p2.RepositoryReference#getLocation <em>Location</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @return the meta object for the attribute '<em>Location</em>'.
-	 * @see org.eclipse.b3.p2.RepositoryReference#getLocation()
-	 * @see #getRepositoryReference()
-	 * @generated
-	 */
-	EAttribute getRepositoryReference_Location();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.b3.p2.RepositoryReference#getNickname <em>Nickname</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @return the meta object for the attribute '<em>Nickname</em>'.
-	 * @see org.eclipse.b3.p2.RepositoryReference#getNickname()
-	 * @see #getRepositoryReference()
-	 * @generated
-	 */
-	EAttribute getRepositoryReference_Nickname();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.b3.p2.RepositoryReference#getOptions <em>Options</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @return the meta object for the attribute '<em>Options</em>'.
-	 * @see org.eclipse.b3.p2.RepositoryReference#getOptions()
-	 * @see #getRepositoryReference()
-	 * @generated
-	 */
-	EAttribute getRepositoryReference_Options();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.b3.p2.RepositoryReference#getType <em>Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @return the meta object for the attribute '<em>Type</em>'.
-	 * @see org.eclipse.b3.p2.RepositoryReference#getType()
-	 * @see #getRepositoryReference()
-	 * @generated
-	 */
-	EAttribute getRepositoryReference_Type();
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.b3.p2.RequiredCapability <em>Required Capability</em>}'.

@@ -192,6 +192,11 @@ public class P2viewAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
+		public Adapter caseRepositoryReferences(RepositoryReferences object) {
+			return createRepositoryReferencesAdapter();
+		}
+
+		@Override
 		public Adapter caseRequirements(Requirements object) {
 			return createRequirementsAdapter();
 		}
@@ -595,6 +600,21 @@ public class P2viewAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createProvidedCapabilityWrapperAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.aggregator.p2view.RepositoryReferences <em>Repository References</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the new adapter.
+	 * @see org.eclipse.b3.aggregator.p2view.RepositoryReferences
+	 * @generated
+	 */
+	public Adapter createRepositoryReferencesAdapter() {
 		return null;
 	}
 

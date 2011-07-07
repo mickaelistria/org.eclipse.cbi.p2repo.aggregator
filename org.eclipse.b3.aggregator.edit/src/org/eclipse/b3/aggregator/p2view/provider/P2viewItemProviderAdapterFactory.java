@@ -252,6 +252,15 @@ public class P2viewItemProviderAdapterFactory extends P2viewAdapterFactory imple
 	protected LicensesItemProvider licensesItemProvider;
 
 	/**
+	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.aggregator.p2view.RepositoryReferences} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	protected RepositoryReferencesItemProvider repositoryReferencesItemProvider;
+
+	/**
 	 * This constructs an instance.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -606,6 +615,22 @@ public class P2viewItemProviderAdapterFactory extends P2viewAdapterFactory imple
 	}
 
 	/**
+	 * This creates an adapter for a {@link org.eclipse.b3.aggregator.p2view.RepositoryReferences}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public Adapter createRepositoryReferencesAdapter() {
+		if(repositoryReferencesItemProvider == null) {
+			repositoryReferencesItemProvider = new RepositoryReferencesItemProvider(this);
+		}
+
+		return repositoryReferencesItemProvider;
+	}
+
+	/**
 	 * This creates an adapter for a {@link org.eclipse.b3.aggregator.p2view.Requirements}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -660,50 +685,52 @@ public class P2viewItemProviderAdapterFactory extends P2viewAdapterFactory imple
 	 * @generated
 	 */
 	public void dispose() {
-		if(metadataRepositoryStructuredViewItemProvider != null)
-			metadataRepositoryStructuredViewItemProvider.dispose();
-		if(installableUnitsItemProvider != null)
-			installableUnitsItemProvider.dispose();
-		if(categoriesItemProvider != null)
-			categoriesItemProvider.dispose();
-		if(featuresItemProvider != null)
-			featuresItemProvider.dispose();
-		if(productsItemProvider != null)
-			productsItemProvider.dispose();
-		if(bundlesItemProvider != null)
-			bundlesItemProvider.dispose();
-		if(fragmentsItemProvider != null)
-			fragmentsItemProvider.dispose();
-		if(miscellaneousItemProvider != null)
-			miscellaneousItemProvider.dispose();
-		if(categoryItemProvider != null)
-			categoryItemProvider.dispose();
-		if(featureItemProvider != null)
-			featureItemProvider.dispose();
-		if(productItemProvider != null)
-			productItemProvider.dispose();
 		if(bundleItemProvider != null)
 			bundleItemProvider.dispose();
+		if(bundlesItemProvider != null)
+			bundlesItemProvider.dispose();
+		if(categoryItemProvider != null)
+			categoryItemProvider.dispose();
+		if(categoriesItemProvider != null)
+			categoriesItemProvider.dispose();
+		if(featureItemProvider != null)
+			featureItemProvider.dispose();
+		if(featuresItemProvider != null)
+			featuresItemProvider.dispose();
 		if(fragmentItemProvider != null)
 			fragmentItemProvider.dispose();
-		if(otherIUItemProvider != null)
-			otherIUItemProvider.dispose();
-		if(propertiesItemProvider != null)
-			propertiesItemProvider.dispose();
-		if(requirementsItemProvider != null)
-			requirementsItemProvider.dispose();
-		if(providedCapabilitiesItemProvider != null)
-			providedCapabilitiesItemProvider.dispose();
-		if(touchpointsItemProvider != null)
-			touchpointsItemProvider.dispose();
-		if(licensesItemProvider != null)
-			licensesItemProvider.dispose();
+		if(fragmentsItemProvider != null)
+			fragmentsItemProvider.dispose();
+		if(installableUnitsItemProvider != null)
+			installableUnitsItemProvider.dispose();
 		if(iuDetailsItemProvider != null)
 			iuDetailsItemProvider.dispose();
-		if(requirementWrapperItemProvider != null)
-			requirementWrapperItemProvider.dispose();
+		if(licensesItemProvider != null)
+			licensesItemProvider.dispose();
+		if(metadataRepositoryStructuredViewItemProvider != null)
+			metadataRepositoryStructuredViewItemProvider.dispose();
+		if(miscellaneousItemProvider != null)
+			miscellaneousItemProvider.dispose();
+		if(otherIUItemProvider != null)
+			otherIUItemProvider.dispose();
+		if(productItemProvider != null)
+			productItemProvider.dispose();
+		if(productsItemProvider != null)
+			productsItemProvider.dispose();
+		if(propertiesItemProvider != null)
+			propertiesItemProvider.dispose();
+		if(providedCapabilitiesItemProvider != null)
+			providedCapabilitiesItemProvider.dispose();
 		if(providedCapabilityWrapperItemProvider != null)
 			providedCapabilityWrapperItemProvider.dispose();
+		if(repositoryReferencesItemProvider != null)
+			repositoryReferencesItemProvider.dispose();
+		if(requirementsItemProvider != null)
+			requirementsItemProvider.dispose();
+		if(requirementWrapperItemProvider != null)
+			requirementWrapperItemProvider.dispose();
+		if(touchpointsItemProvider != null)
+			touchpointsItemProvider.dispose();
 	}
 
 	/**

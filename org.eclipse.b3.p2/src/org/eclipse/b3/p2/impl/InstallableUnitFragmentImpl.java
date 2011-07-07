@@ -140,6 +140,17 @@ public class InstallableUnitFragmentImpl extends InstallableUnitImpl implements 
 	 * @generated
 	 */
 	@Override
+	protected EClass eStaticClass() {
+		return P2Package.Literals.INSTALLABLE_UNIT_FRAGMENT;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
 			case P2Package.INSTALLABLE_UNIT_FRAGMENT__HOST:
@@ -161,17 +172,6 @@ public class InstallableUnitFragmentImpl extends InstallableUnitImpl implements 
 				IRequirement.class, this, P2Package.INSTALLABLE_UNIT_FRAGMENT__HOST);
 		}
 		return host;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return P2Package.Literals.INSTALLABLE_UNIT_FRAGMENT;
 	}
 
 } // InstallableUnitFragmentImpl

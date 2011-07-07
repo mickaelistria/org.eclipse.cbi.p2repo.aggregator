@@ -199,10 +199,4 @@ public interface MappedRepository extends MetadataRepositoryReference, Descripti
 	 * @generated
 	 */
 	void setMirrorArtifacts(boolean value);
-
-	/**
-	 * 
-	 */
-	void updateAvailableVersions();
-
 } // MappedRepository

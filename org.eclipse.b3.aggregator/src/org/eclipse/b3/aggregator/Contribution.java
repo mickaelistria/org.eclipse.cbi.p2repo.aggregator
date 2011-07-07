@@ -27,7 +27,7 @@ import org.eclipse.emf.common.util.EList;
  * @generated
  */
 public interface Contribution extends EnabledStatusProvider, DescriptionProvider, StatusProvider, InfosProvider,
-		LinkSource, IdentificationProvider {
+		IdentificationProvider {
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 

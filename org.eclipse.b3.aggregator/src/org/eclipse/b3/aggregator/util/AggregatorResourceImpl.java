@@ -23,6 +23,7 @@ import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.emf.ecore.xmi.impl.XMIResourceImpl;
 
 /**
  * <!-- begin-user-doc --> The <b>Resource</b> associated with the package.
@@ -30,7 +31,7 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  * @extends AggregatorResource <!-- end-user-doc -->
  * @see org.eclipse.b3.aggregator.util.AggregatorResourceFactoryImpl
  */
-public class AggregatorResourceImpl extends BaseAggregatorResourceImpl implements AggregatorResource {
+public class AggregatorResourceImpl extends XMIResourceImpl implements AggregatorResource {
 
 	class NotifyAnalyzeResourceFinished extends NotificationImpl {
 
@@ -154,9 +155,9 @@ public class AggregatorResourceImpl extends BaseAggregatorResourceImpl implement
 										iterator.remove();
 							}
 
-							Aggregation aggregator = (Aggregation) getContents().get(0);
+							Aggregation aggregation = (Aggregation) getContents().get(0);
 
-							analyze((EObject) aggregator);
+							analyze((EObject) aggregation);
 						}
 						finally {
 							eNotify(new NotifyAnalyzeResourceFinished());
@@ -184,7 +185,7 @@ public class AggregatorResourceImpl extends BaseAggregatorResourceImpl implement
 	 * 
 	 * @return the {@code Aggregator} instance contained in this {@code Resource}.
 	 */
-	public Aggregation getAggregator() {
+	public Aggregation getAggregation() {
 		return (Aggregation) getContents().get(0);
 	}
 

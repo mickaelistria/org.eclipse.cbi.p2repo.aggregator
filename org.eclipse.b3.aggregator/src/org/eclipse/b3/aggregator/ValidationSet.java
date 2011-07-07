@@ -7,6 +7,8 @@
  */
 package org.eclipse.b3.aggregator;
 
+import org.eclipse.emf.common.util.EList;
+
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>ValidationSet</b></em>'.
@@ -15,7 +17,11 @@ package org.eclipse.b3.aggregator;
  * <p>
  * The following features are supported:
  * <ul>
+ * <li>{@link org.eclipse.b3.aggregator.ValidationSet#isAbstract <em>Abstract</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.ValidationSet#getLabel <em>Label</em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.ValidationSet#getContributions <em>Contributions</em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.ValidationSet#getValidationRepositories <em>Validation Repositories</em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.ValidationSet#getExtends <em>Extends</em>}</li>
  * </ul>
  * </p>
  * 
@@ -23,8 +29,75 @@ package org.eclipse.b3.aggregator;
  * @model
  * @generated
  */
-public interface ValidationSet extends EnabledStatusProvider, DescriptionProvider, StatusProvider, InfosProvider,
-		LinkReceiver {
+public interface ValidationSet extends EnabledStatusProvider, DescriptionProvider, StatusProvider, InfosProvider {
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @model kind="operation"
+	 * @generated
+	 */
+	EList<Contribution> getAllContributions();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @model kind="operation"
+	 * @generated
+	 */
+	EList<MetadataRepositoryReference> getAllValidationRepositories();
+
+	/**
+	 * Returns the value of the '<em><b>Contributions</b></em>' containment reference list.
+	 * The list contents are of type {@link org.eclipse.b3.aggregator.Contribution}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Contributions</em>' containment reference list isn't clear, there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the value of the '<em>Contributions</em>' containment reference list.
+	 * @see org.eclipse.b3.aggregator.AggregatorPackage#getValidationSet_Contributions()
+	 * @model containment="true" resolveProxies="true" keys="label"
+	 * @generated
+	 */
+	EList<Contribution> getContributions();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @model kind="operation"
+	 * @generated
+	 */
+	EList<Contribution> getDeclaredContributions();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @model kind="operation"
+	 * @generated
+	 */
+	EList<MetadataRepositoryReference> getDeclaredValidationRepositories();
+
+	/**
+	 * Returns the value of the '<em><b>Extends</b></em>' reference list.
+	 * The list contents are of type {@link org.eclipse.b3.aggregator.ValidationSet}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Extends</em>' reference list isn't clear, there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the value of the '<em>Extends</em>' reference list.
+	 * @see org.eclipse.b3.aggregator.AggregatorPackage#getValidationSet_Extends()
+	 * @model
+	 * @generated
+	 */
+	EList<ValidationSet> getExtends();
+
 	/**
 	 * Returns the value of the '<em><b>Label</b></em>' attribute.
 	 * <!-- begin-user-doc -->
@@ -40,6 +113,61 @@ public interface ValidationSet extends EnabledStatusProvider, DescriptionProvide
 	 * @generated
 	 */
 	String getLabel();
+
+	/**
+	 * Returns the value of the '<em><b>Validation Repositories</b></em>' containment reference list.
+	 * The list contents are of type {@link org.eclipse.b3.aggregator.MetadataRepositoryReference}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Validation Repositories</em>' containment reference list isn't clear, there really should be more of a description
+	 * here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the value of the '<em>Validation Repositories</em>' containment reference list.
+	 * @see org.eclipse.b3.aggregator.AggregatorPackage#getValidationSet_ValidationRepositories()
+	 * @model containment="true" resolveProxies="true"
+	 * @generated
+	 */
+	EList<MetadataRepositoryReference> getValidationRepositories();
+
+	/**
+	 * Returns the value of the '<em><b>Abstract</b></em>' attribute.
+	 * The default value is <code>"false"</code>.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Abstract</em>' attribute isn't clear, there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the value of the '<em>Abstract</em>' attribute.
+	 * @see #setAbstract(boolean)
+	 * @see org.eclipse.b3.aggregator.AggregatorPackage#getValidationSet_Abstract()
+	 * @model default="false"
+	 * @generated
+	 */
+	boolean isAbstract();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @model
+	 * @generated
+	 */
+	boolean isExtensionOf(ValidationSet validationSet);
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.b3.aggregator.ValidationSet#isAbstract <em>Abstract</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @param value
+	 *            the new value of the '<em>Abstract</em>' attribute.
+	 * @see #isAbstract()
+	 * @generated
+	 */
+	void setAbstract(boolean value);
 
 	/**
 	 * Sets the value of the '{@link org.eclipse.b3.aggregator.ValidationSet#getLabel <em>Label</em>}' attribute.

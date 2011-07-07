@@ -31,7 +31,7 @@ import org.eclipse.equinox.p2.metadata.IInstallableUnit;
  * 
  */
 public class AddIUsToParentRepositoryCommand extends AbstractCommand {
-	private Aggregation aggregator;
+	private Aggregation aggregation;
 
 	private List<IInstallableUnit> selectedIUs;
 
@@ -43,10 +43,10 @@ public class AddIUsToParentRepositoryCommand extends AbstractCommand {
 
 	private Map<MappedRepository, List<MapRule>> rulesAddedToMappedRepo = new HashMap<MappedRepository, List<MapRule>>();
 
-	public AddIUsToParentRepositoryCommand(Aggregation aggregator, List<IInstallableUnit> selectedIUs, int operation) {
+	public AddIUsToParentRepositoryCommand(Aggregation aggregation, List<IInstallableUnit> selectedIUs, int operation) {
 		super(AggregatorEditPlugin.INSTANCE.getString("_UI_Add_to_parent_Mapped_Repository"));
 
-		this.aggregator = aggregator;
+		this.aggregation = aggregation;
 		this.selectedIUs = selectedIUs;
 		this.operation = operation;
 	}
@@ -107,7 +107,7 @@ public class AddIUsToParentRepositoryCommand extends AbstractCommand {
 				return false;
 
 			MetadataRepository mdr = (MetadataRepository) ((EObject) iu).eContainer();
-			MappedRepository mappedRepo = ItemUtils.findMappedRepository(aggregator, mdr);
+			MappedRepository mappedRepo = ItemUtils.findMappedRepository(aggregation, mdr);
 
 			if(mappedRepo == null)
 				continue;

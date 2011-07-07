@@ -14,12 +14,9 @@ import java.util.List;
 
 import org.eclipse.b3.aggregator.AggregatorPackage;
 import org.eclipse.b3.aggregator.MavenItem;
-
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.common.util.ResourceLocator;
-
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemColorProvider;
@@ -136,14 +133,21 @@ public class MavenItemItemProvider extends AggregatorItemProviderAdapter impleme
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((MavenItem) object).getGroupId();
-		return label == null || label.length() == 0
-				? getString("_UI_MavenItem_type")
-				: getString("_UI_MavenItem_type") + " " + label;
+		MavenItem self = (MavenItem) object;
+		StringBuilder bld = new StringBuilder(getString("_UI_MavenItem_type")).append(" : ");
+		String groupId = self.getGroupId();
+		if(groupId != null)
+			bld.append(groupId);
+		String artifactId = self.getArtifactId();
+		if(artifactId != null) {
+			bld.append('/');
+			bld.append(artifactId);
+		}
+		return bld.toString();
 	}
 
 	/**

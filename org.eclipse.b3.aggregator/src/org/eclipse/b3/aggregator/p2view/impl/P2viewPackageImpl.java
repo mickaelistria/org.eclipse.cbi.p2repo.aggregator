@@ -34,6 +34,7 @@ import org.eclipse.b3.aggregator.p2view.Products;
 import org.eclipse.b3.aggregator.p2view.Properties;
 import org.eclipse.b3.aggregator.p2view.ProvidedCapabilities;
 import org.eclipse.b3.aggregator.p2view.ProvidedCapabilityWrapper;
+import org.eclipse.b3.aggregator.p2view.RepositoryReferences;
 import org.eclipse.b3.aggregator.p2view.RequirementWrapper;
 import org.eclipse.b3.aggregator.p2view.Requirements;
 import org.eclipse.b3.aggregator.p2view.Touchpoints;
@@ -272,6 +273,14 @@ public class P2viewPackageImpl extends EPackageImpl implements P2viewPackage {
 	private EClass providedCapabilityWrapperEClass = null;
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	private EClass repositoryReferencesEClass = null;
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
@@ -322,14 +331,34 @@ public class P2viewPackageImpl extends EPackageImpl implements P2viewPackage {
 		isCreated = true;
 
 		// Create classes and their features
-		metadataRepositoryStructuredViewEClass = createEClass(METADATA_REPOSITORY_STRUCTURED_VIEW);
-		createEAttribute(metadataRepositoryStructuredViewEClass, METADATA_REPOSITORY_STRUCTURED_VIEW__NAME);
-		createEReference(
-			metadataRepositoryStructuredViewEClass, METADATA_REPOSITORY_STRUCTURED_VIEW__INSTALLABLE_UNIT_LIST);
-		createEReference(metadataRepositoryStructuredViewEClass, METADATA_REPOSITORY_STRUCTURED_VIEW__PROPERTIES);
-		createEReference(
-			metadataRepositoryStructuredViewEClass, METADATA_REPOSITORY_STRUCTURED_VIEW__METADATA_REPOSITORY);
-		createEAttribute(metadataRepositoryStructuredViewEClass, METADATA_REPOSITORY_STRUCTURED_VIEW__LOADED);
+		bundleEClass = createEClass(BUNDLE);
+
+		bundlesEClass = createEClass(BUNDLES);
+		createEReference(bundlesEClass, BUNDLES__BUNDLES);
+
+		categoryEClass = createEClass(CATEGORY);
+		createEReference(categoryEClass, CATEGORY__CATEGORY_CONTAINER);
+		createEReference(categoryEClass, CATEGORY__FEATURE_CONTAINER);
+		createEReference(categoryEClass, CATEGORY__PRODUCT_CONTAINER);
+		createEReference(categoryEClass, CATEGORY__BUNDLE_CONTAINER);
+		createEReference(categoryEClass, CATEGORY__FRAGMENT_CONTAINER);
+		createEReference(categoryEClass, CATEGORY__IU_DETAILS);
+
+		categoriesEClass = createEClass(CATEGORIES);
+		createEReference(categoriesEClass, CATEGORIES__CATEGORIES);
+
+		featureEClass = createEClass(FEATURE);
+		createEReference(featureEClass, FEATURE__FEATURE_CONTAINER);
+		createEReference(featureEClass, FEATURE__BUNDLE_CONTAINER);
+		createEReference(featureEClass, FEATURE__FRAGMENT_CONTAINER);
+
+		featuresEClass = createEClass(FEATURES);
+		createEReference(featuresEClass, FEATURES__FEATURES);
+
+		fragmentEClass = createEClass(FRAGMENT);
+
+		fragmentsEClass = createEClass(FRAGMENTS);
+		createEReference(fragmentsEClass, FRAGMENTS__FRAGMENTS);
 
 		installableUnitsEClass = createEClass(INSTALLABLE_UNITS);
 		createEReference(installableUnitsEClass, INSTALLABLE_UNITS__ALL_IUS);
@@ -340,23 +369,14 @@ public class P2viewPackageImpl extends EPackageImpl implements P2viewPackage {
 		createEReference(installableUnitsEClass, INSTALLABLE_UNITS__FRAGMENT_CONTAINER);
 		createEReference(installableUnitsEClass, INSTALLABLE_UNITS__MISCELLANEOUS_CONTAINER);
 
-		categoriesEClass = createEClass(CATEGORIES);
-		createEReference(categoriesEClass, CATEGORIES__CATEGORIES);
-
-		featuresEClass = createEClass(FEATURES);
-		createEReference(featuresEClass, FEATURES__FEATURES);
-
-		productsEClass = createEClass(PRODUCTS);
-		createEReference(productsEClass, PRODUCTS__PRODUCTS);
-
-		bundlesEClass = createEClass(BUNDLES);
-		createEReference(bundlesEClass, BUNDLES__BUNDLES);
-
-		fragmentsEClass = createEClass(FRAGMENTS);
-		createEReference(fragmentsEClass, FRAGMENTS__FRAGMENTS);
-
-		miscellaneousEClass = createEClass(MISCELLANEOUS);
-		createEReference(miscellaneousEClass, MISCELLANEOUS__OTHERS);
+		iuDetailsEClass = createEClass(IU_DETAILS);
+		createEReference(iuDetailsEClass, IU_DETAILS__REQUIREMENTS_CONTAINER);
+		createEReference(iuDetailsEClass, IU_DETAILS__PROVIDED_CAPABILITIES_CONTAINER);
+		createEReference(iuDetailsEClass, IU_DETAILS__PROPERTIES_CONTAINER);
+		createEReference(iuDetailsEClass, IU_DETAILS__TOUCHPOINTS_CONTAINER);
+		createEReference(iuDetailsEClass, IU_DETAILS__UPDATE_DESCRIPTOR);
+		createEReference(iuDetailsEClass, IU_DETAILS__COPYRIGHT);
+		createEReference(iuDetailsEClass, IU_DETAILS__LICENSES_CONTAINER);
 
 		iuPresentationEClass = createEClass(IU_PRESENTATION);
 		createEAttribute(iuPresentationEClass, IU_PRESENTATION__ID);
@@ -371,60 +391,54 @@ public class P2viewPackageImpl extends EPackageImpl implements P2viewPackage {
 		iuPresentationWithDetailsEClass = createEClass(IU_PRESENTATION_WITH_DETAILS);
 		createEAttribute(iuPresentationWithDetailsEClass, IU_PRESENTATION_WITH_DETAILS__DETAILS_RESOLVED);
 
-		categoryEClass = createEClass(CATEGORY);
-		createEReference(categoryEClass, CATEGORY__CATEGORY_CONTAINER);
-		createEReference(categoryEClass, CATEGORY__FEATURE_CONTAINER);
-		createEReference(categoryEClass, CATEGORY__PRODUCT_CONTAINER);
-		createEReference(categoryEClass, CATEGORY__BUNDLE_CONTAINER);
-		createEReference(categoryEClass, CATEGORY__FRAGMENT_CONTAINER);
-		createEReference(categoryEClass, CATEGORY__IU_DETAILS);
+		licensesEClass = createEClass(LICENSES);
+		createEReference(licensesEClass, LICENSES__LICENSES);
 
-		featureEClass = createEClass(FEATURE);
-		createEReference(featureEClass, FEATURE__FEATURE_CONTAINER);
-		createEReference(featureEClass, FEATURE__BUNDLE_CONTAINER);
-		createEReference(featureEClass, FEATURE__FRAGMENT_CONTAINER);
+		metadataRepositoryStructuredViewEClass = createEClass(METADATA_REPOSITORY_STRUCTURED_VIEW);
+		createEAttribute(metadataRepositoryStructuredViewEClass, METADATA_REPOSITORY_STRUCTURED_VIEW__NAME);
+		createEReference(
+			metadataRepositoryStructuredViewEClass, METADATA_REPOSITORY_STRUCTURED_VIEW__INSTALLABLE_UNIT_LIST);
+		createEReference(metadataRepositoryStructuredViewEClass, METADATA_REPOSITORY_STRUCTURED_VIEW__PROPERTIES);
+		createEReference(
+			metadataRepositoryStructuredViewEClass, METADATA_REPOSITORY_STRUCTURED_VIEW__METADATA_REPOSITORY);
+		createEAttribute(metadataRepositoryStructuredViewEClass, METADATA_REPOSITORY_STRUCTURED_VIEW__LOADED);
+		createEReference(
+			metadataRepositoryStructuredViewEClass, METADATA_REPOSITORY_STRUCTURED_VIEW__REPOSITORY_REFERENCES);
+
+		miscellaneousEClass = createEClass(MISCELLANEOUS);
+		createEReference(miscellaneousEClass, MISCELLANEOUS__OTHERS);
+
+		otherIUEClass = createEClass(OTHER_IU);
 
 		productEClass = createEClass(PRODUCT);
 		createEReference(productEClass, PRODUCT__FEATURE_CONTAINER);
 		createEReference(productEClass, PRODUCT__BUNDLE_CONTAINER);
 		createEReference(productEClass, PRODUCT__FRAGMENT_CONTAINER);
 
-		bundleEClass = createEClass(BUNDLE);
-
-		fragmentEClass = createEClass(FRAGMENT);
-
-		otherIUEClass = createEClass(OTHER_IU);
+		productsEClass = createEClass(PRODUCTS);
+		createEReference(productsEClass, PRODUCTS__PRODUCTS);
 
 		propertiesEClass = createEClass(PROPERTIES);
 		createEReference(propertiesEClass, PROPERTIES__PROPERTY_LIST);
 
-		requirementsEClass = createEClass(REQUIREMENTS);
-		createEReference(requirementsEClass, REQUIREMENTS__REQUIREMENTS);
-
 		providedCapabilitiesEClass = createEClass(PROVIDED_CAPABILITIES);
 		createEReference(providedCapabilitiesEClass, PROVIDED_CAPABILITIES__PROVIDED_CAPABILITIES);
 
-		touchpointsEClass = createEClass(TOUCHPOINTS);
-		createEReference(touchpointsEClass, TOUCHPOINTS__TOUCHPOINT_TYPE);
-		createEReference(touchpointsEClass, TOUCHPOINTS__TOUCHPOINT_DATA_LIST);
+		providedCapabilityWrapperEClass = createEClass(PROVIDED_CAPABILITY_WRAPPER);
+		createEReference(providedCapabilityWrapperEClass, PROVIDED_CAPABILITY_WRAPPER__GENUINE);
 
-		licensesEClass = createEClass(LICENSES);
-		createEReference(licensesEClass, LICENSES__LICENSES);
+		repositoryReferencesEClass = createEClass(REPOSITORY_REFERENCES);
+		createEReference(repositoryReferencesEClass, REPOSITORY_REFERENCES__REPOSITORY_REFERENCES);
 
-		iuDetailsEClass = createEClass(IU_DETAILS);
-		createEReference(iuDetailsEClass, IU_DETAILS__REQUIREMENTS_CONTAINER);
-		createEReference(iuDetailsEClass, IU_DETAILS__PROVIDED_CAPABILITIES_CONTAINER);
-		createEReference(iuDetailsEClass, IU_DETAILS__PROPERTIES_CONTAINER);
-		createEReference(iuDetailsEClass, IU_DETAILS__TOUCHPOINTS_CONTAINER);
-		createEReference(iuDetailsEClass, IU_DETAILS__UPDATE_DESCRIPTOR);
-		createEReference(iuDetailsEClass, IU_DETAILS__COPYRIGHT);
-		createEReference(iuDetailsEClass, IU_DETAILS__LICENSES_CONTAINER);
+		requirementsEClass = createEClass(REQUIREMENTS);
+		createEReference(requirementsEClass, REQUIREMENTS__REQUIREMENTS);
 
 		requirementWrapperEClass = createEClass(REQUIREMENT_WRAPPER);
 		createEReference(requirementWrapperEClass, REQUIREMENT_WRAPPER__GENUINE);
 
-		providedCapabilityWrapperEClass = createEClass(PROVIDED_CAPABILITY_WRAPPER);
-		createEReference(providedCapabilityWrapperEClass, PROVIDED_CAPABILITY_WRAPPER__GENUINE);
+		touchpointsEClass = createEClass(TOUCHPOINTS);
+		createEReference(touchpointsEClass, TOUCHPOINTS__TOUCHPOINT_TYPE);
+		createEReference(touchpointsEClass, TOUCHPOINTS__TOUCHPOINT_DATA_LIST);
 	}
 
 	/**
@@ -938,6 +952,16 @@ public class P2viewPackageImpl extends EPackageImpl implements P2viewPackage {
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EReference getMetadataRepositoryStructuredView_RepositoryReferences() {
+		return (EReference) metadataRepositoryStructuredViewEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
@@ -1087,6 +1111,26 @@ public class P2viewPackageImpl extends EPackageImpl implements P2viewPackage {
 	 * 
 	 * @generated
 	 */
+	public EClass getRepositoryReferences() {
+		return repositoryReferencesEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EReference getRepositoryReferences_RepositoryReferences() {
+		return (EReference) repositoryReferencesEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
 	public EClass getRequirements() {
 		return requirementsEClass;
 	}
@@ -1175,75 +1219,143 @@ public class P2viewPackageImpl extends EPackageImpl implements P2viewPackage {
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
+		bundleEClass.getESuperTypes().add(this.getIUPresentationWithDetails());
 		EGenericType g1 = createEGenericType(theAggregatorPackage.getChildrenProvider());
-		EGenericType g2 = createEGenericType(this.getInstallableUnits());
+		EGenericType g2 = createEGenericType(this.getBundle());
 		g1.getETypeArguments().add(g2);
-		metadataRepositoryStructuredViewEClass.getEGenericSuperTypes().add(g1);
-		g1 = createEGenericType(theAggregatorPackage.getChildrenProvider());
-		g2 = createEGenericType(ecorePackage.getEObject());
-		g1.getETypeArguments().add(g2);
-		installableUnitsEClass.getEGenericSuperTypes().add(g1);
+		bundlesEClass.getEGenericSuperTypes().add(g1);
+		categoryEClass.getESuperTypes().add(this.getIUPresentation());
 		g1 = createEGenericType(theAggregatorPackage.getChildrenProvider());
 		g2 = createEGenericType(this.getCategory());
 		g1.getETypeArguments().add(g2);
 		categoriesEClass.getEGenericSuperTypes().add(g1);
+		featureEClass.getESuperTypes().add(this.getIUPresentationWithDetails());
 		g1 = createEGenericType(theAggregatorPackage.getChildrenProvider());
 		g2 = createEGenericType(this.getFeature());
 		g1.getETypeArguments().add(g2);
 		featuresEClass.getEGenericSuperTypes().add(g1);
-		g1 = createEGenericType(theAggregatorPackage.getChildrenProvider());
-		g2 = createEGenericType(this.getProduct());
-		g1.getETypeArguments().add(g2);
-		productsEClass.getEGenericSuperTypes().add(g1);
-		g1 = createEGenericType(theAggregatorPackage.getChildrenProvider());
-		g2 = createEGenericType(this.getBundle());
-		g1.getETypeArguments().add(g2);
-		bundlesEClass.getEGenericSuperTypes().add(g1);
+		fragmentEClass.getESuperTypes().add(this.getBundle());
 		g1 = createEGenericType(theAggregatorPackage.getChildrenProvider());
 		g2 = createEGenericType(this.getFragment());
 		g1.getETypeArguments().add(g2);
 		fragmentsEClass.getEGenericSuperTypes().add(g1);
 		g1 = createEGenericType(theAggregatorPackage.getChildrenProvider());
+		g2 = createEGenericType(ecorePackage.getEObject());
+		g1.getETypeArguments().add(g2);
+		installableUnitsEClass.getEGenericSuperTypes().add(g1);
+		iuPresentationWithDetailsEClass.getESuperTypes().add(this.getIUPresentation());
+		iuPresentationWithDetailsEClass.getESuperTypes().add(this.getIUDetails());
+		g1 = createEGenericType(theAggregatorPackage.getChildrenProvider());
+		g2 = createEGenericType(this.getInstallableUnits());
+		g1.getETypeArguments().add(g2);
+		metadataRepositoryStructuredViewEClass.getEGenericSuperTypes().add(g1);
+		g1 = createEGenericType(theAggregatorPackage.getChildrenProvider());
 		g2 = createEGenericType(this.getOtherIU());
 		g1.getETypeArguments().add(g2);
 		miscellaneousEClass.getEGenericSuperTypes().add(g1);
-		iuPresentationWithDetailsEClass.getESuperTypes().add(this.getIUPresentation());
-		iuPresentationWithDetailsEClass.getESuperTypes().add(this.getIUDetails());
-		categoryEClass.getESuperTypes().add(this.getIUPresentation());
-		featureEClass.getESuperTypes().add(this.getIUPresentationWithDetails());
-		productEClass.getESuperTypes().add(this.getIUPresentationWithDetails());
-		bundleEClass.getESuperTypes().add(this.getIUPresentationWithDetails());
-		fragmentEClass.getESuperTypes().add(this.getBundle());
 		otherIUEClass.getESuperTypes().add(this.getIUPresentationWithDetails());
-		requirementWrapperEClass.getESuperTypes().add(theP2Package.getIRequirement());
-		requirementWrapperEClass.getESuperTypes().add(theAggregatorPackage.getLabelProvider());
+		productEClass.getESuperTypes().add(this.getIUPresentationWithDetails());
+		g1 = createEGenericType(theAggregatorPackage.getChildrenProvider());
+		g2 = createEGenericType(this.getProduct());
+		g1.getETypeArguments().add(g2);
+		productsEClass.getEGenericSuperTypes().add(g1);
 		providedCapabilityWrapperEClass.getESuperTypes().add(theP2Package.getIProvidedCapability());
 		providedCapabilityWrapperEClass.getESuperTypes().add(theAggregatorPackage.getLabelProvider());
+		g1 = createEGenericType(theAggregatorPackage.getChildrenProvider());
+		g2 = createEGenericType(theP2Package.getIRepositoryReference());
+		g1.getETypeArguments().add(g2);
+		repositoryReferencesEClass.getEGenericSuperTypes().add(g1);
+		requirementWrapperEClass.getESuperTypes().add(theP2Package.getIRequirement());
+		requirementWrapperEClass.getESuperTypes().add(theAggregatorPackage.getLabelProvider());
 
 		// Initialize classes and features; add operations and parameters
+		initEClass(bundleEClass, Bundle.class, "Bundle", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(bundlesEClass, Bundles.class, "Bundles", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(
+			getBundles_Bundles(), this.getBundle(), null, "bundles", null, 0, -1, Bundles.class, !IS_TRANSIENT,
+			!IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
+			IS_ORDERED);
+
+		initEClass(categoryEClass, Category.class, "Category", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(
+			getCategory_CategoryContainer(), this.getCategories(), null, "categoryContainer", null, 0, 1,
+			Category.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES,
+			!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(
+			getCategory_FeatureContainer(), this.getFeatures(), null, "featureContainer", null, 0, 1, Category.class,
+			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,
+			!IS_DERIVED, IS_ORDERED);
+		initEReference(
+			getCategory_ProductContainer(), this.getProducts(), null, "productContainer", null, 0, 1, Category.class,
+			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,
+			!IS_DERIVED, IS_ORDERED);
+		initEReference(
+			getCategory_BundleContainer(), this.getBundles(), null, "bundleContainer", null, 0, 1, Category.class,
+			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,
+			!IS_DERIVED, IS_ORDERED);
+		initEReference(
+			getCategory_FragmentContainer(), this.getFragments(), null, "fragmentContainer", null, 0, 1,
+			Category.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES,
+			!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(
+			getCategory_IuDetails(), this.getIUDetails(), null, "iuDetails", null, 0, 1, Category.class, !IS_TRANSIENT,
+			!IS_VOLATILE, !IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
+			IS_ORDERED);
+
+		addEOperation(categoryEClass, this.getCategories(), "getNotNullCategoryContainer", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		addEOperation(categoryEClass, this.getFeatures(), "getNotNullFeatureContainer", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		addEOperation(categoryEClass, this.getProducts(), "getNotNullProductContainer", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		addEOperation(categoryEClass, this.getBundles(), "getNotNullBundleContainer", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		addEOperation(categoryEClass, this.getFragments(), "getNotNullFragmentContainer", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		addEOperation(categoryEClass, ecorePackage.getEBoolean(), "isNested", 0, 1, IS_UNIQUE, IS_ORDERED);
+
 		initEClass(
-			metadataRepositoryStructuredViewEClass, MetadataRepositoryStructuredView.class,
-			"MetadataRepositoryStructuredView", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(
-			getMetadataRepositoryStructuredView_Name(), ecorePackage.getEString(), "name", null, 0, 1,
-			MetadataRepositoryStructuredView.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
-			IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+			categoriesEClass, Categories.class, "Categories", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(
-			getMetadataRepositoryStructuredView_InstallableUnitList(), this.getInstallableUnits(), null,
-			"installableUnitList", null, 0, 1, MetadataRepositoryStructuredView.class, !IS_TRANSIENT, !IS_VOLATILE,
-			IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+			getCategories_Categories(), this.getCategory(), null, "categories", null, 0, -1, Categories.class,
+			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,
+			!IS_DERIVED, IS_ORDERED);
+
+		initEClass(featureEClass, Feature.class, "Feature", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(
-			getMetadataRepositoryStructuredView_Properties(), this.getProperties(), null, "properties", null, 0, 1,
-			MetadataRepositoryStructuredView.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
-			IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+			getFeature_FeatureContainer(), this.getFeatures(), null, "featureContainer", null, 0, 1, Feature.class,
+			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,
+			!IS_DERIVED, IS_ORDERED);
 		initEReference(
-			getMetadataRepositoryStructuredView_MetadataRepository(), theP2Package.getMetadataRepository(), null,
-			"metadataRepository", null, 1, 1, MetadataRepositoryStructuredView.class, !IS_TRANSIENT, !IS_VOLATILE,
-			IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEAttribute(
-			getMetadataRepositoryStructuredView_Loaded(), ecorePackage.getEBoolean(), "loaded", null, 0, 1,
-			MetadataRepositoryStructuredView.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
-			IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+			getFeature_BundleContainer(), this.getBundles(), null, "bundleContainer", null, 0, 1, Feature.class,
+			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,
+			!IS_DERIVED, IS_ORDERED);
+		initEReference(
+			getFeature_FragmentContainer(), this.getFragments(), null, "fragmentContainer", null, 0, 1, Feature.class,
+			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,
+			!IS_DERIVED, IS_ORDERED);
+
+		addEOperation(featureEClass, this.getFeatures(), "getNotNullFeatureContainer", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		addEOperation(featureEClass, this.getBundles(), "getNotNullBundleContainer", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		addEOperation(featureEClass, this.getFragments(), "getNotNullFragmentContainer", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEClass(featuresEClass, Features.class, "Features", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(
+			getFeatures_Features(), this.getFeature(), null, "features", null, 0, -1, Features.class, !IS_TRANSIENT,
+			!IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
+			IS_ORDERED);
+
+		initEClass(fragmentEClass, Fragment.class, "Fragment", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(
+			fragmentsEClass, Fragments.class, "Fragments", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(
+			getFragments_Fragments(), this.getFragment(), null, "fragments", null, 0, -1, Fragments.class,
+			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,
+			!IS_DERIVED, IS_ORDERED);
 
 		initEClass(
 			installableUnitsEClass, InstallableUnits.class, "InstallableUnits", !IS_ABSTRACT, !IS_INTERFACE,
@@ -1297,210 +1409,6 @@ public class P2viewPackageImpl extends EPackageImpl implements P2viewPackage {
 			IS_ORDERED);
 
 		initEClass(
-			categoriesEClass, Categories.class, "Categories", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(
-			getCategories_Categories(), this.getCategory(), null, "categories", null, 0, -1, Categories.class,
-			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,
-			!IS_DERIVED, IS_ORDERED);
-
-		initEClass(featuresEClass, Features.class, "Features", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(
-			getFeatures_Features(), this.getFeature(), null, "features", null, 0, -1, Features.class, !IS_TRANSIENT,
-			!IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
-			IS_ORDERED);
-
-		initEClass(productsEClass, Products.class, "Products", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(
-			getProducts_Products(), this.getProduct(), null, "products", null, 0, -1, Products.class, !IS_TRANSIENT,
-			!IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
-			IS_ORDERED);
-
-		initEClass(bundlesEClass, Bundles.class, "Bundles", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(
-			getBundles_Bundles(), this.getBundle(), null, "bundles", null, 0, -1, Bundles.class, !IS_TRANSIENT,
-			!IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
-			IS_ORDERED);
-
-		initEClass(
-			fragmentsEClass, Fragments.class, "Fragments", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(
-			getFragments_Fragments(), this.getFragment(), null, "fragments", null, 0, -1, Fragments.class,
-			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,
-			!IS_DERIVED, IS_ORDERED);
-
-		initEClass(
-			miscellaneousEClass, Miscellaneous.class, "Miscellaneous", !IS_ABSTRACT, !IS_INTERFACE,
-			IS_GENERATED_INSTANCE_CLASS);
-		initEReference(
-			getMiscellaneous_Others(), this.getOtherIU(), null, "others", null, 0, -1, Miscellaneous.class,
-			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,
-			!IS_DERIVED, IS_ORDERED);
-
-		initEClass(
-			iuPresentationEClass, IUPresentation.class, "IUPresentation", IS_ABSTRACT, !IS_INTERFACE,
-			IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(
-			getIUPresentation_Id(), ecorePackage.getEString(), "id", null, 0, 1, IUPresentation.class, !IS_TRANSIENT,
-			!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(
-			getIUPresentation_Version(), theP2Package.getVersion(), "version", null, 0, 1, IUPresentation.class,
-			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(
-			getIUPresentation_Name(), ecorePackage.getEString(), "name", null, 0, 1, IUPresentation.class,
-			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(
-			getIUPresentation_Label(), ecorePackage.getEString(), "label", null, 0, 1, IUPresentation.class,
-			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(
-			getIUPresentation_Description(), ecorePackage.getEString(), "description", null, 0, 1,
-			IUPresentation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
-			!IS_DERIVED, IS_ORDERED);
-		initEAttribute(
-			getIUPresentation_Type(), theAggregatorPackage.getInstallableUnitType(), "type", "", 1, 1,
-			IUPresentation.class, !IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
-			!IS_DERIVED, IS_ORDERED);
-		initEAttribute(
-			getIUPresentation_Filter(), ecorePackage.getEString(), "filter", null, 0, 1, IUPresentation.class,
-			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(
-			getIUPresentation_InstallableUnit(), theP2Package.getIInstallableUnit(), null, "installableUnit", null, 0,
-			1, IUPresentation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES,
-			!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(
-			iuPresentationWithDetailsEClass, IUPresentationWithDetails.class, "IUPresentationWithDetails", IS_ABSTRACT,
-			!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(
-			getIUPresentationWithDetails_DetailsResolved(), theXMLTypePackage.getBoolean(), "detailsResolved", null, 0,
-			1, IUPresentationWithDetails.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
-			IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(categoryEClass, Category.class, "Category", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(
-			getCategory_CategoryContainer(), this.getCategories(), null, "categoryContainer", null, 0, 1,
-			Category.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES,
-			!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(
-			getCategory_FeatureContainer(), this.getFeatures(), null, "featureContainer", null, 0, 1, Category.class,
-			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,
-			!IS_DERIVED, IS_ORDERED);
-		initEReference(
-			getCategory_ProductContainer(), this.getProducts(), null, "productContainer", null, 0, 1, Category.class,
-			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,
-			!IS_DERIVED, IS_ORDERED);
-		initEReference(
-			getCategory_BundleContainer(), this.getBundles(), null, "bundleContainer", null, 0, 1, Category.class,
-			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,
-			!IS_DERIVED, IS_ORDERED);
-		initEReference(
-			getCategory_FragmentContainer(), this.getFragments(), null, "fragmentContainer", null, 0, 1,
-			Category.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES,
-			!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(
-			getCategory_IuDetails(), this.getIUDetails(), null, "iuDetails", null, 0, 1, Category.class, !IS_TRANSIENT,
-			!IS_VOLATILE, !IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
-			IS_ORDERED);
-
-		addEOperation(categoryEClass, this.getCategories(), "getNotNullCategoryContainer", 0, 1, IS_UNIQUE, IS_ORDERED);
-
-		addEOperation(categoryEClass, this.getFeatures(), "getNotNullFeatureContainer", 0, 1, IS_UNIQUE, IS_ORDERED);
-
-		addEOperation(categoryEClass, this.getProducts(), "getNotNullProductContainer", 0, 1, IS_UNIQUE, IS_ORDERED);
-
-		addEOperation(categoryEClass, this.getBundles(), "getNotNullBundleContainer", 0, 1, IS_UNIQUE, IS_ORDERED);
-
-		addEOperation(categoryEClass, this.getFragments(), "getNotNullFragmentContainer", 0, 1, IS_UNIQUE, IS_ORDERED);
-
-		addEOperation(categoryEClass, ecorePackage.getEBoolean(), "isNested", 0, 1, IS_UNIQUE, IS_ORDERED);
-
-		initEClass(featureEClass, Feature.class, "Feature", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(
-			getFeature_FeatureContainer(), this.getFeatures(), null, "featureContainer", null, 0, 1, Feature.class,
-			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,
-			!IS_DERIVED, IS_ORDERED);
-		initEReference(
-			getFeature_BundleContainer(), this.getBundles(), null, "bundleContainer", null, 0, 1, Feature.class,
-			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,
-			!IS_DERIVED, IS_ORDERED);
-		initEReference(
-			getFeature_FragmentContainer(), this.getFragments(), null, "fragmentContainer", null, 0, 1, Feature.class,
-			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,
-			!IS_DERIVED, IS_ORDERED);
-
-		addEOperation(featureEClass, this.getFeatures(), "getNotNullFeatureContainer", 0, 1, IS_UNIQUE, IS_ORDERED);
-
-		addEOperation(featureEClass, this.getBundles(), "getNotNullBundleContainer", 0, 1, IS_UNIQUE, IS_ORDERED);
-
-		addEOperation(featureEClass, this.getFragments(), "getNotNullFragmentContainer", 0, 1, IS_UNIQUE, IS_ORDERED);
-
-		initEClass(productEClass, Product.class, "Product", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(
-			getProduct_FeatureContainer(), this.getFeatures(), null, "featureContainer", null, 0, 1, Product.class,
-			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,
-			!IS_DERIVED, IS_ORDERED);
-		initEReference(
-			getProduct_BundleContainer(), this.getBundles(), null, "bundleContainer", null, 0, 1, Product.class,
-			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,
-			!IS_DERIVED, IS_ORDERED);
-		initEReference(
-			getProduct_FragmentContainer(), this.getFragments(), null, "fragmentContainer", null, 0, 1, Product.class,
-			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,
-			!IS_DERIVED, IS_ORDERED);
-
-		addEOperation(productEClass, this.getFeatures(), "getNotNullFeatureContainer", 0, 1, IS_UNIQUE, IS_ORDERED);
-
-		addEOperation(productEClass, this.getBundles(), "getNotNullBundleContainer", 0, 1, IS_UNIQUE, IS_ORDERED);
-
-		addEOperation(productEClass, this.getFragments(), "getNotNullFragmentContainer", 0, 1, IS_UNIQUE, IS_ORDERED);
-
-		initEClass(bundleEClass, Bundle.class, "Bundle", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-		initEClass(fragmentEClass, Fragment.class, "Fragment", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-		initEClass(otherIUEClass, OtherIU.class, "OtherIU", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-		initEClass(
-			propertiesEClass, Properties.class, "Properties", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(
-			getProperties_PropertyList(), theAggregatorPackage.getProperty(), null, "propertyList", null, 0, -1,
-			Properties.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES,
-			!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(
-			requirementsEClass, Requirements.class, "Requirements", !IS_ABSTRACT, !IS_INTERFACE,
-			IS_GENERATED_INSTANCE_CLASS);
-		initEReference(
-			getRequirements_Requirements(), this.getRequirementWrapper(), null, "requirements", null, 0, -1,
-			Requirements.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES,
-			!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(
-			providedCapabilitiesEClass, ProvidedCapabilities.class, "ProvidedCapabilities", !IS_ABSTRACT,
-			!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(
-			getProvidedCapabilities_ProvidedCapabilities(), this.getProvidedCapabilityWrapper(), null,
-			"providedCapabilities", null, 0, -1, ProvidedCapabilities.class, !IS_TRANSIENT, !IS_VOLATILE,
-			IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(
-			touchpointsEClass, Touchpoints.class, "Touchpoints", !IS_ABSTRACT, !IS_INTERFACE,
-			IS_GENERATED_INSTANCE_CLASS);
-		initEReference(
-			getTouchpoints_TouchpointType(), theP2Package.getITouchpointType(), null, "touchpointType", null, 0, 1,
-			Touchpoints.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
-			!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(
-			getTouchpoints_TouchpointDataList(), theP2Package.getITouchpointData(), null, "touchpointDataList", null,
-			0, -1, Touchpoints.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
-			!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(licensesEClass, Licenses.class, "Licenses", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(
-			getLicenses_Licenses(), theP2Package.getILicense(), null, "licenses", null, 0, -1, Licenses.class,
-			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,
-			!IS_DERIVED, IS_ORDERED);
-
-		initEClass(
 			iuDetailsEClass, IUDetails.class, "IUDetails", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(
 			getIUDetails_RequirementsContainer(), this.getRequirements(), null, "requirementsContainer", null, 0, 1,
@@ -1532,12 +1440,128 @@ public class P2viewPackageImpl extends EPackageImpl implements P2viewPackage {
 			!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(
-			requirementWrapperEClass, RequirementWrapper.class, "RequirementWrapper", !IS_ABSTRACT, !IS_INTERFACE,
+			iuPresentationEClass, IUPresentation.class, "IUPresentation", IS_ABSTRACT, !IS_INTERFACE,
+			IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(
+			getIUPresentation_Id(), ecorePackage.getEString(), "id", null, 0, 1, IUPresentation.class, !IS_TRANSIENT,
+			!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(
+			getIUPresentation_Version(), theP2Package.getVersion(), "version", null, 0, 1, IUPresentation.class,
+			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(
+			getIUPresentation_Name(), ecorePackage.getEString(), "name", null, 0, 1, IUPresentation.class,
+			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(
+			getIUPresentation_Label(), ecorePackage.getEString(), "label", null, 0, 1, IUPresentation.class,
+			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(
+			getIUPresentation_Description(), ecorePackage.getEString(), "description", null, 0, 1,
+			IUPresentation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+			!IS_DERIVED, IS_ORDERED);
+		initEAttribute(
+			getIUPresentation_Type(), theAggregatorPackage.getInstallableUnitType(), "type", "", 1, 1,
+			IUPresentation.class, !IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE,
+			!IS_DERIVED, IS_ORDERED);
+		initEAttribute(
+			getIUPresentation_Filter(), ecorePackage.getEString(), "filter", null, 0, 1, IUPresentation.class,
+			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(
+			getIUPresentation_InstallableUnit(), theP2Package.getIInstallableUnit(), null, "installableUnit", null, 0,
+			1, IUPresentation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES,
+			!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(
+			iuPresentationWithDetailsEClass, IUPresentationWithDetails.class, "IUPresentationWithDetails", IS_ABSTRACT,
+			!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(
+			getIUPresentationWithDetails_DetailsResolved(), theXMLTypePackage.getBoolean(), "detailsResolved", null, 0,
+			1, IUPresentationWithDetails.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
+			IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(licensesEClass, Licenses.class, "Licenses", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(
+			getLicenses_Licenses(), theP2Package.getILicense(), null, "licenses", null, 0, -1, Licenses.class,
+			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,
+			!IS_DERIVED, IS_ORDERED);
+
+		initEClass(
+			metadataRepositoryStructuredViewEClass, MetadataRepositoryStructuredView.class,
+			"MetadataRepositoryStructuredView", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(
+			getMetadataRepositoryStructuredView_Name(), ecorePackage.getEString(), "name", null, 0, 1,
+			MetadataRepositoryStructuredView.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
+			IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(
+			getMetadataRepositoryStructuredView_InstallableUnitList(), this.getInstallableUnits(), null,
+			"installableUnitList", null, 0, 1, MetadataRepositoryStructuredView.class, !IS_TRANSIENT, !IS_VOLATILE,
+			IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(
+			getMetadataRepositoryStructuredView_Properties(), this.getProperties(), null, "properties", null, 0, 1,
+			MetadataRepositoryStructuredView.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
+			IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(
+			getMetadataRepositoryStructuredView_MetadataRepository(), theP2Package.getMetadataRepository(), null,
+			"metadataRepository", null, 1, 1, MetadataRepositoryStructuredView.class, !IS_TRANSIENT, !IS_VOLATILE,
+			IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(
+			getMetadataRepositoryStructuredView_Loaded(), ecorePackage.getEBoolean(), "loaded", null, 0, 1,
+			MetadataRepositoryStructuredView.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
+			IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(
+			getMetadataRepositoryStructuredView_RepositoryReferences(), this.getRepositoryReferences(), null,
+			"repositoryReferences", null, 0, 1, MetadataRepositoryStructuredView.class, !IS_TRANSIENT, !IS_VOLATILE,
+			IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(
+			miscellaneousEClass, Miscellaneous.class, "Miscellaneous", !IS_ABSTRACT, !IS_INTERFACE,
 			IS_GENERATED_INSTANCE_CLASS);
 		initEReference(
-			getRequirementWrapper_Genuine(), theP2Package.getIRequirement(), null, "genuine", null, 1, 1,
-			RequirementWrapper.class, !IS_TRANSIENT, !IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES,
+			getMiscellaneous_Others(), this.getOtherIU(), null, "others", null, 0, -1, Miscellaneous.class,
+			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,
+			!IS_DERIVED, IS_ORDERED);
+
+		initEClass(otherIUEClass, OtherIU.class, "OtherIU", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(productEClass, Product.class, "Product", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(
+			getProduct_FeatureContainer(), this.getFeatures(), null, "featureContainer", null, 0, 1, Product.class,
+			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,
+			!IS_DERIVED, IS_ORDERED);
+		initEReference(
+			getProduct_BundleContainer(), this.getBundles(), null, "bundleContainer", null, 0, 1, Product.class,
+			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,
+			!IS_DERIVED, IS_ORDERED);
+		initEReference(
+			getProduct_FragmentContainer(), this.getFragments(), null, "fragmentContainer", null, 0, 1, Product.class,
+			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,
+			!IS_DERIVED, IS_ORDERED);
+
+		addEOperation(productEClass, this.getFeatures(), "getNotNullFeatureContainer", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		addEOperation(productEClass, this.getBundles(), "getNotNullBundleContainer", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		addEOperation(productEClass, this.getFragments(), "getNotNullFragmentContainer", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEClass(productsEClass, Products.class, "Products", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(
+			getProducts_Products(), this.getProduct(), null, "products", null, 0, -1, Products.class, !IS_TRANSIENT,
+			!IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
+			IS_ORDERED);
+
+		initEClass(
+			propertiesEClass, Properties.class, "Properties", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(
+			getProperties_PropertyList(), theAggregatorPackage.getProperty(), null, "propertyList", null, 0, -1,
+			Properties.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES,
 			!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(
+			providedCapabilitiesEClass, ProvidedCapabilities.class, "ProvidedCapabilities", !IS_ABSTRACT,
+			!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(
+			getProvidedCapabilities_ProvidedCapabilities(), this.getProvidedCapabilityWrapper(), null,
+			"providedCapabilities", null, 0, -1, ProvidedCapabilities.class, !IS_TRANSIENT, !IS_VOLATILE,
+			IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(
 			providedCapabilityWrapperEClass, ProvidedCapabilityWrapper.class, "ProvidedCapabilityWrapper",
@@ -1546,6 +1570,42 @@ public class P2viewPackageImpl extends EPackageImpl implements P2viewPackage {
 			getProvidedCapabilityWrapper_Genuine(), theP2Package.getIProvidedCapability(), null, "genuine", null, 1, 1,
 			ProvidedCapabilityWrapper.class, !IS_TRANSIENT, !IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE,
 			!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(
+			repositoryReferencesEClass, RepositoryReferences.class, "RepositoryReferences", !IS_ABSTRACT,
+			!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(
+			getRepositoryReferences_RepositoryReferences(), theP2Package.getIRepositoryReference(), null,
+			"repositoryReferences", null, 0, -1, RepositoryReferences.class, !IS_TRANSIENT, !IS_VOLATILE,
+			IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(
+			requirementsEClass, Requirements.class, "Requirements", !IS_ABSTRACT, !IS_INTERFACE,
+			IS_GENERATED_INSTANCE_CLASS);
+		initEReference(
+			getRequirements_Requirements(), this.getRequirementWrapper(), null, "requirements", null, 0, -1,
+			Requirements.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES,
+			!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(
+			requirementWrapperEClass, RequirementWrapper.class, "RequirementWrapper", !IS_ABSTRACT, !IS_INTERFACE,
+			IS_GENERATED_INSTANCE_CLASS);
+		initEReference(
+			getRequirementWrapper_Genuine(), theP2Package.getIRequirement(), null, "genuine", null, 1, 1,
+			RequirementWrapper.class, !IS_TRANSIENT, !IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES,
+			!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(
+			touchpointsEClass, Touchpoints.class, "Touchpoints", !IS_ABSTRACT, !IS_INTERFACE,
+			IS_GENERATED_INSTANCE_CLASS);
+		initEReference(
+			getTouchpoints_TouchpointType(), theP2Package.getITouchpointType(), null, "touchpointType", null, 0, 1,
+			Touchpoints.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
+			!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(
+			getTouchpoints_TouchpointDataList(), theP2Package.getITouchpointData(), null, "touchpointDataList", null,
+			0, -1, Touchpoints.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
+			!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 	}
 
 } // P2viewPackageImpl

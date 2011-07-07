@@ -168,11 +168,13 @@ public class InstallableUnitRequestItemProvider extends AggregatorItemProviderAd
 			true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
-	protected boolean appendIUText(Object object, StringBuilder bld) {
+	protected boolean appendIUText(Object object, String typeKey, StringBuilder bld) {
 		InstallableUnitRequest iuRef = (InstallableUnitRequest) object;
 		String id = iuRef.getName();
 		VersionRange versionRange = iuRef.getVersionRange();
 
+		bld.append(getString(typeKey));
+		bld.append(" : ");
 		if(id == null) {
 			bld.append("not mapped");
 			return false;

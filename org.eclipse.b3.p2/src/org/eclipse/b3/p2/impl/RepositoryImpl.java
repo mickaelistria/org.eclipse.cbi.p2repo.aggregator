@@ -13,7 +13,6 @@ import java.util.Map;
 
 import org.eclipse.b3.p2.P2Package;
 import org.eclipse.b3.p2.Repository;
-import org.eclipse.b3.util.MonitorUtils;
 import org.eclipse.core.internal.runtime.AdapterManager;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.emf.common.notify.Notification;
@@ -400,6 +399,17 @@ public abstract class RepositoryImpl<T> extends MinimalEObjectImpl.Container imp
 	 * @generated
 	 */
 	@Override
+	protected EClass eStaticClass() {
+		return P2Package.Literals.REPOSITORY;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
 			case P2Package.REPOSITORY__LOCATION:
@@ -640,9 +650,9 @@ public abstract class RepositoryImpl<T> extends MinimalEObjectImpl.Container imp
 	 * @generated
 	 */
 	public String setProperty(String key, String value, IProgressMonitor monitor) {
-		value = setProperty(key, value);
-		MonitorUtils.complete(monitor);
-		return value;
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -729,17 +739,6 @@ public abstract class RepositoryImpl<T> extends MinimalEObjectImpl.Container imp
 		result.append(provisioningAgent);
 		result.append(')');
 		return result.toString();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return P2Package.Literals.REPOSITORY;
 	}
 
 } // RepositoryImpl

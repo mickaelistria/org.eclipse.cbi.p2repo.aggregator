@@ -373,7 +373,12 @@
     </eGenericSuperTypes>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="IRepositoryReference" instanceClassName="org.eclipse.equinox.p2.repository.IRepositoryReference"
-      abstract="true" interface="true"/>
+      abstract="true" interface="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="location" eType="#//URI"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="options" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="nickname" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="IRequirement" instanceClassName="org.eclipse.equinox.p2.metadata.IRequirement"
       abstract="true" interface="true">
     <eOperations name="isMatch" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
@@ -487,14 +492,7 @@
       <eTypeArguments eTypeParameter="#//Repository/T"/>
     </eGenericSuperTypes>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="RepositoryReference" eSuperTypes="#//IRepositoryReference">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="location" eType="#//URI">
-      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData"/>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="options" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="nickname" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RepositoryReference" eSuperTypes="#//IRepositoryReference"/>
   <eClassifiers xsi:type="ecore:EClass" name="RequiredCapability" eSuperTypes="#//Requirement #//IRequiredCapability"/>
   <eClassifiers xsi:type="ecore:EClass" name="Requirement" eSuperTypes="#//IRequirement"/>
   <eClassifiers xsi:type="ecore:EClass" name="RequirementChange" eSuperTypes="#//IRequirementChange"/>

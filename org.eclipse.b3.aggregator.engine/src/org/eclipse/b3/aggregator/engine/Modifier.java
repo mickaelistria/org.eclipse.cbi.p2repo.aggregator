@@ -10,12 +10,14 @@ package org.eclipse.b3.aggregator.engine;
 
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
 import org.eclipse.b3.aggregator.Aggregation;
 import org.eclipse.b3.aggregator.AggregatorFactory;
 import org.eclipse.b3.aggregator.MetadataRepositoryReference;
+import org.eclipse.b3.aggregator.ValidationSet;
 import org.eclipse.b3.aggregator.impl.MetadataRepositoryReferenceImpl;
 import org.eclipse.b3.util.ExceptionUtils;
 import org.eclipse.core.runtime.IProgressMonitor;
@@ -39,6 +41,9 @@ public class Modifier extends ModelAbstractCommand {
 	@Option(name = "--repoLocation", usage = "Appoints a new repository for aggregation")
 	private String repoLocation;
 
+	@Option(name = "--validationSet", usage = "Appoints the targeted valiation set")
+	private String validationSetName;
+
 	/*
 	 * (non-Javadoc)
 	 * 
@@ -57,7 +62,25 @@ public class Modifier extends ModelAbstractCommand {
 	@Override
 	protected int run(IProgressMonitor monitor) throws Exception {
 		try {
-			final Aggregation aggregator = loadModelFromFile();
+			final Aggregation aggregation = loadModelFromFile();
+			List<ValidationSet> validationSets = aggregation.getValidationSets(true);
+			ValidationSet validationSet = null;
+			if(validationSetName == null) {
+				if(validationSets.size() != 1)
+					throw ExceptionUtils.fromMessage("Unable to determine what validation set to modify");
+				validationSet = validationSets.get(0);
+			}
+			else {
+				for(ValidationSet vs : validationSets) {
+					if(validationSetName.equals(vs.getLabel())) {
+						validationSet = vs;
+						break;
+					}
+				}
+				if(validationSet == null)
+					throw ExceptionUtils.fromMessage("Unable to find a validation set named '" + validationSetName +
+							'\'');
+			}
 
 			if(action == ActionType.ADD) {
 				// create a b3 metadata repo from the String
@@ -65,12 +88,12 @@ public class Modifier extends ModelAbstractCommand {
 				newRepository.setLocation(repoLocation);
 
 				// add new repository to the existing onces
-				final EList<MetadataRepositoryReference> metadataRepos = aggregator.getValidationRepositories();
+				final EList<MetadataRepositoryReference> metadataRepos = validationSet.getValidationRepositories();
 				metadataRepos.add(newRepository);
 			}
 			else if(action == ActionType.REMOVE) {
 				final Set<MetadataRepositoryReference> removees = new HashSet<MetadataRepositoryReference>();
-				final EList<MetadataRepositoryReference> metadataRepos = aggregator.getValidationRepositories();
+				final EList<MetadataRepositoryReference> metadataRepos = validationSet.getValidationRepositories();
 				for(MetadataRepositoryReference metadataRepositoryReference : metadataRepos) {
 					if(metadataRepositoryReference.getLocation().equals(repoLocation)) {
 						removees.add(metadataRepositoryReference);
@@ -84,7 +107,7 @@ public class Modifier extends ModelAbstractCommand {
 			}
 
 			// store the model persistently
-			final EObject eObj = (EObject) aggregator;
+			final EObject eObj = (EObject) aggregation;
 			final Resource resource = eObj.eResource();
 			final Map<Object, Object> saveOptions = new HashMap<Object, Object>();
 			saveOptions.put(Resource.OPTION_SAVE_ONLY_IF_CHANGED, Resource.OPTION_SAVE_ONLY_IF_CHANGED_MEMORY_BUFFER);

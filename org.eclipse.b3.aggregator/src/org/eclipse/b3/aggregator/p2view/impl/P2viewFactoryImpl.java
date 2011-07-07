@@ -9,6 +9,7 @@
  */
 package org.eclipse.b3.aggregator.p2view.impl;
 
+import org.eclipse.b3.aggregator.p2view.*;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -109,50 +110,52 @@ public class P2viewFactoryImpl extends EFactoryImpl implements P2viewFactory {
 	@Override
 	public EObject create(EClass eClass) {
 		switch(eClass.getClassifierID()) {
-			case P2viewPackage.METADATA_REPOSITORY_STRUCTURED_VIEW:
-				return (EObject) createMetadataRepositoryStructuredView();
-			case P2viewPackage.INSTALLABLE_UNITS:
-				return (EObject) createInstallableUnits();
-			case P2viewPackage.CATEGORIES:
-				return (EObject) createCategories();
-			case P2viewPackage.FEATURES:
-				return (EObject) createFeatures();
-			case P2viewPackage.PRODUCTS:
-				return (EObject) createProducts();
-			case P2viewPackage.BUNDLES:
-				return (EObject) createBundles();
-			case P2viewPackage.FRAGMENTS:
-				return (EObject) createFragments();
-			case P2viewPackage.MISCELLANEOUS:
-				return (EObject) createMiscellaneous();
-			case P2viewPackage.CATEGORY:
-				return (EObject) createCategory();
-			case P2viewPackage.FEATURE:
-				return (EObject) createFeature();
-			case P2viewPackage.PRODUCT:
-				return (EObject) createProduct();
 			case P2viewPackage.BUNDLE:
 				return (EObject) createBundle();
+			case P2viewPackage.BUNDLES:
+				return (EObject) createBundles();
+			case P2viewPackage.CATEGORY:
+				return (EObject) createCategory();
+			case P2viewPackage.CATEGORIES:
+				return (EObject) createCategories();
+			case P2viewPackage.FEATURE:
+				return (EObject) createFeature();
+			case P2viewPackage.FEATURES:
+				return (EObject) createFeatures();
 			case P2viewPackage.FRAGMENT:
 				return (EObject) createFragment();
-			case P2viewPackage.OTHER_IU:
-				return (EObject) createOtherIU();
-			case P2viewPackage.PROPERTIES:
-				return (EObject) createProperties();
-			case P2viewPackage.REQUIREMENTS:
-				return (EObject) createRequirements();
-			case P2viewPackage.PROVIDED_CAPABILITIES:
-				return (EObject) createProvidedCapabilities();
-			case P2viewPackage.TOUCHPOINTS:
-				return (EObject) createTouchpoints();
-			case P2viewPackage.LICENSES:
-				return (EObject) createLicenses();
+			case P2viewPackage.FRAGMENTS:
+				return (EObject) createFragments();
+			case P2viewPackage.INSTALLABLE_UNITS:
+				return (EObject) createInstallableUnits();
 			case P2viewPackage.IU_DETAILS:
 				return (EObject) createIUDetails();
-			case P2viewPackage.REQUIREMENT_WRAPPER:
-				return (EObject) createRequirementWrapper();
+			case P2viewPackage.LICENSES:
+				return (EObject) createLicenses();
+			case P2viewPackage.METADATA_REPOSITORY_STRUCTURED_VIEW:
+				return (EObject) createMetadataRepositoryStructuredView();
+			case P2viewPackage.MISCELLANEOUS:
+				return (EObject) createMiscellaneous();
+			case P2viewPackage.OTHER_IU:
+				return (EObject) createOtherIU();
+			case P2viewPackage.PRODUCT:
+				return (EObject) createProduct();
+			case P2viewPackage.PRODUCTS:
+				return (EObject) createProducts();
+			case P2viewPackage.PROPERTIES:
+				return (EObject) createProperties();
+			case P2viewPackage.PROVIDED_CAPABILITIES:
+				return (EObject) createProvidedCapabilities();
 			case P2viewPackage.PROVIDED_CAPABILITY_WRAPPER:
 				return (EObject) createProvidedCapabilityWrapper();
+			case P2viewPackage.REPOSITORY_REFERENCES:
+				return (EObject) createRepositoryReferences();
+			case P2viewPackage.REQUIREMENTS:
+				return (EObject) createRequirements();
+			case P2viewPackage.REQUIREMENT_WRAPPER:
+				return (EObject) createRequirementWrapper();
+			case P2viewPackage.TOUCHPOINTS:
+				return (EObject) createTouchpoints();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -522,6 +525,17 @@ public class P2viewFactoryImpl extends EFactoryImpl implements P2viewFactory {
 	public ProvidedCapabilityWrapper createProvidedCapabilityWrapper(IProvidedCapability pc) {
 		ProvidedCapabilityWrapperImpl providedCapabilityWrapper = new ProvidedCapabilityWrapperImpl(pc);
 		return providedCapabilityWrapper;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public RepositoryReferences createRepositoryReferences() {
+		RepositoryReferencesImpl repositoryReferences = new RepositoryReferencesImpl();
+		return repositoryReferences;
 	}
 
 	/**

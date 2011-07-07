@@ -6,17 +6,15 @@
  */
 package org.eclipse.b3.aggregator.impl;
 
-import org.eclipse.b3.aggregator.AggregationType;
 import org.eclipse.b3.aggregator.Aggregation;
+import org.eclipse.b3.aggregator.AggregationType;
 import org.eclipse.b3.aggregator.AggregatorFactory;
 import org.eclipse.b3.aggregator.AggregatorPackage;
-import org.eclipse.b3.aggregator.AggregatorResourceView;
 import org.eclipse.b3.aggregator.Architecture;
 import org.eclipse.b3.aggregator.AvailableVersion;
 import org.eclipse.b3.aggregator.AvailableVersionsHeader;
 import org.eclipse.b3.aggregator.Bundle;
 import org.eclipse.b3.aggregator.Category;
-import org.eclipse.b3.aggregator.ValidationSet;
 import org.eclipse.b3.aggregator.Configuration;
 import org.eclipse.b3.aggregator.Contact;
 import org.eclipse.b3.aggregator.Contribution;
@@ -39,6 +37,7 @@ import org.eclipse.b3.aggregator.Property;
 import org.eclipse.b3.aggregator.Status;
 import org.eclipse.b3.aggregator.StatusCode;
 import org.eclipse.b3.aggregator.ValidConfigurationsRule;
+import org.eclipse.b3.aggregator.ValidationSet;
 import org.eclipse.b3.aggregator.VersionMatch;
 import org.eclipse.b3.aggregator.WindowSystem;
 import org.eclipse.b3.aggregator.util.InstallableUnitUtils;
@@ -78,7 +77,7 @@ public class AggregatorFactoryImpl extends EFactoryImpl implements AggregatorFac
 	 */
 	public static AggregatorFactory init() {
 		try {
-			AggregatorFactory theAggregatorFactory = (AggregatorFactory) EPackage.Registry.INSTANCE.getEFactory("http://www.eclipse.org/b3/2010/aggregator/1.0.0");
+			AggregatorFactory theAggregatorFactory = (AggregatorFactory) EPackage.Registry.INSTANCE.getEFactory("http://www.eclipse.org/b3/2011/aggregator/1.1.0");
 			if(theAggregatorFactory != null) {
 				return theAggregatorFactory;
 			}
@@ -176,20 +175,20 @@ public class AggregatorFactoryImpl extends EFactoryImpl implements AggregatorFac
 		switch(eDataType.getClassifierID()) {
 			case AggregatorPackage.AGGREGATION_TYPE:
 				return convertAggregationTypeToString(eDataType, instanceValue);
-			case AggregatorPackage.OPERATING_SYSTEM:
-				return convertOperatingSystemToString(eDataType, instanceValue);
-			case AggregatorPackage.WINDOW_SYSTEM:
-				return convertWindowSystemToString(eDataType, instanceValue);
 			case AggregatorPackage.ARCHITECTURE:
 				return convertArchitectureToString(eDataType, instanceValue);
-			case AggregatorPackage.PACKED_STRATEGY:
-				return convertPackedStrategyToString(eDataType, instanceValue);
 			case AggregatorPackage.INSTALLABLE_UNIT_TYPE:
 				return convertInstallableUnitTypeToString(eDataType, instanceValue);
+			case AggregatorPackage.OPERATING_SYSTEM:
+				return convertOperatingSystemToString(eDataType, instanceValue);
+			case AggregatorPackage.PACKED_STRATEGY:
+				return convertPackedStrategyToString(eDataType, instanceValue);
 			case AggregatorPackage.STATUS_CODE:
 				return convertStatusCodeToString(eDataType, instanceValue);
 			case AggregatorPackage.VERSION_MATCH:
 				return convertVersionMatchToString(eDataType, instanceValue);
+			case AggregatorPackage.WINDOW_SYSTEM:
+				return convertWindowSystemToString(eDataType, instanceValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() +
 						"' is not a valid classifier");
@@ -229,50 +228,48 @@ public class AggregatorFactoryImpl extends EFactoryImpl implements AggregatorFac
 		switch(eClass.getClassifierID()) {
 			case AggregatorPackage.AGGREGATION:
 				return (EObject) createAggregation();
-			case AggregatorPackage.VALIDATION_SET:
-				return (EObject) createValidationSet();
-			case AggregatorPackage.MAPPED_REPOSITORY:
-				return (EObject) createMappedRepository();
-			case AggregatorPackage.CONFIGURATION:
-				return (EObject) createConfiguration();
-			case AggregatorPackage.CONTRIBUTION:
-				return (EObject) createContribution();
-			case AggregatorPackage.CONTACT:
-				return (EObject) createContact();
-			case AggregatorPackage.FEATURE:
-				return (EObject) createFeature();
-			case AggregatorPackage.BUNDLE:
-				return (EObject) createBundle();
-			case AggregatorPackage.PRODUCT:
-				return (EObject) createProduct();
-			case AggregatorPackage.PROPERTY:
-				return (EObject) createProperty();
-			case AggregatorPackage.CATEGORY:
-				return (EObject) createCategory();
-			case AggregatorPackage.CUSTOM_CATEGORY:
-				return (EObject) createCustomCategory();
-			case AggregatorPackage.EXCLUSION_RULE:
-				return (EObject) createExclusionRule();
-			case AggregatorPackage.VALID_CONFIGURATIONS_RULE:
-				return (EObject) createValidConfigurationsRule();
-			case AggregatorPackage.METADATA_REPOSITORY_REFERENCE:
-				return (EObject) createMetadataRepositoryReference();
-			case AggregatorPackage.DESCRIPTION_PROVIDER:
-				return (EObject) createDescriptionProvider();
-			case AggregatorPackage.MAVEN_MAPPING:
-				return (EObject) createMavenMapping();
-			case AggregatorPackage.MAVEN_ITEM:
-				return (EObject) createMavenItem();
-			case AggregatorPackage.STATUS:
-				return (EObject) createStatus();
-			case AggregatorPackage.INFOS_PROVIDER:
-				return (EObject) createInfosProvider();
 			case AggregatorPackage.AVAILABLE_VERSIONS_HEADER:
 				return (EObject) createAvailableVersionsHeader();
 			case AggregatorPackage.AVAILABLE_VERSION:
 				return (EObject) createAvailableVersion();
-			case AggregatorPackage.AGGREGATOR_RESOURCE_VIEW:
-				return (EObject) createAggregatorResourceView();
+			case AggregatorPackage.BUNDLE:
+				return (EObject) createBundle();
+			case AggregatorPackage.CATEGORY:
+				return (EObject) createCategory();
+			case AggregatorPackage.CONFIGURATION:
+				return (EObject) createConfiguration();
+			case AggregatorPackage.CONTACT:
+				return (EObject) createContact();
+			case AggregatorPackage.CONTRIBUTION:
+				return (EObject) createContribution();
+			case AggregatorPackage.FEATURE:
+				return (EObject) createFeature();
+			case AggregatorPackage.CUSTOM_CATEGORY:
+				return (EObject) createCustomCategory();
+			case AggregatorPackage.DESCRIPTION_PROVIDER:
+				return (EObject) createDescriptionProvider();
+			case AggregatorPackage.EXCLUSION_RULE:
+				return (EObject) createExclusionRule();
+			case AggregatorPackage.INFOS_PROVIDER:
+				return (EObject) createInfosProvider();
+			case AggregatorPackage.MAPPED_REPOSITORY:
+				return (EObject) createMappedRepository();
+			case AggregatorPackage.MAVEN_ITEM:
+				return (EObject) createMavenItem();
+			case AggregatorPackage.MAVEN_MAPPING:
+				return (EObject) createMavenMapping();
+			case AggregatorPackage.METADATA_REPOSITORY_REFERENCE:
+				return (EObject) createMetadataRepositoryReference();
+			case AggregatorPackage.PRODUCT:
+				return (EObject) createProduct();
+			case AggregatorPackage.PROPERTY:
+				return (EObject) createProperty();
+			case AggregatorPackage.STATUS:
+				return (EObject) createStatus();
+			case AggregatorPackage.VALIDATION_SET:
+				return (EObject) createValidationSet();
+			case AggregatorPackage.VALID_CONFIGURATIONS_RULE:
+				return (EObject) createValidConfigurationsRule();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -301,18 +298,6 @@ public class AggregatorFactoryImpl extends EFactoryImpl implements AggregatorFac
 			throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" +
 					eDataType.getName() + "'");
 		return result;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated NOT
-	 */
-	public AggregatorResourceView createAggregatorResourceView() {
-		// objects of this class are not supposed to be part of the model
-		// they are used as a view helpers
-		throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -368,17 +353,6 @@ public class AggregatorFactoryImpl extends EFactoryImpl implements AggregatorFac
 	public Category createCategory() {
 		CategoryImpl category = new CategoryImpl();
 		return category;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	public ValidationSet createValidationSet() {
-		ValidationSetImpl validationSet = new ValidationSetImpl();
-		return validationSet;
 	}
 
 	/**
@@ -461,20 +435,20 @@ public class AggregatorFactoryImpl extends EFactoryImpl implements AggregatorFac
 		switch(eDataType.getClassifierID()) {
 			case AggregatorPackage.AGGREGATION_TYPE:
 				return createAggregationTypeFromString(eDataType, initialValue);
-			case AggregatorPackage.OPERATING_SYSTEM:
-				return createOperatingSystemFromString(eDataType, initialValue);
-			case AggregatorPackage.WINDOW_SYSTEM:
-				return createWindowSystemFromString(eDataType, initialValue);
 			case AggregatorPackage.ARCHITECTURE:
 				return createArchitectureFromString(eDataType, initialValue);
-			case AggregatorPackage.PACKED_STRATEGY:
-				return createPackedStrategyFromString(eDataType, initialValue);
 			case AggregatorPackage.INSTALLABLE_UNIT_TYPE:
 				return createInstallableUnitTypeFromString(eDataType, initialValue);
+			case AggregatorPackage.OPERATING_SYSTEM:
+				return createOperatingSystemFromString(eDataType, initialValue);
+			case AggregatorPackage.PACKED_STRATEGY:
+				return createPackedStrategyFromString(eDataType, initialValue);
 			case AggregatorPackage.STATUS_CODE:
 				return createStatusCodeFromString(eDataType, initialValue);
 			case AggregatorPackage.VERSION_MATCH:
 				return createVersionMatchFromString(eDataType, initialValue);
+			case AggregatorPackage.WINDOW_SYSTEM:
+				return createWindowSystemFromString(eDataType, initialValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() +
 						"' is not a valid classifier");
@@ -695,6 +669,17 @@ public class AggregatorFactoryImpl extends EFactoryImpl implements AggregatorFac
 			throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" +
 					eDataType.getName() + "'");
 		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public ValidationSet createValidationSet() {
+		ValidationSetImpl validationSet = new ValidationSetImpl();
+		return validationSet;
 	}
 
 	/**

@@ -18,6 +18,7 @@ import org.eclipse.b3.aggregator.AggregatorPackage;
 import org.eclipse.b3.aggregator.Contribution;
 import org.eclipse.b3.aggregator.MappedRepository;
 import org.eclipse.b3.aggregator.MetadataRepositoryReference;
+import org.eclipse.b3.aggregator.ValidationSet;
 import org.eclipse.b3.aggregator.p2.util.MetadataRepositoryResourceImpl;
 import org.eclipse.b3.cli.HeadlessActivator;
 import org.eclipse.b3.p2.MetadataRepository;
@@ -65,34 +66,36 @@ public class ResourceUtils {
 		synchronized(topSet) {
 			Set<Resource> referencedResources = new HashSet<Resource>();
 			referencedResources.add(topResource);
-			for(Contribution contribution : aggregator.getContributions()) {
-				for(MappedRepository mappedRepository : contribution.getRepositories()) {
-					if(mappedRepository.isBranchEnabled()) {
-						if(mappedRepository.getResolvedLocation() != null) {
+			for(ValidationSet vs : aggregator.getValidationSets()) {
+				for(Contribution contribution : vs.getContributions()) {
+					for(MappedRepository mappedRepository : contribution.getRepositories()) {
+						if(mappedRepository.isBranchEnabled()) {
+							if(mappedRepository.getResolvedLocation() != null) {
+								org.eclipse.emf.common.util.URI repoURI = MetadataRepositoryResourceImpl.getResourceUriForNatureAndLocation(
+									mappedRepository.getNature(), mappedRepository.getResolvedLocation());
+								referencedResources.add(topSet.getResource(repoURI, false));
+							}
+						}
+						else {
+							// avoid notification recursion - set to null only if it is not null yet
+							if(mappedRepository.getMetadataRepository(false) != null)
+								mappedRepository.setMetadataRepository(null);
+						}
+					}
+				}
+				for(MetadataRepositoryReference repoRef : vs.getValidationRepositories()) {
+					if(repoRef.isBranchEnabled()) {
+						if(repoRef.getResolvedLocation() != null) {
 							org.eclipse.emf.common.util.URI repoURI = MetadataRepositoryResourceImpl.getResourceUriForNatureAndLocation(
-								mappedRepository.getNature(), mappedRepository.getResolvedLocation());
+								repoRef.getNature(), repoRef.getResolvedLocation());
 							referencedResources.add(topSet.getResource(repoURI, false));
 						}
 					}
-					else {
-						// avoid notification recursion - set to null only if it is not null yet
-						if(mappedRepository.getMetadataRepository(false) != null)
-							mappedRepository.setMetadataRepository(null);
-					}
+					else
+					// avoid notification recursion - set to null only if it is not null yet
+					if(repoRef.getMetadataRepository(false) != null)
+						repoRef.setMetadataRepository(null);
 				}
-			}
-			for(MetadataRepositoryReference repoRef : aggregator.getValidationRepositories()) {
-				if(repoRef.isBranchEnabled()) {
-					if(repoRef.getResolvedLocation() != null) {
-						org.eclipse.emf.common.util.URI repoURI = MetadataRepositoryResourceImpl.getResourceUriForNatureAndLocation(
-							repoRef.getNature(), repoRef.getResolvedLocation());
-						referencedResources.add(topSet.getResource(repoURI, false));
-					}
-				}
-				else
-				// avoid notification recursion - set to null only if it is not null yet
-				if(repoRef.getMetadataRepository(false) != null)
-					repoRef.setMetadataRepository(null);
 			}
 			Iterator<Resource> allResources = topSet.getResources().iterator();
 
@@ -117,7 +120,7 @@ public class ResourceUtils {
 	 * @param resourceSet
 	 * @return the aggregator instance, or null if it is not available
 	 */
-	public static Aggregation getAggregator(ResourceSet resourceSet) {
+	public static Aggregation getAggregation(ResourceSet resourceSet) {
 		if(resourceSet == null)
 			return null;
 

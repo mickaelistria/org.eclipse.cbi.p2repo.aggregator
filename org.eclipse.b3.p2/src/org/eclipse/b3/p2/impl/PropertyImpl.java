@@ -167,6 +167,17 @@ public class PropertyImpl extends MinimalEObjectImpl.Container implements BasicE
 	 * @generated
 	 */
 	@Override
+	protected EClass eStaticClass() {
+		return P2Package.Literals.PROPERTY;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
 			case P2Package.PROPERTY__KEY:
@@ -325,17 +336,6 @@ public class PropertyImpl extends MinimalEObjectImpl.Container implements BasicE
 		result.append(value);
 		result.append(')');
 		return result.toString();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return P2Package.Literals.PROPERTY;
 	}
 
 } // PropertyImpl

@@ -37,16 +37,6 @@ public interface AggregatorFactory extends EFactory {
 	Aggregation createAggregation();
 
 	/**
-	 * Returns a new object of class '<em>Resource View</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @return a new object of class '<em>Resource View</em>'.
-	 * @generated
-	 */
-	AggregatorResourceView createAggregatorResourceView();
-
-	/**
 	 * Returns a new object of class '<em>Available Version</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -83,16 +73,6 @@ public interface AggregatorFactory extends EFactory {
 	 * @generated
 	 */
 	Category createCategory();
-
-	/**
-	 * Returns a new object of class '<em>Validation Set</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @return a new object of class '<em>Validation Set</em>'.
-	 * @generated
-	 */
-	ValidationSet createValidationSet();
 
 	/**
 	 * Returns a new object of class '<em>Configuration</em>'.
@@ -270,6 +250,16 @@ public interface AggregatorFactory extends EFactory {
 	 * @generated NOT
 	 */
 	Status createStatus(StatusCode statusCode, String message);
+
+	/**
+	 * Returns a new object of class '<em>Validation Set</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return a new object of class '<em>Validation Set</em>'.
+	 * @generated
+	 */
+	ValidationSet createValidationSet();
 
 	/**
 	 * Returns a new object of class '<em>Valid Configurations Rule</em>'.

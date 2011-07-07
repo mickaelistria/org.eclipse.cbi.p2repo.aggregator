@@ -18,12 +18,10 @@ import org.eclipse.b3.aggregator.p2view.P2viewPackage;
 import org.eclipse.b3.aggregator.provider.AggregatorEditPlugin;
 import org.eclipse.b3.aggregator.provider.AggregatorItemProviderAdapter;
 import org.eclipse.b3.aggregator.util.ResourceUtils;
-
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.common.util.ResourceLocator;
-
+import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
@@ -132,6 +130,26 @@ public class MetadataRepositoryStructuredViewItemProvider extends AggregatorItem
 	}
 
 	/**
+	 * This adds a property descriptor for the Repository References feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	protected void addRepositoryReferencesPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+			getResourceLocator(),
+			getString("_UI_MetadataRepositoryStructuredView_repositoryReferences_feature"),
+			getString(
+				"_UI_PropertyDescriptor_description",
+				"_UI_MetadataRepositoryStructuredView_repositoryReferences_feature",
+				"_UI_MetadataRepositoryStructuredView_type"),
+			P2viewPackage.Literals.METADATA_REPOSITORY_STRUCTURED_VIEW__REPOSITORY_REFERENCES, false, false, true,
+			null, null, null));
+	}
+
+	/**
 	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
 	 * that can be created under this object.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -171,6 +189,7 @@ public class MetadataRepositoryStructuredViewItemProvider extends AggregatorItem
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(P2viewPackage.Literals.METADATA_REPOSITORY_STRUCTURED_VIEW__INSTALLABLE_UNIT_LIST);
 			childrenFeatures.add(P2viewPackage.Literals.METADATA_REPOSITORY_STRUCTURED_VIEW__PROPERTIES);
+			childrenFeatures.add(P2viewPackage.Literals.METADATA_REPOSITORY_STRUCTURED_VIEW__REPOSITORY_REFERENCES);
 		}
 		return childrenFeatures;
 	}
@@ -201,6 +220,7 @@ public class MetadataRepositoryStructuredViewItemProvider extends AggregatorItem
 			addInstallableUnitListPropertyDescriptor(object);
 			addPropertiesPropertyDescriptor(object);
 			addLoadedPropertyDescriptor(object);
+			addRepositoryReferencesPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -223,13 +243,31 @@ public class MetadataRepositoryStructuredViewItemProvider extends AggregatorItem
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((MetadataRepositoryStructuredView) object).getName();
-		return (label == null || label.length() == 0
-				? getString("_UI_MetadataRepositoryStructuredView_type")
-				: getString("_UI_MetadataRepositoryStructuredView_type") + " " + label) +
-				(((MetadataRepositoryStructuredView) object).isLoaded()
-						? ""
-						: " (loading...)");
+		MetadataRepositoryStructuredView self = (MetadataRepositoryStructuredView) object;
+		String label = self.getName();
+		StringBuilder bld = new StringBuilder("Metadata Repository : ");
+		if(label != null)
+			bld.append(label);
+		URI uri = ((EObject) object).eResource().getURI();
+		if(uri != null) {
+			int startPos = 0;
+			String uriStr = uri.toString();
+			if(uriStr.startsWith("b3aggr:"))
+				startPos = 7;
+			if(uriStr.startsWith("p2:", startPos))
+				startPos += 3;
+			bld.append(" [");
+			bld.append(uriStr, startPos, uriStr.length());
+			bld.append(']');
+		}
+		if(!self.isLoaded())
+			bld.append(" (loading...)");
+		return bld.toString();
+	}
+
+	@Override
+	public String getTooltipText(Object object) {
+		return AggregatorItemProviderAdapter.getTooltipText(object, this);
 	}
 
 	/**
@@ -253,10 +291,10 @@ public class MetadataRepositoryStructuredViewItemProvider extends AggregatorItem
 
 		if(notification.getFeatureID(MetadataRepositoryStructuredView.class) == P2viewPackage.METADATA_REPOSITORY_STRUCTURED_VIEW__LOADED) {
 			MetadataRepositoryStructuredView mdrView = (MetadataRepositoryStructuredView) notification.getNotifier();
-			Aggregation aggregator = ResourceUtils.getAggregator(((EObject) mdrView).eResource().getResourceSet());
+			Aggregation aggregation = ResourceUtils.getAggregation(((EObject) mdrView).eResource().getResourceSet());
 
-			if(aggregator != null)
-				fireNotifyChanged(new ViewerNotification(notification, aggregator, true, true));
+			if(aggregation != null)
+				fireNotifyChanged(new ViewerNotification(notification, aggregation, true, true));
 		}
 	}
 
@@ -278,6 +316,7 @@ public class MetadataRepositoryStructuredViewItemProvider extends AggregatorItem
 				return;
 			case P2viewPackage.METADATA_REPOSITORY_STRUCTURED_VIEW__INSTALLABLE_UNIT_LIST:
 			case P2viewPackage.METADATA_REPOSITORY_STRUCTURED_VIEW__PROPERTIES:
+			case P2viewPackage.METADATA_REPOSITORY_STRUCTURED_VIEW__REPOSITORY_REFERENCES:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}

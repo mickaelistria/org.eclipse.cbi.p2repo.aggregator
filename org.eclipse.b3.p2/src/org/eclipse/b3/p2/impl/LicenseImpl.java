@@ -206,6 +206,17 @@ public class LicenseImpl extends MinimalEObjectImpl.Container implements License
 	 * @generated
 	 */
 	@Override
+	protected EClass eStaticClass() {
+		return P2Package.Literals.LICENSE;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
 			case P2Package.LICENSE__LOCATION:
@@ -315,17 +326,6 @@ public class LicenseImpl extends MinimalEObjectImpl.Container implements License
 		result.append(uuid);
 		result.append(')');
 		return result.toString();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return P2Package.Literals.LICENSE;
 	}
 
 } // LicenseImpl

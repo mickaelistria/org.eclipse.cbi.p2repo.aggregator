@@ -102,6 +102,16 @@ public class P2Bridge {
 	public static final IQuery<IArtifactKey> QUERY_ALL_ARTIFACTS = new ExpressionMatchQuery<IArtifactKey>(
 		IArtifactKey.class, ExpressionUtil.TRUE_EXPRESSION);
 
+	private static void deleteIfExists(URI location, String... fileNames) throws CoreException {
+		File folder = new File(location);
+		for(String fileName : fileNames) {
+			File file = new File(folder, fileName);
+			if(file.exists())
+				if(!file.delete())
+					throw ExceptionUtils.fromMessage("Unable to delete %s", file.getAbsolutePath());
+		}
+	}
+
 	public static void exportFromModel(IArtifactRepositoryManager arMgr, IArtifactRepository ar,
 			boolean overwriteExisting, IProgressMonitor monitor) throws CoreException {
 		exportFromModel(arMgr, ar, ar.getLocation(), overwriteExisting, false, monitor);
@@ -475,15 +485,5 @@ public class P2Bridge {
 		mud.setSeverity(ud.getSeverity());
 		mud.setLocation(ud.getLocation());
 		return mud;
-	}
-
-	private static void deleteIfExists(URI location, String... fileNames) throws CoreException {
-		File folder = new File(location);
-		for(String fileName : fileNames) {
-			File file = new File(folder, fileName);
-			if(file.exists())
-				if(!file.delete())
-					throw ExceptionUtils.fromMessage("Unable to delete %s", file.getAbsolutePath());
-		}
 	}
 }

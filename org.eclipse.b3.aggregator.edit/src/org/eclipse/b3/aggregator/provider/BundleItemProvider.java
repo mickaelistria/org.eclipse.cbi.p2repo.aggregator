@@ -106,9 +106,7 @@ public class BundleItemProvider extends MappedUnitItemProvider implements IEditi
 	@Override
 	public String getText(Object object) {
 		StringBuilder bld = new StringBuilder();
-		bld.append(getString("_UI_Bundle_type"));
-		bld.append(' ');
-		appendIUText(object, bld);
+		appendIUText(object, "_UI_Bundle_type", bld);
 		return bld.toString();
 	}
 

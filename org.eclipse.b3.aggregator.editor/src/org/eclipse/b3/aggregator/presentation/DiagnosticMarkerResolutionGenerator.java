@@ -10,11 +10,11 @@ import java.util.ArrayList;
 import org.eclipse.b3.aggregator.Aggregation;
 import org.eclipse.b3.aggregator.AggregatorFactory;
 import org.eclipse.b3.aggregator.Contribution;
-import org.eclipse.b3.aggregator.LinkSource;
 import org.eclipse.b3.aggregator.ValidationSet;
 import org.eclipse.b3.aggregator.engine.Builder;
 import org.eclipse.b3.aggregator.engine.Engine;
-import org.eclipse.b3.aggregator.engine.RepositoryVerifier.AnalyzedPlannerStatus;
+import org.eclipse.b3.aggregator.engine.ValidationSetVerifier.AnalyzedPlannerStatus;
+import org.eclipse.b3.aggregator.impl.AggregationImpl;
 import org.eclipse.b3.aggregator.impl.ContributionImpl;
 import org.eclipse.b3.aggregator.util.AggregatorResourceImpl;
 import org.eclipse.b3.aggregator.util.ResourceUtils;
@@ -60,15 +60,12 @@ public class DiagnosticMarkerResolutionGenerator implements IMarkerResolutionGen
 			AggregatorEditor editor = getAggregatorEditor(marker);
 			if(editor == null)
 				return;
-
 			ResourceSet resourceSet = editor.getEditingDomain().getResourceSet();
 			Contribution contrib = (Contribution) resourceSet.getEObject(uri, true);
 			ValidationSet child = getReceiver(marker, editor);
-			child.getLinkedSources().add(contrib);
-			contrib.setReceiver(child);
+			child.getContributions().add(contrib);
 			editor.doSave(new NullProgressMonitor());
-			Aggregation aggregator = ResourceUtils.getAggregator(resourceSet);
-			verifyAggregation(aggregator);
+			verifyAggregation(ResourceUtils.getAggregation(resourceSet));
 		}
 	}
 
@@ -80,7 +77,7 @@ public class DiagnosticMarkerResolutionGenerator implements IMarkerResolutionGen
 		}
 
 		public String getLabel() {
-			return "Move contribution into composite member '" + receiver.getLabel() + '\'';
+			return "Move contribution into a different validation set '" + receiver.getLabel() + '\'';
 		}
 
 		@Override
@@ -103,17 +100,18 @@ public class DiagnosticMarkerResolutionGenerator implements IMarkerResolutionGen
 				return null;
 
 			((ContributionImpl) contrib).setStatus(null);
-			Aggregation aggregator = ResourceUtils.getAggregator(resourceSet);
+			Aggregation aggregation = ResourceUtils.getAggregation(resourceSet);
+			ValidationSet current = (ValidationSet) ((EObject) contrib).eContainer();
 			ValidationSet child = AggregatorFactory.eINSTANCE.createValidationSet();
+			child.getExtends().add(current);
 			child.setLabel(contrib.getLabel());
-			aggregator.getValidationSets().add(child);
+			aggregation.getValidationSets().add(child);
 			return child;
 		}
 	};
 
-	static void clearVerificationMarkers(Aggregation aggregator) {
-		for(Contribution contrib : aggregator.getContributions())
-			((ContributionImpl) contrib).setStatus(null);
+	static void clearVerificationMarkers(Aggregation aggregation) {
+		((AggregationImpl) aggregation).clearStatus();
 	}
 
 	static AggregatorEditor getAggregatorEditor(IMarker marker) {
@@ -184,7 +182,7 @@ public class DiagnosticMarkerResolutionGenerator implements IMarkerResolutionGen
 		return t;
 	}
 
-	static void verifyAggregation(final Aggregation aggregator) {
+	static void verifyAggregation(final Aggregation aggregation) {
 		new Job("b3 Aggregator") {
 			{
 				setUser(true);
@@ -193,9 +191,9 @@ public class DiagnosticMarkerResolutionGenerator implements IMarkerResolutionGen
 
 			@Override
 			protected IStatus run(IProgressMonitor monitor) {
-				Resource resource = ((EObject) aggregator).eResource();
+				Resource resource = ((EObject) aggregation).eResource();
 				try {
-					clearVerificationMarkers(aggregator);
+					clearVerificationMarkers(aggregation);
 					Builder builder = new Builder();
 
 					URI emfURI = resource.getURI();
@@ -232,17 +230,17 @@ public class DiagnosticMarkerResolutionGenerator implements IMarkerResolutionGen
 		AggregatorEditor editor = getAggregatorEditor(marker);
 		ResourceSet resourceSet = editor.getEditingDomain().getResourceSet();
 		Contribution contrib = getContribution(marker, resourceSet);
-		Aggregation aggregator = ResourceUtils.getAggregator(resourceSet);
+		Aggregation aggregation = ResourceUtils.getAggregation(resourceSet);
 		ArrayList<IMarkerResolution> resolutions = new ArrayList<IMarkerResolution>();
 		boolean hasSelf = false;
-		nextValidationSet: for(ValidationSet child : aggregator.getValidationSets()) {
-			for(LinkSource link : child.getLinkedSources()) {
-				if(link == contrib)
+		nextValidationSet: for(ValidationSet vs : aggregation.getValidationSets(true)) {
+			for(Contribution c : vs.getContributions()) {
+				if(c == contrib)
 					continue nextValidationSet;
 			}
-			if(child.getLabel().equals(contrib.getLabel()))
+			if(vs.getLabel().equals(contrib.getLabel()))
 				hasSelf = true;
-			resolutions.add(new MoveToExistingChild(child));
+			resolutions.add(new MoveToExistingChild(vs));
 		}
 		if(!hasSelf)
 			resolutions.add(moveToNew);

@@ -24,6 +24,7 @@ import org.eclipse.b3.aggregator.StatusCode;
 import org.eclipse.b3.aggregator.StatusProvider;
 import org.eclipse.b3.aggregator.p2.util.MetadataRepositoryResourceImpl;
 import org.eclipse.b3.aggregator.util.AggregatorResource;
+import org.eclipse.b3.aggregator.util.GeneralUtils;
 import org.eclipse.b3.cli.HeadlessActivator;
 import org.eclipse.b3.p2.MetadataRepository;
 import org.eclipse.b3.p2.P2Factory;
@@ -208,7 +209,7 @@ public class MetadataRepositoryReferenceImpl extends MinimalEObjectImpl.Containe
 	}
 
 	synchronized public void cancelRepositoryLoad() {
-		MetadataRepositoryResourceImpl.cancelLoadRepository(getNature(), getResolvedLocation(), getAggregator());
+		MetadataRepositoryResourceImpl.cancelLoadRepository(getNature(), getResolvedLocation(), getAggregation());
 	}
 
 	/**
@@ -418,28 +419,12 @@ public class MetadataRepositoryReferenceImpl extends MinimalEObjectImpl.Containe
 	 * 
 	 * @generated NOT
 	 */
-	public Aggregation getAggregator() {
-		// TODO check it
-		// return GeneralUtils.getAggregator(this);
-		return (Aggregation) eContainer();
+	public Aggregation getAggregation() {
+		return GeneralUtils.getAggregation(this);
 	}
 
 	private AggregatorResource getAggregatorResource() {
-
-		if(eResource() instanceof AggregatorResource)
-			return (AggregatorResource) eResource();
-
-		// TODO check it
-		// return GeneralUtils.getAggregatorResource(this);
-
-		EObject parent = this.eContainer;
-		while(parent != null && !(parent instanceof Aggregation))
-			parent = parent.eContainer();
-
-		if(parent == null)
-			throw new RuntimeException("Cannot find aggregator top node");
-
-		return (AggregatorResource) parent.eResource();
+		return GeneralUtils.getAggregatorResource(this);
 	}
 
 	/**
@@ -460,7 +445,7 @@ public class MetadataRepositoryReferenceImpl extends MinimalEObjectImpl.Containe
 
 		if(eResource() != null) {
 			MetadataRepositoryResourceImpl res = (MetadataRepositoryResourceImpl) MetadataRepositoryResourceImpl.getResourceForNatureAndLocation(
-				nature, location, getAggregator(), false);
+				nature, location, getAggregation(), false);
 
 			if(res == null) {
 				errors.add(getString("_UI_ErrorMessage_RepositoryIsNotAvailable"));
@@ -572,7 +557,7 @@ public class MetadataRepositoryReferenceImpl extends MinimalEObjectImpl.Containe
 		else {
 			uri = URI.createURI(location, true);
 			if(!uri.isHierarchical()) { // try to resolve the location URI if not hierarchical
-				URI base = ((EObject) getAggregator()).eResource().getURI();
+				URI base = ((EObject) getAggregation()).eResource().getURI();
 				if(base != null)
 					uri = uri.resolve(base.trimSegments(1));
 			}
@@ -612,7 +597,7 @@ public class MetadataRepositoryReferenceImpl extends MinimalEObjectImpl.Containe
 			MetadataRepositoryResourceImpl res;
 			try {
 				res = (MetadataRepositoryResourceImpl) MetadataRepositoryResourceImpl.getResourceForNatureAndLocation(
-					nature, location, getAggregator(), false);
+					nature, location, getAggregation(), false);
 			}
 			catch(Exception e) {
 				// cannot get Aggregator top node
@@ -665,7 +650,6 @@ public class MetadataRepositoryReferenceImpl extends MinimalEObjectImpl.Containe
 	public void onRepositoryLoad() {
 
 		if(this instanceof MappedRepository) {
-			((MappedRepository) this).updateAvailableVersions();
 			if(eNotificationRequired())
 				eNotify(new ENotificationImpl(
 					this, Notification.SET, AggregatorPackage.INSTALLABLE_UNIT_REQUEST__AVAILABLE_VERSIONS, null, null));
@@ -751,9 +735,9 @@ public class MetadataRepositoryReferenceImpl extends MinimalEObjectImpl.Containe
 
 		String nature = getNature();
 		String resolvedLocation = getResolvedLocation();
-		Aggregation aggregator = getAggregator();
+		Aggregation aggregation = getAggregation();
 		Resource res = MetadataRepositoryResourceImpl.getResourceForNatureAndLocation(
-			nature, resolvedLocation, aggregator);
+			nature, resolvedLocation, aggregation);
 		if(res != null)
 			((MetadataRepositoryResourceImpl) res).startAsynchronousLoad(forceReload);
 		else {

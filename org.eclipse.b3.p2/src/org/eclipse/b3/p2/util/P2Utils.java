@@ -43,11 +43,6 @@ public class P2Utils {
 		}
 	}
 
-	public static void destroyProvisioningAgent(final IProvisioningAgent agent) {
-		if(agent != null)
-			agent.stop();
-	}
-
 	public static String filterToString(IMatchExpression<IInstallableUnit> filter) {
 		if(filter == null)
 			return null;
@@ -70,55 +65,27 @@ public class P2Utils {
 		return filter.toString();
 	}
 
-	public static IPlanner getPlanner(IProvisioningAgent agent) {
-		return getP2Service(agent, IPlanner.class);
-	}
-
-	public static IProfileRegistry getProfileRegistry(IProvisioningAgent agent) {
-		return getP2Service(agent, IProfileRegistry.class);
-	}
-
-	public static <T extends IRepositoryManager<?>> T getRepositoryManager(Class<T> clazz) {
-		return getP2Service(null, clazz);
-	}
-
-	public static <T extends IRepositoryManager<?>> T getRepositoryManager(IProvisioningAgent agent, Class<T> clazz) {
-		return getP2Service(agent, clazz);
-	}
-
-	public static void ungetPlanner(IProvisioningAgent agent, IPlanner planner) {
-		if(agent != null && agent instanceof BackgroundProvisioningAgent)
-			((BackgroundProvisioningAgent) agent).unregisterTask();
-	}
-
-	public static void ungetProfileRegistry(IProvisioningAgent agent, IProfileRegistry registry) {
-		if(agent != null && agent instanceof BackgroundProvisioningAgent)
-			((BackgroundProvisioningAgent) agent).unregisterTask();
-	}
-
-	public static void ungetRepositoryManager(IProvisioningAgent agent, IRepositoryManager<?> manager) {
-		if(agent != null && agent instanceof BackgroundProvisioningAgent)
-			((BackgroundProvisioningAgent) agent).unregisterTask();
+	public static IProvisioningAgent getDefaultProvisioningAgent() throws CoreException {
+		IProvisioningAgent agent = null;
+		try {
+			agent = B3Util.getPlugin().getService(IProvisioningAgent.class);
+		}
+		catch(CoreException e) {
+			// agent is null, further steps may fix it
+		}
+		if(agent == null) {
+			IProvisioningAgentProvider agentProvider = B3Util.getPlugin().getService(IProvisioningAgentProvider.class);
+			agent = agentProvider.createAgent(null);
+			B3Util.getPlugin().ungetService(agentProvider);
+		}
+		return agent;
 	}
 
 	private static <T> T getP2Service(IProvisioningAgent agent, Class<T> clazz) {
 		try {
 			IProvisioningAgent agentParam = agent;
-			if(agent == null) {
-				try {
-					agent = B3Util.getPlugin().getService(IProvisioningAgent.class);
-				}
-				catch(CoreException e) {
-					// agent is null, further steps may fix it
-				}
-
-				if(agent == null) {
-					IProvisioningAgentProvider agentProvider = B3Util.getPlugin().getService(
-						IProvisioningAgentProvider.class);
-					agent = agentProvider.createAgent(null);
-					B3Util.getPlugin().ungetService(agentProvider);
-				}
-			}
+			if(agent == null)
+				agent = getDefaultProvisioningAgent();
 
 			Object service = agent.getService(clazz.getName());
 			if(service == null) {
@@ -137,11 +104,50 @@ public class P2Utils {
 				return result;
 			}
 		}
-		catch(Throwable t) {
+		catch(RuntimeException t) {
+			throw t;
+		}
+		catch(Exception t) {
 			throw new RuntimeException(t);
 		}
 
 		throw new RuntimeException("p2 service " + clazz.getName() + "not available");
+	}
+
+	public static IPlanner getPlanner(IProvisioningAgent agent) {
+		return getP2Service(agent, IPlanner.class);
+	}
+
+	public static IProfileRegistry getProfileRegistry(IProvisioningAgent agent) {
+		return getP2Service(agent, IProfileRegistry.class);
+	}
+
+	public static <T extends IRepositoryManager<?>> T getRepositoryManager(Class<T> clazz) {
+		return getP2Service(null, clazz);
+	}
+
+	public static <T extends IRepositoryManager<?>> T getRepositoryManager(IProvisioningAgent agent, Class<T> clazz) {
+		return getP2Service(agent, clazz);
+	}
+
+	public static void stopProvisioningAgent(final IProvisioningAgent agent) {
+		if(agent != null)
+			agent.stop();
+	}
+
+	public static void ungetPlanner(IProvisioningAgent agent, IPlanner planner) {
+		if(agent != null && agent instanceof BackgroundProvisioningAgent)
+			((BackgroundProvisioningAgent) agent).unregisterTask();
+	}
+
+	public static void ungetProfileRegistry(IProvisioningAgent agent, IProfileRegistry registry) {
+		if(agent != null && agent instanceof BackgroundProvisioningAgent)
+			((BackgroundProvisioningAgent) agent).unregisterTask();
+	}
+
+	public static void ungetRepositoryManager(IProvisioningAgent agent, IRepositoryManager<?> manager) {
+		if(agent != null && agent instanceof BackgroundProvisioningAgent)
+			((BackgroundProvisioningAgent) agent).unregisterTask();
 	}
 
 }

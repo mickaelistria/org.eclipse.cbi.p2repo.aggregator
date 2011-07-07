@@ -111,6 +111,16 @@ public class RequiredCapabilityImpl extends RequirementImpl implements RequiredC
 		super();
 	}
 
+	synchronized private void computeMatches() {
+		if(matchesDirty) {
+			org.eclipse.equinox.internal.p2.metadata.RequiredCapability rc = new org.eclipse.equinox.internal.p2.metadata.RequiredCapability(
+				getNamespace(), getName(), getRange(), getFilter(), getMin(), getMax(), isGreedy(), getDescription());
+			super.setMatches(rc.getMatches());
+		}
+
+		matchesDirty = false;
+	}
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -249,6 +259,17 @@ public class RequiredCapabilityImpl extends RequirementImpl implements RequiredC
 				return;
 		}
 		super.eSet(featureID, newValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return P2Package.Literals.REQUIRED_CAPABILITY;
 	}
 
 	/**
@@ -435,27 +456,6 @@ public class RequiredCapabilityImpl extends RequirementImpl implements RequiredC
 		else
 			range.toString(result);
 		return result.toString();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return P2Package.Literals.REQUIRED_CAPABILITY;
-	}
-
-	synchronized private void computeMatches() {
-		if(matchesDirty) {
-			org.eclipse.equinox.internal.p2.metadata.RequiredCapability rc = new org.eclipse.equinox.internal.p2.metadata.RequiredCapability(
-				getNamespace(), getName(), getRange(), getFilter(), getMin(), getMax(), isGreedy(), getDescription());
-			super.setMatches(rc.getMatches());
-		}
-
-		matchesDirty = false;
 	}
 
 } // RequiredCapabilityImpl

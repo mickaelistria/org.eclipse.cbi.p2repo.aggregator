@@ -11,6 +11,7 @@ package org.eclipse.b3.aggregator.p2view.util;
 
 import org.eclipse.b3.aggregator.ChildrenProvider;
 import org.eclipse.b3.aggregator.LabelProvider;
+import org.eclipse.b3.aggregator.p2view.*;
 import org.eclipse.b3.aggregator.p2view.Bundle;
 import org.eclipse.b3.aggregator.p2view.Bundles;
 import org.eclipse.b3.aggregator.p2view.Categories;
@@ -452,6 +453,23 @@ public class P2viewSwitch<T1> extends Switch<T1> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Repository References</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * 
+	 * @param object
+	 *            the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Repository References</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseRepositoryReferences(RepositoryReferences object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Requirements</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -527,47 +545,15 @@ public class P2viewSwitch<T1> extends Switch<T1> {
 	@Override
 	protected T1 doSwitch(int classifierID, EObject theEObject) {
 		switch(classifierID) {
-			case P2viewPackage.METADATA_REPOSITORY_STRUCTURED_VIEW: {
-				MetadataRepositoryStructuredView metadataRepositoryStructuredView = (MetadataRepositoryStructuredView) theEObject;
-				T1 result = caseMetadataRepositoryStructuredView(metadataRepositoryStructuredView);
+			case P2viewPackage.BUNDLE: {
+				Bundle bundle = (Bundle) theEObject;
+				T1 result = caseBundle(bundle);
 				if(result == null)
-					result = caseChildrenProvider(metadataRepositoryStructuredView);
+					result = caseIUPresentationWithDetails(bundle);
 				if(result == null)
-					result = defaultCase(theEObject);
-				return result;
-			}
-			case P2viewPackage.INSTALLABLE_UNITS: {
-				InstallableUnits installableUnits = (InstallableUnits) theEObject;
-				T1 result = caseInstallableUnits(installableUnits);
+					result = caseIUPresentation(bundle);
 				if(result == null)
-					result = caseChildrenProvider(installableUnits);
-				if(result == null)
-					result = defaultCase(theEObject);
-				return result;
-			}
-			case P2viewPackage.CATEGORIES: {
-				Categories categories = (Categories) theEObject;
-				T1 result = caseCategories(categories);
-				if(result == null)
-					result = caseChildrenProvider(categories);
-				if(result == null)
-					result = defaultCase(theEObject);
-				return result;
-			}
-			case P2viewPackage.FEATURES: {
-				Features features = (Features) theEObject;
-				T1 result = caseFeatures(features);
-				if(result == null)
-					result = caseChildrenProvider(features);
-				if(result == null)
-					result = defaultCase(theEObject);
-				return result;
-			}
-			case P2viewPackage.PRODUCTS: {
-				Products products = (Products) theEObject;
-				T1 result = caseProducts(products);
-				if(result == null)
-					result = caseChildrenProvider(products);
+					result = caseIUDetails(bundle);
 				if(result == null)
 					result = defaultCase(theEObject);
 				return result;
@@ -581,6 +567,61 @@ public class P2viewSwitch<T1> extends Switch<T1> {
 					result = defaultCase(theEObject);
 				return result;
 			}
+			case P2viewPackage.CATEGORY: {
+				Category category = (Category) theEObject;
+				T1 result = caseCategory(category);
+				if(result == null)
+					result = caseIUPresentation(category);
+				if(result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
+			case P2viewPackage.CATEGORIES: {
+				Categories categories = (Categories) theEObject;
+				T1 result = caseCategories(categories);
+				if(result == null)
+					result = caseChildrenProvider(categories);
+				if(result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
+			case P2viewPackage.FEATURE: {
+				Feature feature = (Feature) theEObject;
+				T1 result = caseFeature(feature);
+				if(result == null)
+					result = caseIUPresentationWithDetails(feature);
+				if(result == null)
+					result = caseIUPresentation(feature);
+				if(result == null)
+					result = caseIUDetails(feature);
+				if(result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
+			case P2viewPackage.FEATURES: {
+				Features features = (Features) theEObject;
+				T1 result = caseFeatures(features);
+				if(result == null)
+					result = caseChildrenProvider(features);
+				if(result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
+			case P2viewPackage.FRAGMENT: {
+				Fragment fragment = (Fragment) theEObject;
+				T1 result = caseFragment(fragment);
+				if(result == null)
+					result = caseBundle(fragment);
+				if(result == null)
+					result = caseIUPresentationWithDetails(fragment);
+				if(result == null)
+					result = caseIUPresentation(fragment);
+				if(result == null)
+					result = caseIUDetails(fragment);
+				if(result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
 			case P2viewPackage.FRAGMENTS: {
 				Fragments fragments = (Fragments) theEObject;
 				T1 result = caseFragments(fragments);
@@ -590,11 +631,18 @@ public class P2viewSwitch<T1> extends Switch<T1> {
 					result = defaultCase(theEObject);
 				return result;
 			}
-			case P2viewPackage.MISCELLANEOUS: {
-				Miscellaneous miscellaneous = (Miscellaneous) theEObject;
-				T1 result = caseMiscellaneous(miscellaneous);
+			case P2viewPackage.INSTALLABLE_UNITS: {
+				InstallableUnits installableUnits = (InstallableUnits) theEObject;
+				T1 result = caseInstallableUnits(installableUnits);
 				if(result == null)
-					result = caseChildrenProvider(miscellaneous);
+					result = caseChildrenProvider(installableUnits);
+				if(result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
+			case P2viewPackage.IU_DETAILS: {
+				IUDetails iuDetails = (IUDetails) theEObject;
+				T1 result = caseIUDetails(iuDetails);
 				if(result == null)
 					result = defaultCase(theEObject);
 				return result;
@@ -617,65 +665,27 @@ public class P2viewSwitch<T1> extends Switch<T1> {
 					result = defaultCase(theEObject);
 				return result;
 			}
-			case P2viewPackage.CATEGORY: {
-				Category category = (Category) theEObject;
-				T1 result = caseCategory(category);
-				if(result == null)
-					result = caseIUPresentation(category);
+			case P2viewPackage.LICENSES: {
+				Licenses licenses = (Licenses) theEObject;
+				T1 result = caseLicenses(licenses);
 				if(result == null)
 					result = defaultCase(theEObject);
 				return result;
 			}
-			case P2viewPackage.FEATURE: {
-				Feature feature = (Feature) theEObject;
-				T1 result = caseFeature(feature);
+			case P2viewPackage.METADATA_REPOSITORY_STRUCTURED_VIEW: {
+				MetadataRepositoryStructuredView metadataRepositoryStructuredView = (MetadataRepositoryStructuredView) theEObject;
+				T1 result = caseMetadataRepositoryStructuredView(metadataRepositoryStructuredView);
 				if(result == null)
-					result = caseIUPresentationWithDetails(feature);
-				if(result == null)
-					result = caseIUPresentation(feature);
-				if(result == null)
-					result = caseIUDetails(feature);
+					result = caseChildrenProvider(metadataRepositoryStructuredView);
 				if(result == null)
 					result = defaultCase(theEObject);
 				return result;
 			}
-			case P2viewPackage.PRODUCT: {
-				Product product = (Product) theEObject;
-				T1 result = caseProduct(product);
+			case P2viewPackage.MISCELLANEOUS: {
+				Miscellaneous miscellaneous = (Miscellaneous) theEObject;
+				T1 result = caseMiscellaneous(miscellaneous);
 				if(result == null)
-					result = caseIUPresentationWithDetails(product);
-				if(result == null)
-					result = caseIUPresentation(product);
-				if(result == null)
-					result = caseIUDetails(product);
-				if(result == null)
-					result = defaultCase(theEObject);
-				return result;
-			}
-			case P2viewPackage.BUNDLE: {
-				Bundle bundle = (Bundle) theEObject;
-				T1 result = caseBundle(bundle);
-				if(result == null)
-					result = caseIUPresentationWithDetails(bundle);
-				if(result == null)
-					result = caseIUPresentation(bundle);
-				if(result == null)
-					result = caseIUDetails(bundle);
-				if(result == null)
-					result = defaultCase(theEObject);
-				return result;
-			}
-			case P2viewPackage.FRAGMENT: {
-				Fragment fragment = (Fragment) theEObject;
-				T1 result = caseFragment(fragment);
-				if(result == null)
-					result = caseBundle(fragment);
-				if(result == null)
-					result = caseIUPresentationWithDetails(fragment);
-				if(result == null)
-					result = caseIUPresentation(fragment);
-				if(result == null)
-					result = caseIUDetails(fragment);
+					result = caseChildrenProvider(miscellaneous);
 				if(result == null)
 					result = defaultCase(theEObject);
 				return result;
@@ -693,16 +703,31 @@ public class P2viewSwitch<T1> extends Switch<T1> {
 					result = defaultCase(theEObject);
 				return result;
 			}
-			case P2viewPackage.PROPERTIES: {
-				Properties properties = (Properties) theEObject;
-				T1 result = caseProperties(properties);
+			case P2viewPackage.PRODUCT: {
+				Product product = (Product) theEObject;
+				T1 result = caseProduct(product);
+				if(result == null)
+					result = caseIUPresentationWithDetails(product);
+				if(result == null)
+					result = caseIUPresentation(product);
+				if(result == null)
+					result = caseIUDetails(product);
 				if(result == null)
 					result = defaultCase(theEObject);
 				return result;
 			}
-			case P2viewPackage.REQUIREMENTS: {
-				Requirements requirements = (Requirements) theEObject;
-				T1 result = caseRequirements(requirements);
+			case P2viewPackage.PRODUCTS: {
+				Products products = (Products) theEObject;
+				T1 result = caseProducts(products);
+				if(result == null)
+					result = caseChildrenProvider(products);
+				if(result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
+			case P2viewPackage.PROPERTIES: {
+				Properties properties = (Properties) theEObject;
+				T1 result = caseProperties(properties);
 				if(result == null)
 					result = defaultCase(theEObject);
 				return result;
@@ -714,23 +739,29 @@ public class P2viewSwitch<T1> extends Switch<T1> {
 					result = defaultCase(theEObject);
 				return result;
 			}
-			case P2viewPackage.TOUCHPOINTS: {
-				Touchpoints touchpoints = (Touchpoints) theEObject;
-				T1 result = caseTouchpoints(touchpoints);
+			case P2viewPackage.PROVIDED_CAPABILITY_WRAPPER: {
+				ProvidedCapabilityWrapper providedCapabilityWrapper = (ProvidedCapabilityWrapper) theEObject;
+				T1 result = caseProvidedCapabilityWrapper(providedCapabilityWrapper);
+				if(result == null)
+					result = caseIProvidedCapability(providedCapabilityWrapper);
+				if(result == null)
+					result = caseLabelProvider(providedCapabilityWrapper);
 				if(result == null)
 					result = defaultCase(theEObject);
 				return result;
 			}
-			case P2viewPackage.LICENSES: {
-				Licenses licenses = (Licenses) theEObject;
-				T1 result = caseLicenses(licenses);
+			case P2viewPackage.REPOSITORY_REFERENCES: {
+				RepositoryReferences repositoryReferences = (RepositoryReferences) theEObject;
+				T1 result = caseRepositoryReferences(repositoryReferences);
+				if(result == null)
+					result = caseChildrenProvider(repositoryReferences);
 				if(result == null)
 					result = defaultCase(theEObject);
 				return result;
 			}
-			case P2viewPackage.IU_DETAILS: {
-				IUDetails iuDetails = (IUDetails) theEObject;
-				T1 result = caseIUDetails(iuDetails);
+			case P2viewPackage.REQUIREMENTS: {
+				Requirements requirements = (Requirements) theEObject;
+				T1 result = caseRequirements(requirements);
 				if(result == null)
 					result = defaultCase(theEObject);
 				return result;
@@ -746,13 +777,9 @@ public class P2viewSwitch<T1> extends Switch<T1> {
 					result = defaultCase(theEObject);
 				return result;
 			}
-			case P2viewPackage.PROVIDED_CAPABILITY_WRAPPER: {
-				ProvidedCapabilityWrapper providedCapabilityWrapper = (ProvidedCapabilityWrapper) theEObject;
-				T1 result = caseProvidedCapabilityWrapper(providedCapabilityWrapper);
-				if(result == null)
-					result = caseIProvidedCapability(providedCapabilityWrapper);
-				if(result == null)
-					result = caseLabelProvider(providedCapabilityWrapper);
+			case P2viewPackage.TOUCHPOINTS: {
+				Touchpoints touchpoints = (Touchpoints) theEObject;
+				T1 result = caseTouchpoints(touchpoints);
 				if(result == null)
 					result = defaultCase(theEObject);
 				return result;

@@ -7,29 +7,32 @@
  */
 package org.eclipse.b3.aggregator.impl;
 
-import java.util.ArrayList;
 import java.util.Collection;
-import java.util.List;
 
 import org.eclipse.b3.aggregator.Aggregation;
 import org.eclipse.b3.aggregator.AggregatorFactory;
 import org.eclipse.b3.aggregator.AggregatorPackage;
-import org.eclipse.b3.aggregator.ValidationSet;
 import org.eclipse.b3.aggregator.Contribution;
 import org.eclipse.b3.aggregator.DescriptionProvider;
 import org.eclipse.b3.aggregator.InfosProvider;
-import org.eclipse.b3.aggregator.LinkReceiver;
-import org.eclipse.b3.aggregator.LinkSource;
+import org.eclipse.b3.aggregator.MetadataRepositoryReference;
 import org.eclipse.b3.aggregator.Status;
 import org.eclipse.b3.aggregator.StatusCode;
 import org.eclipse.b3.aggregator.StatusProvider;
+import org.eclipse.b3.aggregator.ValidationSet;
+import org.eclipse.b3.aggregator.util.GeneralUtils;
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
-import org.eclipse.emf.ecore.util.EObjectEList;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -44,7 +47,11 @@ import org.eclipse.emf.ecore.util.EObjectEList;
  * <li>{@link org.eclipse.b3.aggregator.impl.ValidationSetImpl#getErrors <em>Errors</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.impl.ValidationSetImpl#getWarnings <em>Warnings</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.impl.ValidationSetImpl#getInfos <em>Infos</em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.impl.ValidationSetImpl#isAbstract <em>Abstract</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.impl.ValidationSetImpl#getLabel <em>Label</em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.impl.ValidationSetImpl#getContributions <em>Contributions</em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.impl.ValidationSetImpl#getValidationRepositories <em>Validation Repositories</em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.impl.ValidationSetImpl#getExtends <em>Extends</em>}</li>
  * </ul>
  * </p>
  * 
@@ -138,7 +145,27 @@ public class ValidationSetImpl extends MinimalEObjectImpl.Container implements V
 	 */
 	protected EList<String> infos;
 
-	protected EList<LinkSource> linkedSources;
+	/**
+	 * The default value of the '{@link #isAbstract() <em>Abstract</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see #isAbstract()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean ABSTRACT_EDEFAULT = false;
+
+	/**
+	 * The flag representing the value of the '{@link #isAbstract() <em>Abstract</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see #isAbstract()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int ABSTRACT_EFLAG = 1 << 1;
 
 	/**
 	 * The default value of the '{@link #getLabel() <em>Label</em>}' attribute.
@@ -163,6 +190,39 @@ public class ValidationSetImpl extends MinimalEObjectImpl.Container implements V
 	protected String label = LABEL_EDEFAULT;
 
 	/**
+	 * The cached value of the '{@link #getContributions() <em>Contributions</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see #getContributions()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Contribution> contributions;
+
+	/**
+	 * The cached value of the '{@link #getValidationRepositories() <em>Validation Repositories</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see #getValidationRepositories()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<MetadataRepositoryReference> validationRepositories;
+
+	/**
+	 * The cached value of the '{@link #getExtends() <em>Extends</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see #getExtends()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<ValidationSet> extends_;
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -173,14 +233,35 @@ public class ValidationSetImpl extends MinimalEObjectImpl.Container implements V
 		eFlags |= ENABLED_EFLAG;
 	}
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated NOT
-	 */
-	public boolean acceptsSource(LinkSource source) {
-		return (source instanceof Contribution);
+	private void addContributions(EList<Contribution> receiver) {
+		for(Contribution contrib : getContributions()) {
+			if(!contrib.isEnabled() || receiver.contains(contrib))
+				continue;
+			receiver.add(contrib);
+		}
+		for(ValidationSet ex : getExtends())
+			if(ex.isEnabled())
+				((ValidationSetImpl) ex).addContributions(receiver);
+	}
+
+	private void addValidationRepositories(EList<MetadataRepositoryReference> receiver) {
+		for(MetadataRepositoryReference repo : getValidationRepositories()) {
+			if(!repo.isEnabled() || receiver.contains(repo))
+				continue;
+			receiver.add(repo);
+		}
+		for(ValidationSet ex : getExtends())
+			if(ex.isEnabled())
+				((ValidationSetImpl) ex).addValidationRepositories(receiver);
+	}
+
+	void clearStatus() {
+		Status oldStatus = getStatus();
+		for(Contribution contribution : getContributions())
+			((ContributionImpl) contribution).setStatus(null);
+		if(eNotificationRequired())
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, AggregatorPackage.VALIDATION_SET__STATUS, oldStatus, null));
 	}
 
 	/**
@@ -215,12 +296,6 @@ public class ValidationSetImpl extends MinimalEObjectImpl.Container implements V
 					return AggregatorPackage.INFOS_PROVIDER__WARNINGS;
 				case AggregatorPackage.VALIDATION_SET__INFOS:
 					return AggregatorPackage.INFOS_PROVIDER__INFOS;
-				default:
-					return -1;
-			}
-		}
-		if(baseClass == LinkReceiver.class) {
-			switch(derivedFeatureID) {
 				default:
 					return -1;
 			}
@@ -264,12 +339,6 @@ public class ValidationSetImpl extends MinimalEObjectImpl.Container implements V
 					return -1;
 			}
 		}
-		if(baseClass == LinkReceiver.class) {
-			switch(baseFeatureID) {
-				default:
-					return -1;
-			}
-		}
 		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
 	}
 
@@ -294,10 +363,35 @@ public class ValidationSetImpl extends MinimalEObjectImpl.Container implements V
 				return getWarnings();
 			case AggregatorPackage.VALIDATION_SET__INFOS:
 				return getInfos();
+			case AggregatorPackage.VALIDATION_SET__ABSTRACT:
+				return isAbstract();
 			case AggregatorPackage.VALIDATION_SET__LABEL:
 				return getLabel();
+			case AggregatorPackage.VALIDATION_SET__CONTRIBUTIONS:
+				return getContributions();
+			case AggregatorPackage.VALIDATION_SET__VALIDATION_REPOSITORIES:
+				return getValidationRepositories();
+			case AggregatorPackage.VALIDATION_SET__EXTENDS:
+				return getExtends();
 		}
 		return super.eGet(featureID, resolve, coreType);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch(featureID) {
+			case AggregatorPackage.VALIDATION_SET__CONTRIBUTIONS:
+				return ((InternalEList<?>) getContributions()).basicRemove(otherEnd, msgs);
+			case AggregatorPackage.VALIDATION_SET__VALIDATION_REPOSITORIES:
+				return ((InternalEList<?>) getValidationRepositories()).basicRemove(otherEnd, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**
@@ -323,10 +417,18 @@ public class ValidationSetImpl extends MinimalEObjectImpl.Container implements V
 				return warnings != null && !warnings.isEmpty();
 			case AggregatorPackage.VALIDATION_SET__INFOS:
 				return infos != null && !infos.isEmpty();
+			case AggregatorPackage.VALIDATION_SET__ABSTRACT:
+				return ((eFlags & ABSTRACT_EFLAG) != 0) != ABSTRACT_EDEFAULT;
 			case AggregatorPackage.VALIDATION_SET__LABEL:
 				return LABEL_EDEFAULT == null
 						? label != null
 						: !LABEL_EDEFAULT.equals(label);
+			case AggregatorPackage.VALIDATION_SET__CONTRIBUTIONS:
+				return contributions != null && !contributions.isEmpty();
+			case AggregatorPackage.VALIDATION_SET__VALIDATION_REPOSITORIES:
+				return validationRepositories != null && !validationRepositories.isEmpty();
+			case AggregatorPackage.VALIDATION_SET__EXTENDS:
+				return extends_ != null && !extends_.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -359,8 +461,23 @@ public class ValidationSetImpl extends MinimalEObjectImpl.Container implements V
 				getInfos().clear();
 				getInfos().addAll((Collection<? extends String>) newValue);
 				return;
+			case AggregatorPackage.VALIDATION_SET__ABSTRACT:
+				setAbstract((Boolean) newValue);
+				return;
 			case AggregatorPackage.VALIDATION_SET__LABEL:
 				setLabel((String) newValue);
+				return;
+			case AggregatorPackage.VALIDATION_SET__CONTRIBUTIONS:
+				getContributions().clear();
+				getContributions().addAll((Collection<? extends Contribution>) newValue);
+				return;
+			case AggregatorPackage.VALIDATION_SET__VALIDATION_REPOSITORIES:
+				getValidationRepositories().clear();
+				getValidationRepositories().addAll((Collection<? extends MetadataRepositoryReference>) newValue);
+				return;
+			case AggregatorPackage.VALIDATION_SET__EXTENDS:
+				getExtends().clear();
+				getExtends().addAll((Collection<? extends ValidationSet>) newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -401,15 +518,87 @@ public class ValidationSetImpl extends MinimalEObjectImpl.Container implements V
 			case AggregatorPackage.VALIDATION_SET__INFOS:
 				getInfos().clear();
 				return;
+			case AggregatorPackage.VALIDATION_SET__ABSTRACT:
+				setAbstract(ABSTRACT_EDEFAULT);
+				return;
 			case AggregatorPackage.VALIDATION_SET__LABEL:
 				setLabel(LABEL_EDEFAULT);
+				return;
+			case AggregatorPackage.VALIDATION_SET__CONTRIBUTIONS:
+				getContributions().clear();
+				return;
+			case AggregatorPackage.VALIDATION_SET__VALIDATION_REPOSITORIES:
+				getValidationRepositories().clear();
+				return;
+			case AggregatorPackage.VALIDATION_SET__EXTENDS:
+				getExtends().clear();
 				return;
 		}
 		super.eUnset(featureID);
 	}
 
-	public Aggregation getAggregator() {
+	public Aggregation getAggregation() {
 		return (Aggregation) eContainer();
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated NOT
+	 */
+	public EList<Contribution> getAllContributions() {
+		if(getExtends().isEmpty())
+			return getDeclaredContributions();
+		BasicEList<Contribution> all = new BasicEList<Contribution>();
+		addContributions(all);
+		return all;
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated NOT
+	 */
+	public EList<MetadataRepositoryReference> getAllValidationRepositories() {
+		if(getExtends().isEmpty())
+			return getDeclaredValidationRepositories();
+		BasicEList<MetadataRepositoryReference> all = new BasicEList<MetadataRepositoryReference>();
+		addValidationRepositories(all);
+		return all;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EList<Contribution> getContributions() {
+		if(contributions == null) {
+			contributions = new EObjectContainmentEList.Resolving<Contribution>(
+				Contribution.class, this, AggregatorPackage.VALIDATION_SET__CONTRIBUTIONS);
+		}
+		return contributions;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated NOT
+	 */
+	public EList<Contribution> getDeclaredContributions() {
+		return GeneralUtils.getEnabled(getContributions());
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated NOT
+	 */
+	public EList<MetadataRepositoryReference> getDeclaredValidationRepositories() {
+		return GeneralUtils.getEnabled(getValidationRepositories());
 	}
 
 	/**
@@ -441,6 +630,20 @@ public class ValidationSetImpl extends MinimalEObjectImpl.Container implements V
 	 * 
 	 * @generated
 	 */
+	public EList<ValidationSet> getExtends() {
+		if(extends_ == null) {
+			extends_ = new EObjectResolvingEList<ValidationSet>(
+				ValidationSet.class, this, AggregatorPackage.VALIDATION_SET__EXTENDS);
+		}
+		return extends_;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
 	public EList<String> getInfos() {
 		if(infos == null) {
 			infos = new EDataTypeUniqueEList<String>(String.class, this, AggregatorPackage.VALIDATION_SET__INFOS);
@@ -458,31 +661,6 @@ public class ValidationSetImpl extends MinimalEObjectImpl.Container implements V
 		return label;
 	}
 
-	public Collection<Contribution> getLinkedContributions() {
-		EList<LinkSource> linkedSources = getLinkedSources();
-		List<Contribution> contributions = new ArrayList<Contribution>(linkedSources.size());
-
-		for(LinkSource linkedSource : linkedSources) {
-			if(linkedSource instanceof Contribution)
-				contributions.add((Contribution) linkedSource);
-		}
-
-		return contributions;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated NOT
-	 */
-	public EList<LinkSource> getLinkedSources() {
-		if(linkedSources == null) {
-			linkedSources = new EObjectEList<LinkSource>(LinkSource.class, this, AggregatorPackage.VALIDATION_SET);
-		}
-		return linkedSources;
-	}
-
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -491,18 +669,35 @@ public class ValidationSetImpl extends MinimalEObjectImpl.Container implements V
 	 */
 	public Status getStatus() {
 		StatusCode statusCode;
-
-		for(LinkSource linkedSource : getLinkedSources()) {
-			if(!(linkedSource instanceof Contribution))
+		for(ValidationSet ex : getExtends()) {
+			if(!ex.isEnabled())
 				continue;
-
-			Contribution contribution = (Contribution) linkedSource;
-
+			if((statusCode = ex.getStatus().getCode()) != StatusCode.OK && statusCode != StatusCode.WAITING)
+				return AggregatorFactory.eINSTANCE.createStatus(StatusCode.BROKEN);
+		}
+		for(Contribution contribution : getDeclaredContributions()) {
 			if((statusCode = contribution.getStatus().getCode()) != StatusCode.OK && statusCode != StatusCode.WAITING)
 				return AggregatorFactory.eINSTANCE.createStatus(StatusCode.BROKEN);
 		}
-
+		for(MetadataRepositoryReference repo : getDeclaredValidationRepositories()) {
+			if((statusCode = repo.getStatus().getCode()) != StatusCode.OK && statusCode != StatusCode.WAITING)
+				return AggregatorFactory.eINSTANCE.createStatus(StatusCode.BROKEN);
+		}
 		return AggregatorFactory.eINSTANCE.createStatus(StatusCode.OK);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EList<MetadataRepositoryReference> getValidationRepositories() {
+		if(validationRepositories == null) {
+			validationRepositories = new EObjectContainmentEList.Resolving<MetadataRepositoryReference>(
+				MetadataRepositoryReference.class, this, AggregatorPackage.VALIDATION_SET__VALIDATION_REPOSITORIES);
+		}
+		return validationRepositories;
 	}
 
 	/**
@@ -524,6 +719,16 @@ public class ValidationSetImpl extends MinimalEObjectImpl.Container implements V
 	 * 
 	 * @generated
 	 */
+	public boolean isAbstract() {
+		return (eFlags & ABSTRACT_EFLAG) != 0;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
 	public boolean isEnabled() {
 		return (eFlags & ENABLED_EFLAG) != 0;
 	}
@@ -534,8 +739,33 @@ public class ValidationSetImpl extends MinimalEObjectImpl.Container implements V
 	 * 
 	 * @generated NOT
 	 */
-	public void linkSource(LinkSource source) {
-		getLinkedSources().add(source);
+	public boolean isExtensionOf(ValidationSet validationSet) {
+		if(validationSet == null)
+			return false;
+		if(validationSet == this)
+			return true;
+		for(ValidationSet vs : getExtends()) {
+			if(vs.isExtensionOf(validationSet))
+				return true;
+		}
+		return false;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public void setAbstract(boolean newAbstract) {
+		boolean oldAbstract = (eFlags & ABSTRACT_EFLAG) != 0;
+		if(newAbstract)
+			eFlags |= ABSTRACT_EFLAG;
+		else
+			eFlags &= ~ABSTRACT_EFLAG;
+		if(eNotificationRequired())
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, AggregatorPackage.VALIDATION_SET__ABSTRACT, oldAbstract, newAbstract));
 	}
 
 	/**
@@ -605,19 +835,12 @@ public class ValidationSetImpl extends MinimalEObjectImpl.Container implements V
 		result.append(warnings);
 		result.append(", infos: ");
 		result.append(infos);
+		result.append(", abstract: ");
+		result.append((eFlags & ABSTRACT_EFLAG) != 0);
 		result.append(", label: ");
 		result.append(label);
 		result.append(')');
 		return result.toString();
 	}
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated NOT
-	 */
-	public void unlinkSource(LinkSource source) {
-		linkedSources.remove(source);
-	}
 } // ValidationSetImpl

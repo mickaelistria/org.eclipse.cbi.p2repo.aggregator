@@ -7,69 +7,44 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
-import java.net.URI;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collection;
-import java.util.HashMap;
-import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-import java.util.Properties;
 import java.util.Set;
 
 import org.eclipse.b3.aggregator.Aggregation;
 import org.eclipse.b3.aggregator.Contribution;
 import org.eclipse.b3.aggregator.MappedRepository;
-import org.eclipse.b3.aggregator.MavenMapping;
-import org.eclipse.b3.aggregator.MetadataRepositoryReference;
 import org.eclipse.b3.aggregator.PackedStrategy;
-import org.eclipse.b3.aggregator.engine.maven.InstallableUnitMapping;
-import org.eclipse.b3.aggregator.engine.maven.MavenManager;
-import org.eclipse.b3.aggregator.engine.maven.MavenRepositoryHelper;
+import org.eclipse.b3.aggregator.ValidationSet;
 import org.eclipse.b3.aggregator.util.ResourceUtils;
 import org.eclipse.b3.p2.MetadataRepository;
-import org.eclipse.b3.p2.loader.IRepositoryLoader;
-import org.eclipse.b3.p2.maven.indexer.IMaven2Indexer;
-import org.eclipse.b3.p2.maven.indexer.IndexerUtils;
-import org.eclipse.b3.p2.util.IUUtils;
-import org.eclipse.b3.p2.util.P2Utils;
-import org.eclipse.b3.p2.util.RepositoryLoaderUtils;
 import org.eclipse.b3.util.ExceptionUtils;
 import org.eclipse.b3.util.IOUtils;
 import org.eclipse.b3.util.LogUtils;
 import org.eclipse.b3.util.MonitorUtils;
 import org.eclipse.b3.util.TimeUtils;
 import org.eclipse.core.runtime.CoreException;
-import org.eclipse.core.runtime.IConfigurationElement;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.MultiStatus;
 import org.eclipse.core.runtime.OperationCanceledException;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.core.runtime.SubMonitor;
-import org.eclipse.equinox.internal.p2.artifact.repository.CompositeArtifactRepository;
 import org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest;
 import org.eclipse.equinox.internal.p2.artifact.repository.RawMirrorRequest;
-import org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactDescriptor;
-import org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository;
-import org.eclipse.equinox.internal.p2.metadata.repository.CompositeMetadataRepository;
 import org.eclipse.equinox.internal.p2.repository.Transport;
 import org.eclipse.equinox.internal.provisional.p2.artifact.repository.processing.ProcessingStepHandler;
-import org.eclipse.equinox.p2.core.ProvisionException;
 import org.eclipse.equinox.p2.metadata.IArtifactKey;
 import org.eclipse.equinox.p2.metadata.IInstallableUnit;
-import org.eclipse.equinox.p2.publisher.Publisher;
 import org.eclipse.equinox.p2.query.IQueryResult;
-import org.eclipse.equinox.p2.repository.IRepository;
 import org.eclipse.equinox.p2.repository.artifact.ArtifactKeyQuery;
 import org.eclipse.equinox.p2.repository.artifact.IArtifactDescriptor;
 import org.eclipse.equinox.p2.repository.artifact.IArtifactRepository;
-import org.eclipse.equinox.p2.repository.artifact.IArtifactRepositoryManager;
 import org.eclipse.equinox.p2.repository.artifact.IFileArtifactRepository;
 import org.eclipse.equinox.p2.repository.artifact.spi.ArtifactDescriptor;
-import org.eclipse.equinox.p2.repository.metadata.IMetadataRepositoryManager;
 import org.eclipse.equinox.spi.p2.publisher.PublisherHelper;
 
 public class MirrorGenerator extends BuilderPhase {
@@ -137,6 +112,75 @@ public class MirrorGenerator extends BuilderPhase {
 				MonitorUtils.done(monitor);
 			}
 		}
+	}
+
+	private static boolean checkIfTargetPresent(IArtifactRepository destination, IArtifactKey key, boolean packed) {
+		IArtifactDescriptor found = getArtifactDescriptor(destination, key, packed);
+		if(found != null) {
+			LogUtils.debug("    %s artifact is already present", packed
+					? "optimized"
+					: "canonical");
+			return true;
+		}
+		return false;
+	}
+
+	private static IStatus extractDeeperRootCause(IStatus status) {
+		if(status == null)
+			return null;
+
+		if(status.isMultiStatus()) {
+			IStatus[] children = ((MultiStatus) status).getChildren();
+			for(int i = 0; i < children.length; i++) {
+				IStatus deeper = extractDeeperRootCause(children[i]);
+				if(deeper != null)
+					return deeper;
+			}
+		}
+
+		Throwable t = status.getException();
+		if(t instanceof CoreException) {
+			IStatus deeper = extractDeeperRootCause(((CoreException) t).getStatus());
+			if(deeper != null)
+				return deeper;
+		}
+		return status.getSeverity() == IStatus.ERROR
+				? status
+				: null;
+	}
+
+	/**
+	 * Extract the root cause. The root cause is the first severe non-MultiStatus status containing an exception when
+	 * searching depth first otherwise null.
+	 * 
+	 * @param status
+	 * @return root cause
+	 */
+	private static IStatus extractRootCause(IStatus status) {
+		IStatus rootCause = extractDeeperRootCause(status);
+		return rootCause == null
+				? status
+				: rootCause;
+	}
+
+	private static IArtifactDescriptor getArtifactDescriptor(IArtifactRepository destination, IArtifactKey key,
+			boolean packed) {
+		for(IArtifactDescriptor candidate : destination.getArtifactDescriptors(key)) {
+			if(isPacked(candidate)) {
+				if(packed)
+					return candidate;
+			}
+			else {
+				if(!packed)
+					return candidate;
+			}
+		}
+		return null;
+	}
+
+	private static boolean isPacked(IArtifactDescriptor desc) {
+		return desc != null && "packed".equals(desc.getProperty(IArtifactDescriptor.FORMAT)) &&
+				ProcessingStepHandler.canProcess(desc);
 	}
 
 	static void mirror(Collection<IArtifactKey> keysToInstall, IArtifactRepository cache, IArtifactRepository source,
@@ -316,75 +360,6 @@ public class MirrorGenerator extends BuilderPhase {
 			source.getLocation(), result.getMessage());
 	}
 
-	private static boolean checkIfTargetPresent(IArtifactRepository destination, IArtifactKey key, boolean packed) {
-		IArtifactDescriptor found = getArtifactDescriptor(destination, key, packed);
-		if(found != null) {
-			LogUtils.debug("    %s artifact is already present", packed
-					? "optimized"
-					: "canonical");
-			return true;
-		}
-		return false;
-	}
-
-	private static IStatus extractDeeperRootCause(IStatus status) {
-		if(status == null)
-			return null;
-
-		if(status.isMultiStatus()) {
-			IStatus[] children = ((MultiStatus) status).getChildren();
-			for(int i = 0; i < children.length; i++) {
-				IStatus deeper = extractDeeperRootCause(children[i]);
-				if(deeper != null)
-					return deeper;
-			}
-		}
-
-		Throwable t = status.getException();
-		if(t instanceof CoreException) {
-			IStatus deeper = extractDeeperRootCause(((CoreException) t).getStatus());
-			if(deeper != null)
-				return deeper;
-		}
-		return status.getSeverity() == IStatus.ERROR
-				? status
-				: null;
-	}
-
-	/**
-	 * Extract the root cause. The root cause is the first severe non-MultiStatus status containing an exception when
-	 * searching depth first otherwise null.
-	 * 
-	 * @param status
-	 * @return root cause
-	 */
-	private static IStatus extractRootCause(IStatus status) {
-		IStatus rootCause = extractDeeperRootCause(status);
-		return rootCause == null
-				? status
-				: rootCause;
-	}
-
-	private static IArtifactDescriptor getArtifactDescriptor(IArtifactRepository destination, IArtifactKey key,
-			boolean packed) {
-		for(IArtifactDescriptor candidate : destination.getArtifactDescriptors(key)) {
-			if(isPacked(candidate)) {
-				if(packed)
-					return candidate;
-			}
-			else {
-				if(!packed)
-					return candidate;
-			}
-		}
-		return null;
-	}
-
-	private static boolean isPacked(IArtifactDescriptor desc) {
-		return desc != null && "packed".equals(desc.getProperty(IArtifactDescriptor.FORMAT)) &&
-				ProcessingStepHandler.canProcess(desc);
-	}
-
 	private static void unpack(IArtifactRepository source, IFileArtifactRepository target,
 			IArtifactDescriptor optimized, Transport transport, IProgressMonitor monitor) throws CoreException {
 		CanonicalizeRequest request = new CanonicalizeRequest(optimized, source, target, transport);
@@ -427,32 +402,15 @@ public class MirrorGenerator extends BuilderPhase {
 		}
 	}
 
-	private IMetadataRepositoryManager mdrMgr;
+	private final ValidationSet validationSet;
 
-	private IArtifactRepositoryManager arMgr;
-
-	private Map<MetadataRepositoryReference, IArtifactRepository> arCache;
-
-	public MirrorGenerator(Builder builder) {
+	public MirrorGenerator(Builder builder, ValidationSet validationSet) {
 		super(builder);
+		this.validationSet = validationSet;
 	}
 
-	public Set<IArtifactKey> getArtifactKeysToExclude() throws CoreException {
-		Builder builder = getBuilder();
-		Aggregation aggregator = builder.getAggregator();
-
-		HashSet<IArtifactKey> keysToExclude = new HashSet<IArtifactKey>();
-		List<Contribution> contribs = aggregator.getContributions();
-		for(Contribution contrib : contribs) {
-			for(MappedRepository repo : contrib.getRepositories(true)) {
-				if(repo.isMirrorArtifacts())
-					continue;
-
-				for(IInstallableUnit iu : ResourceUtils.getMetadataRepository(repo).getInstallableUnits())
-					keysToExclude.addAll(iu.getArtifacts());
-			}
-		}
-		return keysToExclude;
+	private Transport getTransport() {
+		return getBuilder().getTransport();
 	}
 
 	@Override
@@ -461,268 +419,32 @@ public class MirrorGenerator extends BuilderPhase {
 		long start = TimeUtils.getNow();
 
 		Builder builder = getBuilder();
-		File destination = new File(builder.getBuildRoot(), Builder.REPO_FOLDER_FINAL);
-		URI finalURI = Builder.createURI(destination);
 
-		File aggregateDestination = new File(destination, Builder.REPO_FOLDER_AGGREGATE);
-		URI aggregateURI = Builder.createURI(aggregateDestination);
+		Aggregation aggregation = builder.getAggregation();
+		PackedStrategy packedStrategy = aggregation.getPackedStrategy();
+		List<Contribution> contribs = validationSet.getAllContributions();
+		Set<IInstallableUnit> unitsToAggregate = builder.getUnitsToAggregate(validationSet);
+		Set<IArtifactKey> keysToExclude = builder.getArtifactKeysToExcludeFromMirroring();
 
-		arMgr = P2Utils.getRepositoryManager(getBuilder().getProvisioningAgent(), IArtifactRepositoryManager.class);
-		arCache = null;
-
-		Aggregation aggregator = builder.getAggregator();
-		String aggregatorLabel = aggregator.getLabel();
-
-		SubMonitor subMon = SubMonitor.convert(monitor, 1000);
+		SubMonitor subMon = SubMonitor.convert(monitor, 20 + 100 * contribs.size());
 		boolean artifactErrors = false;
 		try {
-			boolean isCleanBuild = builder.isCleanBuild();
-
-			subMon.setTaskName("Mirroring artifacts...");
-			MonitorUtils.subTask(subMon, "Initializing");
-			IFileArtifactRepository aggregateAr = null;
-			if(!isCleanBuild) {
-				arMgr.removeRepository(finalURI);
-				arMgr.removeRepository(aggregateURI);
-				aggregateDestination.mkdirs();
-				for(File oldLocation : destination.listFiles()) {
-					if(oldLocation.equals(aggregateDestination))
-						continue;
-					if(oldLocation.equals(new File(destination, "compositeArtifacts.jar"))) {
-						if(!oldLocation.delete())
-							throw ExceptionUtils.fromMessage("Unable to remove %s", oldLocation.getAbsolutePath());
-						continue;
-					}
-
-					File newLocation = new File(aggregateDestination, oldLocation.getName());
-					if(!oldLocation.renameTo(newLocation))
-						throw ExceptionUtils.fromMessage(
-							"Unable to move %s to %s", oldLocation.getAbsolutePath(), newLocation.getAbsolutePath());
-				}
-				try {
-					aggregateAr = (IFileArtifactRepository) arMgr.loadRepository(aggregateURI, subMon.newChild(5));
-				}
-				catch(ProvisionException e) {
-				}
-			}
-
-			if(aggregateAr == null) {
-				Map<String, String> properties = new HashMap<String, String>();
-				properties.put(IRepository.PROP_COMPRESSED, Boolean.toString(true));
-				properties.put(Publisher.PUBLISH_PACK_FILES_AS_SIBLINGS, Boolean.toString(true));
-				aggregateAr = (IFileArtifactRepository) arMgr.createRepository(aggregateURI, aggregatorLabel +
-						" artifacts", Builder.SIMPLE_ARTIFACTS_TYPE, properties); //$NON-NLS-1$
-			}
-			MonitorUtils.worked(subMon, 5);
-
-			IArtifactRepository tempAr;
-			try {
-				tempAr = arMgr.loadRepository(Builder.createURI(builder.getTempRepositoryFolder()), subMon.newChild(1));
-			}
-			catch(ProvisionException e) {
-				tempAr = null;
-			}
-
-			Map<String, String> properties = new HashMap<String, String>();
-			properties.put(IRepository.PROP_COMPRESSED, Boolean.toString(true));
-			MonitorUtils.worked(subMon, 10);
-
-			Set<IInstallableUnit> allUnitsToAggregate = builder.getAllUnitsToAggregate();
-			Set<IArtifactKey> keysToExclude = getArtifactKeysToExclude();
-
-			SubMonitor childMonitor = subMon.newChild(900, SubMonitor.SUPPRESS_BEGINTASK |
-					SubMonitor.SUPPRESS_SETTASKNAME);
-			// get contributions of the main (implicit) validationSet
-			List<Contribution> allContribs = aggregator.getContributions(true);
-
-			MonitorUtils.begin(childMonitor, allContribs.size() * 100 + 22);
-			boolean validationSetdArIsEmpty = true;
-
-			PackedStrategy packedStrategy = aggregator.getPackedStrategy();
-
-			// If maven result is required, prepare the maven metadata structure
-			MavenRepositoryHelper mavenHelper = null;
-			if(aggregator.isMavenResult()) {
-				Set<IInstallableUnit> copyOfAllUnitsToAggregate = new HashSet<IInstallableUnit>(allUnitsToAggregate);
-				List<InstallableUnitMapping> iusToMaven = new ArrayList<InstallableUnitMapping>();
-				for(Contribution contrib : allContribs) {
-					SubMonitor contribMonitor = childMonitor.newChild(10);
-					List<MappedRepository> repos = contrib.getRepositories(true);
-					List<String> errors = new ArrayList<String>();
-					MonitorUtils.begin(contribMonitor, repos.size() * 100);
-					for(MappedRepository repo : repos) {
-						if(!repo.isMirrorArtifacts()) {
-							String msg = String.format(
-								"Repository %s must be set to mirror artifacts if maven result is required",
-								repo.getLocation());
-							LogUtils.error(msg);
-							errors.add(msg);
-							MonitorUtils.worked(contribMonitor, 100);
-							continue;
-						}
-
-						MetadataRepository childMdr = ResourceUtils.getMetadataRepository(repo);
-						ArrayList<IInstallableUnit> iusToMirror = null;
-						for(IInstallableUnit iu : childMdr.getInstallableUnits()) {
-							if(!copyOfAllUnitsToAggregate.remove(iu))
-								continue;
-
-							if(iusToMirror == null)
-								iusToMirror = new ArrayList<IInstallableUnit>();
-							iusToMirror.add(iu);
-						}
-
-						List<MavenMapping> allMavenMappings = contrib.getAllMavenMappings();
-						if(iusToMirror != null)
-							for(IInstallableUnit iu : iusToMirror)
-								iusToMaven.add(new InstallableUnitMapping(contrib, iu, allMavenMappings));
-
-						MonitorUtils.worked(contribMonitor, 100);
-					}
-					if(errors.size() > 0) {
-						artifactErrors = true;
-						builder.sendEmail(contrib, errors);
-
-						throw ExceptionUtils.fromMessage("All repositories must be set to mirror artifacts if maven result is required");
-					}
-					MonitorUtils.done(contribMonitor);
-				}
-
-				mavenHelper = MavenManager.createMavenStructure(iusToMaven);
-
-				if(aggregateAr instanceof SimpleArtifactRepository) {
-					SimpleArtifactRepository simpleAr = ((SimpleArtifactRepository) aggregateAr);
-					simpleAr.setRules(mavenHelper.getMappingRules());
-					simpleAr.initializeAfterLoad(aggregateURI);
-				}
-				else
-					throw ExceptionUtils.fromMessage(
-						"Unexpected repository implementation: Expected %s, found %s",
-						SimpleArtifactRepository.class.getName(), aggregateAr.getClass().getName());
-
-				if(packedStrategy != PackedStrategy.SKIP && packedStrategy != PackedStrategy.UNPACK &&
-						packedStrategy != PackedStrategy.UNPACK_AS_SIBLING) {
-					packedStrategy = PackedStrategy.UNPACK_AS_SIBLING;
-					LogUtils.info(
-						"Maven result is required, changing packed strategy from %s to %s",
-						aggregator.getPackedStrategy().getName(), packedStrategy.getName());
-				}
-			}
-
-			List<String[]> mappingRules = new ArrayList<String[]>();
-			List<ArtifactDescriptor> referencedArtifacts = new ArrayList<ArtifactDescriptor>();
-			Set<IInstallableUnit> copyOfUnitsToValidationSet = null;
-
-			// add rules for artifacts mapped from non-p2 repositories
-			for(Contribution contrib : allContribs) {
-				SubMonitor contribMonitor = childMonitor.newChild(10);
-				List<MappedRepository> repos = contrib.getRepositories(true);
-				MonitorUtils.begin(contribMonitor, repos.size() * 100);
-				for(MappedRepository repo : repos) {
-					int ticksRemaining = 100;
-
-					// Create rules only if the artifacts are mapped from a non-p2 repository
-					if("p2".equals(repo.getNature())) {
-						MonitorUtils.worked(contribMonitor, 100);
-						continue;
-					}
-
-					if(copyOfUnitsToValidationSet == null)
-						copyOfUnitsToValidationSet = new HashSet<IInstallableUnit>(allUnitsToAggregate);
-
-					MetadataRepository childMdr = ResourceUtils.getMetadataRepository(repo);
-					ArrayList<IInstallableUnit> iusToRefer = null;
-					for(IInstallableUnit iu : childMdr.getInstallableUnits()) {
-						if(!copyOfUnitsToValidationSet.remove(iu))
-							continue;
-
-						if(iusToRefer == null)
-							iusToRefer = new ArrayList<IInstallableUnit>();
-						iusToRefer.add(iu);
-					}
-
-					IArtifactRepository ar;
-					if(iusToRefer != null) {
-						int ticks = 50;
-						ar = getArtifactRepository(repo, contribMonitor.newChild(ticks));
-						ticksRemaining -= ticks;
-						for(IInstallableUnit iu : iusToRefer) {
-							String versionString = iu.getVersion().getOriginal();
-							if(versionString == null)
-								versionString = iu.getVersion().toString();
-							String originalPath = iu.getProperty(IRepositoryLoader.PROP_ORIGINAL_PATH);
-							String originalId = iu.getProperty(IRepositoryLoader.PROP_ORIGINAL_ID);
-							if(originalId == null)
-								originalId = iu.getId();
-
-							for(IArtifactKey key : iu.getArtifacts()) {
-								if(repo.isMirrorArtifacts()) {
-									String location = "${repoUrl}/non-p2/" + repo.getNature() + '/' +
-											key.getClassifier() + '/' + (originalPath != null
-													? (originalPath + '/')
-													: "") + originalId + '_' + versionString + '.' +
-											key.getClassifier();
-
-									mappingRules.add(new String[] {
-											"(& (classifier=" + IUUtils.encodeFilterValue(key.getClassifier()) +
-													") (id=" + IUUtils.encodeFilterValue(key.getId()) + ") (version=" +
-													IUUtils.encodeFilterValue(iu.getVersion().toString()) + "))",
-											location });
-								}
-								else {
-									for(IArtifactDescriptor desc : ar.getArtifactDescriptors(key)) {
-										String ref = ((SimpleArtifactDescriptor) desc).getRepositoryProperty(SimpleArtifactDescriptor.ARTIFACT_REFERENCE);
-										SimpleArtifactDescriptor ad = new SimpleArtifactDescriptor(desc);
-										ad.setRepositoryProperty(SimpleArtifactDescriptor.ARTIFACT_REFERENCE, ref);
-										referencedArtifacts.add(ad);
-									}
-								}
-							}
-						}
-					}
-
-					MonitorUtils.worked(contribMonitor, ticksRemaining);
-				}
-				MonitorUtils.done(contribMonitor);
-			}
-
-			if(mappingRules.size() > 0 || referencedArtifacts.size() > 0) {
-				if(aggregateAr instanceof SimpleArtifactRepository) {
-					SimpleArtifactRepository simpleAr = ((SimpleArtifactRepository) aggregateAr);
-					List<String[]> ruleList = new ArrayList<String[]>(Arrays.asList(simpleAr.getRules()));
-					ruleList.addAll(mappingRules);
-					simpleAr.setRules(ruleList.toArray(new String[ruleList.size()][]));
-					simpleAr.initializeAfterLoad(aggregateURI);
-					simpleAr.addDescriptors(
-						referencedArtifacts.toArray(new IArtifactDescriptor[referencedArtifacts.size()]),
-						childMonitor.newChild(2));
-					simpleAr.save();
-					validationSetdArIsEmpty = false;
-				}
-				else
-					throw ExceptionUtils.fromMessage(
-						"Unexpected repository implementation: Expected %s, found %s",
-						SimpleArtifactRepository.class.getName(), aggregateAr.getClass().getName());
-			}
-
-			for(Contribution contrib : allContribs) {
-				SubMonitor contribMonitor = childMonitor.newChild(100);
+			IArtifactRepository tempAr = builder.getTemporaryArtifactRepository(subMon.newChild(10));
+			IFileArtifactRepository aggregationAr = builder.getAggregationArtifactRepository(subMon.newChild(10));
+			for(Contribution contrib : contribs) {
+				SubMonitor contribMonitor = subMon.newChild(100);
 				List<MappedRepository> repos = contrib.getRepositories(true);
 				List<String> errors = new ArrayList<String>();
 				MonitorUtils.begin(contribMonitor, repos.size() * 100);
 				for(MappedRepository repo : repos) {
-					if(builder.isMapVerbatim(repo)) {
+					if(builder.isMapVerbatim(repo) || !repo.isMirrorArtifacts()) {
 						MonitorUtils.worked(contribMonitor, 100);
 						continue;
 					}
-
 					MetadataRepository childMdr = ResourceUtils.getMetadataRepository(repo);
 					ArrayList<IArtifactKey> keysToMirror = null;
 					for(IInstallableUnit iu : childMdr.getInstallableUnits()) {
-						if(!allUnitsToAggregate.remove(iu))
-							continue;
-
-						if(!repo.isMirrorArtifacts())
+						if(!unitsToAggregate.contains(iu))
 							continue;
 
 						for(IArtifactKey ak : iu.getArtifacts()) {
@@ -739,19 +461,18 @@ public class MirrorGenerator extends BuilderPhase {
 						String msg = format("Mirroring artifacts from %s", childMdr.getLocation());
 						LogUtils.info(msg);
 						contribMonitor.subTask(msg);
-						IArtifactRepository childAr = getArtifactRepository(
+						IArtifactRepository childAr = builder.getArtifactRepository(
 							repo,
 							contribMonitor.newChild(1, SubMonitor.SUPPRESS_BEGINTASK | SubMonitor.SUPPRESS_SETTASKNAME));
 						mirror(
 							keysToMirror,
 							tempAr,
 							childAr,
-							aggregateAr,
+							aggregationAr,
 							getTransport(),
 							packedStrategy,
 							errors,
 							contribMonitor.newChild(94, SubMonitor.SUPPRESS_BEGINTASK | SubMonitor.SUPPRESS_SETTASKNAME));
-						validationSetdArIsEmpty = false;
 					}
 					else
 						MonitorUtils.worked(contribMonitor, 95);
@@ -762,189 +483,12 @@ public class MirrorGenerator extends BuilderPhase {
 				}
 				MonitorUtils.done(contribMonitor);
 			}
-
-			// @fmtOff
-			for(String fileName : new String[] {
-					"compositeArtifacts.jar", "compositeContent.jar", "content.jar", "artifacts.jar" }) {
-				// @fmtOn
-				File file = new File(destination, fileName);
-				if(file.exists() && !file.delete())
-					throw ExceptionUtils.fromMessage("Unable to remove %s", file.getAbsolutePath());
-			}
-			MonitorUtils.worked(childMonitor, 10);
-
-			List<MappedRepository> reposWithReferencedArtifacts = new ArrayList<MappedRepository>();
-			List<MappedRepository> reposWithReferencedMetadata = new ArrayList<MappedRepository>();
-
-			for(Contribution contrib : aggregator.getContributions(true)) {
-				for(MappedRepository repo : contrib.getRepositories(true)) {
-					if(builder.isMapVerbatim(repo)) {
-						reposWithReferencedArtifacts.add(repo);
-						reposWithReferencedMetadata.add(repo);
-					}
-					else if(!repo.isMirrorArtifacts() && "p2".equals(repo.getNature()))
-						reposWithReferencedArtifacts.add(repo);
-				}
-			}
-
-			if(mavenHelper != null) {
-				LogUtils.info("Adding maven metadata");
-				Map<Contribution, List<String>> errors = new HashMap<Contribution, List<String>>();
-
-				MavenManager.saveMetadata(
-					org.eclipse.emf.common.util.URI.createFileURI(aggregateDestination.getAbsolutePath()),
-					mavenHelper.getTop(), errors);
-
-				if(errors.size() > 0) {
-					artifactErrors = true;
-					for(Map.Entry<Contribution, List<String>> entry : errors.entrySet())
-						builder.sendEmail(entry.getKey(), entry.getValue());
-				}
-
-				IMaven2Indexer indexer = IndexerUtils.getIndexer("nexus");
-				if(indexer != null) {
-					LogUtils.info("Adding maven index");
-					indexer.updateLocalIndex(new File(aggregateDestination.getAbsolutePath()).toURI(), false);
-				}
-				MonitorUtils.worked(childMonitor, 10);
-				LogUtils.info("Done adding maven metadata");
-			}
-
-			mdrMgr = P2Utils.getRepositoryManager(getBuilder().getProvisioningAgent(), IMetadataRepositoryManager.class);
-
-			Collection<String> aggregateChildrenSubdirectories = builder.getChildrenSubdirectories();
-
-			// Initialize a p2Index property file. It might not be used.
-			Properties p2Index = new Properties();
-			if(reposWithReferencedMetadata.isEmpty() && aggregateChildrenSubdirectories.size() <= 1) {
-				// The validationSetd meta-data can serve as the final repository so
-				// let's move it.
-				//
-				LogUtils.info("Making the validationSetd metadata repository final at %s", finalURI);
-				File oldLocation = new File(aggregateDestination, "content.jar");
-				File newLocation = new File(destination, oldLocation.getName());
-				if(!oldLocation.renameTo(newLocation))
-					throw ExceptionUtils.fromMessage(
-						"Unable to move %s to %s", oldLocation.getAbsolutePath(), newLocation.getAbsolutePath());
-				mdrMgr.removeRepository(aggregateURI);
-			}
-			else {
-				// Set up the final composite repositories
-				LogUtils.info("Building final metadata composite at %s", finalURI);
-				properties = new HashMap<String, String>();
-				properties.put(IRepository.PROP_COMPRESSED, Boolean.toString(true));
-
-				mdrMgr.removeRepository(finalURI);
-				CompositeMetadataRepository compositeMdr = (CompositeMetadataRepository) mdrMgr.createRepository(
-					finalURI, aggregatorLabel, Builder.COMPOSITE_METADATA_TYPE, properties);
-
-				for(String aggregateChildrenSubdirectory : aggregateChildrenSubdirectories)
-					compositeMdr.addChild(URI.create(Builder.REPO_FOLDER_AGGREGATE + aggregateChildrenSubdirectory));
-
-				for(MappedRepository referenced : reposWithReferencedMetadata)
-					compositeMdr.addChild(referenced.getMetadataRepository().getLocation());
-
-				p2Index.setProperty("metadata.repository.factory.order", "compositeContent.xml,!");
-				LogUtils.info("Done building final metadata composite");
-			}
-			MonitorUtils.worked(childMonitor, 10);
-
-			if(reposWithReferencedArtifacts.isEmpty()) {
-				// The aggregation can serve as the final repository.
-				//
-				LogUtils.info("Making the validationSetd artifact repository final at %s", finalURI);
-				for(String name : aggregateDestination.list()) {
-					if("content.jar".equals(name) || aggregateChildrenSubdirectories.contains("/" + name))
-						continue;
-
-					File oldLocation = new File(aggregateDestination, name);
-					File newLocation = new File(destination, name);
-					if(!oldLocation.renameTo(newLocation))
-						throw ExceptionUtils.fromMessage(
-							"Unable to move %s to %s", oldLocation.getAbsolutePath(), newLocation.getAbsolutePath());
-				}
-				arMgr.removeRepository(aggregateURI);
-			}
-			else {
-				// Set up the final composite repositories
-				LogUtils.info("Building final artifact composite at %s", finalURI);
-				properties = new HashMap<String, String>();
-				properties.put(IRepository.PROP_COMPRESSED, Boolean.toString(true));
-
-				arMgr.removeRepository(finalURI);
-				CompositeArtifactRepository compositeAr = (CompositeArtifactRepository) arMgr.createRepository(
-					finalURI, aggregatorLabel + " artifacts", Builder.COMPOSITE_ARTIFACTS_TYPE, properties); //$NON-NLS-1$
-
-				for(MappedRepository referenced : reposWithReferencedArtifacts)
-					compositeAr.addChild(referenced.getMetadataRepository().getLocation());
-
-				if(validationSetdArIsEmpty) {
-					arMgr.removeRepository(aggregateURI);
-					File arFile = new File(aggregateDestination, "artifacts.jar");
-					if(!arFile.delete())
-						throw ExceptionUtils.fromMessage("Unable to remove %s", arFile.getAbsolutePath());
-				}
-				else
-					compositeAr.addChild(finalURI.relativize(aggregateURI));
-
-				p2Index.setProperty("artifact.repository.factory.order", "compositeArtifacts.xml,!");
-				LogUtils.info("Done building final artifact composite");
-			}
-			if(!p2Index.isEmpty()) {
-				p2Index.setProperty("version", "1");
-				File p2IndexFile = new File(destination, "p2.index");
-				OutputStream out = null;
-				try {
-					out = new BufferedOutputStream(new FileOutputStream(p2IndexFile));
-					p2Index.store(out, "p2 index file to speed things up");
-				}
-				catch(IOException e) {
-					LogUtils.error("Unable to create p2.index file", e);
-				}
-				finally {
-					IOUtils.close(out);
-				}
-			}
-
-			// Remove the aggregation in case it's now empty.
-			//
-			String[] content = aggregateDestination.list();
-			if(content != null && content.length == 0)
-				if(!aggregateDestination.delete())
-					throw ExceptionUtils.fromMessage("Unable to remove %s", aggregateDestination.getAbsolutePath());
-
-			MonitorUtils.done(childMonitor);
 		}
 		finally {
-			P2Utils.ungetRepositoryManager(getBuilder().getProvisioningAgent(), mdrMgr);
-			mdrMgr = null;
-			P2Utils.ungetRepositoryManager(getBuilder().getProvisioningAgent(), arMgr);
-			arMgr = null;
 			MonitorUtils.done(subMon);
 		}
 		LogUtils.info("Done. Took %s", TimeUtils.getFormattedDuration(start)); //$NON-NLS-1$
 		if(artifactErrors)
 			throw ExceptionUtils.fromMessage("Not all artifacts could be mirrored, see log for details");
-	}
-
-	private IArtifactRepository getArtifactRepository(MetadataRepositoryReference repo, IProgressMonitor monitor)
-			throws CoreException {
-		if(arCache == null)
-			arCache = new HashMap<MetadataRepositoryReference, IArtifactRepository>();
-
-		IArtifactRepository ar = arCache.get(repo);
-		if(ar == null) {
-			IConfigurationElement config = RepositoryLoaderUtils.getLoaderFor(repo.getNature());
-			if(config == null)
-				throw ExceptionUtils.fromMessage("No loader for %s", repo.getNature());
-			IRepositoryLoader repoLoader = (IRepositoryLoader) config.createExecutableExtension("class");
-			arCache.put(repo, ar = repoLoader.getArtifactRepository(ResourceUtils.getMetadataRepository(repo), monitor));
-		}
-
-		return ar;
-	}
-
-	private Transport getTransport() {
-		return getBuilder().getTransport();
 	}
 }

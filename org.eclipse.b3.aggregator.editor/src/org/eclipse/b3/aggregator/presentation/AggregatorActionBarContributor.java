@@ -26,22 +26,20 @@ import org.eclipse.b3.aggregator.Aggregation;
 import org.eclipse.b3.aggregator.AggregatorFactory;
 import org.eclipse.b3.aggregator.AggregatorPackage;
 import org.eclipse.b3.aggregator.AvailableVersion;
-import org.eclipse.b3.aggregator.ValidationSet;
 import org.eclipse.b3.aggregator.Configuration;
 import org.eclipse.b3.aggregator.Contact;
 import org.eclipse.b3.aggregator.Contribution;
 import org.eclipse.b3.aggregator.CustomCategory;
 import org.eclipse.b3.aggregator.EnabledStatusProvider;
 import org.eclipse.b3.aggregator.InstallableUnitRequest;
-import org.eclipse.b3.aggregator.LinkReceiver;
 import org.eclipse.b3.aggregator.MetadataRepositoryReference;
 import org.eclipse.b3.aggregator.StatusCode;
+import org.eclipse.b3.aggregator.ValidationSet;
 import org.eclipse.b3.aggregator.engine.Builder;
 import org.eclipse.b3.aggregator.engine.Builder.ActionType;
 import org.eclipse.b3.aggregator.engine.Engine;
-import org.eclipse.b3.aggregator.engine.RepositoryVerifier.AnalyzedPlannerStatus;
+import org.eclipse.b3.aggregator.engine.ValidationSetVerifier.AnalyzedPlannerStatus;
 import org.eclipse.b3.aggregator.impl.AggregationImpl;
-import org.eclipse.b3.aggregator.impl.ContributionImpl;
 import org.eclipse.b3.aggregator.p2.util.MetadataRepositoryResourceImpl;
 import org.eclipse.b3.aggregator.p2view.IUPresentation;
 import org.eclipse.b3.aggregator.p2view.RequirementWrapper;
@@ -59,6 +57,7 @@ import org.eclipse.b3.aggregator.util.SortCommand;
 import org.eclipse.b3.aggregator.util.TwoColumnMatrix;
 import org.eclipse.b3.p2.InstallableUnit;
 import org.eclipse.b3.p2.MetadataRepository;
+import org.eclipse.b3.p2.util.P2Utils;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.FileLocator;
 import org.eclipse.core.runtime.IProgressMonitor;
@@ -177,7 +176,7 @@ public class AggregatorActionBarContributor extends EditingDomainActionBarContri
 		public AddToParentRepositoryAction(EditingDomain domain, List<IInstallableUnit> selectedIUs, int operation) {
 			this.domain = domain;
 			command = new AddIUsToParentRepositoryCommand(
-				ResourceUtils.getAggregator(domain.getResourceSet()), selectedIUs, operation);
+				ResourceUtils.getAggregation(domain.getResourceSet()), selectedIUs, operation);
 
 			Object imageURL = null;
 
@@ -273,11 +272,12 @@ public class AggregatorActionBarContributor extends EditingDomainActionBarContri
 							builder.setBuildModelLocation(new File(uri));
 							// builder.setLogLevel(LogUtils.DEBUG);
 							builder.setAction(actionType);
+							builder.setProvisioningAgent(P2Utils.getDefaultProvisioningAgent());
 
 							if(builder.run(true, monitor) != IApplication.EXIT_OK)
 								throw new Exception("Build failed (see log for more details)");
 						}
-						catch(Throwable e) {
+						catch(Exception e) {
 							Throwable cause = unwind(e);
 							IStatus status = (cause instanceof CoreException)
 									? ((CoreException) cause).getStatus()
@@ -885,21 +885,13 @@ public class AggregatorActionBarContributor extends EditingDomainActionBarContri
 
 	protected IAction selectMatchingIUAction;
 
-	private Aggregation aggregator;
+	private Aggregation aggregation;
 
 	private IEditorPart lastActiveEditorPart;
 
 	private ISelection lastSelection;
 
 	private boolean aggregatorSelected;
-
-	private IMenuManager linkMenuManager;
-
-	private Collection<? extends IAction> linkValidationSetActions;
-
-	private IMenuManager unlinkMenuManager;
-
-	private Collection<? extends IAction> unlinkValidationSetActions;
 
 	/**
 	 * This creates an instance of the contributor. <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -919,9 +911,6 @@ public class AggregatorActionBarContributor extends EditingDomainActionBarContri
 		verifyRepoAction = new BuildRepoAction(ActionType.VERIFY);
 		buildRepoAction = new BuildRepoAction(ActionType.BUILD);
 		cleanBuildRepoAction = new BuildRepoAction(ActionType.CLEAN_BUILD);
-
-		linkMenuManager = new MenuManager("Link to");
-		unlinkMenuManager = new MenuManager("Unlink from");
 	}
 
 	@Override
@@ -951,8 +940,7 @@ public class AggregatorActionBarContributor extends EditingDomainActionBarContri
 	}
 
 	void clearVerificationMarkers(AggregatorResource aggregator) {
-		for(Contribution contrib : aggregator.getAggregator().getContributions())
-			((ContributionImpl) contrib).setStatus(null);
+		((AggregationImpl) aggregator.getAggregation()).clearStatus();
 	}
 
 	/**
@@ -1052,7 +1040,7 @@ public class AggregatorActionBarContributor extends EditingDomainActionBarContri
 				features.addAll((List<InstallableUnit>) itemSorter.getGroupItems(ItemGroup.FEATURE));
 				features.addAll(ItemUtils.getIUs((List<org.eclipse.b3.aggregator.p2view.Feature>) itemSorter.getGroupItems(ItemGroup.FEATURE_STRUCTURED)));
 
-				for(CustomCategory customCategory : getAggregator().getCustomCategories())
+				for(CustomCategory customCategory : getAggregation().getCustomCategories())
 					addToActions.add(new AddToCustomCategoryAction(
 						((IEditingDomainProvider) activeEditorPart).getEditingDomain(), customCategory, features));
 			}
@@ -1136,42 +1124,12 @@ public class AggregatorActionBarContributor extends EditingDomainActionBarContri
 		return actions;
 	}
 
-	protected Collection<? extends IAction> generateLinkValidationSetActions(IStructuredSelection structuredSelection,
-			EList<ValidationSet> validationSets) {
-		ValidationSet linkedValidationSet = (ValidationSet) ((Contribution) structuredSelection.getFirstElement()).getReceiver();
-		ArrayList<IAction> linkActions = new ArrayList<IAction>(validationSets.size());
-
-		for(ValidationSet validationSet : validationSets) {
-			if(linkedValidationSet != validationSet)
-				linkActions.add(new LinkCommand(
-					activeEditorPart, structuredSelection, validationSet, validationSet.getLabel(), true));
-		}
-
-		return linkActions;
-	}
-
-	protected Collection<? extends IAction> generateUnlinkValidationSetActions(
-			IStructuredSelection structuredSelection, EList<ValidationSet> validationSets) {
-		LinkReceiver linkReceiver = ((Contribution) structuredSelection.getFirstElement()).getReceiver();
-		ArrayList<IAction> unlinkActions = new ArrayList<IAction>(validationSets.size());
-
-		if(linkReceiver instanceof ValidationSet) {
-			for(ValidationSet validationSet : validationSets) {
-				if(validationSet == linkReceiver)
-					unlinkActions.add(new LinkCommand(
-						activeEditorPart, structuredSelection, validationSet, validationSet.getLabel(), false));
-			}
-		}
-
-		return unlinkActions;
-	}
-
-	private Aggregation getAggregator() {
+	private Aggregation getAggregation() {
 		if(activeEditorPart == null || !(activeEditorPart instanceof IEditingDomainProvider))
 			return null;
 
 		if(lastActiveEditorPart == activeEditorPart)
-			return aggregator;
+			return aggregation;
 
 		lastActiveEditorPart = activeEditorPart;
 
@@ -1184,7 +1142,7 @@ public class AggregatorActionBarContributor extends EditingDomainActionBarContri
 				aggregatorResource = resource;
 				break;
 			}
-		return aggregator = (aggregatorResource == null
+		return aggregation = (aggregatorResource == null
 				? null
 				: (Aggregation) aggregatorResource.getContents().get(0));
 	}
@@ -1211,29 +1169,6 @@ public class AggregatorActionBarContributor extends EditingDomainActionBarContri
 				// if the unwrapped object is different from the original then we need to create a new selection object
 				if(unwrappedSelectedObject != selectedObject)
 					structuredSelection = new StructuredSelection(Collections.singletonList(unwrappedSelectedObject));
-			}
-
-			EList<ValidationSet> validationSets = getAggregator().getValidationSets();
-
-			if(linkMenuManager != null) {
-				depopulateManager(linkMenuManager, linkValidationSetActions);
-				linkValidationSetActions = generateLinkValidationSetActions(structuredSelection, validationSets);
-				if(!linkValidationSetActions.isEmpty()) {
-					populateManager(linkMenuManager, linkValidationSetActions, null);
-					linkMenuManager.update(true);
-					menuManager.insertBefore("edit", linkMenuManager);
-				}
-			}
-
-			if(unlinkMenuManager != null) {
-				depopulateManager(unlinkMenuManager, unlinkValidationSetActions);
-				unlinkValidationSetActions = generateUnlinkValidationSetActions(
-					structuredSelection, validationSets);
-				if(!unlinkValidationSetActions.isEmpty()) {
-					populateManager(unlinkMenuManager, unlinkValidationSetActions, null);
-					unlinkMenuManager.update(true);
-					menuManager.insertBefore("edit", unlinkMenuManager);
-				}
 			}
 		}
 
@@ -1293,15 +1228,15 @@ public class AggregatorActionBarContributor extends EditingDomainActionBarContri
 			EditingDomain editingDomain = ((IEditingDomainProvider) activeEditorPart).getEditingDomain();
 
 			IAction sortConfigurationsAction = new SortAction<Configuration>(
-				editingDomain, aggregator.getConfigurations(), AggregatorFactory.eINSTANCE.createConfiguration(),
+				editingDomain, aggregation.getConfigurations(), AggregatorFactory.eINSTANCE.createConfiguration(),
 				"Configurations");
 			IAction sortContactsAction = new SortAction<Contact>(
-				editingDomain, aggregator.getContacts(), AggregatorFactory.eINSTANCE.createContact(), "Contacts");
-			IAction sortContributionsAction = new SortAction<Contribution>(
-				editingDomain, aggregator.getContributions(), AggregatorFactory.eINSTANCE.createContribution(),
+				editingDomain, aggregation.getContacts(), AggregatorFactory.eINSTANCE.createContact(), "Contacts");
+			IAction sortContributionsAction = new SortAction<ValidationSet>(
+				editingDomain, aggregation.getValidationSets(), AggregatorFactory.eINSTANCE.createValidationSet(),
 				"Contributions");
 			IAction sortCustomCategoriesAction = new SortAction<CustomCategory>(
-				editingDomain, aggregator.getCustomCategories(), AggregatorFactory.eINSTANCE.createCustomCategory(),
+				editingDomain, aggregation.getCustomCategories(), AggregatorFactory.eINSTANCE.createCustomCategory(),
 				"Custom Categories");
 
 			MenuManager submenuManager = new MenuManager("Sort");
@@ -1463,14 +1398,14 @@ public class AggregatorActionBarContributor extends EditingDomainActionBarContri
 
 				reloadOrCancelRepoAction.setEnabled(true);
 				reloadOrCancelRepoAction.initMetadataRepositoryReferences();
-				Aggregation aggregator = getAggregator();
+				Aggregation aggregation = getAggregation();
 
 				aggregatorSelected = false;
-				if(selectedItems.size() == 1 && selectedItems.get(0).equals(aggregator)) {
+				if(selectedItems.size() == 1 && selectedItems.get(0).equals(aggregation)) {
 					aggregatorSelected = true;
 					reloadOrCancelRepoAction.setLoadText("Reload All Repositories");
 					reloadOrCancelRepoActionVisible = true;
-					ResourceSet resourceSet = ((AggregationImpl) aggregator).eResource().getResourceSet();
+					ResourceSet resourceSet = ((AggregationImpl) aggregation).eResource().getResourceSet();
 					for(Resource resource : resourceSet.getResources())
 						if(resource instanceof MetadataRepositoryResourceImpl)
 							reloadOrCancelRepoAction.addMetadataRepositoryResource((MetadataRepositoryResourceImpl) resource);
@@ -1484,7 +1419,7 @@ public class AggregatorActionBarContributor extends EditingDomainActionBarContri
 							if(metadataRepositoryReference.isBranchEnabled()) {
 								MetadataRepositoryResourceImpl res = (MetadataRepositoryResourceImpl) MetadataRepositoryResourceImpl.getResourceForNatureAndLocation(
 									metadataRepositoryReference.getNature(),
-									metadataRepositoryReference.getResolvedLocation(), aggregator);
+									metadataRepositoryReference.getResolvedLocation(), aggregation);
 								reloadOrCancelRepoAction.addMetadataRepositoryResource(res);
 							}
 							else {

@@ -139,11 +139,11 @@ public class AvailableVersionsHeaderItemProvider extends AggregatorItemProviderA
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_AvailableVersionsHeader_type");
+		return "Available Versions";
 	}
 
 	// it always has some children - list of available versions or "no version available" message

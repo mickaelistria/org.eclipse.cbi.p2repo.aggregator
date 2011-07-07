@@ -58,6 +58,159 @@ public class InstallableUnitItemProvider extends ItemProviderAdapter implements 
 	}
 
 	/**
+	 * This adds a property descriptor for the Filter feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	protected void addFilterPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+			getResourceLocator(),
+			getString("_UI_IInstallableUnit_filter_feature"),
+			getString(
+				"_UI_PropertyDescriptor_description", "_UI_IInstallableUnit_filter_feature",
+				"_UI_IInstallableUnit_type"), P2Package.Literals.IINSTALLABLE_UNIT__FILTER, true, false, false,
+			ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Id feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	protected void addIdPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+			getString("_UI_IVersionedId_id_feature"),
+			getString("_UI_PropertyDescriptor_description", "_UI_IVersionedId_id_feature", "_UI_IVersionedId_type"),
+			P2Package.Literals.IVERSIONED_ID__ID, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null,
+			null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Resolved feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	protected void addResolvedPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+			getResourceLocator(),
+			getString("_UI_IInstallableUnit_resolved_feature"),
+			getString(
+				"_UI_PropertyDescriptor_description", "_UI_IInstallableUnit_resolved_feature",
+				"_UI_IInstallableUnit_type"), P2Package.Literals.IINSTALLABLE_UNIT__RESOLVED, true, false, false,
+			ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Singleton feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	protected void addSingletonPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+			getResourceLocator(),
+			getString("_UI_IInstallableUnit_singleton_feature"),
+			getString(
+				"_UI_PropertyDescriptor_description", "_UI_IInstallableUnit_singleton_feature",
+				"_UI_IInstallableUnit_type"), P2Package.Literals.IINSTALLABLE_UNIT__SINGLETON, true, false, false,
+			ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Version feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	protected void addVersionPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+			getResourceLocator(),
+			getString("_UI_IVersionedId_version_feature"),
+			getString("_UI_PropertyDescriptor_description", "_UI_IVersionedId_version_feature", "_UI_IVersionedId_type"),
+			P2Package.Literals.IVERSIONED_ID__VERSION, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+			null, null));
+	}
+
+	/**
+	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
+	 * that can be created under this object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
+		super.collectNewChildDescriptors(newChildDescriptors, object);
+
+		newChildDescriptors.add(createChildParameter(
+			P2Package.Literals.IINSTALLABLE_UNIT__ARTIFACTS, P2Factory.eINSTANCE.createArtifactKey()));
+
+		newChildDescriptors.add(createChildParameter(
+			P2Package.Literals.IINSTALLABLE_UNIT__COPYRIGHT, P2Factory.eINSTANCE.createCopyright()));
+
+		newChildDescriptors.add(createChildParameter(
+			P2Package.Literals.IINSTALLABLE_UNIT__FRAGMENTS, P2Factory.eINSTANCE.createInstallableUnitFragment()));
+
+		newChildDescriptors.add(createChildParameter(
+			P2Package.Literals.IINSTALLABLE_UNIT__LICENSES, P2Factory.eINSTANCE.createLicense()));
+
+		newChildDescriptors.add(createChildParameter(
+			P2Package.Literals.IINSTALLABLE_UNIT__META_REQUIREMENTS, P2Factory.eINSTANCE.createRequirement()));
+
+		newChildDescriptors.add(createChildParameter(
+			P2Package.Literals.IINSTALLABLE_UNIT__META_REQUIREMENTS, P2Factory.eINSTANCE.createRequiredCapability()));
+
+		newChildDescriptors.add(createChildParameter(
+			P2Package.Literals.IINSTALLABLE_UNIT__PROVIDED_CAPABILITIES, P2Factory.eINSTANCE.createProvidedCapability()));
+
+		newChildDescriptors.add(createChildParameter(
+			P2Package.Literals.IINSTALLABLE_UNIT__REQUIREMENTS, P2Factory.eINSTANCE.createRequirement()));
+
+		newChildDescriptors.add(createChildParameter(
+			P2Package.Literals.IINSTALLABLE_UNIT__REQUIREMENTS, P2Factory.eINSTANCE.createRequiredCapability()));
+
+		newChildDescriptors.add(createChildParameter(
+			P2Package.Literals.IINSTALLABLE_UNIT__TOUCHPOINT_DATA, P2Factory.eINSTANCE.createTouchpointData()));
+
+		newChildDescriptors.add(createChildParameter(
+			P2Package.Literals.IINSTALLABLE_UNIT__TOUCHPOINT_TYPE, P2Factory.eINSTANCE.createTouchpointType()));
+
+		newChildDescriptors.add(createChildParameter(
+			P2Package.Literals.IINSTALLABLE_UNIT__UPDATE_DESCRIPTOR, P2Factory.eINSTANCE.createUpdateDescriptor()));
+
+		newChildDescriptors.add(createChildParameter(
+			P2Package.Literals.INSTALLABLE_UNIT__PROPERTY_MAP, P2Factory.eINSTANCE.create(P2Package.Literals.PROPERTY)));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected EStructuralFeature getChildFeature(Object object, Object child) {
+		// Check the type of the specified child object and return the proper feature to use for
+		// adding (see {@link AddCommand}) it as a child.
+
+		return super.getChildFeature(object, child);
+	}
+
+	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -228,159 +381,6 @@ public class InstallableUnitItemProvider extends ItemProviderAdapter implements 
 				return;
 		}
 		super.notifyChanged(notification);
-	}
-
-	/**
-	 * This adds a property descriptor for the Filter feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	protected void addFilterPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-			getResourceLocator(),
-			getString("_UI_IInstallableUnit_filter_feature"),
-			getString(
-				"_UI_PropertyDescriptor_description", "_UI_IInstallableUnit_filter_feature",
-				"_UI_IInstallableUnit_type"), P2Package.Literals.IINSTALLABLE_UNIT__FILTER, true, false, false,
-			ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Id feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	protected void addIdPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-			getString("_UI_IVersionedId_id_feature"),
-			getString("_UI_PropertyDescriptor_description", "_UI_IVersionedId_id_feature", "_UI_IVersionedId_type"),
-			P2Package.Literals.IVERSIONED_ID__ID, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null,
-			null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Resolved feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	protected void addResolvedPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-			getResourceLocator(),
-			getString("_UI_IInstallableUnit_resolved_feature"),
-			getString(
-				"_UI_PropertyDescriptor_description", "_UI_IInstallableUnit_resolved_feature",
-				"_UI_IInstallableUnit_type"), P2Package.Literals.IINSTALLABLE_UNIT__RESOLVED, true, false, false,
-			ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Singleton feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	protected void addSingletonPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-			getResourceLocator(),
-			getString("_UI_IInstallableUnit_singleton_feature"),
-			getString(
-				"_UI_PropertyDescriptor_description", "_UI_IInstallableUnit_singleton_feature",
-				"_UI_IInstallableUnit_type"), P2Package.Literals.IINSTALLABLE_UNIT__SINGLETON, true, false, false,
-			ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Version feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	protected void addVersionPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-			getResourceLocator(),
-			getString("_UI_IVersionedId_version_feature"),
-			getString("_UI_PropertyDescriptor_description", "_UI_IVersionedId_version_feature", "_UI_IVersionedId_type"),
-			P2Package.Literals.IVERSIONED_ID__VERSION, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-			null, null));
-	}
-
-	/**
-	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
-	 * that can be created under this object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
-		super.collectNewChildDescriptors(newChildDescriptors, object);
-
-		newChildDescriptors.add(createChildParameter(
-			P2Package.Literals.IINSTALLABLE_UNIT__ARTIFACTS, P2Factory.eINSTANCE.createArtifactKey()));
-
-		newChildDescriptors.add(createChildParameter(
-			P2Package.Literals.IINSTALLABLE_UNIT__COPYRIGHT, P2Factory.eINSTANCE.createCopyright()));
-
-		newChildDescriptors.add(createChildParameter(
-			P2Package.Literals.IINSTALLABLE_UNIT__FRAGMENTS, P2Factory.eINSTANCE.createInstallableUnitFragment()));
-
-		newChildDescriptors.add(createChildParameter(
-			P2Package.Literals.IINSTALLABLE_UNIT__LICENSES, P2Factory.eINSTANCE.createLicense()));
-
-		newChildDescriptors.add(createChildParameter(
-			P2Package.Literals.IINSTALLABLE_UNIT__META_REQUIREMENTS, P2Factory.eINSTANCE.createRequirement()));
-
-		newChildDescriptors.add(createChildParameter(
-			P2Package.Literals.IINSTALLABLE_UNIT__META_REQUIREMENTS, P2Factory.eINSTANCE.createRequiredCapability()));
-
-		newChildDescriptors.add(createChildParameter(
-			P2Package.Literals.IINSTALLABLE_UNIT__PROVIDED_CAPABILITIES, P2Factory.eINSTANCE.createProvidedCapability()));
-
-		newChildDescriptors.add(createChildParameter(
-			P2Package.Literals.IINSTALLABLE_UNIT__REQUIREMENTS, P2Factory.eINSTANCE.createRequirement()));
-
-		newChildDescriptors.add(createChildParameter(
-			P2Package.Literals.IINSTALLABLE_UNIT__REQUIREMENTS, P2Factory.eINSTANCE.createRequiredCapability()));
-
-		newChildDescriptors.add(createChildParameter(
-			P2Package.Literals.IINSTALLABLE_UNIT__TOUCHPOINT_DATA, P2Factory.eINSTANCE.createTouchpointData()));
-
-		newChildDescriptors.add(createChildParameter(
-			P2Package.Literals.IINSTALLABLE_UNIT__TOUCHPOINT_TYPE, P2Factory.eINSTANCE.createTouchpointType()));
-
-		newChildDescriptors.add(createChildParameter(
-			P2Package.Literals.IINSTALLABLE_UNIT__UPDATE_DESCRIPTOR, P2Factory.eINSTANCE.createUpdateDescriptor()));
-
-		newChildDescriptors.add(createChildParameter(
-			P2Package.Literals.INSTALLABLE_UNIT__PROPERTY_MAP, P2Factory.eINSTANCE.create(P2Package.Literals.PROPERTY)));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected EStructuralFeature getChildFeature(Object object, Object child) {
-		// Check the type of the specified child object and return the proper feature to use for
-		// adding (see {@link AddCommand}) it as a child.
-
-		return super.getChildFeature(object, child);
 	}
 
 }

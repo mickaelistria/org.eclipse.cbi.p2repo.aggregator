@@ -117,9 +117,7 @@ public class ValidConfigurationsRuleItemProvider extends MapRuleItemProvider imp
 	@Override
 	public String getText(Object object) {
 		StringBuilder bld = new StringBuilder();
-		bld.append(getString("_UI_ValidConfigurationsRule_type"));
-		bld.append(' ');
-		if(appendIUText(object, bld)) {
+		if(appendIUText(object, "_UI_ValidConfigurationsRule_type", bld)) {
 			ValidConfigurationsRule vcRule = (ValidConfigurationsRule) object;
 			List<Configuration> configs = vcRule.getValidConfigurations();
 			int top = configs.size();

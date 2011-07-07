@@ -161,6 +161,17 @@ public class MappingRuleImpl extends MinimalEObjectImpl.Container implements Map
 	 * @generated
 	 */
 	@Override
+	protected EClass eStaticClass() {
+		return P2Package.Literals.MAPPING_RULE;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
 			case P2Package.MAPPING_RULE__FILTER:
@@ -237,17 +248,6 @@ public class MappingRuleImpl extends MinimalEObjectImpl.Container implements Map
 		result.append(output);
 		result.append(')');
 		return result.toString();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return P2Package.Literals.MAPPING_RULE;
 	}
 
 } // MappingRuleImpl

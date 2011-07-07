@@ -27,6 +27,7 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
+import org.eclipse.equinox.p2.repository.IRepository;
 
 /**
  * This is the item provider adapter for a {@link org.eclipse.b3.p2.RepositoryReference} object.
@@ -46,6 +47,91 @@ public class RepositoryReferenceItemProvider extends ItemProviderAdapter impleme
 	 */
 	public RepositoryReferenceItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
+	}
+
+	/**
+	 * This adds a property descriptor for the Location feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	protected void addLocationPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+			getResourceLocator(),
+			getString("_UI_IRepositoryReference_location_feature"),
+			getString(
+				"_UI_PropertyDescriptor_description", "_UI_IRepositoryReference_location_feature",
+				"_UI_IRepositoryReference_type"), P2Package.Literals.IREPOSITORY_REFERENCE__LOCATION, true, false,
+			false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Nickname feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	protected void addNicknamePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+			getResourceLocator(),
+			getString("_UI_IRepositoryReference_nickname_feature"),
+			getString(
+				"_UI_PropertyDescriptor_description", "_UI_IRepositoryReference_nickname_feature",
+				"_UI_IRepositoryReference_type"), P2Package.Literals.IREPOSITORY_REFERENCE__NICKNAME, true, false,
+			false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Options feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	protected void addOptionsPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+			getResourceLocator(),
+			getString("_UI_IRepositoryReference_options_feature"),
+			getString(
+				"_UI_PropertyDescriptor_description", "_UI_IRepositoryReference_options_feature",
+				"_UI_IRepositoryReference_type"), P2Package.Literals.IREPOSITORY_REFERENCE__OPTIONS, true, false,
+			false, ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Type feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	protected void addTypePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+			getResourceLocator(),
+			getString("_UI_IRepositoryReference_type_feature"),
+			getString(
+				"_UI_PropertyDescriptor_description", "_UI_IRepositoryReference_type_feature",
+				"_UI_IRepositoryReference_type"), P2Package.Literals.IREPOSITORY_REFERENCE__TYPE, true, false, false,
+			ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, null, null));
+	}
+
+	/**
+	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
+	 * that can be created under this object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
+		super.collectNewChildDescriptors(newChildDescriptors, object);
 	}
 
 	/**
@@ -101,13 +187,18 @@ public class RepositoryReferenceItemProvider extends ItemProviderAdapter impleme
 	 */
 	@Override
 	public String getText(Object object) {
-		URI location = ((RepositoryReference) object).getLocation();
-		String label = location == null
-				? ((RepositoryReference) object).getNickname()
-				: location.toString();
-		return label == null || label.length() == 0
-				? getString("_UI_RepositoryReference_type")
-				: getString("_UI_RepositoryReference_type") + " " + label;
+		RepositoryReference ref = (RepositoryReference) object;
+		StringBuilder bld = new StringBuilder();
+		if(ref.getType() == IRepository.TYPE_ARTIFACT)
+			bld.append("artifacts : ");
+		else
+			bld.append("meta-data : ");
+		URI location = ref.getLocation();
+		if(location != null)
+			bld.append(location);
+		else if(ref.getNickname() != null)
+			bld.append(ref.getNickname());
+		return bld.toString();
 	}
 
 	/**
@@ -131,91 +222,6 @@ public class RepositoryReferenceItemProvider extends ItemProviderAdapter impleme
 				return;
 		}
 		super.notifyChanged(notification);
-	}
-
-	/**
-	 * This adds a property descriptor for the Location feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	protected void addLocationPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-			getResourceLocator(),
-			getString("_UI_RepositoryReference_location_feature"),
-			getString(
-				"_UI_PropertyDescriptor_description", "_UI_RepositoryReference_location_feature",
-				"_UI_RepositoryReference_type"), P2Package.Literals.REPOSITORY_REFERENCE__LOCATION, true, false, false,
-			ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Nickname feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	protected void addNicknamePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-			getResourceLocator(),
-			getString("_UI_RepositoryReference_nickname_feature"),
-			getString(
-				"_UI_PropertyDescriptor_description", "_UI_RepositoryReference_nickname_feature",
-				"_UI_RepositoryReference_type"), P2Package.Literals.REPOSITORY_REFERENCE__NICKNAME, true, false, false,
-			ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Options feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	protected void addOptionsPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-			getResourceLocator(),
-			getString("_UI_RepositoryReference_options_feature"),
-			getString(
-				"_UI_PropertyDescriptor_description", "_UI_RepositoryReference_options_feature",
-				"_UI_RepositoryReference_type"), P2Package.Literals.REPOSITORY_REFERENCE__OPTIONS, true, false, false,
-			ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, null, null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Type feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	protected void addTypePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-			getResourceLocator(),
-			getString("_UI_RepositoryReference_type_feature"),
-			getString(
-				"_UI_PropertyDescriptor_description", "_UI_RepositoryReference_type_feature",
-				"_UI_RepositoryReference_type"), P2Package.Literals.REPOSITORY_REFERENCE__TYPE, true, false, false,
-			ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, null, null));
-	}
-
-	/**
-	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
-	 * that can be created under this object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
-		super.collectNewChildDescriptors(newChildDescriptors, object);
 	}
 
 }

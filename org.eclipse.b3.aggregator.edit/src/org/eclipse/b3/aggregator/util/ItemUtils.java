@@ -119,7 +119,7 @@ public class ItemUtils {
 	}
 
 	public static MappedRepository findMappedRepository(Aggregation aggregator, MetadataRepository mdr) {
-		for(Contribution contribution : aggregator.getContributions()) {
+		for(Contribution contribution : aggregator.getAllContributions(true)) {
 			MappedRepository repo = findMappedRepository(contribution, mdr);
 			if(repo != null)
 				return repo;

@@ -8,9 +8,8 @@ package org.eclipse.b3.aggregator.impl;
 
 import java.util.Collection;
 
-import org.eclipse.b3.aggregator.ValidationSet;
-import org.eclipse.b3.aggregator.AggregationType;
 import org.eclipse.b3.aggregator.Aggregation;
+import org.eclipse.b3.aggregator.AggregationType;
 import org.eclipse.b3.aggregator.AggregatorFactory;
 import org.eclipse.b3.aggregator.AggregatorPackage;
 import org.eclipse.b3.aggregator.Configuration;
@@ -25,6 +24,8 @@ import org.eclipse.b3.aggregator.PackedStrategy;
 import org.eclipse.b3.aggregator.Status;
 import org.eclipse.b3.aggregator.StatusCode;
 import org.eclipse.b3.aggregator.StatusProvider;
+import org.eclipse.b3.aggregator.ValidationSet;
+import org.eclipse.b3.aggregator.util.GeneralUtils;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.BasicEList;
@@ -49,7 +50,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <li>{@link org.eclipse.b3.aggregator.impl.AggregationImpl#getInfos <em>Infos</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.impl.AggregationImpl#getValidationSets <em>Validation Sets</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.impl.AggregationImpl#getConfigurations <em>Configurations</em>}</li>
- * <li>{@link org.eclipse.b3.aggregator.impl.AggregationImpl#getContributions <em>Contributions</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.impl.AggregationImpl#getCustomCategories <em>Custom Categories</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.impl.AggregationImpl#getContacts <em>Contacts</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.impl.AggregationImpl#getBuildmaster <em>Buildmaster</em>}</li>
@@ -59,7 +59,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <li>{@link org.eclipse.b3.aggregator.impl.AggregationImpl#isSendmail <em>Sendmail</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.impl.AggregationImpl#getType <em>Type</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.impl.AggregationImpl#isMavenResult <em>Maven Result</em>}</li>
- * <li>{@link org.eclipse.b3.aggregator.impl.AggregationImpl#getValidationRepositories <em>Validation Repositories</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.impl.AggregationImpl#getMavenMappings <em>Maven Mappings</em>}</li>
  * </ul>
  * </p>
@@ -120,16 +119,6 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 	 * @ordered
 	 */
 	protected EList<Configuration> configurations;
-
-	/**
-	 * The cached value of the '{@link #getContributions() <em>Contributions</em>}' containment reference list. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @see #getContributions()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Contribution> contributions;
 
 	/**
 	 * The cached value of the '{@link #getCustomCategories() <em>Custom Categories</em>}' containment reference list.
@@ -347,16 +336,6 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 	protected static final int MAVEN_RESULT_EFLAG = 1 << 7;
 
 	/**
-	 * The cached value of the '{@link #getValidationRepositories() <em>Validation Repositories</em>}' containment reference list.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @see #getValidationRepositories()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<MetadataRepositoryReference> validationRepositories;
-
-	/**
 	 * The cached value of the '{@link #getMavenMappings() <em>Maven Mappings</em>}' containment reference list. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -382,6 +361,11 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 	 */
 	public Contact basicGetBuildmaster() {
 		return buildmaster;
+	}
+
+	public void clearStatus() {
+		for(ValidationSet vs : getValidationSets())
+			((ValidationSetImpl) vs).clearStatus();
 	}
 
 	/**
@@ -464,8 +448,6 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 				return getValidationSets();
 			case AggregatorPackage.AGGREGATION__CONFIGURATIONS:
 				return getConfigurations();
-			case AggregatorPackage.AGGREGATION__CONTRIBUTIONS:
-				return getContributions();
 			case AggregatorPackage.AGGREGATION__CUSTOM_CATEGORIES:
 				return getCustomCategories();
 			case AggregatorPackage.AGGREGATION__CONTACTS:
@@ -486,8 +468,6 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 				return getType();
 			case AggregatorPackage.AGGREGATION__MAVEN_RESULT:
 				return isMavenResult();
-			case AggregatorPackage.AGGREGATION__VALIDATION_REPOSITORIES:
-				return getValidationRepositories();
 			case AggregatorPackage.AGGREGATION__MAVEN_MAPPINGS:
 				return getMavenMappings();
 		}
@@ -521,14 +501,10 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 				return ((InternalEList<?>) getValidationSets()).basicRemove(otherEnd, msgs);
 			case AggregatorPackage.AGGREGATION__CONFIGURATIONS:
 				return ((InternalEList<?>) getConfigurations()).basicRemove(otherEnd, msgs);
-			case AggregatorPackage.AGGREGATION__CONTRIBUTIONS:
-				return ((InternalEList<?>) getContributions()).basicRemove(otherEnd, msgs);
 			case AggregatorPackage.AGGREGATION__CUSTOM_CATEGORIES:
 				return ((InternalEList<?>) getCustomCategories()).basicRemove(otherEnd, msgs);
 			case AggregatorPackage.AGGREGATION__CONTACTS:
 				return ((InternalEList<?>) getContacts()).basicRemove(otherEnd, msgs);
-			case AggregatorPackage.AGGREGATION__VALIDATION_REPOSITORIES:
-				return ((InternalEList<?>) getValidationRepositories()).basicRemove(otherEnd, msgs);
 			case AggregatorPackage.AGGREGATION__MAVEN_MAPPINGS:
 				return ((InternalEList<?>) getMavenMappings()).basicRemove(otherEnd, msgs);
 		}
@@ -555,8 +531,6 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 				return validationSets != null && !validationSets.isEmpty();
 			case AggregatorPackage.AGGREGATION__CONFIGURATIONS:
 				return configurations != null && !configurations.isEmpty();
-			case AggregatorPackage.AGGREGATION__CONTRIBUTIONS:
-				return contributions != null && !contributions.isEmpty();
 			case AggregatorPackage.AGGREGATION__CUSTOM_CATEGORIES:
 				return customCategories != null && !customCategories.isEmpty();
 			case AggregatorPackage.AGGREGATION__CONTACTS:
@@ -579,8 +553,6 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 				return (eFlags & TYPE_EFLAG) != TYPE_EFLAG_DEFAULT;
 			case AggregatorPackage.AGGREGATION__MAVEN_RESULT:
 				return ((eFlags & MAVEN_RESULT_EFLAG) != 0) != MAVEN_RESULT_EDEFAULT;
-			case AggregatorPackage.AGGREGATION__VALIDATION_REPOSITORIES:
-				return validationRepositories != null && !validationRepositories.isEmpty();
 			case AggregatorPackage.AGGREGATION__MAVEN_MAPPINGS:
 				return mavenMappings != null && !mavenMappings.isEmpty();
 		}
@@ -616,10 +588,6 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 				getConfigurations().clear();
 				getConfigurations().addAll((Collection<? extends Configuration>) newValue);
 				return;
-			case AggregatorPackage.AGGREGATION__CONTRIBUTIONS:
-				getContributions().clear();
-				getContributions().addAll((Collection<? extends Contribution>) newValue);
-				return;
 			case AggregatorPackage.AGGREGATION__CUSTOM_CATEGORIES:
 				getCustomCategories().clear();
 				getCustomCategories().addAll((Collection<? extends CustomCategory>) newValue);
@@ -648,10 +616,6 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 				return;
 			case AggregatorPackage.AGGREGATION__MAVEN_RESULT:
 				setMavenResult((Boolean) newValue);
-				return;
-			case AggregatorPackage.AGGREGATION__VALIDATION_REPOSITORIES:
-				getValidationRepositories().clear();
-				getValidationRepositories().addAll((Collection<? extends MetadataRepositoryReference>) newValue);
 				return;
 			case AggregatorPackage.AGGREGATION__MAVEN_MAPPINGS:
 				getMavenMappings().clear();
@@ -694,9 +658,6 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 			case AggregatorPackage.AGGREGATION__CONFIGURATIONS:
 				getConfigurations().clear();
 				return;
-			case AggregatorPackage.AGGREGATION__CONTRIBUTIONS:
-				getContributions().clear();
-				return;
 			case AggregatorPackage.AGGREGATION__CUSTOM_CATEGORIES:
 				getCustomCategories().clear();
 				return;
@@ -724,14 +685,29 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 			case AggregatorPackage.AGGREGATION__MAVEN_RESULT:
 				setMavenResult(MAVEN_RESULT_EDEFAULT);
 				return;
-			case AggregatorPackage.AGGREGATION__VALIDATION_REPOSITORIES:
-				getValidationRepositories().clear();
-				return;
 			case AggregatorPackage.AGGREGATION__MAVEN_MAPPINGS:
 				getMavenMappings().clear();
 				return;
 		}
 		super.eUnset(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated NOT
+	 */
+	public EList<Contribution> getAllContributions(boolean enabledOnly) {
+		BasicEList<Contribution> result = new BasicEList<Contribution>();
+		for(ValidationSet vs : getValidationSets(enabledOnly)) {
+			for(Contribution contribution : vs.getContributions()) {
+				if((enabledOnly && !contribution.isEnabled()) || result.contains(contribution))
+					continue;
+				result.add(contribution);
+			}
+		}
+		return result;
 	}
 
 	/**
@@ -741,13 +717,21 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 	 */
 	public EList<MetadataRepositoryReference> getAllMetadataRepositoryReferences(boolean enabledOnly) {
 		EList<MetadataRepositoryReference> allRepos = new BasicEList<MetadataRepositoryReference>();
-
-		for(Contribution contribution : getContributions(enabledOnly))
-			for(MappedRepository mappedRepository : contribution.getRepositories(enabledOnly))
-				allRepos.add(mappedRepository);
-
-		allRepos.addAll(getValidationRepositories(enabledOnly));
-
+		for(ValidationSet vs : getValidationSets(enabledOnly)) {
+			for(Contribution contribution : vs.getContributions()) {
+				if(enabledOnly && !contribution.isEnabled())
+					continue;
+				for(MappedRepository mappedRepository : contribution.getRepositories(enabledOnly)) {
+					if(!allRepos.contains(mappedRepository))
+						allRepos.add(mappedRepository);
+				}
+			}
+			for(MetadataRepositoryReference mrRef : vs.getValidationRepositories()) {
+				if((enabledOnly && !mrRef.isEnabled()) || allRepos.contains(mrRef))
+					continue;
+				allRepos.add(mrRef);
+			}
+		}
 		return allRepos;
 	}
 
@@ -780,103 +764,6 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated NOT
-	 */
-	public EList<Contribution> getValidationSetContributions(ValidationSet validationSet) {
-		EList<Contribution> contribs = getContributions();
-
-		int count = contribs.size();
-		int idx = 0;
-
-		ALL_PASS: {
-			for(; idx < count; ++idx) {
-				Contribution contrib = contribs.get(idx);
-				if(!(contrib.getReceiver() == validationSet))
-					// we have found an entry that doesn't pass - exit the ALL_PASS block to create a list containing only those entries that pass
-					break ALL_PASS;
-			}
-
-			// all entries pass - return the original list
-			return contribs;
-		}
-
-		// there is at least one entry that doesn't pass - we need to build a new list containing only those entries that pass
-		EList<Contribution> passingContribs = new BasicEList<Contribution>(contribs.size() - 1);
-
-		// we don't need to check these again - we know they are matching
-		for(int sdx = 0; sdx < idx; ++sdx)
-			passingContribs.add(contribs.get(sdx));
-
-		while(++idx < count) {
-			Contribution contrib = contribs.get(idx);
-			if(contrib.getReceiver() == validationSet)
-				passingContribs.add(contrib);
-		}
-
-		return passingContribs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated NOT
-	 */
-	public EList<Contribution> getValidationSetContributions(ValidationSet validationSet, boolean enabledOnly) {
-		EList<Contribution> contribs = getContributions();
-
-		if(!enabledOnly)
-			return getValidationSetContributions(validationSet);
-
-		int count = contribs.size();
-		int idx = 0;
-
-		ALL_PASS: {
-			for(; idx < count; ++idx) {
-				Contribution contrib = contribs.get(idx);
-				if(!(contrib.isEnabled() && contrib.getReceiver() == validationSet))
-					// we have found an entry that doesn't pass - exit the ALL_PASS block to create a list containing only those entries that pass
-					break ALL_PASS;
-			}
-
-			// all entries pass - return the original list
-			return contribs;
-		}
-
-		// there is at least one entry that doesn't pass - we need to build a new list containing only those entries that pass
-		EList<Contribution> passingContribs = new BasicEList<Contribution>(contribs.size() - 1);
-
-		// we don't need to check these again - we know they are matching
-		for(int sdx = 0; sdx < idx; ++sdx)
-			passingContribs.add(contribs.get(sdx));
-
-		while(++idx < count) {
-			Contribution contrib = contribs.get(idx);
-			if(contrib.isEnabled() && contrib.getReceiver() == validationSet)
-				passingContribs.add(contrib);
-		}
-
-		return passingContribs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	public EList<ValidationSet> getValidationSets() {
-		if(validationSets == null) {
-			validationSets = new EObjectContainmentEList.Resolving<ValidationSet>(
-				ValidationSet.class, this, AggregatorPackage.AGGREGATION__VALIDATION_SETS);
-		}
-		return validationSets;
-	}
-
-	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
@@ -897,64 +784,9 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 	public EList<Contact> getContacts() {
 		if(contacts == null) {
 			contacts = new EObjectContainmentWithInverseEList.Resolving<Contact>(
-				Contact.class, this, AggregatorPackage.AGGREGATION__CONTACTS, AggregatorPackage.CONTACT__AGGREGATOR);
+				Contact.class, this, AggregatorPackage.AGGREGATION__CONTACTS, AggregatorPackage.CONTACT__AGGREGATION);
 		}
 		return contacts;
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	public EList<Contribution> getContributions() {
-		if(contributions == null) {
-			contributions = new EObjectContainmentEList.Resolving<Contribution>(
-				Contribution.class, this, AggregatorPackage.AGGREGATION__CONTRIBUTIONS);
-		}
-		return contributions;
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated NOT
-	 */
-	public EList<Contribution> getContributions(boolean enabledOnly) {
-		EList<Contribution> contribs = getContributions();
-
-		if(!enabledOnly)
-			return contribs;
-
-		int count = contribs.size();
-		int idx = 0;
-
-		ALL_PASS: {
-			for(; idx < count; ++idx) {
-				Contribution contrib = contribs.get(idx);
-				if(!(contrib.isEnabled()))
-					// we have found an entry that doesn't pass - exit the ALL_PASS block to create a list containing only those entries that pass
-					break ALL_PASS;
-			}
-
-			// all entries pass - return the original list
-			return contribs;
-		}
-
-		// there is at least one entry that doesn't pass - we need to build a new list containing only those entries that pass
-		EList<Contribution> passingContribs = new BasicEList<Contribution>(contribs.size() - 1);
-
-		// we don't need to check these again - we know they are matching
-		for(int sdx = 0; sdx < idx; ++sdx)
-			passingContribs.add(contribs.get(sdx));
-
-		while(++idx < count) {
-			Contribution contrib = contribs.get(idx);
-			if(contrib.isEnabled())
-				passingContribs.add(contrib);
-		}
-
-		return passingContribs;
 	}
 
 	/**
@@ -1027,12 +859,8 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 
 	synchronized public Status getStatus() {
 		StatusCode statusCode;
-		for(Contribution contribution : getContributions()) {
-			if((statusCode = contribution.getStatus().getCode()) != StatusCode.OK && statusCode != StatusCode.WAITING)
-				return AggregatorFactory.eINSTANCE.createStatus(StatusCode.BROKEN);
-		}
-		for(MetadataRepositoryReference repo : getValidationRepositories(true)) {
-			if((statusCode = repo.getStatus().getCode()) != StatusCode.OK && statusCode != StatusCode.WAITING)
+		for(ValidationSet vs : getValidationSets(true)) {
+			if((statusCode = vs.getStatus().getCode()) != StatusCode.OK && statusCode != StatusCode.WAITING)
 				return AggregatorFactory.eINSTANCE.createStatus(StatusCode.BROKEN);
 		}
 		for(MavenMapping mapping : getMavenMappings()) {
@@ -1052,59 +880,30 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 */
-	public EList<MetadataRepositoryReference> getValidationRepositories() {
-		if(validationRepositories == null) {
-			validationRepositories = new EObjectContainmentEList.Resolving<MetadataRepositoryReference>(
-				MetadataRepositoryReference.class, this, AggregatorPackage.AGGREGATION__VALIDATION_REPOSITORIES);
+	public EList<ValidationSet> getValidationSets() {
+		if(validationSets == null) {
+			validationSets = new EObjectContainmentEList.Resolving<ValidationSet>(
+				ValidationSet.class, this, AggregatorPackage.AGGREGATION__VALIDATION_SETS);
 		}
-		return validationRepositories;
+		return validationSets;
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @generated NOT
 	 */
-	public EList<MetadataRepositoryReference> getValidationRepositories(boolean enabledOnly) {
-		EList<MetadataRepositoryReference> validationRepositories = getValidationRepositories();
-
-		if(!enabledOnly)
-			return validationRepositories;
-
-		int count = validationRepositories.size();
-		int idx = 0;
-
-		ALL_PASS: {
-			for(; idx < count; ++idx) {
-				MetadataRepositoryReference validationRepository = validationRepositories.get(idx);
-				if(!(validationRepository.isEnabled()))
-					// we have found an entry that doesn't pass - exit the ALL_PASS block to create a list containing only those entries that pass
-					break ALL_PASS;
-			}
-
-			// all entries pass - return the original list
-			return validationRepositories;
-		}
-
-		// there is at least one entry that doesn't pass - we need to build a new list containing only those entries that pass
-		EList<MetadataRepositoryReference> passingValidationRepositories = new BasicEList<MetadataRepositoryReference>(
-			validationRepositories.size() - 1);
-
-		// we don't need to check these again - we know they are matching
-		for(int sdx = 0; sdx < idx; ++sdx)
-			passingValidationRepositories.add(validationRepositories.get(sdx));
-
-		while(++idx < count) {
-			MetadataRepositoryReference validationRepository = validationRepositories.get(idx);
-			if(validationRepository.isEnabled())
-				passingValidationRepositories.add(validationRepository);
-		}
-
-		return passingValidationRepositories;
+	public EList<ValidationSet> getValidationSets(boolean enabledOnly) {
+		EList<ValidationSet> vss = getValidationSets();
+		if(enabledOnly)
+			vss = GeneralUtils.getEnabled(vss);
+		return vss;
 	}
 
 	/**

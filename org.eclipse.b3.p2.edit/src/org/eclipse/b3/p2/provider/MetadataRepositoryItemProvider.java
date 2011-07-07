@@ -46,6 +46,46 @@ public class MetadataRepositoryItemProvider extends RepositoryItemProvider imple
 	}
 
 	/**
+	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
+	 * that can be created under this object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
+		super.collectNewChildDescriptors(newChildDescriptors, object);
+
+		newChildDescriptors.add(createChildParameter(
+			P2Package.Literals.METADATA_REPOSITORY__INSTALLABLE_UNITS, P2Factory.eINSTANCE.createInstallableUnit()));
+
+		newChildDescriptors.add(createChildParameter(
+			P2Package.Literals.METADATA_REPOSITORY__INSTALLABLE_UNITS,
+			P2Factory.eINSTANCE.createInstallableUnitFragment()));
+
+		newChildDescriptors.add(createChildParameter(
+			P2Package.Literals.METADATA_REPOSITORY__INSTALLABLE_UNITS, P2Factory.eINSTANCE.createInstallableUnitPatch()));
+
+		newChildDescriptors.add(createChildParameter(
+			P2Package.Literals.METADATA_REPOSITORY__REFERENCES, P2Factory.eINSTANCE.createRepositoryReference()));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected EStructuralFeature getChildFeature(Object object, Object child) {
+		// Check the type of the specified child object and return the proper feature to use for
+		// adding (see {@link AddCommand}) it as a child.
+
+		return super.getChildFeature(object, child);
+	}
+
+	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -126,46 +166,6 @@ public class MetadataRepositoryItemProvider extends RepositoryItemProvider imple
 				return;
 		}
 		super.notifyChanged(notification);
-	}
-
-	/**
-	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
-	 * that can be created under this object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
-		super.collectNewChildDescriptors(newChildDescriptors, object);
-
-		newChildDescriptors.add(createChildParameter(
-			P2Package.Literals.METADATA_REPOSITORY__INSTALLABLE_UNITS, P2Factory.eINSTANCE.createInstallableUnit()));
-
-		newChildDescriptors.add(createChildParameter(
-			P2Package.Literals.METADATA_REPOSITORY__INSTALLABLE_UNITS,
-			P2Factory.eINSTANCE.createInstallableUnitFragment()));
-
-		newChildDescriptors.add(createChildParameter(
-			P2Package.Literals.METADATA_REPOSITORY__INSTALLABLE_UNITS, P2Factory.eINSTANCE.createInstallableUnitPatch()));
-
-		newChildDescriptors.add(createChildParameter(
-			P2Package.Literals.METADATA_REPOSITORY__REFERENCES, P2Factory.eINSTANCE.createRepositoryReference()));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected EStructuralFeature getChildFeature(Object object, Object child) {
-		// Check the type of the specified child object and return the proper feature to use for
-		// adding (see {@link AddCommand}) it as a child.
-
-		return super.getChildFeature(object, child);
 	}
 
 }

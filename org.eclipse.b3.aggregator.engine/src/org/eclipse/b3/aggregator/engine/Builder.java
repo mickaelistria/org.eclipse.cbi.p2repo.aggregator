@@ -2,14 +2,18 @@ package org.eclipse.b3.aggregator.engine;
 
 import static java.lang.String.format;
 
+import java.io.BufferedOutputStream;
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.OutputStream;
 import java.io.PrintStream;
 import java.io.UnsupportedEncodingException;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Date;
@@ -18,6 +22,7 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.Properties;
 import java.util.Set;
 import java.util.TimeZone;
 import java.util.regex.Matcher;
@@ -29,21 +34,32 @@ import org.apache.tools.ant.util.DateUtils;
 import org.apache.tools.mail.MailMessage;
 import org.eclipse.b3.aggregator.Aggregation;
 import org.eclipse.b3.aggregator.AggregatorFactory;
-import org.eclipse.b3.aggregator.ValidationSet;
 import org.eclipse.b3.aggregator.Contact;
 import org.eclipse.b3.aggregator.Contribution;
 import org.eclipse.b3.aggregator.CustomCategory;
 import org.eclipse.b3.aggregator.Feature;
 import org.eclipse.b3.aggregator.MappedRepository;
 import org.eclipse.b3.aggregator.MappedUnit;
+import org.eclipse.b3.aggregator.MavenMapping;
 import org.eclipse.b3.aggregator.MetadataRepositoryReference;
 import org.eclipse.b3.aggregator.PackedStrategy;
+import org.eclipse.b3.aggregator.ValidationSet;
+import org.eclipse.b3.aggregator.engine.maven.InstallableUnitMapping;
+import org.eclipse.b3.aggregator.engine.maven.MavenManager;
+import org.eclipse.b3.aggregator.engine.maven.MavenRepositoryHelper;
 import org.eclipse.b3.aggregator.impl.MetadataRepositoryReferenceImpl;
+import org.eclipse.b3.aggregator.util.ResourceUtils;
 import org.eclipse.b3.p2.MetadataRepository;
+import org.eclipse.b3.p2.loader.IRepositoryLoader;
+import org.eclipse.b3.p2.maven.indexer.IMaven2Indexer;
+import org.eclipse.b3.p2.maven.indexer.IndexerUtils;
+import org.eclipse.b3.p2.util.IUUtils;
 import org.eclipse.b3.p2.util.P2ResourceImpl;
 import org.eclipse.b3.p2.util.P2Utils;
+import org.eclipse.b3.p2.util.RepositoryLoaderUtils;
 import org.eclipse.b3.p2.util.ResourceSetWithAgent;
 import org.eclipse.b3.util.ExceptionUtils;
+import org.eclipse.b3.util.IOUtils;
 import org.eclipse.b3.util.LogUtils;
 import org.eclipse.b3.util.MonitorUtils;
 import org.eclipse.b3.util.StringUtils;
@@ -52,28 +68,42 @@ import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.IWorkspaceRoot;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
+import org.eclipse.core.runtime.IConfigurationElement;
 import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.Path;
+import org.eclipse.core.runtime.SubMonitor;
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.util.Diagnostician;
+import org.eclipse.equinox.internal.p2.artifact.repository.CompositeArtifactRepository;
+import org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactDescriptor;
+import org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository;
 import org.eclipse.equinox.internal.p2.core.helpers.FileUtils;
 import org.eclipse.equinox.internal.p2.metadata.repository.CompositeMetadataRepository;
 import org.eclipse.equinox.internal.p2.repository.Transport;
 import org.eclipse.equinox.p2.core.IProvisioningAgent;
+import org.eclipse.equinox.p2.core.ProvisionException;
 import org.eclipse.equinox.p2.engine.IProfile;
 import org.eclipse.equinox.p2.engine.IProfileRegistry;
 import org.eclipse.equinox.p2.metadata.IArtifactKey;
 import org.eclipse.equinox.p2.metadata.IInstallableUnit;
 import org.eclipse.equinox.p2.metadata.MetadataFactory.InstallableUnitDescription;
 import org.eclipse.equinox.p2.metadata.Version;
+import org.eclipse.equinox.p2.metadata.expression.ExpressionUtil;
+import org.eclipse.equinox.p2.publisher.Publisher;
 import org.eclipse.equinox.p2.query.IQuery;
 import org.eclipse.equinox.p2.query.IQueryResult;
 import org.eclipse.equinox.p2.query.QueryUtil;
+import org.eclipse.equinox.p2.repository.IRepository;
+import org.eclipse.equinox.p2.repository.artifact.IArtifactDescriptor;
+import org.eclipse.equinox.p2.repository.artifact.IArtifactRepository;
+import org.eclipse.equinox.p2.repository.artifact.IArtifactRepositoryManager;
+import org.eclipse.equinox.p2.repository.artifact.IFileArtifactRepository;
+import org.eclipse.equinox.p2.repository.artifact.spi.ArtifactDescriptor;
 import org.eclipse.equinox.p2.repository.metadata.IMetadataRepository;
 import org.eclipse.equinox.p2.repository.metadata.IMetadataRepositoryManager;
 import org.kohsuke.args4j.Argument;
@@ -88,6 +118,25 @@ import org.kohsuke.args4j.spi.Setter;
 public class Builder extends ModelAbstractCommand {
 	public enum ActionType {
 		CLEAN, VERIFY, BUILD, CLEAN_BUILD
+	}
+
+	private static class EmailAddress {
+		private final String address;
+
+		private final String personal;
+
+		EmailAddress(String address, String personal) {
+			this.address = address;
+			this.personal = personal;
+		}
+
+		@Override
+		public String toString() {
+			if(personal == null)
+				return address;
+
+			return personal + " <" + address + ">";
+		}
 	}
 
 	public static class PatternOptionHandler extends OptionHandler<Pattern> {
@@ -114,23 +163,47 @@ public class Builder extends ModelAbstractCommand {
 		}
 	}
 
-	private static class EmailAddress {
-		private final String address;
+	class ValidationSetAnnotations {
+		private String safeName;
 
-		private final String personal;
+		private URI sourceCompositeURI;
 
-		EmailAddress(String address, String personal) {
-			this.address = address;
-			this.personal = personal;
+		private CompositeMetadataRepository sourceComposite;
+
+		private Set<IInstallableUnit> unitsToAggregate;
+
+		public String getSafeName() {
+			return safeName;
 		}
 
-		@Override
-		public String toString() {
-			if(personal == null)
-				return address;
-
-			return personal + " <" + address + ">";
+		public CompositeMetadataRepository getSourceComposite() {
+			return sourceComposite;
 		}
+
+		public URI getSourceCompositeURI() {
+			return sourceCompositeURI;
+		}
+
+		public Set<IInstallableUnit> getUnitsToAggregate() {
+			return unitsToAggregate;
+		}
+
+		public void setSafeName(String safeName) {
+			this.safeName = safeName;
+		}
+
+		public void setSourceComposite(CompositeMetadataRepository sourceComposite) {
+			this.sourceComposite = sourceComposite;
+		}
+
+		public void setSourceCompositeURI(URI sourceCompositeURI) {
+			this.sourceCompositeURI = sourceCompositeURI;
+		}
+
+		public void setUnitsToAggregate(Set<IInstallableUnit> unitsToAggregate) {
+			this.unitsToAggregate = unitsToAggregate;
+		}
+
 	}
 
 	public static final String VERIFICATION_IU_PREFIX = "contributed.content."; //$NON-NLS-1$
@@ -162,6 +235,8 @@ public class Builder extends ModelAbstractCommand {
 	public static final String REPO_FOLDER_TEMP = "temp"; //$NON-NLS-1$
 
 	public static final String REPO_FOLDER_AGGREGATE = "aggregate"; //$NON-NLS-1$
+
+	public static final String REPO_FOLDER_CUSTOM_CATEGORIES = "/custom_categories";
 
 	public static final String SIMPLE_ARTIFACTS_TYPE = org.eclipse.equinox.internal.p2.artifact.repository.Activator.ID +
 			".simpleRepository"; //$NON-NLS-1$
@@ -220,29 +295,6 @@ public class Builder extends ModelAbstractCommand {
 		throw ExceptionUtils.fromMessage("File %s is not an absolute path", repoLocation);
 	}
 
-	public static String getValidationSetLabel(ValidationSet validationSet) {
-		return validationSet == null
-				? "<main>"
-				: validationSet.getLabel();
-	}
-
-	public static String getExceptionMessages(Throwable e) {
-		StringBuilder bld = new StringBuilder();
-		getExceptionMessages(e, bld);
-		return bld.toString();
-	}
-
-	public static IInstallableUnit getIU(IMetadataRepository mdr, String id, String version) {
-		version = StringUtils.trimmedOrNull(version);
-		IQuery<IInstallableUnit> query = version == null
-				? QueryUtil.createIUQuery(id)
-				: QueryUtil.createIUQuery(id, Version.create(version));
-		IQueryResult<IInstallableUnit> result = mdr.query(query, null);
-		return !result.isEmpty()
-				? result.iterator().next()
-				: null;
-	}
-
 	private static boolean deleteAndCheck(File folder, String fileName) throws CoreException {
 		File file = new File(folder, fileName);
 		try {
@@ -289,7 +341,11 @@ public class Builder extends ModelAbstractCommand {
 		}
 	}
 
-	// === OPTIONS ===
+	public static String getExceptionMessages(Throwable e) {
+		StringBuilder bld = new StringBuilder();
+		getExceptionMessages(e, bld);
+		return bld.toString();
+	}
 
 	private static void getExceptionMessages(Throwable e, StringBuilder bld) {
 		bld.append(e.getClass().getName());
@@ -309,6 +365,25 @@ public class Builder extends ModelAbstractCommand {
 			bld.append("\nCaused by: ");
 			getExceptionMessages(e, bld);
 		}
+	}
+
+	public static IInstallableUnit getIU(IMetadataRepository mdr, String id, String version) {
+		version = StringUtils.trimmedOrNull(version);
+		IQuery<IInstallableUnit> query = version == null
+				? QueryUtil.createIUQuery(id)
+				: QueryUtil.createIUQuery(id, Version.create(version));
+		IQueryResult<IInstallableUnit> result = mdr.query(query, null);
+		return !result.isEmpty()
+				? result.iterator().next()
+				: null;
+	}
+
+	// === OPTIONS ===
+
+	public static String getValidationSetLabel(ValidationSet validationSet) {
+		return validationSet == null
+				? "<main>"
+				: validationSet.getLabel();
 	}
 
 	// @Option(name = "--buildModel", required = true, usage = "Appoints the aggregation definition that drives the execution")
@@ -408,7 +483,7 @@ public class Builder extends ModelAbstractCommand {
 	@Argument
 	private List<String> unparsed = new ArrayList<String>();
 
-	private Aggregation aggregator;
+	private Aggregation aggregation;
 
 	private String buildLabel;
 
@@ -416,29 +491,35 @@ public class Builder extends ModelAbstractCommand {
 
 	private String buildMasterName;
 
-	private List<IInstallableUnit> categoryIUs;
+	private IMetadataRepository aggregationMdr;
 
 	private List<IInstallableUnit> validationIUs;
 
 	private boolean sendmail = false;
 
-	final private Set<IInstallableUnit> allUnitsToAggregate = new HashSet<IInstallableUnit>();
-
-	final private Map<ValidationSet, Set<IInstallableUnit>> unitsToAggregateMap = new HashMap<ValidationSet, Set<IInstallableUnit>>();
-
 	private Set<MappedRepository> exclusions;
-
-	private CompositeMetadataRepository sourceComposite;
 
 	private IProvisioningAgent provisioningAgent;
 
 	private boolean fromIDE;
 
-	private Map<ValidationSet, String> safeValidationSetNameMap = new HashMap<ValidationSet, String>();
+	private Map<ValidationSet, ValidationSetAnnotations> validationSetAnnotationsMap = new HashMap<ValidationSet, ValidationSetAnnotations>();
 
 	private Map<MappedRepository, String> safeRepositoryNameMap = new HashMap<MappedRepository, String>();
 
 	private Set<String> safeRepositoryNames = new HashSet<String>();
+
+	private Map<MetadataRepositoryReference, IArtifactRepository> arCache;
+
+	private IArtifactRepositoryManager arManager;
+
+	private IMetadataRepositoryManager mdrManager;
+
+	private IFileArtifactRepository aggregationAr;
+
+	private MavenRepositoryHelper mavenHelper;
+
+	private Set<IArtifactKey> keysToExcludeFromMirroring;
 
 	/**
 	 * Mark the specified repository as not eligible for verbatim mapping.
@@ -455,12 +536,254 @@ public class Builder extends ModelAbstractCommand {
 		exclusions.add(repository);
 	}
 
-	public Aggregation getAggregator() {
-		return aggregator;
+	private void cleanAll() throws CoreException {
+		if(buildRoot.exists()) {
+			FileUtils.deleteAll(buildRoot);
+			if(buildRoot.exists())
+				throw ExceptionUtils.fromMessage("Failed to delete folder %s", buildRoot.getAbsolutePath());
+		}
 	}
 
-	public Set<IInstallableUnit> getAllUnitsToAggregate() {
-		return allUnitsToAggregate;
+	private void cleanMemoryCaches() {
+		validationSetAnnotationsMap.clear();
+		safeRepositoryNameMap.clear();
+		safeRepositoryNames.clear();
+	}
+
+	private void cleanMetadata(IProvisioningAgent agent) throws CoreException {
+		IMetadataRepositoryManager mdrMgr = getMdrManager();
+		File finalRepo = new File(buildRoot, Builder.REPO_FOLDER_FINAL);
+		deleteMetadataRepository(mdrMgr, finalRepo);
+		deleteTwoLevelMetadataRepository(mdrMgr, new File(finalRepo, Builder.REPO_FOLDER_AGGREGATE));
+		File interimRepo = new File(buildRoot, Builder.REPO_FOLDER_INTERIM);
+		deleteMetadataRepository(mdrMgr, interimRepo);
+		deleteTwoLevelMetadataRepository(mdrMgr, new File(interimRepo, Builder.REPO_FOLDER_VERIFICATION));
+	}
+
+	private void finishMirroring(IProgressMonitor monitor) throws CoreException {
+		if(mavenHelper != null)
+			mavenAddMetadata();
+
+		IArtifactRepositoryManager arMgr = getArManager();
+		IMetadataRepositoryManager mdrMgr = getMdrManager();
+		SubMonitor subMon = SubMonitor.convert(monitor, 100);
+		try {
+			List<MappedRepository> reposWithReferencedArtifacts = new ArrayList<MappedRepository>();
+			List<MappedRepository> reposWithReferencedMetadata = new ArrayList<MappedRepository>();
+
+			for(Contribution contrib : aggregation.getAllContributions(true)) {
+				for(MappedRepository repo : contrib.getRepositories(true)) {
+					if(isMapVerbatim(repo)) {
+						reposWithReferencedArtifacts.add(repo);
+						reposWithReferencedMetadata.add(repo);
+					}
+					else if(!repo.isMirrorArtifacts() && "p2".equals(repo.getNature()))
+						reposWithReferencedArtifacts.add(repo);
+				}
+			}
+			File destination = new File(getBuildRoot(), Builder.REPO_FOLDER_FINAL);
+			URI finalURI = Builder.createURI(destination);
+
+			File aggregateDestination = new File(destination, Builder.REPO_FOLDER_AGGREGATE);
+			URI aggregateURI = Builder.createURI(aggregateDestination);
+
+			// Initialize a p2Index property file. It might not be used.
+			Properties p2Index = new Properties();
+			if(reposWithReferencedMetadata.isEmpty()) {
+				// The aggregated meta-data can serve as the final repository so
+				// let's move it.
+				//
+				LogUtils.info("Making the aggregated metadata repository final at %s", finalURI);
+				File oldLocation = new File(aggregateDestination, "content.jar");
+				File newLocation = new File(destination, oldLocation.getName());
+				if(!oldLocation.renameTo(newLocation))
+					throw ExceptionUtils.fromMessage(
+						"Unable to move %s to %s", oldLocation.getAbsolutePath(), newLocation.getAbsolutePath());
+				mdrMgr.removeRepository(aggregateURI);
+			}
+			else {
+				// Set up the final composite repositories
+				LogUtils.info("Building final metadata composite at %s", finalURI);
+
+				mdrMgr.removeRepository(finalURI);
+				CompositeMetadataRepository compositeMdr = (CompositeMetadataRepository) mdrMgr.createRepository(
+					finalURI, getAggregation().getLabel(), Builder.COMPOSITE_METADATA_TYPE,
+					Collections.<String, String> emptyMap());
+
+				compositeMdr.addChild(URI.create(Builder.REPO_FOLDER_AGGREGATE));
+				for(MappedRepository referenced : reposWithReferencedMetadata)
+					compositeMdr.addChild(referenced.getMetadataRepository().getLocation());
+
+				p2Index.setProperty("metadata.repository.factory.order", "compositeContent.xml,!");
+				LogUtils.info("Done building final metadata composite");
+			}
+			subMon.worked(10);
+
+			IFileArtifactRepository artifacts = getAggregationArtifactRepository(subMon.newChild(2));
+			IQueryResult<IArtifactKey> artifactKeys = artifacts.query(
+				QueryUtil.createMatchQuery(IArtifactKey.class, ExpressionUtil.TRUE_EXPRESSION), monitor);
+			boolean hasMirroredArtifacts = !artifactKeys.isEmpty();
+
+			if(!hasMirroredArtifacts) {
+				// Delete all stuff related to this artifact repository in the aggregate directory
+				for(String name : aggregateDestination.list()) {
+					if(!"content.jar".equals(name))
+						FileUtils.deleteAll(new File(aggregateDestination, name));
+				}
+			}
+
+			// Forget the old URI
+			arMgr.removeRepository(aggregateURI);
+
+			if(hasMirroredArtifacts && reposWithReferencedArtifacts.isEmpty()) {
+				// The aggregation can serve as the final repository so move everything
+				// up to the final directory.
+				LogUtils.info("Making the aggregated artifact repository final at %s", finalURI);
+				for(String name : aggregateDestination.list()) {
+					if("content.jar".equals(name))
+						continue;
+
+					File oldLocation = new File(aggregateDestination, name);
+					if(hasMirroredArtifacts) {
+						File newLocation = new File(destination, name);
+						if(!oldLocation.renameTo(newLocation))
+							throw ExceptionUtils.fromMessage(
+								"Unable to move %s to %s", oldLocation.getAbsolutePath(), newLocation.getAbsolutePath());
+					}
+					else {
+						FileUtils.deleteAll(oldLocation);
+					}
+				}
+			}
+			else {
+				// Set up the final composite repositories
+				LogUtils.info("Building final artifact composite at %s", finalURI);
+				arMgr.removeRepository(finalURI);
+				CompositeArtifactRepository compositeAr = (CompositeArtifactRepository) arMgr.createRepository(
+					finalURI,
+					getAggregation().getLabel() + " artifacts", Builder.COMPOSITE_ARTIFACTS_TYPE, Collections.<String, String> emptyMap()); //$NON-NLS-1$
+
+				for(MappedRepository referenced : reposWithReferencedArtifacts)
+					compositeAr.addChild(referenced.getMetadataRepository().getLocation());
+
+				if(hasMirroredArtifacts)
+					compositeAr.addChild(finalURI.relativize(aggregateURI));
+				else {
+					// Delete the empty artifact repository
+				}
+
+				p2Index.setProperty("artifact.repository.factory.order", "compositeArtifacts.xml,!");
+				LogUtils.info("Done building final artifact composite");
+			}
+			if(!p2Index.isEmpty()) {
+				p2Index.setProperty("version", "1");
+				File p2IndexFile = new File(destination, "p2.index");
+				OutputStream out = null;
+				try {
+					out = new BufferedOutputStream(new FileOutputStream(p2IndexFile));
+					p2Index.store(out, "p2 index file to speed things up");
+				}
+				catch(IOException e) {
+					LogUtils.error("Unable to create p2.index file", e);
+				}
+				finally {
+					IOUtils.close(out);
+				}
+			}
+
+			// Remove the aggregation in case it's now empty.
+			//
+			String[] content = aggregateDestination.list();
+			if(content != null && content.length == 0)
+				if(!aggregateDestination.delete())
+					throw ExceptionUtils.fromMessage("Unable to remove %s", aggregateDestination.getAbsolutePath());
+		}
+		finally {
+			MonitorUtils.done(monitor);
+		}
+	}
+
+	public Aggregation getAggregation() {
+		return aggregation;
+	}
+
+	public IFileArtifactRepository getAggregationArtifactRepository(IProgressMonitor monitor) throws CoreException {
+		if(aggregationAr != null) {
+			MonitorUtils.complete(monitor);
+			return aggregationAr;
+		}
+
+		IArtifactRepositoryManager arMgr = getArManager();
+		File destination = new File(getBuildRoot(), Builder.REPO_FOLDER_FINAL);
+		File aggregateDestination = new File(destination, Builder.REPO_FOLDER_AGGREGATE);
+		URI aggregateURI = Builder.createURI(aggregateDestination);
+		Map<String, String> properties = new HashMap<String, String>();
+		properties.put(IRepository.PROP_COMPRESSED, Boolean.toString(true));
+		properties.put(Publisher.PUBLISH_PACK_FILES_AS_SIBLINGS, Boolean.toString(true));
+		aggregationAr = (IFileArtifactRepository) arMgr.createRepository(aggregateURI, getAggregation().getLabel() +
+				" artifacts", Builder.SIMPLE_ARTIFACTS_TYPE, properties); //$NON-NLS-1$
+		return aggregationAr;
+	}
+
+	public IMetadataRepository getAggregationMetadataRepository() throws CoreException {
+		if(aggregationMdr != null)
+			return aggregationMdr;
+
+		IMetadataRepositoryManager mdrMgr = getMdrManager();
+		File destination = new File(getBuildRoot(), Builder.REPO_FOLDER_FINAL);
+		File aggregateDestination = new File(destination, Builder.REPO_FOLDER_AGGREGATE);
+		URI aggregateURI = Builder.createURI(aggregateDestination);
+
+		Map<String, String> properties = new HashMap<String, String>();
+		properties.put(IRepository.PROP_COMPRESSED, Boolean.toString(true));
+		properties.put(Publisher.PUBLISH_PACK_FILES_AS_SIBLINGS, Boolean.toString(true));
+		aggregationMdr = mdrMgr.createRepository(
+			aggregateURI, getAggregation().getLabel(), Builder.SIMPLE_METADATA_TYPE, properties); //$NON-NLS-1$
+		return aggregationMdr;
+	}
+
+	public IArtifactRepositoryManager getArManager() {
+		return arManager;
+	}
+
+	/**
+	 * Returns a set of IArtifactKey instances that are found in repositories that will
+	 * be referenced rather than mirrored.
+	 * 
+	 * @return All IArtifactKeys that should not be mirrored.
+	 * @throws CoreException
+	 */
+	public Set<IArtifactKey> getArtifactKeysToExcludeFromMirroring() throws CoreException {
+		if(keysToExcludeFromMirroring != null)
+			return keysToExcludeFromMirroring;
+
+		keysToExcludeFromMirroring = new HashSet<IArtifactKey>();
+		for(Contribution contrib : getAggregation().getAllContributions(true)) {
+			for(MappedRepository repo : contrib.getRepositories(true)) {
+				if(repo.isMirrorArtifacts())
+					continue;
+
+				for(IInstallableUnit iu : ResourceUtils.getMetadataRepository(repo).getInstallableUnits())
+					keysToExcludeFromMirroring.addAll(iu.getArtifacts());
+			}
+		}
+		return keysToExcludeFromMirroring;
+	}
+
+	public IArtifactRepository getArtifactRepository(MetadataRepositoryReference repo, IProgressMonitor monitor)
+			throws CoreException {
+		if(arCache == null)
+			arCache = new HashMap<MetadataRepositoryReference, IArtifactRepository>();
+
+		IArtifactRepository ar = arCache.get(repo);
+		if(ar == null) {
+			IConfigurationElement config = RepositoryLoaderUtils.getLoaderFor(repo.getNature());
+			if(config == null)
+				throw ExceptionUtils.fromMessage("No loader for %s", repo.getNature());
+			IRepositoryLoader repoLoader = (IRepositoryLoader) config.createExecutableExtension("class");
+			arCache.put(repo, ar = repoLoader.getArtifactRepository(ResourceUtils.getMetadataRepository(repo), monitor));
+		}
+		return ar;
 	}
 
 	public String getBuildID() {
@@ -475,41 +798,22 @@ public class Builder extends ModelAbstractCommand {
 		return buildRoot;
 	}
 
-	public List<IInstallableUnit> getCategoryIUs() {
-		return categoryIUs;
-	}
-
 	public Collection<String> getChildrenSubdirectories() {
-		ArrayList<String> childrenSubdirectories = new ArrayList<String>(unitsToAggregateMap.size());
+		ArrayList<String> childrenSubdirectories = new ArrayList<String>(validationSetAnnotationsMap.size());
 
-		for(ValidationSet validationSet : unitsToAggregateMap.keySet()) {
+		for(ValidationSet validationSet : validationSetAnnotationsMap.keySet()) {
 			childrenSubdirectories.add(getValidationSetSubdirectory(validationSet));
 		}
 
 		return childrenSubdirectories;
 	}
 
-	public List<ValidationSet> getValidationSetsIncludingMain() {
-		List<ValidationSet> validationSets = aggregator.getValidationSets();
-		List<ValidationSet> validationSetsIncludingMain = new ArrayList<ValidationSet>(
-			1 + validationSets.size());
-		// null validationSet is the main (implicit) one
-		// note that it must come first otherwise some directories created during
-		// creation of validationSets will be deleted
-		validationSetsIncludingMain.add(null);
-		validationSetsIncludingMain.addAll(validationSets);
-		return validationSetsIncludingMain;
-	}
-
-	public String getValidationSetSubdirectory(ValidationSet validationSet) {
-		String safeName = getSafeValidationSetName(validationSet);
-		if(safeName == null)
-			return "";
-		return "/validationSet_" + safeName;
-	}
-
 	public String getMappedRepositoryVerificationIUName(MappedRepository repository) {
 		return VERIFICATION_IU_PREFIX + "repository_" + getSafeRepositoryName(repository);
+	}
+
+	public IMetadataRepositoryManager getMdrManager() {
+		return mdrManager;
 	}
 
 	/**
@@ -517,26 +821,6 @@ public class Builder extends ModelAbstractCommand {
 	 */
 	public IProvisioningAgent getProvisioningAgent() {
 		return provisioningAgent;
-	}
-
-	public String getSafeValidationSetName(ValidationSet validationSet) {
-		if(validationSet == null)
-			return null;
-
-		String safeName = safeValidationSetNameMap.get(validationSet);
-
-		if(safeName != null)
-			return safeName;
-
-		safeName = validationSet.getLabel().replaceAll("[^-0-9a-zA-Z_.~]", "_");
-
-		if(safeValidationSetNameMap.values().contains(safeName))
-			throw new IllegalArgumentException("Could not generate safe unique name for validationSet: " +
-					validationSet.getLabel());
-
-		safeValidationSetNameMap.put(validationSet, safeName);
-
-		return safeName;
 	}
 
 	public String getSafeRepositoryName(MappedRepository repository) {
@@ -585,23 +869,80 @@ public class Builder extends ModelAbstractCommand {
 		return safeName;
 	}
 
+	public String getSafeValidationSetName(ValidationSet validationSet) {
+		return getSafeValidationSetName(validationSet, getValidationSetAnnotations(validationSet));
+	}
+
+	private String getSafeValidationSetName(ValidationSet validationSet, ValidationSetAnnotations vsas) {
+		String safeName = vsas.getSafeName();
+		if(safeName != null)
+			return safeName;
+
+		safeName = validationSet.getLabel().replaceAll("[^-0-9a-zA-Z_.~]", "_");
+
+		// Ensure that the name is unique
+		retry: for(int retryCount = 0;; ++retryCount) {
+			for(ValidationSetAnnotations other : validationSetAnnotationsMap.values()) {
+				if(other == vsas)
+					continue;
+
+				if(safeName.equals(other.getSafeName())) {
+					StringBuilder bld = new StringBuilder(safeName);
+					if(retryCount > 0)
+						bld.setLength(safeName.lastIndexOf('_'));
+					bld.append('_');
+					bld.append(retryCount + 1);
+					safeName = bld.toString();
+					continue retry;
+				}
+			}
+			break;
+		}
+		vsas.setSafeName(safeName);
+		return safeName;
+	}
+
 	@Override
 	public String getShortDescription() {
 		return "Aggregates source repositories into a resulting repository using aggregator definition";
 	}
 
-	public CompositeMetadataRepository getSourceComposite() {
-		return sourceComposite;
+	public CompositeMetadataRepository getSourceComposite(ValidationSet validationSet) {
+		return getValidationSetAnnotations(validationSet).getSourceComposite();
 	}
 
-	public URI getSourceCompositeURI() throws CoreException {
-		return createURI(new File(buildRoot, REPO_FOLDER_INTERIM));
+	public URI getSourceCompositeURI(ValidationSet validationSet) throws CoreException {
+		ValidationSetAnnotations vsas = getValidationSetAnnotations(validationSet);
+		URI compositeURI = vsas.getSourceCompositeURI();
+		if(compositeURI == null) {
+			compositeURI = createURI(new File(new File(buildRoot, REPO_FOLDER_INTERIM), getSafeValidationSetName(
+				validationSet, vsas)));
+			vsas.setSourceCompositeURI(compositeURI);
+		}
+		return compositeURI;
 	}
 
 	public URI getTargetCompositeURI() throws CoreException {
-		if(aggregator.getValidationSets().isEmpty())
+		if(aggregation.getValidationSets().isEmpty())
 			return null;
 		return createURI(new File(buildRoot, REPO_FOLDER_FINAL));
+	}
+
+	/**
+	 * Return the temporary artifact repository used when resolving legacy sites or <code>null</code> if that
+	 * hasn't been necessary.
+	 * 
+	 * @param monitor
+	 * @return
+	 * @throws CoreException
+	 */
+	public IArtifactRepository getTemporaryArtifactRepository(IProgressMonitor monitor) throws CoreException {
+		try {
+			return getArManager().loadRepository(createURI(getTempRepositoryFolder()), monitor);
+		}
+		catch(ProvisionException e) {
+			return null;
+		}
 	}
 
 	public File getTempRepositoryFolder() {
@@ -613,18 +954,30 @@ public class Builder extends ModelAbstractCommand {
 	}
 
 	public Set<IInstallableUnit> getUnitsToAggregate(ValidationSet validationSet) {
-		Set<IInstallableUnit> units = unitsToAggregateMap.get(validationSet);
-
+		ValidationSetAnnotations vsas = getValidationSetAnnotations(validationSet);
+		Set<IInstallableUnit> units = vsas.getUnitsToAggregate();
 		if(units == null) {
 			units = new HashSet<IInstallableUnit>();
-			unitsToAggregateMap.put(validationSet, units);
+			vsas.setUnitsToAggregate(units);
 		}
-
 		return units;
 	}
 
 	public List<IInstallableUnit> getValidationIUs() {
 		return validationIUs;
+	}
+
+	private ValidationSetAnnotations getValidationSetAnnotations(ValidationSet validationSet) {
+		ValidationSetAnnotations vsas = validationSetAnnotationsMap.get(validationSet);
+		if(vsas == null) {
+			vsas = new ValidationSetAnnotations();
+			validationSetAnnotationsMap.put(validationSet, vsas);
+		}
+		return vsas;
+	}
+
+	public String getValidationSetSubdirectory(ValidationSet validationSet) {
+		return "/validationSet_" + getSafeValidationSetName(validationSet);
 	}
 
 	public String getVerificationIUName(ValidationSet validationSet) {
@@ -634,8 +987,61 @@ public class Builder extends ModelAbstractCommand {
 		return VERIFICATION_IU_PREFIX + "validationSet_" + getSafeValidationSetName(validationSet);
 	}
 
-	public boolean isCleanBuild() {
-		return action == ActionType.CLEAN_BUILD;
+	private void initializeArtifactMirroring(IProgressMonitor monitor) throws CoreException {
+		arCache = null;
+		SubMonitor subMon = SubMonitor.convert(monitor, 1000);
+		try {
+			subMon.setTaskName("Mirroring artifacts...");
+			MonitorUtils.subTask(subMon, "Initializing");
+			aggregationAr = getAggregationArtifactRepository(subMon.newChild(5));
+
+			if(getAggregation().isMavenResult())
+				mavenInitializeMirroring(aggregationAr, subMon.newChild(10));
+
+			// Clear final destination
+			File destination = new File(getBuildRoot(), Builder.REPO_FOLDER_FINAL);
+			for(String fileName : new String[] {
+					"p2.index", "compositeContent.jar", "content.jar", "compositeArtifacts.jar", "artifacts.jar" }) {
+				File file = new File(destination, fileName);
+				if(file.exists() && !file.delete())
+					throw ExceptionUtils.fromMessage("Unable to remove %s", file.getAbsolutePath());
+			}
+		}
+		finally {
+			MonitorUtils.done(monitor);
+		}
+	}
+
+	private void initMirroring(IProgressMonitor monitor) throws CoreException {
+		File destination = new File(getBuildRoot(), Builder.REPO_FOLDER_FINAL);
+		File aggregateDestination = new File(destination, Builder.REPO_FOLDER_AGGREGATE);
+		if(action == ActionType.CLEAN_BUILD) {
+			FileUtils.deleteAll(destination);
+			aggregateDestination.mkdirs();
+			refreshBuildRoot(monitor);
+			return;
+		}
+
+		// Preserve artifacts
+		FileUtils.deleteAll(aggregateDestination);
+		aggregateDestination.mkdirs();
+		for(String name : destination.list()) {
+			if(name.equals(Builder.REPO_FOLDER_AGGREGATE))
+				continue;
+
+			File oldLocation = new File(destination, name);
+			if(name.equals("compositeArtifacts.xml") || name.equals("compositeContent.xml") ||
+					name.equals("content.xml") || name.equals("content.jar") || name.equals("p2.index")) {
+				oldLocation.delete();
+				continue;
+			}
+
+			File newLocation = new File(aggregateDestination, name);
+			if(!oldLocation.renameTo(newLocation))
+				throw ExceptionUtils.fromMessage(
+					"Unable to move %s to %s", oldLocation.getAbsolutePath(), newLocation.getAbsolutePath());
+		}
+		refreshBuildRoot(monitor);
 	}
 
 	/**
@@ -688,13 +1094,435 @@ public class Builder extends ModelAbstractCommand {
 		return action == ActionType.VERIFY;
 	}
 
+	private void loadAllMappedRepositories() throws CoreException {
+		LogUtils.info("Loading all repositories");
+
+		Set<MetadataRepositoryReference> repositoriesToLoad = new HashSet<MetadataRepositoryReference>();
+
+		Aggregation aggregation = getAggregation();
+		ResourceSet topSet = ((EObject) aggregation).eResource().getResourceSet();
+		// first, set up asynchronous loading jobs so that the repos are loaded in parallel
+		for(MetadataRepositoryReference repo : aggregation.getAllMetadataRepositoryReferences(true)) {
+			org.eclipse.emf.common.util.URI repoURI = org.eclipse.emf.common.util.URI.createGenericURI(
+				"b3", repo.getNature() + ":" + repo.getResolvedLocation(), null);
+			P2ResourceImpl res = (P2ResourceImpl) topSet.getResource(repoURI, false);
+			if(res == null)
+				res = (P2ResourceImpl) topSet.createResource(repoURI);
+			res.startAsynchronousLoad();
+			repositoriesToLoad.add(repo);
+		}
+
+		try {
+			Map<Contribution, List<String>> errors = new HashMap<Contribution, List<String>>();
+			// and now, wait until all the jobs are done (we need all repositories anyway)
+			for(MetadataRepositoryReference repo : repositoriesToLoad) {
+				MetadataRepository mdr;
+				if((mdr = repo.getMetadataRepository()) == null || ((EObject) mdr).eIsProxy()) {
+					Contribution contrib = null;
+					if(repo instanceof MappedRepository)
+						contrib = (Contribution) ((EObject) repo).eContainer();
+					String msg = String.format("Unable to load repository %s:%s", repo.getNature(), repo.getLocation());
+					LogUtils.error(msg);
+
+					if(fromIDE)
+						throw ExceptionUtils.fromMessage(msg);
+
+					List<String> contribErrors = errors.get(contrib);
+					if(contribErrors == null)
+						errors.put(contrib, contribErrors = new ArrayList<String>());
+					contribErrors.add(msg);
+				}
+			}
+
+			if(errors.size() > 0) {
+				for(Map.Entry<Contribution, List<String>> entry : errors.entrySet())
+					sendEmail(entry.getKey(), entry.getValue());
+				throw ExceptionUtils.fromMessage("Not all repositories could be loaded (see log for details)");
+			}
+		}
+		catch(CoreException e) {
+			for(MetadataRepositoryReference repo : repositoriesToLoad) {
+				repo.cancelRepositoryLoad();
+			}
+			throw e;
+		}
+	}
+
+	/**
+	 * Loads the model into memory
+	 * 
+	 * @throws CoreException
+	 *             If something goes wrong with during the process
+	 */
+	private void loadModel() throws CoreException {
+		try {
+			aggregation = loadModelFromFile();
+
+			verifyContributions();
+
+			if(packedStrategy != null)
+				aggregation.setPackedStrategy(packedStrategy);
+
+			EList<ValidationSet> validationSets = aggregation.getValidationSets(true);
+			if(trustedContributions != null) {
+				for(String contributionLabel : trustedContributions.split(",")) {
+					contributionLabel = StringUtils.trimmedOrNull(contributionLabel);
+					boolean found = false;
+
+					if(contributionLabel != null)
+						for(ValidationSet vs : validationSets) {
+							for(Contribution contribution : vs.getDeclaredContributions()) {
+								if(contributionLabel.equals(contribution.getLabel())) {
+									for(MappedRepository repository : contribution.getRepositories(true))
+										repository.setMirrorArtifacts(false);
+									found = true;
+								}
+							}
+						}
+					if(!found)
+						throw ExceptionUtils.fromMessage("Unable to trust contribution " + contributionLabel +
+								": contribution does not exist or is not enabled");
+				}
+			}
+
+			if(validationContributions != null) {
+				for(String contributionLabel : validationContributions.split(",")) {
+					contributionLabel = StringUtils.trimmedOrNull(contributionLabel);
+					boolean found = false;
+					HashSet<MappedUnit> removedMappings = new HashSet<MappedUnit>();
+
+					if(contributionLabel != null) {
+						for(ValidationSet vs : validationSets) {
+							Iterator<Contribution> iterator = vs.getContributions().iterator();
+							while(iterator.hasNext()) {
+								Contribution contribution = iterator.next();
+								if(contribution.isEnabled() && contributionLabel.equals(contribution.getLabel())) {
+									for(MappedRepository repository : contribution.getRepositories(true)) {
+										MetadataRepositoryReferenceImpl validationRepo = (MetadataRepositoryReferenceImpl) AggregatorFactory.eINSTANCE.createMetadataRepositoryReference();
+										validationRepo.setNature(repository.getNature());
+										validationRepo.setLocation(repository.getLocation());
+										vs.getValidationRepositories().add(validationRepo);
+										removedMappings.addAll(repository.getFeatures());
+									}
+									iterator.remove();
+									found = true;
+								}
+							}
+						}
+					}
+
+					if(!found)
+						throw ExceptionUtils.fromMessage("Unable to use contribution " + contributionLabel +
+								" for validation only: contribution does not exist");
+
+					for(CustomCategory customCategory : aggregation.getCustomCategories()) {
+						Iterator<Feature> iterator = customCategory.getFeatures().iterator();
+						while(iterator.hasNext()) {
+							Feature feature = iterator.next();
+							if(removedMappings.add(feature))
+								iterator.remove();
+						}
+					}
+				}
+			}
+
+			HashSet<MappedUnit> allFeatures = new HashSet<MappedUnit>();
+			for(ValidationSet vs : validationSets) {
+				for(Contribution contrib : vs.getContributions()) {
+					for(MappedRepository repo : contrib.getRepositories())
+						allFeatures.addAll(repo.getFeatures());
+				}
+			}
+
+			for(CustomCategory customCategory : aggregation.getCustomCategories()) {
+				Iterator<Feature> iterator = customCategory.getFeatures().iterator();
+				while(iterator.hasNext()) {
+					Feature feature = iterator.next();
+					if(!allFeatures.contains(feature))
+						iterator.remove();
+				}
+			}
+
+			if(mavenResult != null)
+				aggregation.setMavenResult(mavenResult.booleanValue());
+
+			if(trustedContributions != null && aggregation.isMavenResult())
+				throw ExceptionUtils.fromMessage("Options --trustedContributions cannot be used if maven result is required");
+
+			sendmail = aggregation.isSendmail();
+			buildLabel = aggregation.getLabel();
+
+			Contact buildMaster = aggregation.getBuildmaster();
+			if(buildMaster != null) {
+				buildMasterName = buildMaster.getName();
+				buildMasterEmail = buildMaster.getEmail();
+			}
+
+			Diagnostic diag = Diagnostician.INSTANCE.validate((EObject) aggregation);
+			if(diag.getSeverity() == Diagnostic.ERROR) {
+				for(Diagnostic childDiag : diag.getChildren())
+					LogUtils.error(childDiag.getMessage());
+				throw ExceptionUtils.fromMessage("Build model validation failed: %s", diag.getMessage());
+			}
+
+			if(buildRoot == null) {
+				setBuildRoot(new File(PROPERTY_REPLACER.replaceProperties(aggregation.getBuildRoot())));
+
+				if(!buildRoot.isAbsolute())
+					setBuildRoot(new File(buildModelLocation.getParent(), buildRoot.getPath()).getAbsoluteFile());
+			}
+			else if(!buildRoot.isAbsolute())
+				setBuildRoot(buildRoot.getAbsoluteFile());
+		}
+		catch(Exception e) {
+			throw ExceptionUtils.wrap(e);
+		}
+	}
+
+	private boolean mavenAddMetadata() throws CoreException {
+		boolean everythingOk = true;
+		if(mavenHelper == null)
+			return everythingOk;
+
+		LogUtils.info("Adding maven metadata");
+		Map<Contribution, List<String>> errors = new HashMap<Contribution, List<String>>();
+		File destination = new File(getBuildRoot(), Builder.REPO_FOLDER_FINAL);
+
+		File aggregateDestination = new File(destination, Builder.REPO_FOLDER_AGGREGATE);
+
+		MavenManager.saveMetadata(
+			org.eclipse.emf.common.util.URI.createFileURI(aggregateDestination.getAbsolutePath()),
+			mavenHelper.getTop(), errors);
+
+		if(errors.size() > 0) {
+			everythingOk = false;
+			for(Map.Entry<Contribution, List<String>> entry : errors.entrySet())
+				sendEmail(entry.getKey(), entry.getValue());
+		}
+
+		IMaven2Indexer indexer = IndexerUtils.getIndexer("nexus");
+		if(indexer != null) {
+			LogUtils.info("Adding maven index");
+			indexer.updateLocalIndex(new File(aggregateDestination.getAbsolutePath()).toURI(), false);
+		}
+		LogUtils.info("Done adding maven metadata");
+		return everythingOk;
+	}
+
+	private void mavenApplyRules(MappedRepository repo, IInstallableUnit iu, IArtifactRepository ar,
+			List<String[]> mappingRules, List<ArtifactDescriptor> referencedArtifacts) {
+		String versionString = iu.getVersion().getOriginal();
+		if(versionString == null)
+			versionString = iu.getVersion().toString();
+		String originalPath = iu.getProperty(IRepositoryLoader.PROP_ORIGINAL_PATH);
+		String originalId = iu.getProperty(IRepositoryLoader.PROP_ORIGINAL_ID);
+		if(originalId == null)
+			originalId = iu.getId();
+
+		for(IArtifactKey key : iu.getArtifacts()) {
+			if(repo.isMirrorArtifacts()) {
+				String location = "${repoUrl}/non-p2/" + repo.getNature() + '/' + key.getClassifier() + '/' +
+						(originalPath != null
+								? (originalPath + '/')
+								: "") + originalId + '_' + versionString + '.' + key.getClassifier();
+
+				mappingRules.add(new String[] {
+						"(& (classifier=" + IUUtils.encodeFilterValue(key.getClassifier()) + ") (id=" +
+								IUUtils.encodeFilterValue(key.getId()) + ") (version=" +
+								IUUtils.encodeFilterValue(iu.getVersion().toString()) + "))", location });
+			}
+			else {
+				for(IArtifactDescriptor desc : ar.getArtifactDescriptors(key)) {
+					String ref = ((SimpleArtifactDescriptor) desc).getRepositoryProperty(SimpleArtifactDescriptor.ARTIFACT_REFERENCE);
+					SimpleArtifactDescriptor ad = new SimpleArtifactDescriptor(desc);
+					ad.setRepositoryProperty(SimpleArtifactDescriptor.ARTIFACT_REFERENCE, ref);
+					referencedArtifacts.add(ad);
+				}
+			}
+		}
+
+	}
+
+	private void mavenInitializeMirroring(IFileArtifactRepository aggregateAr, IProgressMonitor monitor)
+			throws CoreException {
+		// If maven result is required, prepare the maven metadata structure
+		List<Contribution> allContribs = getAggregation().getAllContributions(true);
+		SubMonitor childMonitor = SubMonitor.convert(monitor, allContribs.size() * 10);
+		Set<IInstallableUnit> allUnitsToAggregate = new HashSet<IInstallableUnit>();
+		for(ValidationSetAnnotations vsas : validationSetAnnotationsMap.values()) {
+			if(vsas.getUnitsToAggregate() != null)
+				allUnitsToAggregate.addAll(vsas.getUnitsToAggregate());
+		}
+
+		List<InstallableUnitMapping> iusToMaven = new ArrayList<InstallableUnitMapping>();
+		for(Contribution contrib : allContribs) {
+			SubMonitor contribMonitor = childMonitor.newChild(10);
+			List<MappedRepository> repos = contrib.getRepositories(true);
+			List<String> errors = new ArrayList<String>();
+			MonitorUtils.begin(contribMonitor, repos.size() * 100);
+			for(MappedRepository repo : repos) {
+				if(!repo.isMirrorArtifacts()) {
+					String msg = String.format(
+						"Repository %s must be set to mirror artifacts if maven result is required", repo.getLocation());
+					LogUtils.error(msg);
+					errors.add(msg);
+					MonitorUtils.worked(contribMonitor, 100);
+					continue;
+				}
+
+				MetadataRepository childMdr = ResourceUtils.getMetadataRepository(repo);
+				ArrayList<IInstallableUnit> iusToMirror = null;
+				for(IInstallableUnit iu : childMdr.getInstallableUnits()) {
+					if(!allUnitsToAggregate.contains(iu))
+						continue;
+
+					if(iusToMirror == null)
+						iusToMirror = new ArrayList<IInstallableUnit>();
+					iusToMirror.add(iu);
+				}
+
+				List<MavenMapping> allMavenMappings = contrib.getAllMavenMappings();
+				if(iusToMirror != null)
+					for(IInstallableUnit iu : iusToMirror)
+						iusToMaven.add(new InstallableUnitMapping(contrib, iu, allMavenMappings));
+
+				MonitorUtils.worked(contribMonitor, 100);
+			}
+			if(errors.size() > 0) {
+				sendEmail(contrib, errors);
+				throw ExceptionUtils.fromMessage("All repositories must be set to mirror artifacts if maven result is required");
+			}
+			MonitorUtils.done(contribMonitor);
+		}
+
+		mavenHelper = MavenManager.createMavenStructure(iusToMaven);
+
+		if(aggregateAr instanceof SimpleArtifactRepository) {
+			SimpleArtifactRepository simpleAr = ((SimpleArtifactRepository) aggregateAr);
+			simpleAr.setRules(mavenHelper.getMappingRules());
+			simpleAr.initializeAfterLoad(aggregateAr.getLocation());
+		}
+		else
+			throw ExceptionUtils.fromMessage(
+				"Unexpected repository implementation: Expected %s, found %s",
+				SimpleArtifactRepository.class.getName(), aggregateAr.getClass().getName());
+
+		if(packedStrategy != PackedStrategy.SKIP && packedStrategy != PackedStrategy.UNPACK &&
+				packedStrategy != PackedStrategy.UNPACK_AS_SIBLING) {
+			packedStrategy = PackedStrategy.UNPACK_AS_SIBLING;
+			LogUtils.info(
+				"Maven result is required, changing packed strategy from %s to %s",
+				aggregation.getPackedStrategy().getName(), packedStrategy.getName());
+		}
+
+		List<String[]> mappingRules = new ArrayList<String[]>();
+		List<ArtifactDescriptor> referencedArtifacts = new ArrayList<ArtifactDescriptor>();
+		Set<IInstallableUnit> allUnitsToValidate = new HashSet<IInstallableUnit>();
+		for(ValidationSetAnnotations vsas : validationSetAnnotationsMap.values()) {
+			Set<IInstallableUnit> unitsToValidate = vsas.getUnitsToAggregate();
+			if(unitsToValidate != null)
+				allUnitsToValidate.addAll(unitsToValidate);
+		}
+
+		// add rules for artifacts mapped from non-p2 repositories
+		for(Contribution contrib : allContribs) {
+			SubMonitor contribMonitor = childMonitor.newChild(10);
+			List<MappedRepository> repos = contrib.getRepositories(true);
+			MonitorUtils.begin(contribMonitor, repos.size() * 100);
+			for(MappedRepository repo : repos) {
+				int ticksRemaining = 100;
+
+				// Create rules only if the artifacts are mapped from a non-p2 repository
+				if("p2".equals(repo.getNature())) {
+					MonitorUtils.worked(contribMonitor, 100);
+					continue;
+				}
+
+				MetadataRepository childMdr = ResourceUtils.getMetadataRepository(repo);
+				ArrayList<IInstallableUnit> iusToRefer = null;
+				for(IInstallableUnit iu : childMdr.getInstallableUnits()) {
+					if(allUnitsToValidate.contains(iu))
+						continue;
+
+					if(iusToRefer == null)
+						iusToRefer = new ArrayList<IInstallableUnit>();
+					iusToRefer.add(iu);
+				}
+				if(iusToRefer == null)
+					continue;
+
+				int ticks = 50;
+				IArtifactRepository ar = getArtifactRepository(repo, contribMonitor.newChild(ticks));
+				ticksRemaining -= ticks;
+				for(IInstallableUnit iu : iusToRefer)
+					mavenApplyRules(repo, iu, ar, mappingRules, referencedArtifacts);
+				MonitorUtils.worked(contribMonitor, ticksRemaining);
+			}
+			MonitorUtils.done(contribMonitor);
+		}
+
+		if(mappingRules.size() > 0 || referencedArtifacts.size() > 0) {
+			if(!(aggregateAr instanceof SimpleArtifactRepository))
+				throw ExceptionUtils.fromMessage(
+					"Unexpected repository implementation: Expected %s, found %s",
+					SimpleArtifactRepository.class.getName(), aggregateAr.getClass().getName());
+
+			SimpleArtifactRepository simpleAr = ((SimpleArtifactRepository) aggregateAr);
+			List<String[]> ruleList = new ArrayList<String[]>(Arrays.asList(simpleAr.getRules()));
+			ruleList.addAll(mappingRules);
+			simpleAr.setRules(ruleList.toArray(new String[ruleList.size()][]));
+			simpleAr.initializeAfterLoad(simpleAr.getLocation());
+			simpleAr.addDescriptors(
+				referencedArtifacts.toArray(new IArtifactDescriptor[referencedArtifacts.size()]),
+				childMonitor.newChild(2));
+			simpleAr.save();
+		}
+	}
+
+	private EmailAddress mockCCRecipient() throws UnsupportedEncodingException {
+		EmailAddress mock = null;
+		if(mockEmailCC != null)
+			mock = new EmailAddress(mockEmailCC, null);
+		return mock;
+	}
+
+	private List<EmailAddress> mockRecipients() throws UnsupportedEncodingException {
+		if(mockEmailTo != null)
+			return Collections.singletonList(new EmailAddress(mockEmailTo, null));
+		return Collections.emptyList();
+	}
+
+	private void refreshBuildRoot(IProgressMonitor monitor) {
+		if(!fromIDE || buildRoot == null) {
+			MonitorUtils.complete(monitor);
+			return;
+		}
+
+		IWorkspaceRoot wsRoot = ResourcesPlugin.getWorkspace().getRoot();
+		IContainer[] containers = wsRoot.findContainersForLocationURI(buildRoot.toURI());
+		SubMonitor subMon = SubMonitor.convert(monitor, containers.length * 100);
+		for(IContainer rootContainer : containers) {
+			try {
+				rootContainer.refreshLocal(IResource.DEPTH_INFINITE, subMon.newChild(100));
+			}
+			catch(CoreException e) {
+				// ignore
+			}
+		}
+		MonitorUtils.done(monitor);
+	}
+
 	public void removeUnitsToAggregate(ValidationSet validationSet) {
-		unitsToAggregateMap.remove(validationSet);
+		ValidationSetAnnotations vsas = getValidationSetAnnotations(validationSet);
+		if(vsas != null)
+			vsas.setUnitsToAggregate(null);
 	}
 
 	/**
 	 * Run the build
 	 * 
+	 * @param fromIDE
+	 *            set to <code>true</code> if the IDE workspace needs a refresh once the aggregation is completed
 	 * @param monitor
 	 */
 	public int run(boolean fromIDE, IProgressMonitor monitor) throws Exception {
@@ -713,8 +1541,7 @@ public class Builder extends ModelAbstractCommand {
 			default:
 				ticks = 2200;
 		}
-		MonitorUtils.begin(monitor, ticks);
-
+		SubMonitor subMon = SubMonitor.convert(monitor, ticks);
 		try {
 			if(buildModelLocation == null)
 				throw ExceptionUtils.fromMessage("No buildmodel has been set");
@@ -730,8 +1557,11 @@ public class Builder extends ModelAbstractCommand {
 				smtpPort = 25;
 
 			loadModel();
+			if(provisioningAgent == null)
+				provisioningAgent = P2Utils.createDedicatedProvisioningAgent(new File(buildRoot, "p2").toURI());
 
-			provisioningAgent = P2Utils.createDedicatedProvisioningAgent(new File(buildRoot, "p2").toURI());
+			arManager = P2Utils.getRepositoryManager(provisioningAgent, IArtifactRepositoryManager.class);
+			mdrManager = P2Utils.getRepositoryManager(provisioningAgent, IMetadataRepositoryManager.class);
 
 			switch(action) {
 				case CLEAN:
@@ -770,10 +1600,8 @@ public class Builder extends ModelAbstractCommand {
 
 				String instArea = buildRoot.toString();
 				Map<String, String> props = new HashMap<String, String>();
-				// TODO Where is PROP_FLAVOR gone?
-				//props.put(IProfile.PROP_FLAVOR, "tooling"); //$NON-NLS-1$
-				props.put(IProfile.PROP_NAME, aggregator.getLabel());
-				props.put(IProfile.PROP_DESCRIPTION, format("Default profile during %s build", aggregator.getLabel()));
+				props.put(IProfile.PROP_NAME, aggregation.getLabel());
+				props.put(IProfile.PROP_DESCRIPTION, format("Default profile during %s build", aggregation.getLabel()));
 				props.put(IProfile.PROP_CACHE, instArea);
 				props.put(IProfile.PROP_INSTALL_FOLDER, instArea);
 				profileRegistry.addProfile(PROFILE_ID, props);
@@ -784,52 +1612,83 @@ public class Builder extends ModelAbstractCommand {
 
 			loadAllMappedRepositories();
 
-			List<ValidationSet> validationSetsIncludingMain = getValidationSetsIncludingMain();
-			runCompositeGenerator(MonitorUtils.subMonitor(monitor, 70));
-
 			// we generate the verification IUs in a separate loop
 			// to detect non p2 related problems early
-			for(ValidationSet validationSet : validationSetsIncludingMain)
-				runVerificationIUGenerator(validationSet, MonitorUtils.subMonitor(monitor, 15));
+			List<ValidationSet> validationSets = getAggregation().getValidationSets(true);
 
-			for(ValidationSet validationSet : validationSetsIncludingMain)
-				runRepositoryVerifier(validationSet, MonitorUtils.subMonitor(monitor, 100));
-
-			runCategoriesRepoGenerator(MonitorUtils.subMonitor(monitor, 15));
+			for(ValidationSet validationSet : validationSets) {
+				runCompositeGenerator(validationSet, subMon.newChild(5));
+				runVerificationIUGenerator(validationSet, subMon.newChild(5));
+				runRepositoryVerifier(validationSet, subMon.newChild(100));
+			}
 
 			if(action != ActionType.VERIFY) {
-				for(ValidationSet validationSet : validationSetsIncludingMain)
-					runMetadataMirroring(validationSet, MonitorUtils.subMonitor(monitor, 100));
-				runMirroring(MonitorUtils.subMonitor(monitor, 2000));
+				initMirroring(subMon.newChild(5));
+				for(ValidationSet validationSet : validationSets)
+					runMetadataMirroring(validationSet, subMon.newChild(100));
+				runCategoriesRepoGenerator(subMon.newChild(5));
+				initializeArtifactMirroring(subMon.newChild(10));
+				for(ValidationSet validationSet : validationSets)
+					runMirroring(validationSet, subMon.newChild(2000));
+				finishMirroring(monitor);
 			}
 			return 0;
 		}
-		catch(Throwable e) {
+		catch(Exception e) {
 			LogUtils.error(e, "Build failed! Exception was %s", getExceptionMessages(e));
-			if(e instanceof Exception)
-				throw (Exception) e;
-
-			throw new Exception(e);
+			throw e;
 		}
 		finally {
 			if(provisioningAgent != null) {
-				P2Utils.destroyProvisioningAgent(provisioningAgent);
-				provisioningAgent = null;
+				if(arManager != null)
+					P2Utils.ungetRepositoryManager(provisioningAgent, arManager);
+				if(mdrManager != null)
+					P2Utils.ungetRepositoryManager(provisioningAgent, mdrManager);
+				if(!fromIDE) {
+					P2Utils.stopProvisioningAgent(provisioningAgent);
+					provisioningAgent = null;
+				}
 			}
-
-			if(fromIDE && buildRoot != null) {
-				IWorkspaceRoot wsRoot = ResourcesPlugin.getWorkspace().getRoot();
-				for(IContainer rootContainer : wsRoot.findContainersForLocationURI(buildRoot.toURI()))
-					try {
-						rootContainer.refreshLocal(IResource.DEPTH_INFINITE, MonitorUtils.subMonitor(monitor, 10));
-					}
-					catch(CoreException e) {
-						// ignore
-					}
-			}
-
-			monitor.done();
+			refreshBuildRoot(subMon.newChild(100));
+			MonitorUtils.done(monitor);
 		}
+	}
+
+	@Override
+	protected int run(IProgressMonitor monitor) throws Exception {
+		if(unparsed.size() > 0)
+			throw new Exception("Too many arguments");
+		return run(false, monitor);
+	}
+
+	private void runCategoriesRepoGenerator(IProgressMonitor monitor) throws CoreException {
+		CategoriesGenerator generator = new CategoriesGenerator(this);
+		generator.run(monitor);
+	}
+
+	private void runCompositeGenerator(ValidationSet validationSet, IProgressMonitor monitor) throws CoreException {
+		SourceCompositeGenerator generator = new SourceCompositeGenerator(this, validationSet);
+		generator.run(monitor);
+	}
+
+	private void runMetadataMirroring(ValidationSet validationSet, IProgressMonitor monitor) throws CoreException {
+		MetadataMirrorGenerator generator = new MetadataMirrorGenerator(this, validationSet);
+		generator.run(monitor);
+	}
+
+	private void runMirroring(ValidationSet validationSet, IProgressMonitor monitor) throws CoreException {
+		MirrorGenerator generator = new MirrorGenerator(this, validationSet);
+		generator.run(monitor);
+	}
+
+	private void runRepositoryVerifier(ValidationSet validationSet, IProgressMonitor monitor) throws CoreException {
+		ValidationSetVerifier ipt = new ValidationSetVerifier(this, validationSet);
+		ipt.run(monitor);
+	}
+
+	private void runVerificationIUGenerator(ValidationSet validationSet, IProgressMonitor monitor) throws CoreException {
+		VerificationIUGenerator generator = new VerificationIUGenerator(this, validationSet);
+		generator.run(monitor);
 	}
 
 	public void sendEmail(Contribution contrib, List<String> errors) {
@@ -944,10 +1803,6 @@ public class Builder extends ModelAbstractCommand {
 		this.buildRoot = buildRoot;
 	}
 
-	public void setCategoryIUs(List<IInstallableUnit> categoryIUs) {
-		this.categoryIUs = categoryIUs;
-	}
-
 	public void setEmailFrom(String emailFrom) {
 		this.emailFrom = emailFrom;
 	}
@@ -980,6 +1835,10 @@ public class Builder extends ModelAbstractCommand {
 		this.production = production;
 	}
 
+	public void setProvisioningAgent(IProvisioningAgent provisioningAgent) {
+		this.provisioningAgent = provisioningAgent;
+	}
+
 	public void setReferenceExcludePattern(String pattern) {
 		pattern = StringUtils.trimmedOrNull(pattern);
 		referenceExcludePattern = pattern == null
@@ -1002,8 +1861,8 @@ public class Builder extends ModelAbstractCommand {
 		this.smtpPort = smtpPort;
 	}
 
-	public void setSourceComposite(CompositeMetadataRepository sourceComposite) {
-		this.sourceComposite = sourceComposite;
+	public void setSourceComposite(ValidationSet validationSet, CompositeMetadataRepository sourceComposite) {
+		getValidationSetAnnotations(validationSet).setSourceComposite(sourceComposite);
 	}
 
 	public void setSubjectPrefix(String subjectPrefix) {
@@ -1014,284 +1873,16 @@ public class Builder extends ModelAbstractCommand {
 		this.validationIUs = validationIUs;
 	}
 
-	@Override
-	protected int run(IProgressMonitor monitor) throws Exception {
-		if(unparsed.size() > 0)
-			throw new Exception("Too many arguments");
-		return run(false, monitor);
-	}
-
-	private void cleanAll() throws CoreException {
-		if(buildRoot.exists()) {
-			FileUtils.deleteAll(buildRoot);
-			if(buildRoot.exists())
-				throw ExceptionUtils.fromMessage("Failed to delete folder %s", buildRoot.getAbsolutePath());
-		}
-	}
-
-	private void cleanMemoryCaches() {
-		safeValidationSetNameMap.clear();
-		safeRepositoryNameMap.clear();
-		safeRepositoryNames.clear();
-		categoryIUs = null;
-		allUnitsToAggregate.clear();
-		unitsToAggregateMap.clear();
-	}
-
-	private void cleanMetadata(IProvisioningAgent agent) throws CoreException {
-		IMetadataRepositoryManager mdrMgr = P2Utils.getRepositoryManager(agent, IMetadataRepositoryManager.class);
-		try {
-			File finalRepo = new File(buildRoot, Builder.REPO_FOLDER_FINAL);
-			deleteMetadataRepository(mdrMgr, finalRepo);
-			deleteTwoLevelMetadataRepository(mdrMgr, new File(finalRepo, Builder.REPO_FOLDER_AGGREGATE));
-			File interimRepo = new File(buildRoot, Builder.REPO_FOLDER_INTERIM);
-			deleteMetadataRepository(mdrMgr, interimRepo);
-			deleteTwoLevelMetadataRepository(mdrMgr, new File(interimRepo, Builder.REPO_FOLDER_VERIFICATION));
-		}
-		finally {
-			P2Utils.ungetRepositoryManager(provisioningAgent, mdrMgr);
-		}
-	}
-
-	private void loadAllMappedRepositories() throws CoreException {
-		LogUtils.info("Loading all repositories");
-
-		Set<MetadataRepositoryReference> repositoriesToLoad = new HashSet<MetadataRepositoryReference>();
-
-		Aggregation aggregator = getAggregator();
-		ResourceSet topSet = ((EObject) aggregator).eResource().getResourceSet();
-		// first, set up asynchronous loading jobs so that the repos are loaded in parallel
-		for(MetadataRepositoryReference repo : aggregator.getAllMetadataRepositoryReferences(true)) {
-			org.eclipse.emf.common.util.URI repoURI = org.eclipse.emf.common.util.URI.createGenericURI(
-				"b3", repo.getNature() + ":" + repo.getResolvedLocation(), null);
-			P2ResourceImpl res = (P2ResourceImpl) topSet.getResource(repoURI, false);
-			if(res == null)
-				res = (P2ResourceImpl) topSet.createResource(repoURI);
-			res.startAsynchronousLoad();
-			repositoriesToLoad.add(repo);
-		}
-
-		try {
-			Map<Contribution, List<String>> errors = new HashMap<Contribution, List<String>>();
-			// and now, wait until all the jobs are done (we need all repositories anyway)
-			for(MetadataRepositoryReference repo : repositoriesToLoad) {
-				MetadataRepository mdr;
-				if((mdr = repo.getMetadataRepository()) == null || ((EObject) mdr).eIsProxy()) {
-					Contribution contrib = null;
-					if(repo instanceof MappedRepository)
-						contrib = (Contribution) ((EObject) repo).eContainer();
-					String msg = String.format("Unable to load repository %s:%s", repo.getNature(), repo.getLocation());
-					LogUtils.error(msg);
-
-					if(fromIDE)
-						throw ExceptionUtils.fromMessage(msg);
-
-					List<String> contribErrors = errors.get(contrib);
-					if(contribErrors == null)
-						errors.put(contrib, contribErrors = new ArrayList<String>());
-					contribErrors.add(msg);
-				}
-			}
-
-			if(errors.size() > 0) {
-				for(Map.Entry<Contribution, List<String>> entry : errors.entrySet())
-					sendEmail(entry.getKey(), entry.getValue());
-				throw ExceptionUtils.fromMessage("Not all repositories could be loaded (see log for details)");
-			}
-		}
-		catch(CoreException e) {
-			for(MetadataRepositoryReference repo : repositoriesToLoad) {
-				repo.cancelRepositoryLoad();
-			}
-			throw e;
-		}
-	}
-
-	/**
-	 * Loads the model into memory
-	 * 
-	 * @throws CoreException
-	 *             If something goes wrong with during the process
-	 */
-	private void loadModel() throws CoreException {
-		try {
-			aggregator = loadModelFromFile();
-
-			verifyContributions();
-
-			if(packedStrategy != null)
-				aggregator.setPackedStrategy(packedStrategy);
-
-			if(trustedContributions != null) {
-				for(String contributionLabel : trustedContributions.split(",")) {
-					contributionLabel = StringUtils.trimmedOrNull(contributionLabel);
-					boolean found = false;
-
-					if(contributionLabel != null)
-						for(Contribution contribution : aggregator.getContributions()) {
-							if(contributionLabel.equals(contribution.getLabel())) {
-								for(MappedRepository repository : contribution.getRepositories(true))
-									repository.setMirrorArtifacts(false);
-								found = true;
-							}
-						}
-
-					if(!found)
-						throw ExceptionUtils.fromMessage("Unable to trust contribution " + contributionLabel +
-								": contribution does not exist");
-				}
-			}
-
-			if(validationContributions != null) {
-				for(String contributionLabel : validationContributions.split(",")) {
-					contributionLabel = StringUtils.trimmedOrNull(contributionLabel);
-					boolean found = false;
-					HashSet<MappedUnit> removedMappings = new HashSet<MappedUnit>();
-
-					if(contributionLabel != null) {
-						Iterator<Contribution> iterator = aggregator.getContributions().iterator();
-						while(iterator.hasNext()) {
-							Contribution contribution = iterator.next();
-
-							if(contributionLabel.equals(contribution.getLabel())) {
-								for(MappedRepository repository : contribution.getRepositories(true)) {
-									MetadataRepositoryReferenceImpl validationRepo = (MetadataRepositoryReferenceImpl) AggregatorFactory.eINSTANCE.createMetadataRepositoryReference();
-									validationRepo.setNature(repository.getNature());
-									validationRepo.setLocation(repository.getLocation());
-									aggregator.getValidationRepositories().add(validationRepo);
-
-									removedMappings.addAll(repository.getFeatures());
-								}
-								iterator.remove();
-								found = true;
-							}
-						}
-					}
-
-					if(!found)
-						throw ExceptionUtils.fromMessage("Unable to use contribution " + contributionLabel +
-								" for validation only: contribution does not exist");
-
-					for(CustomCategory customCategory : aggregator.getCustomCategories()) {
-						Iterator<Feature> iterator = customCategory.getFeatures().iterator();
-						while(iterator.hasNext()) {
-							Feature feature = iterator.next();
-							if(removedMappings.contains(feature))
-								iterator.remove();
-						}
-					}
-				}
-
-				EList<ValidationSet> validationSets = aggregator.getValidationSets();
-				if(validationSets.size() > 0) {
-					// TODO handle custom categories spanning validationSets - for now we remove all but features contributed
-					// by contributions which are part of the main (implicit) validationSet from the custom categories
-					HashSet<MappedUnit> allMainValidationSetFeatures = new HashSet<MappedUnit>();
-
-					for(Contribution mainValidationSetContribution : aggregator.getValidationSetContributions(null)) {
-						for(MappedRepository mainValidationSetRepository : mainValidationSetContribution.getRepositories())
-							allMainValidationSetFeatures.addAll(mainValidationSetRepository.getFeatures());
-					}
-
-					for(CustomCategory customCategory : aggregator.getCustomCategories()) {
-						Iterator<Feature> iterator = customCategory.getFeatures().iterator();
-						while(iterator.hasNext()) {
-							Feature feature = iterator.next();
-							if(!allMainValidationSetFeatures.contains(feature))
-								iterator.remove();
-						}
-					}
-				}
-			}
-
-			if(mavenResult != null)
-				aggregator.setMavenResult(mavenResult.booleanValue());
-
-			if(trustedContributions != null && aggregator.isMavenResult())
-				throw ExceptionUtils.fromMessage("Options --trustedContributions cannot be used if maven result is required");
-
-			sendmail = aggregator.isSendmail();
-			buildLabel = aggregator.getLabel();
-
-			Contact buildMaster = aggregator.getBuildmaster();
-			if(buildMaster != null) {
-				buildMasterName = buildMaster.getName();
-				buildMasterEmail = buildMaster.getEmail();
-			}
-
-			Diagnostic diag = Diagnostician.INSTANCE.validate((EObject) aggregator);
-			if(diag.getSeverity() == Diagnostic.ERROR) {
-				for(Diagnostic childDiag : diag.getChildren())
-					LogUtils.error(childDiag.getMessage());
-				throw ExceptionUtils.fromMessage("Build model validation failed: %s", diag.getMessage());
-			}
-
-			if(buildRoot == null) {
-				setBuildRoot(new File(PROPERTY_REPLACER.replaceProperties(aggregator.getBuildRoot())));
-
-				if(!buildRoot.isAbsolute())
-					setBuildRoot(new File(buildModelLocation.getParent(), buildRoot.getPath()).getAbsoluteFile());
-			}
-			else if(!buildRoot.isAbsolute())
-				setBuildRoot(buildRoot.getAbsoluteFile());
-		}
-		catch(Exception e) {
-			throw ExceptionUtils.wrap(e);
-		}
-	}
-
-	private EmailAddress mockCCRecipient() throws UnsupportedEncodingException {
-		EmailAddress mock = null;
-		if(mockEmailCC != null)
-			mock = new EmailAddress(mockEmailCC, null);
-		return mock;
-	}
-
-	private List<EmailAddress> mockRecipients() throws UnsupportedEncodingException {
-		if(mockEmailTo != null)
-			return Collections.singletonList(new EmailAddress(mockEmailTo, null));
-		return Collections.emptyList();
-	}
-
-	private void runCategoriesRepoGenerator(IProgressMonitor monitor) throws CoreException {
-		CategoriesGenerator generator = new CategoriesGenerator(this);
-		generator.run(monitor);
-	}
-
-	private void runCompositeGenerator(IProgressMonitor monitor) throws CoreException {
-		SourceCompositeGenerator generator = new SourceCompositeGenerator(this);
-		generator.run(monitor);
-	}
-
-	private void runMetadataMirroring(ValidationSet validationSet, IProgressMonitor monitor) throws CoreException {
-		MetadataMirrorGenerator generator = new MetadataMirrorGenerator(this, validationSet);
-		generator.run(monitor);
-	}
-
-	private void runMirroring(IProgressMonitor monitor) throws CoreException {
-		MirrorGenerator generator = new MirrorGenerator(this);
-		generator.run(monitor);
-	}
-
-	private void runRepositoryVerifier(ValidationSet validationSet, IProgressMonitor monitor) throws CoreException {
-		RepositoryVerifier ipt = new RepositoryVerifier(this, validationSet);
-		ipt.run(monitor);
-	}
-
-	private void runVerificationIUGenerator(ValidationSet validationSet, IProgressMonitor monitor)
-			throws CoreException {
-		VerificationIUGenerator generator = new VerificationIUGenerator(this, validationSet);
-		generator.run(monitor);
-	}
-
 	private void verifyContributions() throws CoreException {
 		List<String> errors = new ArrayList<String>();
-		for(Contribution contribution : aggregator.getContributions()) {
-			Resource res = ((EObject) contribution).eResource();
-			for(Resource.Diagnostic diag : res.getErrors()) {
-				String msg = res.getURI() + ": " + diag.toString();
-				LogUtils.error(msg);
-				errors.add(msg);
+		for(ValidationSet vs : aggregation.getValidationSets()) {
+			for(Contribution contribution : vs.getContributions()) {
+				Resource res = ((EObject) contribution).eResource();
+				for(Resource.Diagnostic diag : res.getErrors()) {
+					String msg = res.getURI() + ": " + diag.toString();
+					LogUtils.error(msg);
+					errors.add(msg);
+				}
 			}
 		}
 

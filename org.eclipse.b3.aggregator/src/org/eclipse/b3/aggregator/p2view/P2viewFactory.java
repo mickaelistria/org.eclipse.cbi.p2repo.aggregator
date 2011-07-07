@@ -272,6 +272,16 @@ public interface P2viewFactory extends EFactory {
 	ProvidedCapabilityWrapper createProvidedCapabilityWrapper(IProvidedCapability pc);
 
 	/**
+	 * Returns a new object of class '<em>Repository References</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return a new object of class '<em>Repository References</em>'.
+	 * @generated
+	 */
+	RepositoryReferences createRepositoryReferences();
+
+	/**
 	 * Returns a new object of class '<em>Requirements</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

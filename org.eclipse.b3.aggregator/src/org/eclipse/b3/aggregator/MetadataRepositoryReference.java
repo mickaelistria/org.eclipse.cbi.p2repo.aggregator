@@ -43,7 +43,7 @@ public interface MetadataRepositoryReference extends EnabledStatusProvider, Stat
 	 * @model kind="operation"
 	 * @generated
 	 */
-	Aggregation getAggregator();
+	Aggregation getAggregation();
 
 	/**
 	 * Returns the value of the '<em><b>Location</b></em>' attribute.

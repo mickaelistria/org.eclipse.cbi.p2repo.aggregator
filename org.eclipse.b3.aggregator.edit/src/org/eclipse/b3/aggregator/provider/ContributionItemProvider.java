@@ -13,24 +13,22 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import org.eclipse.b3.aggregator.Aggregation;
 import org.eclipse.b3.aggregator.AggregatorFactory;
 import org.eclipse.b3.aggregator.AggregatorPackage;
 import org.eclipse.b3.aggregator.Contribution;
 import org.eclipse.b3.aggregator.CustomCategory;
 import org.eclipse.b3.aggregator.EnabledStatusProvider;
 import org.eclipse.b3.aggregator.Feature;
-import org.eclipse.b3.aggregator.LinkSource;
 import org.eclipse.b3.aggregator.MappedRepository;
 import org.eclipse.b3.aggregator.MappedUnit;
 import org.eclipse.b3.aggregator.MavenMapping;
 import org.eclipse.b3.aggregator.p2view.IUPresentation;
 import org.eclipse.b3.aggregator.p2view.MetadataRepositoryStructuredView;
 import org.eclipse.b3.aggregator.util.AddIUsToContributionCommand;
+import org.eclipse.b3.aggregator.util.GeneralUtils;
 import org.eclipse.b3.aggregator.util.ItemSorter;
 import org.eclipse.b3.aggregator.util.ItemSorter.ItemGroup;
 import org.eclipse.b3.aggregator.util.ItemUtils;
-import org.eclipse.b3.aggregator.util.OverlaidImage;
 import org.eclipse.b3.aggregator.util.ResourceUtils;
 import org.eclipse.b3.p2.InstallableUnit;
 import org.eclipse.b3.p2.MetadataRepository;
@@ -42,12 +40,10 @@ import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EStructuralFeature;
-import org.eclipse.emf.edit.command.AddCommand;
 import org.eclipse.emf.edit.command.CommandParameter;
-import org.eclipse.emf.edit.command.CopyCommand;
+import org.eclipse.emf.edit.command.RemoveCommand;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
-import org.eclipse.emf.edit.provider.DelegatingWrapperItemProvider;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemColorProvider;
 import org.eclipse.emf.edit.provider.IItemFontProvider;
@@ -69,26 +65,6 @@ import org.eclipse.equinox.p2.metadata.IInstallableUnit;
 public class ContributionItemProvider extends AggregatorItemProviderAdapter implements IEditingDomainItemProvider,
 		IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource,
 		IItemColorProvider, IItemFontProvider {
-
-	public class ContributionWrapperItemProvider extends DelegatingWrapperItemProvider {
-
-		public ContributionWrapperItemProvider(Object value, Object owner, EStructuralFeature feature, int index,
-				AdapterFactory adapterFactory) {
-			super(value, owner, feature, index, adapterFactory);
-		}
-
-		@Override
-		public Command createCommand(Object object, EditingDomain domain, Class<? extends Command> commandClass,
-				CommandParameter commandParameter) {
-			// this disables copying of the wrapped Contribution nodes
-			if(commandClass == CopyCommand.class)
-				return UnexecutableCommand.INSTANCE;
-
-			return super.createCommand(object, domain, commandClass, commandParameter);
-		}
-
-	}
-
 	static class DynamicItemPropertyDescriptor extends AggregatorItemPropertyDescriptor {
 
 		public DynamicItemPropertyDescriptor(AdapterFactory adapterFactory, ResourceLocator resourceLocator,
@@ -140,62 +116,6 @@ public class ContributionItemProvider extends AggregatorItemProviderAdapter impl
 
 			return null;
 		}
-
-	}
-
-	public class HidingContributionWrapperItemProvider extends DelegatingWrapperItemProvider {
-
-		public HidingContributionWrapperItemProvider(Object value, Object owner, EStructuralFeature feature, int index,
-				AdapterFactory adapterFactory) {
-			super(value, owner, feature, index, adapterFactory);
-		}
-
-		@Override
-		public Command createCommand(Object object, EditingDomain domain, Class<? extends Command> commandClass,
-				CommandParameter commandParameter) {
-			if(((Contribution) getDelegateValue()).getReceiver() != null)
-				if(commandClass == AddCommand.class)
-					return UnexecutableCommand.INSTANCE;
-
-			return super.createCommand(object, domain, commandClass, commandParameter);
-		}
-
-		@Override
-		public Collection<?> getChildren(Object object) {
-			if(((Contribution) getDelegateValue()).getReceiver() != null)
-				return Collections.emptyList();
-
-			return super.getChildren(object);
-		}
-
-		@Override
-		public Object getImage(Object object) {
-			Object image = super.getImage(object);
-
-			if(((Contribution) getDelegateValue()).getReceiver() != null && image != null)
-				image = new OverlaidImage(
-					new Object[] { image, getResourceLocator().getImage("full/ovr16/Link") },
-					OverlaidImage.BASIC_BOTTOM_LEFT);
-
-			return image;
-		}
-
-		@Override
-		public Collection<?> getNewChildDescriptors(Object object, EditingDomain editingDomain, Object sibling) {
-			if(((Contribution) getDelegateValue()).getReceiver() != null)
-				return Collections.emptyList();
-
-			return super.getNewChildDescriptors(object, editingDomain, sibling);
-		}
-
-		@Override
-		public boolean hasChildren(Object object) {
-			if(((Contribution) getDelegateValue()).getReceiver() != null)
-				return false;
-
-			return super.hasChildren(object);
-		}
-
 	}
 
 	/**
@@ -323,7 +243,9 @@ public class ContributionItemProvider extends AggregatorItemProviderAdapter impl
 		Command command = createAddIUsToContributionCommand(owner, collection);
 
 		if(command != null)
-			return command;
+			return command.canExecute()
+					? command
+					: UnexecutableCommand.INSTANCE;
 
 		return super.createDragAndDropCommand(domain, owner, location, operations, operation, collection);
 	}
@@ -342,28 +264,32 @@ public class ContributionItemProvider extends AggregatorItemProviderAdapter impl
 	}
 
 	/**
-	 * Allow deleting a child from contribution only if the contribution is enabled
+	 * Allow deleting a child from mapped repository only if the contribution is enabled
 	 */
 	@Override
 	@Deprecated
 	protected Command createRemoveCommand(EditingDomain domain, EObject owner, EReference feature,
 			Collection<?> collection) {
-		if(!((Contribution) owner).isEnabled())
-			return UnexecutableCommand.INSTANCE;
+		if(((Contribution) owner).isEnabled())
+			return new RemoveCommand(domain, owner, feature, collection);
 
-		return super.createRemoveCommand(domain, owner, feature, collection);
+		return UnexecutableCommand.INSTANCE;
 	}
 
 	/**
-	 * Allow deleting a child from contribution only if the contribution is enabled
+	 * Allow deleting a child from mapped repository only if the contribution is enabled
 	 */
 	@Override
 	protected Command createRemoveCommand(EditingDomain domain, EObject owner, EStructuralFeature feature,
 			Collection<?> collection) {
-		if(!((Contribution) owner).isEnabled())
-			return UnexecutableCommand.INSTANCE;
+		if(feature instanceof EReference) {
+			return createRemoveCommand(domain, owner, (EReference) feature, collection);
+		}
 
-		return super.createRemoveCommand(domain, owner, feature, collection);
+		if(((Contribution) owner).isEnabled())
+			return new RemoveCommand(domain, owner, feature, collection);
+
+		return UnexecutableCommand.INSTANCE;
 	}
 
 	/**
@@ -473,10 +399,12 @@ public class ContributionItemProvider extends AggregatorItemProviderAdapter impl
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Contribution) object).getLabel();
-		return label == null || label.length() == 0
-				? getString("_UI_Contribution_type")
-				: getString("_UI_Contribution_type") + " " + label;
+		Contribution self = (Contribution) object;
+		String label = self.getLabel();
+		StringBuilder bld = new StringBuilder(getString("_UI_Contribution_type")).append(" : ");
+		if(label != null)
+			bld.append(label);
+		return bld.toString();
 	}
 
 	/**
@@ -490,20 +418,8 @@ public class ContributionItemProvider extends AggregatorItemProviderAdapter impl
 	public void notifyChanged(Notification notification) {
 		notifyChangedGen(notification);
 
-		if(notification.getFeatureID(LinkSource.class) == AggregatorPackage.LINK_SOURCE__RECEIVER) {
-			// Update content if the contribution has been linked somewhere (to an ValidationSet)
-			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
-		}
-		else if(notification.getFeatureID(Contribution.class) == AggregatorPackage.CONTRIBUTION__STATUS) {
-			// Make sure that all error overlays are added or removed on the contribution and its parents.
-			EObject container = ((EObject) notification.getNotifier());
-			while(container != null) {
-				fireNotifyChanged(new ViewerNotification(notification, container, false, true));
-				container = container.eContainer();
-			}
-		}
-		else if(notification.getFeatureID(Contribution.class) == AggregatorPackage.CONTRIBUTION__ENABLED) {
-			// Update also content if enabled flag has been changed
+		// Update also content if enabled flag has been changed
+		if(notification.getFeatureID(Contribution.class) == AggregatorPackage.CONTRIBUTION__ENABLED) {
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 
 			Set<Object> affectedNodeLabels = new HashSet<Object>();
@@ -541,7 +457,7 @@ public class ContributionItemProvider extends AggregatorItemProviderAdapter impl
 				fireNotifyChanged(new ViewerNotification(notification, affectedNode, false, true));
 
 			if(!newValue)
-				ResourceUtils.cleanUpResources((Aggregation) ((EObject) notification.getNotifier()).eContainer());
+				ResourceUtils.cleanUpResources(GeneralUtils.getAggregation((EObject) notification.getNotifier()));
 		}
 		// If a repository is removed, update possible warning overlays
 		else if(notification.getEventType() == Notification.REMOVE &&
@@ -562,7 +478,7 @@ public class ContributionItemProvider extends AggregatorItemProviderAdapter impl
 					for(CustomCategory category : mappedFeature.getCategories())
 						affectedNodes.add(category);
 
-				ResourceUtils.cleanUpResources((Aggregation) ((EObject) notification.getNotifier()).eContainer());
+				ResourceUtils.cleanUpResources(GeneralUtils.getAggregation((EObject) notification.getNotifier()));
 			}
 
 			for(Object affectedNode : affectedNodes)
@@ -600,7 +516,6 @@ public class ContributionItemProvider extends AggregatorItemProviderAdapter impl
 		switch(notification.getFeatureID(Contribution.class)) {
 			case AggregatorPackage.CONTRIBUTION__ENABLED:
 			case AggregatorPackage.CONTRIBUTION__DESCRIPTION:
-			case AggregatorPackage.CONTRIBUTION__RECEIVER:
 			case AggregatorPackage.CONTRIBUTION__LABEL:
 			case AggregatorPackage.CONTRIBUTION__CONTACTS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));

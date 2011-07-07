@@ -14,7 +14,7 @@ package org.eclipse.b3.aggregator;
  * <ul>
  * <li>{@link org.eclipse.b3.aggregator.Contact#getName <em>Name</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.Contact#getEmail <em>Email</em>}</li>
- * <li>{@link org.eclipse.b3.aggregator.Contact#getAggregator <em>Aggregator</em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.Contact#getAggregation <em>Aggregation</em>}</li>
  * </ul>
  * </p>
  * 
@@ -24,7 +24,7 @@ package org.eclipse.b3.aggregator;
  */
 public interface Contact {
 	/**
-	 * Returns the value of the '<em><b>Aggregator</b></em>' container reference.
+	 * Returns the value of the '<em><b>Aggregation</b></em>' container reference.
 	 * It is bidirectional and its opposite is '{@link org.eclipse.b3.aggregator.Aggregation#getContacts <em>Contacts</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -32,14 +32,14 @@ public interface Contact {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
-	 * @return the value of the '<em>Aggregator</em>' container reference.
-	 * @see #setAggregator(Aggregation)
-	 * @see org.eclipse.b3.aggregator.AggregatorPackage#getContact_Aggregator()
+	 * @return the value of the '<em>Aggregation</em>' container reference.
+	 * @see #setAggregation(Aggregation)
+	 * @see org.eclipse.b3.aggregator.AggregatorPackage#getContact_Aggregation()
 	 * @see org.eclipse.b3.aggregator.Aggregation#getContacts
 	 * @model opposite="contacts" required="true" transient="false"
 	 * @generated
 	 */
-	Aggregation getAggregator();
+	Aggregation getAggregation();
 
 	/**
 	 * Returns the value of the '<em><b>Email</b></em>' attribute.
@@ -74,15 +74,16 @@ public interface Contact {
 	String getName();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.aggregator.Contact#getAggregator <em>Aggregator</em>}' container reference.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Sets the value of the '{@link org.eclipse.b3.aggregator.Contact#getAggregation <em>Aggregation</em>}' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @param value
-	 *            the new value of the '<em>Aggregator</em>' container reference.
-	 * @see #getAggregator()
+	 *            the new value of the '<em>Aggregation</em>' container reference.
+	 * @see #getAggregation()
 	 * @generated
 	 */
-	void setAggregator(Aggregation value);
+	void setAggregation(Aggregation value);
 
 	/**
 	 * Sets the value of the '{@link org.eclipse.b3.aggregator.Contact#getEmail <em>Email</em>}' attribute.

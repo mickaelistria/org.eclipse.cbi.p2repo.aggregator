@@ -28,6 +28,7 @@ import org.eclipse.b3.aggregator.MappedUnit;
 import org.eclipse.b3.aggregator.MetadataRepositoryReference;
 import org.eclipse.b3.aggregator.StatusCode;
 import org.eclipse.b3.aggregator.StatusProvider;
+import org.eclipse.b3.aggregator.ValidationSet;
 import org.eclipse.b3.aggregator.util.ResourceUtils;
 import org.eclipse.b3.p2.MetadataRepository;
 import org.eclipse.b3.p2.impl.MetadataRepositoryImpl;
@@ -120,23 +121,25 @@ public class MetadataRepositoryReferenceItemProvider extends AggregatorItemProvi
 				// Provide a list of repositories that has not already been mapped
 				//
 				MetadataRepositoryReference self = (MetadataRepositoryReference) object;
-				Aggregation aggregator = self.getAggregator();
+				Aggregation aggregation = self.getAggregation();
 				Collection<?> repos = super.getChoiceOfValues(object);
-				for(Contribution contribution : aggregator.getContributions()) {
-					for(MappedRepository mappedRepo : contribution.getRepositories()) {
-						if(mappedRepo == self)
+				for(ValidationSet vs : aggregation.getValidationSets(true)) {
+					for(Contribution contribution : vs.getDeclaredContributions()) {
+						for(MappedRepository mappedRepo : contribution.getRepositories()) {
+							if(mappedRepo == self)
+								continue;
+							MetadataRepository repo = mappedRepo.getMetadataRepository(false);
+							if(repo != null && !((EObject) repo).eIsProxy())
+								repos.remove(repo);
+						}
+					}
+					for(MetadataRepositoryReference mrRef : vs.getDeclaredValidationRepositories()) {
+						if(mrRef == self)
 							continue;
-						MetadataRepository repo = mappedRepo.getMetadataRepository(false);
+						MetadataRepository repo = mrRef.getMetadataRepository(false);
 						if(repo != null && !((EObject) repo).eIsProxy())
 							repos.remove(repo);
 					}
-				}
-				for(MetadataRepositoryReference mrRef : aggregator.getValidationRepositories()) {
-					if(mrRef == self)
-						continue;
-					MetadataRepository repo = mrRef.getMetadataRepository(false);
-					if(repo != null && !((EObject) repo).eIsProxy())
-						repos.remove(repo);
 				}
 				return repos;
 			}
@@ -261,7 +264,7 @@ public class MetadataRepositoryReferenceItemProvider extends AggregatorItemProvi
 			mdr = (MetadataRepositoryImpl) repoRef.getMetadataRepository(false);
 		StringBuilder bld = new StringBuilder();
 		bld.append(getString(getTypeName()));
-		bld.append(' ');
+		bld.append(" : ");
 		if(mdr != null && !((EObject) mdr).eIsProxy()) {
 			String name;
 			String nature = repoRef.getNature();
@@ -379,15 +382,15 @@ public class MetadataRepositoryReferenceItemProvider extends AggregatorItemProvi
 				for(Object affectedNode : affectedNodeLabels)
 					fireNotifyChanged(new ViewerNotification(notification, affectedNode, false, true));
 
-				Aggregation aggregator = repoRef.getAggregator();
+				Aggregation aggregation = repoRef.getAggregation();
 				if(notification.getFeatureID(MetadataRepositoryReference.class) == AggregatorPackage.METADATA_REPOSITORY_REFERENCE__ENABLED) {
 					if(notification.getNewBooleanValue())
 						ResourceUtils.loadResourceForMappedRepository(repoRef);
 					else
-						ResourceUtils.cleanUpResources(aggregator);
+						ResourceUtils.cleanUpResources(aggregation);
 				}
 				else
-					ResourceUtils.cleanUpResources(aggregator);
+					ResourceUtils.cleanUpResources(aggregation);
 
 				break;
 		}

@@ -13,13 +13,11 @@ import java.util.Collection;
 import java.util.List;
 
 import org.eclipse.b3.aggregator.AggregatorPackage;
+import org.eclipse.b3.aggregator.CustomCategory;
 import org.eclipse.b3.aggregator.DescriptionProvider;
-
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.common.util.ResourceLocator;
-
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemColorProvider;
@@ -122,14 +120,16 @@ public class DescriptionProviderItemProvider extends AggregatorItemProviderAdapt
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = crop(((DescriptionProvider) object).getDescription());
-		return label == null || label.length() == 0
-				? getString("_UI_DescriptionProvider_type")
-				: getString("_UI_DescriptionProvider_type") + " " + label;
+		CustomCategory self = (CustomCategory) object;
+		String label = crop(self.getDescription());
+		StringBuilder bld = new StringBuilder(getString("_UI_DescriptionProvider_type")).append(" : ");
+		if(label != null)
+			bld.append(label);
+		return bld.toString();
 	}
 
 	/**

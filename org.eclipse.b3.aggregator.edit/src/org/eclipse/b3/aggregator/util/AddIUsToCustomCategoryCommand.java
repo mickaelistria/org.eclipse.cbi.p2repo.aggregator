@@ -111,7 +111,7 @@ public class AddIUsToCustomCategoryCommand extends AbstractCommand implements Dr
 
 	@Override
 	protected boolean prepare() {
-		Aggregation aggregator = (Aggregation) ((EObject) customCategory).eContainer();
+		Aggregation aggregation = (Aggregation) ((EObject) customCategory).eContainer();
 
 		for(IInstallableUnit feature : selectedFeatures) {
 			if(!(((EObject) feature).eContainer() instanceof MetadataRepository))
@@ -119,7 +119,7 @@ public class AddIUsToCustomCategoryCommand extends AbstractCommand implements Dr
 
 			MetadataRepository mdr = (MetadataRepository) ((EObject) feature).eContainer();
 
-			MappedRepository mappedRepo = ItemUtils.findMappedRepository(aggregator, mdr);
+			MappedRepository mappedRepo = ItemUtils.findMappedRepository(aggregation, mdr);
 
 			if(mappedRepo != null) {
 				mapFeatureMappedRepo.put(feature, mappedRepo);

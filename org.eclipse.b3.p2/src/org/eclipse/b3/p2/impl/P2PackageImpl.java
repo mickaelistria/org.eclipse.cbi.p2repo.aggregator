@@ -919,6 +919,10 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 		createEAttribute(iRepositoryEClass, IREPOSITORY__PROVISIONING_AGENT);
 
 		iRepositoryReferenceEClass = createEClass(IREPOSITORY_REFERENCE);
+		createEAttribute(iRepositoryReferenceEClass, IREPOSITORY_REFERENCE__LOCATION);
+		createEAttribute(iRepositoryReferenceEClass, IREPOSITORY_REFERENCE__TYPE);
+		createEAttribute(iRepositoryReferenceEClass, IREPOSITORY_REFERENCE__OPTIONS);
+		createEAttribute(iRepositoryReferenceEClass, IREPOSITORY_REFERENCE__NICKNAME);
 
 		iRequirementEClass = createEClass(IREQUIREMENT);
 		createEAttribute(iRequirementEClass, IREQUIREMENT__FILTER);
@@ -978,10 +982,6 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 		createEReference(repositoryEClass, REPOSITORY__PROPERTY_MAP);
 
 		repositoryReferenceEClass = createEClass(REPOSITORY_REFERENCE);
-		createEAttribute(repositoryReferenceEClass, REPOSITORY_REFERENCE__LOCATION);
-		createEAttribute(repositoryReferenceEClass, REPOSITORY_REFERENCE__TYPE);
-		createEAttribute(repositoryReferenceEClass, REPOSITORY_REFERENCE__OPTIONS);
-		createEAttribute(repositoryReferenceEClass, REPOSITORY_REFERENCE__NICKNAME);
 
 		requiredCapabilityEClass = createEClass(REQUIRED_CAPABILITY);
 
@@ -1951,6 +1951,46 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	 * 
 	 * @generated
 	 */
+	public EAttribute getIRepositoryReference_Location() {
+		return (EAttribute) iRepositoryReferenceEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EAttribute getIRepositoryReference_Nickname() {
+		return (EAttribute) iRepositoryReferenceEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EAttribute getIRepositoryReference_Options() {
+		return (EAttribute) iRepositoryReferenceEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EAttribute getIRepositoryReference_Type() {
+		return (EAttribute) iRepositoryReferenceEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
 	public EClass getIRequiredCapability() {
 		return iRequiredCapabilityEClass;
 	}
@@ -2443,46 +2483,6 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	 */
 	public EClass getRepositoryReference() {
 		return repositoryReferenceEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	public EAttribute getRepositoryReference_Location() {
-		return (EAttribute) repositoryReferenceEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	public EAttribute getRepositoryReference_Nickname() {
-		return (EAttribute) repositoryReferenceEClass.getEStructuralFeatures().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	public EAttribute getRepositoryReference_Options() {
-		return (EAttribute) repositoryReferenceEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	public EAttribute getRepositoryReference_Type() {
-		return (EAttribute) repositoryReferenceEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -3265,6 +3265,20 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 		initEClass(
 			iRepositoryReferenceEClass, IRepositoryReference.class, "IRepositoryReference", IS_ABSTRACT, IS_INTERFACE,
 			!IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(
+			getIRepositoryReference_Location(), this.getURI(), "location", null, 0, 1, IRepositoryReference.class,
+			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(
+			getIRepositoryReference_Type(), ecorePackage.getEInt(), "type", null, 0, 1, IRepositoryReference.class,
+			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(
+			getIRepositoryReference_Options(), ecorePackage.getEInt(), "options", null, 0, 1,
+			IRepositoryReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+			!IS_DERIVED, IS_ORDERED);
+		initEAttribute(
+			getIRepositoryReference_Nickname(), ecorePackage.getEString(), "nickname", null, 0, 1,
+			IRepositoryReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+			!IS_DERIVED, IS_ORDERED);
 
 		initEClass(
 			iRequirementEClass, IRequirement.class, "IRequirement", IS_ABSTRACT, IS_INTERFACE,
@@ -3457,19 +3471,6 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 		initEClass(
 			repositoryReferenceEClass, RepositoryReference.class, "RepositoryReference", !IS_ABSTRACT, !IS_INTERFACE,
 			IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(
-			getRepositoryReference_Location(), this.getURI(), "location", null, 0, 1, RepositoryReference.class,
-			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(
-			getRepositoryReference_Type(), ecorePackage.getEInt(), "type", null, 0, 1, RepositoryReference.class,
-			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(
-			getRepositoryReference_Options(), ecorePackage.getEInt(), "options", null, 0, 1, RepositoryReference.class,
-			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(
-			getRepositoryReference_Nickname(), ecorePackage.getEString(), "nickname", null, 0, 1,
-			RepositoryReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
-			!IS_DERIVED, IS_ORDERED);
 
 		initEClass(
 			requiredCapabilityEClass, RequiredCapability.class, "RequiredCapability", !IS_ABSTRACT, !IS_INTERFACE,
@@ -3596,22 +3597,6 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 
 		// Create resource
 		createResource(eNS_URI);
-
-		// Create annotations
-		// http:///org/eclipse/emf/ecore/util/ExtendedMetaData
-		createExtendedMetaDataAnnotations();
-	}
-
-	/**
-	 * Initializes the annotations for <b>http:///org/eclipse/emf/ecore/util/ExtendedMetaData</b>.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	protected void createExtendedMetaDataAnnotations() {
-		String source = "http:///org/eclipse/emf/ecore/util/ExtendedMetaData";
-		addAnnotation(getRepositoryReference_Location(), source, new String[] {});
 	}
 
 } // P2PackageImpl

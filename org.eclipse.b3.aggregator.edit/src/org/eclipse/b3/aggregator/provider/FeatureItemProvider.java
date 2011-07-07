@@ -127,9 +127,7 @@ public class FeatureItemProvider extends MappedUnitItemProvider implements IEdit
 	@Override
 	public String getText(Object object) {
 		StringBuilder bld = new StringBuilder();
-		bld.append(getString("_UI_Feature_type"));
-		bld.append(' ');
-		appendIUText(object, bld);
+		appendIUText(object, "_UI_Feature_type", bld);
 		return bld.toString();
 	}
 

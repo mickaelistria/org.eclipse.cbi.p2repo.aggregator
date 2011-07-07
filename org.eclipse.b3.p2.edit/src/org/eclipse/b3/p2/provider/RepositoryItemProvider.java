@@ -54,105 +54,6 @@ public class RepositoryItemProvider extends ItemProviderAdapter implements IEdit
 	}
 
 	/**
-	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
-	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
-	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
-		if(childrenFeatures == null) {
-			super.getChildrenFeatures(object);
-			childrenFeatures.add(P2Package.Literals.REPOSITORY__PROPERTY_MAP);
-		}
-		return childrenFeatures;
-	}
-
-	/**
-	 * This returns the property descriptors for the adapted class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-		if(itemPropertyDescriptors == null) {
-			super.getPropertyDescriptors(object);
-
-			addLocationPropertyDescriptor(object);
-			addNamePropertyDescriptor(object);
-			addTypePropertyDescriptor(object);
-			addVersionPropertyDescriptor(object);
-			addDescriptionPropertyDescriptor(object);
-			addProviderPropertyDescriptor(object);
-			addModifiablePropertyDescriptor(object);
-			addProvisioningAgentPropertyDescriptor(object);
-		}
-		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * Return the resource locator for this item provider's resources.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	public ResourceLocator getResourceLocator() {
-		return P2EditPlugin.INSTANCE;
-	}
-
-	/**
-	 * This returns the label text for the adapted class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	public String getText(Object object) {
-		String label = ((Repository<?>) object).getName();
-		return label == null || label.length() == 0
-				? getString("_UI_Repository_type")
-				: getString("_UI_Repository_type") + " " + label;
-	}
-
-	/**
-	 * This handles model notifications by calling {@link #updateChildren} to update any cached
-	 * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	public void notifyChanged(Notification notification) {
-		updateChildren(notification);
-
-		switch(notification.getFeatureID(Repository.class)) {
-			case P2Package.REPOSITORY__LOCATION:
-			case P2Package.REPOSITORY__NAME:
-			case P2Package.REPOSITORY__TYPE:
-			case P2Package.REPOSITORY__VERSION:
-			case P2Package.REPOSITORY__DESCRIPTION:
-			case P2Package.REPOSITORY__PROVIDER:
-			case P2Package.REPOSITORY__MODIFIABLE:
-			case P2Package.REPOSITORY__PROVISIONING_AGENT:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-				return;
-			case P2Package.REPOSITORY__PROPERTY_MAP:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
-				return;
-		}
-		super.notifyChanged(notification);
-	}
-
-	/**
 	 * This adds a property descriptor for the Description feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -316,6 +217,105 @@ public class RepositoryItemProvider extends ItemProviderAdapter implements IEdit
 		// adding (see {@link AddCommand}) it as a child.
 
 		return super.getChildFeature(object, child);
+	}
+
+	/**
+	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
+	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
+	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
+		if(childrenFeatures == null) {
+			super.getChildrenFeatures(object);
+			childrenFeatures.add(P2Package.Literals.REPOSITORY__PROPERTY_MAP);
+		}
+		return childrenFeatures;
+	}
+
+	/**
+	 * This returns the property descriptors for the adapted class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
+		if(itemPropertyDescriptors == null) {
+			super.getPropertyDescriptors(object);
+
+			addLocationPropertyDescriptor(object);
+			addNamePropertyDescriptor(object);
+			addTypePropertyDescriptor(object);
+			addVersionPropertyDescriptor(object);
+			addDescriptionPropertyDescriptor(object);
+			addProviderPropertyDescriptor(object);
+			addModifiablePropertyDescriptor(object);
+			addProvisioningAgentPropertyDescriptor(object);
+		}
+		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * Return the resource locator for this item provider's resources.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public ResourceLocator getResourceLocator() {
+		return P2EditPlugin.INSTANCE;
+	}
+
+	/**
+	 * This returns the label text for the adapted class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public String getText(Object object) {
+		String label = ((Repository<?>) object).getName();
+		return label == null || label.length() == 0
+				? getString("_UI_Repository_type")
+				: getString("_UI_Repository_type") + " " + label;
+	}
+
+	/**
+	 * This handles model notifications by calling {@link #updateChildren} to update any cached
+	 * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public void notifyChanged(Notification notification) {
+		updateChildren(notification);
+
+		switch(notification.getFeatureID(Repository.class)) {
+			case P2Package.REPOSITORY__LOCATION:
+			case P2Package.REPOSITORY__NAME:
+			case P2Package.REPOSITORY__TYPE:
+			case P2Package.REPOSITORY__VERSION:
+			case P2Package.REPOSITORY__DESCRIPTION:
+			case P2Package.REPOSITORY__PROVIDER:
+			case P2Package.REPOSITORY__MODIFIABLE:
+			case P2Package.REPOSITORY__PROVISIONING_AGENT:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
+			case P2Package.REPOSITORY__PROPERTY_MAP:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
+				return;
+		}
+		super.notifyChanged(notification);
 	}
 
 }
