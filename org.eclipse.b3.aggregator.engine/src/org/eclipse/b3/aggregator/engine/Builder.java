@@ -117,7 +117,7 @@ import org.kohsuke.args4j.spi.Setter;
 
 public class Builder extends ModelAbstractCommand {
 	public enum ActionType {
-		CLEAN, VERIFY, BUILD, CLEAN_BUILD
+		CLEAN, VALIDATE, BUILD, CLEAN_BUILD
 	}
 
 	private static class EmailAddress {
@@ -1091,7 +1091,7 @@ public class Builder extends ModelAbstractCommand {
 	}
 
 	public boolean isVerifyOnly() {
-		return action == ActionType.VERIFY;
+		return action == ActionType.VALIDATE;
 	}
 
 	private void loadAllMappedRepositories() throws CoreException {
@@ -1532,7 +1532,7 @@ public class Builder extends ModelAbstractCommand {
 			case CLEAN:
 				ticks = 50;
 				break;
-			case VERIFY:
+			case VALIDATE:
 				ticks = 200;
 				break;
 			case BUILD:
@@ -1622,7 +1622,7 @@ public class Builder extends ModelAbstractCommand {
 				runRepositoryVerifier(validationSet, subMon.newChild(100));
 			}
 
-			if(action != ActionType.VERIFY) {
+			if(action != ActionType.VALIDATE) {
 				initMirroring(subMon.newChild(5));
 				for(ValidationSet validationSet : validationSets)
 					runMetadataMirroring(validationSet, subMon.newChild(100));

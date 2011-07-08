@@ -261,6 +261,15 @@ public class P2viewItemProviderAdapterFactory extends P2viewAdapterFactory imple
 	protected RepositoryReferencesItemProvider repositoryReferencesItemProvider;
 
 	/**
+	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.aggregator.p2view.RepositoryBrowser} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	protected RepositoryBrowserItemProvider repositoryBrowserItemProvider;
+
+	/**
 	 * This constructs an instance.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -615,6 +624,22 @@ public class P2viewItemProviderAdapterFactory extends P2viewAdapterFactory imple
 	}
 
 	/**
+	 * This creates an adapter for a {@link org.eclipse.b3.aggregator.p2view.RepositoryBrowser}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public Adapter createRepositoryBrowserAdapter() {
+		if(repositoryBrowserItemProvider == null) {
+			repositoryBrowserItemProvider = new RepositoryBrowserItemProvider(this);
+		}
+
+		return repositoryBrowserItemProvider;
+	}
+
+	/**
 	 * This creates an adapter for a {@link org.eclipse.b3.aggregator.p2view.RepositoryReferences}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -707,6 +732,8 @@ public class P2viewItemProviderAdapterFactory extends P2viewAdapterFactory imple
 			iuDetailsItemProvider.dispose();
 		if(licensesItemProvider != null)
 			licensesItemProvider.dispose();
+		if(repositoryBrowserItemProvider != null)
+			repositoryBrowserItemProvider.dispose();
 		if(metadataRepositoryStructuredViewItemProvider != null)
 			metadataRepositoryStructuredViewItemProvider.dispose();
 		if(miscellaneousItemProvider != null)

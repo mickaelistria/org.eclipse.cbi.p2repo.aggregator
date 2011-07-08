@@ -24,6 +24,7 @@ import org.eclipse.b3.aggregator.p2view.IUPresentation;
 import org.eclipse.b3.aggregator.p2view.IUPresentationWithDetails;
 import org.eclipse.b3.aggregator.p2view.InstallableUnits;
 import org.eclipse.b3.aggregator.p2view.Licenses;
+import org.eclipse.b3.aggregator.p2view.RepositoryBrowser;
 import org.eclipse.b3.aggregator.p2view.MetadataRepositoryStructuredView;
 import org.eclipse.b3.aggregator.p2view.Miscellaneous;
 import org.eclipse.b3.aggregator.p2view.OtherIU;
@@ -251,6 +252,14 @@ public class P2viewPackageImpl extends EPackageImpl implements P2viewPackage {
 	private EClass licensesEClass = null;
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	private EClass repositoryBrowserEClass = null;
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
@@ -393,6 +402,10 @@ public class P2viewPackageImpl extends EPackageImpl implements P2viewPackage {
 
 		licensesEClass = createEClass(LICENSES);
 		createEReference(licensesEClass, LICENSES__LICENSES);
+
+		repositoryBrowserEClass = createEClass(REPOSITORY_BROWSER);
+		createEReference(repositoryBrowserEClass, REPOSITORY_BROWSER__REPOSITORIES);
+		createEAttribute(repositoryBrowserEClass, REPOSITORY_BROWSER__LOADING);
 
 		metadataRepositoryStructuredViewEClass = createEClass(METADATA_REPOSITORY_STRUCTURED_VIEW);
 		createEAttribute(metadataRepositoryStructuredViewEClass, METADATA_REPOSITORY_STRUCTURED_VIEW__NAME);
@@ -1111,6 +1124,36 @@ public class P2viewPackageImpl extends EPackageImpl implements P2viewPackage {
 	 * 
 	 * @generated
 	 */
+	public EClass getRepositoryBrowser() {
+		return repositoryBrowserEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EAttribute getRepositoryBrowser_Loading() {
+		return (EAttribute) repositoryBrowserEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EReference getRepositoryBrowser_Repositories() {
+		return (EReference) repositoryBrowserEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
 	public EClass getRepositoryReferences() {
 		return repositoryReferencesEClass;
 	}
@@ -1245,6 +1288,12 @@ public class P2viewPackageImpl extends EPackageImpl implements P2viewPackage {
 		installableUnitsEClass.getEGenericSuperTypes().add(g1);
 		iuPresentationWithDetailsEClass.getESuperTypes().add(this.getIUPresentation());
 		iuPresentationWithDetailsEClass.getESuperTypes().add(this.getIUDetails());
+		g1 = createEGenericType(theAggregatorPackage.getStatusProvider());
+		repositoryBrowserEClass.getEGenericSuperTypes().add(g1);
+		g1 = createEGenericType(theAggregatorPackage.getChildrenProvider());
+		g2 = createEGenericType(this.getMetadataRepositoryStructuredView());
+		g1.getETypeArguments().add(g2);
+		repositoryBrowserEClass.getEGenericSuperTypes().add(g1);
 		g1 = createEGenericType(theAggregatorPackage.getChildrenProvider());
 		g2 = createEGenericType(this.getInstallableUnits());
 		g1.getETypeArguments().add(g2);
@@ -1483,6 +1532,18 @@ public class P2viewPackageImpl extends EPackageImpl implements P2viewPackage {
 			getLicenses_Licenses(), theP2Package.getILicense(), null, "licenses", null, 0, -1, Licenses.class,
 			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,
 			!IS_DERIVED, IS_ORDERED);
+
+		initEClass(
+			repositoryBrowserEClass, RepositoryBrowser.class, "RepositoryBrowser", !IS_ABSTRACT, !IS_INTERFACE,
+			IS_GENERATED_INSTANCE_CLASS);
+		initEReference(
+			getRepositoryBrowser_Repositories(), this.getMetadataRepositoryStructuredView(), null, "repositories",
+			null, 0, -1, RepositoryBrowser.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
+			!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEAttribute(
+			getRepositoryBrowser_Loading(), ecorePackage.getEBoolean(), "loading", "false", 0, 1,
+			RepositoryBrowser.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+			IS_DERIVED, IS_ORDERED);
 
 		initEClass(
 			metadataRepositoryStructuredViewEClass, MetadataRepositoryStructuredView.class,

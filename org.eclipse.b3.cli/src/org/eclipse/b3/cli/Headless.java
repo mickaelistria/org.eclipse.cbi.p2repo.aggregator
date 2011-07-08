@@ -47,6 +47,37 @@ public class Headless implements IApplication {
 
 	private static final String COMMAND_CLASS_ATTR = "class";
 
+	private static AbstractCommand createCommand(IConfigurationElement commandConfiguration) throws CoreException {
+		AbstractCommand command = (AbstractCommand) commandConfiguration.createExecutableExtension(COMMAND_CLASS_ATTR);
+		command.setName(commandConfiguration.getAttribute(COMMAND_NAME_ATTR));
+		return command;
+	}
+
+	private static List<AbstractCommand> getAvailableCommands() throws CoreException {
+		IConfigurationElement[] commandConfigurations = getCommandConfigurations();
+		List<AbstractCommand> commands = new ArrayList<AbstractCommand>(commandConfigurations.length);
+
+		for(IConfigurationElement commandConfiguration : commandConfigurations) {
+			commands.add(createCommand(commandConfiguration));
+		}
+
+		Collections.sort(commands);
+		return commands;
+	}
+
+	private static AbstractCommand getCommand(String string) throws CoreException {
+		for(IConfigurationElement commandConfiguration : getCommandConfigurations()) {
+			if(commandConfiguration.getAttribute(COMMAND_NAME_ATTR).equals(string))
+				return createCommand(commandConfiguration);
+		}
+
+		return null;
+	}
+
+	private static IConfigurationElement[] getCommandConfigurations() {
+		return Platform.getExtensionRegistry().getConfigurationElementsFor(COMMAND_EXTENSION);
+	}
+
 	public static int run(String args[], boolean verbose) throws Exception {
 		try {
 			if(args.length == 0 || !args[0].matches("^(?i:[a-z_])+$"))
@@ -129,7 +160,7 @@ public class Headless implements IApplication {
 			try {
 				return Integer.valueOf(command.run());
 			}
-			catch(Throwable e) {
+			catch(Exception e) {
 				ExceptionUtils.deeplyPrint(e, System.err, command.isDisplayStacktrace());
 			}
 		}
@@ -156,37 +187,6 @@ public class Headless implements IApplication {
 		}
 
 		return AbstractCommand.EXIT_ERROR;
-	}
-
-	private static AbstractCommand createCommand(IConfigurationElement commandConfiguration) throws CoreException {
-		AbstractCommand command = (AbstractCommand) commandConfiguration.createExecutableExtension(COMMAND_CLASS_ATTR);
-		command.setName(commandConfiguration.getAttribute(COMMAND_NAME_ATTR));
-		return command;
-	}
-
-	private static List<AbstractCommand> getAvailableCommands() throws CoreException {
-		IConfigurationElement[] commandConfigurations = getCommandConfigurations();
-		List<AbstractCommand> commands = new ArrayList<AbstractCommand>(commandConfigurations.length);
-
-		for(IConfigurationElement commandConfiguration : commandConfigurations) {
-			commands.add(createCommand(commandConfiguration));
-		}
-
-		Collections.sort(commands);
-		return commands;
-	}
-
-	private static AbstractCommand getCommand(String string) throws CoreException {
-		for(IConfigurationElement commandConfiguration : getCommandConfigurations()) {
-			if(commandConfiguration.getAttribute(COMMAND_NAME_ATTR).equals(string))
-				return createCommand(commandConfiguration);
-		}
-
-		return null;
-	}
-
-	private static IConfigurationElement[] getCommandConfigurations() {
-		return Platform.getExtensionRegistry().getConfigurationElementsFor(COMMAND_EXTENSION);
 	}
 
 	public Object start(IApplicationContext context) throws Exception {

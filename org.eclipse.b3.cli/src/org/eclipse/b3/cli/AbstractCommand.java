@@ -98,6 +98,20 @@ public abstract class AbstractCommand implements Comparable<AbstractCommand> {
 		return help;
 	}
 
+	private void printConfiguration() {
+		LogUtils.debug("Configuration:");
+		Bundle[] bundles = B3Util.getPlugin().getBundle().getBundleContext().getBundles();
+		List<String> configLines = new ArrayList<String>(bundles.length);
+		for(Bundle bundle : bundles)
+			configLines.add(bundle.getSymbolicName() + " / " + bundle.getVersion());
+
+		Collections.sort(configLines);
+
+		for(String configLine : configLines)
+			LogUtils.debug(configLine);
+		LogUtils.debug("");
+	}
+
 	public final int run() throws Exception {
 		IProgressMonitor monitor = getProgressProvider().getDefaultMonitor();
 		if(monitor == null)
@@ -133,19 +147,5 @@ public abstract class AbstractCommand implements Comparable<AbstractCommand> {
 
 	final void setName(String name) {
 		this.name = name;
-	}
-
-	private void printConfiguration() {
-		LogUtils.debug("Configuration:");
-		Bundle[] bundles = B3Util.getPlugin().getBundle().getBundleContext().getBundles();
-		List<String> configLines = new ArrayList<String>(bundles.length);
-		for(Bundle bundle : bundles)
-			configLines.add(bundle.getSymbolicName() + " / " + bundle.getVersion());
-
-		Collections.sort(configLines);
-
-		for(String configLine : configLines)
-			LogUtils.debug(configLine);
-		LogUtils.debug("");
 	}
 }

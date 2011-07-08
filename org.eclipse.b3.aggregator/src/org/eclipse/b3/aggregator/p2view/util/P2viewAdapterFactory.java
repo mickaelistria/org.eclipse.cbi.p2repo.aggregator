@@ -11,6 +11,7 @@ package org.eclipse.b3.aggregator.p2view.util;
 
 import org.eclipse.b3.aggregator.ChildrenProvider;
 import org.eclipse.b3.aggregator.LabelProvider;
+import org.eclipse.b3.aggregator.StatusProvider;
 import org.eclipse.b3.aggregator.p2view.*;
 import org.eclipse.b3.aggregator.p2view.Bundle;
 import org.eclipse.b3.aggregator.p2view.Bundles;
@@ -192,6 +193,11 @@ public class P2viewAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
+		public Adapter caseRepositoryBrowser(RepositoryBrowser object) {
+			return createRepositoryBrowserAdapter();
+		}
+
+		@Override
 		public Adapter caseRepositoryReferences(RepositoryReferences object) {
 			return createRepositoryReferencesAdapter();
 		}
@@ -204,6 +210,11 @@ public class P2viewAdapterFactory extends AdapterFactoryImpl {
 		@Override
 		public Adapter caseRequirementWrapper(RequirementWrapper object) {
 			return createRequirementWrapperAdapter();
+		}
+
+		@Override
+		public Adapter caseStatusProvider(StatusProvider object) {
+			return createStatusProviderAdapter();
 		}
 
 		@Override
@@ -604,6 +615,21 @@ public class P2viewAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.aggregator.p2view.RepositoryBrowser <em>Repository Browser</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the new adapter.
+	 * @see org.eclipse.b3.aggregator.p2view.RepositoryBrowser
+	 * @generated
+	 */
+	public Adapter createRepositoryBrowserAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.aggregator.p2view.RepositoryReferences <em>Repository References</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -645,6 +671,21 @@ public class P2viewAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createRequirementWrapperAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.aggregator.StatusProvider <em>Status Provider</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the new adapter.
+	 * @see org.eclipse.b3.aggregator.StatusProvider
+	 * @generated
+	 */
+	public Adapter createStatusProviderAdapter() {
 		return null;
 	}
 

@@ -72,7 +72,7 @@ public enum WindowSystem implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	PHOTON(0, "Photon", "photon");
+	PHOTON(5, "Photon", "photon");
 
 	/**
 	 * The '<em><b>Win32</b></em>' literal value.
@@ -162,7 +162,7 @@ public enum WindowSystem implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int PHOTON_VALUE = 0;
+	public static final int PHOTON_VALUE = 5;
 
 	/**
 	 * An array of all the '<em><b>Window System</b></em>' enumerators.
@@ -200,6 +200,8 @@ public enum WindowSystem implements Enumerator {
 				return COCOA;
 			case MOTIF_VALUE:
 				return MOTIF;
+			case PHOTON_VALUE:
+				return PHOTON;
 		}
 		return null;
 	}

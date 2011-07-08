@@ -309,7 +309,7 @@ public class ArtifactRepositoryImpl extends RepositoryImpl<IArtifactKey> impleme
 			catch(OperationCanceledException e) {
 				result = new Status(IStatus.CANCEL, "org.eclipse.b3.p2", e.getMessage(), e);
 			}
-			catch(Throwable e) {
+			catch(Exception e) {
 				result = new Status(IStatus.ERROR, "org.eclipse.b3.p2", e.getMessage(), e);
 			}
 		}

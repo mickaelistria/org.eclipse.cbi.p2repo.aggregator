@@ -668,6 +668,36 @@ public interface P2viewPackage extends EPackage {
 		EReference LICENSES__LICENSES = eINSTANCE.getLicenses_Licenses();
 
 		/**
+		 * The meta object literal for the '{@link org.eclipse.b3.aggregator.p2view.impl.RepositoryBrowserImpl <em>Repository Browser</em>}'
+		 * class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @see org.eclipse.b3.aggregator.p2view.impl.RepositoryBrowserImpl
+		 * @see org.eclipse.b3.aggregator.p2view.impl.P2viewPackageImpl#getRepositoryBrowser()
+		 * @generated
+		 */
+		EClass REPOSITORY_BROWSER = eINSTANCE.getRepositoryBrowser();
+
+		/**
+		 * The meta object literal for the '<em><b>Repositories</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EReference REPOSITORY_BROWSER__REPOSITORIES = eINSTANCE.getRepositoryBrowser_Repositories();
+
+		/**
+		 * The meta object literal for the '<em><b>Loading</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EAttribute REPOSITORY_BROWSER__LOADING = eINSTANCE.getRepositoryBrowser_Loading();
+
+		/**
 		 * The meta object literal for the '{@link org.eclipse.b3.aggregator.p2view.impl.IUDetailsImpl <em>IU Details</em>}' class.
 		 * <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
@@ -842,7 +872,7 @@ public interface P2viewPackage extends EPackage {
 	 * @see org.eclipse.b3.aggregator.p2view.impl.P2viewPackageImpl#getMetadataRepositoryStructuredView()
 	 * @generated
 	 */
-	int METADATA_REPOSITORY_STRUCTURED_VIEW = 13;
+	int METADATA_REPOSITORY_STRUCTURED_VIEW = 14;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.aggregator.p2view.impl.InstallableUnitsImpl <em>Installable Units</em>}' class.
@@ -882,7 +912,7 @@ public interface P2viewPackage extends EPackage {
 	 * @see org.eclipse.b3.aggregator.p2view.impl.P2viewPackageImpl#getProducts()
 	 * @generated
 	 */
-	int PRODUCTS = 17;
+	int PRODUCTS = 18;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.aggregator.p2view.impl.BundlesImpl <em>Bundles</em>}' class.
@@ -912,7 +942,7 @@ public interface P2viewPackage extends EPackage {
 	 * @see org.eclipse.b3.aggregator.p2view.impl.P2viewPackageImpl#getMiscellaneous()
 	 * @generated
 	 */
-	int MISCELLANEOUS = 14;
+	int MISCELLANEOUS = 15;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.aggregator.p2view.impl.IUPresentationImpl <em>IU Presentation</em>}' class.
@@ -952,7 +982,7 @@ public interface P2viewPackage extends EPackage {
 	 * @see org.eclipse.b3.aggregator.p2view.impl.P2viewPackageImpl#getProduct()
 	 * @generated
 	 */
-	int PRODUCT = 16;
+	int PRODUCT = 17;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.aggregator.p2view.impl.BundleImpl <em>Bundle</em>}' class.
@@ -982,7 +1012,7 @@ public interface P2viewPackage extends EPackage {
 	 * @see org.eclipse.b3.aggregator.p2view.impl.P2viewPackageImpl#getOtherIU()
 	 * @generated
 	 */
-	int OTHER_IU = 15;
+	int OTHER_IU = 16;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.aggregator.p2view.impl.PropertiesImpl <em>Properties</em>}' class.
@@ -992,7 +1022,7 @@ public interface P2viewPackage extends EPackage {
 	 * @see org.eclipse.b3.aggregator.p2view.impl.P2viewPackageImpl#getProperties()
 	 * @generated
 	 */
-	int PROPERTIES = 18;
+	int PROPERTIES = 19;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.aggregator.p2view.impl.ProvidedCapabilitiesImpl <em>Provided Capabilities</em>}' class.
@@ -1002,7 +1032,7 @@ public interface P2viewPackage extends EPackage {
 	 * @see org.eclipse.b3.aggregator.p2view.impl.P2viewPackageImpl#getProvidedCapabilities()
 	 * @generated
 	 */
-	int PROVIDED_CAPABILITIES = 19;
+	int PROVIDED_CAPABILITIES = 20;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.aggregator.p2view.impl.TouchpointsImpl <em>Touchpoints</em>}' class.
@@ -1012,7 +1042,7 @@ public interface P2viewPackage extends EPackage {
 	 * @see org.eclipse.b3.aggregator.p2view.impl.P2viewPackageImpl#getTouchpoints()
 	 * @generated
 	 */
-	int TOUCHPOINTS = 24;
+	int TOUCHPOINTS = 25;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.aggregator.p2view.impl.IUDetailsImpl <em>IU Details</em>}' class.
@@ -2120,7 +2150,7 @@ public interface P2viewPackage extends EPackage {
 	 * @see org.eclipse.b3.aggregator.p2view.impl.P2viewPackageImpl#getRequirements()
 	 * @generated
 	 */
-	int REQUIREMENTS = 22;
+	int REQUIREMENTS = 23;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.aggregator.p2view.impl.LicensesImpl <em>Licenses</em>}' class.
@@ -2229,6 +2259,67 @@ public interface P2viewPackage extends EPackage {
 	 * @ordered
 	 */
 	int LICENSES_FEATURE_COUNT = 1;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.b3.aggregator.p2view.impl.RepositoryBrowserImpl <em>Repository Browser</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see org.eclipse.b3.aggregator.p2view.impl.RepositoryBrowserImpl
+	 * @see org.eclipse.b3.aggregator.p2view.impl.P2viewPackageImpl#getRepositoryBrowser()
+	 * @generated
+	 */
+	int REPOSITORY_BROWSER = 13;
+
+	/**
+	 * The feature id for the '<em><b>Status</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int REPOSITORY_BROWSER__STATUS = AggregatorPackage.STATUS_PROVIDER__STATUS;
+
+	/**
+	 * The feature id for the '<em><b>Children</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int REPOSITORY_BROWSER__CHILDREN = AggregatorPackage.STATUS_PROVIDER_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Repositories</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int REPOSITORY_BROWSER__REPOSITORIES = AggregatorPackage.STATUS_PROVIDER_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Loading</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int REPOSITORY_BROWSER__LOADING = AggregatorPackage.STATUS_PROVIDER_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of structural features of the '<em>Repository Browser</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int REPOSITORY_BROWSER_FEATURE_COUNT = AggregatorPackage.STATUS_PROVIDER_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Children</b></em>' reference list.
@@ -2753,7 +2844,7 @@ public interface P2viewPackage extends EPackage {
 	 * @see org.eclipse.b3.aggregator.p2view.impl.P2viewPackageImpl#getRequirementWrapper()
 	 * @generated
 	 */
-	int REQUIREMENT_WRAPPER = 23;
+	int REQUIREMENT_WRAPPER = 24;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.aggregator.p2view.impl.ProvidedCapabilityWrapperImpl <em>Provided Capability Wrapper</em>}'
@@ -2764,7 +2855,7 @@ public interface P2viewPackage extends EPackage {
 	 * @see org.eclipse.b3.aggregator.p2view.impl.P2viewPackageImpl#getProvidedCapabilityWrapper()
 	 * @generated
 	 */
-	int PROVIDED_CAPABILITY_WRAPPER = 20;
+	int PROVIDED_CAPABILITY_WRAPPER = 21;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2830,7 +2921,7 @@ public interface P2viewPackage extends EPackage {
 	 * @see org.eclipse.b3.aggregator.p2view.impl.P2viewPackageImpl#getRepositoryReferences()
 	 * @generated
 	 */
-	int REPOSITORY_REFERENCES = 21;
+	int REPOSITORY_REFERENCES = 22;
 
 	/**
 	 * The feature id for the '<em><b>Children</b></em>' reference list.
@@ -3834,6 +3925,42 @@ public interface P2viewPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getProvidedCapabilityWrapper_Genuine();
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipse.b3.aggregator.p2view.RepositoryBrowser <em>Repository Browser</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for class '<em>Repository Browser</em>'.
+	 * @see org.eclipse.b3.aggregator.p2view.RepositoryBrowser
+	 * @generated
+	 */
+	EClass getRepositoryBrowser();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.b3.aggregator.p2view.RepositoryBrowser#isLoading <em>Loading</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the attribute '<em>Loading</em>'.
+	 * @see org.eclipse.b3.aggregator.p2view.RepositoryBrowser#isLoading()
+	 * @see #getRepositoryBrowser()
+	 * @generated
+	 */
+	EAttribute getRepositoryBrowser_Loading();
+
+	/**
+	 * Returns the meta object for the reference list '{@link org.eclipse.b3.aggregator.p2view.RepositoryBrowser#getRepositories
+	 * <em>Repositories</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the reference list '<em>Repositories</em>'.
+	 * @see org.eclipse.b3.aggregator.p2view.RepositoryBrowser#getRepositories()
+	 * @see #getRepositoryBrowser()
+	 * @generated
+	 */
+	EReference getRepositoryBrowser_Repositories();
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.b3.aggregator.p2view.RepositoryReferences <em>Repository References</em>}'.

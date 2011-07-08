@@ -316,7 +316,7 @@
     <eLiterals name="Carbon" value="2" literal="carbon"/>
     <eLiterals name="Cocoa" value="3" literal="cocoa"/>
     <eLiterals name="Motif" value="4" literal="motif"/>
-    <eLiterals name="Photon" literal="photon"/>
+    <eLiterals name="Photon" value="5" literal="photon"/>
   </eClassifiers>
   <eSubpackages name="p2view" nsURI="http://www.eclipse.org/b3/2010/aggregator/p2view/1.0.0"
       nsPrefix="p2view">
@@ -442,6 +442,18 @@
     <eClassifiers xsi:type="ecore:EClass" name="Licenses">
       <eStructuralFeatures xsi:type="ecore:EReference" name="licenses" upperBound="-1"
           eType="ecore:EClass ../../org.eclipse.b3.p2/model/p2.ecore#//ILicense"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="RepositoryBrowser">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="repositories" upperBound="-1"
+          eType="#//p2view/MetadataRepositoryStructuredView" volatile="true" transient="true"
+          derived="true" resolveProxies="false"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="loading" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+          changeable="false" volatile="true" transient="true" defaultValueLiteral="false"
+          unsettable="true" derived="true"/>
+      <eGenericSuperTypes eClassifier="#//StatusProvider"/>
+      <eGenericSuperTypes eClassifier="#//ChildrenProvider">
+        <eTypeArguments eClassifier="#//p2view/MetadataRepositoryStructuredView"/>
+      </eGenericSuperTypes>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="MetadataRepositoryStructuredView">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>

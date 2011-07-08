@@ -206,26 +206,26 @@ public class AggregatorActionBarContributor extends EditingDomainActionBarContri
 		}
 	}
 
-	class BuildRepoAction extends Action {
+	class BuildAggregationAction extends Action {
 		private final Builder.ActionType actionType;
 
-		public BuildRepoAction(Builder.ActionType actionType) {
+		public BuildAggregationAction(Builder.ActionType actionType) {
 			this.actionType = actionType;
 			String txt;
 			String imageURLPath = null;
 			switch(actionType) {
 				case CLEAN:
-					txt = "Clean Repository";
+					txt = "Clean Aggregation";
 					break;
-				case VERIFY:
-					txt = "Verify Repository";
+				case VALIDATE:
+					txt = "Validate Aggregation";
 					break;
 				case BUILD:
-					txt = "Build Repository";
+					txt = "Build Aggregation";
 					imageURLPath = "full/obj16/start_task.gif";
 					break;
 				default:
-					txt = "Clean then Build Repository";
+					txt = "Clean then Build Aggregation";
 					imageURLPath = "full/obj16/start_task.gif";
 			}
 			setText(txt);
@@ -871,13 +871,13 @@ public class AggregatorActionBarContributor extends EditingDomainActionBarContri
 
 	protected ReloadOrCancelRepoAction reloadOrCancelRepoAction;
 
-	protected BuildRepoAction cleanRepoAction;
+	protected BuildAggregationAction cleanRepoAction;
 
-	protected BuildRepoAction verifyRepoAction;
+	protected BuildAggregationAction verifyRepoAction;
 
-	protected BuildRepoAction buildRepoAction;
+	protected BuildAggregationAction buildRepoAction;
 
-	protected BuildRepoAction cleanBuildRepoAction;
+	protected BuildAggregationAction cleanBuildRepoAction;
 
 	protected List<IAction> addToParentRepositoryActions;
 
@@ -907,10 +907,10 @@ public class AggregatorActionBarContributor extends EditingDomainActionBarContri
 		enabledStatusActionVisibility.put(new EnabledStatusAction(true), Boolean.FALSE);
 		enabledStatusActionVisibility.put(new EnabledStatusAction(false), Boolean.FALSE);
 		reloadOrCancelRepoAction = new ReloadOrCancelRepoAction();
-		cleanRepoAction = new BuildRepoAction(ActionType.CLEAN);
-		verifyRepoAction = new BuildRepoAction(ActionType.VERIFY);
-		buildRepoAction = new BuildRepoAction(ActionType.BUILD);
-		cleanBuildRepoAction = new BuildRepoAction(ActionType.CLEAN_BUILD);
+		cleanRepoAction = new BuildAggregationAction(ActionType.CLEAN);
+		verifyRepoAction = new BuildAggregationAction(ActionType.VALIDATE);
+		buildRepoAction = new BuildAggregationAction(ActionType.BUILD);
+		cleanBuildRepoAction = new BuildAggregationAction(ActionType.CLEAN_BUILD);
 	}
 
 	@Override

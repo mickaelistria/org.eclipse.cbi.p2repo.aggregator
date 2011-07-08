@@ -9,12 +9,12 @@
  */
 package org.eclipse.b3.aggregator.p2view.impl;
 
-import org.eclipse.b3.aggregator.p2view.*;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
+import org.eclipse.b3.aggregator.Aggregation;
 import org.eclipse.b3.aggregator.AggregatorFactory;
 import org.eclipse.b3.aggregator.LabelProvider;
 import org.eclipse.b3.aggregator.Property;
@@ -29,6 +29,7 @@ import org.eclipse.b3.aggregator.p2view.Fragments;
 import org.eclipse.b3.aggregator.p2view.IUDetails;
 import org.eclipse.b3.aggregator.p2view.InstallableUnits;
 import org.eclipse.b3.aggregator.p2view.Licenses;
+import org.eclipse.b3.aggregator.p2view.RepositoryBrowser;
 import org.eclipse.b3.aggregator.p2view.MetadataRepositoryStructuredView;
 import org.eclipse.b3.aggregator.p2view.Miscellaneous;
 import org.eclipse.b3.aggregator.p2view.OtherIU;
@@ -39,6 +40,7 @@ import org.eclipse.b3.aggregator.p2view.Products;
 import org.eclipse.b3.aggregator.p2view.Properties;
 import org.eclipse.b3.aggregator.p2view.ProvidedCapabilities;
 import org.eclipse.b3.aggregator.p2view.ProvidedCapabilityWrapper;
+import org.eclipse.b3.aggregator.p2view.RepositoryReferences;
 import org.eclipse.b3.aggregator.p2view.RequirementWrapper;
 import org.eclipse.b3.aggregator.p2view.Requirements;
 import org.eclipse.b3.aggregator.p2view.Touchpoints;
@@ -132,6 +134,8 @@ public class P2viewFactoryImpl extends EFactoryImpl implements P2viewFactory {
 				return (EObject) createIUDetails();
 			case P2viewPackage.LICENSES:
 				return (EObject) createLicenses();
+			case P2viewPackage.REPOSITORY_BROWSER:
+				return (EObject) createRepositoryBrowser();
 			case P2viewPackage.METADATA_REPOSITORY_STRUCTURED_VIEW:
 				return (EObject) createMetadataRepositoryStructuredView();
 			case P2viewPackage.MISCELLANEOUS:
@@ -525,6 +529,22 @@ public class P2viewFactoryImpl extends EFactoryImpl implements P2viewFactory {
 	public ProvidedCapabilityWrapper createProvidedCapabilityWrapper(IProvidedCapability pc) {
 		ProvidedCapabilityWrapperImpl providedCapabilityWrapper = new ProvidedCapabilityWrapperImpl(pc);
 		return providedCapabilityWrapper;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public RepositoryBrowser createRepositoryBrowser() {
+		RepositoryBrowserImpl repositoryBrowser = new RepositoryBrowserImpl();
+		return repositoryBrowser;
+	}
+
+	public RepositoryBrowser createRepositoryBrowser(Aggregation aggregation) {
+		RepositoryBrowserImpl repositoryBrowser = new RepositoryBrowserImpl(aggregation);
+		return repositoryBrowser;
 	}
 
 	/**

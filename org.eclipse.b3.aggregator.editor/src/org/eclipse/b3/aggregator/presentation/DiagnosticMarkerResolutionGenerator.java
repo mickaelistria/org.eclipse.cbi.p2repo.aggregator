@@ -34,6 +34,7 @@ import org.eclipse.emf.ecore.EValidator;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.equinox.app.IApplication;
+import org.eclipse.equinox.internal.p2.director.Explanation;
 import org.eclipse.ui.IEditorInput;
 import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.IEditorReference;
@@ -148,7 +149,7 @@ public class DiagnosticMarkerResolutionGenerator implements IMarkerResolutionGen
 		catch(CoreException e) {
 			return null;
 		}
-	}
+	};
 
 	static Contribution getContribution(IMarker marker, ResourceSet resourceSet) {
 		String uriAttribute = marker.getAttribute(EValidator.URI_ATTRIBUTE, null);
@@ -156,7 +157,7 @@ public class DiagnosticMarkerResolutionGenerator implements IMarkerResolutionGen
 		return uri.fragment() == null
 				? null
 				: (Contribution) resourceSet.getEObject(uri, true);
-	};
+	}
 
 	static Throwable unwind(Throwable t) {
 		for(;;) {
@@ -204,7 +205,7 @@ public class DiagnosticMarkerResolutionGenerator implements IMarkerResolutionGen
 							URLEncoder.encode(fileURL.getPath(), "UTF-8").replaceAll("\\+", "%20"));
 					builder.setBuildModelLocation(new File(uri));
 					// builder.setLogLevel(LogUtils.DEBUG);
-					builder.setAction(Builder.ActionType.VERIFY);
+					builder.setAction(Builder.ActionType.VALIDATE);
 
 					if(builder.run(true, monitor) != IApplication.EXIT_OK)
 						throw new Exception("Build failed (see log for more details)");
@@ -224,6 +225,25 @@ public class DiagnosticMarkerResolutionGenerator implements IMarkerResolutionGen
 				return Status.OK_STATUS;
 			}
 		}.schedule();
+	}
+
+	/**
+	 * @param marker
+	 * @return
+	 */
+	private Explanation getExplanation(IMarker marker) throws CoreException {
+		Object severity = marker.getAttribute(IMarker.SEVERITY);
+		if(!(severity instanceof Integer && ((Integer) severity).intValue() == IMarker.SEVERITY_ERROR))
+			return null;
+
+		Object verType = marker.getAttribute(VerificationDiagnostic.ATTR_VERIFICATION_TYPE);
+		if(!VerificationDiagnostic.Singleton.class.getName().equals(verType))
+			return null;
+
+		Object rootProblem = marker.getAttribute(VerificationDiagnostic.ATTR_ROOT_PROBLEM);
+		return (rootProblem instanceof Explanation)
+				? (Explanation) rootProblem
+				: null;
 	}
 
 	public IMarkerResolution[] getResolutions(IMarker marker) {
@@ -254,23 +274,10 @@ public class DiagnosticMarkerResolutionGenerator implements IMarkerResolutionGen
 	 */
 	public boolean hasResolutions(IMarker marker) {
 		try {
-			return isConflict(marker);
+			return getExplanation(marker) != null;
 		}
 		catch(CoreException e) {
 			return false;
 		}
-	}
-
-	/**
-	 * @param marker
-	 * @return
-	 */
-	private boolean isConflict(IMarker marker) throws CoreException {
-		Object severity = marker.getAttribute(IMarker.SEVERITY);
-		if(!(severity instanceof Integer && ((Integer) severity).intValue() == IMarker.SEVERITY_ERROR))
-			return false;
-
-		Object verType = marker.getAttribute(VerificationDiagnostic.ATTR_VERIFICATION_TYPE);
-		return VerificationDiagnostic.Singleton.class.getName().equals(verType);
 	}
 }

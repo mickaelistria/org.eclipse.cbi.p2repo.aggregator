@@ -372,6 +372,10 @@
         <genFeatures property="Readonly" notify="false" children="true" createChild="false"
             propertySortChoices="true" ecoreFeature="ecore:EReference Aggregator.ecore#//p2view/Licenses/licenses"/>
       </genClasses>
+      <genClasses ecoreClass="Aggregator.ecore#//p2view/RepositoryBrowser">
+        <genFeatures property="Readonly" notify="false" children="true" createChild="false"
+            propertyCategory="" propertySortChoices="true" ecoreFeature="ecore:EReference Aggregator.ecore#//p2view/RepositoryBrowser/repositories"/>
+      </genClasses>
       <genClasses ecoreClass="Aggregator.ecore#//p2view/MetadataRepositoryStructuredView">
         <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute Aggregator.ecore#//p2view/MetadataRepositoryStructuredView/name"/>
         <genFeatures property="Readonly" children="true" createChild="false" propertySortChoices="true"

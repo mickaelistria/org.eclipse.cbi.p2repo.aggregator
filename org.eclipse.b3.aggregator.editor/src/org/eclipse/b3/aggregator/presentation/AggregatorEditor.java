@@ -22,27 +22,23 @@ import java.util.Set;
 import java.util.regex.Pattern;
 
 import org.eclipse.b3.aggregator.Aggregation;
-import org.eclipse.b3.aggregator.AggregatorPlugin;
 import org.eclipse.b3.aggregator.MetadataRepositoryReference;
-import org.eclipse.b3.aggregator.StatusCode;
 import org.eclipse.b3.aggregator.p2.provider.MetadataRepositoryItemProvider;
 import org.eclipse.b3.aggregator.p2.provider.ProvidedCapabilityItemProvider;
 import org.eclipse.b3.aggregator.p2.provider.RequiredCapabilityItemProvider;
 import org.eclipse.b3.aggregator.p2.util.MetadataRepositoryResourceImpl;
+import org.eclipse.b3.aggregator.p2view.RepositoryBrowser;
+import org.eclipse.b3.aggregator.p2view.P2viewFactory;
 import org.eclipse.b3.aggregator.p2view.provider.P2viewItemProviderAdapterFactory;
-import org.eclipse.b3.aggregator.provider.AggregatorEditPlugin;
-import org.eclipse.b3.aggregator.provider.AggregatorItemProviderAdapter;
 import org.eclipse.b3.aggregator.provider.AggregatorItemProviderAdapterFactory;
 import org.eclipse.b3.aggregator.provider.TooltipTextProvider;
 import org.eclipse.b3.aggregator.transformer.ui.TransformationWizard;
 import org.eclipse.b3.aggregator.util.AggregatorResource;
 import org.eclipse.b3.aggregator.util.AggregatorResourceFactoryImpl;
 import org.eclipse.b3.aggregator.util.AggregatorResourceImpl;
-import org.eclipse.b3.aggregator.util.OverlaidImage;
 import org.eclipse.b3.aggregator.util.ResourceDiagnosticImpl;
 import org.eclipse.b3.aggregator.util.ResourceUtils;
 import org.eclipse.b3.aggregator.util.StatusProviderAdapterFactory;
-import org.eclipse.b3.aggregator.util.VerificationDiagnostic;
 import org.eclipse.b3.p2.provider.P2ItemProviderAdapterFactory;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IMarker;
@@ -90,13 +86,10 @@ import org.eclipse.emf.edit.domain.IEditingDomainProvider;
 import org.eclipse.emf.edit.provider.AdapterFactoryItemDelegator;
 import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
-import org.eclipse.emf.edit.provider.IItemFontProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.ReflectiveItemProviderAdapterFactory;
-import org.eclipse.emf.edit.provider.ViewerNotification;
-import org.eclipse.emf.edit.provider.resource.ResourceItemProvider;
 import org.eclipse.emf.edit.provider.resource.ResourceItemProviderAdapterFactory;
 import org.eclipse.emf.edit.provider.resource.ResourceSetItemProvider;
 import org.eclipse.emf.edit.ui.action.EditingDomainActionBarContributor;
@@ -184,77 +177,21 @@ import org.eclipse.ui.views.properties.PropertySheetPage;
 public class AggregatorEditor extends MultiPageEditorPart implements IEditingDomainProvider, ISelectionProvider,
 		IMenuListener, IViewerProvider, IGotoMarker {
 
-	class AggregatorMarkerHelper extends EditUIMarkerHelper {
+	static class MDRComparator implements Comparator<MetadataRepositoryReference> {
+		public int compare(MetadataRepositoryReference mdr1, MetadataRepositoryReference mdr2) {
+			String location1 = mdr1 != null
+					? mdr1.getResolvedLocation()
+					: null;
+			if(location1 == null)
+				location1 = "";
+			String location2 = mdr2 != null
+					? mdr2.getResolvedLocation()
+					: null;
+			if(location2 == null)
+				location2 = "";
 
-		@Override
-		protected void adjustMarker(IMarker marker, Diagnostic diagnostic, Diagnostic parentDiagnostic)
-				throws CoreException {
-			List<?> data = diagnostic.getData();
-			StringBuilder relatedURIs = new StringBuilder();
-			boolean first = true;
-
-			for(Object object : data) {
-				String uriString = null;
-
-				if(object instanceof Resource.Diagnostic) {
-					uriString = ((Resource.Diagnostic) object).getLocation();
-					if(object instanceof VerificationDiagnostic) {
-						marker.setAttribute(VerificationDiagnostic.ATTR_VERIFICATION_TYPE, object.getClass().getName());
-					}
-				}
-				else {
-					URI uri = null;
-
-					if(object instanceof EObject)
-						uri = EcoreUtil.getURI((EObject) object);
-					else if(object instanceof Resource)
-						uri = ((Resource) object).getURI();
-
-					if(uri != null)
-						uriString = uri.toString();
-				}
-
-				if(uriString != null) {
-					if(first) {
-						first = false;
-						marker.setAttribute(EValidator.URI_ATTRIBUTE, uriString);
-					}
-					else {
-						if(relatedURIs.length() != 0) {
-							relatedURIs.append(' ');
-						}
-						relatedURIs.append(URI.encodeFragment(uriString, false));
-					}
-				}
-			}
-
-			if(relatedURIs.length() > 0) {
-				marker.setAttribute(EValidator.RELATED_URIS_ATTRIBUTE, relatedURIs.toString());
-			}
+			return location1.compareTo(location2);
 		}
-
-		public void createMarkers(Resource markerResource, Diagnostic diagnostic) throws CoreException {
-			if(diagnostic.getChildren().isEmpty()) {
-				if(diagnostic.getSeverity() != Diagnostic.OK)
-					createMarkers(getFile(markerResource), diagnostic, null);
-			}
-			else if(diagnostic.getMessage() == null) {
-				for(Diagnostic childDiagnostic : diagnostic.getChildren()) {
-					createMarkers(markerResource, childDiagnostic);
-				}
-			}
-			else {
-				for(Diagnostic childDiagnostic : diagnostic.getChildren()) {
-					createMarkers(getFile(markerResource), childDiagnostic, diagnostic);
-				}
-			}
-		}
-
-		@Override
-		protected String getMarkerID() {
-			return AGGREGATOR_NONPERSISTENT_PROBLEM_MARKER;
-		}
-
 	}
 
 	@SuppressWarnings("serial")
@@ -333,6 +270,38 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 			throw new UnsupportedOperationException();
 		}
 
+	}
+
+	static class RepositoryLoaderJob extends Job {
+		private final List<MetadataRepositoryReference> repositoriesToLoad;
+
+		RepositoryLoaderJob(List<MetadataRepositoryReference> repositoriesToLoad) {
+			super("Loading repositories...");
+			this.repositoriesToLoad = repositoriesToLoad;
+		}
+
+		@Override
+		protected IStatus run(IProgressMonitor monitor) {
+			try {
+				Collections.sort(repositoriesToLoad, new MDRComparator());
+
+				// initialize all resources in alphabetical order
+				for(MetadataRepositoryReference repo : repositoriesToLoad) {
+					MetadataRepositoryResourceImpl res = (MetadataRepositoryResourceImpl) MetadataRepositoryResourceImpl.getResourceForNatureAndLocation(
+						repo.getNature(), repo.getResolvedLocation(), repo.getAggregation());
+					if(monitor.isCanceled())
+						break;
+					if(res != null)
+						res.startAsynchronousLoad(false);
+				}
+
+				return Status.OK_STATUS;
+			}
+			finally {
+				if(monitor != null)
+					monitor.done();
+			}
+		}
 	}
 
 	/**
@@ -629,6 +598,8 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 
 	protected Map<Resource, Diagnostic> managedResourceToDiagnosticMap = new LinkedHashMap<Resource, Diagnostic>();
 
+	protected RepositoryBrowser repositoryBrowser;
+
 	/**
 	 * Controls whether the problem indication should be updated.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -649,77 +620,75 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 
 		@Override
 		public void notifyChanged(Notification notification) {
-			if(notification.getNotifier() instanceof Resource) {
-				int featureID = notification.getFeatureID(Resource.class);
+			if(!(notification.getNotifier() instanceof Resource))
+				return;
 
-				// If a repository is loaded, force updating the context menu by setting selection to current selection
-				if(featureID == Resource.RESOURCE__IS_LOADED) {
-					getSite().getShell().getDisplay().asyncExec(new Runnable() {
+			int featureID = notification.getFeatureID(Resource.class);
 
-						public void run() {
-							setSelection(currentViewer == null
-									? StructuredSelection.EMPTY
-									: currentViewer.getSelection());
-						}
+			// If a repository is loaded, force updating the context menu by setting selection to current selection
+			if(featureID == Resource.RESOURCE__IS_LOADED) {
+				getSite().getShell().getDisplay().asyncExec(new Runnable() {
 
-					});
-				}
-
-				switch(featureID) {
-					case AggregatorResource.RESOURCE__ANALYSIS_STARTED:
-						analysisStarted = true;
-						break;
-					case AggregatorResource.RESOURCE__ANALYSIS_FINISHED:
-						analysisStarted = false;
-					case Resource.RESOURCE__RESOURCE_SET:
-					case Resource.RESOURCE__IS_LOADED:
-					case Resource.RESOURCE__ERRORS:
-					case Resource.RESOURCE__WARNINGS: {
-						Resource resource = (Resource) notification.getNotifier();
-
-						// filter out notifications when analysing aggregator repository
-						if(resource instanceof AggregatorResourceImpl && analysisStarted)
-							return;
-
-						if(resource instanceof AggregatorResourceImpl) {
-							Diagnostic diagnostic = analyzeResourceProblems(resource, null);
-
-							if(diagnostic.getSeverity() != Diagnostic.OK) {
-								resourceToDiagnosticMap.put(resource, diagnostic);
-							}
-							else {
-								resourceToDiagnosticMap.remove(resource);
-							}
-
-							if(updateProblemIndication) {
-								getSite().getShell().getDisplay().asyncExec(new Runnable() {
-
-									public void run() {
-										updateProblemIndication();
-									}
-
-								});
-							}
-						}
-
-						if(resource.getResourceSet() == null)
-							managedResourceToDiagnosticMap.remove(resource);
-						else {
-							Diagnostic diagnostic = analyzeResourceProblems(resource, null, true);
-
-							if(diagnostic.getSeverity() != Diagnostic.OK)
-								managedResourceToDiagnosticMap.put(resource, diagnostic);
-							else
-								managedResourceToDiagnosticMap.remove(resource);
-						}
-
-						updateMarkers();
-						break;
+					public void run() {
+						setSelection(currentViewer == null
+								? StructuredSelection.EMPTY
+								: currentViewer.getSelection());
 					}
-				}
+
+				});
 			}
-			else {
-				super.notifyChanged(notification);
+
+			switch(featureID) {
+				case AggregatorResource.RESOURCE__ANALYSIS_STARTED:
+					analysisStarted = true;
+					break;
+				case AggregatorResource.RESOURCE__ANALYSIS_FINISHED:
+					analysisStarted = false;
+				case Resource.RESOURCE__RESOURCE_SET:
+				case Resource.RESOURCE__IS_LOADED:
+				case Resource.RESOURCE__ERRORS:
+				case Resource.RESOURCE__WARNINGS: {
+					Resource resource = (Resource) notification.getNotifier();
+
+					// filter out notifications when analysing aggregator repository
+					if(resource instanceof AggregatorResourceImpl && analysisStarted)
+						return;
+
+					if(resource instanceof AggregatorResourceImpl) {
+						Diagnostic diagnostic = analyzeResourceProblems(resource, null);
+
+						if(diagnostic.getSeverity() != Diagnostic.OK) {
+							resourceToDiagnosticMap.put(resource, diagnostic);
+						}
+						else {
+							resourceToDiagnosticMap.remove(resource);
+						}
+
+						if(updateProblemIndication) {
+							getSite().getShell().getDisplay().asyncExec(new Runnable() {
+
+								public void run() {
+									updateProblemIndication();
+								}
+
+							});
+						}
+					}
+
+					if(resource.getResourceSet() == null)
+						managedResourceToDiagnosticMap.remove(resource);
+					else {
+						Diagnostic diagnostic = analyzeResourceProblems(resource, null, true);
+
+						if(diagnostic.getSeverity() != Diagnostic.OK)
+							managedResourceToDiagnosticMap.put(resource, diagnostic);
+						else
+							managedResourceToDiagnosticMap.remove(resource);
+					}
+
+					updateMarkers();
+					break;
+				}
 			}
 		}
 
@@ -1082,68 +1051,33 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 		resourceURI = EditUIUtil.getURI(getEditorInput());
 		resource = editingDomain.getResourceSet().getResource(resourceURI, false);
 
-		if(resource != null) {
-			// make sure detached resources are resolved
-			EcoreUtil.resolveAll(resource);
+		if(resource == null)
+			return;
 
-			EList<EObject> contents = resource.getContents();
-			if(contents.size() == 1 && contents.get(0) instanceof Aggregation) {
-				Aggregation aggregation = (Aggregation) contents.get(0);
+		// make sure detached resources are resolved
+		EcoreUtil.resolveAll(resource);
 
-				// initialize item providers for all MDR references so that they could handle notifications from
-				// repository loaders
-				// + set all proxies to null so that no one tries to resolve them (the MDR's will be set by loaders)
-				for(MetadataRepositoryReference mdrReference : aggregation.getAllMetadataRepositoryReferences(false)) {
-					mdrReference.setMetadataRepository(null);
-					adapterFactory.adapt(mdrReference, IItemLabelProvider.class);
-				}
+		EList<EObject> contents = resource.getContents();
+		if(contents.size() != 1)
+			return;
 
-				final List<MetadataRepositoryReference> repositoriesToLoad = aggregation.getAllMetadataRepositoryReferences(true);
-				repositoryLoadingJob = new Job("Loading repositories...") {
-					@Override
-					protected IStatus run(IProgressMonitor monitor) {
-						try {
-							Collections.sort(repositoriesToLoad, new Comparator<MetadataRepositoryReference>() {
+		EObject obj = contents.get(0);
+		if(!(obj instanceof Aggregation))
+			return;
 
-								public int compare(MetadataRepositoryReference mdr1, MetadataRepositoryReference mdr2) {
-									String location1 = mdr1 != null
-											? mdr1.getResolvedLocation()
-											: null;
-									if(location1 == null)
-										location1 = "";
-									String location2 = mdr2 != null
-											? mdr2.getResolvedLocation()
-											: null;
-									if(location2 == null)
-										location2 = "";
+		Aggregation aggregation = (Aggregation) obj;
+		repositoryBrowser = P2viewFactory.eINSTANCE.createRepositoryBrowser(aggregation);
 
-									return location1.compareTo(location2);
-								}
-
-							});
-
-							// initialize all resources in alphabetical order
-							for(MetadataRepositoryReference repo : repositoriesToLoad) {
-								MetadataRepositoryResourceImpl res = (MetadataRepositoryResourceImpl) MetadataRepositoryResourceImpl.getResourceForNatureAndLocation(
-									repo.getNature(), repo.getResolvedLocation(), repo.getAggregation());
-								if(monitor.isCanceled())
-									break;
-								if(res != null)
-									res.startAsynchronousLoad(false);
-							}
-
-							return Status.OK_STATUS;
-						}
-						finally {
-							if(monitor != null)
-								monitor.done();
-						}
-					}
-				};
-
-				repositoryLoadingJob.setSystem(true);
-			}
+		// initialize item providers for all MDR references so that they could handle notifications from
+		// repository loaders
+		// + set all proxies to null so that no one tries to resolve them (the MDR's will be set by loaders)
+		for(MetadataRepositoryReference mdrReference : aggregation.getAllMetadataRepositoryReferences(false)) {
+			mdrReference.setMetadataRepository(null);
+			adapterFactory.adapt(mdrReference, IItemLabelProvider.class);
 		}
+
+		repositoryLoadingJob = new RepositoryLoaderJob(aggregation.getAllMetadataRepositoryReferences(true));
+		repositoryLoadingJob.setSystem(true);
 	}
 
 	/**
@@ -1914,114 +1848,6 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 
 		// Assign specific images to resources
 		adapterFactory.addAdapterFactory(new ResourceItemProviderAdapterFactory() {
-			class ResourceItemProviderWithFontSupport extends ResourceItemProvider implements IItemFontProvider,
-					TooltipTextProvider {
-				ResourceItemProviderWithFontSupport(AdapterFactory adapterFactory) {
-					super(adapterFactory);
-				}
-
-				@Override
-				public Object getFont(Object object) {
-					if(object instanceof MetadataRepositoryResourceImpl) {
-						MetadataRepositoryResourceImpl mdr = (MetadataRepositoryResourceImpl) object;
-
-						if(mdr.getStatus().getCode() == StatusCode.WAITING)
-							return IItemFontProvider.ITALIC_FONT;
-					}
-					return null;
-				}
-
-				@Override
-				public Object getImage(Object object) {
-					Object baseImage = null;
-					Object overlayImage = null;
-
-					if(object instanceof AggregatorResourceImpl) {
-						baseImage = super.getImage(object);
-
-						// avoid querying proxies before loading jobs are scheduled/running
-						if(!Job.getJobManager().isSuspended()) {
-							AggregatorResourceImpl res = (AggregatorResourceImpl) object;
-
-							if(res.getContents().size() > 0 &&
-									((Aggregation) res.getContents().get(0)).getStatus().getCode() != StatusCode.OK)
-								overlayImage = AggregatorEditPlugin.INSTANCE.getImage("full/ovr16/Error");
-						}
-					}
-					else if(object instanceof MetadataRepositoryResourceImpl) {
-						baseImage = AggregatorEditPlugin.INSTANCE.getImage("full/obj16/MetadataRepository");
-
-						MetadataRepositoryResourceImpl mdr = (MetadataRepositoryResourceImpl) object;
-
-						if(mdr.getLastException() != null)
-							overlayImage = AggregatorEditPlugin.INSTANCE.getImage("full/ovr16/Error");
-						else if(mdr.getStatus().getCode() == StatusCode.WAITING)
-							overlayImage = AggregatorEditPlugin.INSTANCE.getImage("full/ovr16/Loading");
-					}
-
-					if(baseImage != null) {
-						if(overlayImage != null) {
-							Object[] images = new Object[2];
-							int[] positions = new int[2];
-
-							images[0] = baseImage;
-							positions[0] = OverlaidImage.BASIC;
-
-							images[1] = overlayImage;
-							positions[1] = OverlaidImage.OVERLAY_BOTTOM_RIGHT;
-
-							return new OverlaidImage(images, positions);
-						}
-
-						return baseImage;
-					}
-
-					return super.getImage(object);
-				}
-
-				@Override
-				public String getText(Object object) {
-					String text = super.getText(object);
-					if(object instanceof MetadataRepositoryResourceImpl)
-						return super.getText(object).substring(AggregatorPlugin.B3AGGR_URI_SCHEME.length() + 1);
-
-					return text;
-				}
-
-				public String getTooltipText(Object object) {
-					return AggregatorItemProviderAdapter.getTooltipText(object, this);
-				}
-
-				@Override
-				public void notifyChanged(Notification notification) {
-					super.notifyChanged(notification);
-
-					if(notification.getEventType() == Notification.SET &&
-							notification.getFeatureID(Resource.class) == Resource.RESOURCE__IS_LOADED) {
-						fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-
-						ResourceSet resourceSet = ((Resource) notification.getNotifier()).getResourceSet();
-
-						// if the resource is already excluded from the resource set, ignore this notification
-						if(resourceSet == null)
-							return;
-
-						Aggregation aggregation = (Aggregation) resourceSet.getResources().get(0).getContents().get(0);
-						for(MetadataRepositoryReference mdr : aggregation.getAllMetadataRepositoryReferences(true))
-							fireNotifyChanged(new ViewerNotification(notification, mdr, false, true));
-					}
-				}
-			}
-
-			{
-				supportedTypes.add(IItemFontProvider.class);
-			}
-
-			@Override
-			public Adapter createResourceAdapter() {
-				return new ResourceItemProviderWithFontSupport(this);
-			}
-
 			// Present only the main resource and loaded MDR's (not detached contributions)
 			@Override
 			public Adapter createResourceSetAdapter() {
@@ -2030,12 +1856,18 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 					public Collection<?> getChildren(Object object) {
 						ResourceSet resourceSet = (ResourceSet) object;
 
-						List<Resource> filtered = new ArrayList<Resource>();
-						for(Resource resource : resourceSet.getResources())
-							if(resource instanceof AggregatorResourceImpl ||
-									resource instanceof MetadataRepositoryResourceImpl)
-								filtered.add(resource);
-
+						Aggregation aggregation = null;
+						List<Object> filtered = new ArrayList<Object>();
+						for(Resource resource : resourceSet.getResources()) {
+							if(resource instanceof AggregatorResource) {
+								EList<EObject> contents = resource.getContents();
+								if(contents.size() == 1) {
+									aggregation = (Aggregation) resource.getContents().get(0);
+									filtered.add(aggregation);
+								}
+							}
+						}
+						filtered.add(repositoryBrowser);
 						return filtered;
 					}
 				};

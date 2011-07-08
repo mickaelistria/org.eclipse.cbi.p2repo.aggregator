@@ -9,6 +9,7 @@
  */
 package org.eclipse.b3.aggregator.p2view;
 
+import org.eclipse.b3.aggregator.Aggregation;
 import org.eclipse.b3.p2.MetadataRepository;
 import org.eclipse.emf.ecore.EFactory;
 import org.eclipse.equinox.p2.metadata.IInstallableUnit;
@@ -270,6 +271,18 @@ public interface P2viewFactory extends EFactory {
 	ProvidedCapabilityWrapper createProvidedCapabilityWrapper();
 
 	ProvidedCapabilityWrapper createProvidedCapabilityWrapper(IProvidedCapability pc);
+
+	/**
+	 * Returns a new object of class '<em>Repository Browser</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return a new object of class '<em>Repository Browser</em>'.
+	 * @generated
+	 */
+	RepositoryBrowser createRepositoryBrowser();
+
+	RepositoryBrowser createRepositoryBrowser(Aggregation aggregation);
 
 	/**
 	 * Returns a new object of class '<em>Repository References</em>'.

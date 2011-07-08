@@ -11,6 +11,7 @@ import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.equinox.internal.p2.director.Explanation;
 import org.eclipse.equinox.p2.metadata.IInstallableUnit;
 
 public class VerificationDiagnostic extends ResourceDiagnosticImpl {
@@ -63,18 +64,27 @@ public class VerificationDiagnostic extends ResourceDiagnosticImpl {
 
 	public static class Singleton extends VerificationDiagnostic {
 
-		private Singleton[] relatedDiagnostics;
+		private final Explanation rootProblem;
 
-		public Singleton(String message, URI locationURI, Singleton[] relatedDiagnostics) {
-			super(message, locationURI);
+		private final Singleton[] relatedDiagnostics;
+
+		public Singleton(Explanation rootProblem, URI locationURI, Singleton[] relatedDiagnostics) {
+			super(rootProblem.toString(), locationURI);
 			this.relatedDiagnostics = relatedDiagnostics;
+			this.rootProblem = rootProblem;
 		}
 
 		public Singleton[] getRelatedDiagnostics() {
 			return relatedDiagnostics;
 		}
 
+		public Explanation getRootProblem() {
+			return rootProblem;
+		}
+
 	}
+
+	public static final String ATTR_ROOT_PROBLEM = "p2.verification.root.problem";
 
 	public static final String ATTR_VERIFICATION_TYPE = "p2.verification.error.type";
 

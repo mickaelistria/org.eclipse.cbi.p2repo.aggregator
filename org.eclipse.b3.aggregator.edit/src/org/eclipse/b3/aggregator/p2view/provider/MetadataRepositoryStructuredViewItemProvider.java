@@ -13,10 +13,13 @@ import java.util.Collection;
 import java.util.List;
 
 import org.eclipse.b3.aggregator.Aggregation;
+import org.eclipse.b3.aggregator.StatusCode;
+import org.eclipse.b3.aggregator.p2.util.MetadataRepositoryResourceImpl;
 import org.eclipse.b3.aggregator.p2view.MetadataRepositoryStructuredView;
 import org.eclipse.b3.aggregator.p2view.P2viewPackage;
 import org.eclipse.b3.aggregator.provider.AggregatorEditPlugin;
 import org.eclipse.b3.aggregator.provider.AggregatorItemProviderAdapter;
+import org.eclipse.b3.aggregator.util.OverlaidImage;
 import org.eclipse.b3.aggregator.util.ResourceUtils;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
@@ -194,15 +197,45 @@ public class MetadataRepositoryStructuredViewItemProvider extends AggregatorItem
 		return childrenFeatures;
 	}
 
+	@Override
+	public Object getFont(Object object) {
+		MetadataRepositoryResourceImpl mdr = (MetadataRepositoryResourceImpl) ((EObject) object).eResource();
+		return mdr.getStatus().getCode() == StatusCode.WAITING
+				? IItemFontProvider.ITALIC_FONT
+				: null;
+	}
+
 	/**
-	 * This returns MetadataRepositoryStructuredView.gif.
+	 * This returns MetadataRepositoryStructuredView.gif with possible overlay
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/MetadataRepositoryStructuredView"));
+		ResourceLocator locator = getResourceLocator();
+		Object baseImage = locator.getImage("full/obj16/MetadataRepositoryStructuredView");
+
+		MetadataRepositoryResourceImpl mdr = (MetadataRepositoryResourceImpl) ((EObject) object).eResource();
+		Object overlayImage = null;
+		if(mdr.getLastException() != null)
+			overlayImage = locator.getImage("full/ovr16/Error");
+		else if(mdr.getStatus().getCode() == StatusCode.WAITING)
+			overlayImage = locator.getImage("full/ovr16/Loading");
+
+		if(overlayImage != null) {
+			Object[] images = new Object[2];
+			int[] positions = new int[2];
+
+			images[0] = baseImage;
+			positions[0] = OverlaidImage.BASIC;
+
+			images[1] = overlayImage;
+			positions[1] = OverlaidImage.OVERLAY_BOTTOM_RIGHT;
+
+			return new OverlaidImage(images, positions);
+		}
+		return baseImage;
 	}
 
 	/**
@@ -245,7 +278,7 @@ public class MetadataRepositoryStructuredViewItemProvider extends AggregatorItem
 	public String getText(Object object) {
 		MetadataRepositoryStructuredView self = (MetadataRepositoryStructuredView) object;
 		String label = self.getName();
-		StringBuilder bld = new StringBuilder("Metadata Repository : ");
+		StringBuilder bld = new StringBuilder();
 		if(label != null)
 			bld.append(label);
 		URI uri = ((EObject) object).eResource().getURI();

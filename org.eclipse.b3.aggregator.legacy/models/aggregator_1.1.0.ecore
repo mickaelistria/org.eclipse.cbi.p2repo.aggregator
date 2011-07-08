@@ -20,7 +20,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="customCategories" upperBound="-1"
         eType="#//CustomCategory" containment="true" eKeys="#//CustomCategory/identifier"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="contacts" upperBound="-1"
-        eType="#//Contact" containment="true" eOpposite="#//Contact/aggregator" eKeys="#//Contact/email"/>
+        eType="#//Contact" containment="true" eOpposite="#//Contact/aggregation" eKeys="#//Contact/email"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="buildmaster" eType="#//Contact"
         eKeys="#//Contact/email"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="label" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -75,7 +75,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="Contact">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="email" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="aggregator" lowerBound="1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="aggregation" lowerBound="1"
         eType="#//Aggregation" eOpposite="#//Aggregation/contacts"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Contribution" eSuperTypes="#//EnabledStatusProvider #//DescriptionProvider #//StatusProvider #//InfosProvider #//IdentificationProvider">
@@ -236,11 +236,12 @@
         eType="#//Status" changeable="false" volatile="true" transient="true" resolveProxies="false"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ValidationSet" eSuperTypes="#//EnabledStatusProvider #//DescriptionProvider #//StatusProvider #//InfosProvider">
-    <eOperations name="getValidationRepositories" upperBound="-1" eType="#//MetadataRepositoryReference">
-      <eParameters name="enabledOnly" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
-    </eOperations>
-    <eOperations name="getContributions" upperBound="-1" eType="#//Contribution">
-      <eParameters name="enabledOnly" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eOperations name="getAllValidationRepositories" upperBound="-1" eType="#//MetadataRepositoryReference"/>
+    <eOperations name="getAllContributions" upperBound="-1" eType="#//Contribution"/>
+    <eOperations name="getDeclaredContributions" upperBound="-1" eType="#//Contribution"/>
+    <eOperations name="getDeclaredValidationRepositories" upperBound="-1" eType="#//MetadataRepositoryReference"/>
+    <eOperations name="isExtensionOf" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eParameters name="validationSet" eType="#//ValidationSet"/>
     </eOperations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="abstract" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
         defaultValueLiteral="false"/>
@@ -315,22 +316,69 @@
     <eLiterals name="Carbon" value="2" literal="carbon"/>
     <eLiterals name="Cocoa" value="3" literal="cocoa"/>
     <eLiterals name="Motif" value="4" literal="motif"/>
-    <eLiterals name="Photon" literal="photon"/>
+    <eLiterals name="Photon" value="5" literal="photon"/>
   </eClassifiers>
   <eSubpackages name="p2view" nsURI="http://www.eclipse.org/b3/2010/aggregator/p2view/1.0.0"
       nsPrefix="p2view">
-    <eClassifiers xsi:type="ecore:EClass" name="MetadataRepositoryStructuredView">
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="installableUnitList"
-          unique="false" eType="#//p2view/InstallableUnits" containment="true"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="properties" eType="#//p2view/Properties"
-          containment="true"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="metadataRepository" ordered="false"
-          lowerBound="1" eType="ecore:EClass ../../org.eclipse.b3.p2/model/p2.ecore#//MetadataRepository"
-          containment="true" resolveProxies="false"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="loaded" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Bundle" eSuperTypes="#//p2view/IUPresentationWithDetails"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Bundles">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="bundles" upperBound="-1"
+          eType="#//p2view/Bundle"/>
       <eGenericSuperTypes eClassifier="#//ChildrenProvider">
-        <eTypeArguments eClassifier="#//p2view/InstallableUnits"/>
+        <eTypeArguments eClassifier="#//p2view/Bundle"/>
+      </eGenericSuperTypes>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Category" eSuperTypes="#//p2view/IUPresentation">
+      <eOperations name="getNotNullCategoryContainer" eType="#//p2view/Categories"/>
+      <eOperations name="getNotNullFeatureContainer" eType="#//p2view/Features"/>
+      <eOperations name="getNotNullProductContainer" eType="#//p2view/Products"/>
+      <eOperations name="getNotNullBundleContainer" eType="#//p2view/Bundles"/>
+      <eOperations name="getNotNullFragmentContainer" eType="#//p2view/Fragments"/>
+      <eOperations name="isNested" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="categoryContainer" eType="#//p2view/Categories"
+          containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="featureContainer" eType="#//p2view/Features"
+          containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="productContainer" eType="#//p2view/Products"
+          containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="bundleContainer" eType="#//p2view/Bundles"
+          containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="fragmentContainer" eType="#//p2view/Fragments"
+          containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="iuDetails" eType="#//p2view/IUDetails"
+          changeable="false" containment="true" resolveProxies="false"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Categories">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="categories" upperBound="-1"
+          eType="#//p2view/Category"/>
+      <eGenericSuperTypes eClassifier="#//ChildrenProvider">
+        <eTypeArguments eClassifier="#//p2view/Category"/>
+      </eGenericSuperTypes>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Feature" eSuperTypes="#//p2view/IUPresentationWithDetails">
+      <eOperations name="getNotNullFeatureContainer" eType="#//p2view/Features"/>
+      <eOperations name="getNotNullBundleContainer" eType="#//p2view/Bundles"/>
+      <eOperations name="getNotNullFragmentContainer" eType="#//p2view/Fragments"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="featureContainer" eType="#//p2view/Features"
+          containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="bundleContainer" eType="#//p2view/Bundles"
+          containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="fragmentContainer" eType="#//p2view/Fragments"
+          containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Features">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="features" upperBound="-1"
+          eType="#//p2view/Feature"/>
+      <eGenericSuperTypes eClassifier="#//ChildrenProvider">
+        <eTypeArguments eClassifier="#//p2view/Feature"/>
+      </eGenericSuperTypes>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Fragment" eSuperTypes="#//p2view/Bundle"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Fragments">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="fragments" upperBound="-1"
+          eType="#//p2view/Fragment"/>
+      <eGenericSuperTypes eClassifier="#//ChildrenProvider">
+        <eTypeArguments eClassifier="#//p2view/Fragment"/>
       </eGenericSuperTypes>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="InstallableUnits">
@@ -358,130 +406,6 @@
         <eTypeArguments eClassifier="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
       </eGenericSuperTypes>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="Categories">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="categories" upperBound="-1"
-          eType="#//p2view/Category"/>
-      <eGenericSuperTypes eClassifier="#//ChildrenProvider">
-        <eTypeArguments eClassifier="#//p2view/Category"/>
-      </eGenericSuperTypes>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="Features">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="features" upperBound="-1"
-          eType="#//p2view/Feature"/>
-      <eGenericSuperTypes eClassifier="#//ChildrenProvider">
-        <eTypeArguments eClassifier="#//p2view/Feature"/>
-      </eGenericSuperTypes>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="Products">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="products" upperBound="-1"
-          eType="#//p2view/Product"/>
-      <eGenericSuperTypes eClassifier="#//ChildrenProvider">
-        <eTypeArguments eClassifier="#//p2view/Product"/>
-      </eGenericSuperTypes>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="Bundles">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="bundles" upperBound="-1"
-          eType="#//p2view/Bundle"/>
-      <eGenericSuperTypes eClassifier="#//ChildrenProvider">
-        <eTypeArguments eClassifier="#//p2view/Bundle"/>
-      </eGenericSuperTypes>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="Fragments">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="fragments" upperBound="-1"
-          eType="#//p2view/Fragment"/>
-      <eGenericSuperTypes eClassifier="#//ChildrenProvider">
-        <eTypeArguments eClassifier="#//p2view/Fragment"/>
-      </eGenericSuperTypes>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="Miscellaneous">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="others" upperBound="-1"
-          eType="#//p2view/OtherIU"/>
-      <eGenericSuperTypes eClassifier="#//ChildrenProvider">
-        <eTypeArguments eClassifier="#//p2view/OtherIU"/>
-      </eGenericSuperTypes>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="IUPresentation" abstract="true">
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="version" eType="ecore:EDataType ../../org.eclipse.b3.p2/model/p2.ecore#//Version"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="label" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" lowerBound="1"
-          eType="#//InstallableUnitType" changeable="false" volatile="true" defaultValueLiteral=""/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="filter" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="installableUnit" eType="ecore:EClass ../../org.eclipse.b3.p2/model/p2.ecore#//IInstallableUnit"
-          resolveProxies="false"/>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="IUPresentationWithDetails" abstract="true"
-        eSuperTypes="#//p2view/IUPresentation #//p2view/IUDetails">
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="detailsResolved" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Boolean"/>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="Category" eSuperTypes="#//p2view/IUPresentation">
-      <eOperations name="getNotNullCategoryContainer" eType="#//p2view/Categories"/>
-      <eOperations name="getNotNullFeatureContainer" eType="#//p2view/Features"/>
-      <eOperations name="getNotNullProductContainer" eType="#//p2view/Products"/>
-      <eOperations name="getNotNullBundleContainer" eType="#//p2view/Bundles"/>
-      <eOperations name="getNotNullFragmentContainer" eType="#//p2view/Fragments"/>
-      <eOperations name="isNested" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="categoryContainer" eType="#//p2view/Categories"
-          containment="true"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="featureContainer" eType="#//p2view/Features"
-          containment="true"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="productContainer" eType="#//p2view/Products"
-          containment="true"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="bundleContainer" eType="#//p2view/Bundles"
-          containment="true"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="fragmentContainer" eType="#//p2view/Fragments"
-          containment="true"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="iuDetails" eType="#//p2view/IUDetails"
-          changeable="false" containment="true" resolveProxies="false"/>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="Feature" eSuperTypes="#//p2view/IUPresentationWithDetails">
-      <eOperations name="getNotNullFeatureContainer" eType="#//p2view/Features"/>
-      <eOperations name="getNotNullBundleContainer" eType="#//p2view/Bundles"/>
-      <eOperations name="getNotNullFragmentContainer" eType="#//p2view/Fragments"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="featureContainer" eType="#//p2view/Features"
-          containment="true"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="bundleContainer" eType="#//p2view/Bundles"
-          containment="true"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="fragmentContainer" eType="#//p2view/Fragments"
-          containment="true"/>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="Product" eSuperTypes="#//p2view/IUPresentationWithDetails">
-      <eOperations name="getNotNullFeatureContainer" eType="#//p2view/Features"/>
-      <eOperations name="getNotNullBundleContainer" eType="#//p2view/Bundles"/>
-      <eOperations name="getNotNullFragmentContainer" eType="#//p2view/Fragments"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="featureContainer" eType="#//p2view/Features"
-          containment="true"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="bundleContainer" eType="#//p2view/Bundles"
-          containment="true"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="fragmentContainer" eType="#//p2view/Fragments"
-          containment="true"/>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="Bundle" eSuperTypes="#//p2view/IUPresentationWithDetails"/>
-    <eClassifiers xsi:type="ecore:EClass" name="Fragment" eSuperTypes="#//p2view/Bundle"/>
-    <eClassifiers xsi:type="ecore:EClass" name="OtherIU" eSuperTypes="#//p2view/IUPresentationWithDetails"/>
-    <eClassifiers xsi:type="ecore:EClass" name="Properties">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="propertyList" upperBound="-1"
-          eType="#//Property" containment="true"/>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="Requirements">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="requirements" upperBound="-1"
-          eType="#//p2view/RequirementWrapper" containment="true"/>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="ProvidedCapabilities">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="providedCapabilities"
-          upperBound="-1" eType="#//p2view/ProvidedCapabilityWrapper" containment="true"/>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="Touchpoints">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="touchpointType" eType="ecore:EClass ../../org.eclipse.b3.p2/model/p2.ecore#//ITouchpointType"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="touchpointDataList" upperBound="-1"
-          eType="ecore:EClass ../../org.eclipse.b3.p2/model/p2.ecore#//ITouchpointData"/>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="Licenses">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="licenses" upperBound="-1"
-          eType="ecore:EClass ../../org.eclipse.b3.p2/model/p2.ecore#//ILicense"/>
-    </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="IUDetails">
       <eStructuralFeatures xsi:type="ecore:EReference" name="requirementsContainer"
           eType="#//p2view/Requirements" containment="true" resolveProxies="false"/>
@@ -498,15 +422,114 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="licensesContainer" eType="#//p2view/Licenses"
           containment="true" resolveProxies="false"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="RequirementWrapper" eSuperTypes="../../org.eclipse.b3.p2/model/p2.ecore#//IRequirement #//LabelProvider">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="genuine" lowerBound="1"
-          eType="ecore:EClass ../../org.eclipse.b3.p2/model/p2.ecore#//IRequirement"
-          changeable="false" resolveProxies="false"/>
+    <eClassifiers xsi:type="ecore:EClass" name="IUPresentation" abstract="true">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="version" eType="ecore:EDataType ../../org.eclipse.b3.p2/model/p2.ecore#//Version"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="label" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" unique="false"
+          lowerBound="1" eType="#//InstallableUnitType" changeable="false" volatile="true"
+          defaultValueLiteral=""/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="filter" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="installableUnit" eType="ecore:EClass ../../org.eclipse.b3.p2/model/p2.ecore#//IInstallableUnit"
+          resolveProxies="false"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="IUPresentationWithDetails" abstract="true"
+        eSuperTypes="#//p2view/IUPresentation #//p2view/IUDetails">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="detailsResolved" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Boolean"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Licenses">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="licenses" upperBound="-1"
+          eType="ecore:EClass ../../org.eclipse.b3.p2/model/p2.ecore#//ILicense"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="RepositoryBrowser">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="repositories" upperBound="-1"
+          eType="#//p2view/MetadataRepositoryStructuredView" volatile="true" transient="true"
+          derived="true" resolveProxies="false"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="loading" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+          changeable="false" volatile="true" transient="true" defaultValueLiteral="false"
+          unsettable="true" derived="true"/>
+      <eGenericSuperTypes eClassifier="#//StatusProvider"/>
+      <eGenericSuperTypes eClassifier="#//ChildrenProvider">
+        <eTypeArguments eClassifier="#//p2view/MetadataRepositoryStructuredView"/>
+      </eGenericSuperTypes>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="MetadataRepositoryStructuredView">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="installableUnitList"
+          unique="false" eType="#//p2view/InstallableUnits" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="properties" eType="#//p2view/Properties"
+          containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="metadataRepository" ordered="false"
+          lowerBound="1" eType="ecore:EClass ../../org.eclipse.b3.p2/model/p2.ecore#//MetadataRepository"
+          containment="true" resolveProxies="false"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="loaded" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="repositoryReferences"
+          eType="#//p2view/RepositoryReferences"/>
+      <eGenericSuperTypes eClassifier="#//ChildrenProvider">
+        <eTypeArguments eClassifier="#//p2view/InstallableUnits"/>
+      </eGenericSuperTypes>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Miscellaneous">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="others" upperBound="-1"
+          eType="#//p2view/OtherIU"/>
+      <eGenericSuperTypes eClassifier="#//ChildrenProvider">
+        <eTypeArguments eClassifier="#//p2view/OtherIU"/>
+      </eGenericSuperTypes>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="OtherIU" eSuperTypes="#//p2view/IUPresentationWithDetails"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Product" eSuperTypes="#//p2view/IUPresentationWithDetails">
+      <eOperations name="getNotNullFeatureContainer" eType="#//p2view/Features"/>
+      <eOperations name="getNotNullBundleContainer" eType="#//p2view/Bundles"/>
+      <eOperations name="getNotNullFragmentContainer" eType="#//p2view/Fragments"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="featureContainer" eType="#//p2view/Features"
+          containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="bundleContainer" eType="#//p2view/Bundles"
+          containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="fragmentContainer" eType="#//p2view/Fragments"
+          containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Products">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="products" upperBound="-1"
+          eType="#//p2view/Product"/>
+      <eGenericSuperTypes eClassifier="#//ChildrenProvider">
+        <eTypeArguments eClassifier="#//p2view/Product"/>
+      </eGenericSuperTypes>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Properties">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="propertyList" upperBound="-1"
+          eType="#//Property" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ProvidedCapabilities">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="providedCapabilities"
+          upperBound="-1" eType="#//p2view/ProvidedCapabilityWrapper" containment="true"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ProvidedCapabilityWrapper" eSuperTypes="../../org.eclipse.b3.p2/model/p2.ecore#//IProvidedCapability #//LabelProvider">
       <eStructuralFeatures xsi:type="ecore:EReference" name="genuine" lowerBound="1"
           eType="ecore:EClass ../../org.eclipse.b3.p2/model/p2.ecore#//IProvidedCapability"
           changeable="false" resolveProxies="false"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="RepositoryReferences">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="repositoryReferences"
+          upperBound="-1" eType="ecore:EClass ../../org.eclipse.b3.p2/model/p2.ecore#//IRepositoryReference"/>
+      <eGenericSuperTypes eClassifier="#//ChildrenProvider">
+        <eTypeArguments eClassifier="ecore:EClass ../../org.eclipse.b3.p2/model/p2.ecore#//IRepositoryReference"/>
+      </eGenericSuperTypes>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Requirements">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="requirements" upperBound="-1"
+          eType="#//p2view/RequirementWrapper" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="RequirementWrapper" eSuperTypes="../../org.eclipse.b3.p2/model/p2.ecore#//IRequirement #//LabelProvider">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="genuine" lowerBound="1"
+          eType="ecore:EClass ../../org.eclipse.b3.p2/model/p2.ecore#//IRequirement"
+          changeable="false" resolveProxies="false"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Touchpoints">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="touchpointType" eType="ecore:EClass ../../org.eclipse.b3.p2/model/p2.ecore#//ITouchpointType"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="touchpointDataList" upperBound="-1"
+          eType="ecore:EClass ../../org.eclipse.b3.p2/model/p2.ecore#//ITouchpointData"/>
     </eClassifiers>
   </eSubpackages>
 </ecore:EPackage>

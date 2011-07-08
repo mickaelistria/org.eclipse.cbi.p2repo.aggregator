@@ -11,6 +11,7 @@ package org.eclipse.b3.aggregator.p2view.util;
 
 import org.eclipse.b3.aggregator.ChildrenProvider;
 import org.eclipse.b3.aggregator.LabelProvider;
+import org.eclipse.b3.aggregator.StatusProvider;
 import org.eclipse.b3.aggregator.p2view.*;
 import org.eclipse.b3.aggregator.p2view.Bundle;
 import org.eclipse.b3.aggregator.p2view.Bundles;
@@ -453,6 +454,23 @@ public class P2viewSwitch<T1> extends Switch<T1> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Repository Browser</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * 
+	 * @param object
+	 *            the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Repository Browser</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseRepositoryBrowser(RepositoryBrowser object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Repository References</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -500,6 +518,23 @@ public class P2viewSwitch<T1> extends Switch<T1> {
 	 * @generated
 	 */
 	public T1 caseRequirementWrapper(RequirementWrapper object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Status Provider</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * 
+	 * @param object
+	 *            the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Status Provider</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseStatusProvider(StatusProvider object) {
 		return null;
 	}
 
@@ -668,6 +703,17 @@ public class P2viewSwitch<T1> extends Switch<T1> {
 			case P2viewPackage.LICENSES: {
 				Licenses licenses = (Licenses) theEObject;
 				T1 result = caseLicenses(licenses);
+				if(result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
+			case P2viewPackage.REPOSITORY_BROWSER: {
+				RepositoryBrowser repositoryBrowser = (RepositoryBrowser) theEObject;
+				T1 result = caseRepositoryBrowser(repositoryBrowser);
+				if(result == null)
+					result = caseStatusProvider(repositoryBrowser);
+				if(result == null)
+					result = caseChildrenProvider(repositoryBrowser);
 				if(result == null)
 					result = defaultCase(theEObject);
 				return result;

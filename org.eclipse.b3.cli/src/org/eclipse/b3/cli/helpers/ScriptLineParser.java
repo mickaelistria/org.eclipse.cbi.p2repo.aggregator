@@ -72,24 +72,6 @@ public class ScriptLineParser implements Iterator<String> {
 		}
 	}
 
-	public boolean hasNext() {
-		if(nextToken == null)
-			nextToken = this.nextToken();
-		return nextToken != null;
-	}
-
-	public String next() {
-		if(!this.hasNext())
-			throw new NoSuchElementException();
-		String nxt = nextToken;
-		nextToken = null;
-		return nxt;
-	}
-
-	public void remove() {
-		throw new UnsupportedOperationException();
-	}
-
 	private void getExpanded(StringBuffer bld, String string) {
 		int top = string.length();
 		int idx = 0;
@@ -175,6 +157,20 @@ public class ScriptLineParser implements Iterator<String> {
 		return innerBld.toString();
 	}
 
+	public boolean hasNext() {
+		if(nextToken == null)
+			nextToken = this.nextToken();
+		return nextToken != null;
+	}
+
+	public String next() {
+		if(!this.hasNext())
+			throw new NoSuchElementException();
+		String nxt = nextToken;
+		nextToken = null;
+		return nxt;
+	}
+
 	private String nextToken() {
 		outerBld.setLength(0);
 		int top = line.length();
@@ -210,5 +206,9 @@ public class ScriptLineParser implements Iterator<String> {
 			break;
 		}
 		return outerBld.toString();
+	}
+
+	public void remove() {
+		throw new UnsupportedOperationException();
 	}
 }

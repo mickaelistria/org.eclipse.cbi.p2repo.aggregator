@@ -191,7 +191,7 @@ public class ValidationSetVerifier extends BuilderPhase {
 					int i = 0;
 					for(org.eclipse.emf.common.util.URI modelElementURI : modelElementURISet) {
 						VerificationDiagnostic.Singleton singleton = new VerificationDiagnostic.Singleton(
-							rootProblem.toString(), modelElementURI, relatedDiagnostics);
+							rootProblem, modelElementURI, relatedDiagnostics);
 						relatedDiagnostics[i++] = singleton;
 						verificationDiagnostics.add(singleton);
 					}

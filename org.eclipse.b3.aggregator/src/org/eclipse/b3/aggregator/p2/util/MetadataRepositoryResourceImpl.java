@@ -363,7 +363,6 @@ public class MetadataRepositoryResourceImpl extends ResourceImpl implements Stat
 			}
 
 			repoView.setLoaded(true);
-			getContents().add((EObject) repoView);
 
 			Aggregation aggregation = ResourceUtils.getAggregation(getResourceSet());
 			if(aggregation != null) {
@@ -918,6 +917,7 @@ public class MetadataRepositoryResourceImpl extends ResourceImpl implements Stat
 			MetadataRepositoryImpl repository = (MetadataRepositoryImpl) P2Factory.eINSTANCE.createMetadataRepository();
 
 			repoView = P2viewFactory.eINSTANCE.createMetadataRepositoryStructuredView(repository);
+			getContents().add((EObject) repoView);
 			allIUPresentationMatrix.clear();
 
 			ResourceSet resourceSet = getResourceSet();
@@ -977,9 +977,7 @@ public class MetadataRepositoryResourceImpl extends ResourceImpl implements Stat
 			if(getLastException() != null)
 				throw getLastException();
 
-			List<EObject> contents = getContents();
-			if(contents.size() != 1 ||
-					((MetadataRepositoryStructuredView) contents.get(0)).getMetadataRepository().getLocation() == null)
+			if(!repoView.isLoaded() || repoView.getMetadataRepository().getLocation() == null)
 				throw new Exception(String.format("Unable to load repository %s", getURI().toString()));
 
 			return ((MetadataRepositoryStructuredView) contents.get(0)).getMetadataRepository();
