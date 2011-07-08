@@ -129,7 +129,7 @@ public class CategoriesGenerator extends BuilderPhase {
 			}
 		}
 		else {
-			List<MapRule> mapRules = repo.getMapRules();
+			List<MapRule> mapRules = repo.getMapRules(true);
 			allIUs: for(IInstallableUnit iu : repo.getMetadataRepository().getInstallableUnits()) {
 				if(builder.isTopLevelCategory(iu)) {
 					for(MapRule mapRule : mapRules)

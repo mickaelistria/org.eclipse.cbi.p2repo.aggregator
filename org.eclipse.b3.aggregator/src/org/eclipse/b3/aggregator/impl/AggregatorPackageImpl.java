@@ -1683,6 +1683,7 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 		mappedUnitEClass.getESuperTypes().add(this.getIdentificationProvider());
 		mapRuleEClass.getESuperTypes().add(this.getInstallableUnitRequest());
 		mapRuleEClass.getESuperTypes().add(this.getDescriptionProvider());
+		mapRuleEClass.getESuperTypes().add(this.getEnabledStatusProvider());
 		mavenMappingEClass.getESuperTypes().add(this.getStatusProvider());
 		mavenMappingEClass.getESuperTypes().add(this.getInfosProvider());
 		metadataRepositoryReferenceEClass.getESuperTypes().add(this.getEnabledStatusProvider());
@@ -2012,6 +2013,9 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 			getMappedRepository_MapRules(), this.getMapRule(), null, "mapRules", null, 0, -1, MappedRepository.class,
 			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,
 			!IS_DERIVED, IS_ORDERED);
+
+		op = addEOperation(mappedRepositoryEClass, this.getMapRule(), "getMapRules", 0, -1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEBoolean(), "enabledOnly", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		op = addEOperation(mappedRepositoryEClass, this.getMappedUnit(), "getUnits", 0, -1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEBoolean(), "enabledOnly", 0, 1, IS_UNIQUE, IS_ORDERED);

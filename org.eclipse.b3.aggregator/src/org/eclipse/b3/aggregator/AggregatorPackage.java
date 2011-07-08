@@ -2685,13 +2685,23 @@ public interface AggregatorPackage extends EPackage {
 	int MAP_RULE__AVAILABLE_VERSIONS = INSTALLABLE_UNIT_REQUEST__AVAILABLE_VERSIONS;
 
 	/**
+	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int MAP_RULE__ENABLED = INSTALLABLE_UNIT_REQUEST_FEATURE_COUNT + 0;
+
+	/**
 	 * The number of structural features of the '<em>Map Rule</em>' class.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int MAP_RULE_FEATURE_COUNT = INSTALLABLE_UNIT_REQUEST_FEATURE_COUNT + 0;
+	int MAP_RULE_FEATURE_COUNT = INSTALLABLE_UNIT_REQUEST_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Status</b></em>' reference.
@@ -2777,6 +2787,16 @@ public interface AggregatorPackage extends EPackage {
 	 * @ordered
 	 */
 	int EXCLUSION_RULE__AVAILABLE_VERSIONS = MAP_RULE__AVAILABLE_VERSIONS;
+
+	/**
+	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int EXCLUSION_RULE__ENABLED = MAP_RULE__ENABLED;
 
 	/**
 	 * The number of structural features of the '<em>Exclusion Rule</em>' class.
@@ -3567,6 +3587,16 @@ public interface AggregatorPackage extends EPackage {
 	 * @ordered
 	 */
 	int VALID_CONFIGURATIONS_RULE__AVAILABLE_VERSIONS = MAP_RULE__AVAILABLE_VERSIONS;
+
+	/**
+	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int VALID_CONFIGURATIONS_RULE__ENABLED = MAP_RULE__ENABLED;
 
 	/**
 	 * The feature id for the '<em><b>Valid Configurations</b></em>' reference list.

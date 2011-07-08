@@ -738,6 +738,8 @@ public class AggregatorSwitch<T1> extends Switch<T1> {
 				if(result == null)
 					result = caseInstallableUnitRequest(exclusionRule);
 				if(result == null)
+					result = caseEnabledStatusProvider(exclusionRule);
+				if(result == null)
 					result = caseStatusProvider(exclusionRule);
 				if(result == null)
 					result = caseInfosProvider(exclusionRule);
@@ -824,6 +826,8 @@ public class AggregatorSwitch<T1> extends Switch<T1> {
 				T1 result = caseMapRule(mapRule);
 				if(result == null)
 					result = caseInstallableUnitRequest(mapRule);
+				if(result == null)
+					result = caseEnabledStatusProvider(mapRule);
 				if(result == null)
 					result = caseStatusProvider(mapRule);
 				if(result == null)
@@ -931,6 +935,8 @@ public class AggregatorSwitch<T1> extends Switch<T1> {
 					result = caseMapRule(validConfigurationsRule);
 				if(result == null)
 					result = caseInstallableUnitRequest(validConfigurationsRule);
+				if(result == null)
+					result = caseEnabledStatusProvider(validConfigurationsRule);
 				if(result == null)
 					result = caseStatusProvider(validConfigurationsRule);
 				if(result == null)

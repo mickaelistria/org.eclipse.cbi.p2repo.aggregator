@@ -10,17 +10,46 @@
 package org.eclipse.b3.aggregator.impl;
 
 import org.eclipse.b3.aggregator.AggregatorPackage;
+import org.eclipse.b3.aggregator.EnabledStatusProvider;
 import org.eclipse.b3.aggregator.MapRule;
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object '<em><b>Map Rule</b></em>'. <!-- end-user-doc -->
  * <p>
+ * The following features are implemented:
+ * <ul>
+ * <li>{@link org.eclipse.b3.aggregator.impl.MapRuleImpl#isEnabled <em>Enabled</em>}</li>
+ * </ul>
  * </p>
  * 
  * @generated
  */
 public abstract class MapRuleImpl extends InstallableUnitRequestImpl implements MapRule {
+	/**
+	 * The default value of the '{@link #isEnabled() <em>Enabled</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see #isEnabled()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean ENABLED_EDEFAULT = true;
+
+	/**
+	 * The flag representing the value of the '{@link #isEnabled() <em>Enabled</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see #isEnabled()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int ENABLED_EFLAG = 1 << 0;
+
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -28,6 +57,91 @@ public abstract class MapRuleImpl extends InstallableUnitRequestImpl implements 
 	 */
 	protected MapRuleImpl() {
 		super();
+		eFlags |= ENABLED_EFLAG;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
+		if(baseClass == EnabledStatusProvider.class) {
+			switch(derivedFeatureID) {
+				case AggregatorPackage.MAP_RULE__ENABLED:
+					return AggregatorPackage.ENABLED_STATUS_PROVIDER__ENABLED;
+				default:
+					return -1;
+			}
+		}
+		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
+		if(baseClass == EnabledStatusProvider.class) {
+			switch(baseFeatureID) {
+				case AggregatorPackage.ENABLED_STATUS_PROVIDER__ENABLED:
+					return AggregatorPackage.MAP_RULE__ENABLED;
+				default:
+					return -1;
+			}
+		}
+		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
+		switch(featureID) {
+			case AggregatorPackage.MAP_RULE__ENABLED:
+				return isEnabled();
+		}
+		return super.eGet(featureID, resolve, coreType);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public boolean eIsSet(int featureID) {
+		switch(featureID) {
+			case AggregatorPackage.MAP_RULE__ENABLED:
+				return ((eFlags & ENABLED_EFLAG) != 0) != ENABLED_EDEFAULT;
+		}
+		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public void eSet(int featureID, Object newValue) {
+		switch(featureID) {
+			case AggregatorPackage.MAP_RULE__ENABLED:
+				setEnabled((Boolean) newValue);
+				return;
+		}
+		super.eSet(featureID, newValue);
 	}
 
 	/**
@@ -38,6 +152,67 @@ public abstract class MapRuleImpl extends InstallableUnitRequestImpl implements 
 	@Override
 	protected EClass eStaticClass() {
 		return AggregatorPackage.Literals.MAP_RULE;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public void eUnset(int featureID) {
+		switch(featureID) {
+			case AggregatorPackage.MAP_RULE__ENABLED:
+				setEnabled(ENABLED_EDEFAULT);
+				return;
+		}
+		super.eUnset(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public boolean isEnabled() {
+		return (eFlags & ENABLED_EFLAG) != 0;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public void setEnabled(boolean newEnabled) {
+		boolean oldEnabled = (eFlags & ENABLED_EFLAG) != 0;
+		if(newEnabled)
+			eFlags |= ENABLED_EFLAG;
+		else
+			eFlags &= ~ENABLED_EFLAG;
+		if(eNotificationRequired())
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, AggregatorPackage.MAP_RULE__ENABLED, oldEnabled, newEnabled));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if(eIsProxy())
+			return super.toString();
+
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (enabled: ");
+		result.append((eFlags & ENABLED_EFLAG) != 0);
+		result.append(')');
+		return result.toString();
 	}
 
 } // MapRuleImpl

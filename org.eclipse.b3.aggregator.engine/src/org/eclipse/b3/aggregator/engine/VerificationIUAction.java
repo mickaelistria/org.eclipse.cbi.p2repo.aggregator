@@ -315,7 +315,7 @@ public class VerificationIUAction extends AbstractPublisherAction {
 					else {
 						// Verify that all products and features can be installed.
 						//
-						List<MapRule> mapRules = repository.getMapRules();
+						List<MapRule> mapRules = repository.getMapRules(true);
 						Map<IMatchExpression<IInstallableUnit>, List<IInstallableUnit>> preSelectedIUs = new HashMap<IMatchExpression<IInstallableUnit>, List<IInstallableUnit>>();
 						allIUs: for(IInstallableUnit riu : allIUs) {
 

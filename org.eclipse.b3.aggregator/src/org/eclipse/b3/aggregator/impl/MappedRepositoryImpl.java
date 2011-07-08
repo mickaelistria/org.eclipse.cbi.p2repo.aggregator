@@ -523,6 +523,19 @@ public class MappedRepositoryImpl extends MetadataRepositoryReferenceImpl implem
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated NOT
+	 */
+	public EList<MapRule> getMapRules(boolean enabledOnly) {
+		EList<MapRule> mrules = getMapRules();
+		if(enabledOnly)
+			mrules = GeneralUtils.getEnabled(mrules);
+		return mrules;
+	}
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated

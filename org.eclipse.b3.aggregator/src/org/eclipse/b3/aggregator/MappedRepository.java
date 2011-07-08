@@ -119,6 +119,19 @@ public interface MappedRepository extends MetadataRepositoryReference, Descripti
 	EList<MapRule> getMapRules();
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Returns the MapRules referenced by this instance. Rules that have their <code>enabled</code> flag set to false will be excluded if the
+	 * parameter <code>enabledOnly</code> is set to <code>true</code>.
+	 * <!-- end-model-doc -->
+	 * 
+	 * @model
+	 * @generated
+	 */
+	EList<MapRule> getMapRules(boolean enabledOnly);
+
+	/**
 	 * Returns the value of the '<em><b>Products</b></em>' containment reference list.
 	 * The list contents are of type {@link org.eclipse.b3.aggregator.Product}.
 	 * <!-- begin-user-doc -->

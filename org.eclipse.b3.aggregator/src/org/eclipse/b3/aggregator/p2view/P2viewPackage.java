@@ -668,8 +668,7 @@ public interface P2viewPackage extends EPackage {
 		EReference LICENSES__LICENSES = eINSTANCE.getLicenses_Licenses();
 
 		/**
-		 * The meta object literal for the '{@link org.eclipse.b3.aggregator.p2view.impl.RepositoryBrowserImpl <em>Repository Browser</em>}'
-		 * class.
+		 * The meta object literal for the '{@link org.eclipse.b3.aggregator.p2view.impl.RepositoryBrowserImpl <em>Repository Browser</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * 
