@@ -269,6 +269,10 @@ public class P2Bridge {
 	}
 
 	public static InstallableUnit importToModel(IInstallableUnit iu) {
+		return importToModel(iu, null);
+	}
+
+	public static InstallableUnit importToModel(IInstallableUnit iu, IInstallableUnit siteXMLGeneratedIU) {
 		if(iu == null)
 			return null;
 
@@ -337,6 +341,22 @@ public class P2Bridge {
 		for(ITouchpointData td : iu.getTouchpointData())
 			tds.add(importToModel(td));
 
+		if(siteXMLGeneratedIU != null) {
+			// This one might have a 'zipped' instruction that got lost
+			// in translation
+			for(ITouchpointData td : siteXMLGeneratedIU.getTouchpointData()) {
+				ITouchpointInstruction tdi = td.getInstruction("zipped");
+				if(tdi != null) {
+					if(tds.isEmpty()) {
+						tds.add(importToModel(td));
+					}
+					else {
+						((TouchpointData) tds.get(0)).getInstructionMap().put("zipped", importToModel(tdi));
+					}
+					break;
+				}
+			}
+		}
 		return miu;
 	}
 

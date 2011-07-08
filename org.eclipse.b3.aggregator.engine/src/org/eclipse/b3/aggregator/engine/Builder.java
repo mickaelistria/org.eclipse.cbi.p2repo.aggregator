@@ -537,6 +537,7 @@ public class Builder extends ModelAbstractCommand {
 	}
 
 	private void cleanAll() throws CoreException {
+		cleanMetadata();
 		if(buildRoot.exists()) {
 			FileUtils.deleteAll(buildRoot);
 			if(buildRoot.exists())
@@ -550,7 +551,7 @@ public class Builder extends ModelAbstractCommand {
 		safeRepositoryNames.clear();
 	}
 
-	private void cleanMetadata(IProvisioningAgent agent) throws CoreException {
+	private void cleanMetadata() throws CoreException {
 		IMetadataRepositoryManager mdrMgr = getMdrManager();
 		File finalRepo = new File(buildRoot, Builder.REPO_FOLDER_FINAL);
 		deleteMetadataRepository(mdrMgr, finalRepo);
@@ -1022,6 +1023,11 @@ public class Builder extends ModelAbstractCommand {
 			return;
 		}
 
+		// Forget these meta-data repositories
+		IMetadataRepositoryManager mdrMgr = getMdrManager();
+		mdrMgr.removeRepository(destination.toURI());
+		mdrMgr.removeRepository(aggregateDestination.toURI());
+
 		// Preserve artifacts
 		FileUtils.deleteAll(aggregateDestination);
 		aggregateDestination.mkdirs();
@@ -1260,9 +1266,10 @@ public class Builder extends ModelAbstractCommand {
 
 			Diagnostic diag = Diagnostician.INSTANCE.validate((EObject) aggregation);
 			if(diag.getSeverity() == Diagnostic.ERROR) {
+				StringBuilder bld = new StringBuilder("Aggregation model is inconsistent: ").append(diag.getMessage());
 				for(Diagnostic childDiag : diag.getChildren())
-					LogUtils.error(childDiag.getMessage());
-				throw ExceptionUtils.fromMessage("Build model validation failed: %s", diag.getMessage());
+					bld.append(String.format("%n  %s", childDiag.getMessage()));
+				throw ExceptionUtils.fromMessage(bld.toString());
 			}
 
 			if(buildRoot == null) {
@@ -1569,7 +1576,7 @@ public class Builder extends ModelAbstractCommand {
 					cleanAll();
 					break;
 				default:
-					cleanMetadata(provisioningAgent);
+					cleanMetadata();
 			}
 
 			if(action == ActionType.CLEAN)

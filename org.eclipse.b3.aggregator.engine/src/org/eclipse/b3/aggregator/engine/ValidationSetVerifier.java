@@ -27,7 +27,6 @@ import org.eclipse.b3.aggregator.ValidationSet;
 import org.eclipse.b3.aggregator.impl.AggregationImpl;
 import org.eclipse.b3.aggregator.util.SpecialQueries;
 import org.eclipse.b3.aggregator.util.VerificationDiagnostic;
-import org.eclipse.b3.p2.InstallableUnit;
 import org.eclipse.b3.p2.MetadataRepository;
 import org.eclipse.b3.p2.util.P2Bridge;
 import org.eclipse.b3.p2.util.P2Utils;
@@ -530,7 +529,7 @@ public class ValidationSetVerifier extends BuilderPhase {
 		return Collections.emptySet();
 	}
 
-	InstallableUnit resolvePartialIU(IInstallableUnit iu, SubMonitor subMon) throws CoreException {
+	IInstallableUnit resolvePartialIU(IInstallableUnit iu, SubMonitor subMon) throws CoreException {
 		IArtifactRepositoryManager arMgr = getBuilder().getArManager();
 		String info = "Converting partial IU for " + iu.getId() + "...";
 		subMon.beginTask(info, IProgressMonitor.UNKNOWN);
@@ -593,10 +592,12 @@ public class ValidationSetVerifier extends BuilderPhase {
 					"Unable to resolve partial IU. Artifact file for %s could not be found", key);
 
 			IInstallableUnit preparedIU = PublisherUtil.createBundleIU(key, bundleFile);
-			if(preparedIU == null)
-				throw ExceptionUtils.fromMessage(
+			if(preparedIU == null) {
+				LogUtils.warning(
 					"Unable to resolve partial IU. Artifact file for %s did not contain a bundle manifest", key);
-			InstallableUnit newIU = P2Bridge.importToModel(preparedIU);
+				return iu;
+			}
+			IInstallableUnit newIU = P2Bridge.importToModel(preparedIU, iu);
 
 			List<IInstallableUnit> allIUs = mdr.getInstallableUnits();
 			allIUs.remove(miu);
