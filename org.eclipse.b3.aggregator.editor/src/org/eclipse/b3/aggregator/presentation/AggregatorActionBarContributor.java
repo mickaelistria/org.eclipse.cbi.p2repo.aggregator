@@ -43,6 +43,7 @@ import org.eclipse.b3.aggregator.impl.AggregationImpl;
 import org.eclipse.b3.aggregator.p2.util.MetadataRepositoryResourceImpl;
 import org.eclipse.b3.aggregator.p2view.IUPresentation;
 import org.eclipse.b3.aggregator.p2view.RequirementWrapper;
+import org.eclipse.b3.aggregator.p2view.impl.MetadataRepositoryStructuredViewImpl;
 import org.eclipse.b3.aggregator.provider.AggregatorEditPlugin;
 import org.eclipse.b3.aggregator.util.AddIUsToContributionCommand;
 import org.eclipse.b3.aggregator.util.AddIUsToCustomCategoryCommand;
@@ -1428,9 +1429,9 @@ public class AggregatorActionBarContributor extends EditingDomainActionBarContri
 							}
 							reloadOrCancelRepoActionVisible = true;
 						}
-						else if(unwrappedObejct instanceof MetadataRepositoryResourceImpl) {
-							MetadataRepositoryResourceImpl res = (MetadataRepositoryResourceImpl) unwrappedObejct;
-							reloadOrCancelRepoAction.addMetadataRepositoryResource(res);
+						else if(unwrappedObejct instanceof MetadataRepositoryStructuredViewImpl) {
+							EObject resValue = (EObject) unwrappedObejct;
+							reloadOrCancelRepoAction.addMetadataRepositoryResource((MetadataRepositoryResourceImpl) resValue.eResource());
 							reloadOrCancelRepoActionVisible = true;
 						}
 						else {

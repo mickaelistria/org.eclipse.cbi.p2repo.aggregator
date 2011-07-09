@@ -8,6 +8,7 @@
 
 package org.eclipse.b3.p2.util;
 
+import java.io.File;
 import java.net.URI;
 
 import org.eclipse.b3.util.B3Util;
@@ -67,19 +68,43 @@ public class P2Utils {
 	}
 
 	public static IProvisioningAgent getDefaultProvisioningAgent() throws CoreException {
-		IProvisioningAgent agent = null;
+		String filter = null;
+		File defaultLocation = getDefaultProvisioningAgentLocation();
+		URI defaultLocationURI = null;
+		if(defaultLocation != null) {
+			defaultLocationURI = defaultLocation.toURI();
+			filter = "(locationURI=" + defaultLocationURI + ')';
+		}
 		try {
-			agent = B3Util.getPlugin().getService(IProvisioningAgent.class);
+			return B3Util.getPlugin().getService(IProvisioningAgent.class, filter);
 		}
 		catch(CoreException e) {
-			// agent is null, further steps may fix it
+			// Agent not created yet. This is expected the first time a process
+			// makes this call.
 		}
-		if(agent == null) {
-			IProvisioningAgentProvider agentProvider = B3Util.getPlugin().getService(IProvisioningAgentProvider.class);
-			agent = agentProvider.createAgent(null);
+
+		IProvisioningAgentProvider agentProvider = B3Util.getPlugin().getService(IProvisioningAgentProvider.class);
+		try {
+			return agentProvider.createAgent(defaultLocationURI);
+		}
+		finally {
 			B3Util.getPlugin().ungetService(agentProvider);
 		}
-		return agent;
+	}
+
+	public static File getDefaultProvisioningAgentLocation() {
+		String userHome = System.getProperty("user.home");
+		if(userHome == null)
+			return null;
+		File home = new File(userHome);
+		File b3Home = new File(home, ".b3");
+		if(!(b3Home.isDirectory() || b3Home.mkdirs()))
+			return null;
+
+		File agentLocation = new File(b3Home, "p2agent");
+		if(!(agentLocation.isDirectory() || agentLocation.mkdirs()))
+			return null;
+		return agentLocation;
 	}
 
 	private static <T> T getP2Service(IProvisioningAgent agent, Class<T> clazz) {
@@ -90,7 +115,7 @@ public class P2Utils {
 
 			Object service = agent.getService(clazz.getName());
 			if(service == null) {
-				String filter = "(&(p2.agent.servicename=" + clazz.getName() + "))";
+				String filter = "(p2.agent.servicename=" + clazz.getName() + ")";
 				IAgentServiceFactory serviceFactory = B3Util.getPlugin().getService(IAgentServiceFactory.class, filter);
 				service = serviceFactory.createService(agent);
 				B3Util.getPlugin().ungetService(serviceFactory);
