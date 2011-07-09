@@ -23,6 +23,7 @@ import org.eclipse.b3.aggregator.MappedRepository;
 import org.eclipse.b3.aggregator.util.GeneralUtils;
 import org.eclipse.b3.p2.MetadataRepository;
 import org.eclipse.b3.p2.impl.InstallableUnitImpl;
+import org.eclipse.b3.p2.util.P2Utils;
 import org.eclipse.b3.p2.util.RepositoryTranslationSupport;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
@@ -184,7 +185,7 @@ public class InstallableUnitRequestItemProvider extends AggregatorItemProviderAd
 			id = id.substring(0, id.length() - IAggregatorConstants.FEATURE_SUFFIX.length());
 		bld.append(id);
 		bld.append(" / ");
-		bld.append(versionRange.toString());
+		bld.append(P2Utils.versionRangeToString(versionRange));
 		IInstallableUnit iu = iuRef.resolveAsSingleton();
 		if(iu != null) {
 			String name = RepositoryTranslationSupport.getInstance(

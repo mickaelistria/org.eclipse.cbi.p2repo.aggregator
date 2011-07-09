@@ -18,6 +18,7 @@ import org.eclipse.equinox.p2.core.IProvisioningAgentProvider;
 import org.eclipse.equinox.p2.core.spi.IAgentServiceFactory;
 import org.eclipse.equinox.p2.engine.IProfileRegistry;
 import org.eclipse.equinox.p2.metadata.IInstallableUnit;
+import org.eclipse.equinox.p2.metadata.VersionRange;
 import org.eclipse.equinox.p2.metadata.expression.ExpressionUtil;
 import org.eclipse.equinox.p2.metadata.expression.IExpression;
 import org.eclipse.equinox.p2.metadata.expression.IMatchExpression;
@@ -148,6 +149,22 @@ public class P2Utils {
 	public static void ungetRepositoryManager(IProvisioningAgent agent, IRepositoryManager<?> manager) {
 		if(agent != null && agent instanceof BackgroundProvisioningAgent)
 			((BackgroundProvisioningAgent) agent).unregisterTask();
+	}
+
+	public static String versionRangeToString(VersionRange versionRange) {
+		if(versionRange == null)
+			return null;
+		StringBuffer bld = new StringBuffer();
+		if(versionRange.getIncludeMinimum() && versionRange.getIncludeMaximum() &&
+				versionRange.getMinimum().equals(versionRange.getMaximum())) {
+			// Exact version. Don't display both upper and lower bounds
+			bld.append('[');
+			versionRange.getMinimum().toString(bld);
+			bld.append(']');
+		}
+		else
+			versionRange.toString(bld);
+		return bld.toString();
 	}
 
 }

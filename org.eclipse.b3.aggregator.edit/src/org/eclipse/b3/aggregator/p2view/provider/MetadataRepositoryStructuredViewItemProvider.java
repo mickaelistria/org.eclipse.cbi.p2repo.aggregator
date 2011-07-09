@@ -279,8 +279,6 @@ public class MetadataRepositoryStructuredViewItemProvider extends AggregatorItem
 		MetadataRepositoryStructuredView self = (MetadataRepositoryStructuredView) object;
 		String label = self.getName();
 		StringBuilder bld = new StringBuilder();
-		if(label != null)
-			bld.append(label);
 		URI uri = ((EObject) object).eResource().getURI();
 		if(uri != null) {
 			int startPos = 0;
@@ -289,12 +287,21 @@ public class MetadataRepositoryStructuredViewItemProvider extends AggregatorItem
 				startPos = 7;
 			if(uriStr.startsWith("p2:", startPos))
 				startPos += 3;
-			bld.append(" [");
 			bld.append(uriStr, startPos, uriStr.length());
-			bld.append(']');
+			bld.append(' ');
 		}
-		if(!self.isLoaded())
-			bld.append(" (loading...)");
+		if(label != null || !self.isLoaded()) {
+			bld.append('(');
+			if(label != null)
+				bld.append(label);
+
+			if(!self.isLoaded()) {
+				if(label != null)
+					bld.append(' ');
+				bld.append("loading...");
+			}
+			bld.append(')');
+		}
 		return bld.toString();
 	}
 

@@ -280,8 +280,10 @@ public class MetadataRepositoryReferenceItemProvider extends AggregatorItemProvi
 			}
 
 			if(location != null) {
-				bld.append(nature);
-				bld.append(':');
+				if(!"p2".equals(nature)) {
+					bld.append(nature);
+					bld.append(':');
+				}
 				bld.append(location);
 			}
 			else
@@ -295,8 +297,10 @@ public class MetadataRepositoryReferenceItemProvider extends AggregatorItemProvi
 		}
 		else {
 			if(repoRef.getLocation() != null) {
-				bld.append(repoRef.getNature());
-				bld.append(':');
+				if(!"p2".equals(repoRef.getNature())) {
+					bld.append(repoRef.getNature());
+					bld.append(':');
+				}
 				bld.append(repoRef.getLocation());
 				bld.append(" (");
 				bld.append(repoRef.getStatus().getCode() == StatusCode.WAITING

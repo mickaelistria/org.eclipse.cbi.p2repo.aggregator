@@ -37,6 +37,7 @@ import org.eclipse.b3.p2.TouchpointData;
 import org.eclipse.b3.p2.TouchpointInstruction;
 import org.eclipse.b3.p2.TouchpointType;
 import org.eclipse.b3.p2.UpdateDescriptor;
+import org.eclipse.b3.p2.util.P2Utils;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
@@ -406,9 +407,11 @@ public class P2FactoryImpl extends EFactoryImpl implements P2Factory {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
-	 * @generated
+	 * @generated NOT
 	 */
 	public String convertVersionRangeToString(EDataType eDataType, Object instanceValue) {
+		if(instanceValue instanceof VersionRange)
+			return P2Utils.versionRangeToString((VersionRange) instanceValue);
 		return super.convertToString(eDataType, instanceValue);
 	}
 
@@ -1076,10 +1079,18 @@ public class P2FactoryImpl extends EFactoryImpl implements P2Factory {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
-	 * @generated
+	 * @generated NOT
 	 */
 	public VersionRange createVersionRangeFromString(EDataType eDataType, String initialValue) {
-		return (VersionRange) super.createFromString(eDataType, initialValue);
+		if(initialValue == null)
+			return null;
+		int len = initialValue.length();
+		if(len > 2 && initialValue.charAt(0) == '[' && initialValue.charAt(len - 1) == ']' &&
+				initialValue.indexOf(',') < 0) {
+			Version v = Version.create(initialValue.substring(1, len - 2));
+			return new VersionRange(v, true, v, true);
+		}
+		return new VersionRange(initialValue);
 	}
 
 	/**

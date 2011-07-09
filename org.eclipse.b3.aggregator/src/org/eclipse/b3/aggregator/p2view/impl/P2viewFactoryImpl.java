@@ -29,7 +29,6 @@ import org.eclipse.b3.aggregator.p2view.Fragments;
 import org.eclipse.b3.aggregator.p2view.IUDetails;
 import org.eclipse.b3.aggregator.p2view.InstallableUnits;
 import org.eclipse.b3.aggregator.p2view.Licenses;
-import org.eclipse.b3.aggregator.p2view.RepositoryBrowser;
 import org.eclipse.b3.aggregator.p2view.MetadataRepositoryStructuredView;
 import org.eclipse.b3.aggregator.p2view.Miscellaneous;
 import org.eclipse.b3.aggregator.p2view.OtherIU;
@@ -40,12 +39,14 @@ import org.eclipse.b3.aggregator.p2view.Products;
 import org.eclipse.b3.aggregator.p2view.Properties;
 import org.eclipse.b3.aggregator.p2view.ProvidedCapabilities;
 import org.eclipse.b3.aggregator.p2view.ProvidedCapabilityWrapper;
+import org.eclipse.b3.aggregator.p2view.RepositoryBrowser;
 import org.eclipse.b3.aggregator.p2view.RepositoryReferences;
 import org.eclipse.b3.aggregator.p2view.RequirementWrapper;
 import org.eclipse.b3.aggregator.p2view.Requirements;
 import org.eclipse.b3.aggregator.p2view.Touchpoints;
 import org.eclipse.b3.aggregator.util.CapabilityNamespace;
 import org.eclipse.b3.p2.MetadataRepository;
+import org.eclipse.b3.p2.util.P2Utils;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
@@ -321,7 +322,7 @@ public class P2viewFactoryImpl extends EFactoryImpl implements P2viewFactory {
 				else
 					labelBuilder.append(cn.getLabel() + " " + rc.getName());
 				labelBuilder.append(" / ");
-				labelBuilder.append(rc.getRange().toString());
+				labelBuilder.append(P2Utils.versionRangeToString(rc.getRange()));
 				reqw.setLabel(labelBuilder.toString());
 			}
 			else {
