@@ -28,7 +28,7 @@
         defaultValueLiteral="${user.home}/build"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="packedStrategy" eType="#//PackedStrategy"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="sendmail" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" lowerBound="1" eType="#//ValidationSetType"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" lowerBound="1" eType="#//AggregationType"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="mavenResult" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="validationRepositories"
         upperBound="-1" eType="#//MetadataRepositoryReference" containment="true"/>
@@ -107,7 +107,7 @@
       <eTypeArguments eClassifier="#//Property"/>
     </eGenericSuperTypes>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EEnum" name="ValidationSetType">
+  <eClassifiers xsi:type="ecore:EEnum" name="AggregationType">
     <eLiterals name="Stable" value="3" literal="S"/>
     <eLiterals name="Integration" value="2" literal="I"/>
     <eLiterals name="Nightly" value="1" literal="N"/>

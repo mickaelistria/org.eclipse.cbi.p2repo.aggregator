@@ -6,7 +6,8 @@ Bundle-Version: 0.2.0.qualifier
 Bundle-ClassPath: .
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
-Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6,
+ J2SE-1.5
 Export-Package: org.eclipse.b3.p2,
  org.eclipse.b3.p2.impl,
  org.eclipse.b3.p2.loader,

@@ -5,7 +5,7 @@
     modelDirectory="/org.eclipse.b3.p2/src" modelPluginID="org.eclipse.b3.p2" modelName="P2"
     rootExtendsInterface="" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
     booleanFlagsField="eFlags" importerID="org.eclipse.emf.importer.ecore" containmentProxies="true"
-    complianceLevel="5.0" copyrightFields="false" packedEnums="true">
+    complianceLevel="6.0" copyrightFields="false" packedEnums="true">
   <foreignModel>p2.ecore</foreignModel>
   <genPackages prefix="P2" basePackage="org.eclipse.b3" resource="XML" disposableProviderFactory="true"
       multipleEditorPages="false" generateModelWizard="false" ecorePackage="p2.ecore#/">
@@ -32,6 +32,9 @@
     <genDataTypes ecoreDataType="p2.ecore#//IProvidedCapabilityArray"/>
     <genDataTypes ecoreDataType="p2.ecore#//IProvisioningAgent"/>
     <genDataTypes ecoreDataType="p2.ecore#//IRequirementArrayArray"/>
+    <genDataTypes ecoreDataType="p2.ecore#//IPool">
+      <genTypeParameters ecoreTypeParameter="p2.ecore#//IPool/T"/>
+    </genDataTypes>
     <genDataTypes ecoreDataType="p2.ecore#//IProcessingDescriptorArray"/>
     <genDataTypes ecoreDataType="p2.ecore#//IProgressMonitor"/>
     <genDataTypes ecoreDataType="p2.ecore#//IRunnableWithProgress"/>
@@ -98,8 +101,16 @@
       <genOperations ecoreOperation="p2.ecore#//IArtifactRepository/addDescriptor">
         <genParameters ecoreParameter="p2.ecore#//IArtifactRepository/addDescriptor/descriptor"/>
       </genOperations>
+      <genOperations ecoreOperation="p2.ecore#//IArtifactRepository/addDescriptor.1">
+        <genParameters ecoreParameter="p2.ecore#//IArtifactRepository/addDescriptor.1/descriptor"/>
+        <genParameters ecoreParameter="p2.ecore#//IArtifactRepository/addDescriptor.1/monitor"/>
+      </genOperations>
       <genOperations ecoreOperation="p2.ecore#//IArtifactRepository/addDescriptors">
         <genParameters ecoreParameter="p2.ecore#//IArtifactRepository/addDescriptors/descriptors"/>
+      </genOperations>
+      <genOperations ecoreOperation="p2.ecore#//IArtifactRepository/addDescriptors.1">
+        <genParameters ecoreParameter="p2.ecore#//IArtifactRepository/addDescriptors.1/descriptors"/>
+        <genParameters ecoreParameter="p2.ecore#//IArtifactRepository/addDescriptors.1/monitor"/>
       </genOperations>
       <genOperations ecoreOperation="p2.ecore#//IArtifactRepository/contains">
         <genParameters ecoreParameter="p2.ecore#//IArtifactRepository/contains/descriptor"/>
@@ -129,11 +140,36 @@
       </genOperations>
       <genOperations ecoreOperation="p2.ecore#//IArtifactRepository/descriptorQueryable"/>
       <genOperations ecoreOperation="p2.ecore#//IArtifactRepository/removeAll"/>
+      <genOperations ecoreOperation="p2.ecore#//IArtifactRepository/removeAll.1">
+        <genParameters ecoreParameter="p2.ecore#//IArtifactRepository/removeAll.1/monitor"/>
+      </genOperations>
       <genOperations ecoreOperation="p2.ecore#//IArtifactRepository/removeDescriptor">
         <genParameters ecoreParameter="p2.ecore#//IArtifactRepository/removeDescriptor/descriptor"/>
       </genOperations>
       <genOperations ecoreOperation="p2.ecore#//IArtifactRepository/removeDescriptor.1">
-        <genParameters ecoreParameter="p2.ecore#//IArtifactRepository/removeDescriptor.1/key"/>
+        <genParameters ecoreParameter="p2.ecore#//IArtifactRepository/removeDescriptor.1/descriptor"/>
+        <genParameters ecoreParameter="p2.ecore#//IArtifactRepository/removeDescriptor.1/monitor"/>
+      </genOperations>
+      <genOperations ecoreOperation="p2.ecore#//IArtifactRepository/removeDescriptor.2">
+        <genParameters ecoreParameter="p2.ecore#//IArtifactRepository/removeDescriptor.2/key"/>
+      </genOperations>
+      <genOperations ecoreOperation="p2.ecore#//IArtifactRepository/removeDescriptor.3">
+        <genParameters ecoreParameter="p2.ecore#//IArtifactRepository/removeDescriptor.3/key"/>
+        <genParameters ecoreParameter="p2.ecore#//IArtifactRepository/removeDescriptor.3/monitor"/>
+      </genOperations>
+      <genOperations ecoreOperation="p2.ecore#//IArtifactRepository/removeDescriptors">
+        <genParameters ecoreParameter="p2.ecore#//IArtifactRepository/removeDescriptors/descriptors"/>
+      </genOperations>
+      <genOperations ecoreOperation="p2.ecore#//IArtifactRepository/removeDescriptors.1">
+        <genParameters ecoreParameter="p2.ecore#//IArtifactRepository/removeDescriptors.1/descriptors"/>
+        <genParameters ecoreParameter="p2.ecore#//IArtifactRepository/removeDescriptors.1/monitor"/>
+      </genOperations>
+      <genOperations ecoreOperation="p2.ecore#//IArtifactRepository/removeDescriptors.2">
+        <genParameters ecoreParameter="p2.ecore#//IArtifactRepository/removeDescriptors.2/keys"/>
+      </genOperations>
+      <genOperations ecoreOperation="p2.ecore#//IArtifactRepository/removeDescriptors.3">
+        <genParameters ecoreParameter="p2.ecore#//IArtifactRepository/removeDescriptors.3/keys"/>
+        <genParameters ecoreParameter="p2.ecore#//IArtifactRepository/removeDescriptors.3/monitor"/>
       </genOperations>
       <genOperations ecoreOperation="p2.ecore#//IArtifactRepository/executeBatch">
         <genParameters ecoreParameter="p2.ecore#//IArtifactRepository/executeBatch/runnable"/>
@@ -225,6 +261,9 @@
         <genParameters ecoreParameter="p2.ecore#//IMetadataRepository/executeBatch/runnable"/>
         <genParameters ecoreParameter="p2.ecore#//IMetadataRepository/executeBatch/monitor"/>
       </genOperations>
+      <genOperations ecoreOperation="p2.ecore#//IMetadataRepository/compress">
+        <genParameters ecoreParameter="p2.ecore#//IMetadataRepository/compress/iuPool"/>
+      </genOperations>
     </genClasses>
     <genClasses image="false" ecoreClass="p2.ecore#//IProcessingStepDescriptor">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute p2.ecore#//IProcessingStepDescriptor/processorId"/>
@@ -253,16 +292,26 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute p2.ecore#//IRepository/provider"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute p2.ecore#//IRepository/modifiable"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute p2.ecore#//IRepository/provisioningAgent"/>
+      <genOperations ecoreOperation="p2.ecore#//IRepository/getProperty">
+        <genParameters ecoreParameter="p2.ecore#//IRepository/getProperty/key"/>
+      </genOperations>
       <genOperations ecoreOperation="p2.ecore#//IRepository/getProperties"/>
       <genOperations ecoreOperation="p2.ecore#//IRepository/setProperty">
         <genParameters ecoreParameter="p2.ecore#//IRepository/setProperty/key"/>
         <genParameters ecoreParameter="p2.ecore#//IRepository/setProperty/value"/>
       </genOperations>
-      <genOperations ecoreOperation="p2.ecore#//IRepository/getProperty">
-        <genParameters ecoreParameter="p2.ecore#//IRepository/getProperty/key"/>
+      <genOperations ecoreOperation="p2.ecore#//IRepository/setProperty.1">
+        <genParameters ecoreParameter="p2.ecore#//IRepository/setProperty.1/key"/>
+        <genParameters ecoreParameter="p2.ecore#//IRepository/setProperty.1/value"/>
+        <genParameters ecoreParameter="p2.ecore#//IRepository/setProperty.1/monitor"/>
       </genOperations>
     </genClasses>
-    <genClasses image="false" ecoreClass="p2.ecore#//IRepositoryReference"/>
+    <genClasses image="false" ecoreClass="p2.ecore#//IRepositoryReference">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute p2.ecore#//IRepositoryReference/location"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute p2.ecore#//IRepositoryReference/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute p2.ecore#//IRepositoryReference/options"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute p2.ecore#//IRepositoryReference/nickname"/>
+    </genClasses>
     <genClasses image="false" ecoreClass="p2.ecore#//IRequirement">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute p2.ecore#//IRequirement/filter"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute p2.ecore#//IRequirement/max"/>
@@ -334,12 +383,7 @@
       <genTypeParameters ecoreTypeParameter="p2.ecore#//Repository/T"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference p2.ecore#//Repository/propertyMap"/>
     </genClasses>
-    <genClasses ecoreClass="p2.ecore#//RepositoryReference">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute p2.ecore#//RepositoryReference/location"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute p2.ecore#//RepositoryReference/type"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute p2.ecore#//RepositoryReference/options"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute p2.ecore#//RepositoryReference/nickname"/>
-    </genClasses>
+    <genClasses ecoreClass="p2.ecore#//RepositoryReference"/>
     <genClasses ecoreClass="p2.ecore#//RequiredCapability"/>
     <genClasses ecoreClass="p2.ecore#//Requirement"/>
     <genClasses ecoreClass="p2.ecore#//RequirementChange"/>

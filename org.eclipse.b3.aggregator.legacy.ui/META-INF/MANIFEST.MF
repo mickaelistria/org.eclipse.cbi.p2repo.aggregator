@@ -3,7 +3,8 @@ Bundle-ManifestVersion: 2
 Bundle-Name: %pluginName
 Bundle-SymbolicName: org.eclipse.b3.aggregator.legacy.ui;singleton:=true
 Bundle-Version: 0.2.0.qualifier
-Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6,
+ J2SE-1.5
 Bundle-Vendor: %providerName
 Require-Bundle: org.eclipse.b3.aggregator.editor,
  org.eclipse.b3.aggregator.legacy

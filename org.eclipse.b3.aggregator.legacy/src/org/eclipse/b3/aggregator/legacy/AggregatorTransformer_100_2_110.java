@@ -35,11 +35,17 @@ public class AggregatorTransformer_100_2_110 extends ResourceTransformer {
 
 	@Override
 	protected void doTransform(EObject srcEObject, TreePath trgtParentTreePath) {
-		EClass scrEClass = srcEObject.eClass();
-		if(AGGREGATOR_NODE.equals(scrEClass.getName()))
-			transformAggregatorNode(srcEObject, trgtParentTreePath);
-		else
-			super.doTransform(srcEObject, trgtParentTreePath);
+		try {
+			EClass scrEClass = srcEObject.eClass();
+			if(AGGREGATOR_NODE.equals(scrEClass.getName()))
+				transformAggregatorNode(srcEObject, trgtParentTreePath);
+			else
+				super.doTransform(srcEObject, trgtParentTreePath);
+		}
+		catch(RuntimeException e) {
+			e.printStackTrace();
+			throw e;
+		}
 	}
 
 	@Override
@@ -63,8 +69,6 @@ public class AggregatorTransformer_100_2_110 extends ResourceTransformer {
 			aggregation, (EReference) aggregationClass.getEStructuralFeature("validationSets"));
 
 		validationSet.eSet(validationSetClass.getEStructuralFeature("label"), "main");
-		validationSet.eSet(validationSetClass.getEStructuralFeature("abstract"), Boolean.FALSE);
-
 		copyAttributes(srcEObject, aggregation);
 
 		for(EReference srcERef : srcEObject.eClass().getEAllContainments()) {

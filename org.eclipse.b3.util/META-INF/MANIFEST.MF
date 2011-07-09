@@ -3,7 +3,8 @@ Bundle-ManifestVersion: 2
 Bundle-Name: Eclipse b3 Util
 Bundle-SymbolicName: org.eclipse.b3.util
 Bundle-Version: 0.2.0.qualifier
-Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6,
+ J2SE-1.5
 Bundle-Activator: org.eclipse.b3.util.B3Util
 Require-Bundle: org.eclipse.core.runtime
 Export-Package: org.eclipse.b3.util

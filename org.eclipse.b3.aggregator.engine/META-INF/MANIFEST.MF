@@ -4,7 +4,8 @@ Bundle-Name: %pluginName
 Bundle-SymbolicName: org.eclipse.b3.aggregator.engine;singleton:=true
 Bundle-Version: 0.2.0.qualifier
 Bundle-Activator: org.eclipse.b3.aggregator.engine.Engine
-Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6,
+ J2SE-1.5
 Bundle-ActivationPolicy: lazy
 Export-Package: org.eclipse.b3.aggregator.engine
 Require-Bundle: org.apache.ant,
