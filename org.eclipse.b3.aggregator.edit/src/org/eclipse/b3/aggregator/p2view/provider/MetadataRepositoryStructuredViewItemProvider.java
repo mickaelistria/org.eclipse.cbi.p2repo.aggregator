@@ -200,7 +200,7 @@ public class MetadataRepositoryStructuredViewItemProvider extends AggregatorItem
 	@Override
 	public Object getFont(Object object) {
 		MetadataRepositoryResourceImpl mdr = (MetadataRepositoryResourceImpl) ((EObject) object).eResource();
-		return mdr.getStatus().getCode() == StatusCode.WAITING
+		return mdr != null && mdr.getStatus().getCode() == StatusCode.WAITING
 				? IItemFontProvider.ITALIC_FONT
 				: null;
 	}
@@ -218,10 +218,14 @@ public class MetadataRepositoryStructuredViewItemProvider extends AggregatorItem
 
 		MetadataRepositoryResourceImpl mdr = (MetadataRepositoryResourceImpl) ((EObject) object).eResource();
 		Object overlayImage = null;
-		if(mdr.getLastException() != null)
+		if(mdr != null) {
+			if(mdr.getLastException() != null)
+				overlayImage = locator.getImage("full/ovr16/Error");
+			else if(mdr.getStatus().getCode() == StatusCode.WAITING)
+				overlayImage = locator.getImage("full/ovr16/Loading");
+		}
+		else
 			overlayImage = locator.getImage("full/ovr16/Error");
-		else if(mdr.getStatus().getCode() == StatusCode.WAITING)
-			overlayImage = locator.getImage("full/ovr16/Loading");
 
 		if(overlayImage != null) {
 			Object[] images = new Object[2];
@@ -279,29 +283,47 @@ public class MetadataRepositoryStructuredViewItemProvider extends AggregatorItem
 		MetadataRepositoryStructuredView self = (MetadataRepositoryStructuredView) object;
 		String label = self.getName();
 		StringBuilder bld = new StringBuilder();
-		URI uri = ((EObject) object).eResource().getURI();
-		if(uri != null) {
-			int startPos = 0;
-			String uriStr = uri.toString();
-			if(uriStr.startsWith("b3aggr:"))
-				startPos = 7;
-			if(uriStr.startsWith("p2:", startPos))
-				startPos += 3;
-			bld.append(uriStr, startPos, uriStr.length());
-			bld.append(' ');
-		}
-		if(label != null || !self.isLoaded()) {
-			bld.append('(');
-			if(label != null)
-				bld.append(label);
-
-			if(!self.isLoaded()) {
-				if(label != null)
-					bld.append(' ');
-				bld.append("loading...");
+		MetadataRepositoryResourceImpl mdr = (MetadataRepositoryResourceImpl) ((EObject) object).eResource();
+		if(mdr != null) {
+			if(mdr.getLastException() != null) {
+				bld.append(mdr.getLastException().getMessage());
+				return bld.toString();
 			}
-			bld.append(')');
+			URI uri = mdr.getURI();
+			if(uri != null) {
+				int startPos = 0;
+				String uriStr = uri.toString();
+				if(uriStr.startsWith("b3aggr:"))
+					startPos = 7;
+				if(uriStr.startsWith("p2:", startPos))
+					startPos += 3;
+				bld.append(uriStr, startPos, uriStr.length());
+				bld.append(' ');
+			}
 		}
+		int blen = bld.length();
+		if(label != null) {
+			bld.append('(');
+			bld.append(label);
+		}
+		String statusText = null;
+		if(!self.isLoaded()) {
+			if(mdr != null) {
+				if(mdr.isLoading())
+					statusText = "loading...";
+			}
+			else
+				statusText = "missing";
+		}
+		if(statusText != null) {
+			if(bld.length() == blen)
+				bld.append('(');
+			else
+				bld.append(' ');
+			bld.append(statusText);
+		}
+		if(bld.length() > blen)
+			bld.append(')');
 		return bld.toString();
 	}
 
