@@ -634,13 +634,10 @@ public class ValidationSetVerifier extends BuilderPhase {
 		try {
 			URI repoLocation = builder.getSourceCompositeURI(validationSet);
 			Set<IInstallableUnit> validationOnlyIUs = null;
-			List<MetadataRepositoryReference> validationRepos = validationSet.getAllValidationRepositories();
-			for(MetadataRepositoryReference validationRepo : validationRepos) {
-				if(validationRepo.isEnabled()) {
-					if(validationOnlyIUs == null)
-						validationOnlyIUs = new HashSet<IInstallableUnit>();
-					validationOnlyIUs.addAll(validationRepo.getMetadataRepository().getInstallableUnits());
-				}
+			for(MetadataRepositoryReference validationRepo : validationSet.getAllValidationRepositories()) {
+				if(validationOnlyIUs == null)
+					validationOnlyIUs = new HashSet<IInstallableUnit>();
+				validationOnlyIUs.addAll(validationRepo.getMetadataRepository().getInstallableUnits());
 			}
 			if(validationOnlyIUs == null)
 				validationOnlyIUs = Collections.emptySet();

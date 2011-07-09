@@ -11,9 +11,9 @@ import java.util.Collection;
 import java.util.List;
 
 import org.eclipse.b3.aggregator.Status;
-import org.eclipse.b3.aggregator.p2view.RepositoryBrowser;
 import org.eclipse.b3.aggregator.p2view.MetadataRepositoryStructuredView;
 import org.eclipse.b3.aggregator.p2view.P2viewPackage;
+import org.eclipse.b3.aggregator.p2view.RepositoryBrowser;
 import org.eclipse.b3.aggregator.p2view.impl.RepositoryBrowserImpl;
 import org.eclipse.b3.aggregator.provider.AggregatorEditPlugin;
 import org.eclipse.b3.aggregator.provider.AggregatorItemProviderAdapter;
@@ -221,6 +221,11 @@ public class RepositoryBrowserItemProvider extends AggregatorItemProviderAdapter
 		if(mdrs.isLoading())
 			bld.append(" : loading...");
 		return bld.toString();
+	}
+
+	@Override
+	public boolean hasChildren(Object object) {
+		return true;
 	}
 
 	/**

@@ -15,6 +15,7 @@ import org.eclipse.b3.aggregator.Configuration;
 import org.eclipse.b3.aggregator.EnabledStatusProvider;
 import org.eclipse.b3.aggregator.IdentificationProvider;
 import org.eclipse.b3.aggregator.MappedUnit;
+import org.eclipse.b3.aggregator.util.GeneralUtils;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
@@ -31,6 +32,7 @@ import org.eclipse.equinox.p2.metadata.expression.IMatchExpression;
  * <p>
  * The following features are implemented:
  * <ul>
+ * <li>{@link org.eclipse.b3.aggregator.impl.MappedUnitImpl#isBranchEnabled <em>Branch Enabled</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.impl.MappedUnitImpl#isEnabled <em>Enabled</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.impl.MappedUnitImpl#getValidConfigurations <em>Valid Configurations</em>}</li>
  * </ul>
@@ -39,6 +41,17 @@ import org.eclipse.equinox.p2.metadata.expression.IMatchExpression;
  * @generated
  */
 public abstract class MappedUnitImpl extends InstallableUnitRequestImpl implements MappedUnit {
+	/**
+	 * The default value of the '{@link #isBranchEnabled() <em>Branch Enabled</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see #isBranchEnabled()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean BRANCH_ENABLED_EDEFAULT = false;
+
 	/**
 	 * The default value of the '{@link #isEnabled() <em>Enabled</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
@@ -148,6 +161,8 @@ public abstract class MappedUnitImpl extends InstallableUnitRequestImpl implemen
 	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
 		if(baseClass == EnabledStatusProvider.class) {
 			switch(derivedFeatureID) {
+				case AggregatorPackage.MAPPED_UNIT__BRANCH_ENABLED:
+					return AggregatorPackage.ENABLED_STATUS_PROVIDER__BRANCH_ENABLED;
 				case AggregatorPackage.MAPPED_UNIT__ENABLED:
 					return AggregatorPackage.ENABLED_STATUS_PROVIDER__ENABLED;
 				default:
@@ -172,6 +187,8 @@ public abstract class MappedUnitImpl extends InstallableUnitRequestImpl implemen
 	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
 		if(baseClass == EnabledStatusProvider.class) {
 			switch(baseFeatureID) {
+				case AggregatorPackage.ENABLED_STATUS_PROVIDER__BRANCH_ENABLED:
+					return AggregatorPackage.MAPPED_UNIT__BRANCH_ENABLED;
 				case AggregatorPackage.ENABLED_STATUS_PROVIDER__ENABLED:
 					return AggregatorPackage.MAPPED_UNIT__ENABLED;
 				default:
@@ -195,6 +212,8 @@ public abstract class MappedUnitImpl extends InstallableUnitRequestImpl implemen
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch(featureID) {
+			case AggregatorPackage.MAPPED_UNIT__BRANCH_ENABLED:
+				return isBranchEnabled();
 			case AggregatorPackage.MAPPED_UNIT__ENABLED:
 				return isEnabled();
 			case AggregatorPackage.MAPPED_UNIT__VALID_CONFIGURATIONS:
@@ -211,6 +230,8 @@ public abstract class MappedUnitImpl extends InstallableUnitRequestImpl implemen
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch(featureID) {
+			case AggregatorPackage.MAPPED_UNIT__BRANCH_ENABLED:
+				return isSetBranchEnabled();
 			case AggregatorPackage.MAPPED_UNIT__ENABLED:
 				return ((eFlags & ENABLED_EFLAG) != 0) != ENABLED_EDEFAULT;
 			case AggregatorPackage.MAPPED_UNIT__VALID_CONFIGURATIONS:
@@ -313,6 +334,17 @@ public abstract class MappedUnitImpl extends InstallableUnitRequestImpl implemen
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated NOT
+	 */
+	@Override
+	public boolean isBranchEnabled() {
+		return GeneralUtils.isBranchEnabled(this);
+	}
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
@@ -326,6 +358,16 @@ public abstract class MappedUnitImpl extends InstallableUnitRequestImpl implemen
 		return isBranchEnabled()
 				? super.isMappedRepositoryBroken()
 				: false;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated NOT
+	 */
+	public boolean isSetBranchEnabled() {
+		return true;
 	}
 
 	/**

@@ -58,7 +58,7 @@ public class AddIUsToParentRepositoryCommand extends AbstractCommand {
 		for(IInstallableUnit iu : selectedIUs) {
 			MappedRepository repo = mapIUMappedRepo.get(iu);
 
-			if(!repo.isEnabled())
+			if(!repo.isBranchEnabled())
 				continue;
 
 			if((operation & AggregatorEditPlugin.ADD_IU) > 0) {

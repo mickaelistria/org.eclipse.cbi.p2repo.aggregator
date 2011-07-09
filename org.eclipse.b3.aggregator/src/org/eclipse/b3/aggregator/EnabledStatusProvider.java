@@ -16,6 +16,7 @@ package org.eclipse.b3.aggregator;
  * <p>
  * The following features are supported:
  * <ul>
+ * <li>{@link org.eclipse.b3.aggregator.EnabledStatusProvider#isBranchEnabled <em>Branch Enabled</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.EnabledStatusProvider#isEnabled <em>Enabled</em>}</li>
  * </ul>
  * </p>
@@ -25,6 +26,23 @@ package org.eclipse.b3.aggregator;
  * @generated
  */
 public interface EnabledStatusProvider {
+	/**
+	 * Returns the value of the '<em><b>Branch Enabled</b></em>' attribute.
+	 * The default value is <code>"false"</code>.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Branch Enabled</em>' attribute isn't clear, there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the value of the '<em>Branch Enabled</em>' attribute.
+	 * @see #isSetBranchEnabled()
+	 * @see org.eclipse.b3.aggregator.AggregatorPackage#getEnabledStatusProvider_BranchEnabled()
+	 * @model default="false" unsettable="true" transient="true" changeable="false" volatile="true" derived="true"
+	 * @generated
+	 */
+	boolean isBranchEnabled();
+
 	/**
 	 * Returns the value of the '<em><b>Enabled</b></em>' attribute. The default value is <code>"true"</code>. <!--
 	 * begin-user-doc -->
@@ -40,6 +58,18 @@ public interface EnabledStatusProvider {
 	 * @generated
 	 */
 	boolean isEnabled();
+
+	/**
+	 * Returns whether the value of the '{@link org.eclipse.b3.aggregator.EnabledStatusProvider#isBranchEnabled <em>Branch Enabled</em>}' attribute is
+	 * set.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return whether the value of the '<em>Branch Enabled</em>' attribute is set.
+	 * @see #isBranchEnabled()
+	 * @generated
+	 */
+	boolean isSetBranchEnabled();
 
 	/**
 	 * Sets the value of the '{@link org.eclipse.b3.aggregator.EnabledStatusProvider#isEnabled <em>Enabled</em>}' attribute.

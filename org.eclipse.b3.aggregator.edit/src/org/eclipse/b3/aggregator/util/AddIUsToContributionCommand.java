@@ -92,7 +92,7 @@ public class AddIUsToContributionCommand extends AbstractCommand implements Drag
 
 	@Override
 	protected boolean prepare() {
-		boolean result = contribution != null && contribution.isEnabled() &&
+		boolean result = contribution != null && contribution.isBranchEnabled() &&
 				(selectedMDRs != null && selectedMDRs.size() > 0 || selectedIUs != null && selectedIUs.size() > 0);
 
 		if(result)

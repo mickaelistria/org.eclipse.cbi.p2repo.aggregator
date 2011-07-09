@@ -20,9 +20,7 @@ import org.eclipse.b3.aggregator.AggregatorPackage;
 import org.eclipse.b3.aggregator.AggregatorPlugin;
 import org.eclipse.b3.aggregator.AvailableVersion;
 import org.eclipse.b3.aggregator.AvailableVersionsHeader;
-import org.eclipse.b3.aggregator.Contribution;
 import org.eclipse.b3.aggregator.DescriptionProvider;
-import org.eclipse.b3.aggregator.EnabledStatusProvider;
 import org.eclipse.b3.aggregator.InfosProvider;
 import org.eclipse.b3.aggregator.InstallableUnitRequest;
 import org.eclipse.b3.aggregator.MappedRepository;
@@ -620,23 +618,7 @@ public abstract class InstallableUnitRequestImpl extends MinimalEObjectImpl.Cont
 	 * @generated NOT
 	 */
 	public boolean isBranchEnabled() {
-		if(this instanceof EnabledStatusProvider && !((EnabledStatusProvider) this).isEnabled())
-			return false;
-
-		MappedRepository mappedRepository = (MappedRepository) eContainer();
-
-		// a new MappedUnit without any container is enabled - used by commands that add MappedUnits
-		if(mappedRepository == null)
-			return true;
-
-		if(!mappedRepository.isEnabled())
-			return false;
-
-		Contribution contribution = (Contribution) ((EObject) mappedRepository).eContainer();
-		if(contribution != null && !contribution.isEnabled())
-			return false;
-
-		return true;
+		return GeneralUtils.isBranchEnabled(this);
 	}
 
 	/**
@@ -679,11 +661,6 @@ public abstract class InstallableUnitRequestImpl extends MinimalEObjectImpl.Cont
 			return null;
 
 		IQueryResult<IInstallableUnit> ius = mdr.query(QueryUtil.createLatestQuery(query), new NullProgressMonitor());
-
-		if(ius.isEmpty())
-			// TODO Why this? When does it happen that the latest IU query does not return a result?
-			ius = mdr.query(query, new NullProgressMonitor());
-
 		if(!ius.isEmpty()) {
 			InstallableUnit iu = (InstallableUnit) ius.toArray(IInstallableUnit.class)[0];
 			return iu;

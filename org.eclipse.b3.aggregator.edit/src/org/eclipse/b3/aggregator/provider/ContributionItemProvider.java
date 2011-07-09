@@ -129,6 +129,24 @@ public class ContributionItemProvider extends AggregatorItemProviderAdapter impl
 	}
 
 	/**
+	 * This adds a property descriptor for the Branch Enabled feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	protected void addBranchEnabledPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+			getResourceLocator(),
+			getString("_UI_EnabledStatusProvider_branchEnabled_feature"),
+			getString(
+				"_UI_PropertyDescriptor_description", "_UI_EnabledStatusProvider_branchEnabled_feature",
+				"_UI_EnabledStatusProvider_type"), AggregatorPackage.Literals.ENABLED_STATUS_PROVIDER__BRANCH_ENABLED,
+			false, false, false, ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null));
+	}
+
+	/**
 	 * This adds a property descriptor for the Contacts feature.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -373,6 +391,7 @@ public class ContributionItemProvider extends AggregatorItemProviderAdapter impl
 		if(itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addBranchEnabledPropertyDescriptor(object);
 			addEnabledPropertyDescriptor(object);
 			addDescriptionPropertyDescriptor(object);
 			addLabelPropertyDescriptor(object);
@@ -514,6 +533,7 @@ public class ContributionItemProvider extends AggregatorItemProviderAdapter impl
 		updateChildren(notification);
 
 		switch(notification.getFeatureID(Contribution.class)) {
+			case AggregatorPackage.CONTRIBUTION__BRANCH_ENABLED:
 			case AggregatorPackage.CONTRIBUTION__ENABLED:
 			case AggregatorPackage.CONTRIBUTION__DESCRIPTION:
 			case AggregatorPackage.CONTRIBUTION__LABEL:

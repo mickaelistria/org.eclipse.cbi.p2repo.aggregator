@@ -1066,7 +1066,8 @@ public class AggregatorActionBarContributor extends EditingDomainActionBarContri
 				ius.addAll((List<InstallableUnit>) itemSorter.getGroupItems(ItemGroup.IU));
 				ius.addAll(ItemUtils.getIUs((List<IUPresentation>) itemSorter.getGroupItems(ItemGroup.IU_STRUCTURED)));
 
-				if(itemSorter.getTotalItemCount() == itemSorter.getGroupItems(ItemGroup.FEATURE_STRUCTURED).size()) {
+				if(itemSorter.getTotalItemCount() == itemSorter.getGroupItems(ItemGroup.FEATURE_STRUCTURED).size() +
+						itemSorter.getGroupItems(ItemGroup.PRODUCT_STRUCTURED).size()) {
 					actions.add(new AddToParentRepositoryAction(
 						((IEditingDomainProvider) activeEditorPart).getEditingDomain(), ius,
 						AggregatorEditPlugin.ADD_IU));

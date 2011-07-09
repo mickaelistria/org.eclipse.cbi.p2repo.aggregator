@@ -47,6 +47,7 @@ import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
  * <p>
  * The following features are implemented:
  * <ul>
+ * <li>{@link org.eclipse.b3.aggregator.impl.MetadataRepositoryReferenceImpl#isBranchEnabled <em>Branch Enabled</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.impl.MetadataRepositoryReferenceImpl#isEnabled <em>Enabled</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.impl.MetadataRepositoryReferenceImpl#getStatus <em>Status</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.impl.MetadataRepositoryReferenceImpl#getErrors <em>Errors</em>}</li>
@@ -79,6 +80,17 @@ public class MetadataRepositoryReferenceImpl extends MinimalEObjectImpl.Containe
 	 * @ordered
 	 */
 	protected int eFlags = 0;
+
+	/**
+	 * The default value of the '{@link #isBranchEnabled() <em>Branch Enabled</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see #isBranchEnabled()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean BRANCH_ENABLED_EDEFAULT = false;
 
 	/**
 	 * The default value of the '{@link #isEnabled() <em>Enabled</em>}' attribute.
@@ -280,6 +292,8 @@ public class MetadataRepositoryReferenceImpl extends MinimalEObjectImpl.Containe
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch(featureID) {
+			case AggregatorPackage.METADATA_REPOSITORY_REFERENCE__BRANCH_ENABLED:
+				return isBranchEnabled();
 			case AggregatorPackage.METADATA_REPOSITORY_REFERENCE__ENABLED:
 				return isEnabled();
 			case AggregatorPackage.METADATA_REPOSITORY_REFERENCE__STATUS:
@@ -310,6 +324,8 @@ public class MetadataRepositoryReferenceImpl extends MinimalEObjectImpl.Containe
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch(featureID) {
+			case AggregatorPackage.METADATA_REPOSITORY_REFERENCE__BRANCH_ENABLED:
+				return isSetBranchEnabled();
 			case AggregatorPackage.METADATA_REPOSITORY_REFERENCE__ENABLED:
 				return ((eFlags & ENABLED_EFLAG) != 0) != ENABLED_EDEFAULT;
 			case AggregatorPackage.METADATA_REPOSITORY_REFERENCE__STATUS:
@@ -630,7 +646,7 @@ public class MetadataRepositoryReferenceImpl extends MinimalEObjectImpl.Containe
 	 * @generated NOT
 	 */
 	public boolean isBranchEnabled() {
-		return isEnabled();
+		return GeneralUtils.isBranchEnabled(this);
 	}
 
 	/**
@@ -640,6 +656,16 @@ public class MetadataRepositoryReferenceImpl extends MinimalEObjectImpl.Containe
 	 */
 	public boolean isEnabled() {
 		return (eFlags & ENABLED_EFLAG) != 0;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated NOT
+	 */
+	public boolean isSetBranchEnabled() {
+		return true;
 	}
 
 	/**

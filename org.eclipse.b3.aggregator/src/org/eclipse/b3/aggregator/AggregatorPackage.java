@@ -180,6 +180,15 @@ public interface AggregatorPackage extends EPackage {
 		EAttribute VALIDATION_SET__ABSTRACT = eINSTANCE.getValidationSet_Abstract();
 
 		/**
+		 * The meta object literal for the '<em><b>Extension</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EAttribute VALIDATION_SET__EXTENSION = eINSTANCE.getValidationSet_Extension();
+
+		/**
 		 * The meta object literal for the '<em><b>Label</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -560,6 +569,15 @@ public interface AggregatorPackage extends EPackage {
 		 * @generated
 		 */
 		EClass ENABLED_STATUS_PROVIDER = eINSTANCE.getEnabledStatusProvider();
+
+		/**
+		 * The meta object literal for the '<em><b>Branch Enabled</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EAttribute ENABLED_STATUS_PROVIDER__BRANCH_ENABLED = eINSTANCE.getEnabledStatusProvider_BranchEnabled();
 
 		/**
 		 * The meta object literal for the '<em><b>Enabled</b></em>' attribute feature.
@@ -1900,13 +1918,23 @@ public interface AggregatorPackage extends EPackage {
 	int MAPPED_UNIT__AVAILABLE_VERSIONS = INSTALLABLE_UNIT_REQUEST__AVAILABLE_VERSIONS;
 
 	/**
+	 * The feature id for the '<em><b>Branch Enabled</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int MAPPED_UNIT__BRANCH_ENABLED = INSTALLABLE_UNIT_REQUEST_FEATURE_COUNT + 0;
+
+	/**
 	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int MAPPED_UNIT__ENABLED = INSTALLABLE_UNIT_REQUEST_FEATURE_COUNT + 0;
+	int MAPPED_UNIT__ENABLED = INSTALLABLE_UNIT_REQUEST_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Valid Configurations</b></em>' reference list.
@@ -1916,7 +1944,7 @@ public interface AggregatorPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MAPPED_UNIT__VALID_CONFIGURATIONS = INSTALLABLE_UNIT_REQUEST_FEATURE_COUNT + 1;
+	int MAPPED_UNIT__VALID_CONFIGURATIONS = INSTALLABLE_UNIT_REQUEST_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>Mapped Unit</em>' class. <!-- begin-user-doc --> <!-- end-user-doc
@@ -1925,7 +1953,7 @@ public interface AggregatorPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MAPPED_UNIT_FEATURE_COUNT = INSTALLABLE_UNIT_REQUEST_FEATURE_COUNT + 2;
+	int MAPPED_UNIT_FEATURE_COUNT = INSTALLABLE_UNIT_REQUEST_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Status</b></em>' reference.
@@ -2012,6 +2040,16 @@ public interface AggregatorPackage extends EPackage {
 	 * @ordered
 	 */
 	int BUNDLE__AVAILABLE_VERSIONS = MAPPED_UNIT__AVAILABLE_VERSIONS;
+
+	/**
+	 * The feature id for the '<em><b>Branch Enabled</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int BUNDLE__BRANCH_ENABLED = MAPPED_UNIT__BRANCH_ENABLED;
 
 	/**
 	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
@@ -2128,6 +2166,16 @@ public interface AggregatorPackage extends EPackage {
 	int CATEGORY__AVAILABLE_VERSIONS = MAPPED_UNIT__AVAILABLE_VERSIONS;
 
 	/**
+	 * The feature id for the '<em><b>Branch Enabled</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int CATEGORY__BRANCH_ENABLED = MAPPED_UNIT__BRANCH_ENABLED;
+
+	/**
 	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -2184,13 +2232,23 @@ public interface AggregatorPackage extends EPackage {
 	int CHILDREN_PROVIDER_FEATURE_COUNT = 1;
 
 	/**
+	 * The feature id for the '<em><b>Branch Enabled</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int ENABLED_STATUS_PROVIDER__BRANCH_ENABLED = 0;
+
+	/**
 	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int ENABLED_STATUS_PROVIDER__ENABLED = 0;
+	int ENABLED_STATUS_PROVIDER__ENABLED = 1;
 
 	/**
 	 * The number of structural features of the '<em>Enabled Status Provider</em>' class.
@@ -2200,7 +2258,17 @@ public interface AggregatorPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ENABLED_STATUS_PROVIDER_FEATURE_COUNT = 1;
+	int ENABLED_STATUS_PROVIDER_FEATURE_COUNT = 2;
+
+	/**
+	 * The feature id for the '<em><b>Branch Enabled</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int CONFIGURATION__BRANCH_ENABLED = ENABLED_STATUS_PROVIDER__BRANCH_ENABLED;
 
 	/**
 	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
@@ -2284,6 +2352,16 @@ public interface AggregatorPackage extends EPackage {
 	 * @ordered
 	 */
 	int CONTACT_FEATURE_COUNT = 3;
+
+	/**
+	 * The feature id for the '<em><b>Branch Enabled</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int CONTRIBUTION__BRANCH_ENABLED = ENABLED_STATUS_PROVIDER__BRANCH_ENABLED;
 
 	/**
 	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
@@ -2470,6 +2548,16 @@ public interface AggregatorPackage extends EPackage {
 	 * @ordered
 	 */
 	int FEATURE__AVAILABLE_VERSIONS = MAPPED_UNIT__AVAILABLE_VERSIONS;
+
+	/**
+	 * The feature id for the '<em><b>Branch Enabled</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int FEATURE__BRANCH_ENABLED = MAPPED_UNIT__BRANCH_ENABLED;
 
 	/**
 	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
@@ -2685,6 +2773,16 @@ public interface AggregatorPackage extends EPackage {
 	int MAP_RULE__AVAILABLE_VERSIONS = INSTALLABLE_UNIT_REQUEST__AVAILABLE_VERSIONS;
 
 	/**
+	 * The feature id for the '<em><b>Branch Enabled</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int MAP_RULE__BRANCH_ENABLED = INSTALLABLE_UNIT_REQUEST_FEATURE_COUNT + 0;
+
+	/**
 	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2692,7 +2790,7 @@ public interface AggregatorPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MAP_RULE__ENABLED = INSTALLABLE_UNIT_REQUEST_FEATURE_COUNT + 0;
+	int MAP_RULE__ENABLED = INSTALLABLE_UNIT_REQUEST_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Map Rule</em>' class.
@@ -2701,7 +2799,7 @@ public interface AggregatorPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MAP_RULE_FEATURE_COUNT = INSTALLABLE_UNIT_REQUEST_FEATURE_COUNT + 1;
+	int MAP_RULE_FEATURE_COUNT = INSTALLABLE_UNIT_REQUEST_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Status</b></em>' reference.
@@ -2787,6 +2885,16 @@ public interface AggregatorPackage extends EPackage {
 	 * @ordered
 	 */
 	int EXCLUSION_RULE__AVAILABLE_VERSIONS = MAP_RULE__AVAILABLE_VERSIONS;
+
+	/**
+	 * The feature id for the '<em><b>Branch Enabled</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int EXCLUSION_RULE__BRANCH_ENABLED = MAP_RULE__BRANCH_ENABLED;
 
 	/**
 	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
@@ -2875,6 +2983,16 @@ public interface AggregatorPackage extends EPackage {
 	int LABEL_PROVIDER_FEATURE_COUNT = 1;
 
 	/**
+	 * The feature id for the '<em><b>Branch Enabled</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int METADATA_REPOSITORY_REFERENCE__BRANCH_ENABLED = ENABLED_STATUS_PROVIDER__BRANCH_ENABLED;
+
+	/**
 	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -2955,6 +3073,16 @@ public interface AggregatorPackage extends EPackage {
 	 * @ordered
 	 */
 	int METADATA_REPOSITORY_REFERENCE_FEATURE_COUNT = ENABLED_STATUS_PROVIDER_FEATURE_COUNT + 7;
+
+	/**
+	 * The feature id for the '<em><b>Branch Enabled</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int MAPPED_REPOSITORY__BRANCH_ENABLED = METADATA_REPOSITORY_REFERENCE__BRANCH_ENABLED;
 
 	/**
 	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
@@ -3302,6 +3430,16 @@ public interface AggregatorPackage extends EPackage {
 	int PRODUCT__AVAILABLE_VERSIONS = MAPPED_UNIT__AVAILABLE_VERSIONS;
 
 	/**
+	 * The feature id for the '<em><b>Branch Enabled</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int PRODUCT__BRANCH_ENABLED = MAPPED_UNIT__BRANCH_ENABLED;
+
+	/**
 	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -3384,6 +3522,16 @@ public interface AggregatorPackage extends EPackage {
 	int STATUS_FEATURE_COUNT = 2;
 
 	/**
+	 * The feature id for the '<em><b>Branch Enabled</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int VALIDATION_SET__BRANCH_ENABLED = ENABLED_STATUS_PROVIDER__BRANCH_ENABLED;
+
+	/**
 	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3454,6 +3602,16 @@ public interface AggregatorPackage extends EPackage {
 	int VALIDATION_SET__ABSTRACT = ENABLED_STATUS_PROVIDER_FEATURE_COUNT + 5;
 
 	/**
+	 * The feature id for the '<em><b>Extension</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int VALIDATION_SET__EXTENSION = ENABLED_STATUS_PROVIDER_FEATURE_COUNT + 6;
+
+	/**
 	 * The feature id for the '<em><b>Label</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3461,7 +3619,7 @@ public interface AggregatorPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VALIDATION_SET__LABEL = ENABLED_STATUS_PROVIDER_FEATURE_COUNT + 6;
+	int VALIDATION_SET__LABEL = ENABLED_STATUS_PROVIDER_FEATURE_COUNT + 7;
 
 	/**
 	 * The feature id for the '<em><b>Contributions</b></em>' containment reference list.
@@ -3471,7 +3629,7 @@ public interface AggregatorPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VALIDATION_SET__CONTRIBUTIONS = ENABLED_STATUS_PROVIDER_FEATURE_COUNT + 7;
+	int VALIDATION_SET__CONTRIBUTIONS = ENABLED_STATUS_PROVIDER_FEATURE_COUNT + 8;
 
 	/**
 	 * The feature id for the '<em><b>Validation Repositories</b></em>' containment reference list.
@@ -3481,7 +3639,7 @@ public interface AggregatorPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VALIDATION_SET__VALIDATION_REPOSITORIES = ENABLED_STATUS_PROVIDER_FEATURE_COUNT + 8;
+	int VALIDATION_SET__VALIDATION_REPOSITORIES = ENABLED_STATUS_PROVIDER_FEATURE_COUNT + 9;
 
 	/**
 	 * The feature id for the '<em><b>Extends</b></em>' reference list.
@@ -3491,7 +3649,7 @@ public interface AggregatorPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VALIDATION_SET__EXTENDS = ENABLED_STATUS_PROVIDER_FEATURE_COUNT + 9;
+	int VALIDATION_SET__EXTENDS = ENABLED_STATUS_PROVIDER_FEATURE_COUNT + 10;
 
 	/**
 	 * The number of structural features of the '<em>Validation Set</em>' class.
@@ -3501,7 +3659,7 @@ public interface AggregatorPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VALIDATION_SET_FEATURE_COUNT = ENABLED_STATUS_PROVIDER_FEATURE_COUNT + 10;
+	int VALIDATION_SET_FEATURE_COUNT = ENABLED_STATUS_PROVIDER_FEATURE_COUNT + 11;
 
 	/**
 	 * The feature id for the '<em><b>Status</b></em>' reference.
@@ -3587,6 +3745,16 @@ public interface AggregatorPackage extends EPackage {
 	 * @ordered
 	 */
 	int VALID_CONFIGURATIONS_RULE__AVAILABLE_VERSIONS = MAP_RULE__AVAILABLE_VERSIONS;
+
+	/**
+	 * The feature id for the '<em><b>Branch Enabled</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int VALID_CONFIGURATIONS_RULE__BRANCH_ENABLED = MAP_RULE__BRANCH_ENABLED;
 
 	/**
 	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
@@ -4275,6 +4443,18 @@ public interface AggregatorPackage extends EPackage {
 	EClass getEnabledStatusProvider();
 
 	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.b3.aggregator.EnabledStatusProvider#isBranchEnabled <em>Branch Enabled</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the attribute '<em>Branch Enabled</em>'.
+	 * @see org.eclipse.b3.aggregator.EnabledStatusProvider#isBranchEnabled()
+	 * @see #getEnabledStatusProvider()
+	 * @generated
+	 */
+	EAttribute getEnabledStatusProvider_BranchEnabled();
+
+	/**
 	 * Returns the meta object for the attribute '{@link org.eclipse.b3.aggregator.EnabledStatusProvider#isEnabled <em>Enabled</em>}'.
 	 * <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
@@ -4882,6 +5062,18 @@ public interface AggregatorPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getValidationSet_Extends();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.b3.aggregator.ValidationSet#isExtension <em>Extension</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the attribute '<em>Extension</em>'.
+	 * @see org.eclipse.b3.aggregator.ValidationSet#isExtension()
+	 * @see #getValidationSet()
+	 * @generated
+	 */
+	EAttribute getValidationSet_Extension();
 
 	/**
 	 * Returns the meta object for the attribute '{@link org.eclipse.b3.aggregator.ValidationSet#getLabel <em>Label</em>}'.

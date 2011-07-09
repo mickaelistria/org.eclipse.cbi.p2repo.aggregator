@@ -11,6 +11,7 @@ import org.eclipse.b3.aggregator.Architecture;
 import org.eclipse.b3.aggregator.Configuration;
 import org.eclipse.b3.aggregator.OperatingSystem;
 import org.eclipse.b3.aggregator.WindowSystem;
+import org.eclipse.b3.aggregator.util.GeneralUtils;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
@@ -21,6 +22,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <p>
  * The following features are implemented:
  * <ul>
+ * <li>{@link org.eclipse.b3.aggregator.impl.ConfigurationImpl#isBranchEnabled <em>Branch Enabled</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.impl.ConfigurationImpl#isEnabled <em>Enabled</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.impl.ConfigurationImpl#getOperatingSystem <em>Operating System</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.impl.ConfigurationImpl#getWindowSystem <em>Window System</em>}</li>
@@ -39,6 +41,17 @@ public class ConfigurationImpl extends MinimalEObjectImpl.Container implements C
 	 * @ordered
 	 */
 	protected int eFlags = 0;
+
+	/**
+	 * The default value of the '{@link #isBranchEnabled() <em>Branch Enabled</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see #isBranchEnabled()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean BRANCH_ENABLED_EDEFAULT = false;
 
 	/**
 	 * The default value of the '{@link #isEnabled() <em>Enabled</em>}' attribute.
@@ -226,6 +239,8 @@ public class ConfigurationImpl extends MinimalEObjectImpl.Container implements C
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch(featureID) {
+			case AggregatorPackage.CONFIGURATION__BRANCH_ENABLED:
+				return isBranchEnabled();
 			case AggregatorPackage.CONFIGURATION__ENABLED:
 				return isEnabled();
 			case AggregatorPackage.CONFIGURATION__OPERATING_SYSTEM:
@@ -246,6 +261,8 @@ public class ConfigurationImpl extends MinimalEObjectImpl.Container implements C
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch(featureID) {
+			case AggregatorPackage.CONFIGURATION__BRANCH_ENABLED:
+				return isSetBranchEnabled();
 			case AggregatorPackage.CONFIGURATION__ENABLED:
 				return ((eFlags & ENABLED_EFLAG) != 0) != ENABLED_EDEFAULT;
 			case AggregatorPackage.CONFIGURATION__OPERATING_SYSTEM:
@@ -375,12 +392,32 @@ public class ConfigurationImpl extends MinimalEObjectImpl.Container implements C
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated NOT
+	 */
+	public boolean isBranchEnabled() {
+		return GeneralUtils.isBranchEnabled(this);
+	}
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 */
 	public boolean isEnabled() {
 		return (eFlags & ENABLED_EFLAG) != 0;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated NOT
+	 */
+	public boolean isSetBranchEnabled() {
+		return true;
 	}
 
 	/**

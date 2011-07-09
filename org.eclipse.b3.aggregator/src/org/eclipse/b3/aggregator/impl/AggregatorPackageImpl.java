@@ -509,6 +509,7 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 		createEAttribute(descriptionProviderEClass, DESCRIPTION_PROVIDER__DESCRIPTION);
 
 		enabledStatusProviderEClass = createEClass(ENABLED_STATUS_PROVIDER);
+		createEAttribute(enabledStatusProviderEClass, ENABLED_STATUS_PROVIDER__BRANCH_ENABLED);
 		createEAttribute(enabledStatusProviderEClass, ENABLED_STATUS_PROVIDER__ENABLED);
 
 		exclusionRuleEClass = createEClass(EXCLUSION_RULE);
@@ -572,6 +573,7 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 
 		validationSetEClass = createEClass(VALIDATION_SET);
 		createEAttribute(validationSetEClass, VALIDATION_SET__ABSTRACT);
+		createEAttribute(validationSetEClass, VALIDATION_SET__EXTENSION);
 		createEAttribute(validationSetEClass, VALIDATION_SET__LABEL);
 		createEReference(validationSetEClass, VALIDATION_SET__CONTRIBUTIONS);
 		createEReference(validationSetEClass, VALIDATION_SET__VALIDATION_REPOSITORIES);
@@ -1064,12 +1066,22 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EAttribute getEnabledStatusProvider_BranchEnabled() {
+		return (EAttribute) enabledStatusProviderEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 */
 	public EAttribute getEnabledStatusProvider_Enabled() {
-		return (EAttribute) enabledStatusProviderEClass.getEStructuralFeatures().get(0);
+		return (EAttribute) enabledStatusProviderEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -1555,7 +1567,7 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 	 * @generated
 	 */
 	public EReference getValidationSet_Contributions() {
-		return (EReference) validationSetEClass.getEStructuralFeatures().get(2);
+		return (EReference) validationSetEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -1565,7 +1577,7 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 	 * @generated
 	 */
 	public EReference getValidationSet_Extends() {
-		return (EReference) validationSetEClass.getEStructuralFeatures().get(4);
+		return (EReference) validationSetEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -1574,7 +1586,7 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 	 * 
 	 * @generated
 	 */
-	public EAttribute getValidationSet_Label() {
+	public EAttribute getValidationSet_Extension() {
 		return (EAttribute) validationSetEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -1584,8 +1596,18 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 	 * 
 	 * @generated
 	 */
+	public EAttribute getValidationSet_Label() {
+		return (EAttribute) validationSetEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
 	public EReference getValidationSet_ValidationRepositories() {
-		return (EReference) validationSetEClass.getEStructuralFeatures().get(3);
+		return (EReference) validationSetEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -1907,6 +1929,10 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 			enabledStatusProviderEClass, EnabledStatusProvider.class, "EnabledStatusProvider", IS_ABSTRACT,
 			IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(
+			getEnabledStatusProvider_BranchEnabled(), ecorePackage.getEBoolean(), "branchEnabled", "false", 0, 1,
+			EnabledStatusProvider.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+			IS_DERIVED, IS_ORDERED);
+		initEAttribute(
 			getEnabledStatusProvider_Enabled(), ecorePackage.getEBoolean(), "enabled", "true", 0, 1,
 			EnabledStatusProvider.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
 			!IS_DERIVED, IS_ORDERED);
@@ -2132,7 +2158,10 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 			IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(
 			getValidationSet_Abstract(), ecorePackage.getEBoolean(), "abstract", "false", 0, 1, ValidationSet.class,
-			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+			IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEAttribute(
+			getValidationSet_Extension(), ecorePackage.getEBoolean(), "extension", "false", 0, 1, ValidationSet.class,
+			IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEAttribute(
 			getValidationSet_Label(), ecorePackage.getEString(), "label", null, 1, 1, ValidationSet.class,
 			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

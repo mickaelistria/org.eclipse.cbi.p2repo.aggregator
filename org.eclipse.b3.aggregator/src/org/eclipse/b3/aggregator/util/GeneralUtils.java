@@ -68,4 +68,16 @@ public class GeneralUtils {
 		}
 		return enabledTs;
 	}
+
+	public static boolean isBranchEnabled(Object esp) {
+		if(esp instanceof EnabledStatusProvider && !((EnabledStatusProvider) esp).isEnabled())
+			return false;
+		if(esp instanceof EObject) {
+			for(EObject v = ((EObject) esp).eContainer(); v != null; v = v.eContainer()) {
+				if(v instanceof EnabledStatusProvider)
+					return ((EnabledStatusProvider) v).isBranchEnabled();
+			}
+		}
+		return true;
+	}
 }

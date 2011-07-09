@@ -59,6 +59,24 @@ public class MapRuleItemProvider extends InstallableUnitRequestItemProvider impl
 	}
 
 	/**
+	 * This adds a property descriptor for the Branch Enabled feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	protected void addBranchEnabledPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+			getResourceLocator(),
+			getString("_UI_EnabledStatusProvider_branchEnabled_feature"),
+			getString(
+				"_UI_PropertyDescriptor_description", "_UI_EnabledStatusProvider_branchEnabled_feature",
+				"_UI_EnabledStatusProvider_type"), AggregatorPackage.Literals.ENABLED_STATUS_PROVIDER__BRANCH_ENABLED,
+			false, false, false, ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null));
+	}
+
+	/**
 	 * This adds a property descriptor for the Enabled feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -114,6 +132,7 @@ public class MapRuleItemProvider extends InstallableUnitRequestItemProvider impl
 		if(itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addBranchEnabledPropertyDescriptor(object);
 			addEnabledPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
@@ -178,6 +197,7 @@ public class MapRuleItemProvider extends InstallableUnitRequestItemProvider impl
 		updateChildren(notification);
 
 		switch(notification.getFeatureID(MapRule.class)) {
+			case AggregatorPackage.MAP_RULE__BRANCH_ENABLED:
 			case AggregatorPackage.MAP_RULE__ENABLED:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;

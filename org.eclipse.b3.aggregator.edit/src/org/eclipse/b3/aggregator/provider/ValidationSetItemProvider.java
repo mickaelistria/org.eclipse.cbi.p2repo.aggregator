@@ -7,6 +7,7 @@
  */
 package org.eclipse.b3.aggregator.provider;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
@@ -80,6 +81,24 @@ public class ValidationSetItemProvider extends AggregatorItemProviderAdapter imp
 	}
 
 	/**
+	 * This adds a property descriptor for the Branch Enabled feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	protected void addBranchEnabledPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+			getResourceLocator(),
+			getString("_UI_EnabledStatusProvider_branchEnabled_feature"),
+			getString(
+				"_UI_PropertyDescriptor_description", "_UI_EnabledStatusProvider_branchEnabled_feature",
+				"_UI_EnabledStatusProvider_type"), AggregatorPackage.Literals.ENABLED_STATUS_PROVIDER__BRANCH_ENABLED,
+			false, false, false, ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null));
+	}
+
+	/**
 	 * This adds a property descriptor for the Description feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -120,16 +139,47 @@ public class ValidationSetItemProvider extends AggregatorItemProviderAdapter imp
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
-	 * @generated
+	 * @generated NOT
 	 */
 	protected void addExtendsPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add(new ItemPropertyDescriptor(
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+			getString("_UI_ValidationSet_extends_feature"), getString(
+				"_UI_PropertyDescriptor_description", "_UI_ValidationSet_extends_feature", "_UI_ValidationSet_type"),
+			AggregatorPackage.Literals.VALIDATION_SET__EXTENDS, true, false, true, null, null, null) {
+
+			@Override
+			public Collection<?> getChoiceOfValues(Object object) {
+				// Provide a list of ValidationSets that this set doesn't inherit already
+				ValidationSet vs = (ValidationSet) object;
+				@SuppressWarnings("unchecked")
+				List<ValidationSet> candidates = (List<ValidationSet>) super.getChoiceOfValues(object);
+				List<ValidationSet> filtered = new ArrayList<ValidationSet>();
+				for(ValidationSet candidate : candidates)
+					if(!vs.isExtensionOf(candidate))
+						filtered.add(candidate);
+				return filtered;
+			}
+		});
+
+	}
+
+	/**
+	 * This adds a property descriptor for the Extension feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	protected void addExtensionPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
 			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
 			getResourceLocator(),
-			getString("_UI_ValidationSet_extends_feature"),
+			getString("_UI_ValidationSet_extension_feature"),
 			getString(
-				"_UI_PropertyDescriptor_description", "_UI_ValidationSet_extends_feature", "_UI_ValidationSet_type"),
-			AggregatorPackage.Literals.VALIDATION_SET__EXTENDS, true, false, true, null, null, null));
+				"_UI_PropertyDescriptor_description", "_UI_ValidationSet_extension_feature", "_UI_ValidationSet_type"),
+			AggregatorPackage.Literals.VALIDATION_SET__EXTENSION, false, false, false,
+			ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -177,7 +227,7 @@ public class ValidationSetItemProvider extends AggregatorItemProviderAdapter imp
 	protected Command createAddCommand(EditingDomain domain, EObject owner, EStructuralFeature feature,
 			Collection<?> collection, int index) {
 		if(feature == AggregatorPackage.Literals.VALIDATION_SET__VALIDATION_REPOSITORIES) {
-			// disable drag & drop of Mapped Repositories to Aggregator's validation repositories list;
+			// disable drag & drop of Mapped Repositories to ValidationSet's validation repositories list;
 			// although - given the class hierarchy - this should be theoretically possible in reality
 			// it isn't as the code in MappedRepositoryImpl expects its container to be a "Contribution"
 			for(Object object : collection) {
@@ -248,9 +298,11 @@ public class ValidationSetItemProvider extends AggregatorItemProviderAdapter imp
 		if(itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addBranchEnabledPropertyDescriptor(object);
 			addEnabledPropertyDescriptor(object);
 			addDescriptionPropertyDescriptor(object);
 			addAbstractPropertyDescriptor(object);
+			addExtensionPropertyDescriptor(object);
 			addLabelPropertyDescriptor(object);
 			addExtendsPropertyDescriptor(object);
 		}
@@ -283,14 +335,16 @@ public class ValidationSetItemProvider extends AggregatorItemProviderAdapter imp
 		StringBuilder bld = new StringBuilder(getString("_UI_ValidationSet_type")).append(" : ");
 		if(label != null)
 			bld.append(label);
-		List<ValidationSet> exs = self.getExtends();
-		int top = exs.size();
-		if(top > 0) {
-			bld.append(" extends ");
-			bld.append(exs.get(0).getLabel());
-			for(int idx = 1; idx < top; ++idx) {
-				bld.append(", ");
-				bld.append(exs.get(idx).getLabel());
+		if(self.isExtension()) {
+			List<ValidationSet> exs = self.getExtends();
+			int top = exs.size();
+			if(top > 0) {
+				bld.append(" extends ");
+				bld.append(exs.get(0).getLabel());
+				for(int idx = 1; idx < top; ++idx) {
+					bld.append(", ");
+					bld.append(exs.get(idx).getLabel());
+				}
 			}
 		}
 		return bld.toString();
@@ -334,9 +388,11 @@ public class ValidationSetItemProvider extends AggregatorItemProviderAdapter imp
 		updateChildren(notification);
 
 		switch(notification.getFeatureID(ValidationSet.class)) {
+			case AggregatorPackage.VALIDATION_SET__BRANCH_ENABLED:
 			case AggregatorPackage.VALIDATION_SET__ENABLED:
 			case AggregatorPackage.VALIDATION_SET__DESCRIPTION:
 			case AggregatorPackage.VALIDATION_SET__ABSTRACT:
+			case AggregatorPackage.VALIDATION_SET__EXTENSION:
 			case AggregatorPackage.VALIDATION_SET__LABEL:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;

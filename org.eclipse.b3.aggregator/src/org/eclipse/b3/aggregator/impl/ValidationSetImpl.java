@@ -41,6 +41,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <p>
  * The following features are implemented:
  * <ul>
+ * <li>{@link org.eclipse.b3.aggregator.impl.ValidationSetImpl#isBranchEnabled <em>Branch Enabled</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.impl.ValidationSetImpl#isEnabled <em>Enabled</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.impl.ValidationSetImpl#getDescription <em>Description</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.impl.ValidationSetImpl#getStatus <em>Status</em>}</li>
@@ -48,6 +49,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <li>{@link org.eclipse.b3.aggregator.impl.ValidationSetImpl#getWarnings <em>Warnings</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.impl.ValidationSetImpl#getInfos <em>Infos</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.impl.ValidationSetImpl#isAbstract <em>Abstract</em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.impl.ValidationSetImpl#isExtension <em>Extension</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.impl.ValidationSetImpl#getLabel <em>Label</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.impl.ValidationSetImpl#getContributions <em>Contributions</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.impl.ValidationSetImpl#getValidationRepositories <em>Validation Repositories</em>}</li>
@@ -67,6 +69,17 @@ public class ValidationSetImpl extends MinimalEObjectImpl.Container implements V
 	 * @ordered
 	 */
 	protected int eFlags = 0;
+
+	/**
+	 * The default value of the '{@link #isBranchEnabled() <em>Branch Enabled</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see #isBranchEnabled()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean BRANCH_ENABLED_EDEFAULT = false;
 
 	/**
 	 * The default value of the '{@link #isEnabled() <em>Enabled</em>}' attribute.
@@ -157,15 +170,15 @@ public class ValidationSetImpl extends MinimalEObjectImpl.Container implements V
 	protected static final boolean ABSTRACT_EDEFAULT = false;
 
 	/**
-	 * The flag representing the value of the '{@link #isAbstract() <em>Abstract</em>}' attribute.
+	 * The default value of the '{@link #isExtension() <em>Extension</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
-	 * @see #isAbstract()
+	 * @see #isExtension()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final int ABSTRACT_EFLAG = 1 << 1;
+	protected static final boolean EXTENSION_EDEFAULT = false;
 
 	/**
 	 * The default value of the '{@link #getLabel() <em>Label</em>}' attribute.
@@ -239,9 +252,10 @@ public class ValidationSetImpl extends MinimalEObjectImpl.Container implements V
 				continue;
 			receiver.add(contrib);
 		}
-		for(ValidationSet ex : getExtends())
-			if(ex.isEnabled())
-				((ValidationSetImpl) ex).addContributions(receiver);
+		if(extends_ != null)
+			for(ValidationSet ex : extends_)
+				if(ex.isEnabled())
+					((ValidationSetImpl) ex).addContributions(receiver);
 	}
 
 	private void addValidationRepositories(EList<MetadataRepositoryReference> receiver) {
@@ -250,9 +264,10 @@ public class ValidationSetImpl extends MinimalEObjectImpl.Container implements V
 				continue;
 			receiver.add(repo);
 		}
-		for(ValidationSet ex : getExtends())
-			if(ex.isEnabled())
-				((ValidationSetImpl) ex).addValidationRepositories(receiver);
+		if(extends_ != null)
+			for(ValidationSet ex : extends_)
+				if(ex.isEnabled())
+					((ValidationSetImpl) ex).addValidationRepositories(receiver);
 	}
 
 	void clearStatus() {
@@ -351,6 +366,8 @@ public class ValidationSetImpl extends MinimalEObjectImpl.Container implements V
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch(featureID) {
+			case AggregatorPackage.VALIDATION_SET__BRANCH_ENABLED:
+				return isBranchEnabled();
 			case AggregatorPackage.VALIDATION_SET__ENABLED:
 				return isEnabled();
 			case AggregatorPackage.VALIDATION_SET__DESCRIPTION:
@@ -365,6 +382,8 @@ public class ValidationSetImpl extends MinimalEObjectImpl.Container implements V
 				return getInfos();
 			case AggregatorPackage.VALIDATION_SET__ABSTRACT:
 				return isAbstract();
+			case AggregatorPackage.VALIDATION_SET__EXTENSION:
+				return isExtension();
 			case AggregatorPackage.VALIDATION_SET__LABEL:
 				return getLabel();
 			case AggregatorPackage.VALIDATION_SET__CONTRIBUTIONS:
@@ -403,6 +422,8 @@ public class ValidationSetImpl extends MinimalEObjectImpl.Container implements V
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch(featureID) {
+			case AggregatorPackage.VALIDATION_SET__BRANCH_ENABLED:
+				return isSetBranchEnabled();
 			case AggregatorPackage.VALIDATION_SET__ENABLED:
 				return ((eFlags & ENABLED_EFLAG) != 0) != ENABLED_EDEFAULT;
 			case AggregatorPackage.VALIDATION_SET__DESCRIPTION:
@@ -418,7 +439,9 @@ public class ValidationSetImpl extends MinimalEObjectImpl.Container implements V
 			case AggregatorPackage.VALIDATION_SET__INFOS:
 				return infos != null && !infos.isEmpty();
 			case AggregatorPackage.VALIDATION_SET__ABSTRACT:
-				return ((eFlags & ABSTRACT_EFLAG) != 0) != ABSTRACT_EDEFAULT;
+				return isSetAbstract();
+			case AggregatorPackage.VALIDATION_SET__EXTENSION:
+				return isSetExtension();
 			case AggregatorPackage.VALIDATION_SET__LABEL:
 				return LABEL_EDEFAULT == null
 						? label != null
@@ -460,9 +483,6 @@ public class ValidationSetImpl extends MinimalEObjectImpl.Container implements V
 			case AggregatorPackage.VALIDATION_SET__INFOS:
 				getInfos().clear();
 				getInfos().addAll((Collection<? extends String>) newValue);
-				return;
-			case AggregatorPackage.VALIDATION_SET__ABSTRACT:
-				setAbstract((Boolean) newValue);
 				return;
 			case AggregatorPackage.VALIDATION_SET__LABEL:
 				setLabel((String) newValue);
@@ -518,9 +538,6 @@ public class ValidationSetImpl extends MinimalEObjectImpl.Container implements V
 			case AggregatorPackage.VALIDATION_SET__INFOS:
 				getInfos().clear();
 				return;
-			case AggregatorPackage.VALIDATION_SET__ABSTRACT:
-				setAbstract(ABSTRACT_EDEFAULT);
-				return;
 			case AggregatorPackage.VALIDATION_SET__LABEL:
 				setLabel(LABEL_EDEFAULT);
 				return;
@@ -547,7 +564,7 @@ public class ValidationSetImpl extends MinimalEObjectImpl.Container implements V
 	 * @generated NOT
 	 */
 	public EList<Contribution> getAllContributions() {
-		if(getExtends().isEmpty())
+		if(extends_ == null || extends_.isEmpty())
 			return getDeclaredContributions();
 		BasicEList<Contribution> all = new BasicEList<Contribution>();
 		addContributions(all);
@@ -560,7 +577,7 @@ public class ValidationSetImpl extends MinimalEObjectImpl.Container implements V
 	 * @generated NOT
 	 */
 	public EList<MetadataRepositoryReference> getAllValidationRepositories() {
-		if(getExtends().isEmpty())
+		if(extends_ == null || extends_.isEmpty())
 			return getDeclaredValidationRepositories();
 		BasicEList<MetadataRepositoryReference> all = new BasicEList<MetadataRepositoryReference>();
 		addValidationRepositories(all);
@@ -669,11 +686,13 @@ public class ValidationSetImpl extends MinimalEObjectImpl.Container implements V
 	 */
 	public Status getStatus() {
 		StatusCode statusCode;
-		for(ValidationSet ex : getExtends()) {
-			if(!ex.isEnabled())
-				continue;
-			if((statusCode = ex.getStatus().getCode()) != StatusCode.OK && statusCode != StatusCode.WAITING)
-				return AggregatorFactory.eINSTANCE.createStatus(StatusCode.BROKEN);
+		if(extends_ != null) {
+			for(ValidationSet ex : extends_) {
+				if(!ex.isEnabled())
+					continue;
+				if((statusCode = ex.getStatus().getCode()) != StatusCode.OK && statusCode != StatusCode.WAITING)
+					return AggregatorFactory.eINSTANCE.createStatus(StatusCode.BROKEN);
+			}
 		}
 		for(Contribution contribution : getDeclaredContributions()) {
 			if((statusCode = contribution.getStatus().getCode()) != StatusCode.OK && statusCode != StatusCode.WAITING)
@@ -715,12 +734,30 @@ public class ValidationSetImpl extends MinimalEObjectImpl.Container implements V
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * A ValidationSet is considered abstract if it is extended by another ValidationSet. The
+	 * reason for this is that the extension must validate OK and there's no reason to validate
+	 * a subset of something that is OK.
 	 * <!-- end-user-doc -->
 	 * 
-	 * @generated
+	 * @generated NOT
 	 */
 	public boolean isAbstract() {
-		return (eFlags & ABSTRACT_EFLAG) != 0;
+		if(isEnabled()) {
+			for(ValidationSet vs : getAggregation().getValidationSets(true))
+				if(vs != this && vs.isExtensionOf(this))
+					return true;
+		}
+		return false;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated NOT
+	 */
+	public boolean isBranchEnabled() {
+		return GeneralUtils.isBranchEnabled(this);
 	}
 
 	/**
@@ -739,12 +776,24 @@ public class ValidationSetImpl extends MinimalEObjectImpl.Container implements V
 	 * 
 	 * @generated NOT
 	 */
+	public boolean isExtension() {
+		return !(extends_ == null || extends_.isEmpty());
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated NOT
+	 */
 	public boolean isExtensionOf(ValidationSet validationSet) {
 		if(validationSet == null)
 			return false;
 		if(validationSet == this)
 			return true;
-		for(ValidationSet vs : getExtends()) {
+		if(extends_ == null)
+			return false;
+		for(ValidationSet vs : extends_) {
 			if(vs.isExtensionOf(validationSet))
 				return true;
 		}
@@ -755,17 +804,31 @@ public class ValidationSetImpl extends MinimalEObjectImpl.Container implements V
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
-	 * @generated
+	 * @generated NOT
 	 */
-	public void setAbstract(boolean newAbstract) {
-		boolean oldAbstract = (eFlags & ABSTRACT_EFLAG) != 0;
-		if(newAbstract)
-			eFlags |= ABSTRACT_EFLAG;
-		else
-			eFlags &= ~ABSTRACT_EFLAG;
-		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(
-				this, Notification.SET, AggregatorPackage.VALIDATION_SET__ABSTRACT, oldAbstract, newAbstract));
+	public boolean isSetAbstract() {
+		// It's derived and can always be computed
+		return true;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated NOT
+	 */
+	public boolean isSetBranchEnabled() {
+		return true;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated NOT
+	 */
+	public boolean isSetExtension() {
+		return true;
 	}
 
 	/**
@@ -835,12 +898,9 @@ public class ValidationSetImpl extends MinimalEObjectImpl.Container implements V
 		result.append(warnings);
 		result.append(", infos: ");
 		result.append(infos);
-		result.append(", abstract: ");
-		result.append((eFlags & ABSTRACT_EFLAG) != 0);
 		result.append(", label: ");
 		result.append(label);
 		result.append(')');
 		return result.toString();
 	}
-
 } // ValidationSetImpl

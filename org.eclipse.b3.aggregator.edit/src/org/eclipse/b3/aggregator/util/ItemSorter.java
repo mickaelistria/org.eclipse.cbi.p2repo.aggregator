@@ -18,6 +18,7 @@ import org.eclipse.b3.aggregator.InstallableUnitType;
 import org.eclipse.b3.aggregator.p2view.Feature;
 import org.eclipse.b3.aggregator.p2view.IUPresentation;
 import org.eclipse.b3.aggregator.p2view.MetadataRepositoryStructuredView;
+import org.eclipse.b3.aggregator.p2view.Product;
 import org.eclipse.b3.p2.InstallableUnit;
 import org.eclipse.b3.p2.MetadataRepository;
 import org.eclipse.emf.ecore.EObject;
@@ -29,7 +30,7 @@ import org.eclipse.emf.ecore.EObject;
  */
 public class ItemSorter {
 	public static enum ItemGroup {
-		MDR, IU, FEATURE, MDR_STRUCTURED, IU_STRUCTURED, FEATURE_STRUCTURED, OTHER
+		MDR, IU, FEATURE, MDR_STRUCTURED, IU_STRUCTURED, FEATURE_STRUCTURED, PRODUCT_STRUCTURED, OTHER
 	}
 
 	private final Map<ItemGroup, List<?>> groups = new HashMap<ItemGroup, List<?>>();
@@ -43,6 +44,7 @@ public class ItemSorter {
 
 		List<IUPresentation> iups = new ArrayList<IUPresentation>();
 		List<Feature> structuredFeatures = new ArrayList<Feature>();
+		List<Product> structuredProducts = new ArrayList<Product>();
 		List<MetadataRepositoryStructuredView> mdrsvs = new ArrayList<MetadataRepositoryStructuredView>();
 
 		List<Object> others = new ArrayList<Object>();
@@ -72,6 +74,8 @@ public class ItemSorter {
 
 						if(iup.getType() == InstallableUnitType.FEATURE)
 							structuredFeatures.add((Feature) iup);
+						else if(iup.getType() == InstallableUnitType.PRODUCT)
+							structuredProducts.add((Product) iup);
 					}
 					else
 						others.add(item);
@@ -88,6 +92,7 @@ public class ItemSorter {
 		groups.put(ItemGroup.MDR_STRUCTURED, mdrsvs);
 		groups.put(ItemGroup.IU_STRUCTURED, iups);
 		groups.put(ItemGroup.FEATURE_STRUCTURED, structuredFeatures);
+		groups.put(ItemGroup.PRODUCT_STRUCTURED, structuredProducts);
 		groups.put(ItemGroup.OTHER, others);
 	}
 

@@ -18,6 +18,7 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * <ul>
  * <li>{@link org.eclipse.b3.aggregator.ValidationSet#isAbstract <em>Abstract</em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.ValidationSet#isExtension <em>Extension</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.ValidationSet#getLabel <em>Label</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.ValidationSet#getContributions <em>Contributions</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.ValidationSet#getValidationRepositories <em>Validation Repositories</em>}</li>
@@ -141,12 +142,29 @@ public interface ValidationSet extends EnabledStatusProvider, DescriptionProvide
 	 * <!-- end-user-doc -->
 	 * 
 	 * @return the value of the '<em>Abstract</em>' attribute.
-	 * @see #setAbstract(boolean)
+	 * @see #isSetAbstract()
 	 * @see org.eclipse.b3.aggregator.AggregatorPackage#getValidationSet_Abstract()
-	 * @model default="false"
+	 * @model default="false" unsettable="true" transient="true" changeable="false" volatile="true" derived="true"
 	 * @generated
 	 */
 	boolean isAbstract();
+
+	/**
+	 * Returns the value of the '<em><b>Extension</b></em>' attribute.
+	 * The default value is <code>"false"</code>.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Extension</em>' attribute isn't clear, there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the value of the '<em>Extension</em>' attribute.
+	 * @see #isSetExtension()
+	 * @see org.eclipse.b3.aggregator.AggregatorPackage#getValidationSet_Extension()
+	 * @model default="false" unsettable="true" transient="true" changeable="false" volatile="true" derived="true"
+	 * @generated
+	 */
+	boolean isExtension();
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -158,16 +176,26 @@ public interface ValidationSet extends EnabledStatusProvider, DescriptionProvide
 	boolean isExtensionOf(ValidationSet validationSet);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.aggregator.ValidationSet#isAbstract <em>Abstract</em>}' attribute.
+	 * Returns whether the value of the '{@link org.eclipse.b3.aggregator.ValidationSet#isAbstract <em>Abstract</em>}' attribute is set.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
-	 * @param value
-	 *            the new value of the '<em>Abstract</em>' attribute.
+	 * @return whether the value of the '<em>Abstract</em>' attribute is set.
 	 * @see #isAbstract()
 	 * @generated
 	 */
-	void setAbstract(boolean value);
+	boolean isSetAbstract();
+
+	/**
+	 * Returns whether the value of the '{@link org.eclipse.b3.aggregator.ValidationSet#isExtension <em>Extension</em>}' attribute is set.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return whether the value of the '<em>Extension</em>' attribute is set.
+	 * @see #isExtension()
+	 * @generated
+	 */
+	boolean isSetExtension();
 
 	/**
 	 * Sets the value of the '{@link org.eclipse.b3.aggregator.ValidationSet#getLabel <em>Label</em>}' attribute.

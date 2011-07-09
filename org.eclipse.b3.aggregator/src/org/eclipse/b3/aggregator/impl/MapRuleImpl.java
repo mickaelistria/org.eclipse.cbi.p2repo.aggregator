@@ -12,6 +12,7 @@ package org.eclipse.b3.aggregator.impl;
 import org.eclipse.b3.aggregator.AggregatorPackage;
 import org.eclipse.b3.aggregator.EnabledStatusProvider;
 import org.eclipse.b3.aggregator.MapRule;
+import org.eclipse.b3.aggregator.util.GeneralUtils;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
@@ -21,6 +22,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <p>
  * The following features are implemented:
  * <ul>
+ * <li>{@link org.eclipse.b3.aggregator.impl.MapRuleImpl#isBranchEnabled <em>Branch Enabled</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.impl.MapRuleImpl#isEnabled <em>Enabled</em>}</li>
  * </ul>
  * </p>
@@ -28,6 +30,17 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * @generated
  */
 public abstract class MapRuleImpl extends InstallableUnitRequestImpl implements MapRule {
+	/**
+	 * The default value of the '{@link #isBranchEnabled() <em>Branch Enabled</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see #isBranchEnabled()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean BRANCH_ENABLED_EDEFAULT = false;
+
 	/**
 	 * The default value of the '{@link #isEnabled() <em>Enabled</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -70,6 +83,8 @@ public abstract class MapRuleImpl extends InstallableUnitRequestImpl implements 
 	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
 		if(baseClass == EnabledStatusProvider.class) {
 			switch(derivedFeatureID) {
+				case AggregatorPackage.MAP_RULE__BRANCH_ENABLED:
+					return AggregatorPackage.ENABLED_STATUS_PROVIDER__BRANCH_ENABLED;
 				case AggregatorPackage.MAP_RULE__ENABLED:
 					return AggregatorPackage.ENABLED_STATUS_PROVIDER__ENABLED;
 				default:
@@ -89,6 +104,8 @@ public abstract class MapRuleImpl extends InstallableUnitRequestImpl implements 
 	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
 		if(baseClass == EnabledStatusProvider.class) {
 			switch(baseFeatureID) {
+				case AggregatorPackage.ENABLED_STATUS_PROVIDER__BRANCH_ENABLED:
+					return AggregatorPackage.MAP_RULE__BRANCH_ENABLED;
 				case AggregatorPackage.ENABLED_STATUS_PROVIDER__ENABLED:
 					return AggregatorPackage.MAP_RULE__ENABLED;
 				default:
@@ -107,6 +124,8 @@ public abstract class MapRuleImpl extends InstallableUnitRequestImpl implements 
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch(featureID) {
+			case AggregatorPackage.MAP_RULE__BRANCH_ENABLED:
+				return isBranchEnabled();
 			case AggregatorPackage.MAP_RULE__ENABLED:
 				return isEnabled();
 		}
@@ -122,6 +141,8 @@ public abstract class MapRuleImpl extends InstallableUnitRequestImpl implements 
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch(featureID) {
+			case AggregatorPackage.MAP_RULE__BRANCH_ENABLED:
+				return isSetBranchEnabled();
 			case AggregatorPackage.MAP_RULE__ENABLED:
 				return ((eFlags & ENABLED_EFLAG) != 0) != ENABLED_EDEFAULT;
 		}
@@ -174,10 +195,31 @@ public abstract class MapRuleImpl extends InstallableUnitRequestImpl implements 
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
+	 * @generated NOT
+	 */
+	@Override
+	public boolean isBranchEnabled() {
+		return GeneralUtils.isBranchEnabled(this);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public boolean isEnabled() {
 		return (eFlags & ENABLED_EFLAG) != 0;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated NOT
+	 */
+	public boolean isSetBranchEnabled() {
+		return true;
 	}
 
 	/**

@@ -59,7 +59,7 @@ public class AddIUsToCustomCategoryCommand extends AbstractCommand implements Dr
 		for(IInstallableUnit feature : selectedFeatures) {
 			MappedRepository repo = mapFeatureMappedRepo.get(feature);
 
-			if(!repo.isEnabled())
+			if(!repo.isBranchEnabled())
 				continue;
 
 			MappedUnit unit = ItemUtils.findMappedUnit(repo, feature);
@@ -75,7 +75,7 @@ public class AddIUsToCustomCategoryCommand extends AbstractCommand implements Dr
 				}
 				units.add(unit);
 			}
-			else if(!unit.isEnabled())
+			else if(!unit.isBranchEnabled())
 				continue;
 
 			if(unit instanceof Feature) {
@@ -102,7 +102,7 @@ public class AddIUsToCustomCategoryCommand extends AbstractCommand implements Dr
 
 			MappedUnit unit = ItemUtils.findMappedUnit(repo, feature);
 
-			if(unit != null && !unit.isEnabled() || unit == null && repo != null && !repo.isEnabled())
+			if(unit != null && !unit.isBranchEnabled() || unit == null && repo != null && !repo.isBranchEnabled())
 				return false;
 		}
 

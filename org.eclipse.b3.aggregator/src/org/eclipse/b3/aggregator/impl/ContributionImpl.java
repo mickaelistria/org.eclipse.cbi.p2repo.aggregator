@@ -40,6 +40,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <p>
  * The following features are implemented:
  * <ul>
+ * <li>{@link org.eclipse.b3.aggregator.impl.ContributionImpl#isBranchEnabled <em>Branch Enabled</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.impl.ContributionImpl#isEnabled <em>Enabled</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.impl.ContributionImpl#getDescription <em>Description</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.impl.ContributionImpl#getStatus <em>Status</em>}</li>
@@ -64,6 +65,17 @@ public class ContributionImpl extends MinimalEObjectImpl.Container implements Co
 	 * @ordered
 	 */
 	protected int eFlags = 0;
+
+	/**
+	 * The default value of the '{@link #isBranchEnabled() <em>Branch Enabled</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see #isBranchEnabled()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean BRANCH_ENABLED_EDEFAULT = false;
 
 	/**
 	 * The default value of the '{@link #isEnabled() <em>Enabled</em>}' attribute.
@@ -302,6 +314,8 @@ public class ContributionImpl extends MinimalEObjectImpl.Container implements Co
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch(featureID) {
+			case AggregatorPackage.CONTRIBUTION__BRANCH_ENABLED:
+				return isBranchEnabled();
 			case AggregatorPackage.CONTRIBUTION__ENABLED:
 				return isEnabled();
 			case AggregatorPackage.CONTRIBUTION__DESCRIPTION:
@@ -350,6 +364,8 @@ public class ContributionImpl extends MinimalEObjectImpl.Container implements Co
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch(featureID) {
+			case AggregatorPackage.CONTRIBUTION__BRANCH_ENABLED:
+				return isSetBranchEnabled();
 			case AggregatorPackage.CONTRIBUTION__ENABLED:
 				return ((eFlags & ENABLED_EFLAG) != 0) != ENABLED_EDEFAULT;
 			case AggregatorPackage.CONTRIBUTION__DESCRIPTION:
@@ -619,12 +635,32 @@ public class ContributionImpl extends MinimalEObjectImpl.Container implements Co
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated NOT
+	 */
+	public boolean isBranchEnabled() {
+		return GeneralUtils.isBranchEnabled(this);
+	}
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 */
 	public boolean isEnabled() {
 		return (eFlags & ENABLED_EFLAG) != 0;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated NOT
+	 */
+	public boolean isSetBranchEnabled() {
+		return true;
 	}
 
 	/**

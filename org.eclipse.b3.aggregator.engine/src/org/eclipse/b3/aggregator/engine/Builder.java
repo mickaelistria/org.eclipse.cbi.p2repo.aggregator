@@ -1199,6 +1199,8 @@ public class Builder extends ModelAbstractCommand {
 
 					if(contributionLabel != null) {
 						for(ValidationSet vs : validationSets) {
+							// We need the container collection here since we're actually removing
+							// entries from it.
 							Iterator<Contribution> iterator = vs.getContributions().iterator();
 							while(iterator.hasNext()) {
 								Contribution contribution = iterator.next();
@@ -1624,19 +1626,25 @@ public class Builder extends ModelAbstractCommand {
 			List<ValidationSet> validationSets = getAggregation().getValidationSets(true);
 
 			for(ValidationSet validationSet : validationSets) {
-				runCompositeGenerator(validationSet, subMon.newChild(5));
-				runVerificationIUGenerator(validationSet, subMon.newChild(5));
-				runRepositoryVerifier(validationSet, subMon.newChild(100));
+				if(!validationSet.isAbstract()) {
+					runCompositeGenerator(validationSet, subMon.newChild(5));
+					runVerificationIUGenerator(validationSet, subMon.newChild(5));
+					runRepositoryVerifier(validationSet, subMon.newChild(100));
+				}
 			}
 
 			if(action != ActionType.VALIDATE) {
 				initMirroring(subMon.newChild(5));
-				for(ValidationSet validationSet : validationSets)
-					runMetadataMirroring(validationSet, subMon.newChild(100));
+				for(ValidationSet validationSet : validationSets) {
+					if(!validationSet.isAbstract())
+						runMetadataMirroring(validationSet, subMon.newChild(100));
+				}
 				runCategoriesRepoGenerator(subMon.newChild(5));
 				initializeArtifactMirroring(subMon.newChild(10));
-				for(ValidationSet validationSet : validationSets)
-					runMirroring(validationSet, subMon.newChild(2000));
+				for(ValidationSet validationSet : validationSets) {
+					if(!validationSet.isAbstract())
+						runMirroring(validationSet, subMon.newChild(2000));
+				}
 				finishMirroring(monitor);
 			}
 			return 0;

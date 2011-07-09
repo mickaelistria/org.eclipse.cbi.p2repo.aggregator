@@ -12,12 +12,16 @@ import java.util.List;
 
 import org.eclipse.b3.aggregator.AggregatorPackage;
 import org.eclipse.b3.aggregator.CustomCategory;
+import org.eclipse.b3.aggregator.InstallableUnitType;
+import org.eclipse.b3.aggregator.p2view.Category;
+import org.eclipse.b3.aggregator.p2view.IUPresentation;
 import org.eclipse.b3.aggregator.util.AddIUsToCustomCategoryCommand;
 import org.eclipse.b3.aggregator.util.ItemSorter;
 import org.eclipse.b3.aggregator.util.ItemSorter.ItemGroup;
 import org.eclipse.b3.aggregator.util.ItemUtils;
 import org.eclipse.b3.p2.InstallableUnit;
 import org.eclipse.emf.common.command.Command;
+import org.eclipse.emf.common.command.UnexecutableCommand;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.ResourceLocator;
@@ -140,10 +144,25 @@ public class CustomCategoryItemProvider extends AggregatorItemProviderAdapter im
 	@SuppressWarnings("unchecked")
 	private Command createAddIUsToCustomCategoryCommand(Object owner, Collection<?> collection) {
 		ItemSorter itemSorter = new ItemSorter(collection);
+		int itemCount = itemSorter.getTotalItemCount();
+		if(itemCount == 0)
+			return null;
 
-		if(itemSorter.getTotalItemCount() > 0 &&
-				(itemSorter.getTotalItemCount() == itemSorter.getGroupItems(ItemGroup.FEATURE).size() || (itemSorter.getTotalItemCount() == itemSorter.getGroupItems(
-					ItemGroup.FEATURE_STRUCTURED).size()))) {
+		List<IUPresentation> iups = (List<IUPresentation>) itemSorter.getGroupItems(ItemGroup.IU_STRUCTURED);
+		if(itemCount == iups.size()) {
+			// Might be a drag'n'drop of a Category
+			for(IUPresentation iup : iups) {
+				if(iup.getType() != InstallableUnitType.CATEGORY)
+					return null;
+			}
+			List<IInstallableUnit> features = new ArrayList<IInstallableUnit>();
+			for(IUPresentation iup : iups)
+				features.addAll(ItemUtils.getIUs(((Category) iup).getFeatureContainer().getFeatures()));
+			return new AddIUsToCustomCategoryCommand((CustomCategory) owner, features);
+		}
+
+		if(itemCount == itemSorter.getGroupItems(ItemGroup.FEATURE).size() ||
+				itemCount == itemSorter.getGroupItems(ItemGroup.FEATURE_STRUCTURED).size()) {
 			List<IInstallableUnit> features = new ArrayList<IInstallableUnit>();
 			features.addAll((List<InstallableUnit>) itemSorter.getGroupItems(ItemGroup.FEATURE));
 			features.addAll(ItemUtils.getIUs((List<org.eclipse.b3.aggregator.p2view.Feature>) itemSorter.getGroupItems(ItemGroup.FEATURE_STRUCTURED)));
@@ -161,11 +180,9 @@ public class CustomCategoryItemProvider extends AggregatorItemProviderAdapter im
 	protected Command createDragAndDropCommand(EditingDomain domain, Object owner, float location, int operations,
 			int operation, Collection<?> collection) {
 		Command command = createAddIUsToCustomCategoryCommand(owner, collection);
-
-		if(command != null)
-			return command;
-
-		return super.createDragAndDropCommand(domain, owner, location, operations, operation, collection);
+		if(command == null)
+			command = UnexecutableCommand.INSTANCE;
+		return command;
 	}
 
 	/**
@@ -175,11 +192,9 @@ public class CustomCategoryItemProvider extends AggregatorItemProviderAdapter im
 	protected Command factorAddCommand(EditingDomain domain, CommandParameter commandParameter) {
 		Command command = createAddIUsToCustomCategoryCommand(
 			commandParameter.getOwner(), commandParameter.getCollection());
-
-		if(command != null)
-			return command;
-
-		return super.factorAddCommand(domain, commandParameter);
+		if(command == null)
+			command = UnexecutableCommand.INSTANCE;
+		return command;
 	}
 
 	/**
