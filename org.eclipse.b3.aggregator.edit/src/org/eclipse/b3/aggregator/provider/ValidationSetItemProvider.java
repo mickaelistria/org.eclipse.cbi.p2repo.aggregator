@@ -63,42 +63,6 @@ public class ValidationSetItemProvider extends AggregatorItemProviderAdapter imp
 	}
 
 	/**
-	 * This adds a property descriptor for the Abstract feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	protected void addAbstractPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-			getResourceLocator(),
-			getString("_UI_ValidationSet_abstract_feature"),
-			getString(
-				"_UI_PropertyDescriptor_description", "_UI_ValidationSet_abstract_feature", "_UI_ValidationSet_type"),
-			AggregatorPackage.Literals.VALIDATION_SET__ABSTRACT, true, false, false,
-			ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Branch Enabled feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	protected void addBranchEnabledPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-			getResourceLocator(),
-			getString("_UI_EnabledStatusProvider_branchEnabled_feature"),
-			getString(
-				"_UI_PropertyDescriptor_description", "_UI_EnabledStatusProvider_branchEnabled_feature",
-				"_UI_EnabledStatusProvider_type"), AggregatorPackage.Literals.ENABLED_STATUS_PROVIDER__BRANCH_ENABLED,
-			false, false, false, ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null));
-	}
-
-	/**
 	 * This adds a property descriptor for the Description feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -162,24 +126,6 @@ public class ValidationSetItemProvider extends AggregatorItemProviderAdapter imp
 			}
 		});
 
-	}
-
-	/**
-	 * This adds a property descriptor for the Extension feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	protected void addExtensionPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-			getResourceLocator(),
-			getString("_UI_ValidationSet_extension_feature"),
-			getString(
-				"_UI_PropertyDescriptor_description", "_UI_ValidationSet_extension_feature", "_UI_ValidationSet_type"),
-			AggregatorPackage.Literals.VALIDATION_SET__EXTENSION, false, false, false,
-			ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -298,11 +244,8 @@ public class ValidationSetItemProvider extends AggregatorItemProviderAdapter imp
 		if(itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addBranchEnabledPropertyDescriptor(object);
 			addEnabledPropertyDescriptor(object);
 			addDescriptionPropertyDescriptor(object);
-			addAbstractPropertyDescriptor(object);
-			addExtensionPropertyDescriptor(object);
 			addLabelPropertyDescriptor(object);
 			addExtendsPropertyDescriptor(object);
 		}
@@ -388,11 +331,8 @@ public class ValidationSetItemProvider extends AggregatorItemProviderAdapter imp
 		updateChildren(notification);
 
 		switch(notification.getFeatureID(ValidationSet.class)) {
-			case AggregatorPackage.VALIDATION_SET__BRANCH_ENABLED:
 			case AggregatorPackage.VALIDATION_SET__ENABLED:
 			case AggregatorPackage.VALIDATION_SET__DESCRIPTION:
-			case AggregatorPackage.VALIDATION_SET__ABSTRACT:
-			case AggregatorPackage.VALIDATION_SET__EXTENSION:
 			case AggregatorPackage.VALIDATION_SET__LABEL:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;

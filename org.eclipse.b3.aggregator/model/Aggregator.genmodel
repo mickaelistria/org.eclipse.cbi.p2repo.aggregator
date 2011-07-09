@@ -159,6 +159,8 @@
       <genFeatures createChild="false" propertyMultiLine="true" ecoreFeature="ecore:EAttribute Aggregator.ecore#//DescriptionProvider/description"/>
     </genClasses>
     <genClasses image="false" ecoreClass="Aggregator.ecore#//EnabledStatusProvider">
+      <genFeatures property="None" notify="false" createChild="false" propertyCategory=""
+          ecoreFeature="ecore:EAttribute Aggregator.ecore#//EnabledStatusProvider/branchEnabled"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Aggregator.ecore#//EnabledStatusProvider/enabled"/>
     </genClasses>
     <genClasses ecoreClass="Aggregator.ecore#//ExclusionRule"/>
@@ -199,6 +201,9 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Aggregator.ecore#//MappedRepository/mirrorArtifacts"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Aggregator.ecore#//MappedRepository/categoryPrefix"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Aggregator.ecore#//MappedRepository/mapRules"/>
+      <genOperations ecoreOperation="Aggregator.ecore#//MappedRepository/getMapRules">
+        <genParameters ecoreParameter="Aggregator.ecore#//MappedRepository/getMapRules/enabledOnly"/>
+      </genOperations>
       <genOperations ecoreOperation="Aggregator.ecore#//MappedRepository/getUnits">
         <genParameters ecoreParameter="Aggregator.ecore#//MappedRepository/getUnits/enabledOnly"/>
       </genOperations>
@@ -249,7 +254,10 @@
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference Aggregator.ecore#//StatusProvider/status"/>
     </genClasses>
     <genClasses ecoreClass="Aggregator.ecore#//ValidationSet" labelFeature="#//aggregator/ValidationSet/label">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Aggregator.ecore#//ValidationSet/abstract"/>
+      <genFeatures property="None" notify="false" createChild="false" propertyCategory=""
+          ecoreFeature="ecore:EAttribute Aggregator.ecore#//ValidationSet/abstract"/>
+      <genFeatures property="None" notify="false" createChild="false" propertyCategory=""
+          ecoreFeature="ecore:EAttribute Aggregator.ecore#//ValidationSet/extension"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Aggregator.ecore#//ValidationSet/label"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Aggregator.ecore#//ValidationSet/contributions"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Aggregator.ecore#//ValidationSet/validationRepositories"/>
@@ -375,6 +383,7 @@
       <genClasses ecoreClass="Aggregator.ecore#//p2view/RepositoryBrowser">
         <genFeatures property="Readonly" notify="false" children="true" createChild="false"
             propertyCategory="" propertySortChoices="true" ecoreFeature="ecore:EReference Aggregator.ecore#//p2view/RepositoryBrowser/repositories"/>
+        <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute Aggregator.ecore#//p2view/RepositoryBrowser/loading"/>
       </genClasses>
       <genClasses ecoreClass="Aggregator.ecore#//p2view/MetadataRepositoryStructuredView">
         <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute Aggregator.ecore#//p2view/MetadataRepositoryStructuredView/name"/>

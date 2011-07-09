@@ -68,24 +68,6 @@ public class MetadataRepositoryReferenceItemProvider extends AggregatorItemProvi
 	}
 
 	/**
-	 * This adds a property descriptor for the Branch Enabled feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	protected void addBranchEnabledPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-			getResourceLocator(),
-			getString("_UI_EnabledStatusProvider_branchEnabled_feature"),
-			getString(
-				"_UI_PropertyDescriptor_description", "_UI_EnabledStatusProvider_branchEnabled_feature",
-				"_UI_EnabledStatusProvider_type"), AggregatorPackage.Literals.ENABLED_STATUS_PROVIDER__BRANCH_ENABLED,
-			false, false, false, ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null));
-	}
-
-	/**
 	 * This adds a property descriptor for the Enabled feature.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -251,7 +233,6 @@ public class MetadataRepositoryReferenceItemProvider extends AggregatorItemProvi
 		if(itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addBranchEnabledPropertyDescriptor(object);
 			addEnabledPropertyDescriptor(object);
 			addLocationPropertyDescriptor(object);
 			addNaturePropertyDescriptor(object);
@@ -424,7 +405,6 @@ public class MetadataRepositoryReferenceItemProvider extends AggregatorItemProvi
 		updateChildren(notification);
 
 		switch(notification.getFeatureID(MetadataRepositoryReference.class)) {
-			case AggregatorPackage.METADATA_REPOSITORY_REFERENCE__BRANCH_ENABLED:
 			case AggregatorPackage.METADATA_REPOSITORY_REFERENCE__ENABLED:
 			case AggregatorPackage.METADATA_REPOSITORY_REFERENCE__LOCATION:
 			case AggregatorPackage.METADATA_REPOSITORY_REFERENCE__NATURE:

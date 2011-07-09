@@ -63,24 +63,6 @@ public class ConfigurationItemProvider extends AggregatorItemProviderAdapter imp
 	}
 
 	/**
-	 * This adds a property descriptor for the Branch Enabled feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	protected void addBranchEnabledPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-			getResourceLocator(),
-			getString("_UI_EnabledStatusProvider_branchEnabled_feature"),
-			getString(
-				"_UI_PropertyDescriptor_description", "_UI_EnabledStatusProvider_branchEnabled_feature",
-				"_UI_EnabledStatusProvider_type"), AggregatorPackage.Literals.ENABLED_STATUS_PROVIDER__BRANCH_ENABLED,
-			false, false, false, ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null));
-	}
-
-	/**
 	 * This adds a property descriptor for the Enabled feature.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -167,7 +149,6 @@ public class ConfigurationItemProvider extends AggregatorItemProviderAdapter imp
 		if(itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addBranchEnabledPropertyDescriptor(object);
 			addEnabledPropertyDescriptor(object);
 			addOperatingSystemPropertyDescriptor(object);
 			addWindowSystemPropertyDescriptor(object);
@@ -214,7 +195,6 @@ public class ConfigurationItemProvider extends AggregatorItemProviderAdapter imp
 		updateChildren(notification);
 
 		switch(notification.getFeatureID(Configuration.class)) {
-			case AggregatorPackage.CONFIGURATION__BRANCH_ENABLED:
 			case AggregatorPackage.CONFIGURATION__ENABLED:
 			case AggregatorPackage.CONFIGURATION__OPERATING_SYSTEM:
 			case AggregatorPackage.CONFIGURATION__WINDOW_SYSTEM:
