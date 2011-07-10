@@ -86,6 +86,8 @@ public class VerificationDiagnostic extends ResourceDiagnosticImpl {
 
 	public static final String ATTR_ROOT_PROBLEM = "p2.verification.root.problem";
 
+	public static final String ATTR_RELATED_DIAGNOSTICS = "p2.verification.related.diagnostics";
+
 	public static final String ATTR_VERIFICATION_TYPE = "p2.verification.error.type";
 
 	public static final String PROP_AGGREGATOR_MODEL_ELEMENT_URI = "org.eclipse.b3.aggregator.model.element.URI"; //$NON-NLS-1$

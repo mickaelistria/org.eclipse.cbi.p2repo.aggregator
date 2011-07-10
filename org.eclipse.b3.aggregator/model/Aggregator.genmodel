@@ -251,7 +251,7 @@
       <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute Aggregator.ecore#//Status/message"/>
     </genClasses>
     <genClasses image="false" ecoreClass="Aggregator.ecore#//StatusProvider">
-      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference Aggregator.ecore#//StatusProvider/status"/>
+      <genFeatures property="None" createChild="false" ecoreFeature="ecore:EReference Aggregator.ecore#//StatusProvider/status"/>
     </genClasses>
     <genClasses ecoreClass="Aggregator.ecore#//ValidationSet" labelFeature="#//aggregator/ValidationSet/label">
       <genFeatures property="None" notify="false" createChild="false" propertyCategory=""

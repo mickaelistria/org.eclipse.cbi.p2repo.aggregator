@@ -258,6 +258,7 @@ public class RepositoryBrowserItemProvider extends AggregatorItemProviderAdapter
 		updateChildren(notification);
 
 		switch(notification.getFeatureID(RepositoryBrowser.class)) {
+			case P2viewPackage.REPOSITORY_BROWSER__STATUS:
 			case P2viewPackage.REPOSITORY_BROWSER__LOADING:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;

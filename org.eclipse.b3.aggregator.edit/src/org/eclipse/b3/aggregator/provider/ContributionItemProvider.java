@@ -451,6 +451,13 @@ public class ContributionItemProvider extends AggregatorItemProviderAdapter impl
 	@Override
 	public void notifyChanged(Notification notification) {
 		notifyChangedGen(notification);
+		switch(notification.getFeatureID(Contribution.class)) {
+			case AggregatorPackage.CONTRIBUTION__ENABLED:
+			case AggregatorPackage.CONTRIBUTION__STATUS:
+				fireNotifyChanged(new ViewerNotification(
+					notification, ((EObject) notification.getNotifier()).eContainer(), false, true));
+				return;
+		}
 
 		// Update also content if enabled flag has been changed
 		if(notification.getFeatureID(Contribution.class) == AggregatorPackage.CONTRIBUTION__ENABLED) {
@@ -535,6 +542,7 @@ public class ContributionItemProvider extends AggregatorItemProviderAdapter impl
 			for(Object affectedNode : affectedNodes)
 				fireNotifyChanged(new ViewerNotification(notification, affectedNode, false, true));
 		}
+
 	}
 
 	/**
@@ -550,6 +558,7 @@ public class ContributionItemProvider extends AggregatorItemProviderAdapter impl
 		switch(notification.getFeatureID(Contribution.class)) {
 			case AggregatorPackage.CONTRIBUTION__ENABLED:
 			case AggregatorPackage.CONTRIBUTION__DESCRIPTION:
+			case AggregatorPackage.CONTRIBUTION__STATUS:
 			case AggregatorPackage.CONTRIBUTION__LABEL:
 			case AggregatorPackage.CONTRIBUTION__CONTACTS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));

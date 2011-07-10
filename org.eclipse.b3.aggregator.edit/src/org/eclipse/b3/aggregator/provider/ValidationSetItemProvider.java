@@ -296,6 +296,21 @@ public class ValidationSetItemProvider extends AggregatorItemProviderAdapter imp
 	@Override
 	public void notifyChanged(Notification notification) {
 		notifyChangedGen(notification);
+		switch(notification.getFeatureID(Contribution.class)) {
+			case AggregatorPackage.CONTRIBUTION__ENABLED:
+			case AggregatorPackage.CONTRIBUTION__STATUS:
+				fireNotifyChanged(new ViewerNotification(
+					notification, ((EObject) notification.getNotifier()).eContainer(), false, true));
+				return;
+		}
+
+		switch(notification.getFeatureID(ValidationSet.class)) {
+			case AggregatorPackage.VALIDATION_SET__ENABLED:
+			case AggregatorPackage.VALIDATION_SET__STATUS:
+				fireNotifyChanged(new ViewerNotification(
+					notification, ((EObject) notification.getNotifier()).eContainer(), false, true));
+				return;
+		}
 
 		if(notification.getEventType() == Notification.REMOVE) {
 			Object oldV = notification.getOldValue();
@@ -317,11 +332,6 @@ public class ValidationSetItemProvider extends AggregatorItemProviderAdapter imp
 			if(newV instanceof MetadataRepositoryReference || newV instanceof MavenMapping)
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 		}
-		switch(notification.getFeatureID(ValidationSet.class)) {
-			case AggregatorPackage.VALIDATION_SET__STATUS:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, true));
-				return;
-		}
 	}
 
 	/**
@@ -338,6 +348,7 @@ public class ValidationSetItemProvider extends AggregatorItemProviderAdapter imp
 		switch(notification.getFeatureID(ValidationSet.class)) {
 			case AggregatorPackage.VALIDATION_SET__ENABLED:
 			case AggregatorPackage.VALIDATION_SET__DESCRIPTION:
+			case AggregatorPackage.VALIDATION_SET__STATUS:
 			case AggregatorPackage.VALIDATION_SET__LABEL:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;

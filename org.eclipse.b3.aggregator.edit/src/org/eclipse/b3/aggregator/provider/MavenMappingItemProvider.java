@@ -201,6 +201,7 @@ public class MavenMappingItemProvider extends AggregatorItemProviderAdapter impl
 		updateChildren(notification);
 
 		switch(notification.getFeatureID(MavenMapping.class)) {
+			case AggregatorPackage.MAVEN_MAPPING__STATUS:
 			case AggregatorPackage.MAVEN_MAPPING__NAME_PATTERN:
 			case AggregatorPackage.MAVEN_MAPPING__GROUP_ID:
 			case AggregatorPackage.MAVEN_MAPPING__ARTIFACT_ID:

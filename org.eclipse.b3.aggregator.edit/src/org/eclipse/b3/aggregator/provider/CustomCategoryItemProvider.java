@@ -306,6 +306,7 @@ public class CustomCategoryItemProvider extends AggregatorItemProviderAdapter im
 		updateChildren(notification);
 
 		switch(notification.getFeatureID(CustomCategory.class)) {
+			case AggregatorPackage.CUSTOM_CATEGORY__STATUS:
 			case AggregatorPackage.CUSTOM_CATEGORY__IDENTIFIER:
 			case AggregatorPackage.CUSTOM_CATEGORY__LABEL:
 			case AggregatorPackage.CUSTOM_CATEGORY__DESCRIPTION:

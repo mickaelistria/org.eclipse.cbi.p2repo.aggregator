@@ -305,6 +305,7 @@ public class AggregationItemProvider extends DescriptionProviderItemProvider imp
 		updateChildren(notification);
 
 		switch(notification.getFeatureID(Aggregation.class)) {
+			case AggregatorPackage.AGGREGATION__STATUS:
 			case AggregatorPackage.AGGREGATION__LABEL:
 			case AggregatorPackage.AGGREGATION__BUILD_ROOT:
 			case AggregatorPackage.AGGREGATION__PACKED_STRATEGY:

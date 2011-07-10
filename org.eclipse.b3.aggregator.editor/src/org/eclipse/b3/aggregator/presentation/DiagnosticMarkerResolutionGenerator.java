@@ -6,6 +6,8 @@ import java.lang.reflect.InvocationTargetException;
 import java.net.URL;
 import java.net.URLEncoder;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 import org.eclipse.b3.aggregator.Aggregation;
 import org.eclipse.b3.aggregator.AggregatorFactory;
@@ -19,6 +21,7 @@ import org.eclipse.b3.aggregator.impl.ContributionImpl;
 import org.eclipse.b3.aggregator.util.AggregatorResourceImpl;
 import org.eclipse.b3.aggregator.util.ResourceUtils;
 import org.eclipse.b3.aggregator.util.VerificationDiagnostic;
+import org.eclipse.b3.aggregator.util.VerificationDiagnostic.Singleton;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IMarker;
 import org.eclipse.core.runtime.CoreException;
@@ -29,12 +32,12 @@ import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.core.runtime.jobs.Job;
 import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.common.util.UniqueEList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EValidator;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.equinox.app.IApplication;
-import org.eclipse.equinox.internal.p2.director.Explanation;
 import org.eclipse.ui.IEditorInput;
 import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.IEditorReference;
@@ -50,7 +53,13 @@ import org.xml.sax.SAXException;
 public class DiagnosticMarkerResolutionGenerator implements IMarkerResolutionGenerator2 {
 
 	static abstract class AggregatorMarkerResolution implements IMarkerResolution {
-		abstract ValidationSet getReceiver(IMarker marker, AggregatorEditor editor);
+		protected final Contribution contribution;
+
+		AggregatorMarkerResolution(Contribution contribution) {
+			this.contribution = contribution;
+		}
+
+		abstract ValidationSet getReceiver(Contribution contribution, ResourceSet resourceSet);
 
 		public void run(IMarker marker) {
 			String uriAttribute = marker.getAttribute(EValidator.URI_ATTRIBUTE, null);
@@ -62,58 +71,95 @@ public class DiagnosticMarkerResolutionGenerator implements IMarkerResolutionGen
 			if(editor == null)
 				return;
 			ResourceSet resourceSet = editor.getEditingDomain().getResourceSet();
-			Contribution contrib = (Contribution) resourceSet.getEObject(uri, true);
-			ValidationSet child = getReceiver(marker, editor);
-			child.getContributions().add(contrib);
+			ValidationSet child = getReceiver(contribution, resourceSet);
+			child.getContributions().add(contribution);
 			editor.doSave(new NullProgressMonitor());
 			verifyAggregation(ResourceUtils.getAggregation(resourceSet));
 		}
 	}
 
-	static class MoveToExistingChild extends AggregatorMarkerResolution {
+	static class MoveBothToNew extends MoveToNew {
+		private final Contribution other;
+
+		MoveBothToNew(Contribution contribution, Contribution other) {
+			super(contribution);
+			this.other = other;
+		}
+
+		@Override
+		public String getLabel() {
+			return String.format(
+				"Move conflicting contributions %s and %s into two new separate validation sets",
+				contribution.getLabel(), other.getLabel());
+		}
+
+		@Override
+		public void run(IMarker marker) {
+			String uriAttribute = marker.getAttribute(EValidator.URI_ATTRIBUTE, null);
+			URI uri = URI.createURI(uriAttribute);
+			if(uri.fragment() == null)
+				return;
+			AggregatorEditor editor = getAggregatorEditor(marker);
+			if(editor == null)
+				return;
+
+			ResourceSet resourceSet = editor.getEditingDomain().getResourceSet();
+
+			ValidationSet vs = getReceiver(contribution, resourceSet);
+			vs.getContributions().add(contribution);
+			vs = getReceiver(other, resourceSet);
+			vs.getContributions().add(other);
+			editor.doSave(new NullProgressMonitor());
+			verifyAggregation(ResourceUtils.getAggregation(resourceSet));
+		}
+	}
+
+	static class MoveToExisting extends AggregatorMarkerResolution {
 		private final ValidationSet receiver;
 
-		MoveToExistingChild(ValidationSet receiver) {
+		MoveToExisting(Contribution contribution, ValidationSet receiver) {
+			super(contribution);
 			this.receiver = receiver;
 		}
 
 		public String getLabel() {
-			return "Move contribution into a different validation set '" + receiver.getLabel() + '\'';
+			return String.format(
+				"Move contribution %s into a validation set '%s'", contribution.getLabel(), receiver.getLabel());
 		}
 
 		@Override
-		ValidationSet getReceiver(IMarker marker, AggregatorEditor editor) {
+		ValidationSet getReceiver(Contribution contribution, ResourceSet resourceSet) {
 			return receiver;
 		}
 	}
 
-	static final IMarkerResolution moveToNew = new AggregatorMarkerResolution() {
+	static class MoveToNew extends AggregatorMarkerResolution {
+		MoveToNew(Contribution contribution) {
+			super(contribution);
+		}
 
 		public String getLabel() {
-			return "Move contribution into a new validation set";
+			return String.format("Move contribution %s into a new validation set", contribution.getLabel());
 		}
 
 		@Override
-		ValidationSet getReceiver(IMarker marker, AggregatorEditor editor) {
-			ResourceSet resourceSet = editor.getEditingDomain().getResourceSet();
-			Contribution contrib = getContribution(marker, resourceSet);
-			if(contrib == null)
-				return null;
-
+		ValidationSet getReceiver(Contribution contrib, ResourceSet resourceSet) {
 			((ContributionImpl) contrib).setStatus(null);
 			Aggregation aggregation = ResourceUtils.getAggregation(resourceSet);
 			ValidationSet current = (ValidationSet) ((EObject) contrib).eContainer();
-			ValidationSet child = AggregatorFactory.eINSTANCE.createValidationSet();
-			child.getExtends().add(current);
-			child.setLabel(contrib.getLabel());
-			aggregation.getValidationSets().add(child);
-			return child;
+			ValidationSet newVs = AggregatorFactory.eINSTANCE.createValidationSet();
+			newVs.getExtends().add(current);
+			newVs.setLabel(contrib.getLabel());
+			aggregation.getValidationSets().add(newVs);
+			return newVs;
 		}
-	};
+	}
+
+	private static final IMarkerResolution[] noResolutions = new IMarkerResolution[0];
 
 	static void clearVerificationMarkers(Aggregation aggregation) {
 		((AggregationImpl) aggregation).clearStatus();
-	}
+	};
 
 	static AggregatorEditor getAggregatorEditor(IMarker marker) {
 		try {
@@ -149,14 +195,41 @@ public class DiagnosticMarkerResolutionGenerator implements IMarkerResolutionGen
 		catch(CoreException e) {
 			return null;
 		}
-	};
+	}
 
-	static Contribution getContribution(IMarker marker, ResourceSet resourceSet) {
+	static Contribution getContribution(URI uri, ResourceSet resourceSet) {
+		Contribution contrib = null;
+		if(uri.fragment() != null)
+			contrib = (Contribution) resourceSet.getEObject(uri, true);
+		return contrib;
+	}
+
+	static List<Contribution> getContributions(IMarker marker, ResourceSet resourceSet) {
 		String uriAttribute = marker.getAttribute(EValidator.URI_ATTRIBUTE, null);
-		URI uri = URI.createURI(uriAttribute);
-		return uri.fragment() == null
-				? null
-				: (Contribution) resourceSet.getEObject(uri, true);
+		if(uriAttribute == null)
+			return Collections.emptyList();
+
+		Contribution contrib = getContribution(URI.createURI(uriAttribute), resourceSet);
+		if(contrib == null)
+			return Collections.emptyList();
+
+		Singleton[] relatedDiags;
+		try {
+			relatedDiags = (Singleton[]) marker.getAttribute(VerificationDiagnostic.ATTR_RELATED_DIAGNOSTICS);
+		}
+		catch(CoreException e) {
+			relatedDiags = null;
+		}
+		if(relatedDiags == null)
+			return Collections.singletonList(contrib);
+
+		List<Contribution> contribs = new UniqueEList.FastCompare<Contribution>();
+		for(Singleton relatedDiag : relatedDiags) {
+			Contribution relatedContrib = getContribution(relatedDiag.getLocationURI(), resourceSet);
+			if(relatedContrib != null)
+				contribs.add(relatedContrib);
+		}
+		return contribs;
 	}
 
 	static Throwable unwind(Throwable t) {
@@ -227,57 +300,75 @@ public class DiagnosticMarkerResolutionGenerator implements IMarkerResolutionGen
 		}.schedule();
 	}
 
-	/**
-	 * @param marker
-	 * @return
-	 */
-	private Explanation getExplanation(IMarker marker) throws CoreException {
-		Object severity = marker.getAttribute(IMarker.SEVERITY);
-		if(!(severity instanceof Integer && ((Integer) severity).intValue() == IMarker.SEVERITY_ERROR))
-			return null;
-
-		Object verType = marker.getAttribute(VerificationDiagnostic.ATTR_VERIFICATION_TYPE);
-		if(!VerificationDiagnostic.Singleton.class.getName().equals(verType))
-			return null;
-
-		Object rootProblem = marker.getAttribute(VerificationDiagnostic.ATTR_ROOT_PROBLEM);
-		return (rootProblem instanceof Explanation)
-				? (Explanation) rootProblem
-				: null;
-	}
-
 	public IMarkerResolution[] getResolutions(IMarker marker) {
-		AggregatorEditor editor = getAggregatorEditor(marker);
-		ResourceSet resourceSet = editor.getEditingDomain().getResourceSet();
-		Contribution contrib = getContribution(marker, resourceSet);
-		Aggregation aggregation = ResourceUtils.getAggregation(resourceSet);
-		ArrayList<IMarkerResolution> resolutions = new ArrayList<IMarkerResolution>();
-		boolean hasSelf = false;
-		nextValidationSet: for(ValidationSet vs : aggregation.getValidationSets(true)) {
-			for(Contribution c : vs.getContributions()) {
-				if(c == contrib)
-					continue nextValidationSet;
-			}
-			if(vs.getLabel().equals(contrib.getLabel()))
-				hasSelf = true;
-			resolutions.add(new MoveToExistingChild(vs));
-		}
-		if(!hasSelf)
-			resolutions.add(moveToNew);
-		return resolutions.toArray(new IMarkerResolution[resolutions.size()]);
-	}
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see org.eclipse.ui.IMarkerResolutionGenerator2#hasResolutions(org.eclipse.core.resources.IMarker)
-	 */
-	public boolean hasResolutions(IMarker marker) {
 		try {
-			return getExplanation(marker) != null;
+			Object severity = marker.getAttribute(IMarker.SEVERITY);
+			if(!(severity instanceof Integer && ((Integer) severity).intValue() == IMarker.SEVERITY_ERROR))
+				return noResolutions;
+
+			Object verType = marker.getAttribute(VerificationDiagnostic.ATTR_VERIFICATION_TYPE);
+			if(!Singleton.class.getName().equals(verType))
+				return noResolutions;
+
+			AggregatorEditor editor = getAggregatorEditor(marker);
+			ResourceSet resourceSet = editor.getEditingDomain().getResourceSet();
+			List<Contribution> contribs = getContributions(marker, resourceSet);
+			if(contribs.size() < 2)
+				// Moving one contribution won't help much unless its in conflict
+				// with anohter
+				return noResolutions;
+
+			Contribution contribA = contribs.get(0);
+			ValidationSet vA = (ValidationSet) ((EObject) contribA).eContainer();
+
+			Contribution contribB = contribs.get(1);
+			ValidationSet vB = (ValidationSet) ((EObject) contribB).eContainer();
+
+			// If the two contributions already live in two different validation sets
+			// and if one doesn't inherit the other, then moving won't help
+			if(!(vA.isExtensionOf(vB) || vB.isExtensionOf(vA)))
+				return noResolutions;
+
+			Aggregation aggregation = ResourceUtils.getAggregation(resourceSet);
+			List<ValidationSet> vss = aggregation.getValidationSets(true);
+
+			List<IMarkerResolution> resolutions = new ArrayList<IMarkerResolution>();
+			// Find an aggregation set that vA doesn't inherit
+			boolean hasSelfA = false;
+			boolean hasSelfB = false;
+			for(ValidationSet vs : vss) {
+				if(!(vA.isExtensionOf(vs))) {
+					// Moving contribA into this set could help
+					resolutions.add(new MoveToExisting(contribA, vs));
+				}
+				if(!(vB.isExtensionOf(vs))) {
+					// Moving contribB into this set could help
+					resolutions.add(new MoveToExisting(contribB, vs));
+				}
+				if(vs.getLabel().equals(contribA.getLabel()))
+					hasSelfA = true;
+				if(vs.getLabel().equals(contribB.getLabel()))
+					hasSelfB = true;
+			}
+
+			if(!hasSelfA)
+				resolutions.add(new MoveToNew(contribA));
+			if(!hasSelfB)
+				resolutions.add(new MoveToNew(contribB));
+			if(!(hasSelfA || hasSelfB))
+				resolutions.add(new MoveBothToNew(contribA, contribB));
+
+			if(resolutions.isEmpty())
+				return noResolutions;
+
+			return resolutions.toArray(new IMarkerResolution[resolutions.size()]);
 		}
 		catch(CoreException e) {
-			return false;
+			return noResolutions;
 		}
+	}
+
+	public boolean hasResolutions(IMarker marker) {
+		return getResolutions(marker).length > 0;
 	}
 }

@@ -37,10 +37,14 @@ class AggregatorMarkerHelper extends EditUIMarkerHelper {
 				uriString = ((Resource.Diagnostic) object).getLocation();
 				if(object instanceof VerificationDiagnostic) {
 					marker.setAttribute(VerificationDiagnostic.ATTR_VERIFICATION_TYPE, object.getClass().getName());
-					if(object instanceof VerificationDiagnostic.Singleton)
+					if(object instanceof VerificationDiagnostic.Singleton) {
 						marker.setAttribute(
 							VerificationDiagnostic.ATTR_ROOT_PROBLEM,
 							((VerificationDiagnostic.Singleton) object).getRootProblem());
+						marker.setAttribute(
+							VerificationDiagnostic.ATTR_RELATED_DIAGNOSTICS,
+							((VerificationDiagnostic.Singleton) object).getRelatedDiagnostics());
+					}
 				}
 			}
 			else {
