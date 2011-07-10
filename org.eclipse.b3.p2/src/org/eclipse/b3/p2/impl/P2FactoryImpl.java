@@ -1087,7 +1087,7 @@ public class P2FactoryImpl extends EFactoryImpl implements P2Factory {
 		int len = initialValue.length();
 		if(len > 2 && initialValue.charAt(0) == '[' && initialValue.charAt(len - 1) == ']' &&
 				initialValue.indexOf(',') < 0) {
-			Version v = Version.create(initialValue.substring(1, len - 2));
+			Version v = Version.create(initialValue.substring(1, len - 1));
 			return new VersionRange(v, true, v, true);
 		}
 		return new VersionRange(initialValue);

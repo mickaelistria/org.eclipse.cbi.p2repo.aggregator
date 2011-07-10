@@ -27,8 +27,8 @@ import org.eclipse.b3.aggregator.p2.provider.MetadataRepositoryItemProvider;
 import org.eclipse.b3.aggregator.p2.provider.ProvidedCapabilityItemProvider;
 import org.eclipse.b3.aggregator.p2.provider.RequiredCapabilityItemProvider;
 import org.eclipse.b3.aggregator.p2.util.MetadataRepositoryResourceImpl;
-import org.eclipse.b3.aggregator.p2view.RepositoryBrowser;
 import org.eclipse.b3.aggregator.p2view.P2viewFactory;
+import org.eclipse.b3.aggregator.p2view.RepositoryBrowser;
 import org.eclipse.b3.aggregator.p2view.provider.P2viewItemProviderAdapterFactory;
 import org.eclipse.b3.aggregator.provider.AggregatorItemProviderAdapterFactory;
 import org.eclipse.b3.aggregator.provider.TooltipTextProvider;
@@ -277,7 +277,7 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 
 		RepositoryLoaderJob(List<MetadataRepositoryReference> repositoriesToLoad) {
 			super("Loading repositories...");
-			this.repositoriesToLoad = repositoriesToLoad;
+			this.repositoriesToLoad = new ArrayList<MetadataRepositoryReference>(repositoriesToLoad);
 		}
 
 		@Override

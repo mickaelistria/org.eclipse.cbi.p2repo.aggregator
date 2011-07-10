@@ -601,15 +601,17 @@ public class Builder extends ModelAbstractCommand {
 					throw ExceptionUtils.fromMessage(
 						"Unable to move %s to %s", oldLocation.getAbsolutePath(), newLocation.getAbsolutePath());
 				mdrMgr.removeRepository(aggregateURI);
+				p2Index.setProperty("metadata.repository.factory.order", "content.xml,!");
 			}
 			else {
 				// Set up the final composite repositories
 				LogUtils.info("Building final metadata composite at %s", finalURI);
 
 				mdrMgr.removeRepository(finalURI);
+				Map<String, String> properties = new HashMap<String, String>();
+				properties.put(IRepository.PROP_COMPRESSED, Boolean.toString(true));
 				CompositeMetadataRepository compositeMdr = (CompositeMetadataRepository) mdrMgr.createRepository(
-					finalURI, getAggregation().getLabel(), Builder.COMPOSITE_METADATA_TYPE,
-					Collections.<String, String> emptyMap());
+					finalURI, getAggregation().getLabel(), Builder.COMPOSITE_METADATA_TYPE, properties);
 
 				compositeMdr.addChild(URI.create(Builder.REPO_FOLDER_AGGREGATE));
 				for(MappedRepository referenced : reposWithReferencedMetadata)
@@ -655,14 +657,17 @@ public class Builder extends ModelAbstractCommand {
 						FileUtils.deleteAll(oldLocation);
 					}
 				}
+				p2Index.setProperty("artifact.repository.factory.order", "artifacts.xml,!");
 			}
 			else {
 				// Set up the final composite repositories
 				LogUtils.info("Building final artifact composite at %s", finalURI);
 				arMgr.removeRepository(finalURI);
+
+				Map<String, String> properties = new HashMap<String, String>();
+				properties.put(IRepository.PROP_COMPRESSED, Boolean.toString(true));
 				CompositeArtifactRepository compositeAr = (CompositeArtifactRepository) arMgr.createRepository(
-					finalURI,
-					getAggregation().getLabel() + " artifacts", Builder.COMPOSITE_ARTIFACTS_TYPE, Collections.<String, String> emptyMap()); //$NON-NLS-1$
+					finalURI, getAggregation().getLabel() + " artifacts", Builder.COMPOSITE_ARTIFACTS_TYPE, properties); //$NON-NLS-1$
 
 				for(MappedRepository referenced : reposWithReferencedArtifacts)
 					compositeAr.addChild(referenced.getMetadataRepository().getLocation());
@@ -682,7 +687,9 @@ public class Builder extends ModelAbstractCommand {
 				OutputStream out = null;
 				try {
 					out = new BufferedOutputStream(new FileOutputStream(p2IndexFile));
-					p2Index.store(out, "p2 index file to speed things up");
+					p2Index.store(
+						out,
+						String.format(" p2.index file to speed things up.%n Please note that the values in this file denotes repository factories and%n not files. The factory '<name>.xml' will look for both the <name>.jar%n and the <name>.xml file, in that order"));
 				}
 				catch(IOException e) {
 					LogUtils.error("Unable to create p2.index file", e);
@@ -721,8 +728,14 @@ public class Builder extends ModelAbstractCommand {
 		Map<String, String> properties = new HashMap<String, String>();
 		properties.put(IRepository.PROP_COMPRESSED, Boolean.toString(true));
 		properties.put(Publisher.PUBLISH_PACK_FILES_AS_SIBLINGS, Boolean.toString(true));
-		aggregationAr = (IFileArtifactRepository) arMgr.createRepository(aggregateURI, getAggregation().getLabel() +
-				" artifacts", Builder.SIMPLE_ARTIFACTS_TYPE, properties); //$NON-NLS-1$
+		try {
+			aggregationAr = (IFileArtifactRepository) arMgr.loadRepository(aggregateURI, monitor); //$NON-NLS-1$
+		}
+		catch(ProvisionException e) {
+			aggregationAr = (IFileArtifactRepository) arMgr.createRepository(aggregateURI, getAggregation().getLabel() +
+					" artifacts", Builder.SIMPLE_ARTIFACTS_TYPE, properties); //$NON-NLS-1$
+			MonitorUtils.complete(monitor);
+		}
 		return aggregationAr;
 	}
 
@@ -993,7 +1006,6 @@ public class Builder extends ModelAbstractCommand {
 		SubMonitor subMon = SubMonitor.convert(monitor, 1000);
 		try {
 			subMon.setTaskName("Mirroring artifacts...");
-			MonitorUtils.subTask(subMon, "Initializing");
 			aggregationAr = getAggregationArtifactRepository(subMon.newChild(5));
 
 			if(getAggregation().isMavenResult())

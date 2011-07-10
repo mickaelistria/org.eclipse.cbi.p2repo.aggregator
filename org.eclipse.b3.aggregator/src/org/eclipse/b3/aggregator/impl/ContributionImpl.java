@@ -611,8 +611,9 @@ public class ContributionImpl extends MinimalEObjectImpl.Container implements Co
 			return status;
 
 		StatusCode statusCode;
-		for(MappedRepository repo : getRepositories(true)) {
-			if((statusCode = repo.getStatus().getCode()) != StatusCode.OK && statusCode != StatusCode.WAITING)
+		for(MappedRepository repo : getRepositories()) {
+			if(repo.isEnabled() && (statusCode = repo.getStatus().getCode()) != StatusCode.OK &&
+					statusCode != StatusCode.WAITING)
 				return AggregatorFactory.eINSTANCE.createStatus(StatusCode.BROKEN);
 		}
 		for(MavenMapping mapping : getMavenMappings()) {

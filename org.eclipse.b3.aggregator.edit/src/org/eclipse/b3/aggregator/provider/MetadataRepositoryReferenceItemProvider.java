@@ -302,11 +302,14 @@ public class MetadataRepositoryReferenceItemProvider extends AggregatorItemProvi
 					bld.append(':');
 				}
 				bld.append(repoRef.getLocation());
-				bld.append(" (");
-				bld.append(repoRef.getStatus().getCode() == StatusCode.WAITING
-						? "loading"
-						: "missing");
-				bld.append(')');
+				StatusCode status = repoRef.getStatus().getCode();
+				if(status != StatusCode.OK) {
+					bld.append(" (");
+					bld.append(status == StatusCode.WAITING
+							? "loading"
+							: "missing");
+					bld.append(')');
+				}
 			}
 			else
 				bld.append("no location");

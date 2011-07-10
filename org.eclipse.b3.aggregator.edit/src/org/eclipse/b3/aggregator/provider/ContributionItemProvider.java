@@ -9,6 +9,7 @@ package org.eclipse.b3.aggregator.provider;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -117,6 +118,24 @@ public class ContributionItemProvider extends AggregatorItemProviderAdapter impl
 			return null;
 		}
 	}
+
+	private static Comparator<MappedRepository> mappedRepositoryComparator = new Comparator<MappedRepository>() {
+
+		@Override
+		public int compare(MappedRepository o1, MappedRepository o2) {
+			String loc1 = o1.getLocation();
+			String loc2 = o2.getLocation();
+			if(loc1 == null)
+				return loc2 == null
+						? 0
+						: 1;
+
+			if(loc2 == null)
+				return -1;
+
+			return loc1.compareTo(loc2);
+		}
+	};
 
 	/**
 	 * This constructs an instance from a factory and a notifier.
@@ -405,6 +424,21 @@ public class ContributionItemProvider extends AggregatorItemProviderAdapter impl
 		if(label != null)
 			bld.append(label);
 		return bld.toString();
+	}
+
+	@Override
+	protected Object getValue(EObject eObject, EStructuralFeature eStructuralFeature) {
+		Object value = super.getValue(eObject, eStructuralFeature);
+		if(eStructuralFeature.getFeatureID() == AggregatorPackage.CONTRIBUTION__REPOSITORIES && value instanceof List) {
+			@SuppressWarnings("unchecked")
+			List<MappedRepository> notSorted = (List<MappedRepository>) value;
+			if(notSorted.size() > 1) {
+				ArrayList<MappedRepository> sorted = new ArrayList<MappedRepository>(notSorted);
+				Collections.sort(sorted, mappedRepositoryComparator);
+				value = sorted;
+			}
+		}
+		return value;
 	}
 
 	/**

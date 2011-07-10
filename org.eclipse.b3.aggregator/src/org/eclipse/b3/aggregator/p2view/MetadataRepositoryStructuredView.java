@@ -9,6 +9,7 @@
  */
 package org.eclipse.b3.aggregator.p2view;
 
+import java.net.URI;
 import org.eclipse.b3.aggregator.ChildrenProvider;
 import org.eclipse.b3.p2.MetadataRepository;
 
@@ -25,6 +26,7 @@ import org.eclipse.b3.p2.MetadataRepository;
  * <li>{@link org.eclipse.b3.aggregator.p2view.MetadataRepositoryStructuredView#getMetadataRepository <em>Metadata Repository</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.p2view.MetadataRepositoryStructuredView#isLoaded <em>Loaded</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.p2view.MetadataRepositoryStructuredView#getRepositoryReferences <em>Repository References</em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.p2view.MetadataRepositoryStructuredView#getLocation <em>Location</em>}</li>
  * </ul>
  * </p>
  * 
@@ -48,6 +50,24 @@ public interface MetadataRepositoryStructuredView extends ChildrenProvider<Insta
 	 * @generated
 	 */
 	InstallableUnits getInstallableUnitList();
+
+	/**
+	 * Returns the value of the '<em><b>Location</b></em>' attribute.
+	 * The default value is <code>""</code>.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Location</em>' attribute isn't clear, there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the value of the '<em>Location</em>' attribute.
+	 * @see #isSetLocation()
+	 * @see org.eclipse.b3.aggregator.p2view.P2viewPackage#getMetadataRepositoryStructuredView_Location()
+	 * @model default="" unsettable="true" dataType="org.eclipse.b3.p2.URI" required="true" transient="true" changeable="false" volatile="true"
+	 *        derived="true"
+	 * @generated
+	 */
+	URI getLocation();
 
 	/**
 	 * Returns the value of the '<em><b>Metadata Repository</b></em>' containment reference.
@@ -129,6 +149,18 @@ public interface MetadataRepositoryStructuredView extends ChildrenProvider<Insta
 	 * @generated
 	 */
 	boolean isLoaded();
+
+	/**
+	 * Returns whether the value of the '{@link org.eclipse.b3.aggregator.p2view.MetadataRepositoryStructuredView#getLocation <em>Location</em>}'
+	 * attribute is set.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return whether the value of the '<em>Location</em>' attribute is set.
+	 * @see #getLocation()
+	 * @generated
+	 */
+	boolean isSetLocation();
 
 	/**
 	 * Sets the value of the '{@link org.eclipse.b3.aggregator.p2view.MetadataRepositoryStructuredView#getInstallableUnitList

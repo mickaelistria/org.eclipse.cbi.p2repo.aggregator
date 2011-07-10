@@ -107,6 +107,15 @@ public interface P2viewPackage extends EPackage {
 		EReference METADATA_REPOSITORY_STRUCTURED_VIEW__REPOSITORY_REFERENCES = eINSTANCE.getMetadataRepositoryStructuredView_RepositoryReferences();
 
 		/**
+		 * The meta object literal for the '<em><b>Location</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EAttribute METADATA_REPOSITORY_STRUCTURED_VIEW__LOCATION = eINSTANCE.getMetadataRepositoryStructuredView_Location();
+
+		/**
 		 * The meta object literal for the '{@link org.eclipse.b3.aggregator.p2view.impl.InstallableUnitsImpl <em>Installable Units</em>}' class.
 		 * <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
@@ -2388,13 +2397,23 @@ public interface P2viewPackage extends EPackage {
 	int METADATA_REPOSITORY_STRUCTURED_VIEW__REPOSITORY_REFERENCES = AggregatorPackage.CHILDREN_PROVIDER_FEATURE_COUNT + 5;
 
 	/**
+	 * The feature id for the '<em><b>Location</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int METADATA_REPOSITORY_STRUCTURED_VIEW__LOCATION = AggregatorPackage.CHILDREN_PROVIDER_FEATURE_COUNT + 6;
+
+	/**
 	 * The number of structural features of the '<em>Metadata Repository Structured View</em>' class. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int METADATA_REPOSITORY_STRUCTURED_VIEW_FEATURE_COUNT = AggregatorPackage.CHILDREN_PROVIDER_FEATURE_COUNT + 6;
+	int METADATA_REPOSITORY_STRUCTURED_VIEW_FEATURE_COUNT = AggregatorPackage.CHILDREN_PROVIDER_FEATURE_COUNT + 7;
 
 	/**
 	 * The feature id for the '<em><b>Children</b></em>' reference list.
@@ -3700,6 +3719,19 @@ public interface P2viewPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getMetadataRepositoryStructuredView_Loaded();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.b3.aggregator.p2view.MetadataRepositoryStructuredView#getLocation
+	 * <em>Location</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the attribute '<em>Location</em>'.
+	 * @see org.eclipse.b3.aggregator.p2view.MetadataRepositoryStructuredView#getLocation()
+	 * @see #getMetadataRepositoryStructuredView()
+	 * @generated
+	 */
+	EAttribute getMetadataRepositoryStructuredView_Location();
 
 	/**
 	 * Returns the meta object for the containment reference '

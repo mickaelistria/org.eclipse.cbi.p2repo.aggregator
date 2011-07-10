@@ -417,6 +417,7 @@ public class P2viewPackageImpl extends EPackageImpl implements P2viewPackage {
 		createEAttribute(metadataRepositoryStructuredViewEClass, METADATA_REPOSITORY_STRUCTURED_VIEW__LOADED);
 		createEReference(
 			metadataRepositoryStructuredViewEClass, METADATA_REPOSITORY_STRUCTURED_VIEW__REPOSITORY_REFERENCES);
+		createEAttribute(metadataRepositoryStructuredViewEClass, METADATA_REPOSITORY_STRUCTURED_VIEW__LOCATION);
 
 		miscellaneousEClass = createEClass(MISCELLANEOUS);
 		createEReference(miscellaneousEClass, MISCELLANEOUS__OTHERS);
@@ -935,6 +936,16 @@ public class P2viewPackageImpl extends EPackageImpl implements P2viewPackage {
 	 */
 	public EAttribute getMetadataRepositoryStructuredView_Loaded() {
 		return (EAttribute) metadataRepositoryStructuredViewEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EAttribute getMetadataRepositoryStructuredView_Location() {
+		return (EAttribute) metadataRepositoryStructuredViewEClass.getEStructuralFeatures().get(6);
 	}
 
 	/**
@@ -1572,6 +1583,10 @@ public class P2viewPackageImpl extends EPackageImpl implements P2viewPackage {
 			getMetadataRepositoryStructuredView_RepositoryReferences(), this.getRepositoryReferences(), null,
 			"repositoryReferences", null, 0, 1, MetadataRepositoryStructuredView.class, !IS_TRANSIENT, !IS_VOLATILE,
 			IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(
+			getMetadataRepositoryStructuredView_Location(), theP2Package.getURI(), "location", "", 1, 1,
+			MetadataRepositoryStructuredView.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID,
+			IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
 		initEClass(
 			miscellaneousEClass, Miscellaneous.class, "Miscellaneous", !IS_ABSTRACT, !IS_INTERFACE,

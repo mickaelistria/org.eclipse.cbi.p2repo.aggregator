@@ -30,6 +30,7 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.common.util.UniqueEList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
@@ -699,10 +700,10 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 	 * @generated NOT
 	 */
 	public EList<Contribution> getAllContributions(boolean enabledOnly) {
-		BasicEList<Contribution> result = new BasicEList<Contribution>();
+		BasicEList<Contribution> result = new UniqueEList.FastCompare<Contribution>();
 		for(ValidationSet vs : getValidationSets(enabledOnly)) {
 			for(Contribution contribution : vs.getContributions()) {
-				if((enabledOnly && !contribution.isEnabled()) || result.contains(contribution))
+				if(enabledOnly && !contribution.isEnabled())
 					continue;
 				result.add(contribution);
 			}
@@ -716,18 +717,16 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 	 * @generated NOT
 	 */
 	public EList<MetadataRepositoryReference> getAllMetadataRepositoryReferences(boolean enabledOnly) {
-		EList<MetadataRepositoryReference> allRepos = new BasicEList<MetadataRepositoryReference>();
+		EList<MetadataRepositoryReference> allRepos = new UniqueEList.FastCompare<MetadataRepositoryReference>();
 		for(ValidationSet vs : getValidationSets(enabledOnly)) {
 			for(Contribution contribution : vs.getContributions()) {
 				if(enabledOnly && !contribution.isEnabled())
 					continue;
-				for(MappedRepository mappedRepository : contribution.getRepositories(enabledOnly)) {
-					if(!allRepos.contains(mappedRepository))
-						allRepos.add(mappedRepository);
-				}
+				for(MappedRepository mappedRepository : contribution.getRepositories(enabledOnly))
+					allRepos.add(mappedRepository);
 			}
 			for(MetadataRepositoryReference mrRef : vs.getValidationRepositories()) {
-				if((enabledOnly && !mrRef.isEnabled()) || allRepos.contains(mrRef))
+				if(enabledOnly && !mrRef.isEnabled())
 					continue;
 				allRepos.add(mrRef);
 			}

@@ -9,12 +9,16 @@
  */
 package org.eclipse.b3.aggregator.p2view.impl;
 
+import java.net.URI;
+
 import org.eclipse.b3.aggregator.p2view.InstallableUnits;
 import org.eclipse.b3.aggregator.p2view.MetadataRepositoryStructuredView;
 import org.eclipse.b3.aggregator.p2view.P2viewPackage;
 import org.eclipse.b3.aggregator.p2view.Properties;
 import org.eclipse.b3.aggregator.p2view.RepositoryReferences;
 import org.eclipse.b3.p2.MetadataRepository;
+import org.eclipse.b3.p2.P2Factory;
+import org.eclipse.b3.p2.P2Package;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.BasicEList;
@@ -38,6 +42,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <li>{@link org.eclipse.b3.aggregator.p2view.impl.MetadataRepositoryStructuredViewImpl#getMetadataRepository <em>Metadata Repository</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.p2view.impl.MetadataRepositoryStructuredViewImpl#isLoaded <em>Loaded</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.p2view.impl.MetadataRepositoryStructuredViewImpl#getRepositoryReferences <em>Repository References</em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.p2view.impl.MetadataRepositoryStructuredViewImpl#getLocation <em>Location</em>}</li>
  * </ul>
  * </p>
  * 
@@ -137,6 +142,18 @@ public class MetadataRepositoryStructuredViewImpl extends MinimalEObjectImpl.Con
 	 * @ordered
 	 */
 	protected RepositoryReferences repositoryReferences;
+
+	/**
+	 * The default value of the '{@link #getLocation() <em>Location</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see #getLocation()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final URI LOCATION_EDEFAULT = (URI) P2Factory.eINSTANCE.createFromString(
+		P2Package.eINSTANCE.getURI(), "");
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -276,6 +293,8 @@ public class MetadataRepositoryStructuredViewImpl extends MinimalEObjectImpl.Con
 				if(resolve)
 					return getRepositoryReferences();
 				return basicGetRepositoryReferences();
+			case P2viewPackage.METADATA_REPOSITORY_STRUCTURED_VIEW__LOCATION:
+				return getLocation();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -322,6 +341,8 @@ public class MetadataRepositoryStructuredViewImpl extends MinimalEObjectImpl.Con
 				return ((eFlags & LOADED_EFLAG) != 0) != LOADED_EDEFAULT;
 			case P2viewPackage.METADATA_REPOSITORY_STRUCTURED_VIEW__REPOSITORY_REFERENCES:
 				return repositoryReferences != null;
+			case P2viewPackage.METADATA_REPOSITORY_STRUCTURED_VIEW__LOCATION:
+				return isSetLocation();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -437,6 +458,19 @@ public class MetadataRepositoryStructuredViewImpl extends MinimalEObjectImpl.Con
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated NOT
+	 */
+	public URI getLocation() {
+		MetadataRepository mr = getMetadataRepository();
+		return mr == null
+				? null
+				: mr.getLocation();
+	}
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated NOT
@@ -522,6 +556,16 @@ public class MetadataRepositoryStructuredViewImpl extends MinimalEObjectImpl.Con
 	 */
 	public boolean isLoaded() {
 		return (eFlags & LOADED_EFLAG) != 0;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated NOT
+	 */
+	public boolean isSetLocation() {
+		return true;
 	}
 
 	/**

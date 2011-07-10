@@ -480,6 +480,10 @@
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="loaded" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="repositoryReferences"
           eType="#//p2view/RepositoryReferences"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="location" lowerBound="1"
+          eType="ecore:EDataType ../../org.eclipse.b3.p2/model/p2.ecore#//URI" changeable="false"
+          volatile="true" transient="true" defaultValueLiteral="" unsettable="true"
+          derived="true"/>
       <eGenericSuperTypes eClassifier="#//ChildrenProvider">
         <eTypeArguments eClassifier="#//p2view/InstallableUnits"/>
       </eGenericSuperTypes>

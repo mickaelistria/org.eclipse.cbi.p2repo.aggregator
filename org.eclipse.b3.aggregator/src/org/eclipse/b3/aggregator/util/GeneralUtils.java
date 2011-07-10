@@ -10,8 +10,8 @@ package org.eclipse.b3.aggregator.util;
 
 import org.eclipse.b3.aggregator.Aggregation;
 import org.eclipse.b3.aggregator.EnabledStatusProvider;
-import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.common.util.UniqueEList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 
@@ -58,7 +58,7 @@ public class GeneralUtils {
 		if(idx == count)
 			return ts;
 
-		EList<T> enabledTs = new BasicEList<T>(count - 1);
+		EList<T> enabledTs = new UniqueEList.FastCompare<T>(count - 1);
 		for(int sdx = 0; sdx < idx; ++sdx)
 			enabledTs.add(ts.get(sdx));
 		for(++idx; idx < count; ++idx) {

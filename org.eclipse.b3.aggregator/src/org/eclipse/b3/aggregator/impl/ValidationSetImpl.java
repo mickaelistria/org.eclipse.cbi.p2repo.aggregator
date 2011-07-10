@@ -23,8 +23,8 @@ import org.eclipse.b3.aggregator.ValidationSet;
 import org.eclipse.b3.aggregator.util.GeneralUtils;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.common.util.UniqueEList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
@@ -248,9 +248,8 @@ public class ValidationSetImpl extends MinimalEObjectImpl.Container implements V
 
 	private void addContributions(EList<Contribution> receiver) {
 		for(Contribution contrib : getContributions()) {
-			if(!contrib.isEnabled() || receiver.contains(contrib))
-				continue;
-			receiver.add(contrib);
+			if(contrib.isEnabled())
+				receiver.add(contrib);
 		}
 		if(extends_ != null)
 			for(ValidationSet ex : extends_)
@@ -260,9 +259,8 @@ public class ValidationSetImpl extends MinimalEObjectImpl.Container implements V
 
 	private void addValidationRepositories(EList<MetadataRepositoryReference> receiver) {
 		for(MetadataRepositoryReference repo : getValidationRepositories()) {
-			if(!repo.isEnabled() || receiver.contains(repo))
-				continue;
-			receiver.add(repo);
+			if(repo.isEnabled())
+				receiver.add(repo);
 		}
 		if(extends_ != null)
 			for(ValidationSet ex : extends_)
@@ -566,7 +564,7 @@ public class ValidationSetImpl extends MinimalEObjectImpl.Container implements V
 	public EList<Contribution> getAllContributions() {
 		if(extends_ == null || extends_.isEmpty())
 			return getDeclaredContributions();
-		BasicEList<Contribution> all = new BasicEList<Contribution>();
+		EList<Contribution> all = new UniqueEList.FastCompare<Contribution>();
 		addContributions(all);
 		return all;
 	}
@@ -579,7 +577,7 @@ public class ValidationSetImpl extends MinimalEObjectImpl.Container implements V
 	public EList<MetadataRepositoryReference> getAllValidationRepositories() {
 		if(extends_ == null || extends_.isEmpty())
 			return getDeclaredValidationRepositories();
-		BasicEList<MetadataRepositoryReference> all = new BasicEList<MetadataRepositoryReference>();
+		EList<MetadataRepositoryReference> all = new UniqueEList.FastCompare<MetadataRepositoryReference>();
 		addValidationRepositories(all);
 		return all;
 	}
