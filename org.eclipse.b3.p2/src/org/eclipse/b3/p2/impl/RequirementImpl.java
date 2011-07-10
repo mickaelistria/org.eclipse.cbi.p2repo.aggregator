@@ -120,7 +120,7 @@ public class RequirementImpl extends MinimalEObjectImpl.Container implements Req
 	 * @generated
 	 * @ordered
 	 */
-	protected static final boolean GREEDY_EDEFAULT = false;
+	protected static final boolean GREEDY_EDEFAULT = true;
 
 	/**
 	 * The flag representing the value of the '{@link #isGreedy() <em>Greedy</em>}' attribute.
@@ -163,6 +163,7 @@ public class RequirementImpl extends MinimalEObjectImpl.Container implements Req
 	 */
 	protected RequirementImpl() {
 		super();
+		eFlags |= GREEDY_EFLAG;
 	}
 
 	/**

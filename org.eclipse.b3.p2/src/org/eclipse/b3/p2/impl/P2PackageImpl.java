@@ -3302,7 +3302,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 			getIRequirement_Matches(), g1, "matches", null, 0, 1, IRequirement.class, !IS_TRANSIENT, !IS_VOLATILE,
 			IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(
-			getIRequirement_Greedy(), ecorePackage.getEBoolean(), "greedy", null, 0, 1, IRequirement.class,
+			getIRequirement_Greedy(), ecorePackage.getEBoolean(), "greedy", "true", 0, 1, IRequirement.class,
 			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(
 			getIRequirement_Description(), ecorePackage.getEString(), "description", null, 0, 1, IRequirement.class,
