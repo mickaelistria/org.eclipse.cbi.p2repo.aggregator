@@ -163,10 +163,6 @@ public class ValidationSetItemProvider extends AggregatorItemProviderAdapter imp
 		newChildDescriptors.add(createChildParameter(
 			AggregatorPackage.Literals.VALIDATION_SET__VALIDATION_REPOSITORIES,
 			AggregatorFactory.eINSTANCE.createMetadataRepositoryReference()));
-
-		newChildDescriptors.add(createChildParameter(
-			AggregatorPackage.Literals.VALIDATION_SET__VALIDATION_REPOSITORIES,
-			AggregatorFactory.eINSTANCE.createMappedRepository()));
 	}
 
 	@Override
