@@ -8,6 +8,8 @@
 package org.eclipse.b3.aggregator.p2view.impl;
 
 import java.util.Collection;
+import java.util.Collections;
+import java.util.List;
 
 import org.eclipse.b3.aggregator.Aggregation;
 import org.eclipse.b3.aggregator.AggregatorFactory;
@@ -17,9 +19,9 @@ import org.eclipse.b3.aggregator.MetadataRepositoryReference;
 import org.eclipse.b3.aggregator.Status;
 import org.eclipse.b3.aggregator.StatusCode;
 import org.eclipse.b3.aggregator.p2.util.MetadataRepositoryResourceImpl;
-import org.eclipse.b3.aggregator.p2view.RepositoryBrowser;
 import org.eclipse.b3.aggregator.p2view.MetadataRepositoryStructuredView;
 import org.eclipse.b3.aggregator.p2view.P2viewPackage;
+import org.eclipse.b3.aggregator.p2view.RepositoryBrowser;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
@@ -268,6 +270,19 @@ public class RepositoryBrowserImpl extends MinimalEObjectImpl.Container implemen
 		return result;
 	}
 
+	private List<Resource> getResources() {
+		List<Resource> result = null;
+		Resource aggrResource = ((EObject) aggregation).eResource();
+		if(aggrResource != null) {
+			ResourceSet rs = aggrResource.getResourceSet();
+			if(rs != null)
+				result = rs.getResources();
+		}
+		if(result == null)
+			result = Collections.emptyList();
+		return result;
+	}
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -276,8 +291,7 @@ public class RepositoryBrowserImpl extends MinimalEObjectImpl.Container implemen
 	 */
 	public Status getStatus() {
 		Status result = null;
-		EList<Resource> resources = ((EObject) aggregation).eResource().getResourceSet().getResources();
-		for(Resource resource : resources) {
+		for(Resource resource : getResources()) {
 			if(!(resource instanceof MetadataRepositoryResourceImpl))
 				continue;
 			Status childStatus = ((MetadataRepositoryResourceImpl) resource).getStatus();
@@ -302,13 +316,11 @@ public class RepositoryBrowserImpl extends MinimalEObjectImpl.Container implemen
 	 */
 	public boolean isLoading() {
 		boolean loading = false;
-		EList<Resource> resources = ((EObject) aggregation).eResource().getResourceSet().getResources();
-		for(Resource resource : resources) {
+		for(Resource resource : getResources()) {
 			if(resource instanceof MetadataRepositoryResourceImpl &&
 					((MetadataRepositoryResourceImpl) resource).isLoading()) {
 				loading = true;
 				break;
-
 			}
 		}
 		return loading;

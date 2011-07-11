@@ -17,6 +17,7 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
+import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemColorProvider;
@@ -283,11 +284,14 @@ public class AggregationItemProvider extends DescriptionProviderItemProvider imp
 		StringBuilder bld = new StringBuilder(getString("_UI_Aggregation_type")).append(" : ");
 		if(label != null)
 			bld.append(label);
-		URI uri = ((EObject) object).eResource().getURI();
-		if(uri != null) {
-			bld.append(" [");
-			bld.append(uri);
-			bld.append(']');
+		Resource resource = ((EObject) object).eResource();
+		if(resource != null) {
+			URI uri = resource.getURI();
+			if(uri != null) {
+				bld.append(" [");
+				bld.append(uri);
+				bld.append(']');
+			}
 		}
 		return bld.toString();
 	}

@@ -549,7 +549,7 @@ public class AggregatorFactoryImpl extends EFactoryImpl implements AggregatorFac
 			throw new IllegalArgumentException("Unknown rule class " + ruleClass);
 
 		mr.setName(iu.getId());
-		mr.setVersionRange(new VersionRange(iu.getVersion(), true, Version.MAX_VERSION, false));
+		mr.setVersionRange(new VersionRange(iu.getVersion(), true, Version.MAX_VERSION, true));
 
 		return mr;
 	}
