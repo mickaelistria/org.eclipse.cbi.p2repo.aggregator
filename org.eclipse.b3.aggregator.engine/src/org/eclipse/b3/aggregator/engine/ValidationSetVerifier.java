@@ -25,6 +25,7 @@ import org.eclipse.b3.aggregator.MetadataRepositoryReference;
 import org.eclipse.b3.aggregator.PackedStrategy;
 import org.eclipse.b3.aggregator.ValidationSet;
 import org.eclipse.b3.aggregator.impl.AggregationImpl;
+import org.eclipse.b3.aggregator.util.InstallableUnitUtils;
 import org.eclipse.b3.aggregator.util.SpecialQueries;
 import org.eclipse.b3.aggregator.util.VerificationDiagnostic;
 import org.eclipse.b3.p2.MetadataRepository;
@@ -47,6 +48,7 @@ import org.eclipse.equinox.internal.p2.director.Explanation;
 import org.eclipse.equinox.internal.p2.director.Explanation.HardRequirement;
 import org.eclipse.equinox.internal.p2.director.Explanation.MissingGreedyIU;
 import org.eclipse.equinox.internal.p2.director.Explanation.MissingIU;
+import org.eclipse.equinox.internal.p2.director.Explanation.PatchedHardRequirement;
 import org.eclipse.equinox.internal.p2.director.Explanation.Singleton;
 import org.eclipse.equinox.internal.p2.director.ProfileChangeRequest;
 import org.eclipse.equinox.internal.p2.director.QueryableArray;
@@ -65,6 +67,7 @@ import org.eclipse.equinox.p2.metadata.IArtifactKey;
 import org.eclipse.equinox.p2.metadata.IInstallableUnit;
 import org.eclipse.equinox.p2.metadata.IInstallableUnitPatch;
 import org.eclipse.equinox.p2.metadata.IRequirement;
+import org.eclipse.equinox.p2.metadata.IRequirementChange;
 import org.eclipse.equinox.p2.metadata.Version;
 import org.eclipse.equinox.p2.planner.IPlanner;
 import org.eclipse.equinox.p2.query.IQuery;
@@ -79,7 +82,7 @@ import org.eclipse.equinox.p2.repository.metadata.IMetadataRepositoryManager;
 
 public class ValidationSetVerifier extends BuilderPhase {
 
-	public static class AnalyzedPlannerStatus implements IStatus {
+	public static class AnalyzedPlannerStatus extends MultiStatus {
 
 		private static final String MESSAGE_INDENT = "  ";
 
@@ -107,9 +110,10 @@ public class ValidationSetVerifier extends BuilderPhase {
 
 		protected ArrayList<VerificationDiagnostic> verificationDiagnostics = new ArrayList<VerificationDiagnostic>();
 
-		protected CharSequence message;
-
 		public AnalyzedPlannerStatus(Resource resource, Configuration config, PlannerStatus plannerStatus) {
+			super(
+				plannerStatus.getPlugin(), plannerStatus.getCode(), plannerStatus.getMessage(),
+				plannerStatus.getException());
 			this.plannerStatus = plannerStatus;
 
 			RequestStatus requestStatus = plannerStatus.getRequestStatus();
@@ -139,6 +143,32 @@ public class ValidationSetVerifier extends BuilderPhase {
 
 					requirementSet.add(link.req);
 				}
+				else if(explanation instanceof PatchedHardRequirement) {
+					// This represents one link in the chain of dependencies from the root requirement
+					// (the verification IU) to the conflicting/missing IU
+					PatchedHardRequirement link = (PatchedHardRequirement) explanation;
+					HashSet<IRequirement> requirementSet = links.get(link.iu);
+					if(requirementSet == null) {
+						requirementSet = new HashSet<IRequirement>();
+						links.put(link.iu, requirementSet);
+					}
+
+					for(IRequirementChange change : link.patch.getRequirementsChange()) {
+						if(change.newValue().equals(link.req)) {
+							for(IRequirement r : link.iu.getRequirements()) {
+								if(r instanceof IRequiredCapability && change.matches((IRequiredCapability) r))
+									requirementSet.add(r);
+							}
+						}
+					}
+
+					requirementSet = links.get(link.patch);
+					if(requirementSet == null) {
+						requirementSet = new HashSet<IRequirement>();
+						links.put(link.patch, requirementSet);
+					}
+					requirementSet.add(link.req);
+				}
 				else if(explanation instanceof MissingIU || explanation instanceof MissingGreedyIU ||
 						explanation instanceof Singleton)
 					// MissingIU means we have a missing dependency problem
@@ -148,15 +178,15 @@ public class ValidationSetVerifier extends BuilderPhase {
 
 			// a cache of IInstallableUnit parents
 			HashMap<IInstallableUnit, VerificationDiagnostic.DependencyLink> dependencyChainsCache = new HashMap<IInstallableUnit, VerificationDiagnostic.DependencyLink>();
-
 			for(Explanation rootProblem : rootProblems) {
 				if(rootProblem instanceof Singleton) {
 					IInstallableUnit[] ius = ((Singleton) rootProblem).ius;
 					LinkedHashSet<VerificationDiagnostic.DependencyLink> dependencyChains = new LinkedHashSet<VerificationDiagnostic.DependencyLink>(
 						ius.length);
 
-					for(IInstallableUnit iu : ius)
+					for(IInstallableUnit iu : ius) {
 						dependencyChains.add(getDependencyChain(iu, links, dependencyChainsCache));
+					}
 					// just in case we failed to construct some dependency chain
 					dependencyChains.remove(null);
 
@@ -170,8 +200,9 @@ public class ValidationSetVerifier extends BuilderPhase {
 
 						modelElementURISet.add(dependencyChain.getModelElementURI().deresolve(resourceURI));
 
-						messageBuilder.append('\n').append(dependencyChain.getInstallableUnit().toString()).append(
-							" is required by:");
+						messageBuilder.append('\n');
+						InstallableUnitUtils.appendIdentifier(messageBuilder, dependencyChain.getInstallableUnit());
+						messageBuilder.append(" is required by:");
 
 						VerificationDiagnostic.DependencyLink parent = dependencyChain.getParent();
 						if(parent != null)
@@ -179,9 +210,8 @@ public class ValidationSetVerifier extends BuilderPhase {
 					}
 
 					String message = messageBuilder.toString();
-
-					appendMessage(config, message);
 					LogUtils.error(message);
+					add(new Status(IStatus.ERROR, plannerStatus.getPlugin(), message));
 
 					// just in case we could not find URI of a model element corresponding to some of the dependency chains
 					modelElementURISet.remove(null);
@@ -204,13 +234,14 @@ public class ValidationSetVerifier extends BuilderPhase {
 						VerificationDiagnostic.identifyDependencyChain(dependencyChain, resource, "\n", MESSAGE_INDENT);
 						StringBuilder messageBuilder = getRootProblemMessage(rootProblem);
 
-						messageBuilder.append('\n').append(missingIU.req.toString()).append(" is required by:").append(
-							dependencyChain.getIdentifier());
+						messageBuilder.append('\n');
+						InstallableUnitUtils.appendIdentifier(messageBuilder, missingIU.req);
+						messageBuilder.append(" is required by:");
+						messageBuilder.append(dependencyChain.getIdentifier());
 
 						String message = messageBuilder.toString();
-
-						appendMessage(config, message);
 						LogUtils.error(message);
+						add(new Status(IStatus.ERROR, plannerStatus.getPlugin(), message));
 
 						org.eclipse.emf.common.util.URI modelElementURI = dependencyChain.getModelElementURI();
 
@@ -229,16 +260,17 @@ public class ValidationSetVerifier extends BuilderPhase {
 						VerificationDiagnostic.identifyDependencyChain(dependencyChain, resource, "\n", MESSAGE_INDENT);
 						StringBuilder messageBuilder = getRootProblemMessage(rootProblem);
 
-						messageBuilder.append('\n').append(missingGreedyIU.iu.toString()).append(" is required by:");
+						messageBuilder.append('\n');
+						InstallableUnitUtils.appendIdentifier(messageBuilder, missingGreedyIU.iu);
+						messageBuilder.append(" is required by:");
 
 						VerificationDiagnostic.DependencyLink parent = dependencyChain.getParent();
 						if(parent != null)
 							messageBuilder.append(parent.getIdentifier());
 
 						String message = messageBuilder.toString();
-
-						appendMessage(config, message);
 						LogUtils.error(message);
+						add(new Status(IStatus.ERROR, plannerStatus.getPlugin(), message));
 
 						org.eclipse.emf.common.util.URI modelElementURI = dependencyChain.getModelElementURI();
 
@@ -249,25 +281,6 @@ public class ValidationSetVerifier extends BuilderPhase {
 					}
 				}
 			}
-
-			// turn message from StringBuilder to String
-			if(message != null)
-				message = message.toString();
-		}
-
-		protected void appendMessage(Configuration config, String message) {
-			if(this.message == null)
-				this.message = new StringBuilder("Problems while verifying configuration: ").append(config.getName());
-
-			((StringBuilder) this.message).append("\n\n").append(message);
-		}
-
-		public IStatus[] getChildren() {
-			return plannerStatus.getChildren();
-		}
-
-		public int getCode() {
-			return plannerStatus.getCode();
 		}
 
 		/**
@@ -324,42 +337,12 @@ public class ValidationSetVerifier extends BuilderPhase {
 			return lastLink;
 		}
 
-		public Throwable getException() {
-			return plannerStatus.getException();
-		}
-
-		public String getMessage() {
-			return message == null
-					? plannerStatus.getMessage()
-					: message.toString();
-		}
-
 		public PlannerStatus getPlannerStatus() {
 			return plannerStatus;
 		}
 
-		public String getPlugin() {
-			return plannerStatus.getPlugin();
-		}
-
-		public int getSeverity() {
-			return plannerStatus.getSeverity();
-		}
-
 		public List<VerificationDiagnostic> getVerificationDiagnostics() {
 			return verificationDiagnostics;
-		}
-
-		public boolean isMultiStatus() {
-			return plannerStatus.isMultiStatus();
-		}
-
-		public boolean isOK() {
-			return plannerStatus.isOK();
-		}
-
-		public boolean matches(int severityMask) {
-			return plannerStatus.matches(severityMask);
 		}
 	}
 
