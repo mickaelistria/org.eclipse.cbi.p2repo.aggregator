@@ -32,6 +32,7 @@ import org.eclipse.b3.aggregator.Contribution;
 import org.eclipse.b3.aggregator.CustomCategory;
 import org.eclipse.b3.aggregator.EnabledStatusProvider;
 import org.eclipse.b3.aggregator.InstallableUnitRequest;
+import org.eclipse.b3.aggregator.InstallableUnitType;
 import org.eclipse.b3.aggregator.MetadataRepositoryReference;
 import org.eclipse.b3.aggregator.StatusCode;
 import org.eclipse.b3.aggregator.ValidationSet;
@@ -50,6 +51,7 @@ import org.eclipse.b3.aggregator.util.AddIUsToCustomCategoryCommand;
 import org.eclipse.b3.aggregator.util.AddIUsToParentRepositoryCommand;
 import org.eclipse.b3.aggregator.util.AggregatorResource;
 import org.eclipse.b3.aggregator.util.AggregatorResourceImpl;
+import org.eclipse.b3.aggregator.util.InstallableUnitUtils;
 import org.eclipse.b3.aggregator.util.ItemSorter;
 import org.eclipse.b3.aggregator.util.ItemSorter.ItemGroup;
 import org.eclipse.b3.aggregator.util.ItemUtils;
@@ -182,9 +184,21 @@ public class AggregatorActionBarContributor extends EditingDomainActionBarContri
 			Object imageURL = null;
 
 			if((operation & AggregatorEditPlugin.ADD_IU) > 0) {
-				imageURL = AggregatorEditPlugin.INSTANCE.getImage("full/obj16/Feature.gif");
-				setText(AggregatorEditorPlugin.INSTANCE.getString("_UI_Mapped_Feature"));
-
+				boolean allProduct = true;
+				for(IInstallableUnit siu : selectedIUs) {
+					if(InstallableUnitUtils.getType(siu) != InstallableUnitType.PRODUCT) {
+						allProduct = false;
+						break;
+					}
+				}
+				if(allProduct) {
+					imageURL = AggregatorEditPlugin.INSTANCE.getImage("full/obj16/Product.gif");
+					setText(AggregatorEditorPlugin.INSTANCE.getString("_UI_Mapped_Product"));
+				}
+				else {
+					imageURL = AggregatorEditPlugin.INSTANCE.getImage("full/obj16/Feature.gif");
+					setText(AggregatorEditorPlugin.INSTANCE.getString("_UI_Mapped_Feature"));
+				}
 			}
 			else if((operation & AggregatorEditPlugin.ADD_EXCLUSION_RULE) > 0) {
 				imageURL = AggregatorEditPlugin.INSTANCE.getImage("full/obj16/ExclusionRule.gif");
