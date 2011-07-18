@@ -163,6 +163,10 @@ public class ValidationSetItemProvider extends AggregatorItemProviderAdapter imp
 		newChildDescriptors.add(createChildParameter(
 			AggregatorPackage.Literals.VALIDATION_SET__VALIDATION_REPOSITORIES,
 			AggregatorFactory.eINSTANCE.createMetadataRepositoryReference()));
+
+		newChildDescriptors.add(createChildParameter(
+			AggregatorPackage.Literals.VALIDATION_SET__VALIDATION_REPOSITORIES,
+			AggregatorFactory.eINSTANCE.createMappedRepository()));
 	}
 
 	@Override
@@ -292,20 +296,23 @@ public class ValidationSetItemProvider extends AggregatorItemProviderAdapter imp
 	@Override
 	public void notifyChanged(Notification notification) {
 		notifyChangedGen(notification);
-		switch(notification.getFeatureID(Contribution.class)) {
-			case AggregatorPackage.CONTRIBUTION__ENABLED:
-			case AggregatorPackage.CONTRIBUTION__STATUS:
-				fireNotifyChanged(new ViewerNotification(
-					notification, ((EObject) notification.getNotifier()).eContainer(), false, true));
-				return;
+		if(notification.getNotifier() instanceof Contribution) {
+			switch(notification.getFeatureID(Contribution.class)) {
+				case AggregatorPackage.CONTRIBUTION__ENABLED:
+				case AggregatorPackage.CONTRIBUTION__STATUS:
+					fireNotifyChanged(new ViewerNotification(
+						notification, ((EObject) notification.getNotifier()).eContainer(), false, true));
+					return;
+			}
 		}
-
-		switch(notification.getFeatureID(ValidationSet.class)) {
-			case AggregatorPackage.VALIDATION_SET__ENABLED:
-			case AggregatorPackage.VALIDATION_SET__STATUS:
-				fireNotifyChanged(new ViewerNotification(
-					notification, ((EObject) notification.getNotifier()).eContainer(), false, true));
-				return;
+		else if(notification.getNotifier() instanceof ValidationSet) {
+			switch(notification.getFeatureID(ValidationSet.class)) {
+				case AggregatorPackage.VALIDATION_SET__ENABLED:
+				case AggregatorPackage.VALIDATION_SET__STATUS:
+					fireNotifyChanged(new ViewerNotification(
+						notification, ((EObject) notification.getNotifier()).eContainer(), false, true));
+					return;
+			}
 		}
 
 		if(notification.getEventType() == Notification.REMOVE) {

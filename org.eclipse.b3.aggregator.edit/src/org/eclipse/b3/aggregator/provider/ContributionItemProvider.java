@@ -451,57 +451,56 @@ public class ContributionItemProvider extends AggregatorItemProviderAdapter impl
 	@Override
 	public void notifyChanged(Notification notification) {
 		notifyChangedGen(notification);
-		switch(notification.getFeatureID(Contribution.class)) {
+		int featureId = notification.getFeatureID(Contribution.class);
+		switch(featureId) {
 			case AggregatorPackage.CONTRIBUTION__ENABLED:
 			case AggregatorPackage.CONTRIBUTION__STATUS:
-				fireNotifyChanged(new ViewerNotification(
-					notification, ((EObject) notification.getNotifier()).eContainer(), false, true));
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
+
+				Set<Object> affectedNodeLabels = new HashSet<Object>();
+				Set<Object> affectedNodes = new HashSet<Object>();
+
+				// Go through all direct ancestors first, and add also the top resource
+				EObject container = ((EObject) notification.getNotifier());
+				affectedNodeLabels.add(container.eResource());
+				while(container != null) {
+					affectedNodeLabels.add(container);
+					container = container.eContainer();
+				}
+
+				boolean newValue = true;
+				if(featureId == AggregatorPackage.CONTRIBUTION__ENABLED) {
+					newValue = notification.getNewBooleanValue();
+					// Browse all mapped repositories which may have changed their virtual status (inherently enabled/disabled)
+					for(MappedRepository mappedRepository : ((Contribution) notification.getNotifier()).getRepositories(!newValue)) {
+						if(newValue)
+							ResourceUtils.loadResourceForMappedRepository(mappedRepository);
+
+						affectedNodes.add(mappedRepository);
+
+						// Browse all mapped units which may have changed their virtual status (inherently enabled/disabled)
+						for(MappedUnit unit : mappedRepository.getUnits(!notification.getNewBooleanValue())) {
+							affectedNodes.add(unit);
+							// And now, find all categories which may contain the feature just being enabled/disabled
+							if(unit instanceof Feature)
+								for(CustomCategory category : ((Feature) unit).getCategories())
+									affectedNodes.add(category);
+						}
+					}
+				}
+
+				for(Object affectedNode : affectedNodes)
+					fireNotifyChanged(new ViewerNotification(notification, affectedNode, true, true));
+				for(Object affectedNode : affectedNodeLabels)
+					fireNotifyChanged(new ViewerNotification(notification, affectedNode, false, true));
+
+				if(!newValue)
+					ResourceUtils.cleanUpResources(GeneralUtils.getAggregation((EObject) notification.getNotifier()));
 				return;
 		}
 
-		// Update also content if enabled flag has been changed
-		if(notification.getFeatureID(Contribution.class) == AggregatorPackage.CONTRIBUTION__ENABLED) {
-			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
-
-			Set<Object> affectedNodeLabels = new HashSet<Object>();
-			Set<Object> affectedNodes = new HashSet<Object>();
-
-			// Go through all direct ancestors first, and add also the top resource
-			EObject container = ((EObject) notification.getNotifier());
-			affectedNodeLabels.add(container.eResource());
-			while(container != null) {
-				affectedNodeLabels.add(container);
-				container = container.eContainer();
-			}
-
-			boolean newValue = notification.getNewBooleanValue();
-			// Browse all mapped repositories which may have changed their virtual status (inherently enabled/disabled)
-			for(MappedRepository mappedRepository : ((Contribution) notification.getNotifier()).getRepositories(!newValue)) {
-				if(newValue)
-					ResourceUtils.loadResourceForMappedRepository(mappedRepository);
-
-				affectedNodes.add(mappedRepository);
-
-				// Browse all mapped units which may have changed their virtual status (inherently enabled/disabled)
-				for(MappedUnit unit : mappedRepository.getUnits(!notification.getNewBooleanValue())) {
-					affectedNodes.add(unit);
-					// And now, find all categories which may contain the feature just being enabled/disabled
-					if(unit instanceof Feature)
-						for(CustomCategory category : ((Feature) unit).getCategories())
-							affectedNodes.add(category);
-				}
-			}
-
-			for(Object affectedNode : affectedNodes)
-				fireNotifyChanged(new ViewerNotification(notification, affectedNode, true, true));
-			for(Object affectedNode : affectedNodeLabels)
-				fireNotifyChanged(new ViewerNotification(notification, affectedNode, false, true));
-
-			if(!newValue)
-				ResourceUtils.cleanUpResources(GeneralUtils.getAggregation((EObject) notification.getNotifier()));
-		}
 		// If a repository is removed, update possible warning overlays
-		else if(notification.getEventType() == Notification.REMOVE &&
+		if(notification.getEventType() == Notification.REMOVE &&
 				(notification.getOldValue() instanceof MappedRepository || notification.getOldValue() instanceof MavenMapping)) {
 			Set<Object> affectedNodes = new HashSet<Object>();
 
