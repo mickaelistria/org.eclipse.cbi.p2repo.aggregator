@@ -9,31 +9,32 @@
  */
 package org.eclipse.b3.aggregator.impl;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
-import java.util.ConcurrentModificationException;
-import java.util.Map;
-import java.util.TreeMap;
+import java.util.List;
 
+import org.eclipse.b3.aggregator.Aggregation;
 import org.eclipse.b3.aggregator.AggregatorFactory;
 import org.eclipse.b3.aggregator.AggregatorPackage;
 import org.eclipse.b3.aggregator.AggregatorPlugin;
+import org.eclipse.b3.aggregator.AvailableFrom;
 import org.eclipse.b3.aggregator.AvailableVersion;
 import org.eclipse.b3.aggregator.AvailableVersionsHeader;
+import org.eclipse.b3.aggregator.Contribution;
 import org.eclipse.b3.aggregator.DescriptionProvider;
 import org.eclipse.b3.aggregator.InfosProvider;
 import org.eclipse.b3.aggregator.InstallableUnitRequest;
 import org.eclipse.b3.aggregator.MappedRepository;
 import org.eclipse.b3.aggregator.Status;
 import org.eclipse.b3.aggregator.StatusCode;
+import org.eclipse.b3.aggregator.ValidationSet;
 import org.eclipse.b3.aggregator.VersionMatch;
-import org.eclipse.b3.aggregator.p2.util.MetadataRepositoryResourceImpl;
 import org.eclipse.b3.aggregator.util.GeneralUtils;
 import org.eclipse.b3.p2.InstallableUnit;
 import org.eclipse.b3.p2.MetadataRepository;
 import org.eclipse.b3.p2.P2Factory;
 import org.eclipse.b3.p2.P2Package;
-import org.eclipse.b3.p2.util.P2ResourceImpl;
 import org.eclipse.b3.util.StringUtils;
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.emf.common.notify.Notification;
@@ -45,14 +46,11 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 import org.eclipse.equinox.p2.metadata.IInstallableUnit;
-import org.eclipse.equinox.p2.metadata.Version;
 import org.eclipse.equinox.p2.metadata.VersionRange;
-import org.eclipse.equinox.p2.metadata.expression.IMatchExpression;
 import org.eclipse.equinox.p2.query.IQuery;
 import org.eclipse.equinox.p2.query.IQueryResult;
 import org.eclipse.equinox.p2.query.QueryUtil;
@@ -226,6 +224,36 @@ public abstract class InstallableUnitRequestImpl extends MinimalEObjectImpl.Cont
 	protected InstallableUnitRequestImpl() {
 		super();
 		setAvailableVersionsHeader(AggregatorFactory.eINSTANCE.createAvailableVersionsHeader());
+	}
+
+	private void addAvailableVersions(MappedRepository mr, IQuery<IInstallableUnit> query, AvailableFrom source,
+			List<AvailableVersion> receiver) {
+		if(mr == null || ((EObject) mr).eIsProxy())
+			return;
+
+		MetadataRepository mdr = mr.getMetadataRepository();
+		if(mdr == null || ((EObject) mdr).eIsProxy())
+			return;
+
+		IQueryResult<IInstallableUnit> ius = mdr.query(query, null);
+		for(IInstallableUnit iu : ius.toUnmodifiableSet()) {
+			AvailableVersion av = AggregatorFactory.eINSTANCE.createAvailableVersion();
+
+			if(versionRange == null || versionRange.isIncluded(iu.getVersion()))
+				av.setVersionMatch(VersionMatch.MATCHES);
+			else {
+				int result = versionRange.getMinimum().compareTo(iu.getVersion());
+
+				if(result >= 0)
+					av.setVersionMatch(VersionMatch.BELOW);
+				else
+					av.setVersionMatch(VersionMatch.ABOVE);
+			}
+			av.setVersion(iu.getVersion());
+			av.setFilter(iu.getFilter());
+			av.setAvailableFrom(source);
+			receiver.add(av);
+		}
 	}
 
 	/**
@@ -560,6 +588,14 @@ public abstract class InstallableUnitRequestImpl extends MinimalEObjectImpl.Cont
 		return infos;
 	}
 
+	public MappedRepository getMappedRepository() {
+		for(EObject container = eContainer(); container != null; container = container.eContainer())
+			if(container instanceof MappedRepository)
+				return (MappedRepository) container;
+
+		return null;
+	}
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -679,76 +715,47 @@ public abstract class InstallableUnitRequestImpl extends MinimalEObjectImpl.Cont
 		else
 			availableVersions.clear();
 
-		Map<Version, IMatchExpression<IInstallableUnit>> versionMap = new TreeMap<Version, IMatchExpression<IInstallableUnit>>(
-			Collections.reverseOrder());
+		if(StringUtils.trimmedOrNull(name) == null)
+			return;
+
+		List<AvailableVersion> avList = new ArrayList<AvailableVersion>();
 		IQuery<IInstallableUnit> query = QueryUtil.createIUQuery(name);
+		MappedRepository mr = getMappedRepository();
+		addAvailableVersions(mr, query, AvailableFrom.REPOSITORY, avList);
+		Contribution contrib = (Contribution) ((EObject) mr).eContainer();
+		for(MappedRepository omr : contrib.getRepositories(true)) {
+			if(omr != mr)
+				addAvailableVersions(omr, query, AvailableFrom.CONTRIBUTION, avList);
+		}
 
-		while(true) {
-			try {
-				versionMap.clear();
-				for(Resource resource : GeneralUtils.getAggregatorResource(this).getResourceSet().getResources()) {
-
-					MetadataRepository mdr = null;
-					if(resource instanceof MetadataRepositoryResourceImpl)
-						mdr = ((MetadataRepositoryResourceImpl) resource).getMetadataRepository();
-					else if(resource instanceof P2ResourceImpl && resource.getContents().size() == 1)
-						mdr = (MetadataRepository) resource.getContents().get(0);
-
-					if(mdr == null)
-						continue;
-
-					if(StringUtils.trimmedOrNull(name) != null && mdr != null && !((EObject) mdr).eIsProxy()) {
-						IQueryResult<IInstallableUnit> ius = mdr.query(query, null);
-
-						for(IInstallableUnit iu : ius.toSet())
-							versionMap.put(iu.getVersion(), iu.getFilter());
-					}
+		ValidationSet vs = (ValidationSet) ((EObject) contrib).eContainer();
+		for(Contribution oc : vs.getAllContributions()) {
+			if(oc != contrib) {
+				for(MappedRepository omr : oc.getRepositories(true)) {
+					addAvailableVersions(omr, query, AvailableFrom.VALIDATION_SET, avList);
 				}
-				break;
-			}
-			catch(ConcurrentModificationException e) {
-				// wait a while and try again
-				try {
-					Thread.sleep(100);
-				}
-				catch(InterruptedException e1) {
-					// ignore
-				}
-			}
-			catch(IllegalArgumentException e) {
-				// the aggregator resource is probably temporarily unavailable (e.g. during drag&drop)
-				// but in that case (the drag&drop case) chances are that we are actually creating a copy of
-				// another (already initialized) source instance and that this list will be populated by
-				// copying the entries from the source list so it should be safe to return an empty list
-				// TODO verify it is safe to return the empty list in all situations
-				// availableVersions = null;
-				return;
 			}
 		}
 
-		if(versionMap.size() == 0) {
+		Aggregation aggr = (Aggregation) ((EObject) vs).eContainer();
+		for(ValidationSet vr : aggr.getValidationSets(true)) {
+			if(vr != vs) {
+				for(Contribution oc : vr.getDeclaredContributions()) {
+					for(MappedRepository omr : oc.getRepositories(true)) {
+						addAvailableVersions(omr, query, AvailableFrom.AGGREGATION, avList);
+					}
+				}
+			}
+		}
+
+		if(avList.size() == 0) {
 			AvailableVersion av = AggregatorFactory.eINSTANCE.createAvailableVersion();
 			av.setVersionMatch(VersionMatch.MATCHES);
 			availableVersions.add(av);
 		}
 		else {
-			for(Version version : versionMap.keySet()) {
-				AvailableVersion av = AggregatorFactory.eINSTANCE.createAvailableVersion();
-
-				if(versionRange == null || versionRange.isIncluded(version))
-					av.setVersionMatch(VersionMatch.MATCHES);
-				else {
-					int result = versionRange.getMinimum().compareTo(version);
-
-					if(result >= 0)
-						av.setVersionMatch(VersionMatch.BELOW);
-					else
-						av.setVersionMatch(VersionMatch.ABOVE);
-				}
-				av.setVersion(version);
-				av.setFilter(versionMap.get(version));
-				availableVersions.add(av);
-			}
+			Collections.sort(avList);
+			availableVersions.addAll(avList);
 		}
 	}
 

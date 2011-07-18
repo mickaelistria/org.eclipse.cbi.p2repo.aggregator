@@ -20,7 +20,7 @@ import java.lang.Comparable;
  * </p>
  * 
  * @see org.eclipse.b3.aggregator.AggregatorPackage#getProperty()
- * @model superTypes="org.eclipse.b3.aggregator.Comparable<org.eclipse.b3.aggregator.Property>"
+ * @model superTypes="org.eclipse.b3.p2.Comparable<org.eclipse.b3.aggregator.Property>"
  * @generated
  */
 public interface Property extends Comparable<Property> {

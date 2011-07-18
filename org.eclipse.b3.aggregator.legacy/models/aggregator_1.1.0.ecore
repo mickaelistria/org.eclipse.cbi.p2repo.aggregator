@@ -50,6 +50,11 @@
         <eTypeArguments eClassifier="ecore:EClass ../../org.eclipse.b3.p2/model/p2.ecore#//IInstallableUnit"/>
       </eGenericType>
     </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="availableFrom" lowerBound="1"
+        eType="#//AvailableFrom" defaultValueLiteral="REPOSITORY"/>
+    <eGenericSuperTypes eClassifier="ecore:EClass ../../org.eclipse.b3.p2/model/p2.ecore#//Comparable">
+      <eTypeArguments eClassifier="#//AvailableVersion"/>
+    </eGenericSuperTypes>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Bundle" eSuperTypes="#//MappedUnit"/>
   <eClassifiers xsi:type="ecore:EClass" name="Category" eSuperTypes="#//MappedUnit">
@@ -94,10 +99,6 @@
   <eClassifiers xsi:type="ecore:EClass" name="Feature" eSuperTypes="#//MappedUnit">
     <eStructuralFeatures xsi:type="ecore:EReference" name="categories" upperBound="-1"
         eType="#//CustomCategory" eOpposite="#//CustomCategory/features"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Comparable" instanceClassName="java.lang.Comparable"
-      abstract="true" interface="true">
-    <eTypeParameters name="T"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="CustomCategory" eSuperTypes="#//StatusProvider #//InfosProvider">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="identifier" lowerBound="1"
@@ -230,7 +231,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="Property">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eGenericSuperTypes eClassifier="#//Comparable">
+    <eGenericSuperTypes eClassifier="ecore:EClass ../../org.eclipse.b3.p2/model/p2.ecore#//Comparable">
       <eTypeArguments eClassifier="#//Property"/>
     </eGenericSuperTypes>
   </eClassifiers>
@@ -244,7 +245,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="status" lowerBound="1"
         eType="#//Status" changeable="false" volatile="true" transient="true" resolveProxies="false"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ValidationSet" eSuperTypes="#//EnabledStatusProvider #//DescriptionProvider #//StatusProvider #//InfosProvider">
+  <eClassifiers xsi:type="ecore:EClass" name="ValidationSet" eSuperTypes="#//EnabledStatusProvider #//DescriptionProvider #//StatusProvider #//InfosProvider #//IdentificationProvider">
     <eOperations name="getAllValidationRepositories" upperBound="-1" eType="#//MetadataRepositoryReference"/>
     <eOperations name="getAllContributions" upperBound="-1" eType="#//Contribution"/>
     <eOperations name="getDeclaredContributions" upperBound="-1" eType="#//Contribution"/>
@@ -288,6 +289,12 @@
     <eLiterals name="PPC64" value="6" literal="ppc64"/>
     <eLiterals name="S390" value="7" literal="s390"/>
     <eLiterals name="S390X" value="8" literal="s390x"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="AvailableFrom">
+    <eLiterals name="REPOSITORY" literal="repository"/>
+    <eLiterals name="CONTRIBUTION" value="1" literal="contribution"/>
+    <eLiterals name="VALIDATION_SET" value="2" literal="validationSet"/>
+    <eLiterals name="AGGREGATION" value="3" literal="aggregation"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="InstallableUnitType">
     <eLiterals name="BUNDLE" literal="bundle"/>

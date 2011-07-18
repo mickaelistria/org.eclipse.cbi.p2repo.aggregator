@@ -24,14 +24,34 @@ import org.eclipse.equinox.p2.metadata.expression.IMatchExpression;
  * <li>{@link org.eclipse.b3.aggregator.AvailableVersion#getVersionMatch <em>Version Match</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.AvailableVersion#getVersion <em>Version</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.AvailableVersion#getFilter <em>Filter</em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.AvailableVersion#getAvailableFrom <em>Available From</em>}</li>
  * </ul>
  * </p>
  * 
  * @see org.eclipse.b3.aggregator.AggregatorPackage#getAvailableVersion()
- * @model
+ * @model superTypes="org.eclipse.b3.p2.Comparable<org.eclipse.b3.aggregator.AvailableVersion>"
  * @generated
  */
-public interface AvailableVersion {
+public interface AvailableVersion extends Comparable<AvailableVersion> {
+	/**
+	 * Returns the value of the '<em><b>Available From</b></em>' attribute.
+	 * The default value is <code>"REPOSITORY"</code>.
+	 * The literals are from the enumeration {@link org.eclipse.b3.aggregator.AvailableFrom}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Available From</em>' attribute isn't clear, there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the value of the '<em>Available From</em>' attribute.
+	 * @see org.eclipse.b3.aggregator.AvailableFrom
+	 * @see #setAvailableFrom(AvailableFrom)
+	 * @see org.eclipse.b3.aggregator.AggregatorPackage#getAvailableVersion_AvailableFrom()
+	 * @model default="REPOSITORY" required="true"
+	 * @generated
+	 */
+	AvailableFrom getAvailableFrom();
+
 	/**
 	 * Returns the value of the '<em><b>Filter</b></em>' attribute.
 	 * <!-- begin-user-doc -->
@@ -82,6 +102,19 @@ public interface AvailableVersion {
 	 * @generated
 	 */
 	VersionMatch getVersionMatch();
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.b3.aggregator.AvailableVersion#getAvailableFrom <em>Available From</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @param value
+	 *            the new value of the '<em>Available From</em>' attribute.
+	 * @see org.eclipse.b3.aggregator.AvailableFrom
+	 * @see #getAvailableFrom()
+	 * @generated
+	 */
+	void setAvailableFrom(AvailableFrom value);
 
 	/**
 	 * Sets the value of the '{@link org.eclipse.b3.aggregator.AvailableVersion#getFilter <em>Filter</em>}' attribute.

@@ -6,6 +6,7 @@
  */
 package org.eclipse.b3.aggregator;
 
+import org.eclipse.b3.p2.P2Package;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EEnum;
@@ -838,6 +839,15 @@ public interface AggregatorPackage extends EPackage {
 		EAttribute AVAILABLE_VERSION__FILTER = eINSTANCE.getAvailableVersion_Filter();
 
 		/**
+		 * The meta object literal for the '<em><b>Available From</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EAttribute AVAILABLE_VERSION__AVAILABLE_FROM = eINSTANCE.getAvailableVersion_AvailableFrom();
+
+		/**
 		 * The meta object literal for the '{@link org.eclipse.b3.aggregator.AggregationType <em>Aggregation Type</em>}' enum.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -847,17 +857,6 @@ public interface AggregatorPackage extends EPackage {
 		 * @generated
 		 */
 		EEnum AGGREGATION_TYPE = eINSTANCE.getAggregationType();
-
-		/**
-		 * The meta object literal for the '{@link java.lang.Comparable <em>Comparable</em>}' class.
-		 * <!-- begin-user-doc
-		 * --> <!-- end-user-doc -->
-		 * 
-		 * @see java.lang.Comparable
-		 * @see org.eclipse.b3.aggregator.impl.AggregatorPackageImpl#getComparable()
-		 * @generated
-		 */
-		EClass COMPARABLE = eINSTANCE.getComparable();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.b3.aggregator.LabelProvider <em>Label Provider</em>}' class.
@@ -1051,6 +1050,17 @@ public interface AggregatorPackage extends EPackage {
 		EEnum ARCHITECTURE = eINSTANCE.getArchitecture();
 
 		/**
+		 * The meta object literal for the '{@link org.eclipse.b3.aggregator.AvailableFrom <em>Available From</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @see org.eclipse.b3.aggregator.AvailableFrom
+		 * @see org.eclipse.b3.aggregator.impl.AggregatorPackageImpl#getAvailableFrom()
+		 * @generated
+		 */
+		EEnum AVAILABLE_FROM = eINSTANCE.getAvailableFrom();
+
+		/**
 		 * The meta object literal for the '{@link org.eclipse.b3.aggregator.PackedStrategy <em>Packed Strategy</em>}' enum.
 		 * <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
@@ -1133,7 +1143,7 @@ public interface AggregatorPackage extends EPackage {
 	 * @see org.eclipse.b3.aggregator.impl.AggregatorPackageImpl#getDescriptionProvider()
 	 * @generated
 	 */
-	int DESCRIPTION_PROVIDER = 12;
+	int DESCRIPTION_PROVIDER = 11;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -1353,7 +1363,7 @@ public interface AggregatorPackage extends EPackage {
 	 * @see org.eclipse.b3.aggregator.impl.AggregatorPackageImpl#getEnabledStatusProvider()
 	 * @generated
 	 */
-	int ENABLED_STATUS_PROVIDER = 13;
+	int ENABLED_STATUS_PROVIDER = 12;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.aggregator.impl.ValidationSetImpl <em>Validation Set</em>}' class.
@@ -1364,7 +1374,7 @@ public interface AggregatorPackage extends EPackage {
 	 * @see org.eclipse.b3.aggregator.impl.AggregatorPackageImpl#getValidationSet()
 	 * @generated
 	 */
-	int VALIDATION_SET = 29;
+	int VALIDATION_SET = 28;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.aggregator.impl.MetadataRepositoryReferenceImpl <em>Metadata Repository Reference</em>}'
@@ -1375,7 +1385,7 @@ public interface AggregatorPackage extends EPackage {
 	 * @see org.eclipse.b3.aggregator.impl.AggregatorPackageImpl#getMetadataRepositoryReference()
 	 * @generated
 	 */
-	int METADATA_REPOSITORY_REFERENCE = 24;
+	int METADATA_REPOSITORY_REFERENCE = 23;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.aggregator.impl.MappedRepositoryImpl <em>Mapped Repository</em>}' class.
@@ -1385,7 +1395,7 @@ public interface AggregatorPackage extends EPackage {
 	 * @see org.eclipse.b3.aggregator.impl.AggregatorPackageImpl#getMappedRepository()
 	 * @generated
 	 */
-	int MAPPED_REPOSITORY = 19;
+	int MAPPED_REPOSITORY = 18;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.aggregator.impl.ConfigurationImpl <em>Configuration</em>}' class.
@@ -1425,7 +1435,7 @@ public interface AggregatorPackage extends EPackage {
 	 * @see org.eclipse.b3.aggregator.impl.AggregatorPackageImpl#getMappedUnit()
 	 * @generated
 	 */
-	int MAPPED_UNIT = 20;
+	int MAPPED_UNIT = 19;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.aggregator.StatusProvider <em>Status Provider</em>}' class.
@@ -1435,7 +1445,7 @@ public interface AggregatorPackage extends EPackage {
 	 * @see org.eclipse.b3.aggregator.impl.AggregatorPackageImpl#getStatusProvider()
 	 * @generated
 	 */
-	int STATUS_PROVIDER = 28;
+	int STATUS_PROVIDER = 27;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.aggregator.impl.InstallableUnitRequestImpl <em>Installable Unit Request</em>}' class.
@@ -1446,7 +1456,7 @@ public interface AggregatorPackage extends EPackage {
 	 * @see org.eclipse.b3.aggregator.impl.AggregatorPackageImpl#getInstallableUnitRequest()
 	 * @generated
 	 */
-	int INSTALLABLE_UNIT_REQUEST = 17;
+	int INSTALLABLE_UNIT_REQUEST = 16;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.aggregator.impl.FeatureImpl <em>Feature</em>}' class.
@@ -1476,7 +1486,7 @@ public interface AggregatorPackage extends EPackage {
 	 * @see org.eclipse.b3.aggregator.impl.AggregatorPackageImpl#getProduct()
 	 * @generated
 	 */
-	int PRODUCT = 25;
+	int PRODUCT = 24;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.aggregator.impl.PropertyImpl <em>Property</em>}' class.
@@ -1486,7 +1496,7 @@ public interface AggregatorPackage extends EPackage {
 	 * @see org.eclipse.b3.aggregator.impl.AggregatorPackageImpl#getProperty()
 	 * @generated
 	 */
-	int PROPERTY = 26;
+	int PROPERTY = 25;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.aggregator.impl.CategoryImpl <em>Category</em>}' class.
@@ -1506,18 +1516,7 @@ public interface AggregatorPackage extends EPackage {
 	 * @see org.eclipse.b3.aggregator.impl.AggregatorPackageImpl#getCustomCategory()
 	 * @generated
 	 */
-	int CUSTOM_CATEGORY = 11;
-
-	/**
-	 * The meta object id for the '{@link java.lang.Comparable <em>Comparable</em>}' class.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
-	 * 
-	 * @see java.lang.Comparable
-	 * @see org.eclipse.b3.aggregator.impl.AggregatorPackageImpl#getComparable()
-	 * @generated
-	 */
-	int COMPARABLE = 10;
+	int CUSTOM_CATEGORY = 10;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.aggregator.impl.MapRuleImpl <em>Map Rule</em>}' class.
@@ -1527,7 +1526,7 @@ public interface AggregatorPackage extends EPackage {
 	 * @see org.eclipse.b3.aggregator.impl.AggregatorPackageImpl#getMapRule()
 	 * @generated
 	 */
-	int MAP_RULE = 21;
+	int MAP_RULE = 20;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.aggregator.impl.ExclusionRuleImpl <em>Exclusion Rule</em>}' class.
@@ -1537,7 +1536,7 @@ public interface AggregatorPackage extends EPackage {
 	 * @see org.eclipse.b3.aggregator.impl.AggregatorPackageImpl#getExclusionRule()
 	 * @generated
 	 */
-	int EXCLUSION_RULE = 14;
+	int EXCLUSION_RULE = 13;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.aggregator.impl.ValidConfigurationsRuleImpl <em>Valid Configurations Rule</em>}' class.
@@ -1547,7 +1546,7 @@ public interface AggregatorPackage extends EPackage {
 	 * @see org.eclipse.b3.aggregator.impl.AggregatorPackageImpl#getValidConfigurationsRule()
 	 * @generated
 	 */
-	int VALID_CONFIGURATIONS_RULE = 30;
+	int VALID_CONFIGURATIONS_RULE = 29;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.aggregator.LabelProvider <em>Label Provider</em>}' class.
@@ -1557,7 +1556,7 @@ public interface AggregatorPackage extends EPackage {
 	 * @see org.eclipse.b3.aggregator.impl.AggregatorPackageImpl#getLabelProvider()
 	 * @generated
 	 */
-	int LABEL_PROVIDER = 18;
+	int LABEL_PROVIDER = 17;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.aggregator.IdentificationProvider <em>Identification Provider</em>}' class.
@@ -1568,7 +1567,7 @@ public interface AggregatorPackage extends EPackage {
 	 * @see org.eclipse.b3.aggregator.impl.AggregatorPackageImpl#getIdentificationProvider()
 	 * @generated
 	 */
-	int IDENTIFICATION_PROVIDER = 15;
+	int IDENTIFICATION_PROVIDER = 14;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.aggregator.impl.MavenMappingImpl <em>Maven Mapping</em>}' class.
@@ -1578,7 +1577,7 @@ public interface AggregatorPackage extends EPackage {
 	 * @see org.eclipse.b3.aggregator.impl.AggregatorPackageImpl#getMavenMapping()
 	 * @generated
 	 */
-	int MAVEN_MAPPING = 23;
+	int MAVEN_MAPPING = 22;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.aggregator.impl.MavenItemImpl <em>Maven Item</em>}' class.
@@ -1588,7 +1587,7 @@ public interface AggregatorPackage extends EPackage {
 	 * @see org.eclipse.b3.aggregator.impl.AggregatorPackageImpl#getMavenItem()
 	 * @generated
 	 */
-	int MAVEN_ITEM = 22;
+	int MAVEN_ITEM = 21;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.aggregator.ChildrenProvider <em>Children Provider</em>}' class.
@@ -1608,7 +1607,7 @@ public interface AggregatorPackage extends EPackage {
 	 * @see org.eclipse.b3.aggregator.impl.AggregatorPackageImpl#getStatus()
 	 * @generated
 	 */
-	int STATUS = 27;
+	int STATUS = 26;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.aggregator.impl.InfosProviderImpl <em>Infos Provider</em>}' class.
@@ -1618,7 +1617,7 @@ public interface AggregatorPackage extends EPackage {
 	 * @see org.eclipse.b3.aggregator.impl.AggregatorPackageImpl#getInfosProvider()
 	 * @generated
 	 */
-	int INFOS_PROVIDER = 16;
+	int INFOS_PROVIDER = 15;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.aggregator.impl.AvailableVersionsHeaderImpl <em>Available Versions Header</em>}' class.
@@ -1680,7 +1679,7 @@ public interface AggregatorPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AVAILABLE_VERSION__VERSION_MATCH = 0;
+	int AVAILABLE_VERSION__VERSION_MATCH = P2Package.COMPARABLE_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Version</b></em>' attribute.
@@ -1690,7 +1689,7 @@ public interface AggregatorPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AVAILABLE_VERSION__VERSION = 1;
+	int AVAILABLE_VERSION__VERSION = P2Package.COMPARABLE_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Filter</b></em>' attribute.
@@ -1700,7 +1699,17 @@ public interface AggregatorPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AVAILABLE_VERSION__FILTER = 2;
+	int AVAILABLE_VERSION__FILTER = P2Package.COMPARABLE_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Available From</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int AVAILABLE_VERSION__AVAILABLE_FROM = P2Package.COMPARABLE_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of structural features of the '<em>Available Version</em>' class.
@@ -1710,7 +1719,7 @@ public interface AggregatorPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AVAILABLE_VERSION_FEATURE_COUNT = 3;
+	int AVAILABLE_VERSION_FEATURE_COUNT = P2Package.COMPARABLE_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Status</b></em>' reference.
@@ -2597,15 +2606,6 @@ public interface AggregatorPackage extends EPackage {
 	int FEATURE_FEATURE_COUNT = MAPPED_UNIT_FEATURE_COUNT + 1;
 
 	/**
-	 * The number of structural features of the '<em>Comparable</em>' class. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int COMPARABLE_FEATURE_COUNT = 0;
-
-	/**
 	 * The feature id for the '<em><b>Status</b></em>' reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -3474,7 +3474,7 @@ public interface AggregatorPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY__KEY = COMPARABLE_FEATURE_COUNT + 0;
+	int PROPERTY__KEY = P2Package.COMPARABLE_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -3483,7 +3483,7 @@ public interface AggregatorPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY__VALUE = COMPARABLE_FEATURE_COUNT + 1;
+	int PROPERTY__VALUE = P2Package.COMPARABLE_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Property</em>' class.
@@ -3492,7 +3492,7 @@ public interface AggregatorPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY_FEATURE_COUNT = COMPARABLE_FEATURE_COUNT + 2;
+	int PROPERTY_FEATURE_COUNT = P2Package.COMPARABLE_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Code</b></em>' attribute.
@@ -3795,7 +3795,7 @@ public interface AggregatorPackage extends EPackage {
 	 * @see org.eclipse.b3.aggregator.impl.AggregatorPackageImpl#getAggregationType()
 	 * @generated
 	 */
-	int AGGREGATION_TYPE = 31;
+	int AGGREGATION_TYPE = 30;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.aggregator.OperatingSystem <em>Operating System</em>}' enum.
@@ -3825,7 +3825,18 @@ public interface AggregatorPackage extends EPackage {
 	 * @see org.eclipse.b3.aggregator.impl.AggregatorPackageImpl#getArchitecture()
 	 * @generated
 	 */
-	int ARCHITECTURE = 32;
+	int ARCHITECTURE = 31;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.b3.aggregator.AvailableFrom <em>Available From</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see org.eclipse.b3.aggregator.AvailableFrom
+	 * @see org.eclipse.b3.aggregator.impl.AggregatorPackageImpl#getAvailableFrom()
+	 * @generated
+	 */
+	int AVAILABLE_FROM = 32;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.aggregator.PackedStrategy <em>Packed Strategy</em>}' enum.
@@ -4058,6 +4069,17 @@ public interface AggregatorPackage extends EPackage {
 	EEnum getArchitecture();
 
 	/**
+	 * Returns the meta object for enum '{@link org.eclipse.b3.aggregator.AvailableFrom <em>Available From</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for enum '<em>Available From</em>'.
+	 * @see org.eclipse.b3.aggregator.AvailableFrom
+	 * @generated
+	 */
+	EEnum getAvailableFrom();
+
+	/**
 	 * Returns the meta object for class '{@link org.eclipse.b3.aggregator.AvailableVersion <em>Available Version</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4067,6 +4089,18 @@ public interface AggregatorPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getAvailableVersion();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.b3.aggregator.AvailableVersion#getAvailableFrom <em>Available From</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the attribute '<em>Available From</em>'.
+	 * @see org.eclipse.b3.aggregator.AvailableVersion#getAvailableFrom()
+	 * @see #getAvailableVersion()
+	 * @generated
+	 */
+	EAttribute getAvailableVersion_AvailableFrom();
 
 	/**
 	 * Returns the meta object for the attribute '{@link org.eclipse.b3.aggregator.AvailableVersion#getFilter <em>Filter</em>}'.
@@ -4193,18 +4227,6 @@ public interface AggregatorPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getChildrenProvider_Children();
-
-	/**
-	 * Returns the meta object for class '{@link java.lang.Comparable <em>Comparable</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @return the meta object for class '<em>Comparable</em>'.
-	 * @see java.lang.Comparable
-	 * @model instanceClass="java.lang.Comparable" typeParameters="T"
-	 * @generated
-	 */
-	EClass getComparable();
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.b3.aggregator.Configuration <em>Configuration</em>}'.

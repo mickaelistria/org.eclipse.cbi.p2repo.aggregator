@@ -16,6 +16,7 @@ import org.eclipse.b3.aggregator.AggregatorFactory;
 import org.eclipse.b3.aggregator.AggregatorPackage;
 import org.eclipse.b3.aggregator.Contribution;
 import org.eclipse.b3.aggregator.MappedRepository;
+import org.eclipse.b3.aggregator.MappedUnit;
 import org.eclipse.b3.aggregator.MavenMapping;
 import org.eclipse.b3.aggregator.MetadataRepositoryReference;
 import org.eclipse.b3.aggregator.ValidationSet;
@@ -321,6 +322,14 @@ public class ValidationSetItemProvider extends AggregatorItemProviderAdapter imp
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 		}
 		else if(notification.getEventType() == Notification.ADD) {
+			Aggregation aggregation = GeneralUtils.getAggregation((EObject) notification.getNotifier());
+			if(aggregation != null)
+				for(ValidationSet vs : aggregation.getValidationSets(true))
+					for(Contribution contribution : vs.getDeclaredContributions())
+						for(MappedRepository mappedRepo : contribution.getRepositories(true))
+							for(MappedUnit unit : mappedRepo.getUnits(false))
+								unit.resolveAvailableVersions(true);
+
 			Object newV = notification.getNewValue();
 			if(newV instanceof Contribution) {
 				for(MappedRepository mappedRepository : ((Contribution) newV).getRepositories(true))

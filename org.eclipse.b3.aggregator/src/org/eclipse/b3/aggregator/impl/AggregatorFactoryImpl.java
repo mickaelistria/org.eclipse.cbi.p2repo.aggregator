@@ -6,6 +6,7 @@
  */
 package org.eclipse.b3.aggregator.impl;
 
+import org.eclipse.b3.aggregator.*;
 import org.eclipse.b3.aggregator.Aggregation;
 import org.eclipse.b3.aggregator.AggregationType;
 import org.eclipse.b3.aggregator.AggregatorFactory;
@@ -122,6 +123,18 @@ public class AggregatorFactoryImpl extends EFactoryImpl implements AggregatorFac
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public String convertAvailableFromToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null
+				? null
+				: instanceValue.toString();
+	}
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
@@ -177,6 +190,8 @@ public class AggregatorFactoryImpl extends EFactoryImpl implements AggregatorFac
 				return convertAggregationTypeToString(eDataType, instanceValue);
 			case AggregatorPackage.ARCHITECTURE:
 				return convertArchitectureToString(eDataType, instanceValue);
+			case AggregatorPackage.AVAILABLE_FROM:
+				return convertAvailableFromToString(eDataType, instanceValue);
 			case AggregatorPackage.INSTALLABLE_UNIT_TYPE:
 				return convertInstallableUnitTypeToString(eDataType, instanceValue);
 			case AggregatorPackage.OPERATING_SYSTEM:
@@ -319,6 +334,20 @@ public class AggregatorFactoryImpl extends EFactoryImpl implements AggregatorFac
 	 * 
 	 * @generated
 	 */
+	public AvailableFrom createAvailableFromFromString(EDataType eDataType, String initialValue) {
+		AvailableFrom result = AvailableFrom.get(initialValue);
+		if(result == null)
+			throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" +
+					eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
 	public AvailableVersion createAvailableVersion() {
 		AvailableVersionImpl availableVersion = new AvailableVersionImpl();
 		return availableVersion;
@@ -437,6 +466,8 @@ public class AggregatorFactoryImpl extends EFactoryImpl implements AggregatorFac
 				return createAggregationTypeFromString(eDataType, initialValue);
 			case AggregatorPackage.ARCHITECTURE:
 				return createArchitectureFromString(eDataType, initialValue);
+			case AggregatorPackage.AVAILABLE_FROM:
+				return createAvailableFromFromString(eDataType, initialValue);
 			case AggregatorPackage.INSTALLABLE_UNIT_TYPE:
 				return createInstallableUnitTypeFromString(eDataType, initialValue);
 			case AggregatorPackage.OPERATING_SYSTEM:

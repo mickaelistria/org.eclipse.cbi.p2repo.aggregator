@@ -6,12 +6,12 @@
  */
 package org.eclipse.b3.aggregator.impl;
 
-import java.lang.Comparable;
 import org.eclipse.b3.aggregator.Aggregation;
 import org.eclipse.b3.aggregator.AggregationType;
 import org.eclipse.b3.aggregator.AggregatorFactory;
 import org.eclipse.b3.aggregator.AggregatorPackage;
 import org.eclipse.b3.aggregator.Architecture;
+import org.eclipse.b3.aggregator.AvailableFrom;
 import org.eclipse.b3.aggregator.AvailableVersion;
 import org.eclipse.b3.aggregator.AvailableVersionsHeader;
 import org.eclipse.b3.aggregator.Bundle;
@@ -294,13 +294,6 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 	 * 
 	 * @generated
 	 */
-	private EClass comparableEClass = null;
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
 	private EClass labelProviderEClass = null;
 
 	/**
@@ -366,6 +359,14 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 	 * @generated
 	 */
 	private EEnum architectureEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	private EEnum availableFromEEnum = null;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -469,6 +470,7 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 		createEAttribute(availableVersionEClass, AVAILABLE_VERSION__VERSION_MATCH);
 		createEAttribute(availableVersionEClass, AVAILABLE_VERSION__VERSION);
 		createEAttribute(availableVersionEClass, AVAILABLE_VERSION__FILTER);
+		createEAttribute(availableVersionEClass, AVAILABLE_VERSION__AVAILABLE_FROM);
 
 		bundleEClass = createEClass(BUNDLE);
 
@@ -496,8 +498,6 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 
 		featureEClass = createEClass(FEATURE);
 		createEReference(featureEClass, FEATURE__CATEGORIES);
-
-		comparableEClass = createEClass(COMPARABLE);
 
 		customCategoryEClass = createEClass(CUSTOM_CATEGORY);
 		createEAttribute(customCategoryEClass, CUSTOM_CATEGORY__IDENTIFIER);
@@ -585,6 +585,7 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 		// Create enums
 		aggregationTypeEEnum = createEEnum(AGGREGATION_TYPE);
 		architectureEEnum = createEEnum(ARCHITECTURE);
+		availableFromEEnum = createEEnum(AVAILABLE_FROM);
 		installableUnitTypeEEnum = createEEnum(INSTALLABLE_UNIT_TYPE);
 		operatingSystemEEnum = createEEnum(OPERATING_SYSTEM);
 		packedStrategyEEnum = createEEnum(PACKED_STRATEGY);
@@ -757,8 +758,28 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 	 * 
 	 * @generated
 	 */
+	public EEnum getAvailableFrom() {
+		return availableFromEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
 	public EClass getAvailableVersion() {
 		return availableVersionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EAttribute getAvailableVersion_AvailableFrom() {
+		return (EAttribute) availableVersionEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -864,15 +885,6 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 	 */
 	public EReference getChildrenProvider_Children() {
 		return (EReference) childrenProviderEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	public EClass getComparable() {
-		return comparableEClass;
 	}
 
 	/**
@@ -1674,7 +1686,6 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 
 		// Create type parameters
 		ETypeParameter childrenProviderEClass_T = addETypeParameter(childrenProviderEClass, "T");
-		addETypeParameter(comparableEClass, "T");
 
 		// Set bounds for type parameters
 
@@ -1682,6 +1693,10 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 		aggregationEClass.getESuperTypes().add(this.getDescriptionProvider());
 		aggregationEClass.getESuperTypes().add(this.getStatusProvider());
 		aggregationEClass.getESuperTypes().add(this.getInfosProvider());
+		EGenericType g1 = createEGenericType(theP2Package.getComparable());
+		EGenericType g2 = createEGenericType(this.getAvailableVersion());
+		g1.getETypeArguments().add(g2);
+		availableVersionEClass.getEGenericSuperTypes().add(g1);
 		bundleEClass.getESuperTypes().add(this.getMappedUnit());
 		categoryEClass.getESuperTypes().add(this.getMappedUnit());
 		configurationEClass.getESuperTypes().add(this.getEnabledStatusProvider());
@@ -1712,8 +1727,8 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 		metadataRepositoryReferenceEClass.getESuperTypes().add(this.getStatusProvider());
 		metadataRepositoryReferenceEClass.getESuperTypes().add(this.getInfosProvider());
 		productEClass.getESuperTypes().add(this.getMappedUnit());
-		EGenericType g1 = createEGenericType(this.getComparable());
-		EGenericType g2 = createEGenericType(this.getProperty());
+		g1 = createEGenericType(theP2Package.getComparable());
+		g2 = createEGenericType(this.getProperty());
 		g1.getETypeArguments().add(g2);
 		propertyEClass.getEGenericSuperTypes().add(g1);
 		validationSetEClass.getESuperTypes().add(this.getEnabledStatusProvider());
@@ -1817,6 +1832,10 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 		initEAttribute(
 			getAvailableVersion_Filter(), g1, "filter", null, 0, 1, AvailableVersion.class, !IS_TRANSIENT,
 			!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(
+			getAvailableVersion_AvailableFrom(), this.getAvailableFrom(), "availableFrom", "REPOSITORY", 1, 1,
+			AvailableVersion.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+			!IS_DERIVED, IS_ORDERED);
 
 		initEClass(bundleEClass, Bundle.class, "Bundle", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -1896,9 +1915,6 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 			getFeature_Categories(), this.getCustomCategory(), this.getCustomCategory_Features(), "categories", null,
 			0, -1, Feature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
 			!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(
-			comparableEClass, Comparable.class, "Comparable", IS_ABSTRACT, IS_INTERFACE, !IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(
 			customCategoryEClass, CustomCategory.class, "CustomCategory", !IS_ABSTRACT, !IS_INTERFACE,
@@ -2224,6 +2240,12 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 		addEEnumLiteral(architectureEEnum, Architecture.PPC64);
 		addEEnumLiteral(architectureEEnum, Architecture.S390);
 		addEEnumLiteral(architectureEEnum, Architecture.S390X);
+
+		initEEnum(availableFromEEnum, AvailableFrom.class, "AvailableFrom");
+		addEEnumLiteral(availableFromEEnum, AvailableFrom.REPOSITORY);
+		addEEnumLiteral(availableFromEEnum, AvailableFrom.CONTRIBUTION);
+		addEEnumLiteral(availableFromEEnum, AvailableFrom.VALIDATION_SET);
+		addEEnumLiteral(availableFromEEnum, AvailableFrom.AGGREGATION);
 
 		initEEnum(installableUnitTypeEEnum, InstallableUnitType.class, "InstallableUnitType");
 		addEEnumLiteral(installableUnitTypeEEnum, InstallableUnitType.BUNDLE);

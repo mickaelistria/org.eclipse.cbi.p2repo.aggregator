@@ -10,6 +10,7 @@
 package org.eclipse.b3.aggregator.impl;
 
 import org.eclipse.b3.aggregator.AggregatorPackage;
+import org.eclipse.b3.aggregator.AvailableFrom;
 import org.eclipse.b3.aggregator.AvailableVersion;
 import org.eclipse.b3.aggregator.VersionMatch;
 import org.eclipse.emf.common.notify.Notification;
@@ -30,6 +31,7 @@ import org.eclipse.equinox.p2.metadata.expression.IMatchExpression;
  * <li>{@link org.eclipse.b3.aggregator.impl.AvailableVersionImpl#getVersionMatch <em>Version Match</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.impl.AvailableVersionImpl#getVersion <em>Version</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.impl.AvailableVersionImpl#getFilter <em>Filter</em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.impl.AvailableVersionImpl#getAvailableFrom <em>Available From</em>}</li>
  * </ul>
  * </p>
  * 
@@ -132,6 +134,58 @@ public class AvailableVersionImpl extends MinimalEObjectImpl.Container implement
 	protected IMatchExpression<IInstallableUnit> filter;
 
 	/**
+	 * The default value of the '{@link #getAvailableFrom() <em>Available From</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see #getAvailableFrom()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final AvailableFrom AVAILABLE_FROM_EDEFAULT = AvailableFrom.REPOSITORY;
+
+	/**
+	 * The offset of the flags representing the value of the '{@link #getAvailableFrom() <em>Available From</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int AVAILABLE_FROM_EFLAG_OFFSET = 2;
+
+	/**
+	 * The flags representing the default value of the '{@link #getAvailableFrom() <em>Available From</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int AVAILABLE_FROM_EFLAG_DEFAULT = AVAILABLE_FROM_EDEFAULT.ordinal() << AVAILABLE_FROM_EFLAG_OFFSET;
+
+	/**
+	 * The array of enumeration values for '{@link AvailableFrom Available From}'
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	private static final AvailableFrom[] AVAILABLE_FROM_EFLAG_VALUES = AvailableFrom.values();
+
+	/**
+	 * The flags representing the value of the '{@link #getAvailableFrom() <em>Available From</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see #getAvailableFrom()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int AVAILABLE_FROM_EFLAG = 0x3 << AVAILABLE_FROM_EFLAG_OFFSET;
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -139,6 +193,22 @@ public class AvailableVersionImpl extends MinimalEObjectImpl.Container implement
 	 */
 	protected AvailableVersionImpl() {
 		super();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated NOT
+	 */
+	public int compareTo(AvailableVersion o) {
+		if(version == o.getVersion())
+			return 0;
+		if(version == null)
+			return 1;
+		if(o.getVersion() == null)
+			return -1;
+		return o.getVersion().compareTo(version);
 	}
 
 	/**
@@ -156,6 +226,8 @@ public class AvailableVersionImpl extends MinimalEObjectImpl.Container implement
 				return getVersion();
 			case AggregatorPackage.AVAILABLE_VERSION__FILTER:
 				return getFilter();
+			case AggregatorPackage.AVAILABLE_VERSION__AVAILABLE_FROM:
+				return getAvailableFrom();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -177,6 +249,8 @@ public class AvailableVersionImpl extends MinimalEObjectImpl.Container implement
 						: !VERSION_EDEFAULT.equals(version);
 			case AggregatorPackage.AVAILABLE_VERSION__FILTER:
 				return filter != null;
+			case AggregatorPackage.AVAILABLE_VERSION__AVAILABLE_FROM:
+				return (eFlags & AVAILABLE_FROM_EFLAG) != AVAILABLE_FROM_EFLAG_DEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -199,6 +273,9 @@ public class AvailableVersionImpl extends MinimalEObjectImpl.Container implement
 				return;
 			case AggregatorPackage.AVAILABLE_VERSION__FILTER:
 				setFilter((IMatchExpression<IInstallableUnit>) newValue);
+				return;
+			case AggregatorPackage.AVAILABLE_VERSION__AVAILABLE_FROM:
+				setAvailableFrom((AvailableFrom) newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -233,8 +310,21 @@ public class AvailableVersionImpl extends MinimalEObjectImpl.Container implement
 			case AggregatorPackage.AVAILABLE_VERSION__FILTER:
 				setFilter((IMatchExpression<IInstallableUnit>) null);
 				return;
+			case AggregatorPackage.AVAILABLE_VERSION__AVAILABLE_FROM:
+				setAvailableFrom(AVAILABLE_FROM_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public AvailableFrom getAvailableFrom() {
+		return AVAILABLE_FROM_EFLAG_VALUES[(eFlags & AVAILABLE_FROM_EFLAG) >>> AVAILABLE_FROM_EFLAG_OFFSET];
 	}
 
 	/**
@@ -265,6 +355,23 @@ public class AvailableVersionImpl extends MinimalEObjectImpl.Container implement
 	 */
 	public VersionMatch getVersionMatch() {
 		return VERSION_MATCH_EFLAG_VALUES[(eFlags & VERSION_MATCH_EFLAG) >>> VERSION_MATCH_EFLAG_OFFSET];
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public void setAvailableFrom(AvailableFrom newAvailableFrom) {
+		AvailableFrom oldAvailableFrom = AVAILABLE_FROM_EFLAG_VALUES[(eFlags & AVAILABLE_FROM_EFLAG) >>> AVAILABLE_FROM_EFLAG_OFFSET];
+		if(newAvailableFrom == null)
+			newAvailableFrom = AVAILABLE_FROM_EDEFAULT;
+		eFlags = eFlags & ~AVAILABLE_FROM_EFLAG | newAvailableFrom.ordinal() << AVAILABLE_FROM_EFLAG_OFFSET;
+		if(eNotificationRequired())
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, AggregatorPackage.AVAILABLE_VERSION__AVAILABLE_FROM, oldAvailableFrom,
+				newAvailableFrom));
 	}
 
 	/**
@@ -330,6 +437,8 @@ public class AvailableVersionImpl extends MinimalEObjectImpl.Container implement
 		result.append(version);
 		result.append(", filter: ");
 		result.append(filter);
+		result.append(", availableFrom: ");
+		result.append(AVAILABLE_FROM_EFLAG_VALUES[(eFlags & AVAILABLE_FROM_EFLAG) >>> AVAILABLE_FROM_EFLAG_OFFSET]);
 		result.append(')');
 		return result.toString();
 	}

@@ -599,6 +599,8 @@ public class AggregatorSwitch<T1> extends Switch<T1> {
 				AvailableVersion availableVersion = (AvailableVersion) theEObject;
 				T1 result = caseAvailableVersion(availableVersion);
 				if(result == null)
+					result = caseComparable(availableVersion);
+				if(result == null)
 					result = defaultCase(theEObject);
 				return result;
 			}

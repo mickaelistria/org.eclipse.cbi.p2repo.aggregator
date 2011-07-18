@@ -13,6 +13,7 @@ import java.util.Collection;
 import java.util.List;
 
 import org.eclipse.b3.aggregator.AggregatorPackage;
+import org.eclipse.b3.aggregator.AvailableFrom;
 import org.eclipse.b3.aggregator.AvailableVersion;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
@@ -49,6 +50,24 @@ public class AvailableVersionItemProvider extends AggregatorItemProviderAdapter 
 	 */
 	public AvailableVersionItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
+	}
+
+	/**
+	 * This adds a property descriptor for the Available From feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	protected void addAvailableFromPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+			getResourceLocator(),
+			getString("_UI_AvailableVersion_availableFrom_feature"),
+			getString(
+				"_UI_PropertyDescriptor_description", "_UI_AvailableVersion_availableFrom_feature",
+				"_UI_AvailableVersion_type"), AggregatorPackage.Literals.AVAILABLE_VERSION__AVAILABLE_FROM, true,
+			false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -119,6 +138,16 @@ public class AvailableVersionItemProvider extends AggregatorItemProviderAdapter 
 	}
 
 	/**
+	 * Grey out the label if this item is (directly or indirectly) disabled
+	 */
+	@Override
+	public Object getForeground(Object object) {
+		if(((AvailableVersion) object).getAvailableFrom() == AvailableFrom.AGGREGATION)
+			return IItemColorProvider.GRAYED_OUT_COLOR;
+		return null;
+	}
+
+	/**
 	 * This returns AvailableVersion.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -158,6 +187,7 @@ public class AvailableVersionItemProvider extends AggregatorItemProviderAdapter 
 			addVersionMatchPropertyDescriptor(object);
 			addVersionPropertyDescriptor(object);
 			addFilterPropertyDescriptor(object);
+			addAvailableFromPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -184,11 +214,29 @@ public class AvailableVersionItemProvider extends AggregatorItemProviderAdapter 
 	@Override
 	public String getText(Object object) {
 
-		Version version = ((AvailableVersion) object).getVersion();
+		AvailableVersion av = (AvailableVersion) object;
+		Version version = av.getVersion();
 		if(version == null)
 			return "no version is available";
 
-		return version.toString();
+		StringBuffer sb = new StringBuffer();
+		version.toString(sb);
+		if(av.getAvailableFrom() != AvailableFrom.REPOSITORY) {
+			sb.append(" (from ");
+			switch(av.getAvailableFrom()) {
+				case CONTRIBUTION:
+					sb.append(" other Repository in the Contribution");
+					break;
+				case VALIDATION_SET:
+					sb.append(" other Contribution in the Validation Set");
+					break;
+				case AGGREGATION:
+					sb.append(" other Validation Set");
+					break;
+			}
+			sb.append(')');
+		}
+		return sb.toString();
 	}
 
 	/**
@@ -232,6 +280,7 @@ public class AvailableVersionItemProvider extends AggregatorItemProviderAdapter 
 			case AggregatorPackage.AVAILABLE_VERSION__VERSION_MATCH:
 			case AggregatorPackage.AVAILABLE_VERSION__VERSION:
 			case AggregatorPackage.AVAILABLE_VERSION__FILTER:
+			case AggregatorPackage.AVAILABLE_VERSION__AVAILABLE_FROM:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}
