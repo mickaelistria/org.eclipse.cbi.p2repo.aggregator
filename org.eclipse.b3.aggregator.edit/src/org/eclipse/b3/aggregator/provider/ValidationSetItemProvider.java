@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+import org.eclipse.b3.aggregator.Aggregation;
 import org.eclipse.b3.aggregator.AggregatorFactory;
 import org.eclipse.b3.aggregator.AggregatorPackage;
 import org.eclipse.b3.aggregator.Contribution;
@@ -296,21 +297,18 @@ public class ValidationSetItemProvider extends AggregatorItemProviderAdapter imp
 	@Override
 	public void notifyChanged(Notification notification) {
 		notifyChangedGen(notification);
-		if(notification.getNotifier() instanceof Contribution) {
-			switch(notification.getFeatureID(Contribution.class)) {
-				case AggregatorPackage.CONTRIBUTION__ENABLED:
-				case AggregatorPackage.CONTRIBUTION__STATUS:
-					fireNotifyChanged(new ViewerNotification(
-						notification, ((EObject) notification.getNotifier()).eContainer(), false, true));
-					return;
-			}
-		}
-		else if(notification.getNotifier() instanceof ValidationSet) {
+		if(notification.getNotifier() instanceof ValidationSet) {
+			ValidationSet vs = (ValidationSet) notification.getNotifier();
+			Aggregation aggr = (Aggregation) ((EObject) vs).eContainer();
 			switch(notification.getFeatureID(ValidationSet.class)) {
 				case AggregatorPackage.VALIDATION_SET__ENABLED:
 				case AggregatorPackage.VALIDATION_SET__STATUS:
-					fireNotifyChanged(new ViewerNotification(
-						notification, ((EObject) notification.getNotifier()).eContainer(), false, true));
+					fireNotifyChanged(new ViewerNotification(notification, aggr, false, true));
+
+					// Affects status of extensions of this vs
+					for(ValidationSet other : aggr.getValidationSets(true))
+						if(other != vs && other.isExtensionOf(vs))
+							fireNotifyChanged(new ViewerNotification(notification, other, false, true));
 					return;
 			}
 		}

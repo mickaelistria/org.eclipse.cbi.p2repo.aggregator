@@ -197,16 +197,6 @@ public class MetadataRepositoryReferenceItemProvider extends AggregatorItemProvi
 	}
 
 	/**
-	 * Grey out the label if this item is (directly or indirectly) disabled
-	 */
-	@Override
-	public Object getForeground(Object object) {
-		return ((MetadataRepositoryReference) object).isBranchEnabled()
-				? null
-				: IItemColorProvider.GRAYED_OUT_COLOR;
-	}
-
-	/**
 	 * This returns MetadataRepositoryReference.gif. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated NOT

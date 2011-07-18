@@ -1720,6 +1720,7 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 		validationSetEClass.getESuperTypes().add(this.getDescriptionProvider());
 		validationSetEClass.getESuperTypes().add(this.getStatusProvider());
 		validationSetEClass.getESuperTypes().add(this.getInfosProvider());
+		validationSetEClass.getESuperTypes().add(this.getIdentificationProvider());
 		validConfigurationsRuleEClass.getESuperTypes().add(this.getMapRule());
 
 		// Initialize classes and features; add operations and parameters

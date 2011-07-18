@@ -15,15 +15,54 @@ import org.eclipse.b3.aggregator.Status;
 import org.eclipse.b3.aggregator.StatusCode;
 import org.eclipse.b3.p2.InstallableUnit;
 import org.eclipse.b3.util.StringUtils;
+import org.eclipse.equinox.internal.p2.metadata.RequiredCapability;
 import org.eclipse.equinox.p2.metadata.IInstallableUnit;
 import org.eclipse.equinox.p2.metadata.IProvidedCapability;
+import org.eclipse.equinox.p2.metadata.IRequirement;
 import org.eclipse.equinox.p2.metadata.MetadataFactory.InstallableUnitDescription;
+import org.eclipse.equinox.p2.metadata.Version;
+import org.eclipse.equinox.p2.metadata.VersionRange;
 
 /**
  * @author Karel Brezina
  * 
  */
 public class InstallableUnitUtils {
+	public static void appendIdentifier(StringBuilder bld, IInstallableUnit iu) {
+		InstallableUnitType riuType = getType(iu);
+		bld.append(riuType.toString());
+		bld.append('(');
+		bld.append(iu.getId());
+		Version v = iu.getVersion();
+		if(!(v == null || v.equals(Version.emptyVersion))) {
+			bld.append(' ');
+			bld.append(v);
+		}
+		bld.append(')');
+	}
+
+	public static void appendIdentifier(StringBuilder bld, IRequirement req) {
+		if(req instanceof RequiredCapability) {
+			RequiredCapability rc = (RequiredCapability) req;
+			String ns = rc.getNamespace();
+			if("osgi.bundle".equals(ns))
+				bld.append("Bundle(");
+			else if("java.package".equals(ns))
+				bld.append("JavaPackage(");
+			else
+				bld.append("InstallableUnit(");
+			bld.append(rc.getName());
+			VersionRange range = rc.getRange();
+			if(!(range == null || VersionRange.emptyRange.equals(range))) {
+				bld.append(' ');
+				bld.append(range);
+			}
+			bld.append(')');
+		}
+		else
+			bld.append(req.toString());
+	}
+
 	public static Status getStatus(InstallableUnit iu) {
 		synchronized(iu) {
 			return StringUtils.trimmedOrNull(iu.getId()) != null

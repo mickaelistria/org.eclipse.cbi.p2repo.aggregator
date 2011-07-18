@@ -14,6 +14,7 @@ import org.eclipse.b3.aggregator.AggregatorFactory;
 import org.eclipse.b3.aggregator.AggregatorPackage;
 import org.eclipse.b3.aggregator.Contribution;
 import org.eclipse.b3.aggregator.DescriptionProvider;
+import org.eclipse.b3.aggregator.IdentificationProvider;
 import org.eclipse.b3.aggregator.InfosProvider;
 import org.eclipse.b3.aggregator.MetadataRepositoryReference;
 import org.eclipse.b3.aggregator.Status;
@@ -313,6 +314,12 @@ public class ValidationSetImpl extends MinimalEObjectImpl.Container implements V
 					return -1;
 			}
 		}
+		if(baseClass == IdentificationProvider.class) {
+			switch(derivedFeatureID) {
+				default:
+					return -1;
+			}
+		}
 		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
 	}
 
@@ -348,6 +355,12 @@ public class ValidationSetImpl extends MinimalEObjectImpl.Container implements V
 					return AggregatorPackage.VALIDATION_SET__WARNINGS;
 				case AggregatorPackage.INFOS_PROVIDER__INFOS:
 					return AggregatorPackage.VALIDATION_SET__INFOS;
+				default:
+					return -1;
+			}
+		}
+		if(baseClass == IdentificationProvider.class) {
+			switch(baseFeatureID) {
 				default:
 					return -1;
 			}
@@ -651,6 +664,16 @@ public class ValidationSetImpl extends MinimalEObjectImpl.Container implements V
 				ValidationSet.class, this, AggregatorPackage.VALIDATION_SET__EXTENDS);
 		}
 		return extends_;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated NOT
+	 */
+	public String getIdentification() {
+		return getLabel();
 	}
 
 	/**

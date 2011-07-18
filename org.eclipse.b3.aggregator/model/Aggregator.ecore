@@ -244,7 +244,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="status" lowerBound="1"
         eType="#//Status" changeable="false" volatile="true" transient="true" resolveProxies="false"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ValidationSet" eSuperTypes="#//EnabledStatusProvider #//DescriptionProvider #//StatusProvider #//InfosProvider">
+  <eClassifiers xsi:type="ecore:EClass" name="ValidationSet" eSuperTypes="#//EnabledStatusProvider #//DescriptionProvider #//StatusProvider #//InfosProvider #//IdentificationProvider">
     <eOperations name="getAllValidationRepositories" upperBound="-1" eType="#//MetadataRepositoryReference"/>
     <eOperations name="getAllContributions" upperBound="-1" eType="#//Contribution"/>
     <eOperations name="getDeclaredContributions" upperBound="-1" eType="#//Contribution"/>

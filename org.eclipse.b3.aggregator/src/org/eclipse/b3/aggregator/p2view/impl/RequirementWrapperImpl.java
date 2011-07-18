@@ -127,7 +127,7 @@ public class RequirementWrapperImpl extends MinimalEObjectImpl.Container impleme
 	 * @generated
 	 * @ordered
 	 */
-	protected static final boolean GREEDY_EDEFAULT = false;
+	protected static final boolean GREEDY_EDEFAULT = true;
 
 	/**
 	 * The flag representing the value of the '{@link #isGreedy() <em>Greedy</em>}' attribute.
@@ -202,6 +202,7 @@ public class RequirementWrapperImpl extends MinimalEObjectImpl.Container impleme
 	 */
 	protected RequirementWrapperImpl() {
 		super();
+		eFlags |= GREEDY_EFLAG;
 	}
 
 	/**

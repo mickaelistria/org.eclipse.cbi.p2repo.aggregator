@@ -925,6 +925,8 @@ public class AggregatorSwitch<T1> extends Switch<T1> {
 				if(result == null)
 					result = caseInfosProvider(validationSet);
 				if(result == null)
+					result = caseIdentificationProvider(validationSet);
+				if(result == null)
 					result = defaultCase(theEObject);
 				return result;
 			}

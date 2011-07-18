@@ -24,6 +24,7 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.equinox.p2.metadata.IInstallableUnit;
 import org.eclipse.equinox.p2.metadata.IRequirement;
 import org.eclipse.equinox.p2.metadata.MetadataFactory;
+import org.eclipse.equinox.p2.metadata.VersionRange;
 import org.eclipse.equinox.p2.metadata.expression.ExpressionUtil;
 import org.eclipse.equinox.p2.metadata.expression.IMatchExpression;
 
@@ -305,7 +306,14 @@ public abstract class MappedUnitImpl extends InstallableUnitRequestImpl implemen
 	 * @generated NOT
 	 */
 	public String getIdentification() {
-		return getRequirement().toString();
+		StringBuilder bld = new StringBuilder();
+		bld.append(getName());
+		VersionRange range = getVersionRange();
+		if(range != null && !VersionRange.emptyRange.equals(range)) {
+			bld.append(' ');
+			bld.append(range);
+		}
+		return bld.toString();
 	}
 
 	/**

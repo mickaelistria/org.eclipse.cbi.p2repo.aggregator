@@ -14,6 +14,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import org.eclipse.b3.aggregator.Aggregation;
 import org.eclipse.b3.aggregator.AggregatorFactory;
 import org.eclipse.b3.aggregator.AggregatorPackage;
 import org.eclipse.b3.aggregator.Contribution;
@@ -23,6 +24,7 @@ import org.eclipse.b3.aggregator.Feature;
 import org.eclipse.b3.aggregator.MappedRepository;
 import org.eclipse.b3.aggregator.MappedUnit;
 import org.eclipse.b3.aggregator.MavenMapping;
+import org.eclipse.b3.aggregator.ValidationSet;
 import org.eclipse.b3.aggregator.p2view.IUPresentation;
 import org.eclipse.b3.aggregator.p2view.MetadataRepositoryStructuredView;
 import org.eclipse.b3.aggregator.util.AddIUsToContributionCommand;
@@ -465,7 +467,13 @@ public class ContributionItemProvider extends AggregatorItemProviderAdapter impl
 				affectedNodeLabels.add(container.eResource());
 				while(container != null) {
 					affectedNodeLabels.add(container);
-					container = container.eContainer();
+					EObject parent = container.eContainer();
+					if(container instanceof ValidationSet) {
+						for(ValidationSet peer : ((Aggregation) parent).getValidationSets(true))
+							if(peer != container && peer.isExtensionOf((ValidationSet) container))
+								affectedNodeLabels.add(peer);
+					}
+					container = parent;
 				}
 
 				boolean newValue = true;

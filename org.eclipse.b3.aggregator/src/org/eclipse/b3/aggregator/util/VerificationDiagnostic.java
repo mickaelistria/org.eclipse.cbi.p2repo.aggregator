@@ -7,6 +7,7 @@ import org.eclipse.b3.aggregator.Contribution;
 import org.eclipse.b3.aggregator.IdentificationProvider;
 import org.eclipse.b3.aggregator.MappedRepository;
 import org.eclipse.b3.aggregator.MappedUnit;
+import org.eclipse.b3.aggregator.ValidationSet;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
@@ -107,7 +108,7 @@ public class VerificationDiagnostic extends ResourceDiagnosticImpl {
 	public static void identifyDependencyChain(DependencyLink dependencyChain, Resource resource, String separator,
 			String indent) {
 		LinkedList<Object> identifierSegmentList = new LinkedList<Object>();
-		URI modelElementURI;
+		URI modelElementURI = null;
 		int level;
 		StringBuilder identifierBuilder = new StringBuilder();
 
@@ -172,12 +173,13 @@ public class VerificationDiagnostic extends ResourceDiagnosticImpl {
 				break BUILD_IDENTIFIER_SEGMENT_LIST;
 			}
 
-			// build a path of model elements up to a Contribution (or root) node
+			// build a path of model elements up to a ValidationSet (or root) node
 			while(true) {
-				if(modelObject instanceof Contribution) {
-					modelElementURI = EcoreUtil.getURI(modelObject);
+				if(modelObject instanceof ValidationSet)
 					break;
-				}
+
+				if(modelObject instanceof Contribution)
+					modelElementURI = EcoreUtil.getURI(modelObject);
 
 				modelObject = modelObject.eContainer();
 

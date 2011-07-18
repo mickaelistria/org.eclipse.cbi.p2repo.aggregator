@@ -173,6 +173,8 @@ public class InstallableUnitRequestItemProvider extends AggregatorItemProviderAd
 		InstallableUnitRequest iuRef = (InstallableUnitRequest) object;
 		String id = iuRef.getName();
 		VersionRange versionRange = iuRef.getVersionRange();
+		if(versionRange == null)
+			versionRange = VersionRange.emptyRange;
 
 		bld.append(getString(typeKey));
 		bld.append(" : ");
@@ -184,14 +186,22 @@ public class InstallableUnitRequestItemProvider extends AggregatorItemProviderAd
 		if(id.endsWith(IAggregatorConstants.FEATURE_SUFFIX))
 			id = id.substring(0, id.length() - IAggregatorConstants.FEATURE_SUFFIX.length());
 		bld.append(id);
-		bld.append(" / ");
-		bld.append(P2Utils.versionRangeToString(versionRange));
+
+		String name = null;
 		IInstallableUnit iu = iuRef.resolveAsSingleton();
 		if(iu != null) {
-			String name = RepositoryTranslationSupport.getInstance(
+			name = RepositoryTranslationSupport.getInstance(
 				(MetadataRepository) ((InstallableUnitImpl) iu).eContainer()).getIUProperty(
 				iu, IInstallableUnit.PROP_NAME);
-			if(name != null && !name.startsWith("%")) {
+			if(name.startsWith("%"))
+				name = null;
+		}
+
+		if(!(name == null && VersionRange.emptyRange.equals(versionRange))) {
+			bld.append(" / ");
+			if(!VersionRange.emptyRange.equals(versionRange))
+				bld.append(P2Utils.versionRangeToString(versionRange));
+			if(name != null) {
 				bld.append(" (");
 				bld.append(name);
 				bld.append(")");

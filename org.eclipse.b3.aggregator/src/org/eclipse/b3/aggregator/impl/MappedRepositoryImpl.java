@@ -7,6 +7,7 @@
 package org.eclipse.b3.aggregator.impl;
 
 import java.util.Collection;
+import java.util.List;
 
 import org.eclipse.b3.aggregator.Aggregation;
 import org.eclipse.b3.aggregator.AggregatorFactory;
@@ -15,6 +16,7 @@ import org.eclipse.b3.aggregator.Bundle;
 import org.eclipse.b3.aggregator.Category;
 import org.eclipse.b3.aggregator.Contribution;
 import org.eclipse.b3.aggregator.DescriptionProvider;
+import org.eclipse.b3.aggregator.EnabledStatusProvider;
 import org.eclipse.b3.aggregator.Feature;
 import org.eclipse.b3.aggregator.IdentificationProvider;
 import org.eclipse.b3.aggregator.MapRule;
@@ -63,6 +65,15 @@ public class MappedRepositoryImpl extends MetadataRepositoryReferenceImpl implem
 	 * @ordered
 	 */
 	protected static final String DESCRIPTION_EDEFAULT = "";
+
+	private static boolean hasEnabledEntry(List<? extends EnabledStatusProvider> list) {
+		if(list != null) {
+			for(EnabledStatusProvider e : list)
+				if(e.isEnabled())
+					return true;
+		}
+		return false;
+	}
 
 	/**
 	 * The cached value of the '{@link #getDescription() <em>Description</em>}' attribute.
@@ -617,8 +628,8 @@ public class MappedRepositoryImpl extends MetadataRepositoryReferenceImpl implem
 	 * @generated NOT
 	 */
 	public boolean isMapExclusive() {
-		return getFeatures().size() > 0 || getCategories().size() > 0 || getProducts().size() > 0 ||
-				getBundles().size() > 0;
+		return hasEnabledEntry(bundles) || hasEnabledEntry(features) || hasEnabledEntry(categories) ||
+				hasEnabledEntry(products);
 	}
 
 	/**
