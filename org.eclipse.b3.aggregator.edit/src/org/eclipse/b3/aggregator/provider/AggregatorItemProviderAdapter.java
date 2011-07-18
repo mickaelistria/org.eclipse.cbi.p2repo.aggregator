@@ -116,7 +116,7 @@ public class AggregatorItemProviderAdapter extends ItemProviderAdapter implement
 	@Override
 	public Object getForeground(Object object) {
 		if(object instanceof EnabledStatusProvider)
-			return ((EnabledStatusProvider) object).isEnabled()
+			return ((EnabledStatusProvider) object).isBranchEnabled()
 					? null
 					: IItemColorProvider.GRAYED_OUT_COLOR;
 
@@ -131,6 +131,8 @@ public class AggregatorItemProviderAdapter extends ItemProviderAdapter implement
 	@Override
 	protected Object overlayImage(Object object, Object image) {
 		image = super.overlayImage(object, image);
+		if(object instanceof EnabledStatusProvider && !((EnabledStatusProvider) object).isBranchEnabled())
+			return image;
 
 		StatusProvider sp = (StatusProvider) getRootAdapterFactory().adapt(object, StatusProvider.class);
 
