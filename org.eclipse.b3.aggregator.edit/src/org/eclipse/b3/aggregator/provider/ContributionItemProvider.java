@@ -367,7 +367,8 @@ public class ContributionItemProvider extends AggregatorItemProviderAdapter impl
 	@Override
 	public Object getImage(Object object) {
 		return overlayImage(
-			object, getResourceLocator().getImage("full/obj16/Contribution" + (((Contribution) object).isEnabled()
+			object,
+			getResourceLocator().getImage("full/obj16/Contribution" + (((Contribution) object).isBranchEnabled()
 					? ""
 					: "Disabled")));
 	}

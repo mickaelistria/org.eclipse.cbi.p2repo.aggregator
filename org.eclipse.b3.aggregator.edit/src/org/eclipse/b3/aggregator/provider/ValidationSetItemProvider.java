@@ -304,7 +304,7 @@ public class ValidationSetItemProvider extends AggregatorItemProviderAdapter imp
 			switch(notification.getFeatureID(ValidationSet.class)) {
 				case AggregatorPackage.VALIDATION_SET__ENABLED:
 				case AggregatorPackage.VALIDATION_SET__STATUS:
-					fireNotifyChanged(new ViewerNotification(notification, aggr, false, true));
+					fireNotifyChanged(new ViewerNotification(notification, aggr, true, true));
 
 					// Affects status of extensions of this vs
 					for(ValidationSet other : aggr.getValidationSets(true))
