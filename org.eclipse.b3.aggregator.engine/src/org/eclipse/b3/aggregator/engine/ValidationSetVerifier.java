@@ -554,6 +554,11 @@ public class ValidationSetVerifier extends BuilderPhase {
 			}
 
 			Collection<IArtifactKey> artifacts = miu.getArtifacts();
+			if(artifacts.isEmpty()) {
+				LogUtils.warning("Unable to resolve partial IU '%s' since it does not have any artifacts", iu.getId());
+				return iu;
+			}
+
 			IArtifactKey key = artifacts.iterator().next();
 			ArrayList<String> errors = new ArrayList<String>();
 			MirrorGenerator.mirror(
