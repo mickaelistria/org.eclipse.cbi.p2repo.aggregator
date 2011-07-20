@@ -222,16 +222,16 @@ public class AvailableVersionItemProvider extends AggregatorItemProviderAdapter 
 		StringBuffer sb = new StringBuffer();
 		version.toString(sb);
 		if(av.getAvailableFrom() != AvailableFrom.REPOSITORY) {
-			sb.append(" (from ");
+			sb.append(" (from another ");
 			switch(av.getAvailableFrom()) {
 				case CONTRIBUTION:
-					sb.append(" other Repository in the Contribution");
+					sb.append("Repository in this Contribution");
 					break;
 				case VALIDATION_SET:
-					sb.append(" other Contribution in the Validation Set");
+					sb.append("Contribution in this Validation Set");
 					break;
 				case AGGREGATION:
-					sb.append(" other Validation Set");
+					sb.append("Validation Set");
 					break;
 			}
 			sb.append(')');
