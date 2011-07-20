@@ -206,8 +206,6 @@ public class Builder extends ModelAbstractCommand {
 
 	}
 
-	public static final String VERIFICATION_IU_PREFIX = "contributed.content."; //$NON-NLS-1$
-
 	public static final String PDE_TARGET_PLATFORM_NAMESPACE = "A.PDE.Target.Platform";
 
 	public static final String PDE_TARGET_PLATFORM_NAME = "Cannot be installed into the IDE";
@@ -823,7 +821,7 @@ public class Builder extends ModelAbstractCommand {
 	}
 
 	public String getMappedRepositoryVerificationIUName(MappedRepository repository) {
-		return VERIFICATION_IU_PREFIX + "repository_" + getSafeRepositoryName(repository);
+		return "mappedRepo_" + getSafeRepositoryName(repository);
 	}
 
 	public IMetadataRepositoryManager getMdrManager() {
@@ -995,10 +993,7 @@ public class Builder extends ModelAbstractCommand {
 	}
 
 	public String getVerificationIUName(ValidationSet validationSet) {
-		if(validationSet == null)
-			return VERIFICATION_IU_PREFIX + "main";
-
-		return VERIFICATION_IU_PREFIX + "validationSet_" + getSafeValidationSetName(validationSet);
+		return "validationSet_" + getSafeValidationSetName(validationSet);
 	}
 
 	private void initializeArtifactMirroring(IProgressMonitor monitor) throws CoreException {
