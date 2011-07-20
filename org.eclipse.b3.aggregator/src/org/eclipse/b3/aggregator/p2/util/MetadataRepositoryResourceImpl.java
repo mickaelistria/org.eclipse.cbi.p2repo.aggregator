@@ -765,7 +765,6 @@ public class MetadataRepositoryResourceImpl extends ResourceImpl implements Stat
 		List<Object> firstNodePath = new ArrayList<Object>();
 
 		if(startAfterPath == null) {
-			firstNodePath.add(this);
 			firstNodePath.add(repoView);
 
 			if(!forward)
