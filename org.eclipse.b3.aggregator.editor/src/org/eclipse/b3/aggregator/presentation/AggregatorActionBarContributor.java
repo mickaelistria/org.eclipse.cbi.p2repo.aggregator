@@ -1479,19 +1479,19 @@ public class AggregatorActionBarContributor extends EditingDomainActionBarContri
 					}
 				}
 			}
+		}
 
-			// Generate actions for selection; populate and redraw the menus.
-			//
-			if(createChildMenuManager != null) {
-				createChildActions = generateCreateChildActions(newChildDescriptors, selection);
-				populateManager(createChildMenuManager, createChildActions, null);
-				createChildMenuManager.update(true);
-			}
-			if(createSiblingMenuManager != null) {
-				createSiblingActions = generateCreateSiblingActions(newSiblingDescriptors, selection);
-				populateManager(createSiblingMenuManager, createSiblingActions, null);
-				createSiblingMenuManager.update(true);
-			}
+		// Generate actions for selection; populate and redraw the menus.
+		//
+		if(createChildMenuManager != null) {
+			createChildActions = generateCreateChildActions(newChildDescriptors, selection);
+			populateManager(createChildMenuManager, createChildActions, null);
+			createChildMenuManager.update(true);
+		}
+		if(createSiblingMenuManager != null) {
+			createSiblingActions = generateCreateSiblingActions(newSiblingDescriptors, selection);
+			populateManager(createSiblingMenuManager, createSiblingActions, null);
+			createSiblingMenuManager.update(true);
 		}
 	}
 

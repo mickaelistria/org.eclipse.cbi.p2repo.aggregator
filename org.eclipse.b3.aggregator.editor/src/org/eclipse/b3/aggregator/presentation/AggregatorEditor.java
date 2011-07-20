@@ -1370,7 +1370,10 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 		}
 
 		if(foundNode != null) {
-			getViewer().setSelection(new TreeSelection(new TreePath(foundNode)), true);
+			Object[] fullPath = new Object[foundNode.length + 1];
+			fullPath[0] = repositoryBrowser;
+			System.arraycopy(foundNode, 0, fullPath, 1, foundNode.length);
+			getViewer().setSelection(new TreeSelection(new TreePath(fullPath)), true);
 			return true;
 		}
 
