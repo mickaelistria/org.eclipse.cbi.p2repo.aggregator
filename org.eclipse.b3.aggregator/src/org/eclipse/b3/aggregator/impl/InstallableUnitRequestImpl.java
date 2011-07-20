@@ -723,12 +723,22 @@ public abstract class InstallableUnitRequestImpl extends MinimalEObjectImpl.Cont
 		MappedRepository mr = getMappedRepository();
 		addAvailableVersions(mr, query, AvailableFrom.REPOSITORY, avList);
 		Contribution contrib = (Contribution) ((EObject) mr).eContainer();
+		if(contrib == null) {
+			// Happens during drag-n-drop
+			return;
+		}
+
 		for(MappedRepository omr : contrib.getRepositories(true)) {
 			if(omr != mr)
 				addAvailableVersions(omr, query, AvailableFrom.CONTRIBUTION, avList);
 		}
 
 		ValidationSet vs = (ValidationSet) ((EObject) contrib).eContainer();
+		if(vs == null) {
+			// Happens during drag-n-drop
+			return;
+		}
+
 		for(Contribution oc : vs.getAllContributions()) {
 			if(oc != contrib) {
 				for(MappedRepository omr : oc.getRepositories(true)) {
@@ -738,6 +748,11 @@ public abstract class InstallableUnitRequestImpl extends MinimalEObjectImpl.Cont
 		}
 
 		Aggregation aggr = (Aggregation) ((EObject) vs).eContainer();
+		if(aggr == null) {
+			// Happens during drag-n-drop
+			return;
+		}
+
 		for(ValidationSet vr : aggr.getValidationSets(true)) {
 			if(vr != vs) {
 				for(Contribution oc : vr.getDeclaredContributions()) {
