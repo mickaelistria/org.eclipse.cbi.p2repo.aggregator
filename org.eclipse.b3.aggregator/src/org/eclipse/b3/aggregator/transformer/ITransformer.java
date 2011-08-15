@@ -44,5 +44,5 @@ public interface ITransformer {
 	/**
 	 * Starts transformation
 	 */
-	void startTransformation();
+	void startTransformation(boolean resolveProxies);
 }

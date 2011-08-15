@@ -23,6 +23,7 @@ import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IConfigurationElement;
+import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.core.runtime.Platform;
@@ -189,6 +190,8 @@ public class TransformationWizard extends Wizard implements INewWizard {
 
 	private TransformationManager manager;
 
+	private IFile originalFile;
+
 	public TransformationWizard(URI srcResourceURI) {
 		this.srcResourceURI = srcResourceURI;
 		final IConfigurationElement[] transformationsUI = Platform.getExtensionRegistry().getConfigurationElementsFor(
@@ -232,12 +235,15 @@ public class TransformationWizard extends Wizard implements INewWizard {
 		newFileCreationPage = new NewFileCreationPage("FileCreationPage", selection);
 		newFileCreationPage.setTitle("Target Location");
 		newFileCreationPage.setDescription("Provide location for the transformed model");
-		newFileCreationPage.setFileName(srcResourceURI.lastSegment().replaceAll("\\.[^.]*$", "") + "." +
-				FILE_EXTENSIONS.get(0));
-		newFileCreationPage.setContainerFullPath(Path.fromOSString(srcResourceURI.isPlatform()
+		String fileName = srcResourceURI.lastSegment().replaceAll("\\.[^.]*$", "") + "." + FILE_EXTENSIONS.get(0);
+		newFileCreationPage.setFileName(fileName);
+		IPath containerPath = Path.fromOSString(srcResourceURI.isPlatform()
 				? srcResourceURI.toPlatformString(true)
-				: srcResourceURI.toFileString()).makeAbsolute().removeLastSegments(1));
+				: srcResourceURI.toFileString()).makeAbsolute().removeLastSegments(1);
+		newFileCreationPage.setContainerFullPath(containerPath);
+
 		addPage(newFileCreationPage);
+		originalFile = ResourcesPlugin.getWorkspace().getRoot().getFile(containerPath.append(fileName));
 	}
 
 	public IFile getModelFile() {
@@ -269,7 +275,7 @@ public class TransformationWizard extends Wizard implements INewWizard {
 				try {
 					monitor.beginTask("Transformation is in progress", IProgressMonitor.UNKNOWN);
 
-					finalResource = manager.transformResource();
+					finalResource = manager.transformResource(!modelFile.equals(originalFile));
 
 					finalResource.setURI(URI.createPlatformResourceURI(modelFile.getFullPath().toString(), true));
 					finalResource.save(null);

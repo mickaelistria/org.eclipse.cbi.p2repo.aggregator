@@ -7,6 +7,7 @@
  */
 package org.eclipse.b3.aggregator.p2view.impl;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
@@ -276,7 +277,9 @@ public class RepositoryBrowserImpl extends MinimalEObjectImpl.Container implemen
 		if(aggrResource != null) {
 			ResourceSet rs = aggrResource.getResourceSet();
 			if(rs != null)
-				result = rs.getResources();
+				// We need a clone here to avoid ConcurrentModificationException
+				// when iterating
+				result = new ArrayList<Resource>(rs.getResources());
 		}
 		if(result == null)
 			result = Collections.emptyList();

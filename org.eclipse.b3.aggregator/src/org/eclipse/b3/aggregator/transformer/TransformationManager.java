@@ -177,7 +177,7 @@ public class TransformationManager {
 		return srcNamespaceFound;
 	}
 
-	public Resource transformResource() throws IOException, CoreException {
+	public Resource transformResource(boolean resolveProxies) throws IOException, CoreException {
 
 		Map<String, Object> context = new HashMap<String, Object>();
 
@@ -258,7 +258,7 @@ public class TransformationManager {
 			ITransformer transformer = (ITransformer) transformation.createExecutableExtension(LEGACY_TRANSFORMATION_ATTR_CLASS);
 
 			transformer.initTransformer(res01, res02, package02, context);
-			transformer.startTransformation();
+			transformer.startTransformation(resolveProxies);
 
 			if(transformer.getResourceErrors().size() > 0) {
 				StringBuilder msg = new StringBuilder();
