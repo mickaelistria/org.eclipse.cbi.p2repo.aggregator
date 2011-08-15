@@ -5,7 +5,7 @@
          point="org.eclipse.b3.cli.commands">
       <command
             class="org.eclipse.b3.aggregator.engine.Builder"
-            name="validationSet">
+            name="aggregate">
       </command>
    </extension>
    <extension
