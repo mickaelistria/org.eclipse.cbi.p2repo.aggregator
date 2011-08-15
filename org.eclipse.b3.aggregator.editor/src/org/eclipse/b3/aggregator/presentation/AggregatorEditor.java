@@ -1861,16 +1861,29 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 
 						Aggregation aggregation = null;
 						List<Object> filtered = new ArrayList<Object>();
-						for(Resource resource : resourceSet.getResources()) {
+						EList<Resource> resources = resourceSet.getResources();
+						for(Resource resource : resources) {
 							if(resource instanceof AggregatorResource) {
 								EList<EObject> contents = resource.getContents();
 								if(contents.size() == 1) {
-									aggregation = (Aggregation) resource.getContents().get(0);
-									filtered.add(aggregation);
+									EObject obj = resource.getContents().get(0);
+									if(obj instanceof Aggregation)
+										filtered.add(obj);
 								}
 							}
 						}
 						filtered.add(repositoryBrowser);
+
+						for(Resource resource : resources) {
+							if(resource instanceof AggregatorResource) {
+								EList<EObject> contents = resource.getContents();
+								if(contents.size() == 1) {
+									EObject obj = resource.getContents().get(0);
+									if(!(obj instanceof Aggregation))
+										filtered.add(obj);
+								}
+							}
+						}
 						return filtered;
 					}
 				};
