@@ -16,6 +16,7 @@ import java.util.Map;
 import java.util.Set;
 
 import org.eclipse.b3.aggregator.transformer.ITransformer;
+import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
@@ -25,6 +26,8 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EStructuralFeature;
+import org.eclipse.emf.ecore.InternalEObject;
+import org.eclipse.emf.ecore.impl.EObjectImpl;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.Resource.Diagnostic;
 
@@ -63,6 +66,8 @@ public class ResourceTransformer implements ITransformer {
 	protected Map<EObject, EObject> transformationMapping = new HashMap<EObject, EObject>();
 
 	protected Map<String, Object> context;
+
+	protected boolean resolveProxies = true;
 
 	private Set<Resource> checkedResources = new HashSet<Resource>();
 
@@ -163,12 +168,21 @@ public class ResourceTransformer implements ITransformer {
 	 *            tree path in the target structure
 	 */
 	protected void doTransform(EObject srcEObject, TreePath trgtParentTreePath) {
-		EClass scrEClass = srcEObject.eClass();
-		EObject trgtEObject = createTrgtEObject(scrEClass.getName(), srcEObject);
-
+		EClass srcEClass = srcEObject.eClass();
+		EObject trgtEObject = createTrgtEObject(srcEClass.getName(), srcEObject);
 		trgtParentTreePath.addToLastSegmentContainer(trgtEObject);
-		copyAttributes(srcEObject, trgtEObject);
-		copyReferences(srcEObject, trgtEObject, trgtParentTreePath);
+		if(srcEObject.eIsProxy()) {
+			((InternalEObject) trgtEObject).eSetProxyURI(((EObjectImpl) srcEObject).eProxyURI());
+		}
+		else {
+			copyAttributes(srcEObject, trgtEObject);
+			copyReferences(srcEObject, trgtEObject, trgtParentTreePath);
+		}
+		trgtParentTreePath.addToLastSegmentContainer(trgtEObject);
+	}
+
+	protected void doTransformRef(EObject srcEObject) {
+		doTransformRef(srcEObject, true);
 	}
 
 	/**
@@ -177,7 +191,7 @@ public class ResourceTransformer implements ITransformer {
 	 * @param srcEObject
 	 */
 	@SuppressWarnings("unchecked")
-	protected void doTransformRef(EObject srcEObject) {
+	protected void doTransformRef(EObject srcEObject, boolean resolve) {
 		EClass scrEClass = srcEObject.eClass();
 
 		EObject trgtEObject = transformationMapping.get(srcEObject);
@@ -189,7 +203,7 @@ public class ResourceTransformer implements ITransformer {
 				if(scrEClass.getEAllContainments().contains(srcERef))
 					continue;
 
-				Object srcERefValue = srcEObject.eGet(srcERef);
+				Object srcERefValue = srcEObject.eGet(srcERef, resolveProxies || resolve);
 
 				if(srcERefValue == null)
 					continue;
@@ -204,16 +218,33 @@ public class ResourceTransformer implements ITransformer {
 				if(!trgtERef.isMany())
 					trgtEObject.eSet(trgtERef, transformationMapping.get(srcERefValue));
 				else if(srcERefValue instanceof List<?>) {
+					BasicEList<EObject> srcRefList = (BasicEList<EObject>) srcERefValue;
 					List<EObject> trgtRefList = (List<EObject>) trgtEObject.eGet(trgtERef);
 
-					for(EObject srcChild : (List<EObject>) srcERefValue)
-						trgtRefList.add(transformationMapping.get(srcChild));
+					int top = srcRefList.size();
+					for(int idx = 0; idx < top; ++idx) {
+						EObject trgtObj;
+						if(resolveProxies || resolve)
+							trgtObj = transformationMapping.get(srcRefList.get(idx));
+						else {
+							EObject perhapsProxy = srcRefList.basicGet(idx);
+							if(perhapsProxy == null)
+								continue;
+							if(perhapsProxy.eIsProxy()) {
+								trgtObj = createTrgtEObject(perhapsProxy.eClass().getName(), perhapsProxy);
+								((InternalEObject) trgtObj).eSetProxyURI(((EObjectImpl) perhapsProxy).eProxyURI());
+							}
+							else
+								trgtObj = transformationMapping.get(srcRefList.get(idx));
+						}
+						trgtRefList.add(trgtObj);
+					}
 				}
 			}
 		}
 
 		for(EReference srcERef : scrEClass.getEAllContainments()) {
-			Object srcERefValue = srcEObject.eGet(srcERef);
+			Object srcERefValue = srcEObject.eGet(srcERef, resolveProxies || resolve);
 
 			if(srcERefValue == null)
 				continue;
@@ -256,7 +287,8 @@ public class ResourceTransformer implements ITransformer {
 	/**
 	 * Starts transformation
 	 */
-	public final void startTransformation() {
+	public final void startTransformation(boolean resolveProxies) {
+		this.resolveProxies = resolveProxies;
 		for(EObject srcEObject : srcResource.getContents())
 			transform(srcEObject, new TreePath(trgtResource));
 

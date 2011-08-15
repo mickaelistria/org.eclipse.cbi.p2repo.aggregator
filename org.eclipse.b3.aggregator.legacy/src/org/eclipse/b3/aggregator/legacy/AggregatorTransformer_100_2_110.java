@@ -8,9 +8,9 @@
 
 package org.eclipse.b3.aggregator.legacy;
 
-import java.util.List;
 import java.util.Map;
 
+import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
@@ -49,6 +49,13 @@ public class AggregatorTransformer_100_2_110 extends ResourceTransformer {
 	}
 
 	@Override
+	protected void doTransformRef(EObject srcEObject) {
+		EClass scrEClass = srcEObject.eClass();
+		boolean resolve = !"CustomCategory".equals(scrEClass.getName());
+		super.doTransformRef(srcEObject, resolve);
+	}
+
+	@Override
 	public void initTransformer(Resource srcResource, Resource trgtResource, EPackage trgtPackage,
 			Map<String, Object> context) {
 		super.initTransformer(srcResource, trgtResource, trgtPackage, context);
@@ -72,13 +79,14 @@ public class AggregatorTransformer_100_2_110 extends ResourceTransformer {
 		copyAttributes(srcEObject, aggregation);
 
 		for(EReference srcERef : srcEObject.eClass().getEAllContainments()) {
-			Object srcERefValue = srcEObject.eGet(srcERef);
+			String refName = srcERef.getName();
+			boolean isContributions = "contributions".equals(refName);
+			Object srcERefValue = srcEObject.eGet(srcERef, resolveProxies || !isContributions);
 			if(srcERefValue == null)
 				continue;
 
 			TreePath treePath;
 			EObject target;
-			String refName = srcERef.getName();
 			if(equalsOneOf(refName, "configurations", "customCategories", "contacts", "buildmaster", "mavenMappings")) {
 				target = aggregation;
 				treePath = targetParentTreePath;
@@ -96,12 +104,18 @@ public class AggregatorTransformer_100_2_110 extends ResourceTransformer {
 			// + " is not a valid EReference in the target model");
 
 			TreePath targetTreePath = treePath.createChildTreePath(target, targetERef);
-
 			if(!srcERef.isMany())
 				transform((EObject) srcERefValue, targetTreePath);
-			else
-				for(EObject srcChild : (List<EObject>) srcERefValue)
+			else {
+				BasicEList<EObject> srcChildren = (BasicEList<EObject>) srcERefValue;
+				int top = srcChildren.size();
+				for(int idx = 0; idx < top; ++idx) {
+					EObject srcChild = resolveProxies || !isContributions
+							? srcChildren.get(idx)
+							: srcChildren.basicGet(idx);
 					transform(srcChild, targetTreePath);
+				}
+			}
 		}
 	}
 }

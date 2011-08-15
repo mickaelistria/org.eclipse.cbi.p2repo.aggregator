@@ -62,7 +62,7 @@ public abstract class ModelAbstractCommand extends AbstractCommand {
 				if(!tm.isSrcNamespaceFound())
 					throw ExceptionUtils.fromMessage("No transformation found for specified build model");
 
-				resource = tm.transformResource();
+				resource = tm.transformResource(true);
 				resourceSet.getResources().add(resource);
 			}
 
