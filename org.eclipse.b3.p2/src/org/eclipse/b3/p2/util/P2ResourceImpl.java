@@ -143,6 +143,7 @@ public class P2ResourceImpl extends XMLResourceImpl {
 				LogUtils.debug("Repository %s loaded (Took %s)", location, TimeUtils.getFormattedDuration(start));
 			}
 			catch(final Exception e) {
+				LogUtils.error(e, "Unable to load repository %s", location);
 				errors.add(new Resource.Diagnostic() {
 
 					public int getColumn() {
