@@ -2,7 +2,8 @@
 <rm:rmap xmlns:bc="http://www.eclipse.org/buckminster/Common-1.0" xmlns:rm="http://www.eclipse.org/buckminster/RMap-1.0">
   <rm:property key="source.repository.location" value="http://dev.eclipse.org/svnroot"/>
   <rm:property key="eclipse.download" value="http://download.eclipse.org"/>
-  <rm:property key="checkout.root" value="${workspace.root}"/>
+  <rm:property key="git.clone.dir" value="${checkout.root}"/>
+  <rm:property key="checkout.root" value="${user.home}/git/b3"/>
   <rm:locator pattern="^org\.eclipse\.b3(\..+)?" searchPathRef="b3"/>
   <rm:locator pattern="^org\.eclipse\.(xtend|xtext)(\..+)?$" searchPathRef="xtext"/>
   <rm:locator pattern="^com\.google(\..+)?$" searchPathRef="xtext"/>
@@ -17,18 +18,13 @@
   <rm:locator pattern="^org\.antlr(\..+)?$" searchPathRef="orbit"/>
   <rm:locator searchPathRef="platform"/>
   <rm:searchPath name="b3">
-    <rm:provider componentTypes="osgi.bundle,eclipse.feature,buckminster" readerType="svn" resolutionFilter="(!(checkout.type=global))">
-      <rm:uri format="{0}/modeling/org.eclipse.emft.b3/trunk/{1}?moduleAfterTag&amp;moduleAfterBranch">
-        <bc:propertyRef key="source.repository.location"/>
+    <rm:provider componentTypes="osgi.bundle,eclipse.feature,buckminster" readerType="git">
+      <rm:property key="git.remote.uri" value="git://git.eclipse.org/gitroot/b3/b3.git"/>
+      <rm:uri format="{0},{1}">
+        <bc:propertyRef key="git.clone.dir"/>
         <bc:propertyRef key="buckminster.component"/>
       </rm:uri>
-    </rm:provider>
-    <rm:provider componentTypes="osgi.bundle,eclipse.feature,buckminster" readerType="local" resolutionFilter="(checkout.type=global)">
-      <rm:uri format="{0}/{1}">
-        <bc:propertyRef key="checkout.root"/>
-        <bc:propertyRef key="buckminster.component"/>
-      </rm:uri>
-    </rm:provider>
+   </rm:provider>
   </rm:searchPath>
   <rm:searchPath name="releaseTrain">
     <rm:provider componentTypes="osgi.bundle,eclipse.feature" readerType="p2" source="false" mutable="false">
