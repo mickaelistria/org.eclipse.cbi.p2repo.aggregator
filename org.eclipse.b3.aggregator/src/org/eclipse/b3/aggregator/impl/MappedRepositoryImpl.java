@@ -16,7 +16,6 @@ import org.eclipse.b3.aggregator.Bundle;
 import org.eclipse.b3.aggregator.Category;
 import org.eclipse.b3.aggregator.Contribution;
 import org.eclipse.b3.aggregator.DescriptionProvider;
-import org.eclipse.b3.aggregator.EnabledStatusProvider;
 import org.eclipse.b3.aggregator.Feature;
 import org.eclipse.b3.aggregator.IdentificationProvider;
 import org.eclipse.b3.aggregator.MapRule;
@@ -66,13 +65,8 @@ public class MappedRepositoryImpl extends MetadataRepositoryReferenceImpl implem
 	 */
 	protected static final String DESCRIPTION_EDEFAULT = "";
 
-	private static boolean hasEnabledEntry(List<? extends EnabledStatusProvider> list) {
-		if(list != null) {
-			for(EnabledStatusProvider e : list)
-				if(e.isEnabled())
-					return true;
-		}
-		return false;
+	private static boolean hasMappedUnit(List<? extends MappedUnit> list) {
+		return list != null && list.size() > 0;
 	}
 
 	/**
@@ -628,8 +622,7 @@ public class MappedRepositoryImpl extends MetadataRepositoryReferenceImpl implem
 	 * @generated NOT
 	 */
 	public boolean isMapExclusive() {
-		return hasEnabledEntry(bundles) || hasEnabledEntry(features) || hasEnabledEntry(categories) ||
-				hasEnabledEntry(products);
+		return hasMappedUnit(bundles) || hasMappedUnit(features) || hasMappedUnit(categories) || hasMappedUnit(products);
 	}
 
 	/**
