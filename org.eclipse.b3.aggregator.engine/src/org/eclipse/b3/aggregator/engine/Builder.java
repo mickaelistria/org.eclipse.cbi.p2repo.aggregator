@@ -478,6 +478,9 @@ public class Builder extends ModelAbstractCommand {
 	@Option(name = "--referenceExcludePattern", usage = "(Deprecated) Exclude all references that matches the given regular expression pattern. An exclusion takes precedence over an inclusion in case both patterns match a reference.", metaVar = "<regexp>", handler = PatternOptionHandler.class)
 	private Pattern referenceExcludePattern;
 
+	@Option(name = "--agentLocation", usage = "The location of the p2 provisioning agent", metaVar = "directory")
+	private File agentLocation;
+
 	@Argument
 	private List<String> unparsed = new ArrayList<String>();
 
@@ -535,7 +538,6 @@ public class Builder extends ModelAbstractCommand {
 	}
 
 	private void cleanAll() throws CoreException {
-		cleanMetadata();
 		if(buildRoot.exists()) {
 			FileUtils.deleteAll(buildRoot);
 			if(buildRoot.exists())
@@ -1573,24 +1575,26 @@ public class Builder extends ModelAbstractCommand {
 				smtpPort = 25;
 
 			loadModel();
-			if(provisioningAgent == null)
-				provisioningAgent = P2Utils.createDedicatedProvisioningAgent(new File(buildRoot, "p2").toURI());
-
-			arManager = P2Utils.getRepositoryManager(provisioningAgent, IArtifactRepositoryManager.class);
-			mdrManager = P2Utils.getRepositoryManager(provisioningAgent, IMetadataRepositoryManager.class);
-
 			switch(action) {
 				case CLEAN:
 				case CLEAN_BUILD:
 					cleanAll();
 					break;
-				default:
-					cleanMetadata();
 			}
-
 			if(action == ActionType.CLEAN)
 				return 0;
 
+			if(provisioningAgent == null) {
+				if(agentLocation == null)
+					agentLocation = new File(buildRoot, "p2");
+				provisioningAgent = P2Utils.createDedicatedProvisioningAgent(agentLocation.toURI());
+			}
+
+			arManager = P2Utils.getRepositoryManager(provisioningAgent, IArtifactRepositoryManager.class);
+			mdrManager = P2Utils.getRepositoryManager(provisioningAgent, IMetadataRepositoryManager.class);
+
+			if(action != ActionType.CLEAN_BUILD)
+				cleanMetadata();
 			cleanMemoryCaches();
 
 			// Associate current resource set with the dedicated provisioning agent
