@@ -6,12 +6,11 @@
  */
 package org.eclipse.b3.p2.maven.metadata.util;
 
-import java.util.List;
-
 import org.eclipse.b3.p2.maven.metadata.*;
 
-import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EPackage;
+import org.eclipse.emf.ecore.util.Switch;
 
 /**
  * <!-- begin-user-doc --> The <b>Switch</b> for the model's inheritance hierarchy. It supports the call {@link #doSwitch(EObject) doSwitch(object)}
@@ -22,7 +21,7 @@ import org.eclipse.emf.ecore.EObject;
  * @see org.eclipse.b3.p2.maven.metadata.MetadataPackage
  * @generated
  */
-public class MetadataSwitch<T> {
+public class MetadataSwitch<T> extends Switch<T> {
 	/**
 	 * The cached model package
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -115,6 +114,7 @@ public class MetadataSwitch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject)
 	 * @generated
 	 */
+	@Override
 	public T defaultCase(EObject object) {
 		return null;
 	}
@@ -126,36 +126,7 @@ public class MetadataSwitch<T> {
 	 * @return the first non-null result returned by a <code>caseXXX</code> call.
 	 * @generated
 	 */
-	public T doSwitch(EObject theEObject) {
-		return doSwitch(theEObject.eClass(), theEObject);
-	}
-
-	/**
-	 * Calls <code>caseXXX</code> for each class of the model until one returns a non null result; it yields that result.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @return the first non-null result returned by a <code>caseXXX</code> call.
-	 * @generated
-	 */
-	protected T doSwitch(EClass theEClass, EObject theEObject) {
-		if(theEClass.eContainer() == modelPackage) {
-			return doSwitch(theEClass.getClassifierID(), theEObject);
-		}
-		else {
-			List<EClass> eSuperTypes = theEClass.getESuperTypes();
-			return eSuperTypes.isEmpty()
-					? defaultCase(theEObject)
-					: doSwitch(eSuperTypes.get(0), theEObject);
-		}
-	}
-
-	/**
-	 * Calls <code>caseXXX</code> for each class of the model until one returns a non null result; it yields that result.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @return the first non-null result returned by a <code>caseXXX</code> call.
-	 * @generated
-	 */
+	@Override
 	protected T doSwitch(int classifierID, EObject theEObject) {
 		switch(classifierID) {
 			case MetadataPackage.DOCUMENT_ROOT: {
@@ -189,6 +160,20 @@ public class MetadataSwitch<T> {
 			default:
 				return defaultCase(theEObject);
 		}
+	}
+
+	/**
+	 * Checks whether this is a switch for the given package.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @parameter ePackage the package in question.
+	 * @return whether this is a switch for the given package.
+	 * @generated
+	 */
+	@Override
+	protected boolean isSwitchFor(EPackage ePackage) {
+		return ePackage == modelPackage;
 	}
 
 } // MetadataSwitch

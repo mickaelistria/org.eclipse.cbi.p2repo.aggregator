@@ -79,8 +79,7 @@ public interface Reporting extends EObject {
 	boolean isExcludeDefaults();
 
 	/**
-	 * Returns whether the value of the '{@link org.eclipse.b3.p2.maven.pom.Reporting#isExcludeDefaults
-	 * <em>Exclude Defaults</em>}' attribute is set.
+	 * Returns whether the value of the '{@link org.eclipse.b3.p2.maven.pom.Reporting#isExcludeDefaults <em>Exclude Defaults</em>}' attribute is set.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return whether the value of the '<em>Exclude Defaults</em>' attribute is set.
@@ -92,8 +91,7 @@ public interface Reporting extends EObject {
 	boolean isSetExcludeDefaults();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.Reporting#isExcludeDefaults <em>Exclude Defaults</em>}'
-	 * attribute.
+	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.Reporting#isExcludeDefaults <em>Exclude Defaults</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value
@@ -106,7 +104,7 @@ public interface Reporting extends EObject {
 	void setExcludeDefaults(boolean value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.Reporting#getOutputDirectory <em>Output Directory</em>} ' attribute.
+	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.Reporting#getOutputDirectory <em>Output Directory</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value
@@ -117,8 +115,7 @@ public interface Reporting extends EObject {
 	void setOutputDirectory(String value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.Reporting#getPlugins <em>Plugins</em>}' containment
-	 * reference.
+	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.Reporting#getPlugins <em>Plugins</em>}' containment reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value
@@ -129,8 +126,7 @@ public interface Reporting extends EObject {
 	void setPlugins(ReportingPluginsType value);
 
 	/**
-	 * Unsets the value of the '{@link org.eclipse.b3.p2.maven.pom.Reporting#isExcludeDefaults
-	 * <em>Exclude Defaults</em>}' attribute.
+	 * Unsets the value of the '{@link org.eclipse.b3.p2.maven.pom.Reporting#isExcludeDefaults <em>Exclude Defaults</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #isSetExcludeDefaults()

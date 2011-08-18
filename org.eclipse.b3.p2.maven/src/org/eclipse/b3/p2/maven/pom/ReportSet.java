@@ -95,8 +95,7 @@ public interface ReportSet extends EObject {
 	ReportSetReportsType getReports();
 
 	/**
-	 * Returns whether the value of the '{@link org.eclipse.b3.p2.maven.pom.ReportSet#getId <em>Id</em>}' attribute is
-	 * set.
+	 * Returns whether the value of the '{@link org.eclipse.b3.p2.maven.pom.ReportSet#getId <em>Id</em>}' attribute is set.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return whether the value of the '<em>Id</em>' attribute is set.
@@ -108,8 +107,7 @@ public interface ReportSet extends EObject {
 	boolean isSetId();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.ReportSet#getConfiguration <em>Configuration</em>}'
-	 * containment reference.
+	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.ReportSet#getConfiguration <em>Configuration</em>}' containment reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value
@@ -144,8 +142,7 @@ public interface ReportSet extends EObject {
 	void setInherited(String value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.ReportSet#getReports <em>Reports</em>}' containment
-	 * reference.
+	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.ReportSet#getReports <em>Reports</em>}' containment reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value

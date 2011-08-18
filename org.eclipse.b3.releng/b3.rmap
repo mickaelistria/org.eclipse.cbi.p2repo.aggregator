@@ -9,9 +9,13 @@
   <rm:locator pattern="^com\.google(\..+)?$" searchPathRef="xtext"/>
   <rm:locator pattern="^org\.eclipse\.emf(\..+)?$" searchPathRef="releaseTrain"/>
   <rm:locator pattern="^org\.eclipse\.buckminster(\..+)?$" searchPathRef="buckminster"/>
-  <rm:locator pattern="^org\.maven(\..+)?$" searchPathRef="m2eclipse"/>
+  <rm:locator pattern="^org\.eclipse\.m2e(\..+)?$" searchPathRef="m2e"/>
+  <rm:locator pattern="^ch\.qos\.logback(\..+)?$" searchPathRef="m2e"/>
+  <rm:locator pattern="^org\.jboss\.netty(\..+)?$" searchPathRef="m2e"/>
+  <rm:locator pattern="^com\.ning(\..+)?$" searchPathRef="m2e"/>
   <rm:locator pattern="^com\.ibm\.icu\.base$" searchPathRef="orbit"/>
   <rm:locator pattern="^org\.aopalliance(\..+)?$" searchPathRef="orbit"/>
+  <rm:locator pattern="^org\.slf4j(\..+)?$" searchPathRef="orbit"/>
   <rm:locator pattern="^org\.kohsuke(\..+)?$" searchPathRef="orbit"/>
   <rm:locator pattern="^org\.apache\.commons(\..+)?$" searchPathRef="orbit"/>
   <rm:locator pattern="^org\.apache\.log4j(\..+)?$" searchPathRef="orbit"/>
@@ -40,11 +44,11 @@
       <rm:uri format="http://download.eclipse.org/modeling/tmf/xtext/updates/releases"/>
     </rm:provider>
   </rm:searchPath>
-  <rm:searchPath name="m2eclipse">
+  <rm:searchPath name="m2e">
     <rm:provider componentTypes="eclipse.feature,osgi.bundle" readerType="p2" source="false" mutable="false">
       <rm:property key="buckminster.source" value="false"/>
       <rm:property key="buckminster.mutable" value="false"/>
-      <rm:uri format="http://m2eclipse.sonatype.org/sites/m2e"/>
+      <rm:uri format="http://download.eclipse.org/technology/m2e/releases"/>
     </rm:provider>
   </rm:searchPath>
   <rm:searchPath name="buckminster">

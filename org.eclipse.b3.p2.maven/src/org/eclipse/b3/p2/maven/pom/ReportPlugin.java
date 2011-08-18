@@ -123,8 +123,7 @@ public interface ReportPlugin extends EObject {
 	String getVersion();
 
 	/**
-	 * Returns whether the value of the '{@link org.eclipse.b3.p2.maven.pom.ReportPlugin#getGroupId <em>Group Id</em>}'
-	 * attribute is set.
+	 * Returns whether the value of the '{@link org.eclipse.b3.p2.maven.pom.ReportPlugin#getGroupId <em>Group Id</em>}' attribute is set.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return whether the value of the '<em>Group Id</em>' attribute is set.
@@ -136,8 +135,7 @@ public interface ReportPlugin extends EObject {
 	boolean isSetGroupId();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.ReportPlugin#getArtifactId <em>Artifact Id</em>}'
-	 * attribute.
+	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.ReportPlugin#getArtifactId <em>Artifact Id</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value
@@ -148,8 +146,7 @@ public interface ReportPlugin extends EObject {
 	void setArtifactId(String value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.ReportPlugin#getConfiguration <em>Configuration</em>}'
-	 * containment reference.
+	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.ReportPlugin#getConfiguration <em>Configuration</em>}' containment reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value
@@ -173,8 +170,7 @@ public interface ReportPlugin extends EObject {
 	void setGroupId(String value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.ReportPlugin#getInherited <em>Inherited</em>}'
-	 * attribute.
+	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.ReportPlugin#getInherited <em>Inherited</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value
@@ -185,8 +181,7 @@ public interface ReportPlugin extends EObject {
 	void setInherited(String value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.ReportPlugin#getReportSets <em>Report Sets</em>}'
-	 * containment reference.
+	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.ReportPlugin#getReportSets <em>Report Sets</em>}' containment reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value
@@ -208,8 +203,7 @@ public interface ReportPlugin extends EObject {
 	void setVersion(String value);
 
 	/**
-	 * Unsets the value of the '{@link org.eclipse.b3.p2.maven.pom.ReportPlugin#getGroupId <em>Group Id</em>}'
-	 * attribute.
+	 * Unsets the value of the '{@link org.eclipse.b3.p2.maven.pom.ReportPlugin#getGroupId <em>Group Id</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #isSetGroupId()

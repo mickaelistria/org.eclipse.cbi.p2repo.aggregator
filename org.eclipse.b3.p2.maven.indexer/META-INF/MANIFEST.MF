@@ -2,15 +2,15 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: %pluginName
 Bundle-SymbolicName: org.eclipse.b3.p2.maven.indexer;singleton:=true
-Bundle-Version: 0.1.0.qualifier
+Bundle-Version: 0.2.0.qualifier
 Bundle-RequiredExecutionEnvironment: J2SE-1.5
 Require-Bundle: org.eclipse.b3.p2.maven,
- org.maven.ide.eclipse.maven_embedder,
- org.maven.ide.eclipse.nexus_indexer,
  org.eclipse.core.runtime,
  org.eclipse.b3.util,
  org.eclipse.equinox.p2.core,
- org.eclipse.equinox.p2.metadata
+ org.eclipse.equinox.p2.metadata,
+ org.eclipse.m2e.maven.runtime,
+ org.eclipse.m2e.maven.indexer
 Bundle-Vendor: %providerName
 Bundle-ActivationPolicy: lazy
 Bundle-Activator: org.eclipse.b3.p2.maven.indexer.Activator

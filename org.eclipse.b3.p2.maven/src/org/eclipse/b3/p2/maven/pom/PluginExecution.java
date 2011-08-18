@@ -104,8 +104,7 @@ public interface PluginExecution extends EObject {
 	String getPhase();
 
 	/**
-	 * Returns whether the value of the '{@link org.eclipse.b3.p2.maven.pom.PluginExecution#getId <em>Id</em>}'
-	 * attribute is set.
+	 * Returns whether the value of the '{@link org.eclipse.b3.p2.maven.pom.PluginExecution#getId <em>Id</em>}' attribute is set.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return whether the value of the '<em>Id</em>' attribute is set.
@@ -117,8 +116,7 @@ public interface PluginExecution extends EObject {
 	boolean isSetId();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.PluginExecution#getConfiguration
-	 * <em>Configuration</em>}' containment reference.
+	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.PluginExecution#getConfiguration <em>Configuration</em>}' containment reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value
@@ -129,8 +127,7 @@ public interface PluginExecution extends EObject {
 	void setConfiguration(ConfigurationType value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.PluginExecution#getGoals <em>Goals</em>}' containment
-	 * reference.
+	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.PluginExecution#getGoals <em>Goals</em>}' containment reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value
@@ -154,8 +151,7 @@ public interface PluginExecution extends EObject {
 	void setId(String value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.PluginExecution#getInherited <em>Inherited</em>}'
-	 * attribute.
+	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.PluginExecution#getInherited <em>Inherited</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value

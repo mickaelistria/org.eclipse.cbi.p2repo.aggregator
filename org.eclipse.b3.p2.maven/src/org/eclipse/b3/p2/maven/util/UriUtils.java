@@ -56,14 +56,12 @@ public class UriUtils {
 	 * Pattern string that matches links that are relative, don't start with '?' or '#' and don't contain a slash (i.e.
 	 * folders leading too deep)
 	 */
-	private static final String linkPatternString = "([^?/#][^:\"/]+/?)";
+	private static final String linkPatternString = "([^?#][^\"]+/?)";
 
 	/**
-	 * Pattern that scans for hrefs that are relative, don't start with '?' and don't contain a slash (i.e. folders
-	 * leading too deep)
+	 * Pattern that scans for hrefs and don't start with '?' or '#'
 	 */
-	private static final Pattern htmlPattern = Pattern.compile(
-		"<A\\s+HREF=\"" + linkPatternString + "\"\\s*>[^<]+</A>", //$NON-NLS-1$
+	private static final Pattern htmlPattern = Pattern.compile("<A\\s+HREF=\"([^?#][^\"]+)\"\\s*>[^<]+</A>", //$NON-NLS-1$
 		Pattern.CASE_INSENSITIVE);
 
 	/**
@@ -86,21 +84,6 @@ public class UriUtils {
 	private static final Pattern indexPath = Pattern.compile("^(.*/)?index\\.[a-z][a-z0-9]+$"); //$NON-NLS-1$
 
 	public static final URI[] EMPTY_URI_ARRAY = new URI[0];
-
-	private static void addLink(List<URI> links, URI parent, String link) throws URISyntaxException {
-		Matcher m = indexPath.matcher(link.toString());
-		if(m.matches()) {
-			link = m.group(1);
-			if(link == null)
-				return;
-		}
-
-		if(link.equals("../")) //$NON-NLS-1$
-			return;
-
-		links.add(new URI(
-			parent.getScheme(), parent.getAuthority(), parent.getPath() + link, parent.getQuery(), parent.getFragment()));
-	}
 
 	/**
 	 * Appends a trailing slash to <code>uri</code> and returns the result. If the <code>uri</code> already has a
@@ -127,21 +110,6 @@ public class UriUtils {
 			}
 		}
 		return uri;
-	}
-
-	private static void collectLinks(Element element, URI parent, ArrayList<URI> links) throws URISyntaxException {
-		if(element.getNodeName().equals("a")) //$NON-NLS-1$
-		{
-			String link = element.getAttribute("href"); //$NON-NLS-1$
-			if(linkPattern.matcher(link).matches())
-				addLink(links, parent, link);
-		}
-		else {
-			for(Node child = element.getFirstChild(); child != null; child = child.getNextSibling()) {
-				if(child.getNodeType() == Node.ELEMENT_NODE)
-					collectLinks((Element) child, parent, links);
-			}
-		}
 	}
 
 	public static URI[] extractHTMLLinks(Transport transport, URI uriToHTML, IProgressMonitor monitor)
@@ -348,6 +316,104 @@ public class UriUtils {
 		}
 		catch(URISyntaxException e) {
 			throw ExceptionUtils.wrap(e);
+		}
+	}
+
+	private static void addLink(List<URI> links, URI parent, String link) throws URISyntaxException {
+		if(link.equals("../")) //$NON-NLS-1$
+			return;
+
+		try {
+			URI child = URI.create(link);
+			String query = child.getQuery();
+			String fragment = child.getFragment();
+			if(!(query == null && fragment == null))
+				// We just accept plain URL's
+				return;
+
+			// Check that scheme is unset or equal
+			String scheme = parent.getScheme();
+			String childScheme = child.getScheme();
+			if(scheme == null) {
+				if(childScheme != null)
+					return;
+			}
+			else {
+				if(!(childScheme == null || childScheme.equals(scheme)))
+					return;
+			}
+
+			// Check that host is unset or equal
+			String host = parent.getHost();
+			String childHost = child.getHost();
+			if(host == null) {
+				if(childHost != null)
+					return;
+			}
+			else {
+				if(!(childHost == null || childHost.equals(host)))
+					return;
+			}
+
+			// Check that port is unset or equal
+			int port = parent.getPort();
+			int childPort = child.getPort();
+			if(port == -1) {
+				if(childPort != -1)
+					return;
+			}
+			else {
+				if(!(childPort == -1 || childPort == port))
+					return;
+			}
+
+			// Check that path is relative or use the same prefix
+			// and doesn't point deeper than one folder
+			String path = parent.getPath();
+			String childPath = child.getPath();
+			if(path == null || childPath == null)
+				return;
+
+			if(childPath.startsWith(path))
+				childPath = childPath.substring(path.length());
+
+			int slashIdx = childPath.indexOf('/');
+			if(slashIdx >= 0 && slashIdx != childPath.length() - 1)
+				return;
+
+			if(childPath.length() == 0 || childPath.startsWith(".") || childPath.equals("/"))
+				return;
+
+			link = childPath;
+		}
+		catch(IllegalArgumentException e) {
+			// We don't know what to do with this link
+			return;
+		}
+
+		Matcher m = indexPath.matcher(link);
+		if(m.matches()) {
+			link = m.group(1);
+			if(link == null)
+				return;
+		}
+
+		links.add(new URI(
+			parent.getScheme(), parent.getAuthority(), parent.getPath() + link, parent.getQuery(), parent.getFragment()));
+	}
+
+	private static void collectLinks(Element element, URI parent, ArrayList<URI> links) throws URISyntaxException {
+		if(element.getNodeName().equals("a")) //$NON-NLS-1$
+		{
+			String link = element.getAttribute("href"); //$NON-NLS-1$
+			if(linkPattern.matcher(link).matches())
+				addLink(links, parent, link);
+		}
+		else {
+			for(Node child = element.getFirstChild(); child != null; child = child.getNextSibling()) {
+				if(child.getNodeType() == Node.ELEMENT_NODE)
+					collectLinks((Element) child, parent, links);
+			}
 		}
 	}
 

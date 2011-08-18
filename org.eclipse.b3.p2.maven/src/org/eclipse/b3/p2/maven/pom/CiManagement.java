@@ -77,8 +77,7 @@ public interface CiManagement extends EObject {
 	String getUrl();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.CiManagement#getNotifiers <em>Notifiers</em>}'
-	 * containment reference.
+	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.CiManagement#getNotifiers <em>Notifiers</em>}' containment reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value

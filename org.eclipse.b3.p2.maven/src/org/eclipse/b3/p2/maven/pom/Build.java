@@ -308,8 +308,7 @@ public interface Build extends EObject {
 	void setDirectory(String value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.Build#getExtensions <em>Extensions</em>}' containment
-	 * reference.
+	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.Build#getExtensions <em>Extensions</em>}' containment reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value
@@ -320,8 +319,7 @@ public interface Build extends EObject {
 	void setExtensions(ExtensionsType value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.Build#getFilters <em>Filters</em>}' containment
-	 * reference.
+	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.Build#getFilters <em>Filters</em>}' containment reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value
@@ -343,8 +341,7 @@ public interface Build extends EObject {
 	void setFinalName(String value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.Build#getOutputDirectory <em>Output Directory</em>}'
-	 * attribute.
+	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.Build#getOutputDirectory <em>Output Directory</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value
@@ -355,8 +352,7 @@ public interface Build extends EObject {
 	void setOutputDirectory(String value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.Build#getPluginManagement <em>Plugin Management</em>}'
-	 * containment reference.
+	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.Build#getPluginManagement <em>Plugin Management</em>}' containment reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value
@@ -367,8 +363,7 @@ public interface Build extends EObject {
 	void setPluginManagement(PluginManagement value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.Build#getPlugins <em>Plugins</em>}' containment
-	 * reference.
+	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.Build#getPlugins <em>Plugins</em>}' containment reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value
@@ -379,8 +374,7 @@ public interface Build extends EObject {
 	void setPlugins(PluginsType value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.Build#getResources <em>Resources</em>}' containment
-	 * reference.
+	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.Build#getResources <em>Resources</em>}' containment reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value
@@ -391,8 +385,7 @@ public interface Build extends EObject {
 	void setResources(ResourcesType value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.Build#getScriptSourceDirectory
-	 * <em>Script Source Directory</em>}' attribute.
+	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.Build#getScriptSourceDirectory <em>Script Source Directory</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value
@@ -403,8 +396,7 @@ public interface Build extends EObject {
 	void setScriptSourceDirectory(String value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.Build#getSourceDirectory <em>Source Directory</em>}'
-	 * attribute.
+	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.Build#getSourceDirectory <em>Source Directory</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value
@@ -415,8 +407,7 @@ public interface Build extends EObject {
 	void setSourceDirectory(String value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.Build#getTestOutputDirectory
-	 * <em>Test Output Directory</em>}' attribute.
+	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.Build#getTestOutputDirectory <em>Test Output Directory</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value
@@ -427,8 +418,7 @@ public interface Build extends EObject {
 	void setTestOutputDirectory(String value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.Build#getTestResources <em>Test Resources</em>}'
-	 * containment reference.
+	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.Build#getTestResources <em>Test Resources</em>}' containment reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value
@@ -439,8 +429,7 @@ public interface Build extends EObject {
 	void setTestResources(TestResourcesType value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.Build#getTestSourceDirectory
-	 * <em>Test Source Directory</em>}' attribute.
+	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.Build#getTestSourceDirectory <em>Test Source Directory</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value

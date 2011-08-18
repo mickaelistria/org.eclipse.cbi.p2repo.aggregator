@@ -23,21 +23,21 @@ import java.util.Set;
 import org.apache.lucene.index.IndexReader;
 import org.apache.lucene.index.Term;
 import org.apache.lucene.index.TermEnum;
+import org.apache.maven.index.ArtifactInfo;
+import org.apache.maven.index.NexusIndexer;
+import org.apache.maven.index.context.IndexCreator;
+import org.apache.maven.index.context.IndexingContext;
+import org.apache.maven.index.packer.IndexPacker;
+import org.apache.maven.index.packer.IndexPackingRequest;
+import org.apache.maven.index.updater.IndexUpdateRequest;
+import org.apache.maven.index.updater.IndexUpdater;
+import org.apache.maven.index.updater.WagonHelper;
 import org.codehaus.plexus.PlexusContainer;
 import org.eclipse.b3.p2.maven.MavenActivator;
 import org.eclipse.b3.p2.maven.loader.VersionEntry;
 import org.eclipse.b3.p2.maven.util.VersionUtil;
 import org.eclipse.b3.util.ExceptionUtils;
 import org.eclipse.core.runtime.CoreException;
-import org.sonatype.nexus.index.ArtifactInfo;
-import org.sonatype.nexus.index.NexusIndexer;
-import org.sonatype.nexus.index.context.IndexCreator;
-import org.sonatype.nexus.index.context.IndexingContext;
-import org.sonatype.nexus.index.packer.IndexPacker;
-import org.sonatype.nexus.index.packer.IndexPackingRequest;
-import org.sonatype.nexus.index.updater.DefaultIndexUpdater;
-import org.sonatype.nexus.index.updater.IndexUpdateRequest;
-import org.sonatype.nexus.index.updater.IndexUpdater;
 
 /**
  * @author Filip Hrbek (filip.hrbek@cloudsmith.com)
@@ -175,7 +175,6 @@ public class MavenNexusIndexer implements IMaven2Indexer {
 		return counter;
 	}
 
-	@SuppressWarnings("deprecation")
 	public void openRemoteIndex(URI location, boolean clearLocalCache) throws IndexNotFoundException, CoreException {
 		closeRemoteIndex();
 		openIterators.clear();
@@ -194,9 +193,6 @@ public class MavenNexusIndexer implements IMaven2Indexer {
 			NexusIndexer indexer = plexus.lookup(NexusIndexer.class);
 			IndexUpdater updater = plexus.lookup(IndexUpdater.class);
 			IndexCreator creator = plexus.lookup(IndexCreator.class, "min");
-
-			// The full class name is here to avoid suppressing deprecation warning on the whole class
-			org.apache.maven.artifact.manager.WagonManager wagonManager = plexus.lookup(org.apache.maven.artifact.manager.WagonManager.class);
 
 			String repoId = "mavenRepo";
 			if(!clearLocalCache)
@@ -218,8 +214,8 @@ public class MavenNexusIndexer implements IMaven2Indexer {
 					null, // null if derived from repositoryUrl
 					Collections.singletonList(creator));
 
-			IndexUpdateRequest request = new IndexUpdateRequest(context);
-			request.setResourceFetcher(new DefaultIndexUpdater.WagonFetcher(wagonManager, null, null, null));
+			WagonHelper wh = new WagonHelper(plexus);
+			IndexUpdateRequest request = new IndexUpdateRequest(context, wh.getWagonResourceFetcher(null));
 			updater.fetchAndUpdateIndex(request);
 		}
 		catch(Exception e) {

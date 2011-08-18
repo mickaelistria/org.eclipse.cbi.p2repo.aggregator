@@ -158,8 +158,7 @@ public class ProfileImpl extends EObjectImpl implements Profile {
 	protected Reporting reporting;
 
 	/**
-	 * The cached value of the '{@link #getDependencyManagement() <em>Dependency Management</em>}' containment
-	 * reference.
+	 * The cached value of the '{@link #getDependencyManagement() <em>Dependency Management</em>}' containment reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getDependencyManagement()
@@ -169,8 +168,7 @@ public class ProfileImpl extends EObjectImpl implements Profile {
 	protected DependencyManagement dependencyManagement;
 
 	/**
-	 * The cached value of the '{@link #getDistributionManagement() <em>Distribution Management</em>}' containment
-	 * reference.
+	 * The cached value of the '{@link #getDistributionManagement() <em>Distribution Management</em>}' containment reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getDistributionManagement()

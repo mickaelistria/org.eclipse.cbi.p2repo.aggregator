@@ -47,8 +47,7 @@ public interface PluginManagement extends EObject {
 	PluginsType getPlugins();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.PluginManagement#getPlugins <em>Plugins</em>}'
-	 * containment reference.
+	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.PluginManagement#getPlugins <em>Plugins</em>}' containment reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value

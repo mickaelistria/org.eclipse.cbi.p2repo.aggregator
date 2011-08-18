@@ -99,8 +99,7 @@ public interface Parent extends EObject {
 	String getVersion();
 
 	/**
-	 * Returns whether the value of the '{@link org.eclipse.b3.p2.maven.pom.Parent#getRelativePath
-	 * <em>Relative Path</em>}' attribute is set.
+	 * Returns whether the value of the '{@link org.eclipse.b3.p2.maven.pom.Parent#getRelativePath <em>Relative Path</em>}' attribute is set.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return whether the value of the '<em>Relative Path</em>' attribute is set.
@@ -134,8 +133,7 @@ public interface Parent extends EObject {
 	void setGroupId(String value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.Parent#getRelativePath <em>Relative Path</em>}'
-	 * attribute.
+	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.Parent#getRelativePath <em>Relative Path</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value
@@ -159,8 +157,7 @@ public interface Parent extends EObject {
 	void setVersion(String value);
 
 	/**
-	 * Unsets the value of the '{@link org.eclipse.b3.p2.maven.pom.Parent#getRelativePath <em>Relative Path</em>}'
-	 * attribute.
+	 * Unsets the value of the '{@link org.eclipse.b3.p2.maven.pom.Parent#getRelativePath <em>Relative Path</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #isSetRelativePath()

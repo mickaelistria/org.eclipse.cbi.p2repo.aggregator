@@ -119,8 +119,8 @@ public interface Activation extends EObject {
 	boolean isActiveByDefault();
 
 	/**
-	 * Returns whether the value of the '{@link org.eclipse.b3.p2.maven.pom.Activation#isActiveByDefault
-	 * <em>Active By Default</em>}' attribute is set.
+	 * Returns whether the value of the '{@link org.eclipse.b3.p2.maven.pom.Activation#isActiveByDefault <em>Active By Default</em>}' attribute is
+	 * set.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return whether the value of the '<em>Active By Default</em>' attribute is set.
@@ -132,8 +132,7 @@ public interface Activation extends EObject {
 	boolean isSetActiveByDefault();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.Activation#isActiveByDefault
-	 * <em>Active By Default</em>}' attribute.
+	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.Activation#isActiveByDefault <em>Active By Default</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value
@@ -146,8 +145,7 @@ public interface Activation extends EObject {
 	void setActiveByDefault(boolean value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.Activation#getFile <em>File</em>}' containment
-	 * reference.
+	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.Activation#getFile <em>File</em>}' containment reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value
@@ -180,8 +178,7 @@ public interface Activation extends EObject {
 	void setOs(ActivationOS value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.Activation#getProperty <em>Property</em>}' containment
-	 * reference.
+	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.Activation#getProperty <em>Property</em>}' containment reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value
@@ -192,8 +189,7 @@ public interface Activation extends EObject {
 	void setProperty(ActivationProperty value);
 
 	/**
-	 * Unsets the value of the '{@link org.eclipse.b3.p2.maven.pom.Activation#isActiveByDefault
-	 * <em>Active By Default</em>}' attribute.
+	 * Unsets the value of the '{@link org.eclipse.b3.p2.maven.pom.Activation#isActiveByDefault <em>Active By Default</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #isSetActiveByDefault()

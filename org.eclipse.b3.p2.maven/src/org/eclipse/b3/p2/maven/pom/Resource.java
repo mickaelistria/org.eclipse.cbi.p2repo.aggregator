@@ -126,8 +126,7 @@ public interface Resource extends EObject {
 	boolean isFiltering();
 
 	/**
-	 * Returns whether the value of the '{@link org.eclipse.b3.p2.maven.pom.Resource#isFiltering <em>Filtering</em>}'
-	 * attribute is set.
+	 * Returns whether the value of the '{@link org.eclipse.b3.p2.maven.pom.Resource#isFiltering <em>Filtering</em>}' attribute is set.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return whether the value of the '<em>Filtering</em>' attribute is set.
@@ -150,8 +149,7 @@ public interface Resource extends EObject {
 	void setDirectory(String value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.Resource#getExcludes <em>Excludes</em>}' containment
-	 * reference.
+	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.Resource#getExcludes <em>Excludes</em>}' containment reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value
@@ -175,8 +173,7 @@ public interface Resource extends EObject {
 	void setFiltering(boolean value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.Resource#getIncludes <em>Includes</em>}' containment
-	 * reference.
+	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.Resource#getIncludes <em>Includes</em>}' containment reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value
@@ -187,8 +184,7 @@ public interface Resource extends EObject {
 	void setIncludes(IncludesType value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.Resource#getTargetPath <em>Target Path</em>}'
-	 * attribute.
+	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.Resource#getTargetPath <em>Target Path</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value

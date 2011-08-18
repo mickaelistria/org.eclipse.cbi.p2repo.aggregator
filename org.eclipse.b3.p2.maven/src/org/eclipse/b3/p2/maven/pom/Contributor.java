@@ -181,8 +181,7 @@ public interface Contributor extends EObject {
 	void setName(String value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.Contributor#getOrganization <em>Organization</em>}'
-	 * attribute.
+	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.Contributor#getOrganization <em>Organization</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value
@@ -193,8 +192,7 @@ public interface Contributor extends EObject {
 	void setOrganization(String value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.Contributor#getOrganizationUrl
-	 * <em>Organization Url</em>}' attribute.
+	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.Contributor#getOrganizationUrl <em>Organization Url</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value
@@ -205,8 +203,7 @@ public interface Contributor extends EObject {
 	void setOrganizationUrl(String value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.Contributor#getProperties <em>Properties</em>}'
-	 * containment reference.
+	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.Contributor#getProperties <em>Properties</em>}' containment reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value
@@ -217,8 +214,7 @@ public interface Contributor extends EObject {
 	void setProperties(PropertiesType value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.Contributor#getRoles <em>Roles</em>}' containment
-	 * reference.
+	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.Contributor#getRoles <em>Roles</em>}' containment reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value

@@ -177,8 +177,7 @@ public interface BuildBase extends EObject {
 	TestResourcesType getTestResources();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.BuildBase#getDefaultGoal <em>Default Goal</em>}'
-	 * attribute.
+	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.BuildBase#getDefaultGoal <em>Default Goal</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value
@@ -200,8 +199,7 @@ public interface BuildBase extends EObject {
 	void setDirectory(String value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.BuildBase#getFilters <em>Filters</em>}' containment
-	 * reference.
+	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.BuildBase#getFilters <em>Filters</em>}' containment reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value
@@ -223,8 +221,7 @@ public interface BuildBase extends EObject {
 	void setFinalName(String value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.BuildBase#getPluginManagement
-	 * <em>Plugin Management</em>}' containment reference.
+	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.BuildBase#getPluginManagement <em>Plugin Management</em>}' containment reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value
@@ -235,8 +232,7 @@ public interface BuildBase extends EObject {
 	void setPluginManagement(PluginManagement value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.BuildBase#getPlugins <em>Plugins</em>}' containment
-	 * reference.
+	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.BuildBase#getPlugins <em>Plugins</em>}' containment reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value
@@ -247,8 +243,7 @@ public interface BuildBase extends EObject {
 	void setPlugins(PluginsType value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.BuildBase#getResources <em>Resources</em>}' containment
-	 * reference.
+	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.BuildBase#getResources <em>Resources</em>}' containment reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value
@@ -259,8 +254,7 @@ public interface BuildBase extends EObject {
 	void setResources(ResourcesType value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.BuildBase#getTestResources <em>Test Resources</em>}'
-	 * containment reference.
+	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.BuildBase#getTestResources <em>Test Resources</em>}' containment reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value

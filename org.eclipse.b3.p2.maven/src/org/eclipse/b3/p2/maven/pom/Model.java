@@ -565,8 +565,7 @@ public interface Model extends EObject {
 	String getVersion();
 
 	/**
-	 * Returns whether the value of the '{@link org.eclipse.b3.p2.maven.pom.Model#getPackaging <em>Packaging</em>}'
-	 * attribute is set.
+	 * Returns whether the value of the '{@link org.eclipse.b3.p2.maven.pom.Model#getPackaging <em>Packaging</em>}' attribute is set.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return whether the value of the '<em>Packaging</em>' attribute is set.
@@ -600,8 +599,7 @@ public interface Model extends EObject {
 	void setBuild(Build value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.Model#getCiManagement <em>Ci Management</em>}'
-	 * containment reference.
+	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.Model#getCiManagement <em>Ci Management</em>}' containment reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value
@@ -612,8 +610,7 @@ public interface Model extends EObject {
 	void setCiManagement(CiManagement value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.Model#getContributors <em>Contributors</em>}'
-	 * containment reference.
+	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.Model#getContributors <em>Contributors</em>}' containment reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value
@@ -624,8 +621,7 @@ public interface Model extends EObject {
 	void setContributors(ContributorsType value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.Model#getDependencies <em>Dependencies</em>}'
-	 * containment reference.
+	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.Model#getDependencies <em>Dependencies</em>}' containment reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value
@@ -636,8 +632,7 @@ public interface Model extends EObject {
 	void setDependencies(DependenciesType value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.Model#getDependencyManagement
-	 * <em>Dependency Management</em>}' containment reference.
+	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.Model#getDependencyManagement <em>Dependency Management</em>}' containment reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value
@@ -659,8 +654,7 @@ public interface Model extends EObject {
 	void setDescription(String value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.Model#getDevelopers <em>Developers</em>}' containment
-	 * reference.
+	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.Model#getDevelopers <em>Developers</em>}' containment reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value
@@ -671,8 +665,8 @@ public interface Model extends EObject {
 	void setDevelopers(DevelopersType value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.Model#getDistributionManagement
-	 * <em>Distribution Management</em>}' containment reference.
+	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.Model#getDistributionManagement <em>Distribution Management</em>}' containment
+	 * reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value
@@ -694,8 +688,7 @@ public interface Model extends EObject {
 	void setGroupId(String value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.Model#getInceptionYear <em>Inception Year</em>}'
-	 * attribute.
+	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.Model#getInceptionYear <em>Inception Year</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value
@@ -706,8 +699,7 @@ public interface Model extends EObject {
 	void setInceptionYear(String value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.Model#getIssueManagement <em>Issue Management</em>}'
-	 * containment reference.
+	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.Model#getIssueManagement <em>Issue Management</em>}' containment reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value
@@ -718,8 +710,7 @@ public interface Model extends EObject {
 	void setIssueManagement(IssueManagement value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.Model#getLicenses <em>Licenses</em>}' containment
-	 * reference.
+	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.Model#getLicenses <em>Licenses</em>}' containment reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value
@@ -730,8 +721,7 @@ public interface Model extends EObject {
 	void setLicenses(LicensesType value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.Model#getMailingLists <em>Mailing Lists</em>}'
-	 * containment reference.
+	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.Model#getMailingLists <em>Mailing Lists</em>}' containment reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value
@@ -742,8 +732,7 @@ public interface Model extends EObject {
 	void setMailingLists(MailingListsType value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.Model#getModelVersion <em>Model Version</em>}'
-	 * attribute.
+	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.Model#getModelVersion <em>Model Version</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value
@@ -754,8 +743,7 @@ public interface Model extends EObject {
 	void setModelVersion(String value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.Model#getModules <em>Modules</em>}' containment
-	 * reference.
+	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.Model#getModules <em>Modules</em>}' containment reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value
@@ -777,8 +765,7 @@ public interface Model extends EObject {
 	void setName(String value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.Model#getOrganization <em>Organization</em>}'
-	 * containment reference.
+	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.Model#getOrganization <em>Organization</em>}' containment reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value
@@ -802,8 +789,7 @@ public interface Model extends EObject {
 	void setPackaging(String value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.Model#getParent <em>Parent</em>}' containment
-	 * reference.
+	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.Model#getParent <em>Parent</em>}' containment reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value
@@ -814,8 +800,7 @@ public interface Model extends EObject {
 	void setParent(Parent value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.Model#getPluginRepositories
-	 * <em>Plugin Repositories</em>}' containment reference.
+	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.Model#getPluginRepositories <em>Plugin Repositories</em>}' containment reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value
@@ -826,8 +811,7 @@ public interface Model extends EObject {
 	void setPluginRepositories(PluginRepositoriesType value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.Model#getPrerequisites <em>Prerequisites</em>}'
-	 * containment reference.
+	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.Model#getPrerequisites <em>Prerequisites</em>}' containment reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value
@@ -838,8 +822,7 @@ public interface Model extends EObject {
 	void setPrerequisites(Prerequisites value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.Model#getProfiles <em>Profiles</em>}' containment
-	 * reference.
+	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.Model#getProfiles <em>Profiles</em>}' containment reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value
@@ -850,8 +833,7 @@ public interface Model extends EObject {
 	void setProfiles(ProfilesType value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.Model#getProperties <em>Properties</em>}' containment
-	 * reference.
+	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.Model#getProperties <em>Properties</em>}' containment reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value
@@ -862,8 +844,7 @@ public interface Model extends EObject {
 	void setProperties(PropertiesType value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.Model#getReporting <em>Reporting</em>}' containment
-	 * reference.
+	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.Model#getReporting <em>Reporting</em>}' containment reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value
@@ -874,8 +855,7 @@ public interface Model extends EObject {
 	void setReporting(Reporting value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.Model#getReports <em>Reports</em>}' containment
-	 * reference.
+	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.Model#getReports <em>Reports</em>}' containment reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value
@@ -886,8 +866,7 @@ public interface Model extends EObject {
 	void setReports(ReportsType value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.Model#getRepositories <em>Repositories</em>}'
-	 * containment reference.
+	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.Model#getRepositories <em>Repositories</em>}' containment reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value

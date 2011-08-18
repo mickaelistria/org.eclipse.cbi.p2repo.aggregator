@@ -130,8 +130,7 @@ public interface Scm extends EObject {
 	void setConnection(String value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.Scm#getDeveloperConnection
-	 * <em>Developer Connection</em>}' attribute.
+	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.Scm#getDeveloperConnection <em>Developer Connection</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value

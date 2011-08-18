@@ -172,8 +172,7 @@ public interface Plugin extends EObject {
 	boolean isExtensions();
 
 	/**
-	 * Returns whether the value of the '{@link org.eclipse.b3.p2.maven.pom.Plugin#isExtensions <em>Extensions</em>}'
-	 * attribute is set.
+	 * Returns whether the value of the '{@link org.eclipse.b3.p2.maven.pom.Plugin#isExtensions <em>Extensions</em>}' attribute is set.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return whether the value of the '<em>Extensions</em>' attribute is set.
@@ -185,8 +184,7 @@ public interface Plugin extends EObject {
 	boolean isSetExtensions();
 
 	/**
-	 * Returns whether the value of the '{@link org.eclipse.b3.p2.maven.pom.Plugin#getGroupId <em>Group Id</em>}'
-	 * attribute is set.
+	 * Returns whether the value of the '{@link org.eclipse.b3.p2.maven.pom.Plugin#getGroupId <em>Group Id</em>}' attribute is set.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return whether the value of the '<em>Group Id</em>' attribute is set.
@@ -209,8 +207,7 @@ public interface Plugin extends EObject {
 	void setArtifactId(String value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.Plugin#getConfiguration <em>Configuration</em>}'
-	 * containment reference.
+	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.Plugin#getConfiguration <em>Configuration</em>}' containment reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value
@@ -221,8 +218,7 @@ public interface Plugin extends EObject {
 	void setConfiguration(ConfigurationType value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.Plugin#getDependencies <em>Dependencies</em>}'
-	 * containment reference.
+	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.Plugin#getDependencies <em>Dependencies</em>}' containment reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value
@@ -233,8 +229,7 @@ public interface Plugin extends EObject {
 	void setDependencies(DependenciesType value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.Plugin#getExecutions <em>Executions</em>}' containment
-	 * reference.
+	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.Plugin#getExecutions <em>Executions</em>}' containment reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value

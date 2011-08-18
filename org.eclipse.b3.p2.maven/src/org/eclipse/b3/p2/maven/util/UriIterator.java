@@ -56,6 +56,14 @@ public class UriIterator implements Iterator<URI> {
 		return nextURL;
 	}
 
+	public void remove() {
+		throw new UnsupportedOperationException();
+	}
+
+	public int size() {
+		return uris.length;
+	}
+
 	private void positionNext() {
 		if(excludePattern == null)
 			++index;
@@ -66,13 +74,5 @@ public class UriIterator implements Iterator<URI> {
 					break;
 			}
 		}
-	}
-
-	public void remove() {
-		throw new UnsupportedOperationException();
-	}
-
-	public int size() {
-		return uris.length;
 	}
 }

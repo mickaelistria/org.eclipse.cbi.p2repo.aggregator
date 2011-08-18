@@ -134,8 +134,7 @@ public interface Repository extends EObject {
 	String getUrl();
 
 	/**
-	 * Returns whether the value of the '{@link org.eclipse.b3.p2.maven.pom.Repository#getLayout <em>Layout</em>}'
-	 * attribute is set.
+	 * Returns whether the value of the '{@link org.eclipse.b3.p2.maven.pom.Repository#getLayout <em>Layout</em>}' attribute is set.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return whether the value of the '<em>Layout</em>' attribute is set.
@@ -182,8 +181,7 @@ public interface Repository extends EObject {
 	void setName(String value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.Repository#getReleases <em>Releases</em>}' containment
-	 * reference.
+	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.Repository#getReleases <em>Releases</em>}' containment reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value
@@ -194,8 +192,7 @@ public interface Repository extends EObject {
 	void setReleases(RepositoryPolicy value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.Repository#getSnapshots <em>Snapshots</em>}'
-	 * containment reference.
+	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.Repository#getSnapshots <em>Snapshots</em>}' containment reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value

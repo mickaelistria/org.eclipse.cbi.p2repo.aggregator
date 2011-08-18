@@ -49,8 +49,7 @@ public interface DependencyManagement extends EObject {
 	DependenciesType getDependencies();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.DependencyManagement#getDependencies
-	 * <em>Dependencies</em>}' containment reference.
+	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.DependencyManagement#getDependencies <em>Dependencies</em>}' containment reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value

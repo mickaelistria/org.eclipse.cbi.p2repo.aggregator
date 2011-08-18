@@ -231,8 +231,7 @@ public interface Profile extends EObject {
 	RepositoriesType getRepositories();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.Profile#getActivation <em>Activation</em>}' containment
-	 * reference.
+	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.Profile#getActivation <em>Activation</em>}' containment reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value
@@ -243,8 +242,7 @@ public interface Profile extends EObject {
 	void setActivation(Activation value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.Profile#getBuild <em>Build</em>}' containment
-	 * reference.
+	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.Profile#getBuild <em>Build</em>}' containment reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value
@@ -255,8 +253,7 @@ public interface Profile extends EObject {
 	void setBuild(BuildBase value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.Profile#getDependencies <em>Dependencies</em>}'
-	 * containment reference.
+	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.Profile#getDependencies <em>Dependencies</em>}' containment reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value
@@ -267,8 +264,8 @@ public interface Profile extends EObject {
 	void setDependencies(DependenciesType value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.Profile#getDependencyManagement
-	 * <em>Dependency Management</em>}' containment reference.
+	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.Profile#getDependencyManagement <em>Dependency Management</em>}' containment
+	 * reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value
@@ -279,8 +276,8 @@ public interface Profile extends EObject {
 	void setDependencyManagement(DependencyManagement value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.Profile#getDistributionManagement
-	 * <em>Distribution Management</em>}' containment reference.
+	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.Profile#getDistributionManagement <em>Distribution Management</em>}' containment
+	 * reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value
@@ -302,8 +299,7 @@ public interface Profile extends EObject {
 	void setId(String value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.Profile#getModules <em>Modules</em>}' containment
-	 * reference.
+	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.Profile#getModules <em>Modules</em>}' containment reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value
@@ -314,8 +310,7 @@ public interface Profile extends EObject {
 	void setModules(ModulesType value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.Profile#getPluginRepositories
-	 * <em>Plugin Repositories</em>}' containment reference.
+	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.Profile#getPluginRepositories <em>Plugin Repositories</em>}' containment reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value
@@ -326,8 +321,7 @@ public interface Profile extends EObject {
 	void setPluginRepositories(PluginRepositoriesType value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.Profile#getProperties <em>Properties</em>}' containment
-	 * reference.
+	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.Profile#getProperties <em>Properties</em>}' containment reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value
@@ -338,8 +332,7 @@ public interface Profile extends EObject {
 	void setProperties(PropertiesType value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.Profile#getReporting <em>Reporting</em>}' containment
-	 * reference.
+	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.Profile#getReporting <em>Reporting</em>}' containment reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value
@@ -350,8 +343,7 @@ public interface Profile extends EObject {
 	void setReporting(Reporting value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.Profile#getReports <em>Reports</em>}' containment
-	 * reference.
+	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.Profile#getReports <em>Reports</em>}' containment reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value
@@ -362,8 +354,7 @@ public interface Profile extends EObject {
 	void setReports(ReportsType value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.Profile#getRepositories <em>Repositories</em>}'
-	 * containment reference.
+	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.Profile#getRepositories <em>Repositories</em>}' containment reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value

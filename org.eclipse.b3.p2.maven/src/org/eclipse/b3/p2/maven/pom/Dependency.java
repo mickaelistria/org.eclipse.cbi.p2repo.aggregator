@@ -138,8 +138,7 @@ public interface Dependency extends EObject {
 	 * <!-- begin-model-doc -->
 	 * 4.0.0
 	 * 
-	 * FOR SYSTEM SCOPE ONLY. Note that use of this property is &lt;b&gt;discouraged&lt;/b&gt; and may be replaced in
-	 * later
+	 * FOR SYSTEM SCOPE ONLY. Note that use of this property is &lt;b&gt;discouraged&lt;/b&gt; and may be replaced in later
 	 * versions. This specifies the path on the filesystem for this dependency.
 	 * Requires an absolute path for the value, not relative.
 	 * Use a property that gives the machine specific absolute path,
@@ -219,8 +218,7 @@ public interface Dependency extends EObject {
 	boolean isOptional();
 
 	/**
-	 * Returns whether the value of the '{@link org.eclipse.b3.p2.maven.pom.Dependency#isOptional <em>Optional</em>}'
-	 * attribute is set.
+	 * Returns whether the value of the '{@link org.eclipse.b3.p2.maven.pom.Dependency#isOptional <em>Optional</em>}' attribute is set.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return whether the value of the '<em>Optional</em>' attribute is set.
@@ -232,8 +230,7 @@ public interface Dependency extends EObject {
 	boolean isSetOptional();
 
 	/**
-	 * Returns whether the value of the '{@link org.eclipse.b3.p2.maven.pom.Dependency#getType <em>Type</em>}' attribute
-	 * is set.
+	 * Returns whether the value of the '{@link org.eclipse.b3.p2.maven.pom.Dependency#getType <em>Type</em>}' attribute is set.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return whether the value of the '<em>Type</em>' attribute is set.
@@ -245,8 +242,7 @@ public interface Dependency extends EObject {
 	boolean isSetType();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.Dependency#getArtifactId <em>Artifact Id</em>}'
-	 * attribute.
+	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.Dependency#getArtifactId <em>Artifact Id</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value
@@ -257,8 +253,7 @@ public interface Dependency extends EObject {
 	void setArtifactId(String value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.Dependency#getClassifier <em>Classifier</em>}'
-	 * attribute.
+	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.Dependency#getClassifier <em>Classifier</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value
@@ -269,8 +264,7 @@ public interface Dependency extends EObject {
 	void setClassifier(String value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.Dependency#getExclusions <em>Exclusions</em>}'
-	 * containment reference.
+	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.Dependency#getExclusions <em>Exclusions</em>}' containment reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value
@@ -316,8 +310,7 @@ public interface Dependency extends EObject {
 	void setScope(String value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.Dependency#getSystemPath <em>System Path</em>}'
-	 * attribute.
+	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.Dependency#getSystemPath <em>System Path</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value

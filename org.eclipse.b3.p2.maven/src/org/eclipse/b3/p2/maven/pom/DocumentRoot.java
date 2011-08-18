@@ -77,10 +77,7 @@ public interface DocumentRoot extends EObject {
 	 * 
 	 * @return the value of the '<em>XMLNS Prefix Map</em>' map.
 	 * @see org.eclipse.b3.p2.maven.pom.PomPackage#getDocumentRoot_XMLNSPrefixMap()
-	 * @model mapType=
-	 * 
-	 *        "org.eclipse.emf.ecore.EStringToStringMapEntry<org.eclipse.emf.ecore.EString, org.eclipse.emf.ecore.EString>"
-	 *        transient="true"
+	 * @model mapType="org.eclipse.emf.ecore.EStringToStringMapEntry<org.eclipse.emf.ecore.EString, org.eclipse.emf.ecore.EString>" transient="true"
 	 *        extendedMetaData="kind='attribute' name='xmlns:prefix'"
 	 * @generated
 	 */
@@ -98,18 +95,14 @@ public interface DocumentRoot extends EObject {
 	 * 
 	 * @return the value of the '<em>XSI Schema Location</em>' map.
 	 * @see org.eclipse.b3.p2.maven.pom.PomPackage#getDocumentRoot_XSISchemaLocation()
-	 * @model mapType=
-	 * 
-	 *        "org.eclipse.emf.ecore.EStringToStringMapEntry<org.eclipse.emf.ecore.EString, org.eclipse.emf.ecore.EString>"
-	 *        transient="true"
+	 * @model mapType="org.eclipse.emf.ecore.EStringToStringMapEntry<org.eclipse.emf.ecore.EString, org.eclipse.emf.ecore.EString>" transient="true"
 	 *        extendedMetaData="kind='attribute' name='xsi:schemaLocation'"
 	 * @generated
 	 */
 	EMap<String, String> getXSISchemaLocation();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.DocumentRoot#getProject <em>Project</em>}' containment
-	 * reference.
+	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.DocumentRoot#getProject <em>Project</em>}' containment reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value

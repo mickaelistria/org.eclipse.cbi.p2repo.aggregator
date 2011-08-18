@@ -148,8 +148,7 @@ public interface DistributionManagement extends EObject {
 	String getStatus();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.DistributionManagement#getDownloadUrl
-	 * <em>Download Url</em>}' attribute.
+	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.DistributionManagement#getDownloadUrl <em>Download Url</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value
@@ -160,8 +159,7 @@ public interface DistributionManagement extends EObject {
 	void setDownloadUrl(String value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.DistributionManagement#getRelocation
-	 * <em>Relocation</em>}' containment reference.
+	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.DistributionManagement#getRelocation <em>Relocation</em>}' containment reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value
@@ -172,8 +170,7 @@ public interface DistributionManagement extends EObject {
 	void setRelocation(Relocation value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.DistributionManagement#getRepository
-	 * <em>Repository</em>}' containment reference.
+	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.DistributionManagement#getRepository <em>Repository</em>}' containment reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value
@@ -184,8 +181,7 @@ public interface DistributionManagement extends EObject {
 	void setRepository(DeploymentRepository value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.DistributionManagement#getSite <em>Site</em>}'
-	 * containment reference.
+	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.DistributionManagement#getSite <em>Site</em>}' containment reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value
@@ -196,8 +192,8 @@ public interface DistributionManagement extends EObject {
 	void setSite(Site value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.DistributionManagement#getSnapshotRepository
-	 * <em>Snapshot Repository</em>}' containment reference.
+	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.DistributionManagement#getSnapshotRepository <em>Snapshot Repository</em>}'
+	 * containment reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value
@@ -208,8 +204,7 @@ public interface DistributionManagement extends EObject {
 	void setSnapshotRepository(DeploymentRepository value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.DistributionManagement#getStatus <em>Status</em>}'
-	 * attribute.
+	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.DistributionManagement#getStatus <em>Status</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value

@@ -6,11 +6,11 @@
       provider-name="Eclipse b3 Project">
 
    <description url="http://www.eclipse.org/b3">
-      This is the b3 Headless Update Site for Helios Milestones
+      This is the b3 Headless Update Site for Indigo
    </description>
 
    <url>
-      <update label="b3 Helios Milestones" url="http://www.eclipse.org/downloads/download.php?file=/emft/b3/headless-3.6/&amp;protocol=http&amp;format=xml"/>
+      <update label="b3 for Indigo" url="http://www.eclipse.org/downloads/download.php?file=/modeling/emft/b3/headless-3.7/&amp;protocol=http&amp;format=xml"/>
    </url>
 
    <includes
@@ -24,6 +24,30 @@
    <includes
          id="org.eclipse.equinox.executable"
          version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.b3.p2.maven.indexer.feature"
+         version="0.0.0"/>
+
+   <plugin
+         id="ch.qos.logback.classic"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"/>
+
+   <plugin
+         id="ch.qos.logback.core"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"/>
+
+   <plugin
+         id="ch.qos.logback.slf4j"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         fragment="true"
+         unpack="false"/>
 
    <plugin
          id="org.apache.ant"

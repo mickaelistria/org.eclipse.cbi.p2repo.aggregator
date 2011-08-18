@@ -108,8 +108,7 @@ public interface DeploymentRepository extends EObject {
 	String getUrl();
 
 	/**
-	 * Returns whether the value of the '{@link org.eclipse.b3.p2.maven.pom.DeploymentRepository#getLayout
-	 * <em>Layout</em>}' attribute is set.
+	 * Returns whether the value of the '{@link org.eclipse.b3.p2.maven.pom.DeploymentRepository#getLayout <em>Layout</em>}' attribute is set.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return whether the value of the '<em>Layout</em>' attribute is set.
@@ -121,8 +120,8 @@ public interface DeploymentRepository extends EObject {
 	boolean isSetLayout();
 
 	/**
-	 * Returns whether the value of the '{@link org.eclipse.b3.p2.maven.pom.DeploymentRepository#isUniqueVersion
-	 * <em>Unique Version</em>}' attribute is set.
+	 * Returns whether the value of the '{@link org.eclipse.b3.p2.maven.pom.DeploymentRepository#isUniqueVersion <em>Unique Version</em>}' attribute
+	 * is set.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return whether the value of the '<em>Unique Version</em>' attribute is set.
@@ -161,8 +160,7 @@ public interface DeploymentRepository extends EObject {
 	void setId(String value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.DeploymentRepository#getLayout <em>Layout</em>}'
-	 * attribute.
+	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.DeploymentRepository#getLayout <em>Layout</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value
@@ -186,8 +184,7 @@ public interface DeploymentRepository extends EObject {
 	void setName(String value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.DeploymentRepository#isUniqueVersion
-	 * <em>Unique Version</em>}' attribute.
+	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.DeploymentRepository#isUniqueVersion <em>Unique Version</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value
@@ -211,8 +208,7 @@ public interface DeploymentRepository extends EObject {
 	void setUrl(String value);
 
 	/**
-	 * Unsets the value of the '{@link org.eclipse.b3.p2.maven.pom.DeploymentRepository#getLayout <em>Layout</em>}'
-	 * attribute.
+	 * Unsets the value of the '{@link org.eclipse.b3.p2.maven.pom.DeploymentRepository#getLayout <em>Layout</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #isSetLayout()
@@ -223,8 +219,7 @@ public interface DeploymentRepository extends EObject {
 	void unsetLayout();
 
 	/**
-	 * Unsets the value of the '{@link org.eclipse.b3.p2.maven.pom.DeploymentRepository#isUniqueVersion
-	 * <em>Unique Version</em>}' attribute.
+	 * Unsets the value of the '{@link org.eclipse.b3.p2.maven.pom.DeploymentRepository#isUniqueVersion <em>Unique Version</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #isSetUniqueVersion()

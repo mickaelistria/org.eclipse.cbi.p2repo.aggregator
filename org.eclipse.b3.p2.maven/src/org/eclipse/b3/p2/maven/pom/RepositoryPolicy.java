@@ -89,7 +89,7 @@ public interface RepositoryPolicy extends EObject {
 	boolean isEnabled();
 
 	/**
-	 * Returns whether the value of the '{@link org.eclipse.b3.p2.maven.pom.RepositoryPolicy#isEnabled <em>Enabled</em>} ' attribute is set.
+	 * Returns whether the value of the '{@link org.eclipse.b3.p2.maven.pom.RepositoryPolicy#isEnabled <em>Enabled</em>}' attribute is set.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return whether the value of the '<em>Enabled</em>' attribute is set.
@@ -101,8 +101,7 @@ public interface RepositoryPolicy extends EObject {
 	boolean isSetEnabled();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.RepositoryPolicy#getChecksumPolicy
-	 * <em>Checksum Policy</em>}' attribute.
+	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.RepositoryPolicy#getChecksumPolicy <em>Checksum Policy</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value
@@ -113,8 +112,7 @@ public interface RepositoryPolicy extends EObject {
 	void setChecksumPolicy(String value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.RepositoryPolicy#isEnabled <em>Enabled</em>}'
-	 * attribute.
+	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.RepositoryPolicy#isEnabled <em>Enabled</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value
@@ -127,8 +125,7 @@ public interface RepositoryPolicy extends EObject {
 	void setEnabled(boolean value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.RepositoryPolicy#getUpdatePolicy
-	 * <em>Update Policy</em>}' attribute.
+	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.RepositoryPolicy#getUpdatePolicy <em>Update Policy</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value
@@ -139,8 +136,7 @@ public interface RepositoryPolicy extends EObject {
 	void setUpdatePolicy(String value);
 
 	/**
-	 * Unsets the value of the '{@link org.eclipse.b3.p2.maven.pom.RepositoryPolicy#isEnabled <em>Enabled</em>}'
-	 * attribute.
+	 * Unsets the value of the '{@link org.eclipse.b3.p2.maven.pom.RepositoryPolicy#isEnabled <em>Enabled</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #isSetEnabled()

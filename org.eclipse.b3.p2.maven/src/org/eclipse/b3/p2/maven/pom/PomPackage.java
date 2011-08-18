@@ -40,8 +40,7 @@ public interface PomPackage extends EPackage {
 	 */
 	interface Literals {
 		/**
-		 * The meta object literal for the '{@link org.eclipse.b3.p2.maven.pom.impl.ActivationImpl <em>Activation</em>}'
-		 * class.
+		 * The meta object literal for the '{@link org.eclipse.b3.p2.maven.pom.impl.ActivationImpl <em>Activation</em>}' class.
 		 * <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @see org.eclipse.b3.p2.maven.pom.impl.ActivationImpl
@@ -96,8 +95,7 @@ public interface PomPackage extends EPackage {
 		EReference ACTIVATION__FILE = eINSTANCE.getActivation_File();
 
 		/**
-		 * The meta object literal for the '{@link org.eclipse.b3.p2.maven.pom.impl.ActivationFileImpl
-		 * <em>Activation File</em>}' class.
+		 * The meta object literal for the '{@link org.eclipse.b3.p2.maven.pom.impl.ActivationFileImpl <em>Activation File</em>}' class.
 		 * <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @see org.eclipse.b3.p2.maven.pom.impl.ActivationFileImpl
@@ -125,8 +123,7 @@ public interface PomPackage extends EPackage {
 		EAttribute ACTIVATION_FILE__EXISTS = eINSTANCE.getActivationFile_Exists();
 
 		/**
-		 * The meta object literal for the '{@link org.eclipse.b3.p2.maven.pom.impl.ActivationOSImpl
-		 * <em>Activation OS</em>}' class.
+		 * The meta object literal for the '{@link org.eclipse.b3.p2.maven.pom.impl.ActivationOSImpl <em>Activation OS</em>}' class.
 		 * <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @see org.eclipse.b3.p2.maven.pom.impl.ActivationOSImpl
@@ -172,8 +169,7 @@ public interface PomPackage extends EPackage {
 		EAttribute ACTIVATION_OS__VERSION = eINSTANCE.getActivationOS_Version();
 
 		/**
-		 * The meta object literal for the '{@link org.eclipse.b3.p2.maven.pom.impl.ActivationPropertyImpl
-		 * <em>Activation Property</em>}' class.
+		 * The meta object literal for the '{@link org.eclipse.b3.p2.maven.pom.impl.ActivationPropertyImpl <em>Activation Property</em>}' class.
 		 * <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @see org.eclipse.b3.p2.maven.pom.impl.ActivationPropertyImpl
@@ -330,8 +326,7 @@ public interface PomPackage extends EPackage {
 		EReference BUILD__PLUGINS = eINSTANCE.getBuild_Plugins();
 
 		/**
-		 * The meta object literal for the '{@link org.eclipse.b3.p2.maven.pom.impl.BuildBaseImpl <em>Build Base</em>}'
-		 * class.
+		 * The meta object literal for the '{@link org.eclipse.b3.p2.maven.pom.impl.BuildBaseImpl <em>Build Base</em>}' class.
 		 * <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @see org.eclipse.b3.p2.maven.pom.impl.BuildBaseImpl
@@ -410,8 +405,7 @@ public interface PomPackage extends EPackage {
 		EReference BUILD_BASE__PLUGINS = eINSTANCE.getBuildBase_Plugins();
 
 		/**
-		 * The meta object literal for the '{@link org.eclipse.b3.p2.maven.pom.impl.CiManagementImpl
-		 * <em>Ci Management</em>}' class.
+		 * The meta object literal for the '{@link org.eclipse.b3.p2.maven.pom.impl.CiManagementImpl <em>Ci Management</em>}' class.
 		 * <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @see org.eclipse.b3.p2.maven.pom.impl.CiManagementImpl
@@ -447,8 +441,7 @@ public interface PomPackage extends EPackage {
 		EReference CI_MANAGEMENT__NOTIFIERS = eINSTANCE.getCiManagement_Notifiers();
 
 		/**
-		 * The meta object literal for the '{@link org.eclipse.b3.p2.maven.pom.impl.ConfigurationTypeImpl
-		 * <em>Configuration Type</em>}' class.
+		 * The meta object literal for the '{@link org.eclipse.b3.p2.maven.pom.impl.ConfigurationTypeImpl <em>Configuration Type</em>}' class.
 		 * <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @see org.eclipse.b3.p2.maven.pom.impl.ConfigurationTypeImpl
@@ -467,8 +460,7 @@ public interface PomPackage extends EPackage {
 		EAttribute CONFIGURATION_TYPE__ANY = eINSTANCE.getConfigurationType_Any();
 
 		/**
-		 * The meta object literal for the '{@link org.eclipse.b3.p2.maven.pom.impl.ContributorImpl
-		 * <em>Contributor</em>}' class.
+		 * The meta object literal for the '{@link org.eclipse.b3.p2.maven.pom.impl.ContributorImpl <em>Contributor</em>}' class.
 		 * <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @see org.eclipse.b3.p2.maven.pom.impl.ContributorImpl
@@ -549,8 +541,7 @@ public interface PomPackage extends EPackage {
 		EReference CONTRIBUTOR__PROPERTIES = eINSTANCE.getContributor_Properties();
 
 		/**
-		 * The meta object literal for the '{@link org.eclipse.b3.p2.maven.pom.impl.ContributorsTypeImpl
-		 * <em>Contributors Type</em>}' class.
+		 * The meta object literal for the '{@link org.eclipse.b3.p2.maven.pom.impl.ContributorsTypeImpl <em>Contributors Type</em>}' class.
 		 * <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @see org.eclipse.b3.p2.maven.pom.impl.ContributorsTypeImpl
@@ -568,8 +559,7 @@ public interface PomPackage extends EPackage {
 		EReference CONTRIBUTORS_TYPE__CONTRIBUTOR = eINSTANCE.getContributorsType_Contributor();
 
 		/**
-		 * The meta object literal for the '{@link org.eclipse.b3.p2.maven.pom.impl.DependenciesTypeImpl
-		 * <em>Dependencies Type</em>}' class.
+		 * The meta object literal for the '{@link org.eclipse.b3.p2.maven.pom.impl.DependenciesTypeImpl <em>Dependencies Type</em>}' class.
 		 * <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @see org.eclipse.b3.p2.maven.pom.impl.DependenciesTypeImpl
@@ -587,8 +577,7 @@ public interface PomPackage extends EPackage {
 		EReference DEPENDENCIES_TYPE__DEPENDENCY = eINSTANCE.getDependenciesType_Dependency();
 
 		/**
-		 * The meta object literal for the '{@link org.eclipse.b3.p2.maven.pom.impl.DependencyImpl <em>Dependency</em>}'
-		 * class.
+		 * The meta object literal for the '{@link org.eclipse.b3.p2.maven.pom.impl.DependencyImpl <em>Dependency</em>}' class.
 		 * <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @see org.eclipse.b3.p2.maven.pom.impl.DependencyImpl
@@ -678,8 +667,7 @@ public interface PomPackage extends EPackage {
 		EAttribute DEPENDENCY__OPTIONAL = eINSTANCE.getDependency_Optional();
 
 		/**
-		 * The meta object literal for the '{@link org.eclipse.b3.p2.maven.pom.impl.DependencyManagementImpl
-		 * <em>Dependency Management</em>}' class.
+		 * The meta object literal for the '{@link org.eclipse.b3.p2.maven.pom.impl.DependencyManagementImpl <em>Dependency Management</em>}' class.
 		 * <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @see org.eclipse.b3.p2.maven.pom.impl.DependencyManagementImpl
@@ -697,8 +685,7 @@ public interface PomPackage extends EPackage {
 		EReference DEPENDENCY_MANAGEMENT__DEPENDENCIES = eINSTANCE.getDependencyManagement_Dependencies();
 
 		/**
-		 * The meta object literal for the '{@link org.eclipse.b3.p2.maven.pom.impl.DeploymentRepositoryImpl
-		 * <em>Deployment Repository</em>}' class.
+		 * The meta object literal for the '{@link org.eclipse.b3.p2.maven.pom.impl.DeploymentRepositoryImpl <em>Deployment Repository</em>}' class.
 		 * <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @see org.eclipse.b3.p2.maven.pom.impl.DeploymentRepositoryImpl
@@ -753,8 +740,7 @@ public interface PomPackage extends EPackage {
 		EAttribute DEPLOYMENT_REPOSITORY__LAYOUT = eINSTANCE.getDeploymentRepository_Layout();
 
 		/**
-		 * The meta object literal for the '{@link org.eclipse.b3.p2.maven.pom.impl.DeveloperImpl <em>Developer</em>}'
-		 * class.
+		 * The meta object literal for the '{@link org.eclipse.b3.p2.maven.pom.impl.DeveloperImpl <em>Developer</em>}' class.
 		 * <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @see org.eclipse.b3.p2.maven.pom.impl.DeveloperImpl
@@ -844,8 +830,7 @@ public interface PomPackage extends EPackage {
 		EReference DEVELOPER__PROPERTIES = eINSTANCE.getDeveloper_Properties();
 
 		/**
-		 * The meta object literal for the '{@link org.eclipse.b3.p2.maven.pom.impl.DevelopersTypeImpl
-		 * <em>Developers Type</em>}' class.
+		 * The meta object literal for the '{@link org.eclipse.b3.p2.maven.pom.impl.DevelopersTypeImpl <em>Developers Type</em>}' class.
 		 * <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @see org.eclipse.b3.p2.maven.pom.impl.DevelopersTypeImpl
@@ -863,8 +848,8 @@ public interface PomPackage extends EPackage {
 		EReference DEVELOPERS_TYPE__DEVELOPER = eINSTANCE.getDevelopersType_Developer();
 
 		/**
-		 * The meta object literal for the '{@link org.eclipse.b3.p2.maven.pom.impl.DistributionManagementImpl
-		 * <em>Distribution Management</em>}' class.
+		 * The meta object literal for the '{@link org.eclipse.b3.p2.maven.pom.impl.DistributionManagementImpl <em>Distribution Management</em>}'
+		 * class.
 		 * <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @see org.eclipse.b3.p2.maven.pom.impl.DistributionManagementImpl
@@ -925,8 +910,7 @@ public interface PomPackage extends EPackage {
 		EAttribute DISTRIBUTION_MANAGEMENT__STATUS = eINSTANCE.getDistributionManagement_Status();
 
 		/**
-		 * The meta object literal for the '{@link org.eclipse.b3.p2.maven.pom.impl.DocumentRootImpl
-		 * <em>Document Root</em>}' class.
+		 * The meta object literal for the '{@link org.eclipse.b3.p2.maven.pom.impl.DocumentRootImpl <em>Document Root</em>}' class.
 		 * <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @see org.eclipse.b3.p2.maven.pom.impl.DocumentRootImpl
@@ -972,8 +956,7 @@ public interface PomPackage extends EPackage {
 		EReference DOCUMENT_ROOT__PROJECT = eINSTANCE.getDocumentRoot_Project();
 
 		/**
-		 * The meta object literal for the '{@link org.eclipse.b3.p2.maven.pom.impl.ExcludesTypeImpl
-		 * <em>Excludes Type</em>}' class.
+		 * The meta object literal for the '{@link org.eclipse.b3.p2.maven.pom.impl.ExcludesTypeImpl <em>Excludes Type</em>}' class.
 		 * <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @see org.eclipse.b3.p2.maven.pom.impl.ExcludesTypeImpl
@@ -992,8 +975,7 @@ public interface PomPackage extends EPackage {
 		EAttribute EXCLUDES_TYPE__EXCLUDE = eINSTANCE.getExcludesType_Exclude();
 
 		/**
-		 * The meta object literal for the '{@link org.eclipse.b3.p2.maven.pom.impl.ExclusionImpl <em>Exclusion</em>}'
-		 * class.
+		 * The meta object literal for the '{@link org.eclipse.b3.p2.maven.pom.impl.ExclusionImpl <em>Exclusion</em>}' class.
 		 * <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @see org.eclipse.b3.p2.maven.pom.impl.ExclusionImpl
@@ -1021,8 +1003,7 @@ public interface PomPackage extends EPackage {
 		EAttribute EXCLUSION__GROUP_ID = eINSTANCE.getExclusion_GroupId();
 
 		/**
-		 * The meta object literal for the '{@link org.eclipse.b3.p2.maven.pom.impl.ExclusionsTypeImpl
-		 * <em>Exclusions Type</em>}' class.
+		 * The meta object literal for the '{@link org.eclipse.b3.p2.maven.pom.impl.ExclusionsTypeImpl <em>Exclusions Type</em>}' class.
 		 * <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @see org.eclipse.b3.p2.maven.pom.impl.ExclusionsTypeImpl
@@ -1040,8 +1021,7 @@ public interface PomPackage extends EPackage {
 		EReference EXCLUSIONS_TYPE__EXCLUSION = eINSTANCE.getExclusionsType_Exclusion();
 
 		/**
-		 * The meta object literal for the '{@link org.eclipse.b3.p2.maven.pom.impl.ExecutionGoalsTypeImpl
-		 * <em>Execution Goals Type</em>}' class.
+		 * The meta object literal for the '{@link org.eclipse.b3.p2.maven.pom.impl.ExecutionGoalsTypeImpl <em>Execution Goals Type</em>}' class.
 		 * <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @see org.eclipse.b3.p2.maven.pom.impl.ExecutionGoalsTypeImpl
@@ -1060,8 +1040,7 @@ public interface PomPackage extends EPackage {
 		EAttribute EXECUTION_GOALS_TYPE__GOAL = eINSTANCE.getExecutionGoalsType_Goal();
 
 		/**
-		 * The meta object literal for the '{@link org.eclipse.b3.p2.maven.pom.impl.ExecutionsTypeImpl
-		 * <em>Executions Type</em>}' class.
+		 * The meta object literal for the '{@link org.eclipse.b3.p2.maven.pom.impl.ExecutionsTypeImpl <em>Executions Type</em>}' class.
 		 * <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @see org.eclipse.b3.p2.maven.pom.impl.ExecutionsTypeImpl
@@ -1079,8 +1058,7 @@ public interface PomPackage extends EPackage {
 		EReference EXECUTIONS_TYPE__EXECUTION = eINSTANCE.getExecutionsType_Execution();
 
 		/**
-		 * The meta object literal for the '{@link org.eclipse.b3.p2.maven.pom.impl.ExtensionImpl <em>Extension</em>}'
-		 * class.
+		 * The meta object literal for the '{@link org.eclipse.b3.p2.maven.pom.impl.ExtensionImpl <em>Extension</em>}' class.
 		 * <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @see org.eclipse.b3.p2.maven.pom.impl.ExtensionImpl
@@ -1117,8 +1095,7 @@ public interface PomPackage extends EPackage {
 		EAttribute EXTENSION__VERSION = eINSTANCE.getExtension_Version();
 
 		/**
-		 * The meta object literal for the '{@link org.eclipse.b3.p2.maven.pom.impl.ExtensionsTypeImpl
-		 * <em>Extensions Type</em>}' class.
+		 * The meta object literal for the '{@link org.eclipse.b3.p2.maven.pom.impl.ExtensionsTypeImpl <em>Extensions Type</em>}' class.
 		 * <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @see org.eclipse.b3.p2.maven.pom.impl.ExtensionsTypeImpl
@@ -1136,8 +1113,7 @@ public interface PomPackage extends EPackage {
 		EReference EXTENSIONS_TYPE__EXTENSION = eINSTANCE.getExtensionsType_Extension();
 
 		/**
-		 * The meta object literal for the '{@link org.eclipse.b3.p2.maven.pom.impl.FiltersTypeImpl
-		 * <em>Filters Type</em>}' class.
+		 * The meta object literal for the '{@link org.eclipse.b3.p2.maven.pom.impl.FiltersTypeImpl <em>Filters Type</em>}' class.
 		 * <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @see org.eclipse.b3.p2.maven.pom.impl.FiltersTypeImpl
@@ -1156,8 +1132,7 @@ public interface PomPackage extends EPackage {
 		EAttribute FILTERS_TYPE__FILTER = eINSTANCE.getFiltersType_Filter();
 
 		/**
-		 * The meta object literal for the '{@link org.eclipse.b3.p2.maven.pom.impl.GoalsTypeImpl <em>Goals Type</em>}'
-		 * class.
+		 * The meta object literal for the '{@link org.eclipse.b3.p2.maven.pom.impl.GoalsTypeImpl <em>Goals Type</em>}' class.
 		 * <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @see org.eclipse.b3.p2.maven.pom.impl.GoalsTypeImpl
@@ -1176,8 +1151,7 @@ public interface PomPackage extends EPackage {
 		EAttribute GOALS_TYPE__ANY = eINSTANCE.getGoalsType_Any();
 
 		/**
-		 * The meta object literal for the '{@link org.eclipse.b3.p2.maven.pom.impl.IncludesTypeImpl
-		 * <em>Includes Type</em>}' class.
+		 * The meta object literal for the '{@link org.eclipse.b3.p2.maven.pom.impl.IncludesTypeImpl <em>Includes Type</em>}' class.
 		 * <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @see org.eclipse.b3.p2.maven.pom.impl.IncludesTypeImpl
@@ -1196,8 +1170,7 @@ public interface PomPackage extends EPackage {
 		EAttribute INCLUDES_TYPE__INCLUDE = eINSTANCE.getIncludesType_Include();
 
 		/**
-		 * The meta object literal for the '{@link org.eclipse.b3.p2.maven.pom.impl.IssueManagementImpl
-		 * <em>Issue Management</em>}' class.
+		 * The meta object literal for the '{@link org.eclipse.b3.p2.maven.pom.impl.IssueManagementImpl <em>Issue Management</em>}' class.
 		 * <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @see org.eclipse.b3.p2.maven.pom.impl.IssueManagementImpl
@@ -1225,8 +1198,7 @@ public interface PomPackage extends EPackage {
 		EAttribute ISSUE_MANAGEMENT__URL = eINSTANCE.getIssueManagement_Url();
 
 		/**
-		 * The meta object literal for the '{@link org.eclipse.b3.p2.maven.pom.impl.LicenseImpl <em>License</em>}'
-		 * class.
+		 * The meta object literal for the '{@link org.eclipse.b3.p2.maven.pom.impl.LicenseImpl <em>License</em>}' class.
 		 * <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @see org.eclipse.b3.p2.maven.pom.impl.LicenseImpl
@@ -1272,8 +1244,7 @@ public interface PomPackage extends EPackage {
 		EAttribute LICENSE__COMMENTS = eINSTANCE.getLicense_Comments();
 
 		/**
-		 * The meta object literal for the '{@link org.eclipse.b3.p2.maven.pom.impl.LicensesTypeImpl
-		 * <em>Licenses Type</em>}' class.
+		 * The meta object literal for the '{@link org.eclipse.b3.p2.maven.pom.impl.LicensesTypeImpl <em>Licenses Type</em>}' class.
 		 * <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @see org.eclipse.b3.p2.maven.pom.impl.LicensesTypeImpl
@@ -1291,8 +1262,7 @@ public interface PomPackage extends EPackage {
 		EReference LICENSES_TYPE__LICENSE = eINSTANCE.getLicensesType_License();
 
 		/**
-		 * The meta object literal for the '{@link org.eclipse.b3.p2.maven.pom.impl.MailingListImpl
-		 * <em>Mailing List</em>}' class.
+		 * The meta object literal for the '{@link org.eclipse.b3.p2.maven.pom.impl.MailingListImpl <em>Mailing List</em>}' class.
 		 * <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @see org.eclipse.b3.p2.maven.pom.impl.MailingListImpl
@@ -1355,8 +1325,7 @@ public interface PomPackage extends EPackage {
 		EReference MAILING_LIST__OTHER_ARCHIVES = eINSTANCE.getMailingList_OtherArchives();
 
 		/**
-		 * The meta object literal for the '{@link org.eclipse.b3.p2.maven.pom.impl.MailingListsTypeImpl
-		 * <em>Mailing Lists Type</em>}' class.
+		 * The meta object literal for the '{@link org.eclipse.b3.p2.maven.pom.impl.MailingListsTypeImpl <em>Mailing Lists Type</em>}' class.
 		 * <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @see org.eclipse.b3.p2.maven.pom.impl.MailingListsTypeImpl
@@ -1640,8 +1609,7 @@ public interface PomPackage extends EPackage {
 		EReference MODEL__PROPERTIES = eINSTANCE.getModel_Properties();
 
 		/**
-		 * The meta object literal for the '{@link org.eclipse.b3.p2.maven.pom.impl.ModulesTypeImpl
-		 * <em>Modules Type</em>}' class.
+		 * The meta object literal for the '{@link org.eclipse.b3.p2.maven.pom.impl.ModulesTypeImpl <em>Modules Type</em>}' class.
 		 * <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @see org.eclipse.b3.p2.maven.pom.impl.ModulesTypeImpl
@@ -1733,8 +1701,7 @@ public interface PomPackage extends EPackage {
 		EReference NOTIFIER__CONFIGURATION = eINSTANCE.getNotifier_Configuration();
 
 		/**
-		 * The meta object literal for the '{@link org.eclipse.b3.p2.maven.pom.impl.NotifiersTypeImpl
-		 * <em>Notifiers Type</em>}' class.
+		 * The meta object literal for the '{@link org.eclipse.b3.p2.maven.pom.impl.NotifiersTypeImpl <em>Notifiers Type</em>}' class.
 		 * <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @see org.eclipse.b3.p2.maven.pom.impl.NotifiersTypeImpl
@@ -1752,8 +1719,7 @@ public interface PomPackage extends EPackage {
 		EReference NOTIFIERS_TYPE__NOTIFIER = eINSTANCE.getNotifiersType_Notifier();
 
 		/**
-		 * The meta object literal for the '{@link org.eclipse.b3.p2.maven.pom.impl.OrganizationImpl
-		 * <em>Organization</em>}' class.
+		 * The meta object literal for the '{@link org.eclipse.b3.p2.maven.pom.impl.OrganizationImpl <em>Organization</em>}' class.
 		 * <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @see org.eclipse.b3.p2.maven.pom.impl.OrganizationImpl
@@ -1781,8 +1747,7 @@ public interface PomPackage extends EPackage {
 		EAttribute ORGANIZATION__URL = eINSTANCE.getOrganization_Url();
 
 		/**
-		 * The meta object literal for the '{@link org.eclipse.b3.p2.maven.pom.impl.OtherArchivesTypeImpl
-		 * <em>Other Archives Type</em>}' class.
+		 * The meta object literal for the '{@link org.eclipse.b3.p2.maven.pom.impl.OtherArchivesTypeImpl <em>Other Archives Type</em>}' class.
 		 * <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @see org.eclipse.b3.p2.maven.pom.impl.OtherArchivesTypeImpl
@@ -1935,8 +1900,7 @@ public interface PomPackage extends EPackage {
 		EReference PLUGIN__CONFIGURATION = eINSTANCE.getPlugin_Configuration();
 
 		/**
-		 * The meta object literal for the '{@link org.eclipse.b3.p2.maven.pom.impl.PluginExecutionImpl
-		 * <em>Plugin Execution</em>}' class.
+		 * The meta object literal for the '{@link org.eclipse.b3.p2.maven.pom.impl.PluginExecutionImpl <em>Plugin Execution</em>}' class.
 		 * <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @see org.eclipse.b3.p2.maven.pom.impl.PluginExecutionImpl
@@ -1990,8 +1954,7 @@ public interface PomPackage extends EPackage {
 		EReference PLUGIN_EXECUTION__CONFIGURATION = eINSTANCE.getPluginExecution_Configuration();
 
 		/**
-		 * The meta object literal for the '{@link org.eclipse.b3.p2.maven.pom.impl.PluginManagementImpl
-		 * <em>Plugin Management</em>}' class.
+		 * The meta object literal for the '{@link org.eclipse.b3.p2.maven.pom.impl.PluginManagementImpl <em>Plugin Management</em>}' class.
 		 * <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @see org.eclipse.b3.p2.maven.pom.impl.PluginManagementImpl
@@ -2010,8 +1973,8 @@ public interface PomPackage extends EPackage {
 		EReference PLUGIN_MANAGEMENT__PLUGINS = eINSTANCE.getPluginManagement_Plugins();
 
 		/**
-		 * The meta object literal for the '{@link org.eclipse.b3.p2.maven.pom.impl.PluginRepositoriesTypeImpl
-		 * <em>Plugin Repositories Type</em>}' class.
+		 * The meta object literal for the '{@link org.eclipse.b3.p2.maven.pom.impl.PluginRepositoriesTypeImpl <em>Plugin Repositories Type</em>}'
+		 * class.
 		 * <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @see org.eclipse.b3.p2.maven.pom.impl.PluginRepositoriesTypeImpl
@@ -2029,8 +1992,7 @@ public interface PomPackage extends EPackage {
 		EReference PLUGIN_REPOSITORIES_TYPE__PLUGIN_REPOSITORY = eINSTANCE.getPluginRepositoriesType_PluginRepository();
 
 		/**
-		 * The meta object literal for the '{@link org.eclipse.b3.p2.maven.pom.impl.PluginsTypeImpl
-		 * <em>Plugins Type</em>}' class.
+		 * The meta object literal for the '{@link org.eclipse.b3.p2.maven.pom.impl.PluginsTypeImpl <em>Plugins Type</em>}' class.
 		 * <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @see org.eclipse.b3.p2.maven.pom.impl.PluginsTypeImpl
@@ -2048,8 +2010,7 @@ public interface PomPackage extends EPackage {
 		EReference PLUGINS_TYPE__PLUGIN = eINSTANCE.getPluginsType_Plugin();
 
 		/**
-		 * The meta object literal for the '{@link org.eclipse.b3.p2.maven.pom.impl.PrerequisitesImpl
-		 * <em>Prerequisites</em>}' class.
+		 * The meta object literal for the '{@link org.eclipse.b3.p2.maven.pom.impl.PrerequisitesImpl <em>Prerequisites</em>}' class.
 		 * <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @see org.eclipse.b3.p2.maven.pom.impl.PrerequisitesImpl
@@ -2068,8 +2029,7 @@ public interface PomPackage extends EPackage {
 		EAttribute PREREQUISITES__MAVEN = eINSTANCE.getPrerequisites_Maven();
 
 		/**
-		 * The meta object literal for the '{@link org.eclipse.b3.p2.maven.pom.impl.ProfileImpl <em>Profile</em>}'
-		 * class.
+		 * The meta object literal for the '{@link org.eclipse.b3.p2.maven.pom.impl.ProfileImpl <em>Profile</em>}' class.
 		 * <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @see org.eclipse.b3.p2.maven.pom.impl.ProfileImpl
@@ -2179,8 +2139,7 @@ public interface PomPackage extends EPackage {
 		EReference PROFILE__PROPERTIES = eINSTANCE.getProfile_Properties();
 
 		/**
-		 * The meta object literal for the '{@link org.eclipse.b3.p2.maven.pom.impl.ProfilesTypeImpl
-		 * <em>Profiles Type</em>}' class.
+		 * The meta object literal for the '{@link org.eclipse.b3.p2.maven.pom.impl.ProfilesTypeImpl <em>Profiles Type</em>}' class.
 		 * <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @see org.eclipse.b3.p2.maven.pom.impl.ProfilesTypeImpl
@@ -2198,8 +2157,7 @@ public interface PomPackage extends EPackage {
 		EReference PROFILES_TYPE__PROFILE = eINSTANCE.getProfilesType_Profile();
 
 		/**
-		 * The meta object literal for the '{@link org.eclipse.b3.p2.maven.pom.impl.PropertiesTypeImpl
-		 * <em>Properties Type</em>}' class.
+		 * The meta object literal for the '{@link org.eclipse.b3.p2.maven.pom.impl.PropertiesTypeImpl <em>Properties Type</em>}' class.
 		 * <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @see org.eclipse.b3.p2.maven.pom.impl.PropertiesTypeImpl
@@ -2218,8 +2176,7 @@ public interface PomPackage extends EPackage {
 		EAttribute PROPERTIES_TYPE__ANY = eINSTANCE.getPropertiesType_Any();
 
 		/**
-		 * The meta object literal for the '{@link org.eclipse.b3.p2.maven.pom.impl.RelocationImpl <em>Relocation</em>}'
-		 * class.
+		 * The meta object literal for the '{@link org.eclipse.b3.p2.maven.pom.impl.RelocationImpl <em>Relocation</em>}' class.
 		 * <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @see org.eclipse.b3.p2.maven.pom.impl.RelocationImpl
@@ -2265,8 +2222,7 @@ public interface PomPackage extends EPackage {
 		EAttribute RELOCATION__MESSAGE = eINSTANCE.getRelocation_Message();
 
 		/**
-		 * The meta object literal for the '{@link org.eclipse.b3.p2.maven.pom.impl.ReportingImpl <em>Reporting</em>}'
-		 * class.
+		 * The meta object literal for the '{@link org.eclipse.b3.p2.maven.pom.impl.ReportingImpl <em>Reporting</em>}' class.
 		 * <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @see org.eclipse.b3.p2.maven.pom.impl.ReportingImpl
@@ -2303,8 +2259,7 @@ public interface PomPackage extends EPackage {
 		EReference REPORTING__PLUGINS = eINSTANCE.getReporting_Plugins();
 
 		/**
-		 * The meta object literal for the '{@link org.eclipse.b3.p2.maven.pom.impl.ReportPluginImpl
-		 * <em>Report Plugin</em>}' class.
+		 * The meta object literal for the '{@link org.eclipse.b3.p2.maven.pom.impl.ReportPluginImpl <em>Report Plugin</em>}' class.
 		 * <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @see org.eclipse.b3.p2.maven.pom.impl.ReportPluginImpl
@@ -2366,8 +2321,7 @@ public interface PomPackage extends EPackage {
 		EReference REPORT_PLUGIN__REPORT_SETS = eINSTANCE.getReportPlugin_ReportSets();
 
 		/**
-		 * The meta object literal for the '{@link org.eclipse.b3.p2.maven.pom.impl.ReportingPluginsTypeImpl
-		 * <em>Reporting Plugins Type</em>}' class.
+		 * The meta object literal for the '{@link org.eclipse.b3.p2.maven.pom.impl.ReportingPluginsTypeImpl <em>Reporting Plugins Type</em>}' class.
 		 * <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @see org.eclipse.b3.p2.maven.pom.impl.ReportingPluginsTypeImpl
@@ -2385,8 +2339,7 @@ public interface PomPackage extends EPackage {
 		EReference REPORTING_PLUGINS_TYPE__PLUGIN = eINSTANCE.getReportingPluginsType_Plugin();
 
 		/**
-		 * The meta object literal for the '{@link org.eclipse.b3.p2.maven.pom.impl.ReportSetImpl <em>Report Set</em>}'
-		 * class.
+		 * The meta object literal for the '{@link org.eclipse.b3.p2.maven.pom.impl.ReportSetImpl <em>Report Set</em>}' class.
 		 * <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @see org.eclipse.b3.p2.maven.pom.impl.ReportSetImpl
@@ -2431,8 +2384,7 @@ public interface PomPackage extends EPackage {
 		EReference REPORT_SET__REPORTS = eINSTANCE.getReportSet_Reports();
 
 		/**
-		 * The meta object literal for the '{@link org.eclipse.b3.p2.maven.pom.impl.ReportSetReportsTypeImpl
-		 * <em>Report Set Reports Type</em>}' class.
+		 * The meta object literal for the '{@link org.eclipse.b3.p2.maven.pom.impl.ReportSetReportsTypeImpl <em>Report Set Reports Type</em>}' class.
 		 * <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @see org.eclipse.b3.p2.maven.pom.impl.ReportSetReportsTypeImpl
@@ -2451,8 +2403,7 @@ public interface PomPackage extends EPackage {
 		EAttribute REPORT_SET_REPORTS_TYPE__REPORT = eINSTANCE.getReportSetReportsType_Report();
 
 		/**
-		 * The meta object literal for the '{@link org.eclipse.b3.p2.maven.pom.impl.ReportSetsTypeImpl
-		 * <em>Report Sets Type</em>}' class.
+		 * The meta object literal for the '{@link org.eclipse.b3.p2.maven.pom.impl.ReportSetsTypeImpl <em>Report Sets Type</em>}' class.
 		 * <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @see org.eclipse.b3.p2.maven.pom.impl.ReportSetsTypeImpl
@@ -2470,8 +2421,7 @@ public interface PomPackage extends EPackage {
 		EReference REPORT_SETS_TYPE__REPORT_SET = eINSTANCE.getReportSetsType_ReportSet();
 
 		/**
-		 * The meta object literal for the '{@link org.eclipse.b3.p2.maven.pom.impl.ReportsTypeImpl
-		 * <em>Reports Type</em>}' class.
+		 * The meta object literal for the '{@link org.eclipse.b3.p2.maven.pom.impl.ReportsTypeImpl <em>Reports Type</em>}' class.
 		 * <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @see org.eclipse.b3.p2.maven.pom.impl.ReportsTypeImpl
@@ -2490,8 +2440,7 @@ public interface PomPackage extends EPackage {
 		EAttribute REPORTS_TYPE__ANY = eINSTANCE.getReportsType_Any();
 
 		/**
-		 * The meta object literal for the '{@link org.eclipse.b3.p2.maven.pom.impl.RepositoriesTypeImpl
-		 * <em>Repositories Type</em>}' class.
+		 * The meta object literal for the '{@link org.eclipse.b3.p2.maven.pom.impl.RepositoriesTypeImpl <em>Repositories Type</em>}' class.
 		 * <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @see org.eclipse.b3.p2.maven.pom.impl.RepositoriesTypeImpl
@@ -2509,8 +2458,7 @@ public interface PomPackage extends EPackage {
 		EReference REPOSITORIES_TYPE__REPOSITORY = eINSTANCE.getRepositoriesType_Repository();
 
 		/**
-		 * The meta object literal for the '{@link org.eclipse.b3.p2.maven.pom.impl.RepositoryImpl <em>Repository</em>}'
-		 * class.
+		 * The meta object literal for the '{@link org.eclipse.b3.p2.maven.pom.impl.RepositoryImpl <em>Repository</em>}' class.
 		 * <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @see org.eclipse.b3.p2.maven.pom.impl.RepositoryImpl
@@ -2573,8 +2521,7 @@ public interface PomPackage extends EPackage {
 		EAttribute REPOSITORY__LAYOUT = eINSTANCE.getRepository_Layout();
 
 		/**
-		 * The meta object literal for the '{@link org.eclipse.b3.p2.maven.pom.impl.RepositoryPolicyImpl
-		 * <em>Repository Policy</em>}' class.
+		 * The meta object literal for the '{@link org.eclipse.b3.p2.maven.pom.impl.RepositoryPolicyImpl <em>Repository Policy</em>}' class.
 		 * <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @see org.eclipse.b3.p2.maven.pom.impl.RepositoryPolicyImpl
@@ -2667,8 +2614,7 @@ public interface PomPackage extends EPackage {
 		EReference RESOURCE__EXCLUDES = eINSTANCE.getResource_Excludes();
 
 		/**
-		 * The meta object literal for the '{@link org.eclipse.b3.p2.maven.pom.impl.ResourcesTypeImpl
-		 * <em>Resources Type</em>}' class.
+		 * The meta object literal for the '{@link org.eclipse.b3.p2.maven.pom.impl.ResourcesTypeImpl <em>Resources Type</em>}' class.
 		 * <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @see org.eclipse.b3.p2.maven.pom.impl.ResourcesTypeImpl
@@ -2686,8 +2632,7 @@ public interface PomPackage extends EPackage {
 		EReference RESOURCES_TYPE__RESOURCE = eINSTANCE.getResourcesType_Resource();
 
 		/**
-		 * The meta object literal for the '{@link org.eclipse.b3.p2.maven.pom.impl.RolesTypeImpl <em>Roles Type</em>}'
-		 * class.
+		 * The meta object literal for the '{@link org.eclipse.b3.p2.maven.pom.impl.RolesTypeImpl <em>Roles Type</em>}' class.
 		 * <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @see org.eclipse.b3.p2.maven.pom.impl.RolesTypeImpl
@@ -2789,8 +2734,7 @@ public interface PomPackage extends EPackage {
 		EAttribute SITE__URL = eINSTANCE.getSite_Url();
 
 		/**
-		 * The meta object literal for the '{@link org.eclipse.b3.p2.maven.pom.impl.TestResourcesTypeImpl
-		 * <em>Test Resources Type</em>}' class.
+		 * The meta object literal for the '{@link org.eclipse.b3.p2.maven.pom.impl.TestResourcesTypeImpl <em>Test Resources Type</em>}' class.
 		 * <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @see org.eclipse.b3.p2.maven.pom.impl.TestResourcesTypeImpl
@@ -2907,8 +2851,7 @@ public interface PomPackage extends EPackage {
 	int ACTIVATION_FEATURE_COUNT = 5;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.b3.p2.maven.pom.impl.ActivationFileImpl <em>Activation File</em>}'
-	 * class.
+	 * The meta object id for the '{@link org.eclipse.b3.p2.maven.pom.impl.ActivationFileImpl <em>Activation File</em>}' class.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see org.eclipse.b3.p2.maven.pom.impl.ActivationFileImpl
@@ -2946,8 +2889,7 @@ public interface PomPackage extends EPackage {
 	int ACTIVATION_FILE_FEATURE_COUNT = 2;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.b3.p2.maven.pom.impl.ActivationOSImpl <em>Activation OS</em>}'
-	 * class.
+	 * The meta object id for the '{@link org.eclipse.b3.p2.maven.pom.impl.ActivationOSImpl <em>Activation OS</em>}' class.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see org.eclipse.b3.p2.maven.pom.impl.ActivationOSImpl
@@ -3003,8 +2945,7 @@ public interface PomPackage extends EPackage {
 	int ACTIVATION_OS_FEATURE_COUNT = 4;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.b3.p2.maven.pom.impl.ActivationPropertyImpl
-	 * <em>Activation Property</em>}' class.
+	 * The meta object id for the '{@link org.eclipse.b3.p2.maven.pom.impl.ActivationPropertyImpl <em>Activation Property</em>}' class.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see org.eclipse.b3.p2.maven.pom.impl.ActivationPropertyImpl
@@ -3288,8 +3229,7 @@ public interface PomPackage extends EPackage {
 	int BUILD_BASE_FEATURE_COUNT = 8;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.b3.p2.maven.pom.impl.CiManagementImpl <em>Ci Management</em>}'
-	 * class.
+	 * The meta object id for the '{@link org.eclipse.b3.p2.maven.pom.impl.CiManagementImpl <em>Ci Management</em>}' class.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see org.eclipse.b3.p2.maven.pom.impl.CiManagementImpl
@@ -3337,8 +3277,7 @@ public interface PomPackage extends EPackage {
 	int CI_MANAGEMENT_FEATURE_COUNT = 3;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.b3.p2.maven.pom.impl.ConfigurationTypeImpl
-	 * <em>Configuration Type</em>}' class.
+	 * The meta object id for the '{@link org.eclipse.b3.p2.maven.pom.impl.ConfigurationTypeImpl <em>Configuration Type</em>}' class.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see org.eclipse.b3.p2.maven.pom.impl.ConfigurationTypeImpl
@@ -3459,8 +3398,7 @@ public interface PomPackage extends EPackage {
 	int CONTRIBUTOR_FEATURE_COUNT = 8;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.b3.p2.maven.pom.impl.ContributorsTypeImpl
-	 * <em>Contributors Type</em>}' class.
+	 * The meta object id for the '{@link org.eclipse.b3.p2.maven.pom.impl.ContributorsTypeImpl <em>Contributors Type</em>}' class.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see org.eclipse.b3.p2.maven.pom.impl.ContributorsTypeImpl
@@ -3490,8 +3428,7 @@ public interface PomPackage extends EPackage {
 	int CONTRIBUTORS_TYPE_FEATURE_COUNT = 1;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.b3.p2.maven.pom.impl.DependenciesTypeImpl
-	 * <em>Dependencies Type</em>}' class.
+	 * The meta object id for the '{@link org.eclipse.b3.p2.maven.pom.impl.DependenciesTypeImpl <em>Dependencies Type</em>}' class.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see org.eclipse.b3.p2.maven.pom.impl.DependenciesTypeImpl
@@ -3622,8 +3559,7 @@ public interface PomPackage extends EPackage {
 	int DEPENDENCY_FEATURE_COUNT = 9;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.b3.p2.maven.pom.impl.DependencyManagementImpl
-	 * <em>Dependency Management</em>}' class.
+	 * The meta object id for the '{@link org.eclipse.b3.p2.maven.pom.impl.DependencyManagementImpl <em>Dependency Management</em>}' class.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see org.eclipse.b3.p2.maven.pom.impl.DependencyManagementImpl
@@ -3653,8 +3589,7 @@ public interface PomPackage extends EPackage {
 	int DEPENDENCY_MANAGEMENT_FEATURE_COUNT = 1;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.b3.p2.maven.pom.impl.DeploymentRepositoryImpl
-	 * <em>Deployment Repository</em>}' class.
+	 * The meta object id for the '{@link org.eclipse.b3.p2.maven.pom.impl.DeploymentRepositoryImpl <em>Deployment Repository</em>}' class.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see org.eclipse.b3.p2.maven.pom.impl.DeploymentRepositoryImpl
@@ -3820,8 +3755,7 @@ public interface PomPackage extends EPackage {
 	int DEVELOPER_FEATURE_COUNT = 9;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.b3.p2.maven.pom.impl.DevelopersTypeImpl <em>Developers Type</em>}'
-	 * class.
+	 * The meta object id for the '{@link org.eclipse.b3.p2.maven.pom.impl.DevelopersTypeImpl <em>Developers Type</em>}' class.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see org.eclipse.b3.p2.maven.pom.impl.DevelopersTypeImpl
@@ -3851,8 +3785,7 @@ public interface PomPackage extends EPackage {
 	int DEVELOPERS_TYPE_FEATURE_COUNT = 1;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.b3.p2.maven.pom.impl.DistributionManagementImpl
-	 * <em>Distribution Management</em>}' class.
+	 * The meta object id for the '{@link org.eclipse.b3.p2.maven.pom.impl.DistributionManagementImpl <em>Distribution Management</em>}' class.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see org.eclipse.b3.p2.maven.pom.impl.DistributionManagementImpl
@@ -3929,8 +3862,7 @@ public interface PomPackage extends EPackage {
 	int DISTRIBUTION_MANAGEMENT_FEATURE_COUNT = 6;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.b3.p2.maven.pom.impl.DocumentRootImpl <em>Document Root</em>}'
-	 * class.
+	 * The meta object id for the '{@link org.eclipse.b3.p2.maven.pom.impl.DocumentRootImpl <em>Document Root</em>}' class.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see org.eclipse.b3.p2.maven.pom.impl.DocumentRootImpl
@@ -3986,8 +3918,7 @@ public interface PomPackage extends EPackage {
 	int DOCUMENT_ROOT_FEATURE_COUNT = 4;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.b3.p2.maven.pom.impl.ExcludesTypeImpl <em>Excludes Type</em>}'
-	 * class.
+	 * The meta object id for the '{@link org.eclipse.b3.p2.maven.pom.impl.ExcludesTypeImpl <em>Excludes Type</em>}' class.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see org.eclipse.b3.p2.maven.pom.impl.ExcludesTypeImpl
@@ -4053,8 +3984,7 @@ public interface PomPackage extends EPackage {
 	int EXCLUSION_FEATURE_COUNT = 2;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.b3.p2.maven.pom.impl.ExclusionsTypeImpl <em>Exclusions Type</em>}'
-	 * class.
+	 * The meta object id for the '{@link org.eclipse.b3.p2.maven.pom.impl.ExclusionsTypeImpl <em>Exclusions Type</em>}' class.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see org.eclipse.b3.p2.maven.pom.impl.ExclusionsTypeImpl
@@ -4084,8 +4014,7 @@ public interface PomPackage extends EPackage {
 	int EXCLUSIONS_TYPE_FEATURE_COUNT = 1;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.b3.p2.maven.pom.impl.ExecutionGoalsTypeImpl
-	 * <em>Execution Goals Type</em>}' class.
+	 * The meta object id for the '{@link org.eclipse.b3.p2.maven.pom.impl.ExecutionGoalsTypeImpl <em>Execution Goals Type</em>}' class.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see org.eclipse.b3.p2.maven.pom.impl.ExecutionGoalsTypeImpl
@@ -4114,8 +4043,7 @@ public interface PomPackage extends EPackage {
 	int EXECUTION_GOALS_TYPE_FEATURE_COUNT = 1;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.b3.p2.maven.pom.impl.ExecutionsTypeImpl <em>Executions Type</em>}'
-	 * class.
+	 * The meta object id for the '{@link org.eclipse.b3.p2.maven.pom.impl.ExecutionsTypeImpl <em>Executions Type</em>}' class.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see org.eclipse.b3.p2.maven.pom.impl.ExecutionsTypeImpl
@@ -4191,8 +4119,7 @@ public interface PomPackage extends EPackage {
 	int EXTENSION_FEATURE_COUNT = 3;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.b3.p2.maven.pom.impl.ExtensionsTypeImpl <em>Extensions Type</em>}'
-	 * class.
+	 * The meta object id for the '{@link org.eclipse.b3.p2.maven.pom.impl.ExtensionsTypeImpl <em>Extensions Type</em>}' class.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see org.eclipse.b3.p2.maven.pom.impl.ExtensionsTypeImpl
@@ -4222,8 +4149,7 @@ public interface PomPackage extends EPackage {
 	int EXTENSIONS_TYPE_FEATURE_COUNT = 1;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.b3.p2.maven.pom.impl.FiltersTypeImpl <em>Filters Type</em>}'
-	 * class.
+	 * The meta object id for the '{@link org.eclipse.b3.p2.maven.pom.impl.FiltersTypeImpl <em>Filters Type</em>}' class.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see org.eclipse.b3.p2.maven.pom.impl.FiltersTypeImpl
@@ -4279,8 +4205,7 @@ public interface PomPackage extends EPackage {
 	int GOALS_TYPE_FEATURE_COUNT = 1;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.b3.p2.maven.pom.impl.IncludesTypeImpl <em>Includes Type</em>}'
-	 * class.
+	 * The meta object id for the '{@link org.eclipse.b3.p2.maven.pom.impl.IncludesTypeImpl <em>Includes Type</em>}' class.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see org.eclipse.b3.p2.maven.pom.impl.IncludesTypeImpl
@@ -4309,8 +4234,7 @@ public interface PomPackage extends EPackage {
 	int INCLUDES_TYPE_FEATURE_COUNT = 1;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.b3.p2.maven.pom.impl.IssueManagementImpl
-	 * <em>Issue Management</em>}' class.
+	 * The meta object id for the '{@link org.eclipse.b3.p2.maven.pom.impl.IssueManagementImpl <em>Issue Management</em>}' class.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see org.eclipse.b3.p2.maven.pom.impl.IssueManagementImpl
@@ -4403,8 +4327,7 @@ public interface PomPackage extends EPackage {
 	int LICENSE_FEATURE_COUNT = 4;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.b3.p2.maven.pom.impl.LicensesTypeImpl <em>Licenses Type</em>}'
-	 * class.
+	 * The meta object id for the '{@link org.eclipse.b3.p2.maven.pom.impl.LicensesTypeImpl <em>Licenses Type</em>}' class.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see org.eclipse.b3.p2.maven.pom.impl.LicensesTypeImpl
@@ -4434,8 +4357,7 @@ public interface PomPackage extends EPackage {
 	int LICENSES_TYPE_FEATURE_COUNT = 1;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.b3.p2.maven.pom.impl.MailingListImpl <em>Mailing List</em>}'
-	 * class.
+	 * The meta object id for the '{@link org.eclipse.b3.p2.maven.pom.impl.MailingListImpl <em>Mailing List</em>}' class.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see org.eclipse.b3.p2.maven.pom.impl.MailingListImpl
@@ -4509,8 +4431,7 @@ public interface PomPackage extends EPackage {
 	int MAILING_LIST_FEATURE_COUNT = 6;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.b3.p2.maven.pom.impl.MailingListsTypeImpl
-	 * <em>Mailing Lists Type</em>}' class.
+	 * The meta object id for the '{@link org.eclipse.b3.p2.maven.pom.impl.MailingListsTypeImpl <em>Mailing Lists Type</em>}' class.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see org.eclipse.b3.p2.maven.pom.impl.MailingListsTypeImpl
@@ -4845,8 +4766,7 @@ public interface PomPackage extends EPackage {
 	int MODEL_FEATURE_COUNT = 30;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.b3.p2.maven.pom.impl.ModulesTypeImpl <em>Modules Type</em>}'
-	 * class.
+	 * The meta object id for the '{@link org.eclipse.b3.p2.maven.pom.impl.ModulesTypeImpl <em>Modules Type</em>}' class.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see org.eclipse.b3.p2.maven.pom.impl.ModulesTypeImpl
@@ -4957,8 +4877,7 @@ public interface PomPackage extends EPackage {
 	int NOTIFIER_FEATURE_COUNT = 7;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.b3.p2.maven.pom.impl.NotifiersTypeImpl <em>Notifiers Type</em>}'
-	 * class.
+	 * The meta object id for the '{@link org.eclipse.b3.p2.maven.pom.impl.NotifiersTypeImpl <em>Notifiers Type</em>}' class.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see org.eclipse.b3.p2.maven.pom.impl.NotifiersTypeImpl
@@ -4988,8 +4907,7 @@ public interface PomPackage extends EPackage {
 	int NOTIFIERS_TYPE_FEATURE_COUNT = 1;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.b3.p2.maven.pom.impl.OrganizationImpl <em>Organization</em>}'
-	 * class.
+	 * The meta object id for the '{@link org.eclipse.b3.p2.maven.pom.impl.OrganizationImpl <em>Organization</em>}' class.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see org.eclipse.b3.p2.maven.pom.impl.OrganizationImpl
@@ -5026,8 +4944,7 @@ public interface PomPackage extends EPackage {
 	int ORGANIZATION_FEATURE_COUNT = 2;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.b3.p2.maven.pom.impl.OtherArchivesTypeImpl
-	 * <em>Other Archives Type</em>}' class.
+	 * The meta object id for the '{@link org.eclipse.b3.p2.maven.pom.impl.OtherArchivesTypeImpl <em>Other Archives Type</em>}' class.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see org.eclipse.b3.p2.maven.pom.impl.OtherArchivesTypeImpl
@@ -5214,8 +5131,7 @@ public interface PomPackage extends EPackage {
 	int PLUGIN_FEATURE_COUNT = 9;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.b3.p2.maven.pom.impl.PluginExecutionImpl
-	 * <em>Plugin Execution</em>}' class.
+	 * The meta object id for the '{@link org.eclipse.b3.p2.maven.pom.impl.PluginExecutionImpl <em>Plugin Execution</em>}' class.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see org.eclipse.b3.p2.maven.pom.impl.PluginExecutionImpl
@@ -5281,8 +5197,7 @@ public interface PomPackage extends EPackage {
 	int PLUGIN_EXECUTION_FEATURE_COUNT = 5;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.b3.p2.maven.pom.impl.PluginManagementImpl
-	 * <em>Plugin Management</em>}' class.
+	 * The meta object id for the '{@link org.eclipse.b3.p2.maven.pom.impl.PluginManagementImpl <em>Plugin Management</em>}' class.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see org.eclipse.b3.p2.maven.pom.impl.PluginManagementImpl
@@ -5311,8 +5226,7 @@ public interface PomPackage extends EPackage {
 	int PLUGIN_MANAGEMENT_FEATURE_COUNT = 1;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.b3.p2.maven.pom.impl.PluginRepositoriesTypeImpl
-	 * <em>Plugin Repositories Type</em>}' class.
+	 * The meta object id for the '{@link org.eclipse.b3.p2.maven.pom.impl.PluginRepositoriesTypeImpl <em>Plugin Repositories Type</em>}' class.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see org.eclipse.b3.p2.maven.pom.impl.PluginRepositoriesTypeImpl
@@ -5342,8 +5256,7 @@ public interface PomPackage extends EPackage {
 	int PLUGIN_REPOSITORIES_TYPE_FEATURE_COUNT = 1;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.b3.p2.maven.pom.impl.PluginsTypeImpl <em>Plugins Type</em>}'
-	 * class.
+	 * The meta object id for the '{@link org.eclipse.b3.p2.maven.pom.impl.PluginsTypeImpl <em>Plugins Type</em>}' class.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see org.eclipse.b3.p2.maven.pom.impl.PluginsTypeImpl
@@ -5372,8 +5285,7 @@ public interface PomPackage extends EPackage {
 	int PLUGINS_TYPE_FEATURE_COUNT = 1;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.b3.p2.maven.pom.impl.PrerequisitesImpl <em>Prerequisites</em>}'
-	 * class.
+	 * The meta object id for the '{@link org.eclipse.b3.p2.maven.pom.impl.PrerequisitesImpl <em>Prerequisites</em>}' class.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see org.eclipse.b3.p2.maven.pom.impl.PrerequisitesImpl
@@ -5537,8 +5449,7 @@ public interface PomPackage extends EPackage {
 	int PROFILE_FEATURE_COUNT = 12;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.b3.p2.maven.pom.impl.ProfilesTypeImpl <em>Profiles Type</em>}'
-	 * class.
+	 * The meta object id for the '{@link org.eclipse.b3.p2.maven.pom.impl.ProfilesTypeImpl <em>Profiles Type</em>}' class.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see org.eclipse.b3.p2.maven.pom.impl.ProfilesTypeImpl
@@ -5568,8 +5479,7 @@ public interface PomPackage extends EPackage {
 	int PROFILES_TYPE_FEATURE_COUNT = 1;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.b3.p2.maven.pom.impl.PropertiesTypeImpl <em>Properties Type</em>}'
-	 * class.
+	 * The meta object id for the '{@link org.eclipse.b3.p2.maven.pom.impl.PropertiesTypeImpl <em>Properties Type</em>}' class.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see org.eclipse.b3.p2.maven.pom.impl.PropertiesTypeImpl
@@ -5699,8 +5609,7 @@ public interface PomPackage extends EPackage {
 	int REPORTING_FEATURE_COUNT = 3;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.b3.p2.maven.pom.impl.ReportPluginImpl <em>Report Plugin</em>}'
-	 * class.
+	 * The meta object id for the '{@link org.eclipse.b3.p2.maven.pom.impl.ReportPluginImpl <em>Report Plugin</em>}' class.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see org.eclipse.b3.p2.maven.pom.impl.ReportPluginImpl
@@ -5776,8 +5685,7 @@ public interface PomPackage extends EPackage {
 	int REPORT_PLUGIN_FEATURE_COUNT = 6;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.b3.p2.maven.pom.impl.ReportingPluginsTypeImpl
-	 * <em>Reporting Plugins Type</em>}' class.
+	 * The meta object id for the '{@link org.eclipse.b3.p2.maven.pom.impl.ReportingPluginsTypeImpl <em>Reporting Plugins Type</em>}' class.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see org.eclipse.b3.p2.maven.pom.impl.ReportingPluginsTypeImpl
@@ -5863,8 +5771,7 @@ public interface PomPackage extends EPackage {
 	int REPORT_SET_FEATURE_COUNT = 4;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.b3.p2.maven.pom.impl.ReportSetReportsTypeImpl
-	 * <em>Report Set Reports Type</em>}' class.
+	 * The meta object id for the '{@link org.eclipse.b3.p2.maven.pom.impl.ReportSetReportsTypeImpl <em>Report Set Reports Type</em>}' class.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see org.eclipse.b3.p2.maven.pom.impl.ReportSetReportsTypeImpl
@@ -5893,7 +5800,7 @@ public interface PomPackage extends EPackage {
 	int REPORT_SET_REPORTS_TYPE_FEATURE_COUNT = 1;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.b3.p2.maven.pom.impl.ReportSetsTypeImpl <em>Report Sets Type</em>} ' class.
+	 * The meta object id for the '{@link org.eclipse.b3.p2.maven.pom.impl.ReportSetsTypeImpl <em>Report Sets Type</em>}' class.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see org.eclipse.b3.p2.maven.pom.impl.ReportSetsTypeImpl
@@ -5923,8 +5830,7 @@ public interface PomPackage extends EPackage {
 	int REPORT_SETS_TYPE_FEATURE_COUNT = 1;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.b3.p2.maven.pom.impl.ReportsTypeImpl <em>Reports Type</em>}'
-	 * class.
+	 * The meta object id for the '{@link org.eclipse.b3.p2.maven.pom.impl.ReportsTypeImpl <em>Reports Type</em>}' class.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see org.eclipse.b3.p2.maven.pom.impl.ReportsTypeImpl
@@ -5952,8 +5858,7 @@ public interface PomPackage extends EPackage {
 	int REPORTS_TYPE_FEATURE_COUNT = 1;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.b3.p2.maven.pom.impl.RepositoriesTypeImpl
-	 * <em>Repositories Type</em>}' class.
+	 * The meta object id for the '{@link org.eclipse.b3.p2.maven.pom.impl.RepositoriesTypeImpl <em>Repositories Type</em>}' class.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see org.eclipse.b3.p2.maven.pom.impl.RepositoriesTypeImpl
@@ -6058,8 +5963,7 @@ public interface PomPackage extends EPackage {
 	int REPOSITORY_FEATURE_COUNT = 6;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.b3.p2.maven.pom.impl.RepositoryPolicyImpl
-	 * <em>Repository Policy</em>}' class.
+	 * The meta object id for the '{@link org.eclipse.b3.p2.maven.pom.impl.RepositoryPolicyImpl <em>Repository Policy</em>}' class.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see org.eclipse.b3.p2.maven.pom.impl.RepositoryPolicyImpl
@@ -6172,8 +6076,7 @@ public interface PomPackage extends EPackage {
 	int RESOURCE_FEATURE_COUNT = 5;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.b3.p2.maven.pom.impl.ResourcesTypeImpl <em>Resources Type</em>}'
-	 * class.
+	 * The meta object id for the '{@link org.eclipse.b3.p2.maven.pom.impl.ResourcesTypeImpl <em>Resources Type</em>}' class.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see org.eclipse.b3.p2.maven.pom.impl.ResourcesTypeImpl
@@ -6333,8 +6236,7 @@ public interface PomPackage extends EPackage {
 	int SITE_FEATURE_COUNT = 3;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.b3.p2.maven.pom.impl.TestResourcesTypeImpl
-	 * <em>Test Resources Type</em>}' class.
+	 * The meta object id for the '{@link org.eclipse.b3.p2.maven.pom.impl.TestResourcesTypeImpl <em>Test Resources Type</em>}' class.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see org.eclipse.b3.p2.maven.pom.impl.TestResourcesTypeImpl
@@ -6374,8 +6276,7 @@ public interface PomPackage extends EPackage {
 	EClass getActivation();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.b3.p2.maven.pom.Activation#isActiveByDefault
-	 * <em>Active By Default</em>}'.
+	 * Returns the meta object for the attribute '{@link org.eclipse.b3.p2.maven.pom.Activation#isActiveByDefault <em>Active By Default</em>}'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>Active By Default</em>'.
@@ -6410,8 +6311,7 @@ public interface PomPackage extends EPackage {
 	EAttribute getActivation_Jdk();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link org.eclipse.b3.p2.maven.pom.Activation#getOs
-	 * <em>Os</em>}'.
+	 * Returns the meta object for the containment reference '{@link org.eclipse.b3.p2.maven.pom.Activation#getOs <em>Os</em>}'.
 	 * <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
 	 * 
@@ -6526,8 +6426,7 @@ public interface PomPackage extends EPackage {
 	EAttribute getActivationOS_Version();
 
 	/**
-	 * Returns the meta object for class '{@link org.eclipse.b3.p2.maven.pom.ActivationProperty
-	 * <em>Activation Property</em>}'.
+	 * Returns the meta object for class '{@link org.eclipse.b3.p2.maven.pom.ActivationProperty <em>Activation Property</em>}'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for class '<em>Activation Property</em>'.
@@ -6631,8 +6530,7 @@ public interface PomPackage extends EPackage {
 	EAttribute getBuild_FinalName();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.b3.p2.maven.pom.Build#getOutputDirectory
-	 * <em>Output Directory</em>}'.
+	 * Returns the meta object for the attribute '{@link org.eclipse.b3.p2.maven.pom.Build#getOutputDirectory <em>Output Directory</em>}'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>Output Directory</em>'.
@@ -6679,8 +6577,8 @@ public interface PomPackage extends EPackage {
 	EReference getBuild_Resources();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.b3.p2.maven.pom.Build#getScriptSourceDirectory
-	 * <em>Script Source Directory</em>}'.
+	 * Returns the meta object for the attribute '{@link org.eclipse.b3.p2.maven.pom.Build#getScriptSourceDirectory <em>Script Source Directory</em>}
+	 * '.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>Script Source Directory</em>'.
@@ -6691,8 +6589,7 @@ public interface PomPackage extends EPackage {
 	EAttribute getBuild_ScriptSourceDirectory();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.b3.p2.maven.pom.Build#getSourceDirectory
-	 * <em>Source Directory</em>}'.
+	 * Returns the meta object for the attribute '{@link org.eclipse.b3.p2.maven.pom.Build#getSourceDirectory <em>Source Directory</em>}'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>Source Directory</em>'.
@@ -6703,8 +6600,7 @@ public interface PomPackage extends EPackage {
 	EAttribute getBuild_SourceDirectory();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.b3.p2.maven.pom.Build#getTestOutputDirectory
-	 * <em>Test Output Directory</em>}'.
+	 * Returns the meta object for the attribute '{@link org.eclipse.b3.p2.maven.pom.Build#getTestOutputDirectory <em>Test Output Directory</em>}'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>Test Output Directory</em>'.
@@ -6727,8 +6623,7 @@ public interface PomPackage extends EPackage {
 	EReference getBuild_TestResources();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.b3.p2.maven.pom.Build#getTestSourceDirectory
-	 * <em>Test Source Directory</em>}'.
+	 * Returns the meta object for the attribute '{@link org.eclipse.b3.p2.maven.pom.Build#getTestSourceDirectory <em>Test Source Directory</em>}'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>Test Source Directory</em>'.
@@ -6797,7 +6692,7 @@ public interface PomPackage extends EPackage {
 	EAttribute getBuildBase_FinalName();
 
 	/**
-	 * Returns the meta object for the containment reference ' {@link org.eclipse.b3.p2.maven.pom.BuildBase#getPluginManagement
+	 * Returns the meta object for the containment reference '{@link org.eclipse.b3.p2.maven.pom.BuildBase#getPluginManagement
 	 * <em>Plugin Management</em>}'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -6832,8 +6727,7 @@ public interface PomPackage extends EPackage {
 	EReference getBuildBase_Resources();
 
 	/**
-	 * Returns the meta object for the containment reference ' {@link org.eclipse.b3.p2.maven.pom.BuildBase#getTestResources <em>Test Resources</em>}
-	 * '.
+	 * Returns the meta object for the containment reference '{@link org.eclipse.b3.p2.maven.pom.BuildBase#getTestResources <em>Test Resources</em>}'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the containment reference '<em>Test Resources</em>'.
@@ -6888,8 +6782,7 @@ public interface PomPackage extends EPackage {
 	EAttribute getCiManagement_Url();
 
 	/**
-	 * Returns the meta object for class '{@link org.eclipse.b3.p2.maven.pom.ConfigurationType
-	 * <em>Configuration Type</em>}'.
+	 * Returns the meta object for class '{@link org.eclipse.b3.p2.maven.pom.ConfigurationType <em>Configuration Type</em>}'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for class '<em>Configuration Type</em>'.
@@ -6944,8 +6837,7 @@ public interface PomPackage extends EPackage {
 	EAttribute getContributor_Name();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.b3.p2.maven.pom.Contributor#getOrganization
-	 * <em>Organization</em>}'.
+	 * Returns the meta object for the attribute '{@link org.eclipse.b3.p2.maven.pom.Contributor#getOrganization <em>Organization</em>}'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>Organization</em>'.
@@ -6956,8 +6848,7 @@ public interface PomPackage extends EPackage {
 	EAttribute getContributor_Organization();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.b3.p2.maven.pom.Contributor#getOrganizationUrl
-	 * <em>Organization Url</em>}'.
+	 * Returns the meta object for the attribute '{@link org.eclipse.b3.p2.maven.pom.Contributor#getOrganizationUrl <em>Organization Url</em>}'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>Organization Url</em>'.
@@ -7016,8 +6907,7 @@ public interface PomPackage extends EPackage {
 	EAttribute getContributor_Url();
 
 	/**
-	 * Returns the meta object for class '{@link org.eclipse.b3.p2.maven.pom.ContributorsType
-	 * <em>Contributors Type</em>}'.
+	 * Returns the meta object for class '{@link org.eclipse.b3.p2.maven.pom.ContributorsType <em>Contributors Type</em>}'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for class '<em>Contributors Type</em>'.
@@ -7039,8 +6929,7 @@ public interface PomPackage extends EPackage {
 	EReference getContributorsType_Contributor();
 
 	/**
-	 * Returns the meta object for class '{@link org.eclipse.b3.p2.maven.pom.DependenciesType
-	 * <em>Dependencies Type</em>}'.
+	 * Returns the meta object for class '{@link org.eclipse.b3.p2.maven.pom.DependenciesType <em>Dependencies Type</em>}'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for class '<em>Dependencies Type</em>'.
@@ -7050,7 +6939,7 @@ public interface PomPackage extends EPackage {
 	EClass getDependenciesType();
 
 	/**
-	 * Returns the meta object for the containment reference list ' {@link org.eclipse.b3.p2.maven.pom.DependenciesType#getDependency
+	 * Returns the meta object for the containment reference list '{@link org.eclipse.b3.p2.maven.pom.DependenciesType#getDependency
 	 * <em>Dependency</em>}'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -7179,8 +7068,7 @@ public interface PomPackage extends EPackage {
 	EAttribute getDependency_Version();
 
 	/**
-	 * Returns the meta object for class '{@link org.eclipse.b3.p2.maven.pom.DependencyManagement
-	 * <em>Dependency Management</em>}'.
+	 * Returns the meta object for class '{@link org.eclipse.b3.p2.maven.pom.DependencyManagement <em>Dependency Management</em>}'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for class '<em>Dependency Management</em>'.
@@ -7190,7 +7078,7 @@ public interface PomPackage extends EPackage {
 	EClass getDependencyManagement();
 
 	/**
-	 * Returns the meta object for the containment reference ' {@link org.eclipse.b3.p2.maven.pom.DependencyManagement#getDependencies
+	 * Returns the meta object for the containment reference '{@link org.eclipse.b3.p2.maven.pom.DependencyManagement#getDependencies
 	 * <em>Dependencies</em>}'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -7202,8 +7090,7 @@ public interface PomPackage extends EPackage {
 	EReference getDependencyManagement_Dependencies();
 
 	/**
-	 * Returns the meta object for class '{@link org.eclipse.b3.p2.maven.pom.DeploymentRepository
-	 * <em>Deployment Repository</em>}'.
+	 * Returns the meta object for class '{@link org.eclipse.b3.p2.maven.pom.DeploymentRepository <em>Deployment Repository</em>}'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for class '<em>Deployment Repository</em>'.
@@ -7249,7 +7136,7 @@ public interface PomPackage extends EPackage {
 	EAttribute getDeploymentRepository_Name();
 
 	/**
-	 * Returns the meta object for the attribute ' {@link org.eclipse.b3.p2.maven.pom.DeploymentRepository#isUniqueVersion <em>Unique Version</em>}'.
+	 * Returns the meta object for the attribute '{@link org.eclipse.b3.p2.maven.pom.DeploymentRepository#isUniqueVersion <em>Unique Version</em>}'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>Unique Version</em>'.
@@ -7318,8 +7205,7 @@ public interface PomPackage extends EPackage {
 	EAttribute getDeveloper_Name();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.b3.p2.maven.pom.Developer#getOrganization
-	 * <em>Organization</em>}'.
+	 * Returns the meta object for the attribute '{@link org.eclipse.b3.p2.maven.pom.Developer#getOrganization <em>Organization</em>}'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>Organization</em>'.
@@ -7330,8 +7216,7 @@ public interface PomPackage extends EPackage {
 	EAttribute getDeveloper_Organization();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.b3.p2.maven.pom.Developer#getOrganizationUrl
-	 * <em>Organization Url</em>}'.
+	 * Returns the meta object for the attribute '{@link org.eclipse.b3.p2.maven.pom.Developer#getOrganizationUrl <em>Organization Url</em>}'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>Organization Url</em>'.
@@ -7411,8 +7296,7 @@ public interface PomPackage extends EPackage {
 	EReference getDevelopersType_Developer();
 
 	/**
-	 * Returns the meta object for class '{@link org.eclipse.b3.p2.maven.pom.DistributionManagement
-	 * <em>Distribution Management</em>}'.
+	 * Returns the meta object for class '{@link org.eclipse.b3.p2.maven.pom.DistributionManagement <em>Distribution Management</em>}'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for class '<em>Distribution Management</em>'.
@@ -7422,7 +7306,7 @@ public interface PomPackage extends EPackage {
 	EClass getDistributionManagement();
 
 	/**
-	 * Returns the meta object for the attribute ' {@link org.eclipse.b3.p2.maven.pom.DistributionManagement#getDownloadUrl <em>Download Url</em>}'.
+	 * Returns the meta object for the attribute '{@link org.eclipse.b3.p2.maven.pom.DistributionManagement#getDownloadUrl <em>Download Url</em>}'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>Download Url</em>'.
@@ -7433,7 +7317,7 @@ public interface PomPackage extends EPackage {
 	EAttribute getDistributionManagement_DownloadUrl();
 
 	/**
-	 * Returns the meta object for the containment reference ' {@link org.eclipse.b3.p2.maven.pom.DistributionManagement#getRelocation
+	 * Returns the meta object for the containment reference '{@link org.eclipse.b3.p2.maven.pom.DistributionManagement#getRelocation
 	 * <em>Relocation</em>}'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -7445,7 +7329,7 @@ public interface PomPackage extends EPackage {
 	EReference getDistributionManagement_Relocation();
 
 	/**
-	 * Returns the meta object for the containment reference ' {@link org.eclipse.b3.p2.maven.pom.DistributionManagement#getRepository
+	 * Returns the meta object for the containment reference '{@link org.eclipse.b3.p2.maven.pom.DistributionManagement#getRepository
 	 * <em>Repository</em>}'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -7468,7 +7352,7 @@ public interface PomPackage extends EPackage {
 	EReference getDistributionManagement_Site();
 
 	/**
-	 * Returns the meta object for the containment reference ' {@link org.eclipse.b3.p2.maven.pom.DistributionManagement#getSnapshotRepository
+	 * Returns the meta object for the containment reference '{@link org.eclipse.b3.p2.maven.pom.DistributionManagement#getSnapshotRepository
 	 * <em>Snapshot Repository</em>}'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -7480,8 +7364,7 @@ public interface PomPackage extends EPackage {
 	EReference getDistributionManagement_SnapshotRepository();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.b3.p2.maven.pom.DistributionManagement#getStatus
-	 * <em>Status</em>}'.
+	 * Returns the meta object for the attribute '{@link org.eclipse.b3.p2.maven.pom.DistributionManagement#getStatus <em>Status</em>}'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>Status</em>'.
@@ -7525,8 +7408,7 @@ public interface PomPackage extends EPackage {
 	EReference getDocumentRoot_Project();
 
 	/**
-	 * Returns the meta object for the map '{@link org.eclipse.b3.p2.maven.pom.DocumentRoot#getXMLNSPrefixMap
-	 * <em>XMLNS Prefix Map</em>}'.
+	 * Returns the meta object for the map '{@link org.eclipse.b3.p2.maven.pom.DocumentRoot#getXMLNSPrefixMap <em>XMLNS Prefix Map</em>}'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the map '<em>XMLNS Prefix Map</em>'.
@@ -7537,8 +7419,7 @@ public interface PomPackage extends EPackage {
 	EReference getDocumentRoot_XMLNSPrefixMap();
 
 	/**
-	 * Returns the meta object for the map '{@link org.eclipse.b3.p2.maven.pom.DocumentRoot#getXSISchemaLocation
-	 * <em>XSI Schema Location</em>}'.
+	 * Returns the meta object for the map '{@link org.eclipse.b3.p2.maven.pom.DocumentRoot#getXSISchemaLocation <em>XSI Schema Location</em>}'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the map '<em>XSI Schema Location</em>'.
@@ -7627,8 +7508,7 @@ public interface PomPackage extends EPackage {
 	EReference getExclusionsType_Exclusion();
 
 	/**
-	 * Returns the meta object for class '{@link org.eclipse.b3.p2.maven.pom.ExecutionGoalsType
-	 * <em>Execution Goals Type</em>}'.
+	 * Returns the meta object for class '{@link org.eclipse.b3.p2.maven.pom.ExecutionGoalsType <em>Execution Goals Type</em>}'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for class '<em>Execution Goals Type</em>'.
@@ -7772,7 +7652,7 @@ public interface PomPackage extends EPackage {
 	EClass getGoalsType();
 
 	/**
-	 * Returns the meta object for the attribute list '{@link org.eclipse.b3.p2.maven.pom.GoalsType#getAny <em>Any</em>} '.
+	 * Returns the meta object for the attribute list '{@link org.eclipse.b3.p2.maven.pom.GoalsType#getAny <em>Any</em>}'.
 	 * <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
 	 * 
@@ -7806,7 +7686,7 @@ public interface PomPackage extends EPackage {
 	EAttribute getIncludesType_Include();
 
 	/**
-	 * Returns the meta object for class '{@link org.eclipse.b3.p2.maven.pom.IssueManagement <em>Issue Management</em>} '.
+	 * Returns the meta object for class '{@link org.eclipse.b3.p2.maven.pom.IssueManagement <em>Issue Management</em>}'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for class '<em>Issue Management</em>'.
@@ -7988,8 +7868,7 @@ public interface PomPackage extends EPackage {
 	EAttribute getMailingList_Subscribe();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.b3.p2.maven.pom.MailingList#getUnsubscribe
-	 * <em>Unsubscribe</em>}'.
+	 * Returns the meta object for the attribute '{@link org.eclipse.b3.p2.maven.pom.MailingList#getUnsubscribe <em>Unsubscribe</em>}'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>Unsubscribe</em>'.
@@ -8000,8 +7879,7 @@ public interface PomPackage extends EPackage {
 	EAttribute getMailingList_Unsubscribe();
 
 	/**
-	 * Returns the meta object for class '{@link org.eclipse.b3.p2.maven.pom.MailingListsType
-	 * <em>Mailing Lists Type</em>}'.
+	 * Returns the meta object for class '{@link org.eclipse.b3.p2.maven.pom.MailingListsType <em>Mailing Lists Type</em>}'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for class '<em>Mailing Lists Type</em>'.
@@ -8045,8 +7923,7 @@ public interface PomPackage extends EPackage {
 	EAttribute getModel_ArtifactId();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link org.eclipse.b3.p2.maven.pom.Model#getBuild
-	 * <em>Build</em>}'.
+	 * Returns the meta object for the containment reference '{@link org.eclipse.b3.p2.maven.pom.Model#getBuild <em>Build</em>}'.
 	 * <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
 	 * 
@@ -8094,7 +7971,7 @@ public interface PomPackage extends EPackage {
 	EReference getModel_Dependencies();
 
 	/**
-	 * Returns the meta object for the containment reference ' {@link org.eclipse.b3.p2.maven.pom.Model#getDependencyManagement
+	 * Returns the meta object for the containment reference '{@link org.eclipse.b3.p2.maven.pom.Model#getDependencyManagement
 	 * <em>Dependency Management</em>}'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -8130,7 +8007,7 @@ public interface PomPackage extends EPackage {
 	EReference getModel_Developers();
 
 	/**
-	 * Returns the meta object for the containment reference ' {@link org.eclipse.b3.p2.maven.pom.Model#getDistributionManagement
+	 * Returns the meta object for the containment reference '{@link org.eclipse.b3.p2.maven.pom.Model#getDistributionManagement
 	 * <em>Distribution Management</em>}'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -8166,8 +8043,7 @@ public interface PomPackage extends EPackage {
 	EAttribute getModel_InceptionYear();
 
 	/**
-	 * Returns the meta object for the containment reference ' {@link org.eclipse.b3.p2.maven.pom.Model#getIssueManagement <em>Issue Management</em>}
-	 * '.
+	 * Returns the meta object for the containment reference '{@link org.eclipse.b3.p2.maven.pom.Model#getIssueManagement <em>Issue Management</em>}'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the containment reference '<em>Issue Management</em>'.
@@ -8262,8 +8138,7 @@ public interface PomPackage extends EPackage {
 	EAttribute getModel_Packaging();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link org.eclipse.b3.p2.maven.pom.Model#getParent
-	 * <em>Parent</em>}'.
+	 * Returns the meta object for the containment reference '{@link org.eclipse.b3.p2.maven.pom.Model#getParent <em>Parent</em>}'.
 	 * <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
 	 * 
@@ -8275,7 +8150,7 @@ public interface PomPackage extends EPackage {
 	EReference getModel_Parent();
 
 	/**
-	 * Returns the meta object for the containment reference ' {@link org.eclipse.b3.p2.maven.pom.Model#getPluginRepositories
+	 * Returns the meta object for the containment reference '{@link org.eclipse.b3.p2.maven.pom.Model#getPluginRepositories
 	 * <em>Plugin Repositories</em>}'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -8359,8 +8234,7 @@ public interface PomPackage extends EPackage {
 	EReference getModel_Repositories();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link org.eclipse.b3.p2.maven.pom.Model#getScm
-	 * <em>Scm</em>}'.
+	 * Returns the meta object for the containment reference '{@link org.eclipse.b3.p2.maven.pom.Model#getScm <em>Scm</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -8440,7 +8314,7 @@ public interface PomPackage extends EPackage {
 	EAttribute getNotifier_Address();
 
 	/**
-	 * Returns the meta object for the containment reference ' {@link org.eclipse.b3.p2.maven.pom.Notifier#getConfiguration <em>Configuration</em>}'.
+	 * Returns the meta object for the containment reference '{@link org.eclipse.b3.p2.maven.pom.Notifier#getConfiguration <em>Configuration</em>}'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the containment reference '<em>Configuration</em>'.
@@ -8463,8 +8337,7 @@ public interface PomPackage extends EPackage {
 	EAttribute getNotifier_SendOnError();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.b3.p2.maven.pom.Notifier#isSendOnFailure
-	 * <em>Send On Failure</em>}'.
+	 * Returns the meta object for the attribute '{@link org.eclipse.b3.p2.maven.pom.Notifier#isSendOnFailure <em>Send On Failure</em>}'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>Send On Failure</em>'.
@@ -8475,8 +8348,7 @@ public interface PomPackage extends EPackage {
 	EAttribute getNotifier_SendOnFailure();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.b3.p2.maven.pom.Notifier#isSendOnSuccess
-	 * <em>Send On Success</em>}'.
+	 * Returns the meta object for the attribute '{@link org.eclipse.b3.p2.maven.pom.Notifier#isSendOnSuccess <em>Send On Success</em>}'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>Send On Success</em>'.
@@ -8487,8 +8359,7 @@ public interface PomPackage extends EPackage {
 	EAttribute getNotifier_SendOnSuccess();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.b3.p2.maven.pom.Notifier#isSendOnWarning
-	 * <em>Send On Warning</em>}'.
+	 * Returns the meta object for the attribute '{@link org.eclipse.b3.p2.maven.pom.Notifier#isSendOnWarning <em>Send On Warning</em>}'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>Send On Warning</em>'.
@@ -8566,8 +8437,7 @@ public interface PomPackage extends EPackage {
 	EAttribute getOrganization_Url();
 
 	/**
-	 * Returns the meta object for class '{@link org.eclipse.b3.p2.maven.pom.OtherArchivesType
-	 * <em>Other Archives Type</em>}'.
+	 * Returns the meta object for class '{@link org.eclipse.b3.p2.maven.pom.OtherArchivesType <em>Other Archives Type</em>}'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for class '<em>Other Archives Type</em>'.
@@ -8577,7 +8447,7 @@ public interface PomPackage extends EPackage {
 	EClass getOtherArchivesType();
 
 	/**
-	 * Returns the meta object for the attribute list ' {@link org.eclipse.b3.p2.maven.pom.OtherArchivesType#getOtherArchive <em>Other Archive</em>}'.
+	 * Returns the meta object for the attribute list '{@link org.eclipse.b3.p2.maven.pom.OtherArchivesType#getOtherArchive <em>Other Archive</em>}'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute list '<em>Other Archive</em>'.
@@ -8715,8 +8585,7 @@ public interface PomPackage extends EPackage {
 	EAttribute getPlugin_Extensions();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link org.eclipse.b3.p2.maven.pom.Plugin#getGoals
-	 * <em>Goals</em>}'.
+	 * Returns the meta object for the containment reference '{@link org.eclipse.b3.p2.maven.pom.Plugin#getGoals <em>Goals</em>}'.
 	 * <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
 	 * 
@@ -8764,7 +8633,7 @@ public interface PomPackage extends EPackage {
 	EAttribute getPlugin_Version();
 
 	/**
-	 * Returns the meta object for class '{@link org.eclipse.b3.p2.maven.pom.PluginExecution <em>Plugin Execution</em>} '.
+	 * Returns the meta object for class '{@link org.eclipse.b3.p2.maven.pom.PluginExecution <em>Plugin Execution</em>}'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for class '<em>Plugin Execution</em>'.
@@ -8774,7 +8643,7 @@ public interface PomPackage extends EPackage {
 	EClass getPluginExecution();
 
 	/**
-	 * Returns the meta object for the containment reference ' {@link org.eclipse.b3.p2.maven.pom.PluginExecution#getConfiguration
+	 * Returns the meta object for the containment reference '{@link org.eclipse.b3.p2.maven.pom.PluginExecution#getConfiguration
 	 * <em>Configuration</em>}'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -8808,8 +8677,7 @@ public interface PomPackage extends EPackage {
 	EAttribute getPluginExecution_Id();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.b3.p2.maven.pom.PluginExecution#getInherited
-	 * <em>Inherited</em>}'.
+	 * Returns the meta object for the attribute '{@link org.eclipse.b3.p2.maven.pom.PluginExecution#getInherited <em>Inherited</em>}'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>Inherited</em>'.
@@ -8832,8 +8700,7 @@ public interface PomPackage extends EPackage {
 	EAttribute getPluginExecution_Phase();
 
 	/**
-	 * Returns the meta object for class '{@link org.eclipse.b3.p2.maven.pom.PluginManagement
-	 * <em>Plugin Management</em>}'.
+	 * Returns the meta object for class '{@link org.eclipse.b3.p2.maven.pom.PluginManagement <em>Plugin Management</em>}'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for class '<em>Plugin Management</em>'.
@@ -8854,8 +8721,7 @@ public interface PomPackage extends EPackage {
 	EReference getPluginManagement_Plugins();
 
 	/**
-	 * Returns the meta object for class '{@link org.eclipse.b3.p2.maven.pom.PluginRepositoriesType
-	 * <em>Plugin Repositories Type</em>}'.
+	 * Returns the meta object for class '{@link org.eclipse.b3.p2.maven.pom.PluginRepositoriesType <em>Plugin Repositories Type</em>}'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for class '<em>Plugin Repositories Type</em>'.
@@ -8865,7 +8731,7 @@ public interface PomPackage extends EPackage {
 	EClass getPluginRepositoriesType();
 
 	/**
-	 * Returns the meta object for the containment reference list ' {@link org.eclipse.b3.p2.maven.pom.PluginRepositoriesType#getPluginRepository
+	 * Returns the meta object for the containment reference list '{@link org.eclipse.b3.p2.maven.pom.PluginRepositoriesType#getPluginRepository
 	 * <em>Plugin Repository</em>}'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -8951,8 +8817,7 @@ public interface PomPackage extends EPackage {
 	EReference getProfile_Activation();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link org.eclipse.b3.p2.maven.pom.Profile#getBuild
-	 * <em>Build</em>}'.
+	 * Returns the meta object for the containment reference '{@link org.eclipse.b3.p2.maven.pom.Profile#getBuild <em>Build</em>}'.
 	 * <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
 	 * 
@@ -8976,7 +8841,7 @@ public interface PomPackage extends EPackage {
 	EReference getProfile_Dependencies();
 
 	/**
-	 * Returns the meta object for the containment reference ' {@link org.eclipse.b3.p2.maven.pom.Profile#getDependencyManagement
+	 * Returns the meta object for the containment reference '{@link org.eclipse.b3.p2.maven.pom.Profile#getDependencyManagement
 	 * <em>Dependency Management</em>}'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -8988,7 +8853,7 @@ public interface PomPackage extends EPackage {
 	EReference getProfile_DependencyManagement();
 
 	/**
-	 * Returns the meta object for the containment reference ' {@link org.eclipse.b3.p2.maven.pom.Profile#getDistributionManagement
+	 * Returns the meta object for the containment reference '{@link org.eclipse.b3.p2.maven.pom.Profile#getDistributionManagement
 	 * <em>Distribution Management</em>}'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -9024,7 +8889,7 @@ public interface PomPackage extends EPackage {
 	EReference getProfile_Modules();
 
 	/**
-	 * Returns the meta object for the containment reference ' {@link org.eclipse.b3.p2.maven.pom.Profile#getPluginRepositories
+	 * Returns the meta object for the containment reference '{@link org.eclipse.b3.p2.maven.pom.Profile#getPluginRepositories
 	 * <em>Plugin Repositories</em>}'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -9208,8 +9073,7 @@ public interface PomPackage extends EPackage {
 	EAttribute getReporting_ExcludeDefaults();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.b3.p2.maven.pom.Reporting#getOutputDirectory
-	 * <em>Output Directory</em>}'.
+	 * Returns the meta object for the attribute '{@link org.eclipse.b3.p2.maven.pom.Reporting#getOutputDirectory <em>Output Directory</em>}'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>Output Directory</em>'.
@@ -9232,8 +9096,7 @@ public interface PomPackage extends EPackage {
 	EReference getReporting_Plugins();
 
 	/**
-	 * Returns the meta object for class '{@link org.eclipse.b3.p2.maven.pom.ReportingPluginsType
-	 * <em>Reporting Plugins Type</em>}'.
+	 * Returns the meta object for class '{@link org.eclipse.b3.p2.maven.pom.ReportingPluginsType <em>Reporting Plugins Type</em>}'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for class '<em>Reporting Plugins Type</em>'.
@@ -9265,8 +9128,7 @@ public interface PomPackage extends EPackage {
 	EClass getReportPlugin();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.b3.p2.maven.pom.ReportPlugin#getArtifactId
-	 * <em>Artifact Id</em>}'.
+	 * Returns the meta object for the attribute '{@link org.eclipse.b3.p2.maven.pom.ReportPlugin#getArtifactId <em>Artifact Id</em>}'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>Artifact Id</em>'.
@@ -9313,7 +9175,7 @@ public interface PomPackage extends EPackage {
 	EAttribute getReportPlugin_Inherited();
 
 	/**
-	 * Returns the meta object for the containment reference ' {@link org.eclipse.b3.p2.maven.pom.ReportPlugin#getReportSets <em>Report Sets</em>}'.
+	 * Returns the meta object for the containment reference '{@link org.eclipse.b3.p2.maven.pom.ReportPlugin#getReportSets <em>Report Sets</em>}'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the containment reference '<em>Report Sets</em>'.
@@ -9346,7 +9208,7 @@ public interface PomPackage extends EPackage {
 	EClass getReportSet();
 
 	/**
-	 * Returns the meta object for the containment reference ' {@link org.eclipse.b3.p2.maven.pom.ReportSet#getConfiguration <em>Configuration</em>}'.
+	 * Returns the meta object for the containment reference '{@link org.eclipse.b3.p2.maven.pom.ReportSet#getConfiguration <em>Configuration</em>}'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the containment reference '<em>Configuration</em>'.
@@ -9393,8 +9255,7 @@ public interface PomPackage extends EPackage {
 	EReference getReportSet_Reports();
 
 	/**
-	 * Returns the meta object for class '{@link org.eclipse.b3.p2.maven.pom.ReportSetReportsType
-	 * <em>Report Set Reports Type</em>}'.
+	 * Returns the meta object for class '{@link org.eclipse.b3.p2.maven.pom.ReportSetReportsType <em>Report Set Reports Type</em>}'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for class '<em>Report Set Reports Type</em>'.
@@ -9425,8 +9286,8 @@ public interface PomPackage extends EPackage {
 	EClass getReportSetsType();
 
 	/**
-	 * Returns the meta object for the containment reference list ' {@link org.eclipse.b3.p2.maven.pom.ReportSetsType#getReportSet
-	 * <em>Report Set</em>}'.
+	 * Returns the meta object for the containment reference list '{@link org.eclipse.b3.p2.maven.pom.ReportSetsType#getReportSet <em>Report Set</em>}
+	 * '.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the containment reference list '<em>Report Set</em>'.
@@ -9447,8 +9308,7 @@ public interface PomPackage extends EPackage {
 	EClass getReportsType();
 
 	/**
-	 * Returns the meta object for the attribute list '{@link org.eclipse.b3.p2.maven.pom.ReportsType#getAny
-	 * <em>Any</em>}'.
+	 * Returns the meta object for the attribute list '{@link org.eclipse.b3.p2.maven.pom.ReportsType#getAny <em>Any</em>}'.
 	 * <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
 	 * 
@@ -9460,8 +9320,7 @@ public interface PomPackage extends EPackage {
 	EAttribute getReportsType_Any();
 
 	/**
-	 * Returns the meta object for class '{@link org.eclipse.b3.p2.maven.pom.RepositoriesType
-	 * <em>Repositories Type</em>}'.
+	 * Returns the meta object for class '{@link org.eclipse.b3.p2.maven.pom.RepositoriesType <em>Repositories Type</em>}'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for class '<em>Repositories Type</em>'.
@@ -9471,7 +9330,7 @@ public interface PomPackage extends EPackage {
 	EClass getRepositoriesType();
 
 	/**
-	 * Returns the meta object for the containment reference list ' {@link org.eclipse.b3.p2.maven.pom.RepositoriesType#getRepository
+	 * Returns the meta object for the containment reference list '{@link org.eclipse.b3.p2.maven.pom.RepositoriesType#getRepository
 	 * <em>Repository</em>}'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -9563,8 +9422,7 @@ public interface PomPackage extends EPackage {
 	EAttribute getRepository_Url();
 
 	/**
-	 * Returns the meta object for class '{@link org.eclipse.b3.p2.maven.pom.RepositoryPolicy
-	 * <em>Repository Policy</em>}'.
+	 * Returns the meta object for class '{@link org.eclipse.b3.p2.maven.pom.RepositoryPolicy <em>Repository Policy</em>}'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for class '<em>Repository Policy</em>'.
@@ -9574,8 +9432,7 @@ public interface PomPackage extends EPackage {
 	EClass getRepositoryPolicy();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.b3.p2.maven.pom.RepositoryPolicy#getChecksumPolicy
-	 * <em>Checksum Policy</em>}'.
+	 * Returns the meta object for the attribute '{@link org.eclipse.b3.p2.maven.pom.RepositoryPolicy#getChecksumPolicy <em>Checksum Policy</em>}'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>Checksum Policy</em>'.
@@ -9598,8 +9455,7 @@ public interface PomPackage extends EPackage {
 	EAttribute getRepositoryPolicy_Enabled();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.b3.p2.maven.pom.RepositoryPolicy#getUpdatePolicy
-	 * <em>Update Policy</em>}'.
+	 * Returns the meta object for the attribute '{@link org.eclipse.b3.p2.maven.pom.RepositoryPolicy#getUpdatePolicy <em>Update Policy</em>}'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>Update Policy</em>'.
@@ -9712,8 +9568,7 @@ public interface PomPackage extends EPackage {
 	EClass getRolesType();
 
 	/**
-	 * Returns the meta object for the attribute list '{@link org.eclipse.b3.p2.maven.pom.RolesType#getRole
-	 * <em>Role</em>}'.
+	 * Returns the meta object for the attribute list '{@link org.eclipse.b3.p2.maven.pom.RolesType#getRole <em>Role</em>}'.
 	 * <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
 	 * 
@@ -9747,8 +9602,7 @@ public interface PomPackage extends EPackage {
 	EAttribute getScm_Connection();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.b3.p2.maven.pom.Scm#getDeveloperConnection
-	 * <em>Developer Connection</em>}'.
+	 * Returns the meta object for the attribute '{@link org.eclipse.b3.p2.maven.pom.Scm#getDeveloperConnection <em>Developer Connection</em>}'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>Developer Connection</em>'.
@@ -9826,8 +9680,7 @@ public interface PomPackage extends EPackage {
 	EAttribute getSite_Url();
 
 	/**
-	 * Returns the meta object for class '{@link org.eclipse.b3.p2.maven.pom.TestResourcesType
-	 * <em>Test Resources Type</em>}'.
+	 * Returns the meta object for class '{@link org.eclipse.b3.p2.maven.pom.TestResourcesType <em>Test Resources Type</em>}'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for class '<em>Test Resources Type</em>'.
@@ -9837,7 +9690,7 @@ public interface PomPackage extends EPackage {
 	EClass getTestResourcesType();
 
 	/**
-	 * Returns the meta object for the containment reference list ' {@link org.eclipse.b3.p2.maven.pom.TestResourcesType#getTestResource
+	 * Returns the meta object for the containment reference list '{@link org.eclipse.b3.p2.maven.pom.TestResourcesType#getTestResource
 	 * <em>Test Resource</em>}'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 

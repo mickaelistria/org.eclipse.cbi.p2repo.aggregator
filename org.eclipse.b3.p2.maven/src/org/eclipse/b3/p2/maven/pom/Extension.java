@@ -74,8 +74,7 @@ public interface Extension extends EObject {
 	String getVersion();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.Extension#getArtifactId <em>Artifact Id</em>}'
-	 * attribute.
+	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.Extension#getArtifactId <em>Artifact Id</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value

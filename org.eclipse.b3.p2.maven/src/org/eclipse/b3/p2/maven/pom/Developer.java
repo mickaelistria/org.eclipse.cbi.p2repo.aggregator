@@ -204,8 +204,7 @@ public interface Developer extends EObject {
 	void setName(String value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.Developer#getOrganization <em>Organization</em>}'
-	 * attribute.
+	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.Developer#getOrganization <em>Organization</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value
@@ -216,7 +215,7 @@ public interface Developer extends EObject {
 	void setOrganization(String value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.Developer#getOrganizationUrl <em>Organization Url</em>} ' attribute.
+	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.Developer#getOrganizationUrl <em>Organization Url</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value
@@ -227,8 +226,7 @@ public interface Developer extends EObject {
 	void setOrganizationUrl(String value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.Developer#getProperties <em>Properties</em>}'
-	 * containment reference.
+	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.Developer#getProperties <em>Properties</em>}' containment reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value
@@ -239,8 +237,7 @@ public interface Developer extends EObject {
 	void setProperties(PropertiesType value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.Developer#getRoles <em>Roles</em>}' containment
-	 * reference.
+	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.Developer#getRoles <em>Roles</em>}' containment reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value

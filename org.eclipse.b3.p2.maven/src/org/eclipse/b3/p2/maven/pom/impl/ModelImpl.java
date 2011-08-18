@@ -473,8 +473,7 @@ public class ModelImpl extends EObjectImpl implements Model {
 	protected Reporting reporting;
 
 	/**
-	 * The cached value of the '{@link #getDependencyManagement() <em>Dependency Management</em>}' containment
-	 * reference.
+	 * The cached value of the '{@link #getDependencyManagement() <em>Dependency Management</em>}' containment reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getDependencyManagement()
@@ -484,8 +483,7 @@ public class ModelImpl extends EObjectImpl implements Model {
 	protected DependencyManagement dependencyManagement;
 
 	/**
-	 * The cached value of the '{@link #getDistributionManagement() <em>Distribution Management</em>}' containment
-	 * reference.
+	 * The cached value of the '{@link #getDistributionManagement() <em>Distribution Management</em>}' containment reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getDistributionManagement()

@@ -147,8 +147,7 @@ public interface Notifier extends EObject {
 	boolean isSendOnWarning();
 
 	/**
-	 * Returns whether the value of the '{@link org.eclipse.b3.p2.maven.pom.Notifier#isSendOnError
-	 * <em>Send On Error</em>}' attribute is set.
+	 * Returns whether the value of the '{@link org.eclipse.b3.p2.maven.pom.Notifier#isSendOnError <em>Send On Error</em>}' attribute is set.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return whether the value of the '<em>Send On Error</em>' attribute is set.
@@ -160,8 +159,7 @@ public interface Notifier extends EObject {
 	boolean isSetSendOnError();
 
 	/**
-	 * Returns whether the value of the '{@link org.eclipse.b3.p2.maven.pom.Notifier#isSendOnFailure
-	 * <em>Send On Failure</em>}' attribute is set.
+	 * Returns whether the value of the '{@link org.eclipse.b3.p2.maven.pom.Notifier#isSendOnFailure <em>Send On Failure</em>}' attribute is set.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return whether the value of the '<em>Send On Failure</em>' attribute is set.
@@ -173,8 +171,7 @@ public interface Notifier extends EObject {
 	boolean isSetSendOnFailure();
 
 	/**
-	 * Returns whether the value of the '{@link org.eclipse.b3.p2.maven.pom.Notifier#isSendOnSuccess
-	 * <em>Send On Success</em>}' attribute is set.
+	 * Returns whether the value of the '{@link org.eclipse.b3.p2.maven.pom.Notifier#isSendOnSuccess <em>Send On Success</em>}' attribute is set.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return whether the value of the '<em>Send On Success</em>' attribute is set.
@@ -186,8 +183,7 @@ public interface Notifier extends EObject {
 	boolean isSetSendOnSuccess();
 
 	/**
-	 * Returns whether the value of the '{@link org.eclipse.b3.p2.maven.pom.Notifier#isSendOnWarning
-	 * <em>Send On Warning</em>}' attribute is set.
+	 * Returns whether the value of the '{@link org.eclipse.b3.p2.maven.pom.Notifier#isSendOnWarning <em>Send On Warning</em>}' attribute is set.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return whether the value of the '<em>Send On Warning</em>' attribute is set.
@@ -199,8 +195,7 @@ public interface Notifier extends EObject {
 	boolean isSetSendOnWarning();
 
 	/**
-	 * Returns whether the value of the '{@link org.eclipse.b3.p2.maven.pom.Notifier#getType <em>Type</em>}' attribute
-	 * is set.
+	 * Returns whether the value of the '{@link org.eclipse.b3.p2.maven.pom.Notifier#getType <em>Type</em>}' attribute is set.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return whether the value of the '<em>Type</em>' attribute is set.
@@ -223,8 +218,7 @@ public interface Notifier extends EObject {
 	void setAddress(String value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.Notifier#getConfiguration <em>Configuration</em>}'
-	 * containment reference.
+	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.Notifier#getConfiguration <em>Configuration</em>}' containment reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value
@@ -235,8 +229,7 @@ public interface Notifier extends EObject {
 	void setConfiguration(ConfigurationType value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.Notifier#isSendOnError <em>Send On Error</em>}'
-	 * attribute.
+	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.Notifier#isSendOnError <em>Send On Error</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value
@@ -249,8 +242,7 @@ public interface Notifier extends EObject {
 	void setSendOnError(boolean value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.Notifier#isSendOnFailure <em>Send On Failure</em>}'
-	 * attribute.
+	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.Notifier#isSendOnFailure <em>Send On Failure</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value
@@ -263,8 +255,7 @@ public interface Notifier extends EObject {
 	void setSendOnFailure(boolean value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.Notifier#isSendOnSuccess <em>Send On Success</em>}'
-	 * attribute.
+	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.Notifier#isSendOnSuccess <em>Send On Success</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value
@@ -277,8 +268,7 @@ public interface Notifier extends EObject {
 	void setSendOnSuccess(boolean value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.Notifier#isSendOnWarning <em>Send On Warning</em>}'
-	 * attribute.
+	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.Notifier#isSendOnWarning <em>Send On Warning</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value
@@ -304,8 +294,7 @@ public interface Notifier extends EObject {
 	void setType(String value);
 
 	/**
-	 * Unsets the value of the '{@link org.eclipse.b3.p2.maven.pom.Notifier#isSendOnError <em>Send On Error</em>}'
-	 * attribute.
+	 * Unsets the value of the '{@link org.eclipse.b3.p2.maven.pom.Notifier#isSendOnError <em>Send On Error</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #isSetSendOnError()
@@ -316,8 +305,7 @@ public interface Notifier extends EObject {
 	void unsetSendOnError();
 
 	/**
-	 * Unsets the value of the '{@link org.eclipse.b3.p2.maven.pom.Notifier#isSendOnFailure <em>Send On Failure</em>}'
-	 * attribute.
+	 * Unsets the value of the '{@link org.eclipse.b3.p2.maven.pom.Notifier#isSendOnFailure <em>Send On Failure</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #isSetSendOnFailure()
@@ -328,8 +316,7 @@ public interface Notifier extends EObject {
 	void unsetSendOnFailure();
 
 	/**
-	 * Unsets the value of the '{@link org.eclipse.b3.p2.maven.pom.Notifier#isSendOnSuccess <em>Send On Success</em>}'
-	 * attribute.
+	 * Unsets the value of the '{@link org.eclipse.b3.p2.maven.pom.Notifier#isSendOnSuccess <em>Send On Success</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #isSetSendOnSuccess()
@@ -340,8 +327,7 @@ public interface Notifier extends EObject {
 	void unsetSendOnSuccess();
 
 	/**
-	 * Unsets the value of the '{@link org.eclipse.b3.p2.maven.pom.Notifier#isSendOnWarning <em>Send On Warning</em>}'
-	 * attribute.
+	 * Unsets the value of the '{@link org.eclipse.b3.p2.maven.pom.Notifier#isSendOnWarning <em>Send On Warning</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #isSetSendOnWarning()
