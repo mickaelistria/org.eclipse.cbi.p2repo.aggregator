@@ -5,9 +5,11 @@
   <rm:property key="git.clone.dir" value="${checkout.root}"/>
   <rm:property key="checkout.root" value="${user.home}/git/b3"/>
   <rm:locator pattern="^org\.eclipse\.b3(\..+)?" searchPathRef="b3"/>
-  <rm:locator pattern="^org\.eclipse\.(xtend|xtext)(\..+)?$" searchPathRef="xtext"/>
+  <rm:locator pattern="^org\.eclipse\.xtext(\..+)?$" searchPathRef="releaseTrain"/>
   <rm:locator pattern="^com\.google(\..+)?$" searchPathRef="xtext"/>
   <rm:locator pattern="^org\.eclipse\.emf(\..+)?$" searchPathRef="releaseTrain"/>
+  <rm:locator pattern="^org\.eclipse\.xpand(\..+)?$" searchPathRef="releaseTrain"/>
+  <rm:locator pattern="^org\.eclipse\.xtend(\..+)?$" searchPathRef="releaseTrain"/>
   <rm:locator pattern="^org\.eclipse\.buckminster(\..+)?$" searchPathRef="buckminster"/>
   <rm:locator pattern="^org\.eclipse\.m2e(\..+)?$" searchPathRef="m2e"/>
   <rm:locator pattern="^ch\.qos\.logback(\..+)?$" searchPathRef="m2e"/>
@@ -35,6 +37,13 @@
       <rm:property key="buckminster.source" value="false"/>
       <rm:property key="buckminster.mutable" value="false"/>
       <rm:uri format="http://download.eclipse.org/releases/indigo"/>
+    </rm:provider>
+  </rm:searchPath>
+  <rm:searchPath name="m2t">
+    <rm:provider componentTypes="osgi.bundle,eclipse.feature" readerType="p2" source="false" mutable="false">
+      <rm:property key="buckminster.source" value="false"/>
+      <rm:property key="buckminster.mutable" value="false"/>
+      <rm:uri format="http://download.eclipse.org/modeling/m2t/updates/releases/helios"/>
     </rm:provider>
   </rm:searchPath>
   <rm:searchPath name="xtext">

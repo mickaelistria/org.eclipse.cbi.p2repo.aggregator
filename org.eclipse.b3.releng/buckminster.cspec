@@ -4,6 +4,10 @@
         <cs:dependency name="org.eclipse.b3.site.eclipse" componentType="eclipse.feature"/>
         <cs:dependency name="org.eclipse.b3.site.eclipse.headless" componentType="eclipse.feature"/>
         <cs:dependency name="org.eclipse.rcp" componentType="eclipse.feature"/>
+        <cs:dependency name="org.eclipse.b3.beelang.generator" componentType="osgi.bundle" filter="(with.beelang.generator=true)"/>
+        <cs:dependency name="org.eclipse.b3.beelang.tests" componentType="osgi.bundle" filter="(with.beelang=true)"/>
+        <cs:dependency name="org.eclipse.b3.build.ui" componentType="osgi.bundle" filter="(with.build=true)"/>
+        <cs:dependency name="org.eclipse.b3.build.ui.idefragment" componentType="osgi.bundle" filter="(with.build=true)"/>
     </cs:dependencies>
     <cs:actions>
         <cs:public name="clear.site.eclipse" actor="ant" always="true">
