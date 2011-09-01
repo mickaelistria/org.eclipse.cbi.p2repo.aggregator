@@ -58,7 +58,7 @@
             <cs:prerequisites alias="action.requirements">
                 <cs:attribute name="site.zips"/>
             </cs:prerequisites>
-            <cs:products alias="action.output" base="${b3.download.area}/archivedsites-${site.suffix}/"/>
+            <cs:products alias="action.output" base="${b3.archive.area}/archivedsites-${site.suffix}/"/>
         </cs:public>
     </cs:actions>
     <cs:groups>
