@@ -266,6 +266,9 @@ public class Builder extends ModelAbstractCommand {
 		TIMESTAMP_FORMAT.setTimeZone(utc);
 	}
 
+	private static final String[] compositeFileNames = {
+			"compositeContent.jar", "compositeContent.xml", "content.jar", "content.xml" };
+
 	/**
 	 * Creates a repository location without the trailing slash that will be added if the standard {@link java.io.File#toURI()} is used.
 	 * 
@@ -293,50 +296,12 @@ public class Builder extends ModelAbstractCommand {
 		throw ExceptionUtils.fromMessage("File %s is not an absolute path", repoLocation);
 	}
 
-	private static boolean deleteAndCheck(File folder, String fileName) throws CoreException {
-		File file = new File(folder, fileName);
-		try {
-			return file.delete();
-		}
-		finally {
-			if(file.exists())
-				throw ExceptionUtils.fromMessage("Unable to delete file %s\n", file.getAbsolutePath());
-		}
-	}
-
-	private static boolean deleteMetadataRepository(IMetadataRepositoryManager mdrMgr, File repoFolder)
+	private static void deleteMetadataRepository(IMetadataRepositoryManager mdrMgr, File repoFolder)
 			throws CoreException {
 		URI repoURI = Builder.createURI(repoFolder);
-		boolean folderWasRepo = false;
-
-		if(mdrMgr.removeRepository(repoURI))
-			folderWasRepo = true;
-		if(deleteAndCheck(repoFolder, "compositeContent.jar") && !folderWasRepo)
-			folderWasRepo = true;
-		if(deleteAndCheck(repoFolder, "compositeContent.xml") && !folderWasRepo)
-			folderWasRepo = true;
-		if(deleteAndCheck(repoFolder, "content.jar") && !folderWasRepo)
-			folderWasRepo = true;
-		if(deleteAndCheck(repoFolder, "content.xml") && !folderWasRepo)
-			folderWasRepo = true;
-
-		return folderWasRepo;
-	}
-
-	private static void deleteTwoLevelMetadataRepository(IMetadataRepositoryManager mdrMgr, File repoFolder)
-			throws CoreException {
-		deleteMetadataRepository(mdrMgr, repoFolder);
-
-		File[] secondLevelRepositories = repoFolder.listFiles();
-		if(secondLevelRepositories != null) {
-			for(File repoSubFolder : repoFolder.listFiles()) {
-				if(repoSubFolder.isDirectory()) {
-					if(deleteMetadataRepository(mdrMgr, repoSubFolder))
-						// try to delete the directory if it seems it used to be a metadata repository
-						repoSubFolder.delete();
-				}
-			}
-		}
+		mdrMgr.removeRepository(repoURI);
+		for(String name : compositeFileNames)
+			new File(repoFolder, name).delete();
 	}
 
 	public static String getExceptionMessages(Throwable e) {
@@ -551,14 +516,16 @@ public class Builder extends ModelAbstractCommand {
 		safeRepositoryNames.clear();
 	}
 
-	private void cleanMetadata() throws CoreException {
+	private void cleanMetadata(boolean forValidation) throws CoreException {
 		IMetadataRepositoryManager mdrMgr = getMdrManager();
-		File finalRepo = new File(buildRoot, Builder.REPO_FOLDER_FINAL);
-		deleteMetadataRepository(mdrMgr, finalRepo);
-		deleteTwoLevelMetadataRepository(mdrMgr, new File(finalRepo, Builder.REPO_FOLDER_AGGREGATE));
+		if(!forValidation) {
+			File finalRepo = new File(buildRoot, Builder.REPO_FOLDER_FINAL);
+			deleteMetadataRepository(mdrMgr, finalRepo);
+			deleteMetadataRepository(mdrMgr, new File(finalRepo, Builder.REPO_FOLDER_AGGREGATE));
+		}
 		File interimRepo = new File(buildRoot, Builder.REPO_FOLDER_INTERIM);
 		deleteMetadataRepository(mdrMgr, interimRepo);
-		deleteTwoLevelMetadataRepository(mdrMgr, new File(interimRepo, Builder.REPO_FOLDER_VERIFICATION));
+		deleteMetadataRepository(mdrMgr, new File(interimRepo, Builder.REPO_FOLDER_VERIFICATION));
 	}
 
 	private void finishMirroring(IProgressMonitor monitor) throws CoreException {
@@ -1025,6 +992,18 @@ public class Builder extends ModelAbstractCommand {
 	private void initMirroring(IProgressMonitor monitor) throws CoreException {
 		File destination = new File(getBuildRoot(), Builder.REPO_FOLDER_FINAL);
 		File aggregateDestination = new File(destination, Builder.REPO_FOLDER_AGGREGATE);
+
+		// Forget these repositories
+		URI destURI = createURI(destination);
+		URI aggrURI = createURI(aggregateDestination);
+		IMetadataRepositoryManager mdrMgr = getMdrManager();
+		mdrMgr.removeRepository(destURI);
+		mdrMgr.removeRepository(aggrURI);
+
+		IArtifactRepositoryManager arMgr = getArManager();
+		arMgr.removeRepository(destURI);
+		arMgr.removeRepository(aggrURI);
+
 		if(action == ActionType.CLEAN_BUILD) {
 			FileUtils.deleteAll(destination);
 			aggregateDestination.mkdirs();
@@ -1032,29 +1011,38 @@ public class Builder extends ModelAbstractCommand {
 			return;
 		}
 
-		// Forget these meta-data repositories
-		IMetadataRepositoryManager mdrMgr = getMdrManager();
-		mdrMgr.removeRepository(destination.toURI());
-		mdrMgr.removeRepository(aggregateDestination.toURI());
-
 		// Preserve artifacts
-		FileUtils.deleteAll(aggregateDestination);
-		aggregateDestination.mkdirs();
+		boolean moveArtifacts;
+		File compArts = new File(destination, "compositeArtifacts.jar");
+		if(compArts.exists()) {
+			// Artifacts are already under 'aggregate' folder. Just delete the
+			// composite.
+			getArManager().removeRepository(createURI(destination));
+			moveArtifacts = false;
+		}
+		else {
+			FileUtils.deleteAll(aggregateDestination);
+			aggregateDestination.mkdirs();
+			moveArtifacts = true;
+		}
+
 		for(String name : destination.list()) {
 			if(name.equals(Builder.REPO_FOLDER_AGGREGATE))
 				continue;
 
 			File oldLocation = new File(destination, name);
-			if(name.equals("compositeArtifacts.xml") || name.equals("compositeContent.xml") ||
+			if(name.equals("compositeArtifacts.xml") || name.equals("compositeArtifacts.jar") ||
+					name.equals("compositeContent.xml") || name.equals("compositeContent.jar") ||
 					name.equals("content.xml") || name.equals("content.jar") || name.equals("p2.index")) {
 				oldLocation.delete();
 				continue;
 			}
-
-			File newLocation = new File(aggregateDestination, name);
-			if(!oldLocation.renameTo(newLocation))
-				throw ExceptionUtils.fromMessage(
-					"Unable to move %s to %s", oldLocation.getAbsolutePath(), newLocation.getAbsolutePath());
+			if(moveArtifacts) {
+				File newLocation = new File(aggregateDestination, name);
+				if(!oldLocation.renameTo(newLocation))
+					throw ExceptionUtils.fromMessage(
+						"Unable to move %s to %s", oldLocation.getAbsolutePath(), newLocation.getAbsolutePath());
+			}
 		}
 		refreshBuildRoot(monitor);
 	}
@@ -1594,7 +1582,7 @@ public class Builder extends ModelAbstractCommand {
 			mdrManager = P2Utils.getRepositoryManager(provisioningAgent, IMetadataRepositoryManager.class);
 
 			if(action != ActionType.CLEAN_BUILD)
-				cleanMetadata();
+				cleanMetadata(action == ActionType.VALIDATE);
 			cleanMemoryCaches();
 
 			// Associate current resource set with the dedicated provisioning agent
