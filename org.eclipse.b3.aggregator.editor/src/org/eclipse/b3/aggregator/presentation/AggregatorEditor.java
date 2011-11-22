@@ -27,6 +27,7 @@ import org.eclipse.b3.aggregator.p2.provider.MetadataRepositoryItemProvider;
 import org.eclipse.b3.aggregator.p2.provider.ProvidedCapabilityItemProvider;
 import org.eclipse.b3.aggregator.p2.provider.RequiredCapabilityItemProvider;
 import org.eclipse.b3.aggregator.p2.util.MetadataRepositoryResourceImpl;
+import org.eclipse.b3.aggregator.p2view.MetadataRepositoryStructuredView;
 import org.eclipse.b3.aggregator.p2view.P2viewFactory;
 import org.eclipse.b3.aggregator.p2view.RepositoryBrowser;
 import org.eclipse.b3.aggregator.p2view.provider.P2viewItemProviderAdapterFactory;
@@ -1370,10 +1371,13 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 		}
 
 		if(foundNode != null) {
-			Object[] fullPath = new Object[foundNode.length + 1];
-			fullPath[0] = repositoryBrowser;
-			System.arraycopy(foundNode, 0, fullPath, 1, foundNode.length);
-			getViewer().setSelection(new TreeSelection(new TreePath(fullPath)), true);
+			if(foundNode[0] instanceof MetadataRepositoryStructuredView) {
+				Object[] fullPath = new Object[foundNode.length + 1];
+				fullPath[0] = repositoryBrowser;
+				System.arraycopy(foundNode, 0, fullPath, 1, foundNode.length);
+				foundNode = fullPath;
+			}
+			getViewer().setSelection(new TreeSelection(new TreePath(foundNode)), true);
 			return true;
 		}
 
@@ -1621,6 +1625,10 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 		}
 
 		return propertySheetPage;
+	}
+
+	RepositoryBrowser getRepositoryBrowser() {
+		return repositoryBrowser;
 	}
 
 	private Resource getResourceByURI(URI uri) {

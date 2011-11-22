@@ -688,27 +688,6 @@ public class MetadataRepositoryResourceImpl extends ResourceImpl implements Stat
 
 	// each IU is located in the structured view twice 1) under Categories node, 2) under Features (Bundles, ..) node
 	// skipCategoriesSubTree filters out the Categories subtree
-	public TwoColumnMatrix<IUPresentation, Object[]> findIUPresentations(Pattern iuIdPattern,
-			VersionRange iuVersionRange, boolean skipCategoriesSubTree) {
-		TwoColumnMatrix<IUPresentation, Object[]> found = new TwoColumnMatrix<IUPresentation, Object[]>();
-
-		for(int i = 0; i < allIUPresentationMatrix.size(); i++) {
-			IUPresentation iup = allIUPresentationMatrix.getKey(i);
-			if(iup == null)
-				continue;
-
-			IInstallableUnit iu = iup.getInstallableUnit();
-
-			if(iuIdPattern.matcher(iu.getId()).find() && iuVersionRange.isIncluded(iu.getVersion()))
-				if(!skipCategoriesSubTree || !(allIUPresentationMatrix.getValue(i)[2] instanceof Categories))
-					found.add(iup, allIUPresentationMatrix.getValue(i));
-		}
-
-		return found;
-	}
-
-	// each IU is located in the structured view twice 1) under Categories node, 2) under Features (Bundles, ..) node
-	// skipCategoriesSubTree filters out the Categories subtree
 	public TwoColumnMatrix<IUPresentation, Object[]> findIUPresentationsWhichSatisfies(IRequirement rc,
 			boolean skipCategoriesSubTree) {
 		TwoColumnMatrix<IUPresentation, Object[]> found = new TwoColumnMatrix<IUPresentation, Object[]>();
@@ -720,9 +699,11 @@ public class MetadataRepositoryResourceImpl extends ResourceImpl implements Stat
 
 			IInstallableUnit iu = iup.getInstallableUnit();
 
-			if(iu.satisfies(rc))
-				if(!skipCategoriesSubTree || !(allIUPresentationMatrix.getValue(i)[3] instanceof Categories))
+			if(iu.satisfies(rc)) {
+				Object[] path = allIUPresentationMatrix.getValue(i);
+				if(!(skipCategoriesSubTree && path[path.length - 2] instanceof Categories))
 					found.add(iup, allIUPresentationMatrix.getValue(i));
+			}
 		}
 
 		return found;

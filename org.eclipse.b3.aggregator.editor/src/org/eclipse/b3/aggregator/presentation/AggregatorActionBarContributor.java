@@ -593,10 +593,11 @@ public class AggregatorActionBarContributor extends EditingDomainActionBarContri
 					}
 					else if(foundIUs.size() == 1 && foundIUs.values().size() == 1) {
 						TwoColumnMatrix<IUPresentation, Object[]> foundIU = foundIUs.values().iterator().next();
-
-						viewer.setSelection(
-							new TreeSelection(new TreePath(foundIU.getValue(0)).createChildPath(foundIU.getKey(0))),
-							true);
+						Object[] path = foundIU.getValue(0).clone();
+						path[0] = ((AggregatorEditor) getActiveEditor()).getRepositoryBrowser();
+						TreeSelection selection = new TreeSelection(
+							new TreePath(path).createChildPath(foundIU.getKey(0)));
+						viewer.setSelection(selection, true);
 					}
 					else {
 
@@ -734,11 +735,13 @@ public class AggregatorActionBarContributor extends EditingDomainActionBarContri
 										else if(selection instanceof TwoColumnMatrix<?, ?>.MatrixEntry)
 											matrixEntry = (TwoColumnMatrix<IUPresentation, Object[]>.MatrixEntry) selection;
 
-										if(matrixEntry != null)
+										if(matrixEntry != null) {
+											Object[] path = matrixEntry.getValue().clone();
+											path[0] = ((AggregatorEditor) getActiveEditor()).getRepositoryBrowser();
 											viewer.setSelection(
 												new TreeSelection(
-													new TreePath(matrixEntry.getValue()).createChildPath(matrixEntry.getKey())),
-												true);
+													new TreePath(path).createChildPath(matrixEntry.getKey())), true);
+										}
 
 									}
 								});
