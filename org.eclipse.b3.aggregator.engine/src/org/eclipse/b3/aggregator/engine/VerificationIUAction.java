@@ -196,8 +196,15 @@ public class VerificationIUAction extends AbstractPublisherAction {
 			boolean isExplicit) {
 
 		String id = RequirementUtils.getName(rc);
-		RepositoryRequirement rq = new RepositoryRequirement(mr, rc, isExplicit);
 
+		// Don't add this requirement if it intersects with an exclusion rule
+		for(MapRule rule : mr.getMapRules(true)) {
+			if(rule instanceof ExclusionRule && id.equals(rule.getName()) &&
+					RequirementUtils.isIntersectingWith(rc, rule.getVersionRange()))
+				return;
+		}
+
+		RepositoryRequirement rq = new RepositoryRequirement(mr, rc, isExplicit);
 		Set<RepositoryRequirement> repoReqs = requirements.get(id);
 		if(repoReqs == null)
 			requirements.put(id, repoReqs = new HashSet<RepositoryRequirement>());
@@ -274,6 +281,12 @@ public class VerificationIUAction extends AbstractPublisherAction {
 
 		for(RepositoryRequirement req : repoReqs)
 			req.requirement = modifiedReq;
+	}
+
+	private IRequirement createRejection(ExclusionRule exclusionRule) {
+		return MetadataFactory.createRequirement(
+			PublisherHelper.IU_NAMESPACE, exclusionRule.getName(), exclusionRule.getVersionRange(), null, 0, 0, false,
+			exclusionRule.getDescription());
 	}
 
 	public String getRelativeEObjectURI(EObject eObject) {
@@ -398,6 +411,30 @@ public class VerificationIUAction extends AbstractPublisherAction {
 				MappedRepository repository = crEntry.getKey();
 				ArrayList<IRequirement> crList = crEntry.getValue();
 
+				List<IRequirement> rejections = new ArrayList<IRequirement>();
+				for(MapRule rule : repository.getMapRules(true)) {
+					if(rule instanceof ExclusionRule) {
+						// Add a negative requirement that excludes the IU
+						rejections.add(createRejection((ExclusionRule) rule));
+					}
+				}
+
+				if(!rejections.isEmpty()) {
+					InstallableUnitDescription rejecter = new MetadataFactory.InstallableUnitDescription();
+					rejecter.setId(builder.getMappedRepositoryVerificationIUName(repository) + "_rejections");
+					rejecter.setVersion(Builder.ALL_CONTRIBUTED_CONTENT_VERSION);
+					rejecter.setProperty(Builder.PROP_AGGREGATOR_GENERATED_IU, Boolean.TRUE.toString());
+					rejecter.addProvidedCapabilities(Collections.singletonList(createSelfCapability(
+						rejecter.getId(), rejecter.getVersion())));
+					// add the IUs representing contributions as requirements of the verification IU
+					rejecter.setRequirements(rejections.toArray(new IRequirement[rejections.size()]));
+					IInstallableUnit rejecterIU = MetadataFactory.createInstallableUnit(rejecter);
+					results.addIU(rejecterIU, IPublisherResult.NON_ROOT);
+					crList.add(MetadataFactory.createRequirement(
+						PublisherHelper.IU_NAMESPACE, rejecterIU.getId(), new VersionRange(
+							rejecterIU.getVersion(), true, rejecterIU.getVersion(), true), null, 1, 1, true));
+				}
+
 				iuDescription.setId(builder.getMappedRepositoryVerificationIUName(repository));
 				iuDescription.setVersion(Builder.ALL_CONTRIBUTED_CONTENT_VERSION);
 				iuDescription.setProperty(InstallableUnitDescription.PROP_TYPE_GROUP, Boolean.TRUE.toString());
@@ -414,6 +451,7 @@ public class VerificationIUAction extends AbstractPublisherAction {
 						iuDescription.getVersion(), true, iuDescription.getVersion(), true), null, false, false));
 
 				results.addIU(MetadataFactory.createInstallableUnit(iuDescription), IPublisherResult.NON_ROOT);
+
 			}
 
 			// add the verification IU

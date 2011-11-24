@@ -398,37 +398,25 @@ public class MetadataRepositoryResourceImpl extends ResourceImpl implements Stat
 			categoryTreePath[len] = category;
 
 			for(IRequirement requirement : category.getInstallableUnit().getRequirements()) {
-				if(!(requirement instanceof IRequiredCapability))
-					continue;
+				for(IUPresentation iuPresentation : findMatchinIUs(requirement, iuMap)) {
+					if(visited.contains(iuPresentation))
+						// there's a recursion
+						continue;
 
-				IRequiredCapability rc = (IRequiredCapability) requirement;
-
-				VersionRange range = rc.getRange();
-				if(!range.getMinimum().equals(range.getMaximum()) || !range.getIncludeMinimum() ||
-						!range.getIncludeMaximum())
-					continue;
-				Map<Version, IUPresentation> iuCandidates = iuMap.get(rc.getName());
-				if(iuCandidates == null)
-					continue;
-
-				IUPresentation iuPresentation = iuCandidates.get(range.getMinimum());
-				if(iuPresentation == null || visited.contains(iuPresentation))
-					// nothing found or there's a recursion
-					continue;
-
-				allIUMatrix.add(++idx, iuPresentation, categoryTreePath);
-				if(iuPresentation instanceof Category) {
-					categories.add((Category) iuPresentation);
-					exploreCategory((Category) iuPresentation, iuMap, visited);
+					allIUMatrix.add(++idx, iuPresentation, categoryTreePath);
+					if(iuPresentation instanceof Category) {
+						categories.add((Category) iuPresentation);
+						exploreCategory((Category) iuPresentation, iuMap, visited);
+					}
+					else if(iuPresentation instanceof Feature)
+						features.add((Feature) iuPresentation);
+					else if(iuPresentation instanceof Product)
+						products.add((Product) iuPresentation);
+					else if(iuPresentation instanceof Fragment)
+						fragments.add((Fragment) iuPresentation);
+					else if(iuPresentation instanceof Bundle)
+						bundles.add((Bundle) iuPresentation);
 				}
-				else if(iuPresentation instanceof Feature)
-					features.add((Feature) iuPresentation);
-				else if(iuPresentation instanceof Product)
-					products.add((Product) iuPresentation);
-				else if(iuPresentation instanceof Fragment)
-					fragments.add((Fragment) iuPresentation);
-				else if(iuPresentation instanceof Bundle)
-					bundles.add((Bundle) iuPresentation);
 			}
 
 			if(categories.size() > 0) {
@@ -451,6 +439,22 @@ public class MetadataRepositoryResourceImpl extends ResourceImpl implements Stat
 				Collections.sort(fragments, IUPresentation.COMPARATOR);
 				category.getNotNullFragmentContainer().getFragments().addAll(fragments);
 			}
+		}
+
+		private List<IUPresentation> findMatchinIUs(IRequirement rq, Map<String, Map<Version, IUPresentation>> iuMap) {
+			List<IUPresentation> found = new ArrayList<IUPresentation>();
+			if(rq instanceof IRequiredCapability) {
+				Map<Version, IUPresentation> vps = iuMap.get(((IRequiredCapability) rq).getName());
+				if(vps != null)
+					for(Map.Entry<Version, IUPresentation> vp : vps.entrySet())
+						if(vp.getValue().getInstallableUnit().satisfies(rq))
+							found.add(vp.getValue());
+			}
+			for(Map<Version, IUPresentation> vps : iuMap.values())
+				for(Map.Entry<Version, IUPresentation> vp : vps.entrySet())
+					if(vp.getValue().getInstallableUnit().satisfies(rq))
+						found.add(vp.getValue());
+			return found;
 		}
 
 		public Exception getException() {

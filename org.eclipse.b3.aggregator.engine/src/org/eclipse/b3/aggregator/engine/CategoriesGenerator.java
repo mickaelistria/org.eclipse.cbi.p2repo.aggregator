@@ -14,6 +14,7 @@ import org.eclipse.b3.aggregator.ExclusionRule;
 import org.eclipse.b3.aggregator.Feature;
 import org.eclipse.b3.aggregator.MapRule;
 import org.eclipse.b3.aggregator.MappedRepository;
+import org.eclipse.b3.aggregator.engine.internal.RequirementUtils;
 import org.eclipse.b3.p2.InstallableUnit;
 import org.eclipse.b3.p2.MetadataRepository;
 import org.eclipse.b3.p2.P2Factory;
@@ -31,6 +32,7 @@ import org.eclipse.equinox.internal.p2.metadata.IRequiredCapability;
 import org.eclipse.equinox.p2.metadata.IInstallableUnit;
 import org.eclipse.equinox.p2.metadata.IProvidedCapability;
 import org.eclipse.equinox.p2.metadata.IRequirement;
+import org.eclipse.equinox.p2.metadata.IVersionedId;
 import org.eclipse.equinox.p2.metadata.MetadataFactory.InstallableUnitDescription;
 import org.eclipse.equinox.p2.metadata.Version;
 import org.eclipse.equinox.p2.metadata.VersionRange;
@@ -70,6 +72,13 @@ public class CategoriesGenerator extends BuilderPhase {
 		providedCaps.add(providedCap);
 	}
 
+	private static boolean isExcluded(MappedRepository repo, IVersionedId iu) {
+		for(MapRule rule : repo.getMapRules(true))
+			if(rule instanceof ExclusionRule && RequirementUtils.isIncluded(rule, iu))
+				return true;
+		return false;
+	}
+
 	public CategoriesGenerator(Builder builder) {
 		super(builder);
 	}
@@ -95,7 +104,6 @@ public class CategoriesGenerator extends BuilderPhase {
 				continue;
 
 			rcs.add(P2Bridge.importToModel(feature.getRequirement()));
-
 			VersionedId vn = new VersionedId(feature.getName(), feature.getVersionRange().getMinimum());
 			if(vn.getId().endsWith(Builder.FEATURE_GROUP_SUFFIX))
 				includedFeatures.add(vn);
@@ -123,19 +131,14 @@ public class CategoriesGenerator extends BuilderPhase {
 			for(Category category : repo.getCategories()) {
 				if(category.isEnabled()) {
 					IInstallableUnit iu = category.resolveAsSingleton();
-					if(builder.isTopLevelCategory(iu))
+					if(builder.isTopLevelCategory(iu) && !isExcluded(repo, iu))
 						categoryIUs.add(iu);
 				}
 			}
 		}
 		else {
-			List<MapRule> mapRules = repo.getMapRules(true);
-			allIUs: for(IInstallableUnit iu : repo.getMetadataRepository().getInstallableUnits()) {
-				if(builder.isTopLevelCategory(iu)) {
-					for(MapRule mapRule : mapRules)
-						if(mapRule instanceof ExclusionRule && iu.getId().equals(mapRule.getName()) &&
-								mapRule.getVersionRange().isIncluded(iu.getVersion()))
-							continue allIUs;
+			for(IInstallableUnit iu : repo.getMetadataRepository().getInstallableUnits()) {
+				if(builder.isTopLevelCategory(iu) && !isExcluded(repo, iu)) {
 					categoryIUs.add(iu);
 				}
 			}

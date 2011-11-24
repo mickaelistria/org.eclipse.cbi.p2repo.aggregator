@@ -113,7 +113,7 @@ public class SourceCompositeGenerator extends BuilderPhase {
 				errorsFound = true;
 			}
 		}
-		MonitorUtils.done(subMon);
+		MonitorUtils.done(monitor);
 		LogUtils.info("Done. Took %s", TimeUtils.getFormattedDuration(start)); //$NON-NLS-1$
 		if(errorsFound)
 			throw ExceptionUtils.fromMessage("CompositeRepository generation was not successful");

@@ -485,7 +485,7 @@ public class MirrorGenerator extends BuilderPhase {
 			}
 		}
 		finally {
-			MonitorUtils.done(subMon);
+			MonitorUtils.done(monitor);
 		}
 		LogUtils.info("Done. Took %s", TimeUtils.getFormattedDuration(start)); //$NON-NLS-1$
 		if(artifactErrors)

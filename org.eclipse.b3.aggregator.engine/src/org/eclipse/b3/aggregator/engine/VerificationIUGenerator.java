@@ -1,6 +1,7 @@
 package org.eclipse.b3.aggregator.engine;
 
 import java.io.File;
+import java.lang.reflect.InvocationTargetException;
 import java.net.URI;
 import java.util.HashMap;
 import java.util.Map;
@@ -12,10 +13,13 @@ import org.eclipse.b3.util.TimeUtils;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
+import org.eclipse.core.runtime.OperationCanceledException;
+import org.eclipse.core.runtime.Status;
 import org.eclipse.equinox.internal.p2.core.helpers.FileUtils;
 import org.eclipse.equinox.p2.publisher.IPublisherAction;
 import org.eclipse.equinox.p2.publisher.Publisher;
 import org.eclipse.equinox.p2.publisher.PublisherInfo;
+import org.eclipse.equinox.p2.repository.IRunnableWithProgress;
 import org.eclipse.equinox.p2.repository.metadata.IMetadataRepository;
 import org.eclipse.equinox.p2.repository.metadata.IMetadataRepositoryManager;
 
@@ -62,14 +66,20 @@ public class VerificationIUGenerator extends BuilderPhase {
 			// TODO Use this to activate the "version enumeration" policy workaround
 			// IMetadataRepository mdr = mdrMgr.createRepository(locationURI, name, Builder.INTERNAL_METADATA_TYPE,
 			// properties);
-			IMetadataRepository mdr = mdrMgr.createRepository(
+			final IMetadataRepository mdr = mdrMgr.createRepository(
 				locationURI, name, Builder.SIMPLE_METADATA_TYPE, properties);
-			PublisherInfo pubInfo = new PublisherInfo();
-			pubInfo.setMetadataRepository(mdr);
-			Publisher publisher = new Publisher(pubInfo);
-			IStatus result = publisher.publish(createActions(mdr), MonitorUtils.subMonitor(monitor, 90));
-			if(result.getSeverity() == IStatus.ERROR)
-				throw new CoreException(result);
+			final IStatus[] publishResult = new IStatus[] { Status.OK_STATUS };
+			mdr.executeBatch(new IRunnableWithProgress() {
+				@Override
+				public void run(IProgressMonitor monitor) throws InvocationTargetException, OperationCanceledException {
+					PublisherInfo pubInfo = new PublisherInfo();
+					pubInfo.setMetadataRepository(mdr);
+					Publisher publisher = new Publisher(pubInfo);
+					publishResult[0] = publisher.publish(createActions(mdr), MonitorUtils.subMonitor(monitor, 90));
+				}
+			}, MonitorUtils.subMonitor(monitor, 90));
+			if(publishResult[0].getSeverity() == IStatus.ERROR)
+				throw new CoreException(publishResult[0]);
 
 			getBuilder().getSourceComposite(validationSet).addChild(mdr.getLocation());
 		}

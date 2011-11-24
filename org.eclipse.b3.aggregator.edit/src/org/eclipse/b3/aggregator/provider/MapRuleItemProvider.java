@@ -23,8 +23,8 @@ import org.eclipse.b3.aggregator.MappedRepository;
 import org.eclipse.b3.aggregator.util.SpecialQueries;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemColorProvider;
 import org.eclipse.emf.edit.provider.IItemFontProvider;
@@ -99,8 +99,11 @@ public class MapRuleItemProvider extends InstallableUnitRequestItemProvider impl
 
 	@Override
 	protected IQuery<IInstallableUnit> getInstallableUnitQuery() {
-		return QueryUtil.createCompoundQuery(
-			SpecialQueries.createProductQuery(), SpecialQueries.createFeatureQuery(), false);
+		List<IQuery<IInstallableUnit>> queries = new ArrayList<IQuery<IInstallableUnit>>();
+		queries.add(SpecialQueries.createProductQuery());
+		queries.add(SpecialQueries.createFeatureQuery());
+		queries.add(SpecialQueries.createBundleQuery());
+		return QueryUtil.createCompoundQuery(queries, false);
 	}
 
 	/**

@@ -14,7 +14,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import org.eclipse.b3.aggregator.MapRule;
 import org.eclipse.b3.p2.MetadataRepository;
+import org.eclipse.b3.util.Trivial;
 import org.eclipse.buckminster.osgi.filter.Filter;
 import org.eclipse.buckminster.osgi.filter.FilterFactory;
 import org.eclipse.equinox.internal.p2.metadata.IRequiredCapability;
@@ -23,6 +25,7 @@ import org.eclipse.equinox.internal.p2.metadata.expression.LDAPFilter;
 import org.eclipse.equinox.internal.p2.metadata.expression.MatchExpression;
 import org.eclipse.equinox.p2.metadata.IInstallableUnit;
 import org.eclipse.equinox.p2.metadata.IRequirement;
+import org.eclipse.equinox.p2.metadata.IVersionedId;
 import org.eclipse.equinox.p2.metadata.MetadataFactory;
 import org.eclipse.equinox.p2.metadata.Version;
 import org.eclipse.equinox.p2.metadata.VersionRange;
@@ -140,6 +143,38 @@ public class RequirementUtils {
 			return ((MultiRangeRequirement) req).getName();
 
 		throw new RuntimeException("Unable to extract IU name from requirement of class " + req.getClass().getName());
+	}
+
+	public static boolean isIncluded(MapRule rule, IVersionedId iu) {
+		if(rule == null || iu == null)
+			return false;
+
+		if(!Trivial.equalsAllowNull(rule.getName(), iu.getId()))
+			return false;
+
+		VersionRange range = rule.getVersionRange();
+		return range == null
+				? true
+				: range.isIncluded(iu.getVersion());
+	}
+
+	/**
+	 * @param rc
+	 * @return
+	 */
+	public static boolean isIntersectingWith(IRequirement req, VersionRange range) {
+		if(range == null)
+			return true;
+		if(req == null)
+			return false;
+		if(req instanceof IRequiredCapability)
+			return ((IRequiredCapability) req).getRange().intersect(range) != null;
+		else if(req instanceof MultiRangeRequirement)
+			for(VersionRange r : ((MultiRangeRequirement) req).getVersionRanges())
+				if(r.intersect(range) != null)
+					return true;
+
+		return false;
 	}
 
 	/**

@@ -789,7 +789,7 @@ public class ValidationSetVerifier extends BuilderPhase {
 			throw ExceptionUtils.wrap(e);
 		}
 		finally {
-			MonitorUtils.done(subMon);
+			MonitorUtils.done(monitor);
 			P2Utils.ungetProfileRegistry(builder.getProvisioningAgent(), profileRegistry);
 			P2Utils.ungetPlanner(builder.getProvisioningAgent(), planner);
 			LogUtils.info("Done. Took %s", TimeUtils.getFormattedDuration(start)); //$NON-NLS-1$
