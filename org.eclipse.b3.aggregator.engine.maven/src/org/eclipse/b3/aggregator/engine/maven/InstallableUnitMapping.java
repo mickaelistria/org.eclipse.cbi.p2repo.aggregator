@@ -231,6 +231,9 @@ public class InstallableUnitMapping implements IInstallableUnit {
 
 						dependency.setVersion(versionRangeString.toString());
 					}
+					else {
+						dependency.setVersion("[0.0,)");
+					}
 
 					if(cap.getMin() == 0)
 						dependency.setOptional(true);
@@ -309,6 +312,26 @@ public class InstallableUnitMapping implements IInstallableUnit {
 		return installableUnit.compareTo(other);
 	}
 
+	private String extractProperty(Map<String, String> iuProperties, String key) {
+		String value = iuProperties.remove(key);
+
+		if(value != null) {
+			if(value.startsWith("%")) {
+				String localizedKey = "df_LT." + value.substring(1);
+				String localizedValue = iuProperties.remove(localizedKey);
+
+				if(localizedValue != null)
+					value = localizedValue;
+			}
+		}
+
+		return trimOrNull(value);
+	}
+
+	private String getArtifactFileName() throws CoreException {
+		return getFileName(null);
+	}
+
 	public Collection<IArtifactKey> getArtifacts() {
 		return installableUnit.getArtifacts();
 	}
@@ -327,6 +350,25 @@ public class InstallableUnitMapping implements IInstallableUnit {
 
 	public ICopyright getCopyright(String locale) {
 		return installableUnit.getCopyright(locale);
+	}
+
+	private String getFileName(String extension) throws CoreException {
+		String fileId = getId();
+		StringBuilder fileName = new StringBuilder(fileId);
+		fileName.append('-');
+		fileName.append(getVersionString());
+
+		if(extension == null) {
+			if(!(getMainArtifact() != null && "binary".equals(getMainArtifact().getClassifier()))) {
+				fileName.append(".jar");
+			}
+		}
+		else {
+			fileName.append('.');
+			fileName.append(extension);
+		}
+
+		return fileName.toString();
 	}
 
 	public IMatchExpression<IInstallableUnit> getFilter() {
@@ -468,49 +510,6 @@ public class InstallableUnitMapping implements IInstallableUnit {
 		transientFlag = isTransient;
 	}
 
-	public IInstallableUnit unresolved() {
-		return installableUnit.unresolved();
-	}
-
-	private String extractProperty(Map<String, String> iuProperties, String key) {
-		String value = iuProperties.remove(key);
-
-		if(value != null) {
-			if(value.startsWith("%")) {
-				String localizedKey = "df_LT." + value.substring(1);
-				String localizedValue = iuProperties.remove(localizedKey);
-
-				if(localizedValue != null)
-					value = localizedValue;
-			}
-		}
-
-		return trimOrNull(value);
-	}
-
-	private String getArtifactFileName() throws CoreException {
-		return getFileName(null);
-	}
-
-	private String getFileName(String extension) throws CoreException {
-		String fileId = getId();
-		StringBuilder fileName = new StringBuilder(fileId);
-		fileName.append('-');
-		fileName.append(getVersionString());
-
-		if(extension == null) {
-			if(!(getMainArtifact() != null && "binary".equals(getMainArtifact().getClassifier()))) {
-				fileName.append(".jar");
-			}
-		}
-		else {
-			fileName.append('.');
-			fileName.append(extension);
-		}
-
-		return fileName.toString();
-	}
-
 	private String trimOrNull(String value) {
 		if(value != null) {
 			value = value.trim();
@@ -518,5 +517,9 @@ public class InstallableUnitMapping implements IInstallableUnit {
 				value = null;
 		}
 		return value;
+	}
+
+	public IInstallableUnit unresolved() {
+		return installableUnit.unresolved();
 	}
 }
