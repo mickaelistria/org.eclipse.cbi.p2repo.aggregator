@@ -215,7 +215,7 @@ public class InstallableUnitMapping implements IInstallableUnit {
 						Version low = cap.getRange().getMinimum();
 						Version high = cap.getRange().getMaximum();
 						if(cap.getRange().getIncludeMinimum() && Version.MAX_VERSION.equals(high)) {
-							versionRangeString.append(VersionUtil.getVersionString(low));
+							versionRangeString.append("[").append(VersionUtil.getVersionString(low)).append(",)");
 						}
 						else {
 							versionRangeString.append(cap.getRange().getIncludeMinimum()
