@@ -193,7 +193,7 @@ public class InstallableUnitRequestItemProvider extends AggregatorItemProviderAd
 			name = RepositoryTranslationSupport.getInstance(
 				(MetadataRepository) ((InstallableUnitImpl) iu).eContainer()).getIUProperty(
 				iu, IInstallableUnit.PROP_NAME);
-			if(name.startsWith("%"))
+			if(name != null && name.startsWith("%"))
 				name = null;
 		}
 
