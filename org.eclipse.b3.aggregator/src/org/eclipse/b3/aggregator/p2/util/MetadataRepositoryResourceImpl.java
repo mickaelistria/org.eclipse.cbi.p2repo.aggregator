@@ -155,15 +155,19 @@ public class MetadataRepositoryResourceImpl extends ResourceImpl implements Stat
 
 					// check if the aggregator is still available - if not, it means that the resource has already been excluded
 					if(aggregation != null)
-						for(MetadataRepositoryReference repoRef : aggregation.getAllMetadataRepositoryReferences(true)) {
-							synchronized(repoRef) {
-								String refLocation = repoRef.getNature() + ":" + repoRef.getResolvedLocation();
-								if(myLocation.equals(refLocation)) {
-									repoRef.setMetadataRepository(mdr);
-									repoRef.onRepositoryLoad();
-								}
+						if(myLocation.endsWith("/"))
+							myLocation = myLocation.substring(0, myLocation.length() - 1);
+					for(MetadataRepositoryReference repoRef : aggregation.getAllMetadataRepositoryReferences(true)) {
+						synchronized(repoRef) {
+							String refLocation = repoRef.getNature() + ":" + repoRef.getResolvedLocation();
+							if(refLocation.endsWith("/"))
+								refLocation = refLocation.substring(0, refLocation.length() - 1);
+							if(myLocation.equals(refLocation)) {
+								repoRef.setMetadataRepository(mdr);
+								repoRef.onRepositoryLoad();
 							}
 						}
+					}
 				}
 
 				return status;
@@ -211,6 +215,53 @@ public class MetadataRepositoryResourceImpl extends ResourceImpl implements Stat
 			setUser(false);
 			setSystem(false);
 			setPriority(Job.SHORT);
+		}
+
+		public Exception getException() {
+			return exception;
+		}
+
+		@Override
+		protected IStatus run(IProgressMonitor monitor) {
+			exception = null;
+			String msg = format("Loading repository %s", location);
+			SubMonitor subMon = SubMonitor.convert(monitor, msg, 100);
+			try {
+				loader.open(location, agent, repository);
+				LogUtils.debug(msg);
+				long start = TimeUtils.getNow();
+
+				// avoid resetting the task name when the loader converts the monitor to a SubMonitor
+				// by suppressing the beginTask operation
+				SubMonitor loaderMonitor = subMon.newChild(100, SubMonitor.SUPPRESS_BEGINTASK);
+
+				if(!forceReload)
+					loader.load(loaderMonitor);
+				else
+					loader.reload(loaderMonitor);
+
+				updateAvailableVersions();
+
+				createStructuredView();
+
+				LogUtils.debug("Repository %s loaded (Took %s)", location, TimeUtils.getFormattedDuration(start));
+			}
+			catch(Exception e) {
+				exception = e;
+				LogUtils.error(e, "Unable to load repository %s", location);
+			}
+			finally {
+				try {
+					loader.close();
+				}
+				catch(CoreException e) {
+					exception = e;
+					LogUtils.error(e, "Unable to close repository loader for %s", location);
+				}
+
+				MonitorUtils.done(subMon);
+			}
+			return org.eclipse.core.runtime.Status.OK_STATUS;
 		}
 
 		private void addIUsToMap(Object container, List<? extends IUPresentation> iuPresentations) {
@@ -457,53 +508,6 @@ public class MetadataRepositoryResourceImpl extends ResourceImpl implements Stat
 			return found;
 		}
 
-		public Exception getException() {
-			return exception;
-		}
-
-		@Override
-		protected IStatus run(IProgressMonitor monitor) {
-			exception = null;
-			String msg = format("Loading repository %s", location);
-			SubMonitor subMon = SubMonitor.convert(monitor, msg, 100);
-			try {
-				loader.open(location, agent, repository);
-				LogUtils.debug(msg);
-				long start = TimeUtils.getNow();
-
-				// avoid resetting the task name when the loader converts the monitor to a SubMonitor
-				// by suppressing the beginTask operation
-				SubMonitor loaderMonitor = subMon.newChild(100, SubMonitor.SUPPRESS_BEGINTASK);
-
-				if(!forceReload)
-					loader.load(loaderMonitor);
-				else
-					loader.reload(loaderMonitor);
-
-				updateAvailableVersions();
-
-				createStructuredView();
-
-				LogUtils.debug("Repository %s loaded (Took %s)", location, TimeUtils.getFormattedDuration(start));
-			}
-			catch(Exception e) {
-				exception = e;
-				LogUtils.error(e, "Unable to load repository %s", location);
-			}
-			finally {
-				try {
-					loader.close();
-				}
-				catch(CoreException e) {
-					exception = e;
-					LogUtils.error(e, "Unable to close repository loader for %s", location);
-				}
-
-				MonitorUtils.done(subMon);
-			}
-			return org.eclipse.core.runtime.Status.OK_STATUS;
-		}
-
 		/**
 		 * 
 		 */
@@ -611,66 +615,6 @@ public class MetadataRepositoryResourceImpl extends ResourceImpl implements Stat
 			loadingJob.cancel();
 	}
 
-	@Override
-	protected void doUnload() {
-		super.doUnload();
-		forceReload = true;
-	}
-
-	private List<Object> findIU(List<Object> nodePath, Pattern iuIdPattern, VersionRange iuVersionRange, boolean forward) {
-		List<Object> foundInSubTreePath = null;
-
-		if(forward)
-			foundInSubTreePath = findIUInSubTree(nodePath, iuIdPattern, iuVersionRange);
-		else
-			foundInSubTreePath = findIUInNode(nodePath, iuIdPattern, iuVersionRange);
-
-		if(foundInSubTreePath != null)
-			return foundInSubTreePath;
-
-		List<Object> nextNodePath = getNextNode(nodePath, forward);
-
-		if(nextNodePath != null)
-			return findIU(nextNodePath, iuIdPattern, iuVersionRange, forward);
-
-		return null;
-	}
-
-	private List<Object> findIUInNode(List<Object> nodePath, Pattern iuIdPattern, VersionRange iuVersionRange) {
-		Object node = nodePath.get(nodePath.size() - 1);
-
-		if(node instanceof IUPresentation) {
-			IUPresentation iup = (IUPresentation) node;
-			IInstallableUnit iu = iup.getInstallableUnit();
-			if(iuIdPattern.matcher(iu.getId()).find() && iuVersionRange.isIncluded(iu.getVersion()))
-				return nodePath;
-		}
-
-		return null;
-	}
-
-	private List<Object> findIUInSubTree(List<Object> nodePath, Pattern iuIdPattern, VersionRange iuVersionRange) {
-		List<Object> foundIUPath = findIUInNode(nodePath, iuIdPattern, iuVersionRange);
-		if(foundIUPath != null)
-			return foundIUPath;
-
-		Object node = nodePath.get(nodePath.size() - 1);
-
-		if(node instanceof ChildrenProvider<?>) {
-			for(Object child : ((ChildrenProvider<?>) node).getChildren()) {
-				List<Object> childPath = new ArrayList<Object>(nodePath);
-				childPath.add(child);
-
-				foundIUPath = findIUInSubTree(childPath, iuIdPattern, iuVersionRange);
-
-				if(foundIUPath != null)
-					return foundIUPath;
-			}
-		}
-
-		return null;
-	}
-
 	public Object[] findIUPresentation(Pattern iuIdPattern, VersionRange iuVersionRange, Object[] startAfterPath,
 			boolean forward) {
 		List<Object> firstNodePath = null;
@@ -713,101 +657,12 @@ public class MetadataRepositoryResourceImpl extends ResourceImpl implements Stat
 		return found;
 	}
 
-	private void finishLoading(Map<?, ?> options) {
-		Notification notification = null;
-		synchronized(this) {
-			isLoading = false;
-			loadingJob = null;
-			notification = setLoaded(true);
-		}
-
-		if(notification != null) {
-			if(options.containsKey(NOTIFICATION_KEY)) {
-				Notification notificationRef[] = (Notification[]) options.get(NOTIFICATION_KEY);
-				notificationRef[0] = notification;
-			}
-			else
-				eNotify(notification);
-		}
-		setModified(false);
-	}
-
-	private Aggregation getAggregation() {
-		ResourceSet rs = getResourceSet();
-		if(rs != null) {
-			List<Resource> resources = rs.getResources();
-			if(resources != null && resources.size() > 0) {
-				Resource aggrResource = resources.get(0);
-				if(aggrResource != null)
-					return (Aggregation) aggrResource.getContents().get(0);
-			}
-		}
-
-		return null;
-	}
-
 	public org.eclipse.emf.common.util.Diagnostic getDiagnostic() {
 		return diagnostic;
 	}
 
-	private List<Object> getFirstNode(Object[] startAfterPath, boolean forward) {
-		List<Object> firstNodePath = new ArrayList<Object>();
-
-		if(startAfterPath == null) {
-			firstNodePath.add(repoView);
-
-			if(!forward)
-				firstNodePath = getLastChild(firstNodePath);
-		}
-		else
-			firstNodePath = getNextNode(Arrays.asList(startAfterPath), forward);
-
-		return firstNodePath;
-	}
-
-	private List<Object> getLastChild(List<Object> nodePath) {
-		if(!(nodePath.get(nodePath.size() - 1) instanceof ChildrenProvider<?>))
-			return nodePath;
-
-		EList<?> children = ((ChildrenProvider<?>) nodePath.get(nodePath.size() - 1)).getChildren();
-
-		if(children == null || children.size() == 0)
-			return nodePath;
-
-		Object lastChild = children.get(children.size() - 1);
-
-		List<Object> childPath = new ArrayList<Object>(nodePath);
-		childPath.add(lastChild);
-
-		return getLastChild(childPath);
-	}
-
 	public Exception getLastException() {
 		return lastException;
-	}
-
-	private java.net.URI getLocationFromURI(URI uri) throws URISyntaxException {
-		String opaquePart = uri.opaquePart();
-		int pos = opaquePart.indexOf(':');
-		return new java.net.URI(opaquePart.substring(pos + 1));
-	}
-
-	private MappedRepository getMappedRepository() {
-		Aggregation aggregation = ResourceUtils.getAggregation(getResourceSet());
-		if(aggregation == null)
-			return null;
-
-		String uriString = getURI().toString();
-		if(!uriString.startsWith("b3aggr:p2:"))
-			return null;
-
-		uriString = uriString.substring(10);
-		for(ValidationSet vs : aggregation.getValidationSets())
-			for(Contribution contribution : vs.getContributions())
-				for(MappedRepository mappedRepo : contribution.getRepositories())
-					if(uriString.equals(mappedRepo.getLocation()))
-						return mappedRepo;
-		return null;
 	}
 
 	public MetadataRepository getMetadataRepository() {
@@ -815,58 +670,6 @@ public class MetadataRepositoryResourceImpl extends ResourceImpl implements Stat
 			return repoView.getMetadataRepository();
 
 		return null;
-	}
-
-	private List<Object> getNextNode(List<Object> nodePath, boolean forward) {
-		int pathSize = nodePath.size();
-		if(pathSize == 0)
-			return null;
-
-		int parentIdx = pathSize - 2;
-		if(parentIdx < 0)
-			parentIdx = 0;
-
-		Object parent = nodePath.get(parentIdx);
-
-		if(forward) {
-			if(parent instanceof ChildrenProvider<?>) {
-				EList<?> children = ((ChildrenProvider<?>) parent).getChildren();
-				int nodeIndex = children.indexOf(nodePath.get(nodePath.size() - 1));
-				if(nodeIndex < (children.size() - 1)) {
-					List<Object> nextNodePath = new ArrayList<Object>(nodePath);
-					nextNodePath.remove(nodePath.size() - 1);
-					nextNodePath.add(children.get(nodeIndex + 1));
-
-					return nextNodePath;
-				}
-			}
-
-			List<Object> parentPath = new ArrayList<Object>(nodePath);
-			parentPath.remove(nodePath.size() - 1);
-
-			return parentPath.size() > 1
-					? getNextNode(parentPath, forward)
-					: null;
-		}
-
-		if(parent instanceof ChildrenProvider<?>) {
-			EList<?> children = ((ChildrenProvider<?>) parent).getChildren();
-			int nodeIndex = children.indexOf(nodePath.get(nodePath.size() - 1));
-			if(nodeIndex > 0) {
-				List<Object> nextNodePath = new ArrayList<Object>(nodePath);
-				nextNodePath.remove(nodePath.size() - 1);
-				nextNodePath.add(children.get(nodeIndex - 1));
-
-				return getLastChild(nextNodePath);
-			}
-		}
-
-		List<Object> parentPath = new ArrayList<Object>(nodePath);
-		parentPath.remove(nodePath.size() - 1);
-
-		return parentPath.size() > 2
-				? parentPath
-				: null;
 	}
 
 	public Status getStatus() {
@@ -1020,10 +823,6 @@ public class MetadataRepositoryResourceImpl extends ResourceImpl implements Stat
 		// Let this be a no-op.
 	}
 
-	private void setStatus(Status status) {
-		this.status = status;
-	}
-
 	synchronized public void startAsynchronousLoad(boolean forceReload) {
 		setStatus(AggregatorFactory.eINSTANCE.createStatus(StatusCode.WAITING));
 
@@ -1068,5 +867,210 @@ public class MetadataRepositoryResourceImpl extends ResourceImpl implements Stat
 			asynchronousLoader.setUser(false);
 			asynchronousLoader.schedule();
 		}
+	}
+
+	@Override
+	protected void doUnload() {
+		super.doUnload();
+		forceReload = true;
+	}
+
+	private List<Object> findIU(List<Object> nodePath, Pattern iuIdPattern, VersionRange iuVersionRange, boolean forward) {
+		List<Object> foundInSubTreePath = null;
+
+		if(forward)
+			foundInSubTreePath = findIUInSubTree(nodePath, iuIdPattern, iuVersionRange);
+		else
+			foundInSubTreePath = findIUInNode(nodePath, iuIdPattern, iuVersionRange);
+
+		if(foundInSubTreePath != null)
+			return foundInSubTreePath;
+
+		List<Object> nextNodePath = getNextNode(nodePath, forward);
+
+		if(nextNodePath != null)
+			return findIU(nextNodePath, iuIdPattern, iuVersionRange, forward);
+
+		return null;
+	}
+
+	private List<Object> findIUInNode(List<Object> nodePath, Pattern iuIdPattern, VersionRange iuVersionRange) {
+		Object node = nodePath.get(nodePath.size() - 1);
+
+		if(node instanceof IUPresentation) {
+			IUPresentation iup = (IUPresentation) node;
+			IInstallableUnit iu = iup.getInstallableUnit();
+			if(iuIdPattern.matcher(iu.getId()).find() && iuVersionRange.isIncluded(iu.getVersion()))
+				return nodePath;
+		}
+
+		return null;
+	}
+
+	private List<Object> findIUInSubTree(List<Object> nodePath, Pattern iuIdPattern, VersionRange iuVersionRange) {
+		List<Object> foundIUPath = findIUInNode(nodePath, iuIdPattern, iuVersionRange);
+		if(foundIUPath != null)
+			return foundIUPath;
+
+		Object node = nodePath.get(nodePath.size() - 1);
+
+		if(node instanceof ChildrenProvider<?>) {
+			for(Object child : ((ChildrenProvider<?>) node).getChildren()) {
+				List<Object> childPath = new ArrayList<Object>(nodePath);
+				childPath.add(child);
+
+				foundIUPath = findIUInSubTree(childPath, iuIdPattern, iuVersionRange);
+
+				if(foundIUPath != null)
+					return foundIUPath;
+			}
+		}
+
+		return null;
+	}
+
+	private void finishLoading(Map<?, ?> options) {
+		Notification notification = null;
+		synchronized(this) {
+			isLoading = false;
+			loadingJob = null;
+			notification = setLoaded(true);
+		}
+
+		if(notification != null) {
+			if(options.containsKey(NOTIFICATION_KEY)) {
+				Notification notificationRef[] = (Notification[]) options.get(NOTIFICATION_KEY);
+				notificationRef[0] = notification;
+			}
+			else
+				eNotify(notification);
+		}
+		setModified(false);
+	}
+
+	private Aggregation getAggregation() {
+		ResourceSet rs = getResourceSet();
+		if(rs != null) {
+			List<Resource> resources = rs.getResources();
+			if(resources != null && resources.size() > 0) {
+				Resource aggrResource = resources.get(0);
+				if(aggrResource != null)
+					return (Aggregation) aggrResource.getContents().get(0);
+			}
+		}
+
+		return null;
+	}
+
+	private List<Object> getFirstNode(Object[] startAfterPath, boolean forward) {
+		List<Object> firstNodePath = new ArrayList<Object>();
+
+		if(startAfterPath == null) {
+			firstNodePath.add(repoView);
+
+			if(!forward)
+				firstNodePath = getLastChild(firstNodePath);
+		}
+		else
+			firstNodePath = getNextNode(Arrays.asList(startAfterPath), forward);
+
+		return firstNodePath;
+	}
+
+	private List<Object> getLastChild(List<Object> nodePath) {
+		if(!(nodePath.get(nodePath.size() - 1) instanceof ChildrenProvider<?>))
+			return nodePath;
+
+		EList<?> children = ((ChildrenProvider<?>) nodePath.get(nodePath.size() - 1)).getChildren();
+
+		if(children == null || children.size() == 0)
+			return nodePath;
+
+		Object lastChild = children.get(children.size() - 1);
+
+		List<Object> childPath = new ArrayList<Object>(nodePath);
+		childPath.add(lastChild);
+
+		return getLastChild(childPath);
+	}
+
+	private java.net.URI getLocationFromURI(URI uri) throws URISyntaxException {
+		String opaquePart = uri.opaquePart();
+		int pos = opaquePart.indexOf(':');
+		return new java.net.URI(opaquePart.substring(pos + 1));
+	}
+
+	private MappedRepository getMappedRepository() {
+		Aggregation aggregation = ResourceUtils.getAggregation(getResourceSet());
+		if(aggregation == null)
+			return null;
+
+		String uriString = getURI().toString();
+		if(!uriString.startsWith("b3aggr:p2:"))
+			return null;
+
+		uriString = uriString.substring(10);
+		for(ValidationSet vs : aggregation.getValidationSets())
+			for(Contribution contribution : vs.getContributions())
+				for(MappedRepository mappedRepo : contribution.getRepositories())
+					if(uriString.equals(mappedRepo.getLocation()))
+						return mappedRepo;
+		return null;
+	}
+
+	private List<Object> getNextNode(List<Object> nodePath, boolean forward) {
+		int pathSize = nodePath.size();
+		if(pathSize == 0)
+			return null;
+
+		int parentIdx = pathSize - 2;
+		if(parentIdx < 0)
+			parentIdx = 0;
+
+		Object parent = nodePath.get(parentIdx);
+
+		if(forward) {
+			if(parent instanceof ChildrenProvider<?>) {
+				EList<?> children = ((ChildrenProvider<?>) parent).getChildren();
+				int nodeIndex = children.indexOf(nodePath.get(nodePath.size() - 1));
+				if(nodeIndex < (children.size() - 1)) {
+					List<Object> nextNodePath = new ArrayList<Object>(nodePath);
+					nextNodePath.remove(nodePath.size() - 1);
+					nextNodePath.add(children.get(nodeIndex + 1));
+
+					return nextNodePath;
+				}
+			}
+
+			List<Object> parentPath = new ArrayList<Object>(nodePath);
+			parentPath.remove(nodePath.size() - 1);
+
+			return parentPath.size() > 1
+					? getNextNode(parentPath, forward)
+					: null;
+		}
+
+		if(parent instanceof ChildrenProvider<?>) {
+			EList<?> children = ((ChildrenProvider<?>) parent).getChildren();
+			int nodeIndex = children.indexOf(nodePath.get(nodePath.size() - 1));
+			if(nodeIndex > 0) {
+				List<Object> nextNodePath = new ArrayList<Object>(nodePath);
+				nextNodePath.remove(nodePath.size() - 1);
+				nextNodePath.add(children.get(nodeIndex - 1));
+
+				return getLastChild(nextNodePath);
+			}
+		}
+
+		List<Object> parentPath = new ArrayList<Object>(nodePath);
+		parentPath.remove(nodePath.size() - 1);
+
+		return parentPath.size() > 2
+				? parentPath
+				: null;
+	}
+
+	private void setStatus(Status status) {
+		this.status = status;
 	}
 }
