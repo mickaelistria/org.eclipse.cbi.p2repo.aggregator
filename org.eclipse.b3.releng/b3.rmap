@@ -5,11 +5,7 @@
   <rm:property key="git.clone.dir" value="${checkout.root}"/>
   <rm:property key="checkout.root" value="${user.home}/git/b3"/>
   <rm:locator pattern="^org\.eclipse\.b3(\..+)?" searchPathRef="b3"/>
-  <rm:locator pattern="^org\.eclipse\.xtext(\..+)?$" searchPathRef="releaseTrain"/>
   <rm:locator pattern="^com\.google(\..+)?$" searchPathRef="xtext"/>
-  <rm:locator pattern="^org\.eclipse\.emf(\..+)?$" searchPathRef="releaseTrain"/>
-  <rm:locator pattern="^org\.eclipse\.xpand(\..+)?$" searchPathRef="releaseTrain"/>
-  <rm:locator pattern="^org\.eclipse\.xtend(\..+)?$" searchPathRef="releaseTrain"/>
   <rm:locator pattern="^org\.eclipse\.buckminster(\..+)?$" searchPathRef="buckminster"/>
   <rm:locator pattern="^org\.eclipse\.m2e(\..+)?$" searchPathRef="m2e"/>
   <rm:locator pattern="^ch\.qos\.logback(\..+)?$" searchPathRef="m2e"/>
@@ -22,7 +18,8 @@
   <rm:locator pattern="^org\.apache\.commons(\..+)?$" searchPathRef="orbit"/>
   <rm:locator pattern="^org\.apache\.log4j(\..+)?$" searchPathRef="orbit"/>
   <rm:locator pattern="^org\.antlr(\..+)?$" searchPathRef="orbit"/>
-  <rm:locator searchPathRef="platform"/>
+  <rm:locator searchPathRef="platform" failOnError="false"/>
+  <rm:locator searchPathRef="releaseTrain"/>
   <rm:searchPath name="b3">
     <rm:provider componentTypes="osgi.bundle,eclipse.feature,buckminster" readerType="git">
       <rm:property key="git.remote.uri" value="git://git.eclipse.org/gitroot/b3/b3.git"/>
@@ -36,7 +33,7 @@
     <rm:provider componentTypes="osgi.bundle,eclipse.feature" readerType="p2" source="false" mutable="false">
       <rm:property key="buckminster.source" value="false"/>
       <rm:property key="buckminster.mutable" value="false"/>
-      <rm:uri format="http://download.eclipse.org/releases/indigo"/>
+      <rm:uri format="http://download.eclipse.org/releases/juno"/>
     </rm:provider>
   </rm:searchPath>
   <rm:searchPath name="m2t">
@@ -64,7 +61,7 @@
     <rm:provider componentTypes="eclipse.feature,osgi.bundle" readerType="p2" source="false" mutable="false">
       <rm:property key="buckminster.source" value="false"/>
       <rm:property key="buckminster.mutable" value="false"/>
-      <rm:uri format="{0}/tools/buckminster/updates-3.7">
+      <rm:uri format="{0}/tools/buckminster/updates-4.2">
         <bc:propertyRef key="eclipse.download"/>
       </rm:uri>
     </rm:provider>
@@ -73,7 +70,7 @@
     <rm:provider componentTypes="osgi.bundle,eclipse.feature" readerType="p2" source="false" mutable="false">
       <rm:property key="buckminster.source" value="false"/>
       <rm:property key="buckminster.mutable" value="false"/>
-      <rm:uri format="{0}/tools/orbit/downloads/drops/R20110523182458/repository">
+      <rm:uri format="{0}/tools/orbit/downloads/drops/R20120526062928/repository">
         <bc:propertyRef key="eclipse.download"/>
       </rm:uri>
     </rm:provider>
@@ -82,7 +79,7 @@
     <rm:provider componentTypes="eclipse.feature,osgi.bundle" readerType="p2" source="false" mutable="false">
       <rm:property key="buckminster.source" value="false"/>
       <rm:property key="buckminster.mutable" value="false"/>
-      <rm:uri format="{0}/eclipse/updates/3.7">
+      <rm:uri format="{0}/eclipse/updates/3.8">
         <bc:propertyRef key="eclipse.download"/>
       </rm:uri>
     </rm:provider>

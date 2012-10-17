@@ -4,6 +4,7 @@
         <cs:dependency name="org.eclipse.b3.site.eclipse" componentType="eclipse.feature"/>
         <cs:dependency name="org.eclipse.b3.site.eclipse.headless" componentType="eclipse.feature"/>
         <cs:dependency name="org.eclipse.rcp" componentType="eclipse.feature"/>
+        <cs:dependency name="org.eclipse.b3.p2.tests" componentType="osgi.bundle"/>
         <cs:dependency name="org.eclipse.b3.beelang.generator" componentType="osgi.bundle" filter="(with.beelang.generator=true)"/>
         <cs:dependency name="org.eclipse.b3.beelang.tests" componentType="osgi.bundle" filter="(with.beelang=true)"/>
         <cs:dependency name="org.eclipse.b3.build.ui" componentType="osgi.bundle" filter="(with.build=true)"/>
