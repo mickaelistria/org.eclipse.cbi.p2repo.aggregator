@@ -246,6 +246,8 @@ public class Builder extends ModelAbstractCommand {
 
 	public static final String PROP_AGGREGATOR_GENERATED_IU = "org.eclipse.b3.aggregator.generated.IU"; //$NON-NLS-1$
 
+	public static final String PROP_ATOMIC_COMPOSITE_LOADING = "p2.atomic.composite.loading";
+
 	public static final SimpleDateFormat TIMESTAMP_FORMAT = new SimpleDateFormat("yyyyMMdd-HHmm"); //$NON-NLS-1$
 
 	static final String FEATURE_GROUP_SUFFIX = ".feature.group"; //$NON-NLS-1$
@@ -298,7 +300,7 @@ public class Builder extends ModelAbstractCommand {
 
 	private static void deleteMetadataRepository(IMetadataRepositoryManager mdrMgr, File repoFolder)
 			throws CoreException {
-		URI repoURI = Builder.createURI(repoFolder);
+		URI repoURI = createURI(repoFolder);
 		mdrMgr.removeRepository(repoURI);
 		for(String name : compositeFileNames)
 			new File(repoFolder, name).delete();
@@ -519,13 +521,13 @@ public class Builder extends ModelAbstractCommand {
 	private void cleanMetadata(boolean forValidation) throws CoreException {
 		IMetadataRepositoryManager mdrMgr = getMdrManager();
 		if(!forValidation) {
-			File finalRepo = new File(buildRoot, Builder.REPO_FOLDER_FINAL);
+			File finalRepo = new File(buildRoot, REPO_FOLDER_FINAL);
 			deleteMetadataRepository(mdrMgr, finalRepo);
-			deleteMetadataRepository(mdrMgr, new File(finalRepo, Builder.REPO_FOLDER_AGGREGATE));
+			deleteMetadataRepository(mdrMgr, new File(finalRepo, REPO_FOLDER_AGGREGATE));
 		}
-		File interimRepo = new File(buildRoot, Builder.REPO_FOLDER_INTERIM);
+		File interimRepo = new File(buildRoot, REPO_FOLDER_INTERIM);
 		deleteMetadataRepository(mdrMgr, interimRepo);
-		deleteMetadataRepository(mdrMgr, new File(interimRepo, Builder.REPO_FOLDER_VERIFICATION));
+		deleteMetadataRepository(mdrMgr, new File(interimRepo, REPO_FOLDER_VERIFICATION));
 	}
 
 	private void finishMirroring(IProgressMonitor monitor) throws CoreException {
@@ -549,11 +551,11 @@ public class Builder extends ModelAbstractCommand {
 						reposWithReferencedArtifacts.add(repo);
 				}
 			}
-			File destination = new File(getBuildRoot(), Builder.REPO_FOLDER_FINAL);
-			URI finalURI = Builder.createURI(destination);
+			File destination = new File(getBuildRoot(), REPO_FOLDER_FINAL);
+			URI finalURI = createURI(destination);
 
-			File aggregateDestination = new File(destination, Builder.REPO_FOLDER_AGGREGATE);
-			URI aggregateURI = Builder.createURI(aggregateDestination);
+			File aggregateDestination = new File(destination, REPO_FOLDER_AGGREGATE);
+			URI aggregateURI = createURI(aggregateDestination);
 
 			// Initialize a p2Index property file. It might not be used.
 			Properties p2Index = new Properties();
@@ -577,10 +579,11 @@ public class Builder extends ModelAbstractCommand {
 				mdrMgr.removeRepository(finalURI);
 				Map<String, String> properties = new HashMap<String, String>();
 				properties.put(IRepository.PROP_COMPRESSED, Boolean.toString(true));
+				properties.put(PROP_ATOMIC_COMPOSITE_LOADING, Boolean.toString(true));
 				CompositeMetadataRepository compositeMdr = (CompositeMetadataRepository) mdrMgr.createRepository(
-					finalURI, getAggregation().getLabel(), Builder.COMPOSITE_METADATA_TYPE, properties);
+					finalURI, getAggregation().getLabel(), COMPOSITE_METADATA_TYPE, properties);
 
-				compositeMdr.addChild(URI.create(Builder.REPO_FOLDER_AGGREGATE));
+				compositeMdr.addChild(URI.create(REPO_FOLDER_AGGREGATE));
 				for(MappedRepository referenced : reposWithReferencedMetadata)
 					compositeMdr.addChild(referenced.getMetadataRepository().getLocation());
 
@@ -633,8 +636,9 @@ public class Builder extends ModelAbstractCommand {
 
 				Map<String, String> properties = new HashMap<String, String>();
 				properties.put(IRepository.PROP_COMPRESSED, Boolean.toString(true));
+				properties.put(Builder.PROP_ATOMIC_COMPOSITE_LOADING, Boolean.toString(true));
 				CompositeArtifactRepository compositeAr = (CompositeArtifactRepository) arMgr.createRepository(
-					finalURI, getAggregation().getLabel() + " artifacts", Builder.COMPOSITE_ARTIFACTS_TYPE, properties); //$NON-NLS-1$
+					finalURI, getAggregation().getLabel() + " artifacts", COMPOSITE_ARTIFACTS_TYPE, properties); //$NON-NLS-1$
 
 				for(MappedRepository referenced : reposWithReferencedArtifacts)
 					compositeAr.addChild(referenced.getMetadataRepository().getLocation());
@@ -689,9 +693,9 @@ public class Builder extends ModelAbstractCommand {
 		}
 
 		IArtifactRepositoryManager arMgr = getArManager();
-		File destination = new File(getBuildRoot(), Builder.REPO_FOLDER_FINAL);
-		File aggregateDestination = new File(destination, Builder.REPO_FOLDER_AGGREGATE);
-		URI aggregateURI = Builder.createURI(aggregateDestination);
+		File destination = new File(getBuildRoot(), REPO_FOLDER_FINAL);
+		File aggregateDestination = new File(destination, REPO_FOLDER_AGGREGATE);
+		URI aggregateURI = createURI(aggregateDestination);
 		Map<String, String> properties = new HashMap<String, String>();
 		properties.put(IRepository.PROP_COMPRESSED, Boolean.toString(true));
 		properties.put(Publisher.PUBLISH_PACK_FILES_AS_SIBLINGS, Boolean.toString(true));
@@ -700,7 +704,7 @@ public class Builder extends ModelAbstractCommand {
 		}
 		catch(ProvisionException e) {
 			aggregationAr = (IFileArtifactRepository) arMgr.createRepository(aggregateURI, getAggregation().getLabel() +
-					" artifacts", Builder.SIMPLE_ARTIFACTS_TYPE, properties); //$NON-NLS-1$
+					" artifacts", SIMPLE_ARTIFACTS_TYPE, properties); //$NON-NLS-1$
 			MonitorUtils.complete(monitor);
 		}
 		return aggregationAr;
@@ -711,15 +715,15 @@ public class Builder extends ModelAbstractCommand {
 			return aggregationMdr;
 
 		IMetadataRepositoryManager mdrMgr = getMdrManager();
-		File destination = new File(getBuildRoot(), Builder.REPO_FOLDER_FINAL);
-		File aggregateDestination = new File(destination, Builder.REPO_FOLDER_AGGREGATE);
-		URI aggregateURI = Builder.createURI(aggregateDestination);
+		File destination = new File(getBuildRoot(), REPO_FOLDER_FINAL);
+		File aggregateDestination = new File(destination, REPO_FOLDER_AGGREGATE);
+		URI aggregateURI = createURI(aggregateDestination);
 
 		Map<String, String> properties = new HashMap<String, String>();
 		properties.put(IRepository.PROP_COMPRESSED, Boolean.toString(true));
 		properties.put(Publisher.PUBLISH_PACK_FILES_AS_SIBLINGS, Boolean.toString(true));
 		aggregationMdr = mdrMgr.createRepository(
-			aggregateURI, getAggregation().getLabel(), Builder.SIMPLE_METADATA_TYPE, properties); //$NON-NLS-1$
+			aggregateURI, getAggregation().getLabel(), SIMPLE_METADATA_TYPE, properties);
 		return aggregationMdr;
 	}
 
@@ -976,7 +980,7 @@ public class Builder extends ModelAbstractCommand {
 				mavenInitializeMirroring(aggregationAr, subMon.newChild(10));
 
 			// Clear final destination
-			File destination = new File(getBuildRoot(), Builder.REPO_FOLDER_FINAL);
+			File destination = new File(getBuildRoot(), REPO_FOLDER_FINAL);
 			for(String fileName : new String[] {
 					"p2.index", "compositeContent.jar", "content.jar", "compositeArtifacts.jar", "artifacts.jar" }) {
 				File file = new File(destination, fileName);
@@ -990,8 +994,8 @@ public class Builder extends ModelAbstractCommand {
 	}
 
 	private void initMirroring(IProgressMonitor monitor) throws CoreException {
-		File destination = new File(getBuildRoot(), Builder.REPO_FOLDER_FINAL);
-		File aggregateDestination = new File(destination, Builder.REPO_FOLDER_AGGREGATE);
+		File destination = new File(getBuildRoot(), REPO_FOLDER_FINAL);
+		File aggregateDestination = new File(destination, REPO_FOLDER_AGGREGATE);
 
 		// Forget these repositories
 		URI destURI = createURI(destination);
@@ -1027,7 +1031,7 @@ public class Builder extends ModelAbstractCommand {
 		}
 
 		for(String name : destination.list()) {
-			if(name.equals(Builder.REPO_FOLDER_AGGREGATE))
+			if(name.equals(REPO_FOLDER_AGGREGATE))
 				continue;
 
 			File oldLocation = new File(destination, name);
@@ -1292,9 +1296,9 @@ public class Builder extends ModelAbstractCommand {
 
 		LogUtils.info("Adding maven metadata");
 		Map<Contribution, List<String>> errors = new HashMap<Contribution, List<String>>();
-		File destination = new File(getBuildRoot(), Builder.REPO_FOLDER_FINAL);
+		File destination = new File(getBuildRoot(), REPO_FOLDER_FINAL);
 
-		File aggregateDestination = new File(destination, Builder.REPO_FOLDER_AGGREGATE);
+		File aggregateDestination = new File(destination, REPO_FOLDER_AGGREGATE);
 
 		MavenManager.saveMetadata(
 			org.eclipse.emf.common.util.URI.createFileURI(aggregateDestination.getAbsolutePath()),

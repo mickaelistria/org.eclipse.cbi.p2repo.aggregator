@@ -79,6 +79,7 @@ public class SourceCompositeGenerator extends BuilderPhase {
 		FileUtils.deleteAll(new File(builder.getBuildRoot(), Builder.REPO_FOLDER_INTERIM));
 
 		Map<String, String> properties = new HashMap<String, String>();
+		properties.put(Builder.PROP_ATOMIC_COMPOSITE_LOADING, Boolean.toString(true));
 		CompositeMetadataRepository compositeMdr = (CompositeMetadataRepository) mdrMgr.createRepository(
 			sourceLocationURI, name, Builder.COMPOSITE_METADATA_TYPE, properties);
 		getBuilder().setSourceComposite(validationSet, compositeMdr);
