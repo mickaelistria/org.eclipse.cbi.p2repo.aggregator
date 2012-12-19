@@ -61,6 +61,9 @@ public class ResourceUtils {
 	 */
 	public static void cleanUpResources(Aggregation aggregator, boolean updateMarkers) {
 		Resource topResource = ((EObject) aggregator).eResource();
+		if(topResource == null)
+			return;
+
 		ResourceSet topSet = topResource.getResourceSet();
 
 		synchronized(topSet) {
