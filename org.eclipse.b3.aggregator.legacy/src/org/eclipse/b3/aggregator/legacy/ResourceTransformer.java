@@ -261,16 +261,6 @@ public class ResourceTransformer implements ITransformer {
 		return resourceErrors;
 	}
 
-	protected Object getValue(EObject eobject, String featureName) {
-		EStructuralFeature feature = eobject.eClass().getEStructuralFeature(featureName);
-
-		if(feature == null)
-			throw new IllegalArgumentException(featureName + " is not a valid feature in " +
-					eobject.eClass().getName() + " EClass");
-
-		return eobject.eGet(feature);
-	}
-
 	public void initTransformer(Resource srcResource, Resource trgtResource, EPackage trgtPackage,
 			Map<String, Object> context) {
 		this.srcResource = srcResource;

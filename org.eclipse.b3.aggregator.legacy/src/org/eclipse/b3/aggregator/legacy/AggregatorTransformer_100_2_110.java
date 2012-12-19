@@ -70,7 +70,7 @@ public class AggregatorTransformer_100_2_110 extends ResourceTransformer {
 		EObject validationSet = createTrgtEObject(VALIDATION_SET, null);
 		EClass validationSetClass = validationSet.eClass();
 
-		EList<EObject> validationSets = (EList<EObject>) getValue(aggregation, VALIDATION_SETS_REF);
+		EList<EObject> validationSets = (EList<EObject>) getFeatureValue(aggregation, VALIDATION_SETS_REF);
 		validationSets.add(validationSet);
 		TreePath vsTreePath = targetParentTreePath.createChildTreePath(
 			aggregation, (EReference) aggregationClass.getEStructuralFeature("validationSets"));

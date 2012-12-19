@@ -416,9 +416,9 @@ public class AggregatorTransformer_080_2_100 extends ResourceTransformer {
 					EObject srcContribution = srcFeature.eContainer();
 
 					if(!srcContributions.contains(srcContribution)) {
-						String srcCategoryName = (String) getValue(srcCategory, NAME_ATTR);
-						String srcContributionLabel = (String) getValue(srcContribution, LABEL_ATTR);
-						String srcFeatureId = (String) getValue(srcFeature, ID_ATTR);
+						String srcCategoryName = (String) getFeatureValue(srcCategory, NAME_ATTR);
+						String srcContributionLabel = (String) getFeatureValue(srcContribution, LABEL_ATTR);
+						String srcFeatureId = (String) getFeatureValue(srcFeature, ID_ATTR);
 
 						throw new RuntimeException("Category " + srcCategoryName + " references feature " +
 								srcFeatureId + " which belongs to a missing contribution " + srcContributionLabel);
@@ -512,7 +512,7 @@ public class AggregatorTransformer_080_2_100 extends ResourceTransformer {
 		EObject contactEObject = createTrgtEObject(CONTACT_NODE, srcEObject);
 		copyAttributes(srcEObject, contactEObject);
 
-		String email = (String) getValue(contactEObject, EMAIL_ATTR);
+		String email = (String) getFeatureValue(contactEObject, EMAIL_ATTR);
 		EObject trgtRetrievedContact = trgtEmailToContactMap.get(email);
 
 		if(trgtRetrievedContact != null)

@@ -622,7 +622,8 @@ public class MappedRepositoryImpl extends MetadataRepositoryReferenceImpl implem
 	 * @generated NOT
 	 */
 	public boolean isMapExclusive() {
-		return hasMappedUnit(bundles) || hasMappedUnit(features) || hasMappedUnit(categories) || hasMappedUnit(products);
+		return hasMappedUnit(bundles) || hasMappedUnit(features) || hasMappedUnit(categories) ||
+				hasMappedUnit(products);
 	}
 
 	/**
