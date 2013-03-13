@@ -154,9 +154,11 @@ public class MetadataRepositoryResourceImpl extends ResourceImpl implements Stat
 					Aggregation aggregation = getAggregation();
 
 					// check if the aggregator is still available - if not, it means that the resource has already been excluded
-					if(aggregation != null)
-						if(myLocation.endsWith("/"))
-							myLocation = myLocation.substring(0, myLocation.length() - 1);
+					if(aggregation == null)
+						return status;
+
+					if(myLocation.endsWith("/"))
+						myLocation = myLocation.substring(0, myLocation.length() - 1);
 					for(MetadataRepositoryReference repoRef : aggregation.getAllMetadataRepositoryReferences(true)) {
 						synchronized(repoRef) {
 							String refLocation = repoRef.getNature() + ":" + repoRef.getResolvedLocation();
@@ -169,7 +171,6 @@ public class MetadataRepositoryResourceImpl extends ResourceImpl implements Stat
 						}
 					}
 				}
-
 				return status;
 			}
 			catch(InterruptedException e) {
