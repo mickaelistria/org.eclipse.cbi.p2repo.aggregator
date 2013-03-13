@@ -52,6 +52,24 @@ public class AggregationItemProvider extends DescriptionProviderItemProvider imp
 	}
 
 	/**
+	 * This adds a property descriptor for the Allow Legacy Sites feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	protected void addAllowLegacySitesPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+			getResourceLocator(),
+			getString("_UI_Aggregation_allowLegacySites_feature"),
+			getString(
+				"_UI_PropertyDescriptor_description", "_UI_Aggregation_allowLegacySites_feature",
+				"_UI_Aggregation_type"), AggregatorPackage.Literals.AGGREGATION__ALLOW_LEGACY_SITES, true, false,
+			false, ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null));
+	}
+
+	/**
 	 * This adds a property descriptor for the Buildmaster feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -266,6 +284,7 @@ public class AggregationItemProvider extends DescriptionProviderItemProvider imp
 			addSendmailPropertyDescriptor(object);
 			addTypePropertyDescriptor(object);
 			addMavenResultPropertyDescriptor(object);
+			addAllowLegacySitesPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -316,6 +335,7 @@ public class AggregationItemProvider extends DescriptionProviderItemProvider imp
 			case AggregatorPackage.AGGREGATION__SENDMAIL:
 			case AggregatorPackage.AGGREGATION__TYPE:
 			case AggregatorPackage.AGGREGATION__MAVEN_RESULT:
+			case AggregatorPackage.AGGREGATION__ALLOW_LEGACY_SITES:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case AggregatorPackage.AGGREGATION__VALIDATION_SETS:

@@ -161,6 +161,15 @@ public interface AggregatorPackage extends EPackage {
 		EReference AGGREGATION__MAVEN_MAPPINGS = eINSTANCE.getAggregation_MavenMappings();
 
 		/**
+		 * The meta object literal for the '<em><b>Allow Legacy Sites</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EAttribute AGGREGATION__ALLOW_LEGACY_SITES = eINSTANCE.getAggregation_AllowLegacySites();
+
+		/**
 		 * The meta object literal for the '{@link org.eclipse.b3.aggregator.impl.ValidationSetImpl <em>Validation Set</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1346,6 +1355,16 @@ public interface AggregatorPackage extends EPackage {
 	int AGGREGATION__MAVEN_MAPPINGS = DESCRIPTION_PROVIDER_FEATURE_COUNT + 15;
 
 	/**
+	 * The feature id for the '<em><b>Allow Legacy Sites</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int AGGREGATION__ALLOW_LEGACY_SITES = DESCRIPTION_PROVIDER_FEATURE_COUNT + 16;
+
+	/**
 	 * The number of structural features of the '<em>Aggregation</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1353,7 +1372,7 @@ public interface AggregatorPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AGGREGATION_FEATURE_COUNT = DESCRIPTION_PROVIDER_FEATURE_COUNT + 16;
+	int AGGREGATION_FEATURE_COUNT = DESCRIPTION_PROVIDER_FEATURE_COUNT + 17;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.aggregator.EnabledStatusProvider <em>Enabled Status Provider</em>}' class.
@@ -3889,6 +3908,18 @@ public interface AggregatorPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getAggregation();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.b3.aggregator.Aggregation#isAllowLegacySites <em>Allow Legacy Sites</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the attribute '<em>Allow Legacy Sites</em>'.
+	 * @see org.eclipse.b3.aggregator.Aggregation#isAllowLegacySites()
+	 * @see #getAggregation()
+	 * @generated
+	 */
+	EAttribute getAggregation_AllowLegacySites();
 
 	/**
 	 * Returns the meta object for the reference '{@link org.eclipse.b3.aggregator.Aggregation#getBuildmaster <em>Buildmaster</em>}'.

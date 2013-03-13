@@ -61,6 +61,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <li>{@link org.eclipse.b3.aggregator.impl.AggregationImpl#getType <em>Type</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.impl.AggregationImpl#isMavenResult <em>Maven Result</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.impl.AggregationImpl#getMavenMappings <em>Maven Mappings</em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.impl.AggregationImpl#isAllowLegacySites <em>Allow Legacy Sites</em>}</li>
  * </ul>
  * </p>
  * 
@@ -347,12 +348,35 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 	protected EList<MavenMapping> mavenMappings;
 
 	/**
+	 * The default value of the '{@link #isAllowLegacySites() <em>Allow Legacy Sites</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see #isAllowLegacySites()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean ALLOW_LEGACY_SITES_EDEFAULT = true;
+
+	/**
+	 * The flag representing the value of the '{@link #isAllowLegacySites() <em>Allow Legacy Sites</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see #isAllowLegacySites()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int ALLOW_LEGACY_SITES_EFLAG = 1 << 8;
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 */
 	protected AggregationImpl() {
 		super();
+		eFlags |= ALLOW_LEGACY_SITES_EFLAG;
 	}
 
 	/**
@@ -471,6 +495,8 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 				return isMavenResult();
 			case AggregatorPackage.AGGREGATION__MAVEN_MAPPINGS:
 				return getMavenMappings();
+			case AggregatorPackage.AGGREGATION__ALLOW_LEGACY_SITES:
+				return isAllowLegacySites();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -556,6 +582,8 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 				return ((eFlags & MAVEN_RESULT_EFLAG) != 0) != MAVEN_RESULT_EDEFAULT;
 			case AggregatorPackage.AGGREGATION__MAVEN_MAPPINGS:
 				return mavenMappings != null && !mavenMappings.isEmpty();
+			case AggregatorPackage.AGGREGATION__ALLOW_LEGACY_SITES:
+				return ((eFlags & ALLOW_LEGACY_SITES_EFLAG) != 0) != ALLOW_LEGACY_SITES_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -621,6 +649,9 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 			case AggregatorPackage.AGGREGATION__MAVEN_MAPPINGS:
 				getMavenMappings().clear();
 				getMavenMappings().addAll((Collection<? extends MavenMapping>) newValue);
+				return;
+			case AggregatorPackage.AGGREGATION__ALLOW_LEGACY_SITES:
+				setAllowLegacySites((Boolean) newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -688,6 +719,9 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 				return;
 			case AggregatorPackage.AGGREGATION__MAVEN_MAPPINGS:
 				getMavenMappings().clear();
+				return;
+			case AggregatorPackage.AGGREGATION__ALLOW_LEGACY_SITES:
+				setAllowLegacySites(ALLOW_LEGACY_SITES_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -918,6 +952,16 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public boolean isAllowLegacySites() {
+		return (eFlags & ALLOW_LEGACY_SITES_EFLAG) != 0;
+	}
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
@@ -933,6 +977,24 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 	 */
 	public boolean isSendmail() {
 		return (eFlags & SENDMAIL_EFLAG) != 0;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public void setAllowLegacySites(boolean newAllowLegacySites) {
+		boolean oldAllowLegacySites = (eFlags & ALLOW_LEGACY_SITES_EFLAG) != 0;
+		if(newAllowLegacySites)
+			eFlags |= ALLOW_LEGACY_SITES_EFLAG;
+		else
+			eFlags &= ~ALLOW_LEGACY_SITES_EFLAG;
+		if(eNotificationRequired())
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, AggregatorPackage.AGGREGATION__ALLOW_LEGACY_SITES, oldAllowLegacySites,
+				newAllowLegacySites));
 	}
 
 	/**
@@ -1065,6 +1127,8 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 		result.append(TYPE_EFLAG_VALUES[(eFlags & TYPE_EFLAG) >>> TYPE_EFLAG_OFFSET]);
 		result.append(", mavenResult: ");
 		result.append((eFlags & MAVEN_RESULT_EFLAG) != 0);
+		result.append(", allowLegacySites: ");
+		result.append((eFlags & ALLOW_LEGACY_SITES_EFLAG) != 0);
 		result.append(')');
 		return result.toString();
 	}

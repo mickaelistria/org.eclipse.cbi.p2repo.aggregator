@@ -32,5 +32,6 @@ Require-Bundle: org.apache.ant,
  org.eclipse.equinox.p2.repository,
  org.eclipse.equinox.p2.touchpoint.eclipse,
  org.kohsuke.args4j,
- org.eclipse.osgi.services
+ org.eclipse.osgi.services,
+ org.eclipse.equinox.p2.updatesite;bundle-version="1.0.400"
 Bundle-Vendor: %providerName

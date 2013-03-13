@@ -57,6 +57,7 @@ import org.eclipse.equinox.internal.p2.engine.Operand;
 import org.eclipse.equinox.internal.p2.engine.ProvisioningPlan;
 import org.eclipse.equinox.internal.p2.metadata.IRequiredCapability;
 import org.eclipse.equinox.internal.p2.touchpoint.eclipse.PublisherUtil;
+import org.eclipse.equinox.internal.p2.updatesite.metadata.UpdateSiteMetadataRepository;
 import org.eclipse.equinox.internal.provisional.p2.director.PlannerStatus;
 import org.eclipse.equinox.internal.provisional.p2.director.RequestStatus;
 import org.eclipse.equinox.p2.core.ProvisionException;
@@ -513,6 +514,9 @@ public class ValidationSetVerifier extends BuilderPhase {
 	}
 
 	IInstallableUnit resolvePartialIU(IInstallableUnit iu, SubMonitor subMon) throws CoreException {
+		if(!getBuilder().getAggregation().isAllowLegacySites())
+			throw ExceptionUtils.fromMessage("This aggregation does not allow legacy update sites");
+
 		IArtifactRepositoryManager arMgr = getBuilder().getArManager();
 		String info = "Converting partial IU for " + iu.getId() + "...";
 		subMon.beginTask(info, IProgressMonitor.UNKNOWN);
@@ -631,6 +635,11 @@ public class ValidationSetVerifier extends BuilderPhase {
 				validationOnlyIUs = Collections.emptySet();
 
 			IMetadataRepository sourceRepo = mdrMgr.loadRepository(repoLocation, subMon.newChild(1));
+			if(sourceRepo instanceof UpdateSiteMetadataRepository &&
+					!getBuilder().getAggregation().isAllowLegacySites())
+				throw ExceptionUtils.fromMessage(
+					"Location %s appoints a legacy update site. They are not allowed in this aggregation", repoLocation);
+
 			for(Configuration config : configs) {
 				if(!config.isEnabled())
 					continue;

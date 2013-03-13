@@ -229,6 +229,23 @@ public interface Aggregation extends DescriptionProvider, StatusProvider, InfosP
 	EList<ValidationSet> getValidationSets(boolean enabledOnly);
 
 	/**
+	 * Returns the value of the '<em><b>Allow Legacy Sites</b></em>' attribute.
+	 * The default value is <code>"true"</code>.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Allow Legacy Sites</em>' attribute isn't clear, there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the value of the '<em>Allow Legacy Sites</em>' attribute.
+	 * @see #setAllowLegacySites(boolean)
+	 * @see org.eclipse.b3.aggregator.AggregatorPackage#getAggregation_AllowLegacySites()
+	 * @model default="true" dataType="org.eclipse.emf.ecore.xml.type.Boolean"
+	 * @generated
+	 */
+	boolean isAllowLegacySites();
+
+	/**
 	 * Returns the value of the '<em><b>Maven Result</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -259,6 +276,18 @@ public interface Aggregation extends DescriptionProvider, StatusProvider, InfosP
 	 * @generated
 	 */
 	boolean isSendmail();
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.b3.aggregator.Aggregation#isAllowLegacySites <em>Allow Legacy Sites</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @param value
+	 *            the new value of the '<em>Allow Legacy Sites</em>' attribute.
+	 * @see #isAllowLegacySites()
+	 * @generated
+	 */
+	void setAllowLegacySites(boolean value);
 
 	/**
 	 * Sets the value of the '{@link org.eclipse.b3.aggregator.Aggregation#getBuildmaster <em>Buildmaster</em>}' reference.

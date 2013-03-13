@@ -461,6 +461,7 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 		createEAttribute(aggregationEClass, AGGREGATION__TYPE);
 		createEAttribute(aggregationEClass, AGGREGATION__MAVEN_RESULT);
 		createEReference(aggregationEClass, AGGREGATION__MAVEN_MAPPINGS);
+		createEAttribute(aggregationEClass, AGGREGATION__ALLOW_LEGACY_SITES);
 
 		availableVersionsHeaderEClass = createEClass(AVAILABLE_VERSIONS_HEADER);
 		createEReference(availableVersionsHeaderEClass, AVAILABLE_VERSIONS_HEADER__AVAILABLE_VERSIONS);
@@ -602,6 +603,16 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 	 */
 	public EClass getAggregation() {
 		return aggregationEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EAttribute getAggregation_AllowLegacySites() {
+		return (EAttribute) aggregationEClass.getEStructuralFeatures().get(12);
 	}
 
 	/**
@@ -1678,8 +1689,8 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 
 		// Obtain other dependent packages
 		P2viewPackage theP2viewPackage = (P2viewPackage) EPackage.Registry.INSTANCE.getEPackage(P2viewPackage.eNS_URI);
-		P2Package theP2Package = (P2Package) EPackage.Registry.INSTANCE.getEPackage(P2Package.eNS_URI);
 		XMLTypePackage theXMLTypePackage = (XMLTypePackage) EPackage.Registry.INSTANCE.getEPackage(XMLTypePackage.eNS_URI);
+		P2Package theP2Package = (P2Package) EPackage.Registry.INSTANCE.getEPackage(P2Package.eNS_URI);
 
 		// Add subpackages
 		getESubpackages().add(theP2viewPackage);
@@ -1789,6 +1800,10 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 			getAggregation_MavenMappings(), this.getMavenMapping(), null, "mavenMappings", null, 0, -1,
 			Aggregation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES,
 			!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(
+			getAggregation_AllowLegacySites(), theXMLTypePackage.getBoolean(), "allowLegacySites", "true", 0, 1,
+			Aggregation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+			!IS_DERIVED, IS_ORDERED);
 
 		EOperation op = addEOperation(
 			aggregationEClass, this.getMetadataRepositoryReference(), "getAllMetadataRepositoryReferences", 0, -1,
