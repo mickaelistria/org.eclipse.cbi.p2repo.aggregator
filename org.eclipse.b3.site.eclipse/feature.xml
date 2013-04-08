@@ -2,15 +2,15 @@
 <feature
       id="org.eclipse.b3.site.eclipse"
       label="Eclipse b3 (Incubation)"
-      version="0.2.0.qualifier"
+      version="0.3.0.qualifier"
       provider-name="Eclipse b3 Project">
 
    <description url="http://www.eclipse.org/b3">
-      This is the b3 Update Site for Indigo
+      This is the b3 Update Site for Kepler
    </description>
 
    <url>
-      <update label="b3 for Indigo" url="http://www.eclipse.org/downloads/download.php?file=/modeling/emft/b3/updates-4.2/&amp;protocol=http&amp;format=xml"/>
+      <update label="b3 for Kepler" url="http://www.eclipse.org/downloads/download.php?file=/modeling/emft/b3/updates-4.3/&amp;protocol=http&amp;format=xml"/>
    </url>
 
    <includes

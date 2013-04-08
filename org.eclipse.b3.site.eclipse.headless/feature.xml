@@ -2,15 +2,15 @@
 <feature
       id="org.eclipse.b3.site.eclipse.headless"
       label="Eclipse b3 Headless (Incubation)"
-      version="0.2.0.qualifier"
+      version="0.3.0.qualifier"
       provider-name="Eclipse b3 Project">
 
    <description url="http://www.eclipse.org/b3">
-      This is the b3 Headless Update Site for Indigo
+      This is the b3 Headless Update Site for Kepler
    </description>
 
    <url>
-      <update label="b3 for Indigo" url="http://www.eclipse.org/downloads/download.php?file=/modeling/emft/b3/headless-4.2/&amp;protocol=http&amp;format=xml"/>
+      <update label="b3 for Kepler" url="http://www.eclipse.org/downloads/download.php?file=/modeling/emft/b3/headless-4.3/&amp;protocol=http&amp;format=xml"/>
    </url>
 
    <includes
@@ -56,21 +56,21 @@
          version="0.0.0"/>
 
    <plugin
-         id="org.apache.commons.codec"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="org.apache.commons.httpclient"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
          id="org.apache.commons.logging"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.apache.httpcomponents.httpcore"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.apache.httpcomponents.httpclient"
          download-size="0"
          install-size="0"
          version="0.0.0"
@@ -115,9 +115,39 @@
          unpack="false"/>
 
    <plugin
-         id="org.eclipse.core.filesystem.hpux.ia64_32"
+         id="org.eclipse.core.filesystem.aix.ppc64"
+         os="aix"
+         arch="ppc64"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.core.filesystem.hpux.ia64"
          os="hpux"
-         arch="ia64_32"
+         arch="ia64"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.core.filesystem.linux.ppc"
+         os="linux"
+         arch="ppc"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.core.filesystem.linux.ppc64"
+         os="linux"
+         arch="ppc64"
          download-size="0"
          install-size="0"
          version="0.0.0"
@@ -245,6 +275,26 @@
          unpack="false"/>
 
    <plugin
+         id="org.eclipse.core.resources.win32.x86"
+         os="win32"
+         arch="x86"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.core.resources.win32.x86_64"
+         os="win32"
+         arch="x86_64"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
          id="org.eclipse.core.runtime"
          download-size="0"
          install-size="0"
@@ -280,7 +330,7 @@
          unpack="false"/>
 
    <plugin
-         id="org.eclipse.ecf.provider.filetransfer.httpclient"
+         id="org.eclipse.ecf.provider.filetransfer.httpclient4"
          download-size="0"
          install-size="0"
          version="0.0.0"
@@ -528,6 +578,16 @@
          unpack="false"/>
 
    <plugin
+         id="org.eclipse.equinox.security.macosx"
+         os="macosx"
+         arch="ppc,x86,x86_64"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
          id="org.eclipse.equinox.security.win32.x86"
          os="win32"
          arch="x86"
@@ -538,9 +598,9 @@
          unpack="false"/>
 
    <plugin
-         id="org.eclipse.equinox.security.macosx"
-         os="macosx"
-         arch="ppc,x86,x86_64"
+         id="org.eclipse.equinox.security.win32.x86_64"
+         os="win32"
+         arch="x86"
          download-size="0"
          install-size="0"
          version="0.0.0"

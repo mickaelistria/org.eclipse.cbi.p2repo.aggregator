@@ -5,12 +5,7 @@
   <rm:property key="git.clone.dir" value="${checkout.root}"/>
   <rm:property key="checkout.root" value="${user.home}/git/b3"/>
   <rm:locator pattern="^org\.eclipse\.b3(\..+)?" searchPathRef="b3"/>
-  <rm:locator pattern="^com\.google(\..+)?$" searchPathRef="xtext"/>
   <rm:locator pattern="^org\.eclipse\.buckminster(\..+)?$" searchPathRef="buckminster"/>
-  <rm:locator pattern="^org\.eclipse\.m2e(\..+)?$" searchPathRef="m2e"/>
-  <rm:locator pattern="^ch\.qos\.logback(\..+)?$" searchPathRef="m2e"/>
-  <rm:locator pattern="^org\.jboss\.netty(\..+)?$" searchPathRef="m2e"/>
-  <rm:locator pattern="^com\.ning(\..+)?$" searchPathRef="m2e"/>
   <rm:locator pattern="^com\.ibm\.icu\.base$" searchPathRef="orbit"/>
   <rm:locator pattern="^org\.aopalliance(\..+)?$" searchPathRef="orbit"/>
   <rm:locator pattern="^org\.slf4j(\..+)?$" searchPathRef="orbit"/>
@@ -33,35 +28,14 @@
     <rm:provider componentTypes="osgi.bundle,eclipse.feature" readerType="p2" source="false" mutable="false">
       <rm:property key="buckminster.source" value="false"/>
       <rm:property key="buckminster.mutable" value="false"/>
-      <rm:uri format="http://download.eclipse.org/releases/juno"/>
-    </rm:provider>
-  </rm:searchPath>
-  <rm:searchPath name="m2t">
-    <rm:provider componentTypes="osgi.bundle,eclipse.feature" readerType="p2" source="false" mutable="false">
-      <rm:property key="buckminster.source" value="false"/>
-      <rm:property key="buckminster.mutable" value="false"/>
-      <rm:uri format="http://download.eclipse.org/modeling/m2t/updates/releases/helios"/>
-    </rm:provider>
-  </rm:searchPath>
-  <rm:searchPath name="xtext">
-    <rm:provider componentTypes="osgi.bundle,eclipse.feature" readerType="p2" source="false" mutable="false">
-      <rm:property key="buckminster.source" value="false"/>
-      <rm:property key="buckminster.mutable" value="false"/>
-      <rm:uri format="http://download.eclipse.org/modeling/tmf/xtext/updates/releases"/>
-    </rm:provider>
-  </rm:searchPath>
-  <rm:searchPath name="m2e">
-    <rm:provider componentTypes="eclipse.feature,osgi.bundle" readerType="p2" source="false" mutable="false">
-      <rm:property key="buckminster.source" value="false"/>
-      <rm:property key="buckminster.mutable" value="false"/>
-      <rm:uri format="http://download.eclipse.org/technology/m2e/releases"/>
+      <rm:uri format="http://download.eclipse.org/releases/kepler/201303220900"/>
     </rm:provider>
   </rm:searchPath>
   <rm:searchPath name="buckminster">
     <rm:provider componentTypes="eclipse.feature,osgi.bundle" readerType="p2" source="false" mutable="false">
       <rm:property key="buckminster.source" value="false"/>
       <rm:property key="buckminster.mutable" value="false"/>
-      <rm:uri format="{0}/tools/buckminster/updates-4.2">
+      <rm:uri format="{0}/tools/buckminster/updates-4.3">
         <bc:propertyRef key="eclipse.download"/>
       </rm:uri>
     </rm:provider>
@@ -70,7 +44,7 @@
     <rm:provider componentTypes="osgi.bundle,eclipse.feature" readerType="p2" source="false" mutable="false">
       <rm:property key="buckminster.source" value="false"/>
       <rm:property key="buckminster.mutable" value="false"/>
-      <rm:uri format="{0}/tools/orbit/downloads/drops/R20120526062928/repository">
+      <rm:uri format="{0}/tools/orbit/downloads/drops/S20130308121626/repository">
         <bc:propertyRef key="eclipse.download"/>
       </rm:uri>
     </rm:provider>
@@ -79,7 +53,7 @@
     <rm:provider componentTypes="eclipse.feature,osgi.bundle" readerType="p2" source="false" mutable="false">
       <rm:property key="buckminster.source" value="false"/>
       <rm:property key="buckminster.mutable" value="false"/>
-      <rm:uri format="{0}/eclipse/updates/3.8">
+      <rm:uri format="{0}/eclipse/updates/4.3milestones/S-4.3M6-201303141330">
         <bc:propertyRef key="eclipse.download"/>
       </rm:uri>
     </rm:provider>

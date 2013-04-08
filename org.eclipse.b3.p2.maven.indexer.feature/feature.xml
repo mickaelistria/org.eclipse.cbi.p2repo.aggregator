@@ -1,27 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feature
       id="org.eclipse.b3.p2.maven.indexer.feature"
-      label="b3 and p2 - Nexus Indexer for Maven"
-      version="0.2.0.qualifier"
-      provider-name="Eclipse b3 Project">
+      label="%featureName"
+      version="0.3.0.qualifier"
+      provider-name="%providerName"
+      license-feature="org.eclipse.b3.license.feature"
+      license-feature-version="0.2.0.qualifier">
 
-   <description url="http://www.example.com/description">
-      This is an optional extension to the maven repository loader. If present, maven repositories can be scanned via nexus indexes.
+   <description>
+      %description
    </description>
 
-   <copyright url="http://www.eclipse.org/b3/COPYRIGHT">
-      Copyright (c) 2009, Cloudsmith Inc.
-The code, documentation and other materials contained herein
-have been
-licensed under the Eclipse Public License - v 1.0 by the copyright
-holder
-listed above, as the Initial Contributor under such license.
-The text of
-such license is available at www.eclipse.org.
+   <copyright>
+      %copyright
    </copyright>
 
-   <license url="http://www.example.com/license">
-      [Enter License Description here.]
+   <license url="%licenseURL">
+      %license
    </license>
 
    <requires>

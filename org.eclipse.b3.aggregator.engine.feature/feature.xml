@@ -2,7 +2,7 @@
 <feature
       id="org.eclipse.b3.aggregator.engine.feature"
       label="%featureName"
-      version="0.2.0.qualifier"
+      version="0.3.0.qualifier"
       provider-name="%providerName"
       license-feature="org.eclipse.b3.license.feature"
       license-feature-version="0.2.0.qualifier">
@@ -22,9 +22,9 @@
    <requires>
       <import plugin="org.apache.ant"/>
       <import plugin="org.eclipse.buckminster.osgi.filter"/>
-      <import plugin="org.apache.commons.httpclient"/>
-      <import plugin="org.apache.commons.codec"/>
       <import plugin="org.apache.commons.logging"/>
+      <import plugin="org.apache.httpcomponents.httpclient"/>
+      <import plugin="org.apache.httpcomponents.httpcore"/>
       <import plugin="org.eclipse.core.contenttype"/>
       <import plugin="org.eclipse.core.filesystem"/>
       <import plugin="org.eclipse.core.expressions"/>
@@ -36,7 +36,7 @@
       <import plugin="org.eclipse.ecf.filetransfer"/>
       <import plugin="org.eclipse.ecf.identity"/>
       <import plugin="org.eclipse.ecf.provider.filetransfer"/>
-      <import plugin="org.eclipse.ecf.provider.filetransfer.httpclient"/>
+      <import plugin="org.eclipse.ecf.provider.filetransfer.httpclient4"/>
       <import plugin="org.eclipse.emf.common"/>
       <import plugin="org.eclipse.emf.ecore"/>
       <import plugin="org.eclipse.emf.ecore.xmi"/>

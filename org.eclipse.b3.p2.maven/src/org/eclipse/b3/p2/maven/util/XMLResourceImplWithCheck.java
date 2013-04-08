@@ -11,11 +11,12 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Map;
 
-import org.apache.commons.httpclient.Header;
-import org.apache.commons.httpclient.HttpClient;
-import org.apache.commons.httpclient.HttpMethod;
-import org.apache.commons.httpclient.HttpStatus;
-import org.apache.commons.httpclient.methods.GetMethod;
+import org.apache.http.Header;
+import org.apache.http.HttpResponse;
+import org.apache.http.HttpStatus;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.impl.client.DefaultHttpClient;
 import org.eclipse.b3.util.LogUtils;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.URIConverter;
@@ -83,7 +84,7 @@ public class XMLResourceImplWithCheck extends XMLResourceImpl {
 		private URIHandlerWithCheck(URIConverter owner) {
 			this.owner = owner;
 			owner.getURIHandlers().add(0, this);
-			httpClient = new HttpClient();
+			httpClient = new DefaultHttpClient();
 		}
 
 		@Override
@@ -159,10 +160,12 @@ public class XMLResourceImplWithCheck extends XMLResourceImpl {
 			java.net.URI uri = new java.net.URI(uriStr);
 			String scheme = uri.getScheme();
 			if("http".equals(scheme) || "https".equals(scheme)) {
-				HttpMethod method = new GetMethod(uriStr);
-				if(httpClient.executeMethod(method) == HttpStatus.SC_NOT_FOUND)
+				HttpGet method = new HttpGet(uriStr);
+				HttpResponse response = httpClient.execute(method);
+				if(response.getStatusLine().getStatusCode() == HttpStatus.SC_NOT_FOUND)
 					throw new FileNotFoundException();
-				Header header = method.getResponseHeader("last-modified");
+
+				Header header = response.getFirstHeader("last-modified");
 				if(header != null)
 					try {
 						lastModified = LAST_MODIFIED_DATE_FORMAT.parse(header.getValue()).getTime();
@@ -171,7 +174,7 @@ public class XMLResourceImplWithCheck extends XMLResourceImpl {
 						// bad timestamp => no timestamp available
 					}
 
-				is = method.getResponseBodyAsStream();
+				is = response.getEntity().getContent();
 			}
 			else {
 				URLConnection conn = uri.toURL().openConnection();

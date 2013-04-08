@@ -33,12 +33,16 @@ import java.util.Stack;
 import java.util.StringTokenizer;
 import java.util.regex.Pattern;
 
-import org.apache.commons.httpclient.Header;
-import org.apache.commons.httpclient.HttpClient;
-import org.apache.commons.httpclient.HttpMethod;
-import org.apache.commons.httpclient.HttpStatus;
-import org.apache.commons.httpclient.methods.GetMethod;
-import org.apache.commons.httpclient.methods.HeadMethod;
+import org.apache.http.Header;
+import org.apache.http.HttpEntity;
+import org.apache.http.HttpResponse;
+import org.apache.http.HttpStatus;
+import org.apache.http.StatusLine;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.params.BasicHttpParams;
+import org.apache.http.params.HttpParams;
 import org.eclipse.b3.p2.InstallableUnit;
 import org.eclipse.b3.p2.P2Factory;
 import org.eclipse.b3.p2.impl.ArtifactKeyImpl;
@@ -186,88 +190,6 @@ public class Maven2RepositoryLoader implements IRepositoryLoader {
 
 	private static final String PROP_INDEX_TIMESTAMP = "maven.index.timestamp";
 
-	public void close() {
-		cachedIUs = null;
-	}
-
-	public IArtifactRepository getArtifactRepository(IMetadataRepository mdr, IProgressMonitor monitor)
-			throws CoreException {
-		monitor.beginTask("Generating artifact repository", 100);
-		SubMonitor subMon = SubMonitor.convert(monitor);
-		SimpleArtifactRepository ar = new SimpleArtifactRepository(
-			mdr.getProvisioningAgent(), mdr.getName(), mdr.getLocation(), null) {
-			@Override
-			public void save() {
-				// no-op
-			}
-		};
-
-		IQueryResult<IInstallableUnit> result = mdr.query(QUERY_ALL_IUS, subMon.newChild(40));
-
-		IProgressMonitor fetchMon = new SubProgressMonitor(subMon, 20);
-		fetchMon.beginTask("Collecting all IUs", 1);
-		Iterator<IInstallableUnit> itor = result.iterator();
-		ArrayList<InstallableUnit> ius = new ArrayList<InstallableUnit>();
-		while(itor.hasNext())
-			ius.add(P2Bridge.importToModel(itor.next()));
-		fetchMon.worked(1);
-		Collections.sort(ius);
-		subMon.worked(20);
-
-		SubMonitor targetMon = subMon.newChild(20);
-		targetMon.beginTask("Collecting all IUs", ius.size() * 2);
-		for(IInstallableUnit iu : ius) {
-			for(IArtifactKey key : iu.getArtifacts()) {
-				SimpleArtifactDescriptor ad = new SimpleArtifactDescriptor(key);
-				String groupPath = iu.getProperty(PROP_MAVEN_GROUP);
-				if(groupPath != null)
-					groupPath = groupPath.replace('.', '/');
-				String id = iu.getProperty(PROP_MAVEN_ID);
-
-				String version = VersionUtil.getVersionString(iu.getVersion());
-				ad.setRepositoryProperty(
-					SimpleArtifactDescriptor.ARTIFACT_REFERENCE, mdr.getLocation().toString() + '/' + groupPath + '/' +
-							id + '/' + version + '/' + id + '-' + version + '.' + key.getClassifier());
-				ar.addDescriptor(ad, targetMon.newChild(1));
-			}
-			targetMon.worked(1);
-		}
-
-		return ar;
-	}
-
-	public void load(IProgressMonitor monitor) throws CoreException {
-		load(monitor, false);
-	}
-
-	public void open(URI location, IProvisioningAgent agent, MetadataRepositoryImpl mdr) throws CoreException {
-		this.location = location;
-		this.agent = agent;
-		indexer = IndexerUtils.getIndexer("nexus");
-
-		// get nexus index timestamp without using nexus tools for now
-		long remoteIndexTimestamp = getRemoteIndexTimestamp();
-
-		// if no indexer is available or no index is available, check if the repository is allowed to be crawled
-		if(indexer == null || remoteIndexTimestamp == 0L)
-			if(!robotSafe(location.toString(), "/")) {
-				StringBuilder message = new StringBuilder("Crawling of %1$s is discouraged (see %1$s/robots.txt)");
-				if(remoteIndexTimestamp != 0L)
-					message.append(". Hint: The repository is indexed. Install an index reader to map this repository.");
-
-				throw ExceptionUtils.fromMessage(message.toString(), location.toString());
-			}
-
-		repository = mdr;
-
-		iteratorStack = new Stack<UriIterator>();
-		versionEntryItor = Collections.<VersionEntry> emptyList().iterator();
-	}
-
-	public void reload(IProgressMonitor monitor) throws CoreException {
-		load(monitor, true);
-	}
-
 	private void append(StringBuilder sb, String name, boolean newLines) {
 		name = StringUtils.trimmedOrNull(name);
 		if(name != null) {
@@ -332,6 +254,10 @@ public class Maven2RepositoryLoader implements IRepositoryLoader {
 		}
 
 		return null;
+	}
+
+	public void close() {
+		cachedIUs = null;
 	}
 
 	private InstallableUnit createIU(VersionEntry versionEntry, IProgressMonitor monitor) throws IOException {
@@ -645,6 +571,52 @@ public class Maven2RepositoryLoader implements IRepositoryLoader {
 		}
 	}
 
+	public IArtifactRepository getArtifactRepository(IMetadataRepository mdr, IProgressMonitor monitor)
+			throws CoreException {
+		monitor.beginTask("Generating artifact repository", 100);
+		SubMonitor subMon = SubMonitor.convert(monitor);
+		SimpleArtifactRepository ar = new SimpleArtifactRepository(
+			mdr.getProvisioningAgent(), mdr.getName(), mdr.getLocation(), null) {
+			@Override
+			public void save() {
+				// no-op
+			}
+		};
+
+		IQueryResult<IInstallableUnit> result = mdr.query(QUERY_ALL_IUS, subMon.newChild(40));
+
+		IProgressMonitor fetchMon = new SubProgressMonitor(subMon, 20);
+		fetchMon.beginTask("Collecting all IUs", 1);
+		Iterator<IInstallableUnit> itor = result.iterator();
+		ArrayList<InstallableUnit> ius = new ArrayList<InstallableUnit>();
+		while(itor.hasNext())
+			ius.add(P2Bridge.importToModel(itor.next()));
+		fetchMon.worked(1);
+		Collections.sort(ius);
+		subMon.worked(20);
+
+		SubMonitor targetMon = subMon.newChild(20);
+		targetMon.beginTask("Collecting all IUs", ius.size() * 2);
+		for(IInstallableUnit iu : ius) {
+			for(IArtifactKey key : iu.getArtifacts()) {
+				SimpleArtifactDescriptor ad = new SimpleArtifactDescriptor(key);
+				String groupPath = iu.getProperty(PROP_MAVEN_GROUP);
+				if(groupPath != null)
+					groupPath = groupPath.replace('.', '/');
+				String id = iu.getProperty(PROP_MAVEN_ID);
+
+				String version = VersionUtil.getVersionString(iu.getVersion());
+				ad.setRepositoryProperty(
+					SimpleArtifactDescriptor.ARTIFACT_REFERENCE, mdr.getLocation().toString() + '/' + groupPath + '/' +
+							id + '/' + version + '/' + id + '-' + version + '.' + key.getClassifier());
+				ar.addDescriptor(ad, targetMon.newChild(1));
+			}
+			targetMon.worked(1);
+		}
+
+		return ar;
+	}
+
 	private File getCacheFile() throws MalformedURLException {
 		return new File(getCacheLocation(), "content.jar");
 	}
@@ -659,12 +631,16 @@ public class Maven2RepositoryLoader implements IRepositoryLoader {
 			String indexPropertiesFile = "/.index/nexus-maven-repository-index.properties";
 
 			if("http".equals(location.getScheme()) || "https".equals(location.getScheme())) {
-				HttpClient httpClient = new HttpClient();
-				GetMethod method = new GetMethod(location.toString() + indexPropertiesFile);
-				method.setRequestHeader("user-agent", "");
-				int status = httpClient.executeMethod(method);
-				if(status == HttpStatus.SC_OK)
-					reader = new BufferedReader(new InputStreamReader(method.getResponseBodyAsStream()));
+				HttpClient httpClient = new DefaultHttpClient();
+				HttpGet request = new HttpGet(location.toString() + indexPropertiesFile);
+				request.addHeader("user-agent", "");
+				HttpResponse response = httpClient.execute(request);
+				StatusLine statusLine = response.getStatusLine();
+				if(statusLine.getStatusCode() == HttpStatus.SC_OK) {
+					HttpEntity entity = response.getEntity();
+					if(entity != null)
+					reader = new BufferedReader(new InputStreamReader(entity.getContent()));
+				}
 			}
 			else {
 				URL url = new URL(location.toString() + indexPropertiesFile);
@@ -735,14 +711,18 @@ public class Maven2RepositoryLoader implements IRepositoryLoader {
 
 		String scheme = uri.getScheme();
 		if("http".equals(scheme) || "https".equals(scheme)) {
-			HttpMethod method = new HeadMethod(uri.toString());
-			HttpClient httpClient = new HttpClient();
+			HttpGet request = new HttpGet(uri.toString());
+			HttpClient httpClient = new DefaultHttpClient();
 			try {
-				method.setFollowRedirects(false);
-				int status;
-				if((status = httpClient.executeMethod(method)) == HttpStatus.SC_MOVED_PERMANENTLY ||
-						status == HttpStatus.SC_MOVED_TEMPORARILY) {
-					Header target = method.getResponseHeader("location");
+				HttpParams params = new BasicHttpParams();
+				params.setParameter("http.protocol.handle-redirects", false);
+				request.setParams(params);
+
+				HttpResponse response = httpClient.execute(request);
+				StatusLine statusLine = response.getStatusLine();
+				int status = statusLine.getStatusCode();
+				if(status == HttpStatus.SC_MOVED_PERMANENTLY || status == HttpStatus.SC_MOVED_TEMPORARILY) {
+					Header target = response.getFirstHeader("location");
 					if(target != null && target.getValue() != null && target.getValue().endsWith("/"))
 						return true;
 				}
@@ -756,6 +736,10 @@ public class Maven2RepositoryLoader implements IRepositoryLoader {
 		}
 
 		return false;
+	}
+
+	public void load(IProgressMonitor monitor) throws CoreException {
+		load(monitor, false);
 	}
 
 	private void load(IProgressMonitor monitor, boolean avoidCache) throws CoreException {
@@ -950,6 +934,34 @@ public class Maven2RepositoryLoader implements IRepositoryLoader {
 				indexer.closeRemoteIndex();
 			subMon.done();
 		}
+	}
+
+	public void open(URI location, IProvisioningAgent agent, MetadataRepositoryImpl mdr) throws CoreException {
+		this.location = location;
+		this.agent = agent;
+		indexer = IndexerUtils.getIndexer("nexus");
+
+		// get nexus index timestamp without using nexus tools for now
+		long remoteIndexTimestamp = getRemoteIndexTimestamp();
+
+		// if no indexer is available or no index is available, check if the repository is allowed to be crawled
+		if(indexer == null || remoteIndexTimestamp == 0L)
+			if(!robotSafe(location.toString(), "/")) {
+				StringBuilder message = new StringBuilder("Crawling of %1$s is discouraged (see %1$s/robots.txt)");
+				if(remoteIndexTimestamp != 0L)
+					message.append(". Hint: The repository is indexed. Install an index reader to map this repository.");
+
+				throw ExceptionUtils.fromMessage(message.toString(), location.toString());
+			}
+
+		repository = mdr;
+
+		iteratorStack = new Stack<UriIterator>();
+		versionEntryItor = Collections.<VersionEntry> emptyList().iterator();
+	}
+
+	public void reload(IProgressMonitor monitor) throws CoreException {
+		load(monitor, true);
 	}
 
 	private void removeCache() throws CoreException {
