@@ -717,7 +717,8 @@ public class MetadataRepositoryReferenceImpl extends MinimalEObjectImpl.Containe
 	}
 
 	synchronized public void setMetadataRepository(MetadataRepository newMetadataRepository) {
-		setMetadataRepositoryGen(newMetadataRepository);
+		if(newMetadataRepository != metadataRepository)
+			setMetadataRepositoryGen(newMetadataRepository);
 	}
 
 	/**

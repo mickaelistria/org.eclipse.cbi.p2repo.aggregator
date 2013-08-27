@@ -30,6 +30,12 @@
          version="0.0.0"/>
 
    <plugin
+         id="com.ning.async-http-client"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"/>
+
+   <plugin
          id="ch.qos.logback.classic"
          download-size="0"
          install-size="0"
@@ -54,6 +60,13 @@
          download-size="0"
          install-size="0"
          version="0.0.0"/>
+
+   <plugin
+         id="org.apache.commons.codec"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
 
    <plugin
          id="org.apache.commons.logging"
@@ -337,7 +350,7 @@
          unpack="false"/>
 
    <plugin
-         id="org.eclipse.ecf.provider.filetransfer.httpclient.ssl"
+         id="org.eclipse.ecf.provider.filetransfer.httpclient4.ssl"
          download-size="0"
          install-size="0"
          version="0.0.0"
@@ -644,6 +657,13 @@
 
    <plugin
          id="org.eclipse.update.configurator"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.jboss.netty"
          download-size="0"
          install-size="0"
          version="0.0.0"
