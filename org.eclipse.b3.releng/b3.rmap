@@ -6,7 +6,6 @@
   <rm:property key="checkout.root" value="${user.home}/git/b3"/>
   <rm:locator pattern="^org\.eclipse\.b3(\..+)?" searchPathRef="b3"/>
   <rm:locator pattern="^org\.eclipse\.buckminster(\..+)?$" searchPathRef="buckminster"/>
-  <rm:locator searchPathRef="platform" failOnError="false"/>
   <rm:locator searchPathRef="releaseTrain" failOnError="false"/>
   <rm:locator searchPathRef="orbit"/>
   <rm:searchPath name="b3">
@@ -33,13 +32,6 @@
   <rm:searchPath name="orbit">
     <rm:provider componentTypes="osgi.bundle,eclipse.feature" readerType="p2" source="false" mutable="false">
       <rm:uri format="{0}/tools/orbit/downloads/drops/R20130827064939/repository">
-        <bc:propertyRef key="eclipse.download"/>
-      </rm:uri>
-    </rm:provider>
-  </rm:searchPath>
-  <rm:searchPath name="platform">
-    <rm:provider componentTypes="eclipse.feature,osgi.bundle" readerType="p2" source="false" mutable="false">
-       <rm:uri format="{0}/eclipse/updates/4.3">
         <bc:propertyRef key="eclipse.download"/>
       </rm:uri>
     </rm:provider>
