@@ -6,7 +6,6 @@
   <rm:property key="checkout.root" value="${user.home}/git/b3"/>
   <rm:locator pattern="^org\.eclipse\.b3(\..+)?" searchPathRef="b3"/>
   <rm:locator pattern="^org\.eclipse\.buckminster(\..+)?$" searchPathRef="buckminster"/>
-  <rm:locator pattern="^org\.eclipse\.emf(\..+)?$" searchPathRef="emf"/>
   <rm:locator searchPathRef="platform" failOnError="false"/>
   <rm:locator searchPathRef="releaseTrain" failOnError="false"/>
   <rm:locator searchPathRef="orbit"/>
@@ -21,7 +20,7 @@
   </rm:searchPath>
   <rm:searchPath name="releaseTrain">
     <rm:provider componentTypes="osgi.bundle,eclipse.feature" readerType="p2" source="false" mutable="false">
-      <rm:uri format="http://download.eclipse.org/releases/kepler"/>
+      <rm:uri format="http://download.eclipse.org/releases/maintenance"/>
     </rm:provider>
   </rm:searchPath>
   <rm:searchPath name="buckminster">
@@ -31,17 +30,9 @@
       </rm:uri>
     </rm:provider>
   </rm:searchPath>
-  <rm:searchPath name="emf">
-    <rm:provider componentTypes="osgi.bundle,eclipse.feature" readerType="p2" source="false" mutable="false">
-      <rm:uri format="http://download.eclipse.org/modeling/emf/emf/updates/2.9.x/base/S201308270309"/>
-    </rm:provider>
-    <rm:provider componentTypes="osgi.bundle,eclipse.feature" readerType="p2" source="false" mutable="false">
-      <rm:uri format="http://download.eclipse.org/modeling/emf/emf/updates/2.9.x/core/S201308191254"/>
-    </rm:provider>
-  </rm:searchPath>
   <rm:searchPath name="orbit">
     <rm:provider componentTypes="osgi.bundle,eclipse.feature" readerType="p2" source="false" mutable="false">
-      <rm:uri format="{0}/tools/orbit/downloads/drops/R20130517111416/repository">
+      <rm:uri format="{0}/tools/orbit/downloads/drops/R20130827064939/repository">
         <bc:propertyRef key="eclipse.download"/>
       </rm:uri>
     </rm:provider>
