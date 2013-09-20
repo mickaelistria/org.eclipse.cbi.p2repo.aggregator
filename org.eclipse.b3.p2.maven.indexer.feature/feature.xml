@@ -20,13 +20,29 @@
    </license>
 
    <requires>
-      <import plugin="org.eclipse.b3.p2.maven"/>
       <import plugin="org.eclipse.m2e.maven.runtime"/>
-      <import plugin="ch.qos.logback.slf4j"/>
-      <import plugin="org.eclipse.core.runtime"/>
-      <import plugin="org.eclipse.b3.util"/>
+      <import plugin="org.eclipse.m2e.maven.indexer"/>
+      <import plugin="org.eclipse.m2e.archetype.common"/>
+      <import plugin="org.eclipse.emf.common"/>
+      <import plugin="org.eclipse.emf.ecore"/>
+      <import plugin="org.eclipse.emf.ecore.xmi"/>
       <import plugin="org.eclipse.equinox.p2.core"/>
+      <import plugin="org.eclipse.equinox.p2.metadata"/>
    </requires>
+
+   <plugin
+         id="org.eclipse.b3.util"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.b3.p2.maven"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
 
    <plugin
          id="org.eclipse.b3.p2.maven.indexer"
