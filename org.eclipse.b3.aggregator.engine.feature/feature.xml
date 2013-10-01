@@ -20,7 +20,6 @@
    </license>
 
    <requires>
-      <import plugin="com.ning.async-http-client"/>
       <import plugin="org.apache.ant"/>
       <import plugin="org.eclipse.buckminster.osgi.filter"/>
       <import plugin="org.apache.commons.codec"/>
@@ -76,7 +75,6 @@
       <import plugin="org.eclipse.osgi"/>
       <import plugin="org.eclipse.osgi.services"/>
       <import plugin="org.eclipse.update.configurator"/>
-      <import plugin="org.jboss.netty"/>
       <import plugin="org.kohsuke.args4j"/>
       <import plugin="org.sat4j.core"/>
       <import plugin="org.sat4j.pb"/>
