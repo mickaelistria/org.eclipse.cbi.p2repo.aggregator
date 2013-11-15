@@ -460,6 +460,7 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 		createEAttribute(aggregationEClass, AGGREGATION__SENDMAIL);
 		createEAttribute(aggregationEClass, AGGREGATION__TYPE);
 		createEAttribute(aggregationEClass, AGGREGATION__MAVEN_RESULT);
+		createEAttribute(aggregationEClass, AGGREGATION__STRICT_MAVEN_VERSIONS);
 		createEReference(aggregationEClass, AGGREGATION__MAVEN_MAPPINGS);
 		createEAttribute(aggregationEClass, AGGREGATION__ALLOW_LEGACY_SITES);
 
@@ -612,7 +613,7 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 	 * @generated
 	 */
 	public EAttribute getAggregation_AllowLegacySites() {
-		return (EAttribute) aggregationEClass.getEStructuralFeatures().get(12);
+		return (EAttribute) aggregationEClass.getEStructuralFeatures().get(13);
 	}
 
 	/**
@@ -682,7 +683,7 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 	 * @generated
 	 */
 	public EReference getAggregation_MavenMappings() {
-		return (EReference) aggregationEClass.getEStructuralFeatures().get(11);
+		return (EReference) aggregationEClass.getEStructuralFeatures().get(12);
 	}
 
 	/**
@@ -713,6 +714,16 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 	 */
 	public EAttribute getAggregation_Sendmail() {
 		return (EAttribute) aggregationEClass.getEStructuralFeatures().get(8);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EAttribute getAggregation_StrictMavenVersions() {
+		return (EAttribute) aggregationEClass.getEStructuralFeatures().get(11);
 	}
 
 	/**
@@ -1796,6 +1807,10 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 		initEAttribute(
 			getAggregation_MavenResult(), ecorePackage.getEBoolean(), "mavenResult", null, 0, 1, Aggregation.class,
 			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(
+			getAggregation_StrictMavenVersions(), ecorePackage.getEBoolean(), "strictMavenVersions", null, 0, 1,
+			Aggregation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+			!IS_DERIVED, IS_ORDERED);
 		initEReference(
 			getAggregation_MavenMappings(), this.getMavenMapping(), null, "mavenMappings", null, 0, -1,
 			Aggregation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES,
@@ -1835,7 +1850,7 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 			availableVersionEClass, AvailableVersion.class, "AvailableVersion", !IS_ABSTRACT, !IS_INTERFACE,
 			IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(
-			getAvailableVersion_VersionMatch(), this.getVersionMatch(), "versionMatch", "", 1, 1,
+			getAvailableVersion_VersionMatch(), this.getVersionMatch(), "versionMatch", null, 1, 1,
 			AvailableVersion.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
 			!IS_DERIVED, IS_ORDERED);
 		initEAttribute(
@@ -1848,7 +1863,7 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 			getAvailableVersion_Filter(), g1, "filter", null, 0, 1, AvailableVersion.class, !IS_TRANSIENT,
 			!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(
-			getAvailableVersion_AvailableFrom(), this.getAvailableFrom(), "availableFrom", "REPOSITORY", 1, 1,
+			getAvailableVersion_AvailableFrom(), this.getAvailableFrom(), "availableFrom", "repository", 1, 1,
 			AvailableVersion.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
 			!IS_DERIVED, IS_ORDERED);
 
@@ -1953,7 +1968,7 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 			descriptionProviderEClass, DescriptionProvider.class, "DescriptionProvider", !IS_ABSTRACT, !IS_INTERFACE,
 			IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(
-			getDescriptionProvider_Description(), theXMLTypePackage.getString(), "description", "", 0, 1,
+			getDescriptionProvider_Description(), theXMLTypePackage.getString(), "description", null, 0, 1,
 			DescriptionProvider.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
 			!IS_DERIVED, IS_ORDERED);
 
@@ -2171,10 +2186,10 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 
 		initEClass(statusEClass, Status.class, "Status", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(
-			getStatus_Code(), this.getStatusCode(), "code", "", 1, 1, Status.class, !IS_TRANSIENT, !IS_VOLATILE,
+			getStatus_Code(), this.getStatusCode(), "code", null, 1, 1, Status.class, !IS_TRANSIENT, !IS_VOLATILE,
 			!IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(
-			getStatus_Message(), theXMLTypePackage.getString(), "message", "", 0, 1, Status.class, !IS_TRANSIENT,
+			getStatus_Message(), theXMLTypePackage.getString(), "message", null, 0, 1, Status.class, !IS_TRANSIENT,
 			!IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(

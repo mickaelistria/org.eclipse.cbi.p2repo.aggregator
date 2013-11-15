@@ -35,7 +35,7 @@ import org.eclipse.equinox.p2.metadata.expression.IMatchExpression;
 public interface AvailableVersion extends Comparable<AvailableVersion> {
 	/**
 	 * Returns the value of the '<em><b>Available From</b></em>' attribute.
-	 * The default value is <code>"REPOSITORY"</code>.
+	 * The default value is <code>"repository"</code>.
 	 * The literals are from the enumeration {@link org.eclipse.b3.aggregator.AvailableFrom}.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -47,7 +47,7 @@ public interface AvailableVersion extends Comparable<AvailableVersion> {
 	 * @see org.eclipse.b3.aggregator.AvailableFrom
 	 * @see #setAvailableFrom(AvailableFrom)
 	 * @see org.eclipse.b3.aggregator.AggregatorPackage#getAvailableVersion_AvailableFrom()
-	 * @model default="REPOSITORY" required="true"
+	 * @model default="repository" required="true"
 	 * @generated
 	 */
 	AvailableFrom getAvailableFrom();
@@ -86,7 +86,6 @@ public interface AvailableVersion extends Comparable<AvailableVersion> {
 
 	/**
 	 * Returns the value of the '<em><b>Version Match</b></em>' attribute.
-	 * The default value is <code>""</code>.
 	 * The literals are from the enumeration {@link org.eclipse.b3.aggregator.VersionMatch}.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -98,7 +97,7 @@ public interface AvailableVersion extends Comparable<AvailableVersion> {
 	 * @see org.eclipse.b3.aggregator.VersionMatch
 	 * @see #setVersionMatch(VersionMatch)
 	 * @see org.eclipse.b3.aggregator.AggregatorPackage#getAvailableVersion_VersionMatch()
-	 * @model default="" required="true"
+	 * @model required="true"
 	 * @generated
 	 */
 	VersionMatch getVersionMatch();

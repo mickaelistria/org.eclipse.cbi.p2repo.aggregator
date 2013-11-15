@@ -29,6 +29,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="sendmail" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" lowerBound="1" eType="#//AggregationType"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="mavenResult" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="strictMavenVersions" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="mavenMappings" upperBound="-1"
         eType="#//MavenMapping" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="allowLegacySites" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Boolean"
@@ -44,7 +45,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="AvailableVersion">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="versionMatch" lowerBound="1"
-        eType="#//VersionMatch" defaultValueLiteral=""/>
+        eType="#//VersionMatch"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="version" eType="ecore:EDataType ../../org.eclipse.b3.p2/model/p2.ecore#//Version"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="filter">
       <eGenericType eClassifier="ecore:EDataType ../../org.eclipse.b3.p2/model/p2.ecore#//IMatchExpression">
@@ -52,7 +53,7 @@
       </eGenericType>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="availableFrom" lowerBound="1"
-        eType="#//AvailableFrom" defaultValueLiteral="REPOSITORY"/>
+        eType="#//AvailableFrom" defaultValueLiteral="repository"/>
     <eGenericSuperTypes eClassifier="ecore:EClass ../../org.eclipse.b3.p2/model/p2.ecore#//Comparable">
       <eTypeArguments eClassifier="#//AvailableVersion"/>
     </eGenericSuperTypes>
@@ -110,8 +111,7 @@
         eType="#//Feature" eOpposite="#//Feature/categories"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DescriptionProvider">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String"
-        defaultValueLiteral=""/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="EnabledStatusProvider" abstract="true"
       interface="true">
@@ -238,9 +238,9 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Status">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="code" lowerBound="1" eType="#//StatusCode"
-        changeable="false" defaultValueLiteral=""/>
+        changeable="false"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="message" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String"
-        changeable="false" defaultValueLiteral=""/>
+        changeable="false"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="StatusProvider" abstract="true" interface="true">
     <eStructuralFeatures xsi:type="ecore:EReference" name="status" lowerBound="1"
@@ -451,8 +451,7 @@
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="label" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" unique="false"
-          lowerBound="1" eType="#//InstallableUnitType" changeable="false" volatile="true"
-          defaultValueLiteral=""/>
+          lowerBound="1" eType="#//InstallableUnitType" changeable="false" volatile="true"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="filter" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="installableUnit" eType="ecore:EClass ../../org.eclipse.b3.p2/model/p2.ecore#//IInstallableUnit"
           resolveProxies="false"/>
@@ -491,8 +490,7 @@
           eType="#//p2view/RepositoryReferences"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="location" lowerBound="1"
           eType="ecore:EDataType ../../org.eclipse.b3.p2/model/p2.ecore#//URI" changeable="false"
-          volatile="true" transient="true" defaultValueLiteral="" unsettable="true"
-          derived="true"/>
+          volatile="true" transient="true" unsettable="true" derived="true"/>
       <eGenericSuperTypes eClassifier="#//ChildrenProvider">
         <eTypeArguments eClassifier="#//p2view/InstallableUnits"/>
       </eGenericSuperTypes>

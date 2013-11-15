@@ -7,8 +7,10 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
+import java.net.URI;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
@@ -19,6 +21,8 @@ import org.eclipse.b3.aggregator.Contribution;
 import org.eclipse.b3.aggregator.MappedRepository;
 import org.eclipse.b3.aggregator.PackedStrategy;
 import org.eclipse.b3.aggregator.ValidationSet;
+import org.eclipse.b3.aggregator.engine.maven.InstallableUnitMapping;
+import org.eclipse.b3.aggregator.engine.maven.MavenRepositoryHelper;
 import org.eclipse.b3.aggregator.util.ResourceUtils;
 import org.eclipse.b3.p2.MetadataRepository;
 import org.eclipse.b3.util.ExceptionUtils;
@@ -33,8 +37,10 @@ import org.eclipse.core.runtime.MultiStatus;
 import org.eclipse.core.runtime.OperationCanceledException;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.core.runtime.SubMonitor;
+import org.eclipse.core.runtime.URIUtil;
 import org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest;
 import org.eclipse.equinox.internal.p2.artifact.repository.RawMirrorRequest;
+import org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository;
 import org.eclipse.equinox.internal.p2.repository.Transport;
 import org.eclipse.equinox.internal.provisional.p2.artifact.repository.processing.ProcessingStepHandler;
 import org.eclipse.equinox.p2.metadata.IArtifactKey;
@@ -54,6 +60,9 @@ public class MirrorGenerator extends BuilderPhase {
 	private static class CanonicalizeRequest extends MirrorRequest {
 		private IArtifactDescriptor optimizedDescriptor;
 
+		/** Set during perform, clients may read this field to access the destination file. */
+		File destination;
+
 		public CanonicalizeRequest(IArtifactDescriptor optimizedDescriptor, IArtifactRepository sourceRepository,
 				IFileArtifactRepository targetRepository, Transport transport) {
 			super(optimizedDescriptor.getArtifactKey(), targetRepository, null, null, transport);
@@ -72,7 +81,7 @@ public class MirrorGenerator extends BuilderPhase {
 			try {
 				IFileArtifactRepository fbTarget = (IFileArtifactRepository) target;
 				IArtifactKey artifactKey = optimizedDescriptor.getArtifactKey();
-				File destination = fbTarget.getArtifactFile(new ArtifactDescriptor(artifactKey));
+				destination = fbTarget.getArtifactFile(new ArtifactDescriptor(artifactKey));
 				OutputStream out = null;
 				try {
 					File destFolder = destination.getParentFile();
@@ -123,6 +132,73 @@ public class MirrorGenerator extends BuilderPhase {
 			return true;
 		}
 		return false;
+	}
+
+	// VERSION USING nio from JAVA7:
+	// /**
+	// * Create a link to existingFile in the same directory but using newSimpleFilename as the link name.
+	// */
+	// private static void createLink(List<String> errors, File existingFile, String newSimpleFilename) {
+	// if(newSimpleFilename.equals(existingFile.getName()))
+	// return;
+	// try {
+	// String destDir = existingFile.getParent();
+	// FileSystem fs = FileSystems.getDefault();
+	// try {
+	// Files.createLink(fs.getPath(destDir, newSimpleFilename), fs.getPath(existingFile.getCanonicalPath()));
+	// }
+	// catch(IOException e) {
+	// LogUtils.error(e, e.getMessage());
+	// errors.add(Builder.getExceptionMessages(e));
+	// }
+	// }
+	// catch(NoClassDefFoundError notAvailable) {
+	// String msg = "Cannot create link, necessary package 'java.nio.file' is not available. Please consider using Java 7 or greater.";
+	// LogUtils.error(msg);
+	// errors.add(msg);
+	// }
+	// }
+
+	/**
+	 * Create a link to existingFile in the same directory but using newSimpleFilename as the link name.
+	 * This implementation only works on *nix :(
+	 */
+	private static void createLink(List<String> errors, File existingFile, String newSimpleFilename) {
+		if(newSimpleFilename.equals(existingFile.getName()))
+			return;
+		String os = System.getProperty("os.name").toLowerCase();
+		if(os.indexOf("nix") >= 0 || os.indexOf("nux") >= 0 || os.indexOf("aix") > 0) {
+			try {
+				Runtime.getRuntime().exec(
+					new String[] { "/bin/ln", existingFile.getName(), newSimpleFilename }, null,
+					existingFile.getParentFile());
+			}
+			catch(IOException e) {
+				String msg = "Cannot create link.";
+				LogUtils.error(e, msg);
+				errors.add(msg + " cause: " + e.getMessage());
+			}
+		}
+		else {
+			String msg = "Cannot create link, currently supported only on *nix operating systems.";
+			LogUtils.error(msg);
+			errors.add(msg);
+		}
+	}
+
+	private static void createMavenJarLink(File existingFile, IArtifactKey key,
+			Map<IArtifactKey, IInstallableUnit> keyedIUs, MavenRepositoryHelper mavenHelper, List<String> errors)
+			throws CoreException {
+		if(mavenHelper != null && keyedIUs != null) {
+			IInstallableUnit iu = keyedIUs.get(key);
+			InstallableUnitMapping unitMapping = mavenHelper.getTop().findUnit(iu);
+			String existingExtension = null;
+			int lastDot = existingFile.getName().lastIndexOf('.');
+			if(lastDot != -1)
+				existingExtension = existingFile.getName().substring(lastDot + 1);
+			String newPath = unitMapping.getFileName(existingExtension, true);
+			createLink(errors, existingFile, newPath);
+		}
 	}
 
 	private static IStatus extractDeeperRootCause(IStatus status) {
@@ -183,9 +259,9 @@ public class MirrorGenerator extends BuilderPhase {
 				ProcessingStepHandler.canProcess(desc);
 	}
 
-	static void mirror(Collection<IArtifactKey> keysToInstall, IArtifactRepository cache, IArtifactRepository source,
-			IFileArtifactRepository dest, Transport transport, PackedStrategy strategy, List<String> errors,
-			IProgressMonitor monitor) {
+	static void mirror(Collection<IArtifactKey> keysToInstall, Map<IArtifactKey, IInstallableUnit> keyedIUs,
+			IArtifactRepository cache, IArtifactRepository source, IFileArtifactRepository dest, Transport transport,
+			PackedStrategy strategy, List<String> errors, MavenRepositoryHelper mavenHelper, IProgressMonitor monitor) {
 		IQueryResult<IArtifactKey> result = source.query(ArtifactKeyQuery.ALL_KEYS, null);
 		IArtifactKey[] keys = result.toArray(IArtifactKey.class);
 		MonitorUtils.begin(monitor, keys.length * 100);
@@ -256,9 +332,14 @@ public class MirrorGenerator extends BuilderPhase {
 					case SKIP:
 						if(!checkIfTargetPresent(dest, key, false)) {
 							LogUtils.debug("    doing copy of canonical artifact");
-							mirror(
+							IArtifactDescriptor destDesc = mirror(
 								sourceForCopy, dest, canonical, new ArtifactDescriptor(canonical), transport,
 								MonitorUtils.subMonitor(monitor, 90));
+							if(dest instanceof SimpleArtifactRepository) { // is there a better way to find the result File?
+								URI destURI = ((SimpleArtifactRepository) dest).createLocation((ArtifactDescriptor) destDesc);
+								File destFile = URIUtil.toFile(destURI);
+								createMavenJarLink(destFile, key, keyedIUs, mavenHelper, errors);
+							}
 						}
 						break;
 					case COPY:
@@ -299,9 +380,11 @@ public class MirrorGenerator extends BuilderPhase {
 							LogUtils.debug("    unpacking optimized artifact");
 						}
 
-						unpackToSibling(
+						File destFile = unpackToSibling(
 							dest, getArtifactDescriptor(dest, key, true), transport, isVerify,
 							MonitorUtils.subMonitor(monitor, 20));
+
+						createMavenJarLink(destFile, key, keyedIUs, mavenHelper, errors);
 				}
 			}
 			catch(CoreException e) {
@@ -376,7 +459,7 @@ public class MirrorGenerator extends BuilderPhase {
 			target.getLocation(), result.getMessage());
 	}
 
-	private static void unpackToSibling(IFileArtifactRepository target, IArtifactDescriptor optimized,
+	private static File unpackToSibling(IFileArtifactRepository target, IArtifactDescriptor optimized,
 			Transport transport, boolean verifyOnly, IProgressMonitor monitor) throws CoreException {
 		CanonicalizeRequest request = new CanonicalizeRequest(optimized, target, transport);
 		MonitorUtils.begin(monitor, 20);
@@ -389,7 +472,7 @@ public class MirrorGenerator extends BuilderPhase {
 					target.removeDescriptor(
 						getArtifactDescriptor(target, optimized.getArtifactKey(), false),
 						MonitorUtils.subMonitor(monitor, 2));
-				return;
+				return request.destination;
 			}
 
 			result = extractRootCause(result);
@@ -443,6 +526,7 @@ public class MirrorGenerator extends BuilderPhase {
 					}
 					MetadataRepository childMdr = ResourceUtils.getMetadataRepository(repo);
 					ArrayList<IArtifactKey> keysToMirror = null;
+					Map<IArtifactKey, IInstallableUnit> keyedIUs = new HashMap<IArtifactKey, IInstallableUnit>();
 					for(IInstallableUnit iu : childMdr.getInstallableUnits()) {
 						if(!unitsToAggregate.contains(iu))
 							continue;
@@ -454,6 +538,7 @@ public class MirrorGenerator extends BuilderPhase {
 							if(keysToMirror == null)
 								keysToMirror = new ArrayList<IArtifactKey>();
 							keysToMirror.add(ak);
+							keyedIUs.put(ak, iu);
 						}
 					}
 
@@ -466,12 +551,14 @@ public class MirrorGenerator extends BuilderPhase {
 							contribMonitor.newChild(1, SubMonitor.SUPPRESS_BEGINTASK | SubMonitor.SUPPRESS_SETTASKNAME));
 						mirror(
 							keysToMirror,
+							keyedIUs,
 							tempAr,
 							childAr,
 							aggregationAr,
 							getTransport(),
 							packedStrategy,
 							errors,
+							builder.getMavenHelper(),
 							contribMonitor.newChild(94, SubMonitor.SUPPRESS_BEGINTASK | SubMonitor.SUPPRESS_SETTASKNAME));
 					}
 					else
@@ -480,6 +567,8 @@ public class MirrorGenerator extends BuilderPhase {
 				if(errors.size() > 0) {
 					artifactErrors = true;
 					builder.sendEmail(contrib, errors);
+					for(String err : errors)
+						LogUtils.error("Error during mirroring: " + err);
 				}
 				MonitorUtils.done(contribMonitor);
 			}

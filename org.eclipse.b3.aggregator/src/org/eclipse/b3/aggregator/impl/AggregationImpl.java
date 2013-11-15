@@ -60,6 +60,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <li>{@link org.eclipse.b3.aggregator.impl.AggregationImpl#isSendmail <em>Sendmail</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.impl.AggregationImpl#getType <em>Type</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.impl.AggregationImpl#isMavenResult <em>Maven Result</em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.impl.AggregationImpl#isStrictMavenVersions <em>Strict Maven Versions</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.impl.AggregationImpl#getMavenMappings <em>Maven Mappings</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.impl.AggregationImpl#isAllowLegacySites <em>Allow Legacy Sites</em>}</li>
  * </ul>
@@ -338,6 +339,28 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 	protected static final int MAVEN_RESULT_EFLAG = 1 << 7;
 
 	/**
+	 * The default value of the '{@link #isStrictMavenVersions() <em>Strict Maven Versions</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see #isStrictMavenVersions()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean STRICT_MAVEN_VERSIONS_EDEFAULT = false;
+
+	/**
+	 * The flag representing the value of the '{@link #isStrictMavenVersions() <em>Strict Maven Versions</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see #isStrictMavenVersions()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int STRICT_MAVEN_VERSIONS_EFLAG = 1 << 8;
+
+	/**
 	 * The cached value of the '{@link #getMavenMappings() <em>Maven Mappings</em>}' containment reference list. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -367,7 +390,7 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 	 * @generated
 	 * @ordered
 	 */
-	protected static final int ALLOW_LEGACY_SITES_EFLAG = 1 << 8;
+	protected static final int ALLOW_LEGACY_SITES_EFLAG = 1 << 9;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -493,6 +516,8 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 				return getType();
 			case AggregatorPackage.AGGREGATION__MAVEN_RESULT:
 				return isMavenResult();
+			case AggregatorPackage.AGGREGATION__STRICT_MAVEN_VERSIONS:
+				return isStrictMavenVersions();
 			case AggregatorPackage.AGGREGATION__MAVEN_MAPPINGS:
 				return getMavenMappings();
 			case AggregatorPackage.AGGREGATION__ALLOW_LEGACY_SITES:
@@ -580,6 +605,8 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 				return (eFlags & TYPE_EFLAG) != TYPE_EFLAG_DEFAULT;
 			case AggregatorPackage.AGGREGATION__MAVEN_RESULT:
 				return ((eFlags & MAVEN_RESULT_EFLAG) != 0) != MAVEN_RESULT_EDEFAULT;
+			case AggregatorPackage.AGGREGATION__STRICT_MAVEN_VERSIONS:
+				return ((eFlags & STRICT_MAVEN_VERSIONS_EFLAG) != 0) != STRICT_MAVEN_VERSIONS_EDEFAULT;
 			case AggregatorPackage.AGGREGATION__MAVEN_MAPPINGS:
 				return mavenMappings != null && !mavenMappings.isEmpty();
 			case AggregatorPackage.AGGREGATION__ALLOW_LEGACY_SITES:
@@ -645,6 +672,9 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 				return;
 			case AggregatorPackage.AGGREGATION__MAVEN_RESULT:
 				setMavenResult((Boolean) newValue);
+				return;
+			case AggregatorPackage.AGGREGATION__STRICT_MAVEN_VERSIONS:
+				setStrictMavenVersions((Boolean) newValue);
 				return;
 			case AggregatorPackage.AGGREGATION__MAVEN_MAPPINGS:
 				getMavenMappings().clear();
@@ -716,6 +746,9 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 				return;
 			case AggregatorPackage.AGGREGATION__MAVEN_RESULT:
 				setMavenResult(MAVEN_RESULT_EDEFAULT);
+				return;
+			case AggregatorPackage.AGGREGATION__STRICT_MAVEN_VERSIONS:
+				setStrictMavenVersions(STRICT_MAVEN_VERSIONS_EDEFAULT);
 				return;
 			case AggregatorPackage.AGGREGATION__MAVEN_MAPPINGS:
 				getMavenMappings().clear();
@@ -985,6 +1018,16 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 	 * 
 	 * @generated
 	 */
+	public boolean isStrictMavenVersions() {
+		return (eFlags & STRICT_MAVEN_VERSIONS_EFLAG) != 0;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
 	public void setAllowLegacySites(boolean newAllowLegacySites) {
 		boolean oldAllowLegacySites = (eFlags & ALLOW_LEGACY_SITES_EFLAG) != 0;
 		if(newAllowLegacySites)
@@ -1089,6 +1132,24 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 	 * 
 	 * @generated
 	 */
+	public void setStrictMavenVersions(boolean newStrictMavenVersions) {
+		boolean oldStrictMavenVersions = (eFlags & STRICT_MAVEN_VERSIONS_EFLAG) != 0;
+		if(newStrictMavenVersions)
+			eFlags |= STRICT_MAVEN_VERSIONS_EFLAG;
+		else
+			eFlags &= ~STRICT_MAVEN_VERSIONS_EFLAG;
+		if(eNotificationRequired())
+			eNotify(new ENotificationImpl(
+				this, Notification.SET, AggregatorPackage.AGGREGATION__STRICT_MAVEN_VERSIONS, oldStrictMavenVersions,
+				newStrictMavenVersions));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
 	public void setType(AggregationType newType) {
 		AggregationType oldType = TYPE_EFLAG_VALUES[(eFlags & TYPE_EFLAG) >>> TYPE_EFLAG_OFFSET];
 		if(newType == null)
@@ -1127,6 +1188,8 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 		result.append(TYPE_EFLAG_VALUES[(eFlags & TYPE_EFLAG) >>> TYPE_EFLAG_OFFSET]);
 		result.append(", mavenResult: ");
 		result.append((eFlags & MAVEN_RESULT_EFLAG) != 0);
+		result.append(", strictMavenVersions: ");
+		result.append((eFlags & STRICT_MAVEN_VERSIONS_EFLAG) != 0);
 		result.append(", allowLegacySites: ");
 		result.append((eFlags & ALLOW_LEGACY_SITES_EFLAG) != 0);
 		result.append(')');

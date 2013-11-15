@@ -278,6 +278,22 @@ public interface Aggregation extends DescriptionProvider, StatusProvider, InfosP
 	boolean isSendmail();
 
 	/**
+	 * Returns the value of the '<em><b>Strict Maven Versions</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Strict Maven Versions</em>' attribute isn't clear, there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the value of the '<em>Strict Maven Versions</em>' attribute.
+	 * @see #setStrictMavenVersions(boolean)
+	 * @see org.eclipse.b3.aggregator.AggregatorPackage#getAggregation_StrictMavenVersions()
+	 * @model
+	 * @generated
+	 */
+	boolean isStrictMavenVersions();
+
+	/**
 	 * Sets the value of the '{@link org.eclipse.b3.aggregator.Aggregation#isAllowLegacySites <em>Allow Legacy Sites</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -355,6 +371,18 @@ public interface Aggregation extends DescriptionProvider, StatusProvider, InfosP
 	 * @generated
 	 */
 	void setSendmail(boolean value);
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.b3.aggregator.Aggregation#isStrictMavenVersions <em>Strict Maven Versions</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @param value
+	 *            the new value of the '<em>Strict Maven Versions</em>' attribute.
+	 * @see #isStrictMavenVersions()
+	 * @generated
+	 */
+	void setStrictMavenVersions(boolean value);
 
 	/**
 	 * Sets the value of the '{@link org.eclipse.b3.aggregator.Aggregation#getType <em>Type</em>}' attribute.

@@ -169,7 +169,7 @@ public class AvailableVersionsHeaderImpl extends MinimalEObjectImpl.Container im
 	public InstallableUnitRequest getInstallableUnitRequest() {
 		if(eContainerFeatureID() != AggregatorPackage.AVAILABLE_VERSIONS_HEADER__INSTALLABLE_UNIT_REQUEST)
 			return null;
-		return (InstallableUnitRequest) eContainer();
+		return (InstallableUnitRequest) eInternalContainer();
 	}
 
 } // AvailableVersionsHeaderImpl

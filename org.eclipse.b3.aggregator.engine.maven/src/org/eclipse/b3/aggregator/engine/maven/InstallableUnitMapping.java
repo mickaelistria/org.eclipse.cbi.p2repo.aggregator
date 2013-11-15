@@ -15,6 +15,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.eclipse.b3.aggregator.Aggregation;
 import org.eclipse.b3.aggregator.AggregatorFactory;
 import org.eclipse.b3.aggregator.Contribution;
 import org.eclipse.b3.aggregator.MavenItem;
@@ -31,6 +32,7 @@ import org.eclipse.b3.p2.maven.pom.PomFactory;
 import org.eclipse.b3.p2.maven.util.VersionUtil;
 import org.eclipse.b3.util.ExceptionUtils;
 import org.eclipse.core.runtime.CoreException;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.equinox.internal.p2.metadata.IRequiredCapability;
 import org.eclipse.equinox.internal.p2.metadata.InstallableUnit;
 import org.eclipse.equinox.internal.p2.metadata.RequiredCapability;
@@ -103,8 +105,10 @@ public class InstallableUnitMapping implements IInstallableUnit {
 
 	private Contribution contribution;
 
-	public InstallableUnitMapping() {
-		this((String) null);
+	private boolean useStrictMavenVersions;
+
+	public InstallableUnitMapping(boolean useStrictMavenVersions) {
+		this((String) null, useStrictMavenVersions);
 	}
 
 	public InstallableUnitMapping(Contribution contribution, IInstallableUnit iu) {
@@ -149,9 +153,11 @@ public class InstallableUnitMapping implements IInstallableUnit {
 				proxy.overrideArtifacts(Collections.<IArtifactKey> emptyList());
 				installableUnit = proxy;
 		}
+		Aggregation aggregation = (Aggregation) ((EObject) contribution).eContainer().eContainer();
+		useStrictMavenVersions = aggregation.isStrictMavenVersions();
 	}
 
-	public InstallableUnitMapping(String name) {
+	public InstallableUnitMapping(String name, boolean useStrictMavenVersions) {
 		String groupId = name;
 		if(groupId == null)
 			groupId = "_top";
@@ -171,6 +177,8 @@ public class InstallableUnitMapping implements IInstallableUnit {
 		mapped = AggregatorFactory.eINSTANCE.createMavenItem();
 		mapped.setGroupId(groupId);
 		mapped.setArtifactId(artifactId);
+
+		this.useStrictMavenVersions = useStrictMavenVersions;
 	}
 
 	public POM asPOM() throws CoreException {
@@ -180,7 +188,7 @@ public class InstallableUnitMapping implements IInstallableUnit {
 			Parent newParent = PomFactory.eINSTANCE.createParent();
 			newParent.setGroupId(parent.map().getGroupId());
 			newParent.setArtifactId(parent.map().getArtifactId());
-			newParent.setVersion(parent.getVersion().toString());
+			newParent.setVersion(VersionUtil.getVersionString(parent.getVersion(), useStrictMavenVersions));
 			model.setParent(newParent);
 		}
 		model.setModelVersion(POM.MODEL_VERSION);
@@ -190,7 +198,7 @@ public class InstallableUnitMapping implements IInstallableUnit {
 			model.setPackaging("pom");
 
 		if(getVersion() != null && !getVersion().equals(Version.emptyVersion))
-			model.setVersion(getVersionString());
+			model.setVersion(getVersionString(useStrictMavenVersions));
 
 		Collection<IRequirement> requirements = getRequirements();
 		if(requirements.size() > 0) {
@@ -215,15 +223,16 @@ public class InstallableUnitMapping implements IInstallableUnit {
 						Version low = cap.getRange().getMinimum();
 						Version high = cap.getRange().getMaximum();
 						if(cap.getRange().getIncludeMinimum() && Version.MAX_VERSION.equals(high)) {
-							versionRangeString.append("[").append(VersionUtil.getVersionString(low)).append(",)");
+							versionRangeString.append("[").append(
+								VersionUtil.getVersionString(low, useStrictMavenVersions)).append(",)");
 						}
 						else {
 							versionRangeString.append(cap.getRange().getIncludeMinimum()
 									? '['
 									: '(');
-							versionRangeString.append(VersionUtil.getVersionString(low));
+							versionRangeString.append(VersionUtil.getVersionString(low, useStrictMavenVersions));
 							versionRangeString.append(',');
-							versionRangeString.append(VersionUtil.getVersionString(high));
+							versionRangeString.append(VersionUtil.getVersionString(high, useStrictMavenVersions));
 							versionRangeString.append(cap.getRange().getIncludeMaximum()
 									? ']'
 									: ')');
@@ -328,8 +337,22 @@ public class InstallableUnitMapping implements IInstallableUnit {
 		return trimOrNull(value);
 	}
 
-	private String getArtifactFileName() throws CoreException {
-		return getFileName(null);
+	/**
+	 * Answer the InstallableUnitMapping in this or its children that corresponds to the given IU.
+	 */
+	public InstallableUnitMapping findUnit(IInstallableUnit iu) {
+		if(installableUnit.equals(iu))
+			return this;
+		for(InstallableUnitMapping child : children) {
+			InstallableUnitMapping result = child.findUnit(iu);
+			if(result != null)
+				return result;
+		}
+		return null;
+	}
+
+	private String getArtifactFileName(boolean forMaven) throws CoreException {
+		return getFileName(null, forMaven);
 	}
 
 	public Collection<IArtifactKey> getArtifacts() {
@@ -352,11 +375,13 @@ public class InstallableUnitMapping implements IInstallableUnit {
 		return installableUnit.getCopyright(locale);
 	}
 
-	private String getFileName(String extension) throws CoreException {
-		String fileId = getId();
+	public String getFileName(String extension, boolean forMaven) throws CoreException {
+		String fileId = forMaven
+				? mapped.getArtifactId() // maven: simple artifact name
+				: getId();				 // osgi: fully qualified ID
 		StringBuilder fileName = new StringBuilder(fileId);
 		fileName.append('-');
-		fileName.append(getVersionString());
+		fileName.append(getVersionString(forMaven));
 
 		if(extension == null) {
 			if(!(getMainArtifact() != null && "binary".equals(getMainArtifact().getClassifier()))) {
@@ -404,7 +429,7 @@ public class InstallableUnitMapping implements IInstallableUnit {
 	}
 
 	public String getPomName() throws CoreException {
-		return getFileName("pom");
+		return getFileName("pom", true);
 	}
 
 	public Map<String, String> getProperties() {
@@ -423,12 +448,13 @@ public class InstallableUnitMapping implements IInstallableUnit {
 		return installableUnit.getProvidedCapabilities();
 	}
 
-	public String getRelativeFullPath() throws CoreException {
-		return getRelativePath() + "/" + getArtifactFileName();
+	public String getRelativeFullPath(boolean forMaven) throws CoreException {
+		return getRelativePath(true) + "/" + getArtifactFileName(forMaven);
+		// the directory always uses the (possibly strict) maven naming, file names may differ osgi vs. maven
 	}
 
-	public String getRelativePath() throws CoreException {
-		return map().getGroupId().replace('.', '/') + "/" + map().getArtifactId() + "/" + getVersionString();
+	public String getRelativePath(boolean forMaven) throws CoreException {
+		return map().getGroupId().replace('.', '/') + "/" + map().getArtifactId() + "/" + getVersionString(forMaven);
 	}
 
 	public Collection<IRequirement> getRequirements() {
@@ -469,8 +495,8 @@ public class InstallableUnitMapping implements IInstallableUnit {
 		return installableUnit.getVersion();
 	}
 
-	public String getVersionString() {
-		return VersionUtil.getVersionString(getVersion());
+	public String getVersionString(boolean forMaven) {
+		return VersionUtil.getVersionString(getVersion(), forMaven && useStrictMavenVersions);
 	}
 
 	public boolean isResolved() {
@@ -479,6 +505,13 @@ public class InstallableUnitMapping implements IInstallableUnit {
 
 	public boolean isSingleton() {
 		return installableUnit.isSingleton();
+	}
+
+	/**
+	 * @return true if this aggregation should generate strict maven versions
+	 */
+	public boolean isStrictMavenVersions() {
+		return useStrictMavenVersions;
 	}
 
 	public boolean isTransient() {

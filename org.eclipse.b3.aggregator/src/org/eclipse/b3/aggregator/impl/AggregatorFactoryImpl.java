@@ -78,7 +78,7 @@ public class AggregatorFactoryImpl extends EFactoryImpl implements AggregatorFac
 	 */
 	public static AggregatorFactory init() {
 		try {
-			AggregatorFactory theAggregatorFactory = (AggregatorFactory) EPackage.Registry.INSTANCE.getEFactory("http://www.eclipse.org/b3/2011/aggregator/1.1.0");
+			AggregatorFactory theAggregatorFactory = (AggregatorFactory) EPackage.Registry.INSTANCE.getEFactory(AggregatorPackage.eNS_URI);
 			if(theAggregatorFactory != null) {
 				return theAggregatorFactory;
 			}

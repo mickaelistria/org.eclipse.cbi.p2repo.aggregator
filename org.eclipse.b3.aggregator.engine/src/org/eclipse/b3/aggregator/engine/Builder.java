@@ -797,6 +797,10 @@ public class Builder extends ModelAbstractCommand {
 		return "mappedRepo_" + getSafeRepositoryName(repository);
 	}
 
+	public MavenRepositoryHelper getMavenHelper() {
+		return mavenHelper;
+	}
+
 	public IMetadataRepositoryManager getMdrManager() {
 		return mdrManager;
 	}
@@ -1405,7 +1409,7 @@ public class Builder extends ModelAbstractCommand {
 			MonitorUtils.done(contribMonitor);
 		}
 
-		mavenHelper = MavenManager.createMavenStructure(iusToMaven);
+		mavenHelper = MavenManager.createMavenStructure(iusToMaven, getAggregation().isStrictMavenVersions());
 
 		if(aggregateAr instanceof SimpleArtifactRepository) {
 			SimpleArtifactRepository simpleAr = ((SimpleArtifactRepository) aggregateAr);

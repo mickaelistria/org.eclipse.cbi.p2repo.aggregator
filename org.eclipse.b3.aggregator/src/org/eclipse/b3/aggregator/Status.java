@@ -27,7 +27,6 @@ package org.eclipse.b3.aggregator;
 public interface Status {
 	/**
 	 * Returns the value of the '<em><b>Code</b></em>' attribute.
-	 * The default value is <code>""</code>.
 	 * The literals are from the enumeration {@link org.eclipse.b3.aggregator.StatusCode}.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -38,7 +37,7 @@ public interface Status {
 	 * @return the value of the '<em>Code</em>' attribute.
 	 * @see org.eclipse.b3.aggregator.StatusCode
 	 * @see org.eclipse.b3.aggregator.AggregatorPackage#getStatus_Code()
-	 * @model default="" required="true" changeable="false"
+	 * @model required="true" changeable="false"
 	 * @generated
 	 */
 	StatusCode getCode();

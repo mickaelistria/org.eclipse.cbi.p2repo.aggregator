@@ -111,7 +111,8 @@ public class MavenManager {
 		}
 	}
 
-	public static MavenRepositoryHelper createMavenStructure(List<InstallableUnitMapping> ius) throws CoreException {
+	public static MavenRepositoryHelper createMavenStructure(List<InstallableUnitMapping> ius,
+			boolean useStrictMavenVersions) throws CoreException {
 		List<String[]> mappingRulesList = new ArrayList<String[]>();
 
 		// Initialize with standard rules for packed artifacts (which are not usable for maven anyway)
@@ -132,12 +133,12 @@ public class MavenManager {
 			group.add(iu);
 		}
 
-		InstallableUnitMapping top = new InstallableUnitMapping();
+		InstallableUnitMapping top = new InstallableUnitMapping(useStrictMavenVersions);
 		top.setTransient(true);
 		addMappingRule(mappingRulesList, top);
 
 		for(Map.Entry<String, List<InstallableUnitMapping>> entry : groupMap.entrySet()) {
-			InstallableUnitMapping group = new InstallableUnitMapping(entry.getKey());
+			InstallableUnitMapping group = new InstallableUnitMapping(entry.getKey(), useStrictMavenVersions);
 			addMappingRule(mappingRulesList, group);
 
 			// This is a place where we can find common-in-group properties
@@ -170,7 +171,7 @@ public class MavenManager {
 		Map<String, MavenMetadataHelper> metadataCollector = new HashMap<String, MavenMetadataHelper>();
 
 		savePOMs(root, iu, uriConverter, DigestUtil.MESSAGE_DIGESTERS, metadataCollector, errors);
-		saveXMLs(root, uriConverter, DigestUtil.MESSAGE_DIGESTERS, metadataCollector);
+		saveXMLs(root, uriConverter, DigestUtil.MESSAGE_DIGESTERS, metadataCollector, iu.isStrictMavenVersions());
 	}
 
 	private static void addMappingRule(List<String[]> mappingRulesList, InstallableUnitMapping iu) throws CoreException {
@@ -180,15 +181,8 @@ public class MavenManager {
 					"(& (classifier=" + IUUtils.encodeFilterValue(artifact.getClassifier()) + ")(id=" +
 							IUUtils.encodeFilterValue(artifact.getId()) + ")(version=" +
 							IUUtils.encodeFilterValue(iu.getVersion().toString()) + "))",
-					"${repoUrl}/" + iu.getRelativeFullPath() });
+					"${repoUrl}/" + iu.getRelativeFullPath(false) }); // let the primary artifact still use the osgi version
 		}
-	}
-
-	private static URI createArtifactURI(URI root, InstallableUnitMapping iu) throws CoreException {
-		if(iu.getMainArtifact() != null)
-			return URI.createURI(root.toString() + "/" + iu.getRelativeFullPath());
-
-		return null;
 	}
 
 	private static void createCheckSum(URI fileUri, URIConverter uriConverter, MessageDigest[] digests)
@@ -233,8 +227,15 @@ public class MavenManager {
 		}
 	}
 
+	private static URI createMavenArtifactURI(URI root, InstallableUnitMapping iu) throws CoreException {
+		if(iu.getMainArtifact() != null)
+			return URI.createURI(root.toString() + "/" + iu.getRelativeFullPath(true));
+
+		return null;
+	}
+
 	private static URI createPomURI(URI root, InstallableUnitMapping iu) throws CoreException {
-		return URI.createURI(root.toString() + "/" + iu.getRelativePath() + "/" + iu.getPomName());
+		return URI.createURI(root.toString() + "/" + iu.getRelativePath(true) + "/" + iu.getPomName());
 	}
 
 	private static URI createXmlURI(URI root, MavenMetadataHelper md) throws CoreException {
@@ -249,7 +250,7 @@ public class MavenManager {
 			iu.asPOM().save(pomUri);
 			createCheckSum(pomUri, uriConverter, digests);
 
-			URI artifactUri = createArtifactURI(root, iu);
+			URI artifactUri = createMavenArtifactURI(root, iu);
 			if(artifactUri != null) {
 				try {
 					createCheckSum(artifactUri, uriConverter, digests);
@@ -276,7 +277,7 @@ public class MavenManager {
 			if(md == null)
 				metadataCollector.put(
 					key, md = new MavenMetadataHelper(iu.map().getGroupId(), iu.map().getArtifactId()));
-			md.addVersion(iu.getVersion());
+			md.addVersion(iu.getVersion()); // will potentially be mapped to strict maven during saveXMLs
 		}
 
 		for(InstallableUnitMapping child : iu.getChildren())
@@ -284,7 +285,7 @@ public class MavenManager {
 	}
 
 	private static void saveXMLs(URI root, URIConverter uriConverter, MessageDigest[] digests,
-			Map<String, MavenMetadataHelper> metadataCollector) throws CoreException {
+			Map<String, MavenMetadataHelper> metadataCollector, boolean strictMavenVersions) throws CoreException {
 		String timestamp = String.format("%1$tY%1$tm%1$td%1$tH%1$tM%1$tS", new Date());
 
 		for(MavenMetadataHelper mdh : metadataCollector.values()) {
@@ -299,12 +300,12 @@ public class MavenManager {
 			versioning.setLastUpdated(timestamp);
 			Version release = mdh.getRelease();
 			if(release != null)
-				versioning.setRelease(VersionUtil.getVersionString(release));
+				versioning.setRelease(VersionUtil.getVersionString(release, strictMavenVersions));
 			Versions versions = MetadataFactory.eINSTANCE.createVersions();
 			versioning.setVersions(versions);
 			List<String> versionList = versions.getVersion();
 			for(Version version : mdh.getVersions())
-				versionList.add(VersionUtil.getVersionString(version));
+				versionList.add(VersionUtil.getVersionString(version, strictMavenVersions));
 
 			URI xmlUri = createXmlURI(root, mdh);
 			mdConainter.save(xmlUri);

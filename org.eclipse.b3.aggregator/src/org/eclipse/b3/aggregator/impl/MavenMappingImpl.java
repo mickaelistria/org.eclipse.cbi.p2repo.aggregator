@@ -466,7 +466,7 @@ public class MavenMappingImpl extends MinimalEObjectImpl.Container implements Ma
 			}
 		}
 
-		throw new RuntimeException("Mapping pattern is null");
+		return null;
 	}
 
 	/**

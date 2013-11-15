@@ -152,6 +152,15 @@ public interface AggregatorPackage extends EPackage {
 		EAttribute AGGREGATION__MAVEN_RESULT = eINSTANCE.getAggregation_MavenResult();
 
 		/**
+		 * The meta object literal for the '<em><b>Strict Maven Versions</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EAttribute AGGREGATION__STRICT_MAVEN_VERSIONS = eINSTANCE.getAggregation_StrictMavenVersions();
+
+		/**
 		 * The meta object literal for the '<em><b>Maven Mappings</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1345,6 +1354,16 @@ public interface AggregatorPackage extends EPackage {
 	int AGGREGATION__MAVEN_RESULT = DESCRIPTION_PROVIDER_FEATURE_COUNT + 14;
 
 	/**
+	 * The feature id for the '<em><b>Strict Maven Versions</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int AGGREGATION__STRICT_MAVEN_VERSIONS = DESCRIPTION_PROVIDER_FEATURE_COUNT + 15;
+
+	/**
 	 * The feature id for the '<em><b>Maven Mappings</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1352,7 +1371,7 @@ public interface AggregatorPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AGGREGATION__MAVEN_MAPPINGS = DESCRIPTION_PROVIDER_FEATURE_COUNT + 15;
+	int AGGREGATION__MAVEN_MAPPINGS = DESCRIPTION_PROVIDER_FEATURE_COUNT + 16;
 
 	/**
 	 * The feature id for the '<em><b>Allow Legacy Sites</b></em>' attribute.
@@ -1362,7 +1381,7 @@ public interface AggregatorPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AGGREGATION__ALLOW_LEGACY_SITES = DESCRIPTION_PROVIDER_FEATURE_COUNT + 16;
+	int AGGREGATION__ALLOW_LEGACY_SITES = DESCRIPTION_PROVIDER_FEATURE_COUNT + 17;
 
 	/**
 	 * The number of structural features of the '<em>Aggregation</em>' class.
@@ -1372,7 +1391,7 @@ public interface AggregatorPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AGGREGATION_FEATURE_COUNT = DESCRIPTION_PROVIDER_FEATURE_COUNT + 17;
+	int AGGREGATION_FEATURE_COUNT = DESCRIPTION_PROVIDER_FEATURE_COUNT + 18;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.aggregator.EnabledStatusProvider <em>Enabled Status Provider</em>}' class.
@@ -4043,6 +4062,18 @@ public interface AggregatorPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getAggregation_Sendmail();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.b3.aggregator.Aggregation#isStrictMavenVersions <em>Strict Maven Versions</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the attribute '<em>Strict Maven Versions</em>'.
+	 * @see org.eclipse.b3.aggregator.Aggregation#isStrictMavenVersions()
+	 * @see #getAggregation()
+	 * @generated
+	 */
+	EAttribute getAggregation_StrictMavenVersions();
 
 	/**
 	 * Returns the meta object for the attribute '{@link org.eclipse.b3.aggregator.Aggregation#getType <em>Type</em>}'.

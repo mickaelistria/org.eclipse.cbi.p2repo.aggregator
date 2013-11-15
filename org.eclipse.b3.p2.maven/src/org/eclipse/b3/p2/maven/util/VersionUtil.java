@@ -72,4 +72,19 @@ public class VersionUtil {
 
 		return versionString;
 	}
+
+	public static String getVersionString(Version version, boolean strictMavenVersions) {
+		String versionString = getVersionString(version);
+		if(!strictMavenVersions)
+			return versionString;
+		// find the 3rd dot:
+		int pos = -1;
+		for(int i = 0; i < 3; i++) {
+			pos = versionString.indexOf('.', pos + 1);
+			if(pos == -1)
+				return versionString;
+		}
+		// replace it with a dash:
+		return versionString.substring(0, pos) + "-" + versionString.substring(pos + 1);
+	}
 }
