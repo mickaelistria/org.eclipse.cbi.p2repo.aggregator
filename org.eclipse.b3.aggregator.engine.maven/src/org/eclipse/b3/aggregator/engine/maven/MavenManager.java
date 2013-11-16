@@ -66,6 +66,11 @@ public class MavenManager {
 			versionList.add(version);
 		}
 
+		private void finalizeMetadata() {
+			Collections.sort(versionList);
+			finalized = true;
+		}
+
 		public String getArtifactId() {
 			return artifactId;
 		}
@@ -104,74 +109,6 @@ public class MavenManager {
 			finalizeMetadata();
 			return versionList;
 		}
-
-		private void finalizeMetadata() {
-			Collections.sort(versionList);
-			finalized = true;
-		}
-	}
-
-	public static MavenRepositoryHelper createMavenStructure(List<InstallableUnitMapping> ius,
-			boolean useStrictMavenVersions) throws CoreException {
-		List<String[]> mappingRulesList = new ArrayList<String[]>();
-
-		// Initialize with standard rules for packed artifacts (which are not usable for maven anyway)
-		mappingRulesList.add(new String[] {
-				"(& (classifier=osgi.bundle) (format=packed))",
-				"${repoUrl}/p2.packed/plugins/${id}_${version}.jar.pack.gz" });
-		mappingRulesList.add(new String[] {
-				"(& (classifier=org.eclipse.update.feature) (format=packed))",
-				"${repoUrl}/p2.packed/features/${id}_${version}.jar.pack.gz" });
-
-		Map<String, List<InstallableUnitMapping>> groupMap = new HashMap<String, List<InstallableUnitMapping>>();
-
-		for(InstallableUnitMapping iu : ius) {
-			String groupId = iu.map().getGroupId();
-			List<InstallableUnitMapping> group = groupMap.get(groupId);
-			if(group == null)
-				groupMap.put(groupId, group = new ArrayList<InstallableUnitMapping>());
-			group.add(iu);
-		}
-
-		InstallableUnitMapping top = new InstallableUnitMapping(useStrictMavenVersions);
-		top.setTransient(true);
-		addMappingRule(mappingRulesList, top);
-
-		for(Map.Entry<String, List<InstallableUnitMapping>> entry : groupMap.entrySet()) {
-			InstallableUnitMapping group = new InstallableUnitMapping(entry.getKey(), useStrictMavenVersions);
-			addMappingRule(mappingRulesList, group);
-
-			// This is a place where we can find common-in-group properties
-			// and store them in the group IU mapping.
-			// This is left out for now to make the whole thing functional,
-			// but can be done later to optimize the maven structure...
-
-			for(InstallableUnitMapping iu : entry.getValue()) {
-				addMappingRule(mappingRulesList, iu);
-				iu.setParent(group);
-
-				// original IUs with more than 1 artifact have generated siblings
-				for(InstallableUnitMapping sibling : iu.getSiblings()) {
-					addMappingRule(mappingRulesList, sibling);
-					sibling.setParent(group);
-				}
-			}
-
-			group.setParent(top);
-			group.setTransient(true);
-		}
-
-		return new MavenRepositoryHelper(top, mappingRulesList.toArray(new String[mappingRulesList.size()][]));
-	}
-
-	public static void saveMetadata(URI root, InstallableUnitMapping iu, Map<Contribution, List<String>> errors)
-			throws CoreException {
-		ResourceSet resourceSet = new ResourceSetImpl();
-		URIConverter uriConverter = resourceSet.getURIConverter();
-		Map<String, MavenMetadataHelper> metadataCollector = new HashMap<String, MavenMetadataHelper>();
-
-		savePOMs(root, iu, uriConverter, DigestUtil.MESSAGE_DIGESTERS, metadataCollector, errors);
-		saveXMLs(root, uriConverter, DigestUtil.MESSAGE_DIGESTERS, metadataCollector, iu.isStrictMavenVersions());
 	}
 
 	private static void addMappingRule(List<String[]> mappingRulesList, InstallableUnitMapping iu) throws CoreException {
@@ -181,8 +118,15 @@ public class MavenManager {
 					"(& (classifier=" + IUUtils.encodeFilterValue(artifact.getClassifier()) + ")(id=" +
 							IUUtils.encodeFilterValue(artifact.getId()) + ")(version=" +
 							IUUtils.encodeFilterValue(iu.getVersion().toString()) + "))",
-					"${repoUrl}/" + iu.getRelativeFullPath(false) }); // let the primary artifact still use the osgi version
+					"${repoUrl}/" + iu.getRelativeFullPath() });
 		}
+	}
+
+	private static URI createArtifactURI(URI root, InstallableUnitMapping iu) throws CoreException {
+		if(iu.getMainArtifact() != null)
+			return URI.createURI(root.toString() + "/" + iu.getRelativeFullPath());
+
+		return null;
 	}
 
 	private static void createCheckSum(URI fileUri, URIConverter uriConverter, MessageDigest[] digests)
@@ -227,19 +171,75 @@ public class MavenManager {
 		}
 	}
 
-	private static URI createMavenArtifactURI(URI root, InstallableUnitMapping iu) throws CoreException {
-		if(iu.getMainArtifact() != null)
-			return URI.createURI(root.toString() + "/" + iu.getRelativeFullPath(true));
+	public static MavenRepositoryHelper createMavenStructure(List<InstallableUnitMapping> ius) throws CoreException {
+		List<String[]> mappingRulesList = new ArrayList<String[]>();
 
-		return null;
+		// Initialize with standard rules for packed artifacts (which are not usable for maven anyway)
+		mappingRulesList.add(new String[] {
+				"(& (classifier=osgi.bundle) (format=packed))",
+				"${repoUrl}/p2.packed/plugins/${id}_${version}.jar.pack.gz" });
+		mappingRulesList.add(new String[] {
+				"(& (classifier=org.eclipse.update.feature) (format=packed))",
+				"${repoUrl}/p2.packed/features/${id}_${version}.jar.pack.gz" });
+
+		Map<String, List<InstallableUnitMapping>> groupMap = new HashMap<String, List<InstallableUnitMapping>>();
+
+		for(InstallableUnitMapping iu : ius) {
+			String groupId = iu.map().getGroupId();
+			List<InstallableUnitMapping> group = groupMap.get(groupId);
+			if(group == null)
+				groupMap.put(groupId, group = new ArrayList<InstallableUnitMapping>());
+			group.add(iu);
+		}
+
+		InstallableUnitMapping top = new InstallableUnitMapping();
+		top.setTransient(true);
+		addMappingRule(mappingRulesList, top);
+		// FIXME: rule uses mavenized name, OK?
+
+		for(Map.Entry<String, List<InstallableUnitMapping>> entry : groupMap.entrySet()) {
+			InstallableUnitMapping group = new InstallableUnitMapping(entry.getKey());
+			addMappingRule(mappingRulesList, group);
+
+			// This is a place where we can find common-in-group properties
+			// and store them in the group IU mapping.
+			// This is left out for now to make the whole thing functional,
+			// but can be done later to optimize the maven structure...
+
+			for(InstallableUnitMapping iu : entry.getValue()) {
+				addMappingRule(mappingRulesList, iu);
+				iu.setParent(group);
+
+				// original IUs with more than 1 artifact have generated siblings
+				for(InstallableUnitMapping sibling : iu.getSiblings()) {
+					addMappingRule(mappingRulesList, sibling);
+					sibling.setParent(group);
+				}
+			}
+
+			group.setParent(top);
+			group.setTransient(true);
+		}
+
+		return new MavenRepositoryHelper(top, mappingRulesList.toArray(new String[mappingRulesList.size()][]));
 	}
 
 	private static URI createPomURI(URI root, InstallableUnitMapping iu) throws CoreException {
-		return URI.createURI(root.toString() + "/" + iu.getRelativePath(true) + "/" + iu.getPomName());
+		return URI.createURI(root.toString() + "/" + iu.getRelativePath() + "/" + iu.getPomName());
 	}
 
 	private static URI createXmlURI(URI root, MavenMetadataHelper md) throws CoreException {
 		return URI.createURI(root.toString() + "/" + md.getRelativePath() + "/maven-metadata.xml");
+	}
+
+	public static void saveMetadata(URI root, InstallableUnitMapping iu, Map<Contribution, List<String>> errors)
+			throws CoreException {
+		ResourceSet resourceSet = new ResourceSetImpl();
+		URIConverter uriConverter = resourceSet.getURIConverter();
+		Map<String, MavenMetadataHelper> metadataCollector = new HashMap<String, MavenMetadataHelper>();
+
+		savePOMs(root, iu, uriConverter, DigestUtil.MESSAGE_DIGESTERS, metadataCollector, errors);
+		saveXMLs(root, uriConverter, DigestUtil.MESSAGE_DIGESTERS, metadataCollector, iu.isStrictMavenVersions());
 	}
 
 	private static void savePOMs(URI root, InstallableUnitMapping iu, URIConverter uriConverter,
@@ -250,7 +250,7 @@ public class MavenManager {
 			iu.asPOM().save(pomUri);
 			createCheckSum(pomUri, uriConverter, digests);
 
-			URI artifactUri = createMavenArtifactURI(root, iu);
+			URI artifactUri = createArtifactURI(root, iu);
 			if(artifactUri != null) {
 				try {
 					createCheckSum(artifactUri, uriConverter, digests);

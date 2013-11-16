@@ -107,8 +107,8 @@ public class InstallableUnitMapping implements IInstallableUnit {
 
 	private boolean useStrictMavenVersions;
 
-	public InstallableUnitMapping(boolean useStrictMavenVersions) {
-		this((String) null, useStrictMavenVersions);
+	public InstallableUnitMapping() {
+		this((String) null);
 	}
 
 	public InstallableUnitMapping(Contribution contribution, IInstallableUnit iu) {
@@ -157,7 +157,7 @@ public class InstallableUnitMapping implements IInstallableUnit {
 		useStrictMavenVersions = aggregation.isStrictMavenVersions();
 	}
 
-	public InstallableUnitMapping(String name, boolean useStrictMavenVersions) {
+	public InstallableUnitMapping(String name) {
 		String groupId = name;
 		if(groupId == null)
 			groupId = "_top";
@@ -177,8 +177,6 @@ public class InstallableUnitMapping implements IInstallableUnit {
 		mapped = AggregatorFactory.eINSTANCE.createMavenItem();
 		mapped.setGroupId(groupId);
 		mapped.setArtifactId(artifactId);
-
-		this.useStrictMavenVersions = useStrictMavenVersions;
 	}
 
 	public POM asPOM() throws CoreException {
@@ -198,7 +196,7 @@ public class InstallableUnitMapping implements IInstallableUnit {
 			model.setPackaging("pom");
 
 		if(getVersion() != null && !getVersion().equals(Version.emptyVersion))
-			model.setVersion(getVersionString(useStrictMavenVersions));
+			model.setVersion(getVersionString());
 
 		Collection<IRequirement> requirements = getRequirements();
 		if(requirements.size() > 0) {
@@ -337,22 +335,8 @@ public class InstallableUnitMapping implements IInstallableUnit {
 		return trimOrNull(value);
 	}
 
-	/**
-	 * Answer the InstallableUnitMapping in this or its children that corresponds to the given IU.
-	 */
-	public InstallableUnitMapping findUnit(IInstallableUnit iu) {
-		if(installableUnit.equals(iu))
-			return this;
-		for(InstallableUnitMapping child : children) {
-			InstallableUnitMapping result = child.findUnit(iu);
-			if(result != null)
-				return result;
-		}
-		return null;
-	}
-
-	private String getArtifactFileName(boolean forMaven) throws CoreException {
-		return getFileName(null, forMaven);
+	private String getArtifactFileName() throws CoreException {
+		return getFileName(null);
 	}
 
 	public Collection<IArtifactKey> getArtifacts() {
@@ -375,13 +359,11 @@ public class InstallableUnitMapping implements IInstallableUnit {
 		return installableUnit.getCopyright(locale);
 	}
 
-	public String getFileName(String extension, boolean forMaven) throws CoreException {
-		String fileId = forMaven
-				? mapped.getArtifactId() // maven: simple artifact name
-				: getId();				 // osgi: fully qualified ID
+	private String getFileName(String extension) throws CoreException {
+		String fileId = getId();
 		StringBuilder fileName = new StringBuilder(fileId);
 		fileName.append('-');
-		fileName.append(getVersionString(forMaven));
+		fileName.append(getVersionString());
 
 		if(extension == null) {
 			if(!(getMainArtifact() != null && "binary".equals(getMainArtifact().getClassifier()))) {
@@ -429,7 +411,7 @@ public class InstallableUnitMapping implements IInstallableUnit {
 	}
 
 	public String getPomName() throws CoreException {
-		return getFileName("pom", true);
+		return getFileName("pom");
 	}
 
 	public Map<String, String> getProperties() {
@@ -448,13 +430,12 @@ public class InstallableUnitMapping implements IInstallableUnit {
 		return installableUnit.getProvidedCapabilities();
 	}
 
-	public String getRelativeFullPath(boolean forMaven) throws CoreException {
-		return getRelativePath(true) + "/" + getArtifactFileName(forMaven);
-		// the directory always uses the (possibly strict) maven naming, file names may differ osgi vs. maven
+	public String getRelativeFullPath() throws CoreException {
+		return getRelativePath() + "/" + getArtifactFileName();
 	}
 
-	public String getRelativePath(boolean forMaven) throws CoreException {
-		return map().getGroupId().replace('.', '/') + "/" + map().getArtifactId() + "/" + getVersionString(forMaven);
+	public String getRelativePath() throws CoreException {
+		return map().getGroupId().replace('.', '/') + "/" + map().getArtifactId() + "/" + getVersionString();
 	}
 
 	public Collection<IRequirement> getRequirements() {
@@ -495,8 +476,8 @@ public class InstallableUnitMapping implements IInstallableUnit {
 		return installableUnit.getVersion();
 	}
 
-	public String getVersionString(boolean forMaven) {
-		return VersionUtil.getVersionString(getVersion(), forMaven && useStrictMavenVersions);
+	public String getVersionString() {
+		return VersionUtil.getVersionString(getVersion(), useStrictMavenVersions);
 	}
 
 	public boolean isResolved() {
