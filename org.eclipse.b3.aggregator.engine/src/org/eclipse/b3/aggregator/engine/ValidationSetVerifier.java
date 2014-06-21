@@ -85,8 +85,6 @@ public class ValidationSetVerifier extends BuilderPhase {
 
 	public static class AnalyzedPlannerStatus extends MultiStatus {
 
-		private static final String MESSAGE_INDENT = "  ";
-
 		private static void appendChildren(StringBuilder messageBuilder, IStatus[] children, String indent, int level) {
 			for(IStatus child : children) {
 				for(int i = 0; i < level; ++i)
@@ -106,6 +104,8 @@ public class ValidationSetVerifier extends BuilderPhase {
 
 			return messageBuilder;
 		}
+
+		private static final String MESSAGE_INDENT = "  ";
 
 		protected PlannerStatus plannerStatus;
 
@@ -287,7 +287,7 @@ public class ValidationSetVerifier extends BuilderPhase {
 		/**
 		 * Build the dependency chain from the specified IU up to an UI which has the model element URI information attached. Use a cache to store the
 		 * built chains so that they can be reused in case other chain(s) need to be built which contain any of the cached chains as a prefix.
-		 * 
+		 *
 		 * @param iu
 		 *            the IU for which to build the dependency chain
 		 * @param links
@@ -338,6 +338,17 @@ public class ValidationSetVerifier extends BuilderPhase {
 			return lastLink;
 		}
 
+		@Override
+		public String getMessage() {
+			StringBuilder bld = new StringBuilder();
+			bld.append(super.getMessage());
+			for(String error : getResolutionErrors(plannerStatus)) {
+				bld.append(' ');
+				bld.append(error);
+			}
+			return bld.toString();
+		}
+
 		public PlannerStatus getPlannerStatus() {
 			return plannerStatus;
 		}
@@ -345,6 +356,17 @@ public class ValidationSetVerifier extends BuilderPhase {
 		public List<VerificationDiagnostic> getVerificationDiagnostics() {
 			return verificationDiagnostics;
 		}
+	}
+
+	private static List<String> getResolutionErrors(PlannerStatus plannerStatus) {
+		RequestStatus requestStatus = plannerStatus.getRequestStatus();
+		if(requestStatus == null)
+			return Collections.emptyList();
+
+		ArrayList<String> errors = new ArrayList<String>();
+		for(Explanation explanation : requestStatus.getExplanations())
+			errors.add(explanation.toString());
+		return errors;
 	}
 
 	private static IInstallableUnit[] getRootIUs(IMetadataRepository site, String iuName, Version version,
@@ -470,6 +492,49 @@ public class ValidationSetVerifier extends BuilderPhase {
 		return result == null
 				? Collections.<Contribution> emptyList()
 				: result;
+	}
+
+	private Map<String, Contribution> getContributionMap(PlannerStatus plannerStatus) {
+		Map<String, Contribution> contribs = new HashMap<String, Contribution>();
+		RequestStatus requestStatus = plannerStatus.getRequestStatus();
+		if(requestStatus == null)
+			return Collections.emptyMap();
+
+		Set<Explanation> explanations = requestStatus.getExplanations();
+		for(Explanation explanation : explanations) {
+			if(explanation instanceof Singleton) {
+				// A singleton is always a leaf problem. Add contributions
+				// if we can find any. They are all culprits
+				for(IInstallableUnit iu : ((Singleton) explanation).ius) {
+					for(Contribution contrib : findContributions(iu.getId()))
+						contribs.put(contrib.getLabel(), contrib);
+				}
+				continue;
+			}
+
+			IInstallableUnit iu;
+			IRequirement crq;
+			if(explanation instanceof HardRequirement) {
+				HardRequirement hrq = (HardRequirement) explanation;
+				iu = hrq.iu;
+				crq = hrq.req;
+			}
+			else if(explanation instanceof MissingIU) {
+				MissingIU miu = (MissingIU) explanation;
+				iu = miu.iu;
+				crq = miu.req;
+			}
+			else
+				continue;
+
+			// Find the leafmost contributions for the problem. We don't want to
+			// blame consuming contributors
+			if(!addLeafmostContributions(explanations, contribs, crq)) {
+				for(Contribution contrib : findContributions(iu, crq))
+					contribs.put(contrib.getLabel(), contrib);
+			}
+		}
+		return contribs;
 	}
 
 	private Set<IInstallableUnit> getUnpatchedTransitiveScope(IQueryable<IInstallableUnit> collectedStuff,
@@ -681,6 +746,7 @@ public class ValidationSetVerifier extends BuilderPhase {
 
 					IStatus status = plan.getStatus();
 					if(status.getSeverity() == IStatus.ERROR) {
+						LogUtils.log(status);
 						sendEmails((PlannerStatus) status);
 						LogUtils.info("Done. Took %s", TimeUtils.getFormattedDuration(start)); //$NON-NLS-1$
 						throw new CoreException(new AnalyzedPlannerStatus(
@@ -810,49 +876,12 @@ public class ValidationSetVerifier extends BuilderPhase {
 		if(!builder.getAggregation().isSendmail())
 			return;
 
-		ArrayList<String> errors = new ArrayList<String>();
 		RequestStatus requestStatus = plannerStatus.getRequestStatus();
 		if(requestStatus == null)
 			return;
 
-		Set<Explanation> explanations = requestStatus.getExplanations();
-		Map<String, Contribution> contribs = new HashMap<String, Contribution>();
-		for(Explanation explanation : explanations) {
-			String msg = explanation.toString();
-			LogUtils.error(msg);
-			errors.add(msg);
-			if(explanation instanceof Singleton) {
-				// A singleton is always a leaf problem. Add contributions
-				// if we can find any. They are all culprits
-				for(IInstallableUnit iu : ((Singleton) explanation).ius) {
-					for(Contribution contrib : findContributions(iu.getId()))
-						contribs.put(contrib.getLabel(), contrib);
-				}
-				continue;
-			}
-
-			IInstallableUnit iu;
-			IRequirement crq;
-			if(explanation instanceof HardRequirement) {
-				HardRequirement hrq = (HardRequirement) explanation;
-				iu = hrq.iu;
-				crq = hrq.req;
-			}
-			else if(explanation instanceof MissingIU) {
-				MissingIU miu = (MissingIU) explanation;
-				iu = miu.iu;
-				crq = miu.req;
-			}
-			else
-				continue;
-
-			// Find the leafmost contributions for the problem. We don't want to
-			// blame consuming contributors
-			if(!addLeafmostContributions(explanations, contribs, crq)) {
-				for(Contribution contrib : findContributions(iu, crq))
-					contribs.put(contrib.getLabel(), contrib);
-			}
-		}
+		Map<String, Contribution> contribs = getContributionMap(plannerStatus);
+		List<String> errors = getResolutionErrors(plannerStatus);
 		if(contribs.isEmpty())
 			builder.sendEmail(null, errors);
 		else {

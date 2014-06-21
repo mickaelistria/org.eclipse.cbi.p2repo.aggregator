@@ -14,16 +14,15 @@ import static org.eclipse.b3.util.LogLevel.INFO;
 import static org.eclipse.b3.util.LogLevel.WARNING;
 
 import org.eclipse.core.runtime.ILog;
+import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Platform;
 import org.eclipse.core.runtime.Status;
 
 /**
  * @author filip.hrbek@cloudsmith.com
- * 
+ *
  */
 public class LogUtils {
-
-	private static final int MAGIC = B3Util.getPluginID().hashCode();
 
 	public static void debug(String msg, Object... args) {
 		log(DEBUG, msg, args);
@@ -53,6 +52,18 @@ public class LogUtils {
 		log(INFO, t, msg, args);
 	}
 
+	public static void log(IStatus status) {
+		B3Util plugin = B3Util.getPlugin();
+		if(status.getSeverity() >= plugin.getConsoleLogLevel().ordinal()) {
+			String fullMessage = status.getMessage();
+			if(status.getSeverity() >= IStatus.WARNING)
+				System.err.println(fullMessage);
+			else
+				System.out.println(fullMessage);
+		}
+		getLog().log(status);
+	}
+
 	public static void log(LogLevel level, String msg, Object... args) {
 		log(level, null, msg, args);
 	}
@@ -64,7 +75,11 @@ public class LogUtils {
 
 		B3Util plugin = B3Util.getPlugin();
 		if(level.ordinal() >= plugin.getConsoleLogLevel().ordinal())
-			System.out.println(fullMessage);
+			if(level.ordinal() >= IStatus.WARNING)
+				System.err.println(fullMessage);
+			else
+				System.out.println(fullMessage);
+
 		if(level.ordinal() >= plugin.getEclipseLogLevel().ordinal())
 			getLog().log(new Status(level.getStatusLevel(), B3Util.getPluginID(), MAGIC, fullMessage, t));
 	}
@@ -76,4 +91,6 @@ public class LogUtils {
 	public static void warning(Throwable t, String msg, Object... args) {
 		log(WARNING, t, msg, args);
 	}
+
+	private static final int MAGIC = B3Util.getPluginID().hashCode();
 }
