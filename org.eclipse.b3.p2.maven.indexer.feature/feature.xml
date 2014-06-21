@@ -20,8 +20,6 @@
    </license>
 
    <requires>
-      <import plugin="org.jboss.netty"/>
-      <import plugin="com.ning.async-http-client"/>
       <import plugin="org.eclipse.m2e.maven.runtime"/>
       <import plugin="org.eclipse.m2e.maven.indexer"/>
       <import plugin="org.eclipse.m2e.archetype.common"/>

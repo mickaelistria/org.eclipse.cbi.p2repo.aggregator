@@ -19,19 +19,19 @@
   </rm:searchPath>
   <rm:searchPath name="releaseTrain">
     <rm:provider componentTypes="osgi.bundle,eclipse.feature" readerType="p2" source="false" mutable="false">
-      <rm:uri format="http://download.eclipse.org/releases/kepler"/>
+      <rm:uri format="http://download.eclipse.org/releases/luna"/>
     </rm:provider>
   </rm:searchPath>
   <rm:searchPath name="buckminster">
     <rm:provider componentTypes="eclipse.feature,osgi.bundle" readerType="p2" source="false" mutable="false">
-      <rm:uri format="{0}/tools/buckminster/updates-4.3">
+      <rm:uri format="{0}/tools/buckminster/updates-4.4">
         <bc:propertyRef key="eclipse.download"/>
       </rm:uri>
     </rm:provider>
   </rm:searchPath>
   <rm:searchPath name="orbit">
     <rm:provider componentTypes="osgi.bundle,eclipse.feature" readerType="p2" source="false" mutable="false">
-      <rm:uri format="{0}/tools/orbit/downloads/drops/R20140114142710/repository">
+      <rm:uri format="{0}/tools/orbit/downloads/drops/R20140525021250/repository">
         <bc:propertyRef key="eclipse.download"/>
       </rm:uri>
     </rm:provider>
