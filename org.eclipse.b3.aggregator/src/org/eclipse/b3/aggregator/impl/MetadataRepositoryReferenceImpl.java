@@ -58,14 +58,14 @@ import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
  * <li>{@link org.eclipse.b3.aggregator.impl.MetadataRepositoryReferenceImpl#getNature <em>Nature</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public class MetadataRepositoryReferenceImpl extends MinimalEObjectImpl.Container implements
 		MetadataRepositoryReference {
 	/**
 	 * This looks up a string in the plugin's plugin.properties file. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
 	private static String getString(String key) {
@@ -75,7 +75,7 @@ public class MetadataRepositoryReferenceImpl extends MinimalEObjectImpl.Containe
 	/**
 	 * A set of bit flags representing the values of boolean attributes and whether unsettable features have been set.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 * @ordered
 	 */
@@ -85,7 +85,7 @@ public class MetadataRepositoryReferenceImpl extends MinimalEObjectImpl.Containe
 	 * The default value of the '{@link #isBranchEnabled() <em>Branch Enabled</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #isBranchEnabled()
 	 * @generated
 	 * @ordered
@@ -96,7 +96,7 @@ public class MetadataRepositoryReferenceImpl extends MinimalEObjectImpl.Containe
 	 * The default value of the '{@link #isEnabled() <em>Enabled</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @see #isEnabled()
 	 * @generated
 	 * @ordered
@@ -107,7 +107,7 @@ public class MetadataRepositoryReferenceImpl extends MinimalEObjectImpl.Containe
 	 * The flag representing the value of the '{@link #isEnabled() <em>Enabled</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #isEnabled()
 	 * @generated
 	 * @ordered
@@ -118,7 +118,7 @@ public class MetadataRepositoryReferenceImpl extends MinimalEObjectImpl.Containe
 	 * The cached value of the '{@link #getErrors() <em>Errors</em>}' attribute list.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @see #getErrors()
 	 * @generated
 	 * @ordered
@@ -129,7 +129,7 @@ public class MetadataRepositoryReferenceImpl extends MinimalEObjectImpl.Containe
 	 * The cached value of the '{@link #getWarnings() <em>Warnings</em>}' attribute list.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @see #getWarnings()
 	 * @generated
 	 * @ordered
@@ -140,7 +140,7 @@ public class MetadataRepositoryReferenceImpl extends MinimalEObjectImpl.Containe
 	 * The cached value of the '{@link #getInfos() <em>Infos</em>}' attribute list.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @see #getInfos()
 	 * @generated
 	 * @ordered
@@ -150,7 +150,7 @@ public class MetadataRepositoryReferenceImpl extends MinimalEObjectImpl.Containe
 	/**
 	 * The cached value of the '{@link #getMetadataRepository() <em>Metadata Repository</em>}' reference. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getMetadataRepository()
 	 * @generated
 	 * @ordered
@@ -161,7 +161,7 @@ public class MetadataRepositoryReferenceImpl extends MinimalEObjectImpl.Containe
 	 * The default value of the '{@link #getLocation() <em>Location</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @see #getLocation()
 	 * @generated
 	 * @ordered
@@ -172,7 +172,7 @@ public class MetadataRepositoryReferenceImpl extends MinimalEObjectImpl.Containe
 	 * The cached value of the '{@link #getLocation() <em>Location</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @see #getLocation()
 	 * @generated
 	 * @ordered
@@ -183,7 +183,7 @@ public class MetadataRepositoryReferenceImpl extends MinimalEObjectImpl.Containe
 	 * The default value of the '{@link #getNature() <em>Nature</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @see #getNature()
 	 * @generated
 	 * @ordered
@@ -194,7 +194,7 @@ public class MetadataRepositoryReferenceImpl extends MinimalEObjectImpl.Containe
 	 * The cached value of the '{@link #getNature() <em>Nature</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @see #getNature()
 	 * @generated
 	 * @ordered
@@ -203,7 +203,7 @@ public class MetadataRepositoryReferenceImpl extends MinimalEObjectImpl.Containe
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected MetadataRepositoryReferenceImpl() {
@@ -213,7 +213,7 @@ public class MetadataRepositoryReferenceImpl extends MinimalEObjectImpl.Containe
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public MetadataRepository basicGetMetadataRepository() {
@@ -226,7 +226,7 @@ public class MetadataRepositoryReferenceImpl extends MinimalEObjectImpl.Containe
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -256,7 +256,7 @@ public class MetadataRepositoryReferenceImpl extends MinimalEObjectImpl.Containe
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -286,7 +286,7 @@ public class MetadataRepositoryReferenceImpl extends MinimalEObjectImpl.Containe
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -318,7 +318,7 @@ public class MetadataRepositoryReferenceImpl extends MinimalEObjectImpl.Containe
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -352,7 +352,7 @@ public class MetadataRepositoryReferenceImpl extends MinimalEObjectImpl.Containe
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
@@ -389,7 +389,7 @@ public class MetadataRepositoryReferenceImpl extends MinimalEObjectImpl.Containe
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -399,7 +399,7 @@ public class MetadataRepositoryReferenceImpl extends MinimalEObjectImpl.Containe
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -432,7 +432,7 @@ public class MetadataRepositoryReferenceImpl extends MinimalEObjectImpl.Containe
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
 	public Aggregation getAggregation() {
@@ -445,7 +445,7 @@ public class MetadataRepositoryReferenceImpl extends MinimalEObjectImpl.Containe
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
 	public EList<String> getErrors() {
@@ -474,7 +474,7 @@ public class MetadataRepositoryReferenceImpl extends MinimalEObjectImpl.Containe
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EList<String> getInfos() {
@@ -487,7 +487,7 @@ public class MetadataRepositoryReferenceImpl extends MinimalEObjectImpl.Containe
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public String getLocation() {
@@ -496,7 +496,7 @@ public class MetadataRepositoryReferenceImpl extends MinimalEObjectImpl.Containe
 
 	/**
 	 * Load and resolve if needed
-	 * 
+	 *
 	 * @generated NOT
 	 */
 	public MetadataRepository getMetadataRepository() {
@@ -505,7 +505,7 @@ public class MetadataRepositoryReferenceImpl extends MinimalEObjectImpl.Containe
 
 	/**
 	 * Prevent MDR from being loaded if the mapping is disabled
-	 * 
+	 *
 	 * @generated NOT
 	 */
 	public MetadataRepository getMetadataRepository(boolean forceResolve) {
@@ -525,7 +525,7 @@ public class MetadataRepositoryReferenceImpl extends MinimalEObjectImpl.Containe
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public MetadataRepository getMetadataRepositoryGen() {
@@ -545,7 +545,7 @@ public class MetadataRepositoryReferenceImpl extends MinimalEObjectImpl.Containe
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public String getNature() {
@@ -554,7 +554,7 @@ public class MetadataRepositoryReferenceImpl extends MinimalEObjectImpl.Containe
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
 	public String getResolvedLocation() {
@@ -572,10 +572,10 @@ public class MetadataRepositoryReferenceImpl extends MinimalEObjectImpl.Containe
 		}
 		else {
 			uri = URI.createURI(location, true);
-			if(!uri.isHierarchical()) { // try to resolve the location URI if not hierarchical
+			if(uri.isRelative()) { // try to resolve the location URI if not absolute
 				URI base = ((EObject) getAggregation()).eResource().getURI();
 				if(base != null)
-					uri = uri.resolve(base.trimSegments(1));
+					uri = uri.resolve(base);
 			}
 		}
 
@@ -594,7 +594,7 @@ public class MetadataRepositoryReferenceImpl extends MinimalEObjectImpl.Containe
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
 	synchronized public Status getStatus() {
@@ -629,7 +629,7 @@ public class MetadataRepositoryReferenceImpl extends MinimalEObjectImpl.Containe
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EList<String> getWarnings() {
@@ -642,7 +642,7 @@ public class MetadataRepositoryReferenceImpl extends MinimalEObjectImpl.Containe
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
 	public boolean isBranchEnabled() {
@@ -651,7 +651,7 @@ public class MetadataRepositoryReferenceImpl extends MinimalEObjectImpl.Containe
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public boolean isEnabled() {
@@ -661,7 +661,7 @@ public class MetadataRepositoryReferenceImpl extends MinimalEObjectImpl.Containe
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
 	public boolean isSetBranchEnabled() {
@@ -670,7 +670,7 @@ public class MetadataRepositoryReferenceImpl extends MinimalEObjectImpl.Containe
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
 	public void onRepositoryLoad() {
@@ -687,7 +687,7 @@ public class MetadataRepositoryReferenceImpl extends MinimalEObjectImpl.Containe
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public void setEnabled(boolean newEnabled) {
@@ -704,7 +704,7 @@ public class MetadataRepositoryReferenceImpl extends MinimalEObjectImpl.Containe
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public void setLocation(String newLocation) {
@@ -723,7 +723,7 @@ public class MetadataRepositoryReferenceImpl extends MinimalEObjectImpl.Containe
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public void setMetadataRepositoryGen(MetadataRepository newMetadataRepository) {
@@ -737,7 +737,7 @@ public class MetadataRepositoryReferenceImpl extends MinimalEObjectImpl.Containe
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public void setNature(String newNature) {
@@ -750,7 +750,7 @@ public class MetadataRepositoryReferenceImpl extends MinimalEObjectImpl.Containe
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
 	synchronized public void startRepositoryLoad(final boolean forceReload) {
@@ -775,7 +775,7 @@ public class MetadataRepositoryReferenceImpl extends MinimalEObjectImpl.Containe
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
