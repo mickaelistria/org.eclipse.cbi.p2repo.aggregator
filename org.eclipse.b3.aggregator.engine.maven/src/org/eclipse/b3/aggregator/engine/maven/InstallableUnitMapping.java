@@ -52,7 +52,7 @@ import org.eclipse.equinox.p2.metadata.expression.IMatchExpression;
 
 /**
  * @author Filip Hrbek (filip.hrbek@cloudsmith.com)
- * 
+ *
  */
 // Implement parent subtraction on all relevant getters (as an example, dependencies are implemented that way)
 // However, repo optimization is not implemented yet, so it does not make much sense to do it now
@@ -61,8 +61,6 @@ public class InstallableUnitMapping implements IInstallableUnit {
 	public enum Type {
 		TOP, GROUP, IU, PROXY;
 	}
-
-	private static final Version DUMMY_VERSION = Version.parseVersion("1");
 
 	private static MavenItem map(String id, List<MavenMapping> mappings) throws CoreException {
 		MavenItem item = null;
@@ -84,6 +82,8 @@ public class InstallableUnitMapping implements IInstallableUnit {
 		throw ExceptionUtils.fromMessage(
 			"Unable to map IU to maven artifact: id=%s, mappings=%s", id, mappingDescriptor.toString());
 	}
+
+	private static final Version DUMMY_VERSION = Version.parseVersion("1");
 
 	private Type type;
 
@@ -360,7 +360,7 @@ public class InstallableUnitMapping implements IInstallableUnit {
 	}
 
 	private String getFileName(String extension) throws CoreException {
-		String fileId = getId();
+		String fileId = mapped.getArtifactId();
 		StringBuilder fileName = new StringBuilder(fileId);
 		fileName.append('-');
 		fileName.append(getVersionString());
