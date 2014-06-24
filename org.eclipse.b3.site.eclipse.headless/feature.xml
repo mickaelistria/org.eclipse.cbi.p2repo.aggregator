@@ -10,7 +10,7 @@
    </description>
 
    <url>
-      <update label="b3 for Kepler" url="http://www.eclipse.org/downloads/download.php?file=/modeling/emft/b3/headless-4.3/&amp;protocol=http&amp;format=xml"/>
+      <update label="b3 for Kepler" url="http://www.eclipse.org/downloads/download.php?file=/modeling/emft/b3/headless-4.4/&amp;protocol=http&amp;format=xml"/>
    </url>
 
    <includes
