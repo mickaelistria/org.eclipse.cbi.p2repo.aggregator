@@ -19,7 +19,7 @@
   </rm:searchPath>
   <rm:searchPath name="releaseTrain">
     <rm:provider componentTypes="osgi.bundle,eclipse.feature" readerType="p2" source="false" mutable="false">
-      <rm:uri format="http://download.eclipse.org/releases/luna"/>
+      <rm:uri format="http://download.eclipse.org/releases/staging"/>
     </rm:provider>
   </rm:searchPath>
   <rm:searchPath name="buckminster">
