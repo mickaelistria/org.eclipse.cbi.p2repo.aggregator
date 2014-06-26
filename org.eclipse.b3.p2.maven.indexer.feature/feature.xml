@@ -21,6 +21,7 @@
 
    <requires>
       <import plugin="org.eclipse.m2e.maven.runtime"/>
+      <import plugin="org.eclipse.m2e.maven.runtime.slf4j.simple"/>
       <import plugin="org.eclipse.m2e.maven.indexer"/>
       <import plugin="org.eclipse.m2e.archetype.common"/>
       <import plugin="org.eclipse.emf.common"/>
