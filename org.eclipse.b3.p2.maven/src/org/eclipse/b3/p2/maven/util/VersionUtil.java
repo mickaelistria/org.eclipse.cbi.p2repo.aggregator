@@ -18,15 +18,9 @@ import org.eclipse.equinox.p2.metadata.VersionRange;
 
 /**
  * @author Filip Hrbek (filip.hrbek@cloudsmith.com)
- * 
+ *
  */
 public class VersionUtil {
-	private static Pattern versionRangePattern = Pattern.compile("^(\\([)([^,]+),([^,]+)(\\)])$");
-
-	private static final Pattern timestampPattern = Pattern.compile(//
-	"^((?:19|20)\\d{2}(?:0[1-9]|1[012])(?:0[1-9]|[12][0-9]|3[01]))" + // //$NON-NLS-1$
-			"(?:\\.((?:[01][0-9]|2[0-3])[0-5][0-9][0-5][0-9]))?$"); //$NON-NLS-1$
-
 	public static Version createVersion(String versionStr) throws CoreException {
 		versionStr = StringUtils.trimmedOrNull(versionStr);
 		if(versionStr == null)
@@ -77,14 +71,33 @@ public class VersionUtil {
 		String versionString = getVersionString(version);
 		if(!strictMavenVersions)
 			return versionString;
-		// find the 3rd dot:
-		int pos = -1;
-		for(int i = 0; i < 3; i++) {
-			pos = versionString.indexOf('.', pos + 1);
-			if(pos == -1)
-				return versionString;
-		}
-		// replace it with a dash:
-		return versionString.substring(0, pos) + "-" + versionString.substring(pos + 1);
+
+		// Some components (jgit in particular) uses an OSGi version that translates
+		// into a four digit version followed by dash and then 'r', 'rc1' etc. We don't
+		// touch those
+		Matcher m = mavenTrickPattern.matcher(versionString);
+		if(m.matches())
+			return versionString;
+
+		m = osgiPattern.matcher(versionString);
+		if(!m.matches())
+			return versionString;
+
+		// Ensure that the qualifier is separated with a dash and then don't contain dashes
+		StringBuilder bld = new StringBuilder();
+		bld.append(m.group(1));
+		bld.append('-');
+		bld.append(m.group(2));
+		return bld.toString();
 	}
+
+	private static Pattern versionRangePattern = Pattern.compile("^(\\([)([^,]+),([^,]+)(\\)])$");
+
+	private static final Pattern timestampPattern = Pattern.compile(//
+	"^((?:19|20)\\d{2}(?:0[1-9]|1[012])(?:0[1-9]|[12][0-9]|3[01]))" + // //$NON-NLS-1$
+			"(?:\\.((?:[01][0-9]|2[0-3])[0-5][0-9][0-5][0-9]))?$"); //$NON-NLS-1$
+
+	private static final Pattern mavenTrickPattern = Pattern.compile("^\\d+\\.\\d+\\.\\d+(?:\\.\\d+-[a-zA-Z][a-zA-Z0-9_]*)?$");
+
+	private static final Pattern osgiPattern = Pattern.compile("^(\\d+\\.\\d+\\.\\d+)\\.([a-zA-Z0-9_-]+)$");
 }
