@@ -112,7 +112,16 @@ public enum Architecture implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	SPARCV9(9, "Sparcv9", "sparcv9");
+	SPARCV9(9, "Sparcv9", "sparcv9"), /**
+	 * The '<em><b>PPC64LE</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 *
+	 * @see #PPC64LE_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	PPC64LE(10, "PPC64LE", "ppc64le");
 
 	/**
 	 * The '<em><b>X86</b></em>' literal value.
@@ -265,13 +274,28 @@ public enum Architecture implements Enumerator {
 	public static final int SPARCV9_VALUE = 9;
 
 	/**
+	 * The '<em><b>PPC64LE</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>PPC64LE</b></em>' literal object isn't clear, there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 *
+	 * @see #PPC64LE
+	 * @model literal="ppc64le"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int PPC64LE_VALUE = 10;
+
+	/**
 	 * An array of all the '<em><b>Architecture</b></em>' enumerators.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 *
 	 * @generated
 	 */
 	private static final Architecture[] VALUES_ARRAY = new Architecture[] {
-			X86, PPC, X86_64, IA64, IA64_32, SPARC, PPC64, S390, S390X, SPARCV9, };
+			X86, PPC, X86_64, IA64, IA64_32, SPARC, PPC64, S390, S390X, SPARCV9, PPC64LE, };
 
 	/**
 	 * A public read-only list of all the '<em><b>Architecture</b></em>' enumerators.
@@ -311,6 +335,8 @@ public enum Architecture implements Enumerator {
 				return S390X;
 			case SPARCV9_VALUE:
 				return SPARCV9;
+			case PPC64LE_VALUE:
+				return PPC64LE;
 		}
 		return null;
 	}
