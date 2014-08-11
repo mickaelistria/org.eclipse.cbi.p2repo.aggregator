@@ -78,6 +78,7 @@ public class MultiRangeRequirement implements IRequirement {
 			return cmp;
 		}
 
+		@Override
 		public IEvaluationContext createContext() {
 			return EvaluationContext.create(parameters, ExpressionFactory.THIS);
 		}
@@ -94,6 +95,7 @@ public class MultiRangeRequirement implements IRequirement {
 					: EvaluationContext.create(context, parameters));
 		}
 
+		@Override
 		public int getExpressionType() {
 			return 0;
 		}
@@ -108,6 +110,7 @@ public class MultiRangeRequirement implements IRequirement {
 			throw new UnsupportedOperationException();
 		}
 
+		@Override
 		public Object[] getParameters() {
 			return parameters;
 		}
@@ -122,11 +125,13 @@ public class MultiRangeRequirement implements IRequirement {
 			return myOperand.hashCode() * 31 + CollectionUtils.hashCode(parameters);
 		}
 
+		@Override
 		public boolean isMatch(IEvaluationContext context, IInstallableUnit value) {
 			ExpressionFactory.THIS.setValue(context, value);
 			return Boolean.TRUE == myOperand.evaluate(context);
 		}
 
+		@Override
 		public boolean isMatch(IInstallableUnit value) {
 			return isMatch(createContext(), value);
 		}
@@ -259,22 +264,27 @@ public class MultiRangeRequirement implements IRequirement {
 			fakeOperand, parameters.toArray(new Object[parameters.size()]));
 	}
 
+	@Override
 	public String getDescription() {
 		return null;
 	}
 
+	@Override
 	public IMatchExpression<IInstallableUnit> getFilter() {
 		return filter;
 	}
 
+	@Override
 	public IMatchExpression<IInstallableUnit> getMatches() {
 		return matchExpression;
 	}
 
+	@Override
 	public int getMax() {
 		return Integer.MAX_VALUE;
 	}
 
+	@Override
 	public int getMin() {
 		return 1;
 	}
@@ -307,10 +317,12 @@ public class MultiRangeRequirement implements IRequirement {
 		return versions;
 	}
 
+	@Override
 	public boolean isGreedy() {
 		return true;
 	}
 
+	@Override
 	public boolean isMatch(IInstallableUnit iu) {
 		return getMatches().isMatch(iu);
 	}

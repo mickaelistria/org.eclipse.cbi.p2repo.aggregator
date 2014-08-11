@@ -15,7 +15,7 @@ import org.eclipse.emf.common.util.EList;
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Repository Browser</b></em>'.
  * <!-- end-user-doc -->
- * 
+ *
  * <p>
  * The following features are supported:
  * <ul>
@@ -23,7 +23,7 @@ import org.eclipse.emf.common.util.EList;
  * <li>{@link org.eclipse.b3.aggregator.p2view.RepositoryBrowser#isLoading <em>Loading</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @see org.eclipse.b3.aggregator.p2view.P2viewPackage#getRepositoryBrowser()
  * @model
  * @generated
@@ -37,7 +37,7 @@ public interface RepositoryBrowser extends StatusProvider, ChildrenProvider<Meta
 	 * If the meaning of the '<em>Repositories</em>' containment reference list isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @return the value of the '<em>Repositories</em>' reference list.
 	 * @see org.eclipse.b3.aggregator.p2view.P2viewPackage#getRepositoryBrowser_Repositories()
 	 * @model resolveProxies="false" transient="true" volatile="true" derived="true"
@@ -53,7 +53,7 @@ public interface RepositoryBrowser extends StatusProvider, ChildrenProvider<Meta
 	 * If the meaning of the '<em>Loading</em>' attribute isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @return the value of the '<em>Loading</em>' attribute.
 	 * @see #isSetLoading()
 	 * @see org.eclipse.b3.aggregator.p2view.P2viewPackage#getRepositoryBrowser_Loading()
@@ -66,7 +66,7 @@ public interface RepositoryBrowser extends StatusProvider, ChildrenProvider<Meta
 	 * Returns whether the value of the '{@link org.eclipse.b3.aggregator.p2view.RepositoryBrowser#isLoading <em>Loading</em>}' attribute is set.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @return whether the value of the '<em>Loading</em>' attribute is set.
 	 * @see #isLoading()
 	 * @generated

@@ -10,13 +10,9 @@ import java.util.Collection;
 
 import org.eclipse.b3.p2.maven.pom.PomPackage;
 import org.eclipse.b3.p2.maven.pom.ReportSetReportsType;
-
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.impl.EObjectImpl;
-
 import org.eclipse.emf.ecore.util.EDataTypeEList;
 
 /**
@@ -28,7 +24,7 @@ import org.eclipse.emf.ecore.util.EDataTypeEList;
  * <li>{@link org.eclipse.b3.p2.maven.pom.impl.ReportSetReportsTypeImpl#getReport <em>Report</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public class ReportSetReportsTypeImpl extends EObjectImpl implements ReportSetReportsType {
@@ -36,7 +32,7 @@ public class ReportSetReportsTypeImpl extends EObjectImpl implements ReportSetRe
 	 * The cached value of the '{@link #getReport() <em>Report</em>}' attribute list.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @see #getReport()
 	 * @generated
 	 * @ordered
@@ -45,7 +41,7 @@ public class ReportSetReportsTypeImpl extends EObjectImpl implements ReportSetRe
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected ReportSetReportsTypeImpl() {
@@ -54,7 +50,7 @@ public class ReportSetReportsTypeImpl extends EObjectImpl implements ReportSetRe
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -68,7 +64,7 @@ public class ReportSetReportsTypeImpl extends EObjectImpl implements ReportSetRe
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -82,7 +78,7 @@ public class ReportSetReportsTypeImpl extends EObjectImpl implements ReportSetRe
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
@@ -99,7 +95,7 @@ public class ReportSetReportsTypeImpl extends EObjectImpl implements ReportSetRe
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -114,9 +110,10 @@ public class ReportSetReportsTypeImpl extends EObjectImpl implements ReportSetRe
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public EList<String> getReport() {
 		if(report == null) {
 			report = new EDataTypeEList<String>(String.class, this, PomPackage.REPORT_SET_REPORTS_TYPE__REPORT);
@@ -126,7 +123,7 @@ public class ReportSetReportsTypeImpl extends EObjectImpl implements ReportSetRe
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -143,7 +140,7 @@ public class ReportSetReportsTypeImpl extends EObjectImpl implements ReportSetRe
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override

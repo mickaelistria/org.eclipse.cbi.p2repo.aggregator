@@ -16,7 +16,7 @@ import java.io.OutputStream;
 
 /**
  * @author filip.hrbek@cloudsmith.com
- * 
+ *
  */
 public class IOUtils {
 

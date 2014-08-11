@@ -9,13 +9,10 @@ package org.eclipse.b3.p2.maven.pom.impl;
 import org.eclipse.b3.p2.maven.pom.ConfigurationType;
 import org.eclipse.b3.p2.maven.pom.Notifier;
 import org.eclipse.b3.p2.maven.pom.PomPackage;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 
@@ -33,14 +30,14 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * <li>{@link org.eclipse.b3.p2.maven.pom.impl.NotifierImpl#getConfiguration <em>Configuration</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public class NotifierImpl extends EObjectImpl implements Notifier {
 	/**
 	 * The default value of the '{@link #getType() <em>Type</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
 	 * -->
-	 * 
+	 *
 	 * @see #getType()
 	 * @generated
 	 * @ordered
@@ -50,7 +47,7 @@ public class NotifierImpl extends EObjectImpl implements Notifier {
 	/**
 	 * The cached value of the '{@link #getType() <em>Type</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
 	 * -->
-	 * 
+	 *
 	 * @see #getType()
 	 * @generated
 	 * @ordered
@@ -60,7 +57,7 @@ public class NotifierImpl extends EObjectImpl implements Notifier {
 	/**
 	 * This is true if the Type attribute has been set.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 * @ordered
 	 */
@@ -70,7 +67,7 @@ public class NotifierImpl extends EObjectImpl implements Notifier {
 	 * The default value of the '{@link #isSendOnError() <em>Send On Error</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #isSendOnError()
 	 * @generated
 	 * @ordered
@@ -81,7 +78,7 @@ public class NotifierImpl extends EObjectImpl implements Notifier {
 	 * The cached value of the '{@link #isSendOnError() <em>Send On Error</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @see #isSendOnError()
 	 * @generated
 	 * @ordered
@@ -91,7 +88,7 @@ public class NotifierImpl extends EObjectImpl implements Notifier {
 	/**
 	 * This is true if the Send On Error attribute has been set.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 * @ordered
 	 */
@@ -101,7 +98,7 @@ public class NotifierImpl extends EObjectImpl implements Notifier {
 	 * The default value of the '{@link #isSendOnFailure() <em>Send On Failure</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #isSendOnFailure()
 	 * @generated
 	 * @ordered
@@ -112,7 +109,7 @@ public class NotifierImpl extends EObjectImpl implements Notifier {
 	 * The cached value of the '{@link #isSendOnFailure() <em>Send On Failure</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #isSendOnFailure()
 	 * @generated
 	 * @ordered
@@ -122,7 +119,7 @@ public class NotifierImpl extends EObjectImpl implements Notifier {
 	/**
 	 * This is true if the Send On Failure attribute has been set.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 * @ordered
 	 */
@@ -132,7 +129,7 @@ public class NotifierImpl extends EObjectImpl implements Notifier {
 	 * The default value of the '{@link #isSendOnSuccess() <em>Send On Success</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #isSendOnSuccess()
 	 * @generated
 	 * @ordered
@@ -143,7 +140,7 @@ public class NotifierImpl extends EObjectImpl implements Notifier {
 	 * The cached value of the '{@link #isSendOnSuccess() <em>Send On Success</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #isSendOnSuccess()
 	 * @generated
 	 * @ordered
@@ -153,7 +150,7 @@ public class NotifierImpl extends EObjectImpl implements Notifier {
 	/**
 	 * This is true if the Send On Success attribute has been set.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 * @ordered
 	 */
@@ -163,7 +160,7 @@ public class NotifierImpl extends EObjectImpl implements Notifier {
 	 * The default value of the '{@link #isSendOnWarning() <em>Send On Warning</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #isSendOnWarning()
 	 * @generated
 	 * @ordered
@@ -174,7 +171,7 @@ public class NotifierImpl extends EObjectImpl implements Notifier {
 	 * The cached value of the '{@link #isSendOnWarning() <em>Send On Warning</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #isSendOnWarning()
 	 * @generated
 	 * @ordered
@@ -184,7 +181,7 @@ public class NotifierImpl extends EObjectImpl implements Notifier {
 	/**
 	 * This is true if the Send On Warning attribute has been set.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 * @ordered
 	 */
@@ -194,7 +191,7 @@ public class NotifierImpl extends EObjectImpl implements Notifier {
 	 * The default value of the '{@link #getAddress() <em>Address</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @see #getAddress()
 	 * @generated
 	 * @ordered
@@ -205,7 +202,7 @@ public class NotifierImpl extends EObjectImpl implements Notifier {
 	 * The cached value of the '{@link #getAddress() <em>Address</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @see #getAddress()
 	 * @generated
 	 * @ordered
@@ -215,7 +212,7 @@ public class NotifierImpl extends EObjectImpl implements Notifier {
 	/**
 	 * The cached value of the '{@link #getConfiguration() <em>Configuration</em>}' containment reference. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getConfiguration()
 	 * @generated
 	 * @ordered
@@ -224,7 +221,7 @@ public class NotifierImpl extends EObjectImpl implements Notifier {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected NotifierImpl() {
@@ -233,7 +230,7 @@ public class NotifierImpl extends EObjectImpl implements Notifier {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public NotificationChain basicSetConfiguration(ConfigurationType newConfiguration, NotificationChain msgs) {
@@ -252,7 +249,7 @@ public class NotifierImpl extends EObjectImpl implements Notifier {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -278,7 +275,7 @@ public class NotifierImpl extends EObjectImpl implements Notifier {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -292,7 +289,7 @@ public class NotifierImpl extends EObjectImpl implements Notifier {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -320,7 +317,7 @@ public class NotifierImpl extends EObjectImpl implements Notifier {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -353,7 +350,7 @@ public class NotifierImpl extends EObjectImpl implements Notifier {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -386,117 +383,130 @@ public class NotifierImpl extends EObjectImpl implements Notifier {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public String getAddress() {
 		return address;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public ConfigurationType getConfiguration() {
 		return configuration;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public String getType() {
 		return type;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public boolean isSendOnError() {
 		return sendOnError;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public boolean isSendOnFailure() {
 		return sendOnFailure;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public boolean isSendOnSuccess() {
 		return sendOnSuccess;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public boolean isSendOnWarning() {
 		return sendOnWarning;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public boolean isSetSendOnError() {
 		return sendOnErrorESet;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public boolean isSetSendOnFailure() {
 		return sendOnFailureESet;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public boolean isSetSendOnSuccess() {
 		return sendOnSuccessESet;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public boolean isSetSendOnWarning() {
 		return sendOnWarningESet;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public boolean isSetType() {
 		return typeESet;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public void setAddress(String newAddress) {
 		String oldAddress = address;
 		address = newAddress;
@@ -506,9 +516,10 @@ public class NotifierImpl extends EObjectImpl implements Notifier {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public void setConfiguration(ConfigurationType newConfiguration) {
 		if(newConfiguration != configuration) {
 			NotificationChain msgs = null;
@@ -529,9 +540,10 @@ public class NotifierImpl extends EObjectImpl implements Notifier {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public void setSendOnError(boolean newSendOnError) {
 		boolean oldSendOnError = sendOnError;
 		sendOnError = newSendOnError;
@@ -545,9 +557,10 @@ public class NotifierImpl extends EObjectImpl implements Notifier {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public void setSendOnFailure(boolean newSendOnFailure) {
 		boolean oldSendOnFailure = sendOnFailure;
 		sendOnFailure = newSendOnFailure;
@@ -561,9 +574,10 @@ public class NotifierImpl extends EObjectImpl implements Notifier {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public void setSendOnSuccess(boolean newSendOnSuccess) {
 		boolean oldSendOnSuccess = sendOnSuccess;
 		sendOnSuccess = newSendOnSuccess;
@@ -577,9 +591,10 @@ public class NotifierImpl extends EObjectImpl implements Notifier {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public void setSendOnWarning(boolean newSendOnWarning) {
 		boolean oldSendOnWarning = sendOnWarning;
 		sendOnWarning = newSendOnWarning;
@@ -593,9 +608,10 @@ public class NotifierImpl extends EObjectImpl implements Notifier {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public void setType(String newType) {
 		String oldType = type;
 		type = newType;
@@ -608,7 +624,7 @@ public class NotifierImpl extends EObjectImpl implements Notifier {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -650,9 +666,10 @@ public class NotifierImpl extends EObjectImpl implements Notifier {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public void unsetSendOnError() {
 		boolean oldSendOnError = sendOnError;
 		boolean oldSendOnErrorESet = sendOnErrorESet;
@@ -666,9 +683,10 @@ public class NotifierImpl extends EObjectImpl implements Notifier {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public void unsetSendOnFailure() {
 		boolean oldSendOnFailure = sendOnFailure;
 		boolean oldSendOnFailureESet = sendOnFailureESet;
@@ -682,9 +700,10 @@ public class NotifierImpl extends EObjectImpl implements Notifier {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public void unsetSendOnSuccess() {
 		boolean oldSendOnSuccess = sendOnSuccess;
 		boolean oldSendOnSuccessESet = sendOnSuccessESet;
@@ -698,9 +717,10 @@ public class NotifierImpl extends EObjectImpl implements Notifier {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public void unsetSendOnWarning() {
 		boolean oldSendOnWarning = sendOnWarning;
 		boolean oldSendOnWarningESet = sendOnWarningESet;
@@ -714,9 +734,10 @@ public class NotifierImpl extends EObjectImpl implements Notifier {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public void unsetType() {
 		String oldType = type;
 		boolean oldTypeESet = typeESet;
@@ -729,7 +750,7 @@ public class NotifierImpl extends EObjectImpl implements Notifier {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override

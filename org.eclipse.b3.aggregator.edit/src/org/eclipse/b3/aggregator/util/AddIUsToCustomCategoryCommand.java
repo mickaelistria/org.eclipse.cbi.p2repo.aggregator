@@ -29,7 +29,7 @@ import org.eclipse.equinox.p2.metadata.IInstallableUnit;
 
 /**
  * @author Karel Brezina
- * 
+ *
  */
 public class AddIUsToCustomCategoryCommand extends AbstractCommand implements DragAndDropFeedback {
 	private CustomCategory customCategory;
@@ -52,6 +52,7 @@ public class AddIUsToCustomCategoryCommand extends AbstractCommand implements Dr
 		customCategory = category;
 	}
 
+	@Override
 	public void execute() {
 		featuresAddedToCustomCategory.clear();
 		unitsAddedToMappedRepo.clear();
@@ -85,10 +86,12 @@ public class AddIUsToCustomCategoryCommand extends AbstractCommand implements Dr
 		}
 	}
 
+	@Override
 	public int getFeedback() {
 		return FEEDBACK_SELECT;
 	}
 
+	@Override
 	public int getOperation() {
 		return DROP_LINK;
 	}
@@ -132,6 +135,7 @@ public class AddIUsToCustomCategoryCommand extends AbstractCommand implements Dr
 		return customCategory != null && selectedFeatures != null && selectedFeatures.size() > 0 && isEnabled();
 	}
 
+	@Override
 	public void redo() {
 		execute();
 	}
@@ -146,6 +150,7 @@ public class AddIUsToCustomCategoryCommand extends AbstractCommand implements Dr
 	}
 
 	// validated prior command creation
+	@Override
 	public boolean validate(Object owner, float location, int operations, int operation, Collection<?> collection) {
 		return true;
 	}

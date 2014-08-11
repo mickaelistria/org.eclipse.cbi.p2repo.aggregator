@@ -12,7 +12,7 @@ import org.eclipse.core.runtime.CoreException;
 
 /**
  * @author filip.hrbek@cloudsmith.com
- * 
+ *
  */
 public interface IPropertyProvider {
 

@@ -35,10 +35,12 @@ public class P2RepositoryLoader implements IRepositoryLoader {
 
 	private IMetadataRepositoryManager mdrMgr;
 
+	@Override
 	public void close() {
 		P2Utils.ungetRepositoryManager(agent, mdrMgr);
 	}
 
+	@Override
 	public IArtifactRepository getArtifactRepository(IMetadataRepository mdr, IProgressMonitor monitor)
 			throws CoreException {
 		IArtifactRepositoryManager arMgr = null;
@@ -52,6 +54,7 @@ public class P2RepositoryLoader implements IRepositoryLoader {
 		}
 	}
 
+	@Override
 	public void load(IProgressMonitor monitor) throws CoreException {
 		load(monitor, false);
 	}
@@ -113,6 +116,7 @@ public class P2RepositoryLoader implements IRepositoryLoader {
 		P2Bridge.importToModel(mdrMgr, repo, repository, subMon.newChild(20), true);
 	}
 
+	@Override
 	public void open(URI location, IProvisioningAgent agent, MetadataRepositoryImpl mdr) throws CoreException {
 		this.agent = agent;
 		this.location = location;
@@ -120,6 +124,7 @@ public class P2RepositoryLoader implements IRepositoryLoader {
 		mdrMgr = P2Utils.getRepositoryManager(agent, IMetadataRepositoryManager.class);
 	}
 
+	@Override
 	public void reload(IProgressMonitor monitor) throws CoreException {
 		load(monitor, true);
 	}

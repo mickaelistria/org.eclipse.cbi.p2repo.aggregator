@@ -13,15 +13,11 @@ import java.util.Collection;
 import java.util.List;
 
 import org.eclipse.b3.aggregator.p2view.P2viewPackage;
-
 import org.eclipse.b3.aggregator.provider.AggregatorEditPlugin;
 import org.eclipse.b3.aggregator.provider.AggregatorItemProviderAdapter;
-
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.common.util.ResourceLocator;
-
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
@@ -37,7 +33,7 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
  * This is the item provider adapter for a {@link org.eclipse.b3.aggregator.p2view.Requirements} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
- * 
+ *
  * @generated
  */
 public class RequirementsItemProvider extends AggregatorItemProviderAdapter implements IEditingDomainItemProvider,
@@ -47,7 +43,7 @@ public class RequirementsItemProvider extends AggregatorItemProviderAdapter impl
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public RequirementsItemProvider(AdapterFactory adapterFactory) {
@@ -58,7 +54,7 @@ public class RequirementsItemProvider extends AggregatorItemProviderAdapter impl
 	 * This adds a property descriptor for the Requirements feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected void addRequirementsPropertyDescriptor(Object object) {
@@ -76,7 +72,7 @@ public class RequirementsItemProvider extends AggregatorItemProviderAdapter impl
 	 * that can be created under this object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -87,7 +83,7 @@ public class RequirementsItemProvider extends AggregatorItemProviderAdapter impl
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -104,7 +100,7 @@ public class RequirementsItemProvider extends AggregatorItemProviderAdapter impl
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -120,7 +116,7 @@ public class RequirementsItemProvider extends AggregatorItemProviderAdapter impl
 	 * This returns Requirements.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -132,7 +128,7 @@ public class RequirementsItemProvider extends AggregatorItemProviderAdapter impl
 	 * This returns the property descriptors for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -149,7 +145,7 @@ public class RequirementsItemProvider extends AggregatorItemProviderAdapter impl
 	 * Return the resource locator for this item provider's resources.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -161,7 +157,7 @@ public class RequirementsItemProvider extends AggregatorItemProviderAdapter impl
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -174,7 +170,7 @@ public class RequirementsItemProvider extends AggregatorItemProviderAdapter impl
 	 * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override

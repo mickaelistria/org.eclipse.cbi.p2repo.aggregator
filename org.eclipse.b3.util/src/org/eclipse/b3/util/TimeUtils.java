@@ -13,7 +13,7 @@ import java.text.MessageFormat;
 
 /**
  * @author Filip Hrbek
- * 
+ *
  */
 public class TimeUtils {
 	private static final MessageFormat TIME_FORMAT = new MessageFormat("{0}{1}");

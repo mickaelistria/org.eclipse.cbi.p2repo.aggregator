@@ -20,7 +20,7 @@ import org.eclipse.emf.ecore.xmi.XMLResource;
 
 /**
  * <!-- begin-user-doc --> The <b>Resource Factory</b> associated with the package. <!-- end-user-doc -->
- * 
+ *
  * @see org.eclipse.b3.p2.maven.pom.util.PomResourceImpl
  * @generated
  */
@@ -29,7 +29,7 @@ public class PomResourceFactoryImpl extends ResourceFactoryImpl {
 
 	/**
 	 * Creates an instance of the resource factory. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
 	public PomResourceFactoryImpl() {
@@ -55,7 +55,7 @@ public class PomResourceFactoryImpl extends ResourceFactoryImpl {
 
 	/**
 	 * Creates an instance of the resource. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
 	@Override

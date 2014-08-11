@@ -26,7 +26,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <li>{@link org.eclipse.b3.aggregator.impl.MapRuleImpl#isEnabled <em>Enabled</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public abstract class MapRuleImpl extends InstallableUnitRequestImpl implements MapRule {
@@ -34,7 +34,7 @@ public abstract class MapRuleImpl extends InstallableUnitRequestImpl implements 
 	 * The default value of the '{@link #isBranchEnabled() <em>Branch Enabled</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #isBranchEnabled()
 	 * @generated
 	 * @ordered
@@ -45,7 +45,7 @@ public abstract class MapRuleImpl extends InstallableUnitRequestImpl implements 
 	 * The default value of the '{@link #isEnabled() <em>Enabled</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #isEnabled()
 	 * @generated
 	 * @ordered
@@ -56,7 +56,7 @@ public abstract class MapRuleImpl extends InstallableUnitRequestImpl implements 
 	 * The flag representing the value of the '{@link #isEnabled() <em>Enabled</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #isEnabled()
 	 * @generated
 	 * @ordered
@@ -65,7 +65,7 @@ public abstract class MapRuleImpl extends InstallableUnitRequestImpl implements 
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected MapRuleImpl() {
@@ -76,7 +76,7 @@ public abstract class MapRuleImpl extends InstallableUnitRequestImpl implements 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -97,7 +97,7 @@ public abstract class MapRuleImpl extends InstallableUnitRequestImpl implements 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -118,7 +118,7 @@ public abstract class MapRuleImpl extends InstallableUnitRequestImpl implements 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -135,7 +135,7 @@ public abstract class MapRuleImpl extends InstallableUnitRequestImpl implements 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -152,7 +152,7 @@ public abstract class MapRuleImpl extends InstallableUnitRequestImpl implements 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -167,7 +167,7 @@ public abstract class MapRuleImpl extends InstallableUnitRequestImpl implements 
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -178,7 +178,7 @@ public abstract class MapRuleImpl extends InstallableUnitRequestImpl implements 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -194,7 +194,7 @@ public abstract class MapRuleImpl extends InstallableUnitRequestImpl implements 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
 	@Override
@@ -205,7 +205,7 @@ public abstract class MapRuleImpl extends InstallableUnitRequestImpl implements 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public boolean isEnabled() {
@@ -215,7 +215,7 @@ public abstract class MapRuleImpl extends InstallableUnitRequestImpl implements 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
 	public boolean isSetBranchEnabled() {
@@ -225,7 +225,7 @@ public abstract class MapRuleImpl extends InstallableUnitRequestImpl implements 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public void setEnabled(boolean newEnabled) {
@@ -242,7 +242,7 @@ public abstract class MapRuleImpl extends InstallableUnitRequestImpl implements 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override

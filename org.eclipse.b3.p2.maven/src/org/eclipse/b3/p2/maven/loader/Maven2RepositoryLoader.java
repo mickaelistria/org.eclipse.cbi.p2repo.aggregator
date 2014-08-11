@@ -256,6 +256,7 @@ public class Maven2RepositoryLoader implements IRepositoryLoader {
 		return null;
 	}
 
+	@Override
 	public void close() {
 		cachedIUs = null;
 	}
@@ -571,6 +572,7 @@ public class Maven2RepositoryLoader implements IRepositoryLoader {
 		}
 	}
 
+	@Override
 	public IArtifactRepository getArtifactRepository(IMetadataRepository mdr, IProgressMonitor monitor)
 			throws CoreException {
 		monitor.beginTask("Generating artifact repository", 100);
@@ -639,7 +641,7 @@ public class Maven2RepositoryLoader implements IRepositoryLoader {
 				if(statusLine.getStatusCode() == HttpStatus.SC_OK) {
 					HttpEntity entity = response.getEntity();
 					if(entity != null)
-					reader = new BufferedReader(new InputStreamReader(entity.getContent()));
+						reader = new BufferedReader(new InputStreamReader(entity.getContent()));
 				}
 			}
 			else {
@@ -738,6 +740,7 @@ public class Maven2RepositoryLoader implements IRepositoryLoader {
 		return false;
 	}
 
+	@Override
 	public void load(IProgressMonitor monitor) throws CoreException {
 		load(monitor, false);
 	}
@@ -936,6 +939,7 @@ public class Maven2RepositoryLoader implements IRepositoryLoader {
 		}
 	}
 
+	@Override
 	public void open(URI location, IProvisioningAgent agent, MetadataRepositoryImpl mdr) throws CoreException {
 		this.location = location;
 		this.agent = agent;
@@ -960,6 +964,7 @@ public class Maven2RepositoryLoader implements IRepositoryLoader {
 		versionEntryItor = Collections.<VersionEntry> emptyList().iterator();
 	}
 
+	@Override
 	public void reload(IProgressMonitor monitor) throws CoreException {
 		load(monitor, true);
 	}

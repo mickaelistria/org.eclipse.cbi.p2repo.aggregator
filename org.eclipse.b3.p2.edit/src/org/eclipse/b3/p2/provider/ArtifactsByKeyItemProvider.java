@@ -4,7 +4,7 @@
  * licensed under the Eclipse Public License - v 1.0 by the copyright holder
  * listed above, as the Initial Contributor under such license. The text of
  * such license is available at www.eclipse.org.
- * 
+ *
  */
 package org.eclipse.b3.p2.provider;
 
@@ -14,14 +14,10 @@ import java.util.Map;
 
 import org.eclipse.b3.p2.P2Factory;
 import org.eclipse.b3.p2.P2Package;
-
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.common.util.ResourceLocator;
-
 import org.eclipse.emf.ecore.EStructuralFeature;
-
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
@@ -35,7 +31,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * This is the item provider adapter for a {@link java.util.Map.Entry} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
- * 
+ *
  * @generated
  */
 public class ArtifactsByKeyItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider,
@@ -44,7 +40,7 @@ public class ArtifactsByKeyItemProvider extends ItemProviderAdapter implements I
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public ArtifactsByKeyItemProvider(AdapterFactory adapterFactory) {
@@ -56,7 +52,7 @@ public class ArtifactsByKeyItemProvider extends ItemProviderAdapter implements I
 	 * that can be created under this object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -76,7 +72,7 @@ public class ArtifactsByKeyItemProvider extends ItemProviderAdapter implements I
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -93,7 +89,7 @@ public class ArtifactsByKeyItemProvider extends ItemProviderAdapter implements I
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -110,7 +106,7 @@ public class ArtifactsByKeyItemProvider extends ItemProviderAdapter implements I
 	 * This returns ArtifactsByKey.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -122,7 +118,7 @@ public class ArtifactsByKeyItemProvider extends ItemProviderAdapter implements I
 	 * This returns the property descriptors for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -138,7 +134,7 @@ public class ArtifactsByKeyItemProvider extends ItemProviderAdapter implements I
 	 * Return the resource locator for this item provider's resources.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -150,7 +146,7 @@ public class ArtifactsByKeyItemProvider extends ItemProviderAdapter implements I
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -164,7 +160,7 @@ public class ArtifactsByKeyItemProvider extends ItemProviderAdapter implements I
 	 * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override

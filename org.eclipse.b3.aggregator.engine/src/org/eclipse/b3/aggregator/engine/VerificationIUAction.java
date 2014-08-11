@@ -60,7 +60,7 @@ import org.eclipse.equinox.spi.p2.publisher.PublisherHelper;
  * This action creates the feature that contains all features and bundles that are listed contributions in the ValidationSet passed to the
  * constructor
  * of this class.
- * 
+ *
  * @see Builder#getVerificationIUName(ValidationSet)
  */
 public class VerificationIUAction extends AbstractPublisherAction {

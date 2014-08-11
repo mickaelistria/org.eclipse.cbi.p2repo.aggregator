@@ -38,7 +38,7 @@ import org.eclipse.emf.ecore.util.Diagnostician;
 
 /**
  * @author Filip Hrbek (filip.hrbek@cloudsmith.com)
- * 
+ *
  */
 public class POM implements IPropertyProvider {
 	private static final int MAX_CACHE_SIZE = 10;
@@ -206,6 +206,7 @@ public class POM implements IPropertyProvider {
 		return documentRoot.getProject();
 	}
 
+	@Override
 	public String getProperty(String key) throws CoreException {
 		return getResolvedProject().getProperty(key);
 	}

@@ -8,11 +8,8 @@ package org.eclipse.b3.p2.maven.pom.impl;
 
 import org.eclipse.b3.p2.maven.pom.PomPackage;
 import org.eclipse.b3.p2.maven.pom.Scm;
-
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 
@@ -27,7 +24,7 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * <li>{@link org.eclipse.b3.p2.maven.pom.impl.ScmImpl#getUrl <em>Url</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public class ScmImpl extends EObjectImpl implements Scm {
@@ -35,7 +32,7 @@ public class ScmImpl extends EObjectImpl implements Scm {
 	 * The default value of the '{@link #getConnection() <em>Connection</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @see #getConnection()
 	 * @generated
 	 * @ordered
@@ -46,7 +43,7 @@ public class ScmImpl extends EObjectImpl implements Scm {
 	 * The cached value of the '{@link #getConnection() <em>Connection</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @see #getConnection()
 	 * @generated
 	 * @ordered
@@ -56,7 +53,7 @@ public class ScmImpl extends EObjectImpl implements Scm {
 	/**
 	 * The default value of the '{@link #getDeveloperConnection() <em>Developer Connection</em>}' attribute. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getDeveloperConnection()
 	 * @generated
 	 * @ordered
@@ -66,7 +63,7 @@ public class ScmImpl extends EObjectImpl implements Scm {
 	/**
 	 * The cached value of the '{@link #getDeveloperConnection() <em>Developer Connection</em>}' attribute. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getDeveloperConnection()
 	 * @generated
 	 * @ordered
@@ -76,7 +73,7 @@ public class ScmImpl extends EObjectImpl implements Scm {
 	/**
 	 * The default value of the '{@link #getTag() <em>Tag</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
 	 * -->
-	 * 
+	 *
 	 * @see #getTag()
 	 * @generated
 	 * @ordered
@@ -86,7 +83,7 @@ public class ScmImpl extends EObjectImpl implements Scm {
 	/**
 	 * The cached value of the '{@link #getTag() <em>Tag</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getTag()
 	 * @generated
 	 * @ordered
@@ -96,7 +93,7 @@ public class ScmImpl extends EObjectImpl implements Scm {
 	/**
 	 * This is true if the Tag attribute has been set.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 * @ordered
 	 */
@@ -105,7 +102,7 @@ public class ScmImpl extends EObjectImpl implements Scm {
 	/**
 	 * The default value of the '{@link #getUrl() <em>Url</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
 	 * -->
-	 * 
+	 *
 	 * @see #getUrl()
 	 * @generated
 	 * @ordered
@@ -115,7 +112,7 @@ public class ScmImpl extends EObjectImpl implements Scm {
 	/**
 	 * The cached value of the '{@link #getUrl() <em>Url</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getUrl()
 	 * @generated
 	 * @ordered
@@ -124,7 +121,7 @@ public class ScmImpl extends EObjectImpl implements Scm {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected ScmImpl() {
@@ -133,7 +130,7 @@ public class ScmImpl extends EObjectImpl implements Scm {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -153,7 +150,7 @@ public class ScmImpl extends EObjectImpl implements Scm {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -179,7 +176,7 @@ public class ScmImpl extends EObjectImpl implements Scm {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -203,7 +200,7 @@ public class ScmImpl extends EObjectImpl implements Scm {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -227,54 +224,60 @@ public class ScmImpl extends EObjectImpl implements Scm {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public String getConnection() {
 		return connection;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public String getDeveloperConnection() {
 		return developerConnection;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public String getTag() {
 		return tag;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public String getUrl() {
 		return url;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public boolean isSetTag() {
 		return tagESet;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public void setConnection(String newConnection) {
 		String oldConnection = connection;
 		connection = newConnection;
@@ -284,9 +287,10 @@ public class ScmImpl extends EObjectImpl implements Scm {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public void setDeveloperConnection(String newDeveloperConnection) {
 		String oldDeveloperConnection = developerConnection;
 		developerConnection = newDeveloperConnection;
@@ -298,9 +302,10 @@ public class ScmImpl extends EObjectImpl implements Scm {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public void setTag(String newTag) {
 		String oldTag = tag;
 		tag = newTag;
@@ -312,9 +317,10 @@ public class ScmImpl extends EObjectImpl implements Scm {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public void setUrl(String newUrl) {
 		String oldUrl = url;
 		url = newUrl;
@@ -324,7 +330,7 @@ public class ScmImpl extends EObjectImpl implements Scm {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -350,9 +356,10 @@ public class ScmImpl extends EObjectImpl implements Scm {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public void unsetTag() {
 		String oldTag = tag;
 		boolean oldTagESet = tagESet;
@@ -365,7 +372,7 @@ public class ScmImpl extends EObjectImpl implements Scm {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override

@@ -17,7 +17,7 @@ import org.eclipse.emf.ecore.resource.Resource;
 
 /**
  * Tree path expressed by Resource and EObejcts
- * 
+ *
  * @author Karel Brezina
  */
 public class TreePath {

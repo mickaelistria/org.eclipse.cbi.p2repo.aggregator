@@ -284,7 +284,7 @@ public class CategoriesGenerator extends BuilderPhase {
 
 	/**
 	 * Ensure that mapped repositories that reference the given category IU are not mapped verbatim.
-	 * 
+	 *
 	 * @param category
 	 *            The category IU that will be excluded
 	 */

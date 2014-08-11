@@ -13,7 +13,7 @@ import org.eclipse.emf.common.util.EList;
 
 /**
  * <!-- begin-user-doc --> A representation of the model object '<em><b>Infos Provider</b></em>'. <!-- end-user-doc -->
- * 
+ *
  * <p>
  * The following features are supported:
  * <ul>
@@ -22,7 +22,7 @@ import org.eclipse.emf.common.util.EList;
  * <li>{@link org.eclipse.b3.aggregator.InfosProvider#getInfos <em>Infos</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @see org.eclipse.b3.aggregator.AggregatorPackage#getInfosProvider()
  * @model
  * @generated
@@ -36,7 +36,7 @@ public interface InfosProvider {
 	 * If the meaning of the '<em>Errors</em>' attribute list isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @return the value of the '<em>Errors</em>' attribute list.
 	 * @see org.eclipse.b3.aggregator.AggregatorPackage#getInfosProvider_Errors()
 	 * @model dataType="org.eclipse.emf.ecore.xml.type.String" transient="true"
@@ -52,7 +52,7 @@ public interface InfosProvider {
 	 * If the meaning of the '<em>Infos</em>' attribute list isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @return the value of the '<em>Infos</em>' attribute list.
 	 * @see org.eclipse.b3.aggregator.AggregatorPackage#getInfosProvider_Infos()
 	 * @model dataType="org.eclipse.emf.ecore.xml.type.String" transient="true"
@@ -68,7 +68,7 @@ public interface InfosProvider {
 	 * If the meaning of the '<em>Warnings</em>' attribute list isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @return the value of the '<em>Warnings</em>' attribute list.
 	 * @see org.eclipse.b3.aggregator.AggregatorPackage#getInfosProvider_Warnings()
 	 * @model dataType="org.eclipse.emf.ecore.xml.type.String" transient="true"

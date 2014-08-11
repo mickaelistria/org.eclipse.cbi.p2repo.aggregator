@@ -14,10 +14,11 @@ import org.eclipse.core.commands.ExecutionException;
 
 /**
  * @author Karel Brezina
- * 
+ *
  */
 public class OpenFindIUDialogAction extends AbstractHandler {
 
+	@Override
 	public Object execute(ExecutionEvent event) throws ExecutionException {
 		FindIUDialog dialog = new FindIUDialog(
 			AggregatorEditorPlugin.getPlugin().getWorkbench().getActiveWorkbenchWindow());

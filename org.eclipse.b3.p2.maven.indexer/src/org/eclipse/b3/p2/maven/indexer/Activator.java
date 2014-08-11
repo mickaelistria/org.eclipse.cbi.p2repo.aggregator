@@ -18,7 +18,7 @@ import org.osgi.framework.BundleContext;
 
 /**
  * @author filip.hrbek@cloudsmith.com
- * 
+ *
  */
 public class Activator extends Plugin {
 

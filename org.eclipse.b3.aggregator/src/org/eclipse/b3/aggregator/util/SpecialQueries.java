@@ -18,7 +18,7 @@ import org.eclipse.equinox.p2.query.QueryUtil;
 
 /**
  * @author filip.hrbek@cloudsmith.com
- * 
+ *
  */
 public class SpecialQueries {
 

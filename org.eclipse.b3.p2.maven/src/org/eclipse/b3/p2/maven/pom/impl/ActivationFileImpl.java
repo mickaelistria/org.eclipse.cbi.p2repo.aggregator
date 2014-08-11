@@ -8,11 +8,8 @@ package org.eclipse.b3.p2.maven.pom.impl;
 
 import org.eclipse.b3.p2.maven.pom.ActivationFile;
 import org.eclipse.b3.p2.maven.pom.PomPackage;
-
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 
@@ -26,7 +23,7 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * <li>{@link org.eclipse.b3.p2.maven.pom.impl.ActivationFileImpl#getExists <em>Exists</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public class ActivationFileImpl extends EObjectImpl implements ActivationFile {
@@ -34,7 +31,7 @@ public class ActivationFileImpl extends EObjectImpl implements ActivationFile {
 	 * The default value of the '{@link #getMissing() <em>Missing</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @see #getMissing()
 	 * @generated
 	 * @ordered
@@ -45,7 +42,7 @@ public class ActivationFileImpl extends EObjectImpl implements ActivationFile {
 	 * The cached value of the '{@link #getMissing() <em>Missing</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @see #getMissing()
 	 * @generated
 	 * @ordered
@@ -56,7 +53,7 @@ public class ActivationFileImpl extends EObjectImpl implements ActivationFile {
 	 * The default value of the '{@link #getExists() <em>Exists</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @see #getExists()
 	 * @generated
 	 * @ordered
@@ -67,7 +64,7 @@ public class ActivationFileImpl extends EObjectImpl implements ActivationFile {
 	 * The cached value of the '{@link #getExists() <em>Exists</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @see #getExists()
 	 * @generated
 	 * @ordered
@@ -76,7 +73,7 @@ public class ActivationFileImpl extends EObjectImpl implements ActivationFile {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected ActivationFileImpl() {
@@ -85,7 +82,7 @@ public class ActivationFileImpl extends EObjectImpl implements ActivationFile {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -101,7 +98,7 @@ public class ActivationFileImpl extends EObjectImpl implements ActivationFile {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -121,7 +118,7 @@ public class ActivationFileImpl extends EObjectImpl implements ActivationFile {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -139,7 +136,7 @@ public class ActivationFileImpl extends EObjectImpl implements ActivationFile {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -157,27 +154,30 @@ public class ActivationFileImpl extends EObjectImpl implements ActivationFile {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public String getExists() {
 		return exists;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public String getMissing() {
 		return missing;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public void setExists(String newExists) {
 		String oldExists = exists;
 		exists = newExists;
@@ -187,9 +187,10 @@ public class ActivationFileImpl extends EObjectImpl implements ActivationFile {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public void setMissing(String newMissing) {
 		String oldMissing = missing;
 		missing = newMissing;
@@ -200,7 +201,7 @@ public class ActivationFileImpl extends EObjectImpl implements ActivationFile {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -219,7 +220,7 @@ public class ActivationFileImpl extends EObjectImpl implements ActivationFile {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override

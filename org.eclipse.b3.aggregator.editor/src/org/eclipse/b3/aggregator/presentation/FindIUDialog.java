@@ -38,7 +38,7 @@ import org.eclipse.ui.texteditor.ITextEditorActionDefinitionIds;
 
 /**
  * @author Karel Brezina
- * 
+ *
  */
 public class FindIUDialog extends TrayDialog {
 	private static final int FIND_ID = IDialogConstants.CLIENT_ID + 1;
@@ -136,6 +136,7 @@ public class FindIUDialog extends TrayDialog {
 		layoutData.horizontalSpan = 3;
 		idPatternText.setLayoutData(layoutData);
 		idPatternText.addModifyListener(new ModifyListener() {
+			@Override
 			public void modifyText(ModifyEvent e) {
 				findButton.setEnabled(idPatternText.getCharCount() > 0);
 			}

@@ -4,7 +4,7 @@
  * licensed under the Eclipse Public License - v 1.0 by the copyright holder
  * listed above, as the Initial Contributor under such license. The text of
  * such license is available at www.eclipse.org.
- * 
+ *
  */
 package org.eclipse.b3.p2.provider;
 
@@ -14,14 +14,10 @@ import java.util.List;
 import org.eclipse.b3.p2.P2Factory;
 import org.eclipse.b3.p2.P2Package;
 import org.eclipse.b3.p2.Repository;
-
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.common.util.ResourceLocator;
-
 import org.eclipse.emf.ecore.EStructuralFeature;
-
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -37,7 +33,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * This is the item provider adapter for a {@link org.eclipse.b3.p2.Repository} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
- * 
+ *
  * @generated
  */
 public class RepositoryItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider,
@@ -46,7 +42,7 @@ public class RepositoryItemProvider extends ItemProviderAdapter implements IEdit
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public RepositoryItemProvider(AdapterFactory adapterFactory) {
@@ -57,7 +53,7 @@ public class RepositoryItemProvider extends ItemProviderAdapter implements IEdit
 	 * This adds a property descriptor for the Description feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected void addDescriptionPropertyDescriptor(Object object) {
@@ -75,7 +71,7 @@ public class RepositoryItemProvider extends ItemProviderAdapter implements IEdit
 	 * This adds a property descriptor for the Location feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected void addLocationPropertyDescriptor(Object object) {
@@ -92,7 +88,7 @@ public class RepositoryItemProvider extends ItemProviderAdapter implements IEdit
 	 * This adds a property descriptor for the Modifiable feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected void addModifiablePropertyDescriptor(Object object) {
@@ -110,7 +106,7 @@ public class RepositoryItemProvider extends ItemProviderAdapter implements IEdit
 	 * This adds a property descriptor for the Name feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected void addNamePropertyDescriptor(Object object) {
@@ -126,7 +122,7 @@ public class RepositoryItemProvider extends ItemProviderAdapter implements IEdit
 	 * This adds a property descriptor for the Provider feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected void addProviderPropertyDescriptor(Object object) {
@@ -143,7 +139,7 @@ public class RepositoryItemProvider extends ItemProviderAdapter implements IEdit
 	 * This adds a property descriptor for the Provisioning Agent feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected void addProvisioningAgentPropertyDescriptor(Object object) {
@@ -161,7 +157,7 @@ public class RepositoryItemProvider extends ItemProviderAdapter implements IEdit
 	 * This adds a property descriptor for the Type feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected void addTypePropertyDescriptor(Object object) {
@@ -177,7 +173,7 @@ public class RepositoryItemProvider extends ItemProviderAdapter implements IEdit
 	 * This adds a property descriptor for the Version feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected void addVersionPropertyDescriptor(Object object) {
@@ -194,7 +190,7 @@ public class RepositoryItemProvider extends ItemProviderAdapter implements IEdit
 	 * that can be created under this object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -208,7 +204,7 @@ public class RepositoryItemProvider extends ItemProviderAdapter implements IEdit
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -225,7 +221,7 @@ public class RepositoryItemProvider extends ItemProviderAdapter implements IEdit
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -241,7 +237,7 @@ public class RepositoryItemProvider extends ItemProviderAdapter implements IEdit
 	 * This returns the property descriptors for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -265,7 +261,7 @@ public class RepositoryItemProvider extends ItemProviderAdapter implements IEdit
 	 * Return the resource locator for this item provider's resources.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -277,7 +273,7 @@ public class RepositoryItemProvider extends ItemProviderAdapter implements IEdit
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -293,7 +289,7 @@ public class RepositoryItemProvider extends ItemProviderAdapter implements IEdit
 	 * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override

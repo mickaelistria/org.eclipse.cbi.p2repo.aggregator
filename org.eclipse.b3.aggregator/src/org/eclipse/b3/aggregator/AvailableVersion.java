@@ -17,7 +17,7 @@ import org.eclipse.equinox.p2.metadata.expression.IMatchExpression;
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Available Version</b></em>'.
  * <!-- end-user-doc -->
- * 
+ *
  * <p>
  * The following features are supported:
  * <ul>
@@ -27,7 +27,7 @@ import org.eclipse.equinox.p2.metadata.expression.IMatchExpression;
  * <li>{@link org.eclipse.b3.aggregator.AvailableVersion#getAvailableFrom <em>Available From</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @see org.eclipse.b3.aggregator.AggregatorPackage#getAvailableVersion()
  * @model superTypes="org.eclipse.b3.p2.Comparable<org.eclipse.b3.aggregator.AvailableVersion>"
  * @generated
@@ -42,7 +42,7 @@ public interface AvailableVersion extends Comparable<AvailableVersion> {
 	 * If the meaning of the '<em>Available From</em>' attribute isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @return the value of the '<em>Available From</em>' attribute.
 	 * @see org.eclipse.b3.aggregator.AvailableFrom
 	 * @see #setAvailableFrom(AvailableFrom)
@@ -59,7 +59,7 @@ public interface AvailableVersion extends Comparable<AvailableVersion> {
 	 * If the meaning of the '<em>Filter</em>' attribute isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @return the value of the '<em>Filter</em>' attribute.
 	 * @see #setFilter(IMatchExpression)
 	 * @see org.eclipse.b3.aggregator.AggregatorPackage#getAvailableVersion_Filter()
@@ -75,7 +75,7 @@ public interface AvailableVersion extends Comparable<AvailableVersion> {
 	 * If the meaning of the '<em>Version</em>' attribute isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @return the value of the '<em>Version</em>' attribute.
 	 * @see #setVersion(Version)
 	 * @see org.eclipse.b3.aggregator.AggregatorPackage#getAvailableVersion_Version()
@@ -92,7 +92,7 @@ public interface AvailableVersion extends Comparable<AvailableVersion> {
 	 * If the meaning of the '<em>Version Match</em>' attribute isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @return the value of the '<em>Version Match</em>' attribute.
 	 * @see org.eclipse.b3.aggregator.VersionMatch
 	 * @see #setVersionMatch(VersionMatch)
@@ -106,7 +106,7 @@ public interface AvailableVersion extends Comparable<AvailableVersion> {
 	 * Sets the value of the '{@link org.eclipse.b3.aggregator.AvailableVersion#getAvailableFrom <em>Available From</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param value
 	 *            the new value of the '<em>Available From</em>' attribute.
 	 * @see org.eclipse.b3.aggregator.AvailableFrom
@@ -119,7 +119,7 @@ public interface AvailableVersion extends Comparable<AvailableVersion> {
 	 * Sets the value of the '{@link org.eclipse.b3.aggregator.AvailableVersion#getFilter <em>Filter</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param value
 	 *            the new value of the '<em>Filter</em>' attribute.
 	 * @see #getFilter()
@@ -131,7 +131,7 @@ public interface AvailableVersion extends Comparable<AvailableVersion> {
 	 * Sets the value of the '{@link org.eclipse.b3.aggregator.AvailableVersion#getVersion <em>Version</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param value
 	 *            the new value of the '<em>Version</em>' attribute.
 	 * @see #getVersion()
@@ -143,7 +143,7 @@ public interface AvailableVersion extends Comparable<AvailableVersion> {
 	 * Sets the value of the '{@link org.eclipse.b3.aggregator.AvailableVersion#getVersionMatch <em>Version Match</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param value
 	 *            the new value of the '<em>Version Match</em>' attribute.
 	 * @see org.eclipse.b3.aggregator.VersionMatch

@@ -47,7 +47,7 @@ import org.eclipse.emf.ecore.util.EContentAdapter;
  * <li>{@link org.eclipse.b3.aggregator.p2view.impl.RepositoryBrowserImpl#isLoading <em>Loading</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public class RepositoryBrowserImpl extends MinimalEObjectImpl.Container implements RepositoryBrowser {
@@ -76,7 +76,7 @@ public class RepositoryBrowserImpl extends MinimalEObjectImpl.Container implemen
 	 * A set of bit flags representing the values of boolean attributes and whether unsettable features have been set.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 * @ordered
 	 */
@@ -86,7 +86,7 @@ public class RepositoryBrowserImpl extends MinimalEObjectImpl.Container implemen
 	 * The default value of the '{@link #isLoading() <em>Loading</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #isLoading()
 	 * @generated
 	 * @ordered
@@ -100,7 +100,7 @@ public class RepositoryBrowserImpl extends MinimalEObjectImpl.Container implemen
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
 	protected RepositoryBrowserImpl() {
@@ -116,7 +116,7 @@ public class RepositoryBrowserImpl extends MinimalEObjectImpl.Container implemen
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -135,7 +135,7 @@ public class RepositoryBrowserImpl extends MinimalEObjectImpl.Container implemen
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -154,7 +154,7 @@ public class RepositoryBrowserImpl extends MinimalEObjectImpl.Container implemen
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -175,7 +175,7 @@ public class RepositoryBrowserImpl extends MinimalEObjectImpl.Container implemen
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -196,7 +196,7 @@ public class RepositoryBrowserImpl extends MinimalEObjectImpl.Container implemen
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
@@ -214,7 +214,7 @@ public class RepositoryBrowserImpl extends MinimalEObjectImpl.Container implemen
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -225,7 +225,7 @@ public class RepositoryBrowserImpl extends MinimalEObjectImpl.Container implemen
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -241,7 +241,7 @@ public class RepositoryBrowserImpl extends MinimalEObjectImpl.Container implemen
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
 	public EList<MetadataRepositoryStructuredView> getChildren() {
@@ -251,7 +251,7 @@ public class RepositoryBrowserImpl extends MinimalEObjectImpl.Container implemen
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
 	public EList<MetadataRepositoryStructuredView> getRepositories() {
@@ -289,7 +289,7 @@ public class RepositoryBrowserImpl extends MinimalEObjectImpl.Container implemen
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
 	public Status getStatus() {
@@ -314,7 +314,7 @@ public class RepositoryBrowserImpl extends MinimalEObjectImpl.Container implemen
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
 	public boolean isLoading() {
@@ -332,7 +332,7 @@ public class RepositoryBrowserImpl extends MinimalEObjectImpl.Container implemen
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
 	public boolean isSetLoading() {

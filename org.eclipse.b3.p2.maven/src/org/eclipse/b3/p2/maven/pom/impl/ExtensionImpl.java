@@ -8,11 +8,8 @@ package org.eclipse.b3.p2.maven.pom.impl;
 
 import org.eclipse.b3.p2.maven.pom.Extension;
 import org.eclipse.b3.p2.maven.pom.PomPackage;
-
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 
@@ -26,7 +23,7 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * <li>{@link org.eclipse.b3.p2.maven.pom.impl.ExtensionImpl#getVersion <em>Version</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public class ExtensionImpl extends EObjectImpl implements Extension {
@@ -34,7 +31,7 @@ public class ExtensionImpl extends EObjectImpl implements Extension {
 	 * The default value of the '{@link #getGroupId() <em>Group Id</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @see #getGroupId()
 	 * @generated
 	 * @ordered
@@ -45,7 +42,7 @@ public class ExtensionImpl extends EObjectImpl implements Extension {
 	 * The cached value of the '{@link #getGroupId() <em>Group Id</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @see #getGroupId()
 	 * @generated
 	 * @ordered
@@ -56,7 +53,7 @@ public class ExtensionImpl extends EObjectImpl implements Extension {
 	 * The default value of the '{@link #getArtifactId() <em>Artifact Id</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @see #getArtifactId()
 	 * @generated
 	 * @ordered
@@ -67,7 +64,7 @@ public class ExtensionImpl extends EObjectImpl implements Extension {
 	 * The cached value of the '{@link #getArtifactId() <em>Artifact Id</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @see #getArtifactId()
 	 * @generated
 	 * @ordered
@@ -78,7 +75,7 @@ public class ExtensionImpl extends EObjectImpl implements Extension {
 	 * The default value of the '{@link #getVersion() <em>Version</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @see #getVersion()
 	 * @generated
 	 * @ordered
@@ -89,7 +86,7 @@ public class ExtensionImpl extends EObjectImpl implements Extension {
 	 * The cached value of the '{@link #getVersion() <em>Version</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @see #getVersion()
 	 * @generated
 	 * @ordered
@@ -98,7 +95,7 @@ public class ExtensionImpl extends EObjectImpl implements Extension {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected ExtensionImpl() {
@@ -107,7 +104,7 @@ public class ExtensionImpl extends EObjectImpl implements Extension {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -125,7 +122,7 @@ public class ExtensionImpl extends EObjectImpl implements Extension {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -149,7 +146,7 @@ public class ExtensionImpl extends EObjectImpl implements Extension {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -170,7 +167,7 @@ public class ExtensionImpl extends EObjectImpl implements Extension {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -191,36 +188,40 @@ public class ExtensionImpl extends EObjectImpl implements Extension {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public String getArtifactId() {
 		return artifactId;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public String getGroupId() {
 		return groupId;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public String getVersion() {
 		return version;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public void setArtifactId(String newArtifactId) {
 		String oldArtifactId = artifactId;
 		artifactId = newArtifactId;
@@ -231,9 +232,10 @@ public class ExtensionImpl extends EObjectImpl implements Extension {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public void setGroupId(String newGroupId) {
 		String oldGroupId = groupId;
 		groupId = newGroupId;
@@ -243,9 +245,10 @@ public class ExtensionImpl extends EObjectImpl implements Extension {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public void setVersion(String newVersion) {
 		String oldVersion = version;
 		version = newVersion;
@@ -255,7 +258,7 @@ public class ExtensionImpl extends EObjectImpl implements Extension {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -276,7 +279,7 @@ public class ExtensionImpl extends EObjectImpl implements Extension {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override

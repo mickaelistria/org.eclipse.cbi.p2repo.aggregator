@@ -14,15 +14,11 @@ import java.util.Collection;
 import org.eclipse.b3.aggregator.p2view.P2viewPackage;
 import org.eclipse.b3.aggregator.p2view.ProvidedCapabilities;
 import org.eclipse.b3.aggregator.p2view.ProvidedCapabilityWrapper;
-
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -35,14 +31,14 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <li>{@link org.eclipse.b3.aggregator.p2view.impl.ProvidedCapabilitiesImpl#getProvidedCapabilities <em>Provided Capabilities</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public class ProvidedCapabilitiesImpl extends MinimalEObjectImpl.Container implements ProvidedCapabilities {
 	/**
 	 * A set of bit flags representing the values of boolean attributes and whether unsettable features have been set.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 * @ordered
 	 */
@@ -51,7 +47,7 @@ public class ProvidedCapabilitiesImpl extends MinimalEObjectImpl.Container imple
 	/**
 	 * The cached value of the '{@link #getProvidedCapabilities() <em>Provided Capabilities</em>}' reference list. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getProvidedCapabilities()
 	 * @generated
 	 * @ordered
@@ -60,7 +56,7 @@ public class ProvidedCapabilitiesImpl extends MinimalEObjectImpl.Container imple
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected ProvidedCapabilitiesImpl() {
@@ -69,7 +65,7 @@ public class ProvidedCapabilitiesImpl extends MinimalEObjectImpl.Container imple
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -84,7 +80,7 @@ public class ProvidedCapabilitiesImpl extends MinimalEObjectImpl.Container imple
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -98,7 +94,7 @@ public class ProvidedCapabilitiesImpl extends MinimalEObjectImpl.Container imple
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -112,7 +108,7 @@ public class ProvidedCapabilitiesImpl extends MinimalEObjectImpl.Container imple
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
@@ -129,7 +125,7 @@ public class ProvidedCapabilitiesImpl extends MinimalEObjectImpl.Container imple
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -139,7 +135,7 @@ public class ProvidedCapabilitiesImpl extends MinimalEObjectImpl.Container imple
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -154,7 +150,7 @@ public class ProvidedCapabilitiesImpl extends MinimalEObjectImpl.Container imple
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EList<ProvidedCapabilityWrapper> getProvidedCapabilities() {

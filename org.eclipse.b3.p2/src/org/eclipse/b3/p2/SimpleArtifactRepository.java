@@ -4,26 +4,25 @@
  * licensed under the Eclipse Public License - v 1.0 by the copyright holder
  * listed above, as the Initial Contributor under such license. The text of
  * such license is available at www.eclipse.org.
- * 
+ *
  */
 package org.eclipse.b3.p2;
 
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.equinox.p2.repository.artifact.IFileArtifactRepository;
 
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Simple Artifact Repository</b></em>'.
  * <!-- end-user-doc -->
- * 
+ *
  * <p>
  * The following features are supported:
  * <ul>
  * <li>{@link org.eclipse.b3.p2.SimpleArtifactRepository#getRules <em>Rules</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @see org.eclipse.b3.p2.P2Package#getSimpleArtifactRepository()
  * @model superTypes="org.eclipse.b3.p2.ArtifactRepository org.eclipse.b3.p2.IFileArtifactRepository"
  * @generated
@@ -37,7 +36,7 @@ public interface SimpleArtifactRepository extends ArtifactRepository, IFileArtif
 	 * If the meaning of the '<em>Rules</em>' containment reference list isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @return the value of the '<em>Rules</em>' containment reference list.
 	 * @see org.eclipse.b3.p2.P2Package#getSimpleArtifactRepository_Rules()
 	 * @model containment="true" resolveProxies="true"

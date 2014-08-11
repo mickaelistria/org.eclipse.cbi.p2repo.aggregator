@@ -14,14 +14,14 @@ import org.eclipse.emf.common.util.EList;
 
 /**
  * <!-- begin-user-doc --> A representation of the model object '<em><b>Fragments</b></em>'. <!-- end-user-doc -->
- * 
+ *
  * <p>
  * The following features are supported:
  * <ul>
  * <li>{@link org.eclipse.b3.aggregator.p2view.Fragments#getFragments <em>Fragments</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @see org.eclipse.b3.aggregator.p2view.P2viewPackage#getFragments()
  * @model
  * @generated
@@ -35,7 +35,7 @@ public interface Fragments extends ChildrenProvider<Fragment> {
 	 * If the meaning of the '<em>Fragments</em>' reference list isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @return the value of the '<em>Fragments</em>' reference list.
 	 * @see org.eclipse.b3.aggregator.p2view.P2viewPackage#getFragments_Fragments()
 	 * @model

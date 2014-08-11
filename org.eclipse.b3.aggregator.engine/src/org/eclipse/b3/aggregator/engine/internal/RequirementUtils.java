@@ -36,7 +36,7 @@ import org.osgi.framework.InvalidSyntaxException;
 
 /**
  * @author filip.hrbek@cloudsmith.com
- * 
+ *
  */
 @SuppressWarnings("deprecation")
 public class RequirementUtils {
@@ -132,7 +132,7 @@ public class RequirementUtils {
 
 	/**
 	 * Retrieves IU name from a requirement
-	 * 
+	 *
 	 * @param req
 	 * @return the name or null if this method is unable to figure it out
 	 */

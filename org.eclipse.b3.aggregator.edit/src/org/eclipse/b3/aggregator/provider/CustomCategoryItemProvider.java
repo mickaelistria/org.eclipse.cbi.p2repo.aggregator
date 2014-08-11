@@ -44,7 +44,7 @@ import org.eclipse.equinox.p2.metadata.IInstallableUnit;
 /**
  * This is the item provider adapter for a {@link org.eclipse.b3.aggregator.CustomCategory} object. <!--
  * begin-user-doc --> <!-- end-user-doc -->
- * 
+ *
  * @generated
  */
 public class CustomCategoryItemProvider extends AggregatorItemProviderAdapter implements IEditingDomainItemProvider,
@@ -55,7 +55,7 @@ public class CustomCategoryItemProvider extends AggregatorItemProviderAdapter im
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public CustomCategoryItemProvider(AdapterFactory adapterFactory) {
@@ -65,7 +65,7 @@ public class CustomCategoryItemProvider extends AggregatorItemProviderAdapter im
 	/**
 	 * This adds a property descriptor for the Description feature.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected void addDescriptionPropertyDescriptor(Object object) {
@@ -82,7 +82,7 @@ public class CustomCategoryItemProvider extends AggregatorItemProviderAdapter im
 	/**
 	 * This adds a property descriptor for the Features feature.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected void addFeaturesPropertyDescriptor(Object object) {
@@ -98,7 +98,7 @@ public class CustomCategoryItemProvider extends AggregatorItemProviderAdapter im
 	/**
 	 * This adds a property descriptor for the Identifier feature.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected void addIdentifierPropertyDescriptor(Object object) {
@@ -115,7 +115,7 @@ public class CustomCategoryItemProvider extends AggregatorItemProviderAdapter im
 	/**
 	 * This adds a property descriptor for the Label feature.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected void addLabelPropertyDescriptor(Object object) {
@@ -133,7 +133,7 @@ public class CustomCategoryItemProvider extends AggregatorItemProviderAdapter im
 	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
 	 * that can be created under this object.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -199,7 +199,7 @@ public class CustomCategoryItemProvider extends AggregatorItemProviderAdapter im
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -216,7 +216,7 @@ public class CustomCategoryItemProvider extends AggregatorItemProviderAdapter im
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -231,7 +231,7 @@ public class CustomCategoryItemProvider extends AggregatorItemProviderAdapter im
 	/**
 	 * This returns CustomCategory.gif.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -242,7 +242,7 @@ public class CustomCategoryItemProvider extends AggregatorItemProviderAdapter im
 	/**
 	 * This returns the property descriptors for the adapted class.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -261,7 +261,7 @@ public class CustomCategoryItemProvider extends AggregatorItemProviderAdapter im
 	/**
 	 * Return the resource locator for this item provider's resources.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -272,7 +272,7 @@ public class CustomCategoryItemProvider extends AggregatorItemProviderAdapter im
 	/**
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
 	@Override
@@ -298,7 +298,7 @@ public class CustomCategoryItemProvider extends AggregatorItemProviderAdapter im
 	 * This handles model notifications by calling {@link #updateChildren} to update any cached children and by creating
 	 * a viewer notification, which it passes to {@link #fireNotifyChanged}. <!-- begin-user-doc --> <!-- end-user-doc
 	 * -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override

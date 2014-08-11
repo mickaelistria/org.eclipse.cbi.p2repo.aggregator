@@ -15,7 +15,7 @@ public class Engine extends Plugin {
 
 	/**
 	 * Returns the shared instance
-	 * 
+	 *
 	 * @return the shared instance
 	 */
 	public static Engine getDefault() {

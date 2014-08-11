@@ -39,14 +39,14 @@ import org.osgi.framework.Filter;
  * <li>{@link org.eclipse.b3.aggregator.p2view.impl.RequirementWrapperImpl#getGenuine <em>Genuine</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public class RequirementWrapperImpl extends MinimalEObjectImpl.Container implements RequirementWrapper {
 	/**
 	 * A set of bit flags representing the values of boolean attributes and whether unsettable features have been set.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 * @ordered
 	 */
@@ -56,7 +56,7 @@ public class RequirementWrapperImpl extends MinimalEObjectImpl.Container impleme
 	 * The cached value of the '{@link #getFilter() <em>Filter</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @see #getFilter()
 	 * @generated
 	 * @ordered
@@ -67,7 +67,7 @@ public class RequirementWrapperImpl extends MinimalEObjectImpl.Container impleme
 	 * The default value of the '{@link #getMax() <em>Max</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getMax()
 	 * @generated
 	 * @ordered
@@ -78,7 +78,7 @@ public class RequirementWrapperImpl extends MinimalEObjectImpl.Container impleme
 	 * The cached value of the '{@link #getMax() <em>Max</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getMax()
 	 * @generated
 	 * @ordered
@@ -89,7 +89,7 @@ public class RequirementWrapperImpl extends MinimalEObjectImpl.Container impleme
 	 * The default value of the '{@link #getMin() <em>Min</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getMin()
 	 * @generated
 	 * @ordered
@@ -100,7 +100,7 @@ public class RequirementWrapperImpl extends MinimalEObjectImpl.Container impleme
 	 * The cached value of the '{@link #getMin() <em>Min</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getMin()
 	 * @generated
 	 * @ordered
@@ -111,7 +111,7 @@ public class RequirementWrapperImpl extends MinimalEObjectImpl.Container impleme
 	 * The cached value of the '{@link #getMatches() <em>Matches</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getMatches()
 	 * @generated
 	 * @ordered
@@ -122,7 +122,7 @@ public class RequirementWrapperImpl extends MinimalEObjectImpl.Container impleme
 	 * The default value of the '{@link #isGreedy() <em>Greedy</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @see #isGreedy()
 	 * @generated
 	 * @ordered
@@ -133,7 +133,7 @@ public class RequirementWrapperImpl extends MinimalEObjectImpl.Container impleme
 	 * The flag representing the value of the '{@link #isGreedy() <em>Greedy</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #isGreedy()
 	 * @generated
 	 * @ordered
@@ -144,7 +144,7 @@ public class RequirementWrapperImpl extends MinimalEObjectImpl.Container impleme
 	 * The default value of the '{@link #getDescription() <em>Description</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getDescription()
 	 * @generated
 	 * @ordered
@@ -155,7 +155,7 @@ public class RequirementWrapperImpl extends MinimalEObjectImpl.Container impleme
 	 * The cached value of the '{@link #getDescription() <em>Description</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getDescription()
 	 * @generated
 	 * @ordered
@@ -166,7 +166,7 @@ public class RequirementWrapperImpl extends MinimalEObjectImpl.Container impleme
 	 * The default value of the '{@link #getLabel() <em>Label</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @see #getLabel()
 	 * @generated
 	 * @ordered
@@ -176,7 +176,7 @@ public class RequirementWrapperImpl extends MinimalEObjectImpl.Container impleme
 	/**
 	 * The cached value of the '{@link #getLabel() <em>Label</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
 	 * -->
-	 * 
+	 *
 	 * @see #getLabel()
 	 * @generated
 	 * @ordered
@@ -187,7 +187,7 @@ public class RequirementWrapperImpl extends MinimalEObjectImpl.Container impleme
 	 * The cached value of the '{@link #getGenuine() <em>Genuine</em>}' reference.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @see #getGenuine()
 	 * @generated
 	 * @ordered
@@ -197,7 +197,7 @@ public class RequirementWrapperImpl extends MinimalEObjectImpl.Container impleme
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected RequirementWrapperImpl() {
@@ -207,7 +207,7 @@ public class RequirementWrapperImpl extends MinimalEObjectImpl.Container impleme
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
 	protected RequirementWrapperImpl(IRequirement req) {
@@ -217,7 +217,7 @@ public class RequirementWrapperImpl extends MinimalEObjectImpl.Container impleme
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -235,7 +235,7 @@ public class RequirementWrapperImpl extends MinimalEObjectImpl.Container impleme
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -253,7 +253,7 @@ public class RequirementWrapperImpl extends MinimalEObjectImpl.Container impleme
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -281,7 +281,7 @@ public class RequirementWrapperImpl extends MinimalEObjectImpl.Container impleme
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
 	@Override
@@ -300,7 +300,7 @@ public class RequirementWrapperImpl extends MinimalEObjectImpl.Container impleme
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
@@ -334,7 +334,7 @@ public class RequirementWrapperImpl extends MinimalEObjectImpl.Container impleme
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -344,7 +344,7 @@ public class RequirementWrapperImpl extends MinimalEObjectImpl.Container impleme
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -378,7 +378,7 @@ public class RequirementWrapperImpl extends MinimalEObjectImpl.Container impleme
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public String getDescription() {
@@ -387,7 +387,7 @@ public class RequirementWrapperImpl extends MinimalEObjectImpl.Container impleme
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
 	public IMatchExpression<IInstallableUnit> getFilter() {
@@ -396,7 +396,7 @@ public class RequirementWrapperImpl extends MinimalEObjectImpl.Container impleme
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public IRequirement getGenuine() {
@@ -405,7 +405,7 @@ public class RequirementWrapperImpl extends MinimalEObjectImpl.Container impleme
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public String getLabel() {
@@ -415,7 +415,7 @@ public class RequirementWrapperImpl extends MinimalEObjectImpl.Container impleme
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
 	public IMatchExpression<IInstallableUnit> getMatches() {
@@ -425,7 +425,7 @@ public class RequirementWrapperImpl extends MinimalEObjectImpl.Container impleme
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
 	public int getMax() {
@@ -435,7 +435,7 @@ public class RequirementWrapperImpl extends MinimalEObjectImpl.Container impleme
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
 	public int getMin() {
@@ -444,7 +444,7 @@ public class RequirementWrapperImpl extends MinimalEObjectImpl.Container impleme
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
 	public boolean isGreedy() {
@@ -454,7 +454,7 @@ public class RequirementWrapperImpl extends MinimalEObjectImpl.Container impleme
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
 	public boolean isMatch(IInstallableUnit installableUnit) {
@@ -464,7 +464,7 @@ public class RequirementWrapperImpl extends MinimalEObjectImpl.Container impleme
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public void setDescription(String newDescription) {
@@ -477,7 +477,7 @@ public class RequirementWrapperImpl extends MinimalEObjectImpl.Container impleme
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
 	public void setFilter(Filter newFilter) {
@@ -487,7 +487,7 @@ public class RequirementWrapperImpl extends MinimalEObjectImpl.Container impleme
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public void setFilter(IMatchExpression<IInstallableUnit> newFilter) {
@@ -500,7 +500,7 @@ public class RequirementWrapperImpl extends MinimalEObjectImpl.Container impleme
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
 	public void setGreedy(boolean newGreedy) {
@@ -509,7 +509,7 @@ public class RequirementWrapperImpl extends MinimalEObjectImpl.Container impleme
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public void setLabel(String newLabel) {
@@ -523,7 +523,7 @@ public class RequirementWrapperImpl extends MinimalEObjectImpl.Container impleme
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public void setMatches(IMatchExpression<IInstallableUnit> newMatches) {
@@ -537,7 +537,7 @@ public class RequirementWrapperImpl extends MinimalEObjectImpl.Container impleme
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
 	public void setMax(int newMax) {
@@ -547,7 +547,7 @@ public class RequirementWrapperImpl extends MinimalEObjectImpl.Container impleme
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
 	public void setMin(int newMin) {
@@ -556,7 +556,7 @@ public class RequirementWrapperImpl extends MinimalEObjectImpl.Container impleme
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
 	@Override

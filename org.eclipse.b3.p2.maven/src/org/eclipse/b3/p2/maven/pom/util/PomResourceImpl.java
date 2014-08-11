@@ -15,7 +15,7 @@ import org.eclipse.emf.common.util.URI;
 
 /**
  * <!-- begin-user-doc --> The <b>Resource </b> associated with the package. <!-- end-user-doc -->
- * 
+ *
  * @see org.eclipse.b3.p2.maven.pom.util.PomResourceFactoryImpl
  * @generated NOT
  */
@@ -28,7 +28,7 @@ public class PomResourceImpl extends XMLResourceImplWithCheck {
 
 	/**
 	 * Creates an instance of the resource. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param uri
 	 *            the URI of the new resource.
 	 * @generated NOT

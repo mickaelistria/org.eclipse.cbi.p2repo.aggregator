@@ -8,7 +8,7 @@ package org.eclipse.b3.aggregator;
 
 /**
  * <!-- begin-user-doc --> A representation of the model object '<em><b>Contact</b></em>'. <!-- end-user-doc -->
- * 
+ *
  * <p>
  * The following features are supported:
  * <ul>
@@ -17,7 +17,7 @@ package org.eclipse.b3.aggregator;
  * <li>{@link org.eclipse.b3.aggregator.Contact#getAggregation <em>Aggregation</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @see org.eclipse.b3.aggregator.AggregatorPackage#getContact()
  * @model
  * @generated
@@ -31,7 +31,7 @@ public interface Contact {
 	 * If the meaning of the '<em>Aggregator</em>' container reference isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @return the value of the '<em>Aggregation</em>' container reference.
 	 * @see #setAggregation(Aggregation)
 	 * @see org.eclipse.b3.aggregator.AggregatorPackage#getContact_Aggregation()
@@ -48,7 +48,7 @@ public interface Contact {
 	 * If the meaning of the '<em>Email</em>' attribute isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @return the value of the '<em>Email</em>' attribute.
 	 * @see #setEmail(String)
 	 * @see org.eclipse.b3.aggregator.AggregatorPackage#getContact_Email()
@@ -64,7 +64,7 @@ public interface Contact {
 	 * If the meaning of the '<em>Name</em>' attribute isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @return the value of the '<em>Name</em>' attribute.
 	 * @see #setName(String)
 	 * @see org.eclipse.b3.aggregator.AggregatorPackage#getContact_Name()
@@ -77,7 +77,7 @@ public interface Contact {
 	 * Sets the value of the '{@link org.eclipse.b3.aggregator.Contact#getAggregation <em>Aggregation</em>}' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param value
 	 *            the new value of the '<em>Aggregation</em>' container reference.
 	 * @see #getAggregation()
@@ -88,7 +88,7 @@ public interface Contact {
 	/**
 	 * Sets the value of the '{@link org.eclipse.b3.aggregator.Contact#getEmail <em>Email</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param value
 	 *            the new value of the '<em>Email</em>' attribute.
 	 * @see #getEmail()
@@ -99,7 +99,7 @@ public interface Contact {
 	/**
 	 * Sets the value of the '{@link org.eclipse.b3.aggregator.Contact#getName <em>Name</em>}' attribute. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param value
 	 *            the new value of the '<em>Name</em>' attribute.
 	 * @see #getName()

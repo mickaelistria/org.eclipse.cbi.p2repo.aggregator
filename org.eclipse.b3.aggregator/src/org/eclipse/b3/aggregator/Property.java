@@ -6,11 +6,10 @@
  */
 package org.eclipse.b3.aggregator;
 
-import java.lang.Comparable;
 
 /**
  * <!-- begin-user-doc --> A representation of the model object '<em><b>Property</b></em>'. <!-- end-user-doc -->
- * 
+ *
  * <p>
  * The following features are supported:
  * <ul>
@@ -18,7 +17,7 @@ import java.lang.Comparable;
  * <li>{@link org.eclipse.b3.aggregator.Property#getValue <em>Value</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @see org.eclipse.b3.aggregator.AggregatorPackage#getProperty()
  * @model superTypes="org.eclipse.b3.p2.Comparable<org.eclipse.b3.aggregator.Property>"
  * @generated
@@ -31,7 +30,7 @@ public interface Property extends Comparable<Property> {
 	 * If the meaning of the '<em>Key</em>' attribute isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @return the value of the '<em>Key</em>' attribute.
 	 * @see #setKey(String)
 	 * @see org.eclipse.b3.aggregator.AggregatorPackage#getProperty_Key()
@@ -47,7 +46,7 @@ public interface Property extends Comparable<Property> {
 	 * If the meaning of the '<em>Value</em>' attribute isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @return the value of the '<em>Value</em>' attribute.
 	 * @see #setValue(String)
 	 * @see org.eclipse.b3.aggregator.AggregatorPackage#getProperty_Value()
@@ -59,7 +58,7 @@ public interface Property extends Comparable<Property> {
 	/**
 	 * Sets the value of the '{@link org.eclipse.b3.aggregator.Property#getKey <em>Key</em>}' attribute. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param value
 	 *            the new value of the '<em>Key</em>' attribute.
 	 * @see #getKey()
@@ -70,7 +69,7 @@ public interface Property extends Comparable<Property> {
 	/**
 	 * Sets the value of the '{@link org.eclipse.b3.aggregator.Property#getValue <em>Value</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param value
 	 *            the new value of the '<em>Value</em>' attribute.
 	 * @see #getValue()

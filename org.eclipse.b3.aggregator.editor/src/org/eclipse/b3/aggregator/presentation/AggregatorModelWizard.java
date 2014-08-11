@@ -65,20 +65,20 @@ import org.eclipse.ui.part.ISetSelectionTarget;
 /**
  * This is a simple wizard for creating a new model file.
  * <!-- begin-user-doc --> <!-- end-user-doc -->
- * 
+ *
  * @generated
  */
 public class AggregatorModelWizard extends Wizard implements INewWizard {
 	/**
 	 * This is the page where the type of object to create is selected.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public class AggregatorModelWizardInitialObjectCreationPage extends WizardPage {
 		/**
 		 * <!-- begin-user-doc --> <!-- end-user-doc -->
-		 * 
+		 *
 		 * @generated
 		 */
 		protected Combo initialObjectField;
@@ -90,17 +90,18 @@ public class AggregatorModelWizard extends Wizard implements INewWizard {
 
 		/**
 		 * <!-- begin-user-doc --> <!-- end-user-doc -->
-		 * 
+		 *
 		 * @generated
 		 */
 		protected Combo encodingField;
 
 		/**
 		 * <!-- begin-user-doc --> <!-- end-user-doc -->
-		 * 
+		 *
 		 * @generated
 		 */
 		protected ModifyListener validator = new ModifyListener() {
+			@Override
 			public void modifyText(ModifyEvent e) {
 				setPageComplete(validatePage());
 			}
@@ -109,7 +110,7 @@ public class AggregatorModelWizard extends Wizard implements INewWizard {
 		/**
 		 * Pass in the selection.
 		 * <!-- begin-user-doc --> <!-- end-user-doc -->
-		 * 
+		 *
 		 * @generated
 		 */
 		public AggregatorModelWizardInitialObjectCreationPage(String pageId) {
@@ -118,9 +119,10 @@ public class AggregatorModelWizard extends Wizard implements INewWizard {
 
 		/**
 		 * <!-- begin-user-doc --> <!-- end-user-doc -->
-		 * 
+		 *
 		 * @generated
 		 */
+		@Override
 		public void createControl(Composite parent) {
 			Composite composite = new Composite(parent, SWT.NONE);
 			{
@@ -191,7 +193,7 @@ public class AggregatorModelWizard extends Wizard implements INewWizard {
 
 		/**
 		 * <!-- begin-user-doc --> <!-- end-user-doc -->
-		 * 
+		 *
 		 * @generated
 		 */
 		public String getEncoding() {
@@ -200,7 +202,7 @@ public class AggregatorModelWizard extends Wizard implements INewWizard {
 
 		/**
 		 * <!-- begin-user-doc --> <!-- end-user-doc -->
-		 * 
+		 *
 		 * @generated
 		 */
 		protected Collection<String> getEncodings() {
@@ -216,7 +218,7 @@ public class AggregatorModelWizard extends Wizard implements INewWizard {
 
 		/**
 		 * <!-- begin-user-doc --> <!-- end-user-doc -->
-		 * 
+		 *
 		 * @generated
 		 */
 		public String getInitialObjectName() {
@@ -233,7 +235,7 @@ public class AggregatorModelWizard extends Wizard implements INewWizard {
 		/**
 		 * Returns the label for the specified type name.
 		 * <!-- begin-user-doc --> <!-- end-user-doc -->
-		 * 
+		 *
 		 * @generated
 		 */
 		protected String getLabel(String typeName) {
@@ -248,7 +250,7 @@ public class AggregatorModelWizard extends Wizard implements INewWizard {
 
 		/**
 		 * <!-- begin-user-doc --> <!-- end-user-doc -->
-		 * 
+		 *
 		 * @generated
 		 */
 		@Override
@@ -268,7 +270,7 @@ public class AggregatorModelWizard extends Wizard implements INewWizard {
 
 		/**
 		 * <!-- begin-user-doc --> <!-- end-user-doc -->
-		 * 
+		 *
 		 * @generated
 		 */
 		protected boolean validatePage() {
@@ -279,14 +281,14 @@ public class AggregatorModelWizard extends Wizard implements INewWizard {
 	/**
 	 * This is the one page of the wizard.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public class AggregatorModelWizardNewFileCreationPage extends WizardNewFileCreationPage {
 		/**
 		 * Pass in the selection.
 		 * <!-- begin-user-doc --> <!-- end-user-doc -->
-		 * 
+		 *
 		 * @generated
 		 */
 		public AggregatorModelWizardNewFileCreationPage(String pageId, IStructuredSelection selection) {
@@ -295,7 +297,7 @@ public class AggregatorModelWizard extends Wizard implements INewWizard {
 
 		/**
 		 * <!-- begin-user-doc --> <!-- end-user-doc -->
-		 * 
+		 *
 		 * @generated
 		 */
 		public IFile getModelFile() {
@@ -305,7 +307,7 @@ public class AggregatorModelWizard extends Wizard implements INewWizard {
 		/**
 		 * The framework calls this to see if the file is correct.
 		 * <!-- begin-user-doc --> <!-- end-user-doc -->
-		 * 
+		 *
 		 * @generated
 		 */
 		@Override
@@ -329,7 +331,7 @@ public class AggregatorModelWizard extends Wizard implements INewWizard {
 	/**
 	 * The supported extensions for created files.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public static final List<String> FILE_EXTENSIONS = Collections.unmodifiableList(Arrays.asList(AggregatorEditorPlugin.INSTANCE.getString(
@@ -338,7 +340,7 @@ public class AggregatorModelWizard extends Wizard implements INewWizard {
 	/**
 	 * A formatted list of supported file extensions, suitable for display. <!-- begin-user-doc --> <!-- end-user-doc
 	 * -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public static final String FORMATTED_FILE_EXTENSIONS = AggregatorEditorPlugin.INSTANCE.getString(
@@ -347,7 +349,7 @@ public class AggregatorModelWizard extends Wizard implements INewWizard {
 	/**
 	 * This caches an instance of the model package.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected AggregatorPackage aggregatorPackage = AggregatorPackage.eINSTANCE;
@@ -355,7 +357,7 @@ public class AggregatorModelWizard extends Wizard implements INewWizard {
 	/**
 	 * This caches an instance of the model factory.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected AggregatorFactory aggregatorFactory = aggregatorPackage.getAggregatorFactory();
@@ -363,7 +365,7 @@ public class AggregatorModelWizard extends Wizard implements INewWizard {
 	/**
 	 * This is the file creation page.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected AggregatorModelWizardNewFileCreationPage newFileCreationPage;
@@ -371,7 +373,7 @@ public class AggregatorModelWizard extends Wizard implements INewWizard {
 	/**
 	 * This is the initial object creation page.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected AggregatorModelWizardInitialObjectCreationPage initialObjectCreationPage;
@@ -380,7 +382,7 @@ public class AggregatorModelWizard extends Wizard implements INewWizard {
 	 * Remember the selection during initialization for populating the default container.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected IStructuredSelection selection;
@@ -388,7 +390,7 @@ public class AggregatorModelWizard extends Wizard implements INewWizard {
 	/**
 	 * Remember the workbench during initialization.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected IWorkbench workbench;
@@ -396,14 +398,14 @@ public class AggregatorModelWizard extends Wizard implements INewWizard {
 	/**
 	 * Caches the names of the types that can be created as the root object. <!-- begin-user-doc --> <!-- end-user-doc
 	 * -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected List<String> initialObjectNames;
 
 	/**
 	 * The framework calls this to create the contents of the wizard. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
 	@Override
@@ -454,7 +456,7 @@ public class AggregatorModelWizard extends Wizard implements INewWizard {
 
 	/**
 	 * Create a new model. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
 	protected EObject createInitialModel() {
@@ -466,7 +468,7 @@ public class AggregatorModelWizard extends Wizard implements INewWizard {
 	/**
 	 * Returns the names of the types that can be created as the root object. <!-- begin-user-doc --> <!-- end-user-doc
 	 * -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected Collection<String> getInitialObjectNames() {
@@ -488,7 +490,7 @@ public class AggregatorModelWizard extends Wizard implements INewWizard {
 	/**
 	 * Get the file from the page.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public IFile getModelFile() {
@@ -497,9 +499,10 @@ public class AggregatorModelWizard extends Wizard implements INewWizard {
 
 	/**
 	 * This just records the information. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
+	@Override
 	public void init(IWorkbench workbench, IStructuredSelection selection) {
 		this.workbench = workbench;
 		this.selection = selection;
@@ -509,7 +512,7 @@ public class AggregatorModelWizard extends Wizard implements INewWizard {
 
 	/**
 	 * Do the work after everything is specified. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
 	@Override
@@ -569,6 +572,7 @@ public class AggregatorModelWizard extends Wizard implements INewWizard {
 			if(activePart instanceof ISetSelectionTarget) {
 				final ISelection targetSelection = new StructuredSelection(modelFile);
 				getShell().getDisplay().asyncExec(new Runnable() {
+					@Override
 					public void run() {
 						((ISetSelectionTarget) activePart).selectReveal(targetSelection);
 					}

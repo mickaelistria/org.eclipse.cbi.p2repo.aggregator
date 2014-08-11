@@ -41,7 +41,7 @@ import org.eclipse.core.runtime.CoreException;
 
 /**
  * @author Filip Hrbek (filip.hrbek@cloudsmith.com)
- * 
+ *
  */
 public class MavenNexusIndexer implements IMaven2Indexer {
 	private class VersionEntryIterator implements Iterator<VersionEntry> {

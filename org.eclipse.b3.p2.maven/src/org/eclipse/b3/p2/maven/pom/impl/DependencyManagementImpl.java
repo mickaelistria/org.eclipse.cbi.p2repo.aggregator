@@ -9,13 +9,10 @@ package org.eclipse.b3.p2.maven.pom.impl;
 import org.eclipse.b3.p2.maven.pom.DependenciesType;
 import org.eclipse.b3.p2.maven.pom.DependencyManagement;
 import org.eclipse.b3.p2.maven.pom.PomPackage;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 
@@ -28,14 +25,14 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * <li>{@link org.eclipse.b3.p2.maven.pom.impl.DependencyManagementImpl#getDependencies <em>Dependencies</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public class DependencyManagementImpl extends EObjectImpl implements DependencyManagement {
 	/**
 	 * The cached value of the '{@link #getDependencies() <em>Dependencies</em>}' containment reference. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getDependencies()
 	 * @generated
 	 * @ordered
@@ -44,7 +41,7 @@ public class DependencyManagementImpl extends EObjectImpl implements DependencyM
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected DependencyManagementImpl() {
@@ -53,7 +50,7 @@ public class DependencyManagementImpl extends EObjectImpl implements DependencyM
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public NotificationChain basicSetDependencies(DependenciesType newDependencies, NotificationChain msgs) {
@@ -73,7 +70,7 @@ public class DependencyManagementImpl extends EObjectImpl implements DependencyM
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -87,7 +84,7 @@ public class DependencyManagementImpl extends EObjectImpl implements DependencyM
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -101,7 +98,7 @@ public class DependencyManagementImpl extends EObjectImpl implements DependencyM
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -115,7 +112,7 @@ public class DependencyManagementImpl extends EObjectImpl implements DependencyM
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -130,7 +127,7 @@ public class DependencyManagementImpl extends EObjectImpl implements DependencyM
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -145,18 +142,20 @@ public class DependencyManagementImpl extends EObjectImpl implements DependencyM
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public DependenciesType getDependencies() {
 		return dependencies;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public void setDependencies(DependenciesType newDependencies) {
 		if(newDependencies != dependencies) {
 			NotificationChain msgs = null;
@@ -178,7 +177,7 @@ public class DependencyManagementImpl extends EObjectImpl implements DependencyM
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override

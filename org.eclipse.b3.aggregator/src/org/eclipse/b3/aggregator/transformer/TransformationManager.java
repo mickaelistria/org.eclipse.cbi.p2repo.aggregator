@@ -36,7 +36,7 @@ import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 
 /**
  * @author filip.hrbek@cloudsmith.com
- * 
+ *
  */
 public class TransformationManager {
 	public interface ContributorListener {

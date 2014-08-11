@@ -17,7 +17,7 @@ import org.eclipse.swt.widgets.Text;
 
 /**
  * @author Karel Brezina
- * 
+ *
  */
 public class UIUtils {
 

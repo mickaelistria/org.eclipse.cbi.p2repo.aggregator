@@ -10,13 +10,10 @@ import org.eclipse.b3.p2.maven.pom.ConfigurationType;
 import org.eclipse.b3.p2.maven.pom.PomPackage;
 import org.eclipse.b3.p2.maven.pom.ReportSet;
 import org.eclipse.b3.p2.maven.pom.ReportSetReportsType;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 
@@ -31,14 +28,14 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * <li>{@link org.eclipse.b3.p2.maven.pom.impl.ReportSetImpl#getReports <em>Reports</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public class ReportSetImpl extends EObjectImpl implements ReportSet {
 	/**
 	 * The default value of the '{@link #getId() <em>Id</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getId()
 	 * @generated
 	 * @ordered
@@ -48,7 +45,7 @@ public class ReportSetImpl extends EObjectImpl implements ReportSet {
 	/**
 	 * The cached value of the '{@link #getId() <em>Id</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getId()
 	 * @generated
 	 * @ordered
@@ -58,7 +55,7 @@ public class ReportSetImpl extends EObjectImpl implements ReportSet {
 	/**
 	 * This is true if the Id attribute has been set.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 * @ordered
 	 */
@@ -67,7 +64,7 @@ public class ReportSetImpl extends EObjectImpl implements ReportSet {
 	/**
 	 * The cached value of the '{@link #getConfiguration() <em>Configuration</em>}' containment reference. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getConfiguration()
 	 * @generated
 	 * @ordered
@@ -78,7 +75,7 @@ public class ReportSetImpl extends EObjectImpl implements ReportSet {
 	 * The default value of the '{@link #getInherited() <em>Inherited</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @see #getInherited()
 	 * @generated
 	 * @ordered
@@ -89,7 +86,7 @@ public class ReportSetImpl extends EObjectImpl implements ReportSet {
 	 * The cached value of the '{@link #getInherited() <em>Inherited</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @see #getInherited()
 	 * @generated
 	 * @ordered
@@ -100,7 +97,7 @@ public class ReportSetImpl extends EObjectImpl implements ReportSet {
 	 * The cached value of the '{@link #getReports() <em>Reports</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getReports()
 	 * @generated
 	 * @ordered
@@ -109,7 +106,7 @@ public class ReportSetImpl extends EObjectImpl implements ReportSet {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected ReportSetImpl() {
@@ -118,7 +115,7 @@ public class ReportSetImpl extends EObjectImpl implements ReportSet {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public NotificationChain basicSetConfiguration(ConfigurationType newConfiguration, NotificationChain msgs) {
@@ -137,7 +134,7 @@ public class ReportSetImpl extends EObjectImpl implements ReportSet {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public NotificationChain basicSetReports(ReportSetReportsType newReports, NotificationChain msgs) {
@@ -156,7 +153,7 @@ public class ReportSetImpl extends EObjectImpl implements ReportSet {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -176,7 +173,7 @@ public class ReportSetImpl extends EObjectImpl implements ReportSet {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -192,7 +189,7 @@ public class ReportSetImpl extends EObjectImpl implements ReportSet {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -214,7 +211,7 @@ public class ReportSetImpl extends EObjectImpl implements ReportSet {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -238,7 +235,7 @@ public class ReportSetImpl extends EObjectImpl implements ReportSet {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -262,54 +259,60 @@ public class ReportSetImpl extends EObjectImpl implements ReportSet {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public ConfigurationType getConfiguration() {
 		return configuration;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public String getId() {
 		return id;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public String getInherited() {
 		return inherited;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public ReportSetReportsType getReports() {
 		return reports;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public boolean isSetId() {
 		return idESet;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public void setConfiguration(ConfigurationType newConfiguration) {
 		if(newConfiguration != configuration) {
 			NotificationChain msgs = null;
@@ -330,9 +333,10 @@ public class ReportSetImpl extends EObjectImpl implements ReportSet {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public void setId(String newId) {
 		String oldId = id;
 		id = newId;
@@ -344,9 +348,10 @@ public class ReportSetImpl extends EObjectImpl implements ReportSet {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public void setInherited(String newInherited) {
 		String oldInherited = inherited;
 		inherited = newInherited;
@@ -357,9 +362,10 @@ public class ReportSetImpl extends EObjectImpl implements ReportSet {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public void setReports(ReportSetReportsType newReports) {
 		if(newReports != reports) {
 			NotificationChain msgs = null;
@@ -380,7 +386,7 @@ public class ReportSetImpl extends EObjectImpl implements ReportSet {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -402,9 +408,10 @@ public class ReportSetImpl extends EObjectImpl implements ReportSet {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public void unsetId() {
 		String oldId = id;
 		boolean oldIdESet = idESet;
@@ -417,7 +424,7 @@ public class ReportSetImpl extends EObjectImpl implements ReportSet {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override

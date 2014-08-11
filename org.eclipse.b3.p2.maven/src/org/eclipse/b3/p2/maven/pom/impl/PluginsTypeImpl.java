@@ -11,16 +11,11 @@ import java.util.Collection;
 import org.eclipse.b3.p2.maven.pom.Plugin;
 import org.eclipse.b3.p2.maven.pom.PluginsType;
 import org.eclipse.b3.p2.maven.pom.PomPackage;
-
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.EObjectImpl;
-
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -32,7 +27,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <li>{@link org.eclipse.b3.p2.maven.pom.impl.PluginsTypeImpl#getPlugin <em>Plugin</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public class PluginsTypeImpl extends EObjectImpl implements PluginsType {
@@ -40,7 +35,7 @@ public class PluginsTypeImpl extends EObjectImpl implements PluginsType {
 	 * The cached value of the '{@link #getPlugin() <em>Plugin</em>}' containment reference list.
 	 * <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getPlugin()
 	 * @generated
 	 * @ordered
@@ -49,7 +44,7 @@ public class PluginsTypeImpl extends EObjectImpl implements PluginsType {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected PluginsTypeImpl() {
@@ -58,7 +53,7 @@ public class PluginsTypeImpl extends EObjectImpl implements PluginsType {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -72,7 +67,7 @@ public class PluginsTypeImpl extends EObjectImpl implements PluginsType {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -86,7 +81,7 @@ public class PluginsTypeImpl extends EObjectImpl implements PluginsType {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -100,7 +95,7 @@ public class PluginsTypeImpl extends EObjectImpl implements PluginsType {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
@@ -117,7 +112,7 @@ public class PluginsTypeImpl extends EObjectImpl implements PluginsType {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -132,9 +127,10 @@ public class PluginsTypeImpl extends EObjectImpl implements PluginsType {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public EList<Plugin> getPlugin() {
 		if(plugin == null) {
 			plugin = new EObjectContainmentEList<Plugin>(Plugin.class, this, PomPackage.PLUGINS_TYPE__PLUGIN);
@@ -144,7 +140,7 @@ public class PluginsTypeImpl extends EObjectImpl implements PluginsType {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override

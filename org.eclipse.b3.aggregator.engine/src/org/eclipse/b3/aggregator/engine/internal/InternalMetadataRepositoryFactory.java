@@ -38,7 +38,7 @@ import org.eclipse.osgi.util.NLS;
 
 /**
  * @author filip.hrbek@cloudsmith.com
- * 
+ *
  */
 @Deprecated
 public class InternalMetadataRepositoryFactory extends SimpleMetadataRepositoryFactory {
@@ -154,7 +154,7 @@ public class InternalMetadataRepositoryFactory extends SimpleMetadataRepositoryF
 						((URLMetadataRepository) result).initializeAfterLoad(location);
 					if(Tracing.DEBUG_METADATA_PARSING) {
 						time += System.currentTimeMillis();
-						Tracing.debug(debugMsg + "time (ms): " + time); //$NON-NLS-1$ 
+						Tracing.debug(debugMsg + "time (ms): " + time); //$NON-NLS-1$
 					}
 					return result;
 				}

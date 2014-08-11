@@ -29,7 +29,7 @@ import org.kohsuke.args4j.Option;
 
 /**
  * @author filip.hrbek@cloudsmith.com
- * 
+ *
  */
 public class RunScript extends AbstractCommand {
 	private final static String SCRIPT_FILE_META_VAR = "<script file>";

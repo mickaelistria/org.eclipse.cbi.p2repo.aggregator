@@ -11,16 +11,11 @@ import java.util.Collection;
 import org.eclipse.b3.p2.maven.pom.License;
 import org.eclipse.b3.p2.maven.pom.LicensesType;
 import org.eclipse.b3.p2.maven.pom.PomPackage;
-
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.EObjectImpl;
-
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -32,7 +27,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <li>{@link org.eclipse.b3.p2.maven.pom.impl.LicensesTypeImpl#getLicense <em>License</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public class LicensesTypeImpl extends EObjectImpl implements LicensesType {
@@ -40,7 +35,7 @@ public class LicensesTypeImpl extends EObjectImpl implements LicensesType {
 	 * The cached value of the '{@link #getLicense() <em>License</em>}' containment reference list.
 	 * <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getLicense()
 	 * @generated
 	 * @ordered
@@ -49,7 +44,7 @@ public class LicensesTypeImpl extends EObjectImpl implements LicensesType {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected LicensesTypeImpl() {
@@ -58,7 +53,7 @@ public class LicensesTypeImpl extends EObjectImpl implements LicensesType {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -72,7 +67,7 @@ public class LicensesTypeImpl extends EObjectImpl implements LicensesType {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -86,7 +81,7 @@ public class LicensesTypeImpl extends EObjectImpl implements LicensesType {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -100,7 +95,7 @@ public class LicensesTypeImpl extends EObjectImpl implements LicensesType {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
@@ -117,7 +112,7 @@ public class LicensesTypeImpl extends EObjectImpl implements LicensesType {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -132,9 +127,10 @@ public class LicensesTypeImpl extends EObjectImpl implements LicensesType {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public EList<License> getLicense() {
 		if(license == null) {
 			license = new EObjectContainmentEList<License>(License.class, this, PomPackage.LICENSES_TYPE__LICENSE);
@@ -144,7 +140,7 @@ public class LicensesTypeImpl extends EObjectImpl implements LicensesType {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override

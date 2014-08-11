@@ -33,7 +33,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
 /**
  * This is the item provider adapter for a {@link org.eclipse.b3.aggregator.MavenMapping} object. <!--
  * begin-user-doc --> <!-- end-user-doc -->
- * 
+ *
  * @generated
  */
 public class MavenMappingItemProvider extends AggregatorItemProviderAdapter implements IEditingDomainItemProvider,
@@ -42,7 +42,7 @@ public class MavenMappingItemProvider extends AggregatorItemProviderAdapter impl
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public MavenMappingItemProvider(AdapterFactory adapterFactory) {
@@ -52,7 +52,7 @@ public class MavenMappingItemProvider extends AggregatorItemProviderAdapter impl
 	/**
 	 * This adds a property descriptor for the Artifact Id feature.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected void addArtifactIdPropertyDescriptor(Object object) {
@@ -69,7 +69,7 @@ public class MavenMappingItemProvider extends AggregatorItemProviderAdapter impl
 	/**
 	 * This adds a property descriptor for the Group Id feature.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected void addGroupIdPropertyDescriptor(Object object) {
@@ -85,7 +85,7 @@ public class MavenMappingItemProvider extends AggregatorItemProviderAdapter impl
 	/**
 	 * This adds a property descriptor for the Name Pattern feature.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected void addNamePatternPropertyDescriptor(Object object) {
@@ -103,7 +103,7 @@ public class MavenMappingItemProvider extends AggregatorItemProviderAdapter impl
 	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
 	 * that can be created under this object.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -114,7 +114,7 @@ public class MavenMappingItemProvider extends AggregatorItemProviderAdapter impl
 	/**
 	 * This returns MavenMapping.gif.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -125,7 +125,7 @@ public class MavenMappingItemProvider extends AggregatorItemProviderAdapter impl
 	/**
 	 * This returns the property descriptors for the adapted class.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -143,7 +143,7 @@ public class MavenMappingItemProvider extends AggregatorItemProviderAdapter impl
 	/**
 	 * Return the resource locator for this item provider's resources.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -153,7 +153,7 @@ public class MavenMappingItemProvider extends AggregatorItemProviderAdapter impl
 
 	/**
 	 * This returns the label text for the adapted class. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
 	@Override
@@ -194,7 +194,7 @@ public class MavenMappingItemProvider extends AggregatorItemProviderAdapter impl
 	 * This handles model notifications by calling {@link #updateChildren} to update any cached children and by creating
 	 * a viewer notification, which it passes to {@link #fireNotifyChanged}. <!-- begin-user-doc --> <!-- end-user-doc
 	 * -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public void notifyChangedGen(Notification notification) {

@@ -8,11 +8,8 @@ package org.eclipse.b3.p2.maven.pom.impl;
 
 import org.eclipse.b3.p2.maven.pom.ActivationProperty;
 import org.eclipse.b3.p2.maven.pom.PomPackage;
-
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 
@@ -26,14 +23,14 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * <li>{@link org.eclipse.b3.p2.maven.pom.impl.ActivationPropertyImpl#getValue <em>Value</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public class ActivationPropertyImpl extends EObjectImpl implements ActivationProperty {
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
 	 * -->
-	 * 
+	 *
 	 * @see #getName()
 	 * @generated
 	 * @ordered
@@ -43,7 +40,7 @@ public class ActivationPropertyImpl extends EObjectImpl implements ActivationPro
 	/**
 	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
 	 * -->
-	 * 
+	 *
 	 * @see #getName()
 	 * @generated
 	 * @ordered
@@ -54,7 +51,7 @@ public class ActivationPropertyImpl extends EObjectImpl implements ActivationPro
 	 * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @see #getValue()
 	 * @generated
 	 * @ordered
@@ -64,7 +61,7 @@ public class ActivationPropertyImpl extends EObjectImpl implements ActivationPro
 	/**
 	 * The cached value of the '{@link #getValue() <em>Value</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
 	 * -->
-	 * 
+	 *
 	 * @see #getValue()
 	 * @generated
 	 * @ordered
@@ -73,7 +70,7 @@ public class ActivationPropertyImpl extends EObjectImpl implements ActivationPro
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected ActivationPropertyImpl() {
@@ -82,7 +79,7 @@ public class ActivationPropertyImpl extends EObjectImpl implements ActivationPro
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -98,7 +95,7 @@ public class ActivationPropertyImpl extends EObjectImpl implements ActivationPro
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -118,7 +115,7 @@ public class ActivationPropertyImpl extends EObjectImpl implements ActivationPro
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -136,7 +133,7 @@ public class ActivationPropertyImpl extends EObjectImpl implements ActivationPro
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -154,27 +151,30 @@ public class ActivationPropertyImpl extends EObjectImpl implements ActivationPro
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public String getName() {
 		return name;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public String getValue() {
 		return value;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public void setName(String newName) {
 		String oldName = name;
 		name = newName;
@@ -184,9 +184,10 @@ public class ActivationPropertyImpl extends EObjectImpl implements ActivationPro
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public void setValue(String newValue) {
 		String oldValue = value;
 		value = newValue;
@@ -197,7 +198,7 @@ public class ActivationPropertyImpl extends EObjectImpl implements ActivationPro
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -216,7 +217,7 @@ public class ActivationPropertyImpl extends EObjectImpl implements ActivationPro
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override

@@ -11,11 +11,8 @@ package org.eclipse.b3.aggregator.impl;
 
 import org.eclipse.b3.aggregator.AggregatorPackage;
 import org.eclipse.b3.aggregator.DescriptionProvider;
-
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
@@ -28,14 +25,14 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <li>{@link org.eclipse.b3.aggregator.impl.DescriptionProviderImpl#getDescription <em>Description</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public class DescriptionProviderImpl extends MinimalEObjectImpl.Container implements DescriptionProvider {
 	/**
 	 * A set of bit flags representing the values of boolean attributes and whether unsettable features have been set.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 * @ordered
 	 */
@@ -45,7 +42,7 @@ public class DescriptionProviderImpl extends MinimalEObjectImpl.Container implem
 	 * The default value of the '{@link #getDescription() <em>Description</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @see #getDescription()
 	 * @generated
 	 * @ordered
@@ -56,7 +53,7 @@ public class DescriptionProviderImpl extends MinimalEObjectImpl.Container implem
 	 * The cached value of the '{@link #getDescription() <em>Description</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @see #getDescription()
 	 * @generated
 	 * @ordered
@@ -65,7 +62,7 @@ public class DescriptionProviderImpl extends MinimalEObjectImpl.Container implem
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected DescriptionProviderImpl() {
@@ -74,7 +71,7 @@ public class DescriptionProviderImpl extends MinimalEObjectImpl.Container implem
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -88,7 +85,7 @@ public class DescriptionProviderImpl extends MinimalEObjectImpl.Container implem
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -104,7 +101,7 @@ public class DescriptionProviderImpl extends MinimalEObjectImpl.Container implem
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -119,7 +116,7 @@ public class DescriptionProviderImpl extends MinimalEObjectImpl.Container implem
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -129,7 +126,7 @@ public class DescriptionProviderImpl extends MinimalEObjectImpl.Container implem
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -144,7 +141,7 @@ public class DescriptionProviderImpl extends MinimalEObjectImpl.Container implem
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public String getDescription() {
@@ -153,7 +150,7 @@ public class DescriptionProviderImpl extends MinimalEObjectImpl.Container implem
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public void setDescription(String newDescription) {
@@ -167,7 +164,7 @@ public class DescriptionProviderImpl extends MinimalEObjectImpl.Container implem
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override

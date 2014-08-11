@@ -35,7 +35,7 @@ public class MonitorUtils {
 	 * beginTask()/done() pattern and pass sub-monitors to others. Sometimes the receiver decides that it should do
 	 * nothing. It still *must* have the monitor 'completed' in order to correctly signal callers that the receiver 'did
 	 * some work' (even if it was nothing)
-	 * 
+	 *
 	 * @param monitor
 	 *            the monitor to run beginTask()/isCanceled()/done() for. Can be <code>null</code>
 	 * @throws OperationCanceledException
@@ -63,7 +63,7 @@ public class MonitorUtils {
 	/**
 	 * Makes it easier to follow the pattern of ensuring there's a real monitor to talk to for the rest of the code in a
 	 * monitor receiver
-	 * 
+	 *
 	 * @param monitor
 	 *            the monitor to check for nullness and replace with a 'real' monitor if necessary
 	 * @return The argument or a new {@link NullProgressMonitor} if the argument was <code>null</code>
@@ -82,7 +82,7 @@ public class MonitorUtils {
 	 * Creates a new sub-progress monitor for the given monitor. The sub progress monitor uses the given number of work
 	 * ticks from its parent monitor. A check for cancellation is made prior to the creation of the sub-progress
 	 * monitor.
-	 * 
+	 *
 	 * @param monitor
 	 *            the parent progress monitor. Can be <code>null</code>
 	 * @param ticks
@@ -103,7 +103,7 @@ public class MonitorUtils {
 	 * Creates a new sub-progress monitor for the given monitor. The sub progress monitor uses the given number of work
 	 * ticks from its parent monitor. A check for cancellation is made prior to the creation of the sub-progress
 	 * monitor.
-	 * 
+	 *
 	 * @param monitor
 	 *            the parent progress monitor. Can be <code>null</code>
 	 * @param ticks
@@ -135,7 +135,7 @@ public class MonitorUtils {
 	/**
 	 * Notifies that a subtask of the main task is beginning. Subtasks are optional; the main task might not have
 	 * subtasks. A check for cancellation is made prior to notifying.
-	 * 
+	 *
 	 * @param monitor
 	 *            the progress monitor. Can be <code>null</code>
 	 * @param name
@@ -153,7 +153,7 @@ public class MonitorUtils {
 	/**
 	 * The typical pattern is to always check cancellation before doing any action. Use this to easily make the check a
 	 * one-liner.
-	 * 
+	 *
 	 * @param monitor
 	 *            the monitor to check for cancellation. Can be <code>null</code>
 	 * @throws OperationCanceledException
@@ -167,7 +167,7 @@ public class MonitorUtils {
 	/**
 	 * A monitor should timely be checked for cancellation. This method makes it simple to ensure it is done at every
 	 * work tick.
-	 * 
+	 *
 	 * @param monitor
 	 *            the monitor to test and then tick
 	 * @param work

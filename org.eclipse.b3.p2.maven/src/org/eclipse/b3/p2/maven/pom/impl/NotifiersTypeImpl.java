@@ -11,16 +11,11 @@ import java.util.Collection;
 import org.eclipse.b3.p2.maven.pom.Notifier;
 import org.eclipse.b3.p2.maven.pom.NotifiersType;
 import org.eclipse.b3.p2.maven.pom.PomPackage;
-
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.EObjectImpl;
-
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -32,14 +27,14 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <li>{@link org.eclipse.b3.p2.maven.pom.impl.NotifiersTypeImpl#getNotifier <em>Notifier</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public class NotifiersTypeImpl extends EObjectImpl implements NotifiersType {
 	/**
 	 * The cached value of the '{@link #getNotifier() <em>Notifier</em>}' containment reference list. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getNotifier()
 	 * @generated
 	 * @ordered
@@ -48,7 +43,7 @@ public class NotifiersTypeImpl extends EObjectImpl implements NotifiersType {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected NotifiersTypeImpl() {
@@ -57,7 +52,7 @@ public class NotifiersTypeImpl extends EObjectImpl implements NotifiersType {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -71,7 +66,7 @@ public class NotifiersTypeImpl extends EObjectImpl implements NotifiersType {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -85,7 +80,7 @@ public class NotifiersTypeImpl extends EObjectImpl implements NotifiersType {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -99,7 +94,7 @@ public class NotifiersTypeImpl extends EObjectImpl implements NotifiersType {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
@@ -116,7 +111,7 @@ public class NotifiersTypeImpl extends EObjectImpl implements NotifiersType {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -131,9 +126,10 @@ public class NotifiersTypeImpl extends EObjectImpl implements NotifiersType {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public EList<Notifier> getNotifier() {
 		if(notifier == null) {
 			notifier = new EObjectContainmentEList<Notifier>(Notifier.class, this, PomPackage.NOTIFIERS_TYPE__NOTIFIER);
@@ -143,7 +139,7 @@ public class NotifiersTypeImpl extends EObjectImpl implements NotifiersType {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override

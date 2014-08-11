@@ -22,7 +22,7 @@ import org.eclipse.emf.edit.provider.IItemLabelProvider;
 
 /**
  * @author Karel Brezina
- * 
+ *
  */
 public class SortCommand<T> extends AbstractCommand {
 
@@ -34,6 +34,7 @@ public class SortCommand<T> extends AbstractCommand {
 			this.labelProvider = labelProvider;
 		}
 
+		@Override
 		public int compare(T o1, T o2) {
 
 			if(o1 == null) {
@@ -80,9 +81,10 @@ public class SortCommand<T> extends AbstractCommand {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see org.eclipse.emf.common.command.Command#execute()
 	 */
+	@Override
 	public void execute() {
 		sortedSet = new TreeSet<T>(new LabelHashComparator(labelProvider));
 		sortedSet.addAll(containment);
@@ -103,6 +105,7 @@ public class SortCommand<T> extends AbstractCommand {
 		return containment.size() > 1;
 	}
 
+	@Override
 	public void redo() {
 		containment.clear();
 		containment.addAll(sortedSet);

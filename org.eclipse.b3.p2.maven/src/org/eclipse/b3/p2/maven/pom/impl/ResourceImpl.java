@@ -10,13 +10,10 @@ import org.eclipse.b3.p2.maven.pom.ExcludesType;
 import org.eclipse.b3.p2.maven.pom.IncludesType;
 import org.eclipse.b3.p2.maven.pom.PomPackage;
 import org.eclipse.b3.p2.maven.pom.Resource;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 
@@ -32,7 +29,7 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * <li>{@link org.eclipse.b3.p2.maven.pom.impl.ResourceImpl#getExcludes <em>Excludes</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public class ResourceImpl extends EObjectImpl implements Resource {
@@ -40,7 +37,7 @@ public class ResourceImpl extends EObjectImpl implements Resource {
 	 * The default value of the '{@link #getTargetPath() <em>Target Path</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @see #getTargetPath()
 	 * @generated
 	 * @ordered
@@ -51,7 +48,7 @@ public class ResourceImpl extends EObjectImpl implements Resource {
 	 * The cached value of the '{@link #getTargetPath() <em>Target Path</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @see #getTargetPath()
 	 * @generated
 	 * @ordered
@@ -62,7 +59,7 @@ public class ResourceImpl extends EObjectImpl implements Resource {
 	 * The default value of the '{@link #isFiltering() <em>Filtering</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @see #isFiltering()
 	 * @generated
 	 * @ordered
@@ -73,7 +70,7 @@ public class ResourceImpl extends EObjectImpl implements Resource {
 	 * The cached value of the '{@link #isFiltering() <em>Filtering</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @see #isFiltering()
 	 * @generated
 	 * @ordered
@@ -83,7 +80,7 @@ public class ResourceImpl extends EObjectImpl implements Resource {
 	/**
 	 * This is true if the Filtering attribute has been set.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 * @ordered
 	 */
@@ -93,7 +90,7 @@ public class ResourceImpl extends EObjectImpl implements Resource {
 	 * The default value of the '{@link #getDirectory() <em>Directory</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @see #getDirectory()
 	 * @generated
 	 * @ordered
@@ -104,7 +101,7 @@ public class ResourceImpl extends EObjectImpl implements Resource {
 	 * The cached value of the '{@link #getDirectory() <em>Directory</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @see #getDirectory()
 	 * @generated
 	 * @ordered
@@ -115,7 +112,7 @@ public class ResourceImpl extends EObjectImpl implements Resource {
 	 * The cached value of the '{@link #getIncludes() <em>Includes</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getIncludes()
 	 * @generated
 	 * @ordered
@@ -126,7 +123,7 @@ public class ResourceImpl extends EObjectImpl implements Resource {
 	 * The cached value of the '{@link #getExcludes() <em>Excludes</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getExcludes()
 	 * @generated
 	 * @ordered
@@ -135,7 +132,7 @@ public class ResourceImpl extends EObjectImpl implements Resource {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected ResourceImpl() {
@@ -144,7 +141,7 @@ public class ResourceImpl extends EObjectImpl implements Resource {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public NotificationChain basicSetExcludes(ExcludesType newExcludes, NotificationChain msgs) {
@@ -163,7 +160,7 @@ public class ResourceImpl extends EObjectImpl implements Resource {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public NotificationChain basicSetIncludes(IncludesType newIncludes, NotificationChain msgs) {
@@ -182,7 +179,7 @@ public class ResourceImpl extends EObjectImpl implements Resource {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -204,7 +201,7 @@ public class ResourceImpl extends EObjectImpl implements Resource {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -220,7 +217,7 @@ public class ResourceImpl extends EObjectImpl implements Resource {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -246,7 +243,7 @@ public class ResourceImpl extends EObjectImpl implements Resource {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -273,7 +270,7 @@ public class ResourceImpl extends EObjectImpl implements Resource {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -300,63 +297,70 @@ public class ResourceImpl extends EObjectImpl implements Resource {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public String getDirectory() {
 		return directory;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public ExcludesType getExcludes() {
 		return excludes;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public IncludesType getIncludes() {
 		return includes;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public String getTargetPath() {
 		return targetPath;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public boolean isFiltering() {
 		return filtering;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public boolean isSetFiltering() {
 		return filteringESet;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public void setDirectory(String newDirectory) {
 		String oldDirectory = directory;
 		directory = newDirectory;
@@ -367,9 +371,10 @@ public class ResourceImpl extends EObjectImpl implements Resource {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public void setExcludes(ExcludesType newExcludes) {
 		if(newExcludes != excludes) {
 			NotificationChain msgs = null;
@@ -390,9 +395,10 @@ public class ResourceImpl extends EObjectImpl implements Resource {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public void setFiltering(boolean newFiltering) {
 		boolean oldFiltering = filtering;
 		filtering = newFiltering;
@@ -405,9 +411,10 @@ public class ResourceImpl extends EObjectImpl implements Resource {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public void setIncludes(IncludesType newIncludes) {
 		if(newIncludes != includes) {
 			NotificationChain msgs = null;
@@ -428,9 +435,10 @@ public class ResourceImpl extends EObjectImpl implements Resource {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public void setTargetPath(String newTargetPath) {
 		String oldTargetPath = targetPath;
 		targetPath = newTargetPath;
@@ -441,7 +449,7 @@ public class ResourceImpl extends EObjectImpl implements Resource {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -465,9 +473,10 @@ public class ResourceImpl extends EObjectImpl implements Resource {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public void unsetFiltering() {
 		boolean oldFiltering = filtering;
 		boolean oldFilteringESet = filteringESet;
@@ -481,7 +490,7 @@ public class ResourceImpl extends EObjectImpl implements Resource {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override

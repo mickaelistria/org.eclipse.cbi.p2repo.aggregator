@@ -39,14 +39,14 @@ import org.eclipse.equinox.p2.metadata.IUpdateDescriptor;
  * <li>{@link org.eclipse.b3.aggregator.p2view.impl.IUDetailsImpl#getLicensesContainer <em>Licenses Container</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public class IUDetailsImpl extends MinimalEObjectImpl.Container implements IUDetails {
 	/**
 	 * A set of bit flags representing the values of boolean attributes and whether unsettable features have been set.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 * @ordered
 	 */
@@ -56,7 +56,7 @@ public class IUDetailsImpl extends MinimalEObjectImpl.Container implements IUDet
 	 * The cached value of the '{@link #getRequirementsContainer() <em>Requirements Container</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getRequirementsContainer()
 	 * @generated
 	 * @ordered
@@ -66,7 +66,7 @@ public class IUDetailsImpl extends MinimalEObjectImpl.Container implements IUDet
 	/**
 	 * The cached value of the '{@link #getProvidedCapabilitiesContainer() <em>Provided Capabilities Container</em>}' containment reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getProvidedCapabilitiesContainer()
 	 * @generated
 	 * @ordered
@@ -76,7 +76,7 @@ public class IUDetailsImpl extends MinimalEObjectImpl.Container implements IUDet
 	/**
 	 * The cached value of the '{@link #getPropertiesContainer() <em>Properties Container</em>}' reference. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getPropertiesContainer()
 	 * @generated
 	 * @ordered
@@ -86,7 +86,7 @@ public class IUDetailsImpl extends MinimalEObjectImpl.Container implements IUDet
 	/**
 	 * The cached value of the '{@link #getTouchpointsContainer() <em>Touchpoints Container</em>}' reference. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getTouchpointsContainer()
 	 * @generated
 	 * @ordered
@@ -96,7 +96,7 @@ public class IUDetailsImpl extends MinimalEObjectImpl.Container implements IUDet
 	/**
 	 * The cached value of the '{@link #getUpdateDescriptor() <em>Update Descriptor</em>}' reference. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getUpdateDescriptor()
 	 * @generated
 	 * @ordered
@@ -107,7 +107,7 @@ public class IUDetailsImpl extends MinimalEObjectImpl.Container implements IUDet
 	 * The cached value of the '{@link #getCopyright() <em>Copyright</em>}' containment reference.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @see #getCopyright()
 	 * @generated
 	 * @ordered
@@ -118,7 +118,7 @@ public class IUDetailsImpl extends MinimalEObjectImpl.Container implements IUDet
 	 * The cached value of the '{@link #getLicensesContainer() <em>Licenses Container</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getLicensesContainer()
 	 * @generated
 	 * @ordered
@@ -127,7 +127,7 @@ public class IUDetailsImpl extends MinimalEObjectImpl.Container implements IUDet
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected IUDetailsImpl() {
@@ -137,7 +137,7 @@ public class IUDetailsImpl extends MinimalEObjectImpl.Container implements IUDet
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public NotificationChain basicSetCopyright(ICopyright newCopyright, NotificationChain msgs) {
@@ -157,7 +157,7 @@ public class IUDetailsImpl extends MinimalEObjectImpl.Container implements IUDet
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public NotificationChain basicSetLicensesContainer(Licenses newLicensesContainer, NotificationChain msgs) {
@@ -178,7 +178,7 @@ public class IUDetailsImpl extends MinimalEObjectImpl.Container implements IUDet
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public NotificationChain basicSetPropertiesContainer(Properties newPropertiesContainer, NotificationChain msgs) {
@@ -199,7 +199,7 @@ public class IUDetailsImpl extends MinimalEObjectImpl.Container implements IUDet
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public NotificationChain basicSetProvidedCapabilitiesContainer(
@@ -221,7 +221,7 @@ public class IUDetailsImpl extends MinimalEObjectImpl.Container implements IUDet
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public NotificationChain basicSetRequirementsContainer(Requirements newRequirementsContainer, NotificationChain msgs) {
@@ -242,7 +242,7 @@ public class IUDetailsImpl extends MinimalEObjectImpl.Container implements IUDet
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public NotificationChain basicSetTouchpointsContainer(Touchpoints newTouchpointsContainer, NotificationChain msgs) {
@@ -263,7 +263,7 @@ public class IUDetailsImpl extends MinimalEObjectImpl.Container implements IUDet
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public NotificationChain basicSetUpdateDescriptor(IUpdateDescriptor newUpdateDescriptor, NotificationChain msgs) {
@@ -283,7 +283,7 @@ public class IUDetailsImpl extends MinimalEObjectImpl.Container implements IUDet
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -310,7 +310,7 @@ public class IUDetailsImpl extends MinimalEObjectImpl.Container implements IUDet
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -336,7 +336,7 @@ public class IUDetailsImpl extends MinimalEObjectImpl.Container implements IUDet
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -362,7 +362,7 @@ public class IUDetailsImpl extends MinimalEObjectImpl.Container implements IUDet
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -395,7 +395,7 @@ public class IUDetailsImpl extends MinimalEObjectImpl.Container implements IUDet
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -405,7 +405,7 @@ public class IUDetailsImpl extends MinimalEObjectImpl.Container implements IUDet
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -438,7 +438,7 @@ public class IUDetailsImpl extends MinimalEObjectImpl.Container implements IUDet
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public ICopyright getCopyright() {
@@ -448,7 +448,7 @@ public class IUDetailsImpl extends MinimalEObjectImpl.Container implements IUDet
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public Licenses getLicensesContainer() {
@@ -457,7 +457,7 @@ public class IUDetailsImpl extends MinimalEObjectImpl.Container implements IUDet
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public Properties getPropertiesContainer() {
@@ -466,7 +466,7 @@ public class IUDetailsImpl extends MinimalEObjectImpl.Container implements IUDet
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public ProvidedCapabilities getProvidedCapabilitiesContainer() {
@@ -476,7 +476,7 @@ public class IUDetailsImpl extends MinimalEObjectImpl.Container implements IUDet
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public Requirements getRequirementsContainer() {
@@ -485,7 +485,7 @@ public class IUDetailsImpl extends MinimalEObjectImpl.Container implements IUDet
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public Touchpoints getTouchpointsContainer() {
@@ -494,7 +494,7 @@ public class IUDetailsImpl extends MinimalEObjectImpl.Container implements IUDet
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public IUpdateDescriptor getUpdateDescriptor() {
@@ -503,7 +503,7 @@ public class IUDetailsImpl extends MinimalEObjectImpl.Container implements IUDet
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public void setCopyright(ICopyright newCopyright) {
@@ -527,7 +527,7 @@ public class IUDetailsImpl extends MinimalEObjectImpl.Container implements IUDet
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public void setLicensesContainer(Licenses newLicensesContainer) {
@@ -551,7 +551,7 @@ public class IUDetailsImpl extends MinimalEObjectImpl.Container implements IUDet
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public void setPropertiesContainer(Properties newPropertiesContainer) {
@@ -575,7 +575,7 @@ public class IUDetailsImpl extends MinimalEObjectImpl.Container implements IUDet
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public void setProvidedCapabilitiesContainer(ProvidedCapabilities newProvidedCapabilitiesContainer) {
@@ -600,7 +600,7 @@ public class IUDetailsImpl extends MinimalEObjectImpl.Container implements IUDet
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public void setRequirementsContainer(Requirements newRequirementsContainer) {
@@ -624,7 +624,7 @@ public class IUDetailsImpl extends MinimalEObjectImpl.Container implements IUDet
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public void setTouchpointsContainer(Touchpoints newTouchpointsContainer) {
@@ -648,7 +648,7 @@ public class IUDetailsImpl extends MinimalEObjectImpl.Container implements IUDet
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public void setUpdateDescriptor(IUpdateDescriptor newUpdateDescriptor) {

@@ -20,7 +20,7 @@ import org.eclipse.emf.ecore.EReference;
  * <li>and each data type</li>
  * </ul>
  * <!-- end-user-doc -->
- * 
+ *
  * @see org.eclipse.b3.p2.maven.metadata.MetadataFactory
  * @model kind="package"
  * @generated
@@ -35,14 +35,14 @@ public interface MetadataPackage extends EPackage {
 	 * <li>and each data type</li>
 	 * </ul>
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	interface Literals {
 		/**
 		 * The meta object literal for the '{@link org.eclipse.b3.p2.maven.metadata.impl.DocumentRootImpl <em>Document Root</em>}' class.
 		 * <!-- begin-user-doc --> <!-- end-user-doc -->
-		 * 
+		 *
 		 * @see org.eclipse.b3.p2.maven.metadata.impl.DocumentRootImpl
 		 * @see org.eclipse.b3.p2.maven.metadata.impl.MetadataPackageImpl#getDocumentRoot()
 		 * @generated
@@ -53,7 +53,7 @@ public interface MetadataPackage extends EPackage {
 		 * The meta object literal for the '<em><b>Mixed</b></em>' attribute list feature.
 		 * <!-- begin-user-doc --> <!--
 		 * end-user-doc -->
-		 * 
+		 *
 		 * @generated
 		 */
 		EAttribute DOCUMENT_ROOT__MIXED = eINSTANCE.getDocumentRoot_Mixed();
@@ -62,7 +62,7 @@ public interface MetadataPackage extends EPackage {
 		 * The meta object literal for the '<em><b>XMLNS Prefix Map</b></em>' map feature.
 		 * <!-- begin-user-doc --> <!--
 		 * end-user-doc -->
-		 * 
+		 *
 		 * @generated
 		 */
 		EReference DOCUMENT_ROOT__XMLNS_PREFIX_MAP = eINSTANCE.getDocumentRoot_XMLNSPrefixMap();
@@ -71,7 +71,7 @@ public interface MetadataPackage extends EPackage {
 		 * The meta object literal for the '<em><b>XSI Schema Location</b></em>' map feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * 
+		 *
 		 * @generated
 		 */
 		EReference DOCUMENT_ROOT__XSI_SCHEMA_LOCATION = eINSTANCE.getDocumentRoot_XSISchemaLocation();
@@ -80,7 +80,7 @@ public interface MetadataPackage extends EPackage {
 		 * The meta object literal for the '<em><b>Metadata</b></em>' containment reference feature.
 		 * <!-- begin-user-doc
 		 * --> <!-- end-user-doc -->
-		 * 
+		 *
 		 * @generated
 		 */
 		EReference DOCUMENT_ROOT__METADATA = eINSTANCE.getDocumentRoot_Metadata();
@@ -88,7 +88,7 @@ public interface MetadataPackage extends EPackage {
 		/**
 		 * The meta object literal for the '{@link org.eclipse.b3.p2.maven.metadata.impl.MetaDataImpl <em>Meta Data</em>}' class.
 		 * <!-- begin-user-doc --> <!-- end-user-doc -->
-		 * 
+		 *
 		 * @see org.eclipse.b3.p2.maven.metadata.impl.MetaDataImpl
 		 * @see org.eclipse.b3.p2.maven.metadata.impl.MetadataPackageImpl#getMetaData()
 		 * @generated
@@ -99,7 +99,7 @@ public interface MetadataPackage extends EPackage {
 		 * The meta object literal for the '<em><b>Group Id</b></em>' attribute feature.
 		 * <!-- begin-user-doc --> <!--
 		 * end-user-doc -->
-		 * 
+		 *
 		 * @generated
 		 */
 		EAttribute META_DATA__GROUP_ID = eINSTANCE.getMetaData_GroupId();
@@ -108,7 +108,7 @@ public interface MetadataPackage extends EPackage {
 		 * The meta object literal for the '<em><b>Artifact Id</b></em>' attribute feature.
 		 * <!-- begin-user-doc --> <!--
 		 * end-user-doc -->
-		 * 
+		 *
 		 * @generated
 		 */
 		EAttribute META_DATA__ARTIFACT_ID = eINSTANCE.getMetaData_ArtifactId();
@@ -117,7 +117,7 @@ public interface MetadataPackage extends EPackage {
 		 * The meta object literal for the '<em><b>Version</b></em>' attribute feature.
 		 * <!-- begin-user-doc --> <!--
 		 * end-user-doc -->
-		 * 
+		 *
 		 * @generated
 		 */
 		EAttribute META_DATA__VERSION = eINSTANCE.getMetaData_Version();
@@ -125,7 +125,7 @@ public interface MetadataPackage extends EPackage {
 		/**
 		 * The meta object literal for the '<em><b>Versioning</b></em>' containment reference feature. <!--
 		 * begin-user-doc --> <!-- end-user-doc -->
-		 * 
+		 *
 		 * @generated
 		 */
 		EReference META_DATA__VERSIONING = eINSTANCE.getMetaData_Versioning();
@@ -133,7 +133,7 @@ public interface MetadataPackage extends EPackage {
 		/**
 		 * The meta object literal for the '{@link org.eclipse.b3.p2.maven.metadata.impl.VersioningImpl <em>Versioning</em>}' class.
 		 * <!-- begin-user-doc --> <!-- end-user-doc -->
-		 * 
+		 *
 		 * @see org.eclipse.b3.p2.maven.metadata.impl.VersioningImpl
 		 * @see org.eclipse.b3.p2.maven.metadata.impl.MetadataPackageImpl#getVersioning()
 		 * @generated
@@ -144,7 +144,7 @@ public interface MetadataPackage extends EPackage {
 		 * The meta object literal for the '<em><b>Release</b></em>' attribute feature.
 		 * <!-- begin-user-doc --> <!--
 		 * end-user-doc -->
-		 * 
+		 *
 		 * @generated
 		 */
 		EAttribute VERSIONING__RELEASE = eINSTANCE.getVersioning_Release();
@@ -153,7 +153,7 @@ public interface MetadataPackage extends EPackage {
 		 * The meta object literal for the '<em><b>Latest</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * 
+		 *
 		 * @generated
 		 */
 		EAttribute VERSIONING__LATEST = eINSTANCE.getVersioning_Latest();
@@ -162,7 +162,7 @@ public interface MetadataPackage extends EPackage {
 		 * The meta object literal for the '<em><b>Versions</b></em>' containment reference feature.
 		 * <!-- begin-user-doc
 		 * --> <!-- end-user-doc -->
-		 * 
+		 *
 		 * @generated
 		 */
 		EReference VERSIONING__VERSIONS = eINSTANCE.getVersioning_Versions();
@@ -171,7 +171,7 @@ public interface MetadataPackage extends EPackage {
 		 * The meta object literal for the '<em><b>Last Updated</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * 
+		 *
 		 * @generated
 		 */
 		EAttribute VERSIONING__LAST_UPDATED = eINSTANCE.getVersioning_LastUpdated();
@@ -179,7 +179,7 @@ public interface MetadataPackage extends EPackage {
 		/**
 		 * The meta object literal for the '{@link org.eclipse.b3.p2.maven.metadata.impl.VersionsImpl <em>Versions</em>}' class.
 		 * <!-- begin-user-doc --> <!-- end-user-doc -->
-		 * 
+		 *
 		 * @see org.eclipse.b3.p2.maven.metadata.impl.VersionsImpl
 		 * @see org.eclipse.b3.p2.maven.metadata.impl.MetadataPackageImpl#getVersions()
 		 * @generated
@@ -190,7 +190,7 @@ public interface MetadataPackage extends EPackage {
 		 * The meta object literal for the '<em><b>Version</b></em>' attribute list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * 
+		 *
 		 * @generated
 		 */
 		EAttribute VERSIONS__VERSION = eINSTANCE.getVersions_Version();
@@ -200,7 +200,7 @@ public interface MetadataPackage extends EPackage {
 	/**
 	 * The package name.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	String eNAME = "metadata";
@@ -208,7 +208,7 @@ public interface MetadataPackage extends EPackage {
 	/**
 	 * The package namespace URI.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	String eNS_URI = "http://maven.apache.org/METADATA/1.0.0";
@@ -216,7 +216,7 @@ public interface MetadataPackage extends EPackage {
 	/**
 	 * The package namespace name.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	String eNS_PREFIX = "";
@@ -224,7 +224,7 @@ public interface MetadataPackage extends EPackage {
 	/**
 	 * The singleton instance of the package.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	MetadataPackage eINSTANCE = org.eclipse.b3.p2.maven.metadata.impl.MetadataPackageImpl.init();
@@ -232,7 +232,7 @@ public interface MetadataPackage extends EPackage {
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.p2.maven.metadata.impl.DocumentRootImpl <em>Document Root</em>}' class.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see org.eclipse.b3.p2.maven.metadata.impl.DocumentRootImpl
 	 * @see org.eclipse.b3.p2.maven.metadata.impl.MetadataPackageImpl#getDocumentRoot()
 	 * @generated
@@ -242,7 +242,7 @@ public interface MetadataPackage extends EPackage {
 	/**
 	 * The feature id for the '<em><b>Mixed</b></em>' attribute list.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 * @ordered
 	 */
@@ -251,7 +251,7 @@ public interface MetadataPackage extends EPackage {
 	/**
 	 * The feature id for the '<em><b>XMLNS Prefix Map</b></em>' map.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 * @ordered
 	 */
@@ -260,7 +260,7 @@ public interface MetadataPackage extends EPackage {
 	/**
 	 * The feature id for the '<em><b>XSI Schema Location</b></em>' map.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 * @ordered
 	 */
@@ -270,7 +270,7 @@ public interface MetadataPackage extends EPackage {
 	 * The feature id for the '<em><b>Metadata</b></em>' containment reference.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 * @ordered
 	 */
@@ -280,7 +280,7 @@ public interface MetadataPackage extends EPackage {
 	 * The number of structural features of the '<em>Document Root</em>' class.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 * @ordered
 	 */
@@ -289,7 +289,7 @@ public interface MetadataPackage extends EPackage {
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.p2.maven.metadata.impl.MetaDataImpl <em>Meta Data</em>}' class.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see org.eclipse.b3.p2.maven.metadata.impl.MetaDataImpl
 	 * @see org.eclipse.b3.p2.maven.metadata.impl.MetadataPackageImpl#getMetaData()
 	 * @generated
@@ -299,7 +299,7 @@ public interface MetadataPackage extends EPackage {
 	/**
 	 * The feature id for the '<em><b>Group Id</b></em>' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 * @ordered
 	 */
@@ -308,7 +308,7 @@ public interface MetadataPackage extends EPackage {
 	/**
 	 * The feature id for the '<em><b>Artifact Id</b></em>' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 * @ordered
 	 */
@@ -317,7 +317,7 @@ public interface MetadataPackage extends EPackage {
 	/**
 	 * The feature id for the '<em><b>Version</b></em>' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 * @ordered
 	 */
@@ -327,7 +327,7 @@ public interface MetadataPackage extends EPackage {
 	 * The feature id for the '<em><b>Versioning</b></em>' containment reference.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 * @ordered
 	 */
@@ -336,7 +336,7 @@ public interface MetadataPackage extends EPackage {
 	/**
 	 * The number of structural features of the '<em>Meta Data</em>' class. <!-- begin-user-doc --> <!-- end-user-doc
 	 * -->
-	 * 
+	 *
 	 * @generated
 	 * @ordered
 	 */
@@ -345,7 +345,7 @@ public interface MetadataPackage extends EPackage {
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.p2.maven.metadata.impl.VersioningImpl <em>Versioning</em>}' class.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see org.eclipse.b3.p2.maven.metadata.impl.VersioningImpl
 	 * @see org.eclipse.b3.p2.maven.metadata.impl.MetadataPackageImpl#getVersioning()
 	 * @generated
@@ -355,7 +355,7 @@ public interface MetadataPackage extends EPackage {
 	/**
 	 * The feature id for the '<em><b>Release</b></em>' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 * @ordered
 	 */
@@ -365,7 +365,7 @@ public interface MetadataPackage extends EPackage {
 	 * The feature id for the '<em><b>Latest</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 * @ordered
 	 */
@@ -375,7 +375,7 @@ public interface MetadataPackage extends EPackage {
 	 * The feature id for the '<em><b>Versions</b></em>' containment reference.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 * @ordered
 	 */
@@ -384,7 +384,7 @@ public interface MetadataPackage extends EPackage {
 	/**
 	 * The feature id for the '<em><b>Last Updated</b></em>' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 * @ordered
 	 */
@@ -393,7 +393,7 @@ public interface MetadataPackage extends EPackage {
 	/**
 	 * The number of structural features of the '<em>Versioning</em>' class. <!-- begin-user-doc --> <!-- end-user-doc
 	 * -->
-	 * 
+	 *
 	 * @generated
 	 * @ordered
 	 */
@@ -402,7 +402,7 @@ public interface MetadataPackage extends EPackage {
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.p2.maven.metadata.impl.VersionsImpl <em>Versions</em>}' class.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see org.eclipse.b3.p2.maven.metadata.impl.VersionsImpl
 	 * @see org.eclipse.b3.p2.maven.metadata.impl.MetadataPackageImpl#getVersions()
 	 * @generated
@@ -412,7 +412,7 @@ public interface MetadataPackage extends EPackage {
 	/**
 	 * The feature id for the '<em><b>Version</b></em>' attribute list.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 * @ordered
 	 */
@@ -421,7 +421,7 @@ public interface MetadataPackage extends EPackage {
 	/**
 	 * The number of structural features of the '<em>Versions</em>' class.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 * @ordered
 	 */
@@ -430,7 +430,7 @@ public interface MetadataPackage extends EPackage {
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.b3.p2.maven.metadata.DocumentRoot <em>Document Root</em>}'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @return the meta object for class '<em>Document Root</em>'.
 	 * @see org.eclipse.b3.p2.maven.metadata.DocumentRoot
 	 * @generated
@@ -440,7 +440,7 @@ public interface MetadataPackage extends EPackage {
 	/**
 	 * Returns the meta object for the containment reference '{@link org.eclipse.b3.p2.maven.metadata.DocumentRoot#getMetadata <em>Metadata</em>}'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @return the meta object for the containment reference '<em>Metadata</em>'.
 	 * @see org.eclipse.b3.p2.maven.metadata.DocumentRoot#getMetadata()
 	 * @see #getDocumentRoot()
@@ -452,7 +452,7 @@ public interface MetadataPackage extends EPackage {
 	 * Returns the meta object for the attribute list ' {@link org.eclipse.b3.p2.maven.metadata.DocumentRoot#getMixed
 	 * <em>Mixed</em>}'. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @return the meta object for the attribute list '<em>Mixed</em>'.
 	 * @see org.eclipse.b3.p2.maven.metadata.DocumentRoot#getMixed()
 	 * @see #getDocumentRoot()
@@ -463,7 +463,7 @@ public interface MetadataPackage extends EPackage {
 	/**
 	 * Returns the meta object for the map '{@link org.eclipse.b3.p2.maven.metadata.DocumentRoot#getXMLNSPrefixMap <em>XMLNS Prefix Map</em>}'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @return the meta object for the map '<em>XMLNS Prefix Map</em>'.
 	 * @see org.eclipse.b3.p2.maven.metadata.DocumentRoot#getXMLNSPrefixMap()
 	 * @see #getDocumentRoot()
@@ -474,7 +474,7 @@ public interface MetadataPackage extends EPackage {
 	/**
 	 * Returns the meta object for the map '{@link org.eclipse.b3.p2.maven.metadata.DocumentRoot#getXSISchemaLocation <em>XSI Schema Location</em>}'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @return the meta object for the map '<em>XSI Schema Location</em>'.
 	 * @see org.eclipse.b3.p2.maven.metadata.DocumentRoot#getXSISchemaLocation()
 	 * @see #getDocumentRoot()
@@ -485,7 +485,7 @@ public interface MetadataPackage extends EPackage {
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.b3.p2.maven.metadata.MetaData <em>Meta Data</em>}'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @return the meta object for class '<em>Meta Data</em>'.
 	 * @see org.eclipse.b3.p2.maven.metadata.MetaData
 	 * @generated
@@ -495,7 +495,7 @@ public interface MetadataPackage extends EPackage {
 	/**
 	 * Returns the meta object for the attribute '{@link org.eclipse.b3.p2.maven.metadata.MetaData#getArtifactId <em>Artifact Id</em>}'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @return the meta object for the attribute '<em>Artifact Id</em>'.
 	 * @see org.eclipse.b3.p2.maven.metadata.MetaData#getArtifactId()
 	 * @see #getMetaData()
@@ -507,7 +507,7 @@ public interface MetadataPackage extends EPackage {
 	 * Returns the meta object for the attribute ' {@link org.eclipse.b3.p2.maven.metadata.MetaData#getGroupId
 	 * <em>Group Id</em>}'. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @return the meta object for the attribute '<em>Group Id</em>'.
 	 * @see org.eclipse.b3.p2.maven.metadata.MetaData#getGroupId()
 	 * @see #getMetaData()
@@ -519,7 +519,7 @@ public interface MetadataPackage extends EPackage {
 	 * Returns the meta object for the attribute ' {@link org.eclipse.b3.p2.maven.metadata.MetaData#getVersion
 	 * <em>Version</em>}'. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @return the meta object for the attribute '<em>Version</em>'.
 	 * @see org.eclipse.b3.p2.maven.metadata.MetaData#getVersion()
 	 * @see #getMetaData()
@@ -530,7 +530,7 @@ public interface MetadataPackage extends EPackage {
 	/**
 	 * Returns the meta object for the containment reference '{@link org.eclipse.b3.p2.maven.metadata.MetaData#getVersioning <em>Versioning</em>}'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @return the meta object for the containment reference '<em>Versioning</em>'.
 	 * @see org.eclipse.b3.p2.maven.metadata.MetaData#getVersioning()
 	 * @see #getMetaData()
@@ -541,7 +541,7 @@ public interface MetadataPackage extends EPackage {
 	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @return the factory that creates the instances of the model.
 	 * @generated
 	 */
@@ -550,7 +550,7 @@ public interface MetadataPackage extends EPackage {
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.b3.p2.maven.metadata.Versioning <em>Versioning</em>}'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @return the meta object for class '<em>Versioning</em>'.
 	 * @see org.eclipse.b3.p2.maven.metadata.Versioning
 	 * @generated
@@ -561,7 +561,7 @@ public interface MetadataPackage extends EPackage {
 	 * Returns the meta object for the attribute ' {@link org.eclipse.b3.p2.maven.metadata.Versioning#getLastUpdated
 	 * <em>Last Updated</em>} '. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @return the meta object for the attribute '<em>Last Updated</em>'.
 	 * @see org.eclipse.b3.p2.maven.metadata.Versioning#getLastUpdated()
 	 * @see #getVersioning()
@@ -573,7 +573,7 @@ public interface MetadataPackage extends EPackage {
 	 * Returns the meta object for the attribute '{@link org.eclipse.b3.p2.maven.metadata.Versioning#getLatest <em>Latest</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @return the meta object for the attribute '<em>Latest</em>'.
 	 * @see org.eclipse.b3.p2.maven.metadata.Versioning#getLatest()
 	 * @see #getVersioning()
@@ -585,7 +585,7 @@ public interface MetadataPackage extends EPackage {
 	 * Returns the meta object for the attribute ' {@link org.eclipse.b3.p2.maven.metadata.Versioning#getRelease
 	 * <em>Release</em>}'. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @return the meta object for the attribute '<em>Release</em>'.
 	 * @see org.eclipse.b3.p2.maven.metadata.Versioning#getRelease()
 	 * @see #getVersioning()
@@ -597,7 +597,7 @@ public interface MetadataPackage extends EPackage {
 	 * Returns the meta object for the containment reference ' {@link org.eclipse.b3.p2.maven.metadata.Versioning#getVersions <em>Versions</em>}'.
 	 * <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @return the meta object for the containment reference '<em>Versions</em>'.
 	 * @see org.eclipse.b3.p2.maven.metadata.Versioning#getVersions()
 	 * @see #getVersioning()
@@ -608,7 +608,7 @@ public interface MetadataPackage extends EPackage {
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.b3.p2.maven.metadata.Versions <em>Versions</em>}'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @return the meta object for class '<em>Versions</em>'.
 	 * @see org.eclipse.b3.p2.maven.metadata.Versions
 	 * @generated
@@ -619,7 +619,7 @@ public interface MetadataPackage extends EPackage {
 	 * Returns the meta object for the attribute list ' {@link org.eclipse.b3.p2.maven.metadata.Versions#getVersion
 	 * <em>Version</em>}'. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @return the meta object for the attribute list '<em>Version</em>'.
 	 * @see org.eclipse.b3.p2.maven.metadata.Versions#getVersion()
 	 * @see #getVersions()

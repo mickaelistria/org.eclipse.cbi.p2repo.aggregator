@@ -18,7 +18,7 @@ import org.eclipse.emf.common.util.Enumerator;
  * A representation of the literals of the enumeration '<em><b>Aggregation Type</b></em>',
  * and utility methods for working with them.
  * <!-- end-user-doc -->
- * 
+ *
  * @see org.eclipse.b3.aggregator.AggregatorPackage#getAggregationType()
  * @model
  * @generated
@@ -28,7 +28,7 @@ public enum AggregationType implements Enumerator {
 	 * The '<em><b>Stable</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #STABLE_VALUE
 	 * @generated
 	 * @ordered
@@ -39,7 +39,7 @@ public enum AggregationType implements Enumerator {
 	 * The '<em><b>Integration</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #INTEGRATION_VALUE
 	 * @generated
 	 * @ordered
@@ -50,7 +50,7 @@ public enum AggregationType implements Enumerator {
 	 * The '<em><b>Nightly</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #NIGHTLY_VALUE
 	 * @generated
 	 * @ordered
@@ -61,7 +61,7 @@ public enum AggregationType implements Enumerator {
 	 * The '<em><b>Maintenance</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #MAINTENANCE_VALUE
 	 * @generated
 	 * @ordered
@@ -72,7 +72,7 @@ public enum AggregationType implements Enumerator {
 	 * The '<em><b>Continuous</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #CONTINUOUS_VALUE
 	 * @generated
 	 * @ordered
@@ -83,7 +83,7 @@ public enum AggregationType implements Enumerator {
 	 * The '<em><b>Release</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #RELEASE_VALUE
 	 * @generated
 	 * @ordered
@@ -97,7 +97,7 @@ public enum AggregationType implements Enumerator {
 	 * If the meaning of '<em><b>Stable</b></em>' literal object isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #STABLE
 	 * @model name="Stable" literal="S"
 	 * @generated
@@ -112,7 +112,7 @@ public enum AggregationType implements Enumerator {
 	 * If the meaning of '<em><b>Integration</b></em>' literal object isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #INTEGRATION
 	 * @model name="Integration" literal="I"
 	 * @generated
@@ -127,7 +127,7 @@ public enum AggregationType implements Enumerator {
 	 * If the meaning of '<em><b>Nightly</b></em>' literal object isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #NIGHTLY
 	 * @model name="Nightly" literal="N"
 	 * @generated
@@ -142,7 +142,7 @@ public enum AggregationType implements Enumerator {
 	 * If the meaning of '<em><b>Maintenance</b></em>' literal object isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #MAINTENANCE
 	 * @model name="Maintenance" literal="M"
 	 * @generated
@@ -157,7 +157,7 @@ public enum AggregationType implements Enumerator {
 	 * If the meaning of '<em><b>Continuous</b></em>' literal object isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #CONTINUOUS
 	 * @model name="Continuous" literal="C"
 	 * @generated
@@ -172,7 +172,7 @@ public enum AggregationType implements Enumerator {
 	 * If the meaning of '<em><b>Release</b></em>' literal object isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #RELEASE
 	 * @model name="Release" literal="R"
 	 * @generated
@@ -184,7 +184,7 @@ public enum AggregationType implements Enumerator {
 	 * An array of all the '<em><b>Aggregation Type</b></em>' enumerators.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private static final AggregationType[] VALUES_ARRAY = new AggregationType[] {
@@ -194,7 +194,7 @@ public enum AggregationType implements Enumerator {
 	 * A public read-only list of all the '<em><b>Aggregation Type</b></em>' enumerators.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public static final List<AggregationType> VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
@@ -203,7 +203,7 @@ public enum AggregationType implements Enumerator {
 	 * Returns the '<em><b>Aggregation Type</b></em>' literal with the specified integer value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public static AggregationType get(int value) {
@@ -228,7 +228,7 @@ public enum AggregationType implements Enumerator {
 	 * Returns the '<em><b>Aggregation Type</b></em>' literal with the specified literal value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public static AggregationType get(String literal) {
@@ -245,7 +245,7 @@ public enum AggregationType implements Enumerator {
 	 * Returns the '<em><b>Aggregation Type</b></em>' literal with the specified name.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public static AggregationType getByName(String name) {
@@ -261,7 +261,7 @@ public enum AggregationType implements Enumerator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private final int value;
@@ -269,7 +269,7 @@ public enum AggregationType implements Enumerator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private final String name;
@@ -277,7 +277,7 @@ public enum AggregationType implements Enumerator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private final String literal;
@@ -286,7 +286,7 @@ public enum AggregationType implements Enumerator {
 	 * Only this class can construct instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private AggregationType(int value, String name, String literal) {
@@ -298,7 +298,7 @@ public enum AggregationType implements Enumerator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public String getLiteral() {
@@ -308,7 +308,7 @@ public enum AggregationType implements Enumerator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public String getName() {
@@ -318,7 +318,7 @@ public enum AggregationType implements Enumerator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public int getValue() {
@@ -329,7 +329,7 @@ public enum AggregationType implements Enumerator {
 	 * Returns the literal value of the enumerator, which is its string representation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override

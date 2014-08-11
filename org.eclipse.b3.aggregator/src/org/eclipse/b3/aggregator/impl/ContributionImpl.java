@@ -52,14 +52,14 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <li>{@link org.eclipse.b3.aggregator.impl.ContributionImpl#getMavenMappings <em>Maven Mappings</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public class ContributionImpl extends MinimalEObjectImpl.Container implements Contribution {
 	/**
 	 * A set of bit flags representing the values of boolean attributes and whether unsettable features have been set.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 * @ordered
 	 */
@@ -69,7 +69,7 @@ public class ContributionImpl extends MinimalEObjectImpl.Container implements Co
 	 * The default value of the '{@link #isBranchEnabled() <em>Branch Enabled</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #isBranchEnabled()
 	 * @generated
 	 * @ordered
@@ -80,7 +80,7 @@ public class ContributionImpl extends MinimalEObjectImpl.Container implements Co
 	 * The default value of the '{@link #isEnabled() <em>Enabled</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @see #isEnabled()
 	 * @generated
 	 * @ordered
@@ -91,7 +91,7 @@ public class ContributionImpl extends MinimalEObjectImpl.Container implements Co
 	 * The flag representing the value of the '{@link #isEnabled() <em>Enabled</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #isEnabled()
 	 * @generated
 	 * @ordered
@@ -102,7 +102,7 @@ public class ContributionImpl extends MinimalEObjectImpl.Container implements Co
 	 * The default value of the '{@link #getDescription() <em>Description</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @see #getDescription()
 	 * @generated
 	 * @ordered
@@ -113,7 +113,7 @@ public class ContributionImpl extends MinimalEObjectImpl.Container implements Co
 	 * The cached value of the '{@link #getDescription() <em>Description</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @see #getDescription()
 	 * @generated
 	 * @ordered
@@ -124,7 +124,7 @@ public class ContributionImpl extends MinimalEObjectImpl.Container implements Co
 	 * The cached value of the '{@link #getErrors() <em>Errors</em>}' attribute list.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @see #getErrors()
 	 * @generated
 	 * @ordered
@@ -135,7 +135,7 @@ public class ContributionImpl extends MinimalEObjectImpl.Container implements Co
 	 * The cached value of the '{@link #getWarnings() <em>Warnings</em>}' attribute list.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @see #getWarnings()
 	 * @generated
 	 * @ordered
@@ -146,7 +146,7 @@ public class ContributionImpl extends MinimalEObjectImpl.Container implements Co
 	 * The cached value of the '{@link #getInfos() <em>Infos</em>}' attribute list.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @see #getInfos()
 	 * @generated
 	 * @ordered
@@ -157,7 +157,7 @@ public class ContributionImpl extends MinimalEObjectImpl.Container implements Co
 	 * The default value of the '{@link #getLabel() <em>Label</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @see #getLabel()
 	 * @generated
 	 * @ordered
@@ -167,7 +167,7 @@ public class ContributionImpl extends MinimalEObjectImpl.Container implements Co
 	/**
 	 * The cached value of the '{@link #getLabel() <em>Label</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
 	 * -->
-	 * 
+	 *
 	 * @see #getLabel()
 	 * @generated
 	 * @ordered
@@ -177,7 +177,7 @@ public class ContributionImpl extends MinimalEObjectImpl.Container implements Co
 	/**
 	 * The cached value of the '{@link #getRepositories() <em>Repositories</em>}' containment reference list. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getRepositories()
 	 * @generated
 	 * @ordered
@@ -188,7 +188,7 @@ public class ContributionImpl extends MinimalEObjectImpl.Container implements Co
 	 * The cached value of the '{@link #getContacts() <em>Contacts</em>}' reference list.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @see #getContacts()
 	 * @generated
 	 * @ordered
@@ -198,7 +198,7 @@ public class ContributionImpl extends MinimalEObjectImpl.Container implements Co
 	/**
 	 * The cached value of the '{@link #getMavenMappings() <em>Maven Mappings</em>}' containment reference list. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getMavenMappings()
 	 * @generated
 	 * @ordered
@@ -209,7 +209,7 @@ public class ContributionImpl extends MinimalEObjectImpl.Container implements Co
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected ContributionImpl() {
@@ -219,7 +219,7 @@ public class ContributionImpl extends MinimalEObjectImpl.Container implements Co
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -263,7 +263,7 @@ public class ContributionImpl extends MinimalEObjectImpl.Container implements Co
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -307,7 +307,7 @@ public class ContributionImpl extends MinimalEObjectImpl.Container implements Co
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -341,7 +341,7 @@ public class ContributionImpl extends MinimalEObjectImpl.Container implements Co
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -357,7 +357,7 @@ public class ContributionImpl extends MinimalEObjectImpl.Container implements Co
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -395,7 +395,7 @@ public class ContributionImpl extends MinimalEObjectImpl.Container implements Co
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
@@ -441,7 +441,7 @@ public class ContributionImpl extends MinimalEObjectImpl.Container implements Co
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -451,7 +451,7 @@ public class ContributionImpl extends MinimalEObjectImpl.Container implements Co
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -490,7 +490,7 @@ public class ContributionImpl extends MinimalEObjectImpl.Container implements Co
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
 	public EList<MavenMapping> getAllMavenMappings() {
@@ -505,7 +505,7 @@ public class ContributionImpl extends MinimalEObjectImpl.Container implements Co
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EList<Contact> getContacts() {
@@ -517,7 +517,7 @@ public class ContributionImpl extends MinimalEObjectImpl.Container implements Co
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public String getDescription() {
@@ -526,7 +526,7 @@ public class ContributionImpl extends MinimalEObjectImpl.Container implements Co
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EList<String> getErrors() {
@@ -539,7 +539,7 @@ public class ContributionImpl extends MinimalEObjectImpl.Container implements Co
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
 	public String getIdentification() {
@@ -548,7 +548,7 @@ public class ContributionImpl extends MinimalEObjectImpl.Container implements Co
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EList<String> getInfos() {
@@ -560,7 +560,7 @@ public class ContributionImpl extends MinimalEObjectImpl.Container implements Co
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public String getLabel() {
@@ -569,7 +569,7 @@ public class ContributionImpl extends MinimalEObjectImpl.Container implements Co
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EList<MavenMapping> getMavenMappings() {
@@ -582,7 +582,7 @@ public class ContributionImpl extends MinimalEObjectImpl.Container implements Co
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EList<MappedRepository> getRepositories() {
@@ -595,7 +595,7 @@ public class ContributionImpl extends MinimalEObjectImpl.Container implements Co
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
 	public EList<MappedRepository> getRepositories(boolean enabledOnly) {
@@ -624,7 +624,7 @@ public class ContributionImpl extends MinimalEObjectImpl.Container implements Co
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EList<String> getWarnings() {
@@ -637,7 +637,7 @@ public class ContributionImpl extends MinimalEObjectImpl.Container implements Co
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
 	public boolean isBranchEnabled() {
@@ -646,7 +646,7 @@ public class ContributionImpl extends MinimalEObjectImpl.Container implements Co
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public boolean isEnabled() {
@@ -656,7 +656,7 @@ public class ContributionImpl extends MinimalEObjectImpl.Container implements Co
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
 	public boolean isSetBranchEnabled() {
@@ -665,7 +665,7 @@ public class ContributionImpl extends MinimalEObjectImpl.Container implements Co
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public void setDescription(String newDescription) {
@@ -678,7 +678,7 @@ public class ContributionImpl extends MinimalEObjectImpl.Container implements Co
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public void setEnabled(boolean newEnabled) {
@@ -694,7 +694,7 @@ public class ContributionImpl extends MinimalEObjectImpl.Container implements Co
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public void setLabel(String newLabel) {
@@ -715,7 +715,7 @@ public class ContributionImpl extends MinimalEObjectImpl.Container implements Co
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override

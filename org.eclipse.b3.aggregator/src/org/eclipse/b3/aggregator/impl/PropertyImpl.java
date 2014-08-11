@@ -8,11 +8,8 @@ package org.eclipse.b3.aggregator.impl;
 
 import org.eclipse.b3.aggregator.AggregatorPackage;
 import org.eclipse.b3.aggregator.Property;
-
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
@@ -25,14 +22,14 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <li>{@link org.eclipse.b3.aggregator.impl.PropertyImpl#getValue <em>Value</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public class PropertyImpl extends MinimalEObjectImpl.Container implements Property {
 	/**
 	 * A set of bit flags representing the values of boolean attributes and whether unsettable features have been set.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 * @ordered
 	 */
@@ -41,7 +38,7 @@ public class PropertyImpl extends MinimalEObjectImpl.Container implements Proper
 	/**
 	 * The default value of the '{@link #getKey() <em>Key</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
 	 * -->
-	 * 
+	 *
 	 * @see #getKey()
 	 * @generated
 	 * @ordered
@@ -51,7 +48,7 @@ public class PropertyImpl extends MinimalEObjectImpl.Container implements Proper
 	/**
 	 * The cached value of the '{@link #getKey() <em>Key</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getKey()
 	 * @generated
 	 * @ordered
@@ -62,7 +59,7 @@ public class PropertyImpl extends MinimalEObjectImpl.Container implements Proper
 	 * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @see #getValue()
 	 * @generated
 	 * @ordered
@@ -72,7 +69,7 @@ public class PropertyImpl extends MinimalEObjectImpl.Container implements Proper
 	/**
 	 * The cached value of the '{@link #getValue() <em>Value</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
 	 * -->
-	 * 
+	 *
 	 * @see #getValue()
 	 * @generated
 	 * @ordered
@@ -81,7 +78,7 @@ public class PropertyImpl extends MinimalEObjectImpl.Container implements Proper
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected PropertyImpl() {
@@ -90,7 +87,7 @@ public class PropertyImpl extends MinimalEObjectImpl.Container implements Proper
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
 	protected PropertyImpl(String key, String value) {
@@ -106,7 +103,7 @@ public class PropertyImpl extends MinimalEObjectImpl.Container implements Proper
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -122,7 +119,7 @@ public class PropertyImpl extends MinimalEObjectImpl.Container implements Proper
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -142,7 +139,7 @@ public class PropertyImpl extends MinimalEObjectImpl.Container implements Proper
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -160,7 +157,7 @@ public class PropertyImpl extends MinimalEObjectImpl.Container implements Proper
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -170,7 +167,7 @@ public class PropertyImpl extends MinimalEObjectImpl.Container implements Proper
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -188,7 +185,7 @@ public class PropertyImpl extends MinimalEObjectImpl.Container implements Proper
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public String getKey() {
@@ -197,7 +194,7 @@ public class PropertyImpl extends MinimalEObjectImpl.Container implements Proper
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public String getValue() {
@@ -206,7 +203,7 @@ public class PropertyImpl extends MinimalEObjectImpl.Container implements Proper
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public void setKey(String newKey) {
@@ -218,7 +215,7 @@ public class PropertyImpl extends MinimalEObjectImpl.Container implements Proper
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public void setValue(String newValue) {
@@ -230,7 +227,7 @@ public class PropertyImpl extends MinimalEObjectImpl.Container implements Proper
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override

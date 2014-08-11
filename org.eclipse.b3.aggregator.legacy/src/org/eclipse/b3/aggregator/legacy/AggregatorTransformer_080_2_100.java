@@ -25,7 +25,7 @@ import org.eclipse.equinox.p2.metadata.VersionRange;
 
 /**
  * Transforms aggregator model instance from version 0.8.0 to 1.0.0
- * 
+ *
  * @author Karel Brezina
  */
 public class AggregatorTransformer_080_2_100 extends ResourceTransformer {

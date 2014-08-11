@@ -9,19 +9,14 @@ package org.eclipse.b3.p2.maven.metadata.impl;
 import org.eclipse.b3.p2.maven.metadata.DocumentRoot;
 import org.eclipse.b3.p2.maven.metadata.MetaData;
 import org.eclipse.b3.p2.maven.metadata.MetadataPackage;
-
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.common.util.EMap;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 import org.eclipse.emf.ecore.impl.EStringToStringMapEntryImpl;
-
 import org.eclipse.emf.ecore.util.BasicFeatureMap;
 import org.eclipse.emf.ecore.util.EcoreEMap;
 import org.eclipse.emf.ecore.util.FeatureMap;
@@ -38,7 +33,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <li>{@link org.eclipse.b3.p2.maven.metadata.impl.DocumentRootImpl#getMetadata <em>Metadata</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
@@ -46,7 +41,7 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * The cached value of the '{@link #getMixed() <em>Mixed</em>}' attribute list.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @see #getMixed()
 	 * @generated
 	 * @ordered
@@ -57,7 +52,7 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * The cached value of the '{@link #getXMLNSPrefixMap() <em>XMLNS Prefix Map</em>}' map.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getXMLNSPrefixMap()
 	 * @generated
 	 * @ordered
@@ -68,7 +63,7 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * The cached value of the '{@link #getXSISchemaLocation() <em>XSI Schema Location</em>}' map.
 	 * <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getXSISchemaLocation()
 	 * @generated
 	 * @ordered
@@ -77,7 +72,7 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected DocumentRootImpl() {
@@ -86,7 +81,7 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public NotificationChain basicSetMetadata(MetaData newMetadata, NotificationChain msgs) {
@@ -96,7 +91,7 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -124,7 +119,7 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -144,7 +139,7 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -164,7 +159,7 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -188,7 +183,7 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -212,18 +207,20 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public MetaData getMetadata() {
 		return (MetaData) getMixed().get(MetadataPackage.Literals.DOCUMENT_ROOT__METADATA, true);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public FeatureMap getMixed() {
 		if(mixed == null) {
 			mixed = new BasicFeatureMap(this, MetadataPackage.DOCUMENT_ROOT__MIXED);
@@ -233,9 +230,10 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public EMap<String, String> getXMLNSPrefixMap() {
 		if(xMLNSPrefixMap == null) {
 			xMLNSPrefixMap = new EcoreEMap<String, String>(
@@ -247,9 +245,10 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public EMap<String, String> getXSISchemaLocation() {
 		if(xSISchemaLocation == null) {
 			xSISchemaLocation = new EcoreEMap<String, String>(
@@ -261,16 +260,17 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public void setMetadata(MetaData newMetadata) {
 		((FeatureMap.Internal) getMixed()).set(MetadataPackage.Literals.DOCUMENT_ROOT__METADATA, newMetadata);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -287,7 +287,7 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override

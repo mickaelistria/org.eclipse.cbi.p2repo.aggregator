@@ -8,14 +8,10 @@ package org.eclipse.b3.p2.maven.pom.impl;
 
 import org.eclipse.b3.p2.maven.pom.PomPackage;
 import org.eclipse.b3.p2.maven.pom.PropertiesType;
-
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.EObjectImpl;
-
 import org.eclipse.emf.ecore.util.BasicFeatureMap;
 import org.eclipse.emf.ecore.util.FeatureMap;
 import org.eclipse.emf.ecore.util.InternalEList;
@@ -29,7 +25,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <li>{@link org.eclipse.b3.p2.maven.pom.impl.PropertiesTypeImpl#getAny <em>Any</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public class PropertiesTypeImpl extends EObjectImpl implements PropertiesType {
@@ -37,7 +33,7 @@ public class PropertiesTypeImpl extends EObjectImpl implements PropertiesType {
 	 * The cached value of the '{@link #getAny() <em>Any</em>}' attribute list.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @see #getAny()
 	 * @generated
 	 * @ordered
@@ -46,7 +42,7 @@ public class PropertiesTypeImpl extends EObjectImpl implements PropertiesType {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected PropertiesTypeImpl() {
@@ -55,7 +51,7 @@ public class PropertiesTypeImpl extends EObjectImpl implements PropertiesType {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -71,7 +67,7 @@ public class PropertiesTypeImpl extends EObjectImpl implements PropertiesType {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -85,7 +81,7 @@ public class PropertiesTypeImpl extends EObjectImpl implements PropertiesType {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -99,7 +95,7 @@ public class PropertiesTypeImpl extends EObjectImpl implements PropertiesType {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -114,7 +110,7 @@ public class PropertiesTypeImpl extends EObjectImpl implements PropertiesType {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -129,9 +125,10 @@ public class PropertiesTypeImpl extends EObjectImpl implements PropertiesType {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public FeatureMap getAny() {
 		if(any == null) {
 			any = new BasicFeatureMap(this, PomPackage.PROPERTIES_TYPE__ANY);
@@ -141,7 +138,7 @@ public class PropertiesTypeImpl extends EObjectImpl implements PropertiesType {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -158,7 +155,7 @@ public class PropertiesTypeImpl extends EObjectImpl implements PropertiesType {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override

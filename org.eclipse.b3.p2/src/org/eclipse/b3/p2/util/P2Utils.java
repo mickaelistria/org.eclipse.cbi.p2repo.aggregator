@@ -28,7 +28,7 @@ import org.eclipse.equinox.p2.repository.IRepositoryManager;
 
 /**
  * @author filip.hrbek@cloudsmith.com
- * 
+ *
  */
 public class P2Utils {
 

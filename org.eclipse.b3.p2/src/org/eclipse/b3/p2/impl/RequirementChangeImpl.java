@@ -4,7 +4,7 @@
  * licensed under the Eclipse Public License - v 1.0 by the copyright holder
  * listed above, as the Initial Contributor under such license. The text of
  * such license is available at www.eclipse.org.
- * 
+ *
  */
 package org.eclipse.b3.p2.impl;
 
@@ -30,7 +30,7 @@ import org.eclipse.equinox.internal.p2.metadata.IRequiredCapability;
  * <li>{@link org.eclipse.b3.p2.impl.RequirementChangeImpl#getNewValue <em>New Value</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public class RequirementChangeImpl extends MinimalEObjectImpl.Container implements RequirementChange {
@@ -38,7 +38,7 @@ public class RequirementChangeImpl extends MinimalEObjectImpl.Container implemen
 	 * A set of bit flags representing the values of boolean attributes and whether unsettable features have been set.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 * @ordered
 	 */
@@ -48,7 +48,7 @@ public class RequirementChangeImpl extends MinimalEObjectImpl.Container implemen
 	 * The cached value of the '{@link #getApplyOn() <em>Apply On</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getApplyOn()
 	 * @generated
 	 * @ordered
@@ -59,7 +59,7 @@ public class RequirementChangeImpl extends MinimalEObjectImpl.Container implemen
 	 * The cached value of the '{@link #getNewValue() <em>New Value</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getNewValue()
 	 * @generated
 	 * @ordered
@@ -69,7 +69,7 @@ public class RequirementChangeImpl extends MinimalEObjectImpl.Container implemen
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected RequirementChangeImpl() {
@@ -79,9 +79,10 @@ public class RequirementChangeImpl extends MinimalEObjectImpl.Container implemen
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
+	@Override
 	public IRequiredCapability applyOn() {
 		return getApplyOn();
 	}
@@ -89,7 +90,7 @@ public class RequirementChangeImpl extends MinimalEObjectImpl.Container implemen
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public IRequiredCapability basicGetApplyOn() {
@@ -99,7 +100,7 @@ public class RequirementChangeImpl extends MinimalEObjectImpl.Container implemen
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public IRequiredCapability basicGetNewValue() {
@@ -109,7 +110,7 @@ public class RequirementChangeImpl extends MinimalEObjectImpl.Container implemen
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public NotificationChain basicSetApplyOn(IRequiredCapability newApplyOn, NotificationChain msgs) {
@@ -129,7 +130,7 @@ public class RequirementChangeImpl extends MinimalEObjectImpl.Container implemen
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public NotificationChain basicSetNewValue(IRequiredCapability newNewValue, NotificationChain msgs) {
@@ -149,7 +150,7 @@ public class RequirementChangeImpl extends MinimalEObjectImpl.Container implemen
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -170,7 +171,7 @@ public class RequirementChangeImpl extends MinimalEObjectImpl.Container implemen
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -187,7 +188,7 @@ public class RequirementChangeImpl extends MinimalEObjectImpl.Container implemen
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -204,7 +205,7 @@ public class RequirementChangeImpl extends MinimalEObjectImpl.Container implemen
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -223,7 +224,7 @@ public class RequirementChangeImpl extends MinimalEObjectImpl.Container implemen
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -234,7 +235,7 @@ public class RequirementChangeImpl extends MinimalEObjectImpl.Container implemen
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -253,7 +254,7 @@ public class RequirementChangeImpl extends MinimalEObjectImpl.Container implemen
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public IRequiredCapability getApplyOn() {
@@ -281,7 +282,7 @@ public class RequirementChangeImpl extends MinimalEObjectImpl.Container implemen
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public IRequiredCapability getNewValue() {
@@ -309,9 +310,10 @@ public class RequirementChangeImpl extends MinimalEObjectImpl.Container implemen
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
+	@Override
 	public boolean matches(IRequiredCapability toMatch) {
 		IRequiredCapability ao = getApplyOn();
 		if(!toMatch.getNamespace().equals(ao.getNamespace()))
@@ -327,9 +329,10 @@ public class RequirementChangeImpl extends MinimalEObjectImpl.Container implemen
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
+	@Override
 	public IRequiredCapability newValue() {
 		return getNewValue();
 	}
@@ -337,7 +340,7 @@ public class RequirementChangeImpl extends MinimalEObjectImpl.Container implemen
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public void setApplyOn(IRequiredCapability newApplyOn) {
@@ -361,7 +364,7 @@ public class RequirementChangeImpl extends MinimalEObjectImpl.Container implemen
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public void setNewValue(IRequiredCapability newNewValue) {

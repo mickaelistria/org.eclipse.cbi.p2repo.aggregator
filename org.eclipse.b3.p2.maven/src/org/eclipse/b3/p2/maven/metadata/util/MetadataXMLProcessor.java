@@ -17,7 +17,7 @@ import org.eclipse.emf.ecore.xmi.util.XMLProcessor;
  * This class contains helper methods to serialize and deserialize XML documents
  * <!-- begin-user-doc --> <!--
  * end-user-doc -->
- * 
+ *
  * @generated
  */
 public class MetadataXMLProcessor extends XMLProcessor {
@@ -25,7 +25,7 @@ public class MetadataXMLProcessor extends XMLProcessor {
 	/**
 	 * Public constructor to instantiate the helper.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public MetadataXMLProcessor() {
@@ -37,7 +37,7 @@ public class MetadataXMLProcessor extends XMLProcessor {
 	 * Register for "*" and "xml" file extensions the MetadataResourceFactoryImpl factory.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override

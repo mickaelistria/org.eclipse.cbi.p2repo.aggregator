@@ -32,7 +32,7 @@ import org.eclipse.equinox.p2.metadata.expression.IMatchExpression;
  * <li>{@link org.eclipse.b3.p2.impl.UpdateDescriptorImpl#getLocation <em>Location</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public class UpdateDescriptorImpl extends MinimalEObjectImpl.Container implements UpdateDescriptor {
@@ -42,7 +42,7 @@ public class UpdateDescriptorImpl extends MinimalEObjectImpl.Container implement
 	 * A set of bit flags representing the values of boolean attributes and whether unsettable features have been set.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 * @ordered
 	 */
@@ -52,7 +52,7 @@ public class UpdateDescriptorImpl extends MinimalEObjectImpl.Container implement
 	 * The default value of the '{@link #getDescription() <em>Description</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getDescription()
 	 * @generated
 	 * @ordered
@@ -63,7 +63,7 @@ public class UpdateDescriptorImpl extends MinimalEObjectImpl.Container implement
 	 * The cached value of the '{@link #getDescription() <em>Description</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getDescription()
 	 * @generated
 	 * @ordered
@@ -74,7 +74,7 @@ public class UpdateDescriptorImpl extends MinimalEObjectImpl.Container implement
 	 * The default value of the '{@link #getSeverity() <em>Severity</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getSeverity()
 	 * @generated
 	 * @ordered
@@ -85,7 +85,7 @@ public class UpdateDescriptorImpl extends MinimalEObjectImpl.Container implement
 	 * The cached value of the '{@link #getSeverity() <em>Severity</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getSeverity()
 	 * @generated
 	 * @ordered
@@ -96,7 +96,7 @@ public class UpdateDescriptorImpl extends MinimalEObjectImpl.Container implement
 	 * The default value of the '{@link #getLocation() <em>Location</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getLocation()
 	 * @generated
 	 * @ordered
@@ -107,7 +107,7 @@ public class UpdateDescriptorImpl extends MinimalEObjectImpl.Container implement
 	 * The cached value of the '{@link #getLocation() <em>Location</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getLocation()
 	 * @generated
 	 * @ordered
@@ -117,7 +117,7 @@ public class UpdateDescriptorImpl extends MinimalEObjectImpl.Container implement
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected UpdateDescriptorImpl() {
@@ -127,7 +127,7 @@ public class UpdateDescriptorImpl extends MinimalEObjectImpl.Container implement
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -146,7 +146,7 @@ public class UpdateDescriptorImpl extends MinimalEObjectImpl.Container implement
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -169,7 +169,7 @@ public class UpdateDescriptorImpl extends MinimalEObjectImpl.Container implement
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -191,7 +191,7 @@ public class UpdateDescriptorImpl extends MinimalEObjectImpl.Container implement
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -202,7 +202,7 @@ public class UpdateDescriptorImpl extends MinimalEObjectImpl.Container implement
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -224,9 +224,10 @@ public class UpdateDescriptorImpl extends MinimalEObjectImpl.Container implement
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public String getDescription() {
 		return description;
 	}
@@ -234,9 +235,10 @@ public class UpdateDescriptorImpl extends MinimalEObjectImpl.Container implement
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
+	@Override
 	public Collection<IMatchExpression<IInstallableUnit>> getIUsBeingUpdated() {
 		if(matchExpressions == null)
 			matchExpressions = new ArrayList<IMatchExpression<IInstallableUnit>>();
@@ -247,9 +249,10 @@ public class UpdateDescriptorImpl extends MinimalEObjectImpl.Container implement
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public URI getLocation() {
 		return location;
 	}
@@ -257,9 +260,10 @@ public class UpdateDescriptorImpl extends MinimalEObjectImpl.Container implement
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public int getSeverity() {
 		return severity;
 	}
@@ -267,9 +271,10 @@ public class UpdateDescriptorImpl extends MinimalEObjectImpl.Container implement
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
+	@Override
 	public boolean isUpdateOf(IInstallableUnit installableUnit) {
 		for(IMatchExpression<IInstallableUnit> expr : getIUsBeingUpdated()) {
 			if(expr.isMatch(installableUnit))
@@ -282,7 +287,7 @@ public class UpdateDescriptorImpl extends MinimalEObjectImpl.Container implement
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public void setDescription(String newDescription) {
@@ -300,7 +305,7 @@ public class UpdateDescriptorImpl extends MinimalEObjectImpl.Container implement
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public void setLocation(URI newLocation) {
@@ -314,7 +319,7 @@ public class UpdateDescriptorImpl extends MinimalEObjectImpl.Container implement
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public void setSeverity(int newSeverity) {
@@ -328,7 +333,7 @@ public class UpdateDescriptorImpl extends MinimalEObjectImpl.Container implement
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override

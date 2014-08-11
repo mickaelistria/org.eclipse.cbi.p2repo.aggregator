@@ -9,13 +9,10 @@ package org.eclipse.b3.p2.maven.metadata.impl;
 import org.eclipse.b3.p2.maven.metadata.MetadataPackage;
 import org.eclipse.b3.p2.maven.metadata.Versioning;
 import org.eclipse.b3.p2.maven.metadata.Versions;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 
@@ -30,7 +27,7 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * <li>{@link org.eclipse.b3.p2.maven.metadata.impl.VersioningImpl#getLastUpdated <em>Last Updated</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public class VersioningImpl extends EObjectImpl implements Versioning {
@@ -38,7 +35,7 @@ public class VersioningImpl extends EObjectImpl implements Versioning {
 	 * The default value of the '{@link #getRelease() <em>Release</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @see #getRelease()
 	 * @generated
 	 * @ordered
@@ -49,7 +46,7 @@ public class VersioningImpl extends EObjectImpl implements Versioning {
 	 * The cached value of the '{@link #getRelease() <em>Release</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @see #getRelease()
 	 * @generated
 	 * @ordered
@@ -60,7 +57,7 @@ public class VersioningImpl extends EObjectImpl implements Versioning {
 	 * The default value of the '{@link #getLatest() <em>Latest</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getLatest()
 	 * @generated
 	 * @ordered
@@ -71,7 +68,7 @@ public class VersioningImpl extends EObjectImpl implements Versioning {
 	 * The cached value of the '{@link #getLatest() <em>Latest</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getLatest()
 	 * @generated
 	 * @ordered
@@ -82,7 +79,7 @@ public class VersioningImpl extends EObjectImpl implements Versioning {
 	 * The cached value of the '{@link #getVersions() <em>Versions</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getVersions()
 	 * @generated
 	 * @ordered
@@ -93,7 +90,7 @@ public class VersioningImpl extends EObjectImpl implements Versioning {
 	 * The default value of the '{@link #getLastUpdated() <em>Last Updated</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getLastUpdated()
 	 * @generated
 	 * @ordered
@@ -104,7 +101,7 @@ public class VersioningImpl extends EObjectImpl implements Versioning {
 	 * The cached value of the '{@link #getLastUpdated() <em>Last Updated</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @see #getLastUpdated()
 	 * @generated
 	 * @ordered
@@ -113,7 +110,7 @@ public class VersioningImpl extends EObjectImpl implements Versioning {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected VersioningImpl() {
@@ -122,7 +119,7 @@ public class VersioningImpl extends EObjectImpl implements Versioning {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public NotificationChain basicSetVersions(Versions newVersions, NotificationChain msgs) {
@@ -141,7 +138,7 @@ public class VersioningImpl extends EObjectImpl implements Versioning {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -161,7 +158,7 @@ public class VersioningImpl extends EObjectImpl implements Versioning {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -175,7 +172,7 @@ public class VersioningImpl extends EObjectImpl implements Versioning {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -201,7 +198,7 @@ public class VersioningImpl extends EObjectImpl implements Versioning {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -225,7 +222,7 @@ public class VersioningImpl extends EObjectImpl implements Versioning {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -249,9 +246,10 @@ public class VersioningImpl extends EObjectImpl implements Versioning {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public String getLastUpdated() {
 		return lastUpdated;
 	}
@@ -259,36 +257,40 @@ public class VersioningImpl extends EObjectImpl implements Versioning {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public String getLatest() {
 		return latest;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public String getRelease() {
 		return release;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public Versions getVersions() {
 		return versions;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public void setLastUpdated(String newLastUpdated) {
 		String oldLastUpdated = lastUpdated;
 		lastUpdated = newLastUpdated;
@@ -300,9 +302,10 @@ public class VersioningImpl extends EObjectImpl implements Versioning {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public void setLatest(String newLatest) {
 		String oldLatest = latest;
 		latest = newLatest;
@@ -312,9 +315,10 @@ public class VersioningImpl extends EObjectImpl implements Versioning {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public void setRelease(String newRelease) {
 		String oldRelease = release;
 		release = newRelease;
@@ -325,9 +329,10 @@ public class VersioningImpl extends EObjectImpl implements Versioning {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public void setVersions(Versions newVersions) {
 		if(newVersions != versions) {
 			NotificationChain msgs = null;
@@ -348,7 +353,7 @@ public class VersioningImpl extends EObjectImpl implements Versioning {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -369,7 +374,7 @@ public class VersioningImpl extends EObjectImpl implements Versioning {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override

@@ -41,7 +41,7 @@ import org.xml.sax.SAXParseException;
 
 /**
  * @author Filip Hrbek
- * 
+ *
  */
 public class UriUtils {
 	private static final DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory.newInstance();
@@ -88,7 +88,7 @@ public class UriUtils {
 	/**
 	 * Appends a trailing slash to <code>uri</code> and returns the result. If the <code>uri</code> already has a
 	 * trailing slash, the argument is returned without modification.
-	 * 
+	 *
 	 * @param uri
 	 *            The <code>uri</code> that should receive the trailing slash. Cannot be <code>null</code>.
 	 * @return A <code>uri</code> that has a trailing slash
@@ -124,14 +124,17 @@ public class UriUtils {
 				// Use a very silent error handler
 				//
 				builder.setErrorHandler(new ErrorHandler() {
+					@Override
 					public void error(SAXParseException ex) throws SAXException {
 						throw ex;
 					}
 
+					@Override
 					public void fatalError(SAXParseException ex) throws SAXException {
 						throw ex;
 					}
 
+					@Override
 					public void warning(SAXParseException ex) throws SAXException {
 					}
 				});

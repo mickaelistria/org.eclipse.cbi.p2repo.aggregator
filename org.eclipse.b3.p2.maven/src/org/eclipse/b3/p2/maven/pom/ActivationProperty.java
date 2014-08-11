@@ -11,15 +11,15 @@ import org.eclipse.emf.ecore.EObject;
 /**
  * <!-- begin-user-doc --> A representation of the model object '<em><b>Activation Property</b></em>'. <!-- end-user-doc
  * -->
- * 
+ *
  * <!-- begin-model-doc --> 4.0.0
- * 
+ *
  * This is the property specification used to activate a profile. If the value field is empty, then the existence of the
  * named property will activate the profile, otherwise it does a case-sensitive match against the property value as
  * well.
- * 
+ *
  * <!-- end-model-doc -->
- * 
+ *
  * <p>
  * The following features are supported:
  * <ul>
@@ -27,7 +27,7 @@ import org.eclipse.emf.ecore.EObject;
  * <li>{@link org.eclipse.b3.p2.maven.pom.ActivationProperty#getValue <em>Value</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @see org.eclipse.b3.p2.maven.pom.PomPackage#getActivationProperty()
  * @model extendedMetaData="name='ActivationProperty' kind='elementOnly'"
  * @generated
@@ -36,7 +36,7 @@ public interface ActivationProperty extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Name</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc --> <!--
 	 * begin-model-doc --> 4.0.0 The name of the property to be used to activate a profile. <!-- end-model-doc -->
-	 * 
+	 *
 	 * @return the value of the '<em>Name</em>' attribute.
 	 * @see #setName(String)
 	 * @see org.eclipse.b3.p2.maven.pom.PomPackage#getActivationProperty_Name()
@@ -49,7 +49,7 @@ public interface ActivationProperty extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Value</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc --> <!--
 	 * begin-model-doc --> 4.0.0 The value of the property required to activate a profile. <!-- end-model-doc -->
-	 * 
+	 *
 	 * @return the value of the '<em>Value</em>' attribute.
 	 * @see #setValue(String)
 	 * @see org.eclipse.b3.p2.maven.pom.PomPackage#getActivationProperty_Value()
@@ -62,7 +62,7 @@ public interface ActivationProperty extends EObject {
 	/**
 	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.ActivationProperty#getName <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param value
 	 *            the new value of the '<em>Name</em>' attribute.
 	 * @see #getName()
@@ -73,7 +73,7 @@ public interface ActivationProperty extends EObject {
 	/**
 	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.ActivationProperty#getValue <em>Value</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param value
 	 *            the new value of the '<em>Value</em>' attribute.
 	 * @see #getValue()

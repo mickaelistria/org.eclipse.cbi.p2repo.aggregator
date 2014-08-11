@@ -22,7 +22,7 @@ import org.eclipse.swt.widgets.Label;
 
 /**
  * @author filip.hrbek@cloudsmith.com
- * 
+ *
  */
 public class AggregatorTransformer_090_2_100_WizardPage extends TransformerContributorWizardPage {
 
@@ -39,10 +39,12 @@ public class AggregatorTransformer_090_2_100_WizardPage extends TransformerContr
 		setDescription("Choose how to transform installable unit versions");
 	}
 
+	@Override
 	public void contributeToContext(Map<String, Object> context) {
 		context.put(AggregatorTransformer_090_2_100.CONTEXT_FIXED_VERSION, Boolean.valueOf(selectedType == 0));
 	}
 
+	@Override
 	public void createControl(Composite parent) {
 		Composite composite = new Composite(parent, SWT.NONE);
 		composite.setLayout(new GridLayout(2, false));

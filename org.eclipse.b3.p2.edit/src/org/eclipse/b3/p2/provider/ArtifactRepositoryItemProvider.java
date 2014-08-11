@@ -4,7 +4,7 @@
  * licensed under the Eclipse Public License - v 1.0 by the copyright holder
  * listed above, as the Initial Contributor under such license. The text of
  * such license is available at www.eclipse.org.
- * 
+ *
  */
 package org.eclipse.b3.p2.provider;
 
@@ -14,10 +14,8 @@ import java.util.List;
 import org.eclipse.b3.p2.ArtifactRepository;
 import org.eclipse.b3.p2.P2Factory;
 import org.eclipse.b3.p2.P2Package;
-
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -31,7 +29,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * This is the item provider adapter for a {@link org.eclipse.b3.p2.ArtifactRepository} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
- * 
+ *
  * @generated
  */
 public class ArtifactRepositoryItemProvider extends RepositoryItemProvider implements IEditingDomainItemProvider,
@@ -40,7 +38,7 @@ public class ArtifactRepositoryItemProvider extends RepositoryItemProvider imple
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public ArtifactRepositoryItemProvider(AdapterFactory adapterFactory) {
@@ -52,7 +50,7 @@ public class ArtifactRepositoryItemProvider extends RepositoryItemProvider imple
 	 * that can be created under this object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -67,7 +65,7 @@ public class ArtifactRepositoryItemProvider extends RepositoryItemProvider imple
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -84,7 +82,7 @@ public class ArtifactRepositoryItemProvider extends RepositoryItemProvider imple
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -100,7 +98,7 @@ public class ArtifactRepositoryItemProvider extends RepositoryItemProvider imple
 	 * This returns ArtifactRepository.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -112,7 +110,7 @@ public class ArtifactRepositoryItemProvider extends RepositoryItemProvider imple
 	 * This returns the property descriptors for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -128,7 +126,7 @@ public class ArtifactRepositoryItemProvider extends RepositoryItemProvider imple
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -144,7 +142,7 @@ public class ArtifactRepositoryItemProvider extends RepositoryItemProvider imple
 	 * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override

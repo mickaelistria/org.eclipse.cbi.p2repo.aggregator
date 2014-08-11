@@ -10,7 +10,7 @@ package org.eclipse.b3.util;
 
 /**
  * @author filip.hrbek@cloudsmith.com
- * 
+ *
  */
 public class StringUtils {
 	public static String trimmedOrNull(String str) {

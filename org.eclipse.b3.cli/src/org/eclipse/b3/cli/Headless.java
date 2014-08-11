@@ -33,7 +33,7 @@ import org.kohsuke.args4j.CmdLineParser;
 
 /**
  * @author filip.hrbek@cloudsmith.com
- * 
+ *
  */
 public class Headless implements IApplication {
 
@@ -189,6 +189,7 @@ public class Headless implements IApplication {
 		return AbstractCommand.EXIT_ERROR;
 	}
 
+	@Override
 	public Object start(IApplicationContext context) throws Exception {
 		HeadlessActivator.getInstance().setHeadless();
 
@@ -197,6 +198,7 @@ public class Headless implements IApplication {
 		return Integer.valueOf(run(args, true));
 	}
 
+	@Override
 	public void stop() {
 		// do nothing
 	}

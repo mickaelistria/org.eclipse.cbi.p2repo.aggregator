@@ -10,6 +10,7 @@
 package org.eclipse.b3.aggregator.p2view.impl;
 
 import java.util.Collection;
+
 import org.eclipse.b3.aggregator.p2view.Bundles;
 import org.eclipse.b3.aggregator.p2view.Categories;
 import org.eclipse.b3.aggregator.p2view.Features;
@@ -45,14 +46,14 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <li>{@link org.eclipse.b3.aggregator.p2view.impl.InstallableUnitsImpl#getMiscellaneousContainer <em> Miscellaneous Container</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public class InstallableUnitsImpl extends MinimalEObjectImpl.Container implements InstallableUnits {
 	/**
 	 * A set of bit flags representing the values of boolean attributes and whether unsettable features have been set.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 * @ordered
 	 */
@@ -62,7 +63,7 @@ public class InstallableUnitsImpl extends MinimalEObjectImpl.Container implement
 	 * The cached value of the '{@link #getAllIUs() <em>All IUs</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getAllIUs()
 	 * @generated
 	 * @ordered
@@ -72,7 +73,7 @@ public class InstallableUnitsImpl extends MinimalEObjectImpl.Container implement
 	/**
 	 * The cached value of the '{@link #getCategoryContainer() <em>Category Container</em>}' reference. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getCategoryContainer()
 	 * @generated
 	 * @ordered
@@ -82,7 +83,7 @@ public class InstallableUnitsImpl extends MinimalEObjectImpl.Container implement
 	/**
 	 * The cached value of the '{@link #getFeatureContainer() <em>Feature Container</em>}' reference. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getFeatureContainer()
 	 * @generated
 	 * @ordered
@@ -92,7 +93,7 @@ public class InstallableUnitsImpl extends MinimalEObjectImpl.Container implement
 	/**
 	 * The cached value of the '{@link #getProductContainer() <em>Product Container</em>}' reference. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getProductContainer()
 	 * @generated
 	 * @ordered
@@ -103,7 +104,7 @@ public class InstallableUnitsImpl extends MinimalEObjectImpl.Container implement
 	 * The cached value of the '{@link #getBundleContainer() <em>Bundle Container</em>}' containment reference.
 	 * <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getBundleContainer()
 	 * @generated
 	 * @ordered
@@ -113,7 +114,7 @@ public class InstallableUnitsImpl extends MinimalEObjectImpl.Container implement
 	/**
 	 * The cached value of the '{@link #getFragmentContainer() <em>Fragment Container</em>}' reference. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getFragmentContainer()
 	 * @generated
 	 * @ordered
@@ -123,7 +124,7 @@ public class InstallableUnitsImpl extends MinimalEObjectImpl.Container implement
 	/**
 	 * The cached value of the '{@link #getMiscellaneousContainer() <em>Miscellaneous Container</em>}' reference. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getMiscellaneousContainer()
 	 * @generated
 	 * @ordered
@@ -132,7 +133,7 @@ public class InstallableUnitsImpl extends MinimalEObjectImpl.Container implement
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected InstallableUnitsImpl() {
@@ -141,7 +142,7 @@ public class InstallableUnitsImpl extends MinimalEObjectImpl.Container implement
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public Bundles basicGetBundleContainer() {
@@ -150,7 +151,7 @@ public class InstallableUnitsImpl extends MinimalEObjectImpl.Container implement
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public Categories basicGetCategoryContainer() {
@@ -159,7 +160,7 @@ public class InstallableUnitsImpl extends MinimalEObjectImpl.Container implement
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public Features basicGetFeatureContainer() {
@@ -168,7 +169,7 @@ public class InstallableUnitsImpl extends MinimalEObjectImpl.Container implement
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public Fragments basicGetFragmentContainer() {
@@ -177,7 +178,7 @@ public class InstallableUnitsImpl extends MinimalEObjectImpl.Container implement
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public Miscellaneous basicGetMiscellaneousContainer() {
@@ -186,7 +187,7 @@ public class InstallableUnitsImpl extends MinimalEObjectImpl.Container implement
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public Products basicGetProductContainer() {
@@ -196,7 +197,7 @@ public class InstallableUnitsImpl extends MinimalEObjectImpl.Container implement
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public NotificationChain basicSetBundleContainer(Bundles newBundleContainer, NotificationChain msgs) {
@@ -217,7 +218,7 @@ public class InstallableUnitsImpl extends MinimalEObjectImpl.Container implement
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public NotificationChain basicSetCategoryContainer(Categories newCategoryContainer, NotificationChain msgs) {
@@ -238,7 +239,7 @@ public class InstallableUnitsImpl extends MinimalEObjectImpl.Container implement
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public NotificationChain basicSetFeatureContainer(Features newFeatureContainer, NotificationChain msgs) {
@@ -259,7 +260,7 @@ public class InstallableUnitsImpl extends MinimalEObjectImpl.Container implement
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public NotificationChain basicSetFragmentContainer(Fragments newFragmentContainer, NotificationChain msgs) {
@@ -280,7 +281,7 @@ public class InstallableUnitsImpl extends MinimalEObjectImpl.Container implement
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public NotificationChain basicSetMiscellaneousContainer(Miscellaneous newMiscellaneousContainer,
@@ -302,7 +303,7 @@ public class InstallableUnitsImpl extends MinimalEObjectImpl.Container implement
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public NotificationChain basicSetProductContainer(Products newProductContainer, NotificationChain msgs) {
@@ -322,7 +323,7 @@ public class InstallableUnitsImpl extends MinimalEObjectImpl.Container implement
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -363,7 +364,7 @@ public class InstallableUnitsImpl extends MinimalEObjectImpl.Container implement
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -389,7 +390,7 @@ public class InstallableUnitsImpl extends MinimalEObjectImpl.Container implement
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -417,7 +418,7 @@ public class InstallableUnitsImpl extends MinimalEObjectImpl.Container implement
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
@@ -452,7 +453,7 @@ public class InstallableUnitsImpl extends MinimalEObjectImpl.Container implement
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -462,7 +463,7 @@ public class InstallableUnitsImpl extends MinimalEObjectImpl.Container implement
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -496,7 +497,7 @@ public class InstallableUnitsImpl extends MinimalEObjectImpl.Container implement
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EList<IUPresentation> getAllIUs() {
@@ -509,7 +510,7 @@ public class InstallableUnitsImpl extends MinimalEObjectImpl.Container implement
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public Bundles getBundleContainer() {
@@ -537,7 +538,7 @@ public class InstallableUnitsImpl extends MinimalEObjectImpl.Container implement
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public Categories getCategoryContainer() {
@@ -565,7 +566,7 @@ public class InstallableUnitsImpl extends MinimalEObjectImpl.Container implement
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
 	public EList<EObject> getChildren() {
@@ -589,7 +590,7 @@ public class InstallableUnitsImpl extends MinimalEObjectImpl.Container implement
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public Features getFeatureContainer() {
@@ -617,7 +618,7 @@ public class InstallableUnitsImpl extends MinimalEObjectImpl.Container implement
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public Fragments getFragmentContainer() {
@@ -645,7 +646,7 @@ public class InstallableUnitsImpl extends MinimalEObjectImpl.Container implement
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public Miscellaneous getMiscellaneousContainer() {
@@ -673,7 +674,7 @@ public class InstallableUnitsImpl extends MinimalEObjectImpl.Container implement
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
 	public Bundles getNotNullBundleContainer() {
@@ -685,7 +686,7 @@ public class InstallableUnitsImpl extends MinimalEObjectImpl.Container implement
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
 	public Categories getNotNullCategoryContainer() {
@@ -697,7 +698,7 @@ public class InstallableUnitsImpl extends MinimalEObjectImpl.Container implement
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
 	public Features getNotNullFeatureContainer() {
@@ -709,7 +710,7 @@ public class InstallableUnitsImpl extends MinimalEObjectImpl.Container implement
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
 	public Fragments getNotNullFragmentContainer() {
@@ -721,7 +722,7 @@ public class InstallableUnitsImpl extends MinimalEObjectImpl.Container implement
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
 	public Miscellaneous getNotNullMiscellaneousContainer() {
@@ -733,7 +734,7 @@ public class InstallableUnitsImpl extends MinimalEObjectImpl.Container implement
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
 	public Products getNotNullProductContainer() {
@@ -745,7 +746,7 @@ public class InstallableUnitsImpl extends MinimalEObjectImpl.Container implement
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public Products getProductContainer() {
@@ -773,7 +774,7 @@ public class InstallableUnitsImpl extends MinimalEObjectImpl.Container implement
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public void setBundleContainer(Bundles newBundleContainer) {
@@ -797,7 +798,7 @@ public class InstallableUnitsImpl extends MinimalEObjectImpl.Container implement
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public void setCategoryContainer(Categories newCategoryContainer) {
@@ -821,7 +822,7 @@ public class InstallableUnitsImpl extends MinimalEObjectImpl.Container implement
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public void setFeatureContainer(Features newFeatureContainer) {
@@ -845,7 +846,7 @@ public class InstallableUnitsImpl extends MinimalEObjectImpl.Container implement
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public void setFragmentContainer(Fragments newFragmentContainer) {
@@ -869,7 +870,7 @@ public class InstallableUnitsImpl extends MinimalEObjectImpl.Container implement
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public void setMiscellaneousContainer(Miscellaneous newMiscellaneousContainer) {
@@ -893,7 +894,7 @@ public class InstallableUnitsImpl extends MinimalEObjectImpl.Container implement
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public void setProductContainer(Products newProductContainer) {

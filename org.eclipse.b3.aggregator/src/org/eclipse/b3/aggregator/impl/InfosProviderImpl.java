@@ -13,13 +13,9 @@ import java.util.Collection;
 
 import org.eclipse.b3.aggregator.AggregatorPackage;
 import org.eclipse.b3.aggregator.InfosProvider;
-
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
 import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
 
 /**
@@ -32,14 +28,14 @@ import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
  * <li>{@link org.eclipse.b3.aggregator.impl.InfosProviderImpl#getInfos <em>Infos</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public class InfosProviderImpl extends MinimalEObjectImpl.Container implements InfosProvider {
 	/**
 	 * A set of bit flags representing the values of boolean attributes and whether unsettable features have been set.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 * @ordered
 	 */
@@ -49,7 +45,7 @@ public class InfosProviderImpl extends MinimalEObjectImpl.Container implements I
 	 * The cached value of the '{@link #getErrors() <em>Errors</em>}' attribute list.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @see #getErrors()
 	 * @generated
 	 * @ordered
@@ -60,7 +56,7 @@ public class InfosProviderImpl extends MinimalEObjectImpl.Container implements I
 	 * The cached value of the '{@link #getWarnings() <em>Warnings</em>}' attribute list.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @see #getWarnings()
 	 * @generated
 	 * @ordered
@@ -71,7 +67,7 @@ public class InfosProviderImpl extends MinimalEObjectImpl.Container implements I
 	 * The cached value of the '{@link #getInfos() <em>Infos</em>}' attribute list.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @see #getInfos()
 	 * @generated
 	 * @ordered
@@ -80,7 +76,7 @@ public class InfosProviderImpl extends MinimalEObjectImpl.Container implements I
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected InfosProviderImpl() {
@@ -89,7 +85,7 @@ public class InfosProviderImpl extends MinimalEObjectImpl.Container implements I
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -107,7 +103,7 @@ public class InfosProviderImpl extends MinimalEObjectImpl.Container implements I
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -125,7 +121,7 @@ public class InfosProviderImpl extends MinimalEObjectImpl.Container implements I
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
@@ -150,7 +146,7 @@ public class InfosProviderImpl extends MinimalEObjectImpl.Container implements I
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -160,7 +156,7 @@ public class InfosProviderImpl extends MinimalEObjectImpl.Container implements I
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -181,7 +177,7 @@ public class InfosProviderImpl extends MinimalEObjectImpl.Container implements I
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EList<String> getErrors() {
@@ -193,7 +189,7 @@ public class InfosProviderImpl extends MinimalEObjectImpl.Container implements I
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
 	public EList<String> getInfos() {
@@ -205,7 +201,7 @@ public class InfosProviderImpl extends MinimalEObjectImpl.Container implements I
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EList<String> getWarnings() {
@@ -217,7 +213,7 @@ public class InfosProviderImpl extends MinimalEObjectImpl.Container implements I
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override

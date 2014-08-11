@@ -11,16 +11,11 @@ import java.util.Collection;
 import org.eclipse.b3.p2.maven.pom.PomPackage;
 import org.eclipse.b3.p2.maven.pom.RepositoriesType;
 import org.eclipse.b3.p2.maven.pom.Repository;
-
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.EObjectImpl;
-
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -33,14 +28,14 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <li>{@link org.eclipse.b3.p2.maven.pom.impl.RepositoriesTypeImpl#getRepository <em>Repository </em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public class RepositoriesTypeImpl extends EObjectImpl implements RepositoriesType {
 	/**
 	 * The cached value of the '{@link #getRepository() <em>Repository</em>}' containment reference list. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getRepository()
 	 * @generated
 	 * @ordered
@@ -49,7 +44,7 @@ public class RepositoriesTypeImpl extends EObjectImpl implements RepositoriesTyp
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected RepositoriesTypeImpl() {
@@ -58,7 +53,7 @@ public class RepositoriesTypeImpl extends EObjectImpl implements RepositoriesTyp
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -72,7 +67,7 @@ public class RepositoriesTypeImpl extends EObjectImpl implements RepositoriesTyp
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -86,7 +81,7 @@ public class RepositoriesTypeImpl extends EObjectImpl implements RepositoriesTyp
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -100,7 +95,7 @@ public class RepositoriesTypeImpl extends EObjectImpl implements RepositoriesTyp
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
@@ -117,7 +112,7 @@ public class RepositoriesTypeImpl extends EObjectImpl implements RepositoriesTyp
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -132,9 +127,10 @@ public class RepositoriesTypeImpl extends EObjectImpl implements RepositoriesTyp
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public EList<Repository> getRepository() {
 		if(repository == null) {
 			repository = new EObjectContainmentEList<Repository>(
@@ -145,7 +141,7 @@ public class RepositoriesTypeImpl extends EObjectImpl implements RepositoriesTyp
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override

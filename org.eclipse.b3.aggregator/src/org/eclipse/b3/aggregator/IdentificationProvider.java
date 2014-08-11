@@ -11,8 +11,8 @@ package org.eclipse.b3.aggregator;
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Identification Provider</b></em>'.
  * <!-- end-user-doc -->
- * 
- * 
+ *
+ *
  * @see org.eclipse.b3.aggregator.AggregatorPackage#getIdentificationProvider()
  * @model interface="true" abstract="true"
  * @generated
@@ -21,7 +21,7 @@ public interface IdentificationProvider {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @model kind="operation" required="true"
 	 * @generated
 	 */

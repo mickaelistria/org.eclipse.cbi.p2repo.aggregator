@@ -8,7 +8,7 @@ package org.eclipse.b3.aggregator;
 
 /**
  * <!-- begin-user-doc --> A representation of the model object '<em><b>Configuration</b></em>'. <!-- end-user-doc -->
- * 
+ *
  * <p>
  * The following features are supported:
  * <ul>
@@ -17,7 +17,7 @@ package org.eclipse.b3.aggregator;
  * <li>{@link org.eclipse.b3.aggregator.Configuration#getArchitecture <em>Architecture</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @see org.eclipse.b3.aggregator.AggregatorPackage#getConfiguration()
  * @model
  * @generated
@@ -31,7 +31,7 @@ public interface Configuration extends EnabledStatusProvider {
 	 * If the meaning of the '<em>Architecture</em>' attribute isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @return the value of the '<em>Architecture</em>' attribute.
 	 * @see org.eclipse.b3.aggregator.Architecture
 	 * @see #setArchitecture(Architecture)
@@ -43,7 +43,7 @@ public interface Configuration extends EnabledStatusProvider {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @model kind="operation"
 	 * @generated
 	 */
@@ -57,7 +57,7 @@ public interface Configuration extends EnabledStatusProvider {
 	 * If the meaning of the '<em>Operating System</em>' attribute isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @return the value of the '<em>Operating System</em>' attribute.
 	 * @see org.eclipse.b3.aggregator.OperatingSystem
 	 * @see #setOperatingSystem(OperatingSystem)
@@ -69,7 +69,7 @@ public interface Configuration extends EnabledStatusProvider {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @model kind="operation"
 	 * @generated
 	 */
@@ -83,7 +83,7 @@ public interface Configuration extends EnabledStatusProvider {
 	 * If the meaning of the '<em>Window System</em>' attribute isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @return the value of the '<em>Window System</em>' attribute.
 	 * @see org.eclipse.b3.aggregator.WindowSystem
 	 * @see #setWindowSystem(WindowSystem)
@@ -96,7 +96,7 @@ public interface Configuration extends EnabledStatusProvider {
 	/**
 	 * Sets the value of the '{@link org.eclipse.b3.aggregator.Configuration#getArchitecture <em>Architecture</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param value
 	 *            the new value of the '<em>Architecture</em>' attribute.
 	 * @see org.eclipse.b3.aggregator.Architecture
@@ -108,7 +108,7 @@ public interface Configuration extends EnabledStatusProvider {
 	/**
 	 * Sets the value of the '{@link org.eclipse.b3.aggregator.Configuration#getOperatingSystem <em>Operating System</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param value
 	 *            the new value of the '<em>Operating System</em>' attribute.
 	 * @see org.eclipse.b3.aggregator.OperatingSystem
@@ -120,7 +120,7 @@ public interface Configuration extends EnabledStatusProvider {
 	/**
 	 * Sets the value of the '{@link org.eclipse.b3.aggregator.Configuration#getWindowSystem <em>Window System</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param value
 	 *            the new value of the '<em>Window System</em>' attribute.
 	 * @see org.eclipse.b3.aggregator.WindowSystem

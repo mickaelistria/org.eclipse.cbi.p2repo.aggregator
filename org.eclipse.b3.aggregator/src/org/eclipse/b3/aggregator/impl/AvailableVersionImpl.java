@@ -34,7 +34,7 @@ import org.eclipse.equinox.p2.metadata.expression.IMatchExpression;
  * <li>{@link org.eclipse.b3.aggregator.impl.AvailableVersionImpl#getAvailableFrom <em>Available From</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public class AvailableVersionImpl extends MinimalEObjectImpl.Container implements AvailableVersion {
@@ -42,7 +42,7 @@ public class AvailableVersionImpl extends MinimalEObjectImpl.Container implement
 	 * A set of bit flags representing the values of boolean attributes and whether unsettable features have been set.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 * @ordered
 	 */
@@ -52,7 +52,7 @@ public class AvailableVersionImpl extends MinimalEObjectImpl.Container implement
 	 * The default value of the '{@link #getVersionMatch() <em>Version Match</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getVersionMatch()
 	 * @generated
 	 * @ordered
@@ -63,7 +63,7 @@ public class AvailableVersionImpl extends MinimalEObjectImpl.Container implement
 	 * The offset of the flags representing the value of the '{@link #getVersionMatch() <em>Version Match</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 * @ordered
 	 */
@@ -73,7 +73,7 @@ public class AvailableVersionImpl extends MinimalEObjectImpl.Container implement
 	 * The flags representing the default value of the '{@link #getVersionMatch() <em>Version Match</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 * @ordered
 	 */
@@ -83,7 +83,7 @@ public class AvailableVersionImpl extends MinimalEObjectImpl.Container implement
 	 * The array of enumeration values for '{@link VersionMatch Version Match}'
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 * @ordered
 	 */
@@ -93,7 +93,7 @@ public class AvailableVersionImpl extends MinimalEObjectImpl.Container implement
 	 * The flags representing the value of the '{@link #getVersionMatch() <em>Version Match</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getVersionMatch()
 	 * @generated
 	 * @ordered
@@ -104,7 +104,7 @@ public class AvailableVersionImpl extends MinimalEObjectImpl.Container implement
 	 * The default value of the '{@link #getVersion() <em>Version</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getVersion()
 	 * @generated
 	 * @ordered
@@ -115,7 +115,7 @@ public class AvailableVersionImpl extends MinimalEObjectImpl.Container implement
 	 * The cached value of the '{@link #getVersion() <em>Version</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getVersion()
 	 * @generated
 	 * @ordered
@@ -126,7 +126,7 @@ public class AvailableVersionImpl extends MinimalEObjectImpl.Container implement
 	 * The cached value of the '{@link #getFilter() <em>Filter</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getFilter()
 	 * @generated
 	 * @ordered
@@ -137,7 +137,7 @@ public class AvailableVersionImpl extends MinimalEObjectImpl.Container implement
 	 * The default value of the '{@link #getAvailableFrom() <em>Available From</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getAvailableFrom()
 	 * @generated
 	 * @ordered
@@ -148,7 +148,7 @@ public class AvailableVersionImpl extends MinimalEObjectImpl.Container implement
 	 * The offset of the flags representing the value of the '{@link #getAvailableFrom() <em>Available From</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 * @ordered
 	 */
@@ -158,7 +158,7 @@ public class AvailableVersionImpl extends MinimalEObjectImpl.Container implement
 	 * The flags representing the default value of the '{@link #getAvailableFrom() <em>Available From</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 * @ordered
 	 */
@@ -168,7 +168,7 @@ public class AvailableVersionImpl extends MinimalEObjectImpl.Container implement
 	 * The array of enumeration values for '{@link AvailableFrom Available From}'
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 * @ordered
 	 */
@@ -178,7 +178,7 @@ public class AvailableVersionImpl extends MinimalEObjectImpl.Container implement
 	 * The flags representing the value of the '{@link #getAvailableFrom() <em>Available From</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getAvailableFrom()
 	 * @generated
 	 * @ordered
@@ -188,7 +188,7 @@ public class AvailableVersionImpl extends MinimalEObjectImpl.Container implement
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected AvailableVersionImpl() {
@@ -198,7 +198,7 @@ public class AvailableVersionImpl extends MinimalEObjectImpl.Container implement
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
 	public int compareTo(AvailableVersion o) {
@@ -214,7 +214,7 @@ public class AvailableVersionImpl extends MinimalEObjectImpl.Container implement
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -235,7 +235,7 @@ public class AvailableVersionImpl extends MinimalEObjectImpl.Container implement
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -258,7 +258,7 @@ public class AvailableVersionImpl extends MinimalEObjectImpl.Container implement
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
@@ -284,7 +284,7 @@ public class AvailableVersionImpl extends MinimalEObjectImpl.Container implement
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -295,7 +295,7 @@ public class AvailableVersionImpl extends MinimalEObjectImpl.Container implement
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -320,7 +320,7 @@ public class AvailableVersionImpl extends MinimalEObjectImpl.Container implement
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public AvailableFrom getAvailableFrom() {
@@ -330,7 +330,7 @@ public class AvailableVersionImpl extends MinimalEObjectImpl.Container implement
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public IMatchExpression<IInstallableUnit> getFilter() {
@@ -340,7 +340,7 @@ public class AvailableVersionImpl extends MinimalEObjectImpl.Container implement
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public Version getVersion() {
@@ -350,7 +350,7 @@ public class AvailableVersionImpl extends MinimalEObjectImpl.Container implement
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public VersionMatch getVersionMatch() {
@@ -360,7 +360,7 @@ public class AvailableVersionImpl extends MinimalEObjectImpl.Container implement
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public void setAvailableFrom(AvailableFrom newAvailableFrom) {
@@ -377,7 +377,7 @@ public class AvailableVersionImpl extends MinimalEObjectImpl.Container implement
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public void setFilter(IMatchExpression<IInstallableUnit> newFilter) {
@@ -391,7 +391,7 @@ public class AvailableVersionImpl extends MinimalEObjectImpl.Container implement
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public void setVersion(Version newVersion) {
@@ -405,7 +405,7 @@ public class AvailableVersionImpl extends MinimalEObjectImpl.Container implement
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public void setVersionMatch(VersionMatch newVersionMatch) {
@@ -422,7 +422,7 @@ public class AvailableVersionImpl extends MinimalEObjectImpl.Container implement
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override

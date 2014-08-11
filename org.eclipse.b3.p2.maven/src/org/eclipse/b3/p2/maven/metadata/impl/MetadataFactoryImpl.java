@@ -6,25 +6,27 @@
  */
 package org.eclipse.b3.p2.maven.metadata.impl;
 
-import org.eclipse.b3.p2.maven.metadata.*;
-
+import org.eclipse.b3.p2.maven.metadata.DocumentRoot;
+import org.eclipse.b3.p2.maven.metadata.MetaData;
+import org.eclipse.b3.p2.maven.metadata.MetadataFactory;
+import org.eclipse.b3.p2.maven.metadata.MetadataPackage;
+import org.eclipse.b3.p2.maven.metadata.Versioning;
+import org.eclipse.b3.p2.maven.metadata.Versions;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
-
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model <b>Factory</b>. <!-- end-user-doc -->
- * 
+ *
  * @generated
  */
 public class MetadataFactoryImpl extends EFactoryImpl implements MetadataFactory {
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @deprecated
 	 * @generated
 	 */
@@ -36,7 +38,7 @@ public class MetadataFactoryImpl extends EFactoryImpl implements MetadataFactory
 	/**
 	 * Creates the default factory implementation.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public static MetadataFactory init() {
@@ -55,7 +57,7 @@ public class MetadataFactoryImpl extends EFactoryImpl implements MetadataFactory
 	/**
 	 * Creates an instance of the factory.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public MetadataFactoryImpl() {
@@ -64,7 +66,7 @@ public class MetadataFactoryImpl extends EFactoryImpl implements MetadataFactory
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -85,9 +87,10 @@ public class MetadataFactoryImpl extends EFactoryImpl implements MetadataFactory
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public DocumentRoot createDocumentRoot() {
 		DocumentRootImpl documentRoot = new DocumentRootImpl();
 		return documentRoot;
@@ -95,9 +98,10 @@ public class MetadataFactoryImpl extends EFactoryImpl implements MetadataFactory
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public MetaData createMetaData() {
 		MetaDataImpl metaData = new MetaDataImpl();
 		return metaData;
@@ -105,9 +109,10 @@ public class MetadataFactoryImpl extends EFactoryImpl implements MetadataFactory
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public Versioning createVersioning() {
 		VersioningImpl versioning = new VersioningImpl();
 		return versioning;
@@ -115,9 +120,10 @@ public class MetadataFactoryImpl extends EFactoryImpl implements MetadataFactory
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public Versions createVersions() {
 		VersionsImpl versions = new VersionsImpl();
 		return versions;
@@ -125,9 +131,10 @@ public class MetadataFactoryImpl extends EFactoryImpl implements MetadataFactory
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public MetadataPackage getMetadataPackage() {
 		return (MetadataPackage) getEPackage();
 	}

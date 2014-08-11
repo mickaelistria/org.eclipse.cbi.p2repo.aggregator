@@ -17,21 +17,21 @@ import org.eclipse.emf.ecore.resource.Resource.Diagnostic;
 
 /**
  * Transforms source resource to target resource
- * 
+ *
  * @author Karel Brezina
  */
 public interface ITransformer {
 
 	/**
 	 * Returns resource errors.
-	 * 
+	 *
 	 * @return Returns a list of resource errors.
 	 */
 	List<Diagnostic> getResourceErrors();
 
 	/**
 	 * Initialize transformer
-	 * 
+	 *
 	 * @param srcResource
 	 *            source resource
 	 * @param trgtResource

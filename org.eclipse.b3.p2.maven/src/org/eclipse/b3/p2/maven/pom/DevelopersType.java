@@ -7,19 +7,18 @@
 package org.eclipse.b3.p2.maven.pom;
 
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc --> A representation of the model object '<em><b>Developers Type</b></em>'. <!-- end-user-doc -->
- * 
+ *
  * <p>
  * The following features are supported:
  * <ul>
  * <li>{@link org.eclipse.b3.p2.maven.pom.DevelopersType#getDeveloper <em>Developer</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @see org.eclipse.b3.p2.maven.pom.PomPackage#getDevelopersType()
  * @model extendedMetaData="name='developers_._type' kind='elementOnly'"
  * @generated
@@ -33,7 +32,7 @@ public interface DevelopersType extends EObject {
 	 * If the meaning of the '<em>Developer</em>' containment reference list isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @return the value of the '<em>Developer</em>' containment reference list.
 	 * @see org.eclipse.b3.p2.maven.pom.PomPackage#getDevelopersType_Developer()
 	 * @model containment="true"

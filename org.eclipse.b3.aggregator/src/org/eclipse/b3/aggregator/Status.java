@@ -11,7 +11,7 @@ package org.eclipse.b3.aggregator;
 
 /**
  * <!-- begin-user-doc --> A representation of the model object '<em><b>Status</b></em>'. <!-- end-user-doc -->
- * 
+ *
  * <p>
  * The following features are supported:
  * <ul>
@@ -19,7 +19,7 @@ package org.eclipse.b3.aggregator;
  * <li>{@link org.eclipse.b3.aggregator.Status#getMessage <em>Message</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @see org.eclipse.b3.aggregator.AggregatorPackage#getStatus()
  * @model
  * @generated
@@ -33,7 +33,7 @@ public interface Status {
 	 * If the meaning of the '<em>Code</em>' attribute isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @return the value of the '<em>Code</em>' attribute.
 	 * @see org.eclipse.b3.aggregator.StatusCode
 	 * @see org.eclipse.b3.aggregator.AggregatorPackage#getStatus_Code()
@@ -49,7 +49,7 @@ public interface Status {
 	 * If the meaning of the '<em>Message</em>' attribute isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @return the value of the '<em>Message</em>' attribute.
 	 * @see org.eclipse.b3.aggregator.AggregatorPackage#getStatus_Message()
 	 * @model default="" dataType="org.eclipse.emf.ecore.xml.type.String" changeable="false"

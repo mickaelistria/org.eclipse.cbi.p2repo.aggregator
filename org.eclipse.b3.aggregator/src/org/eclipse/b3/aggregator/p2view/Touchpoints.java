@@ -15,7 +15,7 @@ import org.eclipse.equinox.p2.metadata.ITouchpointType;
 
 /**
  * <!-- begin-user-doc --> A representation of the model object '<em><b>Touchpoints</b></em>'. <!-- end-user-doc -->
- * 
+ *
  * <p>
  * The following features are supported:
  * <ul>
@@ -23,7 +23,7 @@ import org.eclipse.equinox.p2.metadata.ITouchpointType;
  * <li>{@link org.eclipse.b3.aggregator.p2view.Touchpoints#getTouchpointDataList <em>Touchpoint Data List</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @see org.eclipse.b3.aggregator.p2view.P2viewPackage#getTouchpoints()
  * @model
  * @generated
@@ -37,7 +37,7 @@ public interface Touchpoints {
 	 * If the meaning of the '<em>Touchpoint Data List</em>' reference list isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @return the value of the '<em>Touchpoint Data List</em>' reference list.
 	 * @see org.eclipse.b3.aggregator.p2view.P2viewPackage#getTouchpoints_TouchpointDataList()
 	 * @model type="org.eclipse.b3.p2.ITouchpointData"
@@ -52,7 +52,7 @@ public interface Touchpoints {
 	 * If the meaning of the '<em>Touchpoint Type</em>' reference isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @return the value of the '<em>Touchpoint Type</em>' reference.
 	 * @see #setTouchpointType(ITouchpointType)
 	 * @see org.eclipse.b3.aggregator.p2view.P2viewPackage#getTouchpoints_TouchpointType()
@@ -64,7 +64,7 @@ public interface Touchpoints {
 	/**
 	 * Sets the value of the '{@link org.eclipse.b3.aggregator.p2view.Touchpoints#getTouchpointType <em>Touchpoint Type</em>}' reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param value
 	 *            the new value of the '<em>Touchpoint Type</em>' reference.
 	 * @see #getTouchpointType()

@@ -44,7 +44,7 @@ public class Trivial {
 	/**
 	 * If <code>str</code> is <code>null</code> or if the result of a trim on <code>str</code> is a
 	 * string of zero length, then <code>null</code> is returned, otherwise, trimmed string is returned.
-	 * 
+	 *
 	 * @param str
 	 *            The string to trim. Can be <code>null</code>.
 	 * @return A trimmed string with a length greater then zero or <code>null</code>.

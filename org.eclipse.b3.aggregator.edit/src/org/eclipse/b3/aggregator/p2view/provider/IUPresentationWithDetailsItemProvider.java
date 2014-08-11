@@ -14,10 +14,8 @@ import java.util.List;
 
 import org.eclipse.b3.aggregator.p2view.IUPresentationWithDetails;
 import org.eclipse.b3.aggregator.p2view.P2viewPackage;
-
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
@@ -33,7 +31,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
 /**
  * This is the item provider adapter for a {@link org.eclipse.b3.aggregator.p2view.IUPresentationWithDetails} object.
  * <!-- begin-user-doc --> <!-- end-user-doc -->
- * 
+ *
  * @generated
  */
 public class IUPresentationWithDetailsItemProvider extends IUPresentationItemProvider implements
@@ -42,7 +40,7 @@ public class IUPresentationWithDetailsItemProvider extends IUPresentationItemPro
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public IUPresentationWithDetailsItemProvider(AdapterFactory adapterFactory) {
@@ -52,7 +50,7 @@ public class IUPresentationWithDetailsItemProvider extends IUPresentationItemPro
 	/**
 	 * This adds a property descriptor for the Copyright feature.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected void addCopyrightPropertyDescriptor(Object object) {
@@ -66,7 +64,7 @@ public class IUPresentationWithDetailsItemProvider extends IUPresentationItemPro
 	/**
 	 * This adds a property descriptor for the Update Descriptor feature.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected void addUpdateDescriptorPropertyDescriptor(Object object) {
@@ -83,7 +81,7 @@ public class IUPresentationWithDetailsItemProvider extends IUPresentationItemPro
 	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
 	 * that can be created under this object.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -93,7 +91,7 @@ public class IUPresentationWithDetailsItemProvider extends IUPresentationItemPro
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -110,7 +108,7 @@ public class IUPresentationWithDetailsItemProvider extends IUPresentationItemPro
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -131,7 +129,7 @@ public class IUPresentationWithDetailsItemProvider extends IUPresentationItemPro
 	/**
 	 * This returns IUPresentationWithDetails.gif.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -142,7 +140,7 @@ public class IUPresentationWithDetailsItemProvider extends IUPresentationItemPro
 	/**
 	 * This returns the property descriptors for the adapted class.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -159,7 +157,7 @@ public class IUPresentationWithDetailsItemProvider extends IUPresentationItemPro
 	/**
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -184,7 +182,7 @@ public class IUPresentationWithDetailsItemProvider extends IUPresentationItemPro
 	 * This handles model notifications by calling {@link #updateChildren} to update any cached children and by creating
 	 * a viewer notification, which it passes to {@link #fireNotifyChanged}. <!-- begin-user-doc --> <!-- end-user-doc
 	 * -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override

@@ -4,7 +4,7 @@
  * licensed under the Eclipse Public License - v 1.0 by the copyright holder
  * listed above, as the Initial Contributor under such license. The text of
  * such license is available at www.eclipse.org.
- * 
+ *
  */
 package org.eclipse.b3.p2.impl;
 
@@ -31,7 +31,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <li>{@link org.eclipse.b3.p2.impl.SimpleArtifactDescriptorImpl#getRepositoryPropertyMap <em>Repository Property Map</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public class SimpleArtifactDescriptorImpl extends ArtifactDescriptorImpl implements SimpleArtifactDescriptor {
@@ -39,7 +39,7 @@ public class SimpleArtifactDescriptorImpl extends ArtifactDescriptorImpl impleme
 	 * The cached value of the '{@link #getRepositoryPropertyMap() <em>Repository Property Map</em>}' map.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getRepositoryPropertyMap()
 	 * @generated
 	 * @ordered
@@ -51,7 +51,7 @@ public class SimpleArtifactDescriptorImpl extends ArtifactDescriptorImpl impleme
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected SimpleArtifactDescriptorImpl() {
@@ -61,7 +61,7 @@ public class SimpleArtifactDescriptorImpl extends ArtifactDescriptorImpl impleme
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -79,7 +79,7 @@ public class SimpleArtifactDescriptorImpl extends ArtifactDescriptorImpl impleme
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -94,7 +94,7 @@ public class SimpleArtifactDescriptorImpl extends ArtifactDescriptorImpl impleme
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -122,7 +122,7 @@ public class SimpleArtifactDescriptorImpl extends ArtifactDescriptorImpl impleme
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -138,7 +138,7 @@ public class SimpleArtifactDescriptorImpl extends ArtifactDescriptorImpl impleme
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -149,7 +149,7 @@ public class SimpleArtifactDescriptorImpl extends ArtifactDescriptorImpl impleme
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -165,9 +165,10 @@ public class SimpleArtifactDescriptorImpl extends ArtifactDescriptorImpl impleme
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
+	@Override
 	public Map<String, String> getRepositoryProperties() {
 		return getRepositoryPropertyMap().map();
 	}
@@ -175,9 +176,10 @@ public class SimpleArtifactDescriptorImpl extends ArtifactDescriptorImpl impleme
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
+	@Override
 	public String getRepositoryProperty(String key) {
 		return getRepositoryPropertyMap().get(key);
 	}
@@ -185,9 +187,10 @@ public class SimpleArtifactDescriptorImpl extends ArtifactDescriptorImpl impleme
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public EMap<String, String> getRepositoryPropertyMap() {
 		if(repositoryPropertyMap == null) {
 			repositoryPropertyMap = new EcoreEMap<String, String>(

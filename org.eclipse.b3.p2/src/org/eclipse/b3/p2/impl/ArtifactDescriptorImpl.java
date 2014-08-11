@@ -4,7 +4,7 @@
  * licensed under the Eclipse Public License - v 1.0 by the copyright holder
  * listed above, as the Initial Contributor under such license. The text of
  * such license is available at www.eclipse.org.
- * 
+ *
  */
 package org.eclipse.b3.p2.impl;
 
@@ -43,7 +43,7 @@ import org.eclipse.equinox.p2.repository.artifact.IProcessingStepDescriptor;
  * <li>{@link org.eclipse.b3.p2.impl.ArtifactDescriptorImpl#getProcessingStepList <em>Processing Step List</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public class ArtifactDescriptorImpl extends MinimalEObjectImpl.Container implements ArtifactDescriptor {
@@ -51,7 +51,7 @@ public class ArtifactDescriptorImpl extends MinimalEObjectImpl.Container impleme
 	 * A set of bit flags representing the values of boolean attributes and whether unsettable features have been set.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 * @ordered
 	 */
@@ -61,7 +61,7 @@ public class ArtifactDescriptorImpl extends MinimalEObjectImpl.Container impleme
 	 * The cached value of the '{@link #getArtifactKey() <em>Artifact Key</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getArtifactKey()
 	 * @generated
 	 * @ordered
@@ -72,7 +72,7 @@ public class ArtifactDescriptorImpl extends MinimalEObjectImpl.Container impleme
 	 * The cached value of the '{@link #getPropertyMap() <em>Property Map</em>}' map.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getPropertyMap()
 	 * @generated
 	 * @ordered
@@ -83,7 +83,7 @@ public class ArtifactDescriptorImpl extends MinimalEObjectImpl.Container impleme
 	 * The cached value of the '{@link #getProcessingStepList() <em>Processing Step List</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getProcessingStepList()
 	 * @generated
 	 * @ordered
@@ -93,7 +93,7 @@ public class ArtifactDescriptorImpl extends MinimalEObjectImpl.Container impleme
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected ArtifactDescriptorImpl() {
@@ -103,7 +103,7 @@ public class ArtifactDescriptorImpl extends MinimalEObjectImpl.Container impleme
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public IArtifactKey basicGetArtifactKey() {
@@ -113,7 +113,7 @@ public class ArtifactDescriptorImpl extends MinimalEObjectImpl.Container impleme
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -137,7 +137,7 @@ public class ArtifactDescriptorImpl extends MinimalEObjectImpl.Container impleme
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -154,7 +154,7 @@ public class ArtifactDescriptorImpl extends MinimalEObjectImpl.Container impleme
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -207,7 +207,7 @@ public class ArtifactDescriptorImpl extends MinimalEObjectImpl.Container impleme
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
@@ -231,7 +231,7 @@ public class ArtifactDescriptorImpl extends MinimalEObjectImpl.Container impleme
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -242,7 +242,7 @@ public class ArtifactDescriptorImpl extends MinimalEObjectImpl.Container impleme
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -264,9 +264,10 @@ public class ArtifactDescriptorImpl extends MinimalEObjectImpl.Container impleme
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public IArtifactKey getArtifactKey() {
 		if(artifactKey != null && ((EObject) artifactKey).eIsProxy()) {
 			InternalEObject oldArtifactKey = (InternalEObject) artifactKey;
@@ -284,9 +285,10 @@ public class ArtifactDescriptorImpl extends MinimalEObjectImpl.Container impleme
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public EList<IProcessingStepDescriptor> getProcessingStepList() {
 		if(processingStepList == null) {
 			processingStepList = new EObjectContainmentEList.Resolving<IProcessingStepDescriptor>(
@@ -298,9 +300,10 @@ public class ArtifactDescriptorImpl extends MinimalEObjectImpl.Container impleme
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
+	@Override
 	public IProcessingStepDescriptor[] getProcessingSteps() {
 		EList<IProcessingStepDescriptor> steps = getProcessingStepList();
 		return steps.toArray(new IProcessingStepDescriptor[steps.size()]);
@@ -309,9 +312,10 @@ public class ArtifactDescriptorImpl extends MinimalEObjectImpl.Container impleme
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
+	@Override
 	public Map<String, String> getProperties() {
 		return getPropertyMap().map();
 	}
@@ -319,9 +323,10 @@ public class ArtifactDescriptorImpl extends MinimalEObjectImpl.Container impleme
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
+	@Override
 	public String getProperty(String key) {
 		return getPropertyMap().get(key);
 	}
@@ -329,9 +334,10 @@ public class ArtifactDescriptorImpl extends MinimalEObjectImpl.Container impleme
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public EMap<String, String> getPropertyMap() {
 		if(propertyMap == null) {
 			propertyMap = new EcoreEMap<String, String>(
@@ -343,9 +349,10 @@ public class ArtifactDescriptorImpl extends MinimalEObjectImpl.Container impleme
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
+	@Override
 	public IArtifactRepository getRepository() {
 		EObject container = eContainer();
 		if(container instanceof ArtifactsByKeyImpl) {
@@ -372,7 +379,7 @@ public class ArtifactDescriptorImpl extends MinimalEObjectImpl.Container impleme
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public void setArtifactKey(IArtifactKey newArtifactKey) {

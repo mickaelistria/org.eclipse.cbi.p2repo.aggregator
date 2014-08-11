@@ -14,7 +14,7 @@ import org.eclipse.equinox.p2.query.IQueryable;
 
 /**
  * @author filip.hrbek@cloudsmith.com
- * 
+ *
  */
 public class RepositoryTranslationSupport extends TranslationSupport {
 

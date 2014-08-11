@@ -50,7 +50,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <li>{@link org.eclipse.b3.aggregator.impl.MappedRepositoryImpl#getLocation <em>Location</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public class MappedRepositoryImpl extends MetadataRepositoryReferenceImpl implements MappedRepository {
@@ -58,7 +58,7 @@ public class MappedRepositoryImpl extends MetadataRepositoryReferenceImpl implem
 	 * The default value of the '{@link #getDescription() <em>Description</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @see #getDescription()
 	 * @generated
 	 * @ordered
@@ -73,7 +73,7 @@ public class MappedRepositoryImpl extends MetadataRepositoryReferenceImpl implem
 	 * The cached value of the '{@link #getDescription() <em>Description</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @see #getDescription()
 	 * @generated
 	 * @ordered
@@ -83,7 +83,7 @@ public class MappedRepositoryImpl extends MetadataRepositoryReferenceImpl implem
 	/**
 	 * The cached value of the '{@link #getProducts() <em>Products</em>}' containment reference list. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getProducts()
 	 * @generated
 	 * @ordered
@@ -94,7 +94,7 @@ public class MappedRepositoryImpl extends MetadataRepositoryReferenceImpl implem
 	 * The cached value of the '{@link #getBundles() <em>Bundles</em>}' containment reference list.
 	 * <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getBundles()
 	 * @generated
 	 * @ordered
@@ -104,7 +104,7 @@ public class MappedRepositoryImpl extends MetadataRepositoryReferenceImpl implem
 	/**
 	 * The cached value of the '{@link #getFeatures() <em>Features</em>}' containment reference list. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getFeatures()
 	 * @generated
 	 * @ordered
@@ -114,7 +114,7 @@ public class MappedRepositoryImpl extends MetadataRepositoryReferenceImpl implem
 	/**
 	 * The cached value of the '{@link #getCategories() <em>Categories</em>}' containment reference list. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getCategories()
 	 * @generated
 	 * @ordered
@@ -125,7 +125,7 @@ public class MappedRepositoryImpl extends MetadataRepositoryReferenceImpl implem
 	 * The default value of the '{@link #isMirrorArtifacts() <em>Mirror Artifacts</em>}' attribute.
 	 * <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #isMirrorArtifacts()
 	 * @generated
 	 * @ordered
@@ -135,7 +135,7 @@ public class MappedRepositoryImpl extends MetadataRepositoryReferenceImpl implem
 	/**
 	 * The flag representing the value of the '{@link #isMirrorArtifacts() <em>Mirror Artifacts</em>}' attribute. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #isMirrorArtifacts()
 	 * @generated
 	 * @ordered
@@ -146,7 +146,7 @@ public class MappedRepositoryImpl extends MetadataRepositoryReferenceImpl implem
 	 * The default value of the '{@link #getCategoryPrefix() <em>Category Prefix</em>}' attribute.
 	 * <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getCategoryPrefix()
 	 * @generated
 	 * @ordered
@@ -157,7 +157,7 @@ public class MappedRepositoryImpl extends MetadataRepositoryReferenceImpl implem
 	 * The cached value of the '{@link #getCategoryPrefix() <em>Category Prefix</em>}' attribute.
 	 * <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getCategoryPrefix()
 	 * @generated
 	 * @ordered
@@ -167,7 +167,7 @@ public class MappedRepositoryImpl extends MetadataRepositoryReferenceImpl implem
 	/**
 	 * The cached value of the '{@link #getMapRules() <em>Map Rules</em>}' containment reference list. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getMapRules()
 	 * @generated
 	 * @ordered
@@ -176,7 +176,7 @@ public class MappedRepositoryImpl extends MetadataRepositoryReferenceImpl implem
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected MappedRepositoryImpl() {
@@ -199,7 +199,7 @@ public class MappedRepositoryImpl extends MetadataRepositoryReferenceImpl implem
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -223,7 +223,7 @@ public class MappedRepositoryImpl extends MetadataRepositoryReferenceImpl implem
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -247,7 +247,7 @@ public class MappedRepositoryImpl extends MetadataRepositoryReferenceImpl implem
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -275,7 +275,7 @@ public class MappedRepositoryImpl extends MetadataRepositoryReferenceImpl implem
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -297,7 +297,7 @@ public class MappedRepositoryImpl extends MetadataRepositoryReferenceImpl implem
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -329,7 +329,7 @@ public class MappedRepositoryImpl extends MetadataRepositoryReferenceImpl implem
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
@@ -371,7 +371,7 @@ public class MappedRepositoryImpl extends MetadataRepositoryReferenceImpl implem
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -381,7 +381,7 @@ public class MappedRepositoryImpl extends MetadataRepositoryReferenceImpl implem
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -422,7 +422,7 @@ public class MappedRepositoryImpl extends MetadataRepositoryReferenceImpl implem
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EList<Bundle> getBundles() {
@@ -435,7 +435,7 @@ public class MappedRepositoryImpl extends MetadataRepositoryReferenceImpl implem
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EList<Category> getCategories() {
@@ -448,7 +448,7 @@ public class MappedRepositoryImpl extends MetadataRepositoryReferenceImpl implem
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public String getCategoryPrefix() {
@@ -457,7 +457,7 @@ public class MappedRepositoryImpl extends MetadataRepositoryReferenceImpl implem
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public String getDescription() {
@@ -466,7 +466,7 @@ public class MappedRepositoryImpl extends MetadataRepositoryReferenceImpl implem
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
 	public EList<MappedUnit> getEnabledUnits() {
@@ -493,7 +493,7 @@ public class MappedRepositoryImpl extends MetadataRepositoryReferenceImpl implem
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EList<Feature> getFeatures() {
@@ -507,7 +507,7 @@ public class MappedRepositoryImpl extends MetadataRepositoryReferenceImpl implem
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
 	public String getIdentification() {
@@ -516,7 +516,7 @@ public class MappedRepositoryImpl extends MetadataRepositoryReferenceImpl implem
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EList<MapRule> getMapRules() {
@@ -530,7 +530,7 @@ public class MappedRepositoryImpl extends MetadataRepositoryReferenceImpl implem
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
 	public EList<MapRule> getMapRules(boolean enabledOnly) {
@@ -542,7 +542,7 @@ public class MappedRepositoryImpl extends MetadataRepositoryReferenceImpl implem
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EList<Product> getProducts() {
@@ -555,7 +555,7 @@ public class MappedRepositoryImpl extends MetadataRepositoryReferenceImpl implem
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
 	@Override
@@ -580,7 +580,7 @@ public class MappedRepositoryImpl extends MetadataRepositoryReferenceImpl implem
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
 	public EList<MappedUnit> getUnits(boolean enabledOnly) {
@@ -608,7 +608,7 @@ public class MappedRepositoryImpl extends MetadataRepositoryReferenceImpl implem
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
 	@Override
@@ -618,7 +618,7 @@ public class MappedRepositoryImpl extends MetadataRepositoryReferenceImpl implem
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
 	public boolean isMapExclusive() {
@@ -628,7 +628,7 @@ public class MappedRepositoryImpl extends MetadataRepositoryReferenceImpl implem
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public boolean isMirrorArtifacts() {
@@ -650,7 +650,7 @@ public class MappedRepositoryImpl extends MetadataRepositoryReferenceImpl implem
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public void setCategoryPrefix(String newCategoryPrefix) {
@@ -664,7 +664,7 @@ public class MappedRepositoryImpl extends MetadataRepositoryReferenceImpl implem
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public void setDescription(String newDescription) {
@@ -677,7 +677,7 @@ public class MappedRepositoryImpl extends MetadataRepositoryReferenceImpl implem
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public void setMirrorArtifacts(boolean newMirrorArtifacts) {
@@ -694,7 +694,7 @@ public class MappedRepositoryImpl extends MetadataRepositoryReferenceImpl implem
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override

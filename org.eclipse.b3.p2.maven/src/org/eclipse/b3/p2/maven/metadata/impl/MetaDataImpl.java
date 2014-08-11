@@ -9,13 +9,10 @@ package org.eclipse.b3.p2.maven.metadata.impl;
 import org.eclipse.b3.p2.maven.metadata.MetaData;
 import org.eclipse.b3.p2.maven.metadata.MetadataPackage;
 import org.eclipse.b3.p2.maven.metadata.Versioning;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 
@@ -30,7 +27,7 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * <li>{@link org.eclipse.b3.p2.maven.metadata.impl.MetaDataImpl#getVersioning <em>Versioning</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public class MetaDataImpl extends EObjectImpl implements MetaData {
@@ -38,7 +35,7 @@ public class MetaDataImpl extends EObjectImpl implements MetaData {
 	 * The default value of the '{@link #getGroupId() <em>Group Id</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @see #getGroupId()
 	 * @generated
 	 * @ordered
@@ -49,7 +46,7 @@ public class MetaDataImpl extends EObjectImpl implements MetaData {
 	 * The cached value of the '{@link #getGroupId() <em>Group Id</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @see #getGroupId()
 	 * @generated
 	 * @ordered
@@ -60,7 +57,7 @@ public class MetaDataImpl extends EObjectImpl implements MetaData {
 	 * The default value of the '{@link #getArtifactId() <em>Artifact Id</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @see #getArtifactId()
 	 * @generated
 	 * @ordered
@@ -71,7 +68,7 @@ public class MetaDataImpl extends EObjectImpl implements MetaData {
 	 * The cached value of the '{@link #getArtifactId() <em>Artifact Id</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @see #getArtifactId()
 	 * @generated
 	 * @ordered
@@ -82,7 +79,7 @@ public class MetaDataImpl extends EObjectImpl implements MetaData {
 	 * The default value of the '{@link #getVersion() <em>Version</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @see #getVersion()
 	 * @generated
 	 * @ordered
@@ -93,7 +90,7 @@ public class MetaDataImpl extends EObjectImpl implements MetaData {
 	 * The cached value of the '{@link #getVersion() <em>Version</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @see #getVersion()
 	 * @generated
 	 * @ordered
@@ -104,7 +101,7 @@ public class MetaDataImpl extends EObjectImpl implements MetaData {
 	 * The cached value of the '{@link #getVersioning() <em>Versioning</em>}' containment reference.
 	 * <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getVersioning()
 	 * @generated
 	 * @ordered
@@ -113,7 +110,7 @@ public class MetaDataImpl extends EObjectImpl implements MetaData {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected MetaDataImpl() {
@@ -122,7 +119,7 @@ public class MetaDataImpl extends EObjectImpl implements MetaData {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public NotificationChain basicSetVersioning(Versioning newVersioning, NotificationChain msgs) {
@@ -141,7 +138,7 @@ public class MetaDataImpl extends EObjectImpl implements MetaData {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -161,7 +158,7 @@ public class MetaDataImpl extends EObjectImpl implements MetaData {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -175,7 +172,7 @@ public class MetaDataImpl extends EObjectImpl implements MetaData {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -201,7 +198,7 @@ public class MetaDataImpl extends EObjectImpl implements MetaData {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -225,7 +222,7 @@ public class MetaDataImpl extends EObjectImpl implements MetaData {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -249,45 +246,50 @@ public class MetaDataImpl extends EObjectImpl implements MetaData {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public String getArtifactId() {
 		return artifactId;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public String getGroupId() {
 		return groupId;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public String getVersion() {
 		return version;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public Versioning getVersioning() {
 		return versioning;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public void setArtifactId(String newArtifactId) {
 		String oldArtifactId = artifactId;
 		artifactId = newArtifactId;
@@ -298,9 +300,10 @@ public class MetaDataImpl extends EObjectImpl implements MetaData {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public void setGroupId(String newGroupId) {
 		String oldGroupId = groupId;
 		groupId = newGroupId;
@@ -311,9 +314,10 @@ public class MetaDataImpl extends EObjectImpl implements MetaData {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public void setVersion(String newVersion) {
 		String oldVersion = version;
 		version = newVersion;
@@ -324,9 +328,10 @@ public class MetaDataImpl extends EObjectImpl implements MetaData {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public void setVersioning(Versioning newVersioning) {
 		if(newVersioning != versioning) {
 			NotificationChain msgs = null;
@@ -347,7 +352,7 @@ public class MetaDataImpl extends EObjectImpl implements MetaData {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -368,7 +373,7 @@ public class MetaDataImpl extends EObjectImpl implements MetaData {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override

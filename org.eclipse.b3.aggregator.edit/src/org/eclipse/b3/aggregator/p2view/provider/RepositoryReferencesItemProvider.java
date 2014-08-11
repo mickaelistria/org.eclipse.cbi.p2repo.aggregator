@@ -11,15 +11,11 @@ import java.util.Collection;
 import java.util.List;
 
 import org.eclipse.b3.aggregator.p2view.P2viewPackage;
-
 import org.eclipse.b3.aggregator.provider.AggregatorEditPlugin;
 import org.eclipse.b3.aggregator.provider.AggregatorItemProviderAdapter;
-
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.common.util.ResourceLocator;
-
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
@@ -35,7 +31,7 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
  * This is the item provider adapter for a {@link org.eclipse.b3.aggregator.p2view.RepositoryReferences} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
- * 
+ *
  * @generated
  */
 public class RepositoryReferencesItemProvider extends AggregatorItemProviderAdapter implements
@@ -45,7 +41,7 @@ public class RepositoryReferencesItemProvider extends AggregatorItemProviderAdap
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public RepositoryReferencesItemProvider(AdapterFactory adapterFactory) {
@@ -56,7 +52,7 @@ public class RepositoryReferencesItemProvider extends AggregatorItemProviderAdap
 	 * This adds a property descriptor for the Repository References feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected void addRepositoryReferencesPropertyDescriptor(Object object) {
@@ -75,7 +71,7 @@ public class RepositoryReferencesItemProvider extends AggregatorItemProviderAdap
 	 * that can be created under this object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -86,7 +82,7 @@ public class RepositoryReferencesItemProvider extends AggregatorItemProviderAdap
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -103,7 +99,7 @@ public class RepositoryReferencesItemProvider extends AggregatorItemProviderAdap
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -119,7 +115,7 @@ public class RepositoryReferencesItemProvider extends AggregatorItemProviderAdap
 	 * This returns RepositoryReferences.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -131,7 +127,7 @@ public class RepositoryReferencesItemProvider extends AggregatorItemProviderAdap
 	 * This returns the property descriptors for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -148,7 +144,7 @@ public class RepositoryReferencesItemProvider extends AggregatorItemProviderAdap
 	 * Return the resource locator for this item provider's resources.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -160,7 +156,7 @@ public class RepositoryReferencesItemProvider extends AggregatorItemProviderAdap
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -173,7 +169,7 @@ public class RepositoryReferencesItemProvider extends AggregatorItemProviderAdap
 	 * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override

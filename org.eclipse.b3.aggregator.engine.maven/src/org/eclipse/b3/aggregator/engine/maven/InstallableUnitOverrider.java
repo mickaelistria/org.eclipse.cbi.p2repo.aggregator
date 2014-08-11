@@ -26,7 +26,7 @@ import org.eclipse.equinox.p2.metadata.expression.IMatchExpression;
 
 /**
  * @author Filip Hrbek (filip.hrbek@cloudsmith.com)
- * 
+ *
  */
 public class InstallableUnitOverrider implements IInstallableUnit {
 	private IInstallableUnit installableUnit;
@@ -41,10 +41,12 @@ public class InstallableUnitOverrider implements IInstallableUnit {
 		installableUnit = iu;
 	}
 
+	@Override
 	public int compareTo(IInstallableUnit other) {
 		return installableUnit.compareTo(other);
 	}
 
+	@Override
 	public Collection<IArtifactKey> getArtifacts() {
 		if(artifacts != null)
 			return artifacts;
@@ -52,22 +54,27 @@ public class InstallableUnitOverrider implements IInstallableUnit {
 		return installableUnit.getArtifacts();
 	}
 
+	@Override
 	public ICopyright getCopyright() {
 		return installableUnit.getCopyright();
 	}
 
+	@Override
 	public ICopyright getCopyright(String locale) {
 		return installableUnit.getCopyright(locale);
 	}
 
+	@Override
 	public IMatchExpression<IInstallableUnit> getFilter() {
 		return installableUnit.getFilter();
 	}
 
+	@Override
 	public Collection<IInstallableUnitFragment> getFragments() {
 		return installableUnit.getFragments();
 	}
 
+	@Override
 	public String getId() {
 		if(id != null)
 			return id;
@@ -75,34 +82,42 @@ public class InstallableUnitOverrider implements IInstallableUnit {
 		return installableUnit.getId();
 	}
 
+	@Override
 	public Collection<ILicense> getLicenses() {
 		return installableUnit.getLicenses();
 	}
 
+	@Override
 	public Collection<ILicense> getLicenses(String locale) {
 		return installableUnit.getLicenses(locale);
 	}
 
+	@Override
 	public Collection<IRequirement> getMetaRequirements() {
 		return installableUnit.getMetaRequirements();
 	}
 
+	@Override
 	public Map<String, String> getProperties() {
 		return installableUnit.getProperties();
 	}
 
+	@Override
 	public String getProperty(String key) {
 		return installableUnit.getProperty(key);
 	}
 
+	@Override
 	public String getProperty(String key, String locale) {
 		return installableUnit.getProperty(key, locale);
 	}
 
+	@Override
 	public Collection<IProvidedCapability> getProvidedCapabilities() {
 		return installableUnit.getProvidedCapabilities();
 	}
 
+	@Override
 	public Collection<IRequirement> getRequirements() {
 		if(requirements != null)
 			return requirements;
@@ -110,26 +125,32 @@ public class InstallableUnitOverrider implements IInstallableUnit {
 		return installableUnit.getRequirements();
 	}
 
+	@Override
 	public Collection<ITouchpointData> getTouchpointData() {
 		return installableUnit.getTouchpointData();
 	}
 
+	@Override
 	public ITouchpointType getTouchpointType() {
 		return installableUnit.getTouchpointType();
 	}
 
+	@Override
 	public IUpdateDescriptor getUpdateDescriptor() {
 		return installableUnit.getUpdateDescriptor();
 	}
 
+	@Override
 	public Version getVersion() {
 		return installableUnit.getVersion();
 	}
 
+	@Override
 	public boolean isResolved() {
 		return installableUnit.isResolved();
 	}
 
+	@Override
 	public boolean isSingleton() {
 		return installableUnit.isSingleton();
 	}
@@ -148,10 +169,12 @@ public class InstallableUnitOverrider implements IInstallableUnit {
 		this.requirements.addAll(requirements);
 	}
 
+	@Override
 	public boolean satisfies(IRequirement candidate) {
 		return installableUnit.satisfies(candidate);
 	}
 
+	@Override
 	public IInstallableUnit unresolved() {
 		return installableUnit.unresolved();
 	}

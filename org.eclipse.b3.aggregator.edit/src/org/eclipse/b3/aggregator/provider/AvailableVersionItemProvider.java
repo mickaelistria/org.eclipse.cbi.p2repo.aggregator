@@ -35,7 +35,7 @@ import org.eclipse.equinox.p2.metadata.Version;
  * This is the item provider adapter for a {@link org.eclipse.b3.aggregator.AvailableVersion} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
- * 
+ *
  * @generated
  */
 public class AvailableVersionItemProvider extends AggregatorItemProviderAdapter implements IEditingDomainItemProvider,
@@ -45,7 +45,7 @@ public class AvailableVersionItemProvider extends AggregatorItemProviderAdapter 
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public AvailableVersionItemProvider(AdapterFactory adapterFactory) {
@@ -56,7 +56,7 @@ public class AvailableVersionItemProvider extends AggregatorItemProviderAdapter 
 	 * This adds a property descriptor for the Available From feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected void addAvailableFromPropertyDescriptor(Object object) {
@@ -74,7 +74,7 @@ public class AvailableVersionItemProvider extends AggregatorItemProviderAdapter 
 	 * This adds a property descriptor for the Filter feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected void addFilterPropertyDescriptor(Object object) {
@@ -92,7 +92,7 @@ public class AvailableVersionItemProvider extends AggregatorItemProviderAdapter 
 	 * This adds a property descriptor for the Version Match feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected void addVersionMatchPropertyDescriptor(Object object) {
@@ -110,7 +110,7 @@ public class AvailableVersionItemProvider extends AggregatorItemProviderAdapter 
 	 * This adds a property descriptor for the Version feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected void addVersionPropertyDescriptor(Object object) {
@@ -129,7 +129,7 @@ public class AvailableVersionItemProvider extends AggregatorItemProviderAdapter 
 	 * that can be created under this object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -151,7 +151,7 @@ public class AvailableVersionItemProvider extends AggregatorItemProviderAdapter 
 	 * This returns AvailableVersion.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
 	@Override
@@ -176,7 +176,7 @@ public class AvailableVersionItemProvider extends AggregatorItemProviderAdapter 
 	 * This returns the property descriptors for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -196,7 +196,7 @@ public class AvailableVersionItemProvider extends AggregatorItemProviderAdapter 
 	 * Return the resource locator for this item provider's resources.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -208,7 +208,7 @@ public class AvailableVersionItemProvider extends AggregatorItemProviderAdapter 
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
 	@Override
@@ -243,7 +243,7 @@ public class AvailableVersionItemProvider extends AggregatorItemProviderAdapter 
 	 * This returns AvailableVersion.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
 	@Override
@@ -269,7 +269,7 @@ public class AvailableVersionItemProvider extends AggregatorItemProviderAdapter 
 	 * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override

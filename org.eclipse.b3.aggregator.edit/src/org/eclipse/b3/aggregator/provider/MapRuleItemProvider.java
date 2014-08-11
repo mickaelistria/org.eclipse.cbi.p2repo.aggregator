@@ -42,7 +42,7 @@ import org.eclipse.equinox.p2.query.QueryUtil;
 /**
  * This is the item provider adapter for a {@link org.eclipse.b3.aggregator.MapRule} object. <!--
  * begin-user-doc --> <!-- end-user-doc -->
- * 
+ *
  * @generated
  */
 public class MapRuleItemProvider extends InstallableUnitRequestItemProvider implements IEditingDomainItemProvider,
@@ -51,7 +51,7 @@ public class MapRuleItemProvider extends InstallableUnitRequestItemProvider impl
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public MapRuleItemProvider(AdapterFactory adapterFactory) {
@@ -62,7 +62,7 @@ public class MapRuleItemProvider extends InstallableUnitRequestItemProvider impl
 	 * This adds a property descriptor for the Enabled feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected void addEnabledPropertyDescriptor(Object object) {
@@ -80,7 +80,7 @@ public class MapRuleItemProvider extends InstallableUnitRequestItemProvider impl
 	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
 	 * that can be created under this object.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -109,7 +109,7 @@ public class MapRuleItemProvider extends InstallableUnitRequestItemProvider impl
 	/**
 	 * This returns the property descriptors for the adapted class.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -125,7 +125,7 @@ public class MapRuleItemProvider extends InstallableUnitRequestItemProvider impl
 	/**
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
 	@Override
@@ -139,7 +139,7 @@ public class MapRuleItemProvider extends InstallableUnitRequestItemProvider impl
 	}
 
 	/**
-	 * 
+	 *
 	 * @generated NOT
 	 */
 	@Override
@@ -174,7 +174,7 @@ public class MapRuleItemProvider extends InstallableUnitRequestItemProvider impl
 	 * This handles model notifications by calling {@link #updateChildren} to update any cached children and by creating
 	 * a viewer notification, which it passes to {@link #fireNotifyChanged}. <!-- begin-user-doc --> <!-- end-user-doc
 	 * -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public void notifyChangedGen(Notification notification) {

@@ -12,13 +12,10 @@ import org.eclipse.b3.p2.maven.pom.ExecutionsType;
 import org.eclipse.b3.p2.maven.pom.GoalsType;
 import org.eclipse.b3.p2.maven.pom.Plugin;
 import org.eclipse.b3.p2.maven.pom.PomPackage;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 
@@ -38,7 +35,7 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * <li>{@link org.eclipse.b3.p2.maven.pom.impl.PluginImpl#getConfiguration <em>Configuration</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public class PluginImpl extends EObjectImpl implements Plugin {
@@ -46,7 +43,7 @@ public class PluginImpl extends EObjectImpl implements Plugin {
 	 * The default value of the '{@link #getGroupId() <em>Group Id</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @see #getGroupId()
 	 * @generated
 	 * @ordered
@@ -57,7 +54,7 @@ public class PluginImpl extends EObjectImpl implements Plugin {
 	 * The cached value of the '{@link #getGroupId() <em>Group Id</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @see #getGroupId()
 	 * @generated
 	 * @ordered
@@ -67,7 +64,7 @@ public class PluginImpl extends EObjectImpl implements Plugin {
 	/**
 	 * This is true if the Group Id attribute has been set.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 * @ordered
 	 */
@@ -77,7 +74,7 @@ public class PluginImpl extends EObjectImpl implements Plugin {
 	 * The default value of the '{@link #getArtifactId() <em>Artifact Id</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @see #getArtifactId()
 	 * @generated
 	 * @ordered
@@ -88,7 +85,7 @@ public class PluginImpl extends EObjectImpl implements Plugin {
 	 * The cached value of the '{@link #getArtifactId() <em>Artifact Id</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @see #getArtifactId()
 	 * @generated
 	 * @ordered
@@ -99,7 +96,7 @@ public class PluginImpl extends EObjectImpl implements Plugin {
 	 * The default value of the '{@link #getVersion() <em>Version</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @see #getVersion()
 	 * @generated
 	 * @ordered
@@ -110,7 +107,7 @@ public class PluginImpl extends EObjectImpl implements Plugin {
 	 * The cached value of the '{@link #getVersion() <em>Version</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @see #getVersion()
 	 * @generated
 	 * @ordered
@@ -121,7 +118,7 @@ public class PluginImpl extends EObjectImpl implements Plugin {
 	 * The default value of the '{@link #isExtensions() <em>Extensions</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @see #isExtensions()
 	 * @generated
 	 * @ordered
@@ -132,7 +129,7 @@ public class PluginImpl extends EObjectImpl implements Plugin {
 	 * The cached value of the '{@link #isExtensions() <em>Extensions</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @see #isExtensions()
 	 * @generated
 	 * @ordered
@@ -142,7 +139,7 @@ public class PluginImpl extends EObjectImpl implements Plugin {
 	/**
 	 * This is true if the Extensions attribute has been set.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 * @ordered
 	 */
@@ -152,7 +149,7 @@ public class PluginImpl extends EObjectImpl implements Plugin {
 	 * The cached value of the '{@link #getExecutions() <em>Executions</em>}' containment reference.
 	 * <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getExecutions()
 	 * @generated
 	 * @ordered
@@ -162,7 +159,7 @@ public class PluginImpl extends EObjectImpl implements Plugin {
 	/**
 	 * The cached value of the '{@link #getDependencies() <em>Dependencies</em>}' containment reference. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getDependencies()
 	 * @generated
 	 * @ordered
@@ -173,7 +170,7 @@ public class PluginImpl extends EObjectImpl implements Plugin {
 	 * The cached value of the '{@link #getGoals() <em>Goals</em>}' containment reference.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @see #getGoals()
 	 * @generated
 	 * @ordered
@@ -184,7 +181,7 @@ public class PluginImpl extends EObjectImpl implements Plugin {
 	 * The default value of the '{@link #getInherited() <em>Inherited</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @see #getInherited()
 	 * @generated
 	 * @ordered
@@ -195,7 +192,7 @@ public class PluginImpl extends EObjectImpl implements Plugin {
 	 * The cached value of the '{@link #getInherited() <em>Inherited</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @see #getInherited()
 	 * @generated
 	 * @ordered
@@ -205,7 +202,7 @@ public class PluginImpl extends EObjectImpl implements Plugin {
 	/**
 	 * The cached value of the '{@link #getConfiguration() <em>Configuration</em>}' containment reference. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getConfiguration()
 	 * @generated
 	 * @ordered
@@ -214,7 +211,7 @@ public class PluginImpl extends EObjectImpl implements Plugin {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected PluginImpl() {
@@ -223,7 +220,7 @@ public class PluginImpl extends EObjectImpl implements Plugin {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public NotificationChain basicSetConfiguration(ConfigurationType newConfiguration, NotificationChain msgs) {
@@ -242,7 +239,7 @@ public class PluginImpl extends EObjectImpl implements Plugin {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public NotificationChain basicSetDependencies(DependenciesType newDependencies, NotificationChain msgs) {
@@ -261,7 +258,7 @@ public class PluginImpl extends EObjectImpl implements Plugin {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public NotificationChain basicSetExecutions(ExecutionsType newExecutions, NotificationChain msgs) {
@@ -280,7 +277,7 @@ public class PluginImpl extends EObjectImpl implements Plugin {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public NotificationChain basicSetGoals(GoalsType newGoals, NotificationChain msgs) {
@@ -299,7 +296,7 @@ public class PluginImpl extends EObjectImpl implements Plugin {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -329,7 +326,7 @@ public class PluginImpl extends EObjectImpl implements Plugin {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -349,7 +346,7 @@ public class PluginImpl extends EObjectImpl implements Plugin {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -385,7 +382,7 @@ public class PluginImpl extends EObjectImpl implements Plugin {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -424,7 +421,7 @@ public class PluginImpl extends EObjectImpl implements Plugin {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -463,108 +460,120 @@ public class PluginImpl extends EObjectImpl implements Plugin {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public String getArtifactId() {
 		return artifactId;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public ConfigurationType getConfiguration() {
 		return configuration;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public DependenciesType getDependencies() {
 		return dependencies;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public ExecutionsType getExecutions() {
 		return executions;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public GoalsType getGoals() {
 		return goals;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public String getGroupId() {
 		return groupId;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public String getInherited() {
 		return inherited;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public String getVersion() {
 		return version;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public boolean isExtensions() {
 		return extensions;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public boolean isSetExtensions() {
 		return extensionsESet;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public boolean isSetGroupId() {
 		return groupIdESet;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public void setArtifactId(String newArtifactId) {
 		String oldArtifactId = artifactId;
 		artifactId = newArtifactId;
@@ -575,9 +584,10 @@ public class PluginImpl extends EObjectImpl implements Plugin {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public void setConfiguration(ConfigurationType newConfiguration) {
 		if(newConfiguration != configuration) {
 			NotificationChain msgs = null;
@@ -598,9 +608,10 @@ public class PluginImpl extends EObjectImpl implements Plugin {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public void setDependencies(DependenciesType newDependencies) {
 		if(newDependencies != dependencies) {
 			NotificationChain msgs = null;
@@ -621,9 +632,10 @@ public class PluginImpl extends EObjectImpl implements Plugin {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public void setExecutions(ExecutionsType newExecutions) {
 		if(newExecutions != executions) {
 			NotificationChain msgs = null;
@@ -644,9 +656,10 @@ public class PluginImpl extends EObjectImpl implements Plugin {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public void setExtensions(boolean newExtensions) {
 		boolean oldExtensions = extensions;
 		extensions = newExtensions;
@@ -659,9 +672,10 @@ public class PluginImpl extends EObjectImpl implements Plugin {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public void setGoals(GoalsType newGoals) {
 		if(newGoals != goals) {
 			NotificationChain msgs = null;
@@ -681,9 +695,10 @@ public class PluginImpl extends EObjectImpl implements Plugin {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public void setGroupId(String newGroupId) {
 		String oldGroupId = groupId;
 		groupId = newGroupId;
@@ -696,9 +711,10 @@ public class PluginImpl extends EObjectImpl implements Plugin {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public void setInherited(String newInherited) {
 		String oldInherited = inherited;
 		inherited = newInherited;
@@ -708,9 +724,10 @@ public class PluginImpl extends EObjectImpl implements Plugin {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public void setVersion(String newVersion) {
 		String oldVersion = version;
 		version = newVersion;
@@ -720,7 +737,7 @@ public class PluginImpl extends EObjectImpl implements Plugin {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -751,9 +768,10 @@ public class PluginImpl extends EObjectImpl implements Plugin {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public void unsetExtensions() {
 		boolean oldExtensions = extensions;
 		boolean oldExtensionsESet = extensionsESet;
@@ -767,9 +785,10 @@ public class PluginImpl extends EObjectImpl implements Plugin {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public void unsetGroupId() {
 		String oldGroupId = groupId;
 		boolean oldGroupIdESet = groupIdESet;
@@ -782,7 +801,7 @@ public class PluginImpl extends EObjectImpl implements Plugin {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override

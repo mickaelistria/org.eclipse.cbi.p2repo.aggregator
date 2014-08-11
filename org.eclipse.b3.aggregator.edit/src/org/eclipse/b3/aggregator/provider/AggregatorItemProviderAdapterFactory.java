@@ -32,7 +32,7 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
  * factory convert EMF adapter notifications into calls to {@link #fireNotifyChanged fireNotifyChanged}. The adapters
  * also support Eclipse property sheets. Note that most of the adapters are shared among multiple instances. <!--
  * begin-user-doc --> <!-- end-user-doc -->
- * 
+ *
  * @generated
  */
 public class AggregatorItemProviderAdapterFactory extends AggregatorAdapterFactory implements
@@ -41,7 +41,7 @@ public class AggregatorItemProviderAdapterFactory extends AggregatorAdapterFacto
 	 * This keeps track of the root adapter factory that delegates to this adapter factory.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected ComposedAdapterFactory parentAdapterFactory;
@@ -50,7 +50,7 @@ public class AggregatorItemProviderAdapterFactory extends AggregatorAdapterFacto
 	 * This is used to implement {@link org.eclipse.emf.edit.provider.IChangeNotifier}.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected IChangeNotifier changeNotifier = new ChangeNotifier();
@@ -58,7 +58,7 @@ public class AggregatorItemProviderAdapterFactory extends AggregatorAdapterFacto
 	/**
 	 * This keeps track of all the supported types checked by {@link #isFactoryForType isFactoryForType}. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected Collection<Object> supportedTypes = new ArrayList<Object>();
@@ -66,7 +66,7 @@ public class AggregatorItemProviderAdapterFactory extends AggregatorAdapterFacto
 	/**
 	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.aggregator.MappedRepository} instances.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected MappedRepositoryItemProvider mappedRepositoryItemProvider;
@@ -74,7 +74,7 @@ public class AggregatorItemProviderAdapterFactory extends AggregatorAdapterFacto
 	/**
 	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.aggregator.Configuration} instances.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected ConfigurationItemProvider configurationItemProvider;
@@ -82,7 +82,7 @@ public class AggregatorItemProviderAdapterFactory extends AggregatorAdapterFacto
 	/**
 	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.aggregator.Contribution} instances.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected ContributionItemProvider contributionItemProvider;
@@ -90,7 +90,7 @@ public class AggregatorItemProviderAdapterFactory extends AggregatorAdapterFacto
 	/**
 	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.aggregator.Contact} instances.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected ContactItemProvider contactItemProvider;
@@ -98,7 +98,7 @@ public class AggregatorItemProviderAdapterFactory extends AggregatorAdapterFacto
 	/**
 	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.aggregator.Feature} instances.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected FeatureItemProvider featureItemProvider;
@@ -106,7 +106,7 @@ public class AggregatorItemProviderAdapterFactory extends AggregatorAdapterFacto
 	/**
 	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.aggregator.Bundle} instances.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected BundleItemProvider bundleItemProvider;
@@ -114,7 +114,7 @@ public class AggregatorItemProviderAdapterFactory extends AggregatorAdapterFacto
 	/**
 	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.aggregator.Product} instances.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected ProductItemProvider productItemProvider;
@@ -122,7 +122,7 @@ public class AggregatorItemProviderAdapterFactory extends AggregatorAdapterFacto
 	/**
 	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.aggregator.Property} instances.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected PropertyItemProvider propertyItemProvider;
@@ -130,7 +130,7 @@ public class AggregatorItemProviderAdapterFactory extends AggregatorAdapterFacto
 	/**
 	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.aggregator.Category} instances.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected CategoryItemProvider categoryItemProvider;
@@ -138,7 +138,7 @@ public class AggregatorItemProviderAdapterFactory extends AggregatorAdapterFacto
 	/**
 	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.aggregator.CustomCategory} instances.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected CustomCategoryItemProvider customCategoryItemProvider;
@@ -146,7 +146,7 @@ public class AggregatorItemProviderAdapterFactory extends AggregatorAdapterFacto
 	/**
 	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.aggregator.ExclusionRule} instances.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected ExclusionRuleItemProvider exclusionRuleItemProvider;
@@ -155,7 +155,7 @@ public class AggregatorItemProviderAdapterFactory extends AggregatorAdapterFacto
 	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.aggregator.ValidConfigurationsRule} instances.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected ValidConfigurationsRuleItemProvider validConfigurationsRuleItemProvider;
@@ -164,7 +164,7 @@ public class AggregatorItemProviderAdapterFactory extends AggregatorAdapterFacto
 	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.aggregator.MetadataRepositoryReference} instances.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected MetadataRepositoryReferenceItemProvider metadataRepositoryReferenceItemProvider;
@@ -172,7 +172,7 @@ public class AggregatorItemProviderAdapterFactory extends AggregatorAdapterFacto
 	/**
 	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.aggregator.MavenMapping} instances.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected MavenMappingItemProvider mavenMappingItemProvider;
@@ -180,7 +180,7 @@ public class AggregatorItemProviderAdapterFactory extends AggregatorAdapterFacto
 	/**
 	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.aggregator.MavenItem} instances.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected MavenItemItemProvider mavenItemItemProvider;
@@ -188,7 +188,7 @@ public class AggregatorItemProviderAdapterFactory extends AggregatorAdapterFacto
 	/**
 	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.aggregator.DescriptionProvider} instances.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected DescriptionProviderItemProvider descriptionProviderItemProvider;
@@ -197,7 +197,7 @@ public class AggregatorItemProviderAdapterFactory extends AggregatorAdapterFacto
 	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.aggregator.AvailableVersion} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected AvailableVersionItemProvider availableVersionItemProvider;
@@ -206,7 +206,7 @@ public class AggregatorItemProviderAdapterFactory extends AggregatorAdapterFacto
 	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.aggregator.AvailableVersionsHeader} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected AvailableVersionsHeaderItemProvider availableVersionsHeaderItemProvider;
@@ -215,7 +215,7 @@ public class AggregatorItemProviderAdapterFactory extends AggregatorAdapterFacto
 	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.aggregator.ValidationSet} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected ValidationSetItemProvider validationSetItemProvider;
@@ -224,14 +224,14 @@ public class AggregatorItemProviderAdapterFactory extends AggregatorAdapterFacto
 	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.aggregator.Aggregation} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected AggregationItemProvider aggregationItemProvider;
 
 	/**
 	 * This constructs an instance. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
 	public AggregatorItemProviderAdapterFactory() {
@@ -249,7 +249,7 @@ public class AggregatorItemProviderAdapterFactory extends AggregatorAdapterFacto
 	 * This implementation substitutes the factory itself as the key for the adapter.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -259,7 +259,7 @@ public class AggregatorItemProviderAdapterFactory extends AggregatorAdapterFacto
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -277,9 +277,10 @@ public class AggregatorItemProviderAdapterFactory extends AggregatorAdapterFacto
 	/**
 	 * This adds a listener.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public void addListener(INotifyChangedListener notifyChangedListener) {
 		changeNotifier.addListener(notifyChangedListener);
 	}
@@ -288,7 +289,7 @@ public class AggregatorItemProviderAdapterFactory extends AggregatorAdapterFacto
 	 * This creates an adapter for a {@link org.eclipse.b3.aggregator.Aggregation}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -304,7 +305,7 @@ public class AggregatorItemProviderAdapterFactory extends AggregatorAdapterFacto
 	 * This creates an adapter for a {@link org.eclipse.b3.aggregator.AvailableVersion}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -320,7 +321,7 @@ public class AggregatorItemProviderAdapterFactory extends AggregatorAdapterFacto
 	 * This creates an adapter for a {@link org.eclipse.b3.aggregator.AvailableVersionsHeader}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -336,7 +337,7 @@ public class AggregatorItemProviderAdapterFactory extends AggregatorAdapterFacto
 	 * This creates an adapter for a {@link org.eclipse.b3.aggregator.Bundle}.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -352,7 +353,7 @@ public class AggregatorItemProviderAdapterFactory extends AggregatorAdapterFacto
 	 * This creates an adapter for a {@link org.eclipse.b3.aggregator.Category}.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -368,7 +369,7 @@ public class AggregatorItemProviderAdapterFactory extends AggregatorAdapterFacto
 	 * This creates an adapter for a {@link org.eclipse.b3.aggregator.Configuration}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -384,7 +385,7 @@ public class AggregatorItemProviderAdapterFactory extends AggregatorAdapterFacto
 	 * This creates an adapter for a {@link org.eclipse.b3.aggregator.Contact}.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -400,7 +401,7 @@ public class AggregatorItemProviderAdapterFactory extends AggregatorAdapterFacto
 	 * This creates an adapter for a {@link org.eclipse.b3.aggregator.Contribution}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -416,7 +417,7 @@ public class AggregatorItemProviderAdapterFactory extends AggregatorAdapterFacto
 	 * This creates an adapter for a {@link org.eclipse.b3.aggregator.CustomCategory}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -432,7 +433,7 @@ public class AggregatorItemProviderAdapterFactory extends AggregatorAdapterFacto
 	 * This creates an adapter for a {@link org.eclipse.b3.aggregator.DescriptionProvider}.
 	 * <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -448,7 +449,7 @@ public class AggregatorItemProviderAdapterFactory extends AggregatorAdapterFacto
 	 * This creates an adapter for a {@link org.eclipse.b3.aggregator.ExclusionRule}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -464,7 +465,7 @@ public class AggregatorItemProviderAdapterFactory extends AggregatorAdapterFacto
 	 * This creates an adapter for a {@link org.eclipse.b3.aggregator.Feature}.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -480,7 +481,7 @@ public class AggregatorItemProviderAdapterFactory extends AggregatorAdapterFacto
 	 * This creates an adapter for a {@link org.eclipse.b3.aggregator.MappedRepository}.
 	 * <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -496,7 +497,7 @@ public class AggregatorItemProviderAdapterFactory extends AggregatorAdapterFacto
 	 * This creates an adapter for a {@link org.eclipse.b3.aggregator.MavenItem}.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -512,7 +513,7 @@ public class AggregatorItemProviderAdapterFactory extends AggregatorAdapterFacto
 	 * This creates an adapter for a {@link org.eclipse.b3.aggregator.MavenMapping}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -527,7 +528,7 @@ public class AggregatorItemProviderAdapterFactory extends AggregatorAdapterFacto
 	/**
 	 * This creates an adapter for a {@link org.eclipse.b3.aggregator.MetadataRepositoryReference}. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -543,7 +544,7 @@ public class AggregatorItemProviderAdapterFactory extends AggregatorAdapterFacto
 	 * This creates an adapter for a {@link org.eclipse.b3.aggregator.Product}.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -559,7 +560,7 @@ public class AggregatorItemProviderAdapterFactory extends AggregatorAdapterFacto
 	 * This creates an adapter for a {@link org.eclipse.b3.aggregator.Property}.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -575,7 +576,7 @@ public class AggregatorItemProviderAdapterFactory extends AggregatorAdapterFacto
 	 * This creates an adapter for a {@link org.eclipse.b3.aggregator.ValidationSet}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -590,7 +591,7 @@ public class AggregatorItemProviderAdapterFactory extends AggregatorAdapterFacto
 	/**
 	 * This creates an adapter for a {@link org.eclipse.b3.aggregator.ValidConfigurationsRule}. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -605,9 +606,10 @@ public class AggregatorItemProviderAdapterFactory extends AggregatorAdapterFacto
 	/**
 	 * This disposes all of the item providers created by this factory.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public void dispose() {
 		if(aggregationItemProvider != null)
 			aggregationItemProvider.dispose();
@@ -655,9 +657,10 @@ public class AggregatorItemProviderAdapterFactory extends AggregatorAdapterFacto
 	 * This delegates to {@link #changeNotifier} and to {@link #parentAdapterFactory}.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public void fireNotifyChanged(Notification notification) {
 		changeNotifier.fireNotifyChanged(notification);
 
@@ -669,9 +672,10 @@ public class AggregatorItemProviderAdapterFactory extends AggregatorAdapterFacto
 	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public ComposeableAdapterFactory getRootAdapterFactory() {
 		return parentAdapterFactory == null
 				? this
@@ -680,7 +684,7 @@ public class AggregatorItemProviderAdapterFactory extends AggregatorAdapterFacto
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -691,9 +695,10 @@ public class AggregatorItemProviderAdapterFactory extends AggregatorAdapterFacto
 	/**
 	 * This removes a listener.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public void removeListener(INotifyChangedListener notifyChangedListener) {
 		changeNotifier.removeListener(notifyChangedListener);
 	}
@@ -701,9 +706,10 @@ public class AggregatorItemProviderAdapterFactory extends AggregatorAdapterFacto
 	/**
 	 * This sets the composed adapter factory that contains this factory.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public void setParentAdapterFactory(ComposedAdapterFactory parentAdapterFactory) {
 		this.parentAdapterFactory = parentAdapterFactory;
 	}

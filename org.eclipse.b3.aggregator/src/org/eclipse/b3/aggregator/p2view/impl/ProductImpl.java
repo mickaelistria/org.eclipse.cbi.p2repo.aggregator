@@ -34,14 +34,14 @@ import org.eclipse.equinox.p2.metadata.IInstallableUnit;
  * <li>{@link org.eclipse.b3.aggregator.p2view.impl.ProductImpl#getFragmentContainer <em>Fragment Container</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public class ProductImpl extends IUPresentationWithDetailsImpl implements Product {
 	/**
 	 * The cached value of the '{@link #getFeatureContainer() <em>Feature Container</em>}' reference. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getFeatureContainer()
 	 * @generated
 	 * @ordered
@@ -52,7 +52,7 @@ public class ProductImpl extends IUPresentationWithDetailsImpl implements Produc
 	 * The cached value of the '{@link #getBundleContainer() <em>Bundle Container</em>}' containment reference.
 	 * <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getBundleContainer()
 	 * @generated
 	 * @ordered
@@ -62,7 +62,7 @@ public class ProductImpl extends IUPresentationWithDetailsImpl implements Produc
 	/**
 	 * The cached value of the '{@link #getFragmentContainer() <em>Fragment Container</em>}' reference. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getFragmentContainer()
 	 * @generated
 	 * @ordered
@@ -71,7 +71,7 @@ public class ProductImpl extends IUPresentationWithDetailsImpl implements Produc
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected ProductImpl() {
@@ -80,7 +80,7 @@ public class ProductImpl extends IUPresentationWithDetailsImpl implements Produc
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
 	protected ProductImpl(IInstallableUnit iu) {
@@ -89,7 +89,7 @@ public class ProductImpl extends IUPresentationWithDetailsImpl implements Produc
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public Bundles basicGetBundleContainer() {
@@ -98,7 +98,7 @@ public class ProductImpl extends IUPresentationWithDetailsImpl implements Produc
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public Features basicGetFeatureContainer() {
@@ -107,7 +107,7 @@ public class ProductImpl extends IUPresentationWithDetailsImpl implements Produc
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public Fragments basicGetFragmentContainer() {
@@ -117,7 +117,7 @@ public class ProductImpl extends IUPresentationWithDetailsImpl implements Produc
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public NotificationChain basicSetBundleContainer(Bundles newBundleContainer, NotificationChain msgs) {
@@ -137,7 +137,7 @@ public class ProductImpl extends IUPresentationWithDetailsImpl implements Produc
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public NotificationChain basicSetFeatureContainer(Features newFeatureContainer, NotificationChain msgs) {
@@ -158,7 +158,7 @@ public class ProductImpl extends IUPresentationWithDetailsImpl implements Produc
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public NotificationChain basicSetFragmentContainer(Fragments newFragmentContainer, NotificationChain msgs) {
@@ -178,7 +178,7 @@ public class ProductImpl extends IUPresentationWithDetailsImpl implements Produc
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -203,7 +203,7 @@ public class ProductImpl extends IUPresentationWithDetailsImpl implements Produc
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -221,7 +221,7 @@ public class ProductImpl extends IUPresentationWithDetailsImpl implements Produc
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -239,7 +239,7 @@ public class ProductImpl extends IUPresentationWithDetailsImpl implements Produc
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -260,7 +260,7 @@ public class ProductImpl extends IUPresentationWithDetailsImpl implements Produc
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -270,7 +270,7 @@ public class ProductImpl extends IUPresentationWithDetailsImpl implements Produc
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -291,7 +291,7 @@ public class ProductImpl extends IUPresentationWithDetailsImpl implements Produc
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public Bundles getBundleContainer() {
@@ -319,7 +319,7 @@ public class ProductImpl extends IUPresentationWithDetailsImpl implements Produc
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public Features getFeatureContainer() {
@@ -347,7 +347,7 @@ public class ProductImpl extends IUPresentationWithDetailsImpl implements Produc
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public Fragments getFragmentContainer() {
@@ -375,7 +375,7 @@ public class ProductImpl extends IUPresentationWithDetailsImpl implements Produc
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
 	public Bundles getNotNullBundleContainer() {
@@ -387,7 +387,7 @@ public class ProductImpl extends IUPresentationWithDetailsImpl implements Produc
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
 	public Features getNotNullFeatureContainer() {
@@ -399,7 +399,7 @@ public class ProductImpl extends IUPresentationWithDetailsImpl implements Produc
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
 	public Fragments getNotNullFragmentContainer() {
@@ -416,7 +416,7 @@ public class ProductImpl extends IUPresentationWithDetailsImpl implements Produc
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public void setBundleContainer(Bundles newBundleContainer) {
@@ -439,7 +439,7 @@ public class ProductImpl extends IUPresentationWithDetailsImpl implements Produc
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public void setFeatureContainer(Features newFeatureContainer) {
@@ -463,7 +463,7 @@ public class ProductImpl extends IUPresentationWithDetailsImpl implements Produc
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public void setFragmentContainer(Fragments newFragmentContainer) {

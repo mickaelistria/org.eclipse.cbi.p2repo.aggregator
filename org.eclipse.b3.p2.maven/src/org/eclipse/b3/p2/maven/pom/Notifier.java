@@ -10,14 +10,14 @@ import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc --> A representation of the model object '<em><b>Notifier</b></em>'. <!-- end-user-doc -->
- * 
+ *
  * <!-- begin-model-doc -->
  * 4.0.0
- * 
+ *
  * Configures one method for notifying users/developers when a build breaks.
- * 
+ *
  * <!-- end-model-doc -->
- * 
+ *
  * <p>
  * The following features are supported:
  * <ul>
@@ -30,7 +30,7 @@ import org.eclipse.emf.ecore.EObject;
  * <li>{@link org.eclipse.b3.p2.maven.pom.Notifier#getConfiguration <em>Configuration</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @see org.eclipse.b3.p2.maven.pom.PomPackage#getNotifier()
  * @model extendedMetaData="name='Notifier' kind='elementOnly'"
  * @generated
@@ -39,11 +39,11 @@ public interface Notifier extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Address</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc --> <!--
 	 * begin-model-doc --> 4.0.0
-	 * 
+	 *
 	 * &lt;b&gt;Deprecated&lt;/b&gt;. Where to send the notification to - eg email address.
-	 * 
+	 *
 	 * <!-- end-model-doc -->
-	 * 
+	 *
 	 * @return the value of the '<em>Address</em>' attribute.
 	 * @see #setAddress(String)
 	 * @see org.eclipse.b3.p2.maven.pom.PomPackage#getNotifier_Address()
@@ -57,7 +57,7 @@ public interface Notifier extends EObject {
 	 * Returns the value of the '<em><b>Configuration</b></em>' containment reference. <!-- begin-user-doc --> <!--
 	 * end-user-doc --> <!-- begin-model-doc --> 0.0.0+ Extended configuration specific to this notifier goes here. <!--
 	 * end-model-doc -->
-	 * 
+	 *
 	 * @return the value of the '<em>Configuration</em>' containment reference.
 	 * @see #setConfiguration(ConfigurationType)
 	 * @see org.eclipse.b3.p2.maven.pom.PomPackage#getNotifier_Configuration()
@@ -70,7 +70,7 @@ public interface Notifier extends EObject {
 	 * Returns the value of the '<em><b>Type</b></em>' attribute. The default value is <code>"mail"</code>. <!--
 	 * begin-user-doc --> <!-- end-user-doc --> <!-- begin-model-doc --> 4.0.0 The mechanism used to deliver
 	 * notifications. <!-- end-model-doc -->
-	 * 
+	 *
 	 * @return the value of the '<em>Type</em>' attribute.
 	 * @see #isSetType()
 	 * @see #unsetType()
@@ -86,7 +86,7 @@ public interface Notifier extends EObject {
 	 * Returns the value of the '<em><b>Send On Error</b></em>' attribute. The default value is <code>"true"</code>.
 	 * <!-- begin-user-doc --> <!-- end-user-doc --> <!-- begin-model-doc --> 4.0.0 Whether to send notifications on
 	 * error. <!-- end-model-doc -->
-	 * 
+	 *
 	 * @return the value of the '<em>Send On Error</em>' attribute.
 	 * @see #isSetSendOnError()
 	 * @see #unsetSendOnError()
@@ -102,7 +102,7 @@ public interface Notifier extends EObject {
 	 * Returns the value of the '<em><b>Send On Failure</b></em>' attribute. The default value is <code>"true"</code>.
 	 * <!-- begin-user-doc --> <!-- end-user-doc --> <!-- begin-model-doc --> 4.0.0 Whether to send notifications on
 	 * failure. <!-- end-model-doc -->
-	 * 
+	 *
 	 * @return the value of the '<em>Send On Failure</em>' attribute.
 	 * @see #isSetSendOnFailure()
 	 * @see #unsetSendOnFailure()
@@ -118,7 +118,7 @@ public interface Notifier extends EObject {
 	 * Returns the value of the '<em><b>Send On Success</b></em>' attribute. The default value is <code>"true"</code>.
 	 * <!-- begin-user-doc --> <!-- end-user-doc --> <!-- begin-model-doc --> 4.0.0 Whether to send notifications on
 	 * success. <!-- end-model-doc -->
-	 * 
+	 *
 	 * @return the value of the '<em>Send On Success</em>' attribute.
 	 * @see #isSetSendOnSuccess()
 	 * @see #unsetSendOnSuccess()
@@ -134,7 +134,7 @@ public interface Notifier extends EObject {
 	 * Returns the value of the '<em><b>Send On Warning</b></em>' attribute. The default value is <code>"true"</code>.
 	 * <!-- begin-user-doc --> <!-- end-user-doc --> <!-- begin-model-doc --> 4.0.0 Whether to send notifications on
 	 * warning. <!-- end-model-doc -->
-	 * 
+	 *
 	 * @return the value of the '<em>Send On Warning</em>' attribute.
 	 * @see #isSetSendOnWarning()
 	 * @see #unsetSendOnWarning()
@@ -149,7 +149,7 @@ public interface Notifier extends EObject {
 	/**
 	 * Returns whether the value of the '{@link org.eclipse.b3.p2.maven.pom.Notifier#isSendOnError <em>Send On Error</em>}' attribute is set.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @return whether the value of the '<em>Send On Error</em>' attribute is set.
 	 * @see #unsetSendOnError()
 	 * @see #isSendOnError()
@@ -161,7 +161,7 @@ public interface Notifier extends EObject {
 	/**
 	 * Returns whether the value of the '{@link org.eclipse.b3.p2.maven.pom.Notifier#isSendOnFailure <em>Send On Failure</em>}' attribute is set.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @return whether the value of the '<em>Send On Failure</em>' attribute is set.
 	 * @see #unsetSendOnFailure()
 	 * @see #isSendOnFailure()
@@ -173,7 +173,7 @@ public interface Notifier extends EObject {
 	/**
 	 * Returns whether the value of the '{@link org.eclipse.b3.p2.maven.pom.Notifier#isSendOnSuccess <em>Send On Success</em>}' attribute is set.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @return whether the value of the '<em>Send On Success</em>' attribute is set.
 	 * @see #unsetSendOnSuccess()
 	 * @see #isSendOnSuccess()
@@ -185,7 +185,7 @@ public interface Notifier extends EObject {
 	/**
 	 * Returns whether the value of the '{@link org.eclipse.b3.p2.maven.pom.Notifier#isSendOnWarning <em>Send On Warning</em>}' attribute is set.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @return whether the value of the '<em>Send On Warning</em>' attribute is set.
 	 * @see #unsetSendOnWarning()
 	 * @see #isSendOnWarning()
@@ -197,7 +197,7 @@ public interface Notifier extends EObject {
 	/**
 	 * Returns whether the value of the '{@link org.eclipse.b3.p2.maven.pom.Notifier#getType <em>Type</em>}' attribute is set.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @return whether the value of the '<em>Type</em>' attribute is set.
 	 * @see #unsetType()
 	 * @see #getType()
@@ -209,7 +209,7 @@ public interface Notifier extends EObject {
 	/**
 	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.Notifier#getAddress <em>Address</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param value
 	 *            the new value of the '<em>Address</em>' attribute.
 	 * @see #getAddress()
@@ -220,7 +220,7 @@ public interface Notifier extends EObject {
 	/**
 	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.Notifier#getConfiguration <em>Configuration</em>}' containment reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param value
 	 *            the new value of the '<em>Configuration</em>' containment reference.
 	 * @see #getConfiguration()
@@ -231,7 +231,7 @@ public interface Notifier extends EObject {
 	/**
 	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.Notifier#isSendOnError <em>Send On Error</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param value
 	 *            the new value of the '<em>Send On Error</em>' attribute.
 	 * @see #isSetSendOnError()
@@ -244,7 +244,7 @@ public interface Notifier extends EObject {
 	/**
 	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.Notifier#isSendOnFailure <em>Send On Failure</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param value
 	 *            the new value of the '<em>Send On Failure</em>' attribute.
 	 * @see #isSetSendOnFailure()
@@ -257,7 +257,7 @@ public interface Notifier extends EObject {
 	/**
 	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.Notifier#isSendOnSuccess <em>Send On Success</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param value
 	 *            the new value of the '<em>Send On Success</em>' attribute.
 	 * @see #isSetSendOnSuccess()
@@ -270,7 +270,7 @@ public interface Notifier extends EObject {
 	/**
 	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.Notifier#isSendOnWarning <em>Send On Warning</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param value
 	 *            the new value of the '<em>Send On Warning</em>' attribute.
 	 * @see #isSetSendOnWarning()
@@ -283,7 +283,7 @@ public interface Notifier extends EObject {
 	/**
 	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.Notifier#getType <em>Type</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param value
 	 *            the new value of the '<em>Type</em>' attribute.
 	 * @see #isSetType()
@@ -296,7 +296,7 @@ public interface Notifier extends EObject {
 	/**
 	 * Unsets the value of the '{@link org.eclipse.b3.p2.maven.pom.Notifier#isSendOnError <em>Send On Error</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #isSetSendOnError()
 	 * @see #isSendOnError()
 	 * @see #setSendOnError(boolean)
@@ -307,7 +307,7 @@ public interface Notifier extends EObject {
 	/**
 	 * Unsets the value of the '{@link org.eclipse.b3.p2.maven.pom.Notifier#isSendOnFailure <em>Send On Failure</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #isSetSendOnFailure()
 	 * @see #isSendOnFailure()
 	 * @see #setSendOnFailure(boolean)
@@ -318,7 +318,7 @@ public interface Notifier extends EObject {
 	/**
 	 * Unsets the value of the '{@link org.eclipse.b3.p2.maven.pom.Notifier#isSendOnSuccess <em>Send On Success</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #isSetSendOnSuccess()
 	 * @see #isSendOnSuccess()
 	 * @see #setSendOnSuccess(boolean)
@@ -329,7 +329,7 @@ public interface Notifier extends EObject {
 	/**
 	 * Unsets the value of the '{@link org.eclipse.b3.p2.maven.pom.Notifier#isSendOnWarning <em>Send On Warning</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #isSetSendOnWarning()
 	 * @see #isSendOnWarning()
 	 * @see #setSendOnWarning(boolean)
@@ -340,7 +340,7 @@ public interface Notifier extends EObject {
 	/**
 	 * Unsets the value of the '{@link org.eclipse.b3.p2.maven.pom.Notifier#getType <em>Type</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #isSetType()
 	 * @see #getType()
 	 * @see #setType(String)

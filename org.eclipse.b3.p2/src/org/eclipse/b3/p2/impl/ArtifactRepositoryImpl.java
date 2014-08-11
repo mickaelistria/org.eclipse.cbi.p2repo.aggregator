@@ -4,7 +4,7 @@
  * licensed under the Eclipse Public License - v 1.0 by the copyright holder
  * listed above, as the Initial Contributor under such license. The text of
  * such license is available at www.eclipse.org.
- * 
+ *
  */
 package org.eclipse.b3.p2.impl;
 
@@ -48,7 +48,7 @@ import org.eclipse.equinox.p2.repository.artifact.IArtifactRequest;
  * <li>{@link org.eclipse.b3.p2.impl.ArtifactRepositoryImpl#getArtifactMap <em>Artifact Map</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public class ArtifactRepositoryImpl extends RepositoryImpl<IArtifactKey> implements ArtifactRepository {
@@ -56,7 +56,7 @@ public class ArtifactRepositoryImpl extends RepositoryImpl<IArtifactKey> impleme
 	 * The cached value of the '{@link #getArtifactMap() <em>Artifact Map</em>}' map.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getArtifactMap()
 	 * @generated
 	 * @ordered
@@ -68,7 +68,7 @@ public class ArtifactRepositoryImpl extends RepositoryImpl<IArtifactKey> impleme
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected ArtifactRepositoryImpl() {
@@ -78,9 +78,10 @@ public class ArtifactRepositoryImpl extends RepositoryImpl<IArtifactKey> impleme
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
+	@Override
 	public void addDescriptor(IArtifactDescriptor descriptor) {
 		if(!(descriptor instanceof ArtifactDescriptorImpl))
 			descriptor = P2Bridge.importToModel(this, descriptor);
@@ -99,9 +100,10 @@ public class ArtifactRepositoryImpl extends RepositoryImpl<IArtifactKey> impleme
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
+	@Override
 	public void addDescriptor(IArtifactDescriptor descriptor, IProgressMonitor monitor) {
 		addDescriptor(descriptor);
 		MonitorUtils.complete(monitor);
@@ -110,9 +112,10 @@ public class ArtifactRepositoryImpl extends RepositoryImpl<IArtifactKey> impleme
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
+	@Override
 	public void addDescriptors(IArtifactDescriptor[] descriptors) {
 		for(IArtifactDescriptor descriptor : descriptors)
 			addDescriptor(descriptor);
@@ -121,9 +124,10 @@ public class ArtifactRepositoryImpl extends RepositoryImpl<IArtifactKey> impleme
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
+	@Override
 	public void addDescriptors(IArtifactDescriptor[] descriptors, IProgressMonitor monitor) {
 		addDescriptors(descriptors);
 		MonitorUtils.complete(monitor);
@@ -132,9 +136,10 @@ public class ArtifactRepositoryImpl extends RepositoryImpl<IArtifactKey> impleme
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
+	@Override
 	public boolean contains(IArtifactDescriptor descriptor) {
 		EList<IArtifactDescriptor> descs = getArtifactMap().get(descriptor.getArtifactKey());
 		if(descs == null)
@@ -153,9 +158,10 @@ public class ArtifactRepositoryImpl extends RepositoryImpl<IArtifactKey> impleme
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
+	@Override
 	public boolean contains(IArtifactKey key) {
 		return getArtifactMap().containsKey(key);
 	}
@@ -163,9 +169,10 @@ public class ArtifactRepositoryImpl extends RepositoryImpl<IArtifactKey> impleme
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
+	@Override
 	public IArtifactDescriptor createArtifactDescriptor(IArtifactKey key) {
 		ArtifactDescriptorImpl desc = (ArtifactDescriptorImpl) P2Factory.eINSTANCE.createArtifactDescriptor();
 		if(!(key instanceof ArtifactKeyImpl))
@@ -177,9 +184,10 @@ public class ArtifactRepositoryImpl extends RepositoryImpl<IArtifactKey> impleme
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
+	@Override
 	public IArtifactKey createArtifactKey(String classifier, String id, Version version) {
 		ArtifactKeyImpl key = (ArtifactKeyImpl) P2Factory.eINSTANCE.createArtifactKey();
 		key.setClassifier(classifier);
@@ -191,11 +199,13 @@ public class ArtifactRepositoryImpl extends RepositoryImpl<IArtifactKey> impleme
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
+	@Override
 	public IQueryable<IArtifactDescriptor> descriptorQueryable() {
 		return new IQueryable<IArtifactDescriptor>() {
+			@Override
 			public IQueryResult<IArtifactDescriptor> query(IQuery<IArtifactDescriptor> query, IProgressMonitor monitor) {
 				return query.perform(new CompoundIterator<IArtifactDescriptor>(getArtifactMap().values().iterator()));
 			}
@@ -205,7 +215,7 @@ public class ArtifactRepositoryImpl extends RepositoryImpl<IArtifactKey> impleme
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -223,7 +233,7 @@ public class ArtifactRepositoryImpl extends RepositoryImpl<IArtifactKey> impleme
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -238,7 +248,7 @@ public class ArtifactRepositoryImpl extends RepositoryImpl<IArtifactKey> impleme
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -253,7 +263,7 @@ public class ArtifactRepositoryImpl extends RepositoryImpl<IArtifactKey> impleme
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -269,7 +279,7 @@ public class ArtifactRepositoryImpl extends RepositoryImpl<IArtifactKey> impleme
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -280,7 +290,7 @@ public class ArtifactRepositoryImpl extends RepositoryImpl<IArtifactKey> impleme
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -296,9 +306,10 @@ public class ArtifactRepositoryImpl extends RepositoryImpl<IArtifactKey> impleme
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
+	@Override
 	public IStatus executeBatch(IRunnableWithProgress runnable, IProgressMonitor monitor) {
 		IStatus result;
 		synchronized(this) {
@@ -319,9 +330,10 @@ public class ArtifactRepositoryImpl extends RepositoryImpl<IArtifactKey> impleme
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
+	@Override
 	public IStatus getArtifact(IArtifactDescriptor descriptor, OutputStream destination, IProgressMonitor monitor) {
 		throw new UnsupportedOperationException();
 	}
@@ -329,9 +341,10 @@ public class ArtifactRepositoryImpl extends RepositoryImpl<IArtifactKey> impleme
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
+	@Override
 	public IArtifactDescriptor[] getArtifactDescriptors(IArtifactKey key) {
 		EList<IArtifactDescriptor> result = getArtifactMap().get(key);
 		return result == null
@@ -342,9 +355,10 @@ public class ArtifactRepositoryImpl extends RepositoryImpl<IArtifactKey> impleme
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public EMap<IArtifactKey, EList<IArtifactDescriptor>> getArtifactMap() {
 		if(artifactMap == null) {
 			artifactMap = new EcoreEMap<IArtifactKey, EList<IArtifactDescriptor>>(
@@ -357,9 +371,10 @@ public class ArtifactRepositoryImpl extends RepositoryImpl<IArtifactKey> impleme
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
+	@Override
 	public IStatus getArtifacts(IArtifactRequest[] requests, IProgressMonitor monitor) {
 		throw new UnsupportedOperationException();
 	}
@@ -367,9 +382,10 @@ public class ArtifactRepositoryImpl extends RepositoryImpl<IArtifactKey> impleme
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
+	@Override
 	public OutputStream getOutputStream(IArtifactDescriptor descriptor) {
 		throw new UnsupportedOperationException();
 	}
@@ -377,9 +393,10 @@ public class ArtifactRepositoryImpl extends RepositoryImpl<IArtifactKey> impleme
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
+	@Override
 	public IStatus getRawArtifact(IArtifactDescriptor descriptor, OutputStream destination, IProgressMonitor monitor) {
 		throw new UnsupportedOperationException();
 	}
@@ -387,7 +404,7 @@ public class ArtifactRepositoryImpl extends RepositoryImpl<IArtifactKey> impleme
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
 	@Override
@@ -398,9 +415,10 @@ public class ArtifactRepositoryImpl extends RepositoryImpl<IArtifactKey> impleme
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
+	@Override
 	public void removeAll() {
 		getArtifactMap().clear();
 	}
@@ -408,9 +426,10 @@ public class ArtifactRepositoryImpl extends RepositoryImpl<IArtifactKey> impleme
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
+	@Override
 	public void removeAll(IProgressMonitor monitor) {
 		removeAll();
 		MonitorUtils.complete(monitor);
@@ -419,9 +438,10 @@ public class ArtifactRepositoryImpl extends RepositoryImpl<IArtifactKey> impleme
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
+	@Override
 	public void removeDescriptor(IArtifactDescriptor descriptor) {
 		IArtifactKey key = descriptor.getArtifactKey();
 		EList<IArtifactDescriptor> descs = getArtifactMap().get(key);
@@ -444,9 +464,10 @@ public class ArtifactRepositoryImpl extends RepositoryImpl<IArtifactKey> impleme
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
+	@Override
 	public void removeDescriptor(IArtifactDescriptor descriptor, IProgressMonitor monitor) {
 		removeDescriptor(descriptor);
 		MonitorUtils.complete(monitor);
@@ -455,9 +476,10 @@ public class ArtifactRepositoryImpl extends RepositoryImpl<IArtifactKey> impleme
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
+	@Override
 	public void removeDescriptor(IArtifactKey key) {
 		getArtifactMap().removeKey(key);
 	}
@@ -465,9 +487,10 @@ public class ArtifactRepositoryImpl extends RepositoryImpl<IArtifactKey> impleme
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
+	@Override
 	public void removeDescriptor(IArtifactKey key, IProgressMonitor monitor) {
 		removeDescriptor(key);
 		MonitorUtils.complete(monitor);
@@ -476,9 +499,10 @@ public class ArtifactRepositoryImpl extends RepositoryImpl<IArtifactKey> impleme
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
+	@Override
 	public void removeDescriptors(IArtifactDescriptor[] descriptors) {
 		for(IArtifactDescriptor descriptor : descriptors)
 			removeDescriptor(descriptor);
@@ -487,9 +511,10 @@ public class ArtifactRepositoryImpl extends RepositoryImpl<IArtifactKey> impleme
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
+	@Override
 	public void removeDescriptors(IArtifactDescriptor[] descriptors, IProgressMonitor monitor) {
 		removeDescriptors(descriptors);
 		MonitorUtils.complete(monitor);
@@ -498,9 +523,10 @@ public class ArtifactRepositoryImpl extends RepositoryImpl<IArtifactKey> impleme
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
+	@Override
 	public void removeDescriptors(IArtifactKey[] keys) {
 		for(IArtifactKey key : keys)
 			removeDescriptor(key);
@@ -509,9 +535,10 @@ public class ArtifactRepositoryImpl extends RepositoryImpl<IArtifactKey> impleme
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
+	@Override
 	public void removeDescriptors(IArtifactKey[] keys, IProgressMonitor monitor) {
 		removeDescriptors(keys);
 		MonitorUtils.complete(monitor);

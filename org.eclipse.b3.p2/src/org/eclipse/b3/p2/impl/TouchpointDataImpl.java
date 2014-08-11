@@ -31,7 +31,7 @@ import org.eclipse.equinox.p2.metadata.ITouchpointInstruction;
  * <li>{@link org.eclipse.b3.p2.impl.TouchpointDataImpl#getInstructionMap <em>Instruction Map</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public class TouchpointDataImpl extends MinimalEObjectImpl.Container implements TouchpointData {
@@ -39,7 +39,7 @@ public class TouchpointDataImpl extends MinimalEObjectImpl.Container implements 
 	 * A set of bit flags representing the values of boolean attributes and whether unsettable features have been set.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 * @ordered
 	 */
@@ -49,7 +49,7 @@ public class TouchpointDataImpl extends MinimalEObjectImpl.Container implements 
 	 * The cached value of the '{@link #getInstructionMap() <em>Instruction Map</em>}' map.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getInstructionMap()
 	 * @generated
 	 * @ordered
@@ -59,7 +59,7 @@ public class TouchpointDataImpl extends MinimalEObjectImpl.Container implements 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected TouchpointDataImpl() {
@@ -69,7 +69,7 @@ public class TouchpointDataImpl extends MinimalEObjectImpl.Container implements 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -87,7 +87,7 @@ public class TouchpointDataImpl extends MinimalEObjectImpl.Container implements 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -102,7 +102,7 @@ public class TouchpointDataImpl extends MinimalEObjectImpl.Container implements 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -117,7 +117,7 @@ public class TouchpointDataImpl extends MinimalEObjectImpl.Container implements 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -133,7 +133,7 @@ public class TouchpointDataImpl extends MinimalEObjectImpl.Container implements 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -144,7 +144,7 @@ public class TouchpointDataImpl extends MinimalEObjectImpl.Container implements 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -160,9 +160,10 @@ public class TouchpointDataImpl extends MinimalEObjectImpl.Container implements 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
+	@Override
 	public ITouchpointInstruction getInstruction(String key) {
 		return getInstructionMap().get(key);
 	}
@@ -170,9 +171,10 @@ public class TouchpointDataImpl extends MinimalEObjectImpl.Container implements 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public EMap<String, ITouchpointInstruction> getInstructionMap() {
 		if(instructionMap == null) {
 			instructionMap = new EcoreEMap<String, ITouchpointInstruction>(
@@ -185,9 +187,10 @@ public class TouchpointDataImpl extends MinimalEObjectImpl.Container implements 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
+	@Override
 	public Map<String, ITouchpointInstruction> getInstructions() {
 		return getInstructionMap().map();
 	}

@@ -17,12 +17,13 @@ import org.eclipse.equinox.p2.metadata.VersionedId;
 
 /**
  * @author filip.hrbek@cloudsmith.com
- * 
+ *
  */
 // Compares IU by id (ascending) and version (descending)
 public class IUSelectionComparator implements Comparator<IInstallableUnit> {
 	public static Comparator<IInstallableUnit> INSTANCE = new IUSelectionComparator();
 
+	@Override
 	public int compare(IInstallableUnit iu1, IInstallableUnit iu2) {
 		if(iu1 != null)
 			if(iu2 == null)

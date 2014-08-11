@@ -16,7 +16,7 @@ import org.eclipse.jface.wizard.WizardPage;
 
 /**
  * @author filip.hrbek@cloudsmith.com
- * 
+ *
  */
 public abstract class TransformerContributorWizardPage extends WizardPage implements
 		TransformerContextContributor.IInteractiveHook {

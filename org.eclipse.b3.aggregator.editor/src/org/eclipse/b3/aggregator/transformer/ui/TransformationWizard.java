@@ -46,7 +46,7 @@ import org.eclipse.ui.dialogs.WizardNewFileCreationPage;
 
 /**
  * This is a simple wizard for creating a new model file. <!-- begin-user-doc --> <!-- end-user-doc -->
- * 
+ *
  * @author Karel Brezina
  */
 public class TransformationWizard extends Wizard implements INewWizard {
@@ -67,9 +67,10 @@ public class TransformationWizard extends Wizard implements INewWizard {
 
 		/*
 		 * (non-Javadoc)
-		 * 
+		 *
 		 * @see org.eclipse.jface.dialogs.IDialogPage#createControl(org.eclipse.swt.widgets.Composite)
 		 */
+		@Override
 		public void createControl(Composite parent) {
 			Composite composite = new Composite(parent, SWT.NONE);
 			composite.setLayout(new GridLayout(2, false));
@@ -199,6 +200,7 @@ public class TransformationWizard extends Wizard implements INewWizard {
 
 		TransformationManager.ContributorListener listener = new TransformationManager.ContributorListener() {
 
+			@Override
 			public void contributorFound(IConfigurationElement config, TransformerContextContributor contributor)
 					throws CoreException {
 				for(IConfigurationElement transformationUI : transformationsUI) {
@@ -257,6 +259,7 @@ public class TransformationWizard extends Wizard implements INewWizard {
 	/**
 	 * This just records the information. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 */
+	@Override
 	public void init(IWorkbench workbench, IStructuredSelection selection) {
 		this.workbench = workbench;
 		this.selection = selection;
@@ -271,6 +274,7 @@ public class TransformationWizard extends Wizard implements INewWizard {
 		//
 		IRunnableWithProgress operation = new IRunnableWithProgress() {
 
+			@Override
 			public void run(IProgressMonitor monitor) throws InvocationTargetException, InterruptedException {
 				try {
 					monitor.beginTask("Transformation is in progress", IProgressMonitor.UNKNOWN);

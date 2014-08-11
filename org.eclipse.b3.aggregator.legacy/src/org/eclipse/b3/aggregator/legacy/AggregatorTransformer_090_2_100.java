@@ -22,7 +22,7 @@ import org.eclipse.equinox.p2.metadata.VersionedId;
 
 /**
  * Transforms aggregator model instance from version 0.9.0 to 1.0.0
- * 
+ *
  * @author Karel Brezina
  */
 public class AggregatorTransformer_090_2_100 extends ResourceTransformer {

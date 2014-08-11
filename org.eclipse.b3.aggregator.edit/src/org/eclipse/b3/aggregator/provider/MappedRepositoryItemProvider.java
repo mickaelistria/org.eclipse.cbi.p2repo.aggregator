@@ -51,7 +51,7 @@ import org.eclipse.equinox.p2.metadata.IInstallableUnit;
 /**
  * This is the item provider adapter for a {@link org.eclipse.b3.aggregator.MappedRepository} object. <!--
  * begin-user-doc --> <!-- end-user-doc -->
- * 
+ *
  * @generated
  */
 public class MappedRepositoryItemProvider extends MetadataRepositoryReferenceItemProvider implements
@@ -60,7 +60,7 @@ public class MappedRepositoryItemProvider extends MetadataRepositoryReferenceIte
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public MappedRepositoryItemProvider(AdapterFactory adapterFactory) {
@@ -70,7 +70,7 @@ public class MappedRepositoryItemProvider extends MetadataRepositoryReferenceIte
 	/**
 	 * This adds a property descriptor for the Category Prefix feature.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected void addCategoryPrefixPropertyDescriptor(Object object) {
@@ -87,7 +87,7 @@ public class MappedRepositoryItemProvider extends MetadataRepositoryReferenceIte
 	/**
 	 * This adds a property descriptor for the Description feature.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected void addDescriptionPropertyDescriptor(Object object) {
@@ -104,7 +104,7 @@ public class MappedRepositoryItemProvider extends MetadataRepositoryReferenceIte
 	/**
 	 * This adds a property descriptor for the Mirror Artifacts feature.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected void addMirrorArtifactsPropertyDescriptor(Object object) {
@@ -122,7 +122,7 @@ public class MappedRepositoryItemProvider extends MetadataRepositoryReferenceIte
 	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
 	 * that can be created under this object.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -275,7 +275,7 @@ public class MappedRepositoryItemProvider extends MetadataRepositoryReferenceIte
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -292,7 +292,7 @@ public class MappedRepositoryItemProvider extends MetadataRepositoryReferenceIte
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -310,7 +310,7 @@ public class MappedRepositoryItemProvider extends MetadataRepositoryReferenceIte
 
 	/**
 	 * This returns MappedRepository.gif. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
 	@Override
@@ -334,7 +334,7 @@ public class MappedRepositoryItemProvider extends MetadataRepositoryReferenceIte
 	/**
 	 * This returns the property descriptors for the adapted class.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -351,7 +351,7 @@ public class MappedRepositoryItemProvider extends MetadataRepositoryReferenceIte
 
 	/**
 	 * This returns the label text for the adapted class. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
 	@Override
@@ -368,7 +368,7 @@ public class MappedRepositoryItemProvider extends MetadataRepositoryReferenceIte
 	 * This handles model notifications by calling {@link #updateChildren} to update any cached children and by creating
 	 * a viewer notification, which it passes to {@link #fireNotifyChanged}. <!-- begin-user-doc --> <!-- end-user-doc
 	 * -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
 	@Override

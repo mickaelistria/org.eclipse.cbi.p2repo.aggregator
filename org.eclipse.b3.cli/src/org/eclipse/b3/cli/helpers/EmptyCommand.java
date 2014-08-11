@@ -13,13 +13,13 @@ import org.eclipse.core.runtime.IProgressMonitor;
 
 /**
  * @author filip.hrbek@cloudsmith.com
- * 
+ *
  */
 public final class EmptyCommand extends AbstractCommand {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see org.eclipse.b3.cli.AbstractCommand#getShortDescription()
 	 */
 	@Override
@@ -29,7 +29,7 @@ public final class EmptyCommand extends AbstractCommand {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see org.eclipse.b3.cli.AbstractCommand#run(org.eclipse.core.runtime.IProgressMonitor)
 	 */
 	@Override

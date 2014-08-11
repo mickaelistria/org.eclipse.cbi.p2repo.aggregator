@@ -12,7 +12,6 @@ package org.eclipse.b3.aggregator.p2view.util;
 import org.eclipse.b3.aggregator.ChildrenProvider;
 import org.eclipse.b3.aggregator.LabelProvider;
 import org.eclipse.b3.aggregator.StatusProvider;
-import org.eclipse.b3.aggregator.p2view.*;
 import org.eclipse.b3.aggregator.p2view.Bundle;
 import org.eclipse.b3.aggregator.p2view.Bundles;
 import org.eclipse.b3.aggregator.p2view.Categories;
@@ -35,6 +34,8 @@ import org.eclipse.b3.aggregator.p2view.Products;
 import org.eclipse.b3.aggregator.p2view.Properties;
 import org.eclipse.b3.aggregator.p2view.ProvidedCapabilities;
 import org.eclipse.b3.aggregator.p2view.ProvidedCapabilityWrapper;
+import org.eclipse.b3.aggregator.p2view.RepositoryBrowser;
+import org.eclipse.b3.aggregator.p2view.RepositoryReferences;
 import org.eclipse.b3.aggregator.p2view.RequirementWrapper;
 import org.eclipse.b3.aggregator.p2view.Requirements;
 import org.eclipse.b3.aggregator.p2view.Touchpoints;
@@ -49,7 +50,7 @@ import org.eclipse.equinox.p2.metadata.IRequirement;
  * to invoke the <code>caseXXX</code> method for each class of the model,
  * starting with the actual class of the object and proceeding up the inheritance hierarchy until a non-null result is
  * returned, which is the result of the switch. <!-- end-user-doc -->
- * 
+ *
  * @see org.eclipse.b3.aggregator.p2view.P2viewPackage
  * @generated
  */
@@ -57,7 +58,7 @@ public class P2viewSwitch<T1> extends Switch<T1> {
 	/**
 	 * The cached model package
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected static P2viewPackage modelPackage;
@@ -65,7 +66,7 @@ public class P2viewSwitch<T1> extends Switch<T1> {
 	/**
 	 * Creates an instance of the switch.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public P2viewSwitch() {
@@ -78,7 +79,7 @@ public class P2viewSwitch<T1> extends Switch<T1> {
 	 * Returns the result of interpreting the object as an instance of '<em>Bundle</em>'.
 	 * <!-- begin-user-doc --> This
 	 * implementation returns null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param object
 	 *            the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Bundle</em>'.
@@ -93,7 +94,7 @@ public class P2viewSwitch<T1> extends Switch<T1> {
 	 * Returns the result of interpreting the object as an instance of '<em>Bundles</em>'.
 	 * <!-- begin-user-doc --> This
 	 * implementation returns null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param object
 	 *            the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Bundles</em>'.
@@ -108,7 +109,7 @@ public class P2viewSwitch<T1> extends Switch<T1> {
 	 * Returns the result of interpreting the object as an instance of '<em>Categories</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param object
 	 *            the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Categories</em>'.
@@ -123,7 +124,7 @@ public class P2viewSwitch<T1> extends Switch<T1> {
 	 * Returns the result of interpreting the object as an instance of '<em>Category</em>'.
 	 * <!-- begin-user-doc --> This
 	 * implementation returns null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param object
 	 *            the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Category</em>'.
@@ -138,7 +139,7 @@ public class P2viewSwitch<T1> extends Switch<T1> {
 	 * Returns the result of interpreting the object as an instance of '<em>Children Provider</em>'. <!-- begin-user-doc
 	 * --> This implementation returns null; returning a non-null result will terminate the switch. <!-- end-user-doc
 	 * -->
-	 * 
+	 *
 	 * @param object
 	 *            the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Children Provider</em>'.
@@ -153,7 +154,7 @@ public class P2viewSwitch<T1> extends Switch<T1> {
 	 * Returns the result of interpreting the object as an instance of '<em>Feature</em>'.
 	 * <!-- begin-user-doc --> This
 	 * implementation returns null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param object
 	 *            the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Feature</em>'.
@@ -168,7 +169,7 @@ public class P2viewSwitch<T1> extends Switch<T1> {
 	 * Returns the result of interpreting the object as an instance of '<em>Features</em>'.
 	 * <!-- begin-user-doc --> This
 	 * implementation returns null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param object
 	 *            the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Features</em>'.
@@ -183,7 +184,7 @@ public class P2viewSwitch<T1> extends Switch<T1> {
 	 * Returns the result of interpreting the object as an instance of '<em>Fragment</em>'.
 	 * <!-- begin-user-doc --> This
 	 * implementation returns null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param object
 	 *            the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Fragment</em>'.
@@ -198,7 +199,7 @@ public class P2viewSwitch<T1> extends Switch<T1> {
 	 * Returns the result of interpreting the object as an instance of '<em>Fragments</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param object
 	 *            the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Fragments</em>'.
@@ -213,7 +214,7 @@ public class P2viewSwitch<T1> extends Switch<T1> {
 	 * Returns the result of interpreting the object as an instance of '<em>Installable Units</em>'. <!-- begin-user-doc
 	 * --> This implementation returns null; returning a non-null result will terminate the switch. <!-- end-user-doc
 	 * -->
-	 * 
+	 *
 	 * @param object
 	 *            the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Installable Units</em>'.
@@ -228,7 +229,7 @@ public class P2viewSwitch<T1> extends Switch<T1> {
 	 * Returns the result of interpreting the object as an instance of '<em>IProvided Capability</em>'. <!--
 	 * begin-user-doc --> This implementation returns null; returning a non-null result will terminate the switch. <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @param object
 	 *            the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>IProvided Capability</em>'.
@@ -245,7 +246,7 @@ public class P2viewSwitch<T1> extends Switch<T1> {
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param object
 	 *            the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>IRequirement</em>'.
@@ -260,7 +261,7 @@ public class P2viewSwitch<T1> extends Switch<T1> {
 	 * Returns the result of interpreting the object as an instance of '<em>IU Details</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param object
 	 *            the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>IU Details</em>'.
@@ -275,7 +276,7 @@ public class P2viewSwitch<T1> extends Switch<T1> {
 	 * Returns the result of interpreting the object as an instance of '<em>IU Presentation</em>'. <!-- begin-user-doc
 	 * --> This implementation returns null; returning a non-null result will terminate the switch. <!-- end-user-doc
 	 * -->
-	 * 
+	 *
 	 * @param object
 	 *            the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>IU Presentation</em>'.
@@ -290,7 +291,7 @@ public class P2viewSwitch<T1> extends Switch<T1> {
 	 * Returns the result of interpreting the object as an instance of '<em>IU Presentation With Details</em>'. <!--
 	 * begin-user-doc --> This implementation returns null; returning a non-null result will terminate the switch. <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @param object
 	 *            the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>IU Presentation With Details</em>'.
@@ -305,7 +306,7 @@ public class P2viewSwitch<T1> extends Switch<T1> {
 	 * Returns the result of interpreting the object as an instance of '<em>Label Provider</em>'. <!-- begin-user-doc
 	 * --> This implementation returns null; returning a non-null result will terminate the switch. <!-- end-user-doc
 	 * -->
-	 * 
+	 *
 	 * @param object
 	 *            the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Label Provider</em>'.
@@ -322,7 +323,7 @@ public class P2viewSwitch<T1> extends Switch<T1> {
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param object
 	 *            the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Licenses</em>'.
@@ -337,7 +338,7 @@ public class P2viewSwitch<T1> extends Switch<T1> {
 	 * Returns the result of interpreting the object as an instance of '<em>Metadata Repository Structured View</em>'.
 	 * <!-- begin-user-doc --> This implementation returns null; returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param object
 	 *            the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Metadata Repository Structured View</em>'.
@@ -352,7 +353,7 @@ public class P2viewSwitch<T1> extends Switch<T1> {
 	 * Returns the result of interpreting the object as an instance of '<em>Miscellaneous</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param object
 	 *            the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Miscellaneous</em>'.
@@ -367,7 +368,7 @@ public class P2viewSwitch<T1> extends Switch<T1> {
 	 * Returns the result of interpreting the object as an instance of '<em>Other IU</em>'.
 	 * <!-- begin-user-doc --> This
 	 * implementation returns null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param object
 	 *            the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Other IU</em>'.
@@ -382,7 +383,7 @@ public class P2viewSwitch<T1> extends Switch<T1> {
 	 * Returns the result of interpreting the object as an instance of '<em>Product</em>'.
 	 * <!-- begin-user-doc --> This
 	 * implementation returns null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param object
 	 *            the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Product</em>'.
@@ -397,7 +398,7 @@ public class P2viewSwitch<T1> extends Switch<T1> {
 	 * Returns the result of interpreting the object as an instance of '<em>Products</em>'.
 	 * <!-- begin-user-doc --> This
 	 * implementation returns null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param object
 	 *            the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Products</em>'.
@@ -412,7 +413,7 @@ public class P2viewSwitch<T1> extends Switch<T1> {
 	 * Returns the result of interpreting the object as an instance of '<em>Properties</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param object
 	 *            the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Properties</em>'.
@@ -427,7 +428,7 @@ public class P2viewSwitch<T1> extends Switch<T1> {
 	 * Returns the result of interpreting the object as an instance of '<em>Provided Capabilities</em>'. <!--
 	 * begin-user-doc --> This implementation returns null; returning a non-null result will terminate the switch. <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @param object
 	 *            the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Provided Capabilities</em>'.
@@ -442,7 +443,7 @@ public class P2viewSwitch<T1> extends Switch<T1> {
 	 * Returns the result of interpreting the object as an instance of '<em>Provided Capability Wrapper</em>'. <!--
 	 * begin-user-doc --> This implementation returns null; returning a non-null result will terminate the switch. <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @param object
 	 *            the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Provided Capability Wrapper</em>'.
@@ -459,7 +460,7 @@ public class P2viewSwitch<T1> extends Switch<T1> {
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param object
 	 *            the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Repository Browser</em>'.
@@ -476,7 +477,7 @@ public class P2viewSwitch<T1> extends Switch<T1> {
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param object
 	 *            the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Repository References</em>'.
@@ -493,7 +494,7 @@ public class P2viewSwitch<T1> extends Switch<T1> {
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param object
 	 *            the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Requirements</em>'.
@@ -510,7 +511,7 @@ public class P2viewSwitch<T1> extends Switch<T1> {
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param object
 	 *            the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Requirement Wrapper</em>'.
@@ -527,7 +528,7 @@ public class P2viewSwitch<T1> extends Switch<T1> {
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param object
 	 *            the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Status Provider</em>'.
@@ -542,7 +543,7 @@ public class P2viewSwitch<T1> extends Switch<T1> {
 	 * Returns the result of interpreting the object as an instance of '<em>Touchpoints</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param object
 	 *            the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Touchpoints</em>'.
@@ -558,7 +559,7 @@ public class P2viewSwitch<T1> extends Switch<T1> {
 	 * <!-- begin-user-doc --> This
 	 * implementation returns null; returning a non-null result will terminate the switch, but this is the last case
 	 * anyway. <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param object
 	 *            the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>EObject</em>'.
@@ -573,7 +574,7 @@ public class P2viewSwitch<T1> extends Switch<T1> {
 	/**
 	 * Calls <code>caseXXX</code> for each class of the model until one returns a non null result; it yields that result.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @return the first non-null result returned by a <code>caseXXX</code> call.
 	 * @generated
 	 */
@@ -839,7 +840,7 @@ public class P2viewSwitch<T1> extends Switch<T1> {
 	 * Checks whether this is a switch for the given package.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @parameter ePackage the package in question.
 	 * @return whether this is a switch for the given package.
 	 * @generated

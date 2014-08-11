@@ -11,14 +11,14 @@ package org.eclipse.b3.aggregator;
 
 /**
  * <!-- begin-user-doc --> A representation of the model object '<em><b>Status Provider</b></em>'. <!-- end-user-doc -->
- * 
+ *
  * <p>
  * The following features are supported:
  * <ul>
  * <li>{@link org.eclipse.b3.aggregator.StatusProvider#getStatus <em>Status</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @see org.eclipse.b3.aggregator.AggregatorPackage#getStatusProvider()
  * @model interface="true" abstract="true"
  * @generated
@@ -27,7 +27,7 @@ public interface StatusProvider {
 	/**
 	 * Returns the value of the '<em><b>Status</b></em>' reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @return the value of the '<em>Status</em>' reference.
 	 * @see org.eclipse.b3.aggregator.AggregatorPackage#getStatusProvider_Status()
 	 * @model resolveProxies="false" required="true" transient="true" changeable="false" volatile="true"

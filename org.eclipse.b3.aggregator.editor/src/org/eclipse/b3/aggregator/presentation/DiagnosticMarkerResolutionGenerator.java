@@ -61,6 +61,7 @@ public class DiagnosticMarkerResolutionGenerator implements IMarkerResolutionGen
 
 		abstract ValidationSet getReceiver(Contribution contribution, ResourceSet resourceSet);
 
+		@Override
 		public void run(IMarker marker) {
 			String uriAttribute = marker.getAttribute(EValidator.URI_ATTRIBUTE, null);
 			URI uri = URI.createURI(uriAttribute);
@@ -122,6 +123,7 @@ public class DiagnosticMarkerResolutionGenerator implements IMarkerResolutionGen
 			this.receiver = receiver;
 		}
 
+		@Override
 		public String getLabel() {
 			return String.format(
 				"Move contribution %s into a validation set '%s'", contribution.getLabel(), receiver.getLabel());
@@ -138,6 +140,7 @@ public class DiagnosticMarkerResolutionGenerator implements IMarkerResolutionGen
 			super(contribution);
 		}
 
+		@Override
 		public String getLabel() {
 			return String.format("Move contribution %s into a new validation set", contribution.getLabel());
 		}
@@ -300,6 +303,7 @@ public class DiagnosticMarkerResolutionGenerator implements IMarkerResolutionGen
 		}.schedule();
 	}
 
+	@Override
 	public IMarkerResolution[] getResolutions(IMarker marker) {
 		try {
 			Object severity = marker.getAttribute(IMarker.SEVERITY);
@@ -368,6 +372,7 @@ public class DiagnosticMarkerResolutionGenerator implements IMarkerResolutionGen
 		}
 	}
 
+	@Override
 	public boolean hasResolutions(IMarker marker) {
 		return getResolutions(marker).length > 0;
 	}

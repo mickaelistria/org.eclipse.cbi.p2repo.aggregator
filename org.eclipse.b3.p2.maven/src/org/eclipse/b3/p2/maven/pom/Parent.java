@@ -10,11 +10,11 @@ import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc --> A representation of the model object '<em><b>Parent</b></em>'. <!-- end-user-doc -->
- * 
+ *
  * <!-- begin-model-doc -->
  * 4.0.0
  * <!-- end-model-doc -->
- * 
+ *
  * <p>
  * The following features are supported:
  * <ul>
@@ -24,7 +24,7 @@ import org.eclipse.emf.ecore.EObject;
  * <li>{@link org.eclipse.b3.p2.maven.pom.Parent#getRelativePath <em>Relative Path</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @see org.eclipse.b3.p2.maven.pom.PomPackage#getParent()
  * @model extendedMetaData="name='Parent' kind='elementOnly'"
  * @generated
@@ -37,7 +37,7 @@ public interface Parent extends EObject {
 	 * 4.0.0
 	 * The artifact id of the parent project to inherit from.
 	 * <!-- end-model-doc -->
-	 * 
+	 *
 	 * @return the value of the '<em>Artifact Id</em>' attribute.
 	 * @see #setArtifactId(String)
 	 * @see org.eclipse.b3.p2.maven.pom.PomPackage#getParent_ArtifactId()
@@ -50,7 +50,7 @@ public interface Parent extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Group Id</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc --> <!--
 	 * begin-model-doc --> 4.0.0 The group id of the parent project to inherit from. <!-- end-model-doc -->
-	 * 
+	 *
 	 * @return the value of the '<em>Group Id</em>' attribute.
 	 * @see #setGroupId(String)
 	 * @see org.eclipse.b3.p2.maven.pom.PomPackage#getParent_GroupId()
@@ -63,7 +63,7 @@ public interface Parent extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Relative Path</b></em>' attribute. The default value is <code>"../pom.xml"</code>. <!-- begin-user-doc -->
 	 * <!-- end-user-doc --> <!-- begin-model-doc --> 4.0.0
-	 * 
+	 *
 	 * The relative path of the parent &lt;code&gt;pom.xml&lt;/code&gt; file within the check out. The default value is
 	 * &lt;code&gt;../pom.xml&lt;/code&gt;. Maven looks for the parent pom first in the reactor of currently building
 	 * projects, then in this location on the filesystem, then the local repository, and lastly in the remote repo.
@@ -71,9 +71,9 @@ public interface Parent extends EObject {
 	 * is flat, or deeper without an intermediate parent pom. However, the group ID, artifact ID and version are still
 	 * required, and must match the file in the location given or it will revert to the repository for the POM. This
 	 * feature is only for enhancing the development in a local checkout of that project.
-	 * 
+	 *
 	 * <!-- end-model-doc -->
-	 * 
+	 *
 	 * @return the value of the '<em>Relative Path</em>' attribute.
 	 * @see #isSetRelativePath()
 	 * @see #unsetRelativePath()
@@ -88,7 +88,7 @@ public interface Parent extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Version</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc --> <!--
 	 * begin-model-doc --> 4.0.0 The version of the parent project to inherit. <!-- end-model-doc -->
-	 * 
+	 *
 	 * @return the value of the '<em>Version</em>' attribute.
 	 * @see #setVersion(String)
 	 * @see org.eclipse.b3.p2.maven.pom.PomPackage#getParent_Version()
@@ -101,7 +101,7 @@ public interface Parent extends EObject {
 	/**
 	 * Returns whether the value of the '{@link org.eclipse.b3.p2.maven.pom.Parent#getRelativePath <em>Relative Path</em>}' attribute is set.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @return whether the value of the '<em>Relative Path</em>' attribute is set.
 	 * @see #unsetRelativePath()
 	 * @see #getRelativePath()
@@ -113,7 +113,7 @@ public interface Parent extends EObject {
 	/**
 	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.Parent#getArtifactId <em>Artifact Id</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param value
 	 *            the new value of the '<em>Artifact Id</em>' attribute.
 	 * @see #getArtifactId()
@@ -124,7 +124,7 @@ public interface Parent extends EObject {
 	/**
 	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.Parent#getGroupId <em>Group Id</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param value
 	 *            the new value of the '<em>Group Id</em>' attribute.
 	 * @see #getGroupId()
@@ -135,7 +135,7 @@ public interface Parent extends EObject {
 	/**
 	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.Parent#getRelativePath <em>Relative Path</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param value
 	 *            the new value of the '<em>Relative Path</em>' attribute.
 	 * @see #isSetRelativePath()
@@ -148,7 +148,7 @@ public interface Parent extends EObject {
 	/**
 	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.Parent#getVersion <em>Version</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param value
 	 *            the new value of the '<em>Version</em>' attribute.
 	 * @see #getVersion()
@@ -159,7 +159,7 @@ public interface Parent extends EObject {
 	/**
 	 * Unsets the value of the '{@link org.eclipse.b3.p2.maven.pom.Parent#getRelativePath <em>Relative Path</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #isSetRelativePath()
 	 * @see #getRelativePath()
 	 * @see #setRelativePath(String)

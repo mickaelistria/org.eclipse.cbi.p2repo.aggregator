@@ -11,7 +11,7 @@ import org.eclipse.emf.ecore.EFactory;
 /**
  * <!-- begin-user-doc --> The <b>Factory</b> for the model. It provides a create method for each non-abstract class of
  * the model. <!-- end-user-doc -->
- * 
+ *
  * @see org.eclipse.b3.p2.maven.metadata.MetadataPackage
  * @generated
  */
@@ -19,7 +19,7 @@ public interface MetadataFactory extends EFactory {
 	/**
 	 * The singleton instance of the factory.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	MetadataFactory eINSTANCE = org.eclipse.b3.p2.maven.metadata.impl.MetadataFactoryImpl.init();
@@ -27,7 +27,7 @@ public interface MetadataFactory extends EFactory {
 	/**
 	 * Returns a new object of class '<em>Document Root</em>'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @return a new object of class '<em>Document Root</em>'.
 	 * @generated
 	 */
@@ -36,7 +36,7 @@ public interface MetadataFactory extends EFactory {
 	/**
 	 * Returns a new object of class '<em>Meta Data</em>'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @return a new object of class '<em>Meta Data</em>'.
 	 * @generated
 	 */
@@ -45,7 +45,7 @@ public interface MetadataFactory extends EFactory {
 	/**
 	 * Returns a new object of class '<em>Versioning</em>'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @return a new object of class '<em>Versioning</em>'.
 	 * @generated
 	 */
@@ -54,7 +54,7 @@ public interface MetadataFactory extends EFactory {
 	/**
 	 * Returns a new object of class '<em>Versions</em>'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @return a new object of class '<em>Versions</em>'.
 	 * @generated
 	 */
@@ -63,7 +63,7 @@ public interface MetadataFactory extends EFactory {
 	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @return the package supported by this factory.
 	 * @generated
 	 */

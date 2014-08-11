@@ -10,14 +10,14 @@ import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc --> A representation of the model object '<em><b>Developer</b></em>'. <!-- end-user-doc -->
- * 
+ *
  * <!-- begin-model-doc -->
  * 3.0.0+
- * 
+ *
  * Information about one of the committers on this project.
- * 
+ *
  * <!-- end-model-doc -->
- * 
+ *
  * <p>
  * The following features are supported:
  * <ul>
@@ -32,7 +32,7 @@ import org.eclipse.emf.ecore.EObject;
  * <li>{@link org.eclipse.b3.p2.maven.pom.Developer#getProperties <em>Properties</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @see org.eclipse.b3.p2.maven.pom.PomPackage#getDeveloper()
  * @model extendedMetaData="name='Developer' kind='elementOnly'"
  * @generated
@@ -41,7 +41,7 @@ public interface Developer extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Email</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc --> <!--
 	 * begin-model-doc --> 3.0.0+ The email address of the contributor. <!-- end-model-doc -->
-	 * 
+	 *
 	 * @return the value of the '<em>Email</em>' attribute.
 	 * @see #setEmail(String)
 	 * @see org.eclipse.b3.p2.maven.pom.PomPackage#getDeveloper_Email()
@@ -54,7 +54,7 @@ public interface Developer extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Id</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc --> <!--
 	 * begin-model-doc --> 3.0.0+ The unique ID of the developer in the SCM. <!-- end-model-doc -->
-	 * 
+	 *
 	 * @return the value of the '<em>Id</em>' attribute.
 	 * @see #setId(String)
 	 * @see org.eclipse.b3.p2.maven.pom.PomPackage#getDeveloper_Id()
@@ -67,7 +67,7 @@ public interface Developer extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Name</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc --> <!--
 	 * begin-model-doc --> 3.0.0+ The full name of the contributor. <!-- end-model-doc -->
-	 * 
+	 *
 	 * @return the value of the '<em>Name</em>' attribute.
 	 * @see #setName(String)
 	 * @see org.eclipse.b3.p2.maven.pom.PomPackage#getDeveloper_Name()
@@ -84,7 +84,7 @@ public interface Developer extends EObject {
 	 * 3.0.0+
 	 * The organization to which the contributor belongs.
 	 * <!-- end-model-doc -->
-	 * 
+	 *
 	 * @return the value of the '<em>Organization</em>' attribute.
 	 * @see #setOrganization(String)
 	 * @see org.eclipse.b3.p2.maven.pom.PomPackage#getDeveloper_Organization()
@@ -97,7 +97,7 @@ public interface Developer extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Organization Url</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc
 	 * --> <!-- begin-model-doc --> 3.0.0+ The URL of the organization. <!-- end-model-doc -->
-	 * 
+	 *
 	 * @return the value of the '<em>Organization Url</em>' attribute.
 	 * @see #setOrganizationUrl(String)
 	 * @see org.eclipse.b3.p2.maven.pom.PomPackage#getDeveloper_OrganizationUrl()
@@ -110,11 +110,11 @@ public interface Developer extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Properties</b></em>' containment reference. <!-- begin-user-doc --> <!--
 	 * end-user-doc --> <!-- begin-model-doc --> 3.0.0+
-	 * 
+	 *
 	 * Properties about the contributor, such as an instant messenger handle.
-	 * 
+	 *
 	 * <!-- end-model-doc -->
-	 * 
+	 *
 	 * @return the value of the '<em>Properties</em>' containment reference.
 	 * @see #setProperties(PropertiesType)
 	 * @see org.eclipse.b3.p2.maven.pom.PomPackage#getDeveloper_Properties()
@@ -126,12 +126,12 @@ public interface Developer extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Roles</b></em>' containment reference. <!-- begin-user-doc --> <!-- end-user-doc
 	 * --> <!-- begin-model-doc --> 3.0.0+
-	 * 
+	 *
 	 * The roles the contributor plays in the project. Each role is described by a &lt;code&gt;role&lt;/code&gt;
 	 * element, the body of which is a role name. This can also be used to describe the contribution.
-	 * 
+	 *
 	 * <!-- end-model-doc -->
-	 * 
+	 *
 	 * @return the value of the '<em>Roles</em>' containment reference.
 	 * @see #setRoles(RolesType)
 	 * @see org.eclipse.b3.p2.maven.pom.PomPackage#getDeveloper_Roles()
@@ -143,11 +143,11 @@ public interface Developer extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Timezone</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc --> <!--
 	 * begin-model-doc --> 3.0.0+
-	 * 
+	 *
 	 * The timezone the contributor is in. This is a number in the range -11 to 12.
-	 * 
+	 *
 	 * <!-- end-model-doc -->
-	 * 
+	 *
 	 * @return the value of the '<em>Timezone</em>' attribute.
 	 * @see #setTimezone(String)
 	 * @see org.eclipse.b3.p2.maven.pom.PomPackage#getDeveloper_Timezone()
@@ -160,7 +160,7 @@ public interface Developer extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Url</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc --> <!--
 	 * begin-model-doc --> 3.0.0+ The URL for the homepage of the contributor. <!-- end-model-doc -->
-	 * 
+	 *
 	 * @return the value of the '<em>Url</em>' attribute.
 	 * @see #setUrl(String)
 	 * @see org.eclipse.b3.p2.maven.pom.PomPackage#getDeveloper_Url()
@@ -173,7 +173,7 @@ public interface Developer extends EObject {
 	/**
 	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.Developer#getEmail <em>Email</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param value
 	 *            the new value of the '<em>Email</em>' attribute.
 	 * @see #getEmail()
@@ -184,7 +184,7 @@ public interface Developer extends EObject {
 	/**
 	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.Developer#getId <em>Id</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param value
 	 *            the new value of the '<em>Id</em>' attribute.
 	 * @see #getId()
@@ -195,7 +195,7 @@ public interface Developer extends EObject {
 	/**
 	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.Developer#getName <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param value
 	 *            the new value of the '<em>Name</em>' attribute.
 	 * @see #getName()
@@ -206,7 +206,7 @@ public interface Developer extends EObject {
 	/**
 	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.Developer#getOrganization <em>Organization</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param value
 	 *            the new value of the '<em>Organization</em>' attribute.
 	 * @see #getOrganization()
@@ -217,7 +217,7 @@ public interface Developer extends EObject {
 	/**
 	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.Developer#getOrganizationUrl <em>Organization Url</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param value
 	 *            the new value of the '<em>Organization Url</em>' attribute.
 	 * @see #getOrganizationUrl()
@@ -228,7 +228,7 @@ public interface Developer extends EObject {
 	/**
 	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.Developer#getProperties <em>Properties</em>}' containment reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param value
 	 *            the new value of the '<em>Properties</em>' containment reference.
 	 * @see #getProperties()
@@ -239,7 +239,7 @@ public interface Developer extends EObject {
 	/**
 	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.Developer#getRoles <em>Roles</em>}' containment reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param value
 	 *            the new value of the '<em>Roles</em>' containment reference.
 	 * @see #getRoles()
@@ -250,7 +250,7 @@ public interface Developer extends EObject {
 	/**
 	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.Developer#getTimezone <em>Timezone</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param value
 	 *            the new value of the '<em>Timezone</em>' attribute.
 	 * @see #getTimezone()
@@ -261,7 +261,7 @@ public interface Developer extends EObject {
 	/**
 	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.Developer#getUrl <em>Url</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param value
 	 *            the new value of the '<em>Url</em>' attribute.
 	 * @see #getUrl()

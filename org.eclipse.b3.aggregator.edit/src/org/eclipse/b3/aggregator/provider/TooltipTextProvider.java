@@ -10,7 +10,7 @@ package org.eclipse.b3.aggregator.provider;
 
 /**
  * @author Karel Brezina
- * 
+ *
  */
 public interface TooltipTextProvider {
 	public String getTooltipText(Object object);

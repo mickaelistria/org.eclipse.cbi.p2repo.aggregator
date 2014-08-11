@@ -24,7 +24,6 @@ import org.eclipse.b3.aggregator.p2view.IUPresentation;
 import org.eclipse.b3.aggregator.p2view.IUPresentationWithDetails;
 import org.eclipse.b3.aggregator.p2view.InstallableUnits;
 import org.eclipse.b3.aggregator.p2view.Licenses;
-import org.eclipse.b3.aggregator.p2view.RepositoryBrowser;
 import org.eclipse.b3.aggregator.p2view.MetadataRepositoryStructuredView;
 import org.eclipse.b3.aggregator.p2view.Miscellaneous;
 import org.eclipse.b3.aggregator.p2view.OtherIU;
@@ -35,6 +34,7 @@ import org.eclipse.b3.aggregator.p2view.Products;
 import org.eclipse.b3.aggregator.p2view.Properties;
 import org.eclipse.b3.aggregator.p2view.ProvidedCapabilities;
 import org.eclipse.b3.aggregator.p2view.ProvidedCapabilityWrapper;
+import org.eclipse.b3.aggregator.p2view.RepositoryBrowser;
 import org.eclipse.b3.aggregator.p2view.RepositoryReferences;
 import org.eclipse.b3.aggregator.p2view.RequirementWrapper;
 import org.eclipse.b3.aggregator.p2view.Requirements;
@@ -50,17 +50,17 @@ import org.eclipse.emf.ecore.xml.type.XMLTypePackage;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model <b>Package</b>. <!-- end-user-doc -->
- * 
+ *
  * @generated
  */
 public class P2viewPackageImpl extends EPackageImpl implements P2viewPackage {
 	/**
 	 * Creates, registers, and initializes the <b>Package</b> for this model, and for any others upon which it depends.
-	 * 
+	 *
 	 * <p>
 	 * This method is used to initialize {@link P2viewPackage#eINSTANCE} when that field is accessed. Clients should not invoke it directly. Instead,
 	 * they should simply access that field to obtain the package. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #eNS_URI
 	 * @see #createPackageContents()
 	 * @see #initializePackageContents()
@@ -104,119 +104,119 @@ public class P2viewPackageImpl extends EPackageImpl implements P2viewPackage {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EClass metadataRepositoryStructuredViewEClass = null;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EClass installableUnitsEClass = null;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EClass categoriesEClass = null;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EClass featuresEClass = null;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EClass productsEClass = null;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EClass bundlesEClass = null;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EClass fragmentsEClass = null;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EClass miscellaneousEClass = null;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EClass iuPresentationEClass = null;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EClass iuPresentationWithDetailsEClass = null;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EClass categoryEClass = null;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EClass featureEClass = null;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EClass productEClass = null;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EClass bundleEClass = null;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EClass fragmentEClass = null;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EClass otherIUEClass = null;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EClass propertiesEClass = null;
@@ -224,21 +224,21 @@ public class P2viewPackageImpl extends EPackageImpl implements P2viewPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EClass requirementsEClass = null;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EClass providedCapabilitiesEClass = null;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EClass touchpointsEClass = null;
@@ -246,7 +246,7 @@ public class P2viewPackageImpl extends EPackageImpl implements P2viewPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EClass licensesEClass = null;
@@ -254,14 +254,14 @@ public class P2viewPackageImpl extends EPackageImpl implements P2viewPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EClass repositoryBrowserEClass = null;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EClass iuDetailsEClass = null;
@@ -269,14 +269,14 @@ public class P2viewPackageImpl extends EPackageImpl implements P2viewPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EClass requirementWrapperEClass = null;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EClass providedCapabilityWrapperEClass = null;
@@ -284,28 +284,28 @@ public class P2viewPackageImpl extends EPackageImpl implements P2viewPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EClass repositoryReferencesEClass = null;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private static boolean isInited = false;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private boolean isCreated = false;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private boolean isInitialized = false;
@@ -317,7 +317,7 @@ public class P2viewPackageImpl extends EPackageImpl implements P2viewPackage {
 	 * <p>
 	 * Note: the correct way to create the package is via the static factory method {@link #init init()}, which also performs initialization of the
 	 * package, or returns the registered package, if one already exists. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see org.eclipse.emf.ecore.EPackage.Registry
 	 * @see org.eclipse.b3.aggregator.p2view.P2viewPackage#eNS_URI
 	 * @see #init()
@@ -331,7 +331,7 @@ public class P2viewPackageImpl extends EPackageImpl implements P2viewPackage {
 	 * Creates the meta-model objects for the package. This method is
 	 * guarded to have no affect on any invocation but its first.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public void createPackageContents() {
@@ -457,7 +457,7 @@ public class P2viewPackageImpl extends EPackageImpl implements P2viewPackage {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EClass getBundle() {
@@ -466,7 +466,7 @@ public class P2viewPackageImpl extends EPackageImpl implements P2viewPackage {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EClass getBundles() {
@@ -475,7 +475,7 @@ public class P2viewPackageImpl extends EPackageImpl implements P2viewPackage {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EReference getBundles_Bundles() {
@@ -484,7 +484,7 @@ public class P2viewPackageImpl extends EPackageImpl implements P2viewPackage {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EClass getCategories() {
@@ -493,7 +493,7 @@ public class P2viewPackageImpl extends EPackageImpl implements P2viewPackage {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EReference getCategories_Categories() {
@@ -502,7 +502,7 @@ public class P2viewPackageImpl extends EPackageImpl implements P2viewPackage {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EClass getCategory() {
@@ -511,7 +511,7 @@ public class P2viewPackageImpl extends EPackageImpl implements P2viewPackage {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EReference getCategory_BundleContainer() {
@@ -520,7 +520,7 @@ public class P2viewPackageImpl extends EPackageImpl implements P2viewPackage {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EReference getCategory_CategoryContainer() {
@@ -529,7 +529,7 @@ public class P2viewPackageImpl extends EPackageImpl implements P2viewPackage {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EReference getCategory_FeatureContainer() {
@@ -538,7 +538,7 @@ public class P2viewPackageImpl extends EPackageImpl implements P2viewPackage {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EReference getCategory_FragmentContainer() {
@@ -547,7 +547,7 @@ public class P2viewPackageImpl extends EPackageImpl implements P2viewPackage {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EReference getCategory_IuDetails() {
@@ -556,7 +556,7 @@ public class P2viewPackageImpl extends EPackageImpl implements P2viewPackage {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EReference getCategory_ProductContainer() {
@@ -565,7 +565,7 @@ public class P2viewPackageImpl extends EPackageImpl implements P2viewPackage {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EClass getFeature() {
@@ -574,7 +574,7 @@ public class P2viewPackageImpl extends EPackageImpl implements P2viewPackage {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EReference getFeature_BundleContainer() {
@@ -583,7 +583,7 @@ public class P2viewPackageImpl extends EPackageImpl implements P2viewPackage {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EReference getFeature_FeatureContainer() {
@@ -592,7 +592,7 @@ public class P2viewPackageImpl extends EPackageImpl implements P2viewPackage {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EReference getFeature_FragmentContainer() {
@@ -601,7 +601,7 @@ public class P2viewPackageImpl extends EPackageImpl implements P2viewPackage {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EClass getFeatures() {
@@ -610,7 +610,7 @@ public class P2viewPackageImpl extends EPackageImpl implements P2viewPackage {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EReference getFeatures_Features() {
@@ -619,7 +619,7 @@ public class P2viewPackageImpl extends EPackageImpl implements P2viewPackage {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EClass getFragment() {
@@ -628,7 +628,7 @@ public class P2viewPackageImpl extends EPackageImpl implements P2viewPackage {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EClass getFragments() {
@@ -637,7 +637,7 @@ public class P2viewPackageImpl extends EPackageImpl implements P2viewPackage {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EReference getFragments_Fragments() {
@@ -646,7 +646,7 @@ public class P2viewPackageImpl extends EPackageImpl implements P2viewPackage {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EClass getInstallableUnits() {
@@ -656,7 +656,7 @@ public class P2viewPackageImpl extends EPackageImpl implements P2viewPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EReference getInstallableUnits_AllIUs() {
@@ -665,7 +665,7 @@ public class P2viewPackageImpl extends EPackageImpl implements P2viewPackage {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EReference getInstallableUnits_BundleContainer() {
@@ -674,7 +674,7 @@ public class P2viewPackageImpl extends EPackageImpl implements P2viewPackage {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EReference getInstallableUnits_CategoryContainer() {
@@ -683,7 +683,7 @@ public class P2viewPackageImpl extends EPackageImpl implements P2viewPackage {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EReference getInstallableUnits_FeatureContainer() {
@@ -692,7 +692,7 @@ public class P2viewPackageImpl extends EPackageImpl implements P2viewPackage {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EReference getInstallableUnits_FragmentContainer() {
@@ -701,7 +701,7 @@ public class P2viewPackageImpl extends EPackageImpl implements P2viewPackage {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EReference getInstallableUnits_MiscellaneousContainer() {
@@ -710,7 +710,7 @@ public class P2viewPackageImpl extends EPackageImpl implements P2viewPackage {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EReference getInstallableUnits_ProductContainer() {
@@ -719,7 +719,7 @@ public class P2viewPackageImpl extends EPackageImpl implements P2viewPackage {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EClass getIUDetails() {
@@ -728,7 +728,7 @@ public class P2viewPackageImpl extends EPackageImpl implements P2viewPackage {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EReference getIUDetails_Copyright() {
@@ -738,7 +738,7 @@ public class P2viewPackageImpl extends EPackageImpl implements P2viewPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EReference getIUDetails_LicensesContainer() {
@@ -747,7 +747,7 @@ public class P2viewPackageImpl extends EPackageImpl implements P2viewPackage {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EReference getIUDetails_PropertiesContainer() {
@@ -756,7 +756,7 @@ public class P2viewPackageImpl extends EPackageImpl implements P2viewPackage {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EReference getIUDetails_ProvidedCapabilitiesContainer() {
@@ -766,7 +766,7 @@ public class P2viewPackageImpl extends EPackageImpl implements P2viewPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EReference getIUDetails_RequirementsContainer() {
@@ -775,7 +775,7 @@ public class P2viewPackageImpl extends EPackageImpl implements P2viewPackage {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EReference getIUDetails_TouchpointsContainer() {
@@ -784,7 +784,7 @@ public class P2viewPackageImpl extends EPackageImpl implements P2viewPackage {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EReference getIUDetails_UpdateDescriptor() {
@@ -793,7 +793,7 @@ public class P2viewPackageImpl extends EPackageImpl implements P2viewPackage {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EClass getIUPresentation() {
@@ -802,7 +802,7 @@ public class P2viewPackageImpl extends EPackageImpl implements P2viewPackage {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EAttribute getIUPresentation_Description() {
@@ -812,7 +812,7 @@ public class P2viewPackageImpl extends EPackageImpl implements P2viewPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EAttribute getIUPresentation_Filter() {
@@ -821,7 +821,7 @@ public class P2viewPackageImpl extends EPackageImpl implements P2viewPackage {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EAttribute getIUPresentation_Id() {
@@ -830,7 +830,7 @@ public class P2viewPackageImpl extends EPackageImpl implements P2viewPackage {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EReference getIUPresentation_InstallableUnit() {
@@ -839,7 +839,7 @@ public class P2viewPackageImpl extends EPackageImpl implements P2viewPackage {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EAttribute getIUPresentation_Label() {
@@ -848,7 +848,7 @@ public class P2viewPackageImpl extends EPackageImpl implements P2viewPackage {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EAttribute getIUPresentation_Name() {
@@ -857,7 +857,7 @@ public class P2viewPackageImpl extends EPackageImpl implements P2viewPackage {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EAttribute getIUPresentation_Type() {
@@ -866,7 +866,7 @@ public class P2viewPackageImpl extends EPackageImpl implements P2viewPackage {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EAttribute getIUPresentation_Version() {
@@ -875,7 +875,7 @@ public class P2viewPackageImpl extends EPackageImpl implements P2viewPackage {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EClass getIUPresentationWithDetails() {
@@ -884,7 +884,7 @@ public class P2viewPackageImpl extends EPackageImpl implements P2viewPackage {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EAttribute getIUPresentationWithDetails_DetailsResolved() {
@@ -894,7 +894,7 @@ public class P2viewPackageImpl extends EPackageImpl implements P2viewPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EClass getLicenses() {
@@ -904,7 +904,7 @@ public class P2viewPackageImpl extends EPackageImpl implements P2viewPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EReference getLicenses_Licenses() {
@@ -913,7 +913,7 @@ public class P2viewPackageImpl extends EPackageImpl implements P2viewPackage {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EClass getMetadataRepositoryStructuredView() {
@@ -922,7 +922,7 @@ public class P2viewPackageImpl extends EPackageImpl implements P2viewPackage {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EReference getMetadataRepositoryStructuredView_InstallableUnitList() {
@@ -931,7 +931,7 @@ public class P2viewPackageImpl extends EPackageImpl implements P2viewPackage {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EAttribute getMetadataRepositoryStructuredView_Loaded() {
@@ -941,7 +941,7 @@ public class P2viewPackageImpl extends EPackageImpl implements P2viewPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EAttribute getMetadataRepositoryStructuredView_Location() {
@@ -950,7 +950,7 @@ public class P2viewPackageImpl extends EPackageImpl implements P2viewPackage {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EReference getMetadataRepositoryStructuredView_MetadataRepository() {
@@ -959,7 +959,7 @@ public class P2viewPackageImpl extends EPackageImpl implements P2viewPackage {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EAttribute getMetadataRepositoryStructuredView_Name() {
@@ -968,7 +968,7 @@ public class P2viewPackageImpl extends EPackageImpl implements P2viewPackage {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EReference getMetadataRepositoryStructuredView_Properties() {
@@ -978,7 +978,7 @@ public class P2viewPackageImpl extends EPackageImpl implements P2viewPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EReference getMetadataRepositoryStructuredView_RepositoryReferences() {
@@ -987,7 +987,7 @@ public class P2viewPackageImpl extends EPackageImpl implements P2viewPackage {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EClass getMiscellaneous() {
@@ -996,7 +996,7 @@ public class P2viewPackageImpl extends EPackageImpl implements P2viewPackage {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EReference getMiscellaneous_Others() {
@@ -1005,7 +1005,7 @@ public class P2viewPackageImpl extends EPackageImpl implements P2viewPackage {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EClass getOtherIU() {
@@ -1014,7 +1014,7 @@ public class P2viewPackageImpl extends EPackageImpl implements P2viewPackage {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public P2viewFactory getP2viewFactory() {
@@ -1023,7 +1023,7 @@ public class P2viewPackageImpl extends EPackageImpl implements P2viewPackage {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EClass getProduct() {
@@ -1032,7 +1032,7 @@ public class P2viewPackageImpl extends EPackageImpl implements P2viewPackage {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EReference getProduct_BundleContainer() {
@@ -1041,7 +1041,7 @@ public class P2viewPackageImpl extends EPackageImpl implements P2viewPackage {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EReference getProduct_FeatureContainer() {
@@ -1050,7 +1050,7 @@ public class P2viewPackageImpl extends EPackageImpl implements P2viewPackage {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EReference getProduct_FragmentContainer() {
@@ -1059,7 +1059,7 @@ public class P2viewPackageImpl extends EPackageImpl implements P2viewPackage {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EClass getProducts() {
@@ -1068,7 +1068,7 @@ public class P2viewPackageImpl extends EPackageImpl implements P2viewPackage {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EReference getProducts_Products() {
@@ -1077,7 +1077,7 @@ public class P2viewPackageImpl extends EPackageImpl implements P2viewPackage {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EClass getProperties() {
@@ -1086,7 +1086,7 @@ public class P2viewPackageImpl extends EPackageImpl implements P2viewPackage {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EReference getProperties_PropertyList() {
@@ -1095,7 +1095,7 @@ public class P2viewPackageImpl extends EPackageImpl implements P2viewPackage {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EClass getProvidedCapabilities() {
@@ -1104,7 +1104,7 @@ public class P2viewPackageImpl extends EPackageImpl implements P2viewPackage {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EReference getProvidedCapabilities_ProvidedCapabilities() {
@@ -1113,7 +1113,7 @@ public class P2viewPackageImpl extends EPackageImpl implements P2viewPackage {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EClass getProvidedCapabilityWrapper() {
@@ -1122,7 +1122,7 @@ public class P2viewPackageImpl extends EPackageImpl implements P2viewPackage {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EReference getProvidedCapabilityWrapper_Genuine() {
@@ -1132,7 +1132,7 @@ public class P2viewPackageImpl extends EPackageImpl implements P2viewPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EClass getRepositoryBrowser() {
@@ -1142,7 +1142,7 @@ public class P2viewPackageImpl extends EPackageImpl implements P2viewPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EAttribute getRepositoryBrowser_Loading() {
@@ -1152,7 +1152,7 @@ public class P2viewPackageImpl extends EPackageImpl implements P2viewPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EReference getRepositoryBrowser_Repositories() {
@@ -1162,7 +1162,7 @@ public class P2viewPackageImpl extends EPackageImpl implements P2viewPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EClass getRepositoryReferences() {
@@ -1172,7 +1172,7 @@ public class P2viewPackageImpl extends EPackageImpl implements P2viewPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EReference getRepositoryReferences_RepositoryReferences() {
@@ -1182,7 +1182,7 @@ public class P2viewPackageImpl extends EPackageImpl implements P2viewPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EClass getRequirements() {
@@ -1192,7 +1192,7 @@ public class P2viewPackageImpl extends EPackageImpl implements P2viewPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EReference getRequirements_Requirements() {
@@ -1202,7 +1202,7 @@ public class P2viewPackageImpl extends EPackageImpl implements P2viewPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EClass getRequirementWrapper() {
@@ -1212,7 +1212,7 @@ public class P2viewPackageImpl extends EPackageImpl implements P2viewPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EReference getRequirementWrapper_Genuine() {
@@ -1221,7 +1221,7 @@ public class P2viewPackageImpl extends EPackageImpl implements P2viewPackage {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EClass getTouchpoints() {
@@ -1230,7 +1230,7 @@ public class P2viewPackageImpl extends EPackageImpl implements P2viewPackage {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EReference getTouchpoints_TouchpointDataList() {
@@ -1239,7 +1239,7 @@ public class P2viewPackageImpl extends EPackageImpl implements P2viewPackage {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EReference getTouchpoints_TouchpointType() {
@@ -1250,7 +1250,7 @@ public class P2viewPackageImpl extends EPackageImpl implements P2viewPackage {
 	 * Complete the initialization of the package and its meta-model. This
 	 * method is guarded to have no affect on any invocation but its first.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public void initializePackageContents() {

@@ -15,7 +15,7 @@ import java.util.NoSuchElementException;
 /**
  * A simple command line parser that implements a subset of the parsing that is performed by a normal bourne shell.
  * Environment substitution is performed only if the Java runtime is of version 1.5 or higher.
- * 
+ *
  * @author Thomas Hallgren
  * @see java.util.Iterator
  */
@@ -157,12 +157,14 @@ public class ScriptLineParser implements Iterator<String> {
 		return innerBld.toString();
 	}
 
+	@Override
 	public boolean hasNext() {
 		if(nextToken == null)
 			nextToken = this.nextToken();
 		return nextToken != null;
 	}
 
+	@Override
 	public String next() {
 		if(!this.hasNext())
 			throw new NoSuchElementException();
@@ -208,6 +210,7 @@ public class ScriptLineParser implements Iterator<String> {
 		return outerBld.toString();
 	}
 
+	@Override
 	public void remove() {
 		throw new UnsupportedOperationException();
 	}

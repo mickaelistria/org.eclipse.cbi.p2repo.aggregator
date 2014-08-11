@@ -26,7 +26,7 @@ import org.kohsuke.args4j.Option;
 
 /**
  * @author Markus Alexaneder Kuppe <b3-dev_eclipse.org@lemmster dot de>
- * 
+ *
  */
 public abstract class ModelAbstractCommand extends AbstractCommand {
 	@Option(name = "--buildModel", required = true, usage = "Appoints the aggregation definition that drives the execution")
@@ -36,7 +36,7 @@ public abstract class ModelAbstractCommand extends AbstractCommand {
 
 	/**
 	 * Loads the model into memory
-	 * 
+	 *
 	 * @throws CoreException
 	 *             If something goes wrong with during the process
 	 */

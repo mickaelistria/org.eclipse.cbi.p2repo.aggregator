@@ -8,11 +8,8 @@ package org.eclipse.b3.p2.maven.pom.impl;
 
 import org.eclipse.b3.p2.maven.pom.IssueManagement;
 import org.eclipse.b3.p2.maven.pom.PomPackage;
-
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 
@@ -26,7 +23,7 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * <li>{@link org.eclipse.b3.p2.maven.pom.impl.IssueManagementImpl#getUrl <em>Url</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public class IssueManagementImpl extends EObjectImpl implements IssueManagement {
@@ -34,7 +31,7 @@ public class IssueManagementImpl extends EObjectImpl implements IssueManagement 
 	 * The default value of the '{@link #getSystem() <em>System</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @see #getSystem()
 	 * @generated
 	 * @ordered
@@ -45,7 +42,7 @@ public class IssueManagementImpl extends EObjectImpl implements IssueManagement 
 	 * The cached value of the '{@link #getSystem() <em>System</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @see #getSystem()
 	 * @generated
 	 * @ordered
@@ -55,7 +52,7 @@ public class IssueManagementImpl extends EObjectImpl implements IssueManagement 
 	/**
 	 * The default value of the '{@link #getUrl() <em>Url</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
 	 * -->
-	 * 
+	 *
 	 * @see #getUrl()
 	 * @generated
 	 * @ordered
@@ -65,7 +62,7 @@ public class IssueManagementImpl extends EObjectImpl implements IssueManagement 
 	/**
 	 * The cached value of the '{@link #getUrl() <em>Url</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getUrl()
 	 * @generated
 	 * @ordered
@@ -74,7 +71,7 @@ public class IssueManagementImpl extends EObjectImpl implements IssueManagement 
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected IssueManagementImpl() {
@@ -83,7 +80,7 @@ public class IssueManagementImpl extends EObjectImpl implements IssueManagement 
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -99,7 +96,7 @@ public class IssueManagementImpl extends EObjectImpl implements IssueManagement 
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -119,7 +116,7 @@ public class IssueManagementImpl extends EObjectImpl implements IssueManagement 
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -137,7 +134,7 @@ public class IssueManagementImpl extends EObjectImpl implements IssueManagement 
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -155,27 +152,30 @@ public class IssueManagementImpl extends EObjectImpl implements IssueManagement 
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public String getSystem() {
 		return system;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public String getUrl() {
 		return url;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public void setSystem(String newSystem) {
 		String oldSystem = system;
 		system = newSystem;
@@ -186,9 +186,10 @@ public class IssueManagementImpl extends EObjectImpl implements IssueManagement 
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public void setUrl(String newUrl) {
 		String oldUrl = url;
 		url = newUrl;
@@ -198,7 +199,7 @@ public class IssueManagementImpl extends EObjectImpl implements IssueManagement 
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -217,7 +218,7 @@ public class IssueManagementImpl extends EObjectImpl implements IssueManagement 
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override

@@ -36,7 +36,7 @@ import org.eclipse.ui.internal.ide.IDEWorkbenchMessages;
 
 /**
  * @author Karel Brezina
- * 
+ *
  */
 public class VersionRangeEditorDialog extends Dialog {
 
@@ -222,6 +222,7 @@ public class VersionRangeEditorDialog extends Dialog {
 		formatStringText.setEnabled(VERSION_TYPE_USER_DEFINED.equals(versionTypeCombo.getText()));
 		formatStringText.addModifyListener(new ModifyListener() {
 
+			@Override
 			public void modifyText(ModifyEvent e) {
 				try {
 					currentFormat = VersionFormat.compile(UIUtils.trimmedValue(formatStringText));
@@ -317,6 +318,7 @@ public class VersionRangeEditorDialog extends Dialog {
 				: 1);
 
 		ModifyListener modifyListener = new ModifyListener() {
+			@Override
 			public void modifyText(ModifyEvent e) {
 				okButton.setEnabled(isOKEnabled());
 			}

@@ -25,7 +25,7 @@ import org.eclipse.equinox.p2.metadata.IInstallableUnit;
 
 /**
  * @author Karel Brezina
- * 
+ *
  */
 public class AddIUsToMappedRepositoryCommand extends AbstractCommand implements DragAndDropFeedback {
 	private MappedRepository mappedRepo;
@@ -52,6 +52,7 @@ public class AddIUsToMappedRepositoryCommand extends AbstractCommand implements 
 		this.operation = operation;
 	}
 
+	@Override
 	public void execute() {
 		addedMappedUnits.clear();
 		addedMapRules.clear();
@@ -73,10 +74,12 @@ public class AddIUsToMappedRepositoryCommand extends AbstractCommand implements 
 			}
 	}
 
+	@Override
 	public int getFeedback() {
 		return FEEDBACK_SELECT;
 	}
 
+	@Override
 	public int getOperation() {
 		return DROP_LINK;
 	}
@@ -94,6 +97,7 @@ public class AddIUsToMappedRepositoryCommand extends AbstractCommand implements 
 		return result;
 	}
 
+	@Override
 	public void redo() {
 		execute();
 	}
@@ -112,6 +116,7 @@ public class AddIUsToMappedRepositoryCommand extends AbstractCommand implements 
 	}
 
 	// validated prior command creation
+	@Override
 	public boolean validate(Object owner, float location, int operations, int operation, Collection<?> collection) {
 		return true;
 	}

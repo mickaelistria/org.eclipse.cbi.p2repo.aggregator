@@ -16,12 +16,9 @@ import org.eclipse.b3.aggregator.p2view.InstallableUnits;
 import org.eclipse.b3.aggregator.p2view.P2viewPackage;
 import org.eclipse.b3.aggregator.provider.AggregatorEditPlugin;
 import org.eclipse.b3.aggregator.provider.AggregatorItemProviderAdapter;
-
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.common.util.ResourceLocator;
-
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemColorProvider;
@@ -36,7 +33,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
 /**
  * This is the item provider adapter for a {@link org.eclipse.b3.aggregator.p2view.InstallableUnits} object.
  * <!-- begin-user-doc --> <!-- end-user-doc -->
- * 
+ *
  * @generated
  */
 public class InstallableUnitsItemProvider extends AggregatorItemProviderAdapter implements IEditingDomainItemProvider,
@@ -45,7 +42,7 @@ public class InstallableUnitsItemProvider extends AggregatorItemProviderAdapter 
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public InstallableUnitsItemProvider(AdapterFactory adapterFactory) {
@@ -56,7 +53,7 @@ public class InstallableUnitsItemProvider extends AggregatorItemProviderAdapter 
 	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
 	 * that can be created under this object.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -66,7 +63,7 @@ public class InstallableUnitsItemProvider extends AggregatorItemProviderAdapter 
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -83,7 +80,7 @@ public class InstallableUnitsItemProvider extends AggregatorItemProviderAdapter 
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -103,7 +100,7 @@ public class InstallableUnitsItemProvider extends AggregatorItemProviderAdapter 
 	/**
 	 * This returns InstallableUnits.gif.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -114,7 +111,7 @@ public class InstallableUnitsItemProvider extends AggregatorItemProviderAdapter 
 	/**
 	 * This returns the property descriptors for the adapted class.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -129,7 +126,7 @@ public class InstallableUnitsItemProvider extends AggregatorItemProviderAdapter 
 	/**
 	 * Return the resource locator for this item provider's resources.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -140,7 +137,7 @@ public class InstallableUnitsItemProvider extends AggregatorItemProviderAdapter 
 	/**
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -152,7 +149,7 @@ public class InstallableUnitsItemProvider extends AggregatorItemProviderAdapter 
 	 * This handles model notifications by calling {@link #updateChildren} to update any cached children and by creating
 	 * a viewer notification, which it passes to {@link #fireNotifyChanged}. <!-- begin-user-doc --> <!-- end-user-doc
 	 * -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override

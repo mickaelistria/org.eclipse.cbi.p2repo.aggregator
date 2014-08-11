@@ -9,7 +9,6 @@ package org.eclipse.b3.p2.impl;
 
 import java.io.File;
 import java.io.OutputStream;
-import java.lang.Comparable;
 import java.util.Collection;
 import java.util.Map;
 
@@ -89,14 +88,14 @@ import org.eclipse.equinox.p2.repository.metadata.IMetadataRepository;
  * <!-- begin-user-doc -->
  * An implementation of the model <b>Package</b>.
  * <!-- end-user-doc -->
- * 
+ *
  * @generated
  */
 public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EClass iArtifactKeyEClass = null;
@@ -104,7 +103,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EClass iArtifactRepositoryEClass = null;
@@ -112,7 +111,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EClass iCopyrightEClass = null;
@@ -120,7 +119,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EClass iFileArtifactRepositoryEClass = null;
@@ -128,7 +127,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EClass iInstallableUnitEClass = null;
@@ -136,7 +135,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EClass iInstallableUnitFragmentEClass = null;
@@ -144,7 +143,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EClass iInstallableUnitPatchEClass = null;
@@ -152,7 +151,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EClass iLicenseEClass = null;
@@ -160,7 +159,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EClass iProvidedCapabilityEClass = null;
@@ -168,7 +167,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EClass iRequirementEClass = null;
@@ -176,7 +175,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EClass iRequiredCapabilityEClass = null;
@@ -184,7 +183,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EClass iRequirementChangeEClass = null;
@@ -192,7 +191,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EClass iTouchpointDataEClass = null;
@@ -200,7 +199,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EClass iTouchpointInstructionEClass = null;
@@ -208,7 +207,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EClass iTouchpointTypeEClass = null;
@@ -216,7 +215,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EClass iVersionedIdEClass = null;
@@ -224,7 +223,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EClass iUpdateDescriptorEClass = null;
@@ -232,7 +231,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EClass artifactKeyEClass = null;
@@ -240,7 +239,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EClass artifactDescriptorEClass = null;
@@ -248,7 +247,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EClass artifactRepositoryEClass = null;
@@ -256,7 +255,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EClass artifactsByKeyEClass = null;
@@ -264,7 +263,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EClass copyrightEClass = null;
@@ -272,7 +271,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EClass metadataRepositoryEClass = null;
@@ -280,7 +279,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EClass processingStepDescriptorEClass = null;
@@ -288,7 +287,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EClass installableUnitEClass = null;
@@ -296,7 +295,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EClass installableUnitFragmentEClass = null;
@@ -304,7 +303,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EClass installableUnitPatchEClass = null;
@@ -312,7 +311,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EClass licenseEClass = null;
@@ -320,7 +319,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EClass mappingRuleEClass = null;
@@ -328,7 +327,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EClass providedCapabilityEClass = null;
@@ -336,7 +335,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EClass repositoryEClass = null;
@@ -344,7 +343,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EClass requiredCapabilityEClass = null;
@@ -352,7 +351,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EClass requirementEClass = null;
@@ -360,7 +359,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EClass requirementChangeEClass = null;
@@ -368,7 +367,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EClass simpleArtifactRepositoryEClass = null;
@@ -376,7 +375,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EClass simpleArtifactDescriptorEClass = null;
@@ -384,7 +383,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EClass touchpointDataEClass = null;
@@ -392,7 +391,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EClass touchpointInstructionEClass = null;
@@ -400,7 +399,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EClass touchpointTypeEClass = null;
@@ -408,7 +407,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EClass updateDescriptorEClass = null;
@@ -416,7 +415,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EClass propertyEClass = null;
@@ -424,7 +423,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EClass instructionMapEClass = null;
@@ -432,7 +431,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EClass iQueryableEClass = null;
@@ -440,7 +439,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EClass iMetadataRepositoryEClass = null;
@@ -448,7 +447,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EClass iProcessingStepDescriptorEClass = null;
@@ -456,7 +455,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EClass iRepositoryEClass = null;
@@ -464,7 +463,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EClass iRepositoryReferenceEClass = null;
@@ -472,7 +471,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EClass repositoryReferenceEClass = null;
@@ -480,7 +479,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EClass iAdaptableEClass = null;
@@ -488,7 +487,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EClass iArtifactDescriptorEClass = null;
@@ -496,7 +495,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EClass comparableEClass = null;
@@ -504,7 +503,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EDataType versionEDataType = null;
@@ -512,7 +511,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EDataType versionRangeEDataType = null;
@@ -520,7 +519,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EDataType iInstallableUnitArrayEDataType = null;
@@ -528,7 +527,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EDataType collectionEDataType = null;
@@ -536,7 +535,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EDataType iProvidedCapabilityArrayEDataType = null;
@@ -544,7 +543,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EDataType iInstallableUnitFragmentArrayEDataType = null;
@@ -552,7 +551,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EDataType iArtifactKeyArrayEDataType = null;
@@ -560,7 +559,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EDataType iArtifactRequestArrayEDataType = null;
@@ -568,7 +567,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EDataType iTouchpointDataArrayEDataType = null;
@@ -576,7 +575,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EDataType iRequirementArrayArrayEDataType = null;
@@ -584,7 +583,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EDataType iPoolEDataType = null;
@@ -592,7 +591,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EDataType iProcessingDescriptorArrayEDataType = null;
@@ -600,7 +599,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EDataType stringArrayEDataType = null;
@@ -608,7 +607,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EDataType untypedMapEDataType = null;
@@ -616,7 +615,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EDataType mapEDataType = null;
@@ -624,7 +623,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EDataType outputStreamEDataType = null;
@@ -632,7 +631,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EDataType iLicenseArrayEDataType = null;
@@ -640,7 +639,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EDataType iQueryResultEDataType = null;
@@ -648,7 +647,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EDataType iQueryEDataType = null;
@@ -656,7 +655,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EDataType collectorEDataType = null;
@@ -664,7 +663,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EDataType fileEDataType = null;
@@ -672,7 +671,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EDataType iArtifactDescriptorArrayEDataType = null;
@@ -680,7 +679,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EDataType iProgressMonitorEDataType = null;
@@ -688,7 +687,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EDataType iRunnableWithProgressEDataType = null;
@@ -696,7 +695,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EDataType iStatusEDataType = null;
@@ -704,7 +703,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EDataType iMatchExpressionEDataType = null;
@@ -712,7 +711,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EDataType iProvisioningAgentEDataType = null;
@@ -720,7 +719,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EDataType uriEDataType = null;
@@ -728,18 +727,18 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private static boolean isInited = false;
 
 	/**
 	 * Creates, registers, and initializes the <b>Package</b> for this model, and for any others upon which it depends.
-	 * 
+	 *
 	 * <p>
 	 * This method is used to initialize {@link P2Package#eINSTANCE} when that field is accessed. Clients should not invoke it directly. Instead, they
 	 * should simply access that field to obtain the package. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #eNS_URI
 	 * @see #createPackageContents()
 	 * @see #initializePackageContents()
@@ -776,7 +775,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private boolean isCreated = false;
@@ -784,7 +783,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private boolean isInitialized = false;
@@ -796,7 +795,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	 * <p>
 	 * Note: the correct way to create the package is via the static factory method {@link #init init()}, which also performs initialization of the
 	 * package, or returns the registered package, if one already exists. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see org.eclipse.emf.ecore.EPackage.Registry
 	 * @see org.eclipse.b3.p2.P2Package#eNS_URI
 	 * @see #init()
@@ -811,7 +810,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	 * guarded to have no affect on any invocation but its first.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public void createPackageContents() {
@@ -1038,9 +1037,10 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public EClass getArtifactDescriptor() {
 		return artifactDescriptorEClass;
 	}
@@ -1048,9 +1048,10 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public EReference getArtifactDescriptor_ProcessingStepList() {
 		return (EReference) artifactDescriptorEClass.getEStructuralFeatures().get(1);
 	}
@@ -1058,9 +1059,10 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public EReference getArtifactDescriptor_PropertyMap() {
 		return (EReference) artifactDescriptorEClass.getEStructuralFeatures().get(0);
 	}
@@ -1068,9 +1070,10 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public EClass getArtifactKey() {
 		return artifactKeyEClass;
 	}
@@ -1078,9 +1081,10 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public EClass getArtifactRepository() {
 		return artifactRepositoryEClass;
 	}
@@ -1088,9 +1092,10 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public EReference getArtifactRepository_ArtifactMap() {
 		return (EReference) artifactRepositoryEClass.getEStructuralFeatures().get(0);
 	}
@@ -1098,9 +1103,10 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public EClass getArtifactsByKey() {
 		return artifactsByKeyEClass;
 	}
@@ -1108,9 +1114,10 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public EReference getArtifactsByKey_Key() {
 		return (EReference) artifactsByKeyEClass.getEStructuralFeatures().get(0);
 	}
@@ -1118,9 +1125,10 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public EReference getArtifactsByKey_Value() {
 		return (EReference) artifactsByKeyEClass.getEStructuralFeatures().get(1);
 	}
@@ -1128,9 +1136,10 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public EDataType getCollection() {
 		return collectionEDataType;
 	}
@@ -1138,9 +1147,10 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public EDataType getCollector() {
 		return collectorEDataType;
 	}
@@ -1148,9 +1158,10 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public EClass getComparable() {
 		return comparableEClass;
 	}
@@ -1158,9 +1169,10 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public EClass getCopyright() {
 		return copyrightEClass;
 	}
@@ -1168,9 +1180,10 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public EDataType getFile() {
 		return fileEDataType;
 	}
@@ -1178,9 +1191,10 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public EClass getIAdaptable() {
 		return iAdaptableEClass;
 	}
@@ -1188,9 +1202,10 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public EClass getIArtifactDescriptor() {
 		return iArtifactDescriptorEClass;
 	}
@@ -1198,9 +1213,10 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public EReference getIArtifactDescriptor_ArtifactKey() {
 		return (EReference) iArtifactDescriptorEClass.getEStructuralFeatures().get(0);
 	}
@@ -1208,9 +1224,10 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public EDataType getIArtifactDescriptorArray() {
 		return iArtifactDescriptorArrayEDataType;
 	}
@@ -1218,9 +1235,10 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public EClass getIArtifactKey() {
 		return iArtifactKeyEClass;
 	}
@@ -1228,9 +1246,10 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public EAttribute getIArtifactKey_Classifier() {
 		return (EAttribute) iArtifactKeyEClass.getEStructuralFeatures().get(0);
 	}
@@ -1238,9 +1257,10 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public EAttribute getIArtifactKey_Id() {
 		return (EAttribute) iArtifactKeyEClass.getEStructuralFeatures().get(1);
 	}
@@ -1248,9 +1268,10 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public EAttribute getIArtifactKey_Version() {
 		return (EAttribute) iArtifactKeyEClass.getEStructuralFeatures().get(2);
 	}
@@ -1258,9 +1279,10 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public EDataType getIArtifactKeyArray() {
 		return iArtifactKeyArrayEDataType;
 	}
@@ -1268,9 +1290,10 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public EClass getIArtifactRepository() {
 		return iArtifactRepositoryEClass;
 	}
@@ -1278,9 +1301,10 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public EDataType getIArtifactRequestArray() {
 		return iArtifactRequestArrayEDataType;
 	}
@@ -1288,9 +1312,10 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public EClass getICopyright() {
 		return iCopyrightEClass;
 	}
@@ -1298,9 +1323,10 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public EAttribute getICopyright_Body() {
 		return (EAttribute) iCopyrightEClass.getEStructuralFeatures().get(1);
 	}
@@ -1308,9 +1334,10 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public EAttribute getICopyright_Location() {
 		return (EAttribute) iCopyrightEClass.getEStructuralFeatures().get(0);
 	}
@@ -1318,9 +1345,10 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public EClass getIFileArtifactRepository() {
 		return iFileArtifactRepositoryEClass;
 	}
@@ -1328,9 +1356,10 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public EClass getIInstallableUnit() {
 		return iInstallableUnitEClass;
 	}
@@ -1338,9 +1367,10 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public EReference getIInstallableUnit_Artifacts() {
 		return (EReference) iInstallableUnitEClass.getEStructuralFeatures().get(0);
 	}
@@ -1348,9 +1378,10 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public EReference getIInstallableUnit_Copyright() {
 		return (EReference) iInstallableUnitEClass.getEStructuralFeatures().get(1);
 	}
@@ -1358,9 +1389,10 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public EAttribute getIInstallableUnit_Filter() {
 		return (EAttribute) iInstallableUnitEClass.getEStructuralFeatures().get(2);
 	}
@@ -1368,9 +1400,10 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public EReference getIInstallableUnit_Fragments() {
 		return (EReference) iInstallableUnitEClass.getEStructuralFeatures().get(3);
 	}
@@ -1378,9 +1411,10 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public EReference getIInstallableUnit_Licenses() {
 		return (EReference) iInstallableUnitEClass.getEStructuralFeatures().get(4);
 	}
@@ -1388,9 +1422,10 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public EReference getIInstallableUnit_MetaRequirements() {
 		return (EReference) iInstallableUnitEClass.getEStructuralFeatures().get(5);
 	}
@@ -1398,9 +1433,10 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public EReference getIInstallableUnit_ProvidedCapabilities() {
 		return (EReference) iInstallableUnitEClass.getEStructuralFeatures().get(6);
 	}
@@ -1408,9 +1444,10 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public EReference getIInstallableUnit_Requirements() {
 		return (EReference) iInstallableUnitEClass.getEStructuralFeatures().get(7);
 	}
@@ -1418,9 +1455,10 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public EAttribute getIInstallableUnit_Resolved() {
 		return (EAttribute) iInstallableUnitEClass.getEStructuralFeatures().get(11);
 	}
@@ -1428,9 +1466,10 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public EAttribute getIInstallableUnit_Singleton() {
 		return (EAttribute) iInstallableUnitEClass.getEStructuralFeatures().get(12);
 	}
@@ -1438,9 +1477,10 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public EReference getIInstallableUnit_TouchpointData() {
 		return (EReference) iInstallableUnitEClass.getEStructuralFeatures().get(8);
 	}
@@ -1448,9 +1488,10 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public EReference getIInstallableUnit_TouchpointType() {
 		return (EReference) iInstallableUnitEClass.getEStructuralFeatures().get(9);
 	}
@@ -1458,9 +1499,10 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public EReference getIInstallableUnit_UpdateDescriptor() {
 		return (EReference) iInstallableUnitEClass.getEStructuralFeatures().get(10);
 	}
@@ -1468,9 +1510,10 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public EDataType getIInstallableUnitArray() {
 		return iInstallableUnitArrayEDataType;
 	}
@@ -1478,9 +1521,10 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public EClass getIInstallableUnitFragment() {
 		return iInstallableUnitFragmentEClass;
 	}
@@ -1488,9 +1532,10 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public EDataType getIInstallableUnitFragmentArray() {
 		return iInstallableUnitFragmentArrayEDataType;
 	}
@@ -1498,9 +1543,10 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public EClass getIInstallableUnitPatch() {
 		return iInstallableUnitPatchEClass;
 	}
@@ -1508,9 +1554,10 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public EReference getIInstallableUnitPatch_AppliesTo() {
 		return (EReference) iInstallableUnitPatchEClass.getEStructuralFeatures().get(2);
 	}
@@ -1518,9 +1565,10 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public EReference getIInstallableUnitPatch_LifeCycle() {
 		return (EReference) iInstallableUnitPatchEClass.getEStructuralFeatures().get(1);
 	}
@@ -1528,9 +1576,10 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public EReference getIInstallableUnitPatch_RequirementsChange() {
 		return (EReference) iInstallableUnitPatchEClass.getEStructuralFeatures().get(0);
 	}
@@ -1538,9 +1587,10 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public EClass getILicense() {
 		return iLicenseEClass;
 	}
@@ -1548,9 +1598,10 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public EAttribute getILicense_Body() {
 		return (EAttribute) iLicenseEClass.getEStructuralFeatures().get(1);
 	}
@@ -1558,9 +1609,10 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public EAttribute getILicense_Location() {
 		return (EAttribute) iLicenseEClass.getEStructuralFeatures().get(0);
 	}
@@ -1568,9 +1620,10 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public EAttribute getILicense_UUID() {
 		return (EAttribute) iLicenseEClass.getEStructuralFeatures().get(2);
 	}
@@ -1578,9 +1631,10 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public EDataType getILicenseArray() {
 		return iLicenseArrayEDataType;
 	}
@@ -1588,9 +1642,10 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public EDataType getIMatchExpression() {
 		return iMatchExpressionEDataType;
 	}
@@ -1598,9 +1653,10 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public EClass getIMetadataRepository() {
 		return iMetadataRepositoryEClass;
 	}
@@ -1608,9 +1664,10 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public EClass getInstallableUnit() {
 		return installableUnitEClass;
 	}
@@ -1618,9 +1675,10 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public EReference getInstallableUnit_PropertyMap() {
 		return (EReference) installableUnitEClass.getEStructuralFeatures().get(0);
 	}
@@ -1628,9 +1686,10 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public EClass getInstallableUnitFragment() {
 		return installableUnitFragmentEClass;
 	}
@@ -1638,9 +1697,10 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public EReference getInstallableUnitFragment_Host() {
 		return (EReference) installableUnitFragmentEClass.getEStructuralFeatures().get(0);
 	}
@@ -1648,9 +1708,10 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public EClass getInstallableUnitPatch() {
 		return installableUnitPatchEClass;
 	}
@@ -1658,9 +1719,10 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public EClass getInstructionMap() {
 		return instructionMapEClass;
 	}
@@ -1668,9 +1730,10 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public EAttribute getInstructionMap_Key() {
 		return (EAttribute) instructionMapEClass.getEStructuralFeatures().get(0);
 	}
@@ -1678,9 +1741,10 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public EReference getInstructionMap_Value() {
 		return (EReference) instructionMapEClass.getEStructuralFeatures().get(1);
 	}
@@ -1688,9 +1752,10 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public EDataType getIPool() {
 		return iPoolEDataType;
 	}
@@ -1698,9 +1763,10 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public EDataType getIProcessingDescriptorArray() {
 		return iProcessingDescriptorArrayEDataType;
 	}
@@ -1708,9 +1774,10 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public EClass getIProcessingStepDescriptor() {
 		return iProcessingStepDescriptorEClass;
 	}
@@ -1718,9 +1785,10 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public EAttribute getIProcessingStepDescriptor_Data() {
 		return (EAttribute) iProcessingStepDescriptorEClass.getEStructuralFeatures().get(1);
 	}
@@ -1728,9 +1796,10 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public EAttribute getIProcessingStepDescriptor_ProcessorId() {
 		return (EAttribute) iProcessingStepDescriptorEClass.getEStructuralFeatures().get(0);
 	}
@@ -1738,9 +1807,10 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public EAttribute getIProcessingStepDescriptor_Required() {
 		return (EAttribute) iProcessingStepDescriptorEClass.getEStructuralFeatures().get(2);
 	}
@@ -1748,9 +1818,10 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public EDataType getIProgressMonitor() {
 		return iProgressMonitorEDataType;
 	}
@@ -1758,9 +1829,10 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public EClass getIProvidedCapability() {
 		return iProvidedCapabilityEClass;
 	}
@@ -1768,9 +1840,10 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public EAttribute getIProvidedCapability_Name() {
 		return (EAttribute) iProvidedCapabilityEClass.getEStructuralFeatures().get(0);
 	}
@@ -1778,9 +1851,10 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public EAttribute getIProvidedCapability_Namespace() {
 		return (EAttribute) iProvidedCapabilityEClass.getEStructuralFeatures().get(1);
 	}
@@ -1788,9 +1862,10 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public EAttribute getIProvidedCapability_Version() {
 		return (EAttribute) iProvidedCapabilityEClass.getEStructuralFeatures().get(2);
 	}
@@ -1798,9 +1873,10 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public EDataType getIProvidedCapabilityArray() {
 		return iProvidedCapabilityArrayEDataType;
 	}
@@ -1808,9 +1884,10 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public EDataType getIProvisioningAgent() {
 		return iProvisioningAgentEDataType;
 	}
@@ -1818,9 +1895,10 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public EDataType getIQuery() {
 		return iQueryEDataType;
 	}
@@ -1828,9 +1906,10 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public EClass getIQueryable() {
 		return iQueryableEClass;
 	}
@@ -1838,9 +1917,10 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public EDataType getIQueryResult() {
 		return iQueryResultEDataType;
 	}
@@ -1848,9 +1928,10 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public EClass getIRepository() {
 		return iRepositoryEClass;
 	}
@@ -1858,9 +1939,10 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public EAttribute getIRepository_Description() {
 		return (EAttribute) iRepositoryEClass.getEStructuralFeatures().get(4);
 	}
@@ -1868,9 +1950,10 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public EAttribute getIRepository_Location() {
 		return (EAttribute) iRepositoryEClass.getEStructuralFeatures().get(0);
 	}
@@ -1878,9 +1961,10 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public EAttribute getIRepository_Modifiable() {
 		return (EAttribute) iRepositoryEClass.getEStructuralFeatures().get(6);
 	}
@@ -1888,9 +1972,10 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public EAttribute getIRepository_Name() {
 		return (EAttribute) iRepositoryEClass.getEStructuralFeatures().get(1);
 	}
@@ -1898,9 +1983,10 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public EAttribute getIRepository_Provider() {
 		return (EAttribute) iRepositoryEClass.getEStructuralFeatures().get(5);
 	}
@@ -1908,9 +1994,10 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public EAttribute getIRepository_ProvisioningAgent() {
 		return (EAttribute) iRepositoryEClass.getEStructuralFeatures().get(7);
 	}
@@ -1918,9 +2005,10 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public EAttribute getIRepository_Type() {
 		return (EAttribute) iRepositoryEClass.getEStructuralFeatures().get(2);
 	}
@@ -1928,9 +2016,10 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public EAttribute getIRepository_Version() {
 		return (EAttribute) iRepositoryEClass.getEStructuralFeatures().get(3);
 	}
@@ -1938,9 +2027,10 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public EClass getIRepositoryReference() {
 		return iRepositoryReferenceEClass;
 	}
@@ -1948,9 +2038,10 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public EAttribute getIRepositoryReference_Location() {
 		return (EAttribute) iRepositoryReferenceEClass.getEStructuralFeatures().get(0);
 	}
@@ -1958,9 +2049,10 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public EAttribute getIRepositoryReference_Nickname() {
 		return (EAttribute) iRepositoryReferenceEClass.getEStructuralFeatures().get(3);
 	}
@@ -1968,9 +2060,10 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public EAttribute getIRepositoryReference_Options() {
 		return (EAttribute) iRepositoryReferenceEClass.getEStructuralFeatures().get(2);
 	}
@@ -1978,9 +2071,10 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public EAttribute getIRepositoryReference_Type() {
 		return (EAttribute) iRepositoryReferenceEClass.getEStructuralFeatures().get(1);
 	}
@@ -1988,9 +2082,10 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public EClass getIRequiredCapability() {
 		return iRequiredCapabilityEClass;
 	}
@@ -1998,9 +2093,10 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public EAttribute getIRequiredCapability_Name() {
 		return (EAttribute) iRequiredCapabilityEClass.getEStructuralFeatures().get(0);
 	}
@@ -2008,9 +2104,10 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public EAttribute getIRequiredCapability_Namespace() {
 		return (EAttribute) iRequiredCapabilityEClass.getEStructuralFeatures().get(1);
 	}
@@ -2018,9 +2115,10 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public EAttribute getIRequiredCapability_Range() {
 		return (EAttribute) iRequiredCapabilityEClass.getEStructuralFeatures().get(2);
 	}
@@ -2028,9 +2126,10 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public EClass getIRequirement() {
 		return iRequirementEClass;
 	}
@@ -2038,9 +2137,10 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public EAttribute getIRequirement_Description() {
 		return (EAttribute) iRequirementEClass.getEStructuralFeatures().get(5);
 	}
@@ -2048,9 +2148,10 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public EAttribute getIRequirement_Filter() {
 		return (EAttribute) iRequirementEClass.getEStructuralFeatures().get(0);
 	}
@@ -2058,9 +2159,10 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public EAttribute getIRequirement_Greedy() {
 		return (EAttribute) iRequirementEClass.getEStructuralFeatures().get(4);
 	}
@@ -2068,9 +2170,10 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public EAttribute getIRequirement_Matches() {
 		return (EAttribute) iRequirementEClass.getEStructuralFeatures().get(3);
 	}
@@ -2078,9 +2181,10 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public EAttribute getIRequirement_Max() {
 		return (EAttribute) iRequirementEClass.getEStructuralFeatures().get(1);
 	}
@@ -2088,9 +2192,10 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public EAttribute getIRequirement_Min() {
 		return (EAttribute) iRequirementEClass.getEStructuralFeatures().get(2);
 	}
@@ -2098,9 +2203,10 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public EDataType getIRequirementArrayArray() {
 		return iRequirementArrayArrayEDataType;
 	}
@@ -2108,9 +2214,10 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public EClass getIRequirementChange() {
 		return iRequirementChangeEClass;
 	}
@@ -2118,9 +2225,10 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public EReference getIRequirementChange_ApplyOn() {
 		return (EReference) iRequirementChangeEClass.getEStructuralFeatures().get(0);
 	}
@@ -2128,9 +2236,10 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public EReference getIRequirementChange_NewValue() {
 		return (EReference) iRequirementChangeEClass.getEStructuralFeatures().get(1);
 	}
@@ -2138,9 +2247,10 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public EDataType getIRunnableWithProgress() {
 		return iRunnableWithProgressEDataType;
 	}
@@ -2148,9 +2258,10 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public EDataType getIStatus() {
 		return iStatusEDataType;
 	}
@@ -2158,9 +2269,10 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public EClass getITouchpointData() {
 		return iTouchpointDataEClass;
 	}
@@ -2168,9 +2280,10 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public EDataType getITouchpointDataArray() {
 		return iTouchpointDataArrayEDataType;
 	}
@@ -2178,9 +2291,10 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public EClass getITouchpointInstruction() {
 		return iTouchpointInstructionEClass;
 	}
@@ -2188,9 +2302,10 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public EAttribute getITouchpointInstruction_Body() {
 		return (EAttribute) iTouchpointInstructionEClass.getEStructuralFeatures().get(0);
 	}
@@ -2198,9 +2313,10 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public EAttribute getITouchpointInstruction_ImportAttribute() {
 		return (EAttribute) iTouchpointInstructionEClass.getEStructuralFeatures().get(1);
 	}
@@ -2208,9 +2324,10 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public EClass getITouchpointType() {
 		return iTouchpointTypeEClass;
 	}
@@ -2218,9 +2335,10 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public EAttribute getITouchpointType_Id() {
 		return (EAttribute) iTouchpointTypeEClass.getEStructuralFeatures().get(0);
 	}
@@ -2228,9 +2346,10 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public EAttribute getITouchpointType_Version() {
 		return (EAttribute) iTouchpointTypeEClass.getEStructuralFeatures().get(1);
 	}
@@ -2238,9 +2357,10 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public EClass getIUpdateDescriptor() {
 		return iUpdateDescriptorEClass;
 	}
@@ -2248,9 +2368,10 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public EAttribute getIUpdateDescriptor_Description() {
 		return (EAttribute) iUpdateDescriptorEClass.getEStructuralFeatures().get(0);
 	}
@@ -2258,9 +2379,10 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public EAttribute getIUpdateDescriptor_Location() {
 		return (EAttribute) iUpdateDescriptorEClass.getEStructuralFeatures().get(2);
 	}
@@ -2268,9 +2390,10 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public EAttribute getIUpdateDescriptor_Severity() {
 		return (EAttribute) iUpdateDescriptorEClass.getEStructuralFeatures().get(1);
 	}
@@ -2278,9 +2401,10 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public EClass getIVersionedId() {
 		return iVersionedIdEClass;
 	}
@@ -2288,9 +2412,10 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public EAttribute getIVersionedId_Id() {
 		return (EAttribute) iVersionedIdEClass.getEStructuralFeatures().get(0);
 	}
@@ -2298,9 +2423,10 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public EAttribute getIVersionedId_Version() {
 		return (EAttribute) iVersionedIdEClass.getEStructuralFeatures().get(1);
 	}
@@ -2308,9 +2434,10 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public EClass getLicense() {
 		return licenseEClass;
 	}
@@ -2318,9 +2445,10 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public EDataType getMap() {
 		return mapEDataType;
 	}
@@ -2328,9 +2456,10 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public EClass getMappingRule() {
 		return mappingRuleEClass;
 	}
@@ -2338,9 +2467,10 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public EAttribute getMappingRule_Filter() {
 		return (EAttribute) mappingRuleEClass.getEStructuralFeatures().get(0);
 	}
@@ -2348,9 +2478,10 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public EAttribute getMappingRule_Output() {
 		return (EAttribute) mappingRuleEClass.getEStructuralFeatures().get(1);
 	}
@@ -2358,9 +2489,10 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public EClass getMetadataRepository() {
 		return metadataRepositoryEClass;
 	}
@@ -2368,9 +2500,10 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public EReference getMetadataRepository_InstallableUnits() {
 		return (EReference) metadataRepositoryEClass.getEStructuralFeatures().get(0);
 	}
@@ -2378,9 +2511,10 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public EReference getMetadataRepository_References() {
 		return (EReference) metadataRepositoryEClass.getEStructuralFeatures().get(1);
 	}
@@ -2388,9 +2522,10 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public EDataType getOutputStream() {
 		return outputStreamEDataType;
 	}
@@ -2398,9 +2533,10 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public P2Factory getP2Factory() {
 		return (P2Factory) getEFactoryInstance();
 	}
@@ -2408,9 +2544,10 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public EClass getProcessingStepDescriptor() {
 		return processingStepDescriptorEClass;
 	}
@@ -2418,9 +2555,10 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public EClass getProperty() {
 		return propertyEClass;
 	}
@@ -2428,9 +2566,10 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public EAttribute getProperty_Key() {
 		return (EAttribute) propertyEClass.getEStructuralFeatures().get(0);
 	}
@@ -2438,9 +2577,10 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public EAttribute getProperty_Value() {
 		return (EAttribute) propertyEClass.getEStructuralFeatures().get(1);
 	}
@@ -2448,9 +2588,10 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public EClass getProvidedCapability() {
 		return providedCapabilityEClass;
 	}
@@ -2458,9 +2599,10 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public EClass getRepository() {
 		return repositoryEClass;
 	}
@@ -2468,9 +2610,10 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public EReference getRepository_PropertyMap() {
 		return (EReference) repositoryEClass.getEStructuralFeatures().get(0);
 	}
@@ -2478,9 +2621,10 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public EClass getRepositoryReference() {
 		return repositoryReferenceEClass;
 	}
@@ -2488,9 +2632,10 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public EClass getRequiredCapability() {
 		return requiredCapabilityEClass;
 	}
@@ -2498,9 +2643,10 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public EClass getRequirement() {
 		return requirementEClass;
 	}
@@ -2508,9 +2654,10 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public EClass getRequirementChange() {
 		return requirementChangeEClass;
 	}
@@ -2518,9 +2665,10 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public EClass getSimpleArtifactDescriptor() {
 		return simpleArtifactDescriptorEClass;
 	}
@@ -2528,9 +2676,10 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public EReference getSimpleArtifactDescriptor_RepositoryPropertyMap() {
 		return (EReference) simpleArtifactDescriptorEClass.getEStructuralFeatures().get(0);
 	}
@@ -2538,9 +2687,10 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public EClass getSimpleArtifactRepository() {
 		return simpleArtifactRepositoryEClass;
 	}
@@ -2548,9 +2698,10 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public EReference getSimpleArtifactRepository_Rules() {
 		return (EReference) simpleArtifactRepositoryEClass.getEStructuralFeatures().get(0);
 	}
@@ -2558,9 +2709,10 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public EDataType getStringArray() {
 		return stringArrayEDataType;
 	}
@@ -2568,9 +2720,10 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public EClass getTouchpointData() {
 		return touchpointDataEClass;
 	}
@@ -2578,9 +2731,10 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public EReference getTouchpointData_InstructionMap() {
 		return (EReference) touchpointDataEClass.getEStructuralFeatures().get(0);
 	}
@@ -2588,9 +2742,10 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public EClass getTouchpointInstruction() {
 		return touchpointInstructionEClass;
 	}
@@ -2598,9 +2753,10 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public EClass getTouchpointType() {
 		return touchpointTypeEClass;
 	}
@@ -2608,9 +2764,10 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public EDataType getUntypedMap() {
 		return untypedMapEDataType;
 	}
@@ -2618,9 +2775,10 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public EClass getUpdateDescriptor() {
 		return updateDescriptorEClass;
 	}
@@ -2628,9 +2786,10 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public EDataType getURI() {
 		return uriEDataType;
 	}
@@ -2638,9 +2797,10 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public EDataType getVersion() {
 		return versionEDataType;
 	}
@@ -2648,9 +2808,10 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public EDataType getVersionRange() {
 		return versionRangeEDataType;
 	}
@@ -2660,7 +2821,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	 * method is guarded to have no affect on any invocation but its first.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public void initializePackageContents() {

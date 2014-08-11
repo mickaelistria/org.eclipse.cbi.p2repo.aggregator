@@ -13,7 +13,7 @@ import org.eclipse.emf.edit.ui.action.ValidateAction;
 
 /**
  * ValidateAction that uses aggregator problem marker
- * 
+ *
  * @author Karel Brezina
  */
 public class AggregatorValidateAction extends ValidateAction {

@@ -124,6 +124,7 @@ public class AggregatorItemProviderAdapter extends ItemProviderAdapter implement
 	}
 
 	// default implementation
+	@Override
 	public String getTooltipText(Object object) {
 		return getTooltipText(object, this);
 	}

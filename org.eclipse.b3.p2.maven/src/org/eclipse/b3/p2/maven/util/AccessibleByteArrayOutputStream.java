@@ -48,7 +48,7 @@ public class AccessibleByteArrayOutputStream extends ByteArrayOutputStream {
 	 * issued. Further writes on this OutputStream will not be available for the returned InputStream. The typical
 	 * scenario is that some byte image is built with a series of writes and an InputStream is desired that can read
 	 * this image without copying it (as would have been done using {@link ByteArrayOutputStream#toByteArray()}.
-	 * 
+	 *
 	 * @return
 	 */
 	public InputStream getInputStream() {

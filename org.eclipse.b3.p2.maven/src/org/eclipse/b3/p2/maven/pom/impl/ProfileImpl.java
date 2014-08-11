@@ -19,13 +19,10 @@ import org.eclipse.b3.p2.maven.pom.PropertiesType;
 import org.eclipse.b3.p2.maven.pom.Reporting;
 import org.eclipse.b3.p2.maven.pom.ReportsType;
 import org.eclipse.b3.p2.maven.pom.RepositoriesType;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 
@@ -48,14 +45,14 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * <li>{@link org.eclipse.b3.p2.maven.pom.impl.ProfileImpl#getProperties <em>Properties</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public class ProfileImpl extends EObjectImpl implements Profile {
 	/**
 	 * The default value of the '{@link #getId() <em>Id</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getId()
 	 * @generated
 	 * @ordered
@@ -65,7 +62,7 @@ public class ProfileImpl extends EObjectImpl implements Profile {
 	/**
 	 * The cached value of the '{@link #getId() <em>Id</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getId()
 	 * @generated
 	 * @ordered
@@ -76,7 +73,7 @@ public class ProfileImpl extends EObjectImpl implements Profile {
 	 * The cached value of the '{@link #getActivation() <em>Activation</em>}' containment reference.
 	 * <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getActivation()
 	 * @generated
 	 * @ordered
@@ -87,7 +84,7 @@ public class ProfileImpl extends EObjectImpl implements Profile {
 	 * The cached value of the '{@link #getBuild() <em>Build</em>}' containment reference.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @see #getBuild()
 	 * @generated
 	 * @ordered
@@ -98,7 +95,7 @@ public class ProfileImpl extends EObjectImpl implements Profile {
 	 * The cached value of the '{@link #getModules() <em>Modules</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getModules()
 	 * @generated
 	 * @ordered
@@ -108,7 +105,7 @@ public class ProfileImpl extends EObjectImpl implements Profile {
 	/**
 	 * The cached value of the '{@link #getRepositories() <em>Repositories</em>}' containment reference. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getRepositories()
 	 * @generated
 	 * @ordered
@@ -118,7 +115,7 @@ public class ProfileImpl extends EObjectImpl implements Profile {
 	/**
 	 * The cached value of the '{@link #getPluginRepositories() <em>Plugin Repositories</em>}' containment reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getPluginRepositories()
 	 * @generated
 	 * @ordered
@@ -128,7 +125,7 @@ public class ProfileImpl extends EObjectImpl implements Profile {
 	/**
 	 * The cached value of the '{@link #getDependencies() <em>Dependencies</em>}' containment reference. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getDependencies()
 	 * @generated
 	 * @ordered
@@ -139,7 +136,7 @@ public class ProfileImpl extends EObjectImpl implements Profile {
 	 * The cached value of the '{@link #getReports() <em>Reports</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getReports()
 	 * @generated
 	 * @ordered
@@ -150,7 +147,7 @@ public class ProfileImpl extends EObjectImpl implements Profile {
 	 * The cached value of the '{@link #getReporting() <em>Reporting</em>}' containment reference.
 	 * <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getReporting()
 	 * @generated
 	 * @ordered
@@ -160,7 +157,7 @@ public class ProfileImpl extends EObjectImpl implements Profile {
 	/**
 	 * The cached value of the '{@link #getDependencyManagement() <em>Dependency Management</em>}' containment reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getDependencyManagement()
 	 * @generated
 	 * @ordered
@@ -170,7 +167,7 @@ public class ProfileImpl extends EObjectImpl implements Profile {
 	/**
 	 * The cached value of the '{@link #getDistributionManagement() <em>Distribution Management</em>}' containment reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getDistributionManagement()
 	 * @generated
 	 * @ordered
@@ -181,7 +178,7 @@ public class ProfileImpl extends EObjectImpl implements Profile {
 	 * The cached value of the '{@link #getProperties() <em>Properties</em>}' containment reference.
 	 * <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getProperties()
 	 * @generated
 	 * @ordered
@@ -190,7 +187,7 @@ public class ProfileImpl extends EObjectImpl implements Profile {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected ProfileImpl() {
@@ -199,7 +196,7 @@ public class ProfileImpl extends EObjectImpl implements Profile {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public NotificationChain basicSetActivation(Activation newActivation, NotificationChain msgs) {
@@ -218,7 +215,7 @@ public class ProfileImpl extends EObjectImpl implements Profile {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public NotificationChain basicSetBuild(BuildBase newBuild, NotificationChain msgs) {
@@ -237,7 +234,7 @@ public class ProfileImpl extends EObjectImpl implements Profile {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public NotificationChain basicSetDependencies(DependenciesType newDependencies, NotificationChain msgs) {
@@ -256,7 +253,7 @@ public class ProfileImpl extends EObjectImpl implements Profile {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public NotificationChain basicSetDependencyManagement(DependencyManagement newDependencyManagement,
@@ -277,7 +274,7 @@ public class ProfileImpl extends EObjectImpl implements Profile {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public NotificationChain basicSetDistributionManagement(DistributionManagement newDistributionManagement,
@@ -298,7 +295,7 @@ public class ProfileImpl extends EObjectImpl implements Profile {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public NotificationChain basicSetModules(ModulesType newModules, NotificationChain msgs) {
@@ -317,7 +314,7 @@ public class ProfileImpl extends EObjectImpl implements Profile {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public NotificationChain basicSetPluginRepositories(PluginRepositoriesType newPluginRepositories,
@@ -338,7 +335,7 @@ public class ProfileImpl extends EObjectImpl implements Profile {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public NotificationChain basicSetProperties(PropertiesType newProperties, NotificationChain msgs) {
@@ -357,7 +354,7 @@ public class ProfileImpl extends EObjectImpl implements Profile {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public NotificationChain basicSetReporting(Reporting newReporting, NotificationChain msgs) {
@@ -376,7 +373,7 @@ public class ProfileImpl extends EObjectImpl implements Profile {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public NotificationChain basicSetReports(ReportsType newReports, NotificationChain msgs) {
@@ -395,7 +392,7 @@ public class ProfileImpl extends EObjectImpl implements Profile {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public NotificationChain basicSetRepositories(RepositoriesType newRepositories, NotificationChain msgs) {
@@ -414,7 +411,7 @@ public class ProfileImpl extends EObjectImpl implements Profile {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -450,7 +447,7 @@ public class ProfileImpl extends EObjectImpl implements Profile {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -484,7 +481,7 @@ public class ProfileImpl extends EObjectImpl implements Profile {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -522,7 +519,7 @@ public class ProfileImpl extends EObjectImpl implements Profile {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -570,7 +567,7 @@ public class ProfileImpl extends EObjectImpl implements Profile {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -618,117 +615,130 @@ public class ProfileImpl extends EObjectImpl implements Profile {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public Activation getActivation() {
 		return activation;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public BuildBase getBuild() {
 		return build;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public DependenciesType getDependencies() {
 		return dependencies;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public DependencyManagement getDependencyManagement() {
 		return dependencyManagement;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public DistributionManagement getDistributionManagement() {
 		return distributionManagement;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public String getId() {
 		return id;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public ModulesType getModules() {
 		return modules;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public PluginRepositoriesType getPluginRepositories() {
 		return pluginRepositories;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public PropertiesType getProperties() {
 		return properties;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public Reporting getReporting() {
 		return reporting;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public ReportsType getReports() {
 		return reports;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public RepositoriesType getRepositories() {
 		return repositories;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public void setActivation(Activation newActivation) {
 		if(newActivation != activation) {
 			NotificationChain msgs = null;
@@ -749,9 +759,10 @@ public class ProfileImpl extends EObjectImpl implements Profile {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public void setBuild(BuildBase newBuild) {
 		if(newBuild != build) {
 			NotificationChain msgs = null;
@@ -771,9 +782,10 @@ public class ProfileImpl extends EObjectImpl implements Profile {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public void setDependencies(DependenciesType newDependencies) {
 		if(newDependencies != dependencies) {
 			NotificationChain msgs = null;
@@ -794,9 +806,10 @@ public class ProfileImpl extends EObjectImpl implements Profile {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public void setDependencyManagement(DependencyManagement newDependencyManagement) {
 		if(newDependencyManagement != dependencyManagement) {
 			NotificationChain msgs = null;
@@ -818,9 +831,10 @@ public class ProfileImpl extends EObjectImpl implements Profile {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public void setDistributionManagement(DistributionManagement newDistributionManagement) {
 		if(newDistributionManagement != distributionManagement) {
 			NotificationChain msgs = null;
@@ -842,9 +856,10 @@ public class ProfileImpl extends EObjectImpl implements Profile {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public void setId(String newId) {
 		String oldId = id;
 		id = newId;
@@ -854,9 +869,10 @@ public class ProfileImpl extends EObjectImpl implements Profile {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public void setModules(ModulesType newModules) {
 		if(newModules != modules) {
 			NotificationChain msgs = null;
@@ -876,9 +892,10 @@ public class ProfileImpl extends EObjectImpl implements Profile {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public void setPluginRepositories(PluginRepositoriesType newPluginRepositories) {
 		if(newPluginRepositories != pluginRepositories) {
 			NotificationChain msgs = null;
@@ -900,9 +917,10 @@ public class ProfileImpl extends EObjectImpl implements Profile {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public void setProperties(PropertiesType newProperties) {
 		if(newProperties != properties) {
 			NotificationChain msgs = null;
@@ -923,9 +941,10 @@ public class ProfileImpl extends EObjectImpl implements Profile {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public void setReporting(Reporting newReporting) {
 		if(newReporting != reporting) {
 			NotificationChain msgs = null;
@@ -946,9 +965,10 @@ public class ProfileImpl extends EObjectImpl implements Profile {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public void setReports(ReportsType newReports) {
 		if(newReports != reports) {
 			NotificationChain msgs = null;
@@ -968,9 +988,10 @@ public class ProfileImpl extends EObjectImpl implements Profile {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public void setRepositories(RepositoriesType newRepositories) {
 		if(newRepositories != repositories) {
 			NotificationChain msgs = null;
@@ -991,7 +1012,7 @@ public class ProfileImpl extends EObjectImpl implements Profile {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -1008,7 +1029,7 @@ public class ProfileImpl extends EObjectImpl implements Profile {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override

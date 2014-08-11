@@ -11,16 +11,11 @@ import java.util.Collection;
 import org.eclipse.b3.p2.maven.pom.Contributor;
 import org.eclipse.b3.p2.maven.pom.ContributorsType;
 import org.eclipse.b3.p2.maven.pom.PomPackage;
-
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.EObjectImpl;
-
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -33,14 +28,14 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <li>{@link org.eclipse.b3.p2.maven.pom.impl.ContributorsTypeImpl#getContributor <em> Contributor</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public class ContributorsTypeImpl extends EObjectImpl implements ContributorsType {
 	/**
 	 * The cached value of the '{@link #getContributor() <em>Contributor</em>}' containment reference list. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getContributor()
 	 * @generated
 	 * @ordered
@@ -49,7 +44,7 @@ public class ContributorsTypeImpl extends EObjectImpl implements ContributorsTyp
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected ContributorsTypeImpl() {
@@ -58,7 +53,7 @@ public class ContributorsTypeImpl extends EObjectImpl implements ContributorsTyp
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -72,7 +67,7 @@ public class ContributorsTypeImpl extends EObjectImpl implements ContributorsTyp
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -86,7 +81,7 @@ public class ContributorsTypeImpl extends EObjectImpl implements ContributorsTyp
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -100,7 +95,7 @@ public class ContributorsTypeImpl extends EObjectImpl implements ContributorsTyp
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
@@ -117,7 +112,7 @@ public class ContributorsTypeImpl extends EObjectImpl implements ContributorsTyp
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -132,9 +127,10 @@ public class ContributorsTypeImpl extends EObjectImpl implements ContributorsTyp
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public EList<Contributor> getContributor() {
 		if(contributor == null) {
 			contributor = new EObjectContainmentEList<Contributor>(
@@ -145,7 +141,7 @@ public class ContributorsTypeImpl extends EObjectImpl implements ContributorsTyp
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override

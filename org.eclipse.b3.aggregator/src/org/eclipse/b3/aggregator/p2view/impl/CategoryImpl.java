@@ -41,14 +41,14 @@ import org.eclipse.equinox.p2.metadata.MetadataFactory.InstallableUnitDescriptio
  * <li>{@link org.eclipse.b3.aggregator.p2view.impl.CategoryImpl#getIuDetails <em>Iu Details</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public class CategoryImpl extends IUPresentationImpl implements Category {
 	/**
 	 * The cached value of the '{@link #getCategoryContainer() <em>Category Container</em>}' reference. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getCategoryContainer()
 	 * @generated
 	 * @ordered
@@ -58,7 +58,7 @@ public class CategoryImpl extends IUPresentationImpl implements Category {
 	/**
 	 * The cached value of the '{@link #getFeatureContainer() <em>Feature Container</em>}' reference. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getFeatureContainer()
 	 * @generated
 	 * @ordered
@@ -68,7 +68,7 @@ public class CategoryImpl extends IUPresentationImpl implements Category {
 	/**
 	 * The cached value of the '{@link #getProductContainer() <em>Product Container</em>}' reference. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getProductContainer()
 	 * @generated
 	 * @ordered
@@ -79,7 +79,7 @@ public class CategoryImpl extends IUPresentationImpl implements Category {
 	 * The cached value of the '{@link #getBundleContainer() <em>Bundle Container</em>}' containment reference.
 	 * <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getBundleContainer()
 	 * @generated
 	 * @ordered
@@ -89,7 +89,7 @@ public class CategoryImpl extends IUPresentationImpl implements Category {
 	/**
 	 * The cached value of the '{@link #getFragmentContainer() <em>Fragment Container</em>}' reference. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getFragmentContainer()
 	 * @generated
 	 * @ordered
@@ -100,7 +100,7 @@ public class CategoryImpl extends IUPresentationImpl implements Category {
 	 * The cached value of the '{@link #getIuDetails() <em>Iu Details</em>}' containment reference.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @see #getIuDetails()
 	 * @generated
 	 * @ordered
@@ -109,7 +109,7 @@ public class CategoryImpl extends IUPresentationImpl implements Category {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected CategoryImpl() {
@@ -118,7 +118,7 @@ public class CategoryImpl extends IUPresentationImpl implements Category {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
 	protected CategoryImpl(IInstallableUnit iu) {
@@ -127,7 +127,7 @@ public class CategoryImpl extends IUPresentationImpl implements Category {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public Bundles basicGetBundleContainer() {
@@ -136,7 +136,7 @@ public class CategoryImpl extends IUPresentationImpl implements Category {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public Categories basicGetCategoryContainer() {
@@ -145,7 +145,7 @@ public class CategoryImpl extends IUPresentationImpl implements Category {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public Features basicGetFeatureContainer() {
@@ -154,7 +154,7 @@ public class CategoryImpl extends IUPresentationImpl implements Category {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public Fragments basicGetFragmentContainer() {
@@ -163,7 +163,7 @@ public class CategoryImpl extends IUPresentationImpl implements Category {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public Products basicGetProductContainer() {
@@ -173,7 +173,7 @@ public class CategoryImpl extends IUPresentationImpl implements Category {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public NotificationChain basicSetBundleContainer(Bundles newBundleContainer, NotificationChain msgs) {
@@ -194,7 +194,7 @@ public class CategoryImpl extends IUPresentationImpl implements Category {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public NotificationChain basicSetCategoryContainer(Categories newCategoryContainer, NotificationChain msgs) {
@@ -215,7 +215,7 @@ public class CategoryImpl extends IUPresentationImpl implements Category {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public NotificationChain basicSetFeatureContainer(Features newFeatureContainer, NotificationChain msgs) {
@@ -236,7 +236,7 @@ public class CategoryImpl extends IUPresentationImpl implements Category {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public NotificationChain basicSetFragmentContainer(Fragments newFragmentContainer, NotificationChain msgs) {
@@ -257,7 +257,7 @@ public class CategoryImpl extends IUPresentationImpl implements Category {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public NotificationChain basicSetIuDetails(IUDetails newIuDetails, NotificationChain msgs) {
@@ -277,7 +277,7 @@ public class CategoryImpl extends IUPresentationImpl implements Category {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public NotificationChain basicSetProductContainer(Products newProductContainer, NotificationChain msgs) {
@@ -297,7 +297,7 @@ public class CategoryImpl extends IUPresentationImpl implements Category {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -332,7 +332,7 @@ public class CategoryImpl extends IUPresentationImpl implements Category {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -356,7 +356,7 @@ public class CategoryImpl extends IUPresentationImpl implements Category {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -380,7 +380,7 @@ public class CategoryImpl extends IUPresentationImpl implements Category {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -407,7 +407,7 @@ public class CategoryImpl extends IUPresentationImpl implements Category {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -417,7 +417,7 @@ public class CategoryImpl extends IUPresentationImpl implements Category {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -444,7 +444,7 @@ public class CategoryImpl extends IUPresentationImpl implements Category {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public Bundles getBundleContainer() {
@@ -472,7 +472,7 @@ public class CategoryImpl extends IUPresentationImpl implements Category {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public Categories getCategoryContainer() {
@@ -500,7 +500,7 @@ public class CategoryImpl extends IUPresentationImpl implements Category {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public Features getFeatureContainer() {
@@ -528,7 +528,7 @@ public class CategoryImpl extends IUPresentationImpl implements Category {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public Fragments getFragmentContainer() {
@@ -556,7 +556,7 @@ public class CategoryImpl extends IUPresentationImpl implements Category {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
 	public IUDetails getIuDetails() {
@@ -568,7 +568,7 @@ public class CategoryImpl extends IUPresentationImpl implements Category {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
 	public Bundles getNotNullBundleContainer() {
@@ -580,7 +580,7 @@ public class CategoryImpl extends IUPresentationImpl implements Category {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
 	public Categories getNotNullCategoryContainer() {
@@ -592,7 +592,7 @@ public class CategoryImpl extends IUPresentationImpl implements Category {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
 	public Features getNotNullFeatureContainer() {
@@ -604,7 +604,7 @@ public class CategoryImpl extends IUPresentationImpl implements Category {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
 	public Fragments getNotNullFragmentContainer() {
@@ -616,7 +616,7 @@ public class CategoryImpl extends IUPresentationImpl implements Category {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
 	public Products getNotNullProductContainer() {
@@ -628,7 +628,7 @@ public class CategoryImpl extends IUPresentationImpl implements Category {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public Products getProductContainer() {
@@ -661,7 +661,7 @@ public class CategoryImpl extends IUPresentationImpl implements Category {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
 	public boolean isNested() {
@@ -670,7 +670,7 @@ public class CategoryImpl extends IUPresentationImpl implements Category {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public void setBundleContainer(Bundles newBundleContainer) {
@@ -694,7 +694,7 @@ public class CategoryImpl extends IUPresentationImpl implements Category {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public void setCategoryContainer(Categories newCategoryContainer) {
@@ -718,7 +718,7 @@ public class CategoryImpl extends IUPresentationImpl implements Category {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public void setFeatureContainer(Features newFeatureContainer) {
@@ -742,7 +742,7 @@ public class CategoryImpl extends IUPresentationImpl implements Category {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public void setFragmentContainer(Fragments newFragmentContainer) {
@@ -766,7 +766,7 @@ public class CategoryImpl extends IUPresentationImpl implements Category {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public void setProductContainer(Products newProductContainer) {

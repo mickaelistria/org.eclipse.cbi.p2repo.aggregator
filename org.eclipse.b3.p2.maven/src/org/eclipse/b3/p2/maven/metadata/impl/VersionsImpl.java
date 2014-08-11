@@ -10,10 +10,8 @@ import java.util.Collection;
 
 import org.eclipse.b3.p2.maven.metadata.MetadataPackage;
 import org.eclipse.b3.p2.maven.metadata.Versions;
-
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
 
@@ -25,7 +23,7 @@ import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
  * <li>{@link org.eclipse.b3.p2.maven.metadata.impl.VersionsImpl#getVersion <em>Version</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public class VersionsImpl extends EObjectImpl implements Versions {
@@ -33,7 +31,7 @@ public class VersionsImpl extends EObjectImpl implements Versions {
 	 * The cached value of the '{@link #getVersion() <em>Version</em>}' attribute list.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @see #getVersion()
 	 * @generated
 	 * @ordered
@@ -42,7 +40,7 @@ public class VersionsImpl extends EObjectImpl implements Versions {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected VersionsImpl() {
@@ -51,7 +49,7 @@ public class VersionsImpl extends EObjectImpl implements Versions {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -65,7 +63,7 @@ public class VersionsImpl extends EObjectImpl implements Versions {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -79,7 +77,7 @@ public class VersionsImpl extends EObjectImpl implements Versions {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
@@ -96,7 +94,7 @@ public class VersionsImpl extends EObjectImpl implements Versions {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -111,9 +109,10 @@ public class VersionsImpl extends EObjectImpl implements Versions {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public EList<String> getVersion() {
 		if(version == null) {
 			version = new EDataTypeUniqueEList<String>(String.class, this, MetadataPackage.VERSIONS__VERSION);
@@ -123,7 +122,7 @@ public class VersionsImpl extends EObjectImpl implements Versions {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -140,7 +139,7 @@ public class VersionsImpl extends EObjectImpl implements Versions {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override

@@ -43,7 +43,7 @@ import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
  * <li>{@link org.eclipse.b3.aggregator.impl.MavenMappingImpl#getArtifactId <em>Artifact Id</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public class MavenMappingImpl extends MinimalEObjectImpl.Container implements MavenMapping {
@@ -52,7 +52,7 @@ public class MavenMappingImpl extends MinimalEObjectImpl.Container implements Ma
 	/**
 	 * A set of bit flags representing the values of boolean attributes and whether unsettable features have been set.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 * @ordered
 	 */
@@ -62,7 +62,7 @@ public class MavenMappingImpl extends MinimalEObjectImpl.Container implements Ma
 	 * The cached value of the '{@link #getErrors() <em>Errors</em>}' attribute list.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @see #getErrors()
 	 * @generated
 	 * @ordered
@@ -73,7 +73,7 @@ public class MavenMappingImpl extends MinimalEObjectImpl.Container implements Ma
 	 * The cached value of the '{@link #getWarnings() <em>Warnings</em>}' attribute list.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @see #getWarnings()
 	 * @generated
 	 * @ordered
@@ -84,7 +84,7 @@ public class MavenMappingImpl extends MinimalEObjectImpl.Container implements Ma
 	 * The cached value of the '{@link #getInfos() <em>Infos</em>}' attribute list.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @see #getInfos()
 	 * @generated
 	 * @ordered
@@ -95,7 +95,7 @@ public class MavenMappingImpl extends MinimalEObjectImpl.Container implements Ma
 	 * The default value of the '{@link #getNamePattern() <em>Name Pattern</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getNamePattern()
 	 * @generated
 	 * @ordered
@@ -106,7 +106,7 @@ public class MavenMappingImpl extends MinimalEObjectImpl.Container implements Ma
 	 * The cached value of the '{@link #getNamePattern() <em>Name Pattern</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @see #getNamePattern()
 	 * @generated
 	 * @ordered
@@ -117,7 +117,7 @@ public class MavenMappingImpl extends MinimalEObjectImpl.Container implements Ma
 	 * The default value of the '{@link #getGroupId() <em>Group Id</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @see #getGroupId()
 	 * @generated
 	 * @ordered
@@ -128,7 +128,7 @@ public class MavenMappingImpl extends MinimalEObjectImpl.Container implements Ma
 	 * The cached value of the '{@link #getGroupId() <em>Group Id</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @see #getGroupId()
 	 * @generated
 	 * @ordered
@@ -139,7 +139,7 @@ public class MavenMappingImpl extends MinimalEObjectImpl.Container implements Ma
 	 * The default value of the '{@link #getArtifactId() <em>Artifact Id</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @see #getArtifactId()
 	 * @generated
 	 * @ordered
@@ -150,7 +150,7 @@ public class MavenMappingImpl extends MinimalEObjectImpl.Container implements Ma
 	 * The cached value of the '{@link #getArtifactId() <em>Artifact Id</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @see #getArtifactId()
 	 * @generated
 	 * @ordered
@@ -159,7 +159,7 @@ public class MavenMappingImpl extends MinimalEObjectImpl.Container implements Ma
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected MavenMappingImpl() {
@@ -188,7 +188,7 @@ public class MavenMappingImpl extends MinimalEObjectImpl.Container implements Ma
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -210,7 +210,7 @@ public class MavenMappingImpl extends MinimalEObjectImpl.Container implements Ma
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -232,7 +232,7 @@ public class MavenMappingImpl extends MinimalEObjectImpl.Container implements Ma
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -258,7 +258,7 @@ public class MavenMappingImpl extends MinimalEObjectImpl.Container implements Ma
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -290,7 +290,7 @@ public class MavenMappingImpl extends MinimalEObjectImpl.Container implements Ma
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
@@ -324,7 +324,7 @@ public class MavenMappingImpl extends MinimalEObjectImpl.Container implements Ma
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -334,7 +334,7 @@ public class MavenMappingImpl extends MinimalEObjectImpl.Container implements Ma
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -364,7 +364,7 @@ public class MavenMappingImpl extends MinimalEObjectImpl.Container implements Ma
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public String getArtifactId() {
@@ -373,7 +373,7 @@ public class MavenMappingImpl extends MinimalEObjectImpl.Container implements Ma
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EList<String> getErrors() {
@@ -385,7 +385,7 @@ public class MavenMappingImpl extends MinimalEObjectImpl.Container implements Ma
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public String getGroupId() {
@@ -394,7 +394,7 @@ public class MavenMappingImpl extends MinimalEObjectImpl.Container implements Ma
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EList<String> getInfos() {
@@ -406,7 +406,7 @@ public class MavenMappingImpl extends MinimalEObjectImpl.Container implements Ma
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public String getNamePattern() {
@@ -415,7 +415,7 @@ public class MavenMappingImpl extends MinimalEObjectImpl.Container implements Ma
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
 	public Status getStatus() {
@@ -439,7 +439,7 @@ public class MavenMappingImpl extends MinimalEObjectImpl.Container implements Ma
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EList<String> getWarnings() {
@@ -451,7 +451,7 @@ public class MavenMappingImpl extends MinimalEObjectImpl.Container implements Ma
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
 	public MavenItem map(String installableUnitID) {
@@ -471,7 +471,7 @@ public class MavenMappingImpl extends MinimalEObjectImpl.Container implements Ma
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public void setArtifactId(String newArtifactId) {
@@ -484,7 +484,7 @@ public class MavenMappingImpl extends MinimalEObjectImpl.Container implements Ma
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public void setGroupId(String newGroupId) {
@@ -497,7 +497,7 @@ public class MavenMappingImpl extends MinimalEObjectImpl.Container implements Ma
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
 	public void setNamePattern(String newNamePattern) {
@@ -522,7 +522,7 @@ public class MavenMappingImpl extends MinimalEObjectImpl.Container implements Ma
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override

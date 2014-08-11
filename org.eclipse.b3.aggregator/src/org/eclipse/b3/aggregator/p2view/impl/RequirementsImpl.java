@@ -12,15 +12,11 @@ import java.util.Collection;
 import org.eclipse.b3.aggregator.p2view.P2viewPackage;
 import org.eclipse.b3.aggregator.p2view.RequirementWrapper;
 import org.eclipse.b3.aggregator.p2view.Requirements;
-
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -34,7 +30,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <li>{@link org.eclipse.b3.aggregator.p2view.impl.RequirementsImpl#getRequirements <em>Requirements</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public class RequirementsImpl extends MinimalEObjectImpl.Container implements Requirements {
@@ -42,7 +38,7 @@ public class RequirementsImpl extends MinimalEObjectImpl.Container implements Re
 	 * A set of bit flags representing the values of boolean attributes and whether unsettable features have been set.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 * @ordered
 	 */
@@ -52,7 +48,7 @@ public class RequirementsImpl extends MinimalEObjectImpl.Container implements Re
 	 * The cached value of the '{@link #getRequirements() <em>Requirements</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getRequirements()
 	 * @generated
 	 * @ordered
@@ -62,7 +58,7 @@ public class RequirementsImpl extends MinimalEObjectImpl.Container implements Re
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected RequirementsImpl() {
@@ -72,7 +68,7 @@ public class RequirementsImpl extends MinimalEObjectImpl.Container implements Re
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -87,7 +83,7 @@ public class RequirementsImpl extends MinimalEObjectImpl.Container implements Re
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -102,7 +98,7 @@ public class RequirementsImpl extends MinimalEObjectImpl.Container implements Re
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -117,7 +113,7 @@ public class RequirementsImpl extends MinimalEObjectImpl.Container implements Re
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
@@ -135,7 +131,7 @@ public class RequirementsImpl extends MinimalEObjectImpl.Container implements Re
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -146,7 +142,7 @@ public class RequirementsImpl extends MinimalEObjectImpl.Container implements Re
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -162,7 +158,7 @@ public class RequirementsImpl extends MinimalEObjectImpl.Container implements Re
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EList<RequirementWrapper> getRequirements() {

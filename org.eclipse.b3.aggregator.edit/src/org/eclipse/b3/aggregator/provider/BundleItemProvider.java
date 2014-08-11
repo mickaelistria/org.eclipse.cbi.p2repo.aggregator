@@ -30,7 +30,7 @@ import org.eclipse.equinox.p2.query.IQuery;
  * This is the item provider adapter for a {@link org.eclipse.b3.aggregator.Bundle} object.
  * <!-- begin-user-doc
  * --> <!-- end-user-doc -->
- * 
+ *
  * @generated
  */
 public class BundleItemProvider extends MappedUnitItemProvider implements IEditingDomainItemProvider,
@@ -39,7 +39,7 @@ public class BundleItemProvider extends MappedUnitItemProvider implements IEditi
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public BundleItemProvider(AdapterFactory adapterFactory) {
@@ -50,7 +50,7 @@ public class BundleItemProvider extends MappedUnitItemProvider implements IEditi
 	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
 	 * that can be created under this object.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -65,7 +65,7 @@ public class BundleItemProvider extends MappedUnitItemProvider implements IEditi
 
 	/**
 	 * This returns Bundle.gif. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
 	@Override
@@ -86,7 +86,7 @@ public class BundleItemProvider extends MappedUnitItemProvider implements IEditi
 	/**
 	 * This returns the property descriptors for the adapted class.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -100,7 +100,7 @@ public class BundleItemProvider extends MappedUnitItemProvider implements IEditi
 
 	/**
 	 * This returns the label text for the adapted class. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
 	@Override
@@ -114,7 +114,7 @@ public class BundleItemProvider extends MappedUnitItemProvider implements IEditi
 	 * This handles model notifications by calling {@link #updateChildren} to update any cached children and by creating
 	 * a viewer notification, which it passes to {@link #fireNotifyChanged}. <!-- begin-user-doc --> <!-- end-user-doc
 	 * -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override

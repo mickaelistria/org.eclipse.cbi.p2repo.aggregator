@@ -6,19 +6,20 @@
  */
 package org.eclipse.b3.p2.maven.metadata.util;
 
-import org.eclipse.b3.p2.maven.metadata.*;
-
+import org.eclipse.b3.p2.maven.metadata.DocumentRoot;
+import org.eclipse.b3.p2.maven.metadata.MetaData;
+import org.eclipse.b3.p2.maven.metadata.MetadataPackage;
+import org.eclipse.b3.p2.maven.metadata.Versioning;
+import org.eclipse.b3.p2.maven.metadata.Versions;
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
-
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
-
 import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc --> The <b>Adapter Factory</b> for the model. It provides an adapter <code>createXXX</code> method for each class of the model.
  * <!-- end-user-doc -->
- * 
+ *
  * @see org.eclipse.b3.p2.maven.metadata.MetadataPackage
  * @generated
  */
@@ -26,7 +27,7 @@ public class MetadataAdapterFactory extends AdapterFactoryImpl {
 	/**
 	 * The cached model package.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected static MetadataPackage modelPackage;
@@ -34,7 +35,7 @@ public class MetadataAdapterFactory extends AdapterFactoryImpl {
 	/**
 	 * The switch that delegates to the <code>createXXX</code> methods.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected MetadataSwitch<Adapter> modelSwitch = new MetadataSwitch<Adapter>() {
@@ -67,7 +68,7 @@ public class MetadataAdapterFactory extends AdapterFactoryImpl {
 	/**
 	 * Creates an instance of the adapter factory.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public MetadataAdapterFactory() {
@@ -79,7 +80,7 @@ public class MetadataAdapterFactory extends AdapterFactoryImpl {
 	/**
 	 * Creates an adapter for the <code>target</code>.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param target
 	 *            the object to adapt.
 	 * @return the adapter for the <code>target</code>.
@@ -95,7 +96,7 @@ public class MetadataAdapterFactory extends AdapterFactoryImpl {
 	 * <em>Document Root</em>}'. <!--
 	 * begin-user-doc --> This default implementation returns null so that we can easily ignore cases; it's useful to
 	 * ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc -->
-	 * 
+	 *
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.p2.maven.metadata.DocumentRoot
 	 * @generated
@@ -108,7 +109,7 @@ public class MetadataAdapterFactory extends AdapterFactoryImpl {
 	 * Creates a new adapter for the default case.
 	 * <!-- begin-user-doc --> This default implementation returns null.
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @return the new adapter.
 	 * @generated
 	 */
@@ -121,7 +122,7 @@ public class MetadataAdapterFactory extends AdapterFactoryImpl {
 	 * <em>Meta Data</em>}'. <!--
 	 * begin-user-doc --> This default implementation returns null so that we can easily ignore cases; it's useful to
 	 * ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc -->
-	 * 
+	 *
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.p2.maven.metadata.MetaData
 	 * @generated
@@ -135,7 +136,7 @@ public class MetadataAdapterFactory extends AdapterFactoryImpl {
 	 * <em>Versioning</em>}'. <!--
 	 * begin-user-doc --> This default implementation returns null so that we can easily ignore cases; it's useful to
 	 * ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc -->
-	 * 
+	 *
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.p2.maven.metadata.Versioning
 	 * @generated
@@ -149,7 +150,7 @@ public class MetadataAdapterFactory extends AdapterFactoryImpl {
 	 * <!-- begin-user-doc
 	 * --> This default implementation returns null so that we can easily ignore cases; it's useful to ignore a case
 	 * when inheritance will catch all the cases anyway. <!-- end-user-doc -->
-	 * 
+	 *
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.p2.maven.metadata.Versions
 	 * @generated
@@ -163,7 +164,7 @@ public class MetadataAdapterFactory extends AdapterFactoryImpl {
 	 * <!-- begin-user-doc --> This
 	 * implementation returns <code>true</code> if the object is either the model's package or is an instance object of
 	 * the model. <!-- end-user-doc -->
-	 * 
+	 *
 	 * @return whether this factory is applicable for the type of the object.
 	 * @generated
 	 */

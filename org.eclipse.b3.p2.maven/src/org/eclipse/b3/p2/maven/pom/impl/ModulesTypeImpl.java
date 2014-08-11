@@ -10,13 +10,9 @@ import java.util.Collection;
 
 import org.eclipse.b3.p2.maven.pom.ModulesType;
 import org.eclipse.b3.p2.maven.pom.PomPackage;
-
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.impl.EObjectImpl;
-
 import org.eclipse.emf.ecore.util.EDataTypeEList;
 
 /**
@@ -27,7 +23,7 @@ import org.eclipse.emf.ecore.util.EDataTypeEList;
  * <li>{@link org.eclipse.b3.p2.maven.pom.impl.ModulesTypeImpl#getModule <em>Module</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public class ModulesTypeImpl extends EObjectImpl implements ModulesType {
@@ -35,7 +31,7 @@ public class ModulesTypeImpl extends EObjectImpl implements ModulesType {
 	 * The cached value of the '{@link #getModule() <em>Module</em>}' attribute list.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @see #getModule()
 	 * @generated
 	 * @ordered
@@ -44,7 +40,7 @@ public class ModulesTypeImpl extends EObjectImpl implements ModulesType {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected ModulesTypeImpl() {
@@ -53,7 +49,7 @@ public class ModulesTypeImpl extends EObjectImpl implements ModulesType {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -67,7 +63,7 @@ public class ModulesTypeImpl extends EObjectImpl implements ModulesType {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -81,7 +77,7 @@ public class ModulesTypeImpl extends EObjectImpl implements ModulesType {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
@@ -98,7 +94,7 @@ public class ModulesTypeImpl extends EObjectImpl implements ModulesType {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -113,9 +109,10 @@ public class ModulesTypeImpl extends EObjectImpl implements ModulesType {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public EList<String> getModule() {
 		if(module == null) {
 			module = new EDataTypeEList<String>(String.class, this, PomPackage.MODULES_TYPE__MODULE);
@@ -125,7 +122,7 @@ public class ModulesTypeImpl extends EObjectImpl implements ModulesType {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -142,7 +139,7 @@ public class ModulesTypeImpl extends EObjectImpl implements ModulesType {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override

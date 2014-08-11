@@ -29,7 +29,7 @@ import org.eclipse.equinox.p2.metadata.IRequirement;
  * <li>{@link org.eclipse.b3.p2.impl.InstallableUnitFragmentImpl#getHost <em>Host</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public class InstallableUnitFragmentImpl extends InstallableUnitImpl implements InstallableUnitFragment {
@@ -38,7 +38,7 @@ public class InstallableUnitFragmentImpl extends InstallableUnitImpl implements 
 	 * The cached value of the '{@link #getHost() <em>Host</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getHost()
 	 * @generated
 	 * @ordered
@@ -50,7 +50,7 @@ public class InstallableUnitFragmentImpl extends InstallableUnitImpl implements 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected InstallableUnitFragmentImpl() {
@@ -73,7 +73,7 @@ public class InstallableUnitFragmentImpl extends InstallableUnitImpl implements 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -88,7 +88,7 @@ public class InstallableUnitFragmentImpl extends InstallableUnitImpl implements 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -103,7 +103,7 @@ public class InstallableUnitFragmentImpl extends InstallableUnitImpl implements 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -118,7 +118,7 @@ public class InstallableUnitFragmentImpl extends InstallableUnitImpl implements 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
@@ -136,7 +136,7 @@ public class InstallableUnitFragmentImpl extends InstallableUnitImpl implements 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -147,7 +147,7 @@ public class InstallableUnitFragmentImpl extends InstallableUnitImpl implements 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -163,9 +163,10 @@ public class InstallableUnitFragmentImpl extends InstallableUnitImpl implements 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public EList<IRequirement> getHost() {
 		if(host == null) {
 			host = new EObjectContainmentEList.Resolving<IRequirement>(

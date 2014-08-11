@@ -10,13 +10,9 @@ import java.util.Collection;
 
 import org.eclipse.b3.p2.maven.pom.IncludesType;
 import org.eclipse.b3.p2.maven.pom.PomPackage;
-
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.impl.EObjectImpl;
-
 import org.eclipse.emf.ecore.util.EDataTypeEList;
 
 /**
@@ -27,7 +23,7 @@ import org.eclipse.emf.ecore.util.EDataTypeEList;
  * <li>{@link org.eclipse.b3.p2.maven.pom.impl.IncludesTypeImpl#getInclude <em>Include</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public class IncludesTypeImpl extends EObjectImpl implements IncludesType {
@@ -35,7 +31,7 @@ public class IncludesTypeImpl extends EObjectImpl implements IncludesType {
 	 * The cached value of the '{@link #getInclude() <em>Include</em>}' attribute list.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @see #getInclude()
 	 * @generated
 	 * @ordered
@@ -44,7 +40,7 @@ public class IncludesTypeImpl extends EObjectImpl implements IncludesType {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected IncludesTypeImpl() {
@@ -53,7 +49,7 @@ public class IncludesTypeImpl extends EObjectImpl implements IncludesType {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -67,7 +63,7 @@ public class IncludesTypeImpl extends EObjectImpl implements IncludesType {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -81,7 +77,7 @@ public class IncludesTypeImpl extends EObjectImpl implements IncludesType {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
@@ -98,7 +94,7 @@ public class IncludesTypeImpl extends EObjectImpl implements IncludesType {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -113,9 +109,10 @@ public class IncludesTypeImpl extends EObjectImpl implements IncludesType {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public EList<String> getInclude() {
 		if(include == null) {
 			include = new EDataTypeEList<String>(String.class, this, PomPackage.INCLUDES_TYPE__INCLUDE);
@@ -125,7 +122,7 @@ public class IncludesTypeImpl extends EObjectImpl implements IncludesType {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -142,7 +139,7 @@ public class IncludesTypeImpl extends EObjectImpl implements IncludesType {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override

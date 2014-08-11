@@ -34,7 +34,7 @@ import org.eclipse.emf.ecore.resource.Resource.Diagnostic;
 /**
  * Transforms scrResource to trgtResource using the same node, attribute and reference names. Extend this class if there
  * is a need for a special handling.
- * 
+ *
  * @author Karel Brezina
  */
 public class ResourceTransformer implements ITransformer {
@@ -162,7 +162,7 @@ public class ResourceTransformer implements ITransformer {
 
 	/**
 	 * Transforms srcEObject
-	 * 
+	 *
 	 * @param srcEObject
 	 * @param trgtParentTreePath
 	 *            tree path in the target structure
@@ -187,7 +187,7 @@ public class ResourceTransformer implements ITransformer {
 
 	/**
 	 * Transforms references in srcEObject
-	 * 
+	 *
 	 * @param srcEObject
 	 */
 	@SuppressWarnings("unchecked")
@@ -257,10 +257,12 @@ public class ResourceTransformer implements ITransformer {
 		}
 	}
 
+	@Override
 	public List<Diagnostic> getResourceErrors() {
 		return resourceErrors;
 	}
 
+	@Override
 	public void initTransformer(Resource srcResource, Resource trgtResource, EPackage trgtPackage,
 			Map<String, Object> context) {
 		this.srcResource = srcResource;
@@ -277,6 +279,7 @@ public class ResourceTransformer implements ITransformer {
 	/**
 	 * Starts transformation
 	 */
+	@Override
 	public final void startTransformation(boolean resolveProxies) {
 		this.resolveProxies = resolveProxies;
 		for(EObject srcEObject : srcResource.getContents())

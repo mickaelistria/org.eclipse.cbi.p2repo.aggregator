@@ -38,7 +38,7 @@ import org.eclipse.equinox.p2.metadata.expression.IMatchExpression;
  * <li>{@link org.eclipse.b3.aggregator.impl.MappedUnitImpl#getValidConfigurations <em>Valid Configurations</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public abstract class MappedUnitImpl extends InstallableUnitRequestImpl implements MappedUnit {
@@ -46,7 +46,7 @@ public abstract class MappedUnitImpl extends InstallableUnitRequestImpl implemen
 	 * The default value of the '{@link #isBranchEnabled() <em>Branch Enabled</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #isBranchEnabled()
 	 * @generated
 	 * @ordered
@@ -57,7 +57,7 @@ public abstract class MappedUnitImpl extends InstallableUnitRequestImpl implemen
 	 * The default value of the '{@link #isEnabled() <em>Enabled</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @see #isEnabled()
 	 * @generated
 	 * @ordered
@@ -68,7 +68,7 @@ public abstract class MappedUnitImpl extends InstallableUnitRequestImpl implemen
 	 * The flag representing the value of the '{@link #isEnabled() <em>Enabled</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #isEnabled()
 	 * @generated
 	 * @ordered
@@ -136,7 +136,7 @@ public abstract class MappedUnitImpl extends InstallableUnitRequestImpl implemen
 	/**
 	 * The cached value of the '{@link #getValidConfigurations() <em>Valid Configurations</em>}' reference list. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getValidConfigurations()
 	 * @generated
 	 * @ordered
@@ -145,7 +145,7 @@ public abstract class MappedUnitImpl extends InstallableUnitRequestImpl implemen
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected MappedUnitImpl() {
@@ -155,7 +155,7 @@ public abstract class MappedUnitImpl extends InstallableUnitRequestImpl implemen
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -181,7 +181,7 @@ public abstract class MappedUnitImpl extends InstallableUnitRequestImpl implemen
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -207,7 +207,7 @@ public abstract class MappedUnitImpl extends InstallableUnitRequestImpl implemen
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -225,7 +225,7 @@ public abstract class MappedUnitImpl extends InstallableUnitRequestImpl implemen
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -243,7 +243,7 @@ public abstract class MappedUnitImpl extends InstallableUnitRequestImpl implemen
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
@@ -263,7 +263,7 @@ public abstract class MappedUnitImpl extends InstallableUnitRequestImpl implemen
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -273,7 +273,7 @@ public abstract class MappedUnitImpl extends InstallableUnitRequestImpl implemen
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -292,7 +292,7 @@ public abstract class MappedUnitImpl extends InstallableUnitRequestImpl implemen
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
 	public IMatchExpression<IInstallableUnit> getFilter() {
@@ -302,7 +302,7 @@ public abstract class MappedUnitImpl extends InstallableUnitRequestImpl implemen
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
 	public String getIdentification() {
@@ -319,7 +319,7 @@ public abstract class MappedUnitImpl extends InstallableUnitRequestImpl implemen
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
 	public IRequirement getRequirement() {
@@ -330,7 +330,7 @@ public abstract class MappedUnitImpl extends InstallableUnitRequestImpl implemen
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EList<Configuration> getValidConfigurations() {
@@ -344,7 +344,7 @@ public abstract class MappedUnitImpl extends InstallableUnitRequestImpl implemen
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
 	@Override
@@ -354,7 +354,7 @@ public abstract class MappedUnitImpl extends InstallableUnitRequestImpl implemen
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public boolean isEnabled() {
@@ -371,7 +371,7 @@ public abstract class MappedUnitImpl extends InstallableUnitRequestImpl implemen
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
 	public boolean isSetBranchEnabled() {
@@ -380,7 +380,7 @@ public abstract class MappedUnitImpl extends InstallableUnitRequestImpl implemen
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public void setEnabled(boolean newEnabled) {
@@ -396,7 +396,7 @@ public abstract class MappedUnitImpl extends InstallableUnitRequestImpl implemen
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override

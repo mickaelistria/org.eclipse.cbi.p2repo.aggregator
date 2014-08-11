@@ -16,7 +16,7 @@ import org.eclipse.emf.ecore.xmi.XMIResource;
 
 /**
  * @author Karel Brezina
- * 
+ *
  */
 public interface AggregatorResource extends XMIResource {
 	/**
@@ -35,14 +35,14 @@ public interface AggregatorResource extends XMIResource {
 
 	/**
 	 * Returns the {@link Aggregation} instance contained in this {@link Resource}.
-	 * 
+	 *
 	 * @return the {@code Aggregator} instance contained in this {@code Resource}.
 	 */
 	Aggregation getAggregation();
 
 	/**
 	 * Returns a list of the infos in the resource; each error will be of type {@link org.eclipse.emf.ecore.resource.Resource.Diagnostic}.
-	 * 
+	 *
 	 * @return a list of the infos in the resource.
 	 * @see #load(Map)
 	 */

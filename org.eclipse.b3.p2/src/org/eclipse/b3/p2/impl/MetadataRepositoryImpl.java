@@ -51,7 +51,7 @@ import org.eclipse.equinox.p2.repository.metadata.IMetadataRepositoryManager;
  * <li>{@link org.eclipse.b3.p2.impl.MetadataRepositoryImpl#getReferences <em>References</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public class MetadataRepositoryImpl extends RepositoryImpl<IInstallableUnit> implements MetadataRepository {
@@ -73,7 +73,7 @@ public class MetadataRepositoryImpl extends RepositoryImpl<IInstallableUnit> imp
 	 * The cached value of the '{@link #getInstallableUnits() <em>Installable Units</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getInstallableUnits()
 	 * @generated
 	 * @ordered
@@ -84,7 +84,7 @@ public class MetadataRepositoryImpl extends RepositoryImpl<IInstallableUnit> imp
 	 * The cached value of the '{@link #getReferences() <em>References</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getReferences()
 	 * @generated
 	 * @ordered
@@ -94,7 +94,7 @@ public class MetadataRepositoryImpl extends RepositoryImpl<IInstallableUnit> imp
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected MetadataRepositoryImpl() {
@@ -104,9 +104,10 @@ public class MetadataRepositoryImpl extends RepositoryImpl<IInstallableUnit> imp
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
+	@Override
 	public void addInstallableUnits(Collection<IInstallableUnit> installableUnits) {
 		EList<IInstallableUnit> iuList = getInstallableUnits();
 		for(IInstallableUnit iu : installableUnits)
@@ -115,7 +116,7 @@ public class MetadataRepositoryImpl extends RepositoryImpl<IInstallableUnit> imp
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
 	private void addReference(URI location, String nickname, int type, int options) {
@@ -130,9 +131,10 @@ public class MetadataRepositoryImpl extends RepositoryImpl<IInstallableUnit> imp
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
+	@Override
 	public void addReferences(Collection<? extends IRepositoryReference> references) {
 		for(IRepositoryReference reference : references)
 			addReference(reference.getLocation(), reference.getNickname(), reference.getType(), reference.getOptions());
@@ -161,9 +163,10 @@ public class MetadataRepositoryImpl extends RepositoryImpl<IInstallableUnit> imp
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public void compress(IPool<IInstallableUnit> iuPool) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
@@ -173,7 +176,7 @@ public class MetadataRepositoryImpl extends RepositoryImpl<IInstallableUnit> imp
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -190,7 +193,7 @@ public class MetadataRepositoryImpl extends RepositoryImpl<IInstallableUnit> imp
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -207,7 +210,7 @@ public class MetadataRepositoryImpl extends RepositoryImpl<IInstallableUnit> imp
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -233,7 +236,7 @@ public class MetadataRepositoryImpl extends RepositoryImpl<IInstallableUnit> imp
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
@@ -255,7 +258,7 @@ public class MetadataRepositoryImpl extends RepositoryImpl<IInstallableUnit> imp
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -266,7 +269,7 @@ public class MetadataRepositoryImpl extends RepositoryImpl<IInstallableUnit> imp
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -285,9 +288,10 @@ public class MetadataRepositoryImpl extends RepositoryImpl<IInstallableUnit> imp
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
+	@Override
 	public IStatus executeBatch(IRunnableWithProgress runnable, IProgressMonitor monitor) {
 		throw new UnsupportedOperationException();
 	}
@@ -295,9 +299,10 @@ public class MetadataRepositoryImpl extends RepositoryImpl<IInstallableUnit> imp
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public EList<IInstallableUnit> getInstallableUnits() {
 		if(installableUnits == null) {
 			installableUnits = new EObjectContainmentEList.Resolving<IInstallableUnit>(
@@ -326,9 +331,10 @@ public class MetadataRepositoryImpl extends RepositoryImpl<IInstallableUnit> imp
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public EList<IRepositoryReference> getReferences() {
 		if(references == null) {
 			references = new EObjectContainmentEList.Resolving<IRepositoryReference>(
@@ -346,7 +352,7 @@ public class MetadataRepositoryImpl extends RepositoryImpl<IInstallableUnit> imp
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
 	@Override
@@ -357,9 +363,10 @@ public class MetadataRepositoryImpl extends RepositoryImpl<IInstallableUnit> imp
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
+	@Override
 	public void removeAll() {
 		getInstallableUnits().clear();
 	}
@@ -367,9 +374,10 @@ public class MetadataRepositoryImpl extends RepositoryImpl<IInstallableUnit> imp
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
+	@Override
 	public boolean removeInstallableUnits(Collection<IInstallableUnit> installableUnits) {
 		if(installableUnits == null)
 			return false;

@@ -29,7 +29,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
 /**
  * This is the item provider adapter for a {@link org.eclipse.b3.aggregator.Contact} object. <!--
  * begin-user-doc --> <!-- end-user-doc -->
- * 
+ *
  * @generated
  */
 public class ContactItemProvider extends AggregatorItemProviderAdapter implements IEditingDomainItemProvider,
@@ -40,7 +40,7 @@ public class ContactItemProvider extends AggregatorItemProviderAdapter implement
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public ContactItemProvider(AdapterFactory adapterFactory) {
@@ -50,7 +50,7 @@ public class ContactItemProvider extends AggregatorItemProviderAdapter implement
 	/**
 	 * This adds a property descriptor for the Email feature.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected void addEmailPropertyDescriptor(Object object) {
@@ -65,7 +65,7 @@ public class ContactItemProvider extends AggregatorItemProviderAdapter implement
 	/**
 	 * This adds a property descriptor for the Name feature.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected void addNamePropertyDescriptor(Object object) {
@@ -81,7 +81,7 @@ public class ContactItemProvider extends AggregatorItemProviderAdapter implement
 	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
 	 * that can be created under this object.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -92,7 +92,7 @@ public class ContactItemProvider extends AggregatorItemProviderAdapter implement
 	/**
 	 * This returns Contact.gif.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -103,7 +103,7 @@ public class ContactItemProvider extends AggregatorItemProviderAdapter implement
 	/**
 	 * This returns the property descriptors for the adapted class.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -120,7 +120,7 @@ public class ContactItemProvider extends AggregatorItemProviderAdapter implement
 	/**
 	 * Return the resource locator for this item provider's resources.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -130,7 +130,7 @@ public class ContactItemProvider extends AggregatorItemProviderAdapter implement
 
 	/**
 	 * This returns the label text for the adapted class. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
 	@Override
@@ -149,7 +149,7 @@ public class ContactItemProvider extends AggregatorItemProviderAdapter implement
 	 * This handles model notifications by calling {@link #updateChildren} to update any cached children and by creating
 	 * a viewer notification, which it passes to {@link #fireNotifyChanged}. <!-- begin-user-doc --> <!-- end-user-doc
 	 * -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override

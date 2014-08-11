@@ -46,7 +46,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * This is the item provider adapter for a {@link org.eclipse.b3.aggregator.ValidationSet} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
- * 
+ *
  * @generated
  */
 public class ValidationSetItemProvider extends AggregatorItemProviderAdapter implements IEditingDomainItemProvider,
@@ -57,7 +57,7 @@ public class ValidationSetItemProvider extends AggregatorItemProviderAdapter imp
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public ValidationSetItemProvider(AdapterFactory adapterFactory) {
@@ -68,7 +68,7 @@ public class ValidationSetItemProvider extends AggregatorItemProviderAdapter imp
 	 * This adds a property descriptor for the Description feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected void addDescriptionPropertyDescriptor(Object object) {
@@ -86,7 +86,7 @@ public class ValidationSetItemProvider extends AggregatorItemProviderAdapter imp
 	 * This adds a property descriptor for the Enabled feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected void addEnabledPropertyDescriptor(Object object) {
@@ -104,7 +104,7 @@ public class ValidationSetItemProvider extends AggregatorItemProviderAdapter imp
 	 * This adds a property descriptor for the Extends feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
 	protected void addExtendsPropertyDescriptor(Object object) {
@@ -134,7 +134,7 @@ public class ValidationSetItemProvider extends AggregatorItemProviderAdapter imp
 	 * This adds a property descriptor for the Label feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected void addLabelPropertyDescriptor(Object object) {
@@ -152,7 +152,7 @@ public class ValidationSetItemProvider extends AggregatorItemProviderAdapter imp
 	 * that can be created under this object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -189,7 +189,7 @@ public class ValidationSetItemProvider extends AggregatorItemProviderAdapter imp
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -206,7 +206,7 @@ public class ValidationSetItemProvider extends AggregatorItemProviderAdapter imp
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -223,7 +223,7 @@ public class ValidationSetItemProvider extends AggregatorItemProviderAdapter imp
 	 * This returns ValidationSet.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
 	@Override
@@ -238,7 +238,7 @@ public class ValidationSetItemProvider extends AggregatorItemProviderAdapter imp
 	 * This returns the property descriptors for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -258,7 +258,7 @@ public class ValidationSetItemProvider extends AggregatorItemProviderAdapter imp
 	 * Return the resource locator for this item provider's resources.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -270,7 +270,7 @@ public class ValidationSetItemProvider extends AggregatorItemProviderAdapter imp
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
 	@Override
@@ -349,7 +349,7 @@ public class ValidationSetItemProvider extends AggregatorItemProviderAdapter imp
 	 * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public void notifyChangedGen(Notification notification) {

@@ -25,7 +25,7 @@ import org.eclipse.equinox.p2.metadata.VersionRange;
 
 /**
  * @author Karel Brezina
- * 
+ *
  */
 public class InstallableUnitUtils {
 	public static void appendIdentifier(StringBuilder bld, IInstallableUnit iu) {

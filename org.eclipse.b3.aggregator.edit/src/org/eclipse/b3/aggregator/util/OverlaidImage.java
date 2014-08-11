@@ -1,5 +1,5 @@
 /**
- * 
+ *
  */
 package org.eclipse.b3.aggregator.util;
 
@@ -11,7 +11,7 @@ import org.eclipse.emf.edit.provider.ComposedImage;
 
 /**
  * @author Antonin Slezacek, slezicz@gmail.com
- * 
+ *
  */
 public class OverlaidImage extends ComposedImage {
 	public static final int BASIC = 0;

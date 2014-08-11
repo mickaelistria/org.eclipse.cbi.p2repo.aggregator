@@ -131,7 +131,7 @@ public class VersionSuffixGenerator {
 	/**
 	 * Version suffix generation. Modeled after
 	 * {@link org.eclipse.pde.internal.build.builder.FeatureBuildScriptGenerator#generateFeatureVersionSuffix(org.eclipse.pde.internal.build.site.BuildTimeFeature buildFeature)}
-	 * 
+	 *
 	 * @return The generated suffix or <code>null</code>
 	 * @throws CoreException
 	 */

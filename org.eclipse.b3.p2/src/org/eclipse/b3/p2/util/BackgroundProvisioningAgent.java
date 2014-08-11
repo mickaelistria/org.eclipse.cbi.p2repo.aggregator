@@ -12,7 +12,7 @@ import org.eclipse.equinox.p2.core.IProvisioningAgent;
 
 /**
  * @author filip.hrbek@cloudsmith.com
- * 
+ *
  */
 public class BackgroundProvisioningAgent implements IProvisioningAgent {
 
@@ -36,10 +36,12 @@ public class BackgroundProvisioningAgent implements IProvisioningAgent {
 		}
 	}
 
+	@Override
 	public Object getService(String serviceName) {
 		return agent.getService(serviceName);
 	}
 
+	@Override
 	public void registerService(String serviceName, Object service) {
 		agent.registerService(serviceName, service);
 	}
@@ -49,11 +51,13 @@ public class BackgroundProvisioningAgent implements IProvisioningAgent {
 			activeTasks++;
 	}
 
+	@Override
 	synchronized public void stop() {
 		aboutToStop = true;
 		conditionalStop();
 	}
 
+	@Override
 	public void unregisterService(String serviceName, Object service) {
 		agent.unregisterService(serviceName, service);
 	}

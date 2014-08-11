@@ -9,7 +9,7 @@ package org.eclipse.b3.aggregator.engine.maven;
 
 /**
  * @author Filip Hrbek (filip.hrbek@cloudsmith.com)
- * 
+ *
  */
 public class MavenRepositoryHelper {
 	private String[][] mappingRules;

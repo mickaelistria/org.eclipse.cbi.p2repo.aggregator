@@ -33,14 +33,14 @@ import org.eclipse.equinox.p2.metadata.ITouchpointType;
  * <li>{@link org.eclipse.b3.aggregator.p2view.impl.TouchpointsImpl#getTouchpointDataList <em>Touchpoint Data List</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public class TouchpointsImpl extends MinimalEObjectImpl.Container implements Touchpoints {
 	/**
 	 * A set of bit flags representing the values of boolean attributes and whether unsettable features have been set.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 * @ordered
 	 */
@@ -50,7 +50,7 @@ public class TouchpointsImpl extends MinimalEObjectImpl.Container implements Tou
 	 * The cached value of the '{@link #getTouchpointType() <em>Touchpoint Type</em>}' reference.
 	 * <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getTouchpointType()
 	 * @generated
 	 * @ordered
@@ -60,7 +60,7 @@ public class TouchpointsImpl extends MinimalEObjectImpl.Container implements Tou
 	/**
 	 * The cached value of the '{@link #getTouchpointDataList() <em>Touchpoint Data List</em>}' reference list. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getTouchpointDataList()
 	 * @generated
 	 * @ordered
@@ -69,7 +69,7 @@ public class TouchpointsImpl extends MinimalEObjectImpl.Container implements Tou
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected TouchpointsImpl() {
@@ -78,7 +78,7 @@ public class TouchpointsImpl extends MinimalEObjectImpl.Container implements Tou
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public ITouchpointType basicGetTouchpointType() {
@@ -87,7 +87,7 @@ public class TouchpointsImpl extends MinimalEObjectImpl.Container implements Tou
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -105,7 +105,7 @@ public class TouchpointsImpl extends MinimalEObjectImpl.Container implements Tou
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -121,7 +121,7 @@ public class TouchpointsImpl extends MinimalEObjectImpl.Container implements Tou
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
@@ -141,7 +141,7 @@ public class TouchpointsImpl extends MinimalEObjectImpl.Container implements Tou
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -151,7 +151,7 @@ public class TouchpointsImpl extends MinimalEObjectImpl.Container implements Tou
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -169,7 +169,7 @@ public class TouchpointsImpl extends MinimalEObjectImpl.Container implements Tou
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EList<ITouchpointData> getTouchpointDataList() {
@@ -182,7 +182,7 @@ public class TouchpointsImpl extends MinimalEObjectImpl.Container implements Tou
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public ITouchpointType getTouchpointType() {
@@ -208,7 +208,7 @@ public class TouchpointsImpl extends MinimalEObjectImpl.Container implements Tou
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public void setTouchpointTypeGen(ITouchpointType newTouchpointType) {

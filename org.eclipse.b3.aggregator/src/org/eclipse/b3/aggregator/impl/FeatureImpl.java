@@ -26,7 +26,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <li>{@link org.eclipse.b3.aggregator.impl.FeatureImpl#getCategories <em>Categories</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public class FeatureImpl extends MappedUnitImpl implements Feature {
@@ -34,7 +34,7 @@ public class FeatureImpl extends MappedUnitImpl implements Feature {
 	 * The cached value of the '{@link #getCategories() <em>Categories</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getCategories()
 	 * @generated
 	 * @ordered
@@ -43,7 +43,7 @@ public class FeatureImpl extends MappedUnitImpl implements Feature {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected FeatureImpl() {
@@ -52,7 +52,7 @@ public class FeatureImpl extends MappedUnitImpl implements Feature {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -66,7 +66,7 @@ public class FeatureImpl extends MappedUnitImpl implements Feature {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
@@ -81,7 +81,7 @@ public class FeatureImpl extends MappedUnitImpl implements Feature {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -95,7 +95,7 @@ public class FeatureImpl extends MappedUnitImpl implements Feature {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -109,7 +109,7 @@ public class FeatureImpl extends MappedUnitImpl implements Feature {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
@@ -126,7 +126,7 @@ public class FeatureImpl extends MappedUnitImpl implements Feature {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -136,7 +136,7 @@ public class FeatureImpl extends MappedUnitImpl implements Feature {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -151,7 +151,7 @@ public class FeatureImpl extends MappedUnitImpl implements Feature {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EList<CustomCategory> getCategories() {

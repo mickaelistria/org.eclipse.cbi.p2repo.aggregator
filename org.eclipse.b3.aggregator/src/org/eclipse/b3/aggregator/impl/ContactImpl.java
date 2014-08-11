@@ -9,12 +9,9 @@ package org.eclipse.b3.aggregator.impl;
 import org.eclipse.b3.aggregator.Aggregation;
 import org.eclipse.b3.aggregator.AggregatorPackage;
 import org.eclipse.b3.aggregator.Contact;
-
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
@@ -31,14 +28,14 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  * <li>{@link org.eclipse.b3.aggregator.impl.ContactImpl#getAggregation <em>Aggregation</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public class ContactImpl extends MinimalEObjectImpl.Container implements Contact {
 	/**
 	 * A set of bit flags representing the values of boolean attributes and whether unsettable features have been set.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 * @ordered
 	 */
@@ -47,7 +44,7 @@ public class ContactImpl extends MinimalEObjectImpl.Container implements Contact
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
 	 * -->
-	 * 
+	 *
 	 * @see #getName()
 	 * @generated
 	 * @ordered
@@ -57,7 +54,7 @@ public class ContactImpl extends MinimalEObjectImpl.Container implements Contact
 	/**
 	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
 	 * -->
-	 * 
+	 *
 	 * @see #getName()
 	 * @generated
 	 * @ordered
@@ -68,7 +65,7 @@ public class ContactImpl extends MinimalEObjectImpl.Container implements Contact
 	 * The default value of the '{@link #getEmail() <em>Email</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @see #getEmail()
 	 * @generated
 	 * @ordered
@@ -78,7 +75,7 @@ public class ContactImpl extends MinimalEObjectImpl.Container implements Contact
 	/**
 	 * The cached value of the '{@link #getEmail() <em>Email</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
 	 * -->
-	 * 
+	 *
 	 * @see #getEmail()
 	 * @generated
 	 * @ordered
@@ -87,7 +84,7 @@ public class ContactImpl extends MinimalEObjectImpl.Container implements Contact
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected ContactImpl() {
@@ -97,7 +94,7 @@ public class ContactImpl extends MinimalEObjectImpl.Container implements Contact
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public Aggregation basicGetAggregation() {
@@ -109,7 +106,7 @@ public class ContactImpl extends MinimalEObjectImpl.Container implements Contact
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public NotificationChain basicSetAggregation(Aggregation newAggregation, NotificationChain msgs) {
@@ -119,7 +116,7 @@ public class ContactImpl extends MinimalEObjectImpl.Container implements Contact
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -134,7 +131,7 @@ public class ContactImpl extends MinimalEObjectImpl.Container implements Contact
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -154,7 +151,7 @@ public class ContactImpl extends MinimalEObjectImpl.Container implements Contact
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -170,7 +167,7 @@ public class ContactImpl extends MinimalEObjectImpl.Container implements Contact
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -184,7 +181,7 @@ public class ContactImpl extends MinimalEObjectImpl.Container implements Contact
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -206,7 +203,7 @@ public class ContactImpl extends MinimalEObjectImpl.Container implements Contact
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -227,7 +224,7 @@ public class ContactImpl extends MinimalEObjectImpl.Container implements Contact
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -237,7 +234,7 @@ public class ContactImpl extends MinimalEObjectImpl.Container implements Contact
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -258,7 +255,7 @@ public class ContactImpl extends MinimalEObjectImpl.Container implements Contact
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public Aggregation getAggregation() {
@@ -269,7 +266,7 @@ public class ContactImpl extends MinimalEObjectImpl.Container implements Contact
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public String getEmail() {
@@ -278,7 +275,7 @@ public class ContactImpl extends MinimalEObjectImpl.Container implements Contact
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public String getName() {
@@ -288,7 +285,7 @@ public class ContactImpl extends MinimalEObjectImpl.Container implements Contact
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public void setAggregation(Aggregation newAggregation) {
@@ -313,7 +310,7 @@ public class ContactImpl extends MinimalEObjectImpl.Container implements Contact
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public void setEmail(String newEmail) {
@@ -325,7 +322,7 @@ public class ContactImpl extends MinimalEObjectImpl.Container implements Contact
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public void setName(String newName) {
@@ -337,7 +334,7 @@ public class ContactImpl extends MinimalEObjectImpl.Container implements Contact
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override

@@ -14,7 +14,7 @@ import org.eclipse.b3.aggregator.transformer.TransformerContextContributor;
 
 /**
  * @author Karel Brezina
- * 
+ *
  */
 public class AggregatorTransformer_090_2_100_ContextContributor extends TransformerContextContributor {
 

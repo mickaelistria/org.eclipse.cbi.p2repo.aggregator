@@ -28,7 +28,7 @@ import org.eclipse.equinox.p2.metadata.IInstallableUnit;
 
 /**
  * @author Karel Brezina
- * 
+ *
  */
 public class AddIUsToParentRepositoryCommand extends AbstractCommand {
 	private Aggregation aggregation;
@@ -51,6 +51,7 @@ public class AddIUsToParentRepositoryCommand extends AbstractCommand {
 		this.operation = operation;
 	}
 
+	@Override
 	public void execute() {
 		unitsAddedToMappedRepo.clear();
 		rulesAddedToMappedRepo.clear();
@@ -122,6 +123,7 @@ public class AddIUsToParentRepositoryCommand extends AbstractCommand {
 		return mapIUMappedRepo.size() > 0 && someEnabled;
 	}
 
+	@Override
 	public void redo() {
 		for(MappedRepository mappedRepo : unitsAddedToMappedRepo.keySet()) {
 			for(MappedUnit unit : unitsAddedToMappedRepo.get(mappedRepo))

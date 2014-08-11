@@ -61,13 +61,13 @@ import org.eclipse.equinox.p2.metadata.ITouchpointData;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model <b>Factory</b>. <!-- end-user-doc -->
- * 
+ *
  * @generated
  */
 public class P2viewFactoryImpl extends EFactoryImpl implements P2viewFactory {
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @deprecated
 	 * @generated
 	 */
@@ -79,7 +79,7 @@ public class P2viewFactoryImpl extends EFactoryImpl implements P2viewFactory {
 	/**
 	 * Creates the default factory implementation.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public static P2viewFactory init() {
@@ -98,7 +98,7 @@ public class P2viewFactoryImpl extends EFactoryImpl implements P2viewFactory {
 	/**
 	 * Creates an instance of the factory.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public P2viewFactoryImpl() {
@@ -107,7 +107,7 @@ public class P2viewFactoryImpl extends EFactoryImpl implements P2viewFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -168,7 +168,7 @@ public class P2viewFactoryImpl extends EFactoryImpl implements P2viewFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public Bundle createBundle() {
@@ -178,7 +178,7 @@ public class P2viewFactoryImpl extends EFactoryImpl implements P2viewFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
 	public Bundle createBundle(IInstallableUnit iu) {
@@ -188,7 +188,7 @@ public class P2viewFactoryImpl extends EFactoryImpl implements P2viewFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public Bundles createBundles() {
@@ -198,7 +198,7 @@ public class P2viewFactoryImpl extends EFactoryImpl implements P2viewFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public Categories createCategories() {
@@ -208,7 +208,7 @@ public class P2viewFactoryImpl extends EFactoryImpl implements P2viewFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public Category createCategory() {
@@ -218,7 +218,7 @@ public class P2viewFactoryImpl extends EFactoryImpl implements P2viewFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
 	public Category createCategory(IInstallableUnit iu) {
@@ -228,7 +228,7 @@ public class P2viewFactoryImpl extends EFactoryImpl implements P2viewFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public Feature createFeature() {
@@ -238,7 +238,7 @@ public class P2viewFactoryImpl extends EFactoryImpl implements P2viewFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
 	public Feature createFeature(IInstallableUnit iu) {
@@ -248,7 +248,7 @@ public class P2viewFactoryImpl extends EFactoryImpl implements P2viewFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public Features createFeatures() {
@@ -258,7 +258,7 @@ public class P2viewFactoryImpl extends EFactoryImpl implements P2viewFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public Fragment createFragment() {
@@ -268,7 +268,7 @@ public class P2viewFactoryImpl extends EFactoryImpl implements P2viewFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
 	public Fragment createFragment(IInstallableUnit iu) {
@@ -278,7 +278,7 @@ public class P2viewFactoryImpl extends EFactoryImpl implements P2viewFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public Fragments createFragments() {
@@ -288,7 +288,7 @@ public class P2viewFactoryImpl extends EFactoryImpl implements P2viewFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public InstallableUnits createInstallableUnits() {
@@ -298,7 +298,7 @@ public class P2viewFactoryImpl extends EFactoryImpl implements P2viewFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public IUDetails createIUDetails() {
@@ -408,7 +408,7 @@ public class P2viewFactoryImpl extends EFactoryImpl implements P2viewFactory {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public Licenses createLicenses() {
@@ -418,7 +418,7 @@ public class P2viewFactoryImpl extends EFactoryImpl implements P2viewFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public MetadataRepositoryStructuredView createMetadataRepositoryStructuredView() {
@@ -428,7 +428,7 @@ public class P2viewFactoryImpl extends EFactoryImpl implements P2viewFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
 	public MetadataRepositoryStructuredView createMetadataRepositoryStructuredView(MetadataRepository metadataRepository) {
@@ -439,7 +439,7 @@ public class P2viewFactoryImpl extends EFactoryImpl implements P2viewFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public Miscellaneous createMiscellaneous() {
@@ -449,7 +449,7 @@ public class P2viewFactoryImpl extends EFactoryImpl implements P2viewFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public OtherIU createOtherIU() {
@@ -459,7 +459,7 @@ public class P2viewFactoryImpl extends EFactoryImpl implements P2viewFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
 	public OtherIU createOtherIU(IInstallableUnit iu) {
@@ -469,7 +469,7 @@ public class P2viewFactoryImpl extends EFactoryImpl implements P2viewFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public Product createProduct() {
@@ -479,7 +479,7 @@ public class P2viewFactoryImpl extends EFactoryImpl implements P2viewFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
 	public Product createProduct(IInstallableUnit iu) {
@@ -489,7 +489,7 @@ public class P2viewFactoryImpl extends EFactoryImpl implements P2viewFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public Products createProducts() {
@@ -499,7 +499,7 @@ public class P2viewFactoryImpl extends EFactoryImpl implements P2viewFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public Properties createProperties() {
@@ -509,7 +509,7 @@ public class P2viewFactoryImpl extends EFactoryImpl implements P2viewFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public ProvidedCapabilities createProvidedCapabilities() {
@@ -519,7 +519,7 @@ public class P2viewFactoryImpl extends EFactoryImpl implements P2viewFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public ProvidedCapabilityWrapper createProvidedCapabilityWrapper() {
@@ -535,7 +535,7 @@ public class P2viewFactoryImpl extends EFactoryImpl implements P2viewFactory {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public RepositoryBrowser createRepositoryBrowser() {
@@ -551,7 +551,7 @@ public class P2viewFactoryImpl extends EFactoryImpl implements P2viewFactory {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public RepositoryReferences createRepositoryReferences() {
@@ -562,7 +562,7 @@ public class P2viewFactoryImpl extends EFactoryImpl implements P2viewFactory {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public Requirements createRequirements() {
@@ -573,7 +573,7 @@ public class P2viewFactoryImpl extends EFactoryImpl implements P2viewFactory {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public RequirementWrapper createRequirementWrapper() {
@@ -588,7 +588,7 @@ public class P2viewFactoryImpl extends EFactoryImpl implements P2viewFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public Touchpoints createTouchpoints() {
@@ -598,7 +598,7 @@ public class P2viewFactoryImpl extends EFactoryImpl implements P2viewFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public P2viewPackage getP2viewPackage() {

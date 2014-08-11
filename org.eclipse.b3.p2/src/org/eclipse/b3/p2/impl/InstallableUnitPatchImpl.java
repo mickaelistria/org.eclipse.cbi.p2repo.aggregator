@@ -4,7 +4,7 @@
  * licensed under the Eclipse Public License - v 1.0 by the copyright holder
  * listed above, as the Initial Contributor under such license. The text of
  * such license is available at www.eclipse.org.
- * 
+ *
  */
 package org.eclipse.b3.p2.impl;
 
@@ -38,7 +38,7 @@ import org.eclipse.equinox.p2.metadata.IRequirementChange;
  * <li>{@link org.eclipse.b3.p2.impl.InstallableUnitPatchImpl#getAppliesTo <em>Applies To</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public class InstallableUnitPatchImpl extends InstallableUnitImpl implements InstallableUnitPatch {
@@ -46,7 +46,7 @@ public class InstallableUnitPatchImpl extends InstallableUnitImpl implements Ins
 	 * The cached value of the '{@link #getRequirementsChange() <em>Requirements Change</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getRequirementsChange()
 	 * @generated
 	 * @ordered
@@ -57,7 +57,7 @@ public class InstallableUnitPatchImpl extends InstallableUnitImpl implements Ins
 	 * The cached value of the '{@link #getLifeCycle() <em>Life Cycle</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getLifeCycle()
 	 * @generated
 	 * @ordered
@@ -68,7 +68,7 @@ public class InstallableUnitPatchImpl extends InstallableUnitImpl implements Ins
 	 * The cached value of the '{@link #getAppliesTo() <em>Applies To</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getAppliesTo()
 	 * @generated
 	 * @ordered
@@ -78,7 +78,7 @@ public class InstallableUnitPatchImpl extends InstallableUnitImpl implements Ins
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected InstallableUnitPatchImpl() {
@@ -88,7 +88,7 @@ public class InstallableUnitPatchImpl extends InstallableUnitImpl implements Ins
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public IRequirement basicGetLifeCycle() {
@@ -98,7 +98,7 @@ public class InstallableUnitPatchImpl extends InstallableUnitImpl implements Ins
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public NotificationChain basicSetLifeCycle(IRequirement newLifeCycle, NotificationChain msgs) {
@@ -118,7 +118,7 @@ public class InstallableUnitPatchImpl extends InstallableUnitImpl implements Ins
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -141,7 +141,7 @@ public class InstallableUnitPatchImpl extends InstallableUnitImpl implements Ins
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -164,7 +164,7 @@ public class InstallableUnitPatchImpl extends InstallableUnitImpl implements Ins
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -185,7 +185,7 @@ public class InstallableUnitPatchImpl extends InstallableUnitImpl implements Ins
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -204,7 +204,7 @@ public class InstallableUnitPatchImpl extends InstallableUnitImpl implements Ins
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -223,7 +223,7 @@ public class InstallableUnitPatchImpl extends InstallableUnitImpl implements Ins
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
@@ -248,7 +248,7 @@ public class InstallableUnitPatchImpl extends InstallableUnitImpl implements Ins
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -259,7 +259,7 @@ public class InstallableUnitPatchImpl extends InstallableUnitImpl implements Ins
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -281,9 +281,10 @@ public class InstallableUnitPatchImpl extends InstallableUnitImpl implements Ins
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
+	@Override
 	public IRequirement[][] getApplicabilityScope() {
 		List<IRequirement> scope = getAppliesTo();
 		if(scope.size() == 0)
@@ -296,7 +297,7 @@ public class InstallableUnitPatchImpl extends InstallableUnitImpl implements Ins
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EList<IRequirement> getAppliesTo() {
@@ -310,9 +311,10 @@ public class InstallableUnitPatchImpl extends InstallableUnitImpl implements Ins
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public IRequirement getLifeCycle() {
 		if(lifeCycle != null && ((EObject) lifeCycle).eIsProxy()) {
 			InternalEObject oldLifeCycle = (InternalEObject) lifeCycle;
@@ -339,9 +341,10 @@ public class InstallableUnitPatchImpl extends InstallableUnitImpl implements Ins
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public EList<IRequirementChange> getRequirementsChange() {
 		if(requirementsChange == null) {
 			requirementsChange = new EObjectContainmentEList.Resolving<IRequirementChange>(
@@ -353,7 +356,7 @@ public class InstallableUnitPatchImpl extends InstallableUnitImpl implements Ins
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public void setLifeCycle(IRequirement newLifeCycle) {

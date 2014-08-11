@@ -171,7 +171,7 @@ import org.eclipse.ui.views.properties.PropertySheetPage;
 /**
  * This is an example of a Aggregator model editor.
  * <!-- begin-user-doc --> <!-- end-user-doc -->
- * 
+ *
  * @generated
  */
 @SuppressWarnings("unused")
@@ -179,6 +179,7 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 		IMenuListener, IViewerProvider, IGotoMarker {
 
 	static class MDRComparator implements Comparator<MetadataRepositoryReference> {
+		@Override
 		public int compare(MetadataRepositoryReference mdr1, MetadataRepositoryReference mdr2) {
 			String location1 = mdr1 != null
 					? mdr1.getResolvedLocation()
@@ -307,14 +308,14 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public class ReverseAdapterFactoryContentProvider extends AdapterFactoryContentProvider {
 
 		/**
 		 * <!-- begin-user-doc --> <!-- end-user-doc -->
-		 * 
+		 *
 		 * @generated
 		 */
 		public ReverseAdapterFactoryContentProvider(AdapterFactory adapterFactory) {
@@ -323,7 +324,7 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 
 		/**
 		 * <!-- begin-user-doc --> <!-- end-user-doc -->
-		 * 
+		 *
 		 * @generated
 		 */
 		@Override
@@ -336,7 +337,7 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 
 		/**
 		 * <!-- begin-user-doc --> <!-- end-user-doc -->
-		 * 
+		 *
 		 * @generated
 		 */
 		@Override
@@ -349,7 +350,7 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 
 		/**
 		 * <!-- begin-user-doc --> <!-- end-user-doc -->
-		 * 
+		 *
 		 * @generated
 		 */
 		@Override
@@ -359,7 +360,7 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 
 		/**
 		 * <!-- begin-user-doc --> <!-- end-user-doc -->
-		 * 
+		 *
 		 * @generated
 		 */
 		@Override
@@ -385,7 +386,7 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 	/**
 	 * This looks up a string in the plugin's plugin.properties file.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private static String getString(String key) {
@@ -395,7 +396,7 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 	/**
 	 * This looks up a string in plugin.properties, making a substitution.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private static String getString(String key, Object s1) {
@@ -408,7 +409,7 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 	 * This keeps track of the editing domain that is used to track all changes to the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected AdapterFactoryEditingDomain editingDomain;
@@ -416,7 +417,7 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 	/**
 	 * This is the one adapter factory used for providing views of the model. <!-- begin-user-doc --> <!-- end-user-doc
 	 * -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected ComposedAdapterFactory adapterFactory;
@@ -424,7 +425,7 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 	/**
 	 * This is the content outline page.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected IContentOutlinePage contentOutlinePage;
@@ -432,7 +433,7 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 	/**
 	 * This is a kludge...
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected IStatusLineManager contentOutlineStatusLineManager;
@@ -440,7 +441,7 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 	/**
 	 * This is the content outline page's viewer.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected TreeViewer contentOutlineViewer;
@@ -448,7 +449,7 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 	/**
 	 * This is the property sheet page.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected PropertySheetPage propertySheetPage;
@@ -457,7 +458,7 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 	 * This is the viewer that shadows the selection in the content outline.
 	 * The parent relation must be correctly defined for this to work.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected TreeViewer selectionViewer;
@@ -465,7 +466,7 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 	/**
 	 * This keeps track of the active content viewer, which may be either one of the viewers in the pages or the content outline viewer.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected Viewer currentViewer;
@@ -473,7 +474,7 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 	/**
 	 * This listens to which ever viewer is active.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected ISelectionChangedListener selectionChangedListener;
@@ -481,7 +482,7 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 	/**
 	 * This keeps track of all the {@link org.eclipse.jface.viewers.ISelectionChangedListener}s that are listening to this editor.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected Collection<ISelectionChangedListener> selectionChangedListeners = new ArrayList<ISelectionChangedListener>();
@@ -489,7 +490,7 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 	/**
 	 * This keeps track of the selection of the editor as a whole.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected ISelection editorSelection = StructuredSelection.EMPTY;
@@ -497,7 +498,7 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 	/**
 	 * The MarkerHelper is responsible for creating workspace resource markers presented in Eclipse's Problems View.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
 	protected MarkerHelper markerHelper = new EditUIMarkerHelper() {
@@ -523,11 +524,12 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 
 	/**
 	 * This listens for when the outline becomes active <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
 	protected IPartListener partListener = new IPartListener() {
 
+		@Override
 		public void partActivated(IWorkbenchPart p) {
 			if(p instanceof ContentOutline) {
 				if(((ContentOutline) p).getCurrentPage() == contentOutlinePage) {
@@ -547,18 +549,22 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 			}
 		}
 
+		@Override
 		public void partBroughtToTop(IWorkbenchPart p) {
 			// Ignore.
 		}
 
+		@Override
 		public void partClosed(IWorkbenchPart p) {
 			// Ignore.
 		}
 
+		@Override
 		public void partDeactivated(IWorkbenchPart p) {
 			handleDeactivate();
 		}
 
+		@Override
 		public void partOpened(IWorkbenchPart p) {
 			// Ignore.
 		}
@@ -568,7 +574,7 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 	/**
 	 * Resources that have been removed since last activation.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected Collection<Resource> removedResources = new ArrayList<Resource>();
@@ -576,7 +582,7 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 	/**
 	 * Resources that have been changed since last activation.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected Collection<Resource> changedResources = new ArrayList<Resource>();
@@ -584,7 +590,7 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 	/**
 	 * Resources that have been saved.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected Collection<Resource> savedResources = new ArrayList<Resource>();
@@ -592,7 +598,7 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 	/**
 	 * Map to store the diagnostic associated with a resource.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected Map<Resource, Diagnostic> resourceToDiagnosticMap = new LinkedHashMap<Resource, Diagnostic>();
@@ -604,7 +610,7 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 	/**
 	 * Controls whether the problem indication should be updated.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected boolean updateProblemIndication = true;
@@ -612,7 +618,7 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 	/**
 	 * Adapter used to update the problem indication when resources are demanded loaded. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
 	protected EContentAdapter problemIndicationAdapter = new EContentAdapter() {
@@ -630,6 +636,7 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 			if(featureID == Resource.RESOURCE__IS_LOADED) {
 				getSite().getShell().getDisplay().asyncExec(new Runnable() {
 
+					@Override
 					public void run() {
 						setSelection(currentViewer == null
 								? StructuredSelection.EMPTY
@@ -668,6 +675,7 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 						if(updateProblemIndication) {
 							getSite().getShell().getDisplay().asyncExec(new Runnable() {
 
+								@Override
 								public void run() {
 									updateProblemIndication();
 								}
@@ -706,6 +714,7 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 		private void updateMarkers() {
 			Runnable runnable = new Runnable() {
 
+				@Override
 				public void run() {
 					synchronized(AggregatorEditor.this) {
 						while(updateMarkers)
@@ -755,10 +764,11 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 	/**
 	 * This listens for workspace changes.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected IResourceChangeListener resourceChangeListener = new IResourceChangeListener() {
+		@Override
 		public void resourceChanged(IResourceChangeEvent event) {
 			IResourceDelta delta = event.getDelta();
 			try {
@@ -777,6 +787,7 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 						return removedResources;
 					}
 
+					@Override
 					public boolean visit(IResourceDelta delta) {
 						if(delta.getResource().getType() == IResource.FILE) {
 							if(delta.getKind() == IResourceDelta.REMOVED || delta.getKind() == IResourceDelta.CHANGED &&
@@ -803,6 +814,7 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 
 				if(!visitor.getRemovedResources().isEmpty()) {
 					getSite().getShell().getDisplay().asyncExec(new Runnable() {
+						@Override
 						public void run() {
 							removedResources.addAll(visitor.getRemovedResources());
 							if(!isDirty()) {
@@ -814,6 +826,7 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 
 				if(!visitor.getChangedResources().isEmpty()) {
 					getSite().getShell().getDisplay().asyncExec(new Runnable() {
+						@Override
 						public void run() {
 							changedResources.addAll(visitor.getChangedResources());
 							if(getSite().getPage().getActiveEditor() == AggregatorEditor.this) {
@@ -832,7 +845,7 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 	/**
 	 * This creates a model editor.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public AggregatorEditor() {
@@ -843,9 +856,10 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 	/**
 	 * This implements {@link org.eclipse.jface.viewers.ISelectionProvider}. <!-- begin-user-doc --> <!-- end-user-doc
 	 * -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public void addSelectionChangedListener(ISelectionChangedListener listener) {
 		selectionChangedListeners.add(listener);
 	}
@@ -853,7 +867,7 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 	/**
 	 * Returns a diagnostic describing the errors and warnings listed in the resource and the specified exception (if
 	 * any). <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
 	public Diagnostic analyzeResourceProblems(Resource resource, Exception exception) {
@@ -985,7 +999,7 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 	/**
 	 * This creates a context menu for the viewer and adds a listener as well registering the menu for extension. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected void createContextMenuFor(StructuredViewer viewer) {
@@ -1084,7 +1098,7 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 	/**
 	 * This is the method used by the framework to install your own controls. <!-- begin-user-doc --> <!-- end-user-doc
 	 * -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
 	@Override
@@ -1093,6 +1107,7 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 
 		selectionViewer.addDoubleClickListener(new IDoubleClickListener() {
 
+			@Override
 			public void doubleClick(DoubleClickEvent event) {
 				TreePath path = ((TreeSelection) event.getSelection()).getPaths()[0];
 
@@ -1108,6 +1123,7 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 
 			private TreeItem lastTreeItem;
 
+			@Override
 			public void mouseMove(MouseEvent e) {
 				TreeItem item = selectionViewer.getTree().getItem(new Point(e.x, e.y));
 
@@ -1140,7 +1156,7 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 	/**
 	 * This is the method used by the framework to install your own controls. <!-- begin-user-doc --> <!-- end-user-doc
 	 * -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public void createPagesGen() {
@@ -1171,6 +1187,7 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 			setPageText(pageIndex, getString("_UI_SelectionPage_label"));
 
 			getSite().getShell().getDisplay().asyncExec(new Runnable() {
+				@Override
 				public void run() {
 					setActivePage(0);
 				}
@@ -1194,6 +1211,7 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 		});
 
 		getSite().getShell().getDisplay().asyncExec(new Runnable() {
+			@Override
 			public void run() {
 				updateProblemIndication();
 			}
@@ -1202,7 +1220,7 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -1234,7 +1252,7 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 	 * This is for implementing {@link IEditorPart} and simply saves the model file.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -1296,7 +1314,7 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 	/**
 	 * This also changes the editor's input.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -1314,7 +1332,7 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected void doSaveAs(URI uri, IEditorInput editorInput) {
@@ -1398,7 +1416,7 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 	/**
 	 * This is here for the listener to be able to call it.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -1408,7 +1426,7 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EditingDomainActionBarContributor getActionBarContributor() {
@@ -1417,7 +1435,7 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public IActionBars getActionBars() {
@@ -1427,7 +1445,7 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 	/**
 	 * This is how the framework determines which interfaces we implement.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@SuppressWarnings("rawtypes")
@@ -1451,7 +1469,7 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public AdapterFactory getAdapterFactory() {
@@ -1461,7 +1479,7 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 	/**
 	 * This accesses a cached version of the content outliner.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public IContentOutlinePage getContentOutlinePage() {
@@ -1515,6 +1533,7 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 			contentOutlinePage.addSelectionChangedListener(new ISelectionChangedListener() {
 				// This ensures that we handle selections correctly.
 				//
+				@Override
 				public void selectionChanged(SelectionChangedEvent event) {
 					handleContentOutlineSelection(event.getSelection());
 				}
@@ -1529,9 +1548,10 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 	 * This is important for implementing the static methods of {@link AdapterFactoryEditingDomain} and for supporting
 	 * {@link org.eclipse.emf.edit.ui.action.CommandAction}.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public EditingDomain getEditingDomain() {
 		return editingDomain;
 	}
@@ -1556,7 +1576,7 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 
 	/**
 	 * This accesses a cached version of the property sheet. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
 	public IPropertySheetPage getPropertySheetPage() {
@@ -1645,9 +1665,10 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 	/**
 	 * This implements {@link org.eclipse.jface.viewers.ISelectionProvider} to return this editor's overall selection.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public ISelection getSelection() {
 		return editorSelection;
 	}
@@ -1656,18 +1677,20 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 	 * This returns the viewer as required by the {@link IViewerProvider} interface.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public Viewer getViewer() {
 		return currentViewer;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
+	@Override
 	public void gotoMarker(IMarker marker) {
 		try {
 			if(marker.getType().equals(EValidator.MARKER) || marker.getType().startsWith(AGGREGATOR_PROBLEM_MARKER)) {
@@ -1694,7 +1717,7 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 
 	/**
 	 * Handles activation of the editor or it's associated views. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
 	protected void handleActivate() {
@@ -1733,7 +1756,7 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 	/**
 	 * Handles what to do with changed resources on activation.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected void handleChangedResources() {
@@ -1771,7 +1794,7 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 	 * This deals with how we want selection in the outliner to affect the other views.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public void handleContentOutlineSelection(ISelection selection) {
@@ -1805,7 +1828,7 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 	/**
 	 * Shows a dialog that asks if conflicting changes should be discarded. <!-- begin-user-doc --> <!-- end-user-doc
 	 * -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected boolean handleDirtyConflict() {
@@ -1816,7 +1839,7 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 	/**
 	 * If there is just one page in the multi-page editor part, this hides the single tab at the bottom. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected void hideTabs() {
@@ -1833,7 +1856,7 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 	/**
 	 * This is called during startup.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -1849,7 +1872,7 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 
 	/**
 	 * This sets up the editing domain for the model editor. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
 	protected void initializeEditingDomain() {
@@ -1945,9 +1968,11 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 		//
 		commandStack.addCommandStackListener(new CommandStackListener() {
 
+			@Override
 			public void commandStackChanged(final EventObject event) {
 				getContainer().getDisplay().asyncExec(new Runnable() {
 
+					@Override
 					public void run() {
 						firePropertyChange(IEditorPart.PROP_DIRTY);
 
@@ -2029,7 +2054,7 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 	 * This is for implementing {@link IEditorPart} and simply tests the command stack.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -2048,7 +2073,7 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 	 * The implementation uses the URI converter from the editor's resource set to try to open an input stream.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected boolean isPersistedGen(Resource resource) {
@@ -2069,7 +2094,7 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 	/**
 	 * This always returns true because it is not currently supported.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -2080,9 +2105,10 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 	/**
 	 * This implements {@link org.eclipse.jface.action.IMenuListener} to help fill the context menus with contributions from the Edit menu.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public void menuAboutToShow(IMenuManager menuManager) {
 		((IMenuListener) getEditorSite().getActionBarContributor()).menuAboutToShow(menuManager);
 	}
@@ -2090,7 +2116,7 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 	/**
 	 * This is used to track the active viewer.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -2110,9 +2136,10 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 	/**
 	 * This implements {@link org.eclipse.jface.viewers.ISelectionProvider}. <!-- begin-user-doc --> <!-- end-user-doc
 	 * -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public void removeSelectionChangedListener(ISelectionChangedListener listener) {
 		selectionChangedListeners.remove(listener);
 	}
@@ -2121,7 +2148,7 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 	 * This makes sure that one content viewer, either for the current page or the outline view, if it has focus,
 	 * is the current one.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public void setCurrentViewer(Viewer viewer) {
@@ -2134,6 +2161,7 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 				selectionChangedListener = new ISelectionChangedListener() {
 					// This just notifies those things that are affected by the section.
 					//
+					@Override
 					public void selectionChanged(SelectionChangedEvent selectionChangedEvent) {
 						setSelection(selectionChangedEvent.getSelection());
 					}
@@ -2166,7 +2194,7 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -2178,9 +2206,10 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 	 * This implements {@link org.eclipse.jface.viewers.ISelectionProvider} to set this editor's overall selection.
 	 * Calling this result will notify the listeners.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public void setSelection(ISelection selection) {
 		editorSelection = selection;
 
@@ -2193,7 +2222,7 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 	/**
 	 * This sets the selection into whichever viewer is active.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public void setSelectionToViewer(Collection<?> collection) {
@@ -2202,6 +2231,7 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 		//
 		if(theSelection != null && !theSelection.isEmpty()) {
 			Runnable runnable = new Runnable() {
+				@Override
 				public void run() {
 					// Try to select the items in the current content viewer of the editor.
 					//
@@ -2216,7 +2246,7 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public void setStatusLineManager(ISelection selection) {
@@ -2253,7 +2283,7 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 	/**
 	 * Returns whether the outline view should be presented to the user.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected boolean showOutlineView() {
@@ -2263,7 +2293,7 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 	/**
 	 * If there is more than one page in the multi-page editor part, this shows the tabs at the bottom. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected void showTabs() {
@@ -2281,7 +2311,7 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 	 * Updates the problems indication with the information described in the specified diagnostic.
 	 * <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected void updateProblemIndication() {

@@ -71,7 +71,7 @@ import org.eclipse.equinox.p2.repository.metadata.IMetadataRepository;
  * until a non-null result is returned,
  * which is the result of the switch.
  * <!-- end-user-doc -->
- * 
+ *
  * @see org.eclipse.b3.p2.P2Package
  * @generated
  */
@@ -80,7 +80,7 @@ public class P2Switch<T1> extends Switch<T1> {
 	 * The cached model package
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected static P2Package modelPackage;
@@ -89,7 +89,7 @@ public class P2Switch<T1> extends Switch<T1> {
 	 * Creates an instance of the switch.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public P2Switch() {
@@ -104,7 +104,7 @@ public class P2Switch<T1> extends Switch<T1> {
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param object
 	 *            the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Artifact Descriptor</em>'.
@@ -121,7 +121,7 @@ public class P2Switch<T1> extends Switch<T1> {
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param object
 	 *            the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Artifact Key</em>'.
@@ -138,7 +138,7 @@ public class P2Switch<T1> extends Switch<T1> {
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param object
 	 *            the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Artifact Repository</em>'.
@@ -155,7 +155,7 @@ public class P2Switch<T1> extends Switch<T1> {
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param object
 	 *            the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Artifacts By Key</em>'.
@@ -172,7 +172,7 @@ public class P2Switch<T1> extends Switch<T1> {
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param object
 	 *            the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Comparable</em>'.
@@ -189,7 +189,7 @@ public class P2Switch<T1> extends Switch<T1> {
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param object
 	 *            the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Copyright</em>'.
@@ -206,7 +206,7 @@ public class P2Switch<T1> extends Switch<T1> {
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param object
 	 *            the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>IAdaptable</em>'.
@@ -223,7 +223,7 @@ public class P2Switch<T1> extends Switch<T1> {
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param object
 	 *            the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>IArtifact Descriptor</em>'.
@@ -240,7 +240,7 @@ public class P2Switch<T1> extends Switch<T1> {
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param object
 	 *            the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>IArtifact Key</em>'.
@@ -257,7 +257,7 @@ public class P2Switch<T1> extends Switch<T1> {
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param object
 	 *            the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>IArtifact Repository</em>'.
@@ -274,7 +274,7 @@ public class P2Switch<T1> extends Switch<T1> {
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param object
 	 *            the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>ICopyright</em>'.
@@ -291,7 +291,7 @@ public class P2Switch<T1> extends Switch<T1> {
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param object
 	 *            the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>IFile Artifact Repository</em>'.
@@ -308,7 +308,7 @@ public class P2Switch<T1> extends Switch<T1> {
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param object
 	 *            the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>IInstallable Unit</em>'.
@@ -325,7 +325,7 @@ public class P2Switch<T1> extends Switch<T1> {
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param object
 	 *            the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>IInstallable Unit Fragment</em>'.
@@ -342,7 +342,7 @@ public class P2Switch<T1> extends Switch<T1> {
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param object
 	 *            the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>IInstallable Unit Patch</em>'.
@@ -359,7 +359,7 @@ public class P2Switch<T1> extends Switch<T1> {
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param object
 	 *            the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>ILicense</em>'.
@@ -376,7 +376,7 @@ public class P2Switch<T1> extends Switch<T1> {
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param object
 	 *            the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>IMetadata Repository</em>'.
@@ -393,7 +393,7 @@ public class P2Switch<T1> extends Switch<T1> {
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param object
 	 *            the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Installable Unit</em>'.
@@ -410,7 +410,7 @@ public class P2Switch<T1> extends Switch<T1> {
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param object
 	 *            the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Installable Unit Fragment</em>'.
@@ -427,7 +427,7 @@ public class P2Switch<T1> extends Switch<T1> {
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param object
 	 *            the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Installable Unit Patch</em>'.
@@ -444,7 +444,7 @@ public class P2Switch<T1> extends Switch<T1> {
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param object
 	 *            the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Instruction Map</em>'.
@@ -461,7 +461,7 @@ public class P2Switch<T1> extends Switch<T1> {
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param object
 	 *            the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>IProcessing Step Descriptor</em>'.
@@ -478,7 +478,7 @@ public class P2Switch<T1> extends Switch<T1> {
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param object
 	 *            the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>IProvided Capability</em>'.
@@ -495,7 +495,7 @@ public class P2Switch<T1> extends Switch<T1> {
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param object
 	 *            the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>IQueryable</em>'.
@@ -512,7 +512,7 @@ public class P2Switch<T1> extends Switch<T1> {
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param object
 	 *            the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>IRepository</em>'.
@@ -529,7 +529,7 @@ public class P2Switch<T1> extends Switch<T1> {
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param object
 	 *            the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>IRepository Reference</em>'.
@@ -546,7 +546,7 @@ public class P2Switch<T1> extends Switch<T1> {
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param object
 	 *            the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>IRequired Capability</em>'.
@@ -563,7 +563,7 @@ public class P2Switch<T1> extends Switch<T1> {
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param object
 	 *            the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>IRequirement</em>'.
@@ -580,7 +580,7 @@ public class P2Switch<T1> extends Switch<T1> {
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param object
 	 *            the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>IRequirement Change</em>'.
@@ -597,7 +597,7 @@ public class P2Switch<T1> extends Switch<T1> {
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param object
 	 *            the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>ITouchpoint Data</em>'.
@@ -614,7 +614,7 @@ public class P2Switch<T1> extends Switch<T1> {
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param object
 	 *            the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>ITouchpoint Instruction</em>'.
@@ -631,7 +631,7 @@ public class P2Switch<T1> extends Switch<T1> {
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param object
 	 *            the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>ITouchpoint Type</em>'.
@@ -648,7 +648,7 @@ public class P2Switch<T1> extends Switch<T1> {
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param object
 	 *            the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>IUpdate Descriptor</em>'.
@@ -665,7 +665,7 @@ public class P2Switch<T1> extends Switch<T1> {
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param object
 	 *            the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>IVersioned Id</em>'.
@@ -682,7 +682,7 @@ public class P2Switch<T1> extends Switch<T1> {
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param object
 	 *            the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>License</em>'.
@@ -699,7 +699,7 @@ public class P2Switch<T1> extends Switch<T1> {
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param object
 	 *            the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Mapping Rule</em>'.
@@ -716,7 +716,7 @@ public class P2Switch<T1> extends Switch<T1> {
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param object
 	 *            the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Metadata Repository</em>'.
@@ -733,7 +733,7 @@ public class P2Switch<T1> extends Switch<T1> {
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param object
 	 *            the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Processing Step Descriptor</em>'.
@@ -750,7 +750,7 @@ public class P2Switch<T1> extends Switch<T1> {
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param object
 	 *            the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Property</em>'.
@@ -767,7 +767,7 @@ public class P2Switch<T1> extends Switch<T1> {
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param object
 	 *            the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Provided Capability</em>'.
@@ -784,7 +784,7 @@ public class P2Switch<T1> extends Switch<T1> {
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param object
 	 *            the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Repository</em>'.
@@ -801,7 +801,7 @@ public class P2Switch<T1> extends Switch<T1> {
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param object
 	 *            the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Repository Reference</em>'.
@@ -818,7 +818,7 @@ public class P2Switch<T1> extends Switch<T1> {
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param object
 	 *            the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Required Capability</em>'.
@@ -835,7 +835,7 @@ public class P2Switch<T1> extends Switch<T1> {
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param object
 	 *            the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Requirement</em>'.
@@ -852,7 +852,7 @@ public class P2Switch<T1> extends Switch<T1> {
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param object
 	 *            the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Requirement Change</em>'.
@@ -869,7 +869,7 @@ public class P2Switch<T1> extends Switch<T1> {
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param object
 	 *            the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Simple Artifact Descriptor</em>'.
@@ -886,7 +886,7 @@ public class P2Switch<T1> extends Switch<T1> {
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param object
 	 *            the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Simple Artifact Repository</em>'.
@@ -903,7 +903,7 @@ public class P2Switch<T1> extends Switch<T1> {
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param object
 	 *            the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Touchpoint Data</em>'.
@@ -920,7 +920,7 @@ public class P2Switch<T1> extends Switch<T1> {
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param object
 	 *            the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Touchpoint Instruction</em>'.
@@ -937,7 +937,7 @@ public class P2Switch<T1> extends Switch<T1> {
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param object
 	 *            the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Touchpoint Type</em>'.
@@ -954,7 +954,7 @@ public class P2Switch<T1> extends Switch<T1> {
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param object
 	 *            the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Update Descriptor</em>'.
@@ -971,7 +971,7 @@ public class P2Switch<T1> extends Switch<T1> {
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch, but this is the last case anyway.
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param object
 	 *            the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>EObject</em>'.
@@ -987,7 +987,7 @@ public class P2Switch<T1> extends Switch<T1> {
 	 * Calls <code>caseXXX</code> for each class of the model until one returns a non null result; it yields that result.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @return the first non-null result returned by a <code>caseXXX</code> call.
 	 * @generated
 	 */
@@ -1290,7 +1290,7 @@ public class P2Switch<T1> extends Switch<T1> {
 	 * Checks whether this is a switch for the given package.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @parameter ePackage the package in question.
 	 * @return whether this is a switch for the given package.
 	 * @generated

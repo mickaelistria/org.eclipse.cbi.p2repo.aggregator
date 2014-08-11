@@ -28,7 +28,7 @@ import org.eclipse.equinox.p2.repository.IRepositoryReference;
  * <li>{@link org.eclipse.b3.aggregator.p2view.impl.RepositoryReferencesImpl#getRepositoryReferences <em>Repository References</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public class RepositoryReferencesImpl extends MinimalEObjectImpl.Container implements RepositoryReferences {
@@ -36,7 +36,7 @@ public class RepositoryReferencesImpl extends MinimalEObjectImpl.Container imple
 	 * A set of bit flags representing the values of boolean attributes and whether unsettable features have been set.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 * @ordered
 	 */
@@ -46,7 +46,7 @@ public class RepositoryReferencesImpl extends MinimalEObjectImpl.Container imple
 	 * The cached value of the '{@link #getRepositoryReferences() <em>Repository References</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getRepositoryReferences()
 	 * @generated
 	 * @ordered
@@ -56,7 +56,7 @@ public class RepositoryReferencesImpl extends MinimalEObjectImpl.Container imple
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected RepositoryReferencesImpl() {
@@ -66,7 +66,7 @@ public class RepositoryReferencesImpl extends MinimalEObjectImpl.Container imple
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -83,7 +83,7 @@ public class RepositoryReferencesImpl extends MinimalEObjectImpl.Container imple
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -100,7 +100,7 @@ public class RepositoryReferencesImpl extends MinimalEObjectImpl.Container imple
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
@@ -118,7 +118,7 @@ public class RepositoryReferencesImpl extends MinimalEObjectImpl.Container imple
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -129,7 +129,7 @@ public class RepositoryReferencesImpl extends MinimalEObjectImpl.Container imple
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -145,7 +145,7 @@ public class RepositoryReferencesImpl extends MinimalEObjectImpl.Container imple
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
 	public EList<IRepositoryReference> getChildren() {
@@ -155,7 +155,7 @@ public class RepositoryReferencesImpl extends MinimalEObjectImpl.Container imple
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EList<IRepositoryReference> getRepositoryReferences() {

@@ -16,7 +16,7 @@ import org.eclipse.core.runtime.Platform;
 
 /**
  * @author Filip Hrbek
- * 
+ *
  */
 public class RepositoryLoaderUtils {
 	public static IConfigurationElement getLoaderFor(String nature) throws CoreException {

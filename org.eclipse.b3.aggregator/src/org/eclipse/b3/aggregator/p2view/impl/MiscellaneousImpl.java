@@ -14,7 +14,6 @@ import java.util.Collection;
 import org.eclipse.b3.aggregator.p2view.Miscellaneous;
 import org.eclipse.b3.aggregator.p2view.OtherIU;
 import org.eclipse.b3.aggregator.p2view.P2viewPackage;
-
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
@@ -29,14 +28,14 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  * <li>{@link org.eclipse.b3.aggregator.p2view.impl.MiscellaneousImpl#getOthers <em>Others</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public class MiscellaneousImpl extends MinimalEObjectImpl.Container implements Miscellaneous {
 	/**
 	 * A set of bit flags representing the values of boolean attributes and whether unsettable features have been set.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 * @ordered
 	 */
@@ -46,7 +45,7 @@ public class MiscellaneousImpl extends MinimalEObjectImpl.Container implements M
 	 * The cached value of the '{@link #getOthers() <em>Others</em>}' reference list.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @see #getOthers()
 	 * @generated
 	 * @ordered
@@ -55,7 +54,7 @@ public class MiscellaneousImpl extends MinimalEObjectImpl.Container implements M
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected MiscellaneousImpl() {
@@ -64,7 +63,7 @@ public class MiscellaneousImpl extends MinimalEObjectImpl.Container implements M
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -80,7 +79,7 @@ public class MiscellaneousImpl extends MinimalEObjectImpl.Container implements M
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -96,7 +95,7 @@ public class MiscellaneousImpl extends MinimalEObjectImpl.Container implements M
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
@@ -113,7 +112,7 @@ public class MiscellaneousImpl extends MinimalEObjectImpl.Container implements M
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -123,7 +122,7 @@ public class MiscellaneousImpl extends MinimalEObjectImpl.Container implements M
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -138,7 +137,7 @@ public class MiscellaneousImpl extends MinimalEObjectImpl.Container implements M
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
 	public EList<OtherIU> getChildren() {
@@ -147,7 +146,7 @@ public class MiscellaneousImpl extends MinimalEObjectImpl.Container implements M
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EList<OtherIU> getOthers() {

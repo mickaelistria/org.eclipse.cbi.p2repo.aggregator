@@ -10,15 +10,15 @@ import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc --> A representation of the model object '<em><b>Mailing List</b></em>'. <!-- end-user-doc -->
- * 
+ *
  * <!-- begin-model-doc -->
  * 3.0.0+
- * 
+ *
  * This element describes all of the mailing lists associated with
  * a project. The auto-generated site references this information.
- * 
+ *
  * <!-- end-model-doc -->
- * 
+ *
  * <p>
  * The following features are supported:
  * <ul>
@@ -30,7 +30,7 @@ import org.eclipse.emf.ecore.EObject;
  * <li>{@link org.eclipse.b3.p2.maven.pom.MailingList#getOtherArchives <em>Other Archives</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @see org.eclipse.b3.p2.maven.pom.PomPackage#getMailingList()
  * @model extendedMetaData="name='MailingList' kind='elementOnly'"
  * @generated
@@ -39,11 +39,11 @@ public interface MailingList extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Archive</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc --> <!--
 	 * begin-model-doc --> 3.0.0+
-	 * 
+	 *
 	 * The link to a URL where you can browse the mailing list archive.
-	 * 
+	 *
 	 * <!-- end-model-doc -->
-	 * 
+	 *
 	 * @return the value of the '<em>Archive</em>' attribute.
 	 * @see #setArchive(String)
 	 * @see org.eclipse.b3.p2.maven.pom.PomPackage#getMailingList_Archive()
@@ -56,7 +56,7 @@ public interface MailingList extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Name</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc --> <!--
 	 * begin-model-doc --> 3.0.0+ The name of the mailing list. <!-- end-model-doc -->
-	 * 
+	 *
 	 * @return the value of the '<em>Name</em>' attribute.
 	 * @see #setName(String)
 	 * @see org.eclipse.b3.p2.maven.pom.PomPackage#getMailingList_Name()
@@ -69,11 +69,11 @@ public interface MailingList extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Other Archives</b></em>' containment reference. <!-- begin-user-doc --> <!--
 	 * end-user-doc --> <!-- begin-model-doc --> 3.0.0+
-	 * 
+	 *
 	 * The link to alternate URLs where you can browse the list archive.
-	 * 
+	 *
 	 * <!-- end-model-doc -->
-	 * 
+	 *
 	 * @return the value of the '<em>Other Archives</em>' containment reference.
 	 * @see #setOtherArchives(OtherArchivesType)
 	 * @see org.eclipse.b3.p2.maven.pom.PomPackage#getMailingList_OtherArchives()
@@ -85,12 +85,12 @@ public interface MailingList extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Post</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc --> <!--
 	 * begin-model-doc --> 3.0.0+
-	 * 
+	 *
 	 * The email address or link that can be used to post to the mailing list. If this is an email address, a
 	 * &lt;code&gt;mailto:&lt;/code&gt; link will automatically be created when the documentation is created.
-	 * 
+	 *
 	 * <!-- end-model-doc -->
-	 * 
+	 *
 	 * @return the value of the '<em>Post</em>' attribute.
 	 * @see #setPost(String)
 	 * @see org.eclipse.b3.p2.maven.pom.PomPackage#getMailingList_Post()
@@ -105,14 +105,14 @@ public interface MailingList extends EObject {
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * 3.0.0+
-	 * 
+	 *
 	 * The email address or link that can be used to subscribe to the mailing list.
 	 * If this is an email address, a
 	 * &lt;code&gt;mailto:&lt;/code&gt; link will automatically be created when
 	 * the documentation is created.
-	 * 
+	 *
 	 * <!-- end-model-doc -->
-	 * 
+	 *
 	 * @return the value of the '<em>Subscribe</em>' attribute.
 	 * @see #setSubscribe(String)
 	 * @see org.eclipse.b3.p2.maven.pom.PomPackage#getMailingList_Subscribe()
@@ -127,14 +127,14 @@ public interface MailingList extends EObject {
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * 3.0.0+
-	 * 
+	 *
 	 * The email address or link that can be used to unsubscribe to
 	 * the mailing list. If this is an email address, a
 	 * &lt;code&gt;mailto:&lt;/code&gt; link will automatically be created
 	 * when the documentation is created.
-	 * 
+	 *
 	 * <!-- end-model-doc -->
-	 * 
+	 *
 	 * @return the value of the '<em>Unsubscribe</em>' attribute.
 	 * @see #setUnsubscribe(String)
 	 * @see org.eclipse.b3.p2.maven.pom.PomPackage#getMailingList_Unsubscribe()
@@ -147,7 +147,7 @@ public interface MailingList extends EObject {
 	/**
 	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.MailingList#getArchive <em>Archive</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param value
 	 *            the new value of the '<em>Archive</em>' attribute.
 	 * @see #getArchive()
@@ -158,7 +158,7 @@ public interface MailingList extends EObject {
 	/**
 	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.MailingList#getName <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param value
 	 *            the new value of the '<em>Name</em>' attribute.
 	 * @see #getName()
@@ -169,7 +169,7 @@ public interface MailingList extends EObject {
 	/**
 	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.MailingList#getOtherArchives <em>Other Archives</em>}' containment reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param value
 	 *            the new value of the '<em>Other Archives</em>' containment reference.
 	 * @see #getOtherArchives()
@@ -180,7 +180,7 @@ public interface MailingList extends EObject {
 	/**
 	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.MailingList#getPost <em>Post</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param value
 	 *            the new value of the '<em>Post</em>' attribute.
 	 * @see #getPost()
@@ -191,7 +191,7 @@ public interface MailingList extends EObject {
 	/**
 	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.MailingList#getSubscribe <em>Subscribe</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param value
 	 *            the new value of the '<em>Subscribe</em>' attribute.
 	 * @see #getSubscribe()
@@ -202,7 +202,7 @@ public interface MailingList extends EObject {
 	/**
 	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.MailingList#getUnsubscribe <em>Unsubscribe</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param value
 	 *            the new value of the '<em>Unsubscribe</em>' attribute.
 	 * @see #getUnsubscribe()

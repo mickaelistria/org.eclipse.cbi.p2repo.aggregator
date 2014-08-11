@@ -273,7 +273,7 @@ public class Builder extends ModelAbstractCommand {
 
 	/**
 	 * Creates a repository location without the trailing slash that will be added if the standard {@link java.io.File#toURI()} is used.
-	 * 
+	 *
 	 * @param repoLocation
 	 *            The location. Must be an absolute path.
 	 * @return The created URI.
@@ -491,7 +491,7 @@ public class Builder extends ModelAbstractCommand {
 
 	/**
 	 * Mark the specified repository as not eligible for verbatim mapping.
-	 * 
+	 *
 	 * @param repository
 	 *            The repository for which to exclude a mapping
 	 * @param rc
@@ -700,7 +700,7 @@ public class Builder extends ModelAbstractCommand {
 		properties.put(IRepository.PROP_COMPRESSED, Boolean.toString(true));
 		properties.put(Publisher.PUBLISH_PACK_FILES_AS_SIBLINGS, Boolean.toString(true));
 		try {
-			aggregationAr = (IFileArtifactRepository) arMgr.loadRepository(aggregateURI, monitor); //$NON-NLS-1$
+			aggregationAr = (IFileArtifactRepository) arMgr.loadRepository(aggregateURI, monitor);
 		}
 		catch(ProvisionException e) {
 			aggregationAr = (IFileArtifactRepository) arMgr.createRepository(aggregateURI, getAggregation().getLabel() +
@@ -734,7 +734,7 @@ public class Builder extends ModelAbstractCommand {
 	/**
 	 * Returns a set of IArtifactKey instances that are found in repositories that will
 	 * be referenced rather than mirrored.
-	 * 
+	 *
 	 * @return All IArtifactKeys that should not be mirrored.
 	 * @throws CoreException
 	 */
@@ -916,7 +916,7 @@ public class Builder extends ModelAbstractCommand {
 	/**
 	 * Return the temporary artifact repository used when resolving legacy sites or <code>null</code> if that
 	 * hasn't been necessary.
-	 * 
+	 *
 	 * @param monitor
 	 * @return
 	 * @throws CoreException
@@ -1054,7 +1054,7 @@ public class Builder extends ModelAbstractCommand {
 	/**
 	 * Checks if the repository can be included verbatim. If it can, the builder will include a reference to it in a
 	 * composite repository instead of copying everything into the aggregate.
-	 * 
+	 *
 	 * @param repo
 	 *            The repository to check
 	 * @return true if the repository is mapped verbatim.
@@ -1157,7 +1157,7 @@ public class Builder extends ModelAbstractCommand {
 
 	/**
 	 * Loads the model into memory
-	 * 
+	 *
 	 * @throws CoreException
 	 *             If something goes wrong with during the process
 	 */
@@ -1530,7 +1530,7 @@ public class Builder extends ModelAbstractCommand {
 
 	/**
 	 * Run the build
-	 * 
+	 *
 	 * @param fromIDE
 	 *            set to <code>true</code> if the IDE workspace needs a refresh once the aggregation is completed
 	 * @param monitor

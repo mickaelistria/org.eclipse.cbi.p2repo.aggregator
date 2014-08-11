@@ -13,11 +13,9 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 import org.eclipse.b3.aggregator.p2view.util.P2viewAdapterFactory;
-
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.Notifier;
-
 import org.eclipse.emf.edit.provider.ChangeNotifier;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
@@ -37,7 +35,7 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
  * factory convert EMF adapter notifications into calls to {@link #fireNotifyChanged fireNotifyChanged}. The adapters
  * also support Eclipse property sheets. Note that most of the adapters are shared among multiple instances. <!--
  * begin-user-doc --> <!-- end-user-doc -->
- * 
+ *
  * @generated
  */
 public class P2viewItemProviderAdapterFactory extends P2viewAdapterFactory implements ComposeableAdapterFactory,
@@ -46,7 +44,7 @@ public class P2viewItemProviderAdapterFactory extends P2viewAdapterFactory imple
 	 * This keeps track of the root adapter factory that delegates to this adapter factory.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected ComposedAdapterFactory parentAdapterFactory;
@@ -55,7 +53,7 @@ public class P2viewItemProviderAdapterFactory extends P2viewAdapterFactory imple
 	 * This is used to implement {@link org.eclipse.emf.edit.provider.IChangeNotifier}.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected IChangeNotifier changeNotifier = new ChangeNotifier();
@@ -63,7 +61,7 @@ public class P2viewItemProviderAdapterFactory extends P2viewAdapterFactory imple
 	/**
 	 * This keeps track of all the supported types checked by {@link #isFactoryForType isFactoryForType}. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected Collection<Object> supportedTypes = new ArrayList<Object>();
@@ -72,7 +70,7 @@ public class P2viewItemProviderAdapterFactory extends P2viewAdapterFactory imple
 	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.aggregator.p2view.MetadataRepositoryStructuredView} instances.
 	 * <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected MetadataRepositoryStructuredViewItemProvider metadataRepositoryStructuredViewItemProvider;
@@ -81,7 +79,7 @@ public class P2viewItemProviderAdapterFactory extends P2viewAdapterFactory imple
 	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.aggregator.p2view.InstallableUnits} instances.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected InstallableUnitsItemProvider installableUnitsItemProvider;
@@ -89,7 +87,7 @@ public class P2viewItemProviderAdapterFactory extends P2viewAdapterFactory imple
 	/**
 	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.aggregator.p2view.Categories} instances.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected CategoriesItemProvider categoriesItemProvider;
@@ -97,7 +95,7 @@ public class P2viewItemProviderAdapterFactory extends P2viewAdapterFactory imple
 	/**
 	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.aggregator.p2view.Features} instances.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected FeaturesItemProvider featuresItemProvider;
@@ -105,7 +103,7 @@ public class P2viewItemProviderAdapterFactory extends P2viewAdapterFactory imple
 	/**
 	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.aggregator.p2view.Products} instances.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected ProductsItemProvider productsItemProvider;
@@ -113,7 +111,7 @@ public class P2viewItemProviderAdapterFactory extends P2viewAdapterFactory imple
 	/**
 	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.aggregator.p2view.Bundles} instances.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected BundlesItemProvider bundlesItemProvider;
@@ -121,7 +119,7 @@ public class P2viewItemProviderAdapterFactory extends P2viewAdapterFactory imple
 	/**
 	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.aggregator.p2view.Miscellaneous} instances.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected MiscellaneousItemProvider miscellaneousItemProvider;
@@ -129,7 +127,7 @@ public class P2viewItemProviderAdapterFactory extends P2viewAdapterFactory imple
 	/**
 	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.aggregator.p2view.Category} instances.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected CategoryItemProvider categoryItemProvider;
@@ -137,7 +135,7 @@ public class P2viewItemProviderAdapterFactory extends P2viewAdapterFactory imple
 	/**
 	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.aggregator.p2view.Feature} instances.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected FeatureItemProvider featureItemProvider;
@@ -145,7 +143,7 @@ public class P2viewItemProviderAdapterFactory extends P2viewAdapterFactory imple
 	/**
 	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.aggregator.p2view.Product} instances.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected ProductItemProvider productItemProvider;
@@ -153,7 +151,7 @@ public class P2viewItemProviderAdapterFactory extends P2viewAdapterFactory imple
 	/**
 	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.aggregator.p2view.Bundle} instances.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected BundleItemProvider bundleItemProvider;
@@ -161,7 +159,7 @@ public class P2viewItemProviderAdapterFactory extends P2viewAdapterFactory imple
 	/**
 	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.aggregator.p2view.OtherIU} instances.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected OtherIUItemProvider otherIUItemProvider;
@@ -169,7 +167,7 @@ public class P2viewItemProviderAdapterFactory extends P2viewAdapterFactory imple
 	/**
 	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.aggregator.p2view.Properties} instances.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected PropertiesItemProvider propertiesItemProvider;
@@ -177,7 +175,7 @@ public class P2viewItemProviderAdapterFactory extends P2viewAdapterFactory imple
 	/**
 	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.aggregator.p2view.Fragment} instances.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected FragmentItemProvider fragmentItemProvider;
@@ -185,7 +183,7 @@ public class P2viewItemProviderAdapterFactory extends P2viewAdapterFactory imple
 	/**
 	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.aggregator.p2view.Fragments} instances.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected FragmentsItemProvider fragmentsItemProvider;
@@ -194,7 +192,7 @@ public class P2viewItemProviderAdapterFactory extends P2viewAdapterFactory imple
 	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.aggregator.p2view.ProvidedCapabilities} instances.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected ProvidedCapabilitiesItemProvider providedCapabilitiesItemProvider;
@@ -202,7 +200,7 @@ public class P2viewItemProviderAdapterFactory extends P2viewAdapterFactory imple
 	/**
 	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.aggregator.p2view.Touchpoints} instances.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected TouchpointsItemProvider touchpointsItemProvider;
@@ -210,7 +208,7 @@ public class P2viewItemProviderAdapterFactory extends P2viewAdapterFactory imple
 	/**
 	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.aggregator.p2view.IUDetails} instances.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected IUDetailsItemProvider iuDetailsItemProvider;
@@ -219,7 +217,7 @@ public class P2viewItemProviderAdapterFactory extends P2viewAdapterFactory imple
 	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.aggregator.p2view.ProvidedCapabilityWrapper} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected ProvidedCapabilityWrapperItemProvider providedCapabilityWrapperItemProvider;
@@ -228,7 +226,7 @@ public class P2viewItemProviderAdapterFactory extends P2viewAdapterFactory imple
 	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.aggregator.p2view.RequirementWrapper} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected RequirementWrapperItemProvider requirementWrapperItemProvider;
@@ -237,7 +235,7 @@ public class P2viewItemProviderAdapterFactory extends P2viewAdapterFactory imple
 	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.aggregator.p2view.Requirements} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected RequirementsItemProvider requirementsItemProvider;
@@ -246,7 +244,7 @@ public class P2viewItemProviderAdapterFactory extends P2viewAdapterFactory imple
 	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.aggregator.p2view.Licenses} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected LicensesItemProvider licensesItemProvider;
@@ -255,7 +253,7 @@ public class P2viewItemProviderAdapterFactory extends P2viewAdapterFactory imple
 	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.aggregator.p2view.RepositoryReferences} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected RepositoryReferencesItemProvider repositoryReferencesItemProvider;
@@ -264,7 +262,7 @@ public class P2viewItemProviderAdapterFactory extends P2viewAdapterFactory imple
 	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.aggregator.p2view.RepositoryBrowser} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected RepositoryBrowserItemProvider repositoryBrowserItemProvider;
@@ -272,7 +270,7 @@ public class P2viewItemProviderAdapterFactory extends P2viewAdapterFactory imple
 	/**
 	 * This constructs an instance.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public P2viewItemProviderAdapterFactory() {
@@ -289,7 +287,7 @@ public class P2viewItemProviderAdapterFactory extends P2viewAdapterFactory imple
 	 * This implementation substitutes the factory itself as the key for the adapter.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -299,7 +297,7 @@ public class P2viewItemProviderAdapterFactory extends P2viewAdapterFactory imple
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -317,9 +315,10 @@ public class P2viewItemProviderAdapterFactory extends P2viewAdapterFactory imple
 	/**
 	 * This adds a listener.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public void addListener(INotifyChangedListener notifyChangedListener) {
 		changeNotifier.addListener(notifyChangedListener);
 	}
@@ -328,7 +327,7 @@ public class P2viewItemProviderAdapterFactory extends P2viewAdapterFactory imple
 	 * This creates an adapter for a {@link org.eclipse.b3.aggregator.p2view.Bundle}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -344,7 +343,7 @@ public class P2viewItemProviderAdapterFactory extends P2viewAdapterFactory imple
 	 * This creates an adapter for a {@link org.eclipse.b3.aggregator.p2view.Bundles}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -360,7 +359,7 @@ public class P2viewItemProviderAdapterFactory extends P2viewAdapterFactory imple
 	 * This creates an adapter for a {@link org.eclipse.b3.aggregator.p2view.Categories}.
 	 * <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -376,7 +375,7 @@ public class P2viewItemProviderAdapterFactory extends P2viewAdapterFactory imple
 	 * This creates an adapter for a {@link org.eclipse.b3.aggregator.p2view.Category}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -392,7 +391,7 @@ public class P2viewItemProviderAdapterFactory extends P2viewAdapterFactory imple
 	 * This creates an adapter for a {@link org.eclipse.b3.aggregator.p2view.Feature}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -408,7 +407,7 @@ public class P2viewItemProviderAdapterFactory extends P2viewAdapterFactory imple
 	 * This creates an adapter for a {@link org.eclipse.b3.aggregator.p2view.Features}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -424,7 +423,7 @@ public class P2viewItemProviderAdapterFactory extends P2viewAdapterFactory imple
 	 * This creates an adapter for a {@link org.eclipse.b3.aggregator.p2view.Fragment}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -440,7 +439,7 @@ public class P2viewItemProviderAdapterFactory extends P2viewAdapterFactory imple
 	 * This creates an adapter for a {@link org.eclipse.b3.aggregator.p2view.Fragments}.
 	 * <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -455,7 +454,7 @@ public class P2viewItemProviderAdapterFactory extends P2viewAdapterFactory imple
 	/**
 	 * This creates an adapter for a {@link org.eclipse.b3.aggregator.p2view.InstallableUnits}. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -471,7 +470,7 @@ public class P2viewItemProviderAdapterFactory extends P2viewAdapterFactory imple
 	 * This creates an adapter for a {@link org.eclipse.b3.aggregator.p2view.IUDetails}.
 	 * <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -487,7 +486,7 @@ public class P2viewItemProviderAdapterFactory extends P2viewAdapterFactory imple
 	 * This creates an adapter for a {@link org.eclipse.b3.aggregator.p2view.Licenses}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -502,7 +501,7 @@ public class P2viewItemProviderAdapterFactory extends P2viewAdapterFactory imple
 	/**
 	 * This creates an adapter for a {@link org.eclipse.b3.aggregator.p2view.MetadataRepositoryStructuredView}.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -517,7 +516,7 @@ public class P2viewItemProviderAdapterFactory extends P2viewAdapterFactory imple
 	/**
 	 * This creates an adapter for a {@link org.eclipse.b3.aggregator.p2view.Miscellaneous}. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -533,7 +532,7 @@ public class P2viewItemProviderAdapterFactory extends P2viewAdapterFactory imple
 	 * This creates an adapter for a {@link org.eclipse.b3.aggregator.p2view.OtherIU}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -549,7 +548,7 @@ public class P2viewItemProviderAdapterFactory extends P2viewAdapterFactory imple
 	 * This creates an adapter for a {@link org.eclipse.b3.aggregator.p2view.Product}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -565,7 +564,7 @@ public class P2viewItemProviderAdapterFactory extends P2viewAdapterFactory imple
 	 * This creates an adapter for a {@link org.eclipse.b3.aggregator.p2view.Products}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -581,7 +580,7 @@ public class P2viewItemProviderAdapterFactory extends P2viewAdapterFactory imple
 	 * This creates an adapter for a {@link org.eclipse.b3.aggregator.p2view.Properties}.
 	 * <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -596,7 +595,7 @@ public class P2viewItemProviderAdapterFactory extends P2viewAdapterFactory imple
 	/**
 	 * This creates an adapter for a {@link org.eclipse.b3.aggregator.p2view.ProvidedCapabilities}. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -611,7 +610,7 @@ public class P2viewItemProviderAdapterFactory extends P2viewAdapterFactory imple
 	/**
 	 * This creates an adapter for a {@link org.eclipse.b3.aggregator.p2view.ProvidedCapabilityWrapper}. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -627,7 +626,7 @@ public class P2viewItemProviderAdapterFactory extends P2viewAdapterFactory imple
 	 * This creates an adapter for a {@link org.eclipse.b3.aggregator.p2view.RepositoryBrowser}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -643,7 +642,7 @@ public class P2viewItemProviderAdapterFactory extends P2viewAdapterFactory imple
 	 * This creates an adapter for a {@link org.eclipse.b3.aggregator.p2view.RepositoryReferences}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -659,7 +658,7 @@ public class P2viewItemProviderAdapterFactory extends P2viewAdapterFactory imple
 	 * This creates an adapter for a {@link org.eclipse.b3.aggregator.p2view.Requirements}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -675,7 +674,7 @@ public class P2viewItemProviderAdapterFactory extends P2viewAdapterFactory imple
 	 * This creates an adapter for a {@link org.eclipse.b3.aggregator.p2view.RequirementWrapper}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -691,7 +690,7 @@ public class P2viewItemProviderAdapterFactory extends P2viewAdapterFactory imple
 	 * This creates an adapter for a {@link org.eclipse.b3.aggregator.p2view.Touchpoints}.
 	 * <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -706,9 +705,10 @@ public class P2viewItemProviderAdapterFactory extends P2viewAdapterFactory imple
 	/**
 	 * This disposes all of the item providers created by this factory.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public void dispose() {
 		if(bundleItemProvider != null)
 			bundleItemProvider.dispose();
@@ -764,9 +764,10 @@ public class P2viewItemProviderAdapterFactory extends P2viewAdapterFactory imple
 	 * This delegates to {@link #changeNotifier} and to {@link #parentAdapterFactory}.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public void fireNotifyChanged(Notification notification) {
 		changeNotifier.fireNotifyChanged(notification);
 
@@ -778,9 +779,10 @@ public class P2viewItemProviderAdapterFactory extends P2viewAdapterFactory imple
 	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public ComposeableAdapterFactory getRootAdapterFactory() {
 		return parentAdapterFactory == null
 				? this
@@ -789,7 +791,7 @@ public class P2viewItemProviderAdapterFactory extends P2viewAdapterFactory imple
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -800,9 +802,10 @@ public class P2viewItemProviderAdapterFactory extends P2viewAdapterFactory imple
 	/**
 	 * This removes a listener.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public void removeListener(INotifyChangedListener notifyChangedListener) {
 		changeNotifier.removeListener(notifyChangedListener);
 	}
@@ -810,9 +813,10 @@ public class P2viewItemProviderAdapterFactory extends P2viewAdapterFactory imple
 	/**
 	 * This sets the composed adapter factory that contains this factory.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public void setParentAdapterFactory(ComposedAdapterFactory parentAdapterFactory) {
 		this.parentAdapterFactory = parentAdapterFactory;
 	}

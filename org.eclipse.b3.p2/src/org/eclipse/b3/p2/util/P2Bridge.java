@@ -93,7 +93,7 @@ import org.eclipse.equinox.p2.repository.metadata.IMetadataRepositoryManager;
 
 /**
  * @author filip.hrbek@cloudsmith.com
- * 
+ *
  */
 public class P2Bridge {
 
@@ -138,6 +138,7 @@ public class P2Bridge {
 			if(sortArtifacts)
 				Collections.sort(artifacts, new Comparator<IArtifactKey>() {
 
+					@Override
 					public int compare(IArtifactKey a1, IArtifactKey a2) {
 						int result = a1.getId().compareTo(a2.getId());
 						if(result == 0)

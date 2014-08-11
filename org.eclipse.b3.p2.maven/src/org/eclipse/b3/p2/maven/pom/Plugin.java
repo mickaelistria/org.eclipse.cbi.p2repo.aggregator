@@ -10,11 +10,11 @@ import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc --> A representation of the model object '<em><b>Plugin</b></em>'. <!-- end-user-doc -->
- * 
+ *
  * <!-- begin-model-doc -->
  * 4.0.0
  * <!-- end-model-doc -->
- * 
+ *
  * <p>
  * The following features are supported:
  * <ul>
@@ -29,7 +29,7 @@ import org.eclipse.emf.ecore.EObject;
  * <li>{@link org.eclipse.b3.p2.maven.pom.Plugin#getConfiguration <em>Configuration</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @see org.eclipse.b3.p2.maven.pom.PomPackage#getPlugin()
  * @model extendedMetaData="name='Plugin' kind='elementOnly'"
  * @generated
@@ -42,7 +42,7 @@ public interface Plugin extends EObject {
 	 * 4.0.0
 	 * The artifact ID of the plugin in the repository.
 	 * <!-- end-model-doc -->
-	 * 
+	 *
 	 * @return the value of the '<em>Artifact Id</em>' attribute.
 	 * @see #setArtifactId(String)
 	 * @see org.eclipse.b3.p2.maven.pom.PomPackage#getPlugin_ArtifactId()
@@ -55,7 +55,7 @@ public interface Plugin extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Configuration</b></em>' containment reference. <!-- begin-user-doc --> <!--
 	 * end-user-doc --> <!-- begin-model-doc --> 0.0.0+ <!-- end-model-doc -->
-	 * 
+	 *
 	 * @return the value of the '<em>Configuration</em>' containment reference.
 	 * @see #setConfiguration(ConfigurationType)
 	 * @see org.eclipse.b3.p2.maven.pom.PomPackage#getPlugin_Configuration()
@@ -68,7 +68,7 @@ public interface Plugin extends EObject {
 	 * Returns the value of the '<em><b>Dependencies</b></em>' containment reference. <!-- begin-user-doc --> <!--
 	 * end-user-doc --> <!-- begin-model-doc --> 4.0.0 Additional dependencies that this project needs to introduce to
 	 * the plugin's classloader. <!-- end-model-doc -->
-	 * 
+	 *
 	 * @return the value of the '<em>Dependencies</em>' containment reference.
 	 * @see #setDependencies(DependenciesType)
 	 * @see org.eclipse.b3.p2.maven.pom.PomPackage#getPlugin_Dependencies()
@@ -81,7 +81,7 @@ public interface Plugin extends EObject {
 	 * Returns the value of the '<em><b>Executions</b></em>' containment reference. <!-- begin-user-doc --> <!--
 	 * end-user-doc --> <!-- begin-model-doc --> 4.0.0 Multiple specifications of a set of goals to execute during the
 	 * build lifecycle, each having (possibly) different configuration. <!-- end-model-doc -->
-	 * 
+	 *
 	 * @return the value of the '<em>Executions</em>' containment reference.
 	 * @see #setExecutions(ExecutionsType)
 	 * @see org.eclipse.b3.p2.maven.pom.PomPackage#getPlugin_Executions()
@@ -93,11 +93,11 @@ public interface Plugin extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Goals</b></em>' containment reference. <!-- begin-user-doc --> <!-- end-user-doc
 	 * --> <!-- begin-model-doc --> 4.0.0
-	 * 
+	 *
 	 * &lt;b&gt;Deprecated&lt;/b&gt;. Unused by Maven.
-	 * 
+	 *
 	 * <!-- end-model-doc -->
-	 * 
+	 *
 	 * @return the value of the '<em>Goals</em>' containment reference.
 	 * @see #setGoals(GoalsType)
 	 * @see org.eclipse.b3.p2.maven.pom.PomPackage#getPlugin_Goals()
@@ -110,7 +110,7 @@ public interface Plugin extends EObject {
 	 * Returns the value of the '<em><b>Group Id</b></em>' attribute. The default value is <code>"org.apache.maven.plugins"</code>. <!--
 	 * begin-user-doc --> <!-- end-user-doc --> <!-- begin-model-doc -->
 	 * 4.0.0 The group ID of the plugin in the repository. <!-- end-model-doc -->
-	 * 
+	 *
 	 * @return the value of the '<em>Group Id</em>' attribute.
 	 * @see #isSetGroupId()
 	 * @see #unsetGroupId()
@@ -127,10 +127,10 @@ public interface Plugin extends EObject {
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * 4.0.0
-	 * 
+	 *
 	 * Whether any configuration should be propagated to child POMs.
 	 * <!-- end-model-doc -->
-	 * 
+	 *
 	 * @return the value of the '<em>Inherited</em>' attribute.
 	 * @see #setInherited(String)
 	 * @see org.eclipse.b3.p2.maven.pom.PomPackage#getPlugin_Inherited()
@@ -144,7 +144,7 @@ public interface Plugin extends EObject {
 	 * Returns the value of the '<em><b>Version</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc --> <!--
 	 * begin-model-doc --> 4.0.0 The version (or valid range of verisons) of the plugin to be used. <!-- end-model-doc
 	 * -->
-	 * 
+	 *
 	 * @return the value of the '<em>Version</em>' attribute.
 	 * @see #setVersion(String)
 	 * @see org.eclipse.b3.p2.maven.pom.PomPackage#getPlugin_Version()
@@ -159,7 +159,7 @@ public interface Plugin extends EObject {
 	 * begin-user-doc --> <!-- end-user-doc --> <!-- begin-model-doc --> 4.0.0 Whether to load Maven extensions (such as
 	 * packaging and type handlers) from this plugin. For performance reasons, this should only be enabled when
 	 * necessary. <!-- end-model-doc -->
-	 * 
+	 *
 	 * @return the value of the '<em>Extensions</em>' attribute.
 	 * @see #isSetExtensions()
 	 * @see #unsetExtensions()
@@ -174,7 +174,7 @@ public interface Plugin extends EObject {
 	/**
 	 * Returns whether the value of the '{@link org.eclipse.b3.p2.maven.pom.Plugin#isExtensions <em>Extensions</em>}' attribute is set.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @return whether the value of the '<em>Extensions</em>' attribute is set.
 	 * @see #unsetExtensions()
 	 * @see #isExtensions()
@@ -186,7 +186,7 @@ public interface Plugin extends EObject {
 	/**
 	 * Returns whether the value of the '{@link org.eclipse.b3.p2.maven.pom.Plugin#getGroupId <em>Group Id</em>}' attribute is set.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @return whether the value of the '<em>Group Id</em>' attribute is set.
 	 * @see #unsetGroupId()
 	 * @see #getGroupId()
@@ -198,7 +198,7 @@ public interface Plugin extends EObject {
 	/**
 	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.Plugin#getArtifactId <em>Artifact Id</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param value
 	 *            the new value of the '<em>Artifact Id</em>' attribute.
 	 * @see #getArtifactId()
@@ -209,7 +209,7 @@ public interface Plugin extends EObject {
 	/**
 	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.Plugin#getConfiguration <em>Configuration</em>}' containment reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param value
 	 *            the new value of the '<em>Configuration</em>' containment reference.
 	 * @see #getConfiguration()
@@ -220,7 +220,7 @@ public interface Plugin extends EObject {
 	/**
 	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.Plugin#getDependencies <em>Dependencies</em>}' containment reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param value
 	 *            the new value of the '<em>Dependencies</em>' containment reference.
 	 * @see #getDependencies()
@@ -231,7 +231,7 @@ public interface Plugin extends EObject {
 	/**
 	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.Plugin#getExecutions <em>Executions</em>}' containment reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param value
 	 *            the new value of the '<em>Executions</em>' containment reference.
 	 * @see #getExecutions()
@@ -242,7 +242,7 @@ public interface Plugin extends EObject {
 	/**
 	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.Plugin#isExtensions <em>Extensions</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param value
 	 *            the new value of the '<em>Extensions</em>' attribute.
 	 * @see #isSetExtensions()
@@ -255,7 +255,7 @@ public interface Plugin extends EObject {
 	/**
 	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.Plugin#getGoals <em>Goals</em>}' containment reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param value
 	 *            the new value of the '<em>Goals</em>' containment reference.
 	 * @see #getGoals()
@@ -266,7 +266,7 @@ public interface Plugin extends EObject {
 	/**
 	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.Plugin#getGroupId <em>Group Id</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param value
 	 *            the new value of the '<em>Group Id</em>' attribute.
 	 * @see #isSetGroupId()
@@ -279,7 +279,7 @@ public interface Plugin extends EObject {
 	/**
 	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.Plugin#getInherited <em>Inherited</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param value
 	 *            the new value of the '<em>Inherited</em>' attribute.
 	 * @see #getInherited()
@@ -290,7 +290,7 @@ public interface Plugin extends EObject {
 	/**
 	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.Plugin#getVersion <em>Version</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param value
 	 *            the new value of the '<em>Version</em>' attribute.
 	 * @see #getVersion()
@@ -301,7 +301,7 @@ public interface Plugin extends EObject {
 	/**
 	 * Unsets the value of the '{@link org.eclipse.b3.p2.maven.pom.Plugin#isExtensions <em>Extensions</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #isSetExtensions()
 	 * @see #isExtensions()
 	 * @see #setExtensions(boolean)
@@ -312,7 +312,7 @@ public interface Plugin extends EObject {
 	/**
 	 * Unsets the value of the '{@link org.eclipse.b3.p2.maven.pom.Plugin#getGroupId <em>Group Id</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #isSetGroupId()
 	 * @see #getGroupId()
 	 * @see #setGroupId(String)

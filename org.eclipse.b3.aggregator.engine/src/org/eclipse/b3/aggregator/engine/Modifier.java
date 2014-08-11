@@ -28,7 +28,7 @@ import org.kohsuke.args4j.Option;
 
 /**
  * @author Markus Alexaneder Kuppe <b3-dev_eclipse.org@lemmster dot de>
- * 
+ *
  */
 public class Modifier extends ModelAbstractCommand {
 	public enum ActionType {
@@ -46,7 +46,7 @@ public class Modifier extends ModelAbstractCommand {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see org.eclipse.b3.cli.AbstractCommand#getShortDescription()
 	 */
 	@Override
@@ -56,7 +56,7 @@ public class Modifier extends ModelAbstractCommand {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see org.eclipse.b3.cli.AbstractCommand#run(org.eclipse.core.runtime.IProgressMonitor)
 	 */
 	@Override

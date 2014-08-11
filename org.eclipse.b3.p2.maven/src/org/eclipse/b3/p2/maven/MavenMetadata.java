@@ -30,7 +30,7 @@ import org.eclipse.emf.ecore.util.Diagnostician;
 
 /**
  * @author Filip Hrbek (filip.hrbek@cloudsmith.com)
- * 
+ *
  */
 public class MavenMetadata {
 	private DocumentRoot documentRoot;

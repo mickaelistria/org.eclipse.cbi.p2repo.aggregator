@@ -15,7 +15,7 @@ import org.eclipse.core.runtime.CoreException;
 
 /**
  * @author Filip Hrbek (filip.hrbek@cloudsmith.com)
- * 
+ *
  */
 public interface IMaven2Indexer {
 	public static final String EXTENSION_POINT_ID = "org.eclipse.b3.p2.maven.indexer";
@@ -24,13 +24,13 @@ public interface IMaven2Indexer {
 
 	/**
 	 * Closes all resources associated with an open index. Does nothing if no index is open.
-	 * 
+	 *
 	 */
 	void closeRemoteIndex() throws CoreException;
 
 	/**
 	 * Obtain an interator of all artifacts contained in the indexed repository
-	 * 
+	 *
 	 * @return the iterator
 	 */
 	Iterator<VersionEntry> getArtifacts() throws CoreException;
@@ -38,14 +38,14 @@ public interface IMaven2Indexer {
 	/**
 	 * Estimate number of entries. If getting an exact number would slow down performance too much, an estimate or is
 	 * ok. If the number of entries is really hard to count or estimate, this method should return 0.
-	 * 
+	 *
 	 * @return number of version entries (true or estimated) or zero if it is too hard to count or estimate
 	 */
 	int getNumberOfEntries() throws CoreException;
 
 	/**
 	 * Tries to open remote index. If no index is available at the remote location, an exception is thrown.
-	 * 
+	 *
 	 * @param location
 	 *            Remote repository location
 	 * @param clearLocalCache
@@ -56,7 +56,7 @@ public interface IMaven2Indexer {
 
 	/**
 	 * Creates or updates an index on a local repository.
-	 * 
+	 *
 	 * @param location
 	 *            Writable location of local repository
 	 * @param createNew

@@ -21,7 +21,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <li>{@link org.eclipse.b3.aggregator.impl.CategoryImpl#getLabelOverride <em>Label Override</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public class CategoryImpl extends MappedUnitImpl implements Category {
@@ -29,7 +29,7 @@ public class CategoryImpl extends MappedUnitImpl implements Category {
 	 * The default value of the '{@link #getLabelOverride() <em>Label Override</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getLabelOverride()
 	 * @generated
 	 * @ordered
@@ -40,7 +40,7 @@ public class CategoryImpl extends MappedUnitImpl implements Category {
 	 * The cached value of the '{@link #getLabelOverride() <em>Label Override</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getLabelOverride()
 	 * @generated
 	 * @ordered
@@ -49,7 +49,7 @@ public class CategoryImpl extends MappedUnitImpl implements Category {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected CategoryImpl() {
@@ -58,7 +58,7 @@ public class CategoryImpl extends MappedUnitImpl implements Category {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -72,7 +72,7 @@ public class CategoryImpl extends MappedUnitImpl implements Category {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -88,7 +88,7 @@ public class CategoryImpl extends MappedUnitImpl implements Category {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -103,7 +103,7 @@ public class CategoryImpl extends MappedUnitImpl implements Category {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -113,7 +113,7 @@ public class CategoryImpl extends MappedUnitImpl implements Category {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -128,7 +128,7 @@ public class CategoryImpl extends MappedUnitImpl implements Category {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public String getLabelOverride() {
@@ -137,7 +137,7 @@ public class CategoryImpl extends MappedUnitImpl implements Category {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public void setLabelOverride(String newLabelOverride) {
@@ -150,7 +150,7 @@ public class CategoryImpl extends MappedUnitImpl implements Category {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override

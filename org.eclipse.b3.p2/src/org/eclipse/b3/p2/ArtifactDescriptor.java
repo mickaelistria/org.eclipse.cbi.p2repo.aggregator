@@ -4,7 +4,7 @@
  * licensed under the Eclipse Public License - v 1.0 by the copyright holder
  * listed above, as the Initial Contributor under such license. The text of
  * such license is available at www.eclipse.org.
- * 
+ *
  */
 package org.eclipse.b3.p2;
 
@@ -17,7 +17,7 @@ import org.eclipse.equinox.p2.repository.artifact.IProcessingStepDescriptor;
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Artifact Descriptor</b></em>'.
  * <!-- end-user-doc -->
- * 
+ *
  * <p>
  * The following features are supported:
  * <ul>
@@ -25,7 +25,7 @@ import org.eclipse.equinox.p2.repository.artifact.IProcessingStepDescriptor;
  * <li>{@link org.eclipse.b3.p2.ArtifactDescriptor#getProcessingStepList <em>Processing Step List</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @see org.eclipse.b3.p2.P2Package#getArtifactDescriptor()
  * @model superTypes="org.eclipse.b3.p2.IArtifactDescriptor"
  * @generated
@@ -39,7 +39,7 @@ public interface ArtifactDescriptor extends IArtifactDescriptor {
 	 * If the meaning of the '<em>Processing Step List</em>' reference list isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @return the value of the '<em>Processing Step List</em>' containment reference list.
 	 * @see org.eclipse.b3.p2.P2Package#getArtifactDescriptor_ProcessingStepList()
 	 * @model type="org.eclipse.b3.p2.IProcessingStepDescriptor" containment="true" resolveProxies="true"
@@ -56,7 +56,7 @@ public interface ArtifactDescriptor extends IArtifactDescriptor {
 	 * If the meaning of the '<em>Property Map</em>' map isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @return the value of the '<em>Property Map</em>' map.
 	 * @see org.eclipse.b3.p2.P2Package#getArtifactDescriptor_PropertyMap()
 	 * @model mapType="org.eclipse.b3.p2.Property<org.eclipse.emf.ecore.EString, org.eclipse.emf.ecore.EString>"

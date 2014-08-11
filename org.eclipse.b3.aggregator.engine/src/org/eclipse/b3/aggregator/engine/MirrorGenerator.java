@@ -152,7 +152,7 @@ public class MirrorGenerator extends BuilderPhase {
 	/**
 	 * Extract the root cause. The root cause is the first severe non-MultiStatus status containing an exception when
 	 * searching depth first otherwise null.
-	 * 
+	 *
 	 * @param status
 	 * @return root cause
 	 */

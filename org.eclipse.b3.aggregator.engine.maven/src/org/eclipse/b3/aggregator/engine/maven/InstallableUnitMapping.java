@@ -315,6 +315,7 @@ public class InstallableUnitMapping implements IInstallableUnit {
 		return pom;
 	}
 
+	@Override
 	public int compareTo(IInstallableUnit other) {
 		return installableUnit.compareTo(other);
 	}
@@ -339,6 +340,7 @@ public class InstallableUnitMapping implements IInstallableUnit {
 		return getFileName(null);
 	}
 
+	@Override
 	public Collection<IArtifactKey> getArtifacts() {
 		return installableUnit.getArtifacts();
 	}
@@ -351,10 +353,12 @@ public class InstallableUnitMapping implements IInstallableUnit {
 		return contribution;
 	}
 
+	@Override
 	public ICopyright getCopyright() {
 		return installableUnit.getCopyright();
 	}
 
+	@Override
 	public ICopyright getCopyright(String locale) {
 		return installableUnit.getCopyright(locale);
 	}
@@ -378,22 +382,27 @@ public class InstallableUnitMapping implements IInstallableUnit {
 		return fileName.toString();
 	}
 
+	@Override
 	public IMatchExpression<IInstallableUnit> getFilter() {
 		return installableUnit.getFilter();
 	}
 
+	@Override
 	public Collection<IInstallableUnitFragment> getFragments() {
 		return installableUnit.getFragments();
 	}
 
+	@Override
 	public String getId() {
 		return installableUnit.getId();
 	}
 
+	@Override
 	public Collection<ILicense> getLicenses() {
 		return installableUnit.getLicenses();
 	}
 
+	@Override
 	public Collection<ILicense> getLicenses(String locale) {
 		return installableUnit.getLicenses(locale);
 	}
@@ -402,6 +411,7 @@ public class InstallableUnitMapping implements IInstallableUnit {
 		return mainArtifact;
 	}
 
+	@Override
 	public Collection<IRequirement> getMetaRequirements() {
 		return installableUnit.getMetaRequirements();
 	}
@@ -414,18 +424,22 @@ public class InstallableUnitMapping implements IInstallableUnit {
 		return getFileName("pom");
 	}
 
+	@Override
 	public Map<String, String> getProperties() {
 		return installableUnit.getProperties();
 	}
 
+	@Override
 	public String getProperty(String key) {
 		return installableUnit.getProperty(key);
 	}
 
+	@Override
 	public String getProperty(String key, String locale) {
 		return installableUnit.getProperty(key, locale);
 	}
 
+	@Override
 	public Collection<IProvidedCapability> getProvidedCapabilities() {
 		return installableUnit.getProvidedCapabilities();
 	}
@@ -438,6 +452,7 @@ public class InstallableUnitMapping implements IInstallableUnit {
 		return map().getGroupId().replace('.', '/') + "/" + map().getArtifactId() + "/" + getVersionString();
 	}
 
+	@Override
 	public Collection<IRequirement> getRequirements() {
 		if(parent != null) {
 			Collection<IRequirement> myList = new ArrayList<IRequirement>();
@@ -456,10 +471,12 @@ public class InstallableUnitMapping implements IInstallableUnit {
 		return siblings;
 	}
 
+	@Override
 	public Collection<ITouchpointData> getTouchpointData() {
 		return installableUnit.getTouchpointData();
 	}
 
+	@Override
 	public ITouchpointType getTouchpointType() {
 		return installableUnit.getTouchpointType();
 	}
@@ -468,10 +485,12 @@ public class InstallableUnitMapping implements IInstallableUnit {
 		return type;
 	}
 
+	@Override
 	public IUpdateDescriptor getUpdateDescriptor() {
 		return installableUnit.getUpdateDescriptor();
 	}
 
+	@Override
 	public Version getVersion() {
 		return installableUnit.getVersion();
 	}
@@ -480,10 +499,12 @@ public class InstallableUnitMapping implements IInstallableUnit {
 		return VersionUtil.getVersionString(getVersion(), useStrictMavenVersions);
 	}
 
+	@Override
 	public boolean isResolved() {
 		return installableUnit.isResolved();
 	}
 
+	@Override
 	public boolean isSingleton() {
 		return installableUnit.isSingleton();
 	}
@@ -510,6 +531,7 @@ public class InstallableUnitMapping implements IInstallableUnit {
 		return installableUnit.satisfies(candidate);
 	}
 
+	@Override
 	public boolean satisfies(IRequirement candidate) {
 		return installableUnit.satisfies(candidate);
 	}
@@ -533,6 +555,7 @@ public class InstallableUnitMapping implements IInstallableUnit {
 		return value;
 	}
 
+	@Override
 	public IInstallableUnit unresolved() {
 		return installableUnit.unresolved();
 	}

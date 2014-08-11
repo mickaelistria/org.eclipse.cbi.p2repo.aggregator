@@ -19,7 +19,7 @@ import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 /**
  * @author Karel Brezina
- * 
+ *
  */
 public class StatusProviderAdapterFactory extends AdapterFactoryImpl {
 	static class StatusProviderAdapter extends AdapterImpl implements StatusProvider {

@@ -12,7 +12,7 @@ import java.util.Iterator;
 
 /**
  * @author Karel Brezina
- * 
+ *
  */
 public interface ExtendedListIterator<E> extends Iterator<E> {
 	E first();

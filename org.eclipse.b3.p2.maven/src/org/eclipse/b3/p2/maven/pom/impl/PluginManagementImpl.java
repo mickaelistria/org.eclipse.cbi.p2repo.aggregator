@@ -9,13 +9,10 @@ package org.eclipse.b3.p2.maven.pom.impl;
 import org.eclipse.b3.p2.maven.pom.PluginManagement;
 import org.eclipse.b3.p2.maven.pom.PluginsType;
 import org.eclipse.b3.p2.maven.pom.PomPackage;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 
@@ -28,7 +25,7 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * <li>{@link org.eclipse.b3.p2.maven.pom.impl.PluginManagementImpl#getPlugins <em>Plugins</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public class PluginManagementImpl extends EObjectImpl implements PluginManagement {
@@ -36,7 +33,7 @@ public class PluginManagementImpl extends EObjectImpl implements PluginManagemen
 	 * The cached value of the '{@link #getPlugins() <em>Plugins</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getPlugins()
 	 * @generated
 	 * @ordered
@@ -45,7 +42,7 @@ public class PluginManagementImpl extends EObjectImpl implements PluginManagemen
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected PluginManagementImpl() {
@@ -54,7 +51,7 @@ public class PluginManagementImpl extends EObjectImpl implements PluginManagemen
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public NotificationChain basicSetPlugins(PluginsType newPlugins, NotificationChain msgs) {
@@ -73,7 +70,7 @@ public class PluginManagementImpl extends EObjectImpl implements PluginManagemen
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -87,7 +84,7 @@ public class PluginManagementImpl extends EObjectImpl implements PluginManagemen
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -101,7 +98,7 @@ public class PluginManagementImpl extends EObjectImpl implements PluginManagemen
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -115,7 +112,7 @@ public class PluginManagementImpl extends EObjectImpl implements PluginManagemen
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -130,7 +127,7 @@ public class PluginManagementImpl extends EObjectImpl implements PluginManagemen
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -145,18 +142,20 @@ public class PluginManagementImpl extends EObjectImpl implements PluginManagemen
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public PluginsType getPlugins() {
 		return plugins;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public void setPlugins(PluginsType newPlugins) {
 		if(newPlugins != plugins) {
 			NotificationChain msgs = null;
@@ -177,7 +176,7 @@ public class PluginManagementImpl extends EObjectImpl implements PluginManagemen
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override

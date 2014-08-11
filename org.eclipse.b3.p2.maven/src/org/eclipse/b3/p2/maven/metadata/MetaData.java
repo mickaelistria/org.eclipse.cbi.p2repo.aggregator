@@ -10,16 +10,16 @@ import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc --> A representation of the model object '<em><b>Meta Data</b></em>'. <!-- end-user-doc -->
- * 
+ *
  * <!-- begin-model-doc -->
  * 1.0.0
- * 
+ *
  * The &lt;code&gt;&amp;lt;metadata&amp;gt;&lt;/code&gt;
  * element is the root of the descriptor. The following
  * table lists all of the possible child elements.
- * 
+ *
  * <!-- end-model-doc -->
- * 
+ *
  * <p>
  * The following features are supported:
  * <ul>
@@ -29,7 +29,7 @@ import org.eclipse.emf.ecore.EObject;
  * <li>{@link org.eclipse.b3.p2.maven.metadata.MetaData#getVersioning <em>Versioning</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @see org.eclipse.b3.p2.maven.metadata.MetadataPackage#getMetaData()
  * @model extendedMetaData="name='MetaData' kind='elementOnly'"
  * @generated
@@ -39,19 +39,19 @@ public interface MetaData extends EObject {
 	 * Returns the value of the '<em><b>Artifact Id</b></em>' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * 
+	 *
 	 * 1.0.0
-	 * 
-	 * 
+	 *
+	 *
 	 * The identifier for this artifact that is unique
 	 * within the group given by the group ID. An
 	 * artifact is something that is either produced or
 	 * used by a project. Examples of artifacts
 	 * produced by Maven for a project include: JARs,
 	 * source and binary distributions, and WARs.
-	 * 
+	 *
 	 * <!-- end-model-doc -->
-	 * 
+	 *
 	 * @return the value of the '<em>Artifact Id</em>' attribute.
 	 * @see #setArtifactId(String)
 	 * @see org.eclipse.b3.p2.maven.metadata.MetadataPackage#getMetaData_ArtifactId()
@@ -64,15 +64,15 @@ public interface MetaData extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Group Id</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc --> <!--
 	 * begin-model-doc -->
-	 * 
+	 *
 	 * 1.0.0
-	 * 
-	 * 
+	 *
+	 *
 	 * A universally unique identifier for a project. It is normal to use a fully-qualified package name to distinguish
 	 * it from other projects with a similar name (eg. &lt;code&gt;org.apache.maven&lt;/code&gt;).
-	 * 
+	 *
 	 * <!-- end-model-doc -->
-	 * 
+	 *
 	 * @return the value of the '<em>Group Id</em>' attribute.
 	 * @see #setGroupId(String)
 	 * @see org.eclipse.b3.p2.maven.metadata.MetadataPackage#getMetaData_GroupId()
@@ -85,14 +85,14 @@ public interface MetaData extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Version</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc --> <!--
 	 * begin-model-doc -->
-	 * 
+	 *
 	 * 1.0.0
-	 * 
-	 * 
+	 *
+	 *
 	 * The current version of the artifact produced by this project.
-	 * 
+	 *
 	 * <!-- end-model-doc -->
-	 * 
+	 *
 	 * @return the value of the '<em>Version</em>' attribute.
 	 * @see #setVersion(String)
 	 * @see org.eclipse.b3.p2.maven.metadata.MetadataPackage#getMetaData_Version()
@@ -105,14 +105,14 @@ public interface MetaData extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Versioning</b></em>' containment reference. <!-- begin-user-doc --> <!--
 	 * end-user-doc --> <!-- begin-model-doc -->
-	 * 
+	 *
 	 * 1.0.0
-	 * 
-	 * 
+	 *
+	 *
 	 * Container for he set of versions in the repository for this artifact and the last update time.
-	 * 
+	 *
 	 * <!-- end-model-doc -->
-	 * 
+	 *
 	 * @return the value of the '<em>Versioning</em>' containment reference.
 	 * @see #setVersioning(Versioning)
 	 * @see org.eclipse.b3.p2.maven.metadata.MetadataPackage#getMetaData_Versioning()
@@ -125,7 +125,7 @@ public interface MetaData extends EObject {
 	/**
 	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.metadata.MetaData#getArtifactId <em>Artifact Id</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param value
 	 *            the new value of the '<em>Artifact Id</em>' attribute.
 	 * @see #getArtifactId()
@@ -136,7 +136,7 @@ public interface MetaData extends EObject {
 	/**
 	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.metadata.MetaData#getGroupId <em>Group Id</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param value
 	 *            the new value of the '<em>Group Id</em>' attribute.
 	 * @see #getGroupId()
@@ -147,7 +147,7 @@ public interface MetaData extends EObject {
 	/**
 	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.metadata.MetaData#getVersion <em>Version</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param value
 	 *            the new value of the '<em>Version</em>' attribute.
 	 * @see #getVersion()
@@ -158,7 +158,7 @@ public interface MetaData extends EObject {
 	/**
 	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.metadata.MetaData#getVersioning <em>Versioning</em>}' containment reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param value
 	 *            the new value of the '<em>Versioning</em>' containment reference.
 	 * @see #getVersioning()

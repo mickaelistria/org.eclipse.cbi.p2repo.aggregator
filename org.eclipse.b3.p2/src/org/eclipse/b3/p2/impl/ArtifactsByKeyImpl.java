@@ -4,32 +4,26 @@
  * licensed under the Eclipse Public License - v 1.0 by the copyright holder
  * listed above, as the Initial Contributor under such license. The text of
  * such license is available at www.eclipse.org.
- * 
+ *
  */
 package org.eclipse.b3.p2.impl;
 
 import java.util.Collection;
 
 import org.eclipse.b3.p2.P2Package;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.common.util.BasicEMap;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.EMap;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 import org.eclipse.equinox.p2.metadata.IArtifactKey;
-
 import org.eclipse.equinox.p2.repository.artifact.IArtifactDescriptor;
 
 /**
@@ -43,7 +37,7 @@ import org.eclipse.equinox.p2.repository.artifact.IArtifactDescriptor;
  * <li>{@link org.eclipse.b3.p2.impl.ArtifactsByKeyImpl#getTypedValue <em>Value</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public class ArtifactsByKeyImpl extends MinimalEObjectImpl.Container implements
@@ -52,7 +46,7 @@ public class ArtifactsByKeyImpl extends MinimalEObjectImpl.Container implements
 	 * A set of bit flags representing the values of boolean attributes and whether unsettable features have been set.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 * @ordered
 	 */
@@ -62,7 +56,7 @@ public class ArtifactsByKeyImpl extends MinimalEObjectImpl.Container implements
 	 * The cached value of the '{@link #getTypedKey() <em>Key</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getTypedKey()
 	 * @generated
 	 * @ordered
@@ -73,7 +67,7 @@ public class ArtifactsByKeyImpl extends MinimalEObjectImpl.Container implements
 	 * The cached value of the '{@link #getTypedValue() <em>Value</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getTypedValue()
 	 * @generated
 	 * @ordered
@@ -83,7 +77,7 @@ public class ArtifactsByKeyImpl extends MinimalEObjectImpl.Container implements
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected int hash = -1;
@@ -91,7 +85,7 @@ public class ArtifactsByKeyImpl extends MinimalEObjectImpl.Container implements
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected ArtifactsByKeyImpl() {
@@ -101,7 +95,7 @@ public class ArtifactsByKeyImpl extends MinimalEObjectImpl.Container implements
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public IArtifactKey basicGetTypedKey() {
@@ -111,7 +105,7 @@ public class ArtifactsByKeyImpl extends MinimalEObjectImpl.Container implements
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public NotificationChain basicSetTypedKey(IArtifactKey newKey, NotificationChain msgs) {
@@ -131,7 +125,7 @@ public class ArtifactsByKeyImpl extends MinimalEObjectImpl.Container implements
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -150,7 +144,7 @@ public class ArtifactsByKeyImpl extends MinimalEObjectImpl.Container implements
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -167,7 +161,7 @@ public class ArtifactsByKeyImpl extends MinimalEObjectImpl.Container implements
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -184,7 +178,7 @@ public class ArtifactsByKeyImpl extends MinimalEObjectImpl.Container implements
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
@@ -205,7 +199,7 @@ public class ArtifactsByKeyImpl extends MinimalEObjectImpl.Container implements
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -216,7 +210,7 @@ public class ArtifactsByKeyImpl extends MinimalEObjectImpl.Container implements
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -235,7 +229,7 @@ public class ArtifactsByKeyImpl extends MinimalEObjectImpl.Container implements
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
@@ -249,9 +243,10 @@ public class ArtifactsByKeyImpl extends MinimalEObjectImpl.Container implements
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public int getHash() {
 		if(hash == -1) {
 			Object theKey = getKey();
@@ -265,9 +260,10 @@ public class ArtifactsByKeyImpl extends MinimalEObjectImpl.Container implements
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public IArtifactKey getKey() {
 		return getTypedKey();
 	}
@@ -275,7 +271,7 @@ public class ArtifactsByKeyImpl extends MinimalEObjectImpl.Container implements
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public IArtifactKey getTypedKey() {
@@ -303,7 +299,7 @@ public class ArtifactsByKeyImpl extends MinimalEObjectImpl.Container implements
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EList<IArtifactDescriptor> getTypedValue() {
@@ -317,9 +313,10 @@ public class ArtifactsByKeyImpl extends MinimalEObjectImpl.Container implements
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public EList<IArtifactDescriptor> getValue() {
 		return getTypedValue();
 	}
@@ -327,9 +324,10 @@ public class ArtifactsByKeyImpl extends MinimalEObjectImpl.Container implements
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public void setHash(int hash) {
 		this.hash = hash;
 	}
@@ -337,9 +335,10 @@ public class ArtifactsByKeyImpl extends MinimalEObjectImpl.Container implements
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public void setKey(IArtifactKey key) {
 		setTypedKey(key);
 	}
@@ -347,7 +346,7 @@ public class ArtifactsByKeyImpl extends MinimalEObjectImpl.Container implements
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public void setTypedKey(IArtifactKey newKey) {
@@ -370,9 +369,10 @@ public class ArtifactsByKeyImpl extends MinimalEObjectImpl.Container implements
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public EList<IArtifactDescriptor> setValue(EList<IArtifactDescriptor> value) {
 		EList<IArtifactDescriptor> oldValue = getValue();
 		getTypedValue().clear();

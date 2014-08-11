@@ -19,7 +19,7 @@ import org.eclipse.equinox.p2.repository.metadata.IMetadataRepository;
 
 /**
  * @author Filip Hrbek
- * 
+ *
  */
 public interface IRepositoryLoader {
 	final String EXTENSION_POINT_ID = "org.eclipse.b3.p2.loader";

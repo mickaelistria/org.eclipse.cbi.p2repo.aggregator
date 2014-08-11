@@ -14,7 +14,7 @@ import java.util.NoSuchElementException;
 
 /**
  * @author Karel Brezina
- * 
+ *
  */
 public class TwoColumnMatrix<K, V> {
 	public class MatrixEntry {

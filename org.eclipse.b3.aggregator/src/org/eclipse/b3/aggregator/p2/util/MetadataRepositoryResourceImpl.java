@@ -510,7 +510,7 @@ public class MetadataRepositoryResourceImpl extends ResourceImpl implements Stat
 		}
 
 		/**
-		 * 
+		 *
 		 */
 		private void updateAvailableVersions() {
 			Aggregation aggregation = ResourceUtils.getAggregation(getResourceSet());

@@ -24,7 +24,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <li>{@link org.eclipse.b3.aggregator.impl.StatusImpl#getMessage <em>Message</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public class StatusImpl extends MinimalEObjectImpl.Container implements Status {
@@ -52,7 +52,7 @@ public class StatusImpl extends MinimalEObjectImpl.Container implements Status {
 	/**
 	 * A set of bit flags representing the values of boolean attributes and whether unsettable features have been set.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 * @ordered
 	 */
@@ -61,7 +61,7 @@ public class StatusImpl extends MinimalEObjectImpl.Container implements Status {
 	/**
 	 * The default value of the '{@link #getCode() <em>Code</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
 	 * -->
-	 * 
+	 *
 	 * @see #getCode()
 	 * @generated
 	 * @ordered
@@ -71,7 +71,7 @@ public class StatusImpl extends MinimalEObjectImpl.Container implements Status {
 	/**
 	 * The offset of the flags representing the value of the '{@link #getCode() <em>Code</em>}' attribute. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 * @ordered
 	 */
@@ -81,7 +81,7 @@ public class StatusImpl extends MinimalEObjectImpl.Container implements Status {
 	 * The flags representing the default value of the '{@link #getCode() <em>Code</em>}' attribute.
 	 * <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 * @ordered
 	 */
@@ -90,7 +90,7 @@ public class StatusImpl extends MinimalEObjectImpl.Container implements Status {
 	/**
 	 * The array of enumeration values for '{@link StatusCode Status Code}' <!-- begin-user-doc --> <!-- end-user-doc
 	 * -->
-	 * 
+	 *
 	 * @generated
 	 * @ordered
 	 */
@@ -100,7 +100,7 @@ public class StatusImpl extends MinimalEObjectImpl.Container implements Status {
 	 * The flags representing the value of the '{@link #getCode() <em>Code</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getCode()
 	 * @generated
 	 * @ordered
@@ -111,7 +111,7 @@ public class StatusImpl extends MinimalEObjectImpl.Container implements Status {
 	 * The default value of the '{@link #getMessage() <em>Message</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @see #getMessage()
 	 * @generated
 	 * @ordered
@@ -122,7 +122,7 @@ public class StatusImpl extends MinimalEObjectImpl.Container implements Status {
 	 * The cached value of the '{@link #getMessage() <em>Message</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @see #getMessage()
 	 * @generated
 	 * @ordered
@@ -131,7 +131,7 @@ public class StatusImpl extends MinimalEObjectImpl.Container implements Status {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected StatusImpl() {
@@ -140,7 +140,7 @@ public class StatusImpl extends MinimalEObjectImpl.Container implements Status {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
 	protected StatusImpl(StatusCode statusCode) {
@@ -149,7 +149,7 @@ public class StatusImpl extends MinimalEObjectImpl.Container implements Status {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
 	protected StatusImpl(StatusCode statusCode, String message) {
@@ -160,7 +160,7 @@ public class StatusImpl extends MinimalEObjectImpl.Container implements Status {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -176,7 +176,7 @@ public class StatusImpl extends MinimalEObjectImpl.Container implements Status {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -194,7 +194,7 @@ public class StatusImpl extends MinimalEObjectImpl.Container implements Status {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -204,7 +204,7 @@ public class StatusImpl extends MinimalEObjectImpl.Container implements Status {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
 	public StatusCode getCode() {
@@ -213,7 +213,7 @@ public class StatusImpl extends MinimalEObjectImpl.Container implements Status {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public String getMessage() {
@@ -222,7 +222,7 @@ public class StatusImpl extends MinimalEObjectImpl.Container implements Status {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override

@@ -10,13 +10,9 @@ import java.util.Collection;
 
 import org.eclipse.b3.p2.maven.pom.FiltersType;
 import org.eclipse.b3.p2.maven.pom.PomPackage;
-
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.impl.EObjectImpl;
-
 import org.eclipse.emf.ecore.util.EDataTypeEList;
 
 /**
@@ -27,7 +23,7 @@ import org.eclipse.emf.ecore.util.EDataTypeEList;
  * <li>{@link org.eclipse.b3.p2.maven.pom.impl.FiltersTypeImpl#getFilter <em>Filter</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public class FiltersTypeImpl extends EObjectImpl implements FiltersType {
@@ -35,7 +31,7 @@ public class FiltersTypeImpl extends EObjectImpl implements FiltersType {
 	 * The cached value of the '{@link #getFilter() <em>Filter</em>}' attribute list.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @see #getFilter()
 	 * @generated
 	 * @ordered
@@ -44,7 +40,7 @@ public class FiltersTypeImpl extends EObjectImpl implements FiltersType {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected FiltersTypeImpl() {
@@ -53,7 +49,7 @@ public class FiltersTypeImpl extends EObjectImpl implements FiltersType {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -67,7 +63,7 @@ public class FiltersTypeImpl extends EObjectImpl implements FiltersType {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -81,7 +77,7 @@ public class FiltersTypeImpl extends EObjectImpl implements FiltersType {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
@@ -98,7 +94,7 @@ public class FiltersTypeImpl extends EObjectImpl implements FiltersType {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -113,9 +109,10 @@ public class FiltersTypeImpl extends EObjectImpl implements FiltersType {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public EList<String> getFilter() {
 		if(filter == null) {
 			filter = new EDataTypeEList<String>(String.class, this, PomPackage.FILTERS_TYPE__FILTER);
@@ -125,7 +122,7 @@ public class FiltersTypeImpl extends EObjectImpl implements FiltersType {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -142,7 +139,7 @@ public class FiltersTypeImpl extends EObjectImpl implements FiltersType {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override

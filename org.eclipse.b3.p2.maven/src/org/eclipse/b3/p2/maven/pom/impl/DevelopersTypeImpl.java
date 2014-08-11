@@ -11,16 +11,11 @@ import java.util.Collection;
 import org.eclipse.b3.p2.maven.pom.Developer;
 import org.eclipse.b3.p2.maven.pom.DevelopersType;
 import org.eclipse.b3.p2.maven.pom.PomPackage;
-
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.EObjectImpl;
-
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -33,14 +28,14 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <li>{@link org.eclipse.b3.p2.maven.pom.impl.DevelopersTypeImpl#getDeveloper <em>Developer </em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public class DevelopersTypeImpl extends EObjectImpl implements DevelopersType {
 	/**
 	 * The cached value of the '{@link #getDeveloper() <em>Developer</em>}' containment reference list. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getDeveloper()
 	 * @generated
 	 * @ordered
@@ -49,7 +44,7 @@ public class DevelopersTypeImpl extends EObjectImpl implements DevelopersType {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected DevelopersTypeImpl() {
@@ -58,7 +53,7 @@ public class DevelopersTypeImpl extends EObjectImpl implements DevelopersType {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -72,7 +67,7 @@ public class DevelopersTypeImpl extends EObjectImpl implements DevelopersType {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -86,7 +81,7 @@ public class DevelopersTypeImpl extends EObjectImpl implements DevelopersType {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -100,7 +95,7 @@ public class DevelopersTypeImpl extends EObjectImpl implements DevelopersType {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
@@ -117,7 +112,7 @@ public class DevelopersTypeImpl extends EObjectImpl implements DevelopersType {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -132,9 +127,10 @@ public class DevelopersTypeImpl extends EObjectImpl implements DevelopersType {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public EList<Developer> getDeveloper() {
 		if(developer == null) {
 			developer = new EObjectContainmentEList<Developer>(
@@ -145,7 +141,7 @@ public class DevelopersTypeImpl extends EObjectImpl implements DevelopersType {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override

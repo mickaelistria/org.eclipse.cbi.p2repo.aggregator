@@ -31,14 +31,14 @@ import org.eclipse.equinox.p2.metadata.Version;
  * <li>{@link org.eclipse.b3.aggregator.p2view.impl.IUPresentationImpl#getDescription <em>Description</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public abstract class IUPresentationImpl extends MinimalEObjectImpl.Container implements IUPresentation {
 	/**
 	 * A set of bit flags representing the values of boolean attributes and whether unsettable features have been set.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 * @ordered
 	 */
@@ -47,7 +47,7 @@ public abstract class IUPresentationImpl extends MinimalEObjectImpl.Container im
 	/**
 	 * The default value of the '{@link #getId() <em>Id</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getId()
 	 * @generated
 	 * @ordered
@@ -57,7 +57,7 @@ public abstract class IUPresentationImpl extends MinimalEObjectImpl.Container im
 	/**
 	 * The cached value of the '{@link #getId() <em>Id</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getId()
 	 * @generated
 	 * @ordered
@@ -68,7 +68,7 @@ public abstract class IUPresentationImpl extends MinimalEObjectImpl.Container im
 	 * The default value of the '{@link #getVersion() <em>Version</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @see #getVersion()
 	 * @generated
 	 * @ordered
@@ -79,7 +79,7 @@ public abstract class IUPresentationImpl extends MinimalEObjectImpl.Container im
 	 * The cached value of the '{@link #getVersion() <em>Version</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @see #getVersion()
 	 * @generated
 	 * @ordered
@@ -89,7 +89,7 @@ public abstract class IUPresentationImpl extends MinimalEObjectImpl.Container im
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
 	 * -->
-	 * 
+	 *
 	 * @see #getName()
 	 * @generated
 	 * @ordered
@@ -99,7 +99,7 @@ public abstract class IUPresentationImpl extends MinimalEObjectImpl.Container im
 	/**
 	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
 	 * -->
-	 * 
+	 *
 	 * @see #getName()
 	 * @generated
 	 * @ordered
@@ -110,7 +110,7 @@ public abstract class IUPresentationImpl extends MinimalEObjectImpl.Container im
 	 * The default value of the '{@link #getLabel() <em>Label</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @see #getLabel()
 	 * @generated
 	 * @ordered
@@ -120,7 +120,7 @@ public abstract class IUPresentationImpl extends MinimalEObjectImpl.Container im
 	/**
 	 * The cached value of the '{@link #getLabel() <em>Label</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
 	 * -->
-	 * 
+	 *
 	 * @see #getLabel()
 	 * @generated
 	 * @ordered
@@ -131,7 +131,7 @@ public abstract class IUPresentationImpl extends MinimalEObjectImpl.Container im
 	 * The default value of the '{@link #getDescription() <em>Description</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @see #getDescription()
 	 * @generated
 	 * @ordered
@@ -142,7 +142,7 @@ public abstract class IUPresentationImpl extends MinimalEObjectImpl.Container im
 	 * The cached value of the '{@link #getDescription() <em>Description</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @see #getDescription()
 	 * @generated
 	 * @ordered
@@ -152,7 +152,7 @@ public abstract class IUPresentationImpl extends MinimalEObjectImpl.Container im
 	/**
 	 * The default value of the '{@link #getType() <em>Type</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
 	 * -->
-	 * 
+	 *
 	 * @see #getType()
 	 * @generated
 	 * @ordered
@@ -163,7 +163,7 @@ public abstract class IUPresentationImpl extends MinimalEObjectImpl.Container im
 	 * The default value of the '{@link #getFilter() <em>Filter</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getFilter()
 	 * @generated
 	 * @ordered
@@ -174,7 +174,7 @@ public abstract class IUPresentationImpl extends MinimalEObjectImpl.Container im
 	 * The cached value of the '{@link #getFilter() <em>Filter</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getFilter()
 	 * @generated
 	 * @ordered
@@ -185,7 +185,7 @@ public abstract class IUPresentationImpl extends MinimalEObjectImpl.Container im
 	 * The cached value of the '{@link #getInstallableUnit() <em>Installable Unit</em>}' reference.
 	 * <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getInstallableUnit()
 	 * @generated
 	 * @ordered
@@ -194,7 +194,7 @@ public abstract class IUPresentationImpl extends MinimalEObjectImpl.Container im
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected IUPresentationImpl() {
@@ -203,7 +203,7 @@ public abstract class IUPresentationImpl extends MinimalEObjectImpl.Container im
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
 	protected IUPresentationImpl(IInstallableUnit iu) {
@@ -213,7 +213,7 @@ public abstract class IUPresentationImpl extends MinimalEObjectImpl.Container im
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -241,7 +241,7 @@ public abstract class IUPresentationImpl extends MinimalEObjectImpl.Container im
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -281,7 +281,7 @@ public abstract class IUPresentationImpl extends MinimalEObjectImpl.Container im
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -314,7 +314,7 @@ public abstract class IUPresentationImpl extends MinimalEObjectImpl.Container im
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -324,7 +324,7 @@ public abstract class IUPresentationImpl extends MinimalEObjectImpl.Container im
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -357,7 +357,7 @@ public abstract class IUPresentationImpl extends MinimalEObjectImpl.Container im
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public String getDescription() {
@@ -367,7 +367,7 @@ public abstract class IUPresentationImpl extends MinimalEObjectImpl.Container im
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public String getFilter() {
@@ -376,7 +376,7 @@ public abstract class IUPresentationImpl extends MinimalEObjectImpl.Container im
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public String getId() {
@@ -385,7 +385,7 @@ public abstract class IUPresentationImpl extends MinimalEObjectImpl.Container im
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public IInstallableUnit getInstallableUnit() {
@@ -394,7 +394,7 @@ public abstract class IUPresentationImpl extends MinimalEObjectImpl.Container im
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public String getLabel() {
@@ -403,7 +403,7 @@ public abstract class IUPresentationImpl extends MinimalEObjectImpl.Container im
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public String getName() {
@@ -412,14 +412,14 @@ public abstract class IUPresentationImpl extends MinimalEObjectImpl.Container im
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
 	abstract public InstallableUnitType getType();
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public Version getVersion() {
@@ -428,7 +428,7 @@ public abstract class IUPresentationImpl extends MinimalEObjectImpl.Container im
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public void setDescription(String newDescription) {
@@ -442,7 +442,7 @@ public abstract class IUPresentationImpl extends MinimalEObjectImpl.Container im
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public void setFilter(String newFilter) {
@@ -455,7 +455,7 @@ public abstract class IUPresentationImpl extends MinimalEObjectImpl.Container im
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public void setId(String newId) {
@@ -468,7 +468,7 @@ public abstract class IUPresentationImpl extends MinimalEObjectImpl.Container im
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public void setInstallableUnit(IInstallableUnit newInstallableUnit) {
@@ -482,7 +482,7 @@ public abstract class IUPresentationImpl extends MinimalEObjectImpl.Container im
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public void setLabel(String newLabel) {
@@ -494,7 +494,7 @@ public abstract class IUPresentationImpl extends MinimalEObjectImpl.Container im
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public void setName(String newName) {
@@ -506,7 +506,7 @@ public abstract class IUPresentationImpl extends MinimalEObjectImpl.Container im
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public void setVersion(Version newVersion) {
@@ -519,7 +519,7 @@ public abstract class IUPresentationImpl extends MinimalEObjectImpl.Container im
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override

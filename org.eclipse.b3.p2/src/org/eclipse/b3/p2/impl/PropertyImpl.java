@@ -27,7 +27,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <li>{@link org.eclipse.b3.p2.impl.PropertyImpl#getTypedValue <em>Value</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public class PropertyImpl extends MinimalEObjectImpl.Container implements BasicEMap.Entry<String, String> {
@@ -35,7 +35,7 @@ public class PropertyImpl extends MinimalEObjectImpl.Container implements BasicE
 	 * A set of bit flags representing the values of boolean attributes and whether unsettable features have been set.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 * @ordered
 	 */
@@ -45,7 +45,7 @@ public class PropertyImpl extends MinimalEObjectImpl.Container implements BasicE
 	 * The default value of the '{@link #getTypedKey() <em>Key</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getTypedKey()
 	 * @generated
 	 * @ordered
@@ -56,7 +56,7 @@ public class PropertyImpl extends MinimalEObjectImpl.Container implements BasicE
 	 * The cached value of the '{@link #getTypedKey() <em>Key</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getTypedKey()
 	 * @generated
 	 * @ordered
@@ -67,7 +67,7 @@ public class PropertyImpl extends MinimalEObjectImpl.Container implements BasicE
 	 * The default value of the '{@link #getTypedValue() <em>Value</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getTypedValue()
 	 * @generated
 	 * @ordered
@@ -78,7 +78,7 @@ public class PropertyImpl extends MinimalEObjectImpl.Container implements BasicE
 	 * The cached value of the '{@link #getTypedValue() <em>Value</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getTypedValue()
 	 * @generated
 	 * @ordered
@@ -88,7 +88,7 @@ public class PropertyImpl extends MinimalEObjectImpl.Container implements BasicE
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected int hash = -1;
@@ -96,7 +96,7 @@ public class PropertyImpl extends MinimalEObjectImpl.Container implements BasicE
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected PropertyImpl() {
@@ -106,7 +106,7 @@ public class PropertyImpl extends MinimalEObjectImpl.Container implements BasicE
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -123,7 +123,7 @@ public class PropertyImpl extends MinimalEObjectImpl.Container implements BasicE
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -144,7 +144,7 @@ public class PropertyImpl extends MinimalEObjectImpl.Container implements BasicE
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -163,7 +163,7 @@ public class PropertyImpl extends MinimalEObjectImpl.Container implements BasicE
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -174,7 +174,7 @@ public class PropertyImpl extends MinimalEObjectImpl.Container implements BasicE
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -193,7 +193,7 @@ public class PropertyImpl extends MinimalEObjectImpl.Container implements BasicE
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
@@ -207,9 +207,10 @@ public class PropertyImpl extends MinimalEObjectImpl.Container implements BasicE
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public int getHash() {
 		if(hash == -1) {
 			Object theKey = getKey();
@@ -223,9 +224,10 @@ public class PropertyImpl extends MinimalEObjectImpl.Container implements BasicE
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public String getKey() {
 		return getTypedKey();
 	}
@@ -233,7 +235,7 @@ public class PropertyImpl extends MinimalEObjectImpl.Container implements BasicE
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public String getTypedKey() {
@@ -243,7 +245,7 @@ public class PropertyImpl extends MinimalEObjectImpl.Container implements BasicE
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public String getTypedValue() {
@@ -253,9 +255,10 @@ public class PropertyImpl extends MinimalEObjectImpl.Container implements BasicE
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public String getValue() {
 		return getTypedValue();
 	}
@@ -263,9 +266,10 @@ public class PropertyImpl extends MinimalEObjectImpl.Container implements BasicE
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public void setHash(int hash) {
 		this.hash = hash;
 	}
@@ -273,9 +277,10 @@ public class PropertyImpl extends MinimalEObjectImpl.Container implements BasicE
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public void setKey(String key) {
 		setTypedKey(key);
 	}
@@ -283,7 +288,7 @@ public class PropertyImpl extends MinimalEObjectImpl.Container implements BasicE
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public void setTypedKey(String newKey) {
@@ -296,7 +301,7 @@ public class PropertyImpl extends MinimalEObjectImpl.Container implements BasicE
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public void setTypedValue(String newValue) {
@@ -309,9 +314,10 @@ public class PropertyImpl extends MinimalEObjectImpl.Container implements BasicE
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public String setValue(String value) {
 		String oldValue = getValue();
 		setTypedValue(value);
@@ -321,7 +327,7 @@ public class PropertyImpl extends MinimalEObjectImpl.Container implements BasicE
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override

@@ -14,7 +14,7 @@ import java.util.Iterator;
 /**
  * A collection delegating all of its functionality to an underlying collection.
  * Useful for implementing filtering collections.
- * 
+ *
  * @author michal.ruzicka@cloudsmith.com
  */
 public class FilteringCollection<E> implements Collection<E> {
@@ -28,11 +28,13 @@ public class FilteringCollection<E> implements Collection<E> {
 		setDelegate(delegate);
 	}
 
+	@Override
 	public boolean add(E e) {
 		return delegate.add(e);
 	}
 
 	/* call the single argument method in a loop to simplify overriding */
+	@Override
 	public boolean addAll(Collection<? extends E> c) {
 		boolean result = false;
 		for(E e : c) {
@@ -42,34 +44,42 @@ public class FilteringCollection<E> implements Collection<E> {
 		return result;
 	}
 
+	@Override
 	public void clear() {
 		delegate.clear();
 	}
 
+	@Override
 	public boolean contains(Object o) {
 		return delegate.contains(o);
 	}
 
+	@Override
 	public boolean containsAll(Collection<?> c) {
 		return delegate.containsAll(c);
 	}
 
+	@Override
 	public boolean isEmpty() {
 		return delegate.isEmpty();
 	}
 
+	@Override
 	public Iterator<E> iterator() {
 		return delegate.iterator();
 	}
 
+	@Override
 	public boolean remove(Object o) {
 		return delegate.remove(o);
 	}
 
+	@Override
 	public boolean removeAll(Collection<?> c) {
 		return delegate.removeAll(c);
 	}
 
+	@Override
 	public boolean retainAll(Collection<?> c) {
 		return delegate.retainAll(c);
 	}
@@ -83,14 +93,17 @@ public class FilteringCollection<E> implements Collection<E> {
 		return this;
 	}
 
+	@Override
 	public int size() {
 		return delegate.size();
 	}
 
+	@Override
 	public Object[] toArray() {
 		return delegate.toArray();
 	}
 
+	@Override
 	public <T> T[] toArray(T[] a) {
 		return delegate.toArray(a);
 	}

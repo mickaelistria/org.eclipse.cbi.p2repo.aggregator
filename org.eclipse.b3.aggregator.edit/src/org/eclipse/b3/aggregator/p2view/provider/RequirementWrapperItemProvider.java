@@ -40,7 +40,7 @@ import org.eclipse.equinox.internal.p2.metadata.IRequiredCapability;
  * This is the item provider adapter for a {@link org.eclipse.b3.aggregator.p2view.RequirementWrapper} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
- * 
+ *
  * @generated
  */
 public class RequirementWrapperItemProvider extends AggregatorItemProviderAdapter implements
@@ -50,7 +50,7 @@ public class RequirementWrapperItemProvider extends AggregatorItemProviderAdapte
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public RequirementWrapperItemProvider(AdapterFactory adapterFactory) {
@@ -61,7 +61,7 @@ public class RequirementWrapperItemProvider extends AggregatorItemProviderAdapte
 	 * This adds a property descriptor for the Description feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected void addDescriptionPropertyDescriptor(Object object) {
@@ -79,7 +79,7 @@ public class RequirementWrapperItemProvider extends AggregatorItemProviderAdapte
 	 * This adds a property descriptor for the Filter feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected void addFilterPropertyDescriptor(Object object) {
@@ -96,7 +96,7 @@ public class RequirementWrapperItemProvider extends AggregatorItemProviderAdapte
 	 * This adds a property descriptor for the Greedy feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected void addGreedyPropertyDescriptor(Object object) {
@@ -113,7 +113,7 @@ public class RequirementWrapperItemProvider extends AggregatorItemProviderAdapte
 	 * This adds a property descriptor for the Label feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected void addLabelPropertyDescriptor(Object object) {
@@ -130,7 +130,7 @@ public class RequirementWrapperItemProvider extends AggregatorItemProviderAdapte
 	 * This adds a property descriptor for the Matches feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected void addMatchesPropertyDescriptor(Object object) {
@@ -147,7 +147,7 @@ public class RequirementWrapperItemProvider extends AggregatorItemProviderAdapte
 	 * This adds a property descriptor for the Max feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected void addMaxPropertyDescriptor(Object object) {
@@ -163,7 +163,7 @@ public class RequirementWrapperItemProvider extends AggregatorItemProviderAdapte
 	 * This adds a property descriptor for the Min feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected void addMinPropertyDescriptor(Object object) {
@@ -180,7 +180,7 @@ public class RequirementWrapperItemProvider extends AggregatorItemProviderAdapte
 	 * that can be created under this object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -192,7 +192,7 @@ public class RequirementWrapperItemProvider extends AggregatorItemProviderAdapte
 	 * This returns RequirementWrapper.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
 	@Override
@@ -213,7 +213,7 @@ public class RequirementWrapperItemProvider extends AggregatorItemProviderAdapte
 	 * This returns the property descriptors for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -236,7 +236,7 @@ public class RequirementWrapperItemProvider extends AggregatorItemProviderAdapte
 	 * Return the resource locator for this item provider's resources.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -248,7 +248,7 @@ public class RequirementWrapperItemProvider extends AggregatorItemProviderAdapte
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
 	@Override
@@ -261,7 +261,7 @@ public class RequirementWrapperItemProvider extends AggregatorItemProviderAdapte
 	 * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override

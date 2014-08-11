@@ -33,7 +33,7 @@ import org.eclipse.equinox.p2.query.QueryUtil;
 /**
  * This is the item provider adapter for a {@link org.eclipse.b3.aggregator.Category} object. <!--
  * begin-user-doc --> <!-- end-user-doc -->
- * 
+ *
  * @generated
  */
 public class CategoryItemProvider extends MappedUnitItemProvider implements IEditingDomainItemProvider,
@@ -42,7 +42,7 @@ public class CategoryItemProvider extends MappedUnitItemProvider implements IEdi
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public CategoryItemProvider(AdapterFactory adapterFactory) {
@@ -52,7 +52,7 @@ public class CategoryItemProvider extends MappedUnitItemProvider implements IEdi
 	/**
 	 * This adds a property descriptor for the Label Override feature.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected void addLabelOverridePropertyDescriptor(Object object) {
@@ -68,7 +68,7 @@ public class CategoryItemProvider extends MappedUnitItemProvider implements IEdi
 	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
 	 * that can be created under this object.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -83,7 +83,7 @@ public class CategoryItemProvider extends MappedUnitItemProvider implements IEdi
 
 	/**
 	 * This returns Category.gif. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
 	@Override
@@ -104,7 +104,7 @@ public class CategoryItemProvider extends MappedUnitItemProvider implements IEdi
 	/**
 	 * This returns the property descriptors for the adapted class.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -119,7 +119,7 @@ public class CategoryItemProvider extends MappedUnitItemProvider implements IEdi
 
 	/**
 	 * This returns the label text for the adapted class. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
 	@Override
@@ -146,7 +146,7 @@ public class CategoryItemProvider extends MappedUnitItemProvider implements IEdi
 	 * This handles model notifications by calling {@link #updateChildren} to update any cached children and by creating
 	 * a viewer notification, which it passes to {@link #fireNotifyChanged}. <!-- begin-user-doc --> <!-- end-user-doc
 	 * -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override

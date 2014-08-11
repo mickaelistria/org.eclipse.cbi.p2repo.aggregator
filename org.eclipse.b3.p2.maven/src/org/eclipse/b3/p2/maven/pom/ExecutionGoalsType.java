@@ -7,20 +7,19 @@
 package org.eclipse.b3.p2.maven.pom;
 
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc --> A representation of the model object '<em><b>Execution Goals Type</b></em>'. <!--
  * end-user-doc -->
- * 
+ *
  * <p>
  * The following features are supported:
  * <ul>
  * <li>{@link org.eclipse.b3.p2.maven.pom.ExecutionGoalsType#getGoal <em>Goal</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @see org.eclipse.b3.p2.maven.pom.PomPackage#getExecutionGoalsType()
  * @model extendedMetaData="name='execution_._goals_._type' kind='elementOnly'"
  * @generated
@@ -34,7 +33,7 @@ public interface ExecutionGoalsType extends EObject {
 	 * If the meaning of the '<em>Goal</em>' attribute list isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @return the value of the '<em>Goal</em>' attribute list.
 	 * @see org.eclipse.b3.p2.maven.pom.PomPackage#getExecutionGoalsType_Goal()
 	 * @model unique="false" dataType="org.eclipse.emf.ecore.xml.type.String"

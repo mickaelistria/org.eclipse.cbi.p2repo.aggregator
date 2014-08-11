@@ -35,7 +35,7 @@ import org.eclipse.equinox.p2.repository.metadata.IMetadataRepositoryManager;
 
 /**
  * @author filip.hrbek@cloudsmith.com
- * 
+ *
  */
 @Deprecated
 public class InternalMetadataRepository extends LocalMetadataRepository {

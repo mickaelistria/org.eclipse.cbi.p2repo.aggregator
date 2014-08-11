@@ -26,7 +26,7 @@ import org.osgi.framework.Bundle;
 
 /**
  * @author filip.hrbek@cloudsmith.com
- * 
+ *
  */
 public abstract class AbstractCommand implements Comparable<AbstractCommand> {
 	public static final Integer EXIT_OK = IApplication.EXIT_OK;
@@ -47,6 +47,7 @@ public abstract class AbstractCommand implements Comparable<AbstractCommand> {
 
 	private String name;
 
+	@Override
 	public final int compareTo(AbstractCommand another) {
 		return another == null
 				? 1

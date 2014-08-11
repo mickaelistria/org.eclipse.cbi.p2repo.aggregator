@@ -72,13 +72,13 @@ import org.eclipse.equinox.p2.query.QueryUtil;
  * <li>{@link org.eclipse.b3.aggregator.impl.InstallableUnitRequestImpl#getAvailableVersions <em>Available Versions</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public abstract class InstallableUnitRequestImpl extends MinimalEObjectImpl.Container implements InstallableUnitRequest {
 	/**
 	 * This looks up a string in the plugin's plugin.properties file. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
 	private static String getString(String key) {
@@ -88,7 +88,7 @@ public abstract class InstallableUnitRequestImpl extends MinimalEObjectImpl.Cont
 	/**
 	 * A set of bit flags representing the values of boolean attributes and whether unsettable features have been set.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 * @ordered
 	 */
@@ -98,7 +98,7 @@ public abstract class InstallableUnitRequestImpl extends MinimalEObjectImpl.Cont
 	 * The cached value of the '{@link #getErrors() <em>Errors</em>}' attribute list.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @see #getErrors()
 	 * @generated
 	 * @ordered
@@ -109,7 +109,7 @@ public abstract class InstallableUnitRequestImpl extends MinimalEObjectImpl.Cont
 	 * The cached value of the '{@link #getWarnings() <em>Warnings</em>}' attribute list.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @see #getWarnings()
 	 * @generated
 	 * @ordered
@@ -120,7 +120,7 @@ public abstract class InstallableUnitRequestImpl extends MinimalEObjectImpl.Cont
 	 * The cached value of the '{@link #getInfos() <em>Infos</em>}' attribute list.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @see #getInfos()
 	 * @generated
 	 * @ordered
@@ -131,7 +131,7 @@ public abstract class InstallableUnitRequestImpl extends MinimalEObjectImpl.Cont
 	 * The default value of the '{@link #getDescription() <em>Description</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getDescription()
 	 * @generated
 	 * @ordered
@@ -142,7 +142,7 @@ public abstract class InstallableUnitRequestImpl extends MinimalEObjectImpl.Cont
 	 * The cached value of the '{@link #getDescription() <em>Description</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getDescription()
 	 * @generated
 	 * @ordered
@@ -153,7 +153,7 @@ public abstract class InstallableUnitRequestImpl extends MinimalEObjectImpl.Cont
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getName()
 	 * @generated
 	 * @ordered
@@ -164,7 +164,7 @@ public abstract class InstallableUnitRequestImpl extends MinimalEObjectImpl.Cont
 	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getName()
 	 * @generated
 	 * @ordered
@@ -175,7 +175,7 @@ public abstract class InstallableUnitRequestImpl extends MinimalEObjectImpl.Cont
 	 * The default value of the '{@link #getVersionRange() <em>Version Range</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getVersionRange()
 	 * @generated
 	 * @ordered
@@ -187,7 +187,7 @@ public abstract class InstallableUnitRequestImpl extends MinimalEObjectImpl.Cont
 	 * The cached value of the '{@link #getVersionRange() <em>Version Range</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getVersionRange()
 	 * @generated
 	 * @ordered
@@ -198,7 +198,7 @@ public abstract class InstallableUnitRequestImpl extends MinimalEObjectImpl.Cont
 	 * The cached value of the '{@link #getAvailableVersionsHeader() <em>Available Versions Header</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getAvailableVersionsHeader()
 	 * @generated
 	 * @ordered
@@ -209,7 +209,7 @@ public abstract class InstallableUnitRequestImpl extends MinimalEObjectImpl.Cont
 	 * The cached value of the '{@link #getAvailableVersions() <em>Available Versions</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getAvailableVersions()
 	 * @generated
 	 * @ordered
@@ -218,7 +218,7 @@ public abstract class InstallableUnitRequestImpl extends MinimalEObjectImpl.Cont
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
 	protected InstallableUnitRequestImpl() {
@@ -259,7 +259,7 @@ public abstract class InstallableUnitRequestImpl extends MinimalEObjectImpl.Cont
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public NotificationChain basicSetAvailableVersionsHeader(AvailableVersionsHeader newAvailableVersionsHeader,
@@ -280,7 +280,7 @@ public abstract class InstallableUnitRequestImpl extends MinimalEObjectImpl.Cont
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -310,7 +310,7 @@ public abstract class InstallableUnitRequestImpl extends MinimalEObjectImpl.Cont
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -340,7 +340,7 @@ public abstract class InstallableUnitRequestImpl extends MinimalEObjectImpl.Cont
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -371,7 +371,7 @@ public abstract class InstallableUnitRequestImpl extends MinimalEObjectImpl.Cont
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -389,7 +389,7 @@ public abstract class InstallableUnitRequestImpl extends MinimalEObjectImpl.Cont
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -405,7 +405,7 @@ public abstract class InstallableUnitRequestImpl extends MinimalEObjectImpl.Cont
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -441,7 +441,7 @@ public abstract class InstallableUnitRequestImpl extends MinimalEObjectImpl.Cont
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
@@ -482,7 +482,7 @@ public abstract class InstallableUnitRequestImpl extends MinimalEObjectImpl.Cont
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -492,7 +492,7 @@ public abstract class InstallableUnitRequestImpl extends MinimalEObjectImpl.Cont
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -529,7 +529,7 @@ public abstract class InstallableUnitRequestImpl extends MinimalEObjectImpl.Cont
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
 	public EList<AvailableVersion> getAvailableVersions() {
@@ -542,7 +542,7 @@ public abstract class InstallableUnitRequestImpl extends MinimalEObjectImpl.Cont
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public AvailableVersionsHeader getAvailableVersionsHeader() {
@@ -552,7 +552,7 @@ public abstract class InstallableUnitRequestImpl extends MinimalEObjectImpl.Cont
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public String getDescription() {
@@ -561,7 +561,7 @@ public abstract class InstallableUnitRequestImpl extends MinimalEObjectImpl.Cont
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
 	public EList<String> getErrors() {
@@ -577,7 +577,7 @@ public abstract class InstallableUnitRequestImpl extends MinimalEObjectImpl.Cont
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
 	public EList<String> getInfos() {
@@ -599,7 +599,7 @@ public abstract class InstallableUnitRequestImpl extends MinimalEObjectImpl.Cont
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public String getName() {
@@ -608,7 +608,7 @@ public abstract class InstallableUnitRequestImpl extends MinimalEObjectImpl.Cont
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
 	synchronized public Status getStatus() {
@@ -624,7 +624,7 @@ public abstract class InstallableUnitRequestImpl extends MinimalEObjectImpl.Cont
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public VersionRange getVersionRange() {
@@ -633,7 +633,7 @@ public abstract class InstallableUnitRequestImpl extends MinimalEObjectImpl.Cont
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EList<String> getWarnings() {
@@ -650,7 +650,7 @@ public abstract class InstallableUnitRequestImpl extends MinimalEObjectImpl.Cont
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
 	public boolean isBranchEnabled() {
@@ -659,7 +659,7 @@ public abstract class InstallableUnitRequestImpl extends MinimalEObjectImpl.Cont
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
 	public boolean isMappedRepositoryBroken() {
@@ -671,7 +671,7 @@ public abstract class InstallableUnitRequestImpl extends MinimalEObjectImpl.Cont
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
 	public IInstallableUnit resolveAsSingleton() {
@@ -681,7 +681,7 @@ public abstract class InstallableUnitRequestImpl extends MinimalEObjectImpl.Cont
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
 	public IInstallableUnit resolveAsSingleton(boolean forceResolve) {
@@ -777,7 +777,7 @@ public abstract class InstallableUnitRequestImpl extends MinimalEObjectImpl.Cont
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
 	public void setAvailableVersionsHeader(AvailableVersionsHeader newAvailableVersionsHeader) {
@@ -804,7 +804,7 @@ public abstract class InstallableUnitRequestImpl extends MinimalEObjectImpl.Cont
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public void setDescription(String newDescription) {
@@ -819,7 +819,7 @@ public abstract class InstallableUnitRequestImpl extends MinimalEObjectImpl.Cont
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public void setName(String newName) {
@@ -833,7 +833,7 @@ public abstract class InstallableUnitRequestImpl extends MinimalEObjectImpl.Cont
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public void setVersionRange(VersionRange newVersionRange) {
@@ -847,7 +847,7 @@ public abstract class InstallableUnitRequestImpl extends MinimalEObjectImpl.Cont
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override

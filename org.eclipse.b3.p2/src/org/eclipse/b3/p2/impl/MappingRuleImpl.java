@@ -4,17 +4,14 @@
  * licensed under the Eclipse Public License - v 1.0 by the copyright holder
  * listed above, as the Initial Contributor under such license. The text of
  * such license is available at www.eclipse.org.
- * 
+ *
  */
 package org.eclipse.b3.p2.impl;
 
 import org.eclipse.b3.p2.MappingRule;
 import org.eclipse.b3.p2.P2Package;
-
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
@@ -29,7 +26,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <li>{@link org.eclipse.b3.p2.impl.MappingRuleImpl#getOutput <em>Output</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public class MappingRuleImpl extends MinimalEObjectImpl.Container implements MappingRule {
@@ -37,7 +34,7 @@ public class MappingRuleImpl extends MinimalEObjectImpl.Container implements Map
 	 * A set of bit flags representing the values of boolean attributes and whether unsettable features have been set.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 * @ordered
 	 */
@@ -47,7 +44,7 @@ public class MappingRuleImpl extends MinimalEObjectImpl.Container implements Map
 	 * The default value of the '{@link #getFilter() <em>Filter</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getFilter()
 	 * @generated
 	 * @ordered
@@ -58,7 +55,7 @@ public class MappingRuleImpl extends MinimalEObjectImpl.Container implements Map
 	 * The cached value of the '{@link #getFilter() <em>Filter</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getFilter()
 	 * @generated
 	 * @ordered
@@ -69,7 +66,7 @@ public class MappingRuleImpl extends MinimalEObjectImpl.Container implements Map
 	 * The default value of the '{@link #getOutput() <em>Output</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getOutput()
 	 * @generated
 	 * @ordered
@@ -80,7 +77,7 @@ public class MappingRuleImpl extends MinimalEObjectImpl.Container implements Map
 	 * The cached value of the '{@link #getOutput() <em>Output</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getOutput()
 	 * @generated
 	 * @ordered
@@ -90,7 +87,7 @@ public class MappingRuleImpl extends MinimalEObjectImpl.Container implements Map
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected MappingRuleImpl() {
@@ -100,7 +97,7 @@ public class MappingRuleImpl extends MinimalEObjectImpl.Container implements Map
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -117,7 +114,7 @@ public class MappingRuleImpl extends MinimalEObjectImpl.Container implements Map
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -138,7 +135,7 @@ public class MappingRuleImpl extends MinimalEObjectImpl.Container implements Map
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -157,7 +154,7 @@ public class MappingRuleImpl extends MinimalEObjectImpl.Container implements Map
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -168,7 +165,7 @@ public class MappingRuleImpl extends MinimalEObjectImpl.Container implements Map
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -187,9 +184,10 @@ public class MappingRuleImpl extends MinimalEObjectImpl.Container implements Map
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public String getFilter() {
 		return filter;
 	}
@@ -197,9 +195,10 @@ public class MappingRuleImpl extends MinimalEObjectImpl.Container implements Map
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public String getOutput() {
 		return output;
 	}
@@ -207,9 +206,10 @@ public class MappingRuleImpl extends MinimalEObjectImpl.Container implements Map
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public void setFilter(String newFilter) {
 		String oldFilter = filter;
 		filter = newFilter;
@@ -220,9 +220,10 @@ public class MappingRuleImpl extends MinimalEObjectImpl.Container implements Map
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public void setOutput(String newOutput) {
 		String oldOutput = output;
 		output = newOutput;
@@ -233,7 +234,7 @@ public class MappingRuleImpl extends MinimalEObjectImpl.Container implements Map
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override

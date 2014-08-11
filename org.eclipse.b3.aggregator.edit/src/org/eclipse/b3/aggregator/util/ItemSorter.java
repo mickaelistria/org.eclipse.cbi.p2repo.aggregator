@@ -25,7 +25,7 @@ import org.eclipse.emf.ecore.EObject;
 
 /**
  * Sorts items into several groups, new groups can be added
- * 
+ *
  * @author Karel Brezina
  */
 public class ItemSorter {

@@ -11,7 +11,7 @@ import org.eclipse.emf.ecore.EFactory;
 /**
  * <!-- begin-user-doc --> The <b>Factory</b> for the model. It provides a create method for each non-abstract class of
  * the model. <!-- end-user-doc -->
- * 
+ *
  * @see org.eclipse.b3.p2.maven.pom.PomPackage
  * @generated
  */
@@ -19,7 +19,7 @@ public interface PomFactory extends EFactory {
 	/**
 	 * The singleton instance of the factory.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	PomFactory eINSTANCE = org.eclipse.b3.p2.maven.pom.impl.PomFactoryImpl.init();
@@ -27,7 +27,7 @@ public interface PomFactory extends EFactory {
 	/**
 	 * Returns a new object of class '<em>Activation</em>'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @return a new object of class '<em>Activation</em>'.
 	 * @generated
 	 */
@@ -36,7 +36,7 @@ public interface PomFactory extends EFactory {
 	/**
 	 * Returns a new object of class '<em>Activation File</em>'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @return a new object of class '<em>Activation File</em>'.
 	 * @generated
 	 */
@@ -45,7 +45,7 @@ public interface PomFactory extends EFactory {
 	/**
 	 * Returns a new object of class '<em>Activation OS</em>'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @return a new object of class '<em>Activation OS</em>'.
 	 * @generated
 	 */
@@ -54,7 +54,7 @@ public interface PomFactory extends EFactory {
 	/**
 	 * Returns a new object of class '<em>Activation Property</em>'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @return a new object of class '<em>Activation Property</em>'.
 	 * @generated
 	 */
@@ -63,7 +63,7 @@ public interface PomFactory extends EFactory {
 	/**
 	 * Returns a new object of class '<em>Build</em>'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @return a new object of class '<em>Build</em>'.
 	 * @generated
 	 */
@@ -72,7 +72,7 @@ public interface PomFactory extends EFactory {
 	/**
 	 * Returns a new object of class '<em>Build Base</em>'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @return a new object of class '<em>Build Base</em>'.
 	 * @generated
 	 */
@@ -81,7 +81,7 @@ public interface PomFactory extends EFactory {
 	/**
 	 * Returns a new object of class '<em>Ci Management</em>'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @return a new object of class '<em>Ci Management</em>'.
 	 * @generated
 	 */
@@ -90,7 +90,7 @@ public interface PomFactory extends EFactory {
 	/**
 	 * Returns a new object of class '<em>Configuration Type</em>'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @return a new object of class '<em>Configuration Type</em>'.
 	 * @generated
 	 */
@@ -99,7 +99,7 @@ public interface PomFactory extends EFactory {
 	/**
 	 * Returns a new object of class '<em>Contributor</em>'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @return a new object of class '<em>Contributor</em>'.
 	 * @generated
 	 */
@@ -108,7 +108,7 @@ public interface PomFactory extends EFactory {
 	/**
 	 * Returns a new object of class '<em>Contributors Type</em>'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @return a new object of class '<em>Contributors Type</em>'.
 	 * @generated
 	 */
@@ -117,7 +117,7 @@ public interface PomFactory extends EFactory {
 	/**
 	 * Returns a new object of class '<em>Dependencies Type</em>'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @return a new object of class '<em>Dependencies Type</em>'.
 	 * @generated
 	 */
@@ -126,7 +126,7 @@ public interface PomFactory extends EFactory {
 	/**
 	 * Returns a new object of class '<em>Dependency</em>'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @return a new object of class '<em>Dependency</em>'.
 	 * @generated
 	 */
@@ -135,7 +135,7 @@ public interface PomFactory extends EFactory {
 	/**
 	 * Returns a new object of class '<em>Dependency Management</em>'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @return a new object of class '<em>Dependency Management</em>'.
 	 * @generated
 	 */
@@ -144,7 +144,7 @@ public interface PomFactory extends EFactory {
 	/**
 	 * Returns a new object of class '<em>Deployment Repository</em>'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @return a new object of class '<em>Deployment Repository</em>'.
 	 * @generated
 	 */
@@ -153,7 +153,7 @@ public interface PomFactory extends EFactory {
 	/**
 	 * Returns a new object of class '<em>Developer</em>'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @return a new object of class '<em>Developer</em>'.
 	 * @generated
 	 */
@@ -162,7 +162,7 @@ public interface PomFactory extends EFactory {
 	/**
 	 * Returns a new object of class '<em>Developers Type</em>'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @return a new object of class '<em>Developers Type</em>'.
 	 * @generated
 	 */
@@ -171,7 +171,7 @@ public interface PomFactory extends EFactory {
 	/**
 	 * Returns a new object of class '<em>Distribution Management</em>'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @return a new object of class '<em>Distribution Management</em>'.
 	 * @generated
 	 */
@@ -180,7 +180,7 @@ public interface PomFactory extends EFactory {
 	/**
 	 * Returns a new object of class '<em>Document Root</em>'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @return a new object of class '<em>Document Root</em>'.
 	 * @generated
 	 */
@@ -189,7 +189,7 @@ public interface PomFactory extends EFactory {
 	/**
 	 * Returns a new object of class '<em>Excludes Type</em>'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @return a new object of class '<em>Excludes Type</em>'.
 	 * @generated
 	 */
@@ -198,7 +198,7 @@ public interface PomFactory extends EFactory {
 	/**
 	 * Returns a new object of class '<em>Exclusion</em>'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @return a new object of class '<em>Exclusion</em>'.
 	 * @generated
 	 */
@@ -207,7 +207,7 @@ public interface PomFactory extends EFactory {
 	/**
 	 * Returns a new object of class '<em>Exclusions Type</em>'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @return a new object of class '<em>Exclusions Type</em>'.
 	 * @generated
 	 */
@@ -216,7 +216,7 @@ public interface PomFactory extends EFactory {
 	/**
 	 * Returns a new object of class '<em>Execution Goals Type</em>'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @return a new object of class '<em>Execution Goals Type</em>'.
 	 * @generated
 	 */
@@ -225,7 +225,7 @@ public interface PomFactory extends EFactory {
 	/**
 	 * Returns a new object of class '<em>Executions Type</em>'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @return a new object of class '<em>Executions Type</em>'.
 	 * @generated
 	 */
@@ -234,7 +234,7 @@ public interface PomFactory extends EFactory {
 	/**
 	 * Returns a new object of class '<em>Extension</em>'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @return a new object of class '<em>Extension</em>'.
 	 * @generated
 	 */
@@ -243,7 +243,7 @@ public interface PomFactory extends EFactory {
 	/**
 	 * Returns a new object of class '<em>Extensions Type</em>'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @return a new object of class '<em>Extensions Type</em>'.
 	 * @generated
 	 */
@@ -252,7 +252,7 @@ public interface PomFactory extends EFactory {
 	/**
 	 * Returns a new object of class '<em>Filters Type</em>'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @return a new object of class '<em>Filters Type</em>'.
 	 * @generated
 	 */
@@ -261,7 +261,7 @@ public interface PomFactory extends EFactory {
 	/**
 	 * Returns a new object of class '<em>Goals Type</em>'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @return a new object of class '<em>Goals Type</em>'.
 	 * @generated
 	 */
@@ -270,7 +270,7 @@ public interface PomFactory extends EFactory {
 	/**
 	 * Returns a new object of class '<em>Includes Type</em>'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @return a new object of class '<em>Includes Type</em>'.
 	 * @generated
 	 */
@@ -279,7 +279,7 @@ public interface PomFactory extends EFactory {
 	/**
 	 * Returns a new object of class '<em>Issue Management</em>'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @return a new object of class '<em>Issue Management</em>'.
 	 * @generated
 	 */
@@ -288,7 +288,7 @@ public interface PomFactory extends EFactory {
 	/**
 	 * Returns a new object of class '<em>License</em>'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @return a new object of class '<em>License</em>'.
 	 * @generated
 	 */
@@ -297,7 +297,7 @@ public interface PomFactory extends EFactory {
 	/**
 	 * Returns a new object of class '<em>Licenses Type</em>'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @return a new object of class '<em>Licenses Type</em>'.
 	 * @generated
 	 */
@@ -306,7 +306,7 @@ public interface PomFactory extends EFactory {
 	/**
 	 * Returns a new object of class '<em>Mailing List</em>'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @return a new object of class '<em>Mailing List</em>'.
 	 * @generated
 	 */
@@ -315,7 +315,7 @@ public interface PomFactory extends EFactory {
 	/**
 	 * Returns a new object of class '<em>Mailing Lists Type</em>'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @return a new object of class '<em>Mailing Lists Type</em>'.
 	 * @generated
 	 */
@@ -324,7 +324,7 @@ public interface PomFactory extends EFactory {
 	/**
 	 * Returns a new object of class '<em>Model</em>'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @return a new object of class '<em>Model</em>'.
 	 * @generated
 	 */
@@ -333,7 +333,7 @@ public interface PomFactory extends EFactory {
 	/**
 	 * Returns a new object of class '<em>Modules Type</em>'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @return a new object of class '<em>Modules Type</em>'.
 	 * @generated
 	 */
@@ -342,7 +342,7 @@ public interface PomFactory extends EFactory {
 	/**
 	 * Returns a new object of class '<em>Notifier</em>'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @return a new object of class '<em>Notifier</em>'.
 	 * @generated
 	 */
@@ -351,7 +351,7 @@ public interface PomFactory extends EFactory {
 	/**
 	 * Returns a new object of class '<em>Notifiers Type</em>'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @return a new object of class '<em>Notifiers Type</em>'.
 	 * @generated
 	 */
@@ -360,7 +360,7 @@ public interface PomFactory extends EFactory {
 	/**
 	 * Returns a new object of class '<em>Organization</em>'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @return a new object of class '<em>Organization</em>'.
 	 * @generated
 	 */
@@ -369,7 +369,7 @@ public interface PomFactory extends EFactory {
 	/**
 	 * Returns a new object of class '<em>Other Archives Type</em>'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @return a new object of class '<em>Other Archives Type</em>'.
 	 * @generated
 	 */
@@ -378,7 +378,7 @@ public interface PomFactory extends EFactory {
 	/**
 	 * Returns a new object of class '<em>Parent</em>'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @return a new object of class '<em>Parent</em>'.
 	 * @generated
 	 */
@@ -387,7 +387,7 @@ public interface PomFactory extends EFactory {
 	/**
 	 * Returns a new object of class '<em>Plugin</em>'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @return a new object of class '<em>Plugin</em>'.
 	 * @generated
 	 */
@@ -396,7 +396,7 @@ public interface PomFactory extends EFactory {
 	/**
 	 * Returns a new object of class '<em>Plugin Execution</em>'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @return a new object of class '<em>Plugin Execution</em>'.
 	 * @generated
 	 */
@@ -405,7 +405,7 @@ public interface PomFactory extends EFactory {
 	/**
 	 * Returns a new object of class '<em>Plugin Management</em>'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @return a new object of class '<em>Plugin Management</em>'.
 	 * @generated
 	 */
@@ -414,7 +414,7 @@ public interface PomFactory extends EFactory {
 	/**
 	 * Returns a new object of class '<em>Plugin Repositories Type</em>'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @return a new object of class '<em>Plugin Repositories Type</em>'.
 	 * @generated
 	 */
@@ -423,7 +423,7 @@ public interface PomFactory extends EFactory {
 	/**
 	 * Returns a new object of class '<em>Plugins Type</em>'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @return a new object of class '<em>Plugins Type</em>'.
 	 * @generated
 	 */
@@ -432,7 +432,7 @@ public interface PomFactory extends EFactory {
 	/**
 	 * Returns a new object of class '<em>Prerequisites</em>'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @return a new object of class '<em>Prerequisites</em>'.
 	 * @generated
 	 */
@@ -441,7 +441,7 @@ public interface PomFactory extends EFactory {
 	/**
 	 * Returns a new object of class '<em>Profile</em>'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @return a new object of class '<em>Profile</em>'.
 	 * @generated
 	 */
@@ -450,7 +450,7 @@ public interface PomFactory extends EFactory {
 	/**
 	 * Returns a new object of class '<em>Profiles Type</em>'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @return a new object of class '<em>Profiles Type</em>'.
 	 * @generated
 	 */
@@ -459,7 +459,7 @@ public interface PomFactory extends EFactory {
 	/**
 	 * Returns a new object of class '<em>Properties Type</em>'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @return a new object of class '<em>Properties Type</em>'.
 	 * @generated
 	 */
@@ -468,7 +468,7 @@ public interface PomFactory extends EFactory {
 	/**
 	 * Returns a new object of class '<em>Relocation</em>'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @return a new object of class '<em>Relocation</em>'.
 	 * @generated
 	 */
@@ -477,7 +477,7 @@ public interface PomFactory extends EFactory {
 	/**
 	 * Returns a new object of class '<em>Reporting</em>'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @return a new object of class '<em>Reporting</em>'.
 	 * @generated
 	 */
@@ -486,7 +486,7 @@ public interface PomFactory extends EFactory {
 	/**
 	 * Returns a new object of class '<em>Reporting Plugins Type</em>'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @return a new object of class '<em>Reporting Plugins Type</em>'.
 	 * @generated
 	 */
@@ -495,7 +495,7 @@ public interface PomFactory extends EFactory {
 	/**
 	 * Returns a new object of class '<em>Report Plugin</em>'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @return a new object of class '<em>Report Plugin</em>'.
 	 * @generated
 	 */
@@ -504,7 +504,7 @@ public interface PomFactory extends EFactory {
 	/**
 	 * Returns a new object of class '<em>Report Set</em>'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @return a new object of class '<em>Report Set</em>'.
 	 * @generated
 	 */
@@ -513,7 +513,7 @@ public interface PomFactory extends EFactory {
 	/**
 	 * Returns a new object of class '<em>Report Set Reports Type</em>'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @return a new object of class '<em>Report Set Reports Type</em>'.
 	 * @generated
 	 */
@@ -522,7 +522,7 @@ public interface PomFactory extends EFactory {
 	/**
 	 * Returns a new object of class '<em>Report Sets Type</em>'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @return a new object of class '<em>Report Sets Type</em>'.
 	 * @generated
 	 */
@@ -531,7 +531,7 @@ public interface PomFactory extends EFactory {
 	/**
 	 * Returns a new object of class '<em>Reports Type</em>'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @return a new object of class '<em>Reports Type</em>'.
 	 * @generated
 	 */
@@ -540,7 +540,7 @@ public interface PomFactory extends EFactory {
 	/**
 	 * Returns a new object of class '<em>Repositories Type</em>'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @return a new object of class '<em>Repositories Type</em>'.
 	 * @generated
 	 */
@@ -549,7 +549,7 @@ public interface PomFactory extends EFactory {
 	/**
 	 * Returns a new object of class '<em>Repository</em>'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @return a new object of class '<em>Repository</em>'.
 	 * @generated
 	 */
@@ -558,7 +558,7 @@ public interface PomFactory extends EFactory {
 	/**
 	 * Returns a new object of class '<em>Repository Policy</em>'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @return a new object of class '<em>Repository Policy</em>'.
 	 * @generated
 	 */
@@ -567,7 +567,7 @@ public interface PomFactory extends EFactory {
 	/**
 	 * Returns a new object of class '<em>Resource</em>'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @return a new object of class '<em>Resource</em>'.
 	 * @generated
 	 */
@@ -576,7 +576,7 @@ public interface PomFactory extends EFactory {
 	/**
 	 * Returns a new object of class '<em>Resources Type</em>'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @return a new object of class '<em>Resources Type</em>'.
 	 * @generated
 	 */
@@ -585,7 +585,7 @@ public interface PomFactory extends EFactory {
 	/**
 	 * Returns a new object of class '<em>Roles Type</em>'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @return a new object of class '<em>Roles Type</em>'.
 	 * @generated
 	 */
@@ -594,7 +594,7 @@ public interface PomFactory extends EFactory {
 	/**
 	 * Returns a new object of class '<em>Scm</em>'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @return a new object of class '<em>Scm</em>'.
 	 * @generated
 	 */
@@ -603,7 +603,7 @@ public interface PomFactory extends EFactory {
 	/**
 	 * Returns a new object of class '<em>Site</em>'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @return a new object of class '<em>Site</em>'.
 	 * @generated
 	 */
@@ -612,7 +612,7 @@ public interface PomFactory extends EFactory {
 	/**
 	 * Returns a new object of class '<em>Test Resources Type</em>'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @return a new object of class '<em>Test Resources Type</em>'.
 	 * @generated
 	 */
@@ -621,7 +621,7 @@ public interface PomFactory extends EFactory {
 	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @return the package supported by this factory.
 	 * @generated
 	 */

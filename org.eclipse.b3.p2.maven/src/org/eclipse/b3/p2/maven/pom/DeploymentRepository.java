@@ -11,14 +11,14 @@ import org.eclipse.emf.ecore.EObject;
 /**
  * <!-- begin-user-doc --> A representation of the model object '<em><b>Deployment Repository</b></em>'. <!--
  * end-user-doc -->
- * 
+ *
  * <!-- begin-model-doc -->
  * 4.0.0
- * 
+ *
  * Repository contains the information needed for deploying to the remote repoistory.
- * 
+ *
  * <!-- end-model-doc -->
- * 
+ *
  * <p>
  * The following features are supported:
  * <ul>
@@ -29,7 +29,7 @@ import org.eclipse.emf.ecore.EObject;
  * <li>{@link org.eclipse.b3.p2.maven.pom.DeploymentRepository#getLayout <em>Layout</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @see org.eclipse.b3.p2.maven.pom.PomPackage#getDeploymentRepository()
  * @model extendedMetaData="name='DeploymentRepository' kind='elementOnly'"
  * @generated
@@ -38,12 +38,12 @@ public interface DeploymentRepository extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Id</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc --> <!--
 	 * begin-model-doc --> 4.0.0
-	 * 
+	 *
 	 * A unique identifier for a repository. This is used to match the repository to configuration in the
 	 * &lt;code&gt;settings.xml&lt;/code&gt; file, for example.
-	 * 
+	 *
 	 * <!-- end-model-doc -->
-	 * 
+	 *
 	 * @return the value of the '<em>Id</em>' attribute.
 	 * @see #setId(String)
 	 * @see org.eclipse.b3.p2.maven.pom.PomPackage#getDeploymentRepository_Id()
@@ -56,12 +56,12 @@ public interface DeploymentRepository extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Layout</b></em>' attribute. The default value is <code>"default"</code>. <!--
 	 * begin-user-doc --> <!-- end-user-doc --> <!-- begin-model-doc --> 4.0.0
-	 * 
+	 *
 	 * The type of layout this repository uses for locating and storing artifacts - can be
 	 * &lt;code&gt;legacy&lt;/code&gt; or &lt;code&gt;default&lt;/code&gt;.
-	 * 
+	 *
 	 * <!-- end-model-doc -->
-	 * 
+	 *
 	 * @return the value of the '<em>Layout</em>' attribute.
 	 * @see #isSetLayout()
 	 * @see #unsetLayout()
@@ -76,11 +76,11 @@ public interface DeploymentRepository extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Name</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc --> <!--
 	 * begin-model-doc --> 4.0.0
-	 * 
+	 *
 	 * Human readable name of the repository.
-	 * 
+	 *
 	 * <!-- end-model-doc -->
-	 * 
+	 *
 	 * @return the value of the '<em>Name</em>' attribute.
 	 * @see #setName(String)
 	 * @see org.eclipse.b3.p2.maven.pom.PomPackage#getDeploymentRepository_Name()
@@ -93,11 +93,11 @@ public interface DeploymentRepository extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Url</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc --> <!--
 	 * begin-model-doc --> 4.0.0
-	 * 
+	 *
 	 * The url of the repository, in the form &lt;code&gt;protocol://hostname/path&lt;/code&gt;.
-	 * 
+	 *
 	 * <!-- end-model-doc -->
-	 * 
+	 *
 	 * @return the value of the '<em>Url</em>' attribute.
 	 * @see #setUrl(String)
 	 * @see org.eclipse.b3.p2.maven.pom.PomPackage#getDeploymentRepository_Url()
@@ -110,7 +110,7 @@ public interface DeploymentRepository extends EObject {
 	/**
 	 * Returns whether the value of the '{@link org.eclipse.b3.p2.maven.pom.DeploymentRepository#getLayout <em>Layout</em>}' attribute is set.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @return whether the value of the '<em>Layout</em>' attribute is set.
 	 * @see #unsetLayout()
 	 * @see #getLayout()
@@ -123,7 +123,7 @@ public interface DeploymentRepository extends EObject {
 	 * Returns whether the value of the '{@link org.eclipse.b3.p2.maven.pom.DeploymentRepository#isUniqueVersion <em>Unique Version</em>}' attribute
 	 * is set.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @return whether the value of the '<em>Unique Version</em>' attribute is set.
 	 * @see #unsetUniqueVersion()
 	 * @see #isUniqueVersion()
@@ -136,7 +136,7 @@ public interface DeploymentRepository extends EObject {
 	 * Returns the value of the '<em><b>Unique Version</b></em>' attribute. The default value is <code>"true"</code>.
 	 * <!-- begin-user-doc --> <!-- end-user-doc --> <!-- begin-model-doc --> 4.0.0 Whether to assign snapshots a unique
 	 * version comprised of the timestamp and build number, or to use the same version each time <!-- end-model-doc -->
-	 * 
+	 *
 	 * @return the value of the '<em>Unique Version</em>' attribute.
 	 * @see #isSetUniqueVersion()
 	 * @see #unsetUniqueVersion()
@@ -151,7 +151,7 @@ public interface DeploymentRepository extends EObject {
 	/**
 	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.DeploymentRepository#getId <em>Id</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param value
 	 *            the new value of the '<em>Id</em>' attribute.
 	 * @see #getId()
@@ -162,7 +162,7 @@ public interface DeploymentRepository extends EObject {
 	/**
 	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.DeploymentRepository#getLayout <em>Layout</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param value
 	 *            the new value of the '<em>Layout</em>' attribute.
 	 * @see #isSetLayout()
@@ -175,7 +175,7 @@ public interface DeploymentRepository extends EObject {
 	/**
 	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.DeploymentRepository#getName <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param value
 	 *            the new value of the '<em>Name</em>' attribute.
 	 * @see #getName()
@@ -186,7 +186,7 @@ public interface DeploymentRepository extends EObject {
 	/**
 	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.DeploymentRepository#isUniqueVersion <em>Unique Version</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param value
 	 *            the new value of the '<em>Unique Version</em>' attribute.
 	 * @see #isSetUniqueVersion()
@@ -199,7 +199,7 @@ public interface DeploymentRepository extends EObject {
 	/**
 	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.DeploymentRepository#getUrl <em>Url</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param value
 	 *            the new value of the '<em>Url</em>' attribute.
 	 * @see #getUrl()
@@ -210,7 +210,7 @@ public interface DeploymentRepository extends EObject {
 	/**
 	 * Unsets the value of the '{@link org.eclipse.b3.p2.maven.pom.DeploymentRepository#getLayout <em>Layout</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #isSetLayout()
 	 * @see #getLayout()
 	 * @see #setLayout(String)
@@ -221,7 +221,7 @@ public interface DeploymentRepository extends EObject {
 	/**
 	 * Unsets the value of the '{@link org.eclipse.b3.p2.maven.pom.DeploymentRepository#isUniqueVersion <em>Unique Version</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #isSetUniqueVersion()
 	 * @see #isUniqueVersion()
 	 * @see #setUniqueVersion(boolean)

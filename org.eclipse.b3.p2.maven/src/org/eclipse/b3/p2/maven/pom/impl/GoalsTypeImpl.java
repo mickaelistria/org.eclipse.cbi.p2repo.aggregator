@@ -8,14 +8,10 @@ package org.eclipse.b3.p2.maven.pom.impl;
 
 import org.eclipse.b3.p2.maven.pom.GoalsType;
 import org.eclipse.b3.p2.maven.pom.PomPackage;
-
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.EObjectImpl;
-
 import org.eclipse.emf.ecore.util.BasicFeatureMap;
 import org.eclipse.emf.ecore.util.FeatureMap;
 import org.eclipse.emf.ecore.util.InternalEList;
@@ -28,7 +24,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <li>{@link org.eclipse.b3.p2.maven.pom.impl.GoalsTypeImpl#getAny <em>Any</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public class GoalsTypeImpl extends EObjectImpl implements GoalsType {
@@ -36,7 +32,7 @@ public class GoalsTypeImpl extends EObjectImpl implements GoalsType {
 	 * The cached value of the '{@link #getAny() <em>Any</em>}' attribute list.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @see #getAny()
 	 * @generated
 	 * @ordered
@@ -45,7 +41,7 @@ public class GoalsTypeImpl extends EObjectImpl implements GoalsType {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected GoalsTypeImpl() {
@@ -54,7 +50,7 @@ public class GoalsTypeImpl extends EObjectImpl implements GoalsType {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -70,7 +66,7 @@ public class GoalsTypeImpl extends EObjectImpl implements GoalsType {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -84,7 +80,7 @@ public class GoalsTypeImpl extends EObjectImpl implements GoalsType {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -98,7 +94,7 @@ public class GoalsTypeImpl extends EObjectImpl implements GoalsType {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -113,7 +109,7 @@ public class GoalsTypeImpl extends EObjectImpl implements GoalsType {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -128,9 +124,10 @@ public class GoalsTypeImpl extends EObjectImpl implements GoalsType {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public FeatureMap getAny() {
 		if(any == null) {
 			any = new BasicFeatureMap(this, PomPackage.GOALS_TYPE__ANY);
@@ -140,7 +137,7 @@ public class GoalsTypeImpl extends EObjectImpl implements GoalsType {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -157,7 +154,7 @@ public class GoalsTypeImpl extends EObjectImpl implements GoalsType {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override

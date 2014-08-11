@@ -8,11 +8,8 @@ package org.eclipse.b3.p2.maven.pom.impl;
 
 import org.eclipse.b3.p2.maven.pom.DeploymentRepository;
 import org.eclipse.b3.p2.maven.pom.PomPackage;
-
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 
@@ -29,7 +26,7 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * <li>{@link org.eclipse.b3.p2.maven.pom.impl.DeploymentRepositoryImpl#getLayout <em>Layout</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public class DeploymentRepositoryImpl extends EObjectImpl implements DeploymentRepository {
@@ -37,7 +34,7 @@ public class DeploymentRepositoryImpl extends EObjectImpl implements DeploymentR
 	 * The default value of the '{@link #isUniqueVersion() <em>Unique Version</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #isUniqueVersion()
 	 * @generated
 	 * @ordered
@@ -48,7 +45,7 @@ public class DeploymentRepositoryImpl extends EObjectImpl implements DeploymentR
 	 * The cached value of the '{@link #isUniqueVersion() <em>Unique Version</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #isUniqueVersion()
 	 * @generated
 	 * @ordered
@@ -58,7 +55,7 @@ public class DeploymentRepositoryImpl extends EObjectImpl implements DeploymentR
 	/**
 	 * This is true if the Unique Version attribute has been set.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 * @ordered
 	 */
@@ -67,7 +64,7 @@ public class DeploymentRepositoryImpl extends EObjectImpl implements DeploymentR
 	/**
 	 * The default value of the '{@link #getId() <em>Id</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getId()
 	 * @generated
 	 * @ordered
@@ -77,7 +74,7 @@ public class DeploymentRepositoryImpl extends EObjectImpl implements DeploymentR
 	/**
 	 * The cached value of the '{@link #getId() <em>Id</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getId()
 	 * @generated
 	 * @ordered
@@ -87,7 +84,7 @@ public class DeploymentRepositoryImpl extends EObjectImpl implements DeploymentR
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
 	 * -->
-	 * 
+	 *
 	 * @see #getName()
 	 * @generated
 	 * @ordered
@@ -97,7 +94,7 @@ public class DeploymentRepositoryImpl extends EObjectImpl implements DeploymentR
 	/**
 	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
 	 * -->
-	 * 
+	 *
 	 * @see #getName()
 	 * @generated
 	 * @ordered
@@ -107,7 +104,7 @@ public class DeploymentRepositoryImpl extends EObjectImpl implements DeploymentR
 	/**
 	 * The default value of the '{@link #getUrl() <em>Url</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
 	 * -->
-	 * 
+	 *
 	 * @see #getUrl()
 	 * @generated
 	 * @ordered
@@ -117,7 +114,7 @@ public class DeploymentRepositoryImpl extends EObjectImpl implements DeploymentR
 	/**
 	 * The cached value of the '{@link #getUrl() <em>Url</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getUrl()
 	 * @generated
 	 * @ordered
@@ -128,7 +125,7 @@ public class DeploymentRepositoryImpl extends EObjectImpl implements DeploymentR
 	 * The default value of the '{@link #getLayout() <em>Layout</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @see #getLayout()
 	 * @generated
 	 * @ordered
@@ -139,7 +136,7 @@ public class DeploymentRepositoryImpl extends EObjectImpl implements DeploymentR
 	 * The cached value of the '{@link #getLayout() <em>Layout</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @see #getLayout()
 	 * @generated
 	 * @ordered
@@ -149,7 +146,7 @@ public class DeploymentRepositoryImpl extends EObjectImpl implements DeploymentR
 	/**
 	 * This is true if the Layout attribute has been set.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 * @ordered
 	 */
@@ -157,7 +154,7 @@ public class DeploymentRepositoryImpl extends EObjectImpl implements DeploymentR
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected DeploymentRepositoryImpl() {
@@ -166,7 +163,7 @@ public class DeploymentRepositoryImpl extends EObjectImpl implements DeploymentR
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -188,7 +185,7 @@ public class DeploymentRepositoryImpl extends EObjectImpl implements DeploymentR
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -216,7 +213,7 @@ public class DeploymentRepositoryImpl extends EObjectImpl implements DeploymentR
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -243,7 +240,7 @@ public class DeploymentRepositoryImpl extends EObjectImpl implements DeploymentR
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -270,72 +267,80 @@ public class DeploymentRepositoryImpl extends EObjectImpl implements DeploymentR
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public String getId() {
 		return id;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public String getLayout() {
 		return layout;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public String getName() {
 		return name;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public String getUrl() {
 		return url;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public boolean isSetLayout() {
 		return layoutESet;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public boolean isSetUniqueVersion() {
 		return uniqueVersionESet;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public boolean isUniqueVersion() {
 		return uniqueVersion;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public void setId(String newId) {
 		String oldId = id;
 		id = newId;
@@ -345,9 +350,10 @@ public class DeploymentRepositoryImpl extends EObjectImpl implements DeploymentR
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public void setLayout(String newLayout) {
 		String oldLayout = layout;
 		layout = newLayout;
@@ -360,9 +366,10 @@ public class DeploymentRepositoryImpl extends EObjectImpl implements DeploymentR
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public void setName(String newName) {
 		String oldName = name;
 		name = newName;
@@ -372,9 +379,10 @@ public class DeploymentRepositoryImpl extends EObjectImpl implements DeploymentR
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public void setUniqueVersion(boolean newUniqueVersion) {
 		boolean oldUniqueVersion = uniqueVersion;
 		uniqueVersion = newUniqueVersion;
@@ -388,9 +396,10 @@ public class DeploymentRepositoryImpl extends EObjectImpl implements DeploymentR
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public void setUrl(String newUrl) {
 		String oldUrl = url;
 		url = newUrl;
@@ -400,7 +409,7 @@ public class DeploymentRepositoryImpl extends EObjectImpl implements DeploymentR
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -431,9 +440,10 @@ public class DeploymentRepositoryImpl extends EObjectImpl implements DeploymentR
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public void unsetLayout() {
 		String oldLayout = layout;
 		boolean oldLayoutESet = layoutESet;
@@ -447,9 +457,10 @@ public class DeploymentRepositoryImpl extends EObjectImpl implements DeploymentR
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public void unsetUniqueVersion() {
 		boolean oldUniqueVersion = uniqueVersion;
 		boolean oldUniqueVersionESet = uniqueVersionESet;
@@ -463,7 +474,7 @@ public class DeploymentRepositoryImpl extends EObjectImpl implements DeploymentR
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override

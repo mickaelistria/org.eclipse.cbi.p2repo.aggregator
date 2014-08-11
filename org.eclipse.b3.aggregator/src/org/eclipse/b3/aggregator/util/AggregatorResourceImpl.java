@@ -27,7 +27,7 @@ import org.eclipse.emf.ecore.xmi.impl.XMIResourceImpl;
 
 /**
  * <!-- begin-user-doc --> The <b>Resource</b> associated with the package.
- * 
+ *
  * @extends AggregatorResource <!-- end-user-doc -->
  * @see org.eclipse.b3.aggregator.util.AggregatorResourceFactoryImpl
  */
@@ -71,7 +71,7 @@ public class AggregatorResourceImpl extends XMIResourceImpl implements Aggregato
 
 	/**
 	 * The infos.
-	 * 
+	 *
 	 * @see #getInfos
 	 */
 	protected EList<Diagnostic> infos;
@@ -83,7 +83,7 @@ public class AggregatorResourceImpl extends XMIResourceImpl implements Aggregato
 	/**
 	 * Creates an instance of the resource.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param uri
 	 *            the URI of the new resource.
 	 * @generated
@@ -182,7 +182,7 @@ public class AggregatorResourceImpl extends XMIResourceImpl implements Aggregato
 
 	/**
 	 * Returns the {@link Aggregation} instance contained in this {@link Resource}.
-	 * 
+	 *
 	 * @return the {@code Aggregator} instance contained in this {@code Resource}.
 	 */
 	public Aggregation getAggregation() {

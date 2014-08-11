@@ -16,7 +16,7 @@ import org.eclipse.emf.common.util.ResourceLocator;
 
 /**
  * @author Karel Brezina
- * 
+ *
  */
 public class CapabilityNamespaceImageProvider {
 	private static Map<CapabilityNamespace, String> namespaceMap;

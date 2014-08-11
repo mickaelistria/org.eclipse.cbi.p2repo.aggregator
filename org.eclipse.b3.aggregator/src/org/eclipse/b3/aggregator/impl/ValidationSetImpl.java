@@ -57,7 +57,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <li>{@link org.eclipse.b3.aggregator.impl.ValidationSetImpl#getExtends <em>Extends</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public class ValidationSetImpl extends MinimalEObjectImpl.Container implements ValidationSet {
@@ -65,7 +65,7 @@ public class ValidationSetImpl extends MinimalEObjectImpl.Container implements V
 	 * A set of bit flags representing the values of boolean attributes and whether unsettable features have been set.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 * @ordered
 	 */
@@ -75,7 +75,7 @@ public class ValidationSetImpl extends MinimalEObjectImpl.Container implements V
 	 * The default value of the '{@link #isBranchEnabled() <em>Branch Enabled</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #isBranchEnabled()
 	 * @generated
 	 * @ordered
@@ -86,7 +86,7 @@ public class ValidationSetImpl extends MinimalEObjectImpl.Container implements V
 	 * The default value of the '{@link #isEnabled() <em>Enabled</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #isEnabled()
 	 * @generated
 	 * @ordered
@@ -97,7 +97,7 @@ public class ValidationSetImpl extends MinimalEObjectImpl.Container implements V
 	 * The flag representing the value of the '{@link #isEnabled() <em>Enabled</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #isEnabled()
 	 * @generated
 	 * @ordered
@@ -108,7 +108,7 @@ public class ValidationSetImpl extends MinimalEObjectImpl.Container implements V
 	 * The default value of the '{@link #getDescription() <em>Description</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getDescription()
 	 * @generated
 	 * @ordered
@@ -119,7 +119,7 @@ public class ValidationSetImpl extends MinimalEObjectImpl.Container implements V
 	 * The cached value of the '{@link #getDescription() <em>Description</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getDescription()
 	 * @generated
 	 * @ordered
@@ -130,7 +130,7 @@ public class ValidationSetImpl extends MinimalEObjectImpl.Container implements V
 	 * The cached value of the '{@link #getErrors() <em>Errors</em>}' attribute list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getErrors()
 	 * @generated
 	 * @ordered
@@ -141,7 +141,7 @@ public class ValidationSetImpl extends MinimalEObjectImpl.Container implements V
 	 * The cached value of the '{@link #getWarnings() <em>Warnings</em>}' attribute list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getWarnings()
 	 * @generated
 	 * @ordered
@@ -152,7 +152,7 @@ public class ValidationSetImpl extends MinimalEObjectImpl.Container implements V
 	 * The cached value of the '{@link #getInfos() <em>Infos</em>}' attribute list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getInfos()
 	 * @generated
 	 * @ordered
@@ -163,7 +163,7 @@ public class ValidationSetImpl extends MinimalEObjectImpl.Container implements V
 	 * The default value of the '{@link #isAbstract() <em>Abstract</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #isAbstract()
 	 * @generated
 	 * @ordered
@@ -174,7 +174,7 @@ public class ValidationSetImpl extends MinimalEObjectImpl.Container implements V
 	 * The default value of the '{@link #isExtension() <em>Extension</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #isExtension()
 	 * @generated
 	 * @ordered
@@ -185,7 +185,7 @@ public class ValidationSetImpl extends MinimalEObjectImpl.Container implements V
 	 * The default value of the '{@link #getLabel() <em>Label</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getLabel()
 	 * @generated
 	 * @ordered
@@ -196,7 +196,7 @@ public class ValidationSetImpl extends MinimalEObjectImpl.Container implements V
 	 * The cached value of the '{@link #getLabel() <em>Label</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getLabel()
 	 * @generated
 	 * @ordered
@@ -207,7 +207,7 @@ public class ValidationSetImpl extends MinimalEObjectImpl.Container implements V
 	 * The cached value of the '{@link #getContributions() <em>Contributions</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getContributions()
 	 * @generated
 	 * @ordered
@@ -218,7 +218,7 @@ public class ValidationSetImpl extends MinimalEObjectImpl.Container implements V
 	 * The cached value of the '{@link #getValidationRepositories() <em>Validation Repositories</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getValidationRepositories()
 	 * @generated
 	 * @ordered
@@ -229,7 +229,7 @@ public class ValidationSetImpl extends MinimalEObjectImpl.Container implements V
 	 * The cached value of the '{@link #getExtends() <em>Extends</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getExtends()
 	 * @generated
 	 * @ordered
@@ -239,7 +239,7 @@ public class ValidationSetImpl extends MinimalEObjectImpl.Container implements V
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected ValidationSetImpl() {
@@ -281,7 +281,7 @@ public class ValidationSetImpl extends MinimalEObjectImpl.Container implements V
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -326,7 +326,7 @@ public class ValidationSetImpl extends MinimalEObjectImpl.Container implements V
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -371,7 +371,7 @@ public class ValidationSetImpl extends MinimalEObjectImpl.Container implements V
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -410,7 +410,7 @@ public class ValidationSetImpl extends MinimalEObjectImpl.Container implements V
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -427,7 +427,7 @@ public class ValidationSetImpl extends MinimalEObjectImpl.Container implements V
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -470,7 +470,7 @@ public class ValidationSetImpl extends MinimalEObjectImpl.Container implements V
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
@@ -517,7 +517,7 @@ public class ValidationSetImpl extends MinimalEObjectImpl.Container implements V
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -528,7 +528,7 @@ public class ValidationSetImpl extends MinimalEObjectImpl.Container implements V
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -571,7 +571,7 @@ public class ValidationSetImpl extends MinimalEObjectImpl.Container implements V
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
 	public EList<Contribution> getAllContributions() {
@@ -584,7 +584,7 @@ public class ValidationSetImpl extends MinimalEObjectImpl.Container implements V
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
 	public EList<MetadataRepositoryReference> getAllValidationRepositories() {
@@ -598,7 +598,7 @@ public class ValidationSetImpl extends MinimalEObjectImpl.Container implements V
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EList<Contribution> getContributions() {
@@ -612,7 +612,7 @@ public class ValidationSetImpl extends MinimalEObjectImpl.Container implements V
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
 	public EList<Contribution> getDeclaredContributions() {
@@ -622,7 +622,7 @@ public class ValidationSetImpl extends MinimalEObjectImpl.Container implements V
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
 	public EList<MetadataRepositoryReference> getDeclaredValidationRepositories() {
@@ -632,7 +632,7 @@ public class ValidationSetImpl extends MinimalEObjectImpl.Container implements V
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public String getDescription() {
@@ -642,7 +642,7 @@ public class ValidationSetImpl extends MinimalEObjectImpl.Container implements V
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EList<String> getErrors() {
@@ -655,7 +655,7 @@ public class ValidationSetImpl extends MinimalEObjectImpl.Container implements V
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EList<ValidationSet> getExtends() {
@@ -669,7 +669,7 @@ public class ValidationSetImpl extends MinimalEObjectImpl.Container implements V
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
 	public String getIdentification() {
@@ -679,7 +679,7 @@ public class ValidationSetImpl extends MinimalEObjectImpl.Container implements V
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EList<String> getInfos() {
@@ -692,7 +692,7 @@ public class ValidationSetImpl extends MinimalEObjectImpl.Container implements V
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public String getLabel() {
@@ -702,7 +702,7 @@ public class ValidationSetImpl extends MinimalEObjectImpl.Container implements V
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
 	public Status getStatus() {
@@ -729,7 +729,7 @@ public class ValidationSetImpl extends MinimalEObjectImpl.Container implements V
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EList<MetadataRepositoryReference> getValidationRepositories() {
@@ -743,7 +743,7 @@ public class ValidationSetImpl extends MinimalEObjectImpl.Container implements V
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EList<String> getWarnings() {
@@ -759,7 +759,7 @@ public class ValidationSetImpl extends MinimalEObjectImpl.Container implements V
 	 * reason for this is that the extension must validate OK and there's no reason to validate
 	 * a subset of something that is OK.
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
 	public boolean isAbstract() {
@@ -774,7 +774,7 @@ public class ValidationSetImpl extends MinimalEObjectImpl.Container implements V
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
 	public boolean isBranchEnabled() {
@@ -784,7 +784,7 @@ public class ValidationSetImpl extends MinimalEObjectImpl.Container implements V
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public boolean isEnabled() {
@@ -794,7 +794,7 @@ public class ValidationSetImpl extends MinimalEObjectImpl.Container implements V
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
 	public boolean isExtension() {
@@ -804,7 +804,7 @@ public class ValidationSetImpl extends MinimalEObjectImpl.Container implements V
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
 	public boolean isExtensionOf(ValidationSet validationSet) {
@@ -824,7 +824,7 @@ public class ValidationSetImpl extends MinimalEObjectImpl.Container implements V
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
 	public boolean isSetAbstract() {
@@ -835,7 +835,7 @@ public class ValidationSetImpl extends MinimalEObjectImpl.Container implements V
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
 	public boolean isSetBranchEnabled() {
@@ -845,7 +845,7 @@ public class ValidationSetImpl extends MinimalEObjectImpl.Container implements V
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
 	public boolean isSetExtension() {
@@ -855,7 +855,7 @@ public class ValidationSetImpl extends MinimalEObjectImpl.Container implements V
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public void setDescription(String newDescription) {
@@ -869,7 +869,7 @@ public class ValidationSetImpl extends MinimalEObjectImpl.Container implements V
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public void setEnabled(boolean newEnabled) {
@@ -886,7 +886,7 @@ public class ValidationSetImpl extends MinimalEObjectImpl.Container implements V
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public void setLabel(String newLabel) {
@@ -900,7 +900,7 @@ public class ValidationSetImpl extends MinimalEObjectImpl.Container implements V
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override

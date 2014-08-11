@@ -44,7 +44,7 @@ import org.eclipse.equinox.p2.metadata.IUpdateDescriptor;
  * <li>{@link org.eclipse.b3.aggregator.p2view.impl.IUPresentationWithDetailsImpl#isDetailsResolved <em>Details Resolved</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public abstract class IUPresentationWithDetailsImpl extends IUPresentationImpl implements IUPresentationWithDetails {
@@ -52,7 +52,7 @@ public abstract class IUPresentationWithDetailsImpl extends IUPresentationImpl i
 	 * The cached value of the '{@link #getRequirementsContainer() <em>Requirements Container</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getRequirementsContainer()
 	 * @generated
 	 * @ordered
@@ -62,7 +62,7 @@ public abstract class IUPresentationWithDetailsImpl extends IUPresentationImpl i
 	/**
 	 * The cached value of the '{@link #getProvidedCapabilitiesContainer() <em>Provided Capabilities Container</em>}' containment reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getProvidedCapabilitiesContainer()
 	 * @generated
 	 * @ordered
@@ -72,7 +72,7 @@ public abstract class IUPresentationWithDetailsImpl extends IUPresentationImpl i
 	/**
 	 * The cached value of the '{@link #getPropertiesContainer() <em>Properties Container</em>}' reference. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getPropertiesContainer()
 	 * @generated
 	 * @ordered
@@ -82,7 +82,7 @@ public abstract class IUPresentationWithDetailsImpl extends IUPresentationImpl i
 	/**
 	 * The cached value of the '{@link #getTouchpointsContainer() <em>Touchpoints Container</em>}' reference. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getTouchpointsContainer()
 	 * @generated
 	 * @ordered
@@ -92,7 +92,7 @@ public abstract class IUPresentationWithDetailsImpl extends IUPresentationImpl i
 	/**
 	 * The cached value of the '{@link #getUpdateDescriptor() <em>Update Descriptor</em>}' reference. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getUpdateDescriptor()
 	 * @generated
 	 * @ordered
@@ -103,7 +103,7 @@ public abstract class IUPresentationWithDetailsImpl extends IUPresentationImpl i
 	 * The cached value of the '{@link #getCopyright() <em>Copyright</em>}' containment reference.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @see #getCopyright()
 	 * @generated
 	 * @ordered
@@ -114,7 +114,7 @@ public abstract class IUPresentationWithDetailsImpl extends IUPresentationImpl i
 	 * The cached value of the '{@link #getLicensesContainer() <em>Licenses Container</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getLicensesContainer()
 	 * @generated
 	 * @ordered
@@ -125,7 +125,7 @@ public abstract class IUPresentationWithDetailsImpl extends IUPresentationImpl i
 	 * The default value of the '{@link #isDetailsResolved() <em>Details Resolved</em>}' attribute.
 	 * <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #isDetailsResolved()
 	 * @generated
 	 * @ordered
@@ -135,7 +135,7 @@ public abstract class IUPresentationWithDetailsImpl extends IUPresentationImpl i
 	/**
 	 * The flag representing the value of the '{@link #isDetailsResolved() <em>Details Resolved</em>}' attribute. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #isDetailsResolved()
 	 * @generated
 	 * @ordered
@@ -144,7 +144,7 @@ public abstract class IUPresentationWithDetailsImpl extends IUPresentationImpl i
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected IUPresentationWithDetailsImpl() {
@@ -153,7 +153,7 @@ public abstract class IUPresentationWithDetailsImpl extends IUPresentationImpl i
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
 	protected IUPresentationWithDetailsImpl(IInstallableUnit iu) {
@@ -163,7 +163,7 @@ public abstract class IUPresentationWithDetailsImpl extends IUPresentationImpl i
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public NotificationChain basicSetCopyright(ICopyright newCopyright, NotificationChain msgs) {
@@ -184,7 +184,7 @@ public abstract class IUPresentationWithDetailsImpl extends IUPresentationImpl i
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public NotificationChain basicSetLicensesContainer(Licenses newLicensesContainer, NotificationChain msgs) {
@@ -205,7 +205,7 @@ public abstract class IUPresentationWithDetailsImpl extends IUPresentationImpl i
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public NotificationChain basicSetPropertiesContainer(Properties newPropertiesContainer, NotificationChain msgs) {
@@ -226,7 +226,7 @@ public abstract class IUPresentationWithDetailsImpl extends IUPresentationImpl i
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public NotificationChain basicSetProvidedCapabilitiesContainer(
@@ -248,7 +248,7 @@ public abstract class IUPresentationWithDetailsImpl extends IUPresentationImpl i
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public NotificationChain basicSetRequirementsContainer(Requirements newRequirementsContainer, NotificationChain msgs) {
@@ -269,7 +269,7 @@ public abstract class IUPresentationWithDetailsImpl extends IUPresentationImpl i
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public NotificationChain basicSetTouchpointsContainer(Touchpoints newTouchpointsContainer, NotificationChain msgs) {
@@ -290,7 +290,7 @@ public abstract class IUPresentationWithDetailsImpl extends IUPresentationImpl i
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public NotificationChain basicSetUpdateDescriptor(IUpdateDescriptor newUpdateDescriptor, NotificationChain msgs) {
@@ -310,7 +310,7 @@ public abstract class IUPresentationWithDetailsImpl extends IUPresentationImpl i
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -340,7 +340,7 @@ public abstract class IUPresentationWithDetailsImpl extends IUPresentationImpl i
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -370,7 +370,7 @@ public abstract class IUPresentationWithDetailsImpl extends IUPresentationImpl i
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -399,7 +399,7 @@ public abstract class IUPresentationWithDetailsImpl extends IUPresentationImpl i
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -425,7 +425,7 @@ public abstract class IUPresentationWithDetailsImpl extends IUPresentationImpl i
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -453,7 +453,7 @@ public abstract class IUPresentationWithDetailsImpl extends IUPresentationImpl i
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -489,7 +489,7 @@ public abstract class IUPresentationWithDetailsImpl extends IUPresentationImpl i
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -499,7 +499,7 @@ public abstract class IUPresentationWithDetailsImpl extends IUPresentationImpl i
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -535,7 +535,7 @@ public abstract class IUPresentationWithDetailsImpl extends IUPresentationImpl i
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
 	public ICopyright getCopyright() {
@@ -548,7 +548,7 @@ public abstract class IUPresentationWithDetailsImpl extends IUPresentationImpl i
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public Licenses getLicensesContainer() {
@@ -557,7 +557,7 @@ public abstract class IUPresentationWithDetailsImpl extends IUPresentationImpl i
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
 	public Properties getPropertiesContainer() {
@@ -569,7 +569,7 @@ public abstract class IUPresentationWithDetailsImpl extends IUPresentationImpl i
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
 	public ProvidedCapabilities getProvidedCapabilitiesContainer() {
@@ -582,7 +582,7 @@ public abstract class IUPresentationWithDetailsImpl extends IUPresentationImpl i
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
 	public Requirements getRequirementsContainer() {
@@ -594,7 +594,7 @@ public abstract class IUPresentationWithDetailsImpl extends IUPresentationImpl i
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
 	public Touchpoints getTouchpointsContainer() {
@@ -606,7 +606,7 @@ public abstract class IUPresentationWithDetailsImpl extends IUPresentationImpl i
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
 	public IUpdateDescriptor getUpdateDescriptor() {
@@ -618,7 +618,7 @@ public abstract class IUPresentationWithDetailsImpl extends IUPresentationImpl i
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public boolean isDetailsResolved() {
@@ -641,7 +641,7 @@ public abstract class IUPresentationWithDetailsImpl extends IUPresentationImpl i
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public void setCopyright(ICopyright newCopyright) {
@@ -665,7 +665,7 @@ public abstract class IUPresentationWithDetailsImpl extends IUPresentationImpl i
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public void setDetailsResolved(boolean newDetailsResolved) {
@@ -683,7 +683,7 @@ public abstract class IUPresentationWithDetailsImpl extends IUPresentationImpl i
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public void setLicensesContainer(Licenses newLicensesContainer) {
@@ -707,7 +707,7 @@ public abstract class IUPresentationWithDetailsImpl extends IUPresentationImpl i
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public void setPropertiesContainer(Properties newPropertiesContainer) {
@@ -731,7 +731,7 @@ public abstract class IUPresentationWithDetailsImpl extends IUPresentationImpl i
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public void setProvidedCapabilitiesContainer(ProvidedCapabilities newProvidedCapabilitiesContainer) {
@@ -756,7 +756,7 @@ public abstract class IUPresentationWithDetailsImpl extends IUPresentationImpl i
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public void setRequirementsContainer(Requirements newRequirementsContainer) {
@@ -780,7 +780,7 @@ public abstract class IUPresentationWithDetailsImpl extends IUPresentationImpl i
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public void setTouchpointsContainer(Touchpoints newTouchpointsContainer) {
@@ -804,7 +804,7 @@ public abstract class IUPresentationWithDetailsImpl extends IUPresentationImpl i
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public void setUpdateDescriptor(IUpdateDescriptor newUpdateDescriptor) {
@@ -828,7 +828,7 @@ public abstract class IUPresentationWithDetailsImpl extends IUPresentationImpl i
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override

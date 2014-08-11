@@ -4,7 +4,7 @@
  * licensed under the Eclipse Public License - v 1.0 by the copyright holder
  * listed above, as the Initial Contributor under such license. The text of
  * such license is available at www.eclipse.org.
- * 
+ *
  */
 package org.eclipse.b3.p2.impl;
 
@@ -35,7 +35,7 @@ import org.eclipse.equinox.p2.repository.artifact.IArtifactDescriptor;
  * <li>{@link org.eclipse.b3.p2.impl.SimpleArtifactRepositoryImpl#getRules <em>Rules</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public class SimpleArtifactRepositoryImpl extends ArtifactRepositoryImpl implements SimpleArtifactRepository {
@@ -43,7 +43,7 @@ public class SimpleArtifactRepositoryImpl extends ArtifactRepositoryImpl impleme
 	 * The cached value of the '{@link #getRules() <em>Rules</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getRules()
 	 * @generated
 	 * @ordered
@@ -53,7 +53,7 @@ public class SimpleArtifactRepositoryImpl extends ArtifactRepositoryImpl impleme
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected SimpleArtifactRepositoryImpl() {
@@ -72,7 +72,7 @@ public class SimpleArtifactRepositoryImpl extends ArtifactRepositoryImpl impleme
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -87,7 +87,7 @@ public class SimpleArtifactRepositoryImpl extends ArtifactRepositoryImpl impleme
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -102,7 +102,7 @@ public class SimpleArtifactRepositoryImpl extends ArtifactRepositoryImpl impleme
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -117,7 +117,7 @@ public class SimpleArtifactRepositoryImpl extends ArtifactRepositoryImpl impleme
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
@@ -135,7 +135,7 @@ public class SimpleArtifactRepositoryImpl extends ArtifactRepositoryImpl impleme
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -146,7 +146,7 @@ public class SimpleArtifactRepositoryImpl extends ArtifactRepositoryImpl impleme
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -162,9 +162,10 @@ public class SimpleArtifactRepositoryImpl extends ArtifactRepositoryImpl impleme
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public File getArtifactFile(IArtifactDescriptor descriptor) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
@@ -174,9 +175,10 @@ public class SimpleArtifactRepositoryImpl extends ArtifactRepositoryImpl impleme
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public File getArtifactFile(IArtifactKey key) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
@@ -186,9 +188,10 @@ public class SimpleArtifactRepositoryImpl extends ArtifactRepositoryImpl impleme
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public EList<MappingRule> getRules() {
 		if(rules == null) {
 			rules = new EObjectContainmentEList.Resolving<MappingRule>(

@@ -51,7 +51,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
 /**
  * This is the item provider adapter for a {@link org.eclipse.b3.aggregator.MetadataRepositoryReference} object.
  * <!-- begin-user-doc --> <!-- end-user-doc -->
- * 
+ *
  * @generated
  */
 public class MetadataRepositoryReferenceItemProvider extends AggregatorItemProviderAdapter implements
@@ -60,7 +60,7 @@ public class MetadataRepositoryReferenceItemProvider extends AggregatorItemProvi
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public MetadataRepositoryReferenceItemProvider(AdapterFactory adapterFactory) {
@@ -70,7 +70,7 @@ public class MetadataRepositoryReferenceItemProvider extends AggregatorItemProvi
 	/**
 	 * This adds a property descriptor for the Enabled feature.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected void addEnabledPropertyDescriptor(Object object) {
@@ -87,7 +87,7 @@ public class MetadataRepositoryReferenceItemProvider extends AggregatorItemProvi
 	/**
 	 * This adds a property descriptor for the Location feature.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected void addLocationPropertyDescriptor(Object object) {
@@ -105,7 +105,7 @@ public class MetadataRepositoryReferenceItemProvider extends AggregatorItemProvi
 	/**
 	 * This adds a property descriptor for the Metadata Repository feature. <!-- begin-user-doc --> <!-- end-user-doc
 	 * -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
 	protected void addMetadataRepositoryPropertyDescriptor(Object object) {
@@ -148,7 +148,7 @@ public class MetadataRepositoryReferenceItemProvider extends AggregatorItemProvi
 
 	/**
 	 * This adds a property descriptor for the Nature feature. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
 	protected void addNaturePropertyDescriptor(Object object) {
@@ -181,7 +181,7 @@ public class MetadataRepositoryReferenceItemProvider extends AggregatorItemProvi
 	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
 	 * that can be created under this object.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -198,7 +198,7 @@ public class MetadataRepositoryReferenceItemProvider extends AggregatorItemProvi
 
 	/**
 	 * This returns MetadataRepositoryReference.gif. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
 	@Override
@@ -215,7 +215,7 @@ public class MetadataRepositoryReferenceItemProvider extends AggregatorItemProvi
 	/**
 	 * This returns the property descriptors for the adapted class.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -233,7 +233,7 @@ public class MetadataRepositoryReferenceItemProvider extends AggregatorItemProvi
 	/**
 	 * Return the resource locator for this item provider's resources.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -243,7 +243,7 @@ public class MetadataRepositoryReferenceItemProvider extends AggregatorItemProvi
 
 	/**
 	 * This returns the label text for the adapted class. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
 	@Override
@@ -314,7 +314,7 @@ public class MetadataRepositoryReferenceItemProvider extends AggregatorItemProvi
 
 	/**
 	 * Experimental. Loads a resource when the user types in a URL.
-	 * 
+	 *
 	 * @generated NOT
 	 */
 	@Override
@@ -395,7 +395,7 @@ public class MetadataRepositoryReferenceItemProvider extends AggregatorItemProvi
 	 * This handles model notifications by calling {@link #updateChildren} to update any cached children and by creating
 	 * a viewer notification, which it passes to {@link #fireNotifyChanged}. <!-- begin-user-doc --> <!-- end-user-doc
 	 * -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public void notifyChangedGen(Notification notification) {

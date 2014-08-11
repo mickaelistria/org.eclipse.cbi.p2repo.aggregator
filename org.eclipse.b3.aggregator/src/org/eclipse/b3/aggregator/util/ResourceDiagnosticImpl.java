@@ -12,7 +12,7 @@ import org.eclipse.emf.ecore.resource.Resource.Diagnostic;
 
 /**
  * @author Karel Brezina
- * 
+ *
  */
 public class ResourceDiagnosticImpl implements Diagnostic {
 	protected String location;

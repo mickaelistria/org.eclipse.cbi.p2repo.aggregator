@@ -11,16 +11,11 @@ import java.util.Collection;
 import org.eclipse.b3.p2.maven.pom.PomPackage;
 import org.eclipse.b3.p2.maven.pom.Profile;
 import org.eclipse.b3.p2.maven.pom.ProfilesType;
-
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.EObjectImpl;
-
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -32,7 +27,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <li>{@link org.eclipse.b3.p2.maven.pom.impl.ProfilesTypeImpl#getProfile <em>Profile</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public class ProfilesTypeImpl extends EObjectImpl implements ProfilesType {
@@ -40,7 +35,7 @@ public class ProfilesTypeImpl extends EObjectImpl implements ProfilesType {
 	 * The cached value of the '{@link #getProfile() <em>Profile</em>}' containment reference list.
 	 * <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getProfile()
 	 * @generated
 	 * @ordered
@@ -49,7 +44,7 @@ public class ProfilesTypeImpl extends EObjectImpl implements ProfilesType {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected ProfilesTypeImpl() {
@@ -58,7 +53,7 @@ public class ProfilesTypeImpl extends EObjectImpl implements ProfilesType {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -72,7 +67,7 @@ public class ProfilesTypeImpl extends EObjectImpl implements ProfilesType {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -86,7 +81,7 @@ public class ProfilesTypeImpl extends EObjectImpl implements ProfilesType {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -100,7 +95,7 @@ public class ProfilesTypeImpl extends EObjectImpl implements ProfilesType {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
@@ -117,7 +112,7 @@ public class ProfilesTypeImpl extends EObjectImpl implements ProfilesType {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -132,9 +127,10 @@ public class ProfilesTypeImpl extends EObjectImpl implements ProfilesType {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public EList<Profile> getProfile() {
 		if(profile == null) {
 			profile = new EObjectContainmentEList<Profile>(Profile.class, this, PomPackage.PROFILES_TYPE__PROFILE);
@@ -144,7 +140,7 @@ public class ProfilesTypeImpl extends EObjectImpl implements ProfilesType {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override

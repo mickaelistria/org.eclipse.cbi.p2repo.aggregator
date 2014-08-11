@@ -28,13 +28,13 @@ import org.eclipse.equinox.p2.metadata.IInstallableUnit;
 
 /**
  * @author Karel Brezina
- * 
+ *
  */
 public class ItemUtils {
 
 	/**
 	 * Tries to add an InstallableUnit to a MappedRepository
-	 * 
+	 *
 	 * @param mappedRepo
 	 *            mapped repository
 	 * @param iu
@@ -64,7 +64,7 @@ public class ItemUtils {
 
 	/**
 	 * Tries to add a MappedRule to a MappedRepository
-	 * 
+	 *
 	 * @param mappedRepo
 	 *            mapped repository
 	 * @param iu
@@ -97,7 +97,7 @@ public class ItemUtils {
 
 	/**
 	 * Tries to add a MetadataRepository to a Contribution
-	 * 
+	 *
 	 * @param contribution
 	 *            contribution
 	 * @param mdr
@@ -130,7 +130,7 @@ public class ItemUtils {
 
 	/**
 	 * Searches for a MappedRepository with the same location
-	 * 
+	 *
 	 * @param mappedRepos
 	 * @param mappedRepo
 	 * @return
@@ -184,7 +184,7 @@ public class ItemUtils {
 
 	/**
 	 * Tests if selectedUIs come from a MDR with the same location as mappedRepo
-	 * 
+	 *
 	 * @param mappedRepo
 	 * @param selectedIUs
 	 * @return

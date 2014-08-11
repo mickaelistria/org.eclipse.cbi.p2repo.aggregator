@@ -24,7 +24,7 @@ import org.eclipse.equinox.p2.metadata.IInstallableUnit;
 
 /**
  * @author Karel Brezina
- * 
+ *
  */
 public class AddIUsToContributionCommand extends AbstractCommand implements DragAndDropFeedback {
 	private Contribution contribution;
@@ -51,6 +51,7 @@ public class AddIUsToContributionCommand extends AbstractCommand implements Drag
 		this.selectedIUs = selectedIUs;
 	}
 
+	@Override
 	public void execute() {
 		addedMappedRepos.clear();
 		addedMappedUnits.clear();
@@ -82,10 +83,12 @@ public class AddIUsToContributionCommand extends AbstractCommand implements Drag
 		}
 	}
 
+	@Override
 	public int getFeedback() {
 		return FEEDBACK_SELECT;
 	}
 
+	@Override
 	public int getOperation() {
 		return DROP_LINK;
 	}
@@ -112,6 +115,7 @@ public class AddIUsToContributionCommand extends AbstractCommand implements Drag
 		return result;
 	}
 
+	@Override
 	public void redo() {
 		execute();
 	}
@@ -127,6 +131,7 @@ public class AddIUsToContributionCommand extends AbstractCommand implements Drag
 	}
 
 	// validated prior command creation
+	@Override
 	public boolean validate(Object owner, float location, int operations, int operation, Collection<?> collection) {
 		return true;
 	}

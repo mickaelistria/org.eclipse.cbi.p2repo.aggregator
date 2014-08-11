@@ -43,10 +43,12 @@ public class UriIterator implements Iterator<URI> {
 		return uris;
 	}
 
+	@Override
 	public boolean hasNext() {
 		return index < uris.length;
 	}
 
+	@Override
 	public URI next() {
 		if(!hasNext())
 			throw new NoSuchElementException();
@@ -56,6 +58,7 @@ public class UriIterator implements Iterator<URI> {
 		return nextURL;
 	}
 
+	@Override
 	public void remove() {
 		throw new UnsupportedOperationException();
 	}

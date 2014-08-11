@@ -63,17 +63,17 @@ import org.eclipse.emf.ecore.xml.type.XMLTypePackage;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model <b>Package</b>. <!-- end-user-doc -->
- * 
+ *
  * @generated
  */
 public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPackage {
 	/**
 	 * Creates, registers, and initializes the <b>Package</b> for this model, and for any others upon which it depends.
-	 * 
+	 *
 	 * <p>
 	 * This method is used to initialize {@link AggregatorPackage#eINSTANCE} when that field is accessed. Clients should not invoke it directly.
 	 * Instead, they should simply access that field to obtain the package. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #eNS_URI
 	 * @see #createPackageContents()
 	 * @see #initializePackageContents()
@@ -118,7 +118,7 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EClass aggregationEClass = null;
@@ -126,98 +126,98 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EClass validationSetEClass = null;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EClass mappedRepositoryEClass = null;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EClass configurationEClass = null;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EClass contributionEClass = null;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EClass contactEClass = null;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EClass featureEClass = null;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EClass bundleEClass = null;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EClass mappedUnitEClass = null;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EClass productEClass = null;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EClass propertyEClass = null;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EClass categoryEClass = null;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EClass customCategoryEClass = null;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EClass enabledStatusProviderEClass = null;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EClass mapRuleEClass = null;
@@ -225,42 +225,42 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EClass installableUnitRequestEClass = null;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EClass exclusionRuleEClass = null;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EClass validConfigurationsRuleEClass = null;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EClass metadataRepositoryReferenceEClass = null;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EClass statusProviderEClass = null;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EClass infosProviderEClass = null;
@@ -268,7 +268,7 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EClass availableVersionsHeaderEClass = null;
@@ -276,7 +276,7 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EClass availableVersionEClass = null;
@@ -284,21 +284,21 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EEnum aggregationTypeEEnum = null;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EClass labelProviderEClass = null;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EClass descriptionProviderEClass = null;
@@ -306,56 +306,56 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EClass identificationProviderEClass = null;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EClass mavenMappingEClass = null;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EClass mavenItemEClass = null;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EClass childrenProviderEClass = null;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EClass statusEClass = null;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EEnum operatingSystemEEnum = null;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EEnum windowSystemEEnum = null;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EEnum architectureEEnum = null;
@@ -363,28 +363,28 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EEnum availableFromEEnum = null;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EEnum packedStrategyEEnum = null;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EEnum installableUnitTypeEEnum = null;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EEnum statusCodeEEnum = null;
@@ -392,28 +392,28 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EEnum versionMatchEEnum = null;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private static boolean isInited = false;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private boolean isCreated = false;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private boolean isInitialized = false;
@@ -425,7 +425,7 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 	 * <p>
 	 * Note: the correct way to create the package is via the static factory method {@link #init init()}, which also performs initialization of the
 	 * package, or returns the registered package, if one already exists. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see org.eclipse.emf.ecore.EPackage.Registry
 	 * @see org.eclipse.b3.aggregator.AggregatorPackage#eNS_URI
 	 * @see #init()
@@ -439,7 +439,7 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 	 * Creates the meta-model objects for the package. This method is
 	 * guarded to have no affect on any invocation but its first.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public void createPackageContents() {
@@ -599,7 +599,7 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EClass getAggregation() {
@@ -609,7 +609,7 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EAttribute getAggregation_AllowLegacySites() {
@@ -619,7 +619,7 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EReference getAggregation_Buildmaster() {
@@ -629,7 +629,7 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EAttribute getAggregation_BuildRoot() {
@@ -639,7 +639,7 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EReference getAggregation_Configurations() {
@@ -649,7 +649,7 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EReference getAggregation_Contacts() {
@@ -659,7 +659,7 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EReference getAggregation_CustomCategories() {
@@ -669,7 +669,7 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EAttribute getAggregation_Label() {
@@ -679,7 +679,7 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EReference getAggregation_MavenMappings() {
@@ -689,7 +689,7 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EAttribute getAggregation_MavenResult() {
@@ -699,7 +699,7 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EAttribute getAggregation_PackedStrategy() {
@@ -709,7 +709,7 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EAttribute getAggregation_Sendmail() {
@@ -719,7 +719,7 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EAttribute getAggregation_StrictMavenVersions() {
@@ -729,7 +729,7 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EAttribute getAggregation_Type() {
@@ -739,7 +739,7 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EReference getAggregation_ValidationSets() {
@@ -749,7 +749,7 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EEnum getAggregationType() {
@@ -758,7 +758,7 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public AggregatorFactory getAggregatorFactory() {
@@ -767,7 +767,7 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EEnum getArchitecture() {
@@ -777,7 +777,7 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EEnum getAvailableFrom() {
@@ -787,7 +787,7 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EClass getAvailableVersion() {
@@ -797,7 +797,7 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EAttribute getAvailableVersion_AvailableFrom() {
@@ -807,7 +807,7 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EAttribute getAvailableVersion_Filter() {
@@ -817,7 +817,7 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EAttribute getAvailableVersion_Version() {
@@ -827,7 +827,7 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EAttribute getAvailableVersion_VersionMatch() {
@@ -837,7 +837,7 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EClass getAvailableVersionsHeader() {
@@ -847,7 +847,7 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EReference getAvailableVersionsHeader_AvailableVersions() {
@@ -857,7 +857,7 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EReference getAvailableVersionsHeader_InstallableUnitRequest() {
@@ -866,7 +866,7 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EClass getBundle() {
@@ -875,7 +875,7 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EClass getCategory() {
@@ -884,7 +884,7 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EAttribute getCategory_LabelOverride() {
@@ -893,7 +893,7 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EClass getChildrenProvider() {
@@ -902,7 +902,7 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EReference getChildrenProvider_Children() {
@@ -911,7 +911,7 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EClass getConfiguration() {
@@ -920,7 +920,7 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EAttribute getConfiguration_Architecture() {
@@ -929,7 +929,7 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EAttribute getConfiguration_OperatingSystem() {
@@ -938,7 +938,7 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EAttribute getConfiguration_WindowSystem() {
@@ -947,7 +947,7 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EClass getContact() {
@@ -957,7 +957,7 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EReference getContact_Aggregation() {
@@ -966,7 +966,7 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EAttribute getContact_Email() {
@@ -975,7 +975,7 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EAttribute getContact_Name() {
@@ -984,7 +984,7 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EClass getContribution() {
@@ -993,7 +993,7 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EReference getContribution_Contacts() {
@@ -1002,7 +1002,7 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EAttribute getContribution_Label() {
@@ -1011,7 +1011,7 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EReference getContribution_MavenMappings() {
@@ -1020,7 +1020,7 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EReference getContribution_Repositories() {
@@ -1029,7 +1029,7 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EClass getCustomCategory() {
@@ -1038,7 +1038,7 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EAttribute getCustomCategory_Description() {
@@ -1047,7 +1047,7 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EReference getCustomCategory_Features() {
@@ -1056,7 +1056,7 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EAttribute getCustomCategory_Identifier() {
@@ -1065,7 +1065,7 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EAttribute getCustomCategory_Label() {
@@ -1074,7 +1074,7 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EClass getDescriptionProvider() {
@@ -1083,7 +1083,7 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EAttribute getDescriptionProvider_Description() {
@@ -1092,7 +1092,7 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EClass getEnabledStatusProvider() {
@@ -1102,7 +1102,7 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EAttribute getEnabledStatusProvider_BranchEnabled() {
@@ -1111,7 +1111,7 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EAttribute getEnabledStatusProvider_Enabled() {
@@ -1120,7 +1120,7 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EClass getExclusionRule() {
@@ -1129,7 +1129,7 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EClass getFeature() {
@@ -1138,7 +1138,7 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EReference getFeature_Categories() {
@@ -1148,7 +1148,7 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EClass getIdentificationProvider() {
@@ -1157,7 +1157,7 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EClass getInfosProvider() {
@@ -1166,7 +1166,7 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EAttribute getInfosProvider_Errors() {
@@ -1175,7 +1175,7 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EAttribute getInfosProvider_Infos() {
@@ -1184,7 +1184,7 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EAttribute getInfosProvider_Warnings() {
@@ -1194,7 +1194,7 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EClass getInstallableUnitRequest() {
@@ -1204,7 +1204,7 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EReference getInstallableUnitRequest_AvailableVersions() {
@@ -1214,7 +1214,7 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EReference getInstallableUnitRequest_AvailableVersionsHeader() {
@@ -1224,7 +1224,7 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EAttribute getInstallableUnitRequest_Name() {
@@ -1234,7 +1234,7 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EAttribute getInstallableUnitRequest_VersionRange() {
@@ -1243,7 +1243,7 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EEnum getInstallableUnitType() {
@@ -1252,7 +1252,7 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EClass getLabelProvider() {
@@ -1261,7 +1261,7 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EAttribute getLabelProvider_Label() {
@@ -1270,7 +1270,7 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EClass getMappedRepository() {
@@ -1279,7 +1279,7 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EReference getMappedRepository_Bundles() {
@@ -1288,7 +1288,7 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EReference getMappedRepository_Categories() {
@@ -1297,7 +1297,7 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EAttribute getMappedRepository_CategoryPrefix() {
@@ -1306,7 +1306,7 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EReference getMappedRepository_Features() {
@@ -1315,7 +1315,7 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EReference getMappedRepository_MapRules() {
@@ -1324,7 +1324,7 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EAttribute getMappedRepository_MirrorArtifacts() {
@@ -1333,7 +1333,7 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EReference getMappedRepository_Products() {
@@ -1342,7 +1342,7 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EClass getMappedUnit() {
@@ -1351,7 +1351,7 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EReference getMappedUnit_ValidConfigurations() {
@@ -1360,7 +1360,7 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EClass getMapRule() {
@@ -1369,7 +1369,7 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EClass getMavenItem() {
@@ -1378,7 +1378,7 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EAttribute getMavenItem_ArtifactId() {
@@ -1387,7 +1387,7 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EAttribute getMavenItem_GroupId() {
@@ -1396,7 +1396,7 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EClass getMavenMapping() {
@@ -1405,7 +1405,7 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EAttribute getMavenMapping_ArtifactId() {
@@ -1414,7 +1414,7 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EAttribute getMavenMapping_GroupId() {
@@ -1423,7 +1423,7 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EAttribute getMavenMapping_NamePattern() {
@@ -1432,7 +1432,7 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EClass getMetadataRepositoryReference() {
@@ -1441,7 +1441,7 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EAttribute getMetadataRepositoryReference_Location() {
@@ -1450,7 +1450,7 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EReference getMetadataRepositoryReference_MetadataRepository() {
@@ -1459,7 +1459,7 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EAttribute getMetadataRepositoryReference_Nature() {
@@ -1468,7 +1468,7 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EEnum getOperatingSystem() {
@@ -1477,7 +1477,7 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EEnum getPackedStrategy() {
@@ -1486,7 +1486,7 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EClass getProduct() {
@@ -1495,7 +1495,7 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EClass getProperty() {
@@ -1504,7 +1504,7 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EAttribute getProperty_Key() {
@@ -1513,7 +1513,7 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EAttribute getProperty_Value() {
@@ -1522,7 +1522,7 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EClass getStatus() {
@@ -1531,7 +1531,7 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EAttribute getStatus_Code() {
@@ -1540,7 +1540,7 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EAttribute getStatus_Message() {
@@ -1549,7 +1549,7 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EEnum getStatusCode() {
@@ -1558,7 +1558,7 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EClass getStatusProvider() {
@@ -1567,7 +1567,7 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EReference getStatusProvider_Status() {
@@ -1577,7 +1577,7 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EClass getValidationSet() {
@@ -1587,7 +1587,7 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EAttribute getValidationSet_Abstract() {
@@ -1597,7 +1597,7 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EReference getValidationSet_Contributions() {
@@ -1607,7 +1607,7 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EReference getValidationSet_Extends() {
@@ -1617,7 +1617,7 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EAttribute getValidationSet_Extension() {
@@ -1627,7 +1627,7 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EAttribute getValidationSet_Label() {
@@ -1637,7 +1637,7 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EReference getValidationSet_ValidationRepositories() {
@@ -1646,7 +1646,7 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EClass getValidConfigurationsRule() {
@@ -1655,7 +1655,7 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EReference getValidConfigurationsRule_ValidConfigurations() {
@@ -1665,7 +1665,7 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EEnum getVersionMatch() {
@@ -1674,7 +1674,7 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EEnum getWindowSystem() {
@@ -1685,7 +1685,7 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 	 * Complete the initialization of the package and its meta-model. This
 	 * method is guarded to have no affect on any invocation but its first.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public void initializePackageContents() {

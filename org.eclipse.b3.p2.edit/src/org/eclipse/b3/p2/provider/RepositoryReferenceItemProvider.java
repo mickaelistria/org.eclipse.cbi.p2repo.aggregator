@@ -4,7 +4,7 @@
  * licensed under the Eclipse Public License - v 1.0 by the copyright holder
  * listed above, as the Initial Contributor under such license. The text of
  * such license is available at www.eclipse.org.
- * 
+ *
  */
 package org.eclipse.b3.p2.provider;
 
@@ -33,7 +33,7 @@ import org.eclipse.equinox.p2.repository.IRepository;
  * This is the item provider adapter for a {@link org.eclipse.b3.p2.RepositoryReference} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
- * 
+ *
  * @generated
  */
 public class RepositoryReferenceItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider,
@@ -42,7 +42,7 @@ public class RepositoryReferenceItemProvider extends ItemProviderAdapter impleme
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public RepositoryReferenceItemProvider(AdapterFactory adapterFactory) {
@@ -53,7 +53,7 @@ public class RepositoryReferenceItemProvider extends ItemProviderAdapter impleme
 	 * This adds a property descriptor for the Location feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected void addLocationPropertyDescriptor(Object object) {
@@ -71,7 +71,7 @@ public class RepositoryReferenceItemProvider extends ItemProviderAdapter impleme
 	 * This adds a property descriptor for the Nickname feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected void addNicknamePropertyDescriptor(Object object) {
@@ -89,7 +89,7 @@ public class RepositoryReferenceItemProvider extends ItemProviderAdapter impleme
 	 * This adds a property descriptor for the Options feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected void addOptionsPropertyDescriptor(Object object) {
@@ -107,7 +107,7 @@ public class RepositoryReferenceItemProvider extends ItemProviderAdapter impleme
 	 * This adds a property descriptor for the Type feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected void addTypePropertyDescriptor(Object object) {
@@ -126,7 +126,7 @@ public class RepositoryReferenceItemProvider extends ItemProviderAdapter impleme
 	 * that can be created under this object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -138,7 +138,7 @@ public class RepositoryReferenceItemProvider extends ItemProviderAdapter impleme
 	 * This returns RepositoryReference.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -150,7 +150,7 @@ public class RepositoryReferenceItemProvider extends ItemProviderAdapter impleme
 	 * This returns the property descriptors for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -170,7 +170,7 @@ public class RepositoryReferenceItemProvider extends ItemProviderAdapter impleme
 	 * Return the resource locator for this item provider's resources.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -182,7 +182,7 @@ public class RepositoryReferenceItemProvider extends ItemProviderAdapter impleme
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
 	@Override
@@ -206,7 +206,7 @@ public class RepositoryReferenceItemProvider extends ItemProviderAdapter impleme
 	 * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override

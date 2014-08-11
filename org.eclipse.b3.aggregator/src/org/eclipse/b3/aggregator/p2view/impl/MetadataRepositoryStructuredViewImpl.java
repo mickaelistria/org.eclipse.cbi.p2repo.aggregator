@@ -45,7 +45,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <li>{@link org.eclipse.b3.aggregator.p2view.impl.MetadataRepositoryStructuredViewImpl#getLocation <em>Location</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public class MetadataRepositoryStructuredViewImpl extends MinimalEObjectImpl.Container implements
@@ -53,7 +53,7 @@ public class MetadataRepositoryStructuredViewImpl extends MinimalEObjectImpl.Con
 	/**
 	 * A set of bit flags representing the values of boolean attributes and whether unsettable features have been set.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 * @ordered
 	 */
@@ -62,7 +62,7 @@ public class MetadataRepositoryStructuredViewImpl extends MinimalEObjectImpl.Con
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
 	 * -->
-	 * 
+	 *
 	 * @see #getName()
 	 * @generated
 	 * @ordered
@@ -72,7 +72,7 @@ public class MetadataRepositoryStructuredViewImpl extends MinimalEObjectImpl.Con
 	/**
 	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
 	 * -->
-	 * 
+	 *
 	 * @see #getName()
 	 * @generated
 	 * @ordered
@@ -82,7 +82,7 @@ public class MetadataRepositoryStructuredViewImpl extends MinimalEObjectImpl.Con
 	/**
 	 * The cached value of the '{@link #getInstallableUnitList() <em>Installable Unit List</em>}' containment reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getInstallableUnitList()
 	 * @generated
 	 * @ordered
@@ -93,7 +93,7 @@ public class MetadataRepositoryStructuredViewImpl extends MinimalEObjectImpl.Con
 	 * The cached value of the '{@link #getProperties() <em>Properties</em>}' containment reference.
 	 * <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getProperties()
 	 * @generated
 	 * @ordered
@@ -103,7 +103,7 @@ public class MetadataRepositoryStructuredViewImpl extends MinimalEObjectImpl.Con
 	/**
 	 * The cached value of the '{@link #getMetadataRepository() <em>Metadata Repository</em>}' containment reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getMetadataRepository()
 	 * @generated
 	 * @ordered
@@ -114,7 +114,7 @@ public class MetadataRepositoryStructuredViewImpl extends MinimalEObjectImpl.Con
 	 * The default value of the '{@link #isLoaded() <em>Loaded</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @see #isLoaded()
 	 * @generated
 	 * @ordered
@@ -125,7 +125,7 @@ public class MetadataRepositoryStructuredViewImpl extends MinimalEObjectImpl.Con
 	 * The flag representing the value of the '{@link #isLoaded() <em>Loaded</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #isLoaded()
 	 * @generated
 	 * @ordered
@@ -136,7 +136,7 @@ public class MetadataRepositoryStructuredViewImpl extends MinimalEObjectImpl.Con
 	 * The cached value of the '{@link #getRepositoryReferences() <em>Repository References</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getRepositoryReferences()
 	 * @generated
 	 * @ordered
@@ -147,7 +147,7 @@ public class MetadataRepositoryStructuredViewImpl extends MinimalEObjectImpl.Con
 	 * The default value of the '{@link #getLocation() <em>Location</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getLocation()
 	 * @generated
 	 * @ordered
@@ -157,7 +157,7 @@ public class MetadataRepositoryStructuredViewImpl extends MinimalEObjectImpl.Con
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
 	protected MetadataRepositoryStructuredViewImpl() {
@@ -166,7 +166,7 @@ public class MetadataRepositoryStructuredViewImpl extends MinimalEObjectImpl.Con
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
 	protected MetadataRepositoryStructuredViewImpl(MetadataRepository metadataRepository) {
@@ -178,7 +178,7 @@ public class MetadataRepositoryStructuredViewImpl extends MinimalEObjectImpl.Con
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public InstallableUnits basicGetInstallableUnitList() {
@@ -188,7 +188,7 @@ public class MetadataRepositoryStructuredViewImpl extends MinimalEObjectImpl.Con
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public Properties basicGetProperties() {
@@ -198,7 +198,7 @@ public class MetadataRepositoryStructuredViewImpl extends MinimalEObjectImpl.Con
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public RepositoryReferences basicGetRepositoryReferences() {
@@ -207,7 +207,7 @@ public class MetadataRepositoryStructuredViewImpl extends MinimalEObjectImpl.Con
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public NotificationChain basicSetInstallableUnitList(InstallableUnits newInstallableUnitList, NotificationChain msgs) {
@@ -227,7 +227,7 @@ public class MetadataRepositoryStructuredViewImpl extends MinimalEObjectImpl.Con
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public NotificationChain basicSetMetadataRepository(MetadataRepository newMetadataRepository, NotificationChain msgs) {
@@ -247,7 +247,7 @@ public class MetadataRepositoryStructuredViewImpl extends MinimalEObjectImpl.Con
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public NotificationChain basicSetProperties(Properties newProperties, NotificationChain msgs) {
@@ -267,7 +267,7 @@ public class MetadataRepositoryStructuredViewImpl extends MinimalEObjectImpl.Con
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -301,7 +301,7 @@ public class MetadataRepositoryStructuredViewImpl extends MinimalEObjectImpl.Con
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -319,7 +319,7 @@ public class MetadataRepositoryStructuredViewImpl extends MinimalEObjectImpl.Con
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -349,7 +349,7 @@ public class MetadataRepositoryStructuredViewImpl extends MinimalEObjectImpl.Con
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -379,7 +379,7 @@ public class MetadataRepositoryStructuredViewImpl extends MinimalEObjectImpl.Con
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -389,7 +389,7 @@ public class MetadataRepositoryStructuredViewImpl extends MinimalEObjectImpl.Con
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -419,7 +419,7 @@ public class MetadataRepositoryStructuredViewImpl extends MinimalEObjectImpl.Con
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
 	public EList<InstallableUnits> getChildren() {
@@ -430,7 +430,7 @@ public class MetadataRepositoryStructuredViewImpl extends MinimalEObjectImpl.Con
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public InstallableUnits getInstallableUnitList() {
@@ -460,7 +460,7 @@ public class MetadataRepositoryStructuredViewImpl extends MinimalEObjectImpl.Con
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
 	public URI getLocation() {
@@ -472,7 +472,7 @@ public class MetadataRepositoryStructuredViewImpl extends MinimalEObjectImpl.Con
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
 	public MetadataRepository getMetadataRepository() {
@@ -484,7 +484,7 @@ public class MetadataRepositoryStructuredViewImpl extends MinimalEObjectImpl.Con
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public MetadataRepository getMetadataRepositoryGen() {
@@ -493,7 +493,7 @@ public class MetadataRepositoryStructuredViewImpl extends MinimalEObjectImpl.Con
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public String getName() {
@@ -502,7 +502,7 @@ public class MetadataRepositoryStructuredViewImpl extends MinimalEObjectImpl.Con
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public Properties getProperties() {
@@ -531,7 +531,7 @@ public class MetadataRepositoryStructuredViewImpl extends MinimalEObjectImpl.Con
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public RepositoryReferences getRepositoryReferences() {
@@ -551,7 +551,7 @@ public class MetadataRepositoryStructuredViewImpl extends MinimalEObjectImpl.Con
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public boolean isLoaded() {
@@ -561,7 +561,7 @@ public class MetadataRepositoryStructuredViewImpl extends MinimalEObjectImpl.Con
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
 	public boolean isSetLocation() {
@@ -570,7 +570,7 @@ public class MetadataRepositoryStructuredViewImpl extends MinimalEObjectImpl.Con
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public void setInstallableUnitList(InstallableUnits newInstallableUnitList) {
@@ -594,7 +594,7 @@ public class MetadataRepositoryStructuredViewImpl extends MinimalEObjectImpl.Con
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public void setLoaded(boolean newLoaded) {
@@ -610,7 +610,7 @@ public class MetadataRepositoryStructuredViewImpl extends MinimalEObjectImpl.Con
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public void setMetadataRepository(MetadataRepository newMetadataRepository) {
@@ -634,7 +634,7 @@ public class MetadataRepositoryStructuredViewImpl extends MinimalEObjectImpl.Con
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public void setName(String newName) {
@@ -647,7 +647,7 @@ public class MetadataRepositoryStructuredViewImpl extends MinimalEObjectImpl.Con
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public void setProperties(Properties newProperties) {
@@ -672,7 +672,7 @@ public class MetadataRepositoryStructuredViewImpl extends MinimalEObjectImpl.Con
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public void setRepositoryReferences(RepositoryReferences newRepositoryReferences) {
@@ -686,7 +686,7 @@ public class MetadataRepositoryStructuredViewImpl extends MinimalEObjectImpl.Con
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override

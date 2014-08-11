@@ -10,7 +10,7 @@ package org.eclipse.b3.p2.maven.indexer;
 
 /**
  * @author Filip Hrbek (filip.hrbek@cloudsmith.com)
- * 
+ *
  */
 public class IndexNotFoundException extends Exception {
 	private static final long serialVersionUID = -802899846175692819L;

@@ -22,7 +22,7 @@ import org.eclipse.equinox.p2.metadata.VersionedId;
 
 /**
  * @author Filip Hrbek
- * 
+ *
  */
 public class IUUtils {
 	private static final Pattern proxyFragmentPattern = Pattern.compile("^.*/@installableUnits\\[id='([^']*)',version='([^']*)'\\]$");

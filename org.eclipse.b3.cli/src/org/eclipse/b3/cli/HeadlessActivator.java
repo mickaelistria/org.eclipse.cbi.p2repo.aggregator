@@ -12,7 +12,7 @@ import org.eclipse.core.runtime.Plugin;
 
 /**
  * @author filip.hrbek@cloudsmith.com
- * 
+ *
  */
 public class HeadlessActivator extends Plugin {
 

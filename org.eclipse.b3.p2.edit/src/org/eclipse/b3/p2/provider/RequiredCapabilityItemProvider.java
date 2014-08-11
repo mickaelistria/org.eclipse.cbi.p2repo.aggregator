@@ -4,7 +4,7 @@
  * licensed under the Eclipse Public License - v 1.0 by the copyright holder
  * listed above, as the Initial Contributor under such license. The text of
  * such license is available at www.eclipse.org.
- * 
+ *
  */
 package org.eclipse.b3.p2.provider;
 
@@ -29,7 +29,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * This is the item provider adapter for a {@link org.eclipse.b3.p2.RequiredCapability} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
- * 
+ *
  * @generated
  */
 public class RequiredCapabilityItemProvider extends RequirementItemProvider implements IEditingDomainItemProvider,
@@ -38,7 +38,7 @@ public class RequiredCapabilityItemProvider extends RequirementItemProvider impl
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public RequiredCapabilityItemProvider(AdapterFactory adapterFactory) {
@@ -49,7 +49,7 @@ public class RequiredCapabilityItemProvider extends RequirementItemProvider impl
 	 * This adds a property descriptor for the Name feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected void addNamePropertyDescriptor(Object object) {
@@ -67,7 +67,7 @@ public class RequiredCapabilityItemProvider extends RequirementItemProvider impl
 	 * This adds a property descriptor for the Namespace feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected void addNamespacePropertyDescriptor(Object object) {
@@ -85,7 +85,7 @@ public class RequiredCapabilityItemProvider extends RequirementItemProvider impl
 	 * This adds a property descriptor for the Range feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected void addRangePropertyDescriptor(Object object) {
@@ -104,7 +104,7 @@ public class RequiredCapabilityItemProvider extends RequirementItemProvider impl
 	 * that can be created under this object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -116,7 +116,7 @@ public class RequiredCapabilityItemProvider extends RequirementItemProvider impl
 	 * This returns RequiredCapability.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -128,7 +128,7 @@ public class RequiredCapabilityItemProvider extends RequirementItemProvider impl
 	 * This returns the property descriptors for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -147,7 +147,7 @@ public class RequiredCapabilityItemProvider extends RequirementItemProvider impl
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -163,7 +163,7 @@ public class RequiredCapabilityItemProvider extends RequirementItemProvider impl
 	 * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override

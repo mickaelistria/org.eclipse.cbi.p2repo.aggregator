@@ -34,14 +34,14 @@ import org.eclipse.equinox.p2.metadata.Version;
  * <li>{@link org.eclipse.b3.aggregator.p2view.impl.ProvidedCapabilityWrapperImpl#getGenuine <em>Genuine</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public class ProvidedCapabilityWrapperImpl extends MinimalEObjectImpl.Container implements ProvidedCapabilityWrapper {
 	/**
 	 * A set of bit flags representing the values of boolean attributes and whether unsettable features have been set.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 * @ordered
 	 */
@@ -50,7 +50,7 @@ public class ProvidedCapabilityWrapperImpl extends MinimalEObjectImpl.Container 
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
 	 * -->
-	 * 
+	 *
 	 * @see #getName()
 	 * @generated
 	 * @ordered
@@ -60,7 +60,7 @@ public class ProvidedCapabilityWrapperImpl extends MinimalEObjectImpl.Container 
 	/**
 	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
 	 * -->
-	 * 
+	 *
 	 * @see #getName()
 	 * @generated
 	 * @ordered
@@ -71,7 +71,7 @@ public class ProvidedCapabilityWrapperImpl extends MinimalEObjectImpl.Container 
 	 * The default value of the '{@link #getNamespace() <em>Namespace</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @see #getNamespace()
 	 * @generated
 	 * @ordered
@@ -82,7 +82,7 @@ public class ProvidedCapabilityWrapperImpl extends MinimalEObjectImpl.Container 
 	 * The cached value of the '{@link #getNamespace() <em>Namespace</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @see #getNamespace()
 	 * @generated
 	 * @ordered
@@ -93,7 +93,7 @@ public class ProvidedCapabilityWrapperImpl extends MinimalEObjectImpl.Container 
 	 * The default value of the '{@link #getVersion() <em>Version</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @see #getVersion()
 	 * @generated
 	 * @ordered
@@ -104,7 +104,7 @@ public class ProvidedCapabilityWrapperImpl extends MinimalEObjectImpl.Container 
 	 * The cached value of the '{@link #getVersion() <em>Version</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @see #getVersion()
 	 * @generated
 	 * @ordered
@@ -115,7 +115,7 @@ public class ProvidedCapabilityWrapperImpl extends MinimalEObjectImpl.Container 
 	 * The default value of the '{@link #getLabel() <em>Label</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @see #getLabel()
 	 * @generated
 	 * @ordered
@@ -125,7 +125,7 @@ public class ProvidedCapabilityWrapperImpl extends MinimalEObjectImpl.Container 
 	/**
 	 * The cached value of the '{@link #getLabel() <em>Label</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
 	 * -->
-	 * 
+	 *
 	 * @see #getLabel()
 	 * @generated
 	 * @ordered
@@ -136,7 +136,7 @@ public class ProvidedCapabilityWrapperImpl extends MinimalEObjectImpl.Container 
 	 * The cached value of the '{@link #getGenuine() <em>Genuine</em>}' reference.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @see #getGenuine()
 	 * @generated
 	 * @ordered
@@ -145,7 +145,7 @@ public class ProvidedCapabilityWrapperImpl extends MinimalEObjectImpl.Container 
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected ProvidedCapabilityWrapperImpl() {
@@ -154,7 +154,7 @@ public class ProvidedCapabilityWrapperImpl extends MinimalEObjectImpl.Container 
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
 	protected ProvidedCapabilityWrapperImpl(IProvidedCapability pc) {
@@ -164,7 +164,7 @@ public class ProvidedCapabilityWrapperImpl extends MinimalEObjectImpl.Container 
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -182,7 +182,7 @@ public class ProvidedCapabilityWrapperImpl extends MinimalEObjectImpl.Container 
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -200,7 +200,7 @@ public class ProvidedCapabilityWrapperImpl extends MinimalEObjectImpl.Container 
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -222,7 +222,7 @@ public class ProvidedCapabilityWrapperImpl extends MinimalEObjectImpl.Container 
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
 	@Override
@@ -241,7 +241,7 @@ public class ProvidedCapabilityWrapperImpl extends MinimalEObjectImpl.Container 
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -265,7 +265,7 @@ public class ProvidedCapabilityWrapperImpl extends MinimalEObjectImpl.Container 
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -275,7 +275,7 @@ public class ProvidedCapabilityWrapperImpl extends MinimalEObjectImpl.Container 
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -299,7 +299,7 @@ public class ProvidedCapabilityWrapperImpl extends MinimalEObjectImpl.Container 
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public IProvidedCapability getGenuine() {
@@ -308,7 +308,7 @@ public class ProvidedCapabilityWrapperImpl extends MinimalEObjectImpl.Container 
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public String getLabel() {
@@ -317,7 +317,7 @@ public class ProvidedCapabilityWrapperImpl extends MinimalEObjectImpl.Container 
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
 	public String getName() {
@@ -326,7 +326,7 @@ public class ProvidedCapabilityWrapperImpl extends MinimalEObjectImpl.Container 
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
 	public String getNamespace() {
@@ -335,7 +335,7 @@ public class ProvidedCapabilityWrapperImpl extends MinimalEObjectImpl.Container 
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
 	public Version getVersion() {
@@ -344,7 +344,7 @@ public class ProvidedCapabilityWrapperImpl extends MinimalEObjectImpl.Container 
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public void setLabel(String newLabel) {
@@ -357,7 +357,7 @@ public class ProvidedCapabilityWrapperImpl extends MinimalEObjectImpl.Container 
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
 	public void setName(String newName) {
@@ -366,7 +366,7 @@ public class ProvidedCapabilityWrapperImpl extends MinimalEObjectImpl.Container 
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
 	public void setNamespace(String newNamespace) {
@@ -375,7 +375,7 @@ public class ProvidedCapabilityWrapperImpl extends MinimalEObjectImpl.Container 
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
 	public void setVersion(Version newVersion) {
@@ -384,7 +384,7 @@ public class ProvidedCapabilityWrapperImpl extends MinimalEObjectImpl.Container 
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
 	@Override

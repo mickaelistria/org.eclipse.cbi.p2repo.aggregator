@@ -12,9 +12,9 @@ import java.util.Map;
 
 /**
  * Capable of adding data to context. It's used for aggregator transformations.
- * 
+ *
  * @author Karel Brezina
- * 
+ *
  */
 public abstract class TransformerContextContributor {
 
@@ -26,14 +26,14 @@ public abstract class TransformerContextContributor {
 
 	/**
 	 * Add data to context
-	 * 
+	 *
 	 * @param context
 	 */
 	public abstract void contributeDefaultsToContext(Map<String, Object> context);
 
 	/**
 	 * Add data to context, possibly obtained by an interactive user interface
-	 * 
+	 *
 	 * @param context
 	 */
 	public final void contributeToContext(Map<String, Object> context) {

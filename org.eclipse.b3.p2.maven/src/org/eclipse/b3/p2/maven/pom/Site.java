@@ -10,14 +10,14 @@ import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc --> A representation of the model object '<em><b>Site</b></em>'. <!-- end-user-doc -->
- * 
+ *
  * <!-- begin-model-doc -->
  * 4.0.0
- * 
+ *
  * Contains the information needed for deploying websites.
- * 
+ *
  * <!-- end-model-doc -->
- * 
+ *
  * <p>
  * The following features are supported:
  * <ul>
@@ -26,7 +26,7 @@ import org.eclipse.emf.ecore.EObject;
  * <li>{@link org.eclipse.b3.p2.maven.pom.Site#getUrl <em>Url</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @see org.eclipse.b3.p2.maven.pom.PomPackage#getSite()
  * @model extendedMetaData="name='Site' kind='elementOnly'"
  * @generated
@@ -35,12 +35,12 @@ public interface Site extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Id</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc --> <!--
 	 * begin-model-doc --> 4.0.0
-	 * 
+	 *
 	 * A unique identifier for a deployment locataion. This is used to match the site to configuration in the
 	 * &lt;code&gt;settings.xml&lt;/code&gt; file, for example.
-	 * 
+	 *
 	 * <!-- end-model-doc -->
-	 * 
+	 *
 	 * @return the value of the '<em>Id</em>' attribute.
 	 * @see #setId(String)
 	 * @see org.eclipse.b3.p2.maven.pom.PomPackage#getSite_Id()
@@ -53,11 +53,11 @@ public interface Site extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Name</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc --> <!--
 	 * begin-model-doc --> 4.0.0
-	 * 
+	 *
 	 * Human readable name of the deployment location.
-	 * 
+	 *
 	 * <!-- end-model-doc -->
-	 * 
+	 *
 	 * @return the value of the '<em>Name</em>' attribute.
 	 * @see #setName(String)
 	 * @see org.eclipse.b3.p2.maven.pom.PomPackage#getSite_Name()
@@ -70,11 +70,11 @@ public interface Site extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Url</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc --> <!--
 	 * begin-model-doc --> 4.0.0
-	 * 
+	 *
 	 * The url of the location where website is deployed, in the form &lt;code&gt;protocol://hostname/path&lt;/code&gt;.
-	 * 
+	 *
 	 * <!-- end-model-doc -->
-	 * 
+	 *
 	 * @return the value of the '<em>Url</em>' attribute.
 	 * @see #setUrl(String)
 	 * @see org.eclipse.b3.p2.maven.pom.PomPackage#getSite_Url()
@@ -87,7 +87,7 @@ public interface Site extends EObject {
 	/**
 	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.Site#getId <em>Id</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param value
 	 *            the new value of the '<em>Id</em>' attribute.
 	 * @see #getId()
@@ -98,7 +98,7 @@ public interface Site extends EObject {
 	/**
 	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.Site#getName <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param value
 	 *            the new value of the '<em>Name</em>' attribute.
 	 * @see #getName()
@@ -109,7 +109,7 @@ public interface Site extends EObject {
 	/**
 	 * Sets the value of the '{@link org.eclipse.b3.p2.maven.pom.Site#getUrl <em>Url</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param value
 	 *            the new value of the '<em>Url</em>' attribute.
 	 * @see #getUrl()

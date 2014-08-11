@@ -19,7 +19,7 @@ import org.eclipse.equinox.p2.metadata.expression.IMatchExpression;
 
 /**
  * @author Karel Brezina
- * 
+ *
  */
 public enum CapabilityNamespace {
 	IU("_UI_Capability_IU_type"), TYPE("_UI_Capability_Type_type"), LOCALIZATION("_UI_Capability_Localization_type"), FLAVOR(

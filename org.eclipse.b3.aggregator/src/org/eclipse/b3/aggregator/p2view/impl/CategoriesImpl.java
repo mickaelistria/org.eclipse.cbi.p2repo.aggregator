@@ -14,13 +14,9 @@ import java.util.Collection;
 import org.eclipse.b3.aggregator.p2view.Categories;
 import org.eclipse.b3.aggregator.p2view.Category;
 import org.eclipse.b3.aggregator.p2view.P2viewPackage;
-
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 
 /**
@@ -32,14 +28,14 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  * <li>{@link org.eclipse.b3.aggregator.p2view.impl.CategoriesImpl#getCategories <em>Categories</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public class CategoriesImpl extends MinimalEObjectImpl.Container implements Categories {
 	/**
 	 * A set of bit flags representing the values of boolean attributes and whether unsettable features have been set.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 * @ordered
 	 */
@@ -49,7 +45,7 @@ public class CategoriesImpl extends MinimalEObjectImpl.Container implements Cate
 	 * The cached value of the '{@link #getCategories() <em>Categories</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getCategories()
 	 * @generated
 	 * @ordered
@@ -58,7 +54,7 @@ public class CategoriesImpl extends MinimalEObjectImpl.Container implements Cate
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected CategoriesImpl() {
@@ -67,7 +63,7 @@ public class CategoriesImpl extends MinimalEObjectImpl.Container implements Cate
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -83,7 +79,7 @@ public class CategoriesImpl extends MinimalEObjectImpl.Container implements Cate
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -99,7 +95,7 @@ public class CategoriesImpl extends MinimalEObjectImpl.Container implements Cate
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
@@ -116,7 +112,7 @@ public class CategoriesImpl extends MinimalEObjectImpl.Container implements Cate
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -126,7 +122,7 @@ public class CategoriesImpl extends MinimalEObjectImpl.Container implements Cate
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -141,7 +137,7 @@ public class CategoriesImpl extends MinimalEObjectImpl.Container implements Cate
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EList<Category> getCategories() {
@@ -153,7 +149,7 @@ public class CategoriesImpl extends MinimalEObjectImpl.Container implements Cate
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
 	public EList<Category> getChildren() {

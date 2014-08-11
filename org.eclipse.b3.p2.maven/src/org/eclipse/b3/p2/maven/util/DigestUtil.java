@@ -13,7 +13,7 @@ import java.security.NoSuchAlgorithmException;
 
 /**
  * @author filip.hrbek@cloudsmith.com
- * 
+ *
  */
 public class DigestUtil {
 	public static final MessageDigest[] MESSAGE_DIGESTERS;

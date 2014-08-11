@@ -20,7 +20,7 @@ import org.eclipse.emf.ecore.resource.Resource;
 
 /**
  * Transforms aggregator model instance from version 0.9.0 to 1.0.0
- * 
+ *
  * @author Karel Brezina
  */
 public class AggregatorTransformer_100_2_110 extends ResourceTransformer {

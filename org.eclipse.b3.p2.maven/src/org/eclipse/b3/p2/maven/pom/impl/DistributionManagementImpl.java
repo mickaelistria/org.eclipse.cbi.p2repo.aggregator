@@ -11,13 +11,10 @@ import org.eclipse.b3.p2.maven.pom.DistributionManagement;
 import org.eclipse.b3.p2.maven.pom.PomPackage;
 import org.eclipse.b3.p2.maven.pom.Relocation;
 import org.eclipse.b3.p2.maven.pom.Site;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 
@@ -35,7 +32,7 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * <li>{@link org.eclipse.b3.p2.maven.pom.impl.DistributionManagementImpl#getStatus <em>Status</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public class DistributionManagementImpl extends EObjectImpl implements DistributionManagement {
@@ -43,7 +40,7 @@ public class DistributionManagementImpl extends EObjectImpl implements Distribut
 	 * The cached value of the '{@link #getRepository() <em>Repository</em>}' containment reference.
 	 * <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getRepository()
 	 * @generated
 	 * @ordered
@@ -53,7 +50,7 @@ public class DistributionManagementImpl extends EObjectImpl implements Distribut
 	/**
 	 * The cached value of the '{@link #getSnapshotRepository() <em>Snapshot Repository</em>}' containment reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getSnapshotRepository()
 	 * @generated
 	 * @ordered
@@ -64,7 +61,7 @@ public class DistributionManagementImpl extends EObjectImpl implements Distribut
 	 * The cached value of the '{@link #getSite() <em>Site</em>}' containment reference.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @see #getSite()
 	 * @generated
 	 * @ordered
@@ -75,7 +72,7 @@ public class DistributionManagementImpl extends EObjectImpl implements Distribut
 	 * The default value of the '{@link #getDownloadUrl() <em>Download Url</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getDownloadUrl()
 	 * @generated
 	 * @ordered
@@ -86,7 +83,7 @@ public class DistributionManagementImpl extends EObjectImpl implements Distribut
 	 * The cached value of the '{@link #getDownloadUrl() <em>Download Url</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @see #getDownloadUrl()
 	 * @generated
 	 * @ordered
@@ -97,7 +94,7 @@ public class DistributionManagementImpl extends EObjectImpl implements Distribut
 	 * The cached value of the '{@link #getRelocation() <em>Relocation</em>}' containment reference.
 	 * <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getRelocation()
 	 * @generated
 	 * @ordered
@@ -108,7 +105,7 @@ public class DistributionManagementImpl extends EObjectImpl implements Distribut
 	 * The default value of the '{@link #getStatus() <em>Status</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @see #getStatus()
 	 * @generated
 	 * @ordered
@@ -119,7 +116,7 @@ public class DistributionManagementImpl extends EObjectImpl implements Distribut
 	 * The cached value of the '{@link #getStatus() <em>Status</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @see #getStatus()
 	 * @generated
 	 * @ordered
@@ -128,7 +125,7 @@ public class DistributionManagementImpl extends EObjectImpl implements Distribut
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected DistributionManagementImpl() {
@@ -137,7 +134,7 @@ public class DistributionManagementImpl extends EObjectImpl implements Distribut
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public NotificationChain basicSetRelocation(Relocation newRelocation, NotificationChain msgs) {
@@ -156,7 +153,7 @@ public class DistributionManagementImpl extends EObjectImpl implements Distribut
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public NotificationChain basicSetRepository(DeploymentRepository newRepository, NotificationChain msgs) {
@@ -175,7 +172,7 @@ public class DistributionManagementImpl extends EObjectImpl implements Distribut
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public NotificationChain basicSetSite(Site newSite, NotificationChain msgs) {
@@ -194,7 +191,7 @@ public class DistributionManagementImpl extends EObjectImpl implements Distribut
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public NotificationChain basicSetSnapshotRepository(DeploymentRepository newSnapshotRepository,
@@ -215,7 +212,7 @@ public class DistributionManagementImpl extends EObjectImpl implements Distribut
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -239,7 +236,7 @@ public class DistributionManagementImpl extends EObjectImpl implements Distribut
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -259,7 +256,7 @@ public class DistributionManagementImpl extends EObjectImpl implements Distribut
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -287,7 +284,7 @@ public class DistributionManagementImpl extends EObjectImpl implements Distribut
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -317,7 +314,7 @@ public class DistributionManagementImpl extends EObjectImpl implements Distribut
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -347,63 +344,70 @@ public class DistributionManagementImpl extends EObjectImpl implements Distribut
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public String getDownloadUrl() {
 		return downloadUrl;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public Relocation getRelocation() {
 		return relocation;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public DeploymentRepository getRepository() {
 		return repository;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public Site getSite() {
 		return site;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public DeploymentRepository getSnapshotRepository() {
 		return snapshotRepository;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public String getStatus() {
 		return status;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public void setDownloadUrl(String newDownloadUrl) {
 		String oldDownloadUrl = downloadUrl;
 		downloadUrl = newDownloadUrl;
@@ -414,9 +418,10 @@ public class DistributionManagementImpl extends EObjectImpl implements Distribut
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public void setRelocation(Relocation newRelocation) {
 		if(newRelocation != relocation) {
 			NotificationChain msgs = null;
@@ -437,9 +442,10 @@ public class DistributionManagementImpl extends EObjectImpl implements Distribut
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public void setRepository(DeploymentRepository newRepository) {
 		if(newRepository != repository) {
 			NotificationChain msgs = null;
@@ -460,9 +466,10 @@ public class DistributionManagementImpl extends EObjectImpl implements Distribut
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public void setSite(Site newSite) {
 		if(newSite != site) {
 			NotificationChain msgs = null;
@@ -483,9 +490,10 @@ public class DistributionManagementImpl extends EObjectImpl implements Distribut
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public void setSnapshotRepository(DeploymentRepository newSnapshotRepository) {
 		if(newSnapshotRepository != snapshotRepository) {
 			NotificationChain msgs = null;
@@ -507,9 +515,10 @@ public class DistributionManagementImpl extends EObjectImpl implements Distribut
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public void setStatus(String newStatus) {
 		String oldStatus = status;
 		status = newStatus;
@@ -520,7 +529,7 @@ public class DistributionManagementImpl extends EObjectImpl implements Distribut
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -539,7 +548,7 @@ public class DistributionManagementImpl extends EObjectImpl implements Distribut
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override

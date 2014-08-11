@@ -35,7 +35,7 @@ import org.junit.Test;
 
 /**
  * @author filip.hrbek@cloudsmith.com
- * 
+ *
  */
 public class MetadataRepositoryTests {
 	private static final String SIMPLE_METADATA_TYPE = "org.eclipse.equinox.p2.metadata.repository.simpleRepository"; //$NON-NLS-1$

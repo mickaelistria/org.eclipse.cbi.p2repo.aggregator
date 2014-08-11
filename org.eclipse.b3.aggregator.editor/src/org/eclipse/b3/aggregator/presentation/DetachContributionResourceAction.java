@@ -24,7 +24,7 @@ import org.eclipse.ui.PlatformUI;
 
 /**
  * @author Karel Brezina
- * 
+ *
  */
 public class DetachContributionResourceAction extends ControlAction {
 

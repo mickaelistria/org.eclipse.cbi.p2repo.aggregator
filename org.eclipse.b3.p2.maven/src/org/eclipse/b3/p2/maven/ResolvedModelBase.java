@@ -44,205 +44,255 @@ import org.eclipse.emf.ecore.resource.Resource;
 
 /**
  * @author Filip Hrbek (filip.hrbek@cloudsmith.com)
- * 
+ *
  */
 abstract class ResolvedModelBase implements Model {
+	@Override
 	public EList<Adapter> eAdapters() {
 		throw new UnsupportedOperationException();
 	}
 
+	@Override
 	public TreeIterator<EObject> eAllContents() {
 		throw new UnsupportedOperationException();
 	}
 
+	@Override
 	public EClass eClass() {
 		throw new UnsupportedOperationException();
 	}
 
+	@Override
 	public EObject eContainer() {
 		throw new UnsupportedOperationException();
 	}
 
+	@Override
 	public EStructuralFeature eContainingFeature() {
 		throw new UnsupportedOperationException();
 	}
 
+	@Override
 	public EReference eContainmentFeature() {
 		throw new UnsupportedOperationException();
 	}
 
+	@Override
 	public EList<EObject> eContents() {
 		throw new UnsupportedOperationException();
 	}
 
+	@Override
 	public EList<EObject> eCrossReferences() {
 		throw new UnsupportedOperationException();
 	}
 
+	@Override
 	public boolean eDeliver() {
 		throw new UnsupportedOperationException();
 	}
 
+	@Override
 	public Object eGet(EStructuralFeature feature) {
 		throw new UnsupportedOperationException();
 	}
 
+	@Override
 	public Object eGet(EStructuralFeature feature, boolean resolve) {
 		throw new UnsupportedOperationException();
 	}
 
+	@Override
 	public Object eInvoke(EOperation arg0, EList<?> arg1) throws InvocationTargetException {
 		throw new UnsupportedOperationException();
 	}
 
+	@Override
 	public boolean eIsProxy() {
 		throw new UnsupportedOperationException();
 	}
 
+	@Override
 	public boolean eIsSet(EStructuralFeature feature) {
 		throw new UnsupportedOperationException();
 	}
 
+	@Override
 	public void eNotify(Notification notification) {
 		throw new UnsupportedOperationException();
 	}
 
+	@Override
 	public Resource eResource() {
 		throw new UnsupportedOperationException();
 	}
 
+	@Override
 	public void eSet(EStructuralFeature feature, Object newValue) {
 		throw new UnsupportedOperationException();
 	}
 
+	@Override
 	public void eSetDeliver(boolean deliver) {
 		throw new UnsupportedOperationException();
 	}
 
+	@Override
 	public void eUnset(EStructuralFeature feature) {
 		throw new UnsupportedOperationException();
 	}
 
+	@Override
 	public void setArtifactId(String value) {
 		throw new UnsupportedOperationException();
 	}
 
+	@Override
 	public void setBuild(Build value) {
 		throw new UnsupportedOperationException();
 	}
 
+	@Override
 	public void setCiManagement(CiManagement value) {
 		throw new UnsupportedOperationException();
 	}
 
+	@Override
 	public void setContributors(ContributorsType value) {
 		throw new UnsupportedOperationException();
 	}
 
+	@Override
 	public void setDependencies(DependenciesType value) {
 		throw new UnsupportedOperationException();
 	}
 
+	@Override
 	public void setDependencyManagement(DependencyManagement value) {
 		throw new UnsupportedOperationException();
 	}
 
+	@Override
 	public void setDescription(String value) {
 		throw new UnsupportedOperationException();
 	}
 
+	@Override
 	public void setDevelopers(DevelopersType value) {
 		throw new UnsupportedOperationException();
 	}
 
+	@Override
 	public void setDistributionManagement(DistributionManagement value) {
 		throw new UnsupportedOperationException();
 	}
 
+	@Override
 	public void setGroupId(String value) {
 		throw new UnsupportedOperationException();
 	}
 
+	@Override
 	public void setInceptionYear(String value) {
 		throw new UnsupportedOperationException();
 	}
 
+	@Override
 	public void setIssueManagement(IssueManagement value) {
 		throw new UnsupportedOperationException();
 	}
 
+	@Override
 	public void setLicenses(LicensesType value) {
 		throw new UnsupportedOperationException();
 	}
 
+	@Override
 	public void setMailingLists(MailingListsType value) {
 		throw new UnsupportedOperationException();
 	}
 
+	@Override
 	public void setModelVersion(String value) {
 		throw new UnsupportedOperationException();
 	}
 
+	@Override
 	public void setModules(ModulesType value) {
 		throw new UnsupportedOperationException();
 	}
 
+	@Override
 	public void setName(String value) {
 		throw new UnsupportedOperationException();
 	}
 
+	@Override
 	public void setOrganization(Organization value) {
 		throw new UnsupportedOperationException();
 	}
 
+	@Override
 	public void setPackaging(String value) {
 		throw new UnsupportedOperationException();
 	}
 
+	@Override
 	public void setParent(Parent value) {
 		throw new UnsupportedOperationException();
 	}
 
+	@Override
 	public void setPluginRepositories(PluginRepositoriesType value) {
 		throw new UnsupportedOperationException();
 	}
 
+	@Override
 	public void setPrerequisites(Prerequisites value) {
 		throw new UnsupportedOperationException();
 	}
 
+	@Override
 	public void setProfiles(ProfilesType value) {
 		throw new UnsupportedOperationException();
 	}
 
+	@Override
 	public void setProperties(PropertiesType value) {
 		throw new UnsupportedOperationException();
 	}
 
+	@Override
 	public void setReporting(Reporting value) {
 		throw new UnsupportedOperationException();
 	}
 
+	@Override
 	public void setReports(ReportsType value) {
 		throw new UnsupportedOperationException();
 	}
 
+	@Override
 	public void setRepositories(RepositoriesType value) {
 		throw new UnsupportedOperationException();
 	}
 
+	@Override
 	public void setScm(Scm value) {
 		throw new UnsupportedOperationException();
 	}
 
+	@Override
 	public void setUrl(String value) {
 		throw new UnsupportedOperationException();
 	}
 
+	@Override
 	public void setVersion(String value) {
 		throw new UnsupportedOperationException();
 	}
 
+	@Override
 	public void unsetPackaging() {
 		throw new UnsupportedOperationException();
 	}

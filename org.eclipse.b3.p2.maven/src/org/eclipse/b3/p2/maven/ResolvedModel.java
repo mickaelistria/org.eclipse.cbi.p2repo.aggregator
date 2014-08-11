@@ -55,7 +55,7 @@ import org.eclipse.emf.ecore.xml.type.impl.AnyTypeImpl;
 
 /**
  * @author Filip Hrbek (filip.hrbek@cloudsmith.com)
- * 
+ *
  */
 public class ResolvedModel extends ResolvedModelBase implements IPropertyProvider {
 	private String repoRoot;
@@ -179,6 +179,7 @@ public class ResolvedModel extends ResolvedModelBase implements IPropertyProvide
 		propertyMap = null;
 	}
 
+	@Override
 	public String getArtifactId() {
 		if(!artifactIdResolved) {
 			artifactIdResolved = true;
@@ -188,6 +189,7 @@ public class ResolvedModel extends ResolvedModelBase implements IPropertyProvide
 		return artifactId;
 	}
 
+	@Override
 	public Build getBuild() {
 		if(!buildResolved) {
 			buildResolved = true;
@@ -197,6 +199,7 @@ public class ResolvedModel extends ResolvedModelBase implements IPropertyProvide
 		return build;
 	}
 
+	@Override
 	public CiManagement getCiManagement() {
 		if(!ciManagementResolved) {
 			ciManagementResolved = true;
@@ -206,6 +209,7 @@ public class ResolvedModel extends ResolvedModelBase implements IPropertyProvide
 		return ciManagement;
 	}
 
+	@Override
 	public ContributorsType getContributors() {
 		if(!contributorsResolved) {
 			contributorsResolved = true;
@@ -217,6 +221,7 @@ public class ResolvedModel extends ResolvedModelBase implements IPropertyProvide
 		return contributors;
 	}
 
+	@Override
 	public DependenciesType getDependencies() {
 		if(!dependenciesResolved) {
 			dependenciesResolved = true;
@@ -228,6 +233,7 @@ public class ResolvedModel extends ResolvedModelBase implements IPropertyProvide
 		return dependencies;
 	}
 
+	@Override
 	public DependencyManagement getDependencyManagement() {
 		if(!dependencyManagementResolved) {
 			dependencyManagementResolved = true;
@@ -237,6 +243,7 @@ public class ResolvedModel extends ResolvedModelBase implements IPropertyProvide
 		return dependencyManagement;
 	}
 
+	@Override
 	public String getDescription() {
 		if(!descriptionResolved) {
 			descriptionResolved = true;
@@ -246,6 +253,7 @@ public class ResolvedModel extends ResolvedModelBase implements IPropertyProvide
 		return description;
 	}
 
+	@Override
 	public DevelopersType getDevelopers() {
 		if(!developersResolved) {
 			developersResolved = true;
@@ -257,6 +265,7 @@ public class ResolvedModel extends ResolvedModelBase implements IPropertyProvide
 		return developers;
 	}
 
+	@Override
 	public DistributionManagement getDistributionManagement() {
 		if(!distributionManagementResolved) {
 			distributionManagementResolved = true;
@@ -266,6 +275,7 @@ public class ResolvedModel extends ResolvedModelBase implements IPropertyProvide
 		return distributionManagement;
 	}
 
+	@Override
 	public String getGroupId() {
 		if(!groupIdResolved) {
 			groupIdResolved = true;
@@ -275,6 +285,7 @@ public class ResolvedModel extends ResolvedModelBase implements IPropertyProvide
 		return groupId;
 	}
 
+	@Override
 	public String getInceptionYear() {
 		if(!inceptionYearResolved) {
 			inceptionYearResolved = true;
@@ -284,6 +295,7 @@ public class ResolvedModel extends ResolvedModelBase implements IPropertyProvide
 		return inceptionYear;
 	}
 
+	@Override
 	public IssueManagement getIssueManagement() {
 		if(!issueManagementResolved) {
 			issueManagementResolved = true;
@@ -293,6 +305,7 @@ public class ResolvedModel extends ResolvedModelBase implements IPropertyProvide
 		return issueManagement;
 	}
 
+	@Override
 	public LicensesType getLicenses() {
 		if(!licensesResolved) {
 			licensesResolved = true;
@@ -303,6 +316,7 @@ public class ResolvedModel extends ResolvedModelBase implements IPropertyProvide
 		return licenses;
 	}
 
+	@Override
 	public MailingListsType getMailingLists() {
 		if(!mailingListsResolved) {
 			mailingListsResolved = true;
@@ -314,6 +328,7 @@ public class ResolvedModel extends ResolvedModelBase implements IPropertyProvide
 		return mailingLists;
 	}
 
+	@Override
 	public String getModelVersion() {
 		if(!modelVersionResolved) {
 			modelVersionResolved = true;
@@ -323,6 +338,7 @@ public class ResolvedModel extends ResolvedModelBase implements IPropertyProvide
 		return modelVersion;
 	}
 
+	@Override
 	public ModulesType getModules() {
 		if(!modulesResolved) {
 			modulesResolved = true;
@@ -333,6 +349,7 @@ public class ResolvedModel extends ResolvedModelBase implements IPropertyProvide
 		return modules;
 	}
 
+	@Override
 	public String getName() {
 		if(!nameResolved) {
 			nameResolved = true;
@@ -342,6 +359,7 @@ public class ResolvedModel extends ResolvedModelBase implements IPropertyProvide
 		return name;
 	}
 
+	@Override
 	public Organization getOrganization() {
 		if(!organizationResolved) {
 			organizationResolved = true;
@@ -351,6 +369,7 @@ public class ResolvedModel extends ResolvedModelBase implements IPropertyProvide
 		return organization;
 	}
 
+	@Override
 	public String getPackaging() {
 		if(!packagingResolved) {
 			packagingResolved = true;
@@ -360,10 +379,12 @@ public class ResolvedModel extends ResolvedModelBase implements IPropertyProvide
 		return packaging;
 	}
 
+	@Override
 	public Parent getParent() {
 		return original.getParent();
 	}
 
+	@Override
 	public PluginRepositoriesType getPluginRepositories() {
 		if(!pluginRepositoriesResolved) {
 			pluginRepositoriesResolved = true;
@@ -375,6 +396,7 @@ public class ResolvedModel extends ResolvedModelBase implements IPropertyProvide
 		return pluginRepositories;
 	}
 
+	@Override
 	public Prerequisites getPrerequisites() {
 		if(!prerequisitesResolved) {
 			prerequisitesResolved = true;
@@ -384,6 +406,7 @@ public class ResolvedModel extends ResolvedModelBase implements IPropertyProvide
 		return prerequisites;
 	}
 
+	@Override
 	public ProfilesType getProfiles() {
 		if(!profilesResolved) {
 			profilesResolved = true;
@@ -394,10 +417,12 @@ public class ResolvedModel extends ResolvedModelBase implements IPropertyProvide
 		return profiles;
 	}
 
+	@Override
 	public PropertiesType getProperties() {
 		throw new UnsupportedOperationException("Use POM.getFullPropertyMap() instead");
 	}
 
+	@Override
 	public String getProperty(String propertyName) throws CoreException {
 		if(propertyMap == null) {
 			// initialize property cache with some basic values
@@ -466,6 +491,7 @@ public class ResolvedModel extends ResolvedModelBase implements IPropertyProvide
 		return null;
 	}
 
+	@Override
 	public Reporting getReporting() {
 		if(!reportingResolved) {
 			reportingResolved = true;
@@ -475,10 +501,12 @@ public class ResolvedModel extends ResolvedModelBase implements IPropertyProvide
 		return reporting;
 	}
 
+	@Override
 	public ReportsType getReports() {
 		throw new UnsupportedOperationException("reports resolution is not supported in this version");
 	}
 
+	@Override
 	public RepositoriesType getRepositories() {
 		if(!repositoriesResolved) {
 			repositoriesResolved = true;
@@ -490,6 +518,7 @@ public class ResolvedModel extends ResolvedModelBase implements IPropertyProvide
 		return repositories;
 	}
 
+	@Override
 	public Scm getScm() {
 		if(!scmResolved) {
 			scmResolved = true;
@@ -499,6 +528,7 @@ public class ResolvedModel extends ResolvedModelBase implements IPropertyProvide
 		return scm;
 	}
 
+	@Override
 	public String getUrl() {
 		if(!urlResolved) {
 			urlResolved = true;
@@ -508,6 +538,7 @@ public class ResolvedModel extends ResolvedModelBase implements IPropertyProvide
 		return url;
 	}
 
+	@Override
 	public String getVersion() {
 		if(!versionResolved) {
 			versionResolved = true;
@@ -517,6 +548,7 @@ public class ResolvedModel extends ResolvedModelBase implements IPropertyProvide
 		return version;
 	}
 
+	@Override
 	public boolean isSetPackaging() {
 		return getPackaging() != null;
 	}

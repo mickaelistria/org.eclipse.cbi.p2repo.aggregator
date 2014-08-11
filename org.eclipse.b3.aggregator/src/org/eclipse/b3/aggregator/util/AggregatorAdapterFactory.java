@@ -6,7 +6,6 @@
  */
 package org.eclipse.b3.aggregator.util;
 
-import org.eclipse.b3.aggregator.ValidationSet;
 import org.eclipse.b3.aggregator.Aggregation;
 import org.eclipse.b3.aggregator.AggregatorPackage;
 import org.eclipse.b3.aggregator.AvailableVersion;
@@ -37,6 +36,7 @@ import org.eclipse.b3.aggregator.Property;
 import org.eclipse.b3.aggregator.Status;
 import org.eclipse.b3.aggregator.StatusProvider;
 import org.eclipse.b3.aggregator.ValidConfigurationsRule;
+import org.eclipse.b3.aggregator.ValidationSet;
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
@@ -45,7 +45,7 @@ import org.eclipse.emf.ecore.EObject;
 /**
  * <!-- begin-user-doc --> The <b>Adapter Factory</b> for the model. It provides an adapter <code>createXXX</code> method for each class of the model.
  * <!-- end-user-doc -->
- * 
+ *
  * @see org.eclipse.b3.aggregator.AggregatorPackage
  * @generated
  */
@@ -53,7 +53,7 @@ public class AggregatorAdapterFactory extends AdapterFactoryImpl {
 	/**
 	 * The cached model package.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected static AggregatorPackage modelPackage;
@@ -61,7 +61,7 @@ public class AggregatorAdapterFactory extends AdapterFactoryImpl {
 	/**
 	 * The switch that delegates to the <code>createXXX</code> methods.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected AggregatorSwitch<Adapter> modelSwitch = new AggregatorSwitch<Adapter>() {
@@ -229,7 +229,7 @@ public class AggregatorAdapterFactory extends AdapterFactoryImpl {
 	/**
 	 * Creates an instance of the adapter factory.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public AggregatorAdapterFactory() {
@@ -241,7 +241,7 @@ public class AggregatorAdapterFactory extends AdapterFactoryImpl {
 	/**
 	 * Creates an adapter for the <code>target</code>.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param target
 	 *            the object to adapt.
 	 * @return the adapter for the <code>target</code>.
@@ -258,7 +258,7 @@ public class AggregatorAdapterFactory extends AdapterFactoryImpl {
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.aggregator.Aggregation
 	 * @generated
@@ -273,7 +273,7 @@ public class AggregatorAdapterFactory extends AdapterFactoryImpl {
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.aggregator.AvailableVersion
 	 * @generated
@@ -288,7 +288,7 @@ public class AggregatorAdapterFactory extends AdapterFactoryImpl {
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.aggregator.AvailableVersionsHeader
 	 * @generated
@@ -301,7 +301,7 @@ public class AggregatorAdapterFactory extends AdapterFactoryImpl {
 	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.aggregator.Bundle <em>Bundle</em>}'.
 	 * <!-- begin-user-doc --> This default implementation returns null so that we can easily ignore cases; it's useful
 	 * to ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc -->
-	 * 
+	 *
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.aggregator.Bundle
 	 * @generated
@@ -315,7 +315,7 @@ public class AggregatorAdapterFactory extends AdapterFactoryImpl {
 	 * <em>Category</em>}'. <!-- begin-user-doc --> This default implementation returns null so that we can easily
 	 * ignore cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc
 	 * -->
-	 * 
+	 *
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.aggregator.Category
 	 * @generated
@@ -329,7 +329,7 @@ public class AggregatorAdapterFactory extends AdapterFactoryImpl {
 	 * <!-- begin-user-doc --> This default implementation returns null so that we can
 	 * easily ignore cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.aggregator.ChildrenProvider
 	 * @generated
@@ -342,7 +342,7 @@ public class AggregatorAdapterFactory extends AdapterFactoryImpl {
 	 * Creates a new adapter for an object of class '{@link java.lang.Comparable <em>Comparable</em>}'. <!--
 	 * begin-user-doc --> This default implementation returns null so that we can easily ignore cases; it's useful to
 	 * ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc -->
-	 * 
+	 *
 	 * @return the new adapter.
 	 * @see java.lang.Comparable
 	 * @generated
@@ -356,7 +356,7 @@ public class AggregatorAdapterFactory extends AdapterFactoryImpl {
 	 * <em>Configuration</em>}'. <!-- begin-user-doc --> This default implementation returns null so that we can easily
 	 * ignore cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc
 	 * -->
-	 * 
+	 *
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.aggregator.Configuration
 	 * @generated
@@ -369,7 +369,7 @@ public class AggregatorAdapterFactory extends AdapterFactoryImpl {
 	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.aggregator.Contact <em>Contact</em>}'.
 	 * <!-- begin-user-doc --> This default implementation returns null so that we can easily ignore cases; it's
 	 * useful to ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc -->
-	 * 
+	 *
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.aggregator.Contact
 	 * @generated
@@ -383,7 +383,7 @@ public class AggregatorAdapterFactory extends AdapterFactoryImpl {
 	 * <em>Contribution</em>}'. <!-- begin-user-doc --> This default implementation returns null so that we can easily
 	 * ignore cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc
 	 * -->
-	 * 
+	 *
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.aggregator.Contribution
 	 * @generated
@@ -397,7 +397,7 @@ public class AggregatorAdapterFactory extends AdapterFactoryImpl {
 	 * <!-- begin-user-doc --> This default implementation returns null so that we can
 	 * easily ignore cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.aggregator.CustomCategory
 	 * @generated
@@ -411,7 +411,7 @@ public class AggregatorAdapterFactory extends AdapterFactoryImpl {
 	 * <!-- begin-user-doc --> This default implementation returns null so that we can
 	 * easily ignore cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.aggregator.DescriptionProvider
 	 * @generated
@@ -425,7 +425,7 @@ public class AggregatorAdapterFactory extends AdapterFactoryImpl {
 	 * <!-- begin-user-doc --> This default implementation returns null so that we
 	 * can easily ignore cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.aggregator.EnabledStatusProvider
 	 * @generated
@@ -438,7 +438,7 @@ public class AggregatorAdapterFactory extends AdapterFactoryImpl {
 	 * Creates a new adapter for the default case.
 	 * <!-- begin-user-doc --> This default implementation returns null.
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @return the new adapter.
 	 * @generated
 	 */
@@ -451,7 +451,7 @@ public class AggregatorAdapterFactory extends AdapterFactoryImpl {
 	 * <em>Exclusion Rule</em>}'. <!-- begin-user-doc --> This default implementation returns null so that we can easily
 	 * ignore cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc
 	 * -->
-	 * 
+	 *
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.aggregator.ExclusionRule
 	 * @generated
@@ -464,7 +464,7 @@ public class AggregatorAdapterFactory extends AdapterFactoryImpl {
 	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.aggregator.Feature <em>Feature</em>}'.
 	 * <!-- begin-user-doc --> This default implementation returns null so that we can easily ignore cases; it's
 	 * useful to ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc -->
-	 * 
+	 *
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.aggregator.Feature
 	 * @generated
@@ -479,7 +479,7 @@ public class AggregatorAdapterFactory extends AdapterFactoryImpl {
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.aggregator.IdentificationProvider
 	 * @generated
@@ -493,7 +493,7 @@ public class AggregatorAdapterFactory extends AdapterFactoryImpl {
 	 * <em>Infos Provider</em>}'. <!-- begin-user-doc --> This default implementation returns null so that we can easily
 	 * ignore cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc
 	 * -->
-	 * 
+	 *
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.aggregator.InfosProvider
 	 * @generated
@@ -508,7 +508,7 @@ public class AggregatorAdapterFactory extends AdapterFactoryImpl {
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.aggregator.InstallableUnitRequest
 	 * @generated
@@ -522,7 +522,7 @@ public class AggregatorAdapterFactory extends AdapterFactoryImpl {
 	 * <em>Label Provider</em>}'. <!-- begin-user-doc --> This default implementation returns null so that we can easily
 	 * ignore cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc
 	 * -->
-	 * 
+	 *
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.aggregator.LabelProvider
 	 * @generated
@@ -536,7 +536,7 @@ public class AggregatorAdapterFactory extends AdapterFactoryImpl {
 	 * <!-- begin-user-doc --> This default implementation returns null so that we can
 	 * easily ignore cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.aggregator.MappedRepository
 	 * @generated
@@ -550,7 +550,7 @@ public class AggregatorAdapterFactory extends AdapterFactoryImpl {
 	 * <em>Mapped Unit</em>}'. <!-- begin-user-doc --> This default implementation returns null so that we can easily
 	 * ignore cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc
 	 * -->
-	 * 
+	 *
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.aggregator.MappedUnit
 	 * @generated
@@ -564,7 +564,7 @@ public class AggregatorAdapterFactory extends AdapterFactoryImpl {
 	 * <em>Map Rule</em>}'. <!-- begin-user-doc --> This default implementation returns null so that we can easily
 	 * ignore cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc
 	 * -->
-	 * 
+	 *
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.aggregator.MapRule
 	 * @generated
@@ -578,7 +578,7 @@ public class AggregatorAdapterFactory extends AdapterFactoryImpl {
 	 * <em>Maven Item</em>}'. <!-- begin-user-doc --> This default implementation returns null so that we can easily
 	 * ignore cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc
 	 * -->
-	 * 
+	 *
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.aggregator.MavenItem
 	 * @generated
@@ -592,7 +592,7 @@ public class AggregatorAdapterFactory extends AdapterFactoryImpl {
 	 * <em>Maven Mapping</em>}'. <!-- begin-user-doc --> This default implementation returns null so that we can easily
 	 * ignore cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc
 	 * -->
-	 * 
+	 *
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.aggregator.MavenMapping
 	 * @generated
@@ -606,7 +606,7 @@ public class AggregatorAdapterFactory extends AdapterFactoryImpl {
 	 * <em>Metadata Repository Reference</em>}'.
 	 * <!-- begin-user-doc --> This default implementation returns null so that we can easily ignore cases; it's useful
 	 * to ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc -->
-	 * 
+	 *
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.aggregator.MetadataRepositoryReference
 	 * @generated
@@ -619,7 +619,7 @@ public class AggregatorAdapterFactory extends AdapterFactoryImpl {
 	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.aggregator.Product <em>Product</em>}'.
 	 * <!-- begin-user-doc --> This default implementation returns null so that we can easily ignore cases; it's
 	 * useful to ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc -->
-	 * 
+	 *
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.aggregator.Product
 	 * @generated
@@ -633,7 +633,7 @@ public class AggregatorAdapterFactory extends AdapterFactoryImpl {
 	 * <em>Property</em>}'. <!-- begin-user-doc --> This default implementation returns null so that we can easily
 	 * ignore cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc
 	 * -->
-	 * 
+	 *
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.aggregator.Property
 	 * @generated
@@ -646,7 +646,7 @@ public class AggregatorAdapterFactory extends AdapterFactoryImpl {
 	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.aggregator.Status <em>Status</em>}'.
 	 * <!-- begin-user-doc --> This default implementation returns null so that we can easily ignore cases; it's useful
 	 * to ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc -->
-	 * 
+	 *
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.aggregator.Status
 	 * @generated
@@ -660,7 +660,7 @@ public class AggregatorAdapterFactory extends AdapterFactoryImpl {
 	 * <!-- begin-user-doc --> This default implementation returns null so that we can
 	 * easily ignore cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.aggregator.StatusProvider
 	 * @generated
@@ -675,7 +675,7 @@ public class AggregatorAdapterFactory extends AdapterFactoryImpl {
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.aggregator.ValidationSet
 	 * @generated
@@ -689,7 +689,7 @@ public class AggregatorAdapterFactory extends AdapterFactoryImpl {
 	 * <!-- begin-user-doc --> This default implementation returns null so that we
 	 * can easily ignore cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.aggregator.ValidConfigurationsRule
 	 * @generated
@@ -703,7 +703,7 @@ public class AggregatorAdapterFactory extends AdapterFactoryImpl {
 	 * <!-- begin-user-doc --> This
 	 * implementation returns <code>true</code> if the object is either the model's package or is an instance object of
 	 * the model. <!-- end-user-doc -->
-	 * 
+	 *
 	 * @return whether this factory is applicable for the type of the object.
 	 * @generated
 	 */

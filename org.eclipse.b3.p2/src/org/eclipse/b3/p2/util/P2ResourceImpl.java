@@ -34,7 +34,7 @@ import org.eclipse.equinox.p2.core.IProvisioningAgent;
  * <!-- begin-user-doc -->
  * The <b>Resource </b> associated with the package.
  * <!-- end-user-doc -->
- * 
+ *
  * @see org.eclipse.b3.p2.util.P2ResourceFactoryImpl
  * @generated
  */
@@ -146,18 +146,22 @@ public class P2ResourceImpl extends XMLResourceImpl {
 				LogUtils.error(e, "Unable to load repository %s", location);
 				errors.add(new Resource.Diagnostic() {
 
+					@Override
 					public int getColumn() {
 						return 0;
 					}
 
+					@Override
 					public int getLine() {
 						return 0;
 					}
 
+					@Override
 					public String getLocation() {
 						return location.toString();
 					}
 
+					@Override
 					public String getMessage() {
 						return e.getMessage();
 					}
@@ -194,7 +198,7 @@ public class P2ResourceImpl extends XMLResourceImpl {
 	 * Creates an instance of the resource.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param uri
 	 *            the URI of the new resource.
 	 * @generated NOT

@@ -14,7 +14,7 @@ import org.eclipse.core.runtime.Platform;
 
 /**
  * @author Filip Hrbek (filip.hrbek@cloudsmith.com)
- * 
+ *
  */
 public class IndexerUtils {
 	public static IMaven2Indexer getIndexer(String name) {

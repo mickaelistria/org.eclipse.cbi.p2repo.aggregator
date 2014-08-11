@@ -10,7 +10,7 @@ package org.eclipse.b3.cli.helpers;
 
 /**
  * @author filip.hrbek@cloudsmith.com
- * 
+ *
  */
 public class CliException extends Exception {
 

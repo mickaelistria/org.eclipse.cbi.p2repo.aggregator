@@ -8,14 +8,10 @@ package org.eclipse.b3.p2.maven.pom.impl;
 
 import org.eclipse.b3.p2.maven.pom.ConfigurationType;
 import org.eclipse.b3.p2.maven.pom.PomPackage;
-
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.EObjectImpl;
-
 import org.eclipse.emf.ecore.util.BasicFeatureMap;
 import org.eclipse.emf.ecore.util.FeatureMap;
 import org.eclipse.emf.ecore.util.InternalEList;
@@ -29,7 +25,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <li>{@link org.eclipse.b3.p2.maven.pom.impl.ConfigurationTypeImpl#getAny <em>Any</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public class ConfigurationTypeImpl extends EObjectImpl implements ConfigurationType {
@@ -37,7 +33,7 @@ public class ConfigurationTypeImpl extends EObjectImpl implements ConfigurationT
 	 * The cached value of the '{@link #getAny() <em>Any</em>}' attribute list.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @see #getAny()
 	 * @generated
 	 * @ordered
@@ -46,7 +42,7 @@ public class ConfigurationTypeImpl extends EObjectImpl implements ConfigurationT
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected ConfigurationTypeImpl() {
@@ -55,7 +51,7 @@ public class ConfigurationTypeImpl extends EObjectImpl implements ConfigurationT
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -71,7 +67,7 @@ public class ConfigurationTypeImpl extends EObjectImpl implements ConfigurationT
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -85,7 +81,7 @@ public class ConfigurationTypeImpl extends EObjectImpl implements ConfigurationT
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -99,7 +95,7 @@ public class ConfigurationTypeImpl extends EObjectImpl implements ConfigurationT
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -114,7 +110,7 @@ public class ConfigurationTypeImpl extends EObjectImpl implements ConfigurationT
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -129,9 +125,10 @@ public class ConfigurationTypeImpl extends EObjectImpl implements ConfigurationT
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public FeatureMap getAny() {
 		if(any == null) {
 			any = new BasicFeatureMap(this, PomPackage.CONFIGURATION_TYPE__ANY);
@@ -141,7 +138,7 @@ public class ConfigurationTypeImpl extends EObjectImpl implements ConfigurationT
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -158,7 +155,7 @@ public class ConfigurationTypeImpl extends EObjectImpl implements ConfigurationT
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override

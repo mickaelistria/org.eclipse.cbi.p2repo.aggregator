@@ -41,14 +41,14 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <li>{@link org.eclipse.b3.aggregator.impl.CustomCategoryImpl#getFeatures <em>Features</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public class CustomCategoryImpl extends MinimalEObjectImpl.Container implements CustomCategory {
 	/**
 	 * A set of bit flags representing the values of boolean attributes and whether unsettable features have been set.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 * @ordered
 	 */
@@ -58,7 +58,7 @@ public class CustomCategoryImpl extends MinimalEObjectImpl.Container implements 
 	 * The cached value of the '{@link #getErrors() <em>Errors</em>}' attribute list.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @see #getErrors()
 	 * @generated
 	 * @ordered
@@ -69,7 +69,7 @@ public class CustomCategoryImpl extends MinimalEObjectImpl.Container implements 
 	 * The cached value of the '{@link #getWarnings() <em>Warnings</em>}' attribute list.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @see #getWarnings()
 	 * @generated
 	 * @ordered
@@ -80,7 +80,7 @@ public class CustomCategoryImpl extends MinimalEObjectImpl.Container implements 
 	 * The cached value of the '{@link #getInfos() <em>Infos</em>}' attribute list.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @see #getInfos()
 	 * @generated
 	 * @ordered
@@ -91,7 +91,7 @@ public class CustomCategoryImpl extends MinimalEObjectImpl.Container implements 
 	 * The default value of the '{@link #getIdentifier() <em>Identifier</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @see #getIdentifier()
 	 * @generated
 	 * @ordered
@@ -102,7 +102,7 @@ public class CustomCategoryImpl extends MinimalEObjectImpl.Container implements 
 	 * The cached value of the '{@link #getIdentifier() <em>Identifier</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @see #getIdentifier()
 	 * @generated
 	 * @ordered
@@ -113,7 +113,7 @@ public class CustomCategoryImpl extends MinimalEObjectImpl.Container implements 
 	 * The default value of the '{@link #getLabel() <em>Label</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @see #getLabel()
 	 * @generated
 	 * @ordered
@@ -123,7 +123,7 @@ public class CustomCategoryImpl extends MinimalEObjectImpl.Container implements 
 	/**
 	 * The cached value of the '{@link #getLabel() <em>Label</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
 	 * -->
-	 * 
+	 *
 	 * @see #getLabel()
 	 * @generated
 	 * @ordered
@@ -134,7 +134,7 @@ public class CustomCategoryImpl extends MinimalEObjectImpl.Container implements 
 	 * The default value of the '{@link #getDescription() <em>Description</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @see #getDescription()
 	 * @generated
 	 * @ordered
@@ -145,7 +145,7 @@ public class CustomCategoryImpl extends MinimalEObjectImpl.Container implements 
 	 * The cached value of the '{@link #getDescription() <em>Description</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @see #getDescription()
 	 * @generated
 	 * @ordered
@@ -156,7 +156,7 @@ public class CustomCategoryImpl extends MinimalEObjectImpl.Container implements 
 	 * The cached value of the '{@link #getFeatures() <em>Features</em>}' reference list.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @see #getFeatures()
 	 * @generated
 	 * @ordered
@@ -165,7 +165,7 @@ public class CustomCategoryImpl extends MinimalEObjectImpl.Container implements 
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected CustomCategoryImpl() {
@@ -174,7 +174,7 @@ public class CustomCategoryImpl extends MinimalEObjectImpl.Container implements 
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -196,7 +196,7 @@ public class CustomCategoryImpl extends MinimalEObjectImpl.Container implements 
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -218,7 +218,7 @@ public class CustomCategoryImpl extends MinimalEObjectImpl.Container implements 
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -246,7 +246,7 @@ public class CustomCategoryImpl extends MinimalEObjectImpl.Container implements 
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
@@ -261,7 +261,7 @@ public class CustomCategoryImpl extends MinimalEObjectImpl.Container implements 
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -275,7 +275,7 @@ public class CustomCategoryImpl extends MinimalEObjectImpl.Container implements 
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -309,7 +309,7 @@ public class CustomCategoryImpl extends MinimalEObjectImpl.Container implements 
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
@@ -347,7 +347,7 @@ public class CustomCategoryImpl extends MinimalEObjectImpl.Container implements 
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -357,7 +357,7 @@ public class CustomCategoryImpl extends MinimalEObjectImpl.Container implements 
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -390,7 +390,7 @@ public class CustomCategoryImpl extends MinimalEObjectImpl.Container implements 
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public String getDescription() {
@@ -399,7 +399,7 @@ public class CustomCategoryImpl extends MinimalEObjectImpl.Container implements 
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EList<String> getErrors() {
@@ -411,7 +411,7 @@ public class CustomCategoryImpl extends MinimalEObjectImpl.Container implements 
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EList<Feature> getFeatures() {
@@ -424,7 +424,7 @@ public class CustomCategoryImpl extends MinimalEObjectImpl.Container implements 
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public String getIdentifier() {
@@ -433,7 +433,7 @@ public class CustomCategoryImpl extends MinimalEObjectImpl.Container implements 
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EList<String> getInfos() {
@@ -445,7 +445,7 @@ public class CustomCategoryImpl extends MinimalEObjectImpl.Container implements 
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public String getLabel() {
@@ -464,7 +464,7 @@ public class CustomCategoryImpl extends MinimalEObjectImpl.Container implements 
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EList<String> getWarnings() {
@@ -476,7 +476,7 @@ public class CustomCategoryImpl extends MinimalEObjectImpl.Container implements 
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public void setDescription(String newDescription) {
@@ -489,7 +489,7 @@ public class CustomCategoryImpl extends MinimalEObjectImpl.Container implements 
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public void setIdentifier(String newIdentifier) {
@@ -502,7 +502,7 @@ public class CustomCategoryImpl extends MinimalEObjectImpl.Container implements 
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public void setLabel(String newLabel) {
@@ -515,7 +515,7 @@ public class CustomCategoryImpl extends MinimalEObjectImpl.Container implements 
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override

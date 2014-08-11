@@ -7,19 +7,18 @@
 package org.eclipse.b3.p2.maven.pom;
 
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc --> A representation of the model object '<em><b>Includes Type</b></em>'. <!-- end-user-doc -->
- * 
+ *
  * <p>
  * The following features are supported:
  * <ul>
  * <li>{@link org.eclipse.b3.p2.maven.pom.IncludesType#getInclude <em>Include</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @see org.eclipse.b3.p2.maven.pom.PomPackage#getIncludesType()
  * @model extendedMetaData="name='includes_._type' kind='elementOnly'"
  * @generated
@@ -33,7 +32,7 @@ public interface IncludesType extends EObject {
 	 * If the meaning of the '<em>Include</em>' attribute list isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @return the value of the '<em>Include</em>' attribute list.
 	 * @see org.eclipse.b3.p2.maven.pom.PomPackage#getIncludesType_Include()
 	 * @model unique="false" dataType="org.eclipse.emf.ecore.xml.type.String"

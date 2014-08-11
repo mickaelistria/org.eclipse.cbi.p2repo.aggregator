@@ -31,7 +31,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
 /**
  * This is the item provider adapter for a {@link org.eclipse.b3.aggregator.ValidConfigurationsRule} object.
  * <!-- begin-user-doc --> <!-- end-user-doc -->
- * 
+ *
  * @generated
  */
 public class ValidConfigurationsRuleItemProvider extends MapRuleItemProvider implements IEditingDomainItemProvider,
@@ -40,7 +40,7 @@ public class ValidConfigurationsRuleItemProvider extends MapRuleItemProvider imp
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public ValidConfigurationsRuleItemProvider(AdapterFactory adapterFactory) {
@@ -50,7 +50,7 @@ public class ValidConfigurationsRuleItemProvider extends MapRuleItemProvider imp
 	/**
 	 * This adds a property descriptor for the Valid Configurations feature. <!-- begin-user-doc --> <!-- end-user-doc
 	 * -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected void addValidConfigurationsPropertyDescriptor(Object object) {
@@ -69,7 +69,7 @@ public class ValidConfigurationsRuleItemProvider extends MapRuleItemProvider imp
 	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
 	 * that can be created under this object.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -79,7 +79,7 @@ public class ValidConfigurationsRuleItemProvider extends MapRuleItemProvider imp
 
 	/**
 	 * This returns ValidConfigurationsRule.gif. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
 	@Override
@@ -96,7 +96,7 @@ public class ValidConfigurationsRuleItemProvider extends MapRuleItemProvider imp
 	/**
 	 * This returns the property descriptors for the adapted class.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -111,7 +111,7 @@ public class ValidConfigurationsRuleItemProvider extends MapRuleItemProvider imp
 
 	/**
 	 * This returns the label text for the adapted class. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
 	@Override
@@ -137,7 +137,7 @@ public class ValidConfigurationsRuleItemProvider extends MapRuleItemProvider imp
 	 * This handles model notifications by calling {@link #updateChildren} to update any cached children and by creating
 	 * a viewer notification, which it passes to {@link #fireNotifyChanged}. <!-- begin-user-doc --> <!-- end-user-doc
 	 * -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override

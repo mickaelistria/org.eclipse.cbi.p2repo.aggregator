@@ -10,8 +10,8 @@ import org.eclipse.emf.common.util.EList;
 
 /**
  * <!-- begin-user-doc --> A representation of the model object '<em><b>Mapped Repository</b></em>'.
- * 
- * 
+ *
+ *
  * <p>
  * The following features are supported:
  * <ul>
@@ -24,7 +24,7 @@ import org.eclipse.emf.common.util.EList;
  * <li>{@link org.eclipse.b3.aggregator.MappedRepository#getMapRules <em>Map Rules</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @see org.eclipse.b3.aggregator.AggregatorPackage#getMappedRepository()
  * @model
  * @generated
@@ -32,7 +32,7 @@ import org.eclipse.emf.common.util.EList;
 public interface MappedRepository extends MetadataRepositoryReference, DescriptionProvider, IdentificationProvider {
 	/**
 	 * Adds MappedUnit to the collection of either features, categories, bundles or products
-	 * 
+	 *
 	 * @param mu
 	 *            MappedUnit
 	 */
@@ -46,7 +46,7 @@ public interface MappedRepository extends MetadataRepositoryReference, Descripti
 	 * If the meaning of the '<em>Bundles</em>' containment reference list isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @return the value of the '<em>Bundles</em>' containment reference list.
 	 * @see org.eclipse.b3.aggregator.AggregatorPackage#getMappedRepository_Bundles()
 	 * @model containment="true" resolveProxies="true"
@@ -62,7 +62,7 @@ public interface MappedRepository extends MetadataRepositoryReference, Descripti
 	 * If the meaning of the '<em>Categories</em>' containment reference list isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @return the value of the '<em>Categories</em>' containment reference list.
 	 * @see org.eclipse.b3.aggregator.AggregatorPackage#getMappedRepository_Categories()
 	 * @model containment="true" resolveProxies="true"
@@ -77,7 +77,7 @@ public interface MappedRepository extends MetadataRepositoryReference, Descripti
 	 * If the meaning of the '<em>Category Prefix</em>' attribute isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @return the value of the '<em>Category Prefix</em>' attribute.
 	 * @see #setCategoryPrefix(String)
 	 * @see org.eclipse.b3.aggregator.AggregatorPackage#getMappedRepository_CategoryPrefix()
@@ -94,7 +94,7 @@ public interface MappedRepository extends MetadataRepositoryReference, Descripti
 	 * If the meaning of the '<em>Features</em>' containment reference list isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @return the value of the '<em>Features</em>' containment reference list.
 	 * @see org.eclipse.b3.aggregator.AggregatorPackage#getMappedRepository_Features()
 	 * @model containment="true" resolveProxies="true"
@@ -110,7 +110,7 @@ public interface MappedRepository extends MetadataRepositoryReference, Descripti
 	 * If the meaning of the '<em>Map Rules</em>' containment reference list isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @return the value of the '<em>Map Rules</em>' containment reference list.
 	 * @see org.eclipse.b3.aggregator.AggregatorPackage#getMappedRepository_MapRules()
 	 * @model containment="true" resolveProxies="true"
@@ -125,7 +125,7 @@ public interface MappedRepository extends MetadataRepositoryReference, Descripti
 	 * Returns the MapRules referenced by this instance. Rules that have their <code>enabled</code> flag set to false will be excluded if the
 	 * parameter <code>enabledOnly</code> is set to <code>true</code>.
 	 * <!-- end-model-doc -->
-	 * 
+	 *
 	 * @model
 	 * @generated
 	 */
@@ -139,7 +139,7 @@ public interface MappedRepository extends MetadataRepositoryReference, Descripti
 	 * If the meaning of the '<em>Products</em>' containment reference list isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @return the value of the '<em>Products</em>' containment reference list.
 	 * @see org.eclipse.b3.aggregator.AggregatorPackage#getMappedRepository_Products()
 	 * @model containment="true" resolveProxies="true"
@@ -151,7 +151,7 @@ public interface MappedRepository extends MetadataRepositoryReference, Descripti
 	 * <!-- begin-user-doc --> <!-- end-user-doc --> <!-- begin-model-doc --> Returns the MappedUnits referenced by this
 	 * instance. Units that have their <code>enabled</code> flag set to false will be excluded if the parameter <code>enabledOnly</code> is set to
 	 * <code>true</code>. <!-- end-model-doc -->
-	 * 
+	 *
 	 * @model
 	 * @generated
 	 */
@@ -160,7 +160,7 @@ public interface MappedRepository extends MetadataRepositoryReference, Descripti
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc --> <!-- begin-model-doc --> Returns <code>true</code> if the container
 	 * has MappedUnit children. <!-- end-model-doc -->
-	 * 
+	 *
 	 * @model kind="operation"
 	 * @generated
 	 */
@@ -174,7 +174,7 @@ public interface MappedRepository extends MetadataRepositoryReference, Descripti
 	 * If the meaning of the '<em>Mirror Artifacts</em>' attribute isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @return the value of the '<em>Mirror Artifacts</em>' attribute.
 	 * @see #setMirrorArtifacts(boolean)
 	 * @see org.eclipse.b3.aggregator.AggregatorPackage#getMappedRepository_MirrorArtifacts()
@@ -185,7 +185,7 @@ public interface MappedRepository extends MetadataRepositoryReference, Descripti
 
 	/**
 	 * Removes MappedUnit from the collection of either features, categories, bundles or products
-	 * 
+	 *
 	 * @param mu
 	 *            MappedUnit
 	 */
@@ -194,7 +194,7 @@ public interface MappedRepository extends MetadataRepositoryReference, Descripti
 	/**
 	 * Sets the value of the '{@link org.eclipse.b3.aggregator.MappedRepository#getCategoryPrefix <em>Category Prefix</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param value
 	 *            the new value of the '<em>Category Prefix</em>' attribute.
 	 * @see #getCategoryPrefix()
@@ -205,7 +205,7 @@ public interface MappedRepository extends MetadataRepositoryReference, Descripti
 	/**
 	 * Sets the value of the '{@link org.eclipse.b3.aggregator.MappedRepository#isMirrorArtifacts <em>Mirror Artifacts</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param value
 	 *            the new value of the '<em>Mirror Artifacts</em>' attribute.
 	 * @see #isMirrorArtifacts()

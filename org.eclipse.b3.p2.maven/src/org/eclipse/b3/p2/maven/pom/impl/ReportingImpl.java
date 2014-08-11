@@ -9,13 +9,10 @@ package org.eclipse.b3.p2.maven.pom.impl;
 import org.eclipse.b3.p2.maven.pom.PomPackage;
 import org.eclipse.b3.p2.maven.pom.Reporting;
 import org.eclipse.b3.p2.maven.pom.ReportingPluginsType;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 
@@ -29,7 +26,7 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * <li>{@link org.eclipse.b3.p2.maven.pom.impl.ReportingImpl#getPlugins <em>Plugins</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public class ReportingImpl extends EObjectImpl implements Reporting {
@@ -37,7 +34,7 @@ public class ReportingImpl extends EObjectImpl implements Reporting {
 	 * The default value of the '{@link #isExcludeDefaults() <em>Exclude Defaults</em>}' attribute.
 	 * <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #isExcludeDefaults()
 	 * @generated
 	 * @ordered
@@ -48,7 +45,7 @@ public class ReportingImpl extends EObjectImpl implements Reporting {
 	 * The cached value of the '{@link #isExcludeDefaults() <em>Exclude Defaults</em>}' attribute.
 	 * <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #isExcludeDefaults()
 	 * @generated
 	 * @ordered
@@ -58,7 +55,7 @@ public class ReportingImpl extends EObjectImpl implements Reporting {
 	/**
 	 * This is true if the Exclude Defaults attribute has been set.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 * @ordered
 	 */
@@ -68,7 +65,7 @@ public class ReportingImpl extends EObjectImpl implements Reporting {
 	 * The default value of the '{@link #getOutputDirectory() <em>Output Directory</em>}' attribute.
 	 * <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getOutputDirectory()
 	 * @generated
 	 * @ordered
@@ -79,7 +76,7 @@ public class ReportingImpl extends EObjectImpl implements Reporting {
 	 * The cached value of the '{@link #getOutputDirectory() <em>Output Directory</em>}' attribute.
 	 * <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getOutputDirectory()
 	 * @generated
 	 * @ordered
@@ -90,7 +87,7 @@ public class ReportingImpl extends EObjectImpl implements Reporting {
 	 * The cached value of the '{@link #getPlugins() <em>Plugins</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getPlugins()
 	 * @generated
 	 * @ordered
@@ -99,7 +96,7 @@ public class ReportingImpl extends EObjectImpl implements Reporting {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected ReportingImpl() {
@@ -108,7 +105,7 @@ public class ReportingImpl extends EObjectImpl implements Reporting {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public NotificationChain basicSetPlugins(ReportingPluginsType newPlugins, NotificationChain msgs) {
@@ -127,7 +124,7 @@ public class ReportingImpl extends EObjectImpl implements Reporting {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -145,7 +142,7 @@ public class ReportingImpl extends EObjectImpl implements Reporting {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -159,7 +156,7 @@ public class ReportingImpl extends EObjectImpl implements Reporting {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -179,7 +176,7 @@ public class ReportingImpl extends EObjectImpl implements Reporting {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -200,7 +197,7 @@ public class ReportingImpl extends EObjectImpl implements Reporting {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -221,45 +218,50 @@ public class ReportingImpl extends EObjectImpl implements Reporting {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public String getOutputDirectory() {
 		return outputDirectory;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public ReportingPluginsType getPlugins() {
 		return plugins;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public boolean isExcludeDefaults() {
 		return excludeDefaults;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public boolean isSetExcludeDefaults() {
 		return excludeDefaultsESet;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public void setExcludeDefaults(boolean newExcludeDefaults) {
 		boolean oldExcludeDefaults = excludeDefaults;
 		excludeDefaults = newExcludeDefaults;
@@ -273,9 +275,10 @@ public class ReportingImpl extends EObjectImpl implements Reporting {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public void setOutputDirectory(String newOutputDirectory) {
 		String oldOutputDirectory = outputDirectory;
 		outputDirectory = newOutputDirectory;
@@ -286,9 +289,10 @@ public class ReportingImpl extends EObjectImpl implements Reporting {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public void setPlugins(ReportingPluginsType newPlugins) {
 		if(newPlugins != plugins) {
 			NotificationChain msgs = null;
@@ -308,7 +312,7 @@ public class ReportingImpl extends EObjectImpl implements Reporting {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -330,9 +334,10 @@ public class ReportingImpl extends EObjectImpl implements Reporting {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
+	@Override
 	public void unsetExcludeDefaults() {
 		boolean oldExcludeDefaults = excludeDefaults;
 		boolean oldExcludeDefaultsESet = excludeDefaultsESet;
@@ -346,7 +351,7 @@ public class ReportingImpl extends EObjectImpl implements Reporting {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override

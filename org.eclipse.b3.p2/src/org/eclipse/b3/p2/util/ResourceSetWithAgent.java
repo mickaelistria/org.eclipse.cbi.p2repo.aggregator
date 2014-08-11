@@ -13,7 +13,7 @@ import org.eclipse.equinox.p2.core.IProvisioningAgent;
 
 /**
  * @author filip.hrbek@cloudsmith.com
- * 
+ *
  */
 public class ResourceSetWithAgent extends ResourceSetImpl {
 	private IProvisioningAgent agent;

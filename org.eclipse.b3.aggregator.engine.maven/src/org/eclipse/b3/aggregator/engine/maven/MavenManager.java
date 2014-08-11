@@ -41,7 +41,7 @@ import org.eclipse.equinox.p2.metadata.Version;
 
 /**
  * @author Filip Hrbek (filip.hrbek@cloudsmith.com)
- * 
+ *
  */
 public class MavenManager {
 	static class MavenMetadataHelper {

@@ -30,14 +30,14 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <li>{@link org.eclipse.b3.aggregator.p2view.impl.PropertiesImpl#getPropertyList <em>Property List</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public class PropertiesImpl extends MinimalEObjectImpl.Container implements Properties {
 	/**
 	 * A set of bit flags representing the values of boolean attributes and whether unsettable features have been set.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 * @ordered
 	 */
@@ -47,7 +47,7 @@ public class PropertiesImpl extends MinimalEObjectImpl.Container implements Prop
 	 * The cached value of the '{@link #getPropertyList() <em>Property List</em>}' containment reference list.
 	 * <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getPropertyList()
 	 * @generated
 	 * @ordered
@@ -56,7 +56,7 @@ public class PropertiesImpl extends MinimalEObjectImpl.Container implements Prop
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected PropertiesImpl() {
@@ -65,7 +65,7 @@ public class PropertiesImpl extends MinimalEObjectImpl.Container implements Prop
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -80,7 +80,7 @@ public class PropertiesImpl extends MinimalEObjectImpl.Container implements Prop
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -94,7 +94,7 @@ public class PropertiesImpl extends MinimalEObjectImpl.Container implements Prop
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -108,7 +108,7 @@ public class PropertiesImpl extends MinimalEObjectImpl.Container implements Prop
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
@@ -125,7 +125,7 @@ public class PropertiesImpl extends MinimalEObjectImpl.Container implements Prop
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -135,7 +135,7 @@ public class PropertiesImpl extends MinimalEObjectImpl.Container implements Prop
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -150,7 +150,7 @@ public class PropertiesImpl extends MinimalEObjectImpl.Container implements Prop
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EList<Property> getPropertyList() {

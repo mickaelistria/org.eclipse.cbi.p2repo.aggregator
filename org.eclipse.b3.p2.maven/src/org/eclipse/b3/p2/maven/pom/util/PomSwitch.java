@@ -6,8 +6,73 @@
  */
 package org.eclipse.b3.p2.maven.pom.util;
 
-import org.eclipse.b3.p2.maven.pom.*;
-
+import org.eclipse.b3.p2.maven.pom.Activation;
+import org.eclipse.b3.p2.maven.pom.ActivationFile;
+import org.eclipse.b3.p2.maven.pom.ActivationOS;
+import org.eclipse.b3.p2.maven.pom.ActivationProperty;
+import org.eclipse.b3.p2.maven.pom.Build;
+import org.eclipse.b3.p2.maven.pom.BuildBase;
+import org.eclipse.b3.p2.maven.pom.CiManagement;
+import org.eclipse.b3.p2.maven.pom.ConfigurationType;
+import org.eclipse.b3.p2.maven.pom.Contributor;
+import org.eclipse.b3.p2.maven.pom.ContributorsType;
+import org.eclipse.b3.p2.maven.pom.DependenciesType;
+import org.eclipse.b3.p2.maven.pom.Dependency;
+import org.eclipse.b3.p2.maven.pom.DependencyManagement;
+import org.eclipse.b3.p2.maven.pom.DeploymentRepository;
+import org.eclipse.b3.p2.maven.pom.Developer;
+import org.eclipse.b3.p2.maven.pom.DevelopersType;
+import org.eclipse.b3.p2.maven.pom.DistributionManagement;
+import org.eclipse.b3.p2.maven.pom.DocumentRoot;
+import org.eclipse.b3.p2.maven.pom.ExcludesType;
+import org.eclipse.b3.p2.maven.pom.Exclusion;
+import org.eclipse.b3.p2.maven.pom.ExclusionsType;
+import org.eclipse.b3.p2.maven.pom.ExecutionGoalsType;
+import org.eclipse.b3.p2.maven.pom.ExecutionsType;
+import org.eclipse.b3.p2.maven.pom.Extension;
+import org.eclipse.b3.p2.maven.pom.ExtensionsType;
+import org.eclipse.b3.p2.maven.pom.FiltersType;
+import org.eclipse.b3.p2.maven.pom.GoalsType;
+import org.eclipse.b3.p2.maven.pom.IncludesType;
+import org.eclipse.b3.p2.maven.pom.IssueManagement;
+import org.eclipse.b3.p2.maven.pom.License;
+import org.eclipse.b3.p2.maven.pom.LicensesType;
+import org.eclipse.b3.p2.maven.pom.MailingList;
+import org.eclipse.b3.p2.maven.pom.MailingListsType;
+import org.eclipse.b3.p2.maven.pom.Model;
+import org.eclipse.b3.p2.maven.pom.ModulesType;
+import org.eclipse.b3.p2.maven.pom.Notifier;
+import org.eclipse.b3.p2.maven.pom.NotifiersType;
+import org.eclipse.b3.p2.maven.pom.Organization;
+import org.eclipse.b3.p2.maven.pom.OtherArchivesType;
+import org.eclipse.b3.p2.maven.pom.Parent;
+import org.eclipse.b3.p2.maven.pom.Plugin;
+import org.eclipse.b3.p2.maven.pom.PluginExecution;
+import org.eclipse.b3.p2.maven.pom.PluginManagement;
+import org.eclipse.b3.p2.maven.pom.PluginRepositoriesType;
+import org.eclipse.b3.p2.maven.pom.PluginsType;
+import org.eclipse.b3.p2.maven.pom.PomPackage;
+import org.eclipse.b3.p2.maven.pom.Prerequisites;
+import org.eclipse.b3.p2.maven.pom.Profile;
+import org.eclipse.b3.p2.maven.pom.ProfilesType;
+import org.eclipse.b3.p2.maven.pom.PropertiesType;
+import org.eclipse.b3.p2.maven.pom.Relocation;
+import org.eclipse.b3.p2.maven.pom.ReportPlugin;
+import org.eclipse.b3.p2.maven.pom.ReportSet;
+import org.eclipse.b3.p2.maven.pom.ReportSetReportsType;
+import org.eclipse.b3.p2.maven.pom.ReportSetsType;
+import org.eclipse.b3.p2.maven.pom.Reporting;
+import org.eclipse.b3.p2.maven.pom.ReportingPluginsType;
+import org.eclipse.b3.p2.maven.pom.ReportsType;
+import org.eclipse.b3.p2.maven.pom.RepositoriesType;
+import org.eclipse.b3.p2.maven.pom.Repository;
+import org.eclipse.b3.p2.maven.pom.RepositoryPolicy;
+import org.eclipse.b3.p2.maven.pom.Resource;
+import org.eclipse.b3.p2.maven.pom.ResourcesType;
+import org.eclipse.b3.p2.maven.pom.RolesType;
+import org.eclipse.b3.p2.maven.pom.Scm;
+import org.eclipse.b3.p2.maven.pom.Site;
+import org.eclipse.b3.p2.maven.pom.TestResourcesType;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.Switch;
@@ -17,7 +82,7 @@ import org.eclipse.emf.ecore.util.Switch;
  * to invoke the <code>caseXXX</code> method for each class of the model,
  * starting with the actual class of the object and proceeding up the inheritance hierarchy until a non-null result is
  * returned, which is the result of the switch. <!-- end-user-doc -->
- * 
+ *
  * @see org.eclipse.b3.p2.maven.pom.PomPackage
  * @generated
  */
@@ -25,7 +90,7 @@ public class PomSwitch<T> extends Switch<T> {
 	/**
 	 * The cached model package
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected static PomPackage modelPackage;
@@ -33,7 +98,7 @@ public class PomSwitch<T> extends Switch<T> {
 	/**
 	 * Creates an instance of the switch.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public PomSwitch() {
@@ -46,7 +111,7 @@ public class PomSwitch<T> extends Switch<T> {
 	 * Returns the result of interpreting the object as an instance of '<em>Activation</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param object
 	 *            the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Activation</em>'.
@@ -61,7 +126,7 @@ public class PomSwitch<T> extends Switch<T> {
 	 * Returns the result of interpreting the object as an instance of '<em>Activation File</em>'. <!-- begin-user-doc
 	 * --> This implementation returns null; returning a non-null result will terminate the switch. <!-- end-user-doc
 	 * -->
-	 * 
+	 *
 	 * @param object
 	 *            the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Activation File</em>'.
@@ -76,7 +141,7 @@ public class PomSwitch<T> extends Switch<T> {
 	 * Returns the result of interpreting the object as an instance of '<em>Activation OS</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param object
 	 *            the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Activation OS</em>'.
@@ -91,7 +156,7 @@ public class PomSwitch<T> extends Switch<T> {
 	 * Returns the result of interpreting the object as an instance of '<em>Activation Property</em>'. <!--
 	 * begin-user-doc --> This implementation returns null; returning a non-null result will terminate the switch. <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @param object
 	 *            the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Activation Property</em>'.
@@ -106,7 +171,7 @@ public class PomSwitch<T> extends Switch<T> {
 	 * Returns the result of interpreting the object as an instance of '<em>Build</em>'.
 	 * <!-- begin-user-doc --> This
 	 * implementation returns null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param object
 	 *            the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Build</em>'.
@@ -121,7 +186,7 @@ public class PomSwitch<T> extends Switch<T> {
 	 * Returns the result of interpreting the object as an instance of '<em>Build Base</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param object
 	 *            the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Build Base</em>'.
@@ -136,7 +201,7 @@ public class PomSwitch<T> extends Switch<T> {
 	 * Returns the result of interpreting the object as an instance of '<em>Ci Management</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param object
 	 *            the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Ci Management</em>'.
@@ -151,7 +216,7 @@ public class PomSwitch<T> extends Switch<T> {
 	 * Returns the result of interpreting the object as an instance of '<em>Configuration Type</em>'. <!--
 	 * begin-user-doc --> This implementation returns null; returning a non-null result will terminate the switch. <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @param object
 	 *            the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Configuration Type</em>'.
@@ -166,7 +231,7 @@ public class PomSwitch<T> extends Switch<T> {
 	 * Returns the result of interpreting the object as an instance of '<em>Contributor</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param object
 	 *            the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Contributor</em>'.
@@ -181,7 +246,7 @@ public class PomSwitch<T> extends Switch<T> {
 	 * Returns the result of interpreting the object as an instance of '<em>Contributors Type</em>'. <!-- begin-user-doc
 	 * --> This implementation returns null; returning a non-null result will terminate the switch. <!-- end-user-doc
 	 * -->
-	 * 
+	 *
 	 * @param object
 	 *            the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Contributors Type</em>'.
@@ -196,7 +261,7 @@ public class PomSwitch<T> extends Switch<T> {
 	 * Returns the result of interpreting the object as an instance of '<em>Dependencies Type</em>'. <!-- begin-user-doc
 	 * --> This implementation returns null; returning a non-null result will terminate the switch. <!-- end-user-doc
 	 * -->
-	 * 
+	 *
 	 * @param object
 	 *            the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Dependencies Type</em>'.
@@ -211,7 +276,7 @@ public class PomSwitch<T> extends Switch<T> {
 	 * Returns the result of interpreting the object as an instance of '<em>Dependency</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param object
 	 *            the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Dependency</em>'.
@@ -226,7 +291,7 @@ public class PomSwitch<T> extends Switch<T> {
 	 * Returns the result of interpreting the object as an instance of '<em>Dependency Management</em>'. <!--
 	 * begin-user-doc --> This implementation returns null; returning a non-null result will terminate the switch. <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @param object
 	 *            the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Dependency Management</em>'.
@@ -241,7 +306,7 @@ public class PomSwitch<T> extends Switch<T> {
 	 * Returns the result of interpreting the object as an instance of '<em>Deployment Repository</em>'. <!--
 	 * begin-user-doc --> This implementation returns null; returning a non-null result will terminate the switch. <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @param object
 	 *            the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Deployment Repository</em>'.
@@ -256,7 +321,7 @@ public class PomSwitch<T> extends Switch<T> {
 	 * Returns the result of interpreting the object as an instance of '<em>Developer</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param object
 	 *            the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Developer</em>'.
@@ -271,7 +336,7 @@ public class PomSwitch<T> extends Switch<T> {
 	 * Returns the result of interpreting the object as an instance of '<em>Developers Type</em>'. <!-- begin-user-doc
 	 * --> This implementation returns null; returning a non-null result will terminate the switch. <!-- end-user-doc
 	 * -->
-	 * 
+	 *
 	 * @param object
 	 *            the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Developers Type</em>'.
@@ -286,7 +351,7 @@ public class PomSwitch<T> extends Switch<T> {
 	 * Returns the result of interpreting the object as an instance of '<em>Distribution Management</em>'. <!--
 	 * begin-user-doc --> This implementation returns null; returning a non-null result will terminate the switch. <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @param object
 	 *            the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Distribution Management</em>'.
@@ -301,7 +366,7 @@ public class PomSwitch<T> extends Switch<T> {
 	 * Returns the result of interpreting the object as an instance of '<em>Document Root</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param object
 	 *            the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Document Root</em>'.
@@ -316,7 +381,7 @@ public class PomSwitch<T> extends Switch<T> {
 	 * Returns the result of interpreting the object as an instance of '<em>Excludes Type</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param object
 	 *            the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Excludes Type</em>'.
@@ -331,7 +396,7 @@ public class PomSwitch<T> extends Switch<T> {
 	 * Returns the result of interpreting the object as an instance of '<em>Exclusion</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param object
 	 *            the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Exclusion</em>'.
@@ -346,7 +411,7 @@ public class PomSwitch<T> extends Switch<T> {
 	 * Returns the result of interpreting the object as an instance of '<em>Exclusions Type</em>'. <!-- begin-user-doc
 	 * --> This implementation returns null; returning a non-null result will terminate the switch. <!-- end-user-doc
 	 * -->
-	 * 
+	 *
 	 * @param object
 	 *            the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Exclusions Type</em>'.
@@ -361,7 +426,7 @@ public class PomSwitch<T> extends Switch<T> {
 	 * Returns the result of interpreting the object as an instance of '<em>Execution Goals Type</em>'. <!--
 	 * begin-user-doc --> This implementation returns null; returning a non-null result will terminate the switch. <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @param object
 	 *            the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Execution Goals Type</em>'.
@@ -376,7 +441,7 @@ public class PomSwitch<T> extends Switch<T> {
 	 * Returns the result of interpreting the object as an instance of '<em>Executions Type</em>'. <!-- begin-user-doc
 	 * --> This implementation returns null; returning a non-null result will terminate the switch. <!-- end-user-doc
 	 * -->
-	 * 
+	 *
 	 * @param object
 	 *            the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Executions Type</em>'.
@@ -391,7 +456,7 @@ public class PomSwitch<T> extends Switch<T> {
 	 * Returns the result of interpreting the object as an instance of '<em>Extension</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param object
 	 *            the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Extension</em>'.
@@ -406,7 +471,7 @@ public class PomSwitch<T> extends Switch<T> {
 	 * Returns the result of interpreting the object as an instance of '<em>Extensions Type</em>'. <!-- begin-user-doc
 	 * --> This implementation returns null; returning a non-null result will terminate the switch. <!-- end-user-doc
 	 * -->
-	 * 
+	 *
 	 * @param object
 	 *            the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Extensions Type</em>'.
@@ -421,7 +486,7 @@ public class PomSwitch<T> extends Switch<T> {
 	 * Returns the result of interpreting the object as an instance of '<em>Filters Type</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param object
 	 *            the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Filters Type</em>'.
@@ -436,7 +501,7 @@ public class PomSwitch<T> extends Switch<T> {
 	 * Returns the result of interpreting the object as an instance of '<em>Goals Type</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param object
 	 *            the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Goals Type</em>'.
@@ -451,7 +516,7 @@ public class PomSwitch<T> extends Switch<T> {
 	 * Returns the result of interpreting the object as an instance of '<em>Includes Type</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param object
 	 *            the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Includes Type</em>'.
@@ -466,7 +531,7 @@ public class PomSwitch<T> extends Switch<T> {
 	 * Returns the result of interpreting the object as an instance of '<em>Issue Management</em>'. <!-- begin-user-doc
 	 * --> This implementation returns null; returning a non-null result will terminate the switch. <!-- end-user-doc
 	 * -->
-	 * 
+	 *
 	 * @param object
 	 *            the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Issue Management</em>'.
@@ -481,7 +546,7 @@ public class PomSwitch<T> extends Switch<T> {
 	 * Returns the result of interpreting the object as an instance of '<em>License</em>'.
 	 * <!-- begin-user-doc --> This
 	 * implementation returns null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param object
 	 *            the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>License</em>'.
@@ -496,7 +561,7 @@ public class PomSwitch<T> extends Switch<T> {
 	 * Returns the result of interpreting the object as an instance of '<em>Licenses Type</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param object
 	 *            the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Licenses Type</em>'.
@@ -511,7 +576,7 @@ public class PomSwitch<T> extends Switch<T> {
 	 * Returns the result of interpreting the object as an instance of '<em>Mailing List</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param object
 	 *            the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Mailing List</em>'.
@@ -526,7 +591,7 @@ public class PomSwitch<T> extends Switch<T> {
 	 * Returns the result of interpreting the object as an instance of '<em>Mailing Lists Type</em>'. <!--
 	 * begin-user-doc --> This implementation returns null; returning a non-null result will terminate the switch. <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @param object
 	 *            the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Mailing Lists Type</em>'.
@@ -541,7 +606,7 @@ public class PomSwitch<T> extends Switch<T> {
 	 * Returns the result of interpreting the object as an instance of '<em>Model</em>'.
 	 * <!-- begin-user-doc --> This
 	 * implementation returns null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param object
 	 *            the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Model</em>'.
@@ -556,7 +621,7 @@ public class PomSwitch<T> extends Switch<T> {
 	 * Returns the result of interpreting the object as an instance of '<em>Modules Type</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param object
 	 *            the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Modules Type</em>'.
@@ -571,7 +636,7 @@ public class PomSwitch<T> extends Switch<T> {
 	 * Returns the result of interpreting the object as an instance of '<em>Notifier</em>'.
 	 * <!-- begin-user-doc --> This
 	 * implementation returns null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param object
 	 *            the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Notifier</em>'.
@@ -586,7 +651,7 @@ public class PomSwitch<T> extends Switch<T> {
 	 * Returns the result of interpreting the object as an instance of '<em>Notifiers Type</em>'. <!-- begin-user-doc
 	 * --> This implementation returns null; returning a non-null result will terminate the switch. <!-- end-user-doc
 	 * -->
-	 * 
+	 *
 	 * @param object
 	 *            the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Notifiers Type</em>'.
@@ -601,7 +666,7 @@ public class PomSwitch<T> extends Switch<T> {
 	 * Returns the result of interpreting the object as an instance of '<em>Organization</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param object
 	 *            the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Organization</em>'.
@@ -616,7 +681,7 @@ public class PomSwitch<T> extends Switch<T> {
 	 * Returns the result of interpreting the object as an instance of '<em>Other Archives Type</em>'. <!--
 	 * begin-user-doc --> This implementation returns null; returning a non-null result will terminate the switch. <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @param object
 	 *            the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Other Archives Type</em>'.
@@ -631,7 +696,7 @@ public class PomSwitch<T> extends Switch<T> {
 	 * Returns the result of interpreting the object as an instance of '<em>Parent</em>'.
 	 * <!-- begin-user-doc --> This
 	 * implementation returns null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param object
 	 *            the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Parent</em>'.
@@ -646,7 +711,7 @@ public class PomSwitch<T> extends Switch<T> {
 	 * Returns the result of interpreting the object as an instance of '<em>Plugin</em>'.
 	 * <!-- begin-user-doc --> This
 	 * implementation returns null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param object
 	 *            the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Plugin</em>'.
@@ -661,7 +726,7 @@ public class PomSwitch<T> extends Switch<T> {
 	 * Returns the result of interpreting the object as an instance of '<em>Plugin Execution</em>'. <!-- begin-user-doc
 	 * --> This implementation returns null; returning a non-null result will terminate the switch. <!-- end-user-doc
 	 * -->
-	 * 
+	 *
 	 * @param object
 	 *            the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Plugin Execution</em>'.
@@ -676,7 +741,7 @@ public class PomSwitch<T> extends Switch<T> {
 	 * Returns the result of interpreting the object as an instance of '<em>Plugin Management</em>'. <!-- begin-user-doc
 	 * --> This implementation returns null; returning a non-null result will terminate the switch. <!-- end-user-doc
 	 * -->
-	 * 
+	 *
 	 * @param object
 	 *            the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Plugin Management</em>'.
@@ -691,7 +756,7 @@ public class PomSwitch<T> extends Switch<T> {
 	 * Returns the result of interpreting the object as an instance of '<em>Plugin Repositories Type</em>'. <!--
 	 * begin-user-doc --> This implementation returns null; returning a non-null result will terminate the switch. <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @param object
 	 *            the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Plugin Repositories Type</em>'.
@@ -706,7 +771,7 @@ public class PomSwitch<T> extends Switch<T> {
 	 * Returns the result of interpreting the object as an instance of '<em>Plugins Type</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param object
 	 *            the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Plugins Type</em>'.
@@ -721,7 +786,7 @@ public class PomSwitch<T> extends Switch<T> {
 	 * Returns the result of interpreting the object as an instance of '<em>Prerequisites</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param object
 	 *            the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Prerequisites</em>'.
@@ -736,7 +801,7 @@ public class PomSwitch<T> extends Switch<T> {
 	 * Returns the result of interpreting the object as an instance of '<em>Profile</em>'.
 	 * <!-- begin-user-doc --> This
 	 * implementation returns null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param object
 	 *            the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Profile</em>'.
@@ -751,7 +816,7 @@ public class PomSwitch<T> extends Switch<T> {
 	 * Returns the result of interpreting the object as an instance of '<em>Profiles Type</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param object
 	 *            the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Profiles Type</em>'.
@@ -766,7 +831,7 @@ public class PomSwitch<T> extends Switch<T> {
 	 * Returns the result of interpreting the object as an instance of '<em>Properties Type</em>'. <!-- begin-user-doc
 	 * --> This implementation returns null; returning a non-null result will terminate the switch. <!-- end-user-doc
 	 * -->
-	 * 
+	 *
 	 * @param object
 	 *            the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Properties Type</em>'.
@@ -781,7 +846,7 @@ public class PomSwitch<T> extends Switch<T> {
 	 * Returns the result of interpreting the object as an instance of '<em>Relocation</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param object
 	 *            the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Relocation</em>'.
@@ -796,7 +861,7 @@ public class PomSwitch<T> extends Switch<T> {
 	 * Returns the result of interpreting the object as an instance of '<em>Reporting</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param object
 	 *            the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Reporting</em>'.
@@ -811,7 +876,7 @@ public class PomSwitch<T> extends Switch<T> {
 	 * Returns the result of interpreting the object as an instance of '<em>Reporting Plugins Type</em>'. <!--
 	 * begin-user-doc --> This implementation returns null; returning a non-null result will terminate the switch. <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @param object
 	 *            the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Reporting Plugins Type</em>'.
@@ -826,7 +891,7 @@ public class PomSwitch<T> extends Switch<T> {
 	 * Returns the result of interpreting the object as an instance of '<em>Report Plugin</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param object
 	 *            the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Report Plugin</em>'.
@@ -841,7 +906,7 @@ public class PomSwitch<T> extends Switch<T> {
 	 * Returns the result of interpreting the object as an instance of '<em>Report Set</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param object
 	 *            the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Report Set</em>'.
@@ -856,7 +921,7 @@ public class PomSwitch<T> extends Switch<T> {
 	 * Returns the result of interpreting the object as an instance of '<em>Report Set Reports Type</em>'. <!--
 	 * begin-user-doc --> This implementation returns null; returning a non-null result will terminate the switch. <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @param object
 	 *            the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Report Set Reports Type</em>'.
@@ -871,7 +936,7 @@ public class PomSwitch<T> extends Switch<T> {
 	 * Returns the result of interpreting the object as an instance of '<em>Report Sets Type</em>'. <!-- begin-user-doc
 	 * --> This implementation returns null; returning a non-null result will terminate the switch. <!-- end-user-doc
 	 * -->
-	 * 
+	 *
 	 * @param object
 	 *            the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Report Sets Type</em>'.
@@ -886,7 +951,7 @@ public class PomSwitch<T> extends Switch<T> {
 	 * Returns the result of interpreting the object as an instance of '<em>Reports Type</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param object
 	 *            the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Reports Type</em>'.
@@ -901,7 +966,7 @@ public class PomSwitch<T> extends Switch<T> {
 	 * Returns the result of interpreting the object as an instance of '<em>Repositories Type</em>'. <!-- begin-user-doc
 	 * --> This implementation returns null; returning a non-null result will terminate the switch. <!-- end-user-doc
 	 * -->
-	 * 
+	 *
 	 * @param object
 	 *            the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Repositories Type</em>'.
@@ -916,7 +981,7 @@ public class PomSwitch<T> extends Switch<T> {
 	 * Returns the result of interpreting the object as an instance of '<em>Repository</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param object
 	 *            the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Repository</em>'.
@@ -931,7 +996,7 @@ public class PomSwitch<T> extends Switch<T> {
 	 * Returns the result of interpreting the object as an instance of '<em>Repository Policy</em>'. <!-- begin-user-doc
 	 * --> This implementation returns null; returning a non-null result will terminate the switch. <!-- end-user-doc
 	 * -->
-	 * 
+	 *
 	 * @param object
 	 *            the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Repository Policy</em>'.
@@ -946,7 +1011,7 @@ public class PomSwitch<T> extends Switch<T> {
 	 * Returns the result of interpreting the object as an instance of '<em>Resource</em>'.
 	 * <!-- begin-user-doc --> This
 	 * implementation returns null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param object
 	 *            the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Resource</em>'.
@@ -961,7 +1026,7 @@ public class PomSwitch<T> extends Switch<T> {
 	 * Returns the result of interpreting the object as an instance of '<em>Resources Type</em>'. <!-- begin-user-doc
 	 * --> This implementation returns null; returning a non-null result will terminate the switch. <!-- end-user-doc
 	 * -->
-	 * 
+	 *
 	 * @param object
 	 *            the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Resources Type</em>'.
@@ -976,7 +1041,7 @@ public class PomSwitch<T> extends Switch<T> {
 	 * Returns the result of interpreting the object as an instance of '<em>Roles Type</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param object
 	 *            the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Roles Type</em>'.
@@ -991,7 +1056,7 @@ public class PomSwitch<T> extends Switch<T> {
 	 * Returns the result of interpreting the object as an instance of '<em>Scm</em>'.
 	 * <!-- begin-user-doc --> This
 	 * implementation returns null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param object
 	 *            the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Scm</em>'.
@@ -1006,7 +1071,7 @@ public class PomSwitch<T> extends Switch<T> {
 	 * Returns the result of interpreting the object as an instance of '<em>Site</em>'.
 	 * <!-- begin-user-doc --> This
 	 * implementation returns null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param object
 	 *            the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Site</em>'.
@@ -1021,7 +1086,7 @@ public class PomSwitch<T> extends Switch<T> {
 	 * Returns the result of interpreting the object as an instance of '<em>Test Resources Type</em>'. <!--
 	 * begin-user-doc --> This implementation returns null; returning a non-null result will terminate the switch. <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @param object
 	 *            the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Test Resources Type</em>'.
@@ -1037,7 +1102,7 @@ public class PomSwitch<T> extends Switch<T> {
 	 * <!-- begin-user-doc --> This
 	 * implementation returns null; returning a non-null result will terminate the switch, but this is the last case
 	 * anyway. <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param object
 	 *            the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>EObject</em>'.
@@ -1052,7 +1117,7 @@ public class PomSwitch<T> extends Switch<T> {
 	/**
 	 * Calls <code>caseXXX</code> for each class of the model until one returns a non null result; it yields that result.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @return the first non-null result returned by a <code>caseXXX</code> call.
 	 * @generated
 	 */
@@ -1530,7 +1595,7 @@ public class PomSwitch<T> extends Switch<T> {
 	 * Checks whether this is a switch for the given package.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @parameter ePackage the package in question.
 	 * @return whether this is a switch for the given package.
 	 * @generated

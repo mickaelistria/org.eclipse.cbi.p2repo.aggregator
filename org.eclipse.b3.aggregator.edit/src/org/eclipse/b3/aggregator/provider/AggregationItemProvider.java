@@ -34,7 +34,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * This is the item provider adapter for a {@link org.eclipse.b3.aggregator.Aggregation} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
- * 
+ *
  * @generated
  */
 public class AggregationItemProvider extends DescriptionProviderItemProvider implements IEditingDomainItemProvider,
@@ -44,7 +44,7 @@ public class AggregationItemProvider extends DescriptionProviderItemProvider imp
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public AggregationItemProvider(AdapterFactory adapterFactory) {
@@ -55,7 +55,7 @@ public class AggregationItemProvider extends DescriptionProviderItemProvider imp
 	 * This adds a property descriptor for the Allow Legacy Sites feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected void addAllowLegacySitesPropertyDescriptor(Object object) {
@@ -73,7 +73,7 @@ public class AggregationItemProvider extends DescriptionProviderItemProvider imp
 	 * This adds a property descriptor for the Buildmaster feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected void addBuildmasterPropertyDescriptor(Object object) {
@@ -90,7 +90,7 @@ public class AggregationItemProvider extends DescriptionProviderItemProvider imp
 	 * This adds a property descriptor for the Build Root feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected void addBuildRootPropertyDescriptor(Object object) {
@@ -107,7 +107,7 @@ public class AggregationItemProvider extends DescriptionProviderItemProvider imp
 	 * This adds a property descriptor for the Label feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected void addLabelPropertyDescriptor(Object object) {
@@ -123,7 +123,7 @@ public class AggregationItemProvider extends DescriptionProviderItemProvider imp
 	 * This adds a property descriptor for the Maven Result feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected void addMavenResultPropertyDescriptor(Object object) {
@@ -141,7 +141,7 @@ public class AggregationItemProvider extends DescriptionProviderItemProvider imp
 	 * This adds a property descriptor for the Packed Strategy feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected void addPackedStrategyPropertyDescriptor(Object object) {
@@ -159,7 +159,7 @@ public class AggregationItemProvider extends DescriptionProviderItemProvider imp
 	 * This adds a property descriptor for the Sendmail feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected void addSendmailPropertyDescriptor(Object object) {
@@ -176,7 +176,7 @@ public class AggregationItemProvider extends DescriptionProviderItemProvider imp
 	 * This adds a property descriptor for the Strict Maven Versions feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected void addStrictMavenVersionsPropertyDescriptor(Object object) {
@@ -194,7 +194,7 @@ public class AggregationItemProvider extends DescriptionProviderItemProvider imp
 	 * This adds a property descriptor for the Type feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected void addTypePropertyDescriptor(Object object) {
@@ -211,7 +211,7 @@ public class AggregationItemProvider extends DescriptionProviderItemProvider imp
 	 * that can be created under this object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -238,7 +238,7 @@ public class AggregationItemProvider extends DescriptionProviderItemProvider imp
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -255,7 +255,7 @@ public class AggregationItemProvider extends DescriptionProviderItemProvider imp
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -275,7 +275,7 @@ public class AggregationItemProvider extends DescriptionProviderItemProvider imp
 	 * This returns Aggregation.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -287,7 +287,7 @@ public class AggregationItemProvider extends DescriptionProviderItemProvider imp
 	 * This returns the property descriptors for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -312,7 +312,7 @@ public class AggregationItemProvider extends DescriptionProviderItemProvider imp
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
 	@Override
@@ -339,7 +339,7 @@ public class AggregationItemProvider extends DescriptionProviderItemProvider imp
 	 * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override

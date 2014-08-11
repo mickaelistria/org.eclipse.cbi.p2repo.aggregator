@@ -6,12 +6,12 @@
  */
 package org.eclipse.b3.aggregator.impl;
 
-import org.eclipse.b3.aggregator.*;
 import org.eclipse.b3.aggregator.Aggregation;
 import org.eclipse.b3.aggregator.AggregationType;
 import org.eclipse.b3.aggregator.AggregatorFactory;
 import org.eclipse.b3.aggregator.AggregatorPackage;
 import org.eclipse.b3.aggregator.Architecture;
+import org.eclipse.b3.aggregator.AvailableFrom;
 import org.eclipse.b3.aggregator.AvailableVersion;
 import org.eclipse.b3.aggregator.AvailableVersionsHeader;
 import org.eclipse.b3.aggregator.Bundle;
@@ -55,13 +55,13 @@ import org.eclipse.equinox.p2.metadata.VersionRange;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model <b>Factory</b>. <!-- end-user-doc -->
- * 
+ *
  * @generated
  */
 public class AggregatorFactoryImpl extends EFactoryImpl implements AggregatorFactory {
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @deprecated
 	 * @generated
 	 */
@@ -73,7 +73,7 @@ public class AggregatorFactoryImpl extends EFactoryImpl implements AggregatorFac
 	/**
 	 * Creates the default factory implementation.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public static AggregatorFactory init() {
@@ -92,7 +92,7 @@ public class AggregatorFactoryImpl extends EFactoryImpl implements AggregatorFac
 	/**
 	 * Creates an instance of the factory.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public AggregatorFactoryImpl() {
@@ -102,7 +102,7 @@ public class AggregatorFactoryImpl extends EFactoryImpl implements AggregatorFac
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public String convertAggregationTypeToString(EDataType eDataType, Object instanceValue) {
@@ -113,7 +113,7 @@ public class AggregatorFactoryImpl extends EFactoryImpl implements AggregatorFac
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public String convertArchitectureToString(EDataType eDataType, Object instanceValue) {
@@ -125,7 +125,7 @@ public class AggregatorFactoryImpl extends EFactoryImpl implements AggregatorFac
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public String convertAvailableFromToString(EDataType eDataType, Object instanceValue) {
@@ -136,7 +136,7 @@ public class AggregatorFactoryImpl extends EFactoryImpl implements AggregatorFac
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public String convertInstallableUnitTypeToString(EDataType eDataType, Object instanceValue) {
@@ -147,7 +147,7 @@ public class AggregatorFactoryImpl extends EFactoryImpl implements AggregatorFac
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public String convertOperatingSystemToString(EDataType eDataType, Object instanceValue) {
@@ -158,7 +158,7 @@ public class AggregatorFactoryImpl extends EFactoryImpl implements AggregatorFac
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public String convertPackedStrategyToString(EDataType eDataType, Object instanceValue) {
@@ -169,7 +169,7 @@ public class AggregatorFactoryImpl extends EFactoryImpl implements AggregatorFac
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public String convertStatusCodeToString(EDataType eDataType, Object instanceValue) {
@@ -180,7 +180,7 @@ public class AggregatorFactoryImpl extends EFactoryImpl implements AggregatorFac
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -213,7 +213,7 @@ public class AggregatorFactoryImpl extends EFactoryImpl implements AggregatorFac
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public String convertVersionMatchToString(EDataType eDataType, Object instanceValue) {
@@ -224,7 +224,7 @@ public class AggregatorFactoryImpl extends EFactoryImpl implements AggregatorFac
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public String convertWindowSystemToString(EDataType eDataType, Object instanceValue) {
@@ -235,7 +235,7 @@ public class AggregatorFactoryImpl extends EFactoryImpl implements AggregatorFac
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -293,7 +293,7 @@ public class AggregatorFactoryImpl extends EFactoryImpl implements AggregatorFac
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public Aggregation createAggregation() {
@@ -304,7 +304,7 @@ public class AggregatorFactoryImpl extends EFactoryImpl implements AggregatorFac
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public AggregationType createAggregationTypeFromString(EDataType eDataType, String initialValue) {
@@ -317,7 +317,7 @@ public class AggregatorFactoryImpl extends EFactoryImpl implements AggregatorFac
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public Architecture createArchitectureFromString(EDataType eDataType, String initialValue) {
@@ -331,7 +331,7 @@ public class AggregatorFactoryImpl extends EFactoryImpl implements AggregatorFac
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public AvailableFrom createAvailableFromFromString(EDataType eDataType, String initialValue) {
@@ -345,7 +345,7 @@ public class AggregatorFactoryImpl extends EFactoryImpl implements AggregatorFac
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public AvailableVersion createAvailableVersion() {
@@ -356,7 +356,7 @@ public class AggregatorFactoryImpl extends EFactoryImpl implements AggregatorFac
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public AvailableVersionsHeader createAvailableVersionsHeader() {
@@ -366,7 +366,7 @@ public class AggregatorFactoryImpl extends EFactoryImpl implements AggregatorFac
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public Bundle createBundle() {
@@ -376,7 +376,7 @@ public class AggregatorFactoryImpl extends EFactoryImpl implements AggregatorFac
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public Category createCategory() {
@@ -386,7 +386,7 @@ public class AggregatorFactoryImpl extends EFactoryImpl implements AggregatorFac
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public Configuration createConfiguration() {
@@ -396,7 +396,7 @@ public class AggregatorFactoryImpl extends EFactoryImpl implements AggregatorFac
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public Contact createContact() {
@@ -406,7 +406,7 @@ public class AggregatorFactoryImpl extends EFactoryImpl implements AggregatorFac
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public Contribution createContribution() {
@@ -416,7 +416,7 @@ public class AggregatorFactoryImpl extends EFactoryImpl implements AggregatorFac
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public CustomCategory createCustomCategory() {
@@ -426,7 +426,7 @@ public class AggregatorFactoryImpl extends EFactoryImpl implements AggregatorFac
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public DescriptionProvider createDescriptionProvider() {
@@ -436,7 +436,7 @@ public class AggregatorFactoryImpl extends EFactoryImpl implements AggregatorFac
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public ExclusionRule createExclusionRule() {
@@ -446,7 +446,7 @@ public class AggregatorFactoryImpl extends EFactoryImpl implements AggregatorFac
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public Feature createFeature() {
@@ -456,7 +456,7 @@ public class AggregatorFactoryImpl extends EFactoryImpl implements AggregatorFac
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -488,7 +488,7 @@ public class AggregatorFactoryImpl extends EFactoryImpl implements AggregatorFac
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public InfosProvider createInfosProvider() {
@@ -498,7 +498,7 @@ public class AggregatorFactoryImpl extends EFactoryImpl implements AggregatorFac
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public InstallableUnitType createInstallableUnitTypeFromString(EDataType eDataType, String initialValue) {
@@ -511,7 +511,7 @@ public class AggregatorFactoryImpl extends EFactoryImpl implements AggregatorFac
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public MappedRepository createMappedRepository() {
@@ -521,7 +521,7 @@ public class AggregatorFactoryImpl extends EFactoryImpl implements AggregatorFac
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
 	public MappedRepository createMappedRepository(MetadataRepository mdr) {
@@ -534,7 +534,7 @@ public class AggregatorFactoryImpl extends EFactoryImpl implements AggregatorFac
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
 	public MappedUnit createMappedUnit(IInstallableUnit iu) {
@@ -566,7 +566,7 @@ public class AggregatorFactoryImpl extends EFactoryImpl implements AggregatorFac
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
 	public MapRule createMapRule(IInstallableUnit iu, Class<? extends MapRule> ruleClass) {
@@ -587,7 +587,7 @@ public class AggregatorFactoryImpl extends EFactoryImpl implements AggregatorFac
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public MavenItem createMavenItem() {
@@ -597,7 +597,7 @@ public class AggregatorFactoryImpl extends EFactoryImpl implements AggregatorFac
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public MavenMapping createMavenMapping() {
@@ -607,7 +607,7 @@ public class AggregatorFactoryImpl extends EFactoryImpl implements AggregatorFac
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public MetadataRepositoryReference createMetadataRepositoryReference() {
@@ -617,7 +617,7 @@ public class AggregatorFactoryImpl extends EFactoryImpl implements AggregatorFac
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public OperatingSystem createOperatingSystemFromString(EDataType eDataType, String initialValue) {
@@ -630,7 +630,7 @@ public class AggregatorFactoryImpl extends EFactoryImpl implements AggregatorFac
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public PackedStrategy createPackedStrategyFromString(EDataType eDataType, String initialValue) {
@@ -643,7 +643,7 @@ public class AggregatorFactoryImpl extends EFactoryImpl implements AggregatorFac
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public Product createProduct() {
@@ -653,7 +653,7 @@ public class AggregatorFactoryImpl extends EFactoryImpl implements AggregatorFac
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public Property createProperty() {
@@ -663,7 +663,7 @@ public class AggregatorFactoryImpl extends EFactoryImpl implements AggregatorFac
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
 	public Property createProperty(String key, String value) {
@@ -673,7 +673,7 @@ public class AggregatorFactoryImpl extends EFactoryImpl implements AggregatorFac
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public Status createStatus() {
@@ -691,7 +691,7 @@ public class AggregatorFactoryImpl extends EFactoryImpl implements AggregatorFac
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public StatusCode createStatusCodeFromString(EDataType eDataType, String initialValue) {
@@ -705,7 +705,7 @@ public class AggregatorFactoryImpl extends EFactoryImpl implements AggregatorFac
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public ValidationSet createValidationSet() {
@@ -715,7 +715,7 @@ public class AggregatorFactoryImpl extends EFactoryImpl implements AggregatorFac
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public ValidConfigurationsRule createValidConfigurationsRule() {
@@ -726,7 +726,7 @@ public class AggregatorFactoryImpl extends EFactoryImpl implements AggregatorFac
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public VersionMatch createVersionMatchFromString(EDataType eDataType, String initialValue) {
@@ -739,7 +739,7 @@ public class AggregatorFactoryImpl extends EFactoryImpl implements AggregatorFac
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public WindowSystem createWindowSystemFromString(EDataType eDataType, String initialValue) {
@@ -752,7 +752,7 @@ public class AggregatorFactoryImpl extends EFactoryImpl implements AggregatorFac
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public AggregatorPackage getAggregatorPackage() {

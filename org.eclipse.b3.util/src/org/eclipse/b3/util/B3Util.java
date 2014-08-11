@@ -18,7 +18,7 @@ import org.osgi.framework.ServiceReference;
 
 /**
  * @author filip.hrbek@cloudsmith.com
- * 
+ *
  */
 public class B3Util extends Plugin {
 	private static Plugin plugin;

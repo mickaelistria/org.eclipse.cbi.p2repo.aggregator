@@ -14,11 +14,8 @@ import java.util.Collection;
 import org.eclipse.b3.aggregator.AggregatorPackage;
 import org.eclipse.b3.aggregator.Configuration;
 import org.eclipse.b3.aggregator.ValidConfigurationsRule;
-
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 
 /**
@@ -30,14 +27,14 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  * <li>{@link org.eclipse.b3.aggregator.impl.ValidConfigurationsRuleImpl#getValidConfigurations <em>Valid Configurations</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public class ValidConfigurationsRuleImpl extends MapRuleImpl implements ValidConfigurationsRule {
 	/**
 	 * The cached value of the '{@link #getValidConfigurations() <em>Valid Configurations</em>}' reference list. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getValidConfigurations()
 	 * @generated
 	 * @ordered
@@ -46,7 +43,7 @@ public class ValidConfigurationsRuleImpl extends MapRuleImpl implements ValidCon
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected ValidConfigurationsRuleImpl() {
@@ -55,7 +52,7 @@ public class ValidConfigurationsRuleImpl extends MapRuleImpl implements ValidCon
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -69,7 +66,7 @@ public class ValidConfigurationsRuleImpl extends MapRuleImpl implements ValidCon
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -83,7 +80,7 @@ public class ValidConfigurationsRuleImpl extends MapRuleImpl implements ValidCon
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
@@ -100,7 +97,7 @@ public class ValidConfigurationsRuleImpl extends MapRuleImpl implements ValidCon
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -110,7 +107,7 @@ public class ValidConfigurationsRuleImpl extends MapRuleImpl implements ValidCon
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -125,7 +122,7 @@ public class ValidConfigurationsRuleImpl extends MapRuleImpl implements ValidCon
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EList<Configuration> getValidConfigurations() {

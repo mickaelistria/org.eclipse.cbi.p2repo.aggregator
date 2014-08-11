@@ -40,13 +40,13 @@ import org.xml.sax.helpers.XMLReaderFactory;
 
 /**
  * Utilities for managing aggregator specific resources
- * 
+ *
  * @author filip.hrbek@cloudsmith.com
  */
 public class ResourceUtils {
 	/**
 	 * Cleans up unreferenced resources on demand
-	 * 
+	 *
 	 * @param aggregator
 	 */
 	public static void cleanUpResources(Aggregation aggregator) {
@@ -55,7 +55,7 @@ public class ResourceUtils {
 
 	/**
 	 * Cleans up unreferenced resources on demand and possibly updates error markers
-	 * 
+	 *
 	 * @param aggregator
 	 * @param updateMarkers
 	 */
@@ -119,7 +119,7 @@ public class ResourceUtils {
 
 	/**
 	 * Returns the main aggregator node
-	 * 
+	 *
 	 * @param resourceSet
 	 * @return the aggregator instance, or null if it is not available
 	 */
@@ -141,7 +141,7 @@ public class ResourceUtils {
 
 	/**
 	 * Tries to get metadata repository from mapped repository. If it fails to load, an exception is thrown.
-	 * 
+	 *
 	 * @param repoRef
 	 * @return
 	 * @throws CoreException
@@ -163,7 +163,7 @@ public class ResourceUtils {
 
 	/**
 	 * Gets resource namespace
-	 * 
+	 *
 	 * @param resourceURI
 	 * @param resourceTopNodeName
 	 * @param resourceNSAttributeName
@@ -212,7 +212,7 @@ public class ResourceUtils {
 
 	/**
 	 * Checks if resourceURI points to a resource with the up-to-date model
-	 * 
+	 *
 	 * @param resourceURI
 	 * @return
 	 */
@@ -227,7 +227,7 @@ public class ResourceUtils {
 
 	/**
 	 * Loads resource for specified repository
-	 * 
+	 *
 	 * @param repoRef
 	 */
 	public static void loadResourceForMappedRepository(MetadataRepositoryReference repoRef) {
