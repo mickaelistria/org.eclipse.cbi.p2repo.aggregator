@@ -255,7 +255,7 @@ public class RepositoryBrowserImpl extends MinimalEObjectImpl.Container implemen
 	 * @generated NOT
 	 */
 	public EList<MetadataRepositoryStructuredView> getRepositories() {
-		EList<Resource> resources = ((EObject) aggregation).eResource().getResourceSet().getResources();
+		List<Resource> resources = getResources();
 		EList<MetadataRepositoryStructuredView> result = new BasicEList<MetadataRepositoryStructuredView>(
 			resources.size() - 1);
 		for(Resource resource : resources) {

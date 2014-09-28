@@ -9,8 +9,10 @@
 package org.eclipse.b3.aggregator.util;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Set;
 
 import org.eclipse.b3.aggregator.Aggregation;
@@ -24,7 +26,6 @@ import org.eclipse.b3.cli.HeadlessActivator;
 import org.eclipse.b3.p2.MetadataRepository;
 import org.eclipse.b3.util.ExceptionUtils;
 import org.eclipse.core.runtime.CoreException;
-import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
@@ -127,7 +128,7 @@ public class ResourceUtils {
 		if(resourceSet == null)
 			return null;
 
-		EList<Resource> resources = resourceSet.getResources();
+		List<Resource> resources = new ArrayList<Resource>(resourceSet.getResources());
 		Resource aggregatorResource = null;
 		for(Resource resource : resources)
 			if(resource instanceof AggregatorResourceImpl) {

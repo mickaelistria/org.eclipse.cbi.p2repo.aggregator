@@ -371,18 +371,6 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 
 	}
 
-	public static final String AGGREGATOR_EDITOR_ID = "org.eclipse.b3.aggregator.presentation.AggregatorEditorID";
-
-	public static final String AGGREGATOR_EDITOR_SCOPE = "org.eclipse.b3.aggregator.presentation.aggregatorEditorScope";
-
-	public static final String AGGREGATOR_PROBLEM_MARKER = "org.eclipse.b3.aggregator.editor.diagnostic";
-
-	public static final String AGGREGATOR_PERSISTENT_PROBLEM_MARKER = "org.eclipse.b3.aggregator.editor.diagnostic.persistent";
-
-	public static final String AGGREGATOR_NONPERSISTENT_PROBLEM_MARKER = "org.eclipse.b3.aggregator.editor.diagnostic.nonpersistent";
-
-	protected static Collection<Object> CLIPBOARD;
-
 	/**
 	 * This looks up a string in the plugin's plugin.properties file.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -402,6 +390,18 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 	private static String getString(String key, Object s1) {
 		return AggregatorEditorPlugin.INSTANCE.getString(key, new Object[] { s1 });
 	}
+
+	public static final String AGGREGATOR_EDITOR_ID = "org.eclipse.b3.aggregator.presentation.AggregatorEditorID";
+
+	public static final String AGGREGATOR_EDITOR_SCOPE = "org.eclipse.b3.aggregator.presentation.aggregatorEditorScope";
+
+	public static final String AGGREGATOR_PROBLEM_MARKER = "org.eclipse.b3.aggregator.editor.diagnostic";
+
+	public static final String AGGREGATOR_PERSISTENT_PROBLEM_MARKER = "org.eclipse.b3.aggregator.editor.diagnostic.persistent";
+
+	public static final String AGGREGATOR_NONPERSISTENT_PROBLEM_MARKER = "org.eclipse.b3.aggregator.editor.diagnostic.nonpersistent";
+
+	protected static Collection<Object> CLIPBOARD;
 
 	private IContextActivation contextActivation;
 
@@ -1272,7 +1272,7 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 				// Save the resources to the file system.
 				//
 				boolean first = true;
-				for(Resource resource : editingDomain.getResourceSet().getResources()) {
+				for(Resource resource : new ArrayList<Resource>(editingDomain.getResourceSet().getResources())) {
 					if((first || !resource.getContents().isEmpty() || isPersisted(resource)) &&
 							!editingDomain.isReadOnly(resource)) {
 						try {
@@ -1361,15 +1361,9 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 		boolean firstResourceFound = false;
 		Object[] foundNode = null;
 
-		List<Resource> resources = editingDomain.getResourceSet().getResources();
-		if(!forward) {
-			List<Resource> reverseResources = new ArrayList<Resource>();
-
-			for(int i = resources.size(); i > 0; i--)
-				reverseResources.add(resources.get(i - 1));
-
-			resources = reverseResources;
-		}
+		List<Resource> resources = new ArrayList<Resource>(editingDomain.getResourceSet().getResources());
+		if(!forward)
+			Collections.reverse(resources);
 
 		for(Resource resource : resources) {
 			if(!(resource instanceof MetadataRepositoryResourceImpl))
@@ -1406,7 +1400,7 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 		if(uri == null)
 			return null;
 
-		for(Resource resource : editingDomain.getResourceSet().getResources())
+		for(Resource resource : new ArrayList<Resource>(editingDomain.getResourceSet().getResources()))
 			if(uri.equals(resource.getURI()))
 				return resource;
 
@@ -1655,7 +1649,7 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 		if(uri == null)
 			return null;
 
-		for(Resource resource : editingDomain.getResourceSet().getResources())
+		for(Resource resource : new ArrayList<Resource>(editingDomain.getResourceSet().getResources()))
 			if(uri.equals(resource.getURI()))
 				return resource;
 
@@ -1892,7 +1886,7 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 
 						Aggregation aggregation = null;
 						List<Object> filtered = new ArrayList<Object>();
-						EList<Resource> resources = resourceSet.getResources();
+						List<Resource> resources = new ArrayList<Resource>(resourceSet.getResources());
 						for(Resource resource : resources) {
 							if(resource instanceof AggregatorResource) {
 								EList<EObject> contents = resource.getContents();

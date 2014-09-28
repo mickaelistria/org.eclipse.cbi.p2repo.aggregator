@@ -570,7 +570,7 @@ public class AggregatorActionBarContributor extends EditingDomainActionBarContri
 
 					final Map<MetadataRepositoryResourceImpl, TwoColumnMatrix<IUPresentation, Object[]>> foundIUs = new LinkedHashMap<MetadataRepositoryResourceImpl, TwoColumnMatrix<IUPresentation, Object[]>>();
 
-					for(Resource resource : editingDomain.getResourceSet().getResources()) {
+					for(Resource resource : new ArrayList<Resource>(editingDomain.getResourceSet().getResources())) {
 						if(!(resource instanceof MetadataRepositoryResourceImpl))
 							continue;
 
@@ -1163,7 +1163,8 @@ public class AggregatorActionBarContributor extends EditingDomainActionBarContri
 
 		IEditingDomainProvider edProvider = (IEditingDomainProvider) activeEditorPart;
 
-		EList<Resource> resources = edProvider.getEditingDomain().getResourceSet().getResources();
+		List<Resource> resources = new ArrayList<Resource>(
+			edProvider.getEditingDomain().getResourceSet().getResources());
 		Resource aggregatorResource = null;
 		for(Resource resource : resources)
 			if(resource instanceof AggregatorResourceImpl) {
@@ -1435,7 +1436,7 @@ public class AggregatorActionBarContributor extends EditingDomainActionBarContri
 					reloadOrCancelRepoAction.setLoadText("Reload All Repositories");
 					reloadOrCancelRepoActionVisible = true;
 					ResourceSet resourceSet = ((AggregationImpl) aggregation).eResource().getResourceSet();
-					for(Resource resource : resourceSet.getResources())
+					for(Resource resource : new ArrayList<Resource>(resourceSet.getResources()))
 						if(resource instanceof MetadataRepositoryResourceImpl)
 							reloadOrCancelRepoAction.addMetadataRepositoryResource((MetadataRepositoryResourceImpl) resource);
 				}

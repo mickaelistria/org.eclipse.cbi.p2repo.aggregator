@@ -747,7 +747,7 @@ public class P2viewEditor extends MultiPageEditorPart implements IEditingDomainP
 				// Save the resources to the file system.
 				//
 				boolean first = true;
-				for(Resource resource : editingDomain.getResourceSet().getResources()) {
+				for(Resource resource : new ArrayList<Resource>(editingDomain.getResourceSet().getResources())) {
 					if((first || !resource.getContents().isEmpty() || isPersisted(resource)) &&
 							!editingDomain.isReadOnly(resource)) {
 						try {

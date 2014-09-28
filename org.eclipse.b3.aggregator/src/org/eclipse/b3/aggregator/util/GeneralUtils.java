@@ -8,6 +8,8 @@
 
 package org.eclipse.b3.aggregator.util;
 
+import java.util.ArrayList;
+
 import org.eclipse.b3.aggregator.Aggregation;
 import org.eclipse.b3.aggregator.EnabledStatusProvider;
 import org.eclipse.emf.common.util.EList;
@@ -37,7 +39,7 @@ public class GeneralUtils {
 	public static AggregatorResource getAggregatorResource(EObject eObject) {
 
 		try {
-			for(Resource resource : eObject.eResource().getResourceSet().getResources())
+			for(Resource resource : new ArrayList<Resource>(eObject.eResource().getResourceSet().getResources()))
 				if(resource instanceof AggregatorResource)
 					return (AggregatorResource) resource;
 		}
