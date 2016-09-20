@@ -1,0 +1,94 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>org.eclipse.simrel</groupId>
+		<artifactId>oxygen</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
+	<artifactId>exceptions</artifactId>
+	<packaging>pom</packaging>
+
+	<properties>
+		<repository>${project.basedir}/../site/target/repository</repository>
+	</properties>
+
+	<!-- Exceptions are installable units that can be consumed by the regular p2 resolution process,
+	or that cannot be consumed without altering some other units of the resolution.
+	Hence we included to SimRel by mirroring them. -->
+
+	<build>
+		<plugins>
+			<plugin>
+	            <groupId>org.apache.maven.plugins</groupId>
+	            <artifactId>maven-antrun-plugin</artifactId>
+	            <version>1.7</version>
+	            <executions>
+	            	<!-- Bug https://bugs.eclipse.org/bugs/show_bug.cgi?id=504081 -->
+	                <execution>
+	                    <id>remove-xz</id>
+	                    <phase>process-resources</phase>
+	                    <goals>
+	                        <goal>run</goal>
+	                    </goals>
+	                    <configuration>
+	                        <target>
+	                            <delete file="${repository}/content.xml.xz" />
+	                        </target>
+	                    </configuration>
+	                </execution>
+	            </executions>
+	        </plugin>
+			<plugin>
+			  <groupId>org.eclipse.tycho.extras</groupId>
+				<artifactId>tycho-p2-extras-plugin</artifactId>
+				<version>${tycho-version}</version>
+				<executions>
+					<execution>
+						<phase>prepare-package</phase>
+						<goals>
+							<goal>mirror</goal>
+						</goals>
+						<configuration>
+							<source>
+								<repository>
+									<url>http://download.eclipse.org/rt/rap/3.2/M2-20160920-1049/</url>
+									<layout>p2</layout>
+								</repository>
+								<repository>
+									<url>http://download.eclipse.org/objectteams/updates/ot2.5-milestones/201606070956/</url>
+									<layout>p2</layout>
+								</repository>
+								<repository>
+									<url>http://download.eclipse.org/modeling/emf/emf/updates/2.12/</url>
+									<layout>p2</layout>
+								</repository>
+							</source>
+							<ius>
+								<iu><id>org.eclipse.objectteams.otdt.feature.group</id></iu>
+								<iu><id>org.eclipse.objectteams.otequinox.feature.group</id></iu>
+								<iu><id>org.eclipse.rap.feature.feature.group</id></iu>
+								<iu><id>org.eclipse.rap.sdk.feature.feature.group</id></iu>
+								<iu><id>org.eclipse.rap.equinox.target.feature.feature.group</id></iu>
+								<iu><id>org.eclipse.rap.examples.feature.feature.group</id></iu>
+								<iu><id>org.eclipse.emf.rap.sdk.feature.group</id></iu>
+							</ius>
+							<destination>${repository}</destination>
+							<!-- Whether only strict dependencies should be followed. -->
+							<!-- "strict" means perfect version match -->
+							<followStrictOnly>false</followStrictOnly>
+							<includeOptional>true</includeOptional>
+							<includeNonGreedy>true</includeNonGreedy>
+			                <latestVersionOnly>false</latestVersionOnly>
+							<mirrorMetadataOnly>false</mirrorMetadataOnly>
+							<append>true</append>
+							<includePacked>true</includePacked>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>

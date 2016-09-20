@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<unit id='org.eclipse.simrel.unit' version='0.0.1.qualifier' singleton='false'>
+	<!-- Using a p2iu.xml here rather than a category.xml is necessary because
+	category.xml doesn't support filtering and optional dependencies, hence 
+	usually fails at building a site containing platform-specific artifacts of
+	"non-installable" units such as RAP target -->
+
+	<properties>
+		<property name='org.eclipse.equinox.p2.name' value='Simultaneous release aggregation unit' />
+	</properties>
+	<requires>
+__p2iuRequired__
+	</requires>
+</unit>
