@@ -212,6 +212,7 @@
     <module>../org.eclipse.b3.aggregator.engine.maven</module>
     <module>../org.eclipse.b3.aggregator.legacy</module>
     <module>../org.eclipse.b3.aggregator.legacy.ui</module>
+    <module>../org.eclipse.b3.osgi.filter</module>
     <module>../org.eclipse.b3.cli</module>
     <module>../org.eclipse.b3.p2</module>
     <module>../org.eclipse.b3.p2.edit</module>

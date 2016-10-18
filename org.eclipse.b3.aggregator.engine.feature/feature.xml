@@ -17,6 +17,7 @@
 
    <requires>
       <import plugin="org.apache.ant"/>
+      <import plugin="org.eclipse.b3.osgi.filter"/>
       <import plugin="org.apache.commons.codec"/>
       <import plugin="org.apache.commons.logging"/>
       <import plugin="org.apache.httpcomponents.httpclient"/>
