@@ -17,9 +17,9 @@ if [[ $1 == -clean ]]
 then
   rm -fr ${TMP_DIR}
   rm -fr ${LOCAL_REPO}
-  printf "\n\t[INFO] %s\n\n "-clean argument was specified on command line, so tmp and local maven repo were removed" | tee -a ${out_file}
+  printf "\n\t[INFO] %s\n\n" "-clean argument was specified on command line, so tmp and local maven repo were removed" | tee -a ${out_file}
 else
-  printf "\n\t[WARNING] %s\n\n "No -clean argument was specified on command line, so tmp and local maven repo were not removed" | tee -a ${out_file}
+  printf "\n\t[WARNING] %s\n\n" "No -clean argument was specified on command line, so tmp and local maven repo were not removed" | tee -a ${out_file}
 fi
 mkdir -p ${TMP_DIR}
 mkdir -p ${LOCAL_REPO}
@@ -45,3 +45,4 @@ printf "\n\t[INFO] %s\n\n" "mvn clean verify ...:" | tee -a ${out_file}
 mvn clean verify -X -e -DskipTests=true -Dmaven.repo.local=$LOCAL_REPO -Pbree-libs  2>&1 | tee -a ${out_file}
 
 printf "\n\t[INFO] %s\n\n" "Build Output in ${out_file}"
+
