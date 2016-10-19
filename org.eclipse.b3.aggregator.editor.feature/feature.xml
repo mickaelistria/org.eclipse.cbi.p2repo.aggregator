@@ -19,17 +19,6 @@
          id="org.eclipse.b3.aggregator.engine.feature"
          version="0.0.0"/>
 
-   <requires>
-      <import plugin="org.eclipse.core.resources"/>
-      <import plugin="org.eclipse.ui.ide"/>
-      <import plugin="org.eclipse.ui.views"/>
-      <import plugin="org.eclipse.ui.views.log"/>
-      <import plugin="org.eclipse.ui.workbench"/>
-      <import plugin="org.eclipse.emf.edit"/>
-      <import plugin="org.eclipse.emf.edit.ui"/>
-      <import plugin="org.eclipse.emf.common.ui"/>
-   </requires>
-
    <plugin
          id="org.eclipse.b3.aggregator.edit"
          download-size="0"

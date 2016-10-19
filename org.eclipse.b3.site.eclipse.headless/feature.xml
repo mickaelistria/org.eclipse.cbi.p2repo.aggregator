@@ -16,10 +16,6 @@
          version="0.0.0"/>
 
    <includes
-         id="org.eclipse.equinox.executable"
-         version="0.0.0"/>
-
-   <includes
          id="org.eclipse.b3.p2.maven.indexer.feature"
          version="0.0.0"/>
 
