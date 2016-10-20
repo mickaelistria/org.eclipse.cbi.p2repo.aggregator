@@ -43,8 +43,11 @@
     </location>
 
     <location includeAllPlatforms="true" includeMode="slicer" includeSource="true" type="InstallableUnit">
+      <unit id="org.eclipse.equinox.p2.core.feature.feature.group" version="0.0.0" />
+      <unit id="org.eclipse.equinox.core.feature.feature.group" version="0.0.0" />
       <unit id="org.eclipse.platform.feature.group" version="4.5.2.v20160212-1500" />
       <unit id="org.eclipse.equinox.executable.feature.group" version="0.0.0" />
+      <unit id="org.eclipse.equinox.concurrent"/>
       <repository location="http://download.eclipse.org/eclipse/updates/4.5/R-4.5.2-201602121500/" />
     </location>
 
