@@ -4,7 +4,6 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<artifactId>org.eclipse.b3.product</artifactId>
-<!-- <packaging>eclipse-feature</packaging> -->
   <packaging>eclipse-repository</packaging>
 
 	<parent>
@@ -21,7 +20,12 @@
     <version>${tycho-version}</version>
     <configuration>
       <dependency-resolution>
-          <extraRequirements>
+            <extraRequirements>
+              <requirement>
+                <id>org.eclipse.update.configurator</id>
+                <type>p2-installable-unit</type>
+                <versionRange>0.0.0</versionRange>
+              </requirement>
             <requirement>
                 <type>eclipse-feature</type>
                 <id>org.eclipse.equinox.executable</id>
