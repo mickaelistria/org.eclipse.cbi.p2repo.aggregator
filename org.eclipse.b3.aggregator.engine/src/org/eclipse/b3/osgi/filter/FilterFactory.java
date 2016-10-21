@@ -13,11 +13,11 @@ import org.osgi.framework.InvalidSyntaxException;
 public class FilterFactory {
 	/**
 	 * Constructs a {@link Filter} object.
-	 * 
+	 *
 	 * <p>
 	 * If the filter cannot be parsed, an {@link InvalidSyntaxException} will be
 	 * thrown with a human readable message where the filter became unparsable.
-	 * 
+	 *
 	 * @param filterString
 	 *            the filter string.
 	 * @exception InvalidSyntaxException

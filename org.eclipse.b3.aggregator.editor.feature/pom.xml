@@ -24,7 +24,7 @@
             <goals>
               <goal>source-feature</goal>
             </goals>
-          <!-- 
+          <!--
             <configuration>
               <excludes>
                 <plugin id="org.eclipse.rcp"/>

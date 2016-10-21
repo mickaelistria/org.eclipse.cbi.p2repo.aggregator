@@ -7,7 +7,7 @@ for repo in $allrepos
 do
     echo $repo
     cd $repo
-    git gc --aggressive --prune  
+    git gc --aggressive --prune
     cd ..
 done
 

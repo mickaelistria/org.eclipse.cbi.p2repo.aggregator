@@ -3,7 +3,7 @@
 <locations>
 
 <!-- At times, may need to add this "running platform" location
-     to the build target, such as when testing from workspace 
+     to the build target, such as when testing from workspace
 -->
 <location path="${eclipse_home}" type="Profile"/>
 

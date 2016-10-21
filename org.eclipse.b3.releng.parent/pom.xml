@@ -190,7 +190,7 @@
         <enabled>true</enabled>
       </snapshots>
     </pluginRepository>
-    <!-- comment out cbi snapshots, if not intending to use <pluginRepository> <id>cbi-snapshots</id> <url>${cbi-snapshots-repo.url}</url> 
+    <!-- comment out cbi snapshots, if not intending to use <pluginRepository> <id>cbi-snapshots</id> <url>${cbi-snapshots-repo.url}</url>
       <snapshots> <enabled>true</enabled> </snapshots> </pluginRepository> -->
     <pluginRepository>
       <id>eclipse</id>

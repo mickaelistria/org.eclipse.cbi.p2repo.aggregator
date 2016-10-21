@@ -31,8 +31,8 @@ do
                         ;;
                 *)
                         # normal argument string. The double
-                        # quotes will preserve arguments that 
-                        # contain spaces and will be removed  
+                        # quotes will preserve arguments that
+                        # contain spaces and will be removed
                         # by eval later on.
                         ARGS=$ARGS\ \"$1\"
                         shift

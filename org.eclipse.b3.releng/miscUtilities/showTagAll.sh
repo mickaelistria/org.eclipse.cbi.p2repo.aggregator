@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 
-function usage () 
+function usage ()
 {
     printf "\n\t%s\n" "This script requires one argument, the tag to show"
     printf "\t\t%s\n" "Example: $(basename $0) R4_2_2"

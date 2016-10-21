@@ -22,7 +22,7 @@
             <goals>
               <goal>source-feature</goal>
             </goals>
-          <!-- 
+          <!--
             <configuration>
               <excludes>
                 <plugin id="org.eclipse.rcp"/>
@@ -47,5 +47,5 @@
         </executions>
       </plugin>
     </plugins>
-  </build>  
+  </build>
 </project>

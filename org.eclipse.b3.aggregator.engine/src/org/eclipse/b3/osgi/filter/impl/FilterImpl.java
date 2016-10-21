@@ -143,10 +143,10 @@ abstract class FilterImpl implements Filter, Comparable<FilterImpl> {
 
 	/**
 	 * Map a string for an APPROX (~=) comparison.
-	 * 
+	 *
 	 * This implementation removes white spaces. This is the minimum
 	 * implementation allowed by the OSGi spec.
-	 * 
+	 *
 	 * @param input
 	 *            Input string.
 	 * @return String ready for APPROX comparison.
@@ -172,7 +172,7 @@ abstract class FilterImpl implements Filter, Comparable<FilterImpl> {
 
 	/**
 	 * Encode the value string such that '(', '*', ')' and '\' are escaped.
-	 * 
+	 *
 	 * @param value
 	 *            unencoded value string.
 	 * @return encoded value string.

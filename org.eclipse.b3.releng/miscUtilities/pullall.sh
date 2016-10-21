@@ -7,7 +7,7 @@ for repo in $allrepos
 do
     echo $repo
     cd $repo
-    git pull  
+    git pull
     cd ..
 done
 
