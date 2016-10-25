@@ -34,7 +34,7 @@ fi
 # Without the ANT_OPTS, we do get messages about "to get repeatable builds, to ignore sysclasspath"
 export ANT_HOME=${ANT_HOME:-/shared/common/apache-ant-1.9.6}
 export ANT_OPTS=${ANT_OPTS:-"-Dbuild.sysclasspath=ignore -Dincludeantruntime=false"}
-export MAVEN_OPTS=${MAVEN_OPTS:--Xms1048m -Xmx2096m -Djava.io.tmpdir=${tmp_dir} -Dtycho.localArtifacts=ignore ${MIRROR_SETTING}}
+export MAVEN_OPTS=${MAVEN_OPTS:--Xms1048m -Xmx2096m -Djava.io.tmpdir=${tmp_dir} -Dtycho.localArtifacts=ignore ${MIRROR_SETTING} ${DIRTY_SETTING}}
 export JAVA_HOME=/shared/common/jdk1.8.0_x64-latest
 export JAVA_CMD=${JAVA_HOME}/jre/bin/java
 export MAVEN_PATH=${MAVEN_PATH:-/shared/common/apache-maven-latest/bin}
