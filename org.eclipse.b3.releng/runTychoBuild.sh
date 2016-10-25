@@ -13,6 +13,8 @@ env | tee ${out_file}
 
 cleanLocal=$1
 
+signjars=$2
+
 if [[ "${cleanLocal}" == "true" ]]
 then
   rm -fr ${tmp_dir}
@@ -23,6 +25,11 @@ else
 fi
 mkdir -p ${tmp_dir}
 mkdir -p ${local_mvn_repo}
+
+if [[ "${signJars}" == "true" ]] 
+then
+   sign_jars_arg="-Peclipse-sign"
+fi
 
 # Without the ANT_OPTS, we do get messages about "to get repeatable builds, to ignore sysclasspath"
 export ANT_HOME=${ANT_HOME:-/shared/common/apache-ant-1.9.6}
@@ -36,7 +43,7 @@ export PATH=$JAVA_HOME/bin:$MAVEN_PATH:$ANT_HOME/bin:$PATH
 cd ${repo_dir}
 
 printf "\n\t[INFO] %s\n\n" "mvn clean verify ...:" | tee -a ${out_file}
-mvn clean verify -X -e -DskipTests=true -Dmaven.repo.local=$local_mvn_repo -Pbree-libs  2>&1 | tee -a ${out_file}
+mvn clean verify -X -e -DskipTests=true -Dmaven.repo.local=$local_mvn_repo -Pbree-libs ${sign_jars_arg} 2>&1 | tee -a ${out_file}
 RC=$?
 
 printf "\n\t[INFO] %s\n\n" "Build Output in ${out_file}"
