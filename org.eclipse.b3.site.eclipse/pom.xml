@@ -30,7 +30,7 @@
         <configuration>
           <repositoryName>b3 Aggregator Tools - Repository</repositoryName>
           <compressed>true</compressed>
-          <includeAllDependencies>true</includeAllDependencies>
+          <includeAllDependencies>false</includeAllDependencies>
         </configuration>
       </plugin>
     </plugins>
