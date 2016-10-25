@@ -37,6 +37,8 @@ cd ${repo_dir}
 
 printf "\n\t[INFO] %s\n\n" "mvn clean verify ...:" | tee -a ${out_file}
 mvn clean verify -X -e -DskipTests=true -Dmaven.repo.local=$local_mvn_repo -Pbree-libs  2>&1 | tee -a ${out_file}
+RC=$?
 
 printf "\n\t[INFO] %s\n\n" "Build Output in ${out_file}"
 
+exit $RC
