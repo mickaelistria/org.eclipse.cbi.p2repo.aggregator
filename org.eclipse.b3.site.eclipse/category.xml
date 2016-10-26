@@ -5,7 +5,7 @@
     version="0.0.0">
          <category name="org.eclipse.cbi.p2Repo.aggregator"/>
    </feature>
-   <category-def name="org.eclipse.cbi.p2Repo.aggregator" label="CBI p2Repo Aggregator Editor System">
+   <category-def name="org.eclipse.cbi.p2Repo.aggregator" label="Eclipse CBI p2Repo Aggregator Editor">
       <description>
          The CBI p2Repo Aggregator Editor, engine, and related features.
       </description>
