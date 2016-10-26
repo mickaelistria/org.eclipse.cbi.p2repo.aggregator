@@ -10,22 +10,39 @@
          The Eclipse CBI p2Repo Aggregator Editor, engine, and related features.
       </description>
    </category-def>
+      <category-def name="org.eclipse.cbi.p2Repo.aggregator.misc" label="Extra features related to editor">
+      <description>
+         These features are not needed by most users. 
+      </description>
+   </category-def>
   <feature
     id="org.eclipse.b3.aggregator.editor.feature.source"
-    version="0.0.0"/>
+    version="0.0.0">
+      <category name="org.eclipse.cbi.p2Repo.aggregator.misc"/>
+  </feature>
   <feature
     id="org.eclipse.b3.aggregator.engine.feature.source"
-    version="0.0.0"/>
+    version="0.0.0">
+      <category name="org.eclipse.cbi.p2Repo.aggregator.misc"/>
+  </feature>
    <feature
      id="org.eclipse.b3.p2.maven.indexer.feature"
-     version="0.0.0" />
+     version="0.0.0" >
+      <category name="org.eclipse.cbi.p2Repo.aggregator.misc"/>
+  </feature>
    <feature
      id="org.eclipse.b3.p2.maven.indexer.feature.source"
-     version="0.0.0" />
+     version="0.0.0" >
+      <category name="org.eclipse.cbi.p2Repo.aggregator.misc"/>
+  </feature>
    <feature
      id="org.eclipse.b3.tests.feature"
-     version="0.0.0" />
+     version="0.0.0" >
+      <category name="org.eclipse.cbi.p2Repo.aggregator.misc"/>
+  </feature>
    <feature
      id="org.eclipse.b3.tests.feature.source"
-     version="0.0.0" />
+     version="0.0.0" >
+      <category name="org.eclipse.cbi.p2Repo.aggregator.misc"/>
+  </feature>
 </site>
