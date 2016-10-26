@@ -4,20 +4,24 @@
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <modelVersion>4.0.0</modelVersion>
 
-  <artifactId>org.eclipse.b3.product</artifactId>
-  <packaging>eclipse-repository</packaging>
-
   <parent>
     <groupId>org.eclipse.b3</groupId>
     <artifactId>org.eclipse.b3.releng.parent</artifactId>
     <version>1.0.0-SNAPSHOT</version>
     <relativePath>../org.eclipse.b3.releng.parent</relativePath>
   </parent>
+  <groupId>org.eclipse.b3</groupId>
+  <artifactId>org.eclipse.b3.product</artifactId>
+  <version>1.0.0-SNAPSHOT</version>
+  <packaging>eclipse-repository</packaging>
+
+
   <build>
     <plugins>
       <plugin>
         <groupId>org.eclipse.tycho</groupId>
         <artifactId>tycho-packaging-plugin</artifactId>
+        <version>${tycho-version}</version>
         <configuration>
           <format>'${buildId}'</format>
         </configuration>
@@ -108,6 +112,7 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-resources-plugin</artifactId>
+        <version>2.7</version>
         <executions>
           <execution>
             <id>saveproperties</id>
