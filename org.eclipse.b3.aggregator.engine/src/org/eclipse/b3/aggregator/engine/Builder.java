@@ -1787,6 +1787,12 @@ public class Builder extends ModelAbstractCommand {
 					msgBld.append(to);
 					msgBld.append('\n');
 				}
+				msgBld.append("\nThis is a mock mail. CC recipients would have been:\n");
+				for(EmailAddress cc : ccList) {
+					msgBld.append("  ");
+					msgBld.append(cc);
+					msgBld.append('\n');
+				}
 			}
 			String msgContent = msgBld.toString();
 			if(subjectPrefix == null)
