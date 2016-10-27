@@ -33,7 +33,6 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
  * This is the item provider adapter for a {@link org.eclipse.b3.aggregator.p2view.Requirements} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
- *
  * @generated
  */
 public class RequirementsItemProvider extends AggregatorItemProviderAdapter implements IEditingDomainItemProvider,
@@ -43,7 +42,6 @@ public class RequirementsItemProvider extends AggregatorItemProviderAdapter impl
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	public RequirementsItemProvider(AdapterFactory adapterFactory) {
@@ -54,17 +52,22 @@ public class RequirementsItemProvider extends AggregatorItemProviderAdapter impl
 	 * This adds a property descriptor for the Requirements feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	protected void addRequirementsPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-			getResourceLocator(),
-			getString("_UI_Requirements_requirements_feature"),
-			getString(
-				"_UI_PropertyDescriptor_description", "_UI_Requirements_requirements_feature", "_UI_Requirements_type"),
-			P2viewPackage.Literals.REQUIREMENTS__REQUIREMENTS, false, false, true, null, null, null));
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Requirements_requirements_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Requirements_requirements_feature", "_UI_Requirements_type"),
+				 P2viewPackage.Literals.REQUIREMENTS__REQUIREMENTS,
+				 false,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
 	}
 
 	/**
@@ -72,7 +75,6 @@ public class RequirementsItemProvider extends AggregatorItemProviderAdapter impl
 	 * that can be created under this object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -83,7 +85,6 @@ public class RequirementsItemProvider extends AggregatorItemProviderAdapter impl
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -100,12 +101,11 @@ public class RequirementsItemProvider extends AggregatorItemProviderAdapter impl
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
-		if(childrenFeatures == null) {
+		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(P2viewPackage.Literals.REQUIREMENTS__REQUIREMENTS);
 		}
@@ -116,7 +116,6 @@ public class RequirementsItemProvider extends AggregatorItemProviderAdapter impl
 	 * This returns Requirements.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -128,12 +127,11 @@ public class RequirementsItemProvider extends AggregatorItemProviderAdapter impl
 	 * This returns the property descriptors for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-		if(itemPropertyDescriptors == null) {
+		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
 			addRequirementsPropertyDescriptor(object);
@@ -145,7 +143,6 @@ public class RequirementsItemProvider extends AggregatorItemProviderAdapter impl
 	 * Return the resource locator for this item provider's resources.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -157,7 +154,6 @@ public class RequirementsItemProvider extends AggregatorItemProviderAdapter impl
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -170,7 +166,6 @@ public class RequirementsItemProvider extends AggregatorItemProviderAdapter impl
 	 * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override

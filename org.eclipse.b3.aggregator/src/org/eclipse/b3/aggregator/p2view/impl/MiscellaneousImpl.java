@@ -23,11 +23,11 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  * <!-- begin-user-doc --> An implementation of the model object '<em><b>Miscellaneous</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * <ul>
- * <li>{@link org.eclipse.b3.aggregator.p2view.impl.MiscellaneousImpl#getChildren <em>Children</em>}</li>
- * <li>{@link org.eclipse.b3.aggregator.p2view.impl.MiscellaneousImpl#getOthers <em>Others</em>}</li>
- * </ul>
  * </p>
+ * <ul>
+ *   <li>{@link org.eclipse.b3.aggregator.p2view.impl.MiscellaneousImpl#getChildren <em>Children</em>}</li>
+ *   <li>{@link org.eclipse.b3.aggregator.p2view.impl.MiscellaneousImpl#getOthers <em>Others</em>}</li>
+ * </ul>
  *
  * @generated
  */
@@ -35,7 +35,6 @@ public class MiscellaneousImpl extends MinimalEObjectImpl.Container implements M
 	/**
 	 * A set of bit flags representing the values of boolean attributes and whether unsettable features have been set.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 * @ordered
 	 */
@@ -45,7 +44,6 @@ public class MiscellaneousImpl extends MinimalEObjectImpl.Container implements M
 	 * The cached value of the '{@link #getOthers() <em>Others</em>}' reference list.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 *
 	 * @see #getOthers()
 	 * @generated
 	 * @ordered
@@ -54,7 +52,6 @@ public class MiscellaneousImpl extends MinimalEObjectImpl.Container implements M
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	protected MiscellaneousImpl() {
@@ -63,12 +60,11 @@ public class MiscellaneousImpl extends MinimalEObjectImpl.Container implements M
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch(featureID) {
+		switch (featureID) {
 			case P2viewPackage.MISCELLANEOUS__CHILDREN:
 				return getChildren();
 			case P2viewPackage.MISCELLANEOUS__OTHERS:
@@ -79,12 +75,11 @@ public class MiscellaneousImpl extends MinimalEObjectImpl.Container implements M
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch(featureID) {
+		switch (featureID) {
 			case P2viewPackage.MISCELLANEOUS__CHILDREN:
 				return !getChildren().isEmpty();
 			case P2viewPackage.MISCELLANEOUS__OTHERS:
@@ -95,16 +90,15 @@ public class MiscellaneousImpl extends MinimalEObjectImpl.Container implements M
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch(featureID) {
+		switch (featureID) {
 			case P2viewPackage.MISCELLANEOUS__OTHERS:
 				getOthers().clear();
-				getOthers().addAll((Collection<? extends OtherIU>) newValue);
+				getOthers().addAll((Collection<? extends OtherIU>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -112,7 +106,6 @@ public class MiscellaneousImpl extends MinimalEObjectImpl.Container implements M
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -122,12 +115,11 @@ public class MiscellaneousImpl extends MinimalEObjectImpl.Container implements M
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
-		switch(featureID) {
+		switch (featureID) {
 			case P2viewPackage.MISCELLANEOUS__OTHERS:
 				getOthers().clear();
 				return;
@@ -146,11 +138,10 @@ public class MiscellaneousImpl extends MinimalEObjectImpl.Container implements M
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	public EList<OtherIU> getOthers() {
-		if(others == null) {
+		if (others == null) {
 			others = new EObjectResolvingEList<OtherIU>(OtherIU.class, this, P2viewPackage.MISCELLANEOUS__OTHERS);
 		}
 		return others;

@@ -142,7 +142,6 @@ public class ContributionItemProvider extends AggregatorItemProviderAdapter impl
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	public ContributionItemProvider(AdapterFactory adapterFactory) {
@@ -152,84 +151,106 @@ public class ContributionItemProvider extends AggregatorItemProviderAdapter impl
 	/**
 	 * This adds a property descriptor for the Contacts feature.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	protected void addContactsPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-			getResourceLocator(),
-			getString("_UI_Contribution_contacts_feature"),
-			getString(
-				"_UI_PropertyDescriptor_description", "_UI_Contribution_contacts_feature", "_UI_Contribution_type"),
-			AggregatorPackage.Literals.CONTRIBUTION__CONTACTS, true, false, false, null, null, null));
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Contribution_contacts_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Contribution_contacts_feature", "_UI_Contribution_type"),
+				 AggregatorPackage.Literals.CONTRIBUTION__CONTACTS,
+				 true,
+				 false,
+				 false,
+				 null,
+				 null,
+				 null));
 	}
 
 	/**
 	 * This adds a property descriptor for the Description feature.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	protected void addDescriptionPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-			getResourceLocator(),
-			getString("_UI_DescriptionProvider_description_feature"),
-			getString(
-				"_UI_PropertyDescriptor_description", "_UI_DescriptionProvider_description_feature",
-				"_UI_DescriptionProvider_type"), AggregatorPackage.Literals.DESCRIPTION_PROVIDER__DESCRIPTION, true,
-			true, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_DescriptionProvider_description_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_DescriptionProvider_description_feature", "_UI_DescriptionProvider_type"),
+				 AggregatorPackage.Literals.DESCRIPTION_PROVIDER__DESCRIPTION,
+				 true,
+				 true,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
 	}
 
 	/**
 	 * This adds a property descriptor for the Enabled feature.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	protected void addEnabledPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-			getResourceLocator(),
-			getString("_UI_EnabledStatusProvider_enabled_feature"),
-			getString(
-				"_UI_PropertyDescriptor_description", "_UI_EnabledStatusProvider_enabled_feature",
-				"_UI_EnabledStatusProvider_type"), AggregatorPackage.Literals.ENABLED_STATUS_PROVIDER__ENABLED, true,
-			false, false, ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null));
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_EnabledStatusProvider_enabled_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_EnabledStatusProvider_enabled_feature", "_UI_EnabledStatusProvider_type"),
+				 AggregatorPackage.Literals.ENABLED_STATUS_PROVIDER__ENABLED,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
+				 null));
 	}
 
 	/**
 	 * This adds a property descriptor for the Label feature.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	protected void addLabelPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-			getString("_UI_Contribution_label_feature"),
-			getString("_UI_PropertyDescriptor_description", "_UI_Contribution_label_feature", "_UI_Contribution_type"),
-			AggregatorPackage.Literals.CONTRIBUTION__LABEL, true, false, false,
-			ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Contribution_label_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Contribution_label_feature", "_UI_Contribution_type"),
+				 AggregatorPackage.Literals.CONTRIBUTION__LABEL,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
 	}
 
 	/**
 	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
 	 * that can be created under this object.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 
-		newChildDescriptors.add(createChildParameter(
-			AggregatorPackage.Literals.CONTRIBUTION__REPOSITORIES, AggregatorFactory.eINSTANCE.createMappedRepository()));
+		newChildDescriptors.add
+			(createChildParameter
+				(AggregatorPackage.Literals.CONTRIBUTION__REPOSITORIES,
+				 AggregatorFactory.eINSTANCE.createMappedRepository()));
 
-		newChildDescriptors.add(createChildParameter(
-			AggregatorPackage.Literals.CONTRIBUTION__MAVEN_MAPPINGS, AggregatorFactory.eINSTANCE.createMavenMapping()));
+		newChildDescriptors.add
+			(createChildParameter
+				(AggregatorPackage.Literals.CONTRIBUTION__MAVEN_MAPPINGS,
+				 AggregatorFactory.eINSTANCE.createMavenMapping()));
 	}
 
 	@SuppressWarnings("unchecked")
@@ -329,7 +350,6 @@ public class ContributionItemProvider extends AggregatorItemProviderAdapter impl
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -346,12 +366,11 @@ public class ContributionItemProvider extends AggregatorItemProviderAdapter impl
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
-		if(childrenFeatures == null) {
+		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(AggregatorPackage.Literals.CONTRIBUTION__REPOSITORIES);
 			childrenFeatures.add(AggregatorPackage.Literals.CONTRIBUTION__MAVEN_MAPPINGS);
@@ -387,12 +406,11 @@ public class ContributionItemProvider extends AggregatorItemProviderAdapter impl
 	/**
 	 * This returns the property descriptors for the adapted class.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-		if(itemPropertyDescriptors == null) {
+		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
 			addEnabledPropertyDescriptor(object);
@@ -406,7 +424,6 @@ public class ContributionItemProvider extends AggregatorItemProviderAdapter impl
 	/**
 	 * Return the resource locator for this item provider's resources.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -563,7 +580,7 @@ public class ContributionItemProvider extends AggregatorItemProviderAdapter impl
 	public void notifyChangedGen(Notification notification) {
 		updateChildren(notification);
 
-		switch(notification.getFeatureID(Contribution.class)) {
+		switch (notification.getFeatureID(Contribution.class)) {
 			case AggregatorPackage.CONTRIBUTION__ENABLED:
 			case AggregatorPackage.CONTRIBUTION__DESCRIPTION:
 			case AggregatorPackage.CONTRIBUTION__STATUS:

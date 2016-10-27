@@ -44,7 +44,6 @@ public class P2viewItemProviderAdapterFactory extends P2viewAdapterFactory imple
 	 * This keeps track of the root adapter factory that delegates to this adapter factory.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 *
 	 * @generated
 	 */
 	protected ComposedAdapterFactory parentAdapterFactory;
@@ -53,7 +52,6 @@ public class P2viewItemProviderAdapterFactory extends P2viewAdapterFactory imple
 	 * This is used to implement {@link org.eclipse.emf.edit.provider.IChangeNotifier}.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 *
 	 * @generated
 	 */
 	protected IChangeNotifier changeNotifier = new ChangeNotifier();
@@ -70,7 +68,6 @@ public class P2viewItemProviderAdapterFactory extends P2viewAdapterFactory imple
 	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.aggregator.p2view.MetadataRepositoryStructuredView} instances.
 	 * <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	protected MetadataRepositoryStructuredViewItemProvider metadataRepositoryStructuredViewItemProvider;
@@ -79,7 +76,6 @@ public class P2viewItemProviderAdapterFactory extends P2viewAdapterFactory imple
 	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.aggregator.p2view.InstallableUnits} instances.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 *
 	 * @generated
 	 */
 	protected InstallableUnitsItemProvider installableUnitsItemProvider;
@@ -87,7 +83,6 @@ public class P2viewItemProviderAdapterFactory extends P2viewAdapterFactory imple
 	/**
 	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.aggregator.p2view.Categories} instances.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	protected CategoriesItemProvider categoriesItemProvider;
@@ -95,7 +90,6 @@ public class P2viewItemProviderAdapterFactory extends P2viewAdapterFactory imple
 	/**
 	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.aggregator.p2view.Features} instances.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	protected FeaturesItemProvider featuresItemProvider;
@@ -103,7 +97,6 @@ public class P2viewItemProviderAdapterFactory extends P2viewAdapterFactory imple
 	/**
 	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.aggregator.p2view.Products} instances.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	protected ProductsItemProvider productsItemProvider;
@@ -111,7 +104,6 @@ public class P2viewItemProviderAdapterFactory extends P2viewAdapterFactory imple
 	/**
 	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.aggregator.p2view.Bundles} instances.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	protected BundlesItemProvider bundlesItemProvider;
@@ -119,7 +111,6 @@ public class P2viewItemProviderAdapterFactory extends P2viewAdapterFactory imple
 	/**
 	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.aggregator.p2view.Miscellaneous} instances.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	protected MiscellaneousItemProvider miscellaneousItemProvider;
@@ -127,7 +118,6 @@ public class P2viewItemProviderAdapterFactory extends P2viewAdapterFactory imple
 	/**
 	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.aggregator.p2view.Category} instances.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	protected CategoryItemProvider categoryItemProvider;
@@ -135,7 +125,6 @@ public class P2viewItemProviderAdapterFactory extends P2viewAdapterFactory imple
 	/**
 	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.aggregator.p2view.Feature} instances.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	protected FeatureItemProvider featureItemProvider;
@@ -143,7 +132,6 @@ public class P2viewItemProviderAdapterFactory extends P2viewAdapterFactory imple
 	/**
 	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.aggregator.p2view.Product} instances.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	protected ProductItemProvider productItemProvider;
@@ -151,7 +139,6 @@ public class P2viewItemProviderAdapterFactory extends P2viewAdapterFactory imple
 	/**
 	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.aggregator.p2view.Bundle} instances.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	protected BundleItemProvider bundleItemProvider;
@@ -159,7 +146,6 @@ public class P2viewItemProviderAdapterFactory extends P2viewAdapterFactory imple
 	/**
 	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.aggregator.p2view.OtherIU} instances.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	protected OtherIUItemProvider otherIUItemProvider;
@@ -167,7 +153,6 @@ public class P2viewItemProviderAdapterFactory extends P2viewAdapterFactory imple
 	/**
 	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.aggregator.p2view.Properties} instances.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	protected PropertiesItemProvider propertiesItemProvider;
@@ -175,7 +160,6 @@ public class P2viewItemProviderAdapterFactory extends P2viewAdapterFactory imple
 	/**
 	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.aggregator.p2view.Fragment} instances.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	protected FragmentItemProvider fragmentItemProvider;
@@ -183,7 +167,6 @@ public class P2viewItemProviderAdapterFactory extends P2viewAdapterFactory imple
 	/**
 	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.aggregator.p2view.Fragments} instances.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	protected FragmentsItemProvider fragmentsItemProvider;
@@ -192,7 +175,6 @@ public class P2viewItemProviderAdapterFactory extends P2viewAdapterFactory imple
 	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.aggregator.p2view.ProvidedCapabilities} instances.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 *
 	 * @generated
 	 */
 	protected ProvidedCapabilitiesItemProvider providedCapabilitiesItemProvider;
@@ -200,7 +182,6 @@ public class P2viewItemProviderAdapterFactory extends P2viewAdapterFactory imple
 	/**
 	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.aggregator.p2view.Touchpoints} instances.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	protected TouchpointsItemProvider touchpointsItemProvider;
@@ -208,7 +189,6 @@ public class P2viewItemProviderAdapterFactory extends P2viewAdapterFactory imple
 	/**
 	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.aggregator.p2view.IUDetails} instances.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	protected IUDetailsItemProvider iuDetailsItemProvider;
@@ -217,7 +197,6 @@ public class P2viewItemProviderAdapterFactory extends P2viewAdapterFactory imple
 	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.aggregator.p2view.ProvidedCapabilityWrapper} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	protected ProvidedCapabilityWrapperItemProvider providedCapabilityWrapperItemProvider;
@@ -226,7 +205,6 @@ public class P2viewItemProviderAdapterFactory extends P2viewAdapterFactory imple
 	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.aggregator.p2view.RequirementWrapper} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	protected RequirementWrapperItemProvider requirementWrapperItemProvider;
@@ -235,7 +213,6 @@ public class P2viewItemProviderAdapterFactory extends P2viewAdapterFactory imple
 	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.aggregator.p2view.Requirements} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	protected RequirementsItemProvider requirementsItemProvider;
@@ -244,7 +221,6 @@ public class P2viewItemProviderAdapterFactory extends P2viewAdapterFactory imple
 	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.aggregator.p2view.Licenses} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	protected LicensesItemProvider licensesItemProvider;
@@ -253,7 +229,6 @@ public class P2viewItemProviderAdapterFactory extends P2viewAdapterFactory imple
 	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.aggregator.p2view.RepositoryReferences} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	protected RepositoryReferencesItemProvider repositoryReferencesItemProvider;
@@ -262,7 +237,6 @@ public class P2viewItemProviderAdapterFactory extends P2viewAdapterFactory imple
 	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.aggregator.p2view.RepositoryBrowser} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	protected RepositoryBrowserItemProvider repositoryBrowserItemProvider;
@@ -270,7 +244,6 @@ public class P2viewItemProviderAdapterFactory extends P2viewAdapterFactory imple
 	/**
 	 * This constructs an instance.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	public P2viewItemProviderAdapterFactory() {
@@ -287,7 +260,6 @@ public class P2viewItemProviderAdapterFactory extends P2viewAdapterFactory imple
 	 * This implementation substitutes the factory itself as the key for the adapter.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -297,14 +269,13 @@ public class P2viewItemProviderAdapterFactory extends P2viewAdapterFactory imple
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public Object adapt(Object object, Object type) {
-		if(isFactoryForType(type)) {
+		if (isFactoryForType(type)) {
 			Object adapter = super.adapt(object, type);
-			if(!(type instanceof Class<?>) || (((Class<?>) type).isInstance(adapter))) {
+			if (!(type instanceof Class<?>) || (((Class<?>)type).isInstance(adapter))) {
 				return adapter;
 			}
 		}
@@ -315,7 +286,6 @@ public class P2viewItemProviderAdapterFactory extends P2viewAdapterFactory imple
 	/**
 	 * This adds a listener.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -327,12 +297,11 @@ public class P2viewItemProviderAdapterFactory extends P2viewAdapterFactory imple
 	 * This creates an adapter for a {@link org.eclipse.b3.aggregator.p2view.Bundle}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public Adapter createBundleAdapter() {
-		if(bundleItemProvider == null) {
+		if (bundleItemProvider == null) {
 			bundleItemProvider = new BundleItemProvider(this);
 		}
 
@@ -343,12 +312,11 @@ public class P2viewItemProviderAdapterFactory extends P2viewAdapterFactory imple
 	 * This creates an adapter for a {@link org.eclipse.b3.aggregator.p2view.Bundles}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public Adapter createBundlesAdapter() {
-		if(bundlesItemProvider == null) {
+		if (bundlesItemProvider == null) {
 			bundlesItemProvider = new BundlesItemProvider(this);
 		}
 
@@ -359,12 +327,11 @@ public class P2viewItemProviderAdapterFactory extends P2viewAdapterFactory imple
 	 * This creates an adapter for a {@link org.eclipse.b3.aggregator.p2view.Categories}.
 	 * <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public Adapter createCategoriesAdapter() {
-		if(categoriesItemProvider == null) {
+		if (categoriesItemProvider == null) {
 			categoriesItemProvider = new CategoriesItemProvider(this);
 		}
 
@@ -375,12 +342,11 @@ public class P2viewItemProviderAdapterFactory extends P2viewAdapterFactory imple
 	 * This creates an adapter for a {@link org.eclipse.b3.aggregator.p2view.Category}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public Adapter createCategoryAdapter() {
-		if(categoryItemProvider == null) {
+		if (categoryItemProvider == null) {
 			categoryItemProvider = new CategoryItemProvider(this);
 		}
 
@@ -391,12 +357,11 @@ public class P2viewItemProviderAdapterFactory extends P2viewAdapterFactory imple
 	 * This creates an adapter for a {@link org.eclipse.b3.aggregator.p2view.Feature}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public Adapter createFeatureAdapter() {
-		if(featureItemProvider == null) {
+		if (featureItemProvider == null) {
 			featureItemProvider = new FeatureItemProvider(this);
 		}
 
@@ -407,12 +372,11 @@ public class P2viewItemProviderAdapterFactory extends P2viewAdapterFactory imple
 	 * This creates an adapter for a {@link org.eclipse.b3.aggregator.p2view.Features}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public Adapter createFeaturesAdapter() {
-		if(featuresItemProvider == null) {
+		if (featuresItemProvider == null) {
 			featuresItemProvider = new FeaturesItemProvider(this);
 		}
 
@@ -423,12 +387,11 @@ public class P2viewItemProviderAdapterFactory extends P2viewAdapterFactory imple
 	 * This creates an adapter for a {@link org.eclipse.b3.aggregator.p2view.Fragment}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public Adapter createFragmentAdapter() {
-		if(fragmentItemProvider == null) {
+		if (fragmentItemProvider == null) {
 			fragmentItemProvider = new FragmentItemProvider(this);
 		}
 
@@ -439,12 +402,11 @@ public class P2viewItemProviderAdapterFactory extends P2viewAdapterFactory imple
 	 * This creates an adapter for a {@link org.eclipse.b3.aggregator.p2view.Fragments}.
 	 * <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public Adapter createFragmentsAdapter() {
-		if(fragmentsItemProvider == null) {
+		if (fragmentsItemProvider == null) {
 			fragmentsItemProvider = new FragmentsItemProvider(this);
 		}
 
@@ -459,7 +421,7 @@ public class P2viewItemProviderAdapterFactory extends P2viewAdapterFactory imple
 	 */
 	@Override
 	public Adapter createInstallableUnitsAdapter() {
-		if(installableUnitsItemProvider == null) {
+		if (installableUnitsItemProvider == null) {
 			installableUnitsItemProvider = new InstallableUnitsItemProvider(this);
 		}
 
@@ -470,12 +432,11 @@ public class P2viewItemProviderAdapterFactory extends P2viewAdapterFactory imple
 	 * This creates an adapter for a {@link org.eclipse.b3.aggregator.p2view.IUDetails}.
 	 * <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public Adapter createIUDetailsAdapter() {
-		if(iuDetailsItemProvider == null) {
+		if (iuDetailsItemProvider == null) {
 			iuDetailsItemProvider = new IUDetailsItemProvider(this);
 		}
 
@@ -486,12 +447,11 @@ public class P2viewItemProviderAdapterFactory extends P2viewAdapterFactory imple
 	 * This creates an adapter for a {@link org.eclipse.b3.aggregator.p2view.Licenses}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public Adapter createLicensesAdapter() {
-		if(licensesItemProvider == null) {
+		if (licensesItemProvider == null) {
 			licensesItemProvider = new LicensesItemProvider(this);
 		}
 
@@ -501,12 +461,11 @@ public class P2viewItemProviderAdapterFactory extends P2viewAdapterFactory imple
 	/**
 	 * This creates an adapter for a {@link org.eclipse.b3.aggregator.p2view.MetadataRepositoryStructuredView}.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public Adapter createMetadataRepositoryStructuredViewAdapter() {
-		if(metadataRepositoryStructuredViewItemProvider == null) {
+		if (metadataRepositoryStructuredViewItemProvider == null) {
 			metadataRepositoryStructuredViewItemProvider = new MetadataRepositoryStructuredViewItemProvider(this);
 		}
 
@@ -521,7 +480,7 @@ public class P2viewItemProviderAdapterFactory extends P2viewAdapterFactory imple
 	 */
 	@Override
 	public Adapter createMiscellaneousAdapter() {
-		if(miscellaneousItemProvider == null) {
+		if (miscellaneousItemProvider == null) {
 			miscellaneousItemProvider = new MiscellaneousItemProvider(this);
 		}
 
@@ -532,12 +491,11 @@ public class P2viewItemProviderAdapterFactory extends P2viewAdapterFactory imple
 	 * This creates an adapter for a {@link org.eclipse.b3.aggregator.p2view.OtherIU}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public Adapter createOtherIUAdapter() {
-		if(otherIUItemProvider == null) {
+		if (otherIUItemProvider == null) {
 			otherIUItemProvider = new OtherIUItemProvider(this);
 		}
 
@@ -548,12 +506,11 @@ public class P2viewItemProviderAdapterFactory extends P2viewAdapterFactory imple
 	 * This creates an adapter for a {@link org.eclipse.b3.aggregator.p2view.Product}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public Adapter createProductAdapter() {
-		if(productItemProvider == null) {
+		if (productItemProvider == null) {
 			productItemProvider = new ProductItemProvider(this);
 		}
 
@@ -564,12 +521,11 @@ public class P2viewItemProviderAdapterFactory extends P2viewAdapterFactory imple
 	 * This creates an adapter for a {@link org.eclipse.b3.aggregator.p2view.Products}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public Adapter createProductsAdapter() {
-		if(productsItemProvider == null) {
+		if (productsItemProvider == null) {
 			productsItemProvider = new ProductsItemProvider(this);
 		}
 
@@ -580,12 +536,11 @@ public class P2viewItemProviderAdapterFactory extends P2viewAdapterFactory imple
 	 * This creates an adapter for a {@link org.eclipse.b3.aggregator.p2view.Properties}.
 	 * <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public Adapter createPropertiesAdapter() {
-		if(propertiesItemProvider == null) {
+		if (propertiesItemProvider == null) {
 			propertiesItemProvider = new PropertiesItemProvider(this);
 		}
 
@@ -600,7 +555,7 @@ public class P2viewItemProviderAdapterFactory extends P2viewAdapterFactory imple
 	 */
 	@Override
 	public Adapter createProvidedCapabilitiesAdapter() {
-		if(providedCapabilitiesItemProvider == null) {
+		if (providedCapabilitiesItemProvider == null) {
 			providedCapabilitiesItemProvider = new ProvidedCapabilitiesItemProvider(this);
 		}
 
@@ -615,7 +570,7 @@ public class P2viewItemProviderAdapterFactory extends P2viewAdapterFactory imple
 	 */
 	@Override
 	public Adapter createProvidedCapabilityWrapperAdapter() {
-		if(providedCapabilityWrapperItemProvider == null) {
+		if (providedCapabilityWrapperItemProvider == null) {
 			providedCapabilityWrapperItemProvider = new ProvidedCapabilityWrapperItemProvider(this);
 		}
 
@@ -626,12 +581,11 @@ public class P2viewItemProviderAdapterFactory extends P2viewAdapterFactory imple
 	 * This creates an adapter for a {@link org.eclipse.b3.aggregator.p2view.RepositoryBrowser}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public Adapter createRepositoryBrowserAdapter() {
-		if(repositoryBrowserItemProvider == null) {
+		if (repositoryBrowserItemProvider == null) {
 			repositoryBrowserItemProvider = new RepositoryBrowserItemProvider(this);
 		}
 
@@ -642,12 +596,11 @@ public class P2viewItemProviderAdapterFactory extends P2viewAdapterFactory imple
 	 * This creates an adapter for a {@link org.eclipse.b3.aggregator.p2view.RepositoryReferences}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public Adapter createRepositoryReferencesAdapter() {
-		if(repositoryReferencesItemProvider == null) {
+		if (repositoryReferencesItemProvider == null) {
 			repositoryReferencesItemProvider = new RepositoryReferencesItemProvider(this);
 		}
 
@@ -658,12 +611,11 @@ public class P2viewItemProviderAdapterFactory extends P2viewAdapterFactory imple
 	 * This creates an adapter for a {@link org.eclipse.b3.aggregator.p2view.Requirements}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public Adapter createRequirementsAdapter() {
-		if(requirementsItemProvider == null) {
+		if (requirementsItemProvider == null) {
 			requirementsItemProvider = new RequirementsItemProvider(this);
 		}
 
@@ -674,12 +626,11 @@ public class P2viewItemProviderAdapterFactory extends P2viewAdapterFactory imple
 	 * This creates an adapter for a {@link org.eclipse.b3.aggregator.p2view.RequirementWrapper}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public Adapter createRequirementWrapperAdapter() {
-		if(requirementWrapperItemProvider == null) {
+		if (requirementWrapperItemProvider == null) {
 			requirementWrapperItemProvider = new RequirementWrapperItemProvider(this);
 		}
 
@@ -690,12 +641,11 @@ public class P2viewItemProviderAdapterFactory extends P2viewAdapterFactory imple
 	 * This creates an adapter for a {@link org.eclipse.b3.aggregator.p2view.Touchpoints}.
 	 * <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public Adapter createTouchpointsAdapter() {
-		if(touchpointsItemProvider == null) {
+		if (touchpointsItemProvider == null) {
 			touchpointsItemProvider = new TouchpointsItemProvider(this);
 		}
 
@@ -703,75 +653,49 @@ public class P2viewItemProviderAdapterFactory extends P2viewAdapterFactory imple
 	}
 
 	/**
-	 * This disposes all of the item providers created by this factory.
+	 * This disposes all of the item providers created by this factory. 
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public void dispose() {
-		if(bundleItemProvider != null)
-			bundleItemProvider.dispose();
-		if(bundlesItemProvider != null)
-			bundlesItemProvider.dispose();
-		if(categoryItemProvider != null)
-			categoryItemProvider.dispose();
-		if(categoriesItemProvider != null)
-			categoriesItemProvider.dispose();
-		if(featureItemProvider != null)
-			featureItemProvider.dispose();
-		if(featuresItemProvider != null)
-			featuresItemProvider.dispose();
-		if(fragmentItemProvider != null)
-			fragmentItemProvider.dispose();
-		if(fragmentsItemProvider != null)
-			fragmentsItemProvider.dispose();
-		if(installableUnitsItemProvider != null)
-			installableUnitsItemProvider.dispose();
-		if(iuDetailsItemProvider != null)
-			iuDetailsItemProvider.dispose();
-		if(licensesItemProvider != null)
-			licensesItemProvider.dispose();
-		if(repositoryBrowserItemProvider != null)
-			repositoryBrowserItemProvider.dispose();
-		if(metadataRepositoryStructuredViewItemProvider != null)
-			metadataRepositoryStructuredViewItemProvider.dispose();
-		if(miscellaneousItemProvider != null)
-			miscellaneousItemProvider.dispose();
-		if(otherIUItemProvider != null)
-			otherIUItemProvider.dispose();
-		if(productItemProvider != null)
-			productItemProvider.dispose();
-		if(productsItemProvider != null)
-			productsItemProvider.dispose();
-		if(propertiesItemProvider != null)
-			propertiesItemProvider.dispose();
-		if(providedCapabilitiesItemProvider != null)
-			providedCapabilitiesItemProvider.dispose();
-		if(providedCapabilityWrapperItemProvider != null)
-			providedCapabilityWrapperItemProvider.dispose();
-		if(repositoryReferencesItemProvider != null)
-			repositoryReferencesItemProvider.dispose();
-		if(requirementsItemProvider != null)
-			requirementsItemProvider.dispose();
-		if(requirementWrapperItemProvider != null)
-			requirementWrapperItemProvider.dispose();
-		if(touchpointsItemProvider != null)
-			touchpointsItemProvider.dispose();
+		if (bundleItemProvider != null) bundleItemProvider.dispose();
+		if (bundlesItemProvider != null) bundlesItemProvider.dispose();
+		if (categoryItemProvider != null) categoryItemProvider.dispose();
+		if (categoriesItemProvider != null) categoriesItemProvider.dispose();
+		if (featureItemProvider != null) featureItemProvider.dispose();
+		if (featuresItemProvider != null) featuresItemProvider.dispose();
+		if (fragmentItemProvider != null) fragmentItemProvider.dispose();
+		if (fragmentsItemProvider != null) fragmentsItemProvider.dispose();
+		if (installableUnitsItemProvider != null) installableUnitsItemProvider.dispose();
+		if (iuDetailsItemProvider != null) iuDetailsItemProvider.dispose();
+		if (licensesItemProvider != null) licensesItemProvider.dispose();
+		if (repositoryBrowserItemProvider != null) repositoryBrowserItemProvider.dispose();
+		if (metadataRepositoryStructuredViewItemProvider != null) metadataRepositoryStructuredViewItemProvider.dispose();
+		if (miscellaneousItemProvider != null) miscellaneousItemProvider.dispose();
+		if (otherIUItemProvider != null) otherIUItemProvider.dispose();
+		if (productItemProvider != null) productItemProvider.dispose();
+		if (productsItemProvider != null) productsItemProvider.dispose();
+		if (propertiesItemProvider != null) propertiesItemProvider.dispose();
+		if (providedCapabilitiesItemProvider != null) providedCapabilitiesItemProvider.dispose();
+		if (providedCapabilityWrapperItemProvider != null) providedCapabilityWrapperItemProvider.dispose();
+		if (repositoryReferencesItemProvider != null) repositoryReferencesItemProvider.dispose();
+		if (requirementsItemProvider != null) requirementsItemProvider.dispose();
+		if (requirementWrapperItemProvider != null) requirementWrapperItemProvider.dispose();
+		if (touchpointsItemProvider != null) touchpointsItemProvider.dispose();
 	}
 
 	/**
 	 * This delegates to {@link #changeNotifier} and to {@link #parentAdapterFactory}.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public void fireNotifyChanged(Notification notification) {
 		changeNotifier.fireNotifyChanged(notification);
 
-		if(parentAdapterFactory != null) {
+		if (parentAdapterFactory != null) {
 			parentAdapterFactory.fireNotifyChanged(notification);
 		}
 	}
@@ -779,19 +703,15 @@ public class P2viewItemProviderAdapterFactory extends P2viewAdapterFactory imple
 	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public ComposeableAdapterFactory getRootAdapterFactory() {
-		return parentAdapterFactory == null
-				? this
-				: parentAdapterFactory.getRootAdapterFactory();
+		return parentAdapterFactory == null ? this : parentAdapterFactory.getRootAdapterFactory();
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -802,7 +722,6 @@ public class P2viewItemProviderAdapterFactory extends P2viewAdapterFactory imple
 	/**
 	 * This removes a listener.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -813,7 +732,6 @@ public class P2viewItemProviderAdapterFactory extends P2viewAdapterFactory imple
 	/**
 	 * This sets the composed adapter factory that contains this factory.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override

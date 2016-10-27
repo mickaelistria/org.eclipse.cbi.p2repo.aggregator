@@ -14,11 +14,11 @@ package org.eclipse.b3.aggregator;
  *
  * <p>
  * The following features are supported:
- * <ul>
- * <li>{@link org.eclipse.b3.aggregator.Status#getCode <em>Code</em>}</li>
- * <li>{@link org.eclipse.b3.aggregator.Status#getMessage <em>Message</em>}</li>
- * </ul>
  * </p>
+ * <ul>
+ *   <li>{@link org.eclipse.b3.aggregator.Status#getCode <em>Code</em>}</li>
+ *   <li>{@link org.eclipse.b3.aggregator.Status#getMessage <em>Message</em>}</li>
+ * </ul>
  *
  * @see org.eclipse.b3.aggregator.AggregatorPackage#getStatus()
  * @model
@@ -33,7 +33,6 @@ public interface Status {
 	 * If the meaning of the '<em>Code</em>' attribute isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 *
 	 * @return the value of the '<em>Code</em>' attribute.
 	 * @see org.eclipse.b3.aggregator.StatusCode
 	 * @see org.eclipse.b3.aggregator.AggregatorPackage#getStatus_Code()

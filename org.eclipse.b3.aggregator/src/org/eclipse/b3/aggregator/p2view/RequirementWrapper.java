@@ -18,10 +18,10 @@ import org.eclipse.equinox.p2.metadata.IRequirement;
  *
  * <p>
  * The following features are supported:
- * <ul>
- * <li>{@link org.eclipse.b3.aggregator.p2view.RequirementWrapper#getGenuine <em>Genuine</em>}</li>
- * </ul>
  * </p>
+ * <ul>
+ *   <li>{@link org.eclipse.b3.aggregator.p2view.RequirementWrapper#getGenuine <em>Genuine</em>}</li>
+ * </ul>
  *
  * @see org.eclipse.b3.aggregator.p2view.P2viewPackage#getRequirementWrapper()
  * @model superTypes="org.eclipse.b3.p2.IRequirement org.eclipse.b3.aggregator.LabelProvider"
@@ -35,7 +35,6 @@ public interface RequirementWrapper extends IRequirement, LabelProvider {
 	 * If the meaning of the '<em>Genuine</em>' reference isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 *
 	 * @return the value of the '<em>Genuine</em>' reference.
 	 * @see org.eclipse.b3.aggregator.p2view.P2viewPackage#getRequirementWrapper_Genuine()
 	 * @model type="org.eclipse.b3.p2.IRequirement" resolveProxies="false" required="true" changeable="false"

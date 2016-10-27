@@ -26,6 +26,22 @@
       </wizard>
    </extension>
 
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated Aggregator -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="org.eclipse.b3.aggregator.presentation.AggregatorModelWizardID"
+            name="%_UI_AggregatorModelWizard_label"
+            class="org.eclipse.b3.aggregator.presentation.AggregatorModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/AggregatorModelFile.gif">
+         <description>%_UI_AggregatorModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
    <extension point="org.eclipse.ui.editors">
       <editor
             id="org.eclipse.b3.aggregator.presentation.AggregatorEditorID"
@@ -34,6 +50,18 @@
             extensions="b3aggr, build"
             class="org.eclipse.b3.aggregator.presentation.AggregatorEditor"
             contributorClass="org.eclipse.b3.aggregator.presentation.AggregatorActionBarContributor">
+      </editor>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated Aggregator -->
+      <editor
+            id="org.eclipse.b3.aggregator.p2view.presentation.P2viewEditorID"
+            name="%_UI_P2viewEditor_label"
+            icon="icons/full/obj16/P2viewModelFile.gif"
+            extensions="p2view"
+            class="org.eclipse.b3.aggregator.p2view.presentation.P2viewEditor"
+            contributorClass="org.eclipse.b3.aggregator.p2view.presentation.P2viewActionBarContributor">
       </editor>
    </extension>
    <extension

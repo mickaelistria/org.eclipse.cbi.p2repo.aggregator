@@ -20,16 +20,16 @@ import org.eclipse.b3.p2.MetadataRepository;
  *
  * <p>
  * The following features are supported:
- * <ul>
- * <li>{@link org.eclipse.b3.aggregator.p2view.MetadataRepositoryStructuredView#getName <em>Name</em>}</li>
- * <li>{@link org.eclipse.b3.aggregator.p2view.MetadataRepositoryStructuredView#getInstallableUnitList <em>Installable Unit List</em>}</li>
- * <li>{@link org.eclipse.b3.aggregator.p2view.MetadataRepositoryStructuredView#getProperties <em>Properties</em>}</li>
- * <li>{@link org.eclipse.b3.aggregator.p2view.MetadataRepositoryStructuredView#getMetadataRepository <em>Metadata Repository</em>}</li>
- * <li>{@link org.eclipse.b3.aggregator.p2view.MetadataRepositoryStructuredView#isLoaded <em>Loaded</em>}</li>
- * <li>{@link org.eclipse.b3.aggregator.p2view.MetadataRepositoryStructuredView#getRepositoryReferences <em>Repository References</em>}</li>
- * <li>{@link org.eclipse.b3.aggregator.p2view.MetadataRepositoryStructuredView#getLocation <em>Location</em>}</li>
- * </ul>
  * </p>
+ * <ul>
+ *   <li>{@link org.eclipse.b3.aggregator.p2view.MetadataRepositoryStructuredView#getName <em>Name</em>}</li>
+ *   <li>{@link org.eclipse.b3.aggregator.p2view.MetadataRepositoryStructuredView#getInstallableUnitList <em>Installable Unit List</em>}</li>
+ *   <li>{@link org.eclipse.b3.aggregator.p2view.MetadataRepositoryStructuredView#getProperties <em>Properties</em>}</li>
+ *   <li>{@link org.eclipse.b3.aggregator.p2view.MetadataRepositoryStructuredView#getMetadataRepository <em>Metadata Repository</em>}</li>
+ *   <li>{@link org.eclipse.b3.aggregator.p2view.MetadataRepositoryStructuredView#isLoaded <em>Loaded</em>}</li>
+ *   <li>{@link org.eclipse.b3.aggregator.p2view.MetadataRepositoryStructuredView#getRepositoryReferences <em>Repository References</em>}</li>
+ *   <li>{@link org.eclipse.b3.aggregator.p2view.MetadataRepositoryStructuredView#getLocation <em>Location</em>}</li>
+ * </ul>
  *
  * @see org.eclipse.b3.aggregator.p2view.P2viewPackage#getMetadataRepositoryStructuredView()
  * @model
@@ -43,7 +43,6 @@ public interface MetadataRepositoryStructuredView extends ChildrenProvider<Insta
 	 * If the meaning of the '<em>Installable Unit List</em>' reference isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 *
 	 * @return the value of the '<em>Installable Unit List</em>' containment reference.
 	 * @see #setInstallableUnitList(InstallableUnits)
 	 * @see org.eclipse.b3.aggregator.p2view.P2viewPackage#getMetadataRepositoryStructuredView_InstallableUnitList()
@@ -54,18 +53,15 @@ public interface MetadataRepositoryStructuredView extends ChildrenProvider<Insta
 
 	/**
 	 * Returns the value of the '<em><b>Location</b></em>' attribute.
-	 * The default value is <code>""</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Location</em>' attribute isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 *
 	 * @return the value of the '<em>Location</em>' attribute.
 	 * @see #isSetLocation()
 	 * @see org.eclipse.b3.aggregator.p2view.P2viewPackage#getMetadataRepositoryStructuredView_Location()
-	 * @model default="" unsettable="true" dataType="org.eclipse.b3.p2.URI" required="true" transient="true" changeable="false" volatile="true"
-	 *        derived="true"
+	 * @model unsettable="true" dataType="org.eclipse.b3.p2.URI" required="true" transient="true" changeable="false" volatile="true" derived="true"
 	 * @generated
 	 */
 	URI getLocation();
@@ -77,7 +73,6 @@ public interface MetadataRepositoryStructuredView extends ChildrenProvider<Insta
 	 * If the meaning of the '<em>Metadata Repository</em>' reference isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 *
 	 * @return the value of the '<em>Metadata Repository</em>' containment reference.
 	 * @see #setMetadataRepository(MetadataRepository)
 	 * @see org.eclipse.b3.aggregator.p2view.P2viewPackage#getMetadataRepositoryStructuredView_MetadataRepository()
@@ -94,7 +89,6 @@ public interface MetadataRepositoryStructuredView extends ChildrenProvider<Insta
 	 * If the meaning of the '<em>Name</em>' attribute isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 *
 	 * @return the value of the '<em>Name</em>' attribute.
 	 * @see #setName(String)
 	 * @see org.eclipse.b3.aggregator.p2view.P2viewPackage#getMetadataRepositoryStructuredView_Name()
@@ -110,7 +104,6 @@ public interface MetadataRepositoryStructuredView extends ChildrenProvider<Insta
 	 * If the meaning of the '<em>Properties</em>' reference isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 *
 	 * @return the value of the '<em>Properties</em>' containment reference.
 	 * @see #setProperties(Properties)
 	 * @see org.eclipse.b3.aggregator.p2view.P2viewPackage#getMetadataRepositoryStructuredView_Properties()
@@ -126,7 +119,6 @@ public interface MetadataRepositoryStructuredView extends ChildrenProvider<Insta
 	 * If the meaning of the '<em>Repository References</em>' reference isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 *
 	 * @return the value of the '<em>Repository References</em>' reference.
 	 * @see #setRepositoryReferences(RepositoryReferences)
 	 * @see org.eclipse.b3.aggregator.p2view.P2viewPackage#getMetadataRepositoryStructuredView_RepositoryReferences()
@@ -142,7 +134,6 @@ public interface MetadataRepositoryStructuredView extends ChildrenProvider<Insta
 	 * If the meaning of the '<em>Loaded</em>' attribute isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 *
 	 * @return the value of the '<em>Loaded</em>' attribute.
 	 * @see #setLoaded(boolean)
 	 * @see org.eclipse.b3.aggregator.p2view.P2viewPackage#getMetadataRepositoryStructuredView_Loaded()
@@ -152,11 +143,9 @@ public interface MetadataRepositoryStructuredView extends ChildrenProvider<Insta
 	boolean isLoaded();
 
 	/**
-	 * Returns whether the value of the '{@link org.eclipse.b3.aggregator.p2view.MetadataRepositoryStructuredView#getLocation <em>Location</em>}'
-	 * attribute is set.
+	 * Returns whether the value of the '{@link org.eclipse.b3.aggregator.p2view.MetadataRepositoryStructuredView#getLocation <em>Location</em>}' attribute is set.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @return whether the value of the '<em>Location</em>' attribute is set.
 	 * @see #getLocation()
 	 * @generated
@@ -164,12 +153,9 @@ public interface MetadataRepositoryStructuredView extends ChildrenProvider<Insta
 	boolean isSetLocation();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.aggregator.p2view.MetadataRepositoryStructuredView#getInstallableUnitList
-	 * <em>Installable Unit List</em>}' containment reference.
+	 * Sets the value of the '{@link org.eclipse.b3.aggregator.p2view.MetadataRepositoryStructuredView#getInstallableUnitList <em>Installable Unit List</em>}' containment reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
-	 * @param value
-	 *            the new value of the '<em>Installable Unit List</em>' containment reference.
+	 * @param value the new value of the '<em>Installable Unit List</em>' containment reference.
 	 * @see #getInstallableUnitList()
 	 * @generated
 	 */
@@ -178,21 +164,16 @@ public interface MetadataRepositoryStructuredView extends ChildrenProvider<Insta
 	/**
 	 * Sets the value of the '{@link org.eclipse.b3.aggregator.p2view.MetadataRepositoryStructuredView#isLoaded <em>Loaded</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
-	 * @param value
-	 *            the new value of the '<em>Loaded</em>' attribute.
+	 * @param value the new value of the '<em>Loaded</em>' attribute.
 	 * @see #isLoaded()
 	 * @generated
 	 */
 	void setLoaded(boolean value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.aggregator.p2view.MetadataRepositoryStructuredView#getMetadataRepository
-	 * <em>Metadata Repository</em>}' containment reference.
+	 * Sets the value of the '{@link org.eclipse.b3.aggregator.p2view.MetadataRepositoryStructuredView#getMetadataRepository <em>Metadata Repository</em>}' containment reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
-	 * @param value
-	 *            the new value of the '<em>Metadata Repository</em>' containment reference.
+	 * @param value the new value of the '<em>Metadata Repository</em>' containment reference.
 	 * @see #getMetadataRepository()
 	 * @generated
 	 */
@@ -201,34 +182,26 @@ public interface MetadataRepositoryStructuredView extends ChildrenProvider<Insta
 	/**
 	 * Sets the value of the '{@link org.eclipse.b3.aggregator.p2view.MetadataRepositoryStructuredView#getName <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
-	 * @param value
-	 *            the new value of the '<em>Name</em>' attribute.
+	 * @param value the new value of the '<em>Name</em>' attribute.
 	 * @see #getName()
 	 * @generated
 	 */
 	void setName(String value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.aggregator.p2view.MetadataRepositoryStructuredView#getProperties <em>Properties</em>}' containment
-	 * reference.
+	 * Sets the value of the '{@link org.eclipse.b3.aggregator.p2view.MetadataRepositoryStructuredView#getProperties <em>Properties</em>}' containment reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
-	 * @param value
-	 *            the new value of the '<em>Properties</em>' containment reference.
+	 * @param value the new value of the '<em>Properties</em>' containment reference.
 	 * @see #getProperties()
 	 * @generated
 	 */
 	void setProperties(Properties value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.aggregator.p2view.MetadataRepositoryStructuredView#getRepositoryReferences
-	 * <em>Repository References</em>}' reference.
+	 * Sets the value of the '{@link org.eclipse.b3.aggregator.p2view.MetadataRepositoryStructuredView#getRepositoryReferences <em>Repository References</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
-	 * @param value
-	 *            the new value of the '<em>Repository References</em>' reference.
+	 * @param value the new value of the '<em>Repository References</em>' reference.
 	 * @see #getRepositoryReferences()
 	 * @generated
 	 */

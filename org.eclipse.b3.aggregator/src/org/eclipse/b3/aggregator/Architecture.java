@@ -15,7 +15,6 @@ import org.eclipse.emf.common.util.Enumerator;
 /**
  * <!-- begin-user-doc --> A representation of the literals of the enumeration '<em><b>Architecture</b></em>', and
  * utility methods for working with them. <!-- end-user-doc -->
- *
  * @see org.eclipse.b3.aggregator.AggregatorPackage#getArchitecture()
  * @model
  * @generated
@@ -24,7 +23,6 @@ public enum Architecture implements Enumerator {
 	/**
 	 * The '<em><b>X86</b></em>' literal object.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @see #X86_VALUE
 	 * @generated
 	 * @ordered
@@ -34,7 +32,6 @@ public enum Architecture implements Enumerator {
 	/**
 	 * The '<em><b>PPC</b></em>' literal object.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @see #PPC_VALUE
 	 * @generated
 	 * @ordered
@@ -44,7 +41,6 @@ public enum Architecture implements Enumerator {
 	/**
 	 * The '<em><b>X86 64</b></em>' literal object.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @see #X86_64_VALUE
 	 * @generated
 	 * @ordered
@@ -53,7 +49,6 @@ public enum Architecture implements Enumerator {
 	 * The '<em><b>IA64</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @see #IA64_VALUE
 	 * @generated
 	 * @ordered
@@ -62,7 +57,6 @@ public enum Architecture implements Enumerator {
 	 * The '<em><b>IA64 32</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @see #IA64_32_VALUE
 	 * @generated
 	 * @ordered
@@ -71,7 +65,6 @@ public enum Architecture implements Enumerator {
 	 * The '<em><b>Sparc</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @see #SPARC_VALUE
 	 * @generated
 	 * @ordered
@@ -80,7 +73,6 @@ public enum Architecture implements Enumerator {
 	 * The '<em><b>PPC64</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @see #PPC64_VALUE
 	 * @generated
 	 * @ordered
@@ -89,7 +81,6 @@ public enum Architecture implements Enumerator {
 	 * The '<em><b>S390</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @see #S390_VALUE
 	 * @generated
 	 * @ordered
@@ -98,7 +89,6 @@ public enum Architecture implements Enumerator {
 	 * The '<em><b>S390X</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @see #S390X_VALUE
 	 * @generated
 	 * @ordered
@@ -107,7 +97,6 @@ public enum Architecture implements Enumerator {
 	 * The '<em><b>Sparcv9</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @see #SPARCV9_VALUE
 	 * @generated
 	 * @ordered
@@ -116,7 +105,6 @@ public enum Architecture implements Enumerator {
 	 * The '<em><b>PPC64LE</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @see #PPC64LE_VALUE
 	 * @generated
 	 * @ordered
@@ -130,7 +118,6 @@ public enum Architecture implements Enumerator {
 	 * If the meaning of '<em><b>X86</b></em>' literal object isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 *
 	 * @see #X86
 	 * @model literal="x86"
 	 * @generated
@@ -145,7 +132,6 @@ public enum Architecture implements Enumerator {
 	 * If the meaning of '<em><b>PPC</b></em>' literal object isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 *
 	 * @see #PPC
 	 * @model literal="ppc"
 	 * @generated
@@ -160,7 +146,6 @@ public enum Architecture implements Enumerator {
 	 * If the meaning of '<em><b>X86 64</b></em>' literal object isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 *
 	 * @see #X86_64
 	 * @model literal="x86_64"
 	 * @generated
@@ -175,7 +160,6 @@ public enum Architecture implements Enumerator {
 	 * If the meaning of '<em><b>IA64</b></em>' literal object isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 *
 	 * @see #IA64
 	 * @model literal="ia64"
 	 * @generated
@@ -190,7 +174,6 @@ public enum Architecture implements Enumerator {
 	 * If the meaning of '<em><b>IA64 32</b></em>' literal object isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 *
 	 * @see #IA64_32
 	 * @model literal="ia64_32"
 	 * @generated
@@ -205,7 +188,6 @@ public enum Architecture implements Enumerator {
 	 * If the meaning of '<em><b>Sparc</b></em>' literal object isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 *
 	 * @see #SPARC
 	 * @model name="Sparc" literal="sparc"
 	 * @generated
@@ -220,7 +202,6 @@ public enum Architecture implements Enumerator {
 	 * If the meaning of '<em><b>PPC64</b></em>' literal object isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 *
 	 * @see #PPC64
 	 * @model literal="ppc64"
 	 * @generated
@@ -235,7 +216,6 @@ public enum Architecture implements Enumerator {
 	 * If the meaning of '<em><b>S390</b></em>' literal object isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 *
 	 * @see #S390
 	 * @model literal="s390"
 	 * @generated
@@ -250,7 +230,6 @@ public enum Architecture implements Enumerator {
 	 * If the meaning of '<em><b>S390X</b></em>' literal object isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 *
 	 * @see #S390X
 	 * @model literal="s390x"
 	 * @generated
@@ -265,7 +244,6 @@ public enum Architecture implements Enumerator {
 	 * If the meaning of '<em><b>Sparcv9</b></em>' literal object isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 *
 	 * @see #SPARCV9
 	 * @model name="Sparcv9" literal="sparcv9"
 	 * @generated
@@ -280,7 +258,6 @@ public enum Architecture implements Enumerator {
 	 * If the meaning of '<em><b>PPC64LE</b></em>' literal object isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 *
 	 * @see #PPC64LE
 	 * @model literal="ppc64le"
 	 * @generated
@@ -291,17 +268,26 @@ public enum Architecture implements Enumerator {
 	/**
 	 * An array of all the '<em><b>Architecture</b></em>' enumerators.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	private static final Architecture[] VALUES_ARRAY = new Architecture[] {
-			X86, PPC, X86_64, IA64, IA64_32, SPARC, PPC64, S390, S390X, SPARCV9, PPC64LE, };
+			X86,
+			PPC,
+			X86_64,
+			IA64,
+			IA64_32,
+			SPARC,
+			PPC64,
+			S390,
+			S390X,
+			SPARCV9,
+			PPC64LE,
+		};
 
 	/**
 	 * A public read-only list of all the '<em><b>Architecture</b></em>' enumerators.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 *
 	 * @generated
 	 */
 	public static final List<Architecture> VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
@@ -310,33 +296,23 @@ public enum Architecture implements Enumerator {
 	 * Returns the '<em><b>Architecture</b></em>' literal with the specified integer value.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 *
+	 * @param value the integer value.
+	 * @return the matching enumerator or <code>null</code>.
 	 * @generated
 	 */
 	public static Architecture get(int value) {
-		switch(value) {
-			case X86_VALUE:
-				return X86;
-			case PPC_VALUE:
-				return PPC;
-			case X86_64_VALUE:
-				return X86_64;
-			case IA64_VALUE:
-				return IA64;
-			case IA64_32_VALUE:
-				return IA64_32;
-			case SPARC_VALUE:
-				return SPARC;
-			case PPC64_VALUE:
-				return PPC64;
-			case S390_VALUE:
-				return S390;
-			case S390X_VALUE:
-				return S390X;
-			case SPARCV9_VALUE:
-				return SPARCV9;
-			case PPC64LE_VALUE:
-				return PPC64LE;
+		switch (value) {
+			case X86_VALUE: return X86;
+			case PPC_VALUE: return PPC;
+			case X86_64_VALUE: return X86_64;
+			case IA64_VALUE: return IA64;
+			case IA64_32_VALUE: return IA64_32;
+			case SPARC_VALUE: return SPARC;
+			case PPC64_VALUE: return PPC64;
+			case S390_VALUE: return S390;
+			case S390X_VALUE: return S390X;
+			case SPARCV9_VALUE: return SPARCV9;
+			case PPC64LE_VALUE: return PPC64LE;
 		}
 		return null;
 	}
@@ -345,13 +321,14 @@ public enum Architecture implements Enumerator {
 	 * Returns the '<em><b>Architecture</b></em>' literal with the specified literal value.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 *
+	 * @param literal the literal.
+	 * @return the matching enumerator or <code>null</code>.
 	 * @generated
 	 */
 	public static Architecture get(String literal) {
-		for(int i = 0; i < VALUES_ARRAY.length; ++i) {
+		for (int i = 0; i < VALUES_ARRAY.length; ++i) {
 			Architecture result = VALUES_ARRAY[i];
-			if(result.toString().equals(literal)) {
+			if (result.toString().equals(literal)) {
 				return result;
 			}
 		}
@@ -362,13 +339,14 @@ public enum Architecture implements Enumerator {
 	 * Returns the '<em><b>Architecture</b></em>' literal with the specified name.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 *
+	 * @param name the name.
+	 * @return the matching enumerator or <code>null</code>.
 	 * @generated
 	 */
 	public static Architecture getByName(String name) {
-		for(int i = 0; i < VALUES_ARRAY.length; ++i) {
+		for (int i = 0; i < VALUES_ARRAY.length; ++i) {
 			Architecture result = VALUES_ARRAY[i];
-			if(result.getName().equals(name)) {
+			if (result.getName().equals(name)) {
 				return result;
 			}
 		}
@@ -377,21 +355,18 @@ public enum Architecture implements Enumerator {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	private final int value;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	private final String name;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	private final String literal;
@@ -399,7 +374,6 @@ public enum Architecture implements Enumerator {
 	/**
 	 * Only this class can construct instances.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	private Architecture(int value, String name, String literal) {
@@ -410,36 +384,32 @@ public enum Architecture implements Enumerator {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	public String getLiteral() {
-		return literal;
+	  return literal;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	public String getName() {
-		return name;
+	  return name;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	public int getValue() {
-		return value;
+	  return value;
 	}
 
 	/**
 	 * Returns the literal value of the enumerator, which is its string representation.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override

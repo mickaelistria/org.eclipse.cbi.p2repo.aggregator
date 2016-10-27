@@ -23,11 +23,11 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  * <!-- begin-user-doc --> An implementation of the model object '<em><b>Bundles</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * <ul>
- * <li>{@link org.eclipse.b3.aggregator.p2view.impl.BundlesImpl#getChildren <em>Children</em>}</li>
- * <li>{@link org.eclipse.b3.aggregator.p2view.impl.BundlesImpl#getBundles <em>Bundles</em>}</li>
- * </ul>
  * </p>
+ * <ul>
+ *   <li>{@link org.eclipse.b3.aggregator.p2view.impl.BundlesImpl#getChildren <em>Children</em>}</li>
+ *   <li>{@link org.eclipse.b3.aggregator.p2view.impl.BundlesImpl#getBundles <em>Bundles</em>}</li>
+ * </ul>
  *
  * @generated
  */
@@ -35,7 +35,6 @@ public class BundlesImpl extends MinimalEObjectImpl.Container implements Bundles
 	/**
 	 * A set of bit flags representing the values of boolean attributes and whether unsettable features have been set.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 * @ordered
 	 */
@@ -45,7 +44,6 @@ public class BundlesImpl extends MinimalEObjectImpl.Container implements Bundles
 	 * The cached value of the '{@link #getBundles() <em>Bundles</em>}' reference list.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 *
 	 * @see #getBundles()
 	 * @generated
 	 * @ordered
@@ -54,7 +52,6 @@ public class BundlesImpl extends MinimalEObjectImpl.Container implements Bundles
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	protected BundlesImpl() {
@@ -63,12 +60,11 @@ public class BundlesImpl extends MinimalEObjectImpl.Container implements Bundles
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch(featureID) {
+		switch (featureID) {
 			case P2viewPackage.BUNDLES__CHILDREN:
 				return getChildren();
 			case P2viewPackage.BUNDLES__BUNDLES:
@@ -79,12 +75,11 @@ public class BundlesImpl extends MinimalEObjectImpl.Container implements Bundles
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch(featureID) {
+		switch (featureID) {
 			case P2viewPackage.BUNDLES__CHILDREN:
 				return !getChildren().isEmpty();
 			case P2viewPackage.BUNDLES__BUNDLES:
@@ -95,16 +90,15 @@ public class BundlesImpl extends MinimalEObjectImpl.Container implements Bundles
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch(featureID) {
+		switch (featureID) {
 			case P2viewPackage.BUNDLES__BUNDLES:
 				getBundles().clear();
-				getBundles().addAll((Collection<? extends Bundle>) newValue);
+				getBundles().addAll((Collection<? extends Bundle>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -112,7 +106,6 @@ public class BundlesImpl extends MinimalEObjectImpl.Container implements Bundles
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -122,12 +115,11 @@ public class BundlesImpl extends MinimalEObjectImpl.Container implements Bundles
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
-		switch(featureID) {
+		switch (featureID) {
 			case P2viewPackage.BUNDLES__BUNDLES:
 				getBundles().clear();
 				return;
@@ -137,11 +129,10 @@ public class BundlesImpl extends MinimalEObjectImpl.Container implements Bundles
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	public EList<Bundle> getBundles() {
-		if(bundles == null) {
+		if (bundles == null) {
 			bundles = new EObjectResolvingEList<Bundle>(Bundle.class, this, P2viewPackage.BUNDLES__BUNDLES);
 		}
 		return bundles;

@@ -15,6 +15,7 @@ import java.util.List;
 import org.eclipse.b3.aggregator.AggregatorPackage;
 import org.eclipse.b3.aggregator.AvailableFrom;
 import org.eclipse.b3.aggregator.AvailableVersion;
+import org.eclipse.b3.aggregator.VersionMatch;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.ResourceLocator;
@@ -35,7 +36,6 @@ import org.eclipse.equinox.p2.metadata.Version;
  * This is the item provider adapter for a {@link org.eclipse.b3.aggregator.AvailableVersion} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
- *
  * @generated
  */
 public class AvailableVersionItemProvider extends AggregatorItemProviderAdapter implements IEditingDomainItemProvider,
@@ -45,7 +45,6 @@ public class AvailableVersionItemProvider extends AggregatorItemProviderAdapter 
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	public AvailableVersionItemProvider(AdapterFactory adapterFactory) {
@@ -56,72 +55,88 @@ public class AvailableVersionItemProvider extends AggregatorItemProviderAdapter 
 	 * This adds a property descriptor for the Available From feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	protected void addAvailableFromPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-			getResourceLocator(),
-			getString("_UI_AvailableVersion_availableFrom_feature"),
-			getString(
-				"_UI_PropertyDescriptor_description", "_UI_AvailableVersion_availableFrom_feature",
-				"_UI_AvailableVersion_type"), AggregatorPackage.Literals.AVAILABLE_VERSION__AVAILABLE_FROM, true,
-			false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_AvailableVersion_availableFrom_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_AvailableVersion_availableFrom_feature", "_UI_AvailableVersion_type"),
+				 AggregatorPackage.Literals.AVAILABLE_VERSION__AVAILABLE_FROM,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
 	}
 
 	/**
 	 * This adds a property descriptor for the Filter feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	protected void addFilterPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-			getResourceLocator(),
-			getString("_UI_AvailableVersion_filter_feature"),
-			getString(
-				"_UI_PropertyDescriptor_description", "_UI_AvailableVersion_filter_feature",
-				"_UI_AvailableVersion_type"), AggregatorPackage.Literals.AVAILABLE_VERSION__FILTER, false, false,
-			false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_AvailableVersion_filter_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_AvailableVersion_filter_feature", "_UI_AvailableVersion_type"),
+				 AggregatorPackage.Literals.AVAILABLE_VERSION__FILTER,
+				 false,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
 	}
 
 	/**
 	 * This adds a property descriptor for the Version Match feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	protected void addVersionMatchPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-			getResourceLocator(),
-			getString("_UI_AvailableVersion_versionMatch_feature"),
-			getString(
-				"_UI_PropertyDescriptor_description", "_UI_AvailableVersion_versionMatch_feature",
-				"_UI_AvailableVersion_type"), AggregatorPackage.Literals.AVAILABLE_VERSION__VERSION_MATCH, false,
-			false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_AvailableVersion_versionMatch_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_AvailableVersion_versionMatch_feature", "_UI_AvailableVersion_type"),
+				 AggregatorPackage.Literals.AVAILABLE_VERSION__VERSION_MATCH,
+				 false,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
 	}
 
 	/**
 	 * This adds a property descriptor for the Version feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	protected void addVersionPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-			getResourceLocator(),
-			getString("_UI_AvailableVersion_version_feature"),
-			getString(
-				"_UI_PropertyDescriptor_description", "_UI_AvailableVersion_version_feature",
-				"_UI_AvailableVersion_type"), AggregatorPackage.Literals.AVAILABLE_VERSION__VERSION, false, false,
-			false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_AvailableVersion_version_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_AvailableVersion_version_feature", "_UI_AvailableVersion_type"),
+				 AggregatorPackage.Literals.AVAILABLE_VERSION__VERSION,
+				 false,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
 	}
 
 	/**
@@ -129,7 +144,6 @@ public class AvailableVersionItemProvider extends AggregatorItemProviderAdapter 
 	 * that can be created under this object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -176,12 +190,11 @@ public class AvailableVersionItemProvider extends AggregatorItemProviderAdapter 
 	 * This returns the property descriptors for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-		if(itemPropertyDescriptors == null) {
+		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
 			addVersionMatchPropertyDescriptor(object);
@@ -196,7 +209,6 @@ public class AvailableVersionItemProvider extends AggregatorItemProviderAdapter 
 	 * Return the resource locator for this item provider's resources.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -269,14 +281,13 @@ public class AvailableVersionItemProvider extends AggregatorItemProviderAdapter 
 	 * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch(notification.getFeatureID(AvailableVersion.class)) {
+		switch (notification.getFeatureID(AvailableVersion.class)) {
 			case AggregatorPackage.AVAILABLE_VERSION__VERSION_MATCH:
 			case AggregatorPackage.AVAILABLE_VERSION__VERSION:
 			case AggregatorPackage.AVAILABLE_VERSION__FILTER:

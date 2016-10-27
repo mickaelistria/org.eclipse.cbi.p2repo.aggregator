@@ -23,11 +23,11 @@ import org.eclipse.equinox.p2.repository.IRepositoryReference;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * <ul>
- * <li>{@link org.eclipse.b3.aggregator.p2view.impl.RepositoryReferencesImpl#getChildren <em>Children</em>}</li>
- * <li>{@link org.eclipse.b3.aggregator.p2view.impl.RepositoryReferencesImpl#getRepositoryReferences <em>Repository References</em>}</li>
- * </ul>
  * </p>
+ * <ul>
+ *   <li>{@link org.eclipse.b3.aggregator.p2view.impl.RepositoryReferencesImpl#getChildren <em>Children</em>}</li>
+ *   <li>{@link org.eclipse.b3.aggregator.p2view.impl.RepositoryReferencesImpl#getRepositoryReferences <em>Repository References</em>}</li>
+ * </ul>
  *
  * @generated
  */
@@ -36,7 +36,6 @@ public class RepositoryReferencesImpl extends MinimalEObjectImpl.Container imple
 	 * A set of bit flags representing the values of boolean attributes and whether unsettable features have been set.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @generated
 	 * @ordered
 	 */
@@ -46,7 +45,6 @@ public class RepositoryReferencesImpl extends MinimalEObjectImpl.Container imple
 	 * The cached value of the '{@link #getRepositoryReferences() <em>Repository References</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @see #getRepositoryReferences()
 	 * @generated
 	 * @ordered
@@ -56,7 +54,6 @@ public class RepositoryReferencesImpl extends MinimalEObjectImpl.Container imple
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	protected RepositoryReferencesImpl() {
@@ -66,12 +63,11 @@ public class RepositoryReferencesImpl extends MinimalEObjectImpl.Container imple
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch(featureID) {
+		switch (featureID) {
 			case P2viewPackage.REPOSITORY_REFERENCES__CHILDREN:
 				return getChildren();
 			case P2viewPackage.REPOSITORY_REFERENCES__REPOSITORY_REFERENCES:
@@ -83,12 +79,11 @@ public class RepositoryReferencesImpl extends MinimalEObjectImpl.Container imple
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch(featureID) {
+		switch (featureID) {
 			case P2viewPackage.REPOSITORY_REFERENCES__CHILDREN:
 				return !getChildren().isEmpty();
 			case P2viewPackage.REPOSITORY_REFERENCES__REPOSITORY_REFERENCES:
@@ -100,16 +95,15 @@ public class RepositoryReferencesImpl extends MinimalEObjectImpl.Container imple
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch(featureID) {
+		switch (featureID) {
 			case P2viewPackage.REPOSITORY_REFERENCES__REPOSITORY_REFERENCES:
 				getRepositoryReferences().clear();
-				getRepositoryReferences().addAll((Collection<? extends IRepositoryReference>) newValue);
+				getRepositoryReferences().addAll((Collection<? extends IRepositoryReference>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -118,7 +112,6 @@ public class RepositoryReferencesImpl extends MinimalEObjectImpl.Container imple
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -129,12 +122,11 @@ public class RepositoryReferencesImpl extends MinimalEObjectImpl.Container imple
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
-		switch(featureID) {
+		switch (featureID) {
 			case P2viewPackage.REPOSITORY_REFERENCES__REPOSITORY_REFERENCES:
 				getRepositoryReferences().clear();
 				return;
@@ -155,13 +147,11 @@ public class RepositoryReferencesImpl extends MinimalEObjectImpl.Container imple
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	public EList<IRepositoryReference> getRepositoryReferences() {
-		if(repositoryReferences == null) {
-			repositoryReferences = new EObjectResolvingEList<IRepositoryReference>(
-				IRepositoryReference.class, this, P2viewPackage.REPOSITORY_REFERENCES__REPOSITORY_REFERENCES);
+		if (repositoryReferences == null) {
+			repositoryReferences = new EObjectResolvingEList<IRepositoryReference>(IRepositoryReference.class, this, P2viewPackage.REPOSITORY_REFERENCES__REPOSITORY_REFERENCES);
 		}
 		return repositoryReferences;
 	}

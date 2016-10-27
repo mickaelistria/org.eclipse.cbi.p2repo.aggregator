@@ -23,11 +23,11 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  * <!-- begin-user-doc --> An implementation of the model object '<em><b>Fragments</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * <ul>
- * <li>{@link org.eclipse.b3.aggregator.p2view.impl.FragmentsImpl#getChildren <em>Children</em>}</li>
- * <li>{@link org.eclipse.b3.aggregator.p2view.impl.FragmentsImpl#getFragments <em>Fragments</em>}</li>
- * </ul>
  * </p>
+ * <ul>
+ *   <li>{@link org.eclipse.b3.aggregator.p2view.impl.FragmentsImpl#getChildren <em>Children</em>}</li>
+ *   <li>{@link org.eclipse.b3.aggregator.p2view.impl.FragmentsImpl#getFragments <em>Fragments</em>}</li>
+ * </ul>
  *
  * @generated
  */
@@ -35,7 +35,6 @@ public class FragmentsImpl extends MinimalEObjectImpl.Container implements Fragm
 	/**
 	 * A set of bit flags representing the values of boolean attributes and whether unsettable features have been set.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 * @ordered
 	 */
@@ -45,7 +44,6 @@ public class FragmentsImpl extends MinimalEObjectImpl.Container implements Fragm
 	 * The cached value of the '{@link #getFragments() <em>Fragments</em>}' reference list.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 *
 	 * @see #getFragments()
 	 * @generated
 	 * @ordered
@@ -54,7 +52,6 @@ public class FragmentsImpl extends MinimalEObjectImpl.Container implements Fragm
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	protected FragmentsImpl() {
@@ -63,12 +60,11 @@ public class FragmentsImpl extends MinimalEObjectImpl.Container implements Fragm
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch(featureID) {
+		switch (featureID) {
 			case P2viewPackage.FRAGMENTS__CHILDREN:
 				return getChildren();
 			case P2viewPackage.FRAGMENTS__FRAGMENTS:
@@ -79,12 +75,11 @@ public class FragmentsImpl extends MinimalEObjectImpl.Container implements Fragm
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch(featureID) {
+		switch (featureID) {
 			case P2viewPackage.FRAGMENTS__CHILDREN:
 				return !getChildren().isEmpty();
 			case P2viewPackage.FRAGMENTS__FRAGMENTS:
@@ -95,16 +90,15 @@ public class FragmentsImpl extends MinimalEObjectImpl.Container implements Fragm
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch(featureID) {
+		switch (featureID) {
 			case P2viewPackage.FRAGMENTS__FRAGMENTS:
 				getFragments().clear();
-				getFragments().addAll((Collection<? extends Fragment>) newValue);
+				getFragments().addAll((Collection<? extends Fragment>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -112,7 +106,6 @@ public class FragmentsImpl extends MinimalEObjectImpl.Container implements Fragm
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -122,12 +115,11 @@ public class FragmentsImpl extends MinimalEObjectImpl.Container implements Fragm
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
-		switch(featureID) {
+		switch (featureID) {
 			case P2viewPackage.FRAGMENTS__FRAGMENTS:
 				getFragments().clear();
 				return;
@@ -146,11 +138,10 @@ public class FragmentsImpl extends MinimalEObjectImpl.Container implements Fragm
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	public EList<Fragment> getFragments() {
-		if(fragments == null) {
+		if (fragments == null) {
 			fragments = new EObjectResolvingEList<Fragment>(Fragment.class, this, P2viewPackage.FRAGMENTS__FRAGMENTS);
 		}
 		return fragments;

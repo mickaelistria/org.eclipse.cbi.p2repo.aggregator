@@ -14,15 +14,15 @@ package org.eclipse.b3.aggregator.p2view;
  *
  * <p>
  * The following features are supported:
- * <ul>
- * <li>{@link org.eclipse.b3.aggregator.p2view.Category#getCategoryContainer <em>Category Container</em>}</li>
- * <li>{@link org.eclipse.b3.aggregator.p2view.Category#getFeatureContainer <em>Feature Container</em>}</li>
- * <li>{@link org.eclipse.b3.aggregator.p2view.Category#getProductContainer <em>Product Container</em>}</li>
- * <li>{@link org.eclipse.b3.aggregator.p2view.Category#getBundleContainer <em>Bundle Container</em>}</li>
- * <li>{@link org.eclipse.b3.aggregator.p2view.Category#getFragmentContainer <em>Fragment Container</em>}</li>
- * <li>{@link org.eclipse.b3.aggregator.p2view.Category#getIuDetails <em>Iu Details</em>}</li>
- * </ul>
  * </p>
+ * <ul>
+ *   <li>{@link org.eclipse.b3.aggregator.p2view.Category#getCategoryContainer <em>Category Container</em>}</li>
+ *   <li>{@link org.eclipse.b3.aggregator.p2view.Category#getFeatureContainer <em>Feature Container</em>}</li>
+ *   <li>{@link org.eclipse.b3.aggregator.p2view.Category#getProductContainer <em>Product Container</em>}</li>
+ *   <li>{@link org.eclipse.b3.aggregator.p2view.Category#getBundleContainer <em>Bundle Container</em>}</li>
+ *   <li>{@link org.eclipse.b3.aggregator.p2view.Category#getFragmentContainer <em>Fragment Container</em>}</li>
+ *   <li>{@link org.eclipse.b3.aggregator.p2view.Category#getIuDetails <em>Iu Details</em>}</li>
+ * </ul>
  *
  * @see org.eclipse.b3.aggregator.p2view.P2viewPackage#getCategory()
  * @model
@@ -36,7 +36,6 @@ public interface Category extends IUPresentation {
 	 * If the meaning of the '<em>Bundle Container</em>' reference isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 *
 	 * @return the value of the '<em>Bundle Container</em>' containment reference.
 	 * @see #setBundleContainer(Bundles)
 	 * @see org.eclipse.b3.aggregator.p2view.P2viewPackage#getCategory_BundleContainer()
@@ -52,7 +51,6 @@ public interface Category extends IUPresentation {
 	 * If the meaning of the '<em>Category Container</em>' reference isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 *
 	 * @return the value of the '<em>Category Container</em>' containment reference.
 	 * @see #setCategoryContainer(Categories)
 	 * @see org.eclipse.b3.aggregator.p2view.P2viewPackage#getCategory_CategoryContainer()
@@ -68,7 +66,6 @@ public interface Category extends IUPresentation {
 	 * If the meaning of the '<em>Feature Container</em>' reference isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 *
 	 * @return the value of the '<em>Feature Container</em>' containment reference.
 	 * @see #setFeatureContainer(Features)
 	 * @see org.eclipse.b3.aggregator.p2view.P2viewPackage#getCategory_FeatureContainer()
@@ -84,7 +81,6 @@ public interface Category extends IUPresentation {
 	 * If the meaning of the '<em>Fragment Container</em>' reference isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 *
 	 * @return the value of the '<em>Fragment Container</em>' containment reference.
 	 * @see #setFragmentContainer(Fragments)
 	 * @see org.eclipse.b3.aggregator.p2view.P2viewPackage#getCategory_FragmentContainer()
@@ -100,7 +96,6 @@ public interface Category extends IUPresentation {
 	 * If the meaning of the '<em>Iu Details</em>' reference isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 *
 	 * @return the value of the '<em>Iu Details</em>' containment reference.
 	 * @see org.eclipse.b3.aggregator.p2view.P2viewPackage#getCategory_IuDetails()
 	 * @model containment="true" changeable="false"
@@ -110,7 +105,6 @@ public interface Category extends IUPresentation {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @model kind="operation"
 	 * @generated
 	 */
@@ -118,7 +112,6 @@ public interface Category extends IUPresentation {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @model kind="operation"
 	 * @generated
 	 */
@@ -126,7 +119,6 @@ public interface Category extends IUPresentation {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @model kind="operation"
 	 * @generated
 	 */
@@ -134,7 +126,6 @@ public interface Category extends IUPresentation {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @model kind="operation"
 	 * @generated
 	 */
@@ -142,7 +133,6 @@ public interface Category extends IUPresentation {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @model kind="operation"
 	 * @generated
 	 */
@@ -155,7 +145,6 @@ public interface Category extends IUPresentation {
 	 * If the meaning of the '<em>Product Container</em>' reference isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 *
 	 * @return the value of the '<em>Product Container</em>' containment reference.
 	 * @see #setProductContainer(Products)
 	 * @see org.eclipse.b3.aggregator.p2view.P2viewPackage#getCategory_ProductContainer()
@@ -166,7 +155,6 @@ public interface Category extends IUPresentation {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @model kind="operation"
 	 * @generated
 	 */
@@ -175,21 +163,16 @@ public interface Category extends IUPresentation {
 	/**
 	 * Sets the value of the '{@link org.eclipse.b3.aggregator.p2view.Category#getBundleContainer <em>Bundle Container</em>}' containment reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
-	 * @param value
-	 *            the new value of the '<em>Bundle Container</em>' containment reference.
+	 * @param value the new value of the '<em>Bundle Container</em>' containment reference.
 	 * @see #getBundleContainer()
 	 * @generated
 	 */
 	void setBundleContainer(Bundles value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.aggregator.p2view.Category#getCategoryContainer <em>Category Container</em>}' containment
-	 * reference.
+	 * Sets the value of the '{@link org.eclipse.b3.aggregator.p2view.Category#getCategoryContainer <em>Category Container</em>}' containment reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
-	 * @param value
-	 *            the new value of the '<em>Category Container</em>' containment reference.
+	 * @param value the new value of the '<em>Category Container</em>' containment reference.
 	 * @see #getCategoryContainer()
 	 * @generated
 	 */
@@ -198,21 +181,16 @@ public interface Category extends IUPresentation {
 	/**
 	 * Sets the value of the '{@link org.eclipse.b3.aggregator.p2view.Category#getFeatureContainer <em>Feature Container</em>}' containment reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
-	 * @param value
-	 *            the new value of the '<em>Feature Container</em>' containment reference.
+	 * @param value the new value of the '<em>Feature Container</em>' containment reference.
 	 * @see #getFeatureContainer()
 	 * @generated
 	 */
 	void setFeatureContainer(Features value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.aggregator.p2view.Category#getFragmentContainer <em>Fragment Container</em>}' containment
-	 * reference.
+	 * Sets the value of the '{@link org.eclipse.b3.aggregator.p2view.Category#getFragmentContainer <em>Fragment Container</em>}' containment reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
-	 * @param value
-	 *            the new value of the '<em>Fragment Container</em>' containment reference.
+	 * @param value the new value of the '<em>Fragment Container</em>' containment reference.
 	 * @see #getFragmentContainer()
 	 * @generated
 	 */
@@ -221,9 +199,7 @@ public interface Category extends IUPresentation {
 	/**
 	 * Sets the value of the '{@link org.eclipse.b3.aggregator.p2view.Category#getProductContainer <em>Product Container</em>}' containment reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
-	 * @param value
-	 *            the new value of the '<em>Product Container</em>' containment reference.
+	 * @param value the new value of the '<em>Product Container</em>' containment reference.
 	 * @see #getProductContainer()
 	 * @generated
 	 */

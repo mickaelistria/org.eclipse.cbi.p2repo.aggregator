@@ -17,10 +17,10 @@ import org.eclipse.emf.common.util.EList;
  *
  * <p>
  * The following features are supported:
- * <ul>
- * <li>{@link org.eclipse.b3.aggregator.ValidConfigurationsRule#getValidConfigurations <em>Valid Configurations</em>}</li>
- * </ul>
  * </p>
+ * <ul>
+ *   <li>{@link org.eclipse.b3.aggregator.ValidConfigurationsRule#getValidConfigurations <em>Valid Configurations</em>}</li>
+ * </ul>
  *
  * @see org.eclipse.b3.aggregator.AggregatorPackage#getValidConfigurationsRule()
  * @model
@@ -35,7 +35,6 @@ public interface ValidConfigurationsRule extends MapRule {
 	 * If the meaning of the '<em>Valid Configurations</em>' reference list isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 *
 	 * @return the value of the '<em>Valid Configurations</em>' reference list.
 	 * @see org.eclipse.b3.aggregator.AggregatorPackage#getValidConfigurationsRule_ValidConfigurations()
 	 * @model

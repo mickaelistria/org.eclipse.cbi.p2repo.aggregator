@@ -14,11 +14,11 @@ package org.eclipse.b3.aggregator;
  *
  * <p>
  * The following features are supported:
- * <ul>
- * <li>{@link org.eclipse.b3.aggregator.MavenItem#getGroupId <em>Group Id</em>}</li>
- * <li>{@link org.eclipse.b3.aggregator.MavenItem#getArtifactId <em>Artifact Id</em>}</li>
- * </ul>
  * </p>
+ * <ul>
+ *   <li>{@link org.eclipse.b3.aggregator.MavenItem#getGroupId <em>Group Id</em>}</li>
+ *   <li>{@link org.eclipse.b3.aggregator.MavenItem#getArtifactId <em>Artifact Id</em>}</li>
+ * </ul>
  *
  * @see org.eclipse.b3.aggregator.AggregatorPackage#getMavenItem()
  * @model
@@ -32,7 +32,6 @@ public interface MavenItem {
 	 * If the meaning of the '<em>Artifact Id</em>' attribute isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 *
 	 * @return the value of the '<em>Artifact Id</em>' attribute.
 	 * @see #setArtifactId(String)
 	 * @see org.eclipse.b3.aggregator.AggregatorPackage#getMavenItem_ArtifactId()
@@ -48,7 +47,6 @@ public interface MavenItem {
 	 * If the meaning of the '<em>Group Id</em>' attribute isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 *
 	 * @return the value of the '<em>Group Id</em>' attribute.
 	 * @see #setGroupId(String)
 	 * @see org.eclipse.b3.aggregator.AggregatorPackage#getMavenItem_GroupId()
@@ -60,9 +58,7 @@ public interface MavenItem {
 	/**
 	 * Sets the value of the '{@link org.eclipse.b3.aggregator.MavenItem#getArtifactId <em>Artifact Id</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
-	 * @param value
-	 *            the new value of the '<em>Artifact Id</em>' attribute.
+	 * @param value the new value of the '<em>Artifact Id</em>' attribute.
 	 * @see #getArtifactId()
 	 * @generated
 	 */
@@ -71,9 +67,7 @@ public interface MavenItem {
 	/**
 	 * Sets the value of the '{@link org.eclipse.b3.aggregator.MavenItem#getGroupId <em>Group Id</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
-	 * @param value
-	 *            the new value of the '<em>Group Id</em>' attribute.
+	 * @param value the new value of the '<em>Group Id</em>' attribute.
 	 * @see #getGroupId()
 	 * @generated
 	 */

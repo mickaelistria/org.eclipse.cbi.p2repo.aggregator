@@ -17,10 +17,10 @@ import org.eclipse.equinox.p2.metadata.ILicense;
  *
  * <p>
  * The following features are supported:
- * <ul>
- * <li>{@link org.eclipse.b3.aggregator.p2view.Licenses#getLicenses <em>Licenses</em>}</li>
- * </ul>
  * </p>
+ * <ul>
+ *   <li>{@link org.eclipse.b3.aggregator.p2view.Licenses#getLicenses <em>Licenses</em>}</li>
+ * </ul>
  *
  * @see org.eclipse.b3.aggregator.p2view.P2viewPackage#getLicenses()
  * @model
@@ -35,7 +35,6 @@ public interface Licenses {
 	 * If the meaning of the '<em>Licenses</em>' reference list isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 *
 	 * @return the value of the '<em>Licenses</em>' reference list.
 	 * @see org.eclipse.b3.aggregator.p2view.P2viewPackage#getLicenses_Licenses()
 	 * @model type="org.eclipse.b3.p2.ILicense"

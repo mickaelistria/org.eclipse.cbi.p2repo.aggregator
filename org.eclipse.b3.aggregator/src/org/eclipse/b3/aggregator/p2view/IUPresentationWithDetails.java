@@ -15,10 +15,10 @@ package org.eclipse.b3.aggregator.p2view;
  *
  * <p>
  * The following features are supported:
- * <ul>
- * <li>{@link org.eclipse.b3.aggregator.p2view.IUPresentationWithDetails#isDetailsResolved <em>Details Resolved</em>}</li>
- * </ul>
  * </p>
+ * <ul>
+ *   <li>{@link org.eclipse.b3.aggregator.p2view.IUPresentationWithDetails#isDetailsResolved <em>Details Resolved</em>}</li>
+ * </ul>
  *
  * @see org.eclipse.b3.aggregator.p2view.P2viewPackage#getIUPresentationWithDetails()
  * @model abstract="true"
@@ -33,7 +33,6 @@ public interface IUPresentationWithDetails extends IUPresentation, IUDetails {
 	 * If the meaning of the '<em>Details Resolved</em>' attribute isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 *
 	 * @return the value of the '<em>Details Resolved</em>' attribute.
 	 * @see #setDetailsResolved(boolean)
 	 * @see org.eclipse.b3.aggregator.p2view.P2viewPackage#getIUPresentationWithDetails_DetailsResolved()
@@ -43,12 +42,9 @@ public interface IUPresentationWithDetails extends IUPresentation, IUDetails {
 	boolean isDetailsResolved();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.aggregator.p2view.IUPresentationWithDetails#isDetailsResolved <em>Details Resolved</em>}'
-	 * attribute.
+	 * Sets the value of the '{@link org.eclipse.b3.aggregator.p2view.IUPresentationWithDetails#isDetailsResolved <em>Details Resolved</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
-	 * @param value
-	 *            the new value of the '<em>Details Resolved</em>' attribute.
+	 * @param value the new value of the '<em>Details Resolved</em>' attribute.
 	 * @see #isDetailsResolved()
 	 * @generated
 	 */

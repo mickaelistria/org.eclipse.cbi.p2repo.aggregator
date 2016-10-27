@@ -17,10 +17,10 @@ import org.eclipse.emf.common.util.EList;
  *
  * <p>
  * The following features are supported:
- * <ul>
- * <li>{@link org.eclipse.b3.aggregator.p2view.Miscellaneous#getOthers <em>Others</em>}</li>
- * </ul>
  * </p>
+ * <ul>
+ *   <li>{@link org.eclipse.b3.aggregator.p2view.Miscellaneous#getOthers <em>Others</em>}</li>
+ * </ul>
  *
  * @see org.eclipse.b3.aggregator.p2view.P2viewPackage#getMiscellaneous()
  * @model
@@ -35,7 +35,6 @@ public interface Miscellaneous extends ChildrenProvider<OtherIU> {
 	 * If the meaning of the '<em>Others</em>' reference isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 *
 	 * @return the value of the '<em>Others</em>' reference list.
 	 * @see org.eclipse.b3.aggregator.p2view.P2viewPackage#getMiscellaneous_Others()
 	 * @model

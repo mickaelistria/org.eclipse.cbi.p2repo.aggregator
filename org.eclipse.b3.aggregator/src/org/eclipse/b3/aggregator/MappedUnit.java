@@ -18,10 +18,10 @@ import org.eclipse.equinox.p2.metadata.expression.IMatchExpression;
  *
  * <p>
  * The following features are supported:
- * <ul>
- * <li>{@link org.eclipse.b3.aggregator.MappedUnit#getValidConfigurations <em>Valid Configurations</em>}</li>
- * </ul>
  * </p>
+ * <ul>
+ *   <li>{@link org.eclipse.b3.aggregator.MappedUnit#getValidConfigurations <em>Valid Configurations</em>}</li>
+ * </ul>
  *
  * @see org.eclipse.b3.aggregator.AggregatorPackage#getMappedUnit()
  * @model abstract="true"
@@ -31,7 +31,6 @@ public interface MappedUnit extends InstallableUnitRequest, EnabledStatusProvide
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @model kind="operation" dataType="org.eclipse.b3.p2.IMatchExpression<org.eclipse.b3.p2.IInstallableUnit>"
 	 * @generated
 	 */
@@ -40,7 +39,6 @@ public interface MappedUnit extends InstallableUnitRequest, EnabledStatusProvide
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @model kind="operation" type="org.eclipse.b3.p2.IRequirement"
 	 * @generated
 	 */
@@ -54,7 +52,6 @@ public interface MappedUnit extends InstallableUnitRequest, EnabledStatusProvide
 	 * If the meaning of the '<em>Valid Configurations</em>' reference list isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 *
 	 * @return the value of the '<em>Valid Configurations</em>' reference list.
 	 * @see org.eclipse.b3.aggregator.AggregatorPackage#getMappedUnit_ValidConfigurations()
 	 * @model keys="operatingSystem windowSystem architecture"

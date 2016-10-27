@@ -15,10 +15,10 @@ package org.eclipse.b3.aggregator;
  *
  * <p>
  * The following features are supported:
- * <ul>
- * <li>{@link org.eclipse.b3.aggregator.DescriptionProvider#getDescription <em>Description</em>}</li>
- * </ul>
  * </p>
+ * <ul>
+ *   <li>{@link org.eclipse.b3.aggregator.DescriptionProvider#getDescription <em>Description</em>}</li>
+ * </ul>
  *
  * @see org.eclipse.b3.aggregator.AggregatorPackage#getDescriptionProvider()
  * @model
@@ -44,9 +44,7 @@ public interface DescriptionProvider {
 	/**
 	 * Sets the value of the '{@link org.eclipse.b3.aggregator.DescriptionProvider#getDescription <em>Description</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
-	 * @param value
-	 *            the new value of the '<em>Description</em>' attribute.
+	 * @param value the new value of the '<em>Description</em>' attribute.
 	 * @see #getDescription()
 	 * @generated
 	 */

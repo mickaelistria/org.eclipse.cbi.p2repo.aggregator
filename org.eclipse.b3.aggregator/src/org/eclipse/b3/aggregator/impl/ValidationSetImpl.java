@@ -41,22 +41,22 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * <ul>
- * <li>{@link org.eclipse.b3.aggregator.impl.ValidationSetImpl#isBranchEnabled <em>Branch Enabled</em>}</li>
- * <li>{@link org.eclipse.b3.aggregator.impl.ValidationSetImpl#isEnabled <em>Enabled</em>}</li>
- * <li>{@link org.eclipse.b3.aggregator.impl.ValidationSetImpl#getDescription <em>Description</em>}</li>
- * <li>{@link org.eclipse.b3.aggregator.impl.ValidationSetImpl#getStatus <em>Status</em>}</li>
- * <li>{@link org.eclipse.b3.aggregator.impl.ValidationSetImpl#getErrors <em>Errors</em>}</li>
- * <li>{@link org.eclipse.b3.aggregator.impl.ValidationSetImpl#getWarnings <em>Warnings</em>}</li>
- * <li>{@link org.eclipse.b3.aggregator.impl.ValidationSetImpl#getInfos <em>Infos</em>}</li>
- * <li>{@link org.eclipse.b3.aggregator.impl.ValidationSetImpl#isAbstract <em>Abstract</em>}</li>
- * <li>{@link org.eclipse.b3.aggregator.impl.ValidationSetImpl#isExtension <em>Extension</em>}</li>
- * <li>{@link org.eclipse.b3.aggregator.impl.ValidationSetImpl#getLabel <em>Label</em>}</li>
- * <li>{@link org.eclipse.b3.aggregator.impl.ValidationSetImpl#getContributions <em>Contributions</em>}</li>
- * <li>{@link org.eclipse.b3.aggregator.impl.ValidationSetImpl#getValidationRepositories <em>Validation Repositories</em>}</li>
- * <li>{@link org.eclipse.b3.aggregator.impl.ValidationSetImpl#getExtends <em>Extends</em>}</li>
- * </ul>
  * </p>
+ * <ul>
+ *   <li>{@link org.eclipse.b3.aggregator.impl.ValidationSetImpl#isBranchEnabled <em>Branch Enabled</em>}</li>
+ *   <li>{@link org.eclipse.b3.aggregator.impl.ValidationSetImpl#isEnabled <em>Enabled</em>}</li>
+ *   <li>{@link org.eclipse.b3.aggregator.impl.ValidationSetImpl#getDescription <em>Description</em>}</li>
+ *   <li>{@link org.eclipse.b3.aggregator.impl.ValidationSetImpl#getStatus <em>Status</em>}</li>
+ *   <li>{@link org.eclipse.b3.aggregator.impl.ValidationSetImpl#getErrors <em>Errors</em>}</li>
+ *   <li>{@link org.eclipse.b3.aggregator.impl.ValidationSetImpl#getWarnings <em>Warnings</em>}</li>
+ *   <li>{@link org.eclipse.b3.aggregator.impl.ValidationSetImpl#getInfos <em>Infos</em>}</li>
+ *   <li>{@link org.eclipse.b3.aggregator.impl.ValidationSetImpl#isAbstract <em>Abstract</em>}</li>
+ *   <li>{@link org.eclipse.b3.aggregator.impl.ValidationSetImpl#isExtension <em>Extension</em>}</li>
+ *   <li>{@link org.eclipse.b3.aggregator.impl.ValidationSetImpl#getLabel <em>Label</em>}</li>
+ *   <li>{@link org.eclipse.b3.aggregator.impl.ValidationSetImpl#getContributions <em>Contributions</em>}</li>
+ *   <li>{@link org.eclipse.b3.aggregator.impl.ValidationSetImpl#getValidationRepositories <em>Validation Repositories</em>}</li>
+ *   <li>{@link org.eclipse.b3.aggregator.impl.ValidationSetImpl#getExtends <em>Extends</em>}</li>
+ * </ul>
  *
  * @generated
  */
@@ -65,7 +65,6 @@ public class ValidationSetImpl extends MinimalEObjectImpl.Container implements V
 	 * A set of bit flags representing the values of boolean attributes and whether unsettable features have been set.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @generated
 	 * @ordered
 	 */
@@ -75,7 +74,6 @@ public class ValidationSetImpl extends MinimalEObjectImpl.Container implements V
 	 * The default value of the '{@link #isBranchEnabled() <em>Branch Enabled</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @see #isBranchEnabled()
 	 * @generated
 	 * @ordered
@@ -86,7 +84,6 @@ public class ValidationSetImpl extends MinimalEObjectImpl.Container implements V
 	 * The default value of the '{@link #isEnabled() <em>Enabled</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @see #isEnabled()
 	 * @generated
 	 * @ordered
@@ -97,7 +94,6 @@ public class ValidationSetImpl extends MinimalEObjectImpl.Container implements V
 	 * The flag representing the value of the '{@link #isEnabled() <em>Enabled</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @see #isEnabled()
 	 * @generated
 	 * @ordered
@@ -108,18 +104,16 @@ public class ValidationSetImpl extends MinimalEObjectImpl.Container implements V
 	 * The default value of the '{@link #getDescription() <em>Description</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @see #getDescription()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String DESCRIPTION_EDEFAULT = "";
+	protected static final String DESCRIPTION_EDEFAULT = null;
 
 	/**
 	 * The cached value of the '{@link #getDescription() <em>Description</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @see #getDescription()
 	 * @generated
 	 * @ordered
@@ -130,7 +124,6 @@ public class ValidationSetImpl extends MinimalEObjectImpl.Container implements V
 	 * The cached value of the '{@link #getErrors() <em>Errors</em>}' attribute list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @see #getErrors()
 	 * @generated
 	 * @ordered
@@ -141,7 +134,6 @@ public class ValidationSetImpl extends MinimalEObjectImpl.Container implements V
 	 * The cached value of the '{@link #getWarnings() <em>Warnings</em>}' attribute list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @see #getWarnings()
 	 * @generated
 	 * @ordered
@@ -152,7 +144,6 @@ public class ValidationSetImpl extends MinimalEObjectImpl.Container implements V
 	 * The cached value of the '{@link #getInfos() <em>Infos</em>}' attribute list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @see #getInfos()
 	 * @generated
 	 * @ordered
@@ -163,7 +154,6 @@ public class ValidationSetImpl extends MinimalEObjectImpl.Container implements V
 	 * The default value of the '{@link #isAbstract() <em>Abstract</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @see #isAbstract()
 	 * @generated
 	 * @ordered
@@ -174,7 +164,6 @@ public class ValidationSetImpl extends MinimalEObjectImpl.Container implements V
 	 * The default value of the '{@link #isExtension() <em>Extension</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @see #isExtension()
 	 * @generated
 	 * @ordered
@@ -185,7 +174,6 @@ public class ValidationSetImpl extends MinimalEObjectImpl.Container implements V
 	 * The default value of the '{@link #getLabel() <em>Label</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @see #getLabel()
 	 * @generated
 	 * @ordered
@@ -196,7 +184,6 @@ public class ValidationSetImpl extends MinimalEObjectImpl.Container implements V
 	 * The cached value of the '{@link #getLabel() <em>Label</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @see #getLabel()
 	 * @generated
 	 * @ordered
@@ -207,7 +194,6 @@ public class ValidationSetImpl extends MinimalEObjectImpl.Container implements V
 	 * The cached value of the '{@link #getContributions() <em>Contributions</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @see #getContributions()
 	 * @generated
 	 * @ordered
@@ -218,7 +204,6 @@ public class ValidationSetImpl extends MinimalEObjectImpl.Container implements V
 	 * The cached value of the '{@link #getValidationRepositories() <em>Validation Repositories</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @see #getValidationRepositories()
 	 * @generated
 	 * @ordered
@@ -229,7 +214,6 @@ public class ValidationSetImpl extends MinimalEObjectImpl.Container implements V
 	 * The cached value of the '{@link #getExtends() <em>Extends</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @see #getExtends()
 	 * @generated
 	 * @ordered
@@ -239,7 +223,6 @@ public class ValidationSetImpl extends MinimalEObjectImpl.Container implements V
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	protected ValidationSetImpl() {
@@ -281,43 +264,33 @@ public class ValidationSetImpl extends MinimalEObjectImpl.Container implements V
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
-		if(baseClass == DescriptionProvider.class) {
-			switch(derivedFeatureID) {
-				case AggregatorPackage.VALIDATION_SET__DESCRIPTION:
-					return AggregatorPackage.DESCRIPTION_PROVIDER__DESCRIPTION;
-				default:
-					return -1;
+		if (baseClass == DescriptionProvider.class) {
+			switch (derivedFeatureID) {
+				case AggregatorPackage.VALIDATION_SET__DESCRIPTION: return AggregatorPackage.DESCRIPTION_PROVIDER__DESCRIPTION;
+				default: return -1;
 			}
 		}
-		if(baseClass == StatusProvider.class) {
-			switch(derivedFeatureID) {
-				case AggregatorPackage.VALIDATION_SET__STATUS:
-					return AggregatorPackage.STATUS_PROVIDER__STATUS;
-				default:
-					return -1;
+		if (baseClass == StatusProvider.class) {
+			switch (derivedFeatureID) {
+				case AggregatorPackage.VALIDATION_SET__STATUS: return AggregatorPackage.STATUS_PROVIDER__STATUS;
+				default: return -1;
 			}
 		}
-		if(baseClass == InfosProvider.class) {
-			switch(derivedFeatureID) {
-				case AggregatorPackage.VALIDATION_SET__ERRORS:
-					return AggregatorPackage.INFOS_PROVIDER__ERRORS;
-				case AggregatorPackage.VALIDATION_SET__WARNINGS:
-					return AggregatorPackage.INFOS_PROVIDER__WARNINGS;
-				case AggregatorPackage.VALIDATION_SET__INFOS:
-					return AggregatorPackage.INFOS_PROVIDER__INFOS;
-				default:
-					return -1;
+		if (baseClass == InfosProvider.class) {
+			switch (derivedFeatureID) {
+				case AggregatorPackage.VALIDATION_SET__ERRORS: return AggregatorPackage.INFOS_PROVIDER__ERRORS;
+				case AggregatorPackage.VALIDATION_SET__WARNINGS: return AggregatorPackage.INFOS_PROVIDER__WARNINGS;
+				case AggregatorPackage.VALIDATION_SET__INFOS: return AggregatorPackage.INFOS_PROVIDER__INFOS;
+				default: return -1;
 			}
 		}
-		if(baseClass == IdentificationProvider.class) {
-			switch(derivedFeatureID) {
-				default:
-					return -1;
+		if (baseClass == IdentificationProvider.class) {
+			switch (derivedFeatureID) {
+				default: return -1;
 			}
 		}
 		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
@@ -326,43 +299,33 @@ public class ValidationSetImpl extends MinimalEObjectImpl.Container implements V
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
-		if(baseClass == DescriptionProvider.class) {
-			switch(baseFeatureID) {
-				case AggregatorPackage.DESCRIPTION_PROVIDER__DESCRIPTION:
-					return AggregatorPackage.VALIDATION_SET__DESCRIPTION;
-				default:
-					return -1;
+		if (baseClass == DescriptionProvider.class) {
+			switch (baseFeatureID) {
+				case AggregatorPackage.DESCRIPTION_PROVIDER__DESCRIPTION: return AggregatorPackage.VALIDATION_SET__DESCRIPTION;
+				default: return -1;
 			}
 		}
-		if(baseClass == StatusProvider.class) {
-			switch(baseFeatureID) {
-				case AggregatorPackage.STATUS_PROVIDER__STATUS:
-					return AggregatorPackage.VALIDATION_SET__STATUS;
-				default:
-					return -1;
+		if (baseClass == StatusProvider.class) {
+			switch (baseFeatureID) {
+				case AggregatorPackage.STATUS_PROVIDER__STATUS: return AggregatorPackage.VALIDATION_SET__STATUS;
+				default: return -1;
 			}
 		}
-		if(baseClass == InfosProvider.class) {
-			switch(baseFeatureID) {
-				case AggregatorPackage.INFOS_PROVIDER__ERRORS:
-					return AggregatorPackage.VALIDATION_SET__ERRORS;
-				case AggregatorPackage.INFOS_PROVIDER__WARNINGS:
-					return AggregatorPackage.VALIDATION_SET__WARNINGS;
-				case AggregatorPackage.INFOS_PROVIDER__INFOS:
-					return AggregatorPackage.VALIDATION_SET__INFOS;
-				default:
-					return -1;
+		if (baseClass == InfosProvider.class) {
+			switch (baseFeatureID) {
+				case AggregatorPackage.INFOS_PROVIDER__ERRORS: return AggregatorPackage.VALIDATION_SET__ERRORS;
+				case AggregatorPackage.INFOS_PROVIDER__WARNINGS: return AggregatorPackage.VALIDATION_SET__WARNINGS;
+				case AggregatorPackage.INFOS_PROVIDER__INFOS: return AggregatorPackage.VALIDATION_SET__INFOS;
+				default: return -1;
 			}
 		}
-		if(baseClass == IdentificationProvider.class) {
-			switch(baseFeatureID) {
-				default:
-					return -1;
+		if (baseClass == IdentificationProvider.class) {
+			switch (baseFeatureID) {
+				default: return -1;
 			}
 		}
 		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
@@ -371,12 +334,11 @@ public class ValidationSetImpl extends MinimalEObjectImpl.Container implements V
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch(featureID) {
+		switch (featureID) {
 			case AggregatorPackage.VALIDATION_SET__BRANCH_ENABLED:
 				return isBranchEnabled();
 			case AggregatorPackage.VALIDATION_SET__ENABLED:
@@ -410,16 +372,15 @@ public class ValidationSetImpl extends MinimalEObjectImpl.Container implements V
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch(featureID) {
+		switch (featureID) {
 			case AggregatorPackage.VALIDATION_SET__CONTRIBUTIONS:
-				return ((InternalEList<?>) getContributions()).basicRemove(otherEnd, msgs);
+				return ((InternalEList<?>)getContributions()).basicRemove(otherEnd, msgs);
 			case AggregatorPackage.VALIDATION_SET__VALIDATION_REPOSITORIES:
-				return ((InternalEList<?>) getValidationRepositories()).basicRemove(otherEnd, msgs);
+				return ((InternalEList<?>)getValidationRepositories()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -427,20 +388,17 @@ public class ValidationSetImpl extends MinimalEObjectImpl.Container implements V
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch(featureID) {
+		switch (featureID) {
 			case AggregatorPackage.VALIDATION_SET__BRANCH_ENABLED:
 				return isSetBranchEnabled();
 			case AggregatorPackage.VALIDATION_SET__ENABLED:
 				return ((eFlags & ENABLED_EFLAG) != 0) != ENABLED_EDEFAULT;
 			case AggregatorPackage.VALIDATION_SET__DESCRIPTION:
-				return DESCRIPTION_EDEFAULT == null
-						? description != null
-						: !DESCRIPTION_EDEFAULT.equals(description);
+				return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
 			case AggregatorPackage.VALIDATION_SET__STATUS:
 				return getStatus() != null;
 			case AggregatorPackage.VALIDATION_SET__ERRORS:
@@ -454,9 +412,7 @@ public class ValidationSetImpl extends MinimalEObjectImpl.Container implements V
 			case AggregatorPackage.VALIDATION_SET__EXTENSION:
 				return isSetExtension();
 			case AggregatorPackage.VALIDATION_SET__LABEL:
-				return LABEL_EDEFAULT == null
-						? label != null
-						: !LABEL_EDEFAULT.equals(label);
+				return LABEL_EDEFAULT == null ? label != null : !LABEL_EDEFAULT.equals(label);
 			case AggregatorPackage.VALIDATION_SET__CONTRIBUTIONS:
 				return contributions != null && !contributions.isEmpty();
 			case AggregatorPackage.VALIDATION_SET__VALIDATION_REPOSITORIES:
@@ -470,45 +426,44 @@ public class ValidationSetImpl extends MinimalEObjectImpl.Container implements V
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch(featureID) {
+		switch (featureID) {
 			case AggregatorPackage.VALIDATION_SET__ENABLED:
-				setEnabled((Boolean) newValue);
+				setEnabled((Boolean)newValue);
 				return;
 			case AggregatorPackage.VALIDATION_SET__DESCRIPTION:
-				setDescription((String) newValue);
+				setDescription((String)newValue);
 				return;
 			case AggregatorPackage.VALIDATION_SET__ERRORS:
 				getErrors().clear();
-				getErrors().addAll((Collection<? extends String>) newValue);
+				getErrors().addAll((Collection<? extends String>)newValue);
 				return;
 			case AggregatorPackage.VALIDATION_SET__WARNINGS:
 				getWarnings().clear();
-				getWarnings().addAll((Collection<? extends String>) newValue);
+				getWarnings().addAll((Collection<? extends String>)newValue);
 				return;
 			case AggregatorPackage.VALIDATION_SET__INFOS:
 				getInfos().clear();
-				getInfos().addAll((Collection<? extends String>) newValue);
+				getInfos().addAll((Collection<? extends String>)newValue);
 				return;
 			case AggregatorPackage.VALIDATION_SET__LABEL:
-				setLabel((String) newValue);
+				setLabel((String)newValue);
 				return;
 			case AggregatorPackage.VALIDATION_SET__CONTRIBUTIONS:
 				getContributions().clear();
-				getContributions().addAll((Collection<? extends Contribution>) newValue);
+				getContributions().addAll((Collection<? extends Contribution>)newValue);
 				return;
 			case AggregatorPackage.VALIDATION_SET__VALIDATION_REPOSITORIES:
 				getValidationRepositories().clear();
-				getValidationRepositories().addAll((Collection<? extends MetadataRepositoryReference>) newValue);
+				getValidationRepositories().addAll((Collection<? extends MetadataRepositoryReference>)newValue);
 				return;
 			case AggregatorPackage.VALIDATION_SET__EXTENDS:
 				getExtends().clear();
-				getExtends().addAll((Collection<? extends ValidationSet>) newValue);
+				getExtends().addAll((Collection<? extends ValidationSet>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -517,7 +472,6 @@ public class ValidationSetImpl extends MinimalEObjectImpl.Container implements V
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -528,12 +482,11 @@ public class ValidationSetImpl extends MinimalEObjectImpl.Container implements V
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
-		switch(featureID) {
+		switch (featureID) {
 			case AggregatorPackage.VALIDATION_SET__ENABLED:
 				setEnabled(ENABLED_EDEFAULT);
 				return;
@@ -598,13 +551,11 @@ public class ValidationSetImpl extends MinimalEObjectImpl.Container implements V
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	public EList<Contribution> getContributions() {
-		if(contributions == null) {
-			contributions = new EObjectContainmentEList.Resolving<Contribution>(
-				Contribution.class, this, AggregatorPackage.VALIDATION_SET__CONTRIBUTIONS);
+		if (contributions == null) {
+			contributions = new EObjectContainmentEList.Resolving<Contribution>(Contribution.class, this, AggregatorPackage.VALIDATION_SET__CONTRIBUTIONS);
 		}
 		return contributions;
 	}
@@ -632,7 +583,6 @@ public class ValidationSetImpl extends MinimalEObjectImpl.Container implements V
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	public String getDescription() {
@@ -642,11 +592,10 @@ public class ValidationSetImpl extends MinimalEObjectImpl.Container implements V
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	public EList<String> getErrors() {
-		if(errors == null) {
+		if (errors == null) {
 			errors = new EDataTypeUniqueEList<String>(String.class, this, AggregatorPackage.VALIDATION_SET__ERRORS);
 		}
 		return errors;
@@ -655,13 +604,11 @@ public class ValidationSetImpl extends MinimalEObjectImpl.Container implements V
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	public EList<ValidationSet> getExtends() {
-		if(extends_ == null) {
-			extends_ = new EObjectResolvingEList<ValidationSet>(
-				ValidationSet.class, this, AggregatorPackage.VALIDATION_SET__EXTENDS);
+		if (extends_ == null) {
+			extends_ = new EObjectResolvingEList<ValidationSet>(ValidationSet.class, this, AggregatorPackage.VALIDATION_SET__EXTENDS);
 		}
 		return extends_;
 	}
@@ -679,11 +626,10 @@ public class ValidationSetImpl extends MinimalEObjectImpl.Container implements V
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	public EList<String> getInfos() {
-		if(infos == null) {
+		if (infos == null) {
 			infos = new EDataTypeUniqueEList<String>(String.class, this, AggregatorPackage.VALIDATION_SET__INFOS);
 		}
 		return infos;
@@ -692,7 +638,6 @@ public class ValidationSetImpl extends MinimalEObjectImpl.Container implements V
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	public String getLabel() {
@@ -729,13 +674,11 @@ public class ValidationSetImpl extends MinimalEObjectImpl.Container implements V
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	public EList<MetadataRepositoryReference> getValidationRepositories() {
-		if(validationRepositories == null) {
-			validationRepositories = new EObjectContainmentEList.Resolving<MetadataRepositoryReference>(
-				MetadataRepositoryReference.class, this, AggregatorPackage.VALIDATION_SET__VALIDATION_REPOSITORIES);
+		if (validationRepositories == null) {
+			validationRepositories = new EObjectContainmentEList.Resolving<MetadataRepositoryReference>(MetadataRepositoryReference.class, this, AggregatorPackage.VALIDATION_SET__VALIDATION_REPOSITORIES);
 		}
 		return validationRepositories;
 	}
@@ -743,11 +686,10 @@ public class ValidationSetImpl extends MinimalEObjectImpl.Container implements V
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	public EList<String> getWarnings() {
-		if(warnings == null) {
+		if (warnings == null) {
 			warnings = new EDataTypeUniqueEList<String>(String.class, this, AggregatorPackage.VALIDATION_SET__WARNINGS);
 		}
 		return warnings;
@@ -784,7 +726,6 @@ public class ValidationSetImpl extends MinimalEObjectImpl.Container implements V
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	public boolean isEnabled() {
@@ -855,58 +796,47 @@ public class ValidationSetImpl extends MinimalEObjectImpl.Container implements V
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	public void setDescription(String newDescription) {
 		String oldDescription = description;
 		description = newDescription;
-		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(
-				this, Notification.SET, AggregatorPackage.VALIDATION_SET__DESCRIPTION, oldDescription, description));
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, AggregatorPackage.VALIDATION_SET__DESCRIPTION, oldDescription, description));
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	public void setEnabled(boolean newEnabled) {
 		boolean oldEnabled = (eFlags & ENABLED_EFLAG) != 0;
-		if(newEnabled)
-			eFlags |= ENABLED_EFLAG;
-		else
-			eFlags &= ~ENABLED_EFLAG;
-		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(
-				this, Notification.SET, AggregatorPackage.VALIDATION_SET__ENABLED, oldEnabled, newEnabled));
+		if (newEnabled) eFlags |= ENABLED_EFLAG; else eFlags &= ~ENABLED_EFLAG;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, AggregatorPackage.VALIDATION_SET__ENABLED, oldEnabled, newEnabled));
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	public void setLabel(String newLabel) {
 		String oldLabel = label;
 		label = newLabel;
-		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(
-				this, Notification.SET, AggregatorPackage.VALIDATION_SET__LABEL, oldLabel, label));
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, AggregatorPackage.VALIDATION_SET__LABEL, oldLabel, label));
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public String toString() {
-		if(eIsProxy())
-			return super.toString();
+		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (enabled: ");

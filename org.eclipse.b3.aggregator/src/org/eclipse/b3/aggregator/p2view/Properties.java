@@ -17,10 +17,10 @@ import org.eclipse.emf.common.util.EList;
  *
  * <p>
  * The following features are supported:
- * <ul>
- * <li>{@link org.eclipse.b3.aggregator.p2view.Properties#getPropertyList <em>Property List</em>}</li>
- * </ul>
  * </p>
+ * <ul>
+ *   <li>{@link org.eclipse.b3.aggregator.p2view.Properties#getPropertyList <em>Property List</em>}</li>
+ * </ul>
  *
  * @see org.eclipse.b3.aggregator.p2view.P2viewPackage#getProperties()
  * @model
@@ -35,7 +35,6 @@ public interface Properties {
 	 * If the meaning of the '<em>Property List</em>' reference list isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 *
 	 * @return the value of the '<em>Property List</em>' containment reference list.
 	 * @see org.eclipse.b3.aggregator.p2view.P2viewPackage#getProperties_PropertyList()
 	 * @model containment="true" resolveProxies="true"

@@ -23,11 +23,11 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  * <!-- begin-user-doc --> An implementation of the model object '<em><b>Features</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * <ul>
- * <li>{@link org.eclipse.b3.aggregator.p2view.impl.FeaturesImpl#getChildren <em>Children</em>}</li>
- * <li>{@link org.eclipse.b3.aggregator.p2view.impl.FeaturesImpl#getFeatures <em>Features</em>}</li>
- * </ul>
  * </p>
+ * <ul>
+ *   <li>{@link org.eclipse.b3.aggregator.p2view.impl.FeaturesImpl#getChildren <em>Children</em>}</li>
+ *   <li>{@link org.eclipse.b3.aggregator.p2view.impl.FeaturesImpl#getFeatures <em>Features</em>}</li>
+ * </ul>
  *
  * @generated
  */
@@ -35,7 +35,6 @@ public class FeaturesImpl extends MinimalEObjectImpl.Container implements Featur
 	/**
 	 * A set of bit flags representing the values of boolean attributes and whether unsettable features have been set.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 * @ordered
 	 */
@@ -45,7 +44,6 @@ public class FeaturesImpl extends MinimalEObjectImpl.Container implements Featur
 	 * The cached value of the '{@link #getFeatures() <em>Features</em>}' reference list.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 *
 	 * @see #getFeatures()
 	 * @generated
 	 * @ordered
@@ -54,7 +52,6 @@ public class FeaturesImpl extends MinimalEObjectImpl.Container implements Featur
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	protected FeaturesImpl() {
@@ -63,12 +60,11 @@ public class FeaturesImpl extends MinimalEObjectImpl.Container implements Featur
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch(featureID) {
+		switch (featureID) {
 			case P2viewPackage.FEATURES__CHILDREN:
 				return getChildren();
 			case P2viewPackage.FEATURES__FEATURES:
@@ -79,12 +75,11 @@ public class FeaturesImpl extends MinimalEObjectImpl.Container implements Featur
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch(featureID) {
+		switch (featureID) {
 			case P2viewPackage.FEATURES__CHILDREN:
 				return !getChildren().isEmpty();
 			case P2viewPackage.FEATURES__FEATURES:
@@ -95,16 +90,15 @@ public class FeaturesImpl extends MinimalEObjectImpl.Container implements Featur
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch(featureID) {
+		switch (featureID) {
 			case P2viewPackage.FEATURES__FEATURES:
 				getFeatures().clear();
-				getFeatures().addAll((Collection<? extends Feature>) newValue);
+				getFeatures().addAll((Collection<? extends Feature>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -112,7 +106,6 @@ public class FeaturesImpl extends MinimalEObjectImpl.Container implements Featur
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -122,12 +115,11 @@ public class FeaturesImpl extends MinimalEObjectImpl.Container implements Featur
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
-		switch(featureID) {
+		switch (featureID) {
 			case P2viewPackage.FEATURES__FEATURES:
 				getFeatures().clear();
 				return;
@@ -146,11 +138,10 @@ public class FeaturesImpl extends MinimalEObjectImpl.Container implements Featur
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	public EList<Feature> getFeatures() {
-		if(features == null) {
+		if (features == null) {
 			features = new EObjectResolvingEList<Feature>(Feature.class, this, P2viewPackage.FEATURES__FEATURES);
 		}
 		return features;

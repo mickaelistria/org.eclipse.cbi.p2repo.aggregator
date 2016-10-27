@@ -38,15 +38,12 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  *
  * @generated
  */
-public class MappedUnitItemProvider extends InstallableUnitRequestItemProvider implements IEditingDomainItemProvider,
-		IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource,
-		IItemColorProvider, IItemFontProvider
+public class MappedUnitItemProvider extends InstallableUnitRequestItemProvider
 
 {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	public MappedUnitItemProvider(AdapterFactory adapterFactory) {
@@ -56,18 +53,22 @@ public class MappedUnitItemProvider extends InstallableUnitRequestItemProvider i
 	/**
 	 * This adds a property descriptor for the Enabled feature.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	protected void addEnabledPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-			getResourceLocator(),
-			getString("_UI_EnabledStatusProvider_enabled_feature"),
-			getString(
-				"_UI_PropertyDescriptor_description", "_UI_EnabledStatusProvider_enabled_feature",
-				"_UI_EnabledStatusProvider_type"), AggregatorPackage.Literals.ENABLED_STATUS_PROVIDER__ENABLED, true,
-			false, false, ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null));
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_EnabledStatusProvider_enabled_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_EnabledStatusProvider_enabled_feature", "_UI_EnabledStatusProvider_type"),
+				 AggregatorPackage.Literals.ENABLED_STATUS_PROVIDER__ENABLED,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
+				 null));
 	}
 
 	/**
@@ -77,21 +78,25 @@ public class MappedUnitItemProvider extends InstallableUnitRequestItemProvider i
 	 * @generated
 	 */
 	protected void addValidConfigurationsPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-			getResourceLocator(),
-			getString("_UI_MappedUnit_validConfigurations_feature"),
-			getString(
-				"_UI_PropertyDescriptor_description", "_UI_MappedUnit_validConfigurations_feature",
-				"_UI_MappedUnit_type"), AggregatorPackage.Literals.MAPPED_UNIT__VALID_CONFIGURATIONS, true, false,
-			true, null, null, null));
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_MappedUnit_validConfigurations_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_MappedUnit_validConfigurations_feature", "_UI_MappedUnit_type"),
+				 AggregatorPackage.Literals.MAPPED_UNIT__VALID_CONFIGURATIONS,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
 	}
 
 	/**
 	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
 	 * that can be created under this object.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -115,12 +120,11 @@ public class MappedUnitItemProvider extends InstallableUnitRequestItemProvider i
 	/**
 	 * This returns the property descriptors for the adapted class.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-		if(itemPropertyDescriptors == null) {
+		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
 			addEnabledPropertyDescriptor(object);
@@ -197,7 +201,7 @@ public class MappedUnitItemProvider extends InstallableUnitRequestItemProvider i
 	public void notifyChangedGen(Notification notification) {
 		updateChildren(notification);
 
-		switch(notification.getFeatureID(MappedUnit.class)) {
+		switch (notification.getFeatureID(MappedUnit.class)) {
 			case AggregatorPackage.MAPPED_UNIT__ENABLED:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;

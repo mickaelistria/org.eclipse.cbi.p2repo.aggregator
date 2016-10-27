@@ -18,11 +18,11 @@ import org.eclipse.emf.common.util.EList;
  *
  * <p>
  * The following features are supported:
- * <ul>
- * <li>{@link org.eclipse.b3.aggregator.p2view.RepositoryBrowser#getRepositories <em>Repositories</em>}</li>
- * <li>{@link org.eclipse.b3.aggregator.p2view.RepositoryBrowser#isLoading <em>Loading</em>}</li>
- * </ul>
  * </p>
+ * <ul>
+ *   <li>{@link org.eclipse.b3.aggregator.p2view.RepositoryBrowser#getRepositories <em>Repositories</em>}</li>
+ *   <li>{@link org.eclipse.b3.aggregator.p2view.RepositoryBrowser#isLoading <em>Loading</em>}</li>
+ * </ul>
  *
  * @see org.eclipse.b3.aggregator.p2view.P2viewPackage#getRepositoryBrowser()
  * @model
@@ -37,7 +37,6 @@ public interface RepositoryBrowser extends StatusProvider, ChildrenProvider<Meta
 	 * If the meaning of the '<em>Repositories</em>' containment reference list isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 *
 	 * @return the value of the '<em>Repositories</em>' reference list.
 	 * @see org.eclipse.b3.aggregator.p2view.P2viewPackage#getRepositoryBrowser_Repositories()
 	 * @model resolveProxies="false" transient="true" volatile="true" derived="true"
@@ -53,7 +52,6 @@ public interface RepositoryBrowser extends StatusProvider, ChildrenProvider<Meta
 	 * If the meaning of the '<em>Loading</em>' attribute isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 *
 	 * @return the value of the '<em>Loading</em>' attribute.
 	 * @see #isSetLoading()
 	 * @see org.eclipse.b3.aggregator.p2view.P2viewPackage#getRepositoryBrowser_Loading()
@@ -66,7 +64,6 @@ public interface RepositoryBrowser extends StatusProvider, ChildrenProvider<Meta
 	 * Returns whether the value of the '{@link org.eclipse.b3.aggregator.p2view.RepositoryBrowser#isLoading <em>Loading</em>}' attribute is set.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @return whether the value of the '<em>Loading</em>' attribute is set.
 	 * @see #isLoading()
 	 * @generated

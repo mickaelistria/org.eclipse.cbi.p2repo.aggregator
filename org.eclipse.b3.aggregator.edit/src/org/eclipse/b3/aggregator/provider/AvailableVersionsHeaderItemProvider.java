@@ -32,7 +32,6 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * This is the item provider adapter for a {@link org.eclipse.b3.aggregator.AvailableVersionsHeader} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
- *
  * @generated
  */
 public class AvailableVersionsHeaderItemProvider extends AggregatorItemProviderAdapter implements
@@ -42,7 +41,6 @@ public class AvailableVersionsHeaderItemProvider extends AggregatorItemProviderA
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	public AvailableVersionsHeaderItemProvider(AdapterFactory adapterFactory) {
@@ -54,7 +52,6 @@ public class AvailableVersionsHeaderItemProvider extends AggregatorItemProviderA
 	 * that can be created under this object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -65,7 +62,6 @@ public class AvailableVersionsHeaderItemProvider extends AggregatorItemProviderA
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -82,12 +78,11 @@ public class AvailableVersionsHeaderItemProvider extends AggregatorItemProviderA
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
-		if(childrenFeatures == null) {
+		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(AggregatorPackage.Literals.AVAILABLE_VERSIONS_HEADER__AVAILABLE_VERSIONS);
 		}
@@ -98,7 +93,6 @@ public class AvailableVersionsHeaderItemProvider extends AggregatorItemProviderA
 	 * This returns AvailableVersionsHeader.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -110,12 +104,11 @@ public class AvailableVersionsHeaderItemProvider extends AggregatorItemProviderA
 	 * This returns the property descriptors for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-		if(itemPropertyDescriptors == null) {
+		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
 		}
@@ -126,7 +119,6 @@ public class AvailableVersionsHeaderItemProvider extends AggregatorItemProviderA
 	 * Return the resource locator for this item provider's resources.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -157,14 +149,13 @@ public class AvailableVersionsHeaderItemProvider extends AggregatorItemProviderA
 	 * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch(notification.getFeatureID(AvailableVersionsHeader.class)) {
+		switch (notification.getFeatureID(AvailableVersionsHeader.class)) {
 			case AggregatorPackage.AVAILABLE_VERSIONS_HEADER__AVAILABLE_VERSIONS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;

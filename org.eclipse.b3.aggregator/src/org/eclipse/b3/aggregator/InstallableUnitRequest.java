@@ -19,13 +19,13 @@ import org.eclipse.equinox.p2.metadata.VersionRange;
  *
  * <p>
  * The following features are supported:
- * <ul>
- * <li>{@link org.eclipse.b3.aggregator.InstallableUnitRequest#getName <em>Name</em>}</li>
- * <li>{@link org.eclipse.b3.aggregator.InstallableUnitRequest#getVersionRange <em>Version Range</em>}</li>
- * <li>{@link org.eclipse.b3.aggregator.InstallableUnitRequest#getAvailableVersionsHeader <em>Available Versions Header</em>}</li>
- * <li>{@link org.eclipse.b3.aggregator.InstallableUnitRequest#getAvailableVersions <em>Available Versions</em>}</li>
- * </ul>
  * </p>
+ * <ul>
+ *   <li>{@link org.eclipse.b3.aggregator.InstallableUnitRequest#getName <em>Name</em>}</li>
+ *   <li>{@link org.eclipse.b3.aggregator.InstallableUnitRequest#getVersionRange <em>Version Range</em>}</li>
+ *   <li>{@link org.eclipse.b3.aggregator.InstallableUnitRequest#getAvailableVersionsHeader <em>Available Versions Header</em>}</li>
+ *   <li>{@link org.eclipse.b3.aggregator.InstallableUnitRequest#getAvailableVersions <em>Available Versions</em>}</li>
+ * </ul>
  *
  * @see org.eclipse.b3.aggregator.AggregatorPackage#getInstallableUnitRequest()
  * @model abstract="true"
@@ -40,7 +40,6 @@ public interface InstallableUnitRequest extends StatusProvider, InfosProvider, D
 	 * If the meaning of the '<em>Available Versions</em>' attribute list isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 *
 	 * @return the value of the '<em>Available Versions</em>' containment reference list.
 	 * @see org.eclipse.b3.aggregator.AggregatorPackage#getInstallableUnitRequest_AvailableVersions()
 	 * @model containment="true" transient="true"
@@ -50,15 +49,13 @@ public interface InstallableUnitRequest extends StatusProvider, InfosProvider, D
 
 	/**
 	 * Returns the value of the '<em><b>Available Versions Header</b></em>' containment reference.
-	 * It is bidirectional and its opposite is '{@link org.eclipse.b3.aggregator.AvailableVersionsHeader#getInstallableUnitRequest
-	 * <em>Installable Unit Request</em>}'.
+	 * It is bidirectional and its opposite is '{@link org.eclipse.b3.aggregator.AvailableVersionsHeader#getInstallableUnitRequest <em>Installable Unit Request</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Available Versions Header</em>' containment reference isn't clear, there really should be more of a description
 	 * here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 *
 	 * @return the value of the '<em>Available Versions Header</em>' containment reference.
 	 * @see #setAvailableVersionsHeader(AvailableVersionsHeader)
 	 * @see org.eclipse.b3.aggregator.AggregatorPackage#getInstallableUnitRequest_AvailableVersionsHeader()
@@ -75,7 +72,6 @@ public interface InstallableUnitRequest extends StatusProvider, InfosProvider, D
 	 * If the meaning of the '<em>Name</em>' attribute isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 *
 	 * @return the value of the '<em>Name</em>' attribute.
 	 * @see #setName(String)
 	 * @see org.eclipse.b3.aggregator.AggregatorPackage#getInstallableUnitRequest_Name()
@@ -92,7 +88,6 @@ public interface InstallableUnitRequest extends StatusProvider, InfosProvider, D
 	 * If the meaning of the '<em>Version Range</em>' attribute isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 *
 	 * @return the value of the '<em>Version Range</em>' attribute.
 	 * @see #setVersionRange(VersionRange)
 	 * @see org.eclipse.b3.aggregator.AggregatorPackage#getInstallableUnitRequest_VersionRange()
@@ -111,7 +106,6 @@ public interface InstallableUnitRequest extends StatusProvider, InfosProvider, D
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @model kind="operation"
 	 * @generated
 	 */
@@ -119,7 +113,6 @@ public interface InstallableUnitRequest extends StatusProvider, InfosProvider, D
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @model kind="operation"
 	 * @generated
 	 */
@@ -128,7 +121,6 @@ public interface InstallableUnitRequest extends StatusProvider, InfosProvider, D
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @model type="org.eclipse.b3.p2.IInstallableUnit"
 	 * @generated
 	 */
@@ -137,7 +129,6 @@ public interface InstallableUnitRequest extends StatusProvider, InfosProvider, D
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @model type="org.eclipse.b3.p2.IInstallableUnit"
 	 * @generated
 	 */
@@ -146,20 +137,16 @@ public interface InstallableUnitRequest extends StatusProvider, InfosProvider, D
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @model updateOnlyDataType="org.eclipse.emf.ecore.xml.type.Boolean"
 	 * @generated
 	 */
 	void resolveAvailableVersions(boolean updateOnly);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.aggregator.InstallableUnitRequest#getAvailableVersionsHeader <em>Available Versions Header</em>}'
-	 * containment reference.
+	 * Sets the value of the '{@link org.eclipse.b3.aggregator.InstallableUnitRequest#getAvailableVersionsHeader <em>Available Versions Header</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
-	 * @param value
-	 *            the new value of the '<em>Available Versions Header</em>' containment reference.
+	 * @param value the new value of the '<em>Available Versions Header</em>' containment reference.
 	 * @see #getAvailableVersionsHeader()
 	 * @generated
 	 */
@@ -169,9 +156,7 @@ public interface InstallableUnitRequest extends StatusProvider, InfosProvider, D
 	 * Sets the value of the '{@link org.eclipse.b3.aggregator.InstallableUnitRequest#getName <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
-	 * @param value
-	 *            the new value of the '<em>Name</em>' attribute.
+	 * @param value the new value of the '<em>Name</em>' attribute.
 	 * @see #getName()
 	 * @generated
 	 */
@@ -181,9 +166,7 @@ public interface InstallableUnitRequest extends StatusProvider, InfosProvider, D
 	 * Sets the value of the '{@link org.eclipse.b3.aggregator.InstallableUnitRequest#getVersionRange <em>Version Range</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
-	 * @param value
-	 *            the new value of the '<em>Version Range</em>' attribute.
+	 * @param value the new value of the '<em>Version Range</em>' attribute.
 	 * @see #getVersionRange()
 	 * @generated
 	 */

@@ -115,6 +115,7 @@ import org.eclipse.jface.action.MenuManager;
 import org.eclipse.jface.action.Separator;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.dialogs.ProgressMonitorDialog;
+import org.eclipse.jface.util.LocalSelectionTransfer;
 import org.eclipse.jface.viewers.CellEditor;
 import org.eclipse.jface.viewers.DoubleClickEvent;
 import org.eclipse.jface.viewers.IDoubleClickListener;
@@ -134,6 +135,7 @@ import org.eclipse.jface.wizard.WizardDialog;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.custom.CTabFolder;
 import org.eclipse.swt.dnd.DND;
+import org.eclipse.swt.dnd.FileTransfer;
 import org.eclipse.swt.dnd.Transfer;
 import org.eclipse.swt.events.ControlAdapter;
 import org.eclipse.swt.events.ControlEvent;
@@ -448,10 +450,13 @@ public class AggregatorEditor extends MultiPageEditorPart
 
 	/**
 	 * This is the property sheet page.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 *
 	 * @generated
 	 */
+	protected List<PropertySheetPage> propertySheetPages = new ArrayList<PropertySheetPage>();
+
 	protected PropertySheetPage propertySheetPage;
 
 	/**
@@ -539,7 +544,7 @@ public class AggregatorEditor extends MultiPageEditorPart
 				}
 			}
 			else if(p instanceof PropertySheet) {
-				if(((PropertySheet) p).getCurrentPage() == propertySheetPage) {
+				if(((PropertySheet) p).getCurrentPage() == getPropertySheetPage()) {
 					getActionBarContributor().setActiveEditor(AggregatorEditor.this);
 					handleActivate();
 				}
@@ -768,7 +773,6 @@ public class AggregatorEditor extends MultiPageEditorPart
 	 * @generated
 	 */
 	protected IResourceChangeListener resourceChangeListener = new IResourceChangeListener() {
-		@Override
 		public void resourceChanged(IResourceChangeEvent event) {
 			IResourceDelta delta = event.getDelta();
 			try {
@@ -787,7 +791,6 @@ public class AggregatorEditor extends MultiPageEditorPart
 						return removedResources;
 					}
 
-					@Override
 					public boolean visit(IResourceDelta delta) {
 						if(delta.getResource().getType() == IResource.FILE) {
 							if(delta.getKind() == IResourceDelta.REMOVED || delta.getKind() == IResourceDelta.CHANGED &&
@@ -803,6 +806,7 @@ public class AggregatorEditor extends MultiPageEditorPart
 									}
 								}
 							}
+							return false;
 						}
 
 						return true;
@@ -814,7 +818,6 @@ public class AggregatorEditor extends MultiPageEditorPart
 
 				if(!visitor.getRemovedResources().isEmpty()) {
 					getSite().getShell().getDisplay().asyncExec(new Runnable() {
-						@Override
 						public void run() {
 							removedResources.addAll(visitor.getRemovedResources());
 							if(!isDirty()) {
@@ -826,7 +829,6 @@ public class AggregatorEditor extends MultiPageEditorPart
 
 				if(!visitor.getChangedResources().isEmpty()) {
 					getSite().getShell().getDisplay().asyncExec(new Runnable() {
-						@Override
 						public void run() {
 							changedResources.addAll(visitor.getChangedResources());
 							if(getSite().getPage().getActiveEditor() == AggregatorEditor.this) {
@@ -1015,7 +1017,8 @@ public class AggregatorEditor extends MultiPageEditorPart
 		getSite().registerContextMenu(contextMenu, new UnwrappingSelectionProvider(viewer));
 
 		int dndOperations = DND.DROP_COPY | DND.DROP_MOVE | DND.DROP_LINK;
-		Transfer[] transfers = new Transfer[] { LocalTransfer.getInstance() };
+		Transfer[] transfers = new Transfer[] {
+				LocalTransfer.getInstance(), LocalSelectionTransfer.getTransfer(), FileTransfer.getInstance() };
 		viewer.addDragSupport(dndOperations, transfers, new ViewerDragAdapter(viewer));
 		viewer.addDropSupport(dndOperations, transfers, new EditingDomainViewerDropAdapter(editingDomain, viewer));
 	}
@@ -1190,7 +1193,6 @@ public class AggregatorEditor extends MultiPageEditorPart
 			setPageText(pageIndex, getString("_UI_SelectionPage_label"));
 
 			getSite().getShell().getDisplay().asyncExec(new Runnable() {
-				@Override
 				public void run() {
 					setActivePage(0);
 				}
@@ -1214,7 +1216,6 @@ public class AggregatorEditor extends MultiPageEditorPart
 		});
 
 		getSite().getShell().getDisplay().asyncExec(new Runnable() {
-			@Override
 			public void run() {
 				updateProblemIndication();
 			}
@@ -1240,7 +1241,7 @@ public class AggregatorEditor extends MultiPageEditorPart
 			getActionBarContributor().setActiveEditor(null);
 		}
 
-		if(propertySheetPage != null) {
+		for(PropertySheetPage propertySheetPage : propertySheetPages) {
 			propertySheetPage.dispose();
 		}
 
@@ -1264,6 +1265,7 @@ public class AggregatorEditor extends MultiPageEditorPart
 		//
 		final Map<Object, Object> saveOptions = new HashMap<Object, Object>();
 		saveOptions.put(Resource.OPTION_SAVE_ONLY_IF_CHANGED, Resource.OPTION_SAVE_ONLY_IF_CHANGED_MEMORY_BUFFER);
+		saveOptions.put(Resource.OPTION_LINE_DELIMITER, Resource.OPTION_LINE_DELIMITER_UNSPECIFIED);
 
 		// Do the work within an operation because this is a long running activity that modifies the workbench.
 		//
@@ -1275,7 +1277,7 @@ public class AggregatorEditor extends MultiPageEditorPart
 				// Save the resources to the file system.
 				//
 				boolean first = true;
-				for(Resource resource : new ArrayList<Resource>(editingDomain.getResourceSet().getResources())) {
+				for(Resource resource : editingDomain.getResourceSet().getResources()) {
 					if((first || !resource.getContents().isEmpty() || isPersisted(resource)) &&
 							!editingDomain.isReadOnly(resource)) {
 						try {
@@ -1530,7 +1532,6 @@ public class AggregatorEditor extends MultiPageEditorPart
 			contentOutlinePage.addSelectionChangedListener(new ISelectionChangedListener() {
 				// This ensures that we handle selections correctly.
 				//
-				@Override
 				public void selectionChanged(SelectionChangedEvent event) {
 					handleContentOutlineSelection(event.getSelection());
 				}
@@ -1542,8 +1543,8 @@ public class AggregatorEditor extends MultiPageEditorPart
 
 	/**
 	 * This returns the editing domain as required by the {@link IEditingDomainProvider} interface.
-	 * This is important for implementing the static methods of {@link AdapterFactoryEditingDomain} and for supporting
-	 * {@link org.eclipse.emf.edit.ui.action.CommandAction}.
+	 * This is important for implementing the static methods of {@link AdapterFactoryEditingDomain}
+	 * and for supporting {@link org.eclipse.emf.edit.ui.action.CommandAction}.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 *
 	 * @generated
@@ -2162,7 +2163,6 @@ public class AggregatorEditor extends MultiPageEditorPart
 				selectionChangedListener = new ISelectionChangedListener() {
 					// This just notifies those things that are affected by the section.
 					//
-					@Override
 					public void selectionChanged(SelectionChangedEvent selectionChangedEvent) {
 						setSelection(selectionChangedEvent.getSelection());
 					}
@@ -2232,7 +2232,6 @@ public class AggregatorEditor extends MultiPageEditorPart
 		//
 		if(theSelection != null && !theSelection.isEmpty()) {
 			Runnable runnable = new Runnable() {
-				@Override
 				public void run() {
 					// Try to select the items in the current content viewer of the editor.
 					//

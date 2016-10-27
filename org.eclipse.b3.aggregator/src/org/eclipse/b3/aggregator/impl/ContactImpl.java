@@ -22,12 +22,12 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  * <!-- begin-user-doc --> An implementation of the model object '<em><b>Contact</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * <ul>
- * <li>{@link org.eclipse.b3.aggregator.impl.ContactImpl#getName <em>Name</em>}</li>
- * <li>{@link org.eclipse.b3.aggregator.impl.ContactImpl#getEmail <em>Email</em>}</li>
- * <li>{@link org.eclipse.b3.aggregator.impl.ContactImpl#getAggregation <em>Aggregation</em>}</li>
- * </ul>
  * </p>
+ * <ul>
+ *   <li>{@link org.eclipse.b3.aggregator.impl.ContactImpl#getName <em>Name</em>}</li>
+ *   <li>{@link org.eclipse.b3.aggregator.impl.ContactImpl#getEmail <em>Email</em>}</li>
+ *   <li>{@link org.eclipse.b3.aggregator.impl.ContactImpl#getAggregation <em>Aggregation</em>}</li>
+ * </ul>
  *
  * @generated
  */
@@ -35,7 +35,6 @@ public class ContactImpl extends MinimalEObjectImpl.Container implements Contact
 	/**
 	 * A set of bit flags representing the values of boolean attributes and whether unsettable features have been set.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 * @ordered
 	 */
@@ -65,7 +64,6 @@ public class ContactImpl extends MinimalEObjectImpl.Container implements Contact
 	 * The default value of the '{@link #getEmail() <em>Email</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 *
 	 * @see #getEmail()
 	 * @generated
 	 * @ordered
@@ -84,7 +82,6 @@ public class ContactImpl extends MinimalEObjectImpl.Container implements Contact
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	protected ContactImpl() {
@@ -94,56 +91,49 @@ public class ContactImpl extends MinimalEObjectImpl.Container implements Contact
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	public Aggregation basicGetAggregation() {
-		if(eContainerFeatureID() != AggregatorPackage.CONTACT__AGGREGATION)
-			return null;
-		return (Aggregation) eInternalContainer();
+		if (eContainerFeatureID() != AggregatorPackage.CONTACT__AGGREGATION) return null;
+		return (Aggregation)eInternalContainer();
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	public NotificationChain basicSetAggregation(Aggregation newAggregation, NotificationChain msgs) {
-		msgs = eBasicSetContainer((InternalEObject) newAggregation, AggregatorPackage.CONTACT__AGGREGATION, msgs);
+		msgs = eBasicSetContainer((InternalEObject)newAggregation, AggregatorPackage.CONTACT__AGGREGATION, msgs);
 		return msgs;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
-		switch(eContainerFeatureID()) {
+		switch (eContainerFeatureID()) {
 			case AggregatorPackage.CONTACT__AGGREGATION:
-				return eInternalContainer().eInverseRemove(
-					this, AggregatorPackage.AGGREGATION__CONTACTS, Aggregation.class, msgs);
+				return eInternalContainer().eInverseRemove(this, AggregatorPackage.AGGREGATION__CONTACTS, Aggregation.class, msgs);
 		}
 		return super.eBasicRemoveFromContainerFeature(msgs);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch(featureID) {
+		switch (featureID) {
 			case AggregatorPackage.CONTACT__NAME:
 				return getName();
 			case AggregatorPackage.CONTACT__EMAIL:
 				return getEmail();
 			case AggregatorPackage.CONTACT__AGGREGATION:
-				if(resolve)
-					return getAggregation();
+				if (resolve) return getAggregation();
 				return basicGetAggregation();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -151,28 +141,26 @@ public class ContactImpl extends MinimalEObjectImpl.Container implements Contact
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch(featureID) {
+		switch (featureID) {
 			case AggregatorPackage.CONTACT__AGGREGATION:
-				if(eInternalContainer() != null)
+				if (eInternalContainer() != null)
 					msgs = eBasicRemoveFromContainer(msgs);
-				return basicSetAggregation((Aggregation) otherEnd, msgs);
+				return basicSetAggregation((Aggregation)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch(featureID) {
+		switch (featureID) {
 			case AggregatorPackage.CONTACT__AGGREGATION:
 				return basicSetAggregation(null, msgs);
 		}
@@ -181,20 +169,15 @@ public class ContactImpl extends MinimalEObjectImpl.Container implements Contact
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch(featureID) {
+		switch (featureID) {
 			case AggregatorPackage.CONTACT__NAME:
-				return NAME_EDEFAULT == null
-						? name != null
-						: !NAME_EDEFAULT.equals(name);
+				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case AggregatorPackage.CONTACT__EMAIL:
-				return EMAIL_EDEFAULT == null
-						? email != null
-						: !EMAIL_EDEFAULT.equals(email);
+				return EMAIL_EDEFAULT == null ? email != null : !EMAIL_EDEFAULT.equals(email);
 			case AggregatorPackage.CONTACT__AGGREGATION:
 				return basicGetAggregation() != null;
 		}
@@ -203,20 +186,19 @@ public class ContactImpl extends MinimalEObjectImpl.Container implements Contact
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch(featureID) {
+		switch (featureID) {
 			case AggregatorPackage.CONTACT__NAME:
-				setName((String) newValue);
+				setName((String)newValue);
 				return;
 			case AggregatorPackage.CONTACT__EMAIL:
-				setEmail((String) newValue);
+				setEmail((String)newValue);
 				return;
 			case AggregatorPackage.CONTACT__AGGREGATION:
-				setAggregation((Aggregation) newValue);
+				setAggregation((Aggregation)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -224,7 +206,6 @@ public class ContactImpl extends MinimalEObjectImpl.Container implements Contact
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -234,12 +215,11 @@ public class ContactImpl extends MinimalEObjectImpl.Container implements Contact
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
-		switch(featureID) {
+		switch (featureID) {
 			case AggregatorPackage.CONTACT__NAME:
 				setName(NAME_EDEFAULT);
 				return;
@@ -247,7 +227,7 @@ public class ContactImpl extends MinimalEObjectImpl.Container implements Contact
 				setEmail(EMAIL_EDEFAULT);
 				return;
 			case AggregatorPackage.CONTACT__AGGREGATION:
-				setAggregation((Aggregation) null);
+				setAggregation((Aggregation)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -255,18 +235,15 @@ public class ContactImpl extends MinimalEObjectImpl.Container implements Contact
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	public Aggregation getAggregation() {
-		if(eContainerFeatureID() != AggregatorPackage.CONTACT__AGGREGATION)
-			return null;
-		return (Aggregation) eContainer();
+		if (eContainerFeatureID() != AggregatorPackage.CONTACT__AGGREGATION) return null;
+		return (Aggregation)eContainer();
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	public String getEmail() {
@@ -275,7 +252,6 @@ public class ContactImpl extends MinimalEObjectImpl.Container implements Contact
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	public String getName() {
@@ -285,62 +261,53 @@ public class ContactImpl extends MinimalEObjectImpl.Container implements Contact
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	public void setAggregation(Aggregation newAggregation) {
-		if(newAggregation != eInternalContainer() ||
-				(eContainerFeatureID() != AggregatorPackage.CONTACT__AGGREGATION && newAggregation != null)) {
-			if(EcoreUtil.isAncestor(this, (EObject) newAggregation))
+		if (newAggregation != eInternalContainer() || (eContainerFeatureID() != AggregatorPackage.CONTACT__AGGREGATION && newAggregation != null)) {
+			if (EcoreUtil.isAncestor(this, (EObject)newAggregation))
 				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
 			NotificationChain msgs = null;
-			if(eInternalContainer() != null)
+			if (eInternalContainer() != null)
 				msgs = eBasicRemoveFromContainer(msgs);
-			if(newAggregation != null)
-				msgs = ((InternalEObject) newAggregation).eInverseAdd(
-					this, AggregatorPackage.AGGREGATION__CONTACTS, Aggregation.class, msgs);
+			if (newAggregation != null)
+				msgs = ((InternalEObject)newAggregation).eInverseAdd(this, AggregatorPackage.AGGREGATION__CONTACTS, Aggregation.class, msgs);
 			msgs = basicSetAggregation(newAggregation, msgs);
-			if(msgs != null)
-				msgs.dispatch();
+			if (msgs != null) msgs.dispatch();
 		}
-		else if(eNotificationRequired())
-			eNotify(new ENotificationImpl(
-				this, Notification.SET, AggregatorPackage.CONTACT__AGGREGATION, newAggregation, newAggregation));
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, AggregatorPackage.CONTACT__AGGREGATION, newAggregation, newAggregation));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	public void setEmail(String newEmail) {
 		String oldEmail = email;
 		email = newEmail;
-		if(eNotificationRequired())
+		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, AggregatorPackage.CONTACT__EMAIL, oldEmail, email));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	public void setName(String newName) {
 		String oldName = name;
 		name = newName;
-		if(eNotificationRequired())
+		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, AggregatorPackage.CONTACT__NAME, oldName, name));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public String toString() {
-		if(eIsProxy())
-			return super.toString();
+		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (name: ");

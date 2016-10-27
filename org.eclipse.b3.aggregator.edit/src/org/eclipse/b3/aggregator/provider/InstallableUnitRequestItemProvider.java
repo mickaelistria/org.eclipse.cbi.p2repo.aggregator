@@ -49,7 +49,6 @@ import org.eclipse.equinox.p2.query.IQueryResult;
 /**
  * This is the item provider adapter for a {@link org.eclipse.b3.aggregator.InstallableUnitRequest} object.
  * <!-- begin-user-doc --> <!-- end-user-doc -->
- *
  * @generated
  */
 public class InstallableUnitRequestItemProvider extends AggregatorItemProviderAdapter implements
@@ -59,7 +58,6 @@ public class InstallableUnitRequestItemProvider extends AggregatorItemProviderAd
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	public InstallableUnitRequestItemProvider(AdapterFactory adapterFactory) {
@@ -70,18 +68,22 @@ public class InstallableUnitRequestItemProvider extends AggregatorItemProviderAd
 	 * This adds a property descriptor for the Description feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	protected void addDescriptionPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-			getResourceLocator(),
-			getString("_UI_DescriptionProvider_description_feature"),
-			getString(
-				"_UI_PropertyDescriptor_description", "_UI_DescriptionProvider_description_feature",
-				"_UI_DescriptionProvider_type"), AggregatorPackage.Literals.DESCRIPTION_PROVIDER__DESCRIPTION, true,
-			true, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_DescriptionProvider_description_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_DescriptionProvider_description_feature", "_UI_DescriptionProvider_type"),
+				 AggregatorPackage.Literals.DESCRIPTION_PROVIDER__DESCRIPTION,
+				 true,
+				 true,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
 	}
 
 	/**
@@ -155,18 +157,22 @@ public class InstallableUnitRequestItemProvider extends AggregatorItemProviderAd
 	 * This adds a property descriptor for the Version Range feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	protected void addVersionRangePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-			getResourceLocator(),
-			getString("_UI_InstallableUnitRequest_versionRange_feature"),
-			getString(
-				"_UI_PropertyDescriptor_description", "_UI_InstallableUnitRequest_versionRange_feature",
-				"_UI_InstallableUnitRequest_type"), AggregatorPackage.Literals.INSTALLABLE_UNIT_REQUEST__VERSION_RANGE,
-			true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_InstallableUnitRequest_versionRange_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_InstallableUnitRequest_versionRange_feature", "_UI_InstallableUnitRequest_type"),
+				 AggregatorPackage.Literals.INSTALLABLE_UNIT_REQUEST__VERSION_RANGE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
 	}
 
 	protected boolean appendIUText(Object object, String typeKey, StringBuilder bld) {
@@ -214,7 +220,6 @@ public class InstallableUnitRequestItemProvider extends AggregatorItemProviderAd
 	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
 	 * that can be created under this object.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -225,7 +230,6 @@ public class InstallableUnitRequestItemProvider extends AggregatorItemProviderAd
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -250,12 +254,11 @@ public class InstallableUnitRequestItemProvider extends AggregatorItemProviderAd
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
-		if(childrenFeatures == null) {
+		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(AggregatorPackage.Literals.INSTALLABLE_UNIT_REQUEST__AVAILABLE_VERSIONS_HEADER);
 		}
@@ -285,12 +288,11 @@ public class InstallableUnitRequestItemProvider extends AggregatorItemProviderAd
 	/**
 	 * This returns the property descriptors for the adapted class.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-		if(itemPropertyDescriptors == null) {
+		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
 			addDescriptionPropertyDescriptor(object);
@@ -303,7 +305,6 @@ public class InstallableUnitRequestItemProvider extends AggregatorItemProviderAd
 	/**
 	 * Return the resource locator for this item provider's resources.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -314,15 +315,14 @@ public class InstallableUnitRequestItemProvider extends AggregatorItemProviderAd
 	/**
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((InstallableUnitRequest) object).getName();
-		return label == null || label.length() == 0
-				? getString("_UI_InstallableUnitRequest_type")
-				: getString("_UI_InstallableUnitRequest_type") + " " + label;
+		String label = ((InstallableUnitRequest)object).getName();
+		return label == null || label.length() == 0 ?
+			getString("_UI_InstallableUnitRequest_type") :
+			getString("_UI_InstallableUnitRequest_type") + " " + label;
 	}
 
 	// It always have a child - "Available Versions"

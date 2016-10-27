@@ -16,7 +16,6 @@ import org.eclipse.emf.edit.domain.AdapterFactoryEditingDomain;
 /**
  * This is the central singleton for the Aggregator editor plugin.
  * <!-- begin-user-doc --> <!-- end-user-doc -->
- *
  * @generated
  */
 @SuppressWarnings("deprecation")
@@ -24,7 +23,6 @@ public final class AggregatorEditorPlugin extends EMFPlugin {
 	/**
 	 * The actual implementation of the Eclipse <b>Plugin</b>.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	public static class Implementation extends EclipseUIPlugin {
@@ -49,7 +47,6 @@ public final class AggregatorEditorPlugin extends EMFPlugin {
 	/**
 	 * Keep track of the singleton.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	public static final AggregatorEditorPlugin INSTANCE = new AggregatorEditorPlugin();
@@ -57,7 +54,6 @@ public final class AggregatorEditorPlugin extends EMFPlugin {
 	/**
 	 * Keep track of the singleton.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	private static Implementation plugin;
@@ -65,7 +61,6 @@ public final class AggregatorEditorPlugin extends EMFPlugin {
 	/**
 	 * Returns the singleton instance of the Eclipse plugin.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @return the singleton instance.
 	 * @generated
 	 */
@@ -78,11 +73,13 @@ public final class AggregatorEditorPlugin extends EMFPlugin {
 	/**
 	 * Create the instance.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	public AggregatorEditorPlugin() {
-		super(new ResourceLocator[] { P2EditPlugin.INSTANCE, });
+		super
+			(new ResourceLocator [] {
+				P2EditPlugin.INSTANCE,
+			});
 	}
 
 	public AdapterFactoryEditingDomain getActiveEditingDomain() {
@@ -92,7 +89,6 @@ public final class AggregatorEditorPlugin extends EMFPlugin {
 	/**
 	 * Returns the singleton instance of the Eclipse plugin.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @return the singleton instance.
 	 * @generated
 	 */

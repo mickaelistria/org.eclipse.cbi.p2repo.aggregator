@@ -7,7 +7,8 @@ Bundle-ClassPath: .
 Bundle-Activator: org.eclipse.b3.aggregator.presentation.AggregatorEditorPlugin$Implementation
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
-Export-Package: org.eclipse.b3.aggregator.presentation,
+Export-Package: org.eclipse.b3.aggregator.p2view.presentation,
+ org.eclipse.b3.aggregator.presentation,
  org.eclipse.b3.aggregator.transformer.ui
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.core.resources;visibility:=reexport,
@@ -22,6 +23,6 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.b3.cli,
  org.eclipse.b3.util,
  org.eclipse.b3.p2,
- org.eclipse.b3.p2.edit
+ org.eclipse.b3.p2.edit;visibility:=reexport
 Bundle-ActivationPolicy: lazy
 Bundle-Vendor: %providerName

@@ -14,12 +14,12 @@ package org.eclipse.b3.aggregator.p2view;
  *
  * <p>
  * The following features are supported:
- * <ul>
- * <li>{@link org.eclipse.b3.aggregator.p2view.Product#getFeatureContainer <em>Feature Container</em>}</li>
- * <li>{@link org.eclipse.b3.aggregator.p2view.Product#getBundleContainer <em>Bundle Container</em>}</li>
- * <li>{@link org.eclipse.b3.aggregator.p2view.Product#getFragmentContainer <em>Fragment Container</em>}</li>
- * </ul>
  * </p>
+ * <ul>
+ *   <li>{@link org.eclipse.b3.aggregator.p2view.Product#getFeatureContainer <em>Feature Container</em>}</li>
+ *   <li>{@link org.eclipse.b3.aggregator.p2view.Product#getBundleContainer <em>Bundle Container</em>}</li>
+ *   <li>{@link org.eclipse.b3.aggregator.p2view.Product#getFragmentContainer <em>Fragment Container</em>}</li>
+ * </ul>
  *
  * @see org.eclipse.b3.aggregator.p2view.P2viewPackage#getProduct()
  * @model
@@ -33,7 +33,6 @@ public interface Product extends IUPresentationWithDetails {
 	 * If the meaning of the '<em>Bundle Container</em>' reference isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 *
 	 * @return the value of the '<em>Bundle Container</em>' containment reference.
 	 * @see #setBundleContainer(Bundles)
 	 * @see org.eclipse.b3.aggregator.p2view.P2viewPackage#getProduct_BundleContainer()
@@ -49,7 +48,6 @@ public interface Product extends IUPresentationWithDetails {
 	 * If the meaning of the '<em>Feature Container</em>' reference isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 *
 	 * @return the value of the '<em>Feature Container</em>' containment reference.
 	 * @see #setFeatureContainer(Features)
 	 * @see org.eclipse.b3.aggregator.p2view.P2viewPackage#getProduct_FeatureContainer()
@@ -65,7 +63,6 @@ public interface Product extends IUPresentationWithDetails {
 	 * If the meaning of the '<em>Fragment Container</em>' reference isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 *
 	 * @return the value of the '<em>Fragment Container</em>' containment reference.
 	 * @see #setFragmentContainer(Fragments)
 	 * @see org.eclipse.b3.aggregator.p2view.P2viewPackage#getProduct_FragmentContainer()
@@ -76,7 +73,6 @@ public interface Product extends IUPresentationWithDetails {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @model kind="operation"
 	 * @generated
 	 */
@@ -84,7 +80,6 @@ public interface Product extends IUPresentationWithDetails {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @model kind="operation"
 	 * @generated
 	 */
@@ -92,7 +87,6 @@ public interface Product extends IUPresentationWithDetails {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @model kind="operation"
 	 * @generated
 	 */
@@ -101,9 +95,7 @@ public interface Product extends IUPresentationWithDetails {
 	/**
 	 * Sets the value of the '{@link org.eclipse.b3.aggregator.p2view.Product#getBundleContainer <em>Bundle Container</em>}' containment reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
-	 * @param value
-	 *            the new value of the '<em>Bundle Container</em>' containment reference.
+	 * @param value the new value of the '<em>Bundle Container</em>' containment reference.
 	 * @see #getBundleContainer()
 	 * @generated
 	 */
@@ -112,21 +104,16 @@ public interface Product extends IUPresentationWithDetails {
 	/**
 	 * Sets the value of the '{@link org.eclipse.b3.aggregator.p2view.Product#getFeatureContainer <em>Feature Container</em>}' containment reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
-	 * @param value
-	 *            the new value of the '<em>Feature Container</em>' containment reference.
+	 * @param value the new value of the '<em>Feature Container</em>' containment reference.
 	 * @see #getFeatureContainer()
 	 * @generated
 	 */
 	void setFeatureContainer(Features value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.aggregator.p2view.Product#getFragmentContainer <em>Fragment Container</em>}' containment
-	 * reference.
+	 * Sets the value of the '{@link org.eclipse.b3.aggregator.p2view.Product#getFragmentContainer <em>Fragment Container</em>}' containment reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
-	 * @param value
-	 *            the new value of the '<em>Fragment Container</em>' containment reference.
+	 * @param value the new value of the '<em>Fragment Container</em>' containment reference.
 	 * @see #getFragmentContainer()
 	 * @generated
 	 */

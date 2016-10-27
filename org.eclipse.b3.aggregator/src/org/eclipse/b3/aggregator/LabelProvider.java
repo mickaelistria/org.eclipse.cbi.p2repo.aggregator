@@ -16,10 +16,10 @@ import java.util.Comparator;
  *
  * <p>
  * The following features are supported:
- * <ul>
- * <li>{@link org.eclipse.b3.aggregator.LabelProvider#getLabel <em>Label</em>}</li>
- * </ul>
  * </p>
+ * <ul>
+ *   <li>{@link org.eclipse.b3.aggregator.LabelProvider#getLabel <em>Label</em>}</li>
+ * </ul>
  *
  * @see org.eclipse.b3.aggregator.AggregatorPackage#getLabelProvider()
  * @model interface="true" abstract="true"
@@ -61,7 +61,6 @@ public interface LabelProvider {
 	 * If the meaning of the '<em>Label</em>' attribute isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 *
 	 * @return the value of the '<em>Label</em>' attribute.
 	 * @see #setLabel(String)
 	 * @see org.eclipse.b3.aggregator.AggregatorPackage#getLabelProvider_Label()
@@ -73,9 +72,7 @@ public interface LabelProvider {
 	/**
 	 * Sets the value of the '{@link org.eclipse.b3.aggregator.LabelProvider#getLabel <em>Label</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
-	 * @param value
-	 *            the new value of the '<em>Label</em>' attribute.
+	 * @param value the new value of the '<em>Label</em>' attribute.
 	 * @see #getLabel()
 	 * @generated
 	 */

@@ -21,14 +21,14 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <!-- begin-user-doc --> An implementation of the model object '<em><b>Configuration</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * <ul>
- * <li>{@link org.eclipse.b3.aggregator.impl.ConfigurationImpl#isBranchEnabled <em>Branch Enabled</em>}</li>
- * <li>{@link org.eclipse.b3.aggregator.impl.ConfigurationImpl#isEnabled <em>Enabled</em>}</li>
- * <li>{@link org.eclipse.b3.aggregator.impl.ConfigurationImpl#getOperatingSystem <em>Operating System</em>}</li>
- * <li>{@link org.eclipse.b3.aggregator.impl.ConfigurationImpl#getWindowSystem <em>Window System</em>}</li>
- * <li>{@link org.eclipse.b3.aggregator.impl.ConfigurationImpl#getArchitecture <em>Architecture</em>}</li>
- * </ul>
  * </p>
+ * <ul>
+ *   <li>{@link org.eclipse.b3.aggregator.impl.ConfigurationImpl#isBranchEnabled <em>Branch Enabled</em>}</li>
+ *   <li>{@link org.eclipse.b3.aggregator.impl.ConfigurationImpl#isEnabled <em>Enabled</em>}</li>
+ *   <li>{@link org.eclipse.b3.aggregator.impl.ConfigurationImpl#getOperatingSystem <em>Operating System</em>}</li>
+ *   <li>{@link org.eclipse.b3.aggregator.impl.ConfigurationImpl#getWindowSystem <em>Window System</em>}</li>
+ *   <li>{@link org.eclipse.b3.aggregator.impl.ConfigurationImpl#getArchitecture <em>Architecture</em>}</li>
+ * </ul>
  *
  * @generated
  */
@@ -36,7 +36,6 @@ public class ConfigurationImpl extends MinimalEObjectImpl.Container implements C
 	/**
 	 * A set of bit flags representing the values of boolean attributes and whether unsettable features have been set.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 * @ordered
 	 */
@@ -46,7 +45,6 @@ public class ConfigurationImpl extends MinimalEObjectImpl.Container implements C
 	 * The default value of the '{@link #isBranchEnabled() <em>Branch Enabled</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @see #isBranchEnabled()
 	 * @generated
 	 * @ordered
@@ -57,7 +55,6 @@ public class ConfigurationImpl extends MinimalEObjectImpl.Container implements C
 	 * The default value of the '{@link #isEnabled() <em>Enabled</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 *
 	 * @see #isEnabled()
 	 * @generated
 	 * @ordered
@@ -68,7 +65,6 @@ public class ConfigurationImpl extends MinimalEObjectImpl.Container implements C
 	 * The flag representing the value of the '{@link #isEnabled() <em>Enabled</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @see #isEnabled()
 	 * @generated
 	 * @ordered
@@ -79,7 +75,6 @@ public class ConfigurationImpl extends MinimalEObjectImpl.Container implements C
 	 * The default value of the '{@link #getOperatingSystem() <em>Operating System</em>}' attribute.
 	 * <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
-	 *
 	 * @see #getOperatingSystem()
 	 * @generated
 	 * @ordered
@@ -89,7 +84,6 @@ public class ConfigurationImpl extends MinimalEObjectImpl.Container implements C
 	/**
 	 * The offset of the flags representing the value of the '{@link #getOperatingSystem() <em>Operating System</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 * @ordered
 	 */
@@ -98,7 +92,6 @@ public class ConfigurationImpl extends MinimalEObjectImpl.Container implements C
 	/**
 	 * The flags representing the default value of the '{@link #getOperatingSystem() <em>Operating System</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 * @ordered
 	 */
@@ -108,7 +101,6 @@ public class ConfigurationImpl extends MinimalEObjectImpl.Container implements C
 	 * The array of enumeration values for '{@link OperatingSystem Operating System}'
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 *
 	 * @generated
 	 * @ordered
 	 */
@@ -128,7 +120,6 @@ public class ConfigurationImpl extends MinimalEObjectImpl.Container implements C
 	 * The default value of the '{@link #getWindowSystem() <em>Window System</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @see #getWindowSystem()
 	 * @generated
 	 * @ordered
@@ -138,7 +129,6 @@ public class ConfigurationImpl extends MinimalEObjectImpl.Container implements C
 	/**
 	 * The offset of the flags representing the value of the '{@link #getWindowSystem() <em>Window System</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 * @ordered
 	 */
@@ -147,7 +137,6 @@ public class ConfigurationImpl extends MinimalEObjectImpl.Container implements C
 	/**
 	 * The flags representing the default value of the '{@link #getWindowSystem() <em>Window System</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 * @ordered
 	 */
@@ -157,7 +146,6 @@ public class ConfigurationImpl extends MinimalEObjectImpl.Container implements C
 	 * The array of enumeration values for '{@link WindowSystem Window System}'
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 *
 	 * @generated
 	 * @ordered
 	 */
@@ -177,7 +165,6 @@ public class ConfigurationImpl extends MinimalEObjectImpl.Container implements C
 	 * The default value of the '{@link #getArchitecture() <em>Architecture</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @see #getArchitecture()
 	 * @generated
 	 * @ordered
@@ -187,7 +174,6 @@ public class ConfigurationImpl extends MinimalEObjectImpl.Container implements C
 	/**
 	 * The offset of the flags representing the value of the '{@link #getArchitecture() <em>Architecture</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 * @ordered
 	 */
@@ -196,7 +182,6 @@ public class ConfigurationImpl extends MinimalEObjectImpl.Container implements C
 	/**
 	 * The flags representing the default value of the '{@link #getArchitecture() <em>Architecture</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 * @ordered
 	 */
@@ -223,7 +208,6 @@ public class ConfigurationImpl extends MinimalEObjectImpl.Container implements C
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	protected ConfigurationImpl() {
@@ -233,12 +217,11 @@ public class ConfigurationImpl extends MinimalEObjectImpl.Container implements C
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch(featureID) {
+		switch (featureID) {
 			case AggregatorPackage.CONFIGURATION__BRANCH_ENABLED:
 				return isBranchEnabled();
 			case AggregatorPackage.CONFIGURATION__ENABLED:
@@ -255,12 +238,11 @@ public class ConfigurationImpl extends MinimalEObjectImpl.Container implements C
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch(featureID) {
+		switch (featureID) {
 			case AggregatorPackage.CONFIGURATION__BRANCH_ENABLED:
 				return isSetBranchEnabled();
 			case AggregatorPackage.CONFIGURATION__ENABLED:
@@ -277,23 +259,22 @@ public class ConfigurationImpl extends MinimalEObjectImpl.Container implements C
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch(featureID) {
+		switch (featureID) {
 			case AggregatorPackage.CONFIGURATION__ENABLED:
-				setEnabled((Boolean) newValue);
+				setEnabled((Boolean)newValue);
 				return;
 			case AggregatorPackage.CONFIGURATION__OPERATING_SYSTEM:
-				setOperatingSystem((OperatingSystem) newValue);
+				setOperatingSystem((OperatingSystem)newValue);
 				return;
 			case AggregatorPackage.CONFIGURATION__WINDOW_SYSTEM:
-				setWindowSystem((WindowSystem) newValue);
+				setWindowSystem((WindowSystem)newValue);
 				return;
 			case AggregatorPackage.CONFIGURATION__ARCHITECTURE:
-				setArchitecture((Architecture) newValue);
+				setArchitecture((Architecture)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -301,7 +282,6 @@ public class ConfigurationImpl extends MinimalEObjectImpl.Container implements C
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -311,12 +291,11 @@ public class ConfigurationImpl extends MinimalEObjectImpl.Container implements C
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
-		switch(featureID) {
+		switch (featureID) {
 			case AggregatorPackage.CONFIGURATION__ENABLED:
 				setEnabled(ENABLED_EDEFAULT);
 				return;
@@ -335,7 +314,6 @@ public class ConfigurationImpl extends MinimalEObjectImpl.Container implements C
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	public Architecture getArchitecture() {
@@ -359,7 +337,6 @@ public class ConfigurationImpl extends MinimalEObjectImpl.Container implements C
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	public OperatingSystem getOperatingSystem() {
@@ -384,7 +361,6 @@ public class ConfigurationImpl extends MinimalEObjectImpl.Container implements C
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	public WindowSystem getWindowSystem() {
@@ -403,7 +379,6 @@ public class ConfigurationImpl extends MinimalEObjectImpl.Container implements C
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	public boolean isEnabled() {
@@ -422,76 +397,58 @@ public class ConfigurationImpl extends MinimalEObjectImpl.Container implements C
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	public void setArchitecture(Architecture newArchitecture) {
 		Architecture oldArchitecture = ARCHITECTURE_EFLAG_VALUES[(eFlags & ARCHITECTURE_EFLAG) >>> ARCHITECTURE_EFLAG_OFFSET];
-		if(newArchitecture == null)
-			newArchitecture = ARCHITECTURE_EDEFAULT;
+		if (newArchitecture == null) newArchitecture = ARCHITECTURE_EDEFAULT;
 		eFlags = eFlags & ~ARCHITECTURE_EFLAG | newArchitecture.ordinal() << ARCHITECTURE_EFLAG_OFFSET;
-		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(
-				this, Notification.SET, AggregatorPackage.CONFIGURATION__ARCHITECTURE, oldArchitecture, newArchitecture));
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, AggregatorPackage.CONFIGURATION__ARCHITECTURE, oldArchitecture, newArchitecture));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	public void setEnabled(boolean newEnabled) {
 		boolean oldEnabled = (eFlags & ENABLED_EFLAG) != 0;
-		if(newEnabled)
-			eFlags |= ENABLED_EFLAG;
-		else
-			eFlags &= ~ENABLED_EFLAG;
-		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(
-				this, Notification.SET, AggregatorPackage.CONFIGURATION__ENABLED, oldEnabled, newEnabled));
+		if (newEnabled) eFlags |= ENABLED_EFLAG; else eFlags &= ~ENABLED_EFLAG;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, AggregatorPackage.CONFIGURATION__ENABLED, oldEnabled, newEnabled));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	public void setOperatingSystem(OperatingSystem newOperatingSystem) {
 		OperatingSystem oldOperatingSystem = OPERATING_SYSTEM_EFLAG_VALUES[(eFlags & OPERATING_SYSTEM_EFLAG) >>> OPERATING_SYSTEM_EFLAG_OFFSET];
-		if(newOperatingSystem == null)
-			newOperatingSystem = OPERATING_SYSTEM_EDEFAULT;
+		if (newOperatingSystem == null) newOperatingSystem = OPERATING_SYSTEM_EDEFAULT;
 		eFlags = eFlags & ~OPERATING_SYSTEM_EFLAG | newOperatingSystem.ordinal() << OPERATING_SYSTEM_EFLAG_OFFSET;
-		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(
-				this, Notification.SET, AggregatorPackage.CONFIGURATION__OPERATING_SYSTEM, oldOperatingSystem,
-				newOperatingSystem));
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, AggregatorPackage.CONFIGURATION__OPERATING_SYSTEM, oldOperatingSystem, newOperatingSystem));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	public void setWindowSystem(WindowSystem newWindowSystem) {
 		WindowSystem oldWindowSystem = WINDOW_SYSTEM_EFLAG_VALUES[(eFlags & WINDOW_SYSTEM_EFLAG) >>> WINDOW_SYSTEM_EFLAG_OFFSET];
-		if(newWindowSystem == null)
-			newWindowSystem = WINDOW_SYSTEM_EDEFAULT;
+		if (newWindowSystem == null) newWindowSystem = WINDOW_SYSTEM_EDEFAULT;
 		eFlags = eFlags & ~WINDOW_SYSTEM_EFLAG | newWindowSystem.ordinal() << WINDOW_SYSTEM_EFLAG_OFFSET;
-		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(
-				this, Notification.SET, AggregatorPackage.CONFIGURATION__WINDOW_SYSTEM, oldWindowSystem,
-				newWindowSystem));
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, AggregatorPackage.CONFIGURATION__WINDOW_SYSTEM, oldWindowSystem, newWindowSystem));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public String toString() {
-		if(eIsProxy())
-			return super.toString();
+		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (enabled: ");

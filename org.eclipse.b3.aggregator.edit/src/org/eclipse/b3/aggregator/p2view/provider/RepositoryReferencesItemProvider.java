@@ -31,7 +31,6 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
  * This is the item provider adapter for a {@link org.eclipse.b3.aggregator.p2view.RepositoryReferences} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
- *
  * @generated
  */
 public class RepositoryReferencesItemProvider extends AggregatorItemProviderAdapter implements
@@ -41,7 +40,6 @@ public class RepositoryReferencesItemProvider extends AggregatorItemProviderAdap
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	public RepositoryReferencesItemProvider(AdapterFactory adapterFactory) {
@@ -52,18 +50,22 @@ public class RepositoryReferencesItemProvider extends AggregatorItemProviderAdap
 	 * This adds a property descriptor for the Repository References feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	protected void addRepositoryReferencesPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-			getResourceLocator(),
-			getString("_UI_RepositoryReferences_repositoryReferences_feature"),
-			getString(
-				"_UI_PropertyDescriptor_description", "_UI_RepositoryReferences_repositoryReferences_feature",
-				"_UI_RepositoryReferences_type"), P2viewPackage.Literals.REPOSITORY_REFERENCES__REPOSITORY_REFERENCES,
-			false, false, true, null, null, null));
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_RepositoryReferences_repositoryReferences_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_RepositoryReferences_repositoryReferences_feature", "_UI_RepositoryReferences_type"),
+				 P2viewPackage.Literals.REPOSITORY_REFERENCES__REPOSITORY_REFERENCES,
+				 false,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
 	}
 
 	/**
@@ -71,7 +73,6 @@ public class RepositoryReferencesItemProvider extends AggregatorItemProviderAdap
 	 * that can be created under this object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -82,7 +83,6 @@ public class RepositoryReferencesItemProvider extends AggregatorItemProviderAdap
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -99,12 +99,11 @@ public class RepositoryReferencesItemProvider extends AggregatorItemProviderAdap
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
-		if(childrenFeatures == null) {
+		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(P2viewPackage.Literals.REPOSITORY_REFERENCES__REPOSITORY_REFERENCES);
 		}
@@ -115,7 +114,6 @@ public class RepositoryReferencesItemProvider extends AggregatorItemProviderAdap
 	 * This returns RepositoryReferences.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -127,12 +125,11 @@ public class RepositoryReferencesItemProvider extends AggregatorItemProviderAdap
 	 * This returns the property descriptors for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-		if(itemPropertyDescriptors == null) {
+		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
 			addRepositoryReferencesPropertyDescriptor(object);
@@ -144,7 +141,6 @@ public class RepositoryReferencesItemProvider extends AggregatorItemProviderAdap
 	 * Return the resource locator for this item provider's resources.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -156,7 +152,6 @@ public class RepositoryReferencesItemProvider extends AggregatorItemProviderAdap
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -169,7 +164,6 @@ public class RepositoryReferencesItemProvider extends AggregatorItemProviderAdap
 	 * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override

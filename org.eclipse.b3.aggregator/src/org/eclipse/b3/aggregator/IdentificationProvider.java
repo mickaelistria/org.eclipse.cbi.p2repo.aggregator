@@ -21,7 +21,6 @@ public interface IdentificationProvider {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @model kind="operation" required="true"
 	 * @generated
 	 */

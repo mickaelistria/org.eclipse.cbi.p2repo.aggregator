@@ -18,7 +18,6 @@ import org.eclipse.emf.common.util.Enumerator;
 /**
  * <!-- begin-user-doc --> A representation of the literals of the enumeration '<em><b>Installable Unit Type</b></em>',
  * and utility methods for working with them. <!-- end-user-doc -->
- *
  * @see org.eclipse.b3.aggregator.AggregatorPackage#getInstallableUnitType()
  * @model
  * @generated
@@ -27,7 +26,6 @@ public enum InstallableUnitType implements Enumerator {
 	/**
 	 * The '<em><b>BUNDLE</b></em>' literal object.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @see #BUNDLE_VALUE
 	 * @generated
 	 * @ordered
@@ -37,7 +35,6 @@ public enum InstallableUnitType implements Enumerator {
 	/**
 	 * The '<em><b>FEATURE</b></em>' literal object.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @see #FEATURE_VALUE
 	 * @generated
 	 * @ordered
@@ -47,7 +44,6 @@ public enum InstallableUnitType implements Enumerator {
 	/**
 	 * The '<em><b>PRODUCT</b></em>' literal object.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @see #PRODUCT_VALUE
 	 * @generated
 	 * @ordered
@@ -57,7 +53,6 @@ public enum InstallableUnitType implements Enumerator {
 	/**
 	 * The '<em><b>CATEGORY</b></em>' literal object.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @see #CATEGORY_VALUE
 	 * @generated
 	 * @ordered
@@ -67,7 +62,6 @@ public enum InstallableUnitType implements Enumerator {
 	/**
 	 * The '<em><b>FRAGMENT</b></em>' literal object.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @see #FRAGMENT_VALUE
 	 * @generated
 	 * @ordered
@@ -77,7 +71,6 @@ public enum InstallableUnitType implements Enumerator {
 	/**
 	 * The '<em><b>OTHER</b></em>' literal object.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @see #OTHER_VALUE
 	 * @generated
 	 * @ordered
@@ -91,7 +84,6 @@ public enum InstallableUnitType implements Enumerator {
 	 * If the meaning of '<em><b>BUNDLE</b></em>' literal object isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 *
 	 * @see #BUNDLE
 	 * @model literal="bundle"
 	 * @generated
@@ -106,7 +98,6 @@ public enum InstallableUnitType implements Enumerator {
 	 * If the meaning of '<em><b>FEATURE</b></em>' literal object isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 *
 	 * @see #FEATURE
 	 * @model literal="feature"
 	 * @generated
@@ -121,7 +112,6 @@ public enum InstallableUnitType implements Enumerator {
 	 * If the meaning of '<em><b>PRODUCT</b></em>' literal object isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 *
 	 * @see #PRODUCT
 	 * @model literal="product"
 	 * @generated
@@ -136,7 +126,6 @@ public enum InstallableUnitType implements Enumerator {
 	 * If the meaning of '<em><b>CATEGORY</b></em>' literal object isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 *
 	 * @see #CATEGORY
 	 * @model literal="category"
 	 * @generated
@@ -151,7 +140,6 @@ public enum InstallableUnitType implements Enumerator {
 	 * If the meaning of '<em><b>FRAGMENT</b></em>' literal object isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 *
 	 * @see #FRAGMENT
 	 * @model literal="fragment"
 	 * @generated
@@ -166,7 +154,6 @@ public enum InstallableUnitType implements Enumerator {
 	 * If the meaning of '<em><b>OTHER</b></em>' literal object isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 *
 	 * @see #OTHER
 	 * @model literal="other"
 	 * @generated
@@ -178,17 +165,21 @@ public enum InstallableUnitType implements Enumerator {
 	 * An array of all the '<em><b>Installable Unit Type</b></em>' enumerators.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 *
 	 * @generated
 	 */
 	private static final InstallableUnitType[] VALUES_ARRAY = new InstallableUnitType[] {
-			BUNDLE, FEATURE, PRODUCT, CATEGORY, FRAGMENT, OTHER, };
+			BUNDLE,
+			FEATURE,
+			PRODUCT,
+			CATEGORY,
+			FRAGMENT,
+			OTHER,
+		};
 
 	/**
 	 * A public read-only list of all the '<em><b>Installable Unit Type</b></em>' enumerators.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	public static final List<InstallableUnitType> VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
@@ -197,23 +188,18 @@ public enum InstallableUnitType implements Enumerator {
 	 * Returns the '<em><b>Installable Unit Type</b></em>' literal with the specified integer value.
 	 * <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
-	 *
+	 * @param value the integer value.
+	 * @return the matching enumerator or <code>null</code>.
 	 * @generated
 	 */
 	public static InstallableUnitType get(int value) {
-		switch(value) {
-			case BUNDLE_VALUE:
-				return BUNDLE;
-			case FEATURE_VALUE:
-				return FEATURE;
-			case PRODUCT_VALUE:
-				return PRODUCT;
-			case CATEGORY_VALUE:
-				return CATEGORY;
-			case FRAGMENT_VALUE:
-				return FRAGMENT;
-			case OTHER_VALUE:
-				return OTHER;
+		switch (value) {
+			case BUNDLE_VALUE: return BUNDLE;
+			case FEATURE_VALUE: return FEATURE;
+			case PRODUCT_VALUE: return PRODUCT;
+			case CATEGORY_VALUE: return CATEGORY;
+			case FRAGMENT_VALUE: return FRAGMENT;
+			case OTHER_VALUE: return OTHER;
 		}
 		return null;
 	}
@@ -222,13 +208,14 @@ public enum InstallableUnitType implements Enumerator {
 	 * Returns the '<em><b>Installable Unit Type</b></em>' literal with the specified literal value.
 	 * <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
-	 *
+	 * @param literal the literal.
+	 * @return the matching enumerator or <code>null</code>.
 	 * @generated
 	 */
 	public static InstallableUnitType get(String literal) {
-		for(int i = 0; i < VALUES_ARRAY.length; ++i) {
+		for (int i = 0; i < VALUES_ARRAY.length; ++i) {
 			InstallableUnitType result = VALUES_ARRAY[i];
-			if(result.toString().equals(literal)) {
+			if (result.toString().equals(literal)) {
 				return result;
 			}
 		}
@@ -239,13 +226,14 @@ public enum InstallableUnitType implements Enumerator {
 	 * Returns the '<em><b>Installable Unit Type</b></em>' literal with the specified name.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 *
+	 * @param name the name.
+	 * @return the matching enumerator or <code>null</code>.
 	 * @generated
 	 */
 	public static InstallableUnitType getByName(String name) {
-		for(int i = 0; i < VALUES_ARRAY.length; ++i) {
+		for (int i = 0; i < VALUES_ARRAY.length; ++i) {
 			InstallableUnitType result = VALUES_ARRAY[i];
-			if(result.getName().equals(name)) {
+			if (result.getName().equals(name)) {
 				return result;
 			}
 		}
@@ -254,21 +242,18 @@ public enum InstallableUnitType implements Enumerator {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	private final int value;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	private final String name;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	private final String literal;
@@ -276,7 +261,6 @@ public enum InstallableUnitType implements Enumerator {
 	/**
 	 * Only this class can construct instances.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	private InstallableUnitType(int value, String name, String literal) {
@@ -287,36 +271,32 @@ public enum InstallableUnitType implements Enumerator {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	public String getLiteral() {
-		return literal;
+	  return literal;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	public String getName() {
-		return name;
+	  return name;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	public int getValue() {
-		return value;
+	  return value;
 	}
 
 	/**
 	 * Returns the literal value of the enumerator, which is its string representation.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override

@@ -38,7 +38,6 @@ public interface Aggregation extends DescriptionProvider, StatusProvider, InfosP
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @model
 	 * @generated
 	 */
@@ -46,7 +45,6 @@ public interface Aggregation extends DescriptionProvider, StatusProvider, InfosP
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @model
 	 * @generated
 	 */
@@ -59,7 +57,6 @@ public interface Aggregation extends DescriptionProvider, StatusProvider, InfosP
 	 * If the meaning of the '<em>Buildmaster</em>' containment reference isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 *
 	 * @return the value of the '<em>Buildmaster</em>' reference.
 	 * @see #setBuildmaster(Contact)
 	 * @see org.eclipse.b3.aggregator.AggregatorPackage#getAggregation_Buildmaster()
@@ -76,7 +73,6 @@ public interface Aggregation extends DescriptionProvider, StatusProvider, InfosP
 	 * If the meaning of the '<em>Build Root</em>' attribute isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 *
 	 * @return the value of the '<em>Build Root</em>' attribute.
 	 * @see #setBuildRoot(String)
 	 * @see org.eclipse.b3.aggregator.AggregatorPackage#getAggregation_BuildRoot()
@@ -93,7 +89,6 @@ public interface Aggregation extends DescriptionProvider, StatusProvider, InfosP
 	 * If the meaning of the '<em>Configurations</em>' containment reference list isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 *
 	 * @return the value of the '<em>Configurations</em>' containment reference list.
 	 * @see org.eclipse.b3.aggregator.AggregatorPackage#getAggregation_Configurations()
 	 * @model containment="true" resolveProxies="true" required="true"
@@ -110,7 +105,6 @@ public interface Aggregation extends DescriptionProvider, StatusProvider, InfosP
 	 * If the meaning of the '<em>Contacts</em>' containment reference list isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 *
 	 * @return the value of the '<em>Contacts</em>' containment reference list.
 	 * @see org.eclipse.b3.aggregator.AggregatorPackage#getAggregation_Contacts()
 	 * @see org.eclipse.b3.aggregator.Contact#getAggregation
@@ -127,7 +121,6 @@ public interface Aggregation extends DescriptionProvider, StatusProvider, InfosP
 	 * If the meaning of the '<em>Custom Categories</em>' containment reference list isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 *
 	 * @return the value of the '<em>Custom Categories</em>' containment reference list.
 	 * @see org.eclipse.b3.aggregator.AggregatorPackage#getAggregation_CustomCategories()
 	 * @model containment="true" resolveProxies="true" keys="identifier"
@@ -142,7 +135,6 @@ public interface Aggregation extends DescriptionProvider, StatusProvider, InfosP
 	 * If the meaning of the '<em>Label</em>' attribute isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 *
 	 * @return the value of the '<em>Label</em>' attribute.
 	 * @see #setLabel(String)
 	 * @see org.eclipse.b3.aggregator.AggregatorPackage#getAggregation_Label()
@@ -159,7 +151,6 @@ public interface Aggregation extends DescriptionProvider, StatusProvider, InfosP
 	 * If the meaning of the '<em>Maven Mappings</em>' reference list isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 *
 	 * @return the value of the '<em>Maven Mappings</em>' containment reference list.
 	 * @see org.eclipse.b3.aggregator.AggregatorPackage#getAggregation_MavenMappings()
 	 * @model containment="true" resolveProxies="true"
@@ -175,7 +166,6 @@ public interface Aggregation extends DescriptionProvider, StatusProvider, InfosP
 	 * If the meaning of the '<em>Packed Strategy</em>' attribute isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 *
 	 * @return the value of the '<em>Packed Strategy</em>' attribute.
 	 * @see org.eclipse.b3.aggregator.PackedStrategy
 	 * @see #setPackedStrategy(PackedStrategy)
@@ -193,7 +183,6 @@ public interface Aggregation extends DescriptionProvider, StatusProvider, InfosP
 	 * If the meaning of the '<em>Type</em>' attribute isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 *
 	 * @return the value of the '<em>Type</em>' attribute.
 	 * @see org.eclipse.b3.aggregator.AggregationType
 	 * @see #setType(AggregationType)
@@ -211,7 +200,6 @@ public interface Aggregation extends DescriptionProvider, StatusProvider, InfosP
 	 * If the meaning of the '<em>ValidationSets</em>' containment reference list isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 *
 	 * @return the value of the '<em>Validation Sets</em>' containment reference list.
 	 * @see org.eclipse.b3.aggregator.AggregatorPackage#getAggregation_ValidationSets()
 	 * @model containment="true" resolveProxies="true" keys="label"
@@ -222,7 +210,6 @@ public interface Aggregation extends DescriptionProvider, StatusProvider, InfosP
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @model
 	 * @generated
 	 */
@@ -236,7 +223,6 @@ public interface Aggregation extends DescriptionProvider, StatusProvider, InfosP
 	 * If the meaning of the '<em>Allow Legacy Sites</em>' attribute isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 *
 	 * @return the value of the '<em>Allow Legacy Sites</em>' attribute.
 	 * @see #setAllowLegacySites(boolean)
 	 * @see org.eclipse.b3.aggregator.AggregatorPackage#getAggregation_AllowLegacySites()
@@ -252,7 +238,6 @@ public interface Aggregation extends DescriptionProvider, StatusProvider, InfosP
 	 * If the meaning of the '<em>Maven Result</em>' attribute isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 *
 	 * @return the value of the '<em>Maven Result</em>' attribute.
 	 * @see #setMavenResult(boolean)
 	 * @see org.eclipse.b3.aggregator.AggregatorPackage#getAggregation_MavenResult()
@@ -268,7 +253,6 @@ public interface Aggregation extends DescriptionProvider, StatusProvider, InfosP
 	 * If the meaning of the '<em>Sendmail</em>' attribute isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 *
 	 * @return the value of the '<em>Sendmail</em>' attribute.
 	 * @see #setSendmail(boolean)
 	 * @see org.eclipse.b3.aggregator.AggregatorPackage#getAggregation_Sendmail()
@@ -284,7 +268,6 @@ public interface Aggregation extends DescriptionProvider, StatusProvider, InfosP
 	 * If the meaning of the '<em>Strict Maven Versions</em>' attribute isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 *
 	 * @return the value of the '<em>Strict Maven Versions</em>' attribute.
 	 * @see #setStrictMavenVersions(boolean)
 	 * @see org.eclipse.b3.aggregator.AggregatorPackage#getAggregation_StrictMavenVersions()
@@ -297,9 +280,7 @@ public interface Aggregation extends DescriptionProvider, StatusProvider, InfosP
 	 * Sets the value of the '{@link org.eclipse.b3.aggregator.Aggregation#isAllowLegacySites <em>Allow Legacy Sites</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
-	 * @param value
-	 *            the new value of the '<em>Allow Legacy Sites</em>' attribute.
+	 * @param value the new value of the '<em>Allow Legacy Sites</em>' attribute.
 	 * @see #isAllowLegacySites()
 	 * @generated
 	 */
@@ -308,20 +289,42 @@ public interface Aggregation extends DescriptionProvider, StatusProvider, InfosP
 	/**
 	 * Sets the value of the '{@link org.eclipse.b3.aggregator.Aggregation#getBuildmaster <em>Buildmaster</em>}' reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
-	 * @param value
-	 *            the new value of the '<em>Buildmaster</em>' reference.
+	 * @param value the new value of the '<em>Buildmaster</em>' reference.
 	 * @see #getBuildmaster()
 	 * @generated
 	 */
 	void setBuildmaster(Contact value);
 
 	/**
+	 * Returns the value of the '<em><b>Buildmaster Backup</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Buildmaster Backup</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Buildmaster Backup</em>' reference.
+	 * @see #setBuildmasterBackup(Contact)
+	 * @see org.eclipse.b3.aggregator.AggregatorPackage#getAggregation_BuildmasterBackup()
+	 * @model keys="email"
+	 * @generated
+	 */
+	Contact getBuildmasterBackup();
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.b3.aggregator.Aggregation#getBuildmasterBackup <em>Buildmaster Backup</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Buildmaster Backup</em>' reference.
+	 * @see #getBuildmasterBackup()
+	 * @generated
+	 */
+	void setBuildmasterBackup(Contact value);
+
+	/**
 	 * Sets the value of the '{@link org.eclipse.b3.aggregator.Aggregation#getBuildRoot <em>Build Root</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
-	 * @param value
-	 *            the new value of the '<em>Build Root</em>' attribute.
+	 * @param value the new value of the '<em>Build Root</em>' attribute.
 	 * @see #getBuildRoot()
 	 * @generated
 	 */
@@ -330,9 +333,7 @@ public interface Aggregation extends DescriptionProvider, StatusProvider, InfosP
 	/**
 	 * Sets the value of the '{@link org.eclipse.b3.aggregator.Aggregation#getLabel <em>Label</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
-	 * @param value
-	 *            the new value of the '<em>Label</em>' attribute.
+	 * @param value the new value of the '<em>Label</em>' attribute.
 	 * @see #getLabel()
 	 * @generated
 	 */
@@ -341,9 +342,7 @@ public interface Aggregation extends DescriptionProvider, StatusProvider, InfosP
 	/**
 	 * Sets the value of the '{@link org.eclipse.b3.aggregator.Aggregation#isMavenResult <em>Maven Result</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
-	 * @param value
-	 *            the new value of the '<em>Maven Result</em>' attribute.
+	 * @param value the new value of the '<em>Maven Result</em>' attribute.
 	 * @see #isMavenResult()
 	 * @generated
 	 */
@@ -352,9 +351,7 @@ public interface Aggregation extends DescriptionProvider, StatusProvider, InfosP
 	/**
 	 * Sets the value of the '{@link org.eclipse.b3.aggregator.Aggregation#getPackedStrategy <em>Packed Strategy</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
-	 * @param value
-	 *            the new value of the '<em>Packed Strategy</em>' attribute.
+	 * @param value the new value of the '<em>Packed Strategy</em>' attribute.
 	 * @see org.eclipse.b3.aggregator.PackedStrategy
 	 * @see #getPackedStrategy()
 	 * @generated
@@ -364,9 +361,7 @@ public interface Aggregation extends DescriptionProvider, StatusProvider, InfosP
 	/**
 	 * Sets the value of the '{@link org.eclipse.b3.aggregator.Aggregation#isSendmail <em>Sendmail</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
-	 * @param value
-	 *            the new value of the '<em>Sendmail</em>' attribute.
+	 * @param value the new value of the '<em>Sendmail</em>' attribute.
 	 * @see #isSendmail()
 	 * @generated
 	 */
@@ -376,9 +371,7 @@ public interface Aggregation extends DescriptionProvider, StatusProvider, InfosP
 	 * Sets the value of the '{@link org.eclipse.b3.aggregator.Aggregation#isStrictMavenVersions <em>Strict Maven Versions</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
-	 * @param value
-	 *            the new value of the '<em>Strict Maven Versions</em>' attribute.
+	 * @param value the new value of the '<em>Strict Maven Versions</em>' attribute.
 	 * @see #isStrictMavenVersions()
 	 * @generated
 	 */
@@ -388,9 +381,7 @@ public interface Aggregation extends DescriptionProvider, StatusProvider, InfosP
 	 * Sets the value of the '{@link org.eclipse.b3.aggregator.Aggregation#getType <em>Type</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
-	 * @param value
-	 *            the new value of the '<em>Type</em>' attribute.
+	 * @param value the new value of the '<em>Type</em>' attribute.
 	 * @see org.eclipse.b3.aggregator.AggregationType
 	 * @see #getType()
 	 * @generated

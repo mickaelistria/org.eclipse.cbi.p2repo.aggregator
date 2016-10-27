@@ -354,13 +354,13 @@ public class Builder extends ModelAbstractCommand {
 	// @Option(name = "--buildModel", required = true, usage = "Appoints the aggregation definition that drives the execution")
 	// private File buildModelLocation;
 
-	private static void send(String host, int port, EmailAddress from, List<EmailAddress> toList, EmailAddress cc,
-			String subject, String message) throws IOException {
+	private static void send(String host, int port, EmailAddress from, List<EmailAddress> toList,
+			List<EmailAddress> ccList, String subject, String message) throws IOException {
 		MailMessage mailMessage = new MailMessage(host, port);
 		mailMessage.from(from.toString());
 		for(EmailAddress to : toList)
 			mailMessage.to(to.toString());
-		if(cc != null)
+		for(EmailAddress cc : ccList)
 			mailMessage.cc(cc.toString());
 		mailMessage.setSubject(subject);
 		mailMessage.setHeader("Date", DateUtils.getDateForHeader());
@@ -373,29 +373,29 @@ public class Builder extends ModelAbstractCommand {
 	@Option(name = "--action", usage = "Specifies the type of the execution. Default is BUILD.")
 	private ActionType action = ActionType.BUILD;
 
-	@Option(name = "--buildId", usage = "Assigns a build identifier to the aggregation. "
-			+ "The identifier is used to identify the build in notification emails. Defaults to: "
-			+ "build-<timestamp> where <timestamp> is formatted according as yyyyMMddHHmm, i.e. build-200911031527", metaVar = "<ID>")
+	@Option(name = "--buildId", usage = "Assigns a build identifier to the aggregation. " +
+			"The identifier is used to identify the build in notification emails. Defaults to: " +
+			"build-<timestamp> where <timestamp> is formatted according as yyyyMMddHHmm, i.e. build-200911031527", metaVar = "<ID>")
 	private String buildID;
 
-	@Option(name = "--buildRoot", usage = "Controls the output. Defaults to the build root defined in the"
-			+ " aggregation definition.")
+	@Option(name = "--buildRoot", usage = "Controls the output. Defaults to the build root defined in the" +
+			" aggregation definition.")
 	private File buildRoot;
 
-	@Option(name = "--logURL", usage = "The URL that will be pasted into the emails. "
-			+ "Should normally point to the a public URL for output log for the aggregator so "
-			+ "that the receiver can browse the log for details on failures.", metaVar = "<url>")
+	@Option(name = "--logURL", usage = "The URL that will be pasted into the emails. " +
+			"Should normally point to the a public URL for output log for the aggregator so " +
+			"that the receiver can browse the log for details on failures.", metaVar = "<url>")
 	private String logURL;
 
-	@Option(name = "--production", usage = "Indicates that the build is running in real production. "
-			+ "That means that no mock emails will be sent. Instead, the contacts listed for each contribution will get emails when things go wrong.")
+	@Option(name = "--production", usage = "Indicates that the build is running in real production. " +
+			"That means that no mock emails will be sent. Instead, the contacts listed for each contribution will get emails when things go wrong.")
 	private boolean production = false;
 
 	@Option(name = "--mockEmailCc", usage = "Becomes the CC receiver of the mock-emails sent from the aggregator", metaVar = "<address>")
 	private String mockEmailCC;
 
-	@Option(name = "--emailFrom", usage = "Becomes the sender of the emails sent from the aggregator. "
-			+ "Defaults to the build master defined in the aggregator definition.", metaVar = "<address>")
+	@Option(name = "--emailFrom", usage = "Becomes the sender of the emails sent from the aggregator. " +
+			"Defaults to the build master defined in the aggregator definition.", metaVar = "<address>")
 	private String emailFrom;
 
 	@Option(name = "--emailFromName", usage = "Mock sender's name", metaVar = "<name>")
@@ -412,18 +412,18 @@ public class Builder extends ModelAbstractCommand {
 	@Option(name = "--smtpPort", usage = "The SMTP port number to use when talking to the SMTP host. Default is 25.", metaVar = "<port>")
 	private int smtpPort;
 
-	@Option(name = "--subjectPrefix", usage = "The prefix to use for the subject when sending emails. "
-			+ "Defaults to the label defined in the aggregation definition. "
-			+ "The subject is formatted as: \"[<subjectPrefix>] Failed for build <buildId>\"", metaVar = "<subject>")
+	@Option(name = "--subjectPrefix", usage = "The prefix to use for the subject when sending emails. " +
+			"Defaults to the label defined in the aggregation definition. " +
+			"The subject is formatted as: \"[<subjectPrefix>] Failed for build <buildId>\"", metaVar = "<subject>")
 	private String subjectPrefix;
 
-	@Option(name = "--packedStrategy", usage = "(Deprecated) Controls how mirroring is done of packed artifacts found in the source repository."
-			+ "Defaults to the setting in the aggregation definition.")
+	@Option(name = "--packedStrategy", usage = "(Deprecated) Controls how mirroring is done of packed artifacts found in the source repository." +
+			"Defaults to the setting in the aggregation definition.")
 	private PackedStrategy packedStrategy;
 
-	@Option(name = "--trustedContributions", usage = "(Deprecated) A comma separated list of contributions with repositories that will be referenced directly "
-			+ "(through a composite repository) rather than mirrored into the final repository "
-			+ "(even if the repository is set to mirror artifacts by default)", metaVar = "<contributions>")
+	@Option(name = "--trustedContributions", usage = "(Deprecated) A comma separated list of contributions with repositories that will be referenced directly " +
+			"(through a composite repository) rather than mirrored into the final repository " +
+			"(even if the repository is set to mirror artifacts by default)", metaVar = "<contributions>")
 	private String trustedContributions;
 
 	@Option(name = "--validationContributions", usage = "(Deprecated) A comma separated list of contributions with repositories that will be used for aggregation validation only rather than mirrored or referenced into the final repository.", metaVar = "<contributions>")
@@ -458,6 +458,10 @@ public class Builder extends ModelAbstractCommand {
 	private String buildMasterEmail;
 
 	private String buildMasterName;
+
+	private String buildMasterBackupEmail;
+
+	private String buildMasterBackupName;
 
 	private IMetadataRepository aggregationMdr;
 
@@ -621,7 +625,8 @@ public class Builder extends ModelAbstractCommand {
 						File newLocation = new File(destination, name);
 						if(!oldLocation.renameTo(newLocation))
 							throw ExceptionUtils.fromMessage(
-								"Unable to move %s to %s", oldLocation.getAbsolutePath(), newLocation.getAbsolutePath());
+								"Unable to move %s to %s", oldLocation.getAbsolutePath(),
+								newLocation.getAbsolutePath());
 					}
 					else {
 						FileUtils.deleteAll(oldLocation);
@@ -659,8 +664,8 @@ public class Builder extends ModelAbstractCommand {
 				try {
 					out = new BufferedOutputStream(new FileOutputStream(p2IndexFile));
 					p2Index.store(
-						out,
-						String.format(" p2.index file to speed things up.%n Please note that the values in this file denotes repository factories and%n not files. The factory '<name>.xml' will look for both the <name>.jar%n and the <name>.xml file, in that order"));
+						out, String.format(
+							" p2.index file to speed things up.%n Please note that the values in this file denotes repository factories and%n not files. The factory '<name>.xml' will look for both the <name>.jar%n and the <name>.xml file, in that order"));
 				}
 				catch(IOException e) {
 					LogUtils.error("Unable to create p2.index file", e);
@@ -703,8 +708,8 @@ public class Builder extends ModelAbstractCommand {
 			aggregationAr = (IFileArtifactRepository) arMgr.loadRepository(aggregateURI, monitor);
 		}
 		catch(ProvisionException e) {
-			aggregationAr = (IFileArtifactRepository) arMgr.createRepository(aggregateURI, getAggregation().getLabel() +
-					" artifacts", SIMPLE_ARTIFACTS_TYPE, properties); //$NON-NLS-1$
+			aggregationAr = (IFileArtifactRepository) arMgr.createRepository(
+				aggregateURI, getAggregation().getLabel() + " artifacts", SIMPLE_ARTIFACTS_TYPE, properties); //$NON-NLS-1$
 			MonitorUtils.complete(monitor);
 		}
 		return aggregationAr;
@@ -766,7 +771,8 @@ public class Builder extends ModelAbstractCommand {
 			if(config == null)
 				throw ExceptionUtils.fromMessage("No loader for %s", repo.getNature());
 			IRepositoryLoader repoLoader = (IRepositoryLoader) config.createExecutableExtension("class");
-			arCache.put(repo, ar = repoLoader.getArtifactRepository(ResourceUtils.getMetadataRepository(repo), monitor));
+			arCache.put(
+				repo, ar = repoLoader.getArtifactRepository(ResourceUtils.getMetadataRepository(repo), monitor));
 		}
 		return ar;
 	}
@@ -817,7 +823,8 @@ public class Builder extends ModelAbstractCommand {
 		int i;
 		String location;
 		{
-			org.eclipse.emf.common.util.URI repoURI = org.eclipse.emf.common.util.URI.createURI(repository.getResolvedLocation());
+			org.eclipse.emf.common.util.URI repoURI = org.eclipse.emf.common.util.URI.createURI(
+				repository.getResolvedLocation());
 			String scheme = repoURI.scheme();
 
 			location = repoURI.toString();
@@ -842,8 +849,8 @@ public class Builder extends ModelAbstractCommand {
 		safeName = location;
 		while(safeRepositoryNames.contains(safeName)) {
 			if(++i < 0) // if overflow
-				throw new IllegalArgumentException("Could not generate safe unique name for mapped repository: " +
-						repository.getLocation());
+				throw new IllegalArgumentException(
+					"Could not generate safe unique name for mapped repository: " + repository.getLocation());
 
 			safeName = location + '_' + i;
 		}
@@ -900,8 +907,8 @@ public class Builder extends ModelAbstractCommand {
 		ValidationSetAnnotations vsas = getValidationSetAnnotations(validationSet);
 		URI compositeURI = vsas.getSourceCompositeURI();
 		if(compositeURI == null) {
-			compositeURI = createURI(new File(new File(buildRoot, REPO_FOLDER_INTERIM), getSafeValidationSetName(
-				validationSet, vsas)));
+			compositeURI = createURI(
+				new File(new File(buildRoot, REPO_FOLDER_INTERIM), getSafeValidationSetName(validationSet, vsas)));
 			vsas.setSourceCompositeURI(compositeURI);
 		}
 		return compositeURI;
@@ -1187,8 +1194,9 @@ public class Builder extends ModelAbstractCommand {
 							}
 						}
 					if(!found)
-						throw ExceptionUtils.fromMessage("Unable to trust contribution " + contributionLabel +
-								": contribution does not exist or is not enabled");
+						throw ExceptionUtils.fromMessage(
+							"Unable to trust contribution " + contributionLabel +
+									": contribution does not exist or is not enabled");
 				}
 			}
 
@@ -1221,8 +1229,9 @@ public class Builder extends ModelAbstractCommand {
 					}
 
 					if(!found)
-						throw ExceptionUtils.fromMessage("Unable to use contribution " + contributionLabel +
-								" for validation only: contribution does not exist");
+						throw ExceptionUtils.fromMessage(
+							"Unable to use contribution " + contributionLabel +
+									" for validation only: contribution does not exist");
 
 					for(CustomCategory customCategory : aggregation.getCustomCategories()) {
 						Iterator<Feature> iterator = customCategory.getFeatures().iterator();
@@ -1256,7 +1265,8 @@ public class Builder extends ModelAbstractCommand {
 				aggregation.setMavenResult(mavenResult.booleanValue());
 
 			if(trustedContributions != null && aggregation.isMavenResult())
-				throw ExceptionUtils.fromMessage("Options --trustedContributions cannot be used if maven result is required");
+				throw ExceptionUtils.fromMessage(
+					"Options --trustedContributions cannot be used if maven result is required");
 
 			sendmail = aggregation.isSendmail();
 			buildLabel = aggregation.getLabel();
@@ -1266,7 +1276,11 @@ public class Builder extends ModelAbstractCommand {
 				buildMasterName = buildMaster.getName();
 				buildMasterEmail = buildMaster.getEmail();
 			}
-
+			Contact buildMasterBackup = aggregation.getBuildmasterBackup();
+			if(buildMasterBackup != null) {
+				buildMasterBackupName = buildMasterBackup.getName();
+				buildMasterBackupEmail = buildMasterBackup.getEmail();
+			}
 			Diagnostic diag = Diagnostician.INSTANCE.validate((EObject) aggregation);
 			if(diag.getSeverity() == Diagnostic.ERROR) {
 				StringBuilder bld = new StringBuilder("Aggregation model is inconsistent: ").append(diag.getMessage());
@@ -1301,8 +1315,8 @@ public class Builder extends ModelAbstractCommand {
 		File aggregateDestination = new File(destination, REPO_FOLDER_AGGREGATE);
 
 		MavenManager.saveMetadata(
-			org.eclipse.emf.common.util.URI.createFileURI(aggregateDestination.getAbsolutePath()),
-			mavenHelper.getTop(), errors);
+			org.eclipse.emf.common.util.URI.createFileURI(aggregateDestination.getAbsolutePath()), mavenHelper.getTop(),
+			errors);
 
 		if(errors.size() > 0) {
 			everythingOk = false;
@@ -1334,16 +1348,20 @@ public class Builder extends ModelAbstractCommand {
 				String location = "${repoUrl}/non-p2/" + repo.getNature() + '/' + key.getClassifier() + '/' +
 						(originalPath != null
 								? (originalPath + '/')
-								: "") + originalId + '_' + versionString + '.' + key.getClassifier();
+								: "") +
+						originalId + '_' + versionString + '.' + key.getClassifier();
 
-				mappingRules.add(new String[] {
-						"(& (classifier=" + IUUtils.encodeFilterValue(key.getClassifier()) + ") (id=" +
-								IUUtils.encodeFilterValue(key.getId()) + ") (version=" +
-								IUUtils.encodeFilterValue(iu.getVersion().toString()) + "))", location });
+				mappingRules.add(
+					new String[] {
+							"(& (classifier=" + IUUtils.encodeFilterValue(key.getClassifier()) + ") (id=" +
+									IUUtils.encodeFilterValue(key.getId()) + ") (version=" +
+									IUUtils.encodeFilterValue(iu.getVersion().toString()) + "))",
+							location });
 			}
 			else {
 				for(IArtifactDescriptor desc : ar.getArtifactDescriptors(key)) {
-					String ref = ((SimpleArtifactDescriptor) desc).getRepositoryProperty(SimpleArtifactDescriptor.ARTIFACT_REFERENCE);
+					String ref = ((SimpleArtifactDescriptor) desc).getRepositoryProperty(
+						SimpleArtifactDescriptor.ARTIFACT_REFERENCE);
 					SimpleArtifactDescriptor ad = new SimpleArtifactDescriptor(desc);
 					ad.setRepositoryProperty(SimpleArtifactDescriptor.ARTIFACT_REFERENCE, ref);
 					referencedArtifacts.add(ad);
@@ -1373,7 +1391,8 @@ public class Builder extends ModelAbstractCommand {
 			for(MappedRepository repo : repos) {
 				if(!repo.isMirrorArtifacts()) {
 					String msg = String.format(
-						"Repository %s must be set to mirror artifacts if maven result is required", repo.getLocation());
+						"Repository %s must be set to mirror artifacts if maven result is required",
+						repo.getLocation());
 					LogUtils.error(msg);
 					errors.add(msg);
 					MonitorUtils.worked(contribMonitor, 100);
@@ -1400,7 +1419,8 @@ public class Builder extends ModelAbstractCommand {
 			}
 			if(errors.size() > 0) {
 				sendEmail(contrib, errors);
-				throw ExceptionUtils.fromMessage("All repositories must be set to mirror artifacts if maven result is required");
+				throw ExceptionUtils.fromMessage(
+					"All repositories must be set to mirror artifacts if maven result is required");
 			}
 			MonitorUtils.done(contribMonitor);
 		}
@@ -1414,8 +1434,8 @@ public class Builder extends ModelAbstractCommand {
 		}
 		else
 			throw ExceptionUtils.fromMessage(
-				"Unexpected repository implementation: Expected %s, found %s",
-				SimpleArtifactRepository.class.getName(), aggregateAr.getClass().getName());
+				"Unexpected repository implementation: Expected %s, found %s", SimpleArtifactRepository.class.getName(),
+				aggregateAr.getClass().getName());
 
 		if(packedStrategy != PackedStrategy.SKIP && packedStrategy != PackedStrategy.UNPACK &&
 				packedStrategy != PackedStrategy.UNPACK_AS_SIBLING) {
@@ -1489,11 +1509,10 @@ public class Builder extends ModelAbstractCommand {
 		}
 	}
 
-	private EmailAddress mockCCRecipient() throws UnsupportedEncodingException {
-		EmailAddress mock = null;
+	private List<EmailAddress> mockCCRecipients() throws UnsupportedEncodingException {
 		if(mockEmailCC != null)
-			mock = new EmailAddress(mockEmailCC, null);
-		return mock;
+			return Collections.singletonList(new EmailAddress(mockEmailCC, null));
+		return Collections.emptyList();
 	}
 
 	private List<EmailAddress> mockRecipients() throws UnsupportedEncodingException {
@@ -1571,6 +1590,8 @@ public class Builder extends ModelAbstractCommand {
 				case CLEAN:
 				case CLEAN_BUILD:
 					cleanAll();
+					break;
+				default:
 					break;
 			}
 			if(action == ActionType.CLEAN)
@@ -1704,7 +1725,8 @@ public class Builder extends ModelAbstractCommand {
 		ipt.run(monitor);
 	}
 
-	private void runVerificationIUGenerator(ValidationSet validationSet, IProgressMonitor monitor) throws CoreException {
+	private void runVerificationIUGenerator(ValidationSet validationSet, IProgressMonitor monitor)
+			throws CoreException {
 		VerificationIUGenerator generator = new VerificationIUGenerator(this, validationSet);
 		generator.run(monitor);
 	}
@@ -1716,6 +1738,10 @@ public class Builder extends ModelAbstractCommand {
 
 		try {
 			EmailAddress buildMaster = new EmailAddress(buildMasterEmail, buildMasterName);
+			EmailAddress buildMasterBackup = null;
+			if(buildMasterBackupEmail != null) {
+				buildMasterBackup = new EmailAddress(buildMasterBackupEmail, buildMasterBackupName);
+			}
 			EmailAddress emailFromAddr;
 			if(emailFrom != null)
 				emailFromAddr = new EmailAddress(emailFrom, emailFromName);
@@ -1723,8 +1749,15 @@ public class Builder extends ModelAbstractCommand {
 				emailFromAddr = buildMaster;
 
 			List<EmailAddress> toList = new ArrayList<EmailAddress>();
-			if(contrib == null)
+			List<EmailAddress> ccList = new ArrayList<EmailAddress>();
+			ccList.add(buildMaster);
+			if(buildMasterBackup != null) {
+				ccList.add(buildMasterBackup);
+			}
+			if(contrib == null) {
 				toList.add(buildMaster);
+				toList.add(buildMasterBackup);
+			}
 			else
 				for(Contact contact : contrib.getContacts())
 					toList.add(new EmailAddress(contact.getEmail(), contact.getName()));
@@ -1787,20 +1820,22 @@ public class Builder extends ModelAbstractCommand {
 			LogUtils.info("Message content: %s", msgContent);
 
 			List<EmailAddress> recipients;
-			EmailAddress ccRecipient = null;
+			List<EmailAddress> ccRecipients = null;
 			if(useMock) {
 				recipients = mockRecipients();
-				ccRecipient = mockCCRecipient();
+				ccRecipients = mockCCRecipients();
 			}
 			else {
 				recipients = toList;
 				if(contrib != null)
-					ccRecipient = buildMaster;
+					ccRecipients = ccList;
 			}
-			send(smtpHost, smtpPort, emailFromAddr, recipients, ccRecipient, subject, msgContent);
+			send(smtpHost, smtpPort, emailFromAddr, recipients, ccRecipients, subject, msgContent);
 
 		}
-		catch(IOException e) {
+		catch(
+
+		IOException e) {
 			LogUtils.error(e, "Failed to send email: %s", e.getMessage());
 		}
 	}

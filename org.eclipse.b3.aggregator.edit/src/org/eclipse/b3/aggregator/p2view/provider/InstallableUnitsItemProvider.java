@@ -33,7 +33,6 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
 /**
  * This is the item provider adapter for a {@link org.eclipse.b3.aggregator.p2view.InstallableUnits} object.
  * <!-- begin-user-doc --> <!-- end-user-doc -->
- *
  * @generated
  */
 public class InstallableUnitsItemProvider extends AggregatorItemProviderAdapter implements IEditingDomainItemProvider,
@@ -42,7 +41,6 @@ public class InstallableUnitsItemProvider extends AggregatorItemProviderAdapter 
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	public InstallableUnitsItemProvider(AdapterFactory adapterFactory) {
@@ -53,7 +51,6 @@ public class InstallableUnitsItemProvider extends AggregatorItemProviderAdapter 
 	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
 	 * that can be created under this object.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -63,7 +60,6 @@ public class InstallableUnitsItemProvider extends AggregatorItemProviderAdapter 
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -80,12 +76,11 @@ public class InstallableUnitsItemProvider extends AggregatorItemProviderAdapter 
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
-		if(childrenFeatures == null) {
+		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(P2viewPackage.Literals.INSTALLABLE_UNITS__CATEGORY_CONTAINER);
 			childrenFeatures.add(P2viewPackage.Literals.INSTALLABLE_UNITS__FEATURE_CONTAINER);
@@ -100,7 +95,6 @@ public class InstallableUnitsItemProvider extends AggregatorItemProviderAdapter 
 	/**
 	 * This returns InstallableUnits.gif.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -111,12 +105,11 @@ public class InstallableUnitsItemProvider extends AggregatorItemProviderAdapter 
 	/**
 	 * This returns the property descriptors for the adapted class.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-		if(itemPropertyDescriptors == null) {
+		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
 		}
@@ -126,7 +119,6 @@ public class InstallableUnitsItemProvider extends AggregatorItemProviderAdapter 
 	/**
 	 * Return the resource locator for this item provider's resources.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -137,7 +129,6 @@ public class InstallableUnitsItemProvider extends AggregatorItemProviderAdapter 
 	/**
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -156,7 +147,7 @@ public class InstallableUnitsItemProvider extends AggregatorItemProviderAdapter 
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch(notification.getFeatureID(InstallableUnits.class)) {
+		switch (notification.getFeatureID(InstallableUnits.class)) {
 			case P2viewPackage.INSTALLABLE_UNITS__ALL_IUS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;

@@ -22,6 +22,8 @@
         eType="#//Contact" containment="true" eOpposite="#//Contact/aggregation" eKeys="#//Contact/email"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="buildmaster" eType="#//Contact"
         eKeys="#//Contact/email"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="buildmasterBackup" eType="#//Contact"
+        eKeys="#//Contact/email"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="label" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="buildRoot" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         defaultValueLiteral="${user.home}/build"/>

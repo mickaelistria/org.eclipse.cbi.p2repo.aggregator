@@ -20,7 +20,6 @@ import org.eclipse.emf.common.util.Enumerator;
  * A representation of the literals of the enumeration '<em><b>Version Match</b></em>',
  * and utility methods for working with them.
  * <!-- end-user-doc -->
- *
  * @see org.eclipse.b3.aggregator.AggregatorPackage#getVersionMatch()
  * @model
  * @generated
@@ -30,7 +29,6 @@ public enum VersionMatch implements Enumerator {
 	 * The '<em><b>BELOW</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @see #BELOW_VALUE
 	 * @generated
 	 * @ordered
@@ -41,7 +39,6 @@ public enum VersionMatch implements Enumerator {
 	 * The '<em><b>MATCHES</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @see #MATCHES_VALUE
 	 * @generated
 	 * @ordered
@@ -52,7 +49,6 @@ public enum VersionMatch implements Enumerator {
 	 * The '<em><b>ABOVE</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @see #ABOVE_VALUE
 	 * @generated
 	 * @ordered
@@ -66,7 +62,6 @@ public enum VersionMatch implements Enumerator {
 	 * If the meaning of '<em><b>BELOW</b></em>' literal object isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 *
 	 * @see #BELOW
 	 * @model literal="below"
 	 * @generated
@@ -81,7 +76,6 @@ public enum VersionMatch implements Enumerator {
 	 * If the meaning of '<em><b>MATCHES</b></em>' literal object isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 *
 	 * @see #MATCHES
 	 * @model literal="matches"
 	 * @generated
@@ -96,7 +90,6 @@ public enum VersionMatch implements Enumerator {
 	 * If the meaning of '<em><b>ABOVE</b></em>' literal object isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 *
 	 * @see #ABOVE
 	 * @model literal="above"
 	 * @generated
@@ -108,16 +101,18 @@ public enum VersionMatch implements Enumerator {
 	 * An array of all the '<em><b>Version Match</b></em>' enumerators.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
-	private static final VersionMatch[] VALUES_ARRAY = new VersionMatch[] { BELOW, MATCHES, ABOVE, };
+	private static final VersionMatch[] VALUES_ARRAY = new VersionMatch[] {
+			BELOW,
+			MATCHES,
+			ABOVE,
+		};
 
 	/**
 	 * A public read-only list of all the '<em><b>Version Match</b></em>' enumerators.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	public static final List<VersionMatch> VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
@@ -126,17 +121,15 @@ public enum VersionMatch implements Enumerator {
 	 * Returns the '<em><b>Version Match</b></em>' literal with the specified integer value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * @param value the integer value.
+	 * @return the matching enumerator or <code>null</code>.
 	 * @generated
 	 */
 	public static VersionMatch get(int value) {
-		switch(value) {
-			case BELOW_VALUE:
-				return BELOW;
-			case MATCHES_VALUE:
-				return MATCHES;
-			case ABOVE_VALUE:
-				return ABOVE;
+		switch (value) {
+			case BELOW_VALUE: return BELOW;
+			case MATCHES_VALUE: return MATCHES;
+			case ABOVE_VALUE: return ABOVE;
 		}
 		return null;
 	}
@@ -145,13 +138,14 @@ public enum VersionMatch implements Enumerator {
 	 * Returns the '<em><b>Version Match</b></em>' literal with the specified literal value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * @param literal the literal.
+	 * @return the matching enumerator or <code>null</code>.
 	 * @generated
 	 */
 	public static VersionMatch get(String literal) {
-		for(int i = 0; i < VALUES_ARRAY.length; ++i) {
+		for (int i = 0; i < VALUES_ARRAY.length; ++i) {
 			VersionMatch result = VALUES_ARRAY[i];
-			if(result.toString().equals(literal)) {
+			if (result.toString().equals(literal)) {
 				return result;
 			}
 		}
@@ -162,13 +156,14 @@ public enum VersionMatch implements Enumerator {
 	 * Returns the '<em><b>Version Match</b></em>' literal with the specified name.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * @param name the name.
+	 * @return the matching enumerator or <code>null</code>.
 	 * @generated
 	 */
 	public static VersionMatch getByName(String name) {
-		for(int i = 0; i < VALUES_ARRAY.length; ++i) {
+		for (int i = 0; i < VALUES_ARRAY.length; ++i) {
 			VersionMatch result = VALUES_ARRAY[i];
-			if(result.getName().equals(name)) {
+			if (result.getName().equals(name)) {
 				return result;
 			}
 		}
@@ -178,7 +173,6 @@ public enum VersionMatch implements Enumerator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	private final int value;
@@ -186,7 +180,6 @@ public enum VersionMatch implements Enumerator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	private final String name;
@@ -194,7 +187,6 @@ public enum VersionMatch implements Enumerator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	private final String literal;
@@ -203,7 +195,6 @@ public enum VersionMatch implements Enumerator {
 	 * Only this class can construct instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	private VersionMatch(int value, String name, String literal) {
@@ -215,38 +206,34 @@ public enum VersionMatch implements Enumerator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	public String getLiteral() {
-		return literal;
+	  return literal;
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	public String getName() {
-		return name;
+	  return name;
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	public int getValue() {
-		return value;
+	  return value;
 	}
 
 	/**
 	 * Returns the literal value of the enumerator, which is its string representation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override

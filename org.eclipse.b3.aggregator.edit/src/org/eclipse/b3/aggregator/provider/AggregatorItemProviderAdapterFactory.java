@@ -41,7 +41,6 @@ public class AggregatorItemProviderAdapterFactory extends AggregatorAdapterFacto
 	 * This keeps track of the root adapter factory that delegates to this adapter factory.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 *
 	 * @generated
 	 */
 	protected ComposedAdapterFactory parentAdapterFactory;
@@ -50,7 +49,6 @@ public class AggregatorItemProviderAdapterFactory extends AggregatorAdapterFacto
 	 * This is used to implement {@link org.eclipse.emf.edit.provider.IChangeNotifier}.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 *
 	 * @generated
 	 */
 	protected IChangeNotifier changeNotifier = new ChangeNotifier();
@@ -66,7 +64,6 @@ public class AggregatorItemProviderAdapterFactory extends AggregatorAdapterFacto
 	/**
 	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.aggregator.MappedRepository} instances.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	protected MappedRepositoryItemProvider mappedRepositoryItemProvider;
@@ -74,7 +71,6 @@ public class AggregatorItemProviderAdapterFactory extends AggregatorAdapterFacto
 	/**
 	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.aggregator.Configuration} instances.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	protected ConfigurationItemProvider configurationItemProvider;
@@ -82,7 +78,6 @@ public class AggregatorItemProviderAdapterFactory extends AggregatorAdapterFacto
 	/**
 	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.aggregator.Contribution} instances.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	protected ContributionItemProvider contributionItemProvider;
@@ -90,7 +85,6 @@ public class AggregatorItemProviderAdapterFactory extends AggregatorAdapterFacto
 	/**
 	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.aggregator.Contact} instances.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	protected ContactItemProvider contactItemProvider;
@@ -98,7 +92,6 @@ public class AggregatorItemProviderAdapterFactory extends AggregatorAdapterFacto
 	/**
 	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.aggregator.Feature} instances.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	protected FeatureItemProvider featureItemProvider;
@@ -106,7 +99,6 @@ public class AggregatorItemProviderAdapterFactory extends AggregatorAdapterFacto
 	/**
 	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.aggregator.Bundle} instances.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	protected BundleItemProvider bundleItemProvider;
@@ -114,7 +106,6 @@ public class AggregatorItemProviderAdapterFactory extends AggregatorAdapterFacto
 	/**
 	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.aggregator.Product} instances.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	protected ProductItemProvider productItemProvider;
@@ -122,7 +113,6 @@ public class AggregatorItemProviderAdapterFactory extends AggregatorAdapterFacto
 	/**
 	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.aggregator.Property} instances.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	protected PropertyItemProvider propertyItemProvider;
@@ -130,7 +120,6 @@ public class AggregatorItemProviderAdapterFactory extends AggregatorAdapterFacto
 	/**
 	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.aggregator.Category} instances.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	protected CategoryItemProvider categoryItemProvider;
@@ -138,7 +127,6 @@ public class AggregatorItemProviderAdapterFactory extends AggregatorAdapterFacto
 	/**
 	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.aggregator.CustomCategory} instances.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	protected CustomCategoryItemProvider customCategoryItemProvider;
@@ -146,7 +134,6 @@ public class AggregatorItemProviderAdapterFactory extends AggregatorAdapterFacto
 	/**
 	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.aggregator.ExclusionRule} instances.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	protected ExclusionRuleItemProvider exclusionRuleItemProvider;
@@ -155,7 +142,6 @@ public class AggregatorItemProviderAdapterFactory extends AggregatorAdapterFacto
 	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.aggregator.ValidConfigurationsRule} instances.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 *
 	 * @generated
 	 */
 	protected ValidConfigurationsRuleItemProvider validConfigurationsRuleItemProvider;
@@ -164,7 +150,6 @@ public class AggregatorItemProviderAdapterFactory extends AggregatorAdapterFacto
 	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.aggregator.MetadataRepositoryReference} instances.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 *
 	 * @generated
 	 */
 	protected MetadataRepositoryReferenceItemProvider metadataRepositoryReferenceItemProvider;
@@ -172,7 +157,6 @@ public class AggregatorItemProviderAdapterFactory extends AggregatorAdapterFacto
 	/**
 	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.aggregator.MavenMapping} instances.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	protected MavenMappingItemProvider mavenMappingItemProvider;
@@ -180,7 +164,6 @@ public class AggregatorItemProviderAdapterFactory extends AggregatorAdapterFacto
 	/**
 	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.aggregator.MavenItem} instances.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	protected MavenItemItemProvider mavenItemItemProvider;
@@ -188,7 +171,6 @@ public class AggregatorItemProviderAdapterFactory extends AggregatorAdapterFacto
 	/**
 	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.aggregator.DescriptionProvider} instances.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	protected DescriptionProviderItemProvider descriptionProviderItemProvider;
@@ -197,7 +179,6 @@ public class AggregatorItemProviderAdapterFactory extends AggregatorAdapterFacto
 	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.aggregator.AvailableVersion} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	protected AvailableVersionItemProvider availableVersionItemProvider;
@@ -206,7 +187,6 @@ public class AggregatorItemProviderAdapterFactory extends AggregatorAdapterFacto
 	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.aggregator.AvailableVersionsHeader} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	protected AvailableVersionsHeaderItemProvider availableVersionsHeaderItemProvider;
@@ -215,7 +195,6 @@ public class AggregatorItemProviderAdapterFactory extends AggregatorAdapterFacto
 	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.aggregator.ValidationSet} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	protected ValidationSetItemProvider validationSetItemProvider;
@@ -224,7 +203,6 @@ public class AggregatorItemProviderAdapterFactory extends AggregatorAdapterFacto
 	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.aggregator.Aggregation} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	protected AggregationItemProvider aggregationItemProvider;
@@ -249,7 +227,6 @@ public class AggregatorItemProviderAdapterFactory extends AggregatorAdapterFacto
 	 * This implementation substitutes the factory itself as the key for the adapter.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -259,14 +236,13 @@ public class AggregatorItemProviderAdapterFactory extends AggregatorAdapterFacto
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public Object adapt(Object object, Object type) {
-		if(isFactoryForType(type)) {
+		if (isFactoryForType(type)) {
 			Object adapter = super.adapt(object, type);
-			if(!(type instanceof Class<?>) || (((Class<?>) type).isInstance(adapter))) {
+			if (!(type instanceof Class<?>) || (((Class<?>)type).isInstance(adapter))) {
 				return adapter;
 			}
 		}
@@ -277,7 +253,6 @@ public class AggregatorItemProviderAdapterFactory extends AggregatorAdapterFacto
 	/**
 	 * This adds a listener.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -289,12 +264,11 @@ public class AggregatorItemProviderAdapterFactory extends AggregatorAdapterFacto
 	 * This creates an adapter for a {@link org.eclipse.b3.aggregator.Aggregation}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public Adapter createAggregationAdapter() {
-		if(aggregationItemProvider == null) {
+		if (aggregationItemProvider == null) {
 			aggregationItemProvider = new AggregationItemProvider(this);
 		}
 
@@ -305,12 +279,11 @@ public class AggregatorItemProviderAdapterFactory extends AggregatorAdapterFacto
 	 * This creates an adapter for a {@link org.eclipse.b3.aggregator.AvailableVersion}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public Adapter createAvailableVersionAdapter() {
-		if(availableVersionItemProvider == null) {
+		if (availableVersionItemProvider == null) {
 			availableVersionItemProvider = new AvailableVersionItemProvider(this);
 		}
 
@@ -321,12 +294,11 @@ public class AggregatorItemProviderAdapterFactory extends AggregatorAdapterFacto
 	 * This creates an adapter for a {@link org.eclipse.b3.aggregator.AvailableVersionsHeader}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public Adapter createAvailableVersionsHeaderAdapter() {
-		if(availableVersionsHeaderItemProvider == null) {
+		if (availableVersionsHeaderItemProvider == null) {
 			availableVersionsHeaderItemProvider = new AvailableVersionsHeaderItemProvider(this);
 		}
 
@@ -337,12 +309,11 @@ public class AggregatorItemProviderAdapterFactory extends AggregatorAdapterFacto
 	 * This creates an adapter for a {@link org.eclipse.b3.aggregator.Bundle}.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public Adapter createBundleAdapter() {
-		if(bundleItemProvider == null) {
+		if (bundleItemProvider == null) {
 			bundleItemProvider = new BundleItemProvider(this);
 		}
 
@@ -353,12 +324,11 @@ public class AggregatorItemProviderAdapterFactory extends AggregatorAdapterFacto
 	 * This creates an adapter for a {@link org.eclipse.b3.aggregator.Category}.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public Adapter createCategoryAdapter() {
-		if(categoryItemProvider == null) {
+		if (categoryItemProvider == null) {
 			categoryItemProvider = new CategoryItemProvider(this);
 		}
 
@@ -369,12 +339,11 @@ public class AggregatorItemProviderAdapterFactory extends AggregatorAdapterFacto
 	 * This creates an adapter for a {@link org.eclipse.b3.aggregator.Configuration}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public Adapter createConfigurationAdapter() {
-		if(configurationItemProvider == null) {
+		if (configurationItemProvider == null) {
 			configurationItemProvider = new ConfigurationItemProvider(this);
 		}
 
@@ -385,12 +354,11 @@ public class AggregatorItemProviderAdapterFactory extends AggregatorAdapterFacto
 	 * This creates an adapter for a {@link org.eclipse.b3.aggregator.Contact}.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public Adapter createContactAdapter() {
-		if(contactItemProvider == null) {
+		if (contactItemProvider == null) {
 			contactItemProvider = new ContactItemProvider(this);
 		}
 
@@ -401,12 +369,11 @@ public class AggregatorItemProviderAdapterFactory extends AggregatorAdapterFacto
 	 * This creates an adapter for a {@link org.eclipse.b3.aggregator.Contribution}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public Adapter createContributionAdapter() {
-		if(contributionItemProvider == null) {
+		if (contributionItemProvider == null) {
 			contributionItemProvider = new ContributionItemProvider(this);
 		}
 
@@ -417,12 +384,11 @@ public class AggregatorItemProviderAdapterFactory extends AggregatorAdapterFacto
 	 * This creates an adapter for a {@link org.eclipse.b3.aggregator.CustomCategory}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public Adapter createCustomCategoryAdapter() {
-		if(customCategoryItemProvider == null) {
+		if (customCategoryItemProvider == null) {
 			customCategoryItemProvider = new CustomCategoryItemProvider(this);
 		}
 
@@ -433,12 +399,11 @@ public class AggregatorItemProviderAdapterFactory extends AggregatorAdapterFacto
 	 * This creates an adapter for a {@link org.eclipse.b3.aggregator.DescriptionProvider}.
 	 * <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public Adapter createDescriptionProviderAdapter() {
-		if(descriptionProviderItemProvider == null) {
+		if (descriptionProviderItemProvider == null) {
 			descriptionProviderItemProvider = new DescriptionProviderItemProvider(this);
 		}
 
@@ -449,12 +414,11 @@ public class AggregatorItemProviderAdapterFactory extends AggregatorAdapterFacto
 	 * This creates an adapter for a {@link org.eclipse.b3.aggregator.ExclusionRule}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public Adapter createExclusionRuleAdapter() {
-		if(exclusionRuleItemProvider == null) {
+		if (exclusionRuleItemProvider == null) {
 			exclusionRuleItemProvider = new ExclusionRuleItemProvider(this);
 		}
 
@@ -465,12 +429,11 @@ public class AggregatorItemProviderAdapterFactory extends AggregatorAdapterFacto
 	 * This creates an adapter for a {@link org.eclipse.b3.aggregator.Feature}.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public Adapter createFeatureAdapter() {
-		if(featureItemProvider == null) {
+		if (featureItemProvider == null) {
 			featureItemProvider = new FeatureItemProvider(this);
 		}
 
@@ -481,12 +444,11 @@ public class AggregatorItemProviderAdapterFactory extends AggregatorAdapterFacto
 	 * This creates an adapter for a {@link org.eclipse.b3.aggregator.MappedRepository}.
 	 * <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public Adapter createMappedRepositoryAdapter() {
-		if(mappedRepositoryItemProvider == null) {
+		if (mappedRepositoryItemProvider == null) {
 			mappedRepositoryItemProvider = new MappedRepositoryItemProvider(this);
 		}
 
@@ -497,12 +459,11 @@ public class AggregatorItemProviderAdapterFactory extends AggregatorAdapterFacto
 	 * This creates an adapter for a {@link org.eclipse.b3.aggregator.MavenItem}.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public Adapter createMavenItemAdapter() {
-		if(mavenItemItemProvider == null) {
+		if (mavenItemItemProvider == null) {
 			mavenItemItemProvider = new MavenItemItemProvider(this);
 		}
 
@@ -513,12 +474,11 @@ public class AggregatorItemProviderAdapterFactory extends AggregatorAdapterFacto
 	 * This creates an adapter for a {@link org.eclipse.b3.aggregator.MavenMapping}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public Adapter createMavenMappingAdapter() {
-		if(mavenMappingItemProvider == null) {
+		if (mavenMappingItemProvider == null) {
 			mavenMappingItemProvider = new MavenMappingItemProvider(this);
 		}
 
@@ -533,7 +493,7 @@ public class AggregatorItemProviderAdapterFactory extends AggregatorAdapterFacto
 	 */
 	@Override
 	public Adapter createMetadataRepositoryReferenceAdapter() {
-		if(metadataRepositoryReferenceItemProvider == null) {
+		if (metadataRepositoryReferenceItemProvider == null) {
 			metadataRepositoryReferenceItemProvider = new MetadataRepositoryReferenceItemProvider(this);
 		}
 
@@ -544,12 +504,11 @@ public class AggregatorItemProviderAdapterFactory extends AggregatorAdapterFacto
 	 * This creates an adapter for a {@link org.eclipse.b3.aggregator.Product}.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public Adapter createProductAdapter() {
-		if(productItemProvider == null) {
+		if (productItemProvider == null) {
 			productItemProvider = new ProductItemProvider(this);
 		}
 
@@ -560,12 +519,11 @@ public class AggregatorItemProviderAdapterFactory extends AggregatorAdapterFacto
 	 * This creates an adapter for a {@link org.eclipse.b3.aggregator.Property}.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public Adapter createPropertyAdapter() {
-		if(propertyItemProvider == null) {
+		if (propertyItemProvider == null) {
 			propertyItemProvider = new PropertyItemProvider(this);
 		}
 
@@ -576,12 +534,11 @@ public class AggregatorItemProviderAdapterFactory extends AggregatorAdapterFacto
 	 * This creates an adapter for a {@link org.eclipse.b3.aggregator.ValidationSet}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public Adapter createValidationSetAdapter() {
-		if(validationSetItemProvider == null) {
+		if (validationSetItemProvider == null) {
 			validationSetItemProvider = new ValidationSetItemProvider(this);
 		}
 
@@ -596,7 +553,7 @@ public class AggregatorItemProviderAdapterFactory extends AggregatorAdapterFacto
 	 */
 	@Override
 	public Adapter createValidConfigurationsRuleAdapter() {
-		if(validConfigurationsRuleItemProvider == null) {
+		if (validConfigurationsRuleItemProvider == null) {
 			validConfigurationsRuleItemProvider = new ValidConfigurationsRuleItemProvider(this);
 		}
 
@@ -604,67 +561,45 @@ public class AggregatorItemProviderAdapterFactory extends AggregatorAdapterFacto
 	}
 
 	/**
-	 * This disposes all of the item providers created by this factory.
+	 * This disposes all of the item providers created by this factory. 
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public void dispose() {
-		if(aggregationItemProvider != null)
-			aggregationItemProvider.dispose();
-		if(availableVersionsHeaderItemProvider != null)
-			availableVersionsHeaderItemProvider.dispose();
-		if(availableVersionItemProvider != null)
-			availableVersionItemProvider.dispose();
-		if(bundleItemProvider != null)
-			bundleItemProvider.dispose();
-		if(categoryItemProvider != null)
-			categoryItemProvider.dispose();
-		if(configurationItemProvider != null)
-			configurationItemProvider.dispose();
-		if(contactItemProvider != null)
-			contactItemProvider.dispose();
-		if(contributionItemProvider != null)
-			contributionItemProvider.dispose();
-		if(featureItemProvider != null)
-			featureItemProvider.dispose();
-		if(customCategoryItemProvider != null)
-			customCategoryItemProvider.dispose();
-		if(descriptionProviderItemProvider != null)
-			descriptionProviderItemProvider.dispose();
-		if(exclusionRuleItemProvider != null)
-			exclusionRuleItemProvider.dispose();
-		if(mappedRepositoryItemProvider != null)
-			mappedRepositoryItemProvider.dispose();
-		if(mavenItemItemProvider != null)
-			mavenItemItemProvider.dispose();
-		if(mavenMappingItemProvider != null)
-			mavenMappingItemProvider.dispose();
-		if(metadataRepositoryReferenceItemProvider != null)
-			metadataRepositoryReferenceItemProvider.dispose();
-		if(productItemProvider != null)
-			productItemProvider.dispose();
-		if(propertyItemProvider != null)
-			propertyItemProvider.dispose();
-		if(validationSetItemProvider != null)
-			validationSetItemProvider.dispose();
-		if(validConfigurationsRuleItemProvider != null)
-			validConfigurationsRuleItemProvider.dispose();
+		if (aggregationItemProvider != null) aggregationItemProvider.dispose();
+		if (availableVersionsHeaderItemProvider != null) availableVersionsHeaderItemProvider.dispose();
+		if (availableVersionItemProvider != null) availableVersionItemProvider.dispose();
+		if (bundleItemProvider != null) bundleItemProvider.dispose();
+		if (categoryItemProvider != null) categoryItemProvider.dispose();
+		if (configurationItemProvider != null) configurationItemProvider.dispose();
+		if (contactItemProvider != null) contactItemProvider.dispose();
+		if (contributionItemProvider != null) contributionItemProvider.dispose();
+		if (featureItemProvider != null) featureItemProvider.dispose();
+		if (customCategoryItemProvider != null) customCategoryItemProvider.dispose();
+		if (descriptionProviderItemProvider != null) descriptionProviderItemProvider.dispose();
+		if (exclusionRuleItemProvider != null) exclusionRuleItemProvider.dispose();
+		if (mappedRepositoryItemProvider != null) mappedRepositoryItemProvider.dispose();
+		if (mavenItemItemProvider != null) mavenItemItemProvider.dispose();
+		if (mavenMappingItemProvider != null) mavenMappingItemProvider.dispose();
+		if (metadataRepositoryReferenceItemProvider != null) metadataRepositoryReferenceItemProvider.dispose();
+		if (productItemProvider != null) productItemProvider.dispose();
+		if (propertyItemProvider != null) propertyItemProvider.dispose();
+		if (validationSetItemProvider != null) validationSetItemProvider.dispose();
+		if (validConfigurationsRuleItemProvider != null) validConfigurationsRuleItemProvider.dispose();
 	}
 
 	/**
 	 * This delegates to {@link #changeNotifier} and to {@link #parentAdapterFactory}.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public void fireNotifyChanged(Notification notification) {
 		changeNotifier.fireNotifyChanged(notification);
 
-		if(parentAdapterFactory != null) {
+		if (parentAdapterFactory != null) {
 			parentAdapterFactory.fireNotifyChanged(notification);
 		}
 	}
@@ -672,19 +607,15 @@ public class AggregatorItemProviderAdapterFactory extends AggregatorAdapterFacto
 	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public ComposeableAdapterFactory getRootAdapterFactory() {
-		return parentAdapterFactory == null
-				? this
-				: parentAdapterFactory.getRootAdapterFactory();
+		return parentAdapterFactory == null ? this : parentAdapterFactory.getRootAdapterFactory();
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -695,7 +626,6 @@ public class AggregatorItemProviderAdapterFactory extends AggregatorAdapterFacto
 	/**
 	 * This removes a listener.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -706,7 +636,6 @@ public class AggregatorItemProviderAdapterFactory extends AggregatorAdapterFacto
 	/**
 	 * This sets the composed adapter factory that contains this factory.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override

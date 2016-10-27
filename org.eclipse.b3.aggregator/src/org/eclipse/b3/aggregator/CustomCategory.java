@@ -34,7 +34,6 @@ public interface CustomCategory extends StatusProvider, InfosProvider {
 	 * If the meaning of the '<em>Description</em>' attribute isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 *
 	 * @return the value of the '<em>Description</em>' attribute.
 	 * @see #setDescription(String)
 	 * @see org.eclipse.b3.aggregator.AggregatorPackage#getCustomCategory_Description()
@@ -52,7 +51,6 @@ public interface CustomCategory extends StatusProvider, InfosProvider {
 	 * If the meaning of the '<em>Features</em>' reference list isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 *
 	 * @return the value of the '<em>Features</em>' reference list.
 	 * @see org.eclipse.b3.aggregator.AggregatorPackage#getCustomCategory_Features()
 	 * @see org.eclipse.b3.aggregator.Feature#getCategories
@@ -68,7 +66,6 @@ public interface CustomCategory extends StatusProvider, InfosProvider {
 	 * If the meaning of the '<em>Identifier</em>' attribute isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 *
 	 * @return the value of the '<em>Identifier</em>' attribute.
 	 * @see #setIdentifier(String)
 	 * @see org.eclipse.b3.aggregator.AggregatorPackage#getCustomCategory_Identifier()
@@ -84,7 +81,6 @@ public interface CustomCategory extends StatusProvider, InfosProvider {
 	 * If the meaning of the '<em>Label</em>' attribute isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 *
 	 * @return the value of the '<em>Label</em>' attribute.
 	 * @see #setLabel(String)
 	 * @see org.eclipse.b3.aggregator.AggregatorPackage#getCustomCategory_Label()
@@ -96,9 +92,7 @@ public interface CustomCategory extends StatusProvider, InfosProvider {
 	/**
 	 * Sets the value of the '{@link org.eclipse.b3.aggregator.CustomCategory#getDescription <em>Description</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
-	 * @param value
-	 *            the new value of the '<em>Description</em>' attribute.
+	 * @param value the new value of the '<em>Description</em>' attribute.
 	 * @see #getDescription()
 	 * @generated
 	 */
@@ -107,9 +101,7 @@ public interface CustomCategory extends StatusProvider, InfosProvider {
 	/**
 	 * Sets the value of the '{@link org.eclipse.b3.aggregator.CustomCategory#getIdentifier <em>Identifier</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
-	 * @param value
-	 *            the new value of the '<em>Identifier</em>' attribute.
+	 * @param value the new value of the '<em>Identifier</em>' attribute.
 	 * @see #getIdentifier()
 	 * @generated
 	 */
@@ -118,9 +110,7 @@ public interface CustomCategory extends StatusProvider, InfosProvider {
 	/**
 	 * Sets the value of the '{@link org.eclipse.b3.aggregator.CustomCategory#getLabel <em>Label</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
-	 * @param value
-	 *            the new value of the '<em>Label</em>' attribute.
+	 * @param value the new value of the '<em>Label</em>' attribute.
 	 * @see #getLabel()
 	 * @generated
 	 */

@@ -28,17 +28,17 @@ import org.osgi.framework.Filter;
  * end-user-doc -->
  * <p>
  * The following features are implemented:
- * <ul>
- * <li>{@link org.eclipse.b3.aggregator.p2view.impl.RequirementWrapperImpl#getFilter <em>Filter</em>}</li>
- * <li>{@link org.eclipse.b3.aggregator.p2view.impl.RequirementWrapperImpl#getMax <em>Max</em>}</li>
- * <li>{@link org.eclipse.b3.aggregator.p2view.impl.RequirementWrapperImpl#getMin <em>Min</em>}</li>
- * <li>{@link org.eclipse.b3.aggregator.p2view.impl.RequirementWrapperImpl#getMatches <em>Matches</em>}</li>
- * <li>{@link org.eclipse.b3.aggregator.p2view.impl.RequirementWrapperImpl#isGreedy <em>Greedy</em>}</li>
- * <li>{@link org.eclipse.b3.aggregator.p2view.impl.RequirementWrapperImpl#getDescription <em>Description</em>}</li>
- * <li>{@link org.eclipse.b3.aggregator.p2view.impl.RequirementWrapperImpl#getLabel <em>Label</em>}</li>
- * <li>{@link org.eclipse.b3.aggregator.p2view.impl.RequirementWrapperImpl#getGenuine <em>Genuine</em>}</li>
- * </ul>
  * </p>
+ * <ul>
+ *   <li>{@link org.eclipse.b3.aggregator.p2view.impl.RequirementWrapperImpl#getFilter <em>Filter</em>}</li>
+ *   <li>{@link org.eclipse.b3.aggregator.p2view.impl.RequirementWrapperImpl#getMax <em>Max</em>}</li>
+ *   <li>{@link org.eclipse.b3.aggregator.p2view.impl.RequirementWrapperImpl#getMin <em>Min</em>}</li>
+ *   <li>{@link org.eclipse.b3.aggregator.p2view.impl.RequirementWrapperImpl#getMatches <em>Matches</em>}</li>
+ *   <li>{@link org.eclipse.b3.aggregator.p2view.impl.RequirementWrapperImpl#isGreedy <em>Greedy</em>}</li>
+ *   <li>{@link org.eclipse.b3.aggregator.p2view.impl.RequirementWrapperImpl#getDescription <em>Description</em>}</li>
+ *   <li>{@link org.eclipse.b3.aggregator.p2view.impl.RequirementWrapperImpl#getLabel <em>Label</em>}</li>
+ *   <li>{@link org.eclipse.b3.aggregator.p2view.impl.RequirementWrapperImpl#getGenuine <em>Genuine</em>}</li>
+ * </ul>
  *
  * @generated
  */
@@ -46,7 +46,6 @@ public class RequirementWrapperImpl extends MinimalEObjectImpl.Container impleme
 	/**
 	 * A set of bit flags representing the values of boolean attributes and whether unsettable features have been set.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 * @ordered
 	 */
@@ -56,7 +55,6 @@ public class RequirementWrapperImpl extends MinimalEObjectImpl.Container impleme
 	 * The cached value of the '{@link #getFilter() <em>Filter</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 *
 	 * @see #getFilter()
 	 * @generated
 	 * @ordered
@@ -67,7 +65,6 @@ public class RequirementWrapperImpl extends MinimalEObjectImpl.Container impleme
 	 * The default value of the '{@link #getMax() <em>Max</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @see #getMax()
 	 * @generated
 	 * @ordered
@@ -78,7 +75,6 @@ public class RequirementWrapperImpl extends MinimalEObjectImpl.Container impleme
 	 * The cached value of the '{@link #getMax() <em>Max</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @see #getMax()
 	 * @generated
 	 * @ordered
@@ -89,7 +85,6 @@ public class RequirementWrapperImpl extends MinimalEObjectImpl.Container impleme
 	 * The default value of the '{@link #getMin() <em>Min</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @see #getMin()
 	 * @generated
 	 * @ordered
@@ -100,7 +95,6 @@ public class RequirementWrapperImpl extends MinimalEObjectImpl.Container impleme
 	 * The cached value of the '{@link #getMin() <em>Min</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @see #getMin()
 	 * @generated
 	 * @ordered
@@ -111,7 +105,6 @@ public class RequirementWrapperImpl extends MinimalEObjectImpl.Container impleme
 	 * The cached value of the '{@link #getMatches() <em>Matches</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @see #getMatches()
 	 * @generated
 	 * @ordered
@@ -122,7 +115,6 @@ public class RequirementWrapperImpl extends MinimalEObjectImpl.Container impleme
 	 * The default value of the '{@link #isGreedy() <em>Greedy</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 *
 	 * @see #isGreedy()
 	 * @generated
 	 * @ordered
@@ -133,7 +125,6 @@ public class RequirementWrapperImpl extends MinimalEObjectImpl.Container impleme
 	 * The flag representing the value of the '{@link #isGreedy() <em>Greedy</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @see #isGreedy()
 	 * @generated
 	 * @ordered
@@ -144,7 +135,6 @@ public class RequirementWrapperImpl extends MinimalEObjectImpl.Container impleme
 	 * The default value of the '{@link #getDescription() <em>Description</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @see #getDescription()
 	 * @generated
 	 * @ordered
@@ -155,7 +145,6 @@ public class RequirementWrapperImpl extends MinimalEObjectImpl.Container impleme
 	 * The cached value of the '{@link #getDescription() <em>Description</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @see #getDescription()
 	 * @generated
 	 * @ordered
@@ -166,7 +155,6 @@ public class RequirementWrapperImpl extends MinimalEObjectImpl.Container impleme
 	 * The default value of the '{@link #getLabel() <em>Label</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 *
 	 * @see #getLabel()
 	 * @generated
 	 * @ordered
@@ -187,7 +175,6 @@ public class RequirementWrapperImpl extends MinimalEObjectImpl.Container impleme
 	 * The cached value of the '{@link #getGenuine() <em>Genuine</em>}' reference.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 *
 	 * @see #getGenuine()
 	 * @generated
 	 * @ordered
@@ -197,7 +184,6 @@ public class RequirementWrapperImpl extends MinimalEObjectImpl.Container impleme
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	protected RequirementWrapperImpl() {
@@ -217,17 +203,14 @@ public class RequirementWrapperImpl extends MinimalEObjectImpl.Container impleme
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
-		if(baseClass == LabelProvider.class) {
-			switch(derivedFeatureID) {
-				case P2viewPackage.REQUIREMENT_WRAPPER__LABEL:
-					return AggregatorPackage.LABEL_PROVIDER__LABEL;
-				default:
-					return -1;
+		if (baseClass == LabelProvider.class) {
+			switch (derivedFeatureID) {
+				case P2viewPackage.REQUIREMENT_WRAPPER__LABEL: return AggregatorPackage.LABEL_PROVIDER__LABEL;
+				default: return -1;
 			}
 		}
 		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
@@ -235,17 +218,14 @@ public class RequirementWrapperImpl extends MinimalEObjectImpl.Container impleme
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
-		if(baseClass == LabelProvider.class) {
-			switch(baseFeatureID) {
-				case AggregatorPackage.LABEL_PROVIDER__LABEL:
-					return P2viewPackage.REQUIREMENT_WRAPPER__LABEL;
-				default:
-					return -1;
+		if (baseClass == LabelProvider.class) {
+			switch (baseFeatureID) {
+				case AggregatorPackage.LABEL_PROVIDER__LABEL: return P2viewPackage.REQUIREMENT_WRAPPER__LABEL;
+				default: return -1;
 			}
 		}
 		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
@@ -253,12 +233,11 @@ public class RequirementWrapperImpl extends MinimalEObjectImpl.Container impleme
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch(featureID) {
+		switch (featureID) {
 			case P2viewPackage.REQUIREMENT_WRAPPER__FILTER:
 				return getFilter();
 			case P2viewPackage.REQUIREMENT_WRAPPER__MAX:
@@ -300,33 +279,32 @@ public class RequirementWrapperImpl extends MinimalEObjectImpl.Container impleme
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch(featureID) {
+		switch (featureID) {
 			case P2viewPackage.REQUIREMENT_WRAPPER__FILTER:
-				setFilter((IMatchExpression<IInstallableUnit>) newValue);
+				setFilter((IMatchExpression<IInstallableUnit>)newValue);
 				return;
 			case P2viewPackage.REQUIREMENT_WRAPPER__MAX:
-				setMax((Integer) newValue);
+				setMax((Integer)newValue);
 				return;
 			case P2viewPackage.REQUIREMENT_WRAPPER__MIN:
-				setMin((Integer) newValue);
+				setMin((Integer)newValue);
 				return;
 			case P2viewPackage.REQUIREMENT_WRAPPER__MATCHES:
-				setMatches((IMatchExpression<IInstallableUnit>) newValue);
+				setMatches((IMatchExpression<IInstallableUnit>)newValue);
 				return;
 			case P2viewPackage.REQUIREMENT_WRAPPER__GREEDY:
-				setGreedy((Boolean) newValue);
+				setGreedy((Boolean)newValue);
 				return;
 			case P2viewPackage.REQUIREMENT_WRAPPER__DESCRIPTION:
-				setDescription((String) newValue);
+				setDescription((String)newValue);
 				return;
 			case P2viewPackage.REQUIREMENT_WRAPPER__LABEL:
-				setLabel((String) newValue);
+				setLabel((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -334,7 +312,6 @@ public class RequirementWrapperImpl extends MinimalEObjectImpl.Container impleme
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -344,14 +321,13 @@ public class RequirementWrapperImpl extends MinimalEObjectImpl.Container impleme
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
-		switch(featureID) {
+		switch (featureID) {
 			case P2viewPackage.REQUIREMENT_WRAPPER__FILTER:
-				setFilter((IMatchExpression<IInstallableUnit>) null);
+				setFilter((IMatchExpression<IInstallableUnit>)null);
 				return;
 			case P2viewPackage.REQUIREMENT_WRAPPER__MAX:
 				setMax(MAX_EDEFAULT);
@@ -360,7 +336,7 @@ public class RequirementWrapperImpl extends MinimalEObjectImpl.Container impleme
 				setMin(MIN_EDEFAULT);
 				return;
 			case P2viewPackage.REQUIREMENT_WRAPPER__MATCHES:
-				setMatches((IMatchExpression<IInstallableUnit>) null);
+				setMatches((IMatchExpression<IInstallableUnit>)null);
 				return;
 			case P2viewPackage.REQUIREMENT_WRAPPER__GREEDY:
 				setGreedy(GREEDY_EDEFAULT);
@@ -378,7 +354,6 @@ public class RequirementWrapperImpl extends MinimalEObjectImpl.Container impleme
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	public String getDescription() {
@@ -396,7 +371,6 @@ public class RequirementWrapperImpl extends MinimalEObjectImpl.Container impleme
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	public IRequirement getGenuine() {
@@ -405,7 +379,6 @@ public class RequirementWrapperImpl extends MinimalEObjectImpl.Container impleme
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	public String getLabel() {
@@ -464,15 +437,13 @@ public class RequirementWrapperImpl extends MinimalEObjectImpl.Container impleme
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	public void setDescription(String newDescription) {
 		String oldDescription = description;
 		description = newDescription;
-		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(
-				this, Notification.SET, P2viewPackage.REQUIREMENT_WRAPPER__DESCRIPTION, oldDescription, description));
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, P2viewPackage.REQUIREMENT_WRAPPER__DESCRIPTION, oldDescription, description));
 	}
 
 	/**
@@ -487,15 +458,13 @@ public class RequirementWrapperImpl extends MinimalEObjectImpl.Container impleme
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	public void setFilter(IMatchExpression<IInstallableUnit> newFilter) {
 		IMatchExpression<IInstallableUnit> oldFilter = filter;
 		filter = newFilter;
-		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(
-				this, Notification.SET, P2viewPackage.REQUIREMENT_WRAPPER__FILTER, oldFilter, filter));
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, P2viewPackage.REQUIREMENT_WRAPPER__FILTER, oldFilter, filter));
 	}
 
 	/**
@@ -509,29 +478,25 @@ public class RequirementWrapperImpl extends MinimalEObjectImpl.Container impleme
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	public void setLabel(String newLabel) {
 		String oldLabel = label;
 		label = newLabel;
-		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(
-				this, Notification.SET, P2viewPackage.REQUIREMENT_WRAPPER__LABEL, oldLabel, label));
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, P2viewPackage.REQUIREMENT_WRAPPER__LABEL, oldLabel, label));
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	public void setMatches(IMatchExpression<IInstallableUnit> newMatches) {
 		IMatchExpression<IInstallableUnit> oldMatches = matches;
 		matches = newMatches;
-		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(
-				this, Notification.SET, P2viewPackage.REQUIREMENT_WRAPPER__MATCHES, oldMatches, matches));
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, P2viewPackage.REQUIREMENT_WRAPPER__MATCHES, oldMatches, matches));
 	}
 
 	/**

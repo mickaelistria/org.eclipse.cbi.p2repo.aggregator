@@ -41,7 +41,6 @@ public class PropertiesItemProvider extends AggregatorItemProviderAdapter implem
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	public PropertiesItemProvider(AdapterFactory adapterFactory) {
@@ -51,24 +50,28 @@ public class PropertiesItemProvider extends AggregatorItemProviderAdapter implem
 	/**
 	 * This adds a property descriptor for the Property List feature.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	protected void addPropertyListPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-			getResourceLocator(),
-			getString("_UI_Properties_propertyList_feature"),
-			getString(
-				"_UI_PropertyDescriptor_description", "_UI_Properties_propertyList_feature", "_UI_Properties_type"),
-			P2viewPackage.Literals.PROPERTIES__PROPERTY_LIST, false, false, true, null, null, null));
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Properties_propertyList_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Properties_propertyList_feature", "_UI_Properties_type"),
+				 P2viewPackage.Literals.PROPERTIES__PROPERTY_LIST,
+				 false,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
 	}
 
 	/**
 	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
 	 * that can be created under this object.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -78,7 +81,6 @@ public class PropertiesItemProvider extends AggregatorItemProviderAdapter implem
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -95,12 +97,11 @@ public class PropertiesItemProvider extends AggregatorItemProviderAdapter implem
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
-		if(childrenFeatures == null) {
+		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(P2viewPackage.Literals.PROPERTIES__PROPERTY_LIST);
 		}
@@ -110,7 +111,6 @@ public class PropertiesItemProvider extends AggregatorItemProviderAdapter implem
 	/**
 	 * This returns Properties.gif.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -121,12 +121,11 @@ public class PropertiesItemProvider extends AggregatorItemProviderAdapter implem
 	/**
 	 * This returns the property descriptors for the adapted class.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-		if(itemPropertyDescriptors == null) {
+		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
 			addPropertyListPropertyDescriptor(object);
@@ -137,7 +136,6 @@ public class PropertiesItemProvider extends AggregatorItemProviderAdapter implem
 	/**
 	 * Return the resource locator for this item provider's resources.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -148,7 +146,6 @@ public class PropertiesItemProvider extends AggregatorItemProviderAdapter implem
 	/**
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override

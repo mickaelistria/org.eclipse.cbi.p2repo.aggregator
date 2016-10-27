@@ -18,7 +18,6 @@ import org.eclipse.emf.common.util.Enumerator;
  * A representation of the literals of the enumeration '<em><b>Available From</b></em>',
  * and utility methods for working with them.
  * <!-- end-user-doc -->
- *
  * @see org.eclipse.b3.aggregator.AggregatorPackage#getAvailableFrom()
  * @model
  * @generated
@@ -28,7 +27,6 @@ public enum AvailableFrom implements Enumerator {
 	 * The '<em><b>REPOSITORY</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @see #REPOSITORY_VALUE
 	 * @generated
 	 * @ordered
@@ -39,7 +37,6 @@ public enum AvailableFrom implements Enumerator {
 	 * The '<em><b>CONTRIBUTION</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @see #CONTRIBUTION_VALUE
 	 * @generated
 	 * @ordered
@@ -50,7 +47,6 @@ public enum AvailableFrom implements Enumerator {
 	 * The '<em><b>VALIDATION SET</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @see #VALIDATION_SET_VALUE
 	 * @generated
 	 * @ordered
@@ -59,7 +55,6 @@ public enum AvailableFrom implements Enumerator {
 	 * The '<em><b>AGGREGATION</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @see #AGGREGATION_VALUE
 	 * @generated
 	 * @ordered
@@ -73,7 +68,6 @@ public enum AvailableFrom implements Enumerator {
 	 * If the meaning of '<em><b>REPOSITORY</b></em>' literal object isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 *
 	 * @see #REPOSITORY
 	 * @model literal="repository"
 	 * @generated
@@ -88,7 +82,6 @@ public enum AvailableFrom implements Enumerator {
 	 * If the meaning of '<em><b>CONTRIBUTION</b></em>' literal object isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 *
 	 * @see #CONTRIBUTION
 	 * @model literal="contribution"
 	 * @generated
@@ -103,7 +96,6 @@ public enum AvailableFrom implements Enumerator {
 	 * If the meaning of '<em><b>VALIDATION SET</b></em>' literal object isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 *
 	 * @see #VALIDATION_SET
 	 * @model literal="validationSet"
 	 * @generated
@@ -118,7 +110,6 @@ public enum AvailableFrom implements Enumerator {
 	 * If the meaning of '<em><b>AGGREGATION</b></em>' literal object isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 *
 	 * @see #AGGREGATION
 	 * @model literal="aggregation"
 	 * @generated
@@ -130,17 +121,19 @@ public enum AvailableFrom implements Enumerator {
 	 * An array of all the '<em><b>Available From</b></em>' enumerators.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	private static final AvailableFrom[] VALUES_ARRAY = new AvailableFrom[] {
-			REPOSITORY, CONTRIBUTION, VALIDATION_SET, AGGREGATION, };
+			REPOSITORY,
+			CONTRIBUTION,
+			VALIDATION_SET,
+			AGGREGATION,
+		};
 
 	/**
 	 * A public read-only list of all the '<em><b>Available From</b></em>' enumerators.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	public static final List<AvailableFrom> VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
@@ -149,19 +142,16 @@ public enum AvailableFrom implements Enumerator {
 	 * Returns the '<em><b>Available From</b></em>' literal with the specified integer value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * @param value the integer value.
+	 * @return the matching enumerator or <code>null</code>.
 	 * @generated
 	 */
 	public static AvailableFrom get(int value) {
-		switch(value) {
-			case REPOSITORY_VALUE:
-				return REPOSITORY;
-			case CONTRIBUTION_VALUE:
-				return CONTRIBUTION;
-			case VALIDATION_SET_VALUE:
-				return VALIDATION_SET;
-			case AGGREGATION_VALUE:
-				return AGGREGATION;
+		switch (value) {
+			case REPOSITORY_VALUE: return REPOSITORY;
+			case CONTRIBUTION_VALUE: return CONTRIBUTION;
+			case VALIDATION_SET_VALUE: return VALIDATION_SET;
+			case AGGREGATION_VALUE: return AGGREGATION;
 		}
 		return null;
 	}
@@ -170,13 +160,14 @@ public enum AvailableFrom implements Enumerator {
 	 * Returns the '<em><b>Available From</b></em>' literal with the specified literal value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * @param literal the literal.
+	 * @return the matching enumerator or <code>null</code>.
 	 * @generated
 	 */
 	public static AvailableFrom get(String literal) {
-		for(int i = 0; i < VALUES_ARRAY.length; ++i) {
+		for (int i = 0; i < VALUES_ARRAY.length; ++i) {
 			AvailableFrom result = VALUES_ARRAY[i];
-			if(result.toString().equals(literal)) {
+			if (result.toString().equals(literal)) {
 				return result;
 			}
 		}
@@ -187,13 +178,14 @@ public enum AvailableFrom implements Enumerator {
 	 * Returns the '<em><b>Available From</b></em>' literal with the specified name.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
+	 * @param name the name.
+	 * @return the matching enumerator or <code>null</code>.
 	 * @generated
 	 */
 	public static AvailableFrom getByName(String name) {
-		for(int i = 0; i < VALUES_ARRAY.length; ++i) {
+		for (int i = 0; i < VALUES_ARRAY.length; ++i) {
 			AvailableFrom result = VALUES_ARRAY[i];
-			if(result.getName().equals(name)) {
+			if (result.getName().equals(name)) {
 				return result;
 			}
 		}
@@ -203,7 +195,6 @@ public enum AvailableFrom implements Enumerator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	private final int value;
@@ -211,7 +202,6 @@ public enum AvailableFrom implements Enumerator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	private final String name;
@@ -219,7 +209,6 @@ public enum AvailableFrom implements Enumerator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	private final String literal;
@@ -228,7 +217,6 @@ public enum AvailableFrom implements Enumerator {
 	 * Only this class can construct instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	private AvailableFrom(int value, String name, String literal) {
@@ -240,38 +228,34 @@ public enum AvailableFrom implements Enumerator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	public String getLiteral() {
-		return literal;
+	  return literal;
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	public String getName() {
-		return name;
+	  return name;
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	public int getValue() {
-		return value;
+	  return value;
 	}
 
 	/**
 	 * Returns the literal value of the enumerator, which is its string representation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override

@@ -21,11 +21,11 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <!-- begin-user-doc --> An implementation of the model object '<em><b>Map Rule</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * <ul>
- * <li>{@link org.eclipse.b3.aggregator.impl.MapRuleImpl#isBranchEnabled <em>Branch Enabled</em>}</li>
- * <li>{@link org.eclipse.b3.aggregator.impl.MapRuleImpl#isEnabled <em>Enabled</em>}</li>
- * </ul>
  * </p>
+ * <ul>
+ *   <li>{@link org.eclipse.b3.aggregator.impl.MapRuleImpl#isBranchEnabled <em>Branch Enabled</em>}</li>
+ *   <li>{@link org.eclipse.b3.aggregator.impl.MapRuleImpl#isEnabled <em>Enabled</em>}</li>
+ * </ul>
  *
  * @generated
  */
@@ -34,7 +34,6 @@ public abstract class MapRuleImpl extends InstallableUnitRequestImpl implements 
 	 * The default value of the '{@link #isBranchEnabled() <em>Branch Enabled</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @see #isBranchEnabled()
 	 * @generated
 	 * @ordered
@@ -45,7 +44,6 @@ public abstract class MapRuleImpl extends InstallableUnitRequestImpl implements 
 	 * The default value of the '{@link #isEnabled() <em>Enabled</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @see #isEnabled()
 	 * @generated
 	 * @ordered
@@ -56,7 +54,6 @@ public abstract class MapRuleImpl extends InstallableUnitRequestImpl implements 
 	 * The flag representing the value of the '{@link #isEnabled() <em>Enabled</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @see #isEnabled()
 	 * @generated
 	 * @ordered
@@ -65,7 +62,6 @@ public abstract class MapRuleImpl extends InstallableUnitRequestImpl implements 
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	protected MapRuleImpl() {
@@ -76,19 +72,15 @@ public abstract class MapRuleImpl extends InstallableUnitRequestImpl implements 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
-		if(baseClass == EnabledStatusProvider.class) {
-			switch(derivedFeatureID) {
-				case AggregatorPackage.MAP_RULE__BRANCH_ENABLED:
-					return AggregatorPackage.ENABLED_STATUS_PROVIDER__BRANCH_ENABLED;
-				case AggregatorPackage.MAP_RULE__ENABLED:
-					return AggregatorPackage.ENABLED_STATUS_PROVIDER__ENABLED;
-				default:
-					return -1;
+		if (baseClass == EnabledStatusProvider.class) {
+			switch (derivedFeatureID) {
+				case AggregatorPackage.MAP_RULE__BRANCH_ENABLED: return AggregatorPackage.ENABLED_STATUS_PROVIDER__BRANCH_ENABLED;
+				case AggregatorPackage.MAP_RULE__ENABLED: return AggregatorPackage.ENABLED_STATUS_PROVIDER__ENABLED;
+				default: return -1;
 			}
 		}
 		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
@@ -97,19 +89,15 @@ public abstract class MapRuleImpl extends InstallableUnitRequestImpl implements 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
-		if(baseClass == EnabledStatusProvider.class) {
-			switch(baseFeatureID) {
-				case AggregatorPackage.ENABLED_STATUS_PROVIDER__BRANCH_ENABLED:
-					return AggregatorPackage.MAP_RULE__BRANCH_ENABLED;
-				case AggregatorPackage.ENABLED_STATUS_PROVIDER__ENABLED:
-					return AggregatorPackage.MAP_RULE__ENABLED;
-				default:
-					return -1;
+		if (baseClass == EnabledStatusProvider.class) {
+			switch (baseFeatureID) {
+				case AggregatorPackage.ENABLED_STATUS_PROVIDER__BRANCH_ENABLED: return AggregatorPackage.MAP_RULE__BRANCH_ENABLED;
+				case AggregatorPackage.ENABLED_STATUS_PROVIDER__ENABLED: return AggregatorPackage.MAP_RULE__ENABLED;
+				default: return -1;
 			}
 		}
 		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
@@ -118,12 +106,11 @@ public abstract class MapRuleImpl extends InstallableUnitRequestImpl implements 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch(featureID) {
+		switch (featureID) {
 			case AggregatorPackage.MAP_RULE__BRANCH_ENABLED:
 				return isBranchEnabled();
 			case AggregatorPackage.MAP_RULE__ENABLED:
@@ -135,12 +122,11 @@ public abstract class MapRuleImpl extends InstallableUnitRequestImpl implements 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch(featureID) {
+		switch (featureID) {
 			case AggregatorPackage.MAP_RULE__BRANCH_ENABLED:
 				return isSetBranchEnabled();
 			case AggregatorPackage.MAP_RULE__ENABLED:
@@ -152,14 +138,13 @@ public abstract class MapRuleImpl extends InstallableUnitRequestImpl implements 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch(featureID) {
+		switch (featureID) {
 			case AggregatorPackage.MAP_RULE__ENABLED:
-				setEnabled((Boolean) newValue);
+				setEnabled((Boolean)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -167,7 +152,6 @@ public abstract class MapRuleImpl extends InstallableUnitRequestImpl implements 
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -178,12 +162,11 @@ public abstract class MapRuleImpl extends InstallableUnitRequestImpl implements 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
-		switch(featureID) {
+		switch (featureID) {
 			case AggregatorPackage.MAP_RULE__ENABLED:
 				setEnabled(ENABLED_EDEFAULT);
 				return;
@@ -205,7 +188,6 @@ public abstract class MapRuleImpl extends InstallableUnitRequestImpl implements 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	public boolean isEnabled() {
@@ -225,30 +207,23 @@ public abstract class MapRuleImpl extends InstallableUnitRequestImpl implements 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	public void setEnabled(boolean newEnabled) {
 		boolean oldEnabled = (eFlags & ENABLED_EFLAG) != 0;
-		if(newEnabled)
-			eFlags |= ENABLED_EFLAG;
-		else
-			eFlags &= ~ENABLED_EFLAG;
-		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(
-				this, Notification.SET, AggregatorPackage.MAP_RULE__ENABLED, oldEnabled, newEnabled));
+		if (newEnabled) eFlags |= ENABLED_EFLAG; else eFlags &= ~ENABLED_EFLAG;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, AggregatorPackage.MAP_RULE__ENABLED, oldEnabled, newEnabled));
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public String toString() {
-		if(eIsProxy())
-			return super.toString();
+		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (enabled: ");

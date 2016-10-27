@@ -40,7 +40,6 @@ public class CategoriesItemProvider extends AggregatorItemProviderAdapter implem
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	public CategoriesItemProvider(AdapterFactory adapterFactory) {
@@ -51,7 +50,6 @@ public class CategoriesItemProvider extends AggregatorItemProviderAdapter implem
 	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
 	 * that can be created under this object.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -61,7 +59,6 @@ public class CategoriesItemProvider extends AggregatorItemProviderAdapter implem
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -78,12 +75,11 @@ public class CategoriesItemProvider extends AggregatorItemProviderAdapter implem
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
-		if(childrenFeatures == null) {
+		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(P2viewPackage.Literals.CATEGORIES__CATEGORIES);
 		}
@@ -93,7 +89,6 @@ public class CategoriesItemProvider extends AggregatorItemProviderAdapter implem
 	/**
 	 * This returns Categories.gif.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -104,12 +99,11 @@ public class CategoriesItemProvider extends AggregatorItemProviderAdapter implem
 	/**
 	 * This returns the property descriptors for the adapted class.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-		if(itemPropertyDescriptors == null) {
+		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
 		}
@@ -119,7 +113,6 @@ public class CategoriesItemProvider extends AggregatorItemProviderAdapter implem
 	/**
 	 * Return the resource locator for this item provider's resources.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -130,7 +123,6 @@ public class CategoriesItemProvider extends AggregatorItemProviderAdapter implem
 	/**
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override

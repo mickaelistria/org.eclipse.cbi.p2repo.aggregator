@@ -15,11 +15,11 @@ package org.eclipse.b3.aggregator;
  *
  * <p>
  * The following features are supported:
- * <ul>
- * <li>{@link org.eclipse.b3.aggregator.EnabledStatusProvider#isBranchEnabled <em>Branch Enabled</em>}</li>
- * <li>{@link org.eclipse.b3.aggregator.EnabledStatusProvider#isEnabled <em>Enabled</em>}</li>
- * </ul>
  * </p>
+ * <ul>
+ *   <li>{@link org.eclipse.b3.aggregator.EnabledStatusProvider#isBranchEnabled <em>Branch Enabled</em>}</li>
+ *   <li>{@link org.eclipse.b3.aggregator.EnabledStatusProvider#isEnabled <em>Enabled</em>}</li>
+ * </ul>
  *
  * @see org.eclipse.b3.aggregator.AggregatorPackage#getEnabledStatusProvider()
  * @model interface="true" abstract="true"
@@ -34,7 +34,6 @@ public interface EnabledStatusProvider {
 	 * If the meaning of the '<em>Branch Enabled</em>' attribute isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 *
 	 * @return the value of the '<em>Branch Enabled</em>' attribute.
 	 * @see #isSetBranchEnabled()
 	 * @see org.eclipse.b3.aggregator.AggregatorPackage#getEnabledStatusProvider_BranchEnabled()
@@ -60,11 +59,9 @@ public interface EnabledStatusProvider {
 	boolean isEnabled();
 
 	/**
-	 * Returns whether the value of the '{@link org.eclipse.b3.aggregator.EnabledStatusProvider#isBranchEnabled <em>Branch Enabled</em>}' attribute is
-	 * set.
+	 * Returns whether the value of the '{@link org.eclipse.b3.aggregator.EnabledStatusProvider#isBranchEnabled <em>Branch Enabled</em>}' attribute is set.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @return whether the value of the '<em>Branch Enabled</em>' attribute is set.
 	 * @see #isBranchEnabled()
 	 * @generated
@@ -74,9 +71,7 @@ public interface EnabledStatusProvider {
 	/**
 	 * Sets the value of the '{@link org.eclipse.b3.aggregator.EnabledStatusProvider#isEnabled <em>Enabled</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
-	 * @param value
-	 *            the new value of the '<em>Enabled</em>' attribute.
+	 * @param value the new value of the '<em>Enabled</em>' attribute.
 	 * @see #isEnabled()
 	 * @generated
 	 */

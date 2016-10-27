@@ -30,13 +30,10 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
  *
  * @generated
  */
-public class OtherIUItemProvider extends IUPresentationWithDetailsItemProvider implements IEditingDomainItemProvider,
-		IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource,
-		IItemColorProvider, IItemFontProvider {
+public class OtherIUItemProvider extends IUPresentationWithDetailsItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	public OtherIUItemProvider(AdapterFactory adapterFactory) {
@@ -47,7 +44,6 @@ public class OtherIUItemProvider extends IUPresentationWithDetailsItemProvider i
 	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
 	 * that can be created under this object.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -58,7 +54,6 @@ public class OtherIUItemProvider extends IUPresentationWithDetailsItemProvider i
 	/**
 	 * This returns OtherIU.gif.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -69,12 +64,11 @@ public class OtherIUItemProvider extends IUPresentationWithDetailsItemProvider i
 	/**
 	 * This returns the property descriptors for the adapted class.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-		if(itemPropertyDescriptors == null) {
+		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
 		}

@@ -85,6 +85,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Aggregator.ecore#//Aggregation/customCategories"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Aggregator.ecore#//Aggregation/contacts"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Aggregator.ecore#//Aggregation/buildmaster"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Aggregator.ecore#//Aggregation/buildmasterBackup"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Aggregator.ecore#//Aggregation/label"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Aggregator.ecore#//Aggregation/buildRoot"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Aggregator.ecore#//Aggregation/packedStrategy"/>

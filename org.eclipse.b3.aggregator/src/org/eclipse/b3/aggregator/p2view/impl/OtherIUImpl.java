@@ -17,15 +17,12 @@ import org.eclipse.equinox.p2.metadata.IInstallableUnit;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object '<em><b>Other IU</b></em>'. <!-- end-user-doc -->
- * <p>
- * </p>
  *
  * @generated
  */
 public class OtherIUImpl extends IUPresentationWithDetailsImpl implements OtherIU {
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	protected OtherIUImpl() {
@@ -43,7 +40,6 @@ public class OtherIUImpl extends IUPresentationWithDetailsImpl implements OtherI
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override

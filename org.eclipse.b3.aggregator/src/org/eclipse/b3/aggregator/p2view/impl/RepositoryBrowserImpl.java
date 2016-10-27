@@ -40,13 +40,13 @@ import org.eclipse.emf.ecore.util.EContentAdapter;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * <ul>
- * <li>{@link org.eclipse.b3.aggregator.p2view.impl.RepositoryBrowserImpl#getStatus <em>Status</em>}</li>
- * <li>{@link org.eclipse.b3.aggregator.p2view.impl.RepositoryBrowserImpl#getChildren <em>Children</em>}</li>
- * <li>{@link org.eclipse.b3.aggregator.p2view.impl.RepositoryBrowserImpl#getRepositories <em>Repositories</em>}</li>
- * <li>{@link org.eclipse.b3.aggregator.p2view.impl.RepositoryBrowserImpl#isLoading <em>Loading</em>}</li>
- * </ul>
  * </p>
+ * <ul>
+ *   <li>{@link org.eclipse.b3.aggregator.p2view.impl.RepositoryBrowserImpl#getStatus <em>Status</em>}</li>
+ *   <li>{@link org.eclipse.b3.aggregator.p2view.impl.RepositoryBrowserImpl#getChildren <em>Children</em>}</li>
+ *   <li>{@link org.eclipse.b3.aggregator.p2view.impl.RepositoryBrowserImpl#getRepositories <em>Repositories</em>}</li>
+ *   <li>{@link org.eclipse.b3.aggregator.p2view.impl.RepositoryBrowserImpl#isLoading <em>Loading</em>}</li>
+ * </ul>
  *
  * @generated
  */
@@ -76,7 +76,6 @@ public class RepositoryBrowserImpl extends MinimalEObjectImpl.Container implemen
 	 * A set of bit flags representing the values of boolean attributes and whether unsettable features have been set.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @generated
 	 * @ordered
 	 */
@@ -86,7 +85,6 @@ public class RepositoryBrowserImpl extends MinimalEObjectImpl.Container implemen
 	 * The default value of the '{@link #isLoading() <em>Loading</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @see #isLoading()
 	 * @generated
 	 * @ordered
@@ -116,17 +114,14 @@ public class RepositoryBrowserImpl extends MinimalEObjectImpl.Container implemen
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
-		if(baseClass == ChildrenProvider.class) {
-			switch(derivedFeatureID) {
-				case P2viewPackage.REPOSITORY_BROWSER__CHILDREN:
-					return AggregatorPackage.CHILDREN_PROVIDER__CHILDREN;
-				default:
-					return -1;
+		if (baseClass == ChildrenProvider.class) {
+			switch (derivedFeatureID) {
+				case P2viewPackage.REPOSITORY_BROWSER__CHILDREN: return AggregatorPackage.CHILDREN_PROVIDER__CHILDREN;
+				default: return -1;
 			}
 		}
 		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
@@ -135,17 +130,14 @@ public class RepositoryBrowserImpl extends MinimalEObjectImpl.Container implemen
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
-		if(baseClass == ChildrenProvider.class) {
-			switch(baseFeatureID) {
-				case AggregatorPackage.CHILDREN_PROVIDER__CHILDREN:
-					return P2viewPackage.REPOSITORY_BROWSER__CHILDREN;
-				default:
-					return -1;
+		if (baseClass == ChildrenProvider.class) {
+			switch (baseFeatureID) {
+				case AggregatorPackage.CHILDREN_PROVIDER__CHILDREN: return P2viewPackage.REPOSITORY_BROWSER__CHILDREN;
+				default: return -1;
 			}
 		}
 		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
@@ -154,12 +146,11 @@ public class RepositoryBrowserImpl extends MinimalEObjectImpl.Container implemen
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch(featureID) {
+		switch (featureID) {
 			case P2viewPackage.REPOSITORY_BROWSER__STATUS:
 				return getStatus();
 			case P2viewPackage.REPOSITORY_BROWSER__CHILDREN:
@@ -175,12 +166,11 @@ public class RepositoryBrowserImpl extends MinimalEObjectImpl.Container implemen
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch(featureID) {
+		switch (featureID) {
 			case P2viewPackage.REPOSITORY_BROWSER__STATUS:
 				return getStatus() != null;
 			case P2viewPackage.REPOSITORY_BROWSER__CHILDREN:
@@ -196,16 +186,15 @@ public class RepositoryBrowserImpl extends MinimalEObjectImpl.Container implemen
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch(featureID) {
+		switch (featureID) {
 			case P2viewPackage.REPOSITORY_BROWSER__REPOSITORIES:
 				getRepositories().clear();
-				getRepositories().addAll((Collection<? extends MetadataRepositoryStructuredView>) newValue);
+				getRepositories().addAll((Collection<? extends MetadataRepositoryStructuredView>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -214,7 +203,6 @@ public class RepositoryBrowserImpl extends MinimalEObjectImpl.Container implemen
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -225,12 +213,11 @@ public class RepositoryBrowserImpl extends MinimalEObjectImpl.Container implemen
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
-		switch(featureID) {
+		switch (featureID) {
 			case P2viewPackage.REPOSITORY_BROWSER__REPOSITORIES:
 				getRepositories().clear();
 				return;

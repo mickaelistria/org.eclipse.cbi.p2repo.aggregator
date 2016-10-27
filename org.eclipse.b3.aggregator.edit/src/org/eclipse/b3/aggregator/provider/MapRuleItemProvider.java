@@ -45,13 +45,10 @@ import org.eclipse.equinox.p2.query.QueryUtil;
  *
  * @generated
  */
-public class MapRuleItemProvider extends InstallableUnitRequestItemProvider implements IEditingDomainItemProvider,
-		IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource,
-		IItemColorProvider, IItemFontProvider {
+public class MapRuleItemProvider extends InstallableUnitRequestItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	public MapRuleItemProvider(AdapterFactory adapterFactory) {
@@ -62,25 +59,28 @@ public class MapRuleItemProvider extends InstallableUnitRequestItemProvider impl
 	 * This adds a property descriptor for the Enabled feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	protected void addEnabledPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-			getResourceLocator(),
-			getString("_UI_EnabledStatusProvider_enabled_feature"),
-			getString(
-				"_UI_PropertyDescriptor_description", "_UI_EnabledStatusProvider_enabled_feature",
-				"_UI_EnabledStatusProvider_type"), AggregatorPackage.Literals.ENABLED_STATUS_PROVIDER__ENABLED, true,
-			false, false, ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null));
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_EnabledStatusProvider_enabled_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_EnabledStatusProvider_enabled_feature", "_UI_EnabledStatusProvider_type"),
+				 AggregatorPackage.Literals.ENABLED_STATUS_PROVIDER__ENABLED,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
+				 null));
 	}
 
 	/**
 	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
 	 * that can be created under this object.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -109,12 +109,11 @@ public class MapRuleItemProvider extends InstallableUnitRequestItemProvider impl
 	/**
 	 * This returns the property descriptors for the adapted class.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-		if(itemPropertyDescriptors == null) {
+		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
 			addEnabledPropertyDescriptor(object);
@@ -180,7 +179,7 @@ public class MapRuleItemProvider extends InstallableUnitRequestItemProvider impl
 	public void notifyChangedGen(Notification notification) {
 		updateChildren(notification);
 
-		switch(notification.getFeatureID(MapRule.class)) {
+		switch (notification.getFeatureID(MapRule.class)) {
 			case AggregatorPackage.MAP_RULE__ENABLED:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;

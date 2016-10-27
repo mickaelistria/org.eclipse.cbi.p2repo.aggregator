@@ -27,6 +27,21 @@
             type="build">
       </parser>
    </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated Aggregator -->
+      <package
+            uri="http://www.eclipse.org/b3/2010/aggregator/p2view/1.0.0"
+            class="org.eclipse.b3.aggregator.p2view.P2viewPackage"
+            genModel="model/Aggregator.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.extension_parser">
+      <!-- @generated Aggregator -->
+      <parser
+            type="p2view"
+            class="org.eclipse.b3.aggregator.p2view.util.P2viewResourceFactoryImpl"/>
+   </extension>
    <extension
          point="org.eclipse.emf.ecore.protocol_parser">
       <parser

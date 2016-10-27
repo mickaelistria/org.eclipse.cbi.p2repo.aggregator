@@ -17,12 +17,12 @@ import org.eclipse.b3.p2.MetadataRepository;
  *
  * <p>
  * The following features are supported:
- * <ul>
- * <li>{@link org.eclipse.b3.aggregator.MetadataRepositoryReference#getMetadataRepository <em>Metadata Repository</em>}</li>
- * <li>{@link org.eclipse.b3.aggregator.MetadataRepositoryReference#getLocation <em>Location</em>}</li>
- * <li>{@link org.eclipse.b3.aggregator.MetadataRepositoryReference#getNature <em>Nature</em>}</li>
- * </ul>
  * </p>
+ * <ul>
+ *   <li>{@link org.eclipse.b3.aggregator.MetadataRepositoryReference#getMetadataRepository <em>Metadata Repository</em>}</li>
+ *   <li>{@link org.eclipse.b3.aggregator.MetadataRepositoryReference#getLocation <em>Location</em>}</li>
+ *   <li>{@link org.eclipse.b3.aggregator.MetadataRepositoryReference#getNature <em>Nature</em>}</li>
+ * </ul>
  *
  * @see org.eclipse.b3.aggregator.AggregatorPackage#getMetadataRepositoryReference()
  * @model
@@ -31,7 +31,6 @@ import org.eclipse.b3.p2.MetadataRepository;
 public interface MetadataRepositoryReference extends EnabledStatusProvider, StatusProvider, InfosProvider {
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @model
 	 * @generated
 	 */
@@ -39,7 +38,6 @@ public interface MetadataRepositoryReference extends EnabledStatusProvider, Stat
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @model kind="operation"
 	 * @generated
 	 */
@@ -52,7 +50,6 @@ public interface MetadataRepositoryReference extends EnabledStatusProvider, Stat
 	 * If the meaning of the '<em>Location</em>' attribute isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 *
 	 * @return the value of the '<em>Location</em>' attribute.
 	 * @see #setLocation(String)
 	 * @see org.eclipse.b3.aggregator.AggregatorPackage#getMetadataRepositoryReference_Location()
@@ -68,7 +65,6 @@ public interface MetadataRepositoryReference extends EnabledStatusProvider, Stat
 	 * If the meaning of the '<em>Metadata Repository</em>' reference isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 *
 	 * @return the value of the '<em>Metadata Repository</em>' reference.
 	 * @see #setMetadataRepository(MetadataRepository)
 	 * @see org.eclipse.b3.aggregator.AggregatorPackage#getMetadataRepositoryReference_MetadataRepository()
@@ -111,7 +107,6 @@ public interface MetadataRepositoryReference extends EnabledStatusProvider, Stat
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @model kind="operation"
 	 * @generated
 	 */
@@ -119,7 +114,6 @@ public interface MetadataRepositoryReference extends EnabledStatusProvider, Stat
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @model kind="operation"
 	 * @generated
 	 */
@@ -127,7 +121,6 @@ public interface MetadataRepositoryReference extends EnabledStatusProvider, Stat
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @model
 	 * @generated
 	 */
@@ -136,21 +129,16 @@ public interface MetadataRepositoryReference extends EnabledStatusProvider, Stat
 	/**
 	 * Sets the value of the '{@link org.eclipse.b3.aggregator.MetadataRepositoryReference#getLocation <em>Location</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
-	 * @param value
-	 *            the new value of the '<em>Location</em>' attribute.
+	 * @param value the new value of the '<em>Location</em>' attribute.
 	 * @see #getLocation()
 	 * @generated
 	 */
 	void setLocation(String value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.aggregator.MetadataRepositoryReference#getMetadataRepository <em>Metadata Repository</em>}'
-	 * reference.
+	 * Sets the value of the '{@link org.eclipse.b3.aggregator.MetadataRepositoryReference#getMetadataRepository <em>Metadata Repository</em>}' reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
-	 * @param value
-	 *            the new value of the '<em>Metadata Repository</em>' reference.
+	 * @param value the new value of the '<em>Metadata Repository</em>' reference.
 	 * @see #getMetadataRepository()
 	 * @generated
 	 */
@@ -159,9 +147,7 @@ public interface MetadataRepositoryReference extends EnabledStatusProvider, Stat
 	/**
 	 * Sets the value of the '{@link org.eclipse.b3.aggregator.MetadataRepositoryReference#getNature <em>Nature</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
-	 * @param value
-	 *            the new value of the '<em>Nature</em>' attribute.
+	 * @param value the new value of the '<em>Nature</em>' attribute.
 	 * @see #getNature()
 	 * @generated
 	 */
@@ -169,7 +155,6 @@ public interface MetadataRepositoryReference extends EnabledStatusProvider, Stat
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @model
 	 * @generated
 	 */

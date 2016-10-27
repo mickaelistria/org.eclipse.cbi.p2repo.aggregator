@@ -26,10 +26,10 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <!-- begin-user-doc --> An implementation of the model object '<em><b>Properties</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * <ul>
- * <li>{@link org.eclipse.b3.aggregator.p2view.impl.PropertiesImpl#getPropertyList <em>Property List</em>}</li>
- * </ul>
  * </p>
+ * <ul>
+ *   <li>{@link org.eclipse.b3.aggregator.p2view.impl.PropertiesImpl#getPropertyList <em>Property List</em>}</li>
+ * </ul>
  *
  * @generated
  */
@@ -37,7 +37,6 @@ public class PropertiesImpl extends MinimalEObjectImpl.Container implements Prop
 	/**
 	 * A set of bit flags representing the values of boolean attributes and whether unsettable features have been set.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 * @ordered
 	 */
@@ -47,7 +46,6 @@ public class PropertiesImpl extends MinimalEObjectImpl.Container implements Prop
 	 * The cached value of the '{@link #getPropertyList() <em>Property List</em>}' containment reference list.
 	 * <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
-	 *
 	 * @see #getPropertyList()
 	 * @generated
 	 * @ordered
@@ -56,7 +54,6 @@ public class PropertiesImpl extends MinimalEObjectImpl.Container implements Prop
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	protected PropertiesImpl() {
@@ -65,12 +62,11 @@ public class PropertiesImpl extends MinimalEObjectImpl.Container implements Prop
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch(featureID) {
+		switch (featureID) {
 			case P2viewPackage.PROPERTIES__PROPERTY_LIST:
 				return getPropertyList();
 		}
@@ -80,26 +76,24 @@ public class PropertiesImpl extends MinimalEObjectImpl.Container implements Prop
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch(featureID) {
+		switch (featureID) {
 			case P2viewPackage.PROPERTIES__PROPERTY_LIST:
-				return ((InternalEList<?>) getPropertyList()).basicRemove(otherEnd, msgs);
+				return ((InternalEList<?>)getPropertyList()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch(featureID) {
+		switch (featureID) {
 			case P2viewPackage.PROPERTIES__PROPERTY_LIST:
 				return propertyList != null && !propertyList.isEmpty();
 		}
@@ -108,16 +102,15 @@ public class PropertiesImpl extends MinimalEObjectImpl.Container implements Prop
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch(featureID) {
+		switch (featureID) {
 			case P2viewPackage.PROPERTIES__PROPERTY_LIST:
 				getPropertyList().clear();
-				getPropertyList().addAll((Collection<? extends Property>) newValue);
+				getPropertyList().addAll((Collection<? extends Property>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -125,7 +118,6 @@ public class PropertiesImpl extends MinimalEObjectImpl.Container implements Prop
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -135,12 +127,11 @@ public class PropertiesImpl extends MinimalEObjectImpl.Container implements Prop
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
-		switch(featureID) {
+		switch (featureID) {
 			case P2viewPackage.PROPERTIES__PROPERTY_LIST:
 				getPropertyList().clear();
 				return;
@@ -150,13 +141,11 @@ public class PropertiesImpl extends MinimalEObjectImpl.Container implements Prop
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	public EList<Property> getPropertyList() {
-		if(propertyList == null) {
-			propertyList = new EObjectContainmentEList.Resolving<Property>(
-				Property.class, this, P2viewPackage.PROPERTIES__PROPERTY_LIST);
+		if (propertyList == null) {
+			propertyList = new EObjectContainmentEList.Resolving<Property>(Property.class, this, P2viewPackage.PROPERTIES__PROPERTY_LIST);
 		}
 		return propertyList;
 	}

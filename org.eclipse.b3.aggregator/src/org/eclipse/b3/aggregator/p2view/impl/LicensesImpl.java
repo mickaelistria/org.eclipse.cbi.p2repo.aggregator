@@ -23,10 +23,10 @@ import org.eclipse.equinox.p2.metadata.ILicense;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * <ul>
- * <li>{@link org.eclipse.b3.aggregator.p2view.impl.LicensesImpl#getLicenses <em>Licenses</em>}</li>
- * </ul>
  * </p>
+ * <ul>
+ *   <li>{@link org.eclipse.b3.aggregator.p2view.impl.LicensesImpl#getLicenses <em>Licenses</em>}</li>
+ * </ul>
  *
  * @generated
  */
@@ -35,7 +35,6 @@ public class LicensesImpl extends MinimalEObjectImpl.Container implements Licens
 	 * A set of bit flags representing the values of boolean attributes and whether unsettable features have been set.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @generated
 	 * @ordered
 	 */
@@ -45,7 +44,6 @@ public class LicensesImpl extends MinimalEObjectImpl.Container implements Licens
 	 * The cached value of the '{@link #getLicenses() <em>Licenses</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @see #getLicenses()
 	 * @generated
 	 * @ordered
@@ -55,7 +53,6 @@ public class LicensesImpl extends MinimalEObjectImpl.Container implements Licens
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	protected LicensesImpl() {
@@ -65,12 +62,11 @@ public class LicensesImpl extends MinimalEObjectImpl.Container implements Licens
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch(featureID) {
+		switch (featureID) {
 			case P2viewPackage.LICENSES__LICENSES:
 				return getLicenses();
 		}
@@ -80,12 +76,11 @@ public class LicensesImpl extends MinimalEObjectImpl.Container implements Licens
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch(featureID) {
+		switch (featureID) {
 			case P2viewPackage.LICENSES__LICENSES:
 				return licenses != null && !licenses.isEmpty();
 		}
@@ -95,16 +90,15 @@ public class LicensesImpl extends MinimalEObjectImpl.Container implements Licens
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch(featureID) {
+		switch (featureID) {
 			case P2viewPackage.LICENSES__LICENSES:
 				getLicenses().clear();
-				getLicenses().addAll((Collection<? extends ILicense>) newValue);
+				getLicenses().addAll((Collection<? extends ILicense>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -113,7 +107,6 @@ public class LicensesImpl extends MinimalEObjectImpl.Container implements Licens
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -124,12 +117,11 @@ public class LicensesImpl extends MinimalEObjectImpl.Container implements Licens
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
-		switch(featureID) {
+		switch (featureID) {
 			case P2viewPackage.LICENSES__LICENSES:
 				getLicenses().clear();
 				return;
@@ -140,11 +132,10 @@ public class LicensesImpl extends MinimalEObjectImpl.Container implements Licens
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	public EList<ILicense> getLicenses() {
-		if(licenses == null) {
+		if (licenses == null) {
 			licenses = new EObjectResolvingEList<ILicense>(ILicense.class, this, P2viewPackage.LICENSES__LICENSES);
 		}
 		return licenses;
