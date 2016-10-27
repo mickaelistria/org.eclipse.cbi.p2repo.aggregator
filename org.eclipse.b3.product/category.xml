@@ -5,7 +5,7 @@
    </feature>
    <category-def name="org.eclipse.b3.headless" label="CBI Aggregator Headless Build System">
       <description>
-         The b3 build system headless features
+         The CBI p2 Repository Aggregator headless features
       </description>
    </category-def>
    <feature id="org.eclipse.b3.p2.maven.indexer.feature" version="0.0.0" />
