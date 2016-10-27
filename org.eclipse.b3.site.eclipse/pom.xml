@@ -28,7 +28,7 @@
         <artifactId>tycho-p2-repository-plugin</artifactId>
         <version>${tycho-version}</version>
         <configuration>
-          <repositoryName>b3 Aggregator Tools - Repository</repositoryName>
+          <repositoryName>CBI p2 Repository Aggregator Tools</repositoryName>
           <compressed>true</compressed>
           <includeAllDependencies>true</includeAllDependencies>
         </configuration>
