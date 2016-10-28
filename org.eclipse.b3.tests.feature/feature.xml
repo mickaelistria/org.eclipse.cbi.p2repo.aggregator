@@ -26,6 +26,10 @@
       %description
    </description>
 
+   <license url="%licenseURL">
+      %license
+   </license>
+
    <plugin
          id="org.eclipse.b3.p2.tests"
          download-size="0"
