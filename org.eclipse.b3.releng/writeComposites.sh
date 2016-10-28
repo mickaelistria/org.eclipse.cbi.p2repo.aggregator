@@ -49,7 +49,12 @@ function writeChildren
     outfile=$1
     repoRoot=$2
     # NOTE: we always take "most recent 3 builds". 
-    children=$(ls -1t ${repoRoot} | head -3)
+    # we use "I20" as prefix that all our child repo directories start with 
+    # such as "I2016...". So, in 80 years will need some maintenance. :) 
+    # But, otherwise, this cheap heuristic finds existing files such as "composite*".
+    pushd "${repoRoot}" >/dev/null
+    children=$(ls -1td I20* | head -3)
+    popd >/dev/null
 
     for child in $children
     do
@@ -58,18 +63,27 @@ function writeChildren
 
 }
 
-
 repoRoots=("/home/data/httpd/download.eclipse.org/cbi/updates/aggregator/ide/4.5" "/home/data/httpd/download.eclipse.org/cbi/updates/aggregator/headless/4.5")
 # Normally "writeRepoRoots" is the same as "repoRoots", but might not always be, plus
 # it is very handy for testing this script not to have to write to the "production" area.
 #writeRepoRoots=("${PWD}/ide" "${PWD}/headless")
-writeRepoRoots=${repoRoots}
+writeRepoRoots=(${repoRoots[@]})
 indices=(0 1)
-for index in ${indices[*]} 
+for index in ${indices[@]} 
 do
+    #echo -e "[DEBUG] index: ${index}\n"
     writeRepoRoot="${writeRepoRoots[$index]}"
+    #echo -e "[DEBUG] writeRepoRoot: ${writeRepoRoot}\n"
     mkdir -p "${writeRepoRoot}"
+    RC=$?
+    if [[ $RC != 0 ]]
+    then
+       echo -e "[ERROR] Could not create directory at ${writeRepoRoot}\n"
+       exit $RC
+    fi
     repoRoot="${repoRoots[$index]}"
+    #echo -e "[DEBUG] repoRoot: ${repoRoot}\n"
+    
     artifactsCompositeFile="${writeRepoRoot}/compositeArtifacts.xml"
     contentCompositeFile="${writeRepoRoot}/compositeContent.xml"
     p2Index="${writeRepoRoot}/p2.index"
@@ -79,7 +93,7 @@ do
     writeFooter "${artifactsCompositeFile}"
 
     writeContentHeader "${contentCompositeFile}"
-    writeChildren "${contentCompositeFile}"
+    writeChildren "${contentCompositeFile}" "${repoRoot}"
     writeFooter "${contentCompositeFile}"
 
     writeCompositeP2Index "${p2Index}"
