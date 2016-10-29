@@ -23,7 +23,7 @@
    </feature>
    <category-def name="org.eclipse.cbi.p2Repo.aggregator" label="Eclipse CBI p2Repo Aggregator Editor">
       <description>
-         The Eclipse CBI p2Repo Aggregator Editor, engine, and related features.
+         The Eclipse CBI p2Repo Aggregator Editor, engine, and related features. (Previously known as the "b3 Aggregator".)
       </description>
    </category-def>
    <category-def name="org.eclipse.cbi.p2Repo.aggregator.misc" label="Extra features related to editor">
