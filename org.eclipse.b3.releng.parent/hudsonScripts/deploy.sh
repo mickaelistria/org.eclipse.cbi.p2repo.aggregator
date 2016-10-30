@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-
+# The default for build home is simply where I do my local build. Feel free to change in your local copy. 
 build_home=${WORKSPACE:-/home/davidw/gitCBI}
 propertiesfile="${build_home}/org.eclipse.cbi.p2repo.aggregator/org.eclipse.b3.product/target/mavenproperties.properties"
 sourceProperties="${build_home}/mavenproperties.shsource"
@@ -12,12 +12,11 @@ function convertProperties
   outfile=$2  
   if [ -f "$file" ]
   then
-    #echo -e "\n[DEBUG] properties found at exected location: \n\t$file\n"
+    #echo -e "\n[DEBUG] properties found at expected location: \n\t$file\n"
     echo "# Ant properties translated to bash shell variables" > $outfile
     while IFS='=' read -r key value
-      #[[ "${key}" != "buildId" ]]
     do
-      # Technically, we only need buildId for now (no periods in var name) so 
+      # Technically, we only need 'buildId' and 'updateRelease' for now (no periods in var name) so 
       # we do not need the space and period translations. But, would in more
       # complicated cases.
       if [[ -n $key ]] 
@@ -34,7 +33,7 @@ function convertProperties
     done < "$file"
     echo -e "\n[INFO] source properties created in $outfile\n"
   else
-    echo -e "\n[ERROR] property file not found at exected location: \n\t$file\n"
+    echo -e "\n[ERROR] property file not found at expected location: \n\t$file\n"
   fi
 }
 
@@ -53,8 +52,8 @@ convertProperties $propertiesfile $sourceProperties
 source $sourceProperties
 
 baseDL=/home/data/httpd/download.eclipse.org/cbi/updates/aggregator
-ideUpdate=${baseDL}/ide/4.5/${buildId}
-headlessUpdate=${baseDL}/headless/4.5/${buildId}
+ideUpdate=${baseDL}/ide/${updateRelease}/${buildId}
+headlessUpdate=${baseDL}/headless/${updateRelease}/${buildId}
 
 deployRepos ${ideUpdate} ${build_home}/org.eclipse.cbi.p2repo.aggregator/org.eclipse.b3.site.eclipse/target/repository
 deployRepos ${headlessUpdate} ${build_home}/org.eclipse.cbi.p2repo.aggregator/org.eclipse.b3.product/target/repository

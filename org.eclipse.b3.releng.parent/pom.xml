@@ -31,6 +31,14 @@
        such as -DdirtyworkingTree=warning.
      -->
     <dirtyworkingTree>error</dirtyworkingTree>
+    
+    <!-- 
+       This 'updateRelease' value is not used in the build, per se, but when we "deploy" to 
+       the update site locations. It reflects, basically, the version of the platform that it 
+       was built against and the one it should be installed into (ideally). 
+     -->
+    <updateRelease>4.5</updateRelease>
+    
   </properties>
   <profiles>
     <profile>

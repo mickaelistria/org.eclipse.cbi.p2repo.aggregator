@@ -15,6 +15,11 @@ cleanLocal=$1
 
 signjars=$2
 
+if [[ -z "${cleanLocal}" ]]
+then
+  cleanLocal="NotSpecified"
+fi
+
 if [[ "${cleanLocal}" == "true" ]]
 then
   rm -fr ${tmp_dir}
@@ -25,6 +30,11 @@ else
 fi
 mkdir -p ${tmp_dir}
 mkdir -p ${local_mvn_repo}
+
+if [[ -z "${signJars}" ]]
+then
+  signJars="NotSpecified"
+fi
 
 if [[ "${signJars}" == "true" ]] 
 then
