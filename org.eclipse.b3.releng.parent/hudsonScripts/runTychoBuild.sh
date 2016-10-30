@@ -68,4 +68,4 @@ then
 fi
 
 # Test our own repository!
-${WORKSPACE}/org.eclipse.cbi.p2repo.aggregator/org.eclipse.b3.releng.parent/hudsonScripts/testOurRepo.sh
+${build_home}/org.eclipse.cbi.p2repo.aggregator/org.eclipse.b3.releng.parent/hudsonScripts/testOurRepo.sh

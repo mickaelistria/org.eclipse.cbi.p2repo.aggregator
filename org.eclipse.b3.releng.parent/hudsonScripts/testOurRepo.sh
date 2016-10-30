@@ -25,4 +25,4 @@ tar -xf org.eclipse.cbi.p2repo.analyzers.product-linux.gtk.x86_64.tar.gz
 unzip ${build_home}/org.eclipse.cbi.p2repo.aggregator/org.eclipse.b3.site.eclipse/target/org.eclipse.b3.site.eclipse-1.0.0-SNAPSHOT.zip -d repoToTest
 
 popd
-${build_home}/testarea/p2analyze -data workspace-report -vmargs -DreportRepoDir=${build_home}/testarea/repoToTest -DreferenceRepo=file:///home/data/httpd/download.eclipse.org/cbi/updates/aggregator/ide/4.5/  -DreportOutputDir=${WORKSPACE}/p2repoSelfReport
+${build_home}/testarea/p2analyze -data workspace-report -vmargs -DreportRepoDir=${build_home}/testarea/repoToTest -DreferenceRepo=/home/data/httpd/download.eclipse.org/cbi/updates/aggregator/ide/4.5/I20161026-2128  -DreportOutputDir=${build_home}/p2repoSelfReport
