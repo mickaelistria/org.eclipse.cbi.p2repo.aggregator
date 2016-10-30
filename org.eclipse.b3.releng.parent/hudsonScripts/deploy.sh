@@ -68,3 +68,4 @@ cp ${productroot}/org.eclipse.b3.product-linux.gtk.x86_64.tar.gz ${headlessUpdat
 cp ${productroot}/org.eclipse.b3.product-macosx.cocoa.x86_64.tar.gz ${headlessUpdate}/headless_${buildId}_macosx.cocoa.x86_64.tar.gz
 cp ${productroot}/org.eclipse.b3.product-win32.win32.x86_64.zip ${headlessUpdate}/headless_${buildId}_win32.win32.x86_64.zip
 
+cp -r ${build_home}/p2repoSelfReport/reporeports ${headlessUpdate}/
