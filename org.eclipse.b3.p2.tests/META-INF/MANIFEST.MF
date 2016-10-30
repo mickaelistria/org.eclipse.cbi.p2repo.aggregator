@@ -1,6 +1,7 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: %pluginName
+Bundle-Localization: plugin
 Bundle-SymbolicName: org.eclipse.b3.p2.tests
 Bundle-Version: 1.0.0.qualifier
 Bundle-Vendor: %providerName
