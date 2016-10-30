@@ -62,4 +62,10 @@ RC=$?
 
 printf "\n\t[INFO] %s\n\n" "Build Output in ${out_file}"
 
-exit $RC
+if [[ $RC != 0 ]]
+then
+  exit $RC
+fi
+
+# Test our own repository!
+${WORKSPACE}/org.eclipse.cbi.p2repo.aggregator/org.eclipse.b3.releng.parent/hudsonScripts/testOurRepo.sh
