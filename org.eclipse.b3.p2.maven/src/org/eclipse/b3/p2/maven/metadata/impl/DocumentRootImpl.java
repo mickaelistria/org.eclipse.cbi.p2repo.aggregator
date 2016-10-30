@@ -104,13 +104,11 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 			case MetadataPackage.DOCUMENT_ROOT__XMLNS_PREFIX_MAP:
 				if(coreType)
 					return getXMLNSPrefixMap();
-				else
-					return getXMLNSPrefixMap().map();
+				return getXMLNSPrefixMap().map();
 			case MetadataPackage.DOCUMENT_ROOT__XSI_SCHEMA_LOCATION:
 				if(coreType)
 					return getXSISchemaLocation();
-				else
-					return getXSISchemaLocation().map();
+				return getXSISchemaLocation().map();
 			case MetadataPackage.DOCUMENT_ROOT__METADATA:
 				return getMetadata();
 		}
@@ -179,6 +177,16 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 				return;
 		}
 		super.eSet(featureID, newValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 *
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return MetadataPackage.Literals.DOCUMENT_ROOT;
 	}
 
 	/**
@@ -283,16 +291,6 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 		result.append(mixed);
 		result.append(')');
 		return result.toString();
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return MetadataPackage.Literals.DOCUMENT_ROOT;
 	}
 
 } // DocumentRootImpl

@@ -160,20 +160,6 @@ public class Maven2RepositoryLoader implements IRepositoryLoader {
 	public static final String SIMPLE_METADATA_TYPE = org.eclipse.equinox.internal.p2.metadata.repository.Activator.ID +
 			".simpleRepository"; //$NON-NLS-1$
 
-	private Stack<UriIterator> iteratorStack;
-
-	private Iterator<VersionEntry> versionEntryItor;
-
-	private IMaven2Indexer indexer;
-
-	private URI location;
-
-	private IProvisioningAgent agent;
-
-	private MetadataRepositoryImpl repository;
-
-	private Map<String, IInstallableUnit> cachedIUs;
-
 	private static final String MAVEN_EMPTY_RANGE_STRING = "0.0.0";
 
 	private static final String REPOSITORY_CANCELLED_MESSAGE = "Repository loading was cancelled";
@@ -189,6 +175,20 @@ public class Maven2RepositoryLoader implements IRepositoryLoader {
 	private static final String PROP_POM_TIMESTAMP = "maven.pom.timestamp";
 
 	private static final String PROP_INDEX_TIMESTAMP = "maven.index.timestamp";
+
+	private Stack<UriIterator> iteratorStack;
+
+	private Iterator<VersionEntry> versionEntryItor;
+
+	private IMaven2Indexer indexer;
+
+	private URI location;
+
+	private IProvisioningAgent agent;
+
+	private MetadataRepositoryImpl repository;
+
+	private Map<String, IInstallableUnit> cachedIUs;
 
 	private void append(StringBuilder sb, String name, boolean newLines) {
 		name = StringUtils.trimmedOrNull(name);
@@ -290,11 +290,12 @@ public class Maven2RepositoryLoader implements IRepositoryLoader {
 				iu.getPropertyMap().put(PROP_POM_TIMESTAMP, timestamp.toString());
 
 			if(!versionEntry.groupId.equals(pom.getGroupId()))
-				throw new IOException(String.format(
-					"Bad groupId in POM: expected %s, found %s", versionEntry.groupId, pom.getGroupId()));
+				throw new IOException(
+					String.format("Bad groupId in POM: expected %s, found %s", versionEntry.groupId, pom.getGroupId()));
 			if(!versionEntry.artifactId.equals(pom.getArtifactId()))
-				throw new IOException(String.format(
-					"Bad artifactId in POM: expected %s, found %s", versionEntry.artifactId, pom.getArtifactId()));
+				throw new IOException(
+					String.format(
+						"Bad artifactId in POM: expected %s, found %s", versionEntry.artifactId, pom.getArtifactId()));
 
 			model = pom.getProject();
 
@@ -317,8 +318,10 @@ public class Maven2RepositoryLoader implements IRepositoryLoader {
 						versionRange = MAVEN_EMPTY_RANGE_STRING;
 					VersionRange vr = VersionUtil.createVersionRange(versionRange);
 
-					IRequirement rc = P2Bridge.importToModel(MetadataFactory.createRequirement(
-						namespace, createP2Id(groupId, artifactId), vr, null, dependency.isSetOptional(), false, true));
+					IRequirement rc = P2Bridge.importToModel(
+						MetadataFactory.createRequirement(
+							namespace, createP2Id(groupId, artifactId), vr, null, dependency.isSetOptional(), false,
+							true));
 
 					iu.getRequirements().add(rc);
 				}
@@ -351,8 +354,8 @@ public class Maven2RepositoryLoader implements IRepositoryLoader {
 					String name = license.getName();
 					String comments = license.getComments();
 
-					if(name != null && name.toLowerCase().contains(match) || comments != null &&
-							comments.toLowerCase().contains(match))
+					if(name != null && name.toLowerCase().contains(match) ||
+							comments != null && comments.toLowerCase().contains(match))
 						toCopyright.add(license);
 					else
 						toLicense.add(license);
@@ -628,12 +631,13 @@ public class Maven2RepositoryLoader implements IRepositoryLoader {
 	}
 
 	private long getRemoteIndexTimestamp() throws CoreException {
+		HttpClient httpClient = null;
 		try {
 			BufferedReader reader = null;
 			String indexPropertiesFile = "/.index/nexus-maven-repository-index.properties";
 
 			if("http".equals(location.getScheme()) || "https".equals(location.getScheme())) {
-				HttpClient httpClient = new DefaultHttpClient();
+				httpClient = new DefaultHttpClient();
 				HttpGet request = new HttpGet(location.toString() + indexPropertiesFile);
 				request.addHeader("user-agent", "");
 				HttpResponse response = httpClient.execute(request);
@@ -672,7 +676,9 @@ public class Maven2RepositoryLoader implements IRepositoryLoader {
 					}
 				}
 				finally {
-					reader.close();
+					if(reader != null) {
+						reader.close();
+					}
 				}
 			}
 		}
@@ -697,8 +703,8 @@ public class Maven2RepositoryLoader implements IRepositoryLoader {
 				versionEntries.add(new VersionEntry(groupId, artifactId, VersionUtil.createVersion(versionString)));
 			}
 			catch(IllegalArgumentException e) {
-				LogUtils.warning("Skipping component " + groupId + '/' + artifactId + '#' + versionString + ": " +
-						e.getMessage());
+				LogUtils.warning(
+					"Skipping component " + groupId + '/' + artifactId + '#' + versionString + ": " + e.getMessage());
 			}
 		}
 
@@ -734,6 +740,16 @@ public class Maven2RepositoryLoader implements IRepositoryLoader {
 			catch(Exception e) {
 				LogUtils.warning(e, "Unable to check if %s is folder: %s", uri.toString(), e.getMessage());
 				return false;
+			}
+			finally {
+				if(httpClient != null) {
+					try {
+						((BufferedReader) httpClient).close();
+					}
+					catch(IOException e) {
+						// ignore, since unexpected if not impossible.
+					}
+				}
 			}
 		}
 
@@ -921,9 +937,10 @@ public class Maven2RepositoryLoader implements IRepositoryLoader {
 					categoryMap.put(groupId, category);
 				}
 
-				IRequirement rc = P2Bridge.importToModel(MetadataFactory.createRequirement(
-					IInstallableUnit.NAMESPACE_IU_ID, iu.getId(),
-					new VersionRange(iu.getVersion(), true, iu.getVersion(), true), null, false, false, true));
+				IRequirement rc = P2Bridge.importToModel(
+					MetadataFactory.createRequirement(
+						IInstallableUnit.NAMESPACE_IU_ID, iu.getId(),
+						new VersionRange(iu.getVersion(), true, iu.getVersion(), true), null, false, false, true));
 				List<IRequirement> rcList = category.getRequirements();
 				rcList.add(rc);
 
@@ -953,7 +970,8 @@ public class Maven2RepositoryLoader implements IRepositoryLoader {
 			if(!robotSafe(location.toString(), "/")) {
 				StringBuilder message = new StringBuilder("Crawling of %1$s is discouraged (see %1$s/robots.txt)");
 				if(remoteIndexTimestamp != 0L)
-					message.append(". Hint: The repository is indexed. Install an index reader to map this repository.");
+					message.append(
+						". Hint: The repository is indexed. Install an index reader to map this repository.");
 
 				throw ExceptionUtils.fromMessage(message.toString(), location.toString());
 			}

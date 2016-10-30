@@ -118,6 +118,7 @@ public class InternalMetadataRepository extends LocalMetadataRepository {
 		File file = getActualLocation(getLocation(), XML_EXTENSION);
 		File jarFile = getActualLocation(getLocation(), JAR_EXTENSION);
 		boolean compress = "true".equalsIgnoreCase(getProperties().get(PROP_COMPRESSED)); //$NON-NLS-1$
+		JarOutputStream jOutput = null;
 		try {
 			OutputStream output = null;
 			if(!compress) {
@@ -141,7 +142,7 @@ public class InternalMetadataRepository extends LocalMetadataRepository {
 					jarFile.createNewFile();
 				}
 				JarEntry jarEntry = new JarEntry(file.getName());
-				JarOutputStream jOutput = new JarOutputStream(new FileOutputStream(jarFile));
+				jOutput = new JarOutputStream(new FileOutputStream(jarFile));
 				jOutput.putNextEntry(jarEntry);
 				output = jOutput;
 			}
@@ -149,9 +150,10 @@ public class InternalMetadataRepository extends LocalMetadataRepository {
 			new InternalMetadataRepositoryIO(getProvisioningAgent()).write(this, output);
 		}
 		catch(IOException e) {
-			LogHelper.log(new Status(
-				IStatus.ERROR, Activator.ID, ProvisionException.REPOSITORY_FAILED_WRITE,
-				"Error saving metadata repository: " + getLocation(), e)); //$NON-NLS-1$
+			LogHelper.log(
+				new Status(
+					IStatus.ERROR, Activator.ID, ProvisionException.REPOSITORY_FAILED_WRITE,
+					"Error saving metadata repository: " + getLocation(), e)); //$NON-NLS-1$
 		}
 	}
 

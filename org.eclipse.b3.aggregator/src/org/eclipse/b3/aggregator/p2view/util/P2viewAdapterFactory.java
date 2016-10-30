@@ -12,7 +12,6 @@ package org.eclipse.b3.aggregator.p2view.util;
 import org.eclipse.b3.aggregator.ChildrenProvider;
 import org.eclipse.b3.aggregator.LabelProvider;
 import org.eclipse.b3.aggregator.StatusProvider;
-import org.eclipse.b3.aggregator.p2view.*;
 import org.eclipse.b3.aggregator.p2view.Bundle;
 import org.eclipse.b3.aggregator.p2view.Bundles;
 import org.eclipse.b3.aggregator.p2view.Categories;
@@ -50,6 +49,7 @@ import org.eclipse.equinox.p2.metadata.IRequirement;
 /**
  * <!-- begin-user-doc --> The <b>Adapter Factory</b> for the model. It provides an adapter <code>createXXX</code> method for each class of the model.
  * <!-- end-user-doc -->
+ * 
  * @see org.eclipse.b3.aggregator.p2view.P2viewPackage
  * @generated
  */
@@ -57,6 +57,7 @@ public class P2viewAdapterFactory extends AdapterFactoryImpl {
 	/**
 	 * The cached model package.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected static P2viewPackage modelPackage;
@@ -64,146 +65,179 @@ public class P2viewAdapterFactory extends AdapterFactoryImpl {
 	/**
 	 * The switch that delegates to the <code>createXXX</code> methods.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected P2viewSwitch<Adapter> modelSwitch = new P2viewSwitch<Adapter>() {
-			@Override
-			public Adapter caseBundle(Bundle object) {
-				return createBundleAdapter();
-			}
-			@Override
-			public Adapter caseBundles(Bundles object) {
-				return createBundlesAdapter();
-			}
-			@Override
-			public Adapter caseCategory(Category object) {
-				return createCategoryAdapter();
-			}
-			@Override
-			public Adapter caseCategories(Categories object) {
-				return createCategoriesAdapter();
-			}
-			@Override
-			public Adapter caseFeature(Feature object) {
-				return createFeatureAdapter();
-			}
-			@Override
-			public Adapter caseFeatures(Features object) {
-				return createFeaturesAdapter();
-			}
-			@Override
-			public Adapter caseFragment(Fragment object) {
-				return createFragmentAdapter();
-			}
-			@Override
-			public Adapter caseFragments(Fragments object) {
-				return createFragmentsAdapter();
-			}
-			@Override
-			public Adapter caseInstallableUnits(InstallableUnits object) {
-				return createInstallableUnitsAdapter();
-			}
-			@Override
-			public Adapter caseIUDetails(IUDetails object) {
-				return createIUDetailsAdapter();
-			}
-			@Override
-			public Adapter caseIUPresentation(IUPresentation object) {
-				return createIUPresentationAdapter();
-			}
-			@Override
-			public Adapter caseIUPresentationWithDetails(IUPresentationWithDetails object) {
-				return createIUPresentationWithDetailsAdapter();
-			}
-			@Override
-			public Adapter caseLicenses(Licenses object) {
-				return createLicensesAdapter();
-			}
-			@Override
-			public Adapter caseRepositoryBrowser(RepositoryBrowser object) {
-				return createRepositoryBrowserAdapter();
-			}
-			@Override
-			public Adapter caseMetadataRepositoryStructuredView(MetadataRepositoryStructuredView object) {
-				return createMetadataRepositoryStructuredViewAdapter();
-			}
-			@Override
-			public Adapter caseMiscellaneous(Miscellaneous object) {
-				return createMiscellaneousAdapter();
-			}
-			@Override
-			public Adapter caseOtherIU(OtherIU object) {
-				return createOtherIUAdapter();
-			}
-			@Override
-			public Adapter caseProduct(Product object) {
-				return createProductAdapter();
-			}
-			@Override
-			public Adapter caseProducts(Products object) {
-				return createProductsAdapter();
-			}
-			@Override
-			public Adapter caseProperties(Properties object) {
-				return createPropertiesAdapter();
-			}
-			@Override
-			public Adapter caseProvidedCapabilities(ProvidedCapabilities object) {
-				return createProvidedCapabilitiesAdapter();
-			}
-			@Override
-			public Adapter caseProvidedCapabilityWrapper(ProvidedCapabilityWrapper object) {
-				return createProvidedCapabilityWrapperAdapter();
-			}
-			@Override
-			public Adapter caseRepositoryReferences(RepositoryReferences object) {
-				return createRepositoryReferencesAdapter();
-			}
-			@Override
-			public Adapter caseRequirements(Requirements object) {
-				return createRequirementsAdapter();
-			}
-			@Override
-			public Adapter caseRequirementWrapper(RequirementWrapper object) {
-				return createRequirementWrapperAdapter();
-			}
-			@Override
-			public Adapter caseTouchpoints(Touchpoints object) {
-				return createTouchpointsAdapter();
-			}
-			@Override
-			public <T> Adapter caseChildrenProvider(ChildrenProvider<T> object) {
-				return createChildrenProviderAdapter();
-			}
-			@Override
-			public Adapter caseStatusProvider(StatusProvider object) {
-				return createStatusProviderAdapter();
-			}
-			@Override
-			public Adapter caseIProvidedCapability(IProvidedCapability object) {
-				return createIProvidedCapabilityAdapter();
-			}
-			@Override
-			public Adapter caseLabelProvider(LabelProvider object) {
-				return createLabelProviderAdapter();
-			}
-			@Override
-			public Adapter caseIRequirement(IRequirement object) {
-				return createIRequirementAdapter();
-			}
-			@Override
-			public Adapter defaultCase(EObject object) {
-				return createEObjectAdapter();
-			}
-		};
+		@Override
+		public Adapter caseBundle(Bundle object) {
+			return createBundleAdapter();
+		}
+
+		@Override
+		public Adapter caseBundles(Bundles object) {
+			return createBundlesAdapter();
+		}
+
+		@Override
+		public Adapter caseCategories(Categories object) {
+			return createCategoriesAdapter();
+		}
+
+		@Override
+		public Adapter caseCategory(Category object) {
+			return createCategoryAdapter();
+		}
+
+		@Override
+		public <T> Adapter caseChildrenProvider(ChildrenProvider<T> object) {
+			return createChildrenProviderAdapter();
+		}
+
+		@Override
+		public Adapter caseFeature(Feature object) {
+			return createFeatureAdapter();
+		}
+
+		@Override
+		public Adapter caseFeatures(Features object) {
+			return createFeaturesAdapter();
+		}
+
+		@Override
+		public Adapter caseFragment(Fragment object) {
+			return createFragmentAdapter();
+		}
+
+		@Override
+		public Adapter caseFragments(Fragments object) {
+			return createFragmentsAdapter();
+		}
+
+		@Override
+		public Adapter caseInstallableUnits(InstallableUnits object) {
+			return createInstallableUnitsAdapter();
+		}
+
+		@Override
+		public Adapter caseIProvidedCapability(IProvidedCapability object) {
+			return createIProvidedCapabilityAdapter();
+		}
+
+		@Override
+		public Adapter caseIRequirement(IRequirement object) {
+			return createIRequirementAdapter();
+		}
+
+		@Override
+		public Adapter caseIUDetails(IUDetails object) {
+			return createIUDetailsAdapter();
+		}
+
+		@Override
+		public Adapter caseIUPresentation(IUPresentation object) {
+			return createIUPresentationAdapter();
+		}
+
+		@Override
+		public Adapter caseIUPresentationWithDetails(IUPresentationWithDetails object) {
+			return createIUPresentationWithDetailsAdapter();
+		}
+
+		@Override
+		public Adapter caseLabelProvider(LabelProvider object) {
+			return createLabelProviderAdapter();
+		}
+
+		@Override
+		public Adapter caseLicenses(Licenses object) {
+			return createLicensesAdapter();
+		}
+
+		@Override
+		public Adapter caseMetadataRepositoryStructuredView(MetadataRepositoryStructuredView object) {
+			return createMetadataRepositoryStructuredViewAdapter();
+		}
+
+		@Override
+		public Adapter caseMiscellaneous(Miscellaneous object) {
+			return createMiscellaneousAdapter();
+		}
+
+		@Override
+		public Adapter caseOtherIU(OtherIU object) {
+			return createOtherIUAdapter();
+		}
+
+		@Override
+		public Adapter caseProduct(Product object) {
+			return createProductAdapter();
+		}
+
+		@Override
+		public Adapter caseProducts(Products object) {
+			return createProductsAdapter();
+		}
+
+		@Override
+		public Adapter caseProperties(Properties object) {
+			return createPropertiesAdapter();
+		}
+
+		@Override
+		public Adapter caseProvidedCapabilities(ProvidedCapabilities object) {
+			return createProvidedCapabilitiesAdapter();
+		}
+
+		@Override
+		public Adapter caseProvidedCapabilityWrapper(ProvidedCapabilityWrapper object) {
+			return createProvidedCapabilityWrapperAdapter();
+		}
+
+		@Override
+		public Adapter caseRepositoryBrowser(RepositoryBrowser object) {
+			return createRepositoryBrowserAdapter();
+		}
+
+		@Override
+		public Adapter caseRepositoryReferences(RepositoryReferences object) {
+			return createRepositoryReferencesAdapter();
+		}
+
+		@Override
+		public Adapter caseRequirements(Requirements object) {
+			return createRequirementsAdapter();
+		}
+
+		@Override
+		public Adapter caseRequirementWrapper(RequirementWrapper object) {
+			return createRequirementWrapperAdapter();
+		}
+
+		@Override
+		public Adapter caseStatusProvider(StatusProvider object) {
+			return createStatusProviderAdapter();
+		}
+
+		@Override
+		public Adapter caseTouchpoints(Touchpoints object) {
+			return createTouchpointsAdapter();
+		}
+
+		@Override
+		public Adapter defaultCase(EObject object) {
+			return createEObjectAdapter();
+		}
+	};
 
 	/**
 	 * Creates an instance of the adapter factory.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public P2viewAdapterFactory() {
-		if (modelPackage == null) {
+		if(modelPackage == null) {
 			modelPackage = P2viewPackage.eINSTANCE;
 		}
 	}
@@ -211,19 +245,22 @@ public class P2viewAdapterFactory extends AdapterFactoryImpl {
 	/**
 	 * Creates an adapter for the <code>target</code>.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @param target the object to adapt.
+	 * 
+	 * @param target
+	 *            the object to adapt.
 	 * @return the adapter for the <code>target</code>.
 	 * @generated
 	 */
 	@Override
 	public Adapter createAdapter(Notifier target) {
-		return modelSwitch.doSwitch((EObject)target);
+		return modelSwitch.doSwitch((EObject) target);
 	}
 
 	/**
 	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.aggregator.p2view.Bundle <em>Bundle</em>}'.
 	 * <!-- begin-user-doc --> This default implementation returns null so that we can easily ignore
 	 * cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.aggregator.p2view.Bundle
 	 * @generated
@@ -236,6 +273,7 @@ public class P2viewAdapterFactory extends AdapterFactoryImpl {
 	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.aggregator.p2view.Bundles <em>Bundles</em>}'.
 	 * <!-- begin-user-doc --> This default implementation returns null so that we can easily ignore
 	 * cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.aggregator.p2view.Bundles
 	 * @generated
@@ -277,6 +315,7 @@ public class P2viewAdapterFactory extends AdapterFactoryImpl {
 	 * <!-- begin-user-doc --> This default implementation returns null so that we can
 	 * easily ignore cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!--
 	 * end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.aggregator.ChildrenProvider
 	 * @generated
@@ -289,6 +328,7 @@ public class P2viewAdapterFactory extends AdapterFactoryImpl {
 	 * Creates a new adapter for the default case.
 	 * <!-- begin-user-doc --> This default implementation returns null.
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @generated
 	 */
@@ -300,6 +340,7 @@ public class P2viewAdapterFactory extends AdapterFactoryImpl {
 	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.aggregator.p2view.Feature <em>Feature</em>}'.
 	 * <!-- begin-user-doc --> This default implementation returns null so that we can easily ignore
 	 * cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.aggregator.p2view.Feature
 	 * @generated
@@ -355,6 +396,7 @@ public class P2viewAdapterFactory extends AdapterFactoryImpl {
 	 * <!-- begin-user-doc --> This default implementation returns null so that we can
 	 * easily ignore cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!--
 	 * end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.aggregator.p2view.InstallableUnits
 	 * @generated
@@ -367,6 +409,7 @@ public class P2viewAdapterFactory extends AdapterFactoryImpl {
 	 * Creates a new adapter for an object of class '{@link org.eclipse.equinox.p2.metadata.IProvidedCapability <em>IProvided Capability</em>}'.
 	 * <!-- begin-user-doc --> This default implementation returns null so that we can easily ignore cases; it's useful
 	 * to ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see org.eclipse.equinox.p2.metadata.IProvidedCapability
 	 * @generated
@@ -381,6 +424,7 @@ public class P2viewAdapterFactory extends AdapterFactoryImpl {
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see org.eclipse.equinox.p2.metadata.IRequirement
 	 * @generated
@@ -408,6 +452,7 @@ public class P2viewAdapterFactory extends AdapterFactoryImpl {
 	 * <!-- begin-user-doc --> This default implementation returns null so that we can
 	 * easily ignore cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!--
 	 * end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.aggregator.p2view.IUPresentation
 	 * @generated
@@ -417,9 +462,11 @@ public class P2viewAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.aggregator.p2view.IUPresentationWithDetails <em>IU Presentation With Details</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.aggregator.p2view.IUPresentationWithDetails
+	 * <em>IU Presentation With Details</em>}'.
 	 * <!-- begin-user-doc --> This default implementation returns null so that we can easily ignore cases; it's
 	 * useful to ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.aggregator.p2view.IUPresentationWithDetails
 	 * @generated
@@ -448,6 +495,7 @@ public class P2viewAdapterFactory extends AdapterFactoryImpl {
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.aggregator.p2view.Licenses
 	 * @generated
@@ -457,10 +505,12 @@ public class P2viewAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.aggregator.p2view.MetadataRepositoryStructuredView <em>Metadata Repository Structured View</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.aggregator.p2view.MetadataRepositoryStructuredView
+	 * <em>Metadata Repository Structured View</em>}'.
 	 * <!-- begin-user-doc --> This default implementation returns null
 	 * so that we can easily ignore cases; it's useful to ignore a case when inheritance will catch all the cases
 	 * anyway. <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.aggregator.p2view.MetadataRepositoryStructuredView
 	 * @generated
@@ -501,6 +551,7 @@ public class P2viewAdapterFactory extends AdapterFactoryImpl {
 	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.aggregator.p2view.Product <em>Product</em>}'.
 	 * <!-- begin-user-doc --> This default implementation returns null so that we can easily ignore
 	 * cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.aggregator.p2view.Product
 	 * @generated
@@ -552,9 +603,11 @@ public class P2viewAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.aggregator.p2view.ProvidedCapabilityWrapper <em>Provided Capability Wrapper</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.aggregator.p2view.ProvidedCapabilityWrapper
+	 * <em>Provided Capability Wrapper</em>}'.
 	 * <!-- begin-user-doc --> This default implementation returns null so that we can easily ignore cases; it's
 	 * useful to ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.aggregator.p2view.ProvidedCapabilityWrapper
 	 * @generated
@@ -569,6 +622,7 @@ public class P2viewAdapterFactory extends AdapterFactoryImpl {
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.aggregator.p2view.RepositoryBrowser
 	 * @generated
@@ -583,6 +637,7 @@ public class P2viewAdapterFactory extends AdapterFactoryImpl {
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.aggregator.p2view.RepositoryReferences
 	 * @generated
@@ -597,6 +652,7 @@ public class P2viewAdapterFactory extends AdapterFactoryImpl {
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.aggregator.p2view.Requirements
 	 * @generated
@@ -611,6 +667,7 @@ public class P2viewAdapterFactory extends AdapterFactoryImpl {
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.aggregator.p2view.RequirementWrapper
 	 * @generated
@@ -625,6 +682,7 @@ public class P2viewAdapterFactory extends AdapterFactoryImpl {
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.aggregator.StatusProvider
 	 * @generated
@@ -652,16 +710,17 @@ public class P2viewAdapterFactory extends AdapterFactoryImpl {
 	 * <!-- begin-user-doc --> This
 	 * implementation returns <code>true</code> if the object is either the model's package or is an instance object of
 	 * the model. <!-- end-user-doc -->
+	 * 
 	 * @return whether this factory is applicable for the type of the object.
 	 * @generated
 	 */
 	@Override
 	public boolean isFactoryForType(Object object) {
-		if (object == modelPackage) {
+		if(object == modelPackage) {
 			return true;
 		}
-		if (object instanceof EObject) {
-			return ((EObject)object).eClass().getEPackage() == modelPackage;
+		if(object instanceof EObject) {
+			return ((EObject) object).eClass().getEPackage() == modelPackage;
 		}
 		return false;
 	}

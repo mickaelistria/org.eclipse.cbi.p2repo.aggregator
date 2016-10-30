@@ -6,8 +6,6 @@
  */
 package org.eclipse.b3.p2.maven.pom.impl;
 
-import static org.eclipse.b3.p2.maven.pom.PomPackage.RESOURCE;
-
 import org.eclipse.b3.p2.maven.pom.Activation;
 import org.eclipse.b3.p2.maven.pom.ActivationFile;
 import org.eclipse.b3.p2.maven.pom.ActivationOS;
