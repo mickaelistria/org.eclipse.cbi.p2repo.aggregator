@@ -38,7 +38,7 @@ fi
 
 if [[ "${signJars}" == "true" ]] 
 then
-   sign_jars_arg="-Peclipse-sign"
+  sign_jars_arg="-Peclipse-sign"
 fi
 
 # Without the ANT_OPTS, we do get messages about "to get repeatable builds, to ignore sysclasspath"
@@ -66,6 +66,67 @@ if [[ $RC != 0 ]]
 then
   exit $RC
 fi
+
+# = = = = = = Build is over, now for some follow-up work. = = = = =
+# In this section we convert the mavenproperties.properties into a format 
+# that can be read by bash an by PHP. 
+propertiesfile="${build_home}/org.eclipse.cbi.p2repo.aggregator/org.eclipse.b3.product/target/mavenproperties.properties"
+sourceProperties="${build_home}/mavenproperties.shsource"
+phpProperties="${build_home}/mavenproperties.php"
+
+function convertProperties
+{
+  file=$1
+  outfileSource=$2
+  outfilephp=$3
+  if [ -f "$file" ]
+  then
+    #echo -e "\n[DEBUG] properties found at expected location: \n\t$file\n"
+    echo "# Ant properties translated to bash shell variables" > $outfileSource
+    # Note: we intentionally leave php file "unclosed" since it is included
+    # in another php file, we assume.
+    echo -e "<?php\n// Ant properties translated to PHP variables" > $outfilephp
+
+    while IFS='=' read -r key value
+    do
+      # Technically, we only need 'buildId' and 'updateRelease' for now (no periods in var name) so 
+      # we do not need the space and period translations. But, would in more
+      # complicated cases.
+      if [[ -n $key ]] 
+      then
+        # first handle comments. Lines that start with an "ant comment character" ('!' or '#') are 
+        # written verbatim, but with approperite comment character ('#' for bash and '//' for php).
+        if [[ $key =~ ^!(.*)$ || $key =~ ^#(.*)$ ]]
+        then
+          echo "#"${BASH_REMATCH[1]} >> $outfileSource
+          echo "//"${BASH_REMATCH[1]} >> $outfilephp
+        else
+          # We only write variables if value is defined. (Otherwise, 
+          # can easily provide "illegal" values.) We may want to provide some
+          # default value such as "NOT_DEFINED" in come use-cases, but will 
+          # wait until we have such a use-case.
+          if [[ -n "${value}" && ! "${value}" =~ ^\$\{.*\}$ ]]
+          then
+            key=$(echo $key | tr ' ' '_')
+            key=$(echo $key | tr '.' '_')
+            key=$(echo $key | tr '-' '_')
+            eval "${key}=\"${value}\""
+            #echo -e "[DEBUG] key   =" ${key}
+            #echo -e "[DEBUG] value =" ${value}
+            # we quote to account for spaces in values
+            echo "${key}=\"${value}\"" >> $outfileSource
+            echo "\$${key}=\"${value}\";" >> $outfilephp
+          fi
+        fi
+      fi
+    done < "$file"
+    echo -e "\n[INFO] source properties created in $outfileSource\n"
+    echo -e "\n[INFO] php properties created in $outfilephp\n"
+  else
+    echo -e "\n[ERROR] property file not found at expected location: \n\t$file\n"
+  fi
+}
+convertProperties $propertiesfile $sourceProperties $phpProperties
 
 # Test our own repository!
 ${build_home}/org.eclipse.cbi.p2repo.aggregator/org.eclipse.b3.releng.parent/hudsonScripts/testOurRepo.sh
