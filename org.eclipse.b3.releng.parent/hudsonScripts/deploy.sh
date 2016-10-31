@@ -31,6 +31,7 @@ deployRepos ${headlessUpdate} ${build_home}/org.eclipse.cbi.p2repo.aggregator/or
 cp ${build_home}/aggr/buildOutput.txt ${headlessUpdate}
 cp ${sourceProperties} ${headlessUpdate}
 cp ${propertiesfile} ${headlessUpdate}
+cp ${phpProperties} ${headlessUpdate}
 
 productroot=${build_home}/org.eclipse.cbi.p2repo.aggregator/org.eclipse.b3.product/target/products
 cp ${productroot}/org.eclipse.b3.product-linux.gtk.x86_64.tar.gz ${headlessUpdate}/headless_${buildId}_linux.gtk.x86_64.tar.gz
