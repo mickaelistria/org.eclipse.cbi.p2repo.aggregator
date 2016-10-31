@@ -127,6 +127,8 @@ function convertProperties
   fi
 }
 convertProperties $propertiesfile $sourceProperties $phpProperties
+# we copy up to root, for simpler "archiving". 
+cp $propertiesfile ${build_home}/mavenproperties.properites
 
 # Test our own repository!
 ${build_home}/org.eclipse.cbi.p2repo.aggregator/org.eclipse.b3.releng.parent/hudsonScripts/testOurRepo.sh
