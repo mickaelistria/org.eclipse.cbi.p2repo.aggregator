@@ -176,7 +176,7 @@
             <artifactId>target-platform-configuration</artifactId>
             <version>${tycho-version}</version>
             <configuration>
-              <includePackedArtifacts>false</includePackedArtifacts>
+              <includePackedArtifacts>true</includePackedArtifacts>
             </configuration>
           </plugin>
           <plugin>
@@ -253,7 +253,7 @@
             <artifactId>target-platform-configuration</artifactId>
             <version>${tycho-version}</version>
             <configuration>
-              <includePackedArtifacts>false</includePackedArtifacts>
+              <includePackedArtifacts>true</includePackedArtifacts>
             </configuration>
           </plugin>
           <plugin>
@@ -311,7 +311,7 @@
         <enabled>true</enabled>
       </releases>
       <snapshots>
-        <enabled>true</enabled>
+        <enabled>false</enabled>
       </snapshots>
     </pluginRepository>
   </pluginRepositories>

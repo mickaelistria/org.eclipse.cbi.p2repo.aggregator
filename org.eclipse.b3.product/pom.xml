@@ -28,8 +28,9 @@
       </plugin>
       <plugin>
         <groupId>org.eclipse.tycho</groupId>
-        <artifactId>target-platform-configuration </artifactId>
+        <artifactId>target-platform-configuration</artifactId>
         <configuration>
+          <includePackedArtifacts>false</includePackedArtifacts>
           <dependency-resolution>
             <extraRequirements>
               <requirement>
