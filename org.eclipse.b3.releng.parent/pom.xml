@@ -30,7 +30,7 @@
        Default to error, but may need to override if doing local builds on local working tree.
        such as -DdirtyworkingTree=warning.
      -->
-    <dirtyworkingTree>fail</dirtyworkingTree>
+    <dirtyworkingTree>error</dirtyworkingTree>
     
     <comparatorMode>warn</comparatorMode>
     <!-- 
