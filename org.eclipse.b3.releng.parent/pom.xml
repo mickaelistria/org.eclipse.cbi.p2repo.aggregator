@@ -157,6 +157,11 @@
                    If doing local builds, will likely need to use 
                    something like -DcomparatorMode=warn since the local 
                    artifacts would be unsigned and always fail the comparator test.
+                   Update: After trying 'fail' on production machine, and having it fail in signature, 
+                   I recall now that the comparator is "too dumb" to examine signatures correctly, and 
+                   a simple TSA difference will cause it to 'fail'. That really should be fixed.
+                   But until then, will change back to "warn". Technically, then, the log should be examined
+                   as is done in the Platform build to find any "warnings" that are not simple TSA differences. 
                 -->
                 <baselineMode>${comparatorMode}</baselineMode>
                 <baselineReplace>all</baselineReplace>
