@@ -45,7 +45,7 @@ fi
 export ANT_HOME=${ANT_HOME:-/shared/common/apache-ant-1.9.6}
 export ANT_OPTS=${ANT_OPTS:-"-Dbuild.sysclasspath=ignore -Dincludeantruntime=false"}
 export MAVEN_OPTS="-Xms1048m -Xmx2096m -Djava.io.tmpdir=${tmp_dir} ${MIRROR_SETTING}"
-TYCHO_ARGS="-Djava.io.tmpdir=${tmp_dir} -Dtycho.localArtifacts=ignore -Dtycho.debug.artifactcomparator ${MIRROR_SETTING} ${DIRTY_SETTING}"
+TYCHO_ARGS="-Djava.io.tmpdir=${tmp_dir} -Dtycho.localArtifacts=ignore -Dtycho.debug.artifactcomparator ${MIRROR_SETTING} ${DIRTY_SETTING} ${COMPARATOR_SETTING}"
 export JAVA_HOME=/shared/common/jdk1.8.0_x64-latest
 export JAVA_CMD=${JAVA_HOME}/jre/bin/java
 export MAVEN_PATH=${MAVEN_PATH:-/shared/common/apache-maven-latest/bin}
@@ -58,12 +58,13 @@ printf "\n\t[INFO] %s\n" "MAVEN_OPTS: ${MAVEN_OPTS}" | tee -a ${out_file}
 printf "\n\t[INFO] %s\n\n" "TYCHO_ARGS: ${TYCHO_ARGS}" | tee -a ${out_file}
 # All -D type settings need to come before the -P settings, apparently.
 mvn clean verify -X -e --update-snapshots -DskipTests=true -Dmaven.repo.local=$local_mvn_repo ${TYCHO_ARGS} -Pbree-libs ${sign_jars_arg} 2>&1 | tee -a ${out_file}
-RC=$?
+RC=${PIPESTATUS[0]}
 
 printf "\n\t[INFO] %s\n\n" "Build Output in ${out_file}"
 
 if [[ $RC != 0 ]]
 then
+  echo -e "[ERROR] mvn returned a non-zero error code: $RC. Exiting.\n"
   exit $RC
 fi
 

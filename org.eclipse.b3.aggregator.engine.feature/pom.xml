@@ -3,12 +3,12 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.eclipse.b3</groupId>
   <artifactId>org.eclipse.b3.aggregator.engine.feature</artifactId>
-  <version>1.0.0-SNAPSHOT</version>
+  <version>1.0.100-SNAPSHOT</version>
   <parent>
     <groupId>org.eclipse.b3</groupId>
     <artifactId>org.eclipse.b3.releng.parent</artifactId>
     <relativePath>../org.eclipse.b3.releng.parent</relativePath>
-    <version>1.0.0-SNAPSHOT</version>
+    <version>1.0.100-SNAPSHOT</version>
   </parent>
   <packaging>eclipse-feature</packaging>
     <build>

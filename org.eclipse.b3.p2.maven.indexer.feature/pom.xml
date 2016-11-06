@@ -5,10 +5,10 @@
     <groupId>org.eclipse.b3</groupId>
     <artifactId>org.eclipse.b3.releng.parent</artifactId>
     <relativePath>../org.eclipse.b3.releng.parent</relativePath>
-    <version>1.0.0-SNAPSHOT</version>
+    <version>1.0.100-SNAPSHOT</version>
   </parent>
   <artifactId>org.eclipse.b3.p2.maven.indexer.feature</artifactId>
-  <version>1.0.0-SNAPSHOT</version>
+  <version>1.0.100-SNAPSHOT</version>
   <packaging>eclipse-feature</packaging>
 
 
