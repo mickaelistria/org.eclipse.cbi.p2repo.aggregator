@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<genmodel:GenModel xmi:version="2.0"
-    xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
     xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" copyrightText="Copyright (c) 2006-2009, Cloudsmith Inc.&#xD;&#xA;The code, documentation and other materials contained herein have been&#xD;&#xA;licensed under the Eclipse Public License - v 1.0 by the copyright holder&#xD;&#xA;listed above, as the Initial Contributor under such license. The text of&#xD;&#xA;such license is available at www.eclipse.org.&#xD;&#xA;"
     modelDirectory="/org.eclipse.b3.p2/src" modelPluginID="org.eclipse.b3.p2" modelName="P2"
     rootExtendsInterface="" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"

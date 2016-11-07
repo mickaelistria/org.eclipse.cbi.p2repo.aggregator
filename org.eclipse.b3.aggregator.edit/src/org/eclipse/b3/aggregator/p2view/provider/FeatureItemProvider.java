@@ -29,7 +29,6 @@ public class FeatureItemProvider extends IUPresentationWithDetailsItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public FeatureItemProvider(AdapterFactory adapterFactory) {
@@ -40,7 +39,6 @@ public class FeatureItemProvider extends IUPresentationWithDetailsItemProvider {
 	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
 	 * that can be created under this object.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -50,7 +48,6 @@ public class FeatureItemProvider extends IUPresentationWithDetailsItemProvider {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -67,12 +64,11 @@ public class FeatureItemProvider extends IUPresentationWithDetailsItemProvider {
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
-		if(childrenFeatures == null) {
+		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(P2viewPackage.Literals.FEATURE__FEATURE_CONTAINER);
 			childrenFeatures.add(P2viewPackage.Literals.FEATURE__BUNDLE_CONTAINER);
@@ -84,7 +80,6 @@ public class FeatureItemProvider extends IUPresentationWithDetailsItemProvider {
 	/**
 	 * This returns Feature.gif.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -95,12 +90,11 @@ public class FeatureItemProvider extends IUPresentationWithDetailsItemProvider {
 	/**
 	 * This returns the property descriptors for the adapted class.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-		if(itemPropertyDescriptors == null) {
+		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
 		}
