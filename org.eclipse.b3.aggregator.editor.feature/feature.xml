@@ -24,28 +24,28 @@
          version="0.0.0"/>
 
    <plugin
-         id="org.eclipse.b3.aggregator.edit"
+         id="org.eclipse.cbi.p2repo.aggregator.edit"
          download-size="0"
          install-size="0"
          version="0.0.0"
          unpack="false"/>
 
    <plugin
-         id="org.eclipse.b3.aggregator.editor"
+         id="org.eclipse.cbi.p2repo.aggregator.editor"
          download-size="0"
          install-size="0"
          version="0.0.0"
          unpack="false"/>
 
    <plugin
-         id="org.eclipse.b3.aggregator.legacy.ui"
+         id="org.eclipse.cbi.p2repo.aggregator.legacy.ui"
          download-size="0"
          install-size="0"
          version="0.0.0"
          unpack="false"/>
 
    <plugin
-         id="org.eclipse.b3.p2.edit"
+         id="org.eclipse.cbi.p2repo.p2.edit"
          download-size="0"
          install-size="0"
          version="0.0.0"

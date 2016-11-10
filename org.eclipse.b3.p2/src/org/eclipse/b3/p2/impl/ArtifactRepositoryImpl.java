@@ -14,7 +14,7 @@ import org.eclipse.b3.p2.ArtifactRepository;
 import org.eclipse.b3.p2.P2Factory;
 import org.eclipse.b3.p2.P2Package;
 import org.eclipse.b3.p2.util.P2Bridge;
-import org.eclipse.b3.util.MonitorUtils;
+import org.eclipse.cbi.p2repo.util.MonitorUtils;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.OperationCanceledException;

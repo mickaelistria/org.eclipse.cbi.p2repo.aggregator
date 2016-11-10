@@ -15,7 +15,7 @@ import org.eclipse.b3.p2.InstallableUnit;
 import org.eclipse.b3.p2.MetadataRepository;
 import org.eclipse.b3.p2.P2Package;
 import org.eclipse.b3.p2.util.RepositoryTranslationSupport;
-import org.eclipse.b3.util.StringUtils;
+import org.eclipse.cbi.p2repo.util.StringUtils;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.BasicEList;

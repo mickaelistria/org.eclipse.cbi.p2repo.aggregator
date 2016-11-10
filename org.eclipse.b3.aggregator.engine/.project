@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>org.eclipse.b3.aggregator.engine</name>
+	<name>org.eclipse.cbi.p2repo.aggregator.engine</name>
 	<comment></comment>
 	<projects>
 	</projects>

@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: %pluginName
-Bundle-SymbolicName: org.eclipse.b3.p2;singleton:=true
+Bundle-SymbolicName: org.eclipse.cbi.p2repo.p2;singleton:=true
 Bundle-Version: 1.0.0.qualifier
 Bundle-ClassPath: .
 Bundle-Vendor: %providerName
@@ -17,7 +17,7 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.equinox.p2.core,
  org.eclipse.equinox.p2.metadata,
  org.eclipse.equinox.p2.repository,
- org.eclipse.b3.util,
+ org.eclipse.cbi.p2repo.util,
  org.eclipse.equinox.p2.metadata.repository,
  org.eclipse.equinox.p2.director,
  org.eclipse.equinox.p2.engine,

@@ -10,7 +10,7 @@ package org.eclipse.b3.p2.impl;
 
 import org.eclipse.b3.p2.P2Package;
 import org.eclipse.b3.p2.ProcessingStepDescriptor;
-import org.eclipse.b3.util.Trivial;
+import org.eclipse.cbi.p2repo.util.Trivial;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;

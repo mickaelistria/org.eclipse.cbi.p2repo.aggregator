@@ -1,17 +1,17 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: %pluginName
-Bundle-SymbolicName: org.eclipse.b3.aggregator.engine.maven;singleton:=true
+Bundle-SymbolicName: org.eclipse.cbi.p2repo.aggregator.engine.maven;singleton:=true
 Bundle-Version: 1.0.0.qualifier
 Bundle-ClassPath: .
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
-Export-Package: org.eclipse.b3.aggregator.engine.maven
+Export-Package: org.eclipse.cbi.p2repo.aggregator.engine.maven
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.equinox.p2.metadata,
- org.eclipse.b3.aggregator,
- org.eclipse.b3.p2,
- org.eclipse.b3.util,
- org.eclipse.b3.p2.maven;visibility:=reexport
+ org.eclipse.cbi.p2repo.aggregator,
+ org.eclipse.cbi.p2repo.p2,
+ org.eclipse.cbi.p2repo.util,
+ org.eclipse.cbi.p2repo.p2.maven;visibility:=reexport
 Bundle-ActivationPolicy: lazy

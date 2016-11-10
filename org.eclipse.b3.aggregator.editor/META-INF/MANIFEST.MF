@@ -1,28 +1,28 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: %pluginName
-Bundle-SymbolicName: org.eclipse.b3.aggregator.editor;singleton:=true
+Bundle-SymbolicName: org.eclipse.cbi.p2repo.aggregator.editor;singleton:=true
 Bundle-Version: 1.0.0.qualifier
 Bundle-ClassPath: .
-Bundle-Activator: org.eclipse.b3.aggregator.presentation.AggregatorEditorPlugin$Implementation
+Bundle-Activator: org.eclipse.cbi.p2repo.aggregator.presentation.AggregatorEditorPlugin$Implementation
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
-Export-Package: org.eclipse.b3.aggregator.p2view.presentation,
- org.eclipse.b3.aggregator.presentation,
- org.eclipse.b3.aggregator.transformer.ui
+Export-Package: org.eclipse.cbi.p2repo.aggregator.p2view.presentation,
+ org.eclipse.cbi.p2repo.aggregator.presentation,
+ org.eclipse.cbi.p2repo.aggregator.transformer.ui
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.core.resources;visibility:=reexport,
- org.eclipse.b3.aggregator.edit;visibility:=reexport,
- org.eclipse.b3.aggregator.engine;visibility:=reexport,
+ org.eclipse.cbi.p2repo.aggregator.edit;visibility:=reexport,
+ org.eclipse.cbi.p2repo.aggregator.engine;visibility:=reexport,
  org.eclipse.emf.ecore.xmi;visibility:=reexport,
  org.eclipse.emf.edit.ui;visibility:=reexport,
  org.eclipse.ui.ide;visibility:=reexport,
  org.eclipse.ui.workbench.texteditor,
  org.eclipse.jface.text,
  org.eclipse.core.expressions,
- org.eclipse.b3.cli,
- org.eclipse.b3.util,
- org.eclipse.b3.p2,
- org.eclipse.b3.p2.edit;visibility:=reexport
+ org.eclipse.cbi.p2repo.cli,
+ org.eclipse.cbi.p2repo.util,
+ org.eclipse.cbi.p2repo.p2,
+ org.eclipse.cbi.p2repo.p2.edit;visibility:=reexport
 Bundle-ActivationPolicy: lazy
 Bundle-Vendor: %providerName

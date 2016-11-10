@@ -17,9 +17,9 @@
             name="b3"/>
       <wizard
             category="org.eclipse.b3"
-            class="org.eclipse.b3.aggregator.presentation.AggregatorModelWizard"
+            class="org.eclipse.cbi.p2repo.aggregator.presentation.AggregatorModelWizard"
             icon="icons/full/obj16/AggregatorModelFile.gif"
-            id="org.eclipse.b3.aggregator.presentation.AggregatorModelWizardID"
+            id="org.eclipse.cbi.p2repo.aggregator.presentation.AggregatorModelWizardID"
             name="%_UI_AggregatorModelWizard_label">
          <description>%_UI_AggregatorModelWizard_description</description>
          <selection class="org.eclipse.core.resources.IResource"/>
@@ -32,9 +32,9 @@
             id="org.eclipse.emf.ecore.Wizard.category.ID"
             name="%_UI_Wizard_category"/>
       <wizard
-            id="org.eclipse.b3.aggregator.presentation.AggregatorModelWizardID"
+            id="org.eclipse.cbi.p2repo.aggregator.presentation.AggregatorModelWizardID"
             name="%_UI_AggregatorModelWizard_label"
-            class="org.eclipse.b3.aggregator.presentation.AggregatorModelWizard"
+            class="org.eclipse.cbi.p2repo.aggregator.presentation.AggregatorModelWizard"
             category="org.eclipse.emf.ecore.Wizard.category.ID"
             icon="icons/full/obj16/AggregatorModelFile.gif">
          <description>%_UI_AggregatorModelWizard_description</description>
@@ -44,60 +44,60 @@
 
    <extension point="org.eclipse.ui.editors">
       <editor
-            id="org.eclipse.b3.aggregator.presentation.AggregatorEditorID"
+            id="org.eclipse.cbi.p2repo.aggregator.presentation.AggregatorEditorID"
             name="%_UI_AggregatorEditor_label"
             icon="icons/full/obj16/AggregatorModelFile.gif"
             extensions="b3aggr, build"
-            class="org.eclipse.b3.aggregator.presentation.AggregatorEditor"
-            contributorClass="org.eclipse.b3.aggregator.presentation.AggregatorActionBarContributor">
+            class="org.eclipse.cbi.p2repo.aggregator.presentation.AggregatorEditor"
+            contributorClass="org.eclipse.cbi.p2repo.aggregator.presentation.AggregatorActionBarContributor">
       </editor>
    </extension>
 
    <extension point="org.eclipse.ui.editors">
       <!-- @generated Aggregator -->
       <editor
-            id="org.eclipse.b3.aggregator.p2view.presentation.P2viewEditorID"
+            id="org.eclipse.cbi.p2repo.aggregator.p2view.presentation.P2viewEditorID"
             name="%_UI_P2viewEditor_label"
             icon="icons/full/obj16/P2viewModelFile.gif"
             extensions="p2view"
-            class="org.eclipse.b3.aggregator.p2view.presentation.P2viewEditor"
-            contributorClass="org.eclipse.b3.aggregator.p2view.presentation.P2viewActionBarContributor">
+            class="org.eclipse.cbi.p2repo.aggregator.p2view.presentation.P2viewEditor"
+            contributorClass="org.eclipse.cbi.p2repo.aggregator.p2view.presentation.P2viewActionBarContributor">
       </editor>
    </extension>
    <extension
          point="org.eclipse.ui.handlers">
       <handler
-            class="org.eclipse.b3.aggregator.presentation.OpenFindIUDialogAction"
+            class="org.eclipse.cbi.p2repo.aggregator.presentation.OpenFindIUDialogAction"
             commandId="org.eclipse.ui.edit.findReplace">
          <activeWhen>
             <with
                   variable="activePartId">
                <equals
-                     value="org.eclipse.b3.aggregator.presentation.AggregatorEditorID">
+                     value="org.eclipse.cbi.p2repo.aggregator.presentation.AggregatorEditorID">
                </equals>
             </with>
          </activeWhen>
       </handler>
       <handler
-            class="org.eclipse.b3.aggregator.presentation.FindPreviousIUAction"
+            class="org.eclipse.cbi.p2repo.aggregator.presentation.FindPreviousIUAction"
             commandId="org.eclipse.ui.edit.findPrevious">
          <activeWhen>
             <with
                   variable="activePartId">
                <equals
-                     value="org.eclipse.b3.aggregator.presentation.AggregatorEditorID">
+                     value="org.eclipse.cbi.p2repo.aggregator.presentation.AggregatorEditorID">
                </equals>
             </with>
          </activeWhen>
       </handler>
       <handler
-            class="org.eclipse.b3.aggregator.presentation.FindNextIUAction"
+            class="org.eclipse.cbi.p2repo.aggregator.presentation.FindNextIUAction"
             commandId="org.eclipse.ui.edit.findNext">
          <activeWhen>
             <with
                   variable="activePartId">
                <equals
-                     value="org.eclipse.b3.aggregator.presentation.AggregatorEditorID">
+                     value="org.eclipse.cbi.p2repo.aggregator.presentation.AggregatorEditorID">
                </equals>
             </with>
          </activeWhen>
@@ -110,12 +110,12 @@
             carbon: M1=COMMAND, M2=SHIFT, M3=ALT, M4=CTRL -->
 	  <key
          commandId="org.eclipse.ui.edit.findNext"
-         contextId="org.eclipse.b3.aggregator.presentation.aggregatorEditorScope"
+         contextId="org.eclipse.cbi.p2repo.aggregator.presentation.aggregatorEditorScope"
          schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
          sequence="M1+K"/>
 	  <key
          commandId="org.eclipse.ui.edit.findPrevious"
-         contextId="org.eclipse.b3.aggregator.presentation.aggregatorEditorScope"
+         contextId="org.eclipse.cbi.p2repo.aggregator.presentation.aggregatorEditorScope"
          schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
          sequence="M1+M2+K"/>
    </extension>
@@ -123,7 +123,7 @@
        point="org.eclipse.ui.contexts">
     <context
           description="Aggregator Editor is open"
-          id="org.eclipse.b3.aggregator.presentation.aggregatorEditorScope"
+          id="org.eclipse.cbi.p2repo.aggregator.presentation.aggregatorEditorScope"
           name="In Aggregator Editor"
           parentId="org.eclipse.ui.contexts.window">
     </context>
@@ -152,22 +152,22 @@
     <extension
           point="org.eclipse.ui.ide.markerResolution">
          <markerResolutionGenerator
-         	markerType="org.eclipse.b3.aggregator.editor.diagnostic.nonpersistent"
-         	class="org.eclipse.b3.aggregator.presentation.DiagnosticMarkerResolutionGenerator">
+         	markerType="org.eclipse.cbi.p2repo.aggregator.editor.diagnostic.nonpersistent"
+         	class="org.eclipse.cbi.p2repo.aggregator.presentation.DiagnosticMarkerResolutionGenerator">
          </markerResolutionGenerator>
     </extension>
     <extension
           point="org.eclipse.ui.commands">
        <command
-             defaultHandler="org.eclipse.b3.aggregator.presentation.FixVersionHandler"
-             id="org.eclipse.b3.aggregator.editor.fixVersion"
+             defaultHandler="org.eclipse.cbi.p2repo.aggregator.presentation.FixVersionHandler"
+             id="org.eclipse.cbi.p2repo.aggregator.editor.fixVersion"
              name="%fixVersion.command">
        </command>
     </extension>
     <extension
           point="org.eclipse.ui.commandImages">
        <image
-             commandId="org.eclipse.b3.aggregator.editor.fixVersion"
+             commandId="org.eclipse.cbi.p2repo.aggregator.editor.fixVersion"
              icon="icons/full/obj16/fixVersions.png">
        </image>
     </extension>
@@ -175,9 +175,9 @@
           point="org.eclipse.ui.menus">
        <menuContribution
              allPopups="false"
-             locationURI="popup:org.eclipse.b3.aggregator.presentation.AggregatorEditorID?before=additions">
+             locationURI="popup:org.eclipse.cbi.p2repo.aggregator.presentation.AggregatorEditorID?before=additions">
           <command
-                commandId="org.eclipse.b3.aggregator.editor.fixVersion"
+                commandId="org.eclipse.cbi.p2repo.aggregator.editor.fixVersion"
                 style="push">
           </command>
        </menuContribution>

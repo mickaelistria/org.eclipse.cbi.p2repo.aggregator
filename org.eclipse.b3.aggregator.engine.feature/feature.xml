@@ -20,56 +20,56 @@
    </license>
 
    <plugin
-         id="org.eclipse.b3.aggregator"
+         id="org.eclipse.cbi.p2repo.aggregator"
          download-size="0"
          install-size="0"
          version="0.0.0"
          unpack="false"/>
 
    <plugin
-         id="org.eclipse.b3.aggregator.engine"
+         id="org.eclipse.cbi.p2repo.aggregator.engine"
          download-size="0"
          install-size="0"
          version="0.0.0"
          unpack="false"/>
 
    <plugin
-         id="org.eclipse.b3.aggregator.engine.maven"
+         id="org.eclipse.cbi.p2repo.aggregator.engine.maven"
          download-size="0"
          install-size="0"
          version="0.0.0"
          unpack="false"/>
 
    <plugin
-         id="org.eclipse.b3.util"
+         id="org.eclipse.cbi.p2repo.util"
          download-size="0"
          install-size="0"
          version="0.0.0"
          unpack="false"/>
 
    <plugin
-         id="org.eclipse.b3.cli"
+         id="org.eclipse.cbi.p2repo.cli"
          download-size="0"
          install-size="0"
          version="0.0.0"
          unpack="false"/>
 
    <plugin
-         id="org.eclipse.b3.aggregator.legacy"
+         id="org.eclipse.cbi.p2repo.aggregator.legacy"
          download-size="0"
          install-size="0"
          version="0.0.0"
          unpack="false"/>
 
    <plugin
-         id="org.eclipse.b3.p2"
+         id="org.eclipse.cbi.p2repo.p2"
          download-size="0"
          install-size="0"
          version="0.0.0"
          unpack="false"/>
 
    <plugin
-         id="org.eclipse.b3.p2.maven"
+         id="org.eclipse.cbi.p2repo.p2.maven"
          download-size="0"
          install-size="0"
          version="0.0.0"

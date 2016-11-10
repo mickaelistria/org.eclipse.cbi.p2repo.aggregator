@@ -18,7 +18,7 @@
    </extension>
 
    <extension
-         point="org.eclipse.b3.p2.loader">
+         point="org.eclipse.cbi.p2repo.p2.loader">
       <loader
       		nature="p2"
             class="org.eclipse.b3.p2.loader.impl.P2RepositoryLoader"/>

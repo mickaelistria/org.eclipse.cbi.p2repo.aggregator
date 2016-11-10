@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>org.eclipse.b3.product.feature</name>
+	<name>org.eclipse.cbi.p2repo.product.feature</name>
 	<comment></comment>
 	<projects>
 	</projects>

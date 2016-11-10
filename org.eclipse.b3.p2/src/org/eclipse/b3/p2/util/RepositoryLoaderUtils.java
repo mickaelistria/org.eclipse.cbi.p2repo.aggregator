@@ -9,7 +9,7 @@
 package org.eclipse.b3.p2.util;
 
 import org.eclipse.b3.p2.loader.IRepositoryLoader;
-import org.eclipse.b3.util.ExceptionUtils;
+import org.eclipse.cbi.p2repo.util.ExceptionUtils;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IConfigurationElement;
 import org.eclipse.core.runtime.Platform;

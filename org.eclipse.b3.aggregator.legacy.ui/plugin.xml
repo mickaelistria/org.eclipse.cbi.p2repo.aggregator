@@ -2,9 +2,9 @@
 <?eclipse version="3.4"?>
 <plugin>
    <extension
-         point="org.eclipse.b3.aggregator.editor.legacy_transformation_ui">
+         point="org.eclipse.cbi.p2repo.aggregator.editor.legacy_transformation_ui">
       <transformer_wizard_page
-            class="org.eclipse.b3.aggregator.legacy.ui.AggregatorTransformer_090_2_100_WizardPage"
+            class="org.eclipse.cbi.p2repo.aggregator.legacy.ui.AggregatorTransformer_090_2_100_WizardPage"
             name="0.9.0_1.0.0">
       </transformer_wizard_page>
    </extension>

@@ -2,11 +2,11 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: %Bundle-Name
 Bundle-Localization: plugin
-Bundle-SymbolicName: org.eclipse.b3.util
+Bundle-SymbolicName: org.eclipse.cbi.p2repo.util
 Bundle-Version: 1.0.0.qualifier
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
-Bundle-Activator: org.eclipse.b3.util.B3Util
+Bundle-Activator: org.eclipse.cbi.p2repo.util.B3Util
 Require-Bundle: org.eclipse.core.runtime
-Export-Package: org.eclipse.b3.util
+Export-Package: org.eclipse.cbi.p2repo.util
 Bundle-ActivationPolicy: lazy
 Bundle-Vendor: %Bundle-Vendor

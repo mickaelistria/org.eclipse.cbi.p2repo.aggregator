@@ -2,9 +2,9 @@
 <?eclipse version="3.4"?>
 <plugin>
    <extension
-         point="org.eclipse.b3.cli.commands">
+         point="org.eclipse.cbi.p2repo.cli.commands">
       <command
-            class="org.eclipse.b3.cli.builtin.RunScript"
+            class="org.eclipse.cbi.p2repo.cli.builtin.RunScript"
             name="runScript">
       </command>
    </extension>

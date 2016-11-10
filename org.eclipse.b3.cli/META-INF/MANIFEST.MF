@@ -2,14 +2,14 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: %pluginName
 Bundle-Localization: plugin
-Bundle-SymbolicName: org.eclipse.b3.cli;singleton:=true
+Bundle-SymbolicName: org.eclipse.cbi.p2repo.cli;singleton:=true
 Bundle-Version: 1.0.0.qualifier
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Bundle-Vendor: %providerName
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.core.jobs,
- org.eclipse.b3.util,
+ org.eclipse.cbi.p2repo.util,
  org.kohsuke.args4j
-Export-Package: org.eclipse.b3.cli
-Bundle-Activator: org.eclipse.b3.cli.HeadlessActivator
+Export-Package: org.eclipse.cbi.p2repo.cli
+Bundle-Activator: org.eclipse.cbi.p2repo.cli.HeadlessActivator
 Bundle-ActivationPolicy: lazy

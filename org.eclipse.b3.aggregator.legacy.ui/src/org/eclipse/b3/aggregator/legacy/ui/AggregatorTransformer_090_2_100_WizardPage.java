@@ -10,8 +10,8 @@ package org.eclipse.b3.aggregator.legacy.ui;
 
 import java.util.Map;
 
-import org.eclipse.b3.aggregator.legacy.AggregatorTransformer_090_2_100;
-import org.eclipse.b3.aggregator.transformer.ui.TransformerContributorWizardPage;
+import org.eclipse.cbi.p2repo.aggregator.legacy.AggregatorTransformer_090_2_100;
+import org.eclipse.cbi.p2repo.aggregator.transformer.ui.TransformerContributorWizardPage;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
@@ -51,7 +51,8 @@ public class AggregatorTransformer_090_2_100_WizardPage extends TransformerContr
 
 		new Label(composite, SWT.NONE).setText("Target version range will include:");
 		transformationTypeCombo = new Combo(composite, SWT.READ_ONLY);
-		transformationTypeCombo.setItems(new String[] { "exactly original version", "all versions >= original version" });
+		transformationTypeCombo.setItems(
+			new String[] { "exactly original version", "all versions >= original version" });
 		Boolean defaultValue = (Boolean) defaultContext.get(AggregatorTransformer_090_2_100.CONTEXT_FIXED_VERSION);
 		transformationTypeCombo.select(defaultValue != null && !defaultValue
 				? 1

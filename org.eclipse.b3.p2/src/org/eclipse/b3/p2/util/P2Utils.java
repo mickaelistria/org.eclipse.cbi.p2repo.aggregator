@@ -11,7 +11,7 @@ package org.eclipse.b3.p2.util;
 import java.io.File;
 import java.net.URI;
 
-import org.eclipse.b3.util.B3Util;
+import org.eclipse.cbi.p2repo.util.B3Util;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.equinox.internal.p2.metadata.expression.LDAPFilter;
 import org.eclipse.equinox.p2.core.IProvisioningAgent;

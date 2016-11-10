@@ -2,14 +2,14 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Localization: plugin
 Bundle-Name: %pluginName
-Bundle-SymbolicName: org.eclipse.b3.aggregator.legacy;singleton:=true
+Bundle-SymbolicName: org.eclipse.cbi.p2repo.aggregator.legacy;singleton:=true
 Bundle-Version: 1.0.0.qualifier
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore;visibility:=reexport,
  org.eclipse.emf.ecore.xmi;visibility:=reexport,
- org.eclipse.b3.aggregator,
- org.eclipse.b3.p2,
+ org.eclipse.cbi.p2repo.aggregator,
+ org.eclipse.cbi.p2repo.p2,
  org.eclipse.equinox.p2.metadata
 Bundle-Vendor: %providerName
-Export-Package: org.eclipse.b3.aggregator.legacy;x-friends:="org.eclipse.b3.aggregator.legacy.ui"
+Export-Package: org.eclipse.cbi.p2repo.aggregator.legacy;x-friends:="org.eclipse.cbi.p2repo.aggregator.legacy.ui"

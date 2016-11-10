@@ -14,16 +14,16 @@
    <extension point="org.eclipse.emf.ecore.generated_package">
       <package
             uri="http://www.eclipse.org/b3/2010/aggregator/1.0.0"
-            class="org.eclipse.b3.aggregator.AggregatorPackage"
+            class="org.eclipse.cbi.p2repo.aggregator.AggregatorPackage"
             genModel="model/Aggregator.genmodel"/>
    </extension>
 
    <extension point="org.eclipse.emf.ecore.extension_parser">
       <parser
             type="b3aggr"
-            class="org.eclipse.b3.aggregator.util.AggregatorResourceFactoryImpl"/>
+            class="org.eclipse.cbi.p2repo.aggregator.util.AggregatorResourceFactoryImpl"/>
       <parser
-            class="org.eclipse.b3.aggregator.util.AggregatorResourceFactoryImpl"
+            class="org.eclipse.cbi.p2repo.aggregator.util.AggregatorResourceFactoryImpl"
             type="build">
       </parser>
    </extension>
@@ -32,7 +32,7 @@
       <!-- @generated Aggregator -->
       <package
             uri="http://www.eclipse.org/b3/2010/aggregator/p2view/1.0.0"
-            class="org.eclipse.b3.aggregator.p2view.P2viewPackage"
+            class="org.eclipse.cbi.p2repo.aggregator.p2view.P2viewPackage"
             genModel="model/Aggregator.genmodel"/>
    </extension>
 
@@ -40,12 +40,12 @@
       <!-- @generated Aggregator -->
       <parser
             type="p2view"
-            class="org.eclipse.b3.aggregator.p2view.util.P2viewResourceFactoryImpl"/>
+            class="org.eclipse.cbi.p2repo.aggregator.p2view.util.P2viewResourceFactoryImpl"/>
    </extension>
    <extension
          point="org.eclipse.emf.ecore.protocol_parser">
       <parser
-            class="org.eclipse.b3.aggregator.p2.util.MetadataRepositoryResourceFactoryImpl"
+            class="org.eclipse.cbi.p2repo.aggregator.p2.util.MetadataRepositoryResourceFactoryImpl"
             protocolName="b3aggr">
       </parser>
    </extension>

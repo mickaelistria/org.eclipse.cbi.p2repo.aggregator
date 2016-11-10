@@ -2,9 +2,9 @@
 <?eclipse version="3.4"?>
 <plugin>
    <extension
-         point="org.eclipse.b3.p2.maven.indexer">
+         point="org.eclipse.cbi.p2repo.p2.maven.indexer">
       <indexer
-            class="org.eclipse.b3.p2.maven.indexer.MavenNexusIndexer"
+            class="org.eclipse.cbi.p2repo.p2.maven.indexer.MavenNexusIndexer"
             id="nexus">
       </indexer>
    </extension>

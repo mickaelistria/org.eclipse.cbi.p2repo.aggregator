@@ -12,7 +12,7 @@ import java.util.Map;
 
 import org.eclipse.b3.p2.P2Package;
 import org.eclipse.b3.p2.SimpleArtifactDescriptor;
-import org.eclipse.b3.util.Trivial;
+import org.eclipse.cbi.p2repo.util.Trivial;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EMap;
 import org.eclipse.emf.ecore.EClass;

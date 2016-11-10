@@ -15,7 +15,7 @@
    <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
       <factory
             uri="http://www.eclipse.org/b3/2010/p2/1.0.0"
-            class="org.eclipse.b3.p2.provider.P2ItemProviderAdapterFactory"
+            class="org.eclipse.cbi.p2repo.p2.provider.P2ItemProviderAdapterFactory"
             supportedTypes=
               "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
                org.eclipse.emf.edit.provider.IStructuredItemContentProvider

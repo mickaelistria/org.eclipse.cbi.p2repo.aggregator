@@ -19,7 +19,7 @@ import org.eclipse.b3.p2.MetadataRepository;
 import org.eclipse.b3.p2.P2Factory;
 import org.eclipse.b3.p2.P2Package;
 import org.eclipse.b3.p2.util.P2Bridge;
-import org.eclipse.b3.util.ExceptionUtils;
+import org.eclipse.cbi.p2repo.util.ExceptionUtils;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;

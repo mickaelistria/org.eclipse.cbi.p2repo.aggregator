@@ -1,9 +1,9 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!-- Schema file written by PDE -->
-<schema targetNamespace="org.eclipse.b3.aggregator" xmlns="http://www.w3.org/2001/XMLSchema">
+<schema targetNamespace="org.eclipse.cbi.p2repo.aggregator" xmlns="http://www.w3.org/2001/XMLSchema">
 <annotation>
       <appInfo>
-         <meta.schema plugin="org.eclipse.b3.aggregator" id="legacy_transformation" name="Legacy Transformation"/>
+         <meta.schema plugin="org.eclipse.cbi.p2repo.aggregator" id="legacy_transformation" name="Legacy Transformation"/>
       </appInfo>
       <documentation>
          [Enter description of this extension point.]
@@ -107,7 +107,7 @@
                   Resource transformer class
                </documentation>
                <appInfo>
-                  <meta.attribute kind="java" basedOn=":org.eclipse.b3.aggregator.transformer.ITransformer"/>
+                  <meta.attribute kind="java" basedOn=":org.eclipse.cbi.p2repo.aggregator.transformer.ITransformer"/>
                </appInfo>
             </annotation>
          </attribute>
@@ -121,7 +121,7 @@ A typical use-case is a set of defaults that may be bound to an interactive user
 The context is read during transformation.
                </documentation>
                <appInfo>
-                  <meta.attribute kind="java" basedOn="org.eclipse.b3.aggregator.transformer.TransformerContextContributor:"/>
+                  <meta.attribute kind="java" basedOn="org.eclipse.cbi.p2repo.aggregator.transformer.TransformerContextContributor:"/>
                </appInfo>
             </annotation>
          </attribute>

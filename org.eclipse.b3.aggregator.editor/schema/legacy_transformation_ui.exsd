@@ -1,9 +1,9 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!-- Schema file written by PDE -->
-<schema targetNamespace="org.eclipse.b3.aggregator.editor" xmlns="http://www.w3.org/2001/XMLSchema">
+<schema targetNamespace="org.eclipse.cbi.p2repo.aggregator.editor" xmlns="http://www.w3.org/2001/XMLSchema">
 <annotation>
       <appInfo>
-         <meta.schema plugin="org.eclipse.b3.aggregator.editor" id="legacy_transformation_ui" name="Legady Tansformation UI"/>
+         <meta.schema plugin="org.eclipse.cbi.p2repo.aggregator.editor" id="legacy_transformation_ui" name="Legady Tansformation UI"/>
       </appInfo>
       <documentation>
          [Enter description of this extension point.]
@@ -65,7 +65,7 @@
 
                </documentation>
                <appInfo>
-                  <meta.attribute kind="java" basedOn="org.eclipse.b3.aggregator.transformer.ui.TransformerContributorWizardPage:"/>
+                  <meta.attribute kind="java" basedOn="org.eclipse.cbi.p2repo.aggregator.transformer.ui.TransformerContributorWizardPage:"/>
                </appInfo>
             </annotation>
          </attribute>

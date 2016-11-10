@@ -20,21 +20,21 @@
    </license>
 
    <plugin
-         id="org.eclipse.b3.util"
+         id="org.eclipse.cbi.p2repo.util"
          download-size="0"
          install-size="0"
          version="0.0.0"
          unpack="false"/>
 
    <plugin
-         id="org.eclipse.b3.p2.maven"
+         id="org.eclipse.cbi.p2repo.p2.maven"
          download-size="0"
          install-size="0"
          version="0.0.0"
          unpack="false"/>
 
    <plugin
-         id="org.eclipse.b3.p2.maven.indexer"
+         id="org.eclipse.cbi.p2repo.p2.maven.indexer"
          download-size="0"
          install-size="0"
          version="0.0.0"
