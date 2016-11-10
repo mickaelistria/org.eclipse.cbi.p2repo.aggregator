@@ -7,7 +7,7 @@
   http://www.eclipse.org/org/documents/edl-v10.php
 
   Contributors:
-     David Williams - improvements and maintenance
+  David Williams - improvements and maintenance
 -->
 <project
   xmlns="http://maven.apache.org/POM/4.0.0"
@@ -15,33 +15,33 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>org.eclipse.b3</groupId>
-  <artifactId>org.eclipse.b3.modules</artifactId>
+  <groupId>org.eclipse.cbi</groupId>
+  <artifactId>org.eclipse.cbi.p2repo.modules</artifactId>
   <version>1.0.0-SNAPSHOT</version>
   <packaging>pom</packaging>
 
   <modules>
-    <module>org.eclipse.b3.releng.target</module>
-    <module>org.eclipse.b3.aggregator</module>
-    <module>org.eclipse.b3.aggregator.edit</module>
-    <module>org.eclipse.b3.aggregator.editor</module>
-    <module>org.eclipse.b3.aggregator.engine</module>
-    <module>org.eclipse.b3.aggregator.engine.maven</module>
-    <module>org.eclipse.b3.aggregator.legacy</module>
-    <module>org.eclipse.b3.aggregator.legacy.ui</module>
-    <module>org.eclipse.b3.cli</module>
-    <module>org.eclipse.b3.p2</module>
-    <module>org.eclipse.b3.p2.edit</module>
-    <module>org.eclipse.b3.p2.maven</module>
-    <module>org.eclipse.b3.p2.maven.indexer</module>
-    <module>org.eclipse.b3.util</module>
-    <module>org.eclipse.b3.aggregator.editor.feature</module>
-    <module>org.eclipse.b3.aggregator.engine.feature</module>
-    <module>org.eclipse.b3.p2.maven.indexer.feature</module>
-    <module>org.eclipse.b3.product.feature</module>
-    <module>org.eclipse.b3.product</module>
-    <module>org.eclipse.b3.site.eclipse</module>
-        <module>org.eclipse.b3.p2.tests</module>
-        <module>org.eclipse.b3.tests.feature</module>
+    <module>org.eclipse.cbi.p2repo.releng.target</module>
+    <module>org.eclipse.cbi.p2repo.aggregator</module>
+    <module>org.eclipse.cbi.p2repo.aggregator.edit</module>
+    <module>org.eclipse.cbi.p2repo.aggregator.editor</module>
+    <module>org.eclipse.cbi.p2repo.aggregator.engine</module>
+    <module>org.eclipse.cbi.p2repo.aggregator.engine.maven</module>
+    <module>org.eclipse.cbi.p2repo.aggregator.legacy</module>
+    <module>org.eclipse.cbi.p2repo.aggregator.legacy.ui</module>
+    <module>org.eclipse.cbi.p2repo.cli</module>
+    <module>org.eclipse.cbi.p2repo.p2</module>
+    <module>org.eclipse.cbi.p2repo.p2.edit</module>
+    <module>org.eclipse.cbi.p2repo.p2.maven</module>
+    <module>org.eclipse.cbi.p2repo.p2.maven.indexer</module>
+    <module>org.eclipse.cbi.p2repo.util</module>
+    <module>org.eclipse.cbi.p2repo.aggregator.editor.feature</module>
+    <module>org.eclipse.cbi.p2repo.aggregator.engine.feature</module>
+    <module>org.eclipse.cbi.p2repo.p2.maven.indexer.feature</module>
+    <module>org.eclipse.cbi.p2repo.product.feature</module>
+    <module>org.eclipse.cbi.p2repo.product</module>
+    <module>org.eclipse.cbi.p2repo.site.eclipse</module>
+    <module>org.eclipse.cbi.p2repo.p2.tests</module>
+    <module>org.eclipse.cbi.p2repo.tests.feature</module>
   </modules>
 </project>
