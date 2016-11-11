@@ -44,7 +44,6 @@ public class ExecutionsTypeImpl extends EObjectImpl implements ExecutionsType {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	protected ExecutionsTypeImpl() {
@@ -53,12 +52,11 @@ public class ExecutionsTypeImpl extends EObjectImpl implements ExecutionsType {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch(featureID) {
+		switch (featureID) {
 			case PomPackage.EXECUTIONS_TYPE__EXECUTION:
 				return getExecution();
 		}
@@ -67,26 +65,24 @@ public class ExecutionsTypeImpl extends EObjectImpl implements ExecutionsType {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch(featureID) {
+		switch (featureID) {
 			case PomPackage.EXECUTIONS_TYPE__EXECUTION:
-				return ((InternalEList<?>) getExecution()).basicRemove(otherEnd, msgs);
+				return ((InternalEList<?>)getExecution()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch(featureID) {
+		switch (featureID) {
 			case PomPackage.EXECUTIONS_TYPE__EXECUTION:
 				return execution != null && !execution.isEmpty();
 		}
@@ -95,16 +91,15 @@ public class ExecutionsTypeImpl extends EObjectImpl implements ExecutionsType {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch(featureID) {
+		switch (featureID) {
 			case PomPackage.EXECUTIONS_TYPE__EXECUTION:
 				getExecution().clear();
-				getExecution().addAll((Collection<? extends PluginExecution>) newValue);
+				getExecution().addAll((Collection<? extends PluginExecution>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -112,12 +107,11 @@ public class ExecutionsTypeImpl extends EObjectImpl implements ExecutionsType {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
-		switch(featureID) {
+		switch (featureID) {
 			case PomPackage.EXECUTIONS_TYPE__EXECUTION:
 				getExecution().clear();
 				return;
@@ -127,21 +121,18 @@ public class ExecutionsTypeImpl extends EObjectImpl implements ExecutionsType {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public EList<PluginExecution> getExecution() {
-		if(execution == null) {
-			execution = new EObjectContainmentEList<PluginExecution>(
-				PluginExecution.class, this, PomPackage.EXECUTIONS_TYPE__EXECUTION);
+		if (execution == null) {
+			execution = new EObjectContainmentEList<PluginExecution>(PluginExecution.class, this, PomPackage.EXECUTIONS_TYPE__EXECUTION);
 		}
 		return execution;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override

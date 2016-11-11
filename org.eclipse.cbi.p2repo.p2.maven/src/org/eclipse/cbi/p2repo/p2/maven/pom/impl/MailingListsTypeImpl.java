@@ -44,7 +44,6 @@ public class MailingListsTypeImpl extends EObjectImpl implements MailingListsTyp
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	protected MailingListsTypeImpl() {
@@ -53,12 +52,11 @@ public class MailingListsTypeImpl extends EObjectImpl implements MailingListsTyp
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch(featureID) {
+		switch (featureID) {
 			case PomPackage.MAILING_LISTS_TYPE__MAILING_LIST:
 				return getMailingList();
 		}
@@ -67,26 +65,24 @@ public class MailingListsTypeImpl extends EObjectImpl implements MailingListsTyp
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch(featureID) {
+		switch (featureID) {
 			case PomPackage.MAILING_LISTS_TYPE__MAILING_LIST:
-				return ((InternalEList<?>) getMailingList()).basicRemove(otherEnd, msgs);
+				return ((InternalEList<?>)getMailingList()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch(featureID) {
+		switch (featureID) {
 			case PomPackage.MAILING_LISTS_TYPE__MAILING_LIST:
 				return mailingList != null && !mailingList.isEmpty();
 		}
@@ -95,16 +91,15 @@ public class MailingListsTypeImpl extends EObjectImpl implements MailingListsTyp
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch(featureID) {
+		switch (featureID) {
 			case PomPackage.MAILING_LISTS_TYPE__MAILING_LIST:
 				getMailingList().clear();
-				getMailingList().addAll((Collection<? extends MailingList>) newValue);
+				getMailingList().addAll((Collection<? extends MailingList>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -112,12 +107,11 @@ public class MailingListsTypeImpl extends EObjectImpl implements MailingListsTyp
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
-		switch(featureID) {
+		switch (featureID) {
 			case PomPackage.MAILING_LISTS_TYPE__MAILING_LIST:
 				getMailingList().clear();
 				return;
@@ -127,21 +121,18 @@ public class MailingListsTypeImpl extends EObjectImpl implements MailingListsTyp
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public EList<MailingList> getMailingList() {
-		if(mailingList == null) {
-			mailingList = new EObjectContainmentEList<MailingList>(
-				MailingList.class, this, PomPackage.MAILING_LISTS_TYPE__MAILING_LIST);
+		if (mailingList == null) {
+			mailingList = new EObjectContainmentEList<MailingList>(MailingList.class, this, PomPackage.MAILING_LISTS_TYPE__MAILING_LIST);
 		}
 		return mailingList;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override

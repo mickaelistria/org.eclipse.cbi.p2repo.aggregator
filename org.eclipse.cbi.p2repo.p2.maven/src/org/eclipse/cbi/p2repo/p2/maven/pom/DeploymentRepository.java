@@ -14,21 +14,21 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <!-- begin-model-doc -->
  * 4.0.0
- *
- * Repository contains the information needed for deploying to the remote repoistory.
- *
+ * 
+ *         Repository contains the information needed for deploying to the remote repoistory.
+ *       
  * <!-- end-model-doc -->
  *
  * <p>
  * The following features are supported:
- * <ul>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.DeploymentRepository#isUniqueVersion <em>Unique Version</em>}</li>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.DeploymentRepository#getId <em>Id</em>}</li>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.DeploymentRepository#getName <em>Name</em>}</li>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.DeploymentRepository#getUrl <em>Url</em>}</li>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.DeploymentRepository#getLayout <em>Layout</em>}</li>
- * </ul>
  * </p>
+ * <ul>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.DeploymentRepository#isUniqueVersion <em>Unique Version</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.DeploymentRepository#getId <em>Id</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.DeploymentRepository#getName <em>Name</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.DeploymentRepository#getUrl <em>Url</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.DeploymentRepository#getLayout <em>Layout</em>}</li>
+ * </ul>
  *
  * @see org.eclipse.cbi.p2repo.p2.maven.pom.PomPackage#getDeploymentRepository()
  * @model extendedMetaData="name='DeploymentRepository' kind='elementOnly'"
@@ -110,7 +110,6 @@ public interface DeploymentRepository extends EObject {
 	/**
 	 * Returns whether the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.DeploymentRepository#getLayout <em>Layout</em>}' attribute is set.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @return whether the value of the '<em>Layout</em>' attribute is set.
 	 * @see #unsetLayout()
 	 * @see #getLayout()
@@ -120,10 +119,8 @@ public interface DeploymentRepository extends EObject {
 	boolean isSetLayout();
 
 	/**
-	 * Returns whether the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.DeploymentRepository#isUniqueVersion <em>Unique Version</em>}' attribute
-	 * is set.
+	 * Returns whether the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.DeploymentRepository#isUniqueVersion <em>Unique Version</em>}' attribute is set.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @return whether the value of the '<em>Unique Version</em>' attribute is set.
 	 * @see #unsetUniqueVersion()
 	 * @see #isUniqueVersion()
@@ -151,9 +148,7 @@ public interface DeploymentRepository extends EObject {
 	/**
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.DeploymentRepository#getId <em>Id</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
-	 * @param value
-	 *            the new value of the '<em>Id</em>' attribute.
+	 * @param value the new value of the '<em>Id</em>' attribute.
 	 * @see #getId()
 	 * @generated
 	 */
@@ -162,9 +157,7 @@ public interface DeploymentRepository extends EObject {
 	/**
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.DeploymentRepository#getLayout <em>Layout</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
-	 * @param value
-	 *            the new value of the '<em>Layout</em>' attribute.
+	 * @param value the new value of the '<em>Layout</em>' attribute.
 	 * @see #isSetLayout()
 	 * @see #unsetLayout()
 	 * @see #getLayout()
@@ -175,9 +168,7 @@ public interface DeploymentRepository extends EObject {
 	/**
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.DeploymentRepository#getName <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
-	 * @param value
-	 *            the new value of the '<em>Name</em>' attribute.
+	 * @param value the new value of the '<em>Name</em>' attribute.
 	 * @see #getName()
 	 * @generated
 	 */
@@ -186,9 +177,7 @@ public interface DeploymentRepository extends EObject {
 	/**
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.DeploymentRepository#isUniqueVersion <em>Unique Version</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
-	 * @param value
-	 *            the new value of the '<em>Unique Version</em>' attribute.
+	 * @param value the new value of the '<em>Unique Version</em>' attribute.
 	 * @see #isSetUniqueVersion()
 	 * @see #unsetUniqueVersion()
 	 * @see #isUniqueVersion()
@@ -199,9 +188,7 @@ public interface DeploymentRepository extends EObject {
 	/**
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.DeploymentRepository#getUrl <em>Url</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
-	 * @param value
-	 *            the new value of the '<em>Url</em>' attribute.
+	 * @param value the new value of the '<em>Url</em>' attribute.
 	 * @see #getUrl()
 	 * @generated
 	 */
@@ -210,7 +197,6 @@ public interface DeploymentRepository extends EObject {
 	/**
 	 * Unsets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.DeploymentRepository#getLayout <em>Layout</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @see #isSetLayout()
 	 * @see #getLayout()
 	 * @see #setLayout(String)
@@ -221,7 +207,6 @@ public interface DeploymentRepository extends EObject {
 	/**
 	 * Unsets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.DeploymentRepository#isUniqueVersion <em>Unique Version</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @see #isSetUniqueVersion()
 	 * @see #isUniqueVersion()
 	 * @see #setUniqueVersion(boolean)

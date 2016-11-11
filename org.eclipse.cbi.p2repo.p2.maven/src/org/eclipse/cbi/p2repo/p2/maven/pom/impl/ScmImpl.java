@@ -17,13 +17,13 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * <!-- begin-user-doc --> An implementation of the model object '<em><b>Scm</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * <ul>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.ScmImpl#getConnection <em>Connection</em>}</li>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.ScmImpl#getDeveloperConnection <em>Developer Connection</em>}</li>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.ScmImpl#getTag <em>Tag</em>}</li>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.ScmImpl#getUrl <em>Url</em>}</li>
- * </ul>
  * </p>
+ * <ul>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.ScmImpl#getConnection <em>Connection</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.ScmImpl#getDeveloperConnection <em>Developer Connection</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.ScmImpl#getTag <em>Tag</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.ScmImpl#getUrl <em>Url</em>}</li>
+ * </ul>
  *
  * @generated
  */
@@ -32,7 +32,6 @@ public class ScmImpl extends EObjectImpl implements Scm {
 	 * The default value of the '{@link #getConnection() <em>Connection</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 *
 	 * @see #getConnection()
 	 * @generated
 	 * @ordered
@@ -43,7 +42,6 @@ public class ScmImpl extends EObjectImpl implements Scm {
 	 * The cached value of the '{@link #getConnection() <em>Connection</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 *
 	 * @see #getConnection()
 	 * @generated
 	 * @ordered
@@ -83,7 +81,6 @@ public class ScmImpl extends EObjectImpl implements Scm {
 	/**
 	 * The cached value of the '{@link #getTag() <em>Tag</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @see #getTag()
 	 * @generated
 	 * @ordered
@@ -93,7 +90,6 @@ public class ScmImpl extends EObjectImpl implements Scm {
 	/**
 	 * This is true if the Tag attribute has been set.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 * @ordered
 	 */
@@ -112,7 +108,6 @@ public class ScmImpl extends EObjectImpl implements Scm {
 	/**
 	 * The cached value of the '{@link #getUrl() <em>Url</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @see #getUrl()
 	 * @generated
 	 * @ordered
@@ -121,7 +116,6 @@ public class ScmImpl extends EObjectImpl implements Scm {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	protected ScmImpl() {
@@ -130,12 +124,11 @@ public class ScmImpl extends EObjectImpl implements Scm {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch(featureID) {
+		switch (featureID) {
 			case PomPackage.SCM__CONNECTION:
 				return getConnection();
 			case PomPackage.SCM__DEVELOPER_CONNECTION:
@@ -150,49 +143,41 @@ public class ScmImpl extends EObjectImpl implements Scm {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch(featureID) {
+		switch (featureID) {
 			case PomPackage.SCM__CONNECTION:
-				return CONNECTION_EDEFAULT == null
-						? connection != null
-						: !CONNECTION_EDEFAULT.equals(connection);
+				return CONNECTION_EDEFAULT == null ? connection != null : !CONNECTION_EDEFAULT.equals(connection);
 			case PomPackage.SCM__DEVELOPER_CONNECTION:
-				return DEVELOPER_CONNECTION_EDEFAULT == null
-						? developerConnection != null
-						: !DEVELOPER_CONNECTION_EDEFAULT.equals(developerConnection);
+				return DEVELOPER_CONNECTION_EDEFAULT == null ? developerConnection != null : !DEVELOPER_CONNECTION_EDEFAULT.equals(developerConnection);
 			case PomPackage.SCM__TAG:
 				return isSetTag();
 			case PomPackage.SCM__URL:
-				return URL_EDEFAULT == null
-						? url != null
-						: !URL_EDEFAULT.equals(url);
+				return URL_EDEFAULT == null ? url != null : !URL_EDEFAULT.equals(url);
 		}
 		return super.eIsSet(featureID);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch(featureID) {
+		switch (featureID) {
 			case PomPackage.SCM__CONNECTION:
-				setConnection((String) newValue);
+				setConnection((String)newValue);
 				return;
 			case PomPackage.SCM__DEVELOPER_CONNECTION:
-				setDeveloperConnection((String) newValue);
+				setDeveloperConnection((String)newValue);
 				return;
 			case PomPackage.SCM__TAG:
-				setTag((String) newValue);
+				setTag((String)newValue);
 				return;
 			case PomPackage.SCM__URL:
-				setUrl((String) newValue);
+				setUrl((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -200,12 +185,11 @@ public class ScmImpl extends EObjectImpl implements Scm {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
-		switch(featureID) {
+		switch (featureID) {
 			case PomPackage.SCM__CONNECTION:
 				setConnection(CONNECTION_EDEFAULT);
 				return;
@@ -224,7 +208,6 @@ public class ScmImpl extends EObjectImpl implements Scm {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -234,7 +217,6 @@ public class ScmImpl extends EObjectImpl implements Scm {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -244,7 +226,6 @@ public class ScmImpl extends EObjectImpl implements Scm {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -254,7 +235,6 @@ public class ScmImpl extends EObjectImpl implements Scm {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -264,7 +244,6 @@ public class ScmImpl extends EObjectImpl implements Scm {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -274,35 +253,30 @@ public class ScmImpl extends EObjectImpl implements Scm {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public void setConnection(String newConnection) {
 		String oldConnection = connection;
 		connection = newConnection;
-		if(eNotificationRequired())
+		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.SCM__CONNECTION, oldConnection, connection));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public void setDeveloperConnection(String newDeveloperConnection) {
 		String oldDeveloperConnection = developerConnection;
 		developerConnection = newDeveloperConnection;
-		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(
-				this, Notification.SET, PomPackage.SCM__DEVELOPER_CONNECTION, oldDeveloperConnection,
-				developerConnection));
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.SCM__DEVELOPER_CONNECTION, oldDeveloperConnection, developerConnection));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -311,32 +285,29 @@ public class ScmImpl extends EObjectImpl implements Scm {
 		tag = newTag;
 		boolean oldTagESet = tagESet;
 		tagESet = true;
-		if(eNotificationRequired())
+		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.SCM__TAG, oldTag, tag, !oldTagESet));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public void setUrl(String newUrl) {
 		String oldUrl = url;
 		url = newUrl;
-		if(eNotificationRequired())
+		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.SCM__URL, oldUrl, url));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public String toString() {
-		if(eIsProxy())
-			return super.toString();
+		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (connection: ");
@@ -344,10 +315,7 @@ public class ScmImpl extends EObjectImpl implements Scm {
 		result.append(", developerConnection: ");
 		result.append(developerConnection);
 		result.append(", tag: ");
-		if(tagESet)
-			result.append(tag);
-		else
-			result.append("<unset>");
+		if (tagESet) result.append(tag); else result.append("<unset>");
 		result.append(", url: ");
 		result.append(url);
 		result.append(')');
@@ -356,7 +324,6 @@ public class ScmImpl extends EObjectImpl implements Scm {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -365,14 +332,12 @@ public class ScmImpl extends EObjectImpl implements Scm {
 		boolean oldTagESet = tagESet;
 		tag = TAG_EDEFAULT;
 		tagESet = false;
-		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(
-				this, Notification.UNSET, PomPackage.SCM__TAG, oldTag, TAG_EDEFAULT, oldTagESet));
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.UNSET, PomPackage.SCM__TAG, oldTag, TAG_EDEFAULT, oldTagESet));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override

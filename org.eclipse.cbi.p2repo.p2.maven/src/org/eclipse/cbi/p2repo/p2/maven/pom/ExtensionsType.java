@@ -14,10 +14,10 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
- * <ul>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.ExtensionsType#getExtension <em>Extension</em>}</li>
- * </ul>
  * </p>
+ * <ul>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.ExtensionsType#getExtension <em>Extension</em>}</li>
+ * </ul>
  *
  * @see org.eclipse.cbi.p2repo.p2.maven.pom.PomPackage#getExtensionsType()
  * @model extendedMetaData="name='extensions_._type' kind='elementOnly'"
@@ -32,7 +32,6 @@ public interface ExtensionsType extends EObject {
 	 * If the meaning of the '<em>Extension</em>' containment reference list isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 *
 	 * @return the value of the '<em>Extension</em>' containment reference list.
 	 * @see org.eclipse.cbi.p2repo.p2.maven.pom.PomPackage#getExtensionsType_Extension()
 	 * @model containment="true"

@@ -13,47 +13,47 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <!-- begin-model-doc -->
  * 3.0.0+
- *
- * The &lt;code&gt;&amp;lt;project&amp;gt;&lt;/code&gt; element is the root of the descriptor.
- * The following table lists all of the possible child elements.
- *
+ * 
+ *          The &lt;code&gt;&amp;lt;project&amp;gt;&lt;/code&gt; element is the root of the descriptor.
+ *          The following table lists all of the possible child elements.
+ *       
  * <!-- end-model-doc -->
  *
  * <p>
  * The following features are supported:
- * <ul>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.Model#getParent <em>Parent</em>}</li>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.Model#getModelVersion <em>Model Version</em>}</li>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.Model#getGroupId <em>Group Id</em>}</li>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.Model#getArtifactId <em>Artifact Id</em>}</li>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.Model#getPackaging <em>Packaging</em>}</li>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.Model#getName <em>Name</em>}</li>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.Model#getVersion <em>Version</em>}</li>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.Model#getDescription <em>Description</em>}</li>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.Model#getUrl <em>Url</em>}</li>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.Model#getPrerequisites <em>Prerequisites</em>}</li>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.Model#getIssueManagement <em>Issue Management</em>}</li>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.Model#getCiManagement <em>Ci Management</em>}</li>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.Model#getInceptionYear <em>Inception Year</em>}</li>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.Model#getMailingLists <em>Mailing Lists</em>}</li>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.Model#getDevelopers <em>Developers</em>}</li>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.Model#getContributors <em>Contributors</em>}</li>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.Model#getLicenses <em>Licenses</em>}</li>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.Model#getScm <em>Scm</em>}</li>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.Model#getOrganization <em>Organization</em>}</li>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.Model#getBuild <em>Build</em>}</li>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.Model#getProfiles <em>Profiles</em>}</li>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.Model#getModules <em>Modules</em>}</li>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.Model#getRepositories <em>Repositories</em>}</li>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.Model#getPluginRepositories <em>Plugin Repositories</em>}</li>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.Model#getDependencies <em>Dependencies</em>}</li>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.Model#getReports <em>Reports</em>}</li>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.Model#getReporting <em>Reporting</em>}</li>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.Model#getDependencyManagement <em>Dependency Management</em>}</li>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.Model#getDistributionManagement <em>Distribution Management</em>}</li>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.Model#getProperties <em>Properties</em>}</li>
- * </ul>
  * </p>
+ * <ul>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.Model#getParent <em>Parent</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.Model#getModelVersion <em>Model Version</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.Model#getGroupId <em>Group Id</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.Model#getArtifactId <em>Artifact Id</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.Model#getPackaging <em>Packaging</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.Model#getName <em>Name</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.Model#getVersion <em>Version</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.Model#getDescription <em>Description</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.Model#getUrl <em>Url</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.Model#getPrerequisites <em>Prerequisites</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.Model#getIssueManagement <em>Issue Management</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.Model#getCiManagement <em>Ci Management</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.Model#getInceptionYear <em>Inception Year</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.Model#getMailingLists <em>Mailing Lists</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.Model#getDevelopers <em>Developers</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.Model#getContributors <em>Contributors</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.Model#getLicenses <em>Licenses</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.Model#getScm <em>Scm</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.Model#getOrganization <em>Organization</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.Model#getBuild <em>Build</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.Model#getProfiles <em>Profiles</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.Model#getModules <em>Modules</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.Model#getRepositories <em>Repositories</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.Model#getPluginRepositories <em>Plugin Repositories</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.Model#getDependencies <em>Dependencies</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.Model#getReports <em>Reports</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.Model#getReporting <em>Reporting</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.Model#getDependencyManagement <em>Dependency Management</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.Model#getDistributionManagement <em>Distribution Management</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.Model#getProperties <em>Properties</em>}</li>
+ * </ul>
  *
  * @see org.eclipse.cbi.p2repo.p2.maven.pom.PomPackage#getModel()
  * @model extendedMetaData="name='Model' kind='elementOnly'"
@@ -65,13 +65,12 @@ public interface Model extends EObject {
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * 3.0.0+
-	 *
-	 * The identifier for this artifact that is unique within the group given by the group ID.
-	 * An artifact is something that is either produced or used by a project. Examples of artifacts produced by
-	 * Maven for a project include: JARs, source and binary distributions, and WARs.
-	 *
+	 * 
+	 *             The identifier for this artifact that is unique within the group given by the group ID.
+	 *             An artifact is something that is either produced or used by a project. Examples of artifacts produced by
+	 *             Maven for a project include: JARs, source and binary distributions, and WARs.
+	 *           
 	 * <!-- end-model-doc -->
-	 *
 	 * @return the value of the '<em>Artifact Id</em>' attribute.
 	 * @see #setArtifactId(String)
 	 * @see org.eclipse.cbi.p2repo.p2.maven.pom.PomPackage#getModel_ArtifactId()
@@ -167,15 +166,14 @@ public interface Model extends EObject {
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * 3.0.0+
-	 *
-	 * A detailed description of the project, used by Maven whenever it needs to describe the project,
-	 * such as on the web site. While this element can be specified as CDATA to enable
-	 * the use of HTML tags within the description, it is discouraged to allow plain text representation.
-	 * If you need to modify the index page of the generated web site, you are able to specify your own instead
-	 * of adjusting this text.
-	 *
+	 * 
+	 *             A detailed description of the project, used by Maven whenever it needs to describe the project,
+	 *             such as on the web site. While this element can be specified as CDATA to enable
+	 *             the use of HTML tags within the description, it is discouraged to allow plain text representation.
+	 *             If you need to modify the index page of the generated web site, you are able to specify your own instead
+	 *             of adjusting this text.
+	 *           
 	 * <!-- end-model-doc -->
-	 *
 	 * @return the value of the '<em>Description</em>' attribute.
 	 * @see #setDescription(String)
 	 * @see org.eclipse.cbi.p2repo.p2.maven.pom.PomPackage#getModel_Description()
@@ -306,7 +304,6 @@ public interface Model extends EObject {
 	 * 4.0.0
 	 * Declares to which version of project descriptor this POM conforms.
 	 * <!-- end-model-doc -->
-	 *
 	 * @return the value of the '<em>Model Version</em>' attribute.
 	 * @see #setModelVersion(String)
 	 * @see org.eclipse.cbi.p2repo.p2.maven.pom.PomPackage#getModel_ModelVersion()
@@ -567,7 +564,6 @@ public interface Model extends EObject {
 	/**
 	 * Returns whether the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.Model#getPackaging <em>Packaging</em>}' attribute is set.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @return whether the value of the '<em>Packaging</em>' attribute is set.
 	 * @see #unsetPackaging()
 	 * @see #getPackaging()
@@ -579,9 +575,7 @@ public interface Model extends EObject {
 	/**
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.Model#getArtifactId <em>Artifact Id</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
-	 * @param value
-	 *            the new value of the '<em>Artifact Id</em>' attribute.
+	 * @param value the new value of the '<em>Artifact Id</em>' attribute.
 	 * @see #getArtifactId()
 	 * @generated
 	 */
@@ -590,9 +584,7 @@ public interface Model extends EObject {
 	/**
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.Model#getBuild <em>Build</em>}' containment reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
-	 * @param value
-	 *            the new value of the '<em>Build</em>' containment reference.
+	 * @param value the new value of the '<em>Build</em>' containment reference.
 	 * @see #getBuild()
 	 * @generated
 	 */
@@ -601,9 +593,7 @@ public interface Model extends EObject {
 	/**
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.Model#getCiManagement <em>Ci Management</em>}' containment reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
-	 * @param value
-	 *            the new value of the '<em>Ci Management</em>' containment reference.
+	 * @param value the new value of the '<em>Ci Management</em>' containment reference.
 	 * @see #getCiManagement()
 	 * @generated
 	 */
@@ -612,9 +602,7 @@ public interface Model extends EObject {
 	/**
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.Model#getContributors <em>Contributors</em>}' containment reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
-	 * @param value
-	 *            the new value of the '<em>Contributors</em>' containment reference.
+	 * @param value the new value of the '<em>Contributors</em>' containment reference.
 	 * @see #getContributors()
 	 * @generated
 	 */
@@ -623,9 +611,7 @@ public interface Model extends EObject {
 	/**
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.Model#getDependencies <em>Dependencies</em>}' containment reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
-	 * @param value
-	 *            the new value of the '<em>Dependencies</em>' containment reference.
+	 * @param value the new value of the '<em>Dependencies</em>' containment reference.
 	 * @see #getDependencies()
 	 * @generated
 	 */
@@ -634,9 +620,7 @@ public interface Model extends EObject {
 	/**
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.Model#getDependencyManagement <em>Dependency Management</em>}' containment reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
-	 * @param value
-	 *            the new value of the '<em>Dependency Management</em>' containment reference.
+	 * @param value the new value of the '<em>Dependency Management</em>' containment reference.
 	 * @see #getDependencyManagement()
 	 * @generated
 	 */
@@ -645,9 +629,7 @@ public interface Model extends EObject {
 	/**
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.Model#getDescription <em>Description</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
-	 * @param value
-	 *            the new value of the '<em>Description</em>' attribute.
+	 * @param value the new value of the '<em>Description</em>' attribute.
 	 * @see #getDescription()
 	 * @generated
 	 */
@@ -656,21 +638,16 @@ public interface Model extends EObject {
 	/**
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.Model#getDevelopers <em>Developers</em>}' containment reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
-	 * @param value
-	 *            the new value of the '<em>Developers</em>' containment reference.
+	 * @param value the new value of the '<em>Developers</em>' containment reference.
 	 * @see #getDevelopers()
 	 * @generated
 	 */
 	void setDevelopers(DevelopersType value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.Model#getDistributionManagement <em>Distribution Management</em>}' containment
-	 * reference.
+	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.Model#getDistributionManagement <em>Distribution Management</em>}' containment reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
-	 * @param value
-	 *            the new value of the '<em>Distribution Management</em>' containment reference.
+	 * @param value the new value of the '<em>Distribution Management</em>' containment reference.
 	 * @see #getDistributionManagement()
 	 * @generated
 	 */
@@ -679,9 +656,7 @@ public interface Model extends EObject {
 	/**
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.Model#getGroupId <em>Group Id</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
-	 * @param value
-	 *            the new value of the '<em>Group Id</em>' attribute.
+	 * @param value the new value of the '<em>Group Id</em>' attribute.
 	 * @see #getGroupId()
 	 * @generated
 	 */
@@ -690,9 +665,7 @@ public interface Model extends EObject {
 	/**
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.Model#getInceptionYear <em>Inception Year</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
-	 * @param value
-	 *            the new value of the '<em>Inception Year</em>' attribute.
+	 * @param value the new value of the '<em>Inception Year</em>' attribute.
 	 * @see #getInceptionYear()
 	 * @generated
 	 */
@@ -701,9 +674,7 @@ public interface Model extends EObject {
 	/**
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.Model#getIssueManagement <em>Issue Management</em>}' containment reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
-	 * @param value
-	 *            the new value of the '<em>Issue Management</em>' containment reference.
+	 * @param value the new value of the '<em>Issue Management</em>' containment reference.
 	 * @see #getIssueManagement()
 	 * @generated
 	 */
@@ -712,9 +683,7 @@ public interface Model extends EObject {
 	/**
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.Model#getLicenses <em>Licenses</em>}' containment reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
-	 * @param value
-	 *            the new value of the '<em>Licenses</em>' containment reference.
+	 * @param value the new value of the '<em>Licenses</em>' containment reference.
 	 * @see #getLicenses()
 	 * @generated
 	 */
@@ -723,9 +692,7 @@ public interface Model extends EObject {
 	/**
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.Model#getMailingLists <em>Mailing Lists</em>}' containment reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
-	 * @param value
-	 *            the new value of the '<em>Mailing Lists</em>' containment reference.
+	 * @param value the new value of the '<em>Mailing Lists</em>' containment reference.
 	 * @see #getMailingLists()
 	 * @generated
 	 */
@@ -734,9 +701,7 @@ public interface Model extends EObject {
 	/**
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.Model#getModelVersion <em>Model Version</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
-	 * @param value
-	 *            the new value of the '<em>Model Version</em>' attribute.
+	 * @param value the new value of the '<em>Model Version</em>' attribute.
 	 * @see #getModelVersion()
 	 * @generated
 	 */
@@ -745,9 +710,7 @@ public interface Model extends EObject {
 	/**
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.Model#getModules <em>Modules</em>}' containment reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
-	 * @param value
-	 *            the new value of the '<em>Modules</em>' containment reference.
+	 * @param value the new value of the '<em>Modules</em>' containment reference.
 	 * @see #getModules()
 	 * @generated
 	 */
@@ -756,9 +719,7 @@ public interface Model extends EObject {
 	/**
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.Model#getName <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
-	 * @param value
-	 *            the new value of the '<em>Name</em>' attribute.
+	 * @param value the new value of the '<em>Name</em>' attribute.
 	 * @see #getName()
 	 * @generated
 	 */
@@ -767,9 +728,7 @@ public interface Model extends EObject {
 	/**
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.Model#getOrganization <em>Organization</em>}' containment reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
-	 * @param value
-	 *            the new value of the '<em>Organization</em>' containment reference.
+	 * @param value the new value of the '<em>Organization</em>' containment reference.
 	 * @see #getOrganization()
 	 * @generated
 	 */
@@ -778,9 +737,7 @@ public interface Model extends EObject {
 	/**
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.Model#getPackaging <em>Packaging</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
-	 * @param value
-	 *            the new value of the '<em>Packaging</em>' attribute.
+	 * @param value the new value of the '<em>Packaging</em>' attribute.
 	 * @see #isSetPackaging()
 	 * @see #unsetPackaging()
 	 * @see #getPackaging()
@@ -791,9 +748,7 @@ public interface Model extends EObject {
 	/**
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.Model#getParent <em>Parent</em>}' containment reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
-	 * @param value
-	 *            the new value of the '<em>Parent</em>' containment reference.
+	 * @param value the new value of the '<em>Parent</em>' containment reference.
 	 * @see #getParent()
 	 * @generated
 	 */
@@ -802,9 +757,7 @@ public interface Model extends EObject {
 	/**
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.Model#getPluginRepositories <em>Plugin Repositories</em>}' containment reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
-	 * @param value
-	 *            the new value of the '<em>Plugin Repositories</em>' containment reference.
+	 * @param value the new value of the '<em>Plugin Repositories</em>' containment reference.
 	 * @see #getPluginRepositories()
 	 * @generated
 	 */
@@ -813,9 +766,7 @@ public interface Model extends EObject {
 	/**
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.Model#getPrerequisites <em>Prerequisites</em>}' containment reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
-	 * @param value
-	 *            the new value of the '<em>Prerequisites</em>' containment reference.
+	 * @param value the new value of the '<em>Prerequisites</em>' containment reference.
 	 * @see #getPrerequisites()
 	 * @generated
 	 */
@@ -824,9 +775,7 @@ public interface Model extends EObject {
 	/**
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.Model#getProfiles <em>Profiles</em>}' containment reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
-	 * @param value
-	 *            the new value of the '<em>Profiles</em>' containment reference.
+	 * @param value the new value of the '<em>Profiles</em>' containment reference.
 	 * @see #getProfiles()
 	 * @generated
 	 */
@@ -835,9 +784,7 @@ public interface Model extends EObject {
 	/**
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.Model#getProperties <em>Properties</em>}' containment reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
-	 * @param value
-	 *            the new value of the '<em>Properties</em>' containment reference.
+	 * @param value the new value of the '<em>Properties</em>' containment reference.
 	 * @see #getProperties()
 	 * @generated
 	 */
@@ -846,9 +793,7 @@ public interface Model extends EObject {
 	/**
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.Model#getReporting <em>Reporting</em>}' containment reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
-	 * @param value
-	 *            the new value of the '<em>Reporting</em>' containment reference.
+	 * @param value the new value of the '<em>Reporting</em>' containment reference.
 	 * @see #getReporting()
 	 * @generated
 	 */
@@ -857,9 +802,7 @@ public interface Model extends EObject {
 	/**
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.Model#getReports <em>Reports</em>}' containment reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
-	 * @param value
-	 *            the new value of the '<em>Reports</em>' containment reference.
+	 * @param value the new value of the '<em>Reports</em>' containment reference.
 	 * @see #getReports()
 	 * @generated
 	 */
@@ -868,9 +811,7 @@ public interface Model extends EObject {
 	/**
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.Model#getRepositories <em>Repositories</em>}' containment reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
-	 * @param value
-	 *            the new value of the '<em>Repositories</em>' containment reference.
+	 * @param value the new value of the '<em>Repositories</em>' containment reference.
 	 * @see #getRepositories()
 	 * @generated
 	 */
@@ -879,9 +820,7 @@ public interface Model extends EObject {
 	/**
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.Model#getScm <em>Scm</em>}' containment reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
-	 * @param value
-	 *            the new value of the '<em>Scm</em>' containment reference.
+	 * @param value the new value of the '<em>Scm</em>' containment reference.
 	 * @see #getScm()
 	 * @generated
 	 */
@@ -890,9 +829,7 @@ public interface Model extends EObject {
 	/**
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.Model#getUrl <em>Url</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
-	 * @param value
-	 *            the new value of the '<em>Url</em>' attribute.
+	 * @param value the new value of the '<em>Url</em>' attribute.
 	 * @see #getUrl()
 	 * @generated
 	 */
@@ -901,9 +838,7 @@ public interface Model extends EObject {
 	/**
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.Model#getVersion <em>Version</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
-	 * @param value
-	 *            the new value of the '<em>Version</em>' attribute.
+	 * @param value the new value of the '<em>Version</em>' attribute.
 	 * @see #getVersion()
 	 * @generated
 	 */
@@ -912,7 +847,6 @@ public interface Model extends EObject {
 	/**
 	 * Unsets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.Model#getPackaging <em>Packaging</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @see #isSetPackaging()
 	 * @see #getPackaging()
 	 * @see #setPackaging(String)

@@ -23,10 +23,10 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <!-- begin-user-doc --> An implementation of the model object '<em><b>Notifiers Type</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * <ul>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.NotifiersTypeImpl#getNotifier <em>Notifier</em>}</li>
- * </ul>
  * </p>
+ * <ul>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.NotifiersTypeImpl#getNotifier <em>Notifier</em>}</li>
+ * </ul>
  *
  * @generated
  */
@@ -43,7 +43,6 @@ public class NotifiersTypeImpl extends EObjectImpl implements NotifiersType {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	protected NotifiersTypeImpl() {
@@ -52,12 +51,11 @@ public class NotifiersTypeImpl extends EObjectImpl implements NotifiersType {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch(featureID) {
+		switch (featureID) {
 			case PomPackage.NOTIFIERS_TYPE__NOTIFIER:
 				return getNotifier();
 		}
@@ -66,26 +64,24 @@ public class NotifiersTypeImpl extends EObjectImpl implements NotifiersType {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch(featureID) {
+		switch (featureID) {
 			case PomPackage.NOTIFIERS_TYPE__NOTIFIER:
-				return ((InternalEList<?>) getNotifier()).basicRemove(otherEnd, msgs);
+				return ((InternalEList<?>)getNotifier()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch(featureID) {
+		switch (featureID) {
 			case PomPackage.NOTIFIERS_TYPE__NOTIFIER:
 				return notifier != null && !notifier.isEmpty();
 		}
@@ -94,16 +90,15 @@ public class NotifiersTypeImpl extends EObjectImpl implements NotifiersType {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch(featureID) {
+		switch (featureID) {
 			case PomPackage.NOTIFIERS_TYPE__NOTIFIER:
 				getNotifier().clear();
-				getNotifier().addAll((Collection<? extends Notifier>) newValue);
+				getNotifier().addAll((Collection<? extends Notifier>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -111,12 +106,11 @@ public class NotifiersTypeImpl extends EObjectImpl implements NotifiersType {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
-		switch(featureID) {
+		switch (featureID) {
 			case PomPackage.NOTIFIERS_TYPE__NOTIFIER:
 				getNotifier().clear();
 				return;
@@ -126,12 +120,11 @@ public class NotifiersTypeImpl extends EObjectImpl implements NotifiersType {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public EList<Notifier> getNotifier() {
-		if(notifier == null) {
+		if (notifier == null) {
 			notifier = new EObjectContainmentEList<Notifier>(Notifier.class, this, PomPackage.NOTIFIERS_TYPE__NOTIFIER);
 		}
 		return notifier;
@@ -139,7 +132,6 @@ public class NotifiersTypeImpl extends EObjectImpl implements NotifiersType {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override

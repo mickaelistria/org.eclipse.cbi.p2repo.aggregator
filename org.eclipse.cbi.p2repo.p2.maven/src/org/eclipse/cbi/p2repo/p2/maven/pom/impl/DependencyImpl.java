@@ -20,18 +20,18 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * <!-- begin-user-doc --> An implementation of the model object '<em><b>Dependency</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * <ul>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.DependencyImpl#getGroupId <em>Group Id</em>}</li>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.DependencyImpl#getArtifactId <em>Artifact Id</em>}</li>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.DependencyImpl#getVersion <em>Version</em>}</li>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.DependencyImpl#getType <em>Type</em>}</li>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.DependencyImpl#getClassifier <em>Classifier</em>}</li>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.DependencyImpl#getScope <em>Scope</em>}</li>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.DependencyImpl#getSystemPath <em>System Path</em>}</li>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.DependencyImpl#getExclusions <em>Exclusions</em>}</li>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.DependencyImpl#isOptional <em>Optional</em>}</li>
- * </ul>
  * </p>
+ * <ul>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.DependencyImpl#getGroupId <em>Group Id</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.DependencyImpl#getArtifactId <em>Artifact Id</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.DependencyImpl#getVersion <em>Version</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.DependencyImpl#getType <em>Type</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.DependencyImpl#getClassifier <em>Classifier</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.DependencyImpl#getScope <em>Scope</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.DependencyImpl#getSystemPath <em>System Path</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.DependencyImpl#getExclusions <em>Exclusions</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.DependencyImpl#isOptional <em>Optional</em>}</li>
+ * </ul>
  *
  * @generated
  */
@@ -40,7 +40,6 @@ public class DependencyImpl extends EObjectImpl implements Dependency {
 	 * The default value of the '{@link #getGroupId() <em>Group Id</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 *
 	 * @see #getGroupId()
 	 * @generated
 	 * @ordered
@@ -51,7 +50,6 @@ public class DependencyImpl extends EObjectImpl implements Dependency {
 	 * The cached value of the '{@link #getGroupId() <em>Group Id</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 *
 	 * @see #getGroupId()
 	 * @generated
 	 * @ordered
@@ -62,7 +60,6 @@ public class DependencyImpl extends EObjectImpl implements Dependency {
 	 * The default value of the '{@link #getArtifactId() <em>Artifact Id</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 *
 	 * @see #getArtifactId()
 	 * @generated
 	 * @ordered
@@ -73,7 +70,6 @@ public class DependencyImpl extends EObjectImpl implements Dependency {
 	 * The cached value of the '{@link #getArtifactId() <em>Artifact Id</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 *
 	 * @see #getArtifactId()
 	 * @generated
 	 * @ordered
@@ -84,7 +80,6 @@ public class DependencyImpl extends EObjectImpl implements Dependency {
 	 * The default value of the '{@link #getVersion() <em>Version</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 *
 	 * @see #getVersion()
 	 * @generated
 	 * @ordered
@@ -95,7 +90,6 @@ public class DependencyImpl extends EObjectImpl implements Dependency {
 	 * The cached value of the '{@link #getVersion() <em>Version</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 *
 	 * @see #getVersion()
 	 * @generated
 	 * @ordered
@@ -125,7 +119,6 @@ public class DependencyImpl extends EObjectImpl implements Dependency {
 	/**
 	 * This is true if the Type attribute has been set.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 * @ordered
 	 */
@@ -135,7 +128,6 @@ public class DependencyImpl extends EObjectImpl implements Dependency {
 	 * The default value of the '{@link #getClassifier() <em>Classifier</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 *
 	 * @see #getClassifier()
 	 * @generated
 	 * @ordered
@@ -146,7 +138,6 @@ public class DependencyImpl extends EObjectImpl implements Dependency {
 	 * The cached value of the '{@link #getClassifier() <em>Classifier</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 *
 	 * @see #getClassifier()
 	 * @generated
 	 * @ordered
@@ -157,7 +148,6 @@ public class DependencyImpl extends EObjectImpl implements Dependency {
 	 * The default value of the '{@link #getScope() <em>Scope</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 *
 	 * @see #getScope()
 	 * @generated
 	 * @ordered
@@ -178,7 +168,6 @@ public class DependencyImpl extends EObjectImpl implements Dependency {
 	 * The default value of the '{@link #getSystemPath() <em>System Path</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 *
 	 * @see #getSystemPath()
 	 * @generated
 	 * @ordered
@@ -189,7 +178,6 @@ public class DependencyImpl extends EObjectImpl implements Dependency {
 	 * The cached value of the '{@link #getSystemPath() <em>System Path</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 *
 	 * @see #getSystemPath()
 	 * @generated
 	 * @ordered
@@ -200,7 +188,6 @@ public class DependencyImpl extends EObjectImpl implements Dependency {
 	 * The cached value of the '{@link #getExclusions() <em>Exclusions</em>}' containment reference.
 	 * <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
-	 *
 	 * @see #getExclusions()
 	 * @generated
 	 * @ordered
@@ -211,7 +198,6 @@ public class DependencyImpl extends EObjectImpl implements Dependency {
 	 * The default value of the '{@link #isOptional() <em>Optional</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 *
 	 * @see #isOptional()
 	 * @generated
 	 * @ordered
@@ -222,7 +208,6 @@ public class DependencyImpl extends EObjectImpl implements Dependency {
 	 * The cached value of the '{@link #isOptional() <em>Optional</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 *
 	 * @see #isOptional()
 	 * @generated
 	 * @ordered
@@ -232,7 +217,6 @@ public class DependencyImpl extends EObjectImpl implements Dependency {
 	/**
 	 * This is true if the Optional attribute has been set.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 * @ordered
 	 */
@@ -240,7 +224,6 @@ public class DependencyImpl extends EObjectImpl implements Dependency {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	protected DependencyImpl() {
@@ -249,31 +232,25 @@ public class DependencyImpl extends EObjectImpl implements Dependency {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	public NotificationChain basicSetExclusions(ExclusionsType newExclusions, NotificationChain msgs) {
 		ExclusionsType oldExclusions = exclusions;
 		exclusions = newExclusions;
-		if(eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(
-				this, Notification.SET, PomPackage.DEPENDENCY__EXCLUSIONS, oldExclusions, newExclusions);
-			if(msgs == null)
-				msgs = notification;
-			else
-				msgs.add(notification);
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, PomPackage.DEPENDENCY__EXCLUSIONS, oldExclusions, newExclusions);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch(featureID) {
+		switch (featureID) {
 			case PomPackage.DEPENDENCY__GROUP_ID:
 				return getGroupId();
 			case PomPackage.DEPENDENCY__ARTIFACT_ID:
@@ -298,12 +275,11 @@ public class DependencyImpl extends EObjectImpl implements Dependency {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch(featureID) {
+		switch (featureID) {
 			case PomPackage.DEPENDENCY__EXCLUSIONS:
 				return basicSetExclusions(null, msgs);
 		}
@@ -312,38 +288,25 @@ public class DependencyImpl extends EObjectImpl implements Dependency {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch(featureID) {
+		switch (featureID) {
 			case PomPackage.DEPENDENCY__GROUP_ID:
-				return GROUP_ID_EDEFAULT == null
-						? groupId != null
-						: !GROUP_ID_EDEFAULT.equals(groupId);
+				return GROUP_ID_EDEFAULT == null ? groupId != null : !GROUP_ID_EDEFAULT.equals(groupId);
 			case PomPackage.DEPENDENCY__ARTIFACT_ID:
-				return ARTIFACT_ID_EDEFAULT == null
-						? artifactId != null
-						: !ARTIFACT_ID_EDEFAULT.equals(artifactId);
+				return ARTIFACT_ID_EDEFAULT == null ? artifactId != null : !ARTIFACT_ID_EDEFAULT.equals(artifactId);
 			case PomPackage.DEPENDENCY__VERSION:
-				return VERSION_EDEFAULT == null
-						? version != null
-						: !VERSION_EDEFAULT.equals(version);
+				return VERSION_EDEFAULT == null ? version != null : !VERSION_EDEFAULT.equals(version);
 			case PomPackage.DEPENDENCY__TYPE:
 				return isSetType();
 			case PomPackage.DEPENDENCY__CLASSIFIER:
-				return CLASSIFIER_EDEFAULT == null
-						? classifier != null
-						: !CLASSIFIER_EDEFAULT.equals(classifier);
+				return CLASSIFIER_EDEFAULT == null ? classifier != null : !CLASSIFIER_EDEFAULT.equals(classifier);
 			case PomPackage.DEPENDENCY__SCOPE:
-				return SCOPE_EDEFAULT == null
-						? scope != null
-						: !SCOPE_EDEFAULT.equals(scope);
+				return SCOPE_EDEFAULT == null ? scope != null : !SCOPE_EDEFAULT.equals(scope);
 			case PomPackage.DEPENDENCY__SYSTEM_PATH:
-				return SYSTEM_PATH_EDEFAULT == null
-						? systemPath != null
-						: !SYSTEM_PATH_EDEFAULT.equals(systemPath);
+				return SYSTEM_PATH_EDEFAULT == null ? systemPath != null : !SYSTEM_PATH_EDEFAULT.equals(systemPath);
 			case PomPackage.DEPENDENCY__EXCLUSIONS:
 				return exclusions != null;
 			case PomPackage.DEPENDENCY__OPTIONAL:
@@ -354,38 +317,37 @@ public class DependencyImpl extends EObjectImpl implements Dependency {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch(featureID) {
+		switch (featureID) {
 			case PomPackage.DEPENDENCY__GROUP_ID:
-				setGroupId((String) newValue);
+				setGroupId((String)newValue);
 				return;
 			case PomPackage.DEPENDENCY__ARTIFACT_ID:
-				setArtifactId((String) newValue);
+				setArtifactId((String)newValue);
 				return;
 			case PomPackage.DEPENDENCY__VERSION:
-				setVersion((String) newValue);
+				setVersion((String)newValue);
 				return;
 			case PomPackage.DEPENDENCY__TYPE:
-				setType((String) newValue);
+				setType((String)newValue);
 				return;
 			case PomPackage.DEPENDENCY__CLASSIFIER:
-				setClassifier((String) newValue);
+				setClassifier((String)newValue);
 				return;
 			case PomPackage.DEPENDENCY__SCOPE:
-				setScope((String) newValue);
+				setScope((String)newValue);
 				return;
 			case PomPackage.DEPENDENCY__SYSTEM_PATH:
-				setSystemPath((String) newValue);
+				setSystemPath((String)newValue);
 				return;
 			case PomPackage.DEPENDENCY__EXCLUSIONS:
-				setExclusions((ExclusionsType) newValue);
+				setExclusions((ExclusionsType)newValue);
 				return;
 			case PomPackage.DEPENDENCY__OPTIONAL:
-				setOptional((Boolean) newValue);
+				setOptional((Boolean)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -393,12 +355,11 @@ public class DependencyImpl extends EObjectImpl implements Dependency {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
-		switch(featureID) {
+		switch (featureID) {
 			case PomPackage.DEPENDENCY__GROUP_ID:
 				setGroupId(GROUP_ID_EDEFAULT);
 				return;
@@ -421,7 +382,7 @@ public class DependencyImpl extends EObjectImpl implements Dependency {
 				setSystemPath(SYSTEM_PATH_EDEFAULT);
 				return;
 			case PomPackage.DEPENDENCY__EXCLUSIONS:
-				setExclusions((ExclusionsType) null);
+				setExclusions((ExclusionsType)null);
 				return;
 			case PomPackage.DEPENDENCY__OPTIONAL:
 				unsetOptional();
@@ -432,7 +393,6 @@ public class DependencyImpl extends EObjectImpl implements Dependency {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -442,7 +402,6 @@ public class DependencyImpl extends EObjectImpl implements Dependency {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -452,7 +411,6 @@ public class DependencyImpl extends EObjectImpl implements Dependency {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -462,7 +420,6 @@ public class DependencyImpl extends EObjectImpl implements Dependency {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -472,7 +429,6 @@ public class DependencyImpl extends EObjectImpl implements Dependency {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -482,7 +438,6 @@ public class DependencyImpl extends EObjectImpl implements Dependency {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -492,7 +447,6 @@ public class DependencyImpl extends EObjectImpl implements Dependency {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -502,7 +456,6 @@ public class DependencyImpl extends EObjectImpl implements Dependency {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -512,7 +465,6 @@ public class DependencyImpl extends EObjectImpl implements Dependency {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -522,7 +474,6 @@ public class DependencyImpl extends EObjectImpl implements Dependency {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -532,7 +483,6 @@ public class DependencyImpl extends EObjectImpl implements Dependency {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -542,72 +492,61 @@ public class DependencyImpl extends EObjectImpl implements Dependency {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public void setArtifactId(String newArtifactId) {
 		String oldArtifactId = artifactId;
 		artifactId = newArtifactId;
-		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(
-				this, Notification.SET, PomPackage.DEPENDENCY__ARTIFACT_ID, oldArtifactId, artifactId));
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.DEPENDENCY__ARTIFACT_ID, oldArtifactId, artifactId));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public void setClassifier(String newClassifier) {
 		String oldClassifier = classifier;
 		classifier = newClassifier;
-		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(
-				this, Notification.SET, PomPackage.DEPENDENCY__CLASSIFIER, oldClassifier, classifier));
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.DEPENDENCY__CLASSIFIER, oldClassifier, classifier));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public void setExclusions(ExclusionsType newExclusions) {
-		if(newExclusions != exclusions) {
+		if (newExclusions != exclusions) {
 			NotificationChain msgs = null;
-			if(exclusions != null)
-				msgs = ((InternalEObject) exclusions).eInverseRemove(this, EOPPOSITE_FEATURE_BASE -
-						PomPackage.DEPENDENCY__EXCLUSIONS, null, msgs);
-			if(newExclusions != null)
-				msgs = ((InternalEObject) newExclusions).eInverseAdd(this, EOPPOSITE_FEATURE_BASE -
-						PomPackage.DEPENDENCY__EXCLUSIONS, null, msgs);
+			if (exclusions != null)
+				msgs = ((InternalEObject)exclusions).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - PomPackage.DEPENDENCY__EXCLUSIONS, null, msgs);
+			if (newExclusions != null)
+				msgs = ((InternalEObject)newExclusions).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - PomPackage.DEPENDENCY__EXCLUSIONS, null, msgs);
 			msgs = basicSetExclusions(newExclusions, msgs);
-			if(msgs != null)
-				msgs.dispatch();
+			if (msgs != null) msgs.dispatch();
 		}
-		else if(eNotificationRequired())
-			eNotify(new ENotificationImpl(
-				this, Notification.SET, PomPackage.DEPENDENCY__EXCLUSIONS, newExclusions, newExclusions));
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.DEPENDENCY__EXCLUSIONS, newExclusions, newExclusions));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public void setGroupId(String newGroupId) {
 		String oldGroupId = groupId;
 		groupId = newGroupId;
-		if(eNotificationRequired())
+		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.DEPENDENCY__GROUP_ID, oldGroupId, groupId));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -616,41 +555,36 @@ public class DependencyImpl extends EObjectImpl implements Dependency {
 		optional = newOptional;
 		boolean oldOptionalESet = optionalESet;
 		optionalESet = true;
-		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(
-				this, Notification.SET, PomPackage.DEPENDENCY__OPTIONAL, oldOptional, optional, !oldOptionalESet));
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.DEPENDENCY__OPTIONAL, oldOptional, optional, !oldOptionalESet));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public void setScope(String newScope) {
 		String oldScope = scope;
 		scope = newScope;
-		if(eNotificationRequired())
+		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.DEPENDENCY__SCOPE, oldScope, scope));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public void setSystemPath(String newSystemPath) {
 		String oldSystemPath = systemPath;
 		systemPath = newSystemPath;
-		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(
-				this, Notification.SET, PomPackage.DEPENDENCY__SYSTEM_PATH, oldSystemPath, systemPath));
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.DEPENDENCY__SYSTEM_PATH, oldSystemPath, systemPath));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -659,33 +593,29 @@ public class DependencyImpl extends EObjectImpl implements Dependency {
 		type = newType;
 		boolean oldTypeESet = typeESet;
 		typeESet = true;
-		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(
-				this, Notification.SET, PomPackage.DEPENDENCY__TYPE, oldType, type, !oldTypeESet));
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.DEPENDENCY__TYPE, oldType, type, !oldTypeESet));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public void setVersion(String newVersion) {
 		String oldVersion = version;
 		version = newVersion;
-		if(eNotificationRequired())
+		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.DEPENDENCY__VERSION, oldVersion, version));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public String toString() {
-		if(eIsProxy())
-			return super.toString();
+		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (groupId: ");
@@ -695,10 +625,7 @@ public class DependencyImpl extends EObjectImpl implements Dependency {
 		result.append(", version: ");
 		result.append(version);
 		result.append(", type: ");
-		if(typeESet)
-			result.append(type);
-		else
-			result.append("<unset>");
+		if (typeESet) result.append(type); else result.append("<unset>");
 		result.append(", classifier: ");
 		result.append(classifier);
 		result.append(", scope: ");
@@ -706,17 +633,13 @@ public class DependencyImpl extends EObjectImpl implements Dependency {
 		result.append(", systemPath: ");
 		result.append(systemPath);
 		result.append(", optional: ");
-		if(optionalESet)
-			result.append(optional);
-		else
-			result.append("<unset>");
+		if (optionalESet) result.append(optional); else result.append("<unset>");
 		result.append(')');
 		return result.toString();
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -725,15 +648,12 @@ public class DependencyImpl extends EObjectImpl implements Dependency {
 		boolean oldOptionalESet = optionalESet;
 		optional = OPTIONAL_EDEFAULT;
 		optionalESet = false;
-		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(
-				this, Notification.UNSET, PomPackage.DEPENDENCY__OPTIONAL, oldOptional, OPTIONAL_EDEFAULT,
-				oldOptionalESet));
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.UNSET, PomPackage.DEPENDENCY__OPTIONAL, oldOptional, OPTIONAL_EDEFAULT, oldOptionalESet));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -742,14 +662,12 @@ public class DependencyImpl extends EObjectImpl implements Dependency {
 		boolean oldTypeESet = typeESet;
 		type = TYPE_EDEFAULT;
 		typeESet = false;
-		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(
-				this, Notification.UNSET, PomPackage.DEPENDENCY__TYPE, oldType, TYPE_EDEFAULT, oldTypeESet));
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.UNSET, PomPackage.DEPENDENCY__TYPE, oldType, TYPE_EDEFAULT, oldTypeESet));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override

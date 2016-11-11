@@ -17,18 +17,18 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
- * <ul>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.Dependency#getGroupId <em>Group Id</em>}</li>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.Dependency#getArtifactId <em>Artifact Id</em>}</li>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.Dependency#getVersion <em>Version</em>}</li>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.Dependency#getType <em>Type</em>}</li>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.Dependency#getClassifier <em>Classifier</em>}</li>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.Dependency#getScope <em>Scope</em>}</li>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.Dependency#getSystemPath <em>System Path</em>}</li>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.Dependency#getExclusions <em>Exclusions</em>}</li>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.Dependency#isOptional <em>Optional</em>}</li>
- * </ul>
  * </p>
+ * <ul>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.Dependency#getGroupId <em>Group Id</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.Dependency#getArtifactId <em>Artifact Id</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.Dependency#getVersion <em>Version</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.Dependency#getType <em>Type</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.Dependency#getClassifier <em>Classifier</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.Dependency#getScope <em>Scope</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.Dependency#getSystemPath <em>System Path</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.Dependency#getExclusions <em>Exclusions</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.Dependency#isOptional <em>Optional</em>}</li>
+ * </ul>
  *
  * @see org.eclipse.cbi.p2repo.p2.maven.pom.PomPackage#getDependency()
  * @model extendedMetaData="name='Dependency' kind='elementOnly'"
@@ -40,12 +40,11 @@ public interface Dependency extends EObject {
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * 3.0.0+
-	 *
-	 * The unique id for an artifact produced by the project group, e.g.
-	 * &lt;code&gt;maven-artifact&lt;/code&gt;.
-	 *
+	 * 
+	 *             The unique id for an artifact produced by the project group, e.g.
+	 *             &lt;code&gt;maven-artifact&lt;/code&gt;.
+	 *           
 	 * <!-- end-model-doc -->
-	 *
 	 * @return the value of the '<em>Artifact Id</em>' attribute.
 	 * @see #setArtifactId(String)
 	 * @see org.eclipse.cbi.p2repo.p2.maven.pom.PomPackage#getDependency_ArtifactId()
@@ -60,13 +59,12 @@ public interface Dependency extends EObject {
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * 4.0.0
-	 *
-	 * The classifier of the dependency. This allows distinguishing two artifacts that belong to the same POM but
-	 * were built differently, and is appended to the filename after the version. For example,
-	 * &lt;code&gt;jdk14&lt;/code&gt; and &lt;code&gt;jdk15&lt;/code&gt;.
-	 *
+	 * 
+	 *             The classifier of the dependency. This allows distinguishing two artifacts that belong to the same POM but
+	 *             were built differently, and is appended to the filename after the version. For example,
+	 *             &lt;code&gt;jdk14&lt;/code&gt; and &lt;code&gt;jdk15&lt;/code&gt;.
+	 *           
 	 * <!-- end-model-doc -->
-	 *
 	 * @return the value of the '<em>Classifier</em>' attribute.
 	 * @see #setClassifier(String)
 	 * @see org.eclipse.cbi.p2repo.p2.maven.pom.PomPackage#getDependency_Classifier()
@@ -137,15 +135,14 @@ public interface Dependency extends EObject {
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * 4.0.0
-	 *
-	 * FOR SYSTEM SCOPE ONLY. Note that use of this property is &lt;b&gt;discouraged&lt;/b&gt; and may be replaced in later
-	 * versions. This specifies the path on the filesystem for this dependency.
-	 * Requires an absolute path for the value, not relative.
-	 * Use a property that gives the machine specific absolute path,
-	 * e.g. &lt;code&gt;${java.home}&lt;/code&gt;.
-	 *
+	 * 
+	 *             FOR SYSTEM SCOPE ONLY. Note that use of this property is &lt;b&gt;discouraged&lt;/b&gt; and may be replaced in later
+	 *             versions. This specifies the path on the filesystem for this dependency.
+	 *             Requires an absolute path for the value, not relative.
+	 *             Use a property that gives the machine specific absolute path,
+	 *             e.g. &lt;code&gt;${java.home}&lt;/code&gt;.
+	 *           
 	 * <!-- end-model-doc -->
-	 *
 	 * @return the value of the '<em>System Path</em>' attribute.
 	 * @see #setSystemPath(String)
 	 * @see org.eclipse.cbi.p2repo.p2.maven.pom.PomPackage#getDependency_SystemPath()
@@ -220,7 +217,6 @@ public interface Dependency extends EObject {
 	/**
 	 * Returns whether the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.Dependency#isOptional <em>Optional</em>}' attribute is set.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @return whether the value of the '<em>Optional</em>' attribute is set.
 	 * @see #unsetOptional()
 	 * @see #isOptional()
@@ -232,7 +228,6 @@ public interface Dependency extends EObject {
 	/**
 	 * Returns whether the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.Dependency#getType <em>Type</em>}' attribute is set.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @return whether the value of the '<em>Type</em>' attribute is set.
 	 * @see #unsetType()
 	 * @see #getType()
@@ -244,9 +239,7 @@ public interface Dependency extends EObject {
 	/**
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.Dependency#getArtifactId <em>Artifact Id</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
-	 * @param value
-	 *            the new value of the '<em>Artifact Id</em>' attribute.
+	 * @param value the new value of the '<em>Artifact Id</em>' attribute.
 	 * @see #getArtifactId()
 	 * @generated
 	 */
@@ -255,9 +248,7 @@ public interface Dependency extends EObject {
 	/**
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.Dependency#getClassifier <em>Classifier</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
-	 * @param value
-	 *            the new value of the '<em>Classifier</em>' attribute.
+	 * @param value the new value of the '<em>Classifier</em>' attribute.
 	 * @see #getClassifier()
 	 * @generated
 	 */
@@ -266,9 +257,7 @@ public interface Dependency extends EObject {
 	/**
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.Dependency#getExclusions <em>Exclusions</em>}' containment reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
-	 * @param value
-	 *            the new value of the '<em>Exclusions</em>' containment reference.
+	 * @param value the new value of the '<em>Exclusions</em>' containment reference.
 	 * @see #getExclusions()
 	 * @generated
 	 */
@@ -277,9 +266,7 @@ public interface Dependency extends EObject {
 	/**
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.Dependency#getGroupId <em>Group Id</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
-	 * @param value
-	 *            the new value of the '<em>Group Id</em>' attribute.
+	 * @param value the new value of the '<em>Group Id</em>' attribute.
 	 * @see #getGroupId()
 	 * @generated
 	 */
@@ -288,9 +275,7 @@ public interface Dependency extends EObject {
 	/**
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.Dependency#isOptional <em>Optional</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
-	 * @param value
-	 *            the new value of the '<em>Optional</em>' attribute.
+	 * @param value the new value of the '<em>Optional</em>' attribute.
 	 * @see #isSetOptional()
 	 * @see #unsetOptional()
 	 * @see #isOptional()
@@ -301,9 +286,7 @@ public interface Dependency extends EObject {
 	/**
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.Dependency#getScope <em>Scope</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
-	 * @param value
-	 *            the new value of the '<em>Scope</em>' attribute.
+	 * @param value the new value of the '<em>Scope</em>' attribute.
 	 * @see #getScope()
 	 * @generated
 	 */
@@ -312,9 +295,7 @@ public interface Dependency extends EObject {
 	/**
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.Dependency#getSystemPath <em>System Path</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
-	 * @param value
-	 *            the new value of the '<em>System Path</em>' attribute.
+	 * @param value the new value of the '<em>System Path</em>' attribute.
 	 * @see #getSystemPath()
 	 * @generated
 	 */
@@ -323,9 +304,7 @@ public interface Dependency extends EObject {
 	/**
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.Dependency#getType <em>Type</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
-	 * @param value
-	 *            the new value of the '<em>Type</em>' attribute.
+	 * @param value the new value of the '<em>Type</em>' attribute.
 	 * @see #isSetType()
 	 * @see #unsetType()
 	 * @see #getType()
@@ -336,9 +315,7 @@ public interface Dependency extends EObject {
 	/**
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.Dependency#getVersion <em>Version</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
-	 * @param value
-	 *            the new value of the '<em>Version</em>' attribute.
+	 * @param value the new value of the '<em>Version</em>' attribute.
 	 * @see #getVersion()
 	 * @generated
 	 */
@@ -347,7 +324,6 @@ public interface Dependency extends EObject {
 	/**
 	 * Unsets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.Dependency#isOptional <em>Optional</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @see #isSetOptional()
 	 * @see #isOptional()
 	 * @see #setOptional(boolean)
@@ -358,7 +334,6 @@ public interface Dependency extends EObject {
 	/**
 	 * Unsets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.Dependency#getType <em>Type</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @see #isSetType()
 	 * @see #getType()
 	 * @see #setType(String)

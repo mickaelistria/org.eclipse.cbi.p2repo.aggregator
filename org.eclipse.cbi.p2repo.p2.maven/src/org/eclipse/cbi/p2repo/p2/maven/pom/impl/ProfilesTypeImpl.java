@@ -23,10 +23,10 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <!-- begin-user-doc --> An implementation of the model object '<em><b>Profiles Type</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * <ul>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.ProfilesTypeImpl#getProfile <em>Profile</em>}</li>
- * </ul>
  * </p>
+ * <ul>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.ProfilesTypeImpl#getProfile <em>Profile</em>}</li>
+ * </ul>
  *
  * @generated
  */
@@ -35,7 +35,6 @@ public class ProfilesTypeImpl extends EObjectImpl implements ProfilesType {
 	 * The cached value of the '{@link #getProfile() <em>Profile</em>}' containment reference list.
 	 * <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
-	 *
 	 * @see #getProfile()
 	 * @generated
 	 * @ordered
@@ -44,7 +43,6 @@ public class ProfilesTypeImpl extends EObjectImpl implements ProfilesType {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	protected ProfilesTypeImpl() {
@@ -53,12 +51,11 @@ public class ProfilesTypeImpl extends EObjectImpl implements ProfilesType {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch(featureID) {
+		switch (featureID) {
 			case PomPackage.PROFILES_TYPE__PROFILE:
 				return getProfile();
 		}
@@ -67,26 +64,24 @@ public class ProfilesTypeImpl extends EObjectImpl implements ProfilesType {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch(featureID) {
+		switch (featureID) {
 			case PomPackage.PROFILES_TYPE__PROFILE:
-				return ((InternalEList<?>) getProfile()).basicRemove(otherEnd, msgs);
+				return ((InternalEList<?>)getProfile()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch(featureID) {
+		switch (featureID) {
 			case PomPackage.PROFILES_TYPE__PROFILE:
 				return profile != null && !profile.isEmpty();
 		}
@@ -95,16 +90,15 @@ public class ProfilesTypeImpl extends EObjectImpl implements ProfilesType {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch(featureID) {
+		switch (featureID) {
 			case PomPackage.PROFILES_TYPE__PROFILE:
 				getProfile().clear();
-				getProfile().addAll((Collection<? extends Profile>) newValue);
+				getProfile().addAll((Collection<? extends Profile>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -112,12 +106,11 @@ public class ProfilesTypeImpl extends EObjectImpl implements ProfilesType {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
-		switch(featureID) {
+		switch (featureID) {
 			case PomPackage.PROFILES_TYPE__PROFILE:
 				getProfile().clear();
 				return;
@@ -127,12 +120,11 @@ public class ProfilesTypeImpl extends EObjectImpl implements ProfilesType {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public EList<Profile> getProfile() {
-		if(profile == null) {
+		if (profile == null) {
 			profile = new EObjectContainmentEList<Profile>(Profile.class, this, PomPackage.PROFILES_TYPE__PROFILE);
 		}
 		return profile;
@@ -140,7 +132,6 @@ public class ProfilesTypeImpl extends EObjectImpl implements ProfilesType {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override

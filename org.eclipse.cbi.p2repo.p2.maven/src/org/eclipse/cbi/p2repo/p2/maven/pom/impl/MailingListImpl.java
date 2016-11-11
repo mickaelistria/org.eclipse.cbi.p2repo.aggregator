@@ -20,15 +20,15 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * <!-- begin-user-doc --> An implementation of the model object '<em><b>Mailing List</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * <ul>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.MailingListImpl#getName <em>Name</em>}</li>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.MailingListImpl#getSubscribe <em>Subscribe</em>}</li>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.MailingListImpl#getUnsubscribe <em>Unsubscribe</em>}</li>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.MailingListImpl#getPost <em>Post</em>}</li>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.MailingListImpl#getArchive <em>Archive</em>}</li>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.MailingListImpl#getOtherArchives <em>Other Archives</em>}</li>
- * </ul>
  * </p>
+ * <ul>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.MailingListImpl#getName <em>Name</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.MailingListImpl#getSubscribe <em>Subscribe</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.MailingListImpl#getUnsubscribe <em>Unsubscribe</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.MailingListImpl#getPost <em>Post</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.MailingListImpl#getArchive <em>Archive</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.MailingListImpl#getOtherArchives <em>Other Archives</em>}</li>
+ * </ul>
  *
  * @generated
  */
@@ -57,7 +57,6 @@ public class MailingListImpl extends EObjectImpl implements MailingList {
 	 * The default value of the '{@link #getSubscribe() <em>Subscribe</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 *
 	 * @see #getSubscribe()
 	 * @generated
 	 * @ordered
@@ -68,7 +67,6 @@ public class MailingListImpl extends EObjectImpl implements MailingList {
 	 * The cached value of the '{@link #getSubscribe() <em>Subscribe</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 *
 	 * @see #getSubscribe()
 	 * @generated
 	 * @ordered
@@ -79,7 +77,6 @@ public class MailingListImpl extends EObjectImpl implements MailingList {
 	 * The default value of the '{@link #getUnsubscribe() <em>Unsubscribe</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 *
 	 * @see #getUnsubscribe()
 	 * @generated
 	 * @ordered
@@ -90,7 +87,6 @@ public class MailingListImpl extends EObjectImpl implements MailingList {
 	 * The cached value of the '{@link #getUnsubscribe() <em>Unsubscribe</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 *
 	 * @see #getUnsubscribe()
 	 * @generated
 	 * @ordered
@@ -121,7 +117,6 @@ public class MailingListImpl extends EObjectImpl implements MailingList {
 	 * The default value of the '{@link #getArchive() <em>Archive</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 *
 	 * @see #getArchive()
 	 * @generated
 	 * @ordered
@@ -132,7 +127,6 @@ public class MailingListImpl extends EObjectImpl implements MailingList {
 	 * The cached value of the '{@link #getArchive() <em>Archive</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 *
 	 * @see #getArchive()
 	 * @generated
 	 * @ordered
@@ -151,7 +145,6 @@ public class MailingListImpl extends EObjectImpl implements MailingList {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	protected MailingListImpl() {
@@ -160,31 +153,25 @@ public class MailingListImpl extends EObjectImpl implements MailingList {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	public NotificationChain basicSetOtherArchives(OtherArchivesType newOtherArchives, NotificationChain msgs) {
 		OtherArchivesType oldOtherArchives = otherArchives;
 		otherArchives = newOtherArchives;
-		if(eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(
-				this, Notification.SET, PomPackage.MAILING_LIST__OTHER_ARCHIVES, oldOtherArchives, newOtherArchives);
-			if(msgs == null)
-				msgs = notification;
-			else
-				msgs.add(notification);
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, PomPackage.MAILING_LIST__OTHER_ARCHIVES, oldOtherArchives, newOtherArchives);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch(featureID) {
+		switch (featureID) {
 			case PomPackage.MAILING_LIST__NAME:
 				return getName();
 			case PomPackage.MAILING_LIST__SUBSCRIBE:
@@ -203,12 +190,11 @@ public class MailingListImpl extends EObjectImpl implements MailingList {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch(featureID) {
+		switch (featureID) {
 			case PomPackage.MAILING_LIST__OTHER_ARCHIVES:
 				return basicSetOtherArchives(null, msgs);
 		}
@@ -217,32 +203,21 @@ public class MailingListImpl extends EObjectImpl implements MailingList {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch(featureID) {
+		switch (featureID) {
 			case PomPackage.MAILING_LIST__NAME:
-				return NAME_EDEFAULT == null
-						? name != null
-						: !NAME_EDEFAULT.equals(name);
+				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case PomPackage.MAILING_LIST__SUBSCRIBE:
-				return SUBSCRIBE_EDEFAULT == null
-						? subscribe != null
-						: !SUBSCRIBE_EDEFAULT.equals(subscribe);
+				return SUBSCRIBE_EDEFAULT == null ? subscribe != null : !SUBSCRIBE_EDEFAULT.equals(subscribe);
 			case PomPackage.MAILING_LIST__UNSUBSCRIBE:
-				return UNSUBSCRIBE_EDEFAULT == null
-						? unsubscribe != null
-						: !UNSUBSCRIBE_EDEFAULT.equals(unsubscribe);
+				return UNSUBSCRIBE_EDEFAULT == null ? unsubscribe != null : !UNSUBSCRIBE_EDEFAULT.equals(unsubscribe);
 			case PomPackage.MAILING_LIST__POST:
-				return POST_EDEFAULT == null
-						? post != null
-						: !POST_EDEFAULT.equals(post);
+				return POST_EDEFAULT == null ? post != null : !POST_EDEFAULT.equals(post);
 			case PomPackage.MAILING_LIST__ARCHIVE:
-				return ARCHIVE_EDEFAULT == null
-						? archive != null
-						: !ARCHIVE_EDEFAULT.equals(archive);
+				return ARCHIVE_EDEFAULT == null ? archive != null : !ARCHIVE_EDEFAULT.equals(archive);
 			case PomPackage.MAILING_LIST__OTHER_ARCHIVES:
 				return otherArchives != null;
 		}
@@ -251,29 +226,28 @@ public class MailingListImpl extends EObjectImpl implements MailingList {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch(featureID) {
+		switch (featureID) {
 			case PomPackage.MAILING_LIST__NAME:
-				setName((String) newValue);
+				setName((String)newValue);
 				return;
 			case PomPackage.MAILING_LIST__SUBSCRIBE:
-				setSubscribe((String) newValue);
+				setSubscribe((String)newValue);
 				return;
 			case PomPackage.MAILING_LIST__UNSUBSCRIBE:
-				setUnsubscribe((String) newValue);
+				setUnsubscribe((String)newValue);
 				return;
 			case PomPackage.MAILING_LIST__POST:
-				setPost((String) newValue);
+				setPost((String)newValue);
 				return;
 			case PomPackage.MAILING_LIST__ARCHIVE:
-				setArchive((String) newValue);
+				setArchive((String)newValue);
 				return;
 			case PomPackage.MAILING_LIST__OTHER_ARCHIVES:
-				setOtherArchives((OtherArchivesType) newValue);
+				setOtherArchives((OtherArchivesType)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -281,12 +255,11 @@ public class MailingListImpl extends EObjectImpl implements MailingList {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
-		switch(featureID) {
+		switch (featureID) {
 			case PomPackage.MAILING_LIST__NAME:
 				setName(NAME_EDEFAULT);
 				return;
@@ -303,7 +276,7 @@ public class MailingListImpl extends EObjectImpl implements MailingList {
 				setArchive(ARCHIVE_EDEFAULT);
 				return;
 			case PomPackage.MAILING_LIST__OTHER_ARCHIVES:
-				setOtherArchives((OtherArchivesType) null);
+				setOtherArchives((OtherArchivesType)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -311,7 +284,6 @@ public class MailingListImpl extends EObjectImpl implements MailingList {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -321,7 +293,6 @@ public class MailingListImpl extends EObjectImpl implements MailingList {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -331,7 +302,6 @@ public class MailingListImpl extends EObjectImpl implements MailingList {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -341,7 +311,6 @@ public class MailingListImpl extends EObjectImpl implements MailingList {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -351,7 +320,6 @@ public class MailingListImpl extends EObjectImpl implements MailingList {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -361,7 +329,6 @@ public class MailingListImpl extends EObjectImpl implements MailingList {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -371,104 +338,90 @@ public class MailingListImpl extends EObjectImpl implements MailingList {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public void setArchive(String newArchive) {
 		String oldArchive = archive;
 		archive = newArchive;
-		if(eNotificationRequired())
+		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.MAILING_LIST__ARCHIVE, oldArchive, archive));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public void setName(String newName) {
 		String oldName = name;
 		name = newName;
-		if(eNotificationRequired())
+		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.MAILING_LIST__NAME, oldName, name));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public void setOtherArchives(OtherArchivesType newOtherArchives) {
-		if(newOtherArchives != otherArchives) {
+		if (newOtherArchives != otherArchives) {
 			NotificationChain msgs = null;
-			if(otherArchives != null)
-				msgs = ((InternalEObject) otherArchives).eInverseRemove(this, EOPPOSITE_FEATURE_BASE -
-						PomPackage.MAILING_LIST__OTHER_ARCHIVES, null, msgs);
-			if(newOtherArchives != null)
-				msgs = ((InternalEObject) newOtherArchives).eInverseAdd(this, EOPPOSITE_FEATURE_BASE -
-						PomPackage.MAILING_LIST__OTHER_ARCHIVES, null, msgs);
+			if (otherArchives != null)
+				msgs = ((InternalEObject)otherArchives).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - PomPackage.MAILING_LIST__OTHER_ARCHIVES, null, msgs);
+			if (newOtherArchives != null)
+				msgs = ((InternalEObject)newOtherArchives).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - PomPackage.MAILING_LIST__OTHER_ARCHIVES, null, msgs);
 			msgs = basicSetOtherArchives(newOtherArchives, msgs);
-			if(msgs != null)
-				msgs.dispatch();
+			if (msgs != null) msgs.dispatch();
 		}
-		else if(eNotificationRequired())
-			eNotify(new ENotificationImpl(
-				this, Notification.SET, PomPackage.MAILING_LIST__OTHER_ARCHIVES, newOtherArchives, newOtherArchives));
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.MAILING_LIST__OTHER_ARCHIVES, newOtherArchives, newOtherArchives));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public void setPost(String newPost) {
 		String oldPost = post;
 		post = newPost;
-		if(eNotificationRequired())
+		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.MAILING_LIST__POST, oldPost, post));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public void setSubscribe(String newSubscribe) {
 		String oldSubscribe = subscribe;
 		subscribe = newSubscribe;
-		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(
-				this, Notification.SET, PomPackage.MAILING_LIST__SUBSCRIBE, oldSubscribe, subscribe));
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.MAILING_LIST__SUBSCRIBE, oldSubscribe, subscribe));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public void setUnsubscribe(String newUnsubscribe) {
 		String oldUnsubscribe = unsubscribe;
 		unsubscribe = newUnsubscribe;
-		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(
-				this, Notification.SET, PomPackage.MAILING_LIST__UNSUBSCRIBE, oldUnsubscribe, unsubscribe));
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.MAILING_LIST__UNSUBSCRIBE, oldUnsubscribe, unsubscribe));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public String toString() {
-		if(eIsProxy())
-			return super.toString();
+		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (name: ");
@@ -487,7 +440,6 @@ public class MailingListImpl extends EObjectImpl implements MailingList {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override

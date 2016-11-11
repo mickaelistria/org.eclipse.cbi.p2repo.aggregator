@@ -14,10 +14,10 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
- * <ul>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.ExcludesType#getExclude <em>Exclude</em>}</li>
- * </ul>
  * </p>
+ * <ul>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.ExcludesType#getExclude <em>Exclude</em>}</li>
+ * </ul>
  *
  * @see org.eclipse.cbi.p2repo.p2.maven.pom.PomPackage#getExcludesType()
  * @model extendedMetaData="name='excludes_._type' kind='elementOnly'"
@@ -32,7 +32,6 @@ public interface ExcludesType extends EObject {
 	 * If the meaning of the '<em>Exclude</em>' attribute list isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 *
 	 * @return the value of the '<em>Exclude</em>' attribute list.
 	 * @see org.eclipse.cbi.p2repo.p2.maven.pom.PomPackage#getExcludesType_Exclude()
 	 * @model unique="false" dataType="org.eclipse.emf.ecore.xml.type.String"

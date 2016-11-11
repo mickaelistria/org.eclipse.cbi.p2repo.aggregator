@@ -14,10 +14,10 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
- * <ul>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.NotifiersType#getNotifier <em>Notifier</em>}</li>
- * </ul>
  * </p>
+ * <ul>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.NotifiersType#getNotifier <em>Notifier</em>}</li>
+ * </ul>
  *
  * @see org.eclipse.cbi.p2repo.p2.maven.pom.PomPackage#getNotifiersType()
  * @model extendedMetaData="name='notifiers_._type' kind='elementOnly'"
@@ -32,7 +32,6 @@ public interface NotifiersType extends EObject {
 	 * If the meaning of the '<em>Notifier</em>' containment reference list isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 *
 	 * @return the value of the '<em>Notifier</em>' containment reference list.
 	 * @see org.eclipse.cbi.p2repo.p2.maven.pom.PomPackage#getNotifiersType_Notifier()
 	 * @model containment="true"

@@ -19,10 +19,10 @@ import org.eclipse.emf.ecore.util.EDataTypeEList;
  * <!-- begin-user-doc --> An implementation of the model object '<em><b>Roles Type</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * <ul>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.RolesTypeImpl#getRole <em>Role</em>}</li>
- * </ul>
  * </p>
+ * <ul>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.RolesTypeImpl#getRole <em>Role</em>}</li>
+ * </ul>
  *
  * @generated
  */
@@ -31,7 +31,6 @@ public class RolesTypeImpl extends EObjectImpl implements RolesType {
 	 * The cached value of the '{@link #getRole() <em>Role</em>}' attribute list.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 *
 	 * @see #getRole()
 	 * @generated
 	 * @ordered
@@ -40,7 +39,6 @@ public class RolesTypeImpl extends EObjectImpl implements RolesType {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	protected RolesTypeImpl() {
@@ -49,12 +47,11 @@ public class RolesTypeImpl extends EObjectImpl implements RolesType {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch(featureID) {
+		switch (featureID) {
 			case PomPackage.ROLES_TYPE__ROLE:
 				return getRole();
 		}
@@ -63,12 +60,11 @@ public class RolesTypeImpl extends EObjectImpl implements RolesType {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch(featureID) {
+		switch (featureID) {
 			case PomPackage.ROLES_TYPE__ROLE:
 				return role != null && !role.isEmpty();
 		}
@@ -77,16 +73,15 @@ public class RolesTypeImpl extends EObjectImpl implements RolesType {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch(featureID) {
+		switch (featureID) {
 			case PomPackage.ROLES_TYPE__ROLE:
 				getRole().clear();
-				getRole().addAll((Collection<? extends String>) newValue);
+				getRole().addAll((Collection<? extends String>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -94,12 +89,11 @@ public class RolesTypeImpl extends EObjectImpl implements RolesType {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
-		switch(featureID) {
+		switch (featureID) {
 			case PomPackage.ROLES_TYPE__ROLE:
 				getRole().clear();
 				return;
@@ -109,12 +103,11 @@ public class RolesTypeImpl extends EObjectImpl implements RolesType {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public EList<String> getRole() {
-		if(role == null) {
+		if (role == null) {
 			role = new EDataTypeEList<String>(String.class, this, PomPackage.ROLES_TYPE__ROLE);
 		}
 		return role;
@@ -122,13 +115,11 @@ public class RolesTypeImpl extends EObjectImpl implements RolesType {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public String toString() {
-		if(eIsProxy())
-			return super.toString();
+		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (role: ");
@@ -139,7 +130,6 @@ public class RolesTypeImpl extends EObjectImpl implements RolesType {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override

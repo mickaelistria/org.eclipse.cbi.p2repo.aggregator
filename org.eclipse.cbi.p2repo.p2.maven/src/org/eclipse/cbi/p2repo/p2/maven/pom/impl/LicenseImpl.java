@@ -17,13 +17,13 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * <!-- begin-user-doc --> An implementation of the model object '<em><b>License</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * <ul>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.LicenseImpl#getName <em>Name</em>}</li>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.LicenseImpl#getUrl <em>Url</em>}</li>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.LicenseImpl#getDistribution <em>Distribution</em>}</li>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.LicenseImpl#getComments <em>Comments</em>}</li>
- * </ul>
  * </p>
+ * <ul>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.LicenseImpl#getName <em>Name</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.LicenseImpl#getUrl <em>Url</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.LicenseImpl#getDistribution <em>Distribution</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.LicenseImpl#getComments <em>Comments</em>}</li>
+ * </ul>
  *
  * @generated
  */
@@ -61,7 +61,6 @@ public class LicenseImpl extends EObjectImpl implements License {
 	/**
 	 * The cached value of the '{@link #getUrl() <em>Url</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @see #getUrl()
 	 * @generated
 	 * @ordered
@@ -72,7 +71,6 @@ public class LicenseImpl extends EObjectImpl implements License {
 	 * The default value of the '{@link #getDistribution() <em>Distribution</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @see #getDistribution()
 	 * @generated
 	 * @ordered
@@ -83,7 +81,6 @@ public class LicenseImpl extends EObjectImpl implements License {
 	 * The cached value of the '{@link #getDistribution() <em>Distribution</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @see #getDistribution()
 	 * @generated
 	 * @ordered
@@ -94,7 +91,6 @@ public class LicenseImpl extends EObjectImpl implements License {
 	 * The default value of the '{@link #getComments() <em>Comments</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 *
 	 * @see #getComments()
 	 * @generated
 	 * @ordered
@@ -105,7 +101,6 @@ public class LicenseImpl extends EObjectImpl implements License {
 	 * The cached value of the '{@link #getComments() <em>Comments</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 *
 	 * @see #getComments()
 	 * @generated
 	 * @ordered
@@ -114,7 +109,6 @@ public class LicenseImpl extends EObjectImpl implements License {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	protected LicenseImpl() {
@@ -123,12 +117,11 @@ public class LicenseImpl extends EObjectImpl implements License {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch(featureID) {
+		switch (featureID) {
 			case PomPackage.LICENSE__NAME:
 				return getName();
 			case PomPackage.LICENSE__URL:
@@ -143,51 +136,41 @@ public class LicenseImpl extends EObjectImpl implements License {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch(featureID) {
+		switch (featureID) {
 			case PomPackage.LICENSE__NAME:
-				return NAME_EDEFAULT == null
-						? name != null
-						: !NAME_EDEFAULT.equals(name);
+				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case PomPackage.LICENSE__URL:
-				return URL_EDEFAULT == null
-						? url != null
-						: !URL_EDEFAULT.equals(url);
+				return URL_EDEFAULT == null ? url != null : !URL_EDEFAULT.equals(url);
 			case PomPackage.LICENSE__DISTRIBUTION:
-				return DISTRIBUTION_EDEFAULT == null
-						? distribution != null
-						: !DISTRIBUTION_EDEFAULT.equals(distribution);
+				return DISTRIBUTION_EDEFAULT == null ? distribution != null : !DISTRIBUTION_EDEFAULT.equals(distribution);
 			case PomPackage.LICENSE__COMMENTS:
-				return COMMENTS_EDEFAULT == null
-						? comments != null
-						: !COMMENTS_EDEFAULT.equals(comments);
+				return COMMENTS_EDEFAULT == null ? comments != null : !COMMENTS_EDEFAULT.equals(comments);
 		}
 		return super.eIsSet(featureID);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch(featureID) {
+		switch (featureID) {
 			case PomPackage.LICENSE__NAME:
-				setName((String) newValue);
+				setName((String)newValue);
 				return;
 			case PomPackage.LICENSE__URL:
-				setUrl((String) newValue);
+				setUrl((String)newValue);
 				return;
 			case PomPackage.LICENSE__DISTRIBUTION:
-				setDistribution((String) newValue);
+				setDistribution((String)newValue);
 				return;
 			case PomPackage.LICENSE__COMMENTS:
-				setComments((String) newValue);
+				setComments((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -195,12 +178,11 @@ public class LicenseImpl extends EObjectImpl implements License {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
-		switch(featureID) {
+		switch (featureID) {
 			case PomPackage.LICENSE__NAME:
 				setName(NAME_EDEFAULT);
 				return;
@@ -219,7 +201,6 @@ public class LicenseImpl extends EObjectImpl implements License {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -229,7 +210,6 @@ public class LicenseImpl extends EObjectImpl implements License {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -239,7 +219,6 @@ public class LicenseImpl extends EObjectImpl implements License {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -249,7 +228,6 @@ public class LicenseImpl extends EObjectImpl implements License {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -259,66 +237,59 @@ public class LicenseImpl extends EObjectImpl implements License {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public void setComments(String newComments) {
 		String oldComments = comments;
 		comments = newComments;
-		if(eNotificationRequired())
+		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.LICENSE__COMMENTS, oldComments, comments));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public void setDistribution(String newDistribution) {
 		String oldDistribution = distribution;
 		distribution = newDistribution;
-		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(
-				this, Notification.SET, PomPackage.LICENSE__DISTRIBUTION, oldDistribution, distribution));
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.LICENSE__DISTRIBUTION, oldDistribution, distribution));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public void setName(String newName) {
 		String oldName = name;
 		name = newName;
-		if(eNotificationRequired())
+		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.LICENSE__NAME, oldName, name));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public void setUrl(String newUrl) {
 		String oldUrl = url;
 		url = newUrl;
-		if(eNotificationRequired())
+		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.LICENSE__URL, oldUrl, url));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public String toString() {
-		if(eIsProxy())
-			return super.toString();
+		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (name: ");
@@ -335,7 +306,6 @@ public class LicenseImpl extends EObjectImpl implements License {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override

@@ -21,15 +21,15 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * <!-- begin-user-doc --> An implementation of the model object '<em><b>Report Plugin</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * <ul>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.ReportPluginImpl#getGroupId <em>Group Id</em>}</li>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.ReportPluginImpl#getArtifactId <em>Artifact Id</em>}</li>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.ReportPluginImpl#getVersion <em>Version</em>}</li>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.ReportPluginImpl#getInherited <em>Inherited</em>}</li>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.ReportPluginImpl#getConfiguration <em>Configuration</em>}</li>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.ReportPluginImpl#getReportSets <em>Report Sets</em>}</li>
- * </ul>
  * </p>
+ * <ul>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.ReportPluginImpl#getGroupId <em>Group Id</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.ReportPluginImpl#getArtifactId <em>Artifact Id</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.ReportPluginImpl#getVersion <em>Version</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.ReportPluginImpl#getInherited <em>Inherited</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.ReportPluginImpl#getConfiguration <em>Configuration</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.ReportPluginImpl#getReportSets <em>Report Sets</em>}</li>
+ * </ul>
  *
  * @generated
  */
@@ -38,7 +38,6 @@ public class ReportPluginImpl extends EObjectImpl implements ReportPlugin {
 	 * The default value of the '{@link #getGroupId() <em>Group Id</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 *
 	 * @see #getGroupId()
 	 * @generated
 	 * @ordered
@@ -49,7 +48,6 @@ public class ReportPluginImpl extends EObjectImpl implements ReportPlugin {
 	 * The cached value of the '{@link #getGroupId() <em>Group Id</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 *
 	 * @see #getGroupId()
 	 * @generated
 	 * @ordered
@@ -59,7 +57,6 @@ public class ReportPluginImpl extends EObjectImpl implements ReportPlugin {
 	/**
 	 * This is true if the Group Id attribute has been set.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 * @ordered
 	 */
@@ -69,7 +66,6 @@ public class ReportPluginImpl extends EObjectImpl implements ReportPlugin {
 	 * The default value of the '{@link #getArtifactId() <em>Artifact Id</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 *
 	 * @see #getArtifactId()
 	 * @generated
 	 * @ordered
@@ -80,7 +76,6 @@ public class ReportPluginImpl extends EObjectImpl implements ReportPlugin {
 	 * The cached value of the '{@link #getArtifactId() <em>Artifact Id</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 *
 	 * @see #getArtifactId()
 	 * @generated
 	 * @ordered
@@ -91,7 +86,6 @@ public class ReportPluginImpl extends EObjectImpl implements ReportPlugin {
 	 * The default value of the '{@link #getVersion() <em>Version</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 *
 	 * @see #getVersion()
 	 * @generated
 	 * @ordered
@@ -102,7 +96,6 @@ public class ReportPluginImpl extends EObjectImpl implements ReportPlugin {
 	 * The cached value of the '{@link #getVersion() <em>Version</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 *
 	 * @see #getVersion()
 	 * @generated
 	 * @ordered
@@ -113,7 +106,6 @@ public class ReportPluginImpl extends EObjectImpl implements ReportPlugin {
 	 * The default value of the '{@link #getInherited() <em>Inherited</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 *
 	 * @see #getInherited()
 	 * @generated
 	 * @ordered
@@ -124,7 +116,6 @@ public class ReportPluginImpl extends EObjectImpl implements ReportPlugin {
 	 * The cached value of the '{@link #getInherited() <em>Inherited</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 *
 	 * @see #getInherited()
 	 * @generated
 	 * @ordered
@@ -153,7 +144,6 @@ public class ReportPluginImpl extends EObjectImpl implements ReportPlugin {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	protected ReportPluginImpl() {
@@ -162,50 +152,39 @@ public class ReportPluginImpl extends EObjectImpl implements ReportPlugin {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	public NotificationChain basicSetConfiguration(ConfigurationType newConfiguration, NotificationChain msgs) {
 		ConfigurationType oldConfiguration = configuration;
 		configuration = newConfiguration;
-		if(eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(
-				this, Notification.SET, PomPackage.REPORT_PLUGIN__CONFIGURATION, oldConfiguration, newConfiguration);
-			if(msgs == null)
-				msgs = notification;
-			else
-				msgs.add(notification);
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, PomPackage.REPORT_PLUGIN__CONFIGURATION, oldConfiguration, newConfiguration);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	public NotificationChain basicSetReportSets(ReportSetsType newReportSets, NotificationChain msgs) {
 		ReportSetsType oldReportSets = reportSets;
 		reportSets = newReportSets;
-		if(eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(
-				this, Notification.SET, PomPackage.REPORT_PLUGIN__REPORT_SETS, oldReportSets, newReportSets);
-			if(msgs == null)
-				msgs = notification;
-			else
-				msgs.add(notification);
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, PomPackage.REPORT_PLUGIN__REPORT_SETS, oldReportSets, newReportSets);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch(featureID) {
+		switch (featureID) {
 			case PomPackage.REPORT_PLUGIN__GROUP_ID:
 				return getGroupId();
 			case PomPackage.REPORT_PLUGIN__ARTIFACT_ID:
@@ -224,12 +203,11 @@ public class ReportPluginImpl extends EObjectImpl implements ReportPlugin {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch(featureID) {
+		switch (featureID) {
 			case PomPackage.REPORT_PLUGIN__CONFIGURATION:
 				return basicSetConfiguration(null, msgs);
 			case PomPackage.REPORT_PLUGIN__REPORT_SETS:
@@ -240,26 +218,19 @@ public class ReportPluginImpl extends EObjectImpl implements ReportPlugin {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch(featureID) {
+		switch (featureID) {
 			case PomPackage.REPORT_PLUGIN__GROUP_ID:
 				return isSetGroupId();
 			case PomPackage.REPORT_PLUGIN__ARTIFACT_ID:
-				return ARTIFACT_ID_EDEFAULT == null
-						? artifactId != null
-						: !ARTIFACT_ID_EDEFAULT.equals(artifactId);
+				return ARTIFACT_ID_EDEFAULT == null ? artifactId != null : !ARTIFACT_ID_EDEFAULT.equals(artifactId);
 			case PomPackage.REPORT_PLUGIN__VERSION:
-				return VERSION_EDEFAULT == null
-						? version != null
-						: !VERSION_EDEFAULT.equals(version);
+				return VERSION_EDEFAULT == null ? version != null : !VERSION_EDEFAULT.equals(version);
 			case PomPackage.REPORT_PLUGIN__INHERITED:
-				return INHERITED_EDEFAULT == null
-						? inherited != null
-						: !INHERITED_EDEFAULT.equals(inherited);
+				return INHERITED_EDEFAULT == null ? inherited != null : !INHERITED_EDEFAULT.equals(inherited);
 			case PomPackage.REPORT_PLUGIN__CONFIGURATION:
 				return configuration != null;
 			case PomPackage.REPORT_PLUGIN__REPORT_SETS:
@@ -270,29 +241,28 @@ public class ReportPluginImpl extends EObjectImpl implements ReportPlugin {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch(featureID) {
+		switch (featureID) {
 			case PomPackage.REPORT_PLUGIN__GROUP_ID:
-				setGroupId((String) newValue);
+				setGroupId((String)newValue);
 				return;
 			case PomPackage.REPORT_PLUGIN__ARTIFACT_ID:
-				setArtifactId((String) newValue);
+				setArtifactId((String)newValue);
 				return;
 			case PomPackage.REPORT_PLUGIN__VERSION:
-				setVersion((String) newValue);
+				setVersion((String)newValue);
 				return;
 			case PomPackage.REPORT_PLUGIN__INHERITED:
-				setInherited((String) newValue);
+				setInherited((String)newValue);
 				return;
 			case PomPackage.REPORT_PLUGIN__CONFIGURATION:
-				setConfiguration((ConfigurationType) newValue);
+				setConfiguration((ConfigurationType)newValue);
 				return;
 			case PomPackage.REPORT_PLUGIN__REPORT_SETS:
-				setReportSets((ReportSetsType) newValue);
+				setReportSets((ReportSetsType)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -300,12 +270,11 @@ public class ReportPluginImpl extends EObjectImpl implements ReportPlugin {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
-		switch(featureID) {
+		switch (featureID) {
 			case PomPackage.REPORT_PLUGIN__GROUP_ID:
 				unsetGroupId();
 				return;
@@ -319,10 +288,10 @@ public class ReportPluginImpl extends EObjectImpl implements ReportPlugin {
 				setInherited(INHERITED_EDEFAULT);
 				return;
 			case PomPackage.REPORT_PLUGIN__CONFIGURATION:
-				setConfiguration((ConfigurationType) null);
+				setConfiguration((ConfigurationType)null);
 				return;
 			case PomPackage.REPORT_PLUGIN__REPORT_SETS:
-				setReportSets((ReportSetsType) null);
+				setReportSets((ReportSetsType)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -330,7 +299,6 @@ public class ReportPluginImpl extends EObjectImpl implements ReportPlugin {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -340,7 +308,6 @@ public class ReportPluginImpl extends EObjectImpl implements ReportPlugin {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -350,7 +317,6 @@ public class ReportPluginImpl extends EObjectImpl implements ReportPlugin {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -360,7 +326,6 @@ public class ReportPluginImpl extends EObjectImpl implements ReportPlugin {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -370,7 +335,6 @@ public class ReportPluginImpl extends EObjectImpl implements ReportPlugin {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -380,7 +344,6 @@ public class ReportPluginImpl extends EObjectImpl implements ReportPlugin {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -390,7 +353,6 @@ public class ReportPluginImpl extends EObjectImpl implements ReportPlugin {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -400,45 +362,37 @@ public class ReportPluginImpl extends EObjectImpl implements ReportPlugin {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public void setArtifactId(String newArtifactId) {
 		String oldArtifactId = artifactId;
 		artifactId = newArtifactId;
-		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(
-				this, Notification.SET, PomPackage.REPORT_PLUGIN__ARTIFACT_ID, oldArtifactId, artifactId));
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.REPORT_PLUGIN__ARTIFACT_ID, oldArtifactId, artifactId));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public void setConfiguration(ConfigurationType newConfiguration) {
-		if(newConfiguration != configuration) {
+		if (newConfiguration != configuration) {
 			NotificationChain msgs = null;
-			if(configuration != null)
-				msgs = ((InternalEObject) configuration).eInverseRemove(this, EOPPOSITE_FEATURE_BASE -
-						PomPackage.REPORT_PLUGIN__CONFIGURATION, null, msgs);
-			if(newConfiguration != null)
-				msgs = ((InternalEObject) newConfiguration).eInverseAdd(this, EOPPOSITE_FEATURE_BASE -
-						PomPackage.REPORT_PLUGIN__CONFIGURATION, null, msgs);
+			if (configuration != null)
+				msgs = ((InternalEObject)configuration).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - PomPackage.REPORT_PLUGIN__CONFIGURATION, null, msgs);
+			if (newConfiguration != null)
+				msgs = ((InternalEObject)newConfiguration).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - PomPackage.REPORT_PLUGIN__CONFIGURATION, null, msgs);
 			msgs = basicSetConfiguration(newConfiguration, msgs);
-			if(msgs != null)
-				msgs.dispatch();
+			if (msgs != null) msgs.dispatch();
 		}
-		else if(eNotificationRequired())
-			eNotify(new ENotificationImpl(
-				this, Notification.SET, PomPackage.REPORT_PLUGIN__CONFIGURATION, newConfiguration, newConfiguration));
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.REPORT_PLUGIN__CONFIGURATION, newConfiguration, newConfiguration));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -447,79 +401,64 @@ public class ReportPluginImpl extends EObjectImpl implements ReportPlugin {
 		groupId = newGroupId;
 		boolean oldGroupIdESet = groupIdESet;
 		groupIdESet = true;
-		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(
-				this, Notification.SET, PomPackage.REPORT_PLUGIN__GROUP_ID, oldGroupId, groupId, !oldGroupIdESet));
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.REPORT_PLUGIN__GROUP_ID, oldGroupId, groupId, !oldGroupIdESet));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public void setInherited(String newInherited) {
 		String oldInherited = inherited;
 		inherited = newInherited;
-		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(
-				this, Notification.SET, PomPackage.REPORT_PLUGIN__INHERITED, oldInherited, inherited));
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.REPORT_PLUGIN__INHERITED, oldInherited, inherited));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public void setReportSets(ReportSetsType newReportSets) {
-		if(newReportSets != reportSets) {
+		if (newReportSets != reportSets) {
 			NotificationChain msgs = null;
-			if(reportSets != null)
-				msgs = ((InternalEObject) reportSets).eInverseRemove(this, EOPPOSITE_FEATURE_BASE -
-						PomPackage.REPORT_PLUGIN__REPORT_SETS, null, msgs);
-			if(newReportSets != null)
-				msgs = ((InternalEObject) newReportSets).eInverseAdd(this, EOPPOSITE_FEATURE_BASE -
-						PomPackage.REPORT_PLUGIN__REPORT_SETS, null, msgs);
+			if (reportSets != null)
+				msgs = ((InternalEObject)reportSets).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - PomPackage.REPORT_PLUGIN__REPORT_SETS, null, msgs);
+			if (newReportSets != null)
+				msgs = ((InternalEObject)newReportSets).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - PomPackage.REPORT_PLUGIN__REPORT_SETS, null, msgs);
 			msgs = basicSetReportSets(newReportSets, msgs);
-			if(msgs != null)
-				msgs.dispatch();
+			if (msgs != null) msgs.dispatch();
 		}
-		else if(eNotificationRequired())
-			eNotify(new ENotificationImpl(
-				this, Notification.SET, PomPackage.REPORT_PLUGIN__REPORT_SETS, newReportSets, newReportSets));
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.REPORT_PLUGIN__REPORT_SETS, newReportSets, newReportSets));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public void setVersion(String newVersion) {
 		String oldVersion = version;
 		version = newVersion;
-		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(
-				this, Notification.SET, PomPackage.REPORT_PLUGIN__VERSION, oldVersion, version));
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.REPORT_PLUGIN__VERSION, oldVersion, version));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public String toString() {
-		if(eIsProxy())
-			return super.toString();
+		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (groupId: ");
-		if(groupIdESet)
-			result.append(groupId);
-		else
-			result.append("<unset>");
+		if (groupIdESet) result.append(groupId); else result.append("<unset>");
 		result.append(", artifactId: ");
 		result.append(artifactId);
 		result.append(", version: ");
@@ -532,7 +471,6 @@ public class ReportPluginImpl extends EObjectImpl implements ReportPlugin {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -541,15 +479,12 @@ public class ReportPluginImpl extends EObjectImpl implements ReportPlugin {
 		boolean oldGroupIdESet = groupIdESet;
 		groupId = GROUP_ID_EDEFAULT;
 		groupIdESet = false;
-		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(
-				this, Notification.UNSET, PomPackage.REPORT_PLUGIN__GROUP_ID, oldGroupId, GROUP_ID_EDEFAULT,
-				oldGroupIdESet));
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.UNSET, PomPackage.REPORT_PLUGIN__GROUP_ID, oldGroupId, GROUP_ID_EDEFAULT, oldGroupIdESet));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override

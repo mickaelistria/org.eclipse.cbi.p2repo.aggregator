@@ -13,21 +13,21 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <!-- begin-model-doc -->
  * 4.0.0
- *
- * This is an activator which will detect an operating system's attributes in order to activate
- * its profile.
- *
+ * 
+ *         This is an activator which will detect an operating system's attributes in order to activate
+ *         its profile.
+ *       
  * <!-- end-model-doc -->
  *
  * <p>
  * The following features are supported:
- * <ul>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.ActivationOS#getName <em>Name</em>}</li>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.ActivationOS#getFamily <em>Family</em>}</li>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.ActivationOS#getArch <em>Arch</em>}</li>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.ActivationOS#getVersion <em>Version</em>}</li>
- * </ul>
  * </p>
+ * <ul>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.ActivationOS#getName <em>Name</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.ActivationOS#getFamily <em>Family</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.ActivationOS#getArch <em>Arch</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.ActivationOS#getVersion <em>Version</em>}</li>
+ * </ul>
  *
  * @see org.eclipse.cbi.p2repo.p2.maven.pom.PomPackage#getActivationOS()
  * @model extendedMetaData="name='ActivationOS' kind='elementOnly'"
@@ -96,9 +96,7 @@ public interface ActivationOS extends EObject {
 	/**
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.ActivationOS#getArch <em>Arch</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
-	 * @param value
-	 *            the new value of the '<em>Arch</em>' attribute.
+	 * @param value the new value of the '<em>Arch</em>' attribute.
 	 * @see #getArch()
 	 * @generated
 	 */
@@ -107,9 +105,7 @@ public interface ActivationOS extends EObject {
 	/**
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.ActivationOS#getFamily <em>Family</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
-	 * @param value
-	 *            the new value of the '<em>Family</em>' attribute.
+	 * @param value the new value of the '<em>Family</em>' attribute.
 	 * @see #getFamily()
 	 * @generated
 	 */
@@ -118,9 +114,7 @@ public interface ActivationOS extends EObject {
 	/**
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.ActivationOS#getName <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
-	 * @param value
-	 *            the new value of the '<em>Name</em>' attribute.
+	 * @param value the new value of the '<em>Name</em>' attribute.
 	 * @see #getName()
 	 * @generated
 	 */
@@ -129,9 +123,7 @@ public interface ActivationOS extends EObject {
 	/**
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.ActivationOS#getVersion <em>Version</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
-	 * @param value
-	 *            the new value of the '<em>Version</em>' attribute.
+	 * @param value the new value of the '<em>Version</em>' attribute.
 	 * @see #getVersion()
 	 * @generated
 	 */

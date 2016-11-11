@@ -1029,7 +1029,7 @@ public interface AggregatorPackage extends EPackage {
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
-	String eNS_URI = "http://www.eclipse.org/b3/2011/aggregator/1.1.0";
+	String eNS_URI = "http://www.eclipse.org/cbi/p2repo/2011/aggregator/1.1.0";
 
 	/**
 	 * The package namespace name.

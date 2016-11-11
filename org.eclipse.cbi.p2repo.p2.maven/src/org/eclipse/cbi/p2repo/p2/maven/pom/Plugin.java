@@ -17,18 +17,18 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
- * <ul>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.Plugin#getGroupId <em>Group Id</em>}</li>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.Plugin#getArtifactId <em>Artifact Id</em>}</li>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.Plugin#getVersion <em>Version</em>}</li>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.Plugin#isExtensions <em>Extensions</em>}</li>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.Plugin#getExecutions <em>Executions</em>}</li>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.Plugin#getDependencies <em>Dependencies</em>}</li>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.Plugin#getGoals <em>Goals</em>}</li>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.Plugin#getInherited <em>Inherited</em>}</li>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.Plugin#getConfiguration <em>Configuration</em>}</li>
- * </ul>
  * </p>
+ * <ul>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.Plugin#getGroupId <em>Group Id</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.Plugin#getArtifactId <em>Artifact Id</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.Plugin#getVersion <em>Version</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.Plugin#isExtensions <em>Extensions</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.Plugin#getExecutions <em>Executions</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.Plugin#getDependencies <em>Dependencies</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.Plugin#getGoals <em>Goals</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.Plugin#getInherited <em>Inherited</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.Plugin#getConfiguration <em>Configuration</em>}</li>
+ * </ul>
  *
  * @see org.eclipse.cbi.p2repo.p2.maven.pom.PomPackage#getPlugin()
  * @model extendedMetaData="name='Plugin' kind='elementOnly'"
@@ -42,7 +42,6 @@ public interface Plugin extends EObject {
 	 * 4.0.0
 	 * The artifact ID of the plugin in the repository.
 	 * <!-- end-model-doc -->
-	 *
 	 * @return the value of the '<em>Artifact Id</em>' attribute.
 	 * @see #setArtifactId(String)
 	 * @see org.eclipse.cbi.p2repo.p2.maven.pom.PomPackage#getPlugin_ArtifactId()
@@ -127,10 +126,9 @@ public interface Plugin extends EObject {
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * 4.0.0
-	 *
-	 * Whether any configuration should be propagated to child POMs.
+	 * 
+	 *             Whether any configuration should be propagated to child POMs.
 	 * <!-- end-model-doc -->
-	 *
 	 * @return the value of the '<em>Inherited</em>' attribute.
 	 * @see #setInherited(String)
 	 * @see org.eclipse.cbi.p2repo.p2.maven.pom.PomPackage#getPlugin_Inherited()
@@ -174,7 +172,6 @@ public interface Plugin extends EObject {
 	/**
 	 * Returns whether the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.Plugin#isExtensions <em>Extensions</em>}' attribute is set.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @return whether the value of the '<em>Extensions</em>' attribute is set.
 	 * @see #unsetExtensions()
 	 * @see #isExtensions()
@@ -186,7 +183,6 @@ public interface Plugin extends EObject {
 	/**
 	 * Returns whether the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.Plugin#getGroupId <em>Group Id</em>}' attribute is set.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @return whether the value of the '<em>Group Id</em>' attribute is set.
 	 * @see #unsetGroupId()
 	 * @see #getGroupId()
@@ -198,9 +194,7 @@ public interface Plugin extends EObject {
 	/**
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.Plugin#getArtifactId <em>Artifact Id</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
-	 * @param value
-	 *            the new value of the '<em>Artifact Id</em>' attribute.
+	 * @param value the new value of the '<em>Artifact Id</em>' attribute.
 	 * @see #getArtifactId()
 	 * @generated
 	 */
@@ -209,9 +203,7 @@ public interface Plugin extends EObject {
 	/**
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.Plugin#getConfiguration <em>Configuration</em>}' containment reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
-	 * @param value
-	 *            the new value of the '<em>Configuration</em>' containment reference.
+	 * @param value the new value of the '<em>Configuration</em>' containment reference.
 	 * @see #getConfiguration()
 	 * @generated
 	 */
@@ -220,9 +212,7 @@ public interface Plugin extends EObject {
 	/**
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.Plugin#getDependencies <em>Dependencies</em>}' containment reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
-	 * @param value
-	 *            the new value of the '<em>Dependencies</em>' containment reference.
+	 * @param value the new value of the '<em>Dependencies</em>' containment reference.
 	 * @see #getDependencies()
 	 * @generated
 	 */
@@ -231,9 +221,7 @@ public interface Plugin extends EObject {
 	/**
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.Plugin#getExecutions <em>Executions</em>}' containment reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
-	 * @param value
-	 *            the new value of the '<em>Executions</em>' containment reference.
+	 * @param value the new value of the '<em>Executions</em>' containment reference.
 	 * @see #getExecutions()
 	 * @generated
 	 */
@@ -242,9 +230,7 @@ public interface Plugin extends EObject {
 	/**
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.Plugin#isExtensions <em>Extensions</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
-	 * @param value
-	 *            the new value of the '<em>Extensions</em>' attribute.
+	 * @param value the new value of the '<em>Extensions</em>' attribute.
 	 * @see #isSetExtensions()
 	 * @see #unsetExtensions()
 	 * @see #isExtensions()
@@ -255,9 +241,7 @@ public interface Plugin extends EObject {
 	/**
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.Plugin#getGoals <em>Goals</em>}' containment reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
-	 * @param value
-	 *            the new value of the '<em>Goals</em>' containment reference.
+	 * @param value the new value of the '<em>Goals</em>' containment reference.
 	 * @see #getGoals()
 	 * @generated
 	 */
@@ -266,9 +250,7 @@ public interface Plugin extends EObject {
 	/**
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.Plugin#getGroupId <em>Group Id</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
-	 * @param value
-	 *            the new value of the '<em>Group Id</em>' attribute.
+	 * @param value the new value of the '<em>Group Id</em>' attribute.
 	 * @see #isSetGroupId()
 	 * @see #unsetGroupId()
 	 * @see #getGroupId()
@@ -279,9 +261,7 @@ public interface Plugin extends EObject {
 	/**
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.Plugin#getInherited <em>Inherited</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
-	 * @param value
-	 *            the new value of the '<em>Inherited</em>' attribute.
+	 * @param value the new value of the '<em>Inherited</em>' attribute.
 	 * @see #getInherited()
 	 * @generated
 	 */
@@ -290,9 +270,7 @@ public interface Plugin extends EObject {
 	/**
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.Plugin#getVersion <em>Version</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
-	 * @param value
-	 *            the new value of the '<em>Version</em>' attribute.
+	 * @param value the new value of the '<em>Version</em>' attribute.
 	 * @see #getVersion()
 	 * @generated
 	 */
@@ -301,7 +279,6 @@ public interface Plugin extends EObject {
 	/**
 	 * Unsets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.Plugin#isExtensions <em>Extensions</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @see #isSetExtensions()
 	 * @see #isExtensions()
 	 * @see #setExtensions(boolean)
@@ -312,7 +289,6 @@ public interface Plugin extends EObject {
 	/**
 	 * Unsets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.Plugin#getGroupId <em>Group Id</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @see #isSetGroupId()
 	 * @see #getGroupId()
 	 * @see #setGroupId(String)

@@ -20,7 +20,6 @@ import org.eclipse.emf.ecore.xmi.XMLResource;
 
 /**
  * <!-- begin-user-doc --> The <b>Resource Factory</b> associated with the package. <!-- end-user-doc -->
- *
  * @see org.eclipse.cbi.p2repo.p2.maven.metadata.util.MetadataResourceImpl
  * @generated
  */

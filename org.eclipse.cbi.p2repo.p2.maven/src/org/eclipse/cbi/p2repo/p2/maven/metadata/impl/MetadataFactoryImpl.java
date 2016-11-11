@@ -6,6 +6,7 @@
  */
 package org.eclipse.cbi.p2repo.p2.maven.metadata.impl;
 
+import org.eclipse.cbi.p2repo.p2.maven.metadata.*;
 import org.eclipse.cbi.p2repo.p2.maven.metadata.DocumentRoot;
 import org.eclipse.cbi.p2repo.p2.maven.metadata.MetaData;
 import org.eclipse.cbi.p2repo.p2.maven.metadata.MetadataFactory;
@@ -20,13 +21,11 @@ import org.eclipse.emf.ecore.plugin.EcorePlugin;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model <b>Factory</b>. <!-- end-user-doc -->
- *
  * @generated
  */
 public class MetadataFactoryImpl extends EFactoryImpl implements MetadataFactory {
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @deprecated
 	 * @generated
 	 */
@@ -38,17 +37,16 @@ public class MetadataFactoryImpl extends EFactoryImpl implements MetadataFactory
 	/**
 	 * Creates the default factory implementation.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	public static MetadataFactory init() {
 		try {
-			MetadataFactory theMetadataFactory = (MetadataFactory) EPackage.Registry.INSTANCE.getEFactory("http://maven.apache.org/METADATA/1.0.0");
-			if(theMetadataFactory != null) {
+			MetadataFactory theMetadataFactory = (MetadataFactory)EPackage.Registry.INSTANCE.getEFactory(MetadataPackage.eNS_URI);
+			if (theMetadataFactory != null) {
 				return theMetadataFactory;
 			}
 		}
-		catch(Exception exception) {
+		catch (Exception exception) {
 			EcorePlugin.INSTANCE.log(exception);
 		}
 		return new MetadataFactoryImpl();
@@ -57,7 +55,6 @@ public class MetadataFactoryImpl extends EFactoryImpl implements MetadataFactory
 	/**
 	 * Creates an instance of the factory.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	public MetadataFactoryImpl() {
@@ -66,20 +63,15 @@ public class MetadataFactoryImpl extends EFactoryImpl implements MetadataFactory
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public EObject create(EClass eClass) {
-		switch(eClass.getClassifierID()) {
-			case MetadataPackage.DOCUMENT_ROOT:
-				return createDocumentRoot();
-			case MetadataPackage.META_DATA:
-				return createMetaData();
-			case MetadataPackage.VERSIONING:
-				return createVersioning();
-			case MetadataPackage.VERSIONS:
-				return createVersions();
+		switch (eClass.getClassifierID()) {
+			case MetadataPackage.DOCUMENT_ROOT: return createDocumentRoot();
+			case MetadataPackage.META_DATA: return createMetaData();
+			case MetadataPackage.VERSIONING: return createVersioning();
+			case MetadataPackage.VERSIONS: return createVersions();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -87,7 +79,6 @@ public class MetadataFactoryImpl extends EFactoryImpl implements MetadataFactory
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -98,7 +89,6 @@ public class MetadataFactoryImpl extends EFactoryImpl implements MetadataFactory
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -109,7 +99,6 @@ public class MetadataFactoryImpl extends EFactoryImpl implements MetadataFactory
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -120,7 +109,6 @@ public class MetadataFactoryImpl extends EFactoryImpl implements MetadataFactory
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -131,12 +119,11 @@ public class MetadataFactoryImpl extends EFactoryImpl implements MetadataFactory
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public MetadataPackage getMetadataPackage() {
-		return (MetadataPackage) getEPackage();
+		return (MetadataPackage)getEPackage();
 	}
 
 } // MetadataFactoryImpl

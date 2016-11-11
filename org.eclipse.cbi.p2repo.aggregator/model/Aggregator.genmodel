@@ -4,19 +4,20 @@
     modelDirectory="/org.eclipse.cbi.p2repo.aggregator/src" editDirectory="/org.eclipse.cbi.p2repo.aggregator.edit/src"
     editorDirectory="/org.eclipse.cbi.p2repo.aggregator.editor/src" modelPluginID="org.eclipse.cbi.p2repo.aggregator"
     modelName="Aggregator" modelPluginClass="org.eclipse.cbi.p2repo.aggregator.AggregatorPlugin"
-    editPluginClass="org.eclipse.cbi.p2repo.aggregator.provider.AggregatorEditPlugin" editorPluginClass="org.eclipse.cbi.p2repo.aggregator.presentation.AggregatorEditorPlugin"
+    editPluginClass="org.eclipse.cbi.p2repo.aggregator.provider.AggregatorEditPlugin"
+    editorPluginClass="org.eclipse.cbi.p2repo.aggregator.presentation.AggregatorEditorPlugin"
     rootExtendsInterface="" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
     rootImplementsInterface="" testsDirectory="" testSuiteClass="" booleanFlagsField="eFlags"
-    importerID="org.eclipse.emf.importer.ecore" containmentProxies="true" complianceLevel="6.0"
+    importerID="org.eclipse.emf.importer.ecore" containmentProxies="true" complianceLevel="7.0"
     copyrightFields="false" providerRootExtendsClass="org.eclipse.cbi.p2repo.aggregator.provider.AggregatorItemProviderAdapter"
     editPluginID="org.eclipse.cbi.p2repo.aggregator.edit" editorPluginID="org.eclipse.cbi.p2repo.aggregator.editor"
-    testsPluginID="org.eclipse.cbi.p2repo.aggregator.tests" colorProviders="true" fontProviders="true"
-    language="" packedEnums="true" usedGenPackages="../../org.eclipse.cbi.p2repo.p2/model/p2.genmodel#//p2"
+    testsPluginID="org.eclipse.cbi.p2repo.aggregator.tests" colorProviders="true"
+    fontProviders="true" language="" packedEnums="true" usedGenPackages="../../org.eclipse.cbi.p2repo.p2/model/p2.genmodel#//p2"
     classNamePattern="">
   <foreignModel>Aggregator.ecore</foreignModel>
-  <genPackages prefix="Aggregator" basePackage="org.eclipse.cbi.p2repo" resource="XMI" disposableProviderFactory="true"
-      generateExampleClass="false" multipleEditorPages="false" contentTypeIdentifier=""
-      fileExtensions="b3aggr" ecorePackage="Aggregator.ecore#/">
+  <genPackages prefix="Aggregator" basePackage="org.eclipse.cbi.p2repo" resource="XMI"
+      disposableProviderFactory="true" generateExampleClass="false" multipleEditorPages="false"
+      contentTypeIdentifier="" fileExtensions="b3aggr" ecorePackage="Aggregator.ecore#/">
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="Aggregator.ecore#//AggregationType">
       <genEnumLiterals ecoreEnumLiteral="Aggregator.ecore#//AggregationType/Stable"/>
       <genEnumLiterals ecoreEnumLiteral="Aggregator.ecore#//AggregationType/Integration"/>

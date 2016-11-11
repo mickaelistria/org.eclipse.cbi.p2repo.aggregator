@@ -17,13 +17,13 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
- * <ul>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.Parent#getArtifactId <em>Artifact Id</em>}</li>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.Parent#getGroupId <em>Group Id</em>}</li>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.Parent#getVersion <em>Version</em>}</li>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.Parent#getRelativePath <em>Relative Path</em>}</li>
- * </ul>
  * </p>
+ * <ul>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.Parent#getArtifactId <em>Artifact Id</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.Parent#getGroupId <em>Group Id</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.Parent#getVersion <em>Version</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.Parent#getRelativePath <em>Relative Path</em>}</li>
+ * </ul>
  *
  * @see org.eclipse.cbi.p2repo.p2.maven.pom.PomPackage#getParent()
  * @model extendedMetaData="name='Parent' kind='elementOnly'"
@@ -37,7 +37,6 @@ public interface Parent extends EObject {
 	 * 4.0.0
 	 * The artifact id of the parent project to inherit from.
 	 * <!-- end-model-doc -->
-	 *
 	 * @return the value of the '<em>Artifact Id</em>' attribute.
 	 * @see #setArtifactId(String)
 	 * @see org.eclipse.cbi.p2repo.p2.maven.pom.PomPackage#getParent_ArtifactId()
@@ -101,7 +100,6 @@ public interface Parent extends EObject {
 	/**
 	 * Returns whether the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.Parent#getRelativePath <em>Relative Path</em>}' attribute is set.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @return whether the value of the '<em>Relative Path</em>' attribute is set.
 	 * @see #unsetRelativePath()
 	 * @see #getRelativePath()
@@ -113,9 +111,7 @@ public interface Parent extends EObject {
 	/**
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.Parent#getArtifactId <em>Artifact Id</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
-	 * @param value
-	 *            the new value of the '<em>Artifact Id</em>' attribute.
+	 * @param value the new value of the '<em>Artifact Id</em>' attribute.
 	 * @see #getArtifactId()
 	 * @generated
 	 */
@@ -124,9 +120,7 @@ public interface Parent extends EObject {
 	/**
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.Parent#getGroupId <em>Group Id</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
-	 * @param value
-	 *            the new value of the '<em>Group Id</em>' attribute.
+	 * @param value the new value of the '<em>Group Id</em>' attribute.
 	 * @see #getGroupId()
 	 * @generated
 	 */
@@ -135,9 +129,7 @@ public interface Parent extends EObject {
 	/**
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.Parent#getRelativePath <em>Relative Path</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
-	 * @param value
-	 *            the new value of the '<em>Relative Path</em>' attribute.
+	 * @param value the new value of the '<em>Relative Path</em>' attribute.
 	 * @see #isSetRelativePath()
 	 * @see #unsetRelativePath()
 	 * @see #getRelativePath()
@@ -148,9 +140,7 @@ public interface Parent extends EObject {
 	/**
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.Parent#getVersion <em>Version</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
-	 * @param value
-	 *            the new value of the '<em>Version</em>' attribute.
+	 * @param value the new value of the '<em>Version</em>' attribute.
 	 * @see #getVersion()
 	 * @generated
 	 */
@@ -159,7 +149,6 @@ public interface Parent extends EObject {
 	/**
 	 * Unsets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.Parent#getRelativePath <em>Relative Path</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @see #isSetRelativePath()
 	 * @see #getRelativePath()
 	 * @see #setRelativePath(String)

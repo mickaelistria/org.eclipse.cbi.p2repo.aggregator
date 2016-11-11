@@ -767,7 +767,7 @@ public interface P2viewPackage extends EPackage {
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
-	String eNS_URI = "http://www.eclipse.org/b3/2010/aggregator/p2view/1.0.0";
+	String eNS_URI = "http://www.eclipse.org/cbi/p2repo/2010/aggregator/p2view/1.0.0";
 
 	/**
 	 * The package namespace name.

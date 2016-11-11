@@ -14,10 +14,10 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
- * <ul>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.ResourcesType#getResource <em>Resource</em>}</li>
- * </ul>
  * </p>
+ * <ul>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.ResourcesType#getResource <em>Resource</em>}</li>
+ * </ul>
  *
  * @see org.eclipse.cbi.p2repo.p2.maven.pom.PomPackage#getResourcesType()
  * @model extendedMetaData="name='resources_._type' kind='elementOnly'"
@@ -32,7 +32,6 @@ public interface ResourcesType extends EObject {
 	 * If the meaning of the '<em>Resource</em>' containment reference list isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 *
 	 * @return the value of the '<em>Resource</em>' containment reference list.
 	 * @see org.eclipse.cbi.p2repo.p2.maven.pom.PomPackage#getResourcesType_Resource()
 	 * @model containment="true"

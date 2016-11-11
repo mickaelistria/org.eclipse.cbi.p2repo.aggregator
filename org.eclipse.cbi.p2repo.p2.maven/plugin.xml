@@ -19,4 +19,32 @@
       </loader>
    </extension>
 
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated maven-metadata -->
+      <package
+            uri="http://maven.apache.org/METADATA/1.0.0"
+            class="org.eclipse.cbi.p2repo.p2.maven.metadata.MetadataPackage"
+            genModel="model/maven-metadata.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.extension_parser">
+      <!-- @generated maven-metadata -->
+      <parser
+            type="xml"
+            class="org.eclipse.cbi.p2repo.p2.maven.metadata.util.MetadataResourceFactoryImpl"/>
+   </extension>
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated pom -->
+      <package
+            uri="http://maven.apache.org/POM/4.0.0"
+            class="org.eclipse.cbi.p2repo.p2.maven.pom.PomPackage"
+            genModel="model/pom.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.extension_parser">
+      <!-- @generated pom -->
+      <parser
+            type="pom"
+            class="org.eclipse.cbi.p2repo.p2.maven.pom.util.PomResourceFactoryImpl"/>
+   </extension>
 </plugin>

@@ -44,7 +44,6 @@ public class ContributorsTypeImpl extends EObjectImpl implements ContributorsTyp
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	protected ContributorsTypeImpl() {
@@ -53,12 +52,11 @@ public class ContributorsTypeImpl extends EObjectImpl implements ContributorsTyp
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch(featureID) {
+		switch (featureID) {
 			case PomPackage.CONTRIBUTORS_TYPE__CONTRIBUTOR:
 				return getContributor();
 		}
@@ -67,26 +65,24 @@ public class ContributorsTypeImpl extends EObjectImpl implements ContributorsTyp
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch(featureID) {
+		switch (featureID) {
 			case PomPackage.CONTRIBUTORS_TYPE__CONTRIBUTOR:
-				return ((InternalEList<?>) getContributor()).basicRemove(otherEnd, msgs);
+				return ((InternalEList<?>)getContributor()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch(featureID) {
+		switch (featureID) {
 			case PomPackage.CONTRIBUTORS_TYPE__CONTRIBUTOR:
 				return contributor != null && !contributor.isEmpty();
 		}
@@ -95,16 +91,15 @@ public class ContributorsTypeImpl extends EObjectImpl implements ContributorsTyp
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch(featureID) {
+		switch (featureID) {
 			case PomPackage.CONTRIBUTORS_TYPE__CONTRIBUTOR:
 				getContributor().clear();
-				getContributor().addAll((Collection<? extends Contributor>) newValue);
+				getContributor().addAll((Collection<? extends Contributor>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -112,12 +107,11 @@ public class ContributorsTypeImpl extends EObjectImpl implements ContributorsTyp
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
-		switch(featureID) {
+		switch (featureID) {
 			case PomPackage.CONTRIBUTORS_TYPE__CONTRIBUTOR:
 				getContributor().clear();
 				return;
@@ -127,21 +121,18 @@ public class ContributorsTypeImpl extends EObjectImpl implements ContributorsTyp
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public EList<Contributor> getContributor() {
-		if(contributor == null) {
-			contributor = new EObjectContainmentEList<Contributor>(
-				Contributor.class, this, PomPackage.CONTRIBUTORS_TYPE__CONTRIBUTOR);
+		if (contributor == null) {
+			contributor = new EObjectContainmentEList<Contributor>(Contributor.class, this, PomPackage.CONTRIBUTORS_TYPE__CONTRIBUTOR);
 		}
 		return contributor;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override

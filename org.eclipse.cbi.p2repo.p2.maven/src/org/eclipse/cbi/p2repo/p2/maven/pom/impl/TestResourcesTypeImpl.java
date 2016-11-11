@@ -24,10 +24,10 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * end-user-doc -->
  * <p>
  * The following features are implemented:
- * <ul>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.TestResourcesTypeImpl#getTestResource <em>Test Resource</em>}</li>
- * </ul>
  * </p>
+ * <ul>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.TestResourcesTypeImpl#getTestResource <em>Test Resource</em>}</li>
+ * </ul>
  *
  * @generated
  */
@@ -44,7 +44,6 @@ public class TestResourcesTypeImpl extends EObjectImpl implements TestResourcesT
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	protected TestResourcesTypeImpl() {
@@ -53,12 +52,11 @@ public class TestResourcesTypeImpl extends EObjectImpl implements TestResourcesT
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch(featureID) {
+		switch (featureID) {
 			case PomPackage.TEST_RESOURCES_TYPE__TEST_RESOURCE:
 				return getTestResource();
 		}
@@ -67,26 +65,24 @@ public class TestResourcesTypeImpl extends EObjectImpl implements TestResourcesT
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch(featureID) {
+		switch (featureID) {
 			case PomPackage.TEST_RESOURCES_TYPE__TEST_RESOURCE:
-				return ((InternalEList<?>) getTestResource()).basicRemove(otherEnd, msgs);
+				return ((InternalEList<?>)getTestResource()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch(featureID) {
+		switch (featureID) {
 			case PomPackage.TEST_RESOURCES_TYPE__TEST_RESOURCE:
 				return testResource != null && !testResource.isEmpty();
 		}
@@ -95,16 +91,15 @@ public class TestResourcesTypeImpl extends EObjectImpl implements TestResourcesT
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch(featureID) {
+		switch (featureID) {
 			case PomPackage.TEST_RESOURCES_TYPE__TEST_RESOURCE:
 				getTestResource().clear();
-				getTestResource().addAll((Collection<? extends Resource>) newValue);
+				getTestResource().addAll((Collection<? extends Resource>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -112,12 +107,11 @@ public class TestResourcesTypeImpl extends EObjectImpl implements TestResourcesT
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
-		switch(featureID) {
+		switch (featureID) {
 			case PomPackage.TEST_RESOURCES_TYPE__TEST_RESOURCE:
 				getTestResource().clear();
 				return;
@@ -127,21 +121,18 @@ public class TestResourcesTypeImpl extends EObjectImpl implements TestResourcesT
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public EList<Resource> getTestResource() {
-		if(testResource == null) {
-			testResource = new EObjectContainmentEList<Resource>(
-				Resource.class, this, PomPackage.TEST_RESOURCES_TYPE__TEST_RESOURCE);
+		if (testResource == null) {
+			testResource = new EObjectContainmentEList<Resource>(Resource.class, this, PomPackage.TEST_RESOURCES_TYPE__TEST_RESOURCE);
 		}
 		return testResource;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override

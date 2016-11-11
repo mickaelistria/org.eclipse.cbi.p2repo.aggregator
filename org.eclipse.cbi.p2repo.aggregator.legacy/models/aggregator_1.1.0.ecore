@@ -2,7 +2,7 @@
 <ecore:EPackage xmi:version="2.0"
     xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="aggregator"
-    nsURI="http://www.eclipse.org/b3/2011/aggregator/1.1.0" nsPrefix="aggregator">
+    nsURI="http://www.eclipse.org/cbi/p2repo/2011/aggregator/1.1.0" nsPrefix="aggregator">
   <eClassifiers xsi:type="ecore:EClass" name="Aggregation" eSuperTypes="#//DescriptionProvider #//StatusProvider #//InfosProvider">
     <eOperations name="getAllMetadataRepositoryReferences" upperBound="-1" eType="#//MetadataRepositoryReference">
       <eParameters name="enabledOnly" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
@@ -338,7 +338,7 @@
     <eLiterals name="Motif" value="4" literal="motif"/>
     <eLiterals name="Photon" value="5" literal="photon"/>
   </eClassifiers>
-  <eSubpackages name="p2view" nsURI="http://www.eclipse.org/b3/2010/aggregator/p2view/1.0.0"
+  <eSubpackages name="p2view" nsURI="http://www.eclipse.org/cbi/p2repo/2010/aggregator/p2view/1.0.0"
       nsPrefix="p2view">
     <eClassifiers xsi:type="ecore:EClass" name="Bundle" eSuperTypes="#//p2view/IUPresentationWithDetails"/>
     <eClassifiers xsi:type="ecore:EClass" name="Bundles">

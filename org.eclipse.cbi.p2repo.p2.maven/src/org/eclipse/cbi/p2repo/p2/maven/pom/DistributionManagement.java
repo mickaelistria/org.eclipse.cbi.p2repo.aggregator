@@ -14,24 +14,24 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <!-- begin-model-doc -->
  * 4.0.0
- *
- * This elements describes all that pertains to distribution for a project.
- * It is primarily used for deployment of artifacts and the site
- * produced by the build.
- *
+ * 
+ *         This elements describes all that pertains to distribution for a project.
+ *         It is primarily used for deployment of artifacts and the site
+ *         produced by the build.
+ *       
  * <!-- end-model-doc -->
  *
  * <p>
  * The following features are supported:
- * <ul>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.DistributionManagement#getRepository <em>Repository</em>}</li>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.DistributionManagement#getSnapshotRepository <em>Snapshot Repository</em>}</li>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.DistributionManagement#getSite <em>Site</em>}</li>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.DistributionManagement#getDownloadUrl <em>Download Url</em>}</li>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.DistributionManagement#getRelocation <em>Relocation</em>}</li>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.DistributionManagement#getStatus <em>Status</em>}</li>
- * </ul>
  * </p>
+ * <ul>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.DistributionManagement#getRepository <em>Repository</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.DistributionManagement#getSnapshotRepository <em>Snapshot Repository</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.DistributionManagement#getSite <em>Site</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.DistributionManagement#getDownloadUrl <em>Download Url</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.DistributionManagement#getRelocation <em>Relocation</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.DistributionManagement#getStatus <em>Status</em>}</li>
+ * </ul>
  *
  * @see org.eclipse.cbi.p2repo.p2.maven.pom.PomPackage#getDistributionManagement()
  * @model extendedMetaData="name='DistributionManagement' kind='elementOnly'"
@@ -43,13 +43,12 @@ public interface DistributionManagement extends EObject {
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * 4.0.0+
-	 *
-	 * The URL of the project's download page. If not given users will be referred to the homepage given by
-	 * &lt;code&gt;url&lt;/code&gt;. This is given to assist in locating artifacts that are not in the repository due to
-	 * licensing restrictions.
-	 *
+	 * 
+	 *             The URL of the project's download page. If not given users will be referred to the homepage given by
+	 *             &lt;code&gt;url&lt;/code&gt;. This is given to assist in locating artifacts that are not in the repository due to
+	 *             licensing restrictions.
+	 *           
 	 * <!-- end-model-doc -->
-	 *
 	 * @return the value of the '<em>Download Url</em>' attribute.
 	 * @see #setDownloadUrl(String)
 	 * @see org.eclipse.cbi.p2repo.p2.maven.pom.PomPackage#getDistributionManagement_DownloadUrl()
@@ -150,9 +149,7 @@ public interface DistributionManagement extends EObject {
 	/**
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.DistributionManagement#getDownloadUrl <em>Download Url</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
-	 * @param value
-	 *            the new value of the '<em>Download Url</em>' attribute.
+	 * @param value the new value of the '<em>Download Url</em>' attribute.
 	 * @see #getDownloadUrl()
 	 * @generated
 	 */
@@ -161,9 +158,7 @@ public interface DistributionManagement extends EObject {
 	/**
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.DistributionManagement#getRelocation <em>Relocation</em>}' containment reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
-	 * @param value
-	 *            the new value of the '<em>Relocation</em>' containment reference.
+	 * @param value the new value of the '<em>Relocation</em>' containment reference.
 	 * @see #getRelocation()
 	 * @generated
 	 */
@@ -172,9 +167,7 @@ public interface DistributionManagement extends EObject {
 	/**
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.DistributionManagement#getRepository <em>Repository</em>}' containment reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
-	 * @param value
-	 *            the new value of the '<em>Repository</em>' containment reference.
+	 * @param value the new value of the '<em>Repository</em>' containment reference.
 	 * @see #getRepository()
 	 * @generated
 	 */
@@ -183,21 +176,16 @@ public interface DistributionManagement extends EObject {
 	/**
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.DistributionManagement#getSite <em>Site</em>}' containment reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
-	 * @param value
-	 *            the new value of the '<em>Site</em>' containment reference.
+	 * @param value the new value of the '<em>Site</em>' containment reference.
 	 * @see #getSite()
 	 * @generated
 	 */
 	void setSite(Site value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.DistributionManagement#getSnapshotRepository <em>Snapshot Repository</em>}'
-	 * containment reference.
+	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.DistributionManagement#getSnapshotRepository <em>Snapshot Repository</em>}' containment reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
-	 * @param value
-	 *            the new value of the '<em>Snapshot Repository</em>' containment reference.
+	 * @param value the new value of the '<em>Snapshot Repository</em>' containment reference.
 	 * @see #getSnapshotRepository()
 	 * @generated
 	 */
@@ -206,9 +194,7 @@ public interface DistributionManagement extends EObject {
 	/**
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.DistributionManagement#getStatus <em>Status</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
-	 * @param value
-	 *            the new value of the '<em>Status</em>' attribute.
+	 * @param value the new value of the '<em>Status</em>' attribute.
 	 * @see #getStatus()
 	 * @generated
 	 */

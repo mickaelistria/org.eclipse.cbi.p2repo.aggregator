@@ -1492,7 +1492,7 @@ public interface P2Package extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	String eNS_URI = "http://www.eclipse.org/b3/2010/p2/1.0.0";
+	String eNS_URI = "http://www.eclipse.org/cbi/p2repo/2010/p2/1.0.0";
 
 	/**
 	 * The package namespace name.

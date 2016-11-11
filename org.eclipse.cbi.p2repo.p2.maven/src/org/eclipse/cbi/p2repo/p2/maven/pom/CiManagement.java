@@ -17,12 +17,12 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
- * <ul>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.CiManagement#getSystem <em>System</em>}</li>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.CiManagement#getUrl <em>Url</em>}</li>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.CiManagement#getNotifiers <em>Notifiers</em>}</li>
- * </ul>
  * </p>
+ * <ul>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.CiManagement#getSystem <em>System</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.CiManagement#getUrl <em>Url</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.CiManagement#getNotifiers <em>Notifiers</em>}</li>
+ * </ul>
  *
  * @see org.eclipse.cbi.p2repo.p2.maven.pom.PomPackage#getCiManagement()
  * @model extendedMetaData="name='CiManagement' kind='elementOnly'"
@@ -79,9 +79,7 @@ public interface CiManagement extends EObject {
 	/**
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.CiManagement#getNotifiers <em>Notifiers</em>}' containment reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
-	 * @param value
-	 *            the new value of the '<em>Notifiers</em>' containment reference.
+	 * @param value the new value of the '<em>Notifiers</em>' containment reference.
 	 * @see #getNotifiers()
 	 * @generated
 	 */
@@ -90,9 +88,7 @@ public interface CiManagement extends EObject {
 	/**
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.CiManagement#getSystem <em>System</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
-	 * @param value
-	 *            the new value of the '<em>System</em>' attribute.
+	 * @param value the new value of the '<em>System</em>' attribute.
 	 * @see #getSystem()
 	 * @generated
 	 */
@@ -101,9 +97,7 @@ public interface CiManagement extends EObject {
 	/**
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.CiManagement#getUrl <em>Url</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
-	 * @param value
-	 *            the new value of the '<em>Url</em>' attribute.
+	 * @param value the new value of the '<em>Url</em>' attribute.
 	 * @see #getUrl()
 	 * @generated
 	 */

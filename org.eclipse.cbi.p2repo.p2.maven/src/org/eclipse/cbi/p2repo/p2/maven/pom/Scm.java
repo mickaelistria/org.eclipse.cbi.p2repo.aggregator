@@ -17,13 +17,13 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
- * <ul>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.Scm#getConnection <em>Connection</em>}</li>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.Scm#getDeveloperConnection <em>Developer Connection</em>}</li>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.Scm#getTag <em>Tag</em>}</li>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.Scm#getUrl <em>Url</em>}</li>
- * </ul>
  * </p>
+ * <ul>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.Scm#getConnection <em>Connection</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.Scm#getDeveloperConnection <em>Developer Connection</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.Scm#getTag <em>Tag</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.Scm#getUrl <em>Url</em>}</li>
+ * </ul>
  *
  * @see org.eclipse.cbi.p2repo.p2.maven.pom.PomPackage#getScm()
  * @model extendedMetaData="name='Scm' kind='elementOnly'"
@@ -35,16 +35,15 @@ public interface Scm extends EObject {
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * 4.0.0
-	 *
-	 * The source control management system URL
-	 * that describes the repository and how to connect to the
-	 * repository. For more information, see the
-	 * &lt;a href="http://maven.apache.org/scm/scm-url-format.html"&gt;URL format&lt;/a&gt;
-	 * and &lt;a href="http://maven.apache.org/scm/scms-overview.html"&gt;list of supported SCMs&lt;/a&gt;.
-	 * This connection is read-only.
-	 *
+	 * 
+	 *               The source control management system URL
+	 *               that describes the repository and how to connect to the
+	 *               repository. For more information, see the
+	 *               &lt;a href="http://maven.apache.org/scm/scm-url-format.html"&gt;URL format&lt;/a&gt;
+	 *               and &lt;a href="http://maven.apache.org/scm/scms-overview.html"&gt;list of supported SCMs&lt;/a&gt;.
+	 *               This connection is read-only.
+	 *           
 	 * <!-- end-model-doc -->
-	 *
 	 * @return the value of the '<em>Connection</em>' attribute.
 	 * @see #setConnection(String)
 	 * @see org.eclipse.cbi.p2repo.p2.maven.pom.PomPackage#getScm_Connection()
@@ -109,7 +108,6 @@ public interface Scm extends EObject {
 	/**
 	 * Returns whether the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.Scm#getTag <em>Tag</em>}' attribute is set.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @return whether the value of the '<em>Tag</em>' attribute is set.
 	 * @see #unsetTag()
 	 * @see #getTag()
@@ -121,9 +119,7 @@ public interface Scm extends EObject {
 	/**
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.Scm#getConnection <em>Connection</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
-	 * @param value
-	 *            the new value of the '<em>Connection</em>' attribute.
+	 * @param value the new value of the '<em>Connection</em>' attribute.
 	 * @see #getConnection()
 	 * @generated
 	 */
@@ -132,9 +128,7 @@ public interface Scm extends EObject {
 	/**
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.Scm#getDeveloperConnection <em>Developer Connection</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
-	 * @param value
-	 *            the new value of the '<em>Developer Connection</em>' attribute.
+	 * @param value the new value of the '<em>Developer Connection</em>' attribute.
 	 * @see #getDeveloperConnection()
 	 * @generated
 	 */
@@ -143,9 +137,7 @@ public interface Scm extends EObject {
 	/**
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.Scm#getTag <em>Tag</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
-	 * @param value
-	 *            the new value of the '<em>Tag</em>' attribute.
+	 * @param value the new value of the '<em>Tag</em>' attribute.
 	 * @see #isSetTag()
 	 * @see #unsetTag()
 	 * @see #getTag()
@@ -156,9 +148,7 @@ public interface Scm extends EObject {
 	/**
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.Scm#getUrl <em>Url</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
-	 * @param value
-	 *            the new value of the '<em>Url</em>' attribute.
+	 * @param value the new value of the '<em>Url</em>' attribute.
 	 * @see #getUrl()
 	 * @generated
 	 */
@@ -167,7 +157,6 @@ public interface Scm extends EObject {
 	/**
 	 * Unsets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.Scm#getTag <em>Tag</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @see #isSetTag()
 	 * @see #getTag()
 	 * @see #setTag(String)

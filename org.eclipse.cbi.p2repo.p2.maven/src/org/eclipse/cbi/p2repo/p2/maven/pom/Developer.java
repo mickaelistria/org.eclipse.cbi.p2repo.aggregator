@@ -13,25 +13,25 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <!-- begin-model-doc -->
  * 3.0.0+
- *
- * Information about one of the committers on this project.
- *
+ * 
+ *         Information about one of the committers on this project.
+ *       
  * <!-- end-model-doc -->
  *
  * <p>
  * The following features are supported:
- * <ul>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.Developer#getId <em>Id</em>}</li>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.Developer#getName <em>Name</em>}</li>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.Developer#getEmail <em>Email</em>}</li>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.Developer#getUrl <em>Url</em>}</li>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.Developer#getOrganization <em>Organization</em>}</li>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.Developer#getOrganizationUrl <em>Organization Url</em>}</li>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.Developer#getRoles <em>Roles</em>}</li>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.Developer#getTimezone <em>Timezone</em>}</li>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.Developer#getProperties <em>Properties</em>}</li>
- * </ul>
  * </p>
+ * <ul>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.Developer#getId <em>Id</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.Developer#getName <em>Name</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.Developer#getEmail <em>Email</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.Developer#getUrl <em>Url</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.Developer#getOrganization <em>Organization</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.Developer#getOrganizationUrl <em>Organization Url</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.Developer#getRoles <em>Roles</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.Developer#getTimezone <em>Timezone</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.Developer#getProperties <em>Properties</em>}</li>
+ * </ul>
  *
  * @see org.eclipse.cbi.p2repo.p2.maven.pom.PomPackage#getDeveloper()
  * @model extendedMetaData="name='Developer' kind='elementOnly'"
@@ -84,7 +84,6 @@ public interface Developer extends EObject {
 	 * 3.0.0+
 	 * The organization to which the contributor belongs.
 	 * <!-- end-model-doc -->
-	 *
 	 * @return the value of the '<em>Organization</em>' attribute.
 	 * @see #setOrganization(String)
 	 * @see org.eclipse.cbi.p2repo.p2.maven.pom.PomPackage#getDeveloper_Organization()
@@ -173,9 +172,7 @@ public interface Developer extends EObject {
 	/**
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.Developer#getEmail <em>Email</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
-	 * @param value
-	 *            the new value of the '<em>Email</em>' attribute.
+	 * @param value the new value of the '<em>Email</em>' attribute.
 	 * @see #getEmail()
 	 * @generated
 	 */
@@ -184,9 +181,7 @@ public interface Developer extends EObject {
 	/**
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.Developer#getId <em>Id</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
-	 * @param value
-	 *            the new value of the '<em>Id</em>' attribute.
+	 * @param value the new value of the '<em>Id</em>' attribute.
 	 * @see #getId()
 	 * @generated
 	 */
@@ -195,9 +190,7 @@ public interface Developer extends EObject {
 	/**
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.Developer#getName <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
-	 * @param value
-	 *            the new value of the '<em>Name</em>' attribute.
+	 * @param value the new value of the '<em>Name</em>' attribute.
 	 * @see #getName()
 	 * @generated
 	 */
@@ -206,9 +199,7 @@ public interface Developer extends EObject {
 	/**
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.Developer#getOrganization <em>Organization</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
-	 * @param value
-	 *            the new value of the '<em>Organization</em>' attribute.
+	 * @param value the new value of the '<em>Organization</em>' attribute.
 	 * @see #getOrganization()
 	 * @generated
 	 */
@@ -217,9 +208,7 @@ public interface Developer extends EObject {
 	/**
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.Developer#getOrganizationUrl <em>Organization Url</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
-	 * @param value
-	 *            the new value of the '<em>Organization Url</em>' attribute.
+	 * @param value the new value of the '<em>Organization Url</em>' attribute.
 	 * @see #getOrganizationUrl()
 	 * @generated
 	 */
@@ -228,9 +217,7 @@ public interface Developer extends EObject {
 	/**
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.Developer#getProperties <em>Properties</em>}' containment reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
-	 * @param value
-	 *            the new value of the '<em>Properties</em>' containment reference.
+	 * @param value the new value of the '<em>Properties</em>' containment reference.
 	 * @see #getProperties()
 	 * @generated
 	 */
@@ -239,9 +226,7 @@ public interface Developer extends EObject {
 	/**
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.Developer#getRoles <em>Roles</em>}' containment reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
-	 * @param value
-	 *            the new value of the '<em>Roles</em>' containment reference.
+	 * @param value the new value of the '<em>Roles</em>' containment reference.
 	 * @see #getRoles()
 	 * @generated
 	 */
@@ -250,9 +235,7 @@ public interface Developer extends EObject {
 	/**
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.Developer#getTimezone <em>Timezone</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
-	 * @param value
-	 *            the new value of the '<em>Timezone</em>' attribute.
+	 * @param value the new value of the '<em>Timezone</em>' attribute.
 	 * @see #getTimezone()
 	 * @generated
 	 */
@@ -261,9 +244,7 @@ public interface Developer extends EObject {
 	/**
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.Developer#getUrl <em>Url</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
-	 * @param value
-	 *            the new value of the '<em>Url</em>' attribute.
+	 * @param value the new value of the '<em>Url</em>' attribute.
 	 * @see #getUrl()
 	 * @generated
 	 */

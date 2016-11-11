@@ -2,7 +2,7 @@
 <ecore:EPackage xmi:version="2.0"
     xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="aggregator"
-    nsURI="http://www.eclipse.org/b3/2010/aggregator/1.0.0" nsPrefix="aggregator">
+    nsURI="http://www.eclipse.org/cbi/p2repo/2010/aggregator/1.0.0" nsPrefix="aggregator">
   <eClassifiers xsi:type="ecore:EClass" name="Aggregator" eSuperTypes="#//DescriptionProvider #//StatusProvider #//InfosProvider">
     <eOperations name="getContributions" upperBound="-1" eType="#//Contribution">
       <eParameters name="enabledOnly" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
@@ -260,7 +260,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="infos" upperBound="-1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String" transient="true"/>
   </eClassifiers>
-  <eSubpackages name="p2" nsURI="http://www.eclipse.org/b3/2010/p2/1.0.0" nsPrefix="p2">
+  <eSubpackages name="p2" nsURI="http://www.eclipse.org/cbi/p2repo/2010/p2/1.0.0" nsPrefix="p2">
     <eClassifiers xsi:type="ecore:EClass" name="IArtifactKey" instanceClassName="org.eclipse.equinox.internal.provisional.p2.metadata.IArtifactKey"
         abstract="true" interface="true">
       <eOperations name="toExternalForm" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -500,7 +500,7 @@
       </eOperations>
     </eClassifiers>
   </eSubpackages>
-  <eSubpackages name="p2view" nsURI="http://www.eclipse.org/b3/2010/aggregator/p2view/1.0.0"
+  <eSubpackages name="p2view" nsURI="http://www.eclipse.org/cbi/p2repo/2010/aggregator/p2view/1.0.0"
       nsPrefix="p2view">
     <eClassifiers xsi:type="ecore:EClass" name="MetadataRepositoryStructuredView">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>

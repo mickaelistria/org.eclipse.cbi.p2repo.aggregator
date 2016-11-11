@@ -20,15 +20,15 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * <!-- begin-user-doc --> An implementation of the model object '<em><b>Repository</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * <ul>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.RepositoryImpl#getReleases <em>Releases</em>}</li>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.RepositoryImpl#getSnapshots <em>Snapshots</em>}</li>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.RepositoryImpl#getId <em>Id</em>}</li>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.RepositoryImpl#getName <em>Name</em>}</li>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.RepositoryImpl#getUrl <em>Url</em>}</li>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.RepositoryImpl#getLayout <em>Layout</em>}</li>
- * </ul>
  * </p>
+ * <ul>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.RepositoryImpl#getReleases <em>Releases</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.RepositoryImpl#getSnapshots <em>Snapshots</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.RepositoryImpl#getId <em>Id</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.RepositoryImpl#getName <em>Name</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.RepositoryImpl#getUrl <em>Url</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.RepositoryImpl#getLayout <em>Layout</em>}</li>
+ * </ul>
  *
  * @generated
  */
@@ -37,7 +37,6 @@ public class RepositoryImpl extends EObjectImpl implements Repository {
 	 * The cached value of the '{@link #getReleases() <em>Releases</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @see #getReleases()
 	 * @generated
 	 * @ordered
@@ -48,7 +47,6 @@ public class RepositoryImpl extends EObjectImpl implements Repository {
 	 * The cached value of the '{@link #getSnapshots() <em>Snapshots</em>}' containment reference.
 	 * <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
-	 *
 	 * @see #getSnapshots()
 	 * @generated
 	 * @ordered
@@ -58,7 +56,6 @@ public class RepositoryImpl extends EObjectImpl implements Repository {
 	/**
 	 * The default value of the '{@link #getId() <em>Id</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @see #getId()
 	 * @generated
 	 * @ordered
@@ -68,7 +65,6 @@ public class RepositoryImpl extends EObjectImpl implements Repository {
 	/**
 	 * The cached value of the '{@link #getId() <em>Id</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @see #getId()
 	 * @generated
 	 * @ordered
@@ -108,7 +104,6 @@ public class RepositoryImpl extends EObjectImpl implements Repository {
 	/**
 	 * The cached value of the '{@link #getUrl() <em>Url</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @see #getUrl()
 	 * @generated
 	 * @ordered
@@ -119,7 +114,6 @@ public class RepositoryImpl extends EObjectImpl implements Repository {
 	 * The default value of the '{@link #getLayout() <em>Layout</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 *
 	 * @see #getLayout()
 	 * @generated
 	 * @ordered
@@ -130,7 +124,6 @@ public class RepositoryImpl extends EObjectImpl implements Repository {
 	 * The cached value of the '{@link #getLayout() <em>Layout</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 *
 	 * @see #getLayout()
 	 * @generated
 	 * @ordered
@@ -140,7 +133,6 @@ public class RepositoryImpl extends EObjectImpl implements Repository {
 	/**
 	 * This is true if the Layout attribute has been set.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 * @ordered
 	 */
@@ -148,7 +140,6 @@ public class RepositoryImpl extends EObjectImpl implements Repository {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	protected RepositoryImpl() {
@@ -157,50 +148,39 @@ public class RepositoryImpl extends EObjectImpl implements Repository {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	public NotificationChain basicSetReleases(RepositoryPolicy newReleases, NotificationChain msgs) {
 		RepositoryPolicy oldReleases = releases;
 		releases = newReleases;
-		if(eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(
-				this, Notification.SET, PomPackage.REPOSITORY__RELEASES, oldReleases, newReleases);
-			if(msgs == null)
-				msgs = notification;
-			else
-				msgs.add(notification);
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, PomPackage.REPOSITORY__RELEASES, oldReleases, newReleases);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	public NotificationChain basicSetSnapshots(RepositoryPolicy newSnapshots, NotificationChain msgs) {
 		RepositoryPolicy oldSnapshots = snapshots;
 		snapshots = newSnapshots;
-		if(eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(
-				this, Notification.SET, PomPackage.REPOSITORY__SNAPSHOTS, oldSnapshots, newSnapshots);
-			if(msgs == null)
-				msgs = notification;
-			else
-				msgs.add(notification);
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, PomPackage.REPOSITORY__SNAPSHOTS, oldSnapshots, newSnapshots);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch(featureID) {
+		switch (featureID) {
 			case PomPackage.REPOSITORY__RELEASES:
 				return getReleases();
 			case PomPackage.REPOSITORY__SNAPSHOTS:
@@ -219,12 +199,11 @@ public class RepositoryImpl extends EObjectImpl implements Repository {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch(featureID) {
+		switch (featureID) {
 			case PomPackage.REPOSITORY__RELEASES:
 				return basicSetReleases(null, msgs);
 			case PomPackage.REPOSITORY__SNAPSHOTS:
@@ -235,28 +214,21 @@ public class RepositoryImpl extends EObjectImpl implements Repository {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch(featureID) {
+		switch (featureID) {
 			case PomPackage.REPOSITORY__RELEASES:
 				return releases != null;
 			case PomPackage.REPOSITORY__SNAPSHOTS:
 				return snapshots != null;
 			case PomPackage.REPOSITORY__ID:
-				return ID_EDEFAULT == null
-						? id != null
-						: !ID_EDEFAULT.equals(id);
+				return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
 			case PomPackage.REPOSITORY__NAME:
-				return NAME_EDEFAULT == null
-						? name != null
-						: !NAME_EDEFAULT.equals(name);
+				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case PomPackage.REPOSITORY__URL:
-				return URL_EDEFAULT == null
-						? url != null
-						: !URL_EDEFAULT.equals(url);
+				return URL_EDEFAULT == null ? url != null : !URL_EDEFAULT.equals(url);
 			case PomPackage.REPOSITORY__LAYOUT:
 				return isSetLayout();
 		}
@@ -265,29 +237,28 @@ public class RepositoryImpl extends EObjectImpl implements Repository {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch(featureID) {
+		switch (featureID) {
 			case PomPackage.REPOSITORY__RELEASES:
-				setReleases((RepositoryPolicy) newValue);
+				setReleases((RepositoryPolicy)newValue);
 				return;
 			case PomPackage.REPOSITORY__SNAPSHOTS:
-				setSnapshots((RepositoryPolicy) newValue);
+				setSnapshots((RepositoryPolicy)newValue);
 				return;
 			case PomPackage.REPOSITORY__ID:
-				setId((String) newValue);
+				setId((String)newValue);
 				return;
 			case PomPackage.REPOSITORY__NAME:
-				setName((String) newValue);
+				setName((String)newValue);
 				return;
 			case PomPackage.REPOSITORY__URL:
-				setUrl((String) newValue);
+				setUrl((String)newValue);
 				return;
 			case PomPackage.REPOSITORY__LAYOUT:
-				setLayout((String) newValue);
+				setLayout((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -295,17 +266,16 @@ public class RepositoryImpl extends EObjectImpl implements Repository {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
-		switch(featureID) {
+		switch (featureID) {
 			case PomPackage.REPOSITORY__RELEASES:
-				setReleases((RepositoryPolicy) null);
+				setReleases((RepositoryPolicy)null);
 				return;
 			case PomPackage.REPOSITORY__SNAPSHOTS:
-				setSnapshots((RepositoryPolicy) null);
+				setSnapshots((RepositoryPolicy)null);
 				return;
 			case PomPackage.REPOSITORY__ID:
 				setId(ID_EDEFAULT);
@@ -325,7 +295,6 @@ public class RepositoryImpl extends EObjectImpl implements Repository {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -335,7 +304,6 @@ public class RepositoryImpl extends EObjectImpl implements Repository {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -345,7 +313,6 @@ public class RepositoryImpl extends EObjectImpl implements Repository {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -355,7 +322,6 @@ public class RepositoryImpl extends EObjectImpl implements Repository {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -365,7 +331,6 @@ public class RepositoryImpl extends EObjectImpl implements Repository {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -375,7 +340,6 @@ public class RepositoryImpl extends EObjectImpl implements Repository {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -385,7 +349,6 @@ public class RepositoryImpl extends EObjectImpl implements Repository {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -395,20 +358,18 @@ public class RepositoryImpl extends EObjectImpl implements Repository {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public void setId(String newId) {
 		String oldId = id;
 		id = newId;
-		if(eNotificationRequired())
+		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.REPOSITORY__ID, oldId, id));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -417,94 +378,79 @@ public class RepositoryImpl extends EObjectImpl implements Repository {
 		layout = newLayout;
 		boolean oldLayoutESet = layoutESet;
 		layoutESet = true;
-		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(
-				this, Notification.SET, PomPackage.REPOSITORY__LAYOUT, oldLayout, layout, !oldLayoutESet));
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.REPOSITORY__LAYOUT, oldLayout, layout, !oldLayoutESet));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public void setName(String newName) {
 		String oldName = name;
 		name = newName;
-		if(eNotificationRequired())
+		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.REPOSITORY__NAME, oldName, name));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public void setReleases(RepositoryPolicy newReleases) {
-		if(newReleases != releases) {
+		if (newReleases != releases) {
 			NotificationChain msgs = null;
-			if(releases != null)
-				msgs = ((InternalEObject) releases).eInverseRemove(this, EOPPOSITE_FEATURE_BASE -
-						PomPackage.REPOSITORY__RELEASES, null, msgs);
-			if(newReleases != null)
-				msgs = ((InternalEObject) newReleases).eInverseAdd(this, EOPPOSITE_FEATURE_BASE -
-						PomPackage.REPOSITORY__RELEASES, null, msgs);
+			if (releases != null)
+				msgs = ((InternalEObject)releases).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - PomPackage.REPOSITORY__RELEASES, null, msgs);
+			if (newReleases != null)
+				msgs = ((InternalEObject)newReleases).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - PomPackage.REPOSITORY__RELEASES, null, msgs);
 			msgs = basicSetReleases(newReleases, msgs);
-			if(msgs != null)
-				msgs.dispatch();
+			if (msgs != null) msgs.dispatch();
 		}
-		else if(eNotificationRequired())
-			eNotify(new ENotificationImpl(
-				this, Notification.SET, PomPackage.REPOSITORY__RELEASES, newReleases, newReleases));
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.REPOSITORY__RELEASES, newReleases, newReleases));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public void setSnapshots(RepositoryPolicy newSnapshots) {
-		if(newSnapshots != snapshots) {
+		if (newSnapshots != snapshots) {
 			NotificationChain msgs = null;
-			if(snapshots != null)
-				msgs = ((InternalEObject) snapshots).eInverseRemove(this, EOPPOSITE_FEATURE_BASE -
-						PomPackage.REPOSITORY__SNAPSHOTS, null, msgs);
-			if(newSnapshots != null)
-				msgs = ((InternalEObject) newSnapshots).eInverseAdd(this, EOPPOSITE_FEATURE_BASE -
-						PomPackage.REPOSITORY__SNAPSHOTS, null, msgs);
+			if (snapshots != null)
+				msgs = ((InternalEObject)snapshots).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - PomPackage.REPOSITORY__SNAPSHOTS, null, msgs);
+			if (newSnapshots != null)
+				msgs = ((InternalEObject)newSnapshots).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - PomPackage.REPOSITORY__SNAPSHOTS, null, msgs);
 			msgs = basicSetSnapshots(newSnapshots, msgs);
-			if(msgs != null)
-				msgs.dispatch();
+			if (msgs != null) msgs.dispatch();
 		}
-		else if(eNotificationRequired())
-			eNotify(new ENotificationImpl(
-				this, Notification.SET, PomPackage.REPOSITORY__SNAPSHOTS, newSnapshots, newSnapshots));
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.REPOSITORY__SNAPSHOTS, newSnapshots, newSnapshots));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public void setUrl(String newUrl) {
 		String oldUrl = url;
 		url = newUrl;
-		if(eNotificationRequired())
+		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.REPOSITORY__URL, oldUrl, url));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public String toString() {
-		if(eIsProxy())
-			return super.toString();
+		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (id: ");
@@ -514,17 +460,13 @@ public class RepositoryImpl extends EObjectImpl implements Repository {
 		result.append(", url: ");
 		result.append(url);
 		result.append(", layout: ");
-		if(layoutESet)
-			result.append(layout);
-		else
-			result.append("<unset>");
+		if (layoutESet) result.append(layout); else result.append("<unset>");
 		result.append(')');
 		return result.toString();
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -533,14 +475,12 @@ public class RepositoryImpl extends EObjectImpl implements Repository {
 		boolean oldLayoutESet = layoutESet;
 		layout = LAYOUT_EDEFAULT;
 		layoutESet = false;
-		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(
-				this, Notification.UNSET, PomPackage.REPOSITORY__LAYOUT, oldLayout, LAYOUT_EDEFAULT, oldLayoutESet));
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.UNSET, PomPackage.REPOSITORY__LAYOUT, oldLayout, LAYOUT_EDEFAULT, oldLayoutESet));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override

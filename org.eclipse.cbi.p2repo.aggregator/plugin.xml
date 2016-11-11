@@ -13,7 +13,7 @@
 
    <extension point="org.eclipse.emf.ecore.generated_package">
       <package
-            uri="http://www.eclipse.org/b3/2010/aggregator/1.0.0"
+            uri="http://www.eclipse.org/cbi/p2repo/2010/aggregator/1.0.0"
             class="org.eclipse.cbi.p2repo.aggregator.AggregatorPackage"
             genModel="model/Aggregator.genmodel"/>
    </extension>
@@ -31,7 +31,7 @@
    <extension point="org.eclipse.emf.ecore.generated_package">
       <!-- @generated Aggregator -->
       <package
-            uri="http://www.eclipse.org/b3/2010/aggregator/p2view/1.0.0"
+            uri="http://www.eclipse.org/cbi/p2repo/2010/aggregator/p2view/1.0.0"
             class="org.eclipse.cbi.p2repo.aggregator.p2view.P2viewPackage"
             genModel="model/Aggregator.genmodel"/>
    </extension>

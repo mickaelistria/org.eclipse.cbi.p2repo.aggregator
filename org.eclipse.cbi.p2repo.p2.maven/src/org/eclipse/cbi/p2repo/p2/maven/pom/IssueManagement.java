@@ -60,9 +60,7 @@ public interface IssueManagement extends EObject {
 	/**
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.IssueManagement#getSystem <em>System</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
-	 * @param value
-	 *            the new value of the '<em>System</em>' attribute.
+	 * @param value the new value of the '<em>System</em>' attribute.
 	 * @see #getSystem()
 	 * @generated
 	 */
@@ -71,9 +69,7 @@ public interface IssueManagement extends EObject {
 	/**
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.IssueManagement#getUrl <em>Url</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
-	 * @param value
-	 *            the new value of the '<em>Url</em>' attribute.
+	 * @param value the new value of the '<em>Url</em>' attribute.
 	 * @see #getUrl()
 	 * @generated
 	 */

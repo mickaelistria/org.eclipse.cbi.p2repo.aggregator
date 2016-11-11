@@ -12,7 +12,7 @@
 
    <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
       <factory
-            uri="http://www.eclipse.org/b3/2010/aggregator/1.0.0"
+            uri="http://www.eclipse.org/cbi/p2repo/2010/aggregator/1.0.0"
             class="org.eclipse.cbi.p2repo.aggregator.provider.AggregatorItemProviderAdapterFactory"
             supportedTypes=
               "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
@@ -25,7 +25,7 @@
    <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
       <!-- @generated Aggregator -->
       <factory
-            uri="http://www.eclipse.org/b3/2010/aggregator/p2view/1.0.0"
+            uri="http://www.eclipse.org/cbi/p2repo/2010/aggregator/p2view/1.0.0"
             class="org.eclipse.cbi.p2repo.aggregator.p2view.provider.P2viewItemProviderAdapterFactory"
             supportedTypes=
               "org.eclipse.emf.edit.provider.IEditingDomainItemProvider

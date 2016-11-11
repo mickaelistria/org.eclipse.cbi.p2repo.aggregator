@@ -6,7 +6,7 @@ code generator can be extended.
 TODO:
 This can be disabled with -vmargs -Dorg.eclipse.emf.examples.generator.validator=false.
 
-Package aggregator <http://www.eclipse.org/b3/2011/aggregator/1.1.0>
+Package aggregator <http://www.eclipse.org/cbi/p2repo/2011/aggregator/1.1.0>
 
   Class Aggregation -> DescriptionProvider, StatusProvider, InfosProvider
     Reference validationSets : ValidationSet<<0..*>>

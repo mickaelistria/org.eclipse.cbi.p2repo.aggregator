@@ -20,13 +20,13 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * <!-- begin-user-doc --> An implementation of the model object '<em><b>Versioning</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * <ul>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.metadata.impl.VersioningImpl#getRelease <em>Release</em>}</li>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.metadata.impl.VersioningImpl#getLatest <em>Latest</em>}</li>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.metadata.impl.VersioningImpl#getVersions <em>Versions</em>}</li>
- * <li>{@link org.eclipse.cbi.p2repo.p2.maven.metadata.impl.VersioningImpl#getLastUpdated <em>Last Updated</em>}</li>
- * </ul>
  * </p>
+ * <ul>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.metadata.impl.VersioningImpl#getRelease <em>Release</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.metadata.impl.VersioningImpl#getLatest <em>Latest</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.metadata.impl.VersioningImpl#getVersions <em>Versions</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.metadata.impl.VersioningImpl#getLastUpdated <em>Last Updated</em>}</li>
+ * </ul>
  *
  * @generated
  */
@@ -35,7 +35,6 @@ public class VersioningImpl extends EObjectImpl implements Versioning {
 	 * The default value of the '{@link #getRelease() <em>Release</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 *
 	 * @see #getRelease()
 	 * @generated
 	 * @ordered
@@ -46,7 +45,6 @@ public class VersioningImpl extends EObjectImpl implements Versioning {
 	 * The cached value of the '{@link #getRelease() <em>Release</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 *
 	 * @see #getRelease()
 	 * @generated
 	 * @ordered
@@ -57,7 +55,6 @@ public class VersioningImpl extends EObjectImpl implements Versioning {
 	 * The default value of the '{@link #getLatest() <em>Latest</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @see #getLatest()
 	 * @generated
 	 * @ordered
@@ -68,7 +65,6 @@ public class VersioningImpl extends EObjectImpl implements Versioning {
 	 * The cached value of the '{@link #getLatest() <em>Latest</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @see #getLatest()
 	 * @generated
 	 * @ordered
@@ -79,7 +75,6 @@ public class VersioningImpl extends EObjectImpl implements Versioning {
 	 * The cached value of the '{@link #getVersions() <em>Versions</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @see #getVersions()
 	 * @generated
 	 * @ordered
@@ -90,7 +85,6 @@ public class VersioningImpl extends EObjectImpl implements Versioning {
 	 * The default value of the '{@link #getLastUpdated() <em>Last Updated</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @see #getLastUpdated()
 	 * @generated
 	 * @ordered
@@ -101,7 +95,6 @@ public class VersioningImpl extends EObjectImpl implements Versioning {
 	 * The cached value of the '{@link #getLastUpdated() <em>Last Updated</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 *
 	 * @see #getLastUpdated()
 	 * @generated
 	 * @ordered
@@ -110,7 +103,6 @@ public class VersioningImpl extends EObjectImpl implements Versioning {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	protected VersioningImpl() {
@@ -119,31 +111,25 @@ public class VersioningImpl extends EObjectImpl implements Versioning {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	public NotificationChain basicSetVersions(Versions newVersions, NotificationChain msgs) {
 		Versions oldVersions = versions;
 		versions = newVersions;
-		if(eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(
-				this, Notification.SET, MetadataPackage.VERSIONING__VERSIONS, oldVersions, newVersions);
-			if(msgs == null)
-				msgs = notification;
-			else
-				msgs.add(notification);
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MetadataPackage.VERSIONING__VERSIONS, oldVersions, newVersions);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch(featureID) {
+		switch (featureID) {
 			case MetadataPackage.VERSIONING__RELEASE:
 				return getRelease();
 			case MetadataPackage.VERSIONING__LATEST:
@@ -158,12 +144,11 @@ public class VersioningImpl extends EObjectImpl implements Versioning {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch(featureID) {
+		switch (featureID) {
 			case MetadataPackage.VERSIONING__VERSIONS:
 				return basicSetVersions(null, msgs);
 		}
@@ -172,49 +157,41 @@ public class VersioningImpl extends EObjectImpl implements Versioning {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch(featureID) {
+		switch (featureID) {
 			case MetadataPackage.VERSIONING__RELEASE:
-				return RELEASE_EDEFAULT == null
-						? release != null
-						: !RELEASE_EDEFAULT.equals(release);
+				return RELEASE_EDEFAULT == null ? release != null : !RELEASE_EDEFAULT.equals(release);
 			case MetadataPackage.VERSIONING__LATEST:
-				return LATEST_EDEFAULT == null
-						? latest != null
-						: !LATEST_EDEFAULT.equals(latest);
+				return LATEST_EDEFAULT == null ? latest != null : !LATEST_EDEFAULT.equals(latest);
 			case MetadataPackage.VERSIONING__VERSIONS:
 				return versions != null;
 			case MetadataPackage.VERSIONING__LAST_UPDATED:
-				return LAST_UPDATED_EDEFAULT == null
-						? lastUpdated != null
-						: !LAST_UPDATED_EDEFAULT.equals(lastUpdated);
+				return LAST_UPDATED_EDEFAULT == null ? lastUpdated != null : !LAST_UPDATED_EDEFAULT.equals(lastUpdated);
 		}
 		return super.eIsSet(featureID);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch(featureID) {
+		switch (featureID) {
 			case MetadataPackage.VERSIONING__RELEASE:
-				setRelease((String) newValue);
+				setRelease((String)newValue);
 				return;
 			case MetadataPackage.VERSIONING__LATEST:
-				setLatest((String) newValue);
+				setLatest((String)newValue);
 				return;
 			case MetadataPackage.VERSIONING__VERSIONS:
-				setVersions((Versions) newValue);
+				setVersions((Versions)newValue);
 				return;
 			case MetadataPackage.VERSIONING__LAST_UPDATED:
-				setLastUpdated((String) newValue);
+				setLastUpdated((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -222,12 +199,11 @@ public class VersioningImpl extends EObjectImpl implements Versioning {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
-		switch(featureID) {
+		switch (featureID) {
 			case MetadataPackage.VERSIONING__RELEASE:
 				setRelease(RELEASE_EDEFAULT);
 				return;
@@ -235,7 +211,7 @@ public class VersioningImpl extends EObjectImpl implements Versioning {
 				setLatest(LATEST_EDEFAULT);
 				return;
 			case MetadataPackage.VERSIONING__VERSIONS:
-				setVersions((Versions) null);
+				setVersions((Versions)null);
 				return;
 			case MetadataPackage.VERSIONING__LAST_UPDATED:
 				setLastUpdated(LAST_UPDATED_EDEFAULT);
@@ -246,7 +222,6 @@ public class VersioningImpl extends EObjectImpl implements Versioning {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -257,7 +232,6 @@ public class VersioningImpl extends EObjectImpl implements Versioning {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -267,7 +241,6 @@ public class VersioningImpl extends EObjectImpl implements Versioning {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -277,7 +250,6 @@ public class VersioningImpl extends EObjectImpl implements Versioning {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -287,79 +259,67 @@ public class VersioningImpl extends EObjectImpl implements Versioning {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public void setLastUpdated(String newLastUpdated) {
 		String oldLastUpdated = lastUpdated;
 		lastUpdated = newLastUpdated;
-		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(
-				this, Notification.SET, MetadataPackage.VERSIONING__LAST_UPDATED, oldLastUpdated, lastUpdated));
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MetadataPackage.VERSIONING__LAST_UPDATED, oldLastUpdated, lastUpdated));
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public void setLatest(String newLatest) {
 		String oldLatest = latest;
 		latest = newLatest;
-		if(eNotificationRequired())
+		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, MetadataPackage.VERSIONING__LATEST, oldLatest, latest));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public void setRelease(String newRelease) {
 		String oldRelease = release;
 		release = newRelease;
-		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(
-				this, Notification.SET, MetadataPackage.VERSIONING__RELEASE, oldRelease, release));
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MetadataPackage.VERSIONING__RELEASE, oldRelease, release));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public void setVersions(Versions newVersions) {
-		if(newVersions != versions) {
+		if (newVersions != versions) {
 			NotificationChain msgs = null;
-			if(versions != null)
-				msgs = ((InternalEObject) versions).eInverseRemove(this, EOPPOSITE_FEATURE_BASE -
-						MetadataPackage.VERSIONING__VERSIONS, null, msgs);
-			if(newVersions != null)
-				msgs = ((InternalEObject) newVersions).eInverseAdd(this, EOPPOSITE_FEATURE_BASE -
-						MetadataPackage.VERSIONING__VERSIONS, null, msgs);
+			if (versions != null)
+				msgs = ((InternalEObject)versions).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MetadataPackage.VERSIONING__VERSIONS, null, msgs);
+			if (newVersions != null)
+				msgs = ((InternalEObject)newVersions).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MetadataPackage.VERSIONING__VERSIONS, null, msgs);
 			msgs = basicSetVersions(newVersions, msgs);
-			if(msgs != null)
-				msgs.dispatch();
+			if (msgs != null) msgs.dispatch();
 		}
-		else if(eNotificationRequired())
-			eNotify(new ENotificationImpl(
-				this, Notification.SET, MetadataPackage.VERSIONING__VERSIONS, newVersions, newVersions));
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MetadataPackage.VERSIONING__VERSIONS, newVersions, newVersions));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public String toString() {
-		if(eIsProxy())
-			return super.toString();
+		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (release: ");
@@ -374,7 +334,6 @@ public class VersioningImpl extends EObjectImpl implements Versioning {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
