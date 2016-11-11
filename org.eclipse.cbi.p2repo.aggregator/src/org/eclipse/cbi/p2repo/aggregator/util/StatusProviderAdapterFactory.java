@@ -8,7 +8,7 @@
 
 package org.eclipse.cbi.p2repo.aggregator.util;
 
-import org.eclipse.b3.p2.InstallableUnit;
+import org.eclipse.cbi.p2repo.p2.InstallableUnit;
 import org.eclipse.cbi.p2repo.aggregator.Status;
 import org.eclipse.cbi.p2repo.aggregator.StatusProvider;
 import org.eclipse.emf.common.notify.Adapter;

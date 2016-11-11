@@ -6,12 +6,12 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.eclipse.b3.p2.InstallableUnit;
-import org.eclipse.b3.p2.MetadataRepository;
-import org.eclipse.b3.p2.P2Factory;
-import org.eclipse.b3.p2.impl.InstallableUnitImpl;
-import org.eclipse.b3.p2.impl.ProvidedCapabilityImpl;
-import org.eclipse.b3.p2.util.P2Bridge;
+import org.eclipse.cbi.p2repo.p2.InstallableUnit;
+import org.eclipse.cbi.p2repo.p2.MetadataRepository;
+import org.eclipse.cbi.p2repo.p2.P2Factory;
+import org.eclipse.cbi.p2repo.p2.impl.InstallableUnitImpl;
+import org.eclipse.cbi.p2repo.p2.impl.ProvidedCapabilityImpl;
+import org.eclipse.cbi.p2repo.p2.util.P2Bridge;
 import org.eclipse.cbi.p2repo.aggregator.Aggregation;
 import org.eclipse.cbi.p2repo.aggregator.Category;
 import org.eclipse.cbi.p2repo.aggregator.Contribution;

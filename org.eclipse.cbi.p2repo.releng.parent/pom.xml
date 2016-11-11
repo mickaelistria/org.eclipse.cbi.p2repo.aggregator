@@ -3,8 +3,8 @@
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>org.eclipse.b3</groupId>
-  <artifactId>org.eclipse.b3.releng.parent</artifactId>
+  <groupId>org.eclipse.cbi</groupId>
+  <artifactId>org.eclipse.cbi.p2repo.releng.parent</artifactId>
   <version>1.0.100-SNAPSHOT</version>
   <packaging>pom</packaging>
   <properties>
@@ -32,7 +32,7 @@
      -->
     <dirtyworkingTree>error</dirtyworkingTree>
     
-    <comparatorMode>warn</comparatorMode>
+    <comparatorMode>disable</comparatorMode>
     <!-- 
        This 'updateRelease' value is not used in the build, per se, but when we "deploy" to 
        the update site locations. It reflects, basically, the version of the platform that it 
@@ -363,7 +363,7 @@
         <configuration>
           <target>
             <artifact>
-              <groupId>org.eclipse.b3</groupId>
+              <groupId>org.eclipse.cbi</groupId>
               <artifactId>b3.aggregator.prereqs</artifactId>
               <version>1.0.100-SNAPSHOT</version>
             </artifact>

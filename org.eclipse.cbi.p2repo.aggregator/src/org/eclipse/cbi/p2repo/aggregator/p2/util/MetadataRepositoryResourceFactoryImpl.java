@@ -12,8 +12,8 @@ import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import org.eclipse.b3.p2.loader.IRepositoryLoader;
-import org.eclipse.b3.p2.util.RepositoryLoaderUtils;
+import org.eclipse.cbi.p2repo.p2.loader.IRepositoryLoader;
+import org.eclipse.cbi.p2repo.p2.util.RepositoryLoaderUtils;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IConfigurationElement;
 import org.eclipse.emf.common.util.URI;

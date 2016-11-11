@@ -19,7 +19,7 @@ package org.eclipse.cbi.p2repo.aggregator;
  * </ul>
  *
  * @see org.eclipse.cbi.p2repo.aggregator.AggregatorPackage#getProperty()
- * @model superTypes="org.eclipse.b3.p2.Comparable<org.eclipse.cbi.p2repo.aggregator.Property>"
+ * @model superTypes="org.eclipse.cbi.p2repo.p2.Comparable<org.eclipse.cbi.p2repo.aggregator.Property>"
  * @generated
  */
 public interface Property extends Comparable<Property> {

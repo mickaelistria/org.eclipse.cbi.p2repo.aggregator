@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feature
-      id="org.eclipse.b3.p2.maven.indexer.feature"
+      id="org.eclipse.cbi.p2repo.p2.maven.indexer.feature"
       label="%featureName"
       version="1.0.100.qualifier"
       provider-name="%providerName"

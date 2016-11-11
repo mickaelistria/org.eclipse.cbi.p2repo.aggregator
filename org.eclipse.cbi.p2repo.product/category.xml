@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <site>
-   <feature id="org.eclipse.b3.aggregator.engine.feature" version="0.0.0">
-      <category name="org.eclipse.b3.headless"/>
+   <feature id="org.eclipse.cbi.p2repo.aggregator.engine.feature" version="0.0.0">
+      <category name="org.eclipse.cbi.p2repo.headless"/>
    </feature>
-   <category-def name="org.eclipse.b3.headless" label="CBI Aggregator Headless Build System">
+   <category-def name="org.eclipse.cbi.p2repo.headless" label="CBI Aggregator Headless Build System">
       <description>
          The CBI p2 Repository Aggregator headless features
       </description>
    </category-def>
-   <feature id="org.eclipse.b3.p2.maven.indexer.feature" version="0.0.0" />
+   <feature id="org.eclipse.cbi.p2repo.p2.maven.indexer.feature" version="0.0.0" />
 </site>

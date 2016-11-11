@@ -16,9 +16,9 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
-import org.eclipse.b3.p2.MetadataRepository;
-import org.eclipse.b3.p2.util.P2Bridge;
-import org.eclipse.b3.p2.util.P2Utils;
+import org.eclipse.cbi.p2repo.p2.MetadataRepository;
+import org.eclipse.cbi.p2repo.p2.util.P2Bridge;
+import org.eclipse.cbi.p2repo.p2.util.P2Utils;
 import org.eclipse.cbi.p2repo.aggregator.Aggregation;
 import org.eclipse.cbi.p2repo.aggregator.Configuration;
 import org.eclipse.cbi.p2repo.aggregator.Contribution;

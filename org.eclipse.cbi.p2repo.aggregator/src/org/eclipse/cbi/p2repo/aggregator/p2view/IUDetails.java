@@ -43,7 +43,7 @@ public interface IUDetails {
 	 * @return the value of the '<em>Copyright</em>' containment reference.
 	 * @see #setCopyright(ICopyright)
 	 * @see org.eclipse.cbi.p2repo.aggregator.p2view.P2viewPackage#getIUDetails_Copyright()
-	 * @model type="org.eclipse.b3.p2.ICopyright" containment="true"
+	 * @model type="org.eclipse.cbi.p2repo.p2.ICopyright" containment="true"
 	 * @generated
 	 */
 	ICopyright getCopyright();
@@ -133,7 +133,7 @@ public interface IUDetails {
 	 * @return the value of the '<em>Update Descriptor</em>' containment reference.
 	 * @see #setUpdateDescriptor(IUpdateDescriptor)
 	 * @see org.eclipse.cbi.p2repo.aggregator.p2view.P2viewPackage#getIUDetails_UpdateDescriptor()
-	 * @model type="org.eclipse.b3.p2.IUpdateDescriptor" containment="true"
+	 * @model type="org.eclipse.cbi.p2repo.p2.IUpdateDescriptor" containment="true"
 	 * @generated
 	 */
 	IUpdateDescriptor getUpdateDescriptor();

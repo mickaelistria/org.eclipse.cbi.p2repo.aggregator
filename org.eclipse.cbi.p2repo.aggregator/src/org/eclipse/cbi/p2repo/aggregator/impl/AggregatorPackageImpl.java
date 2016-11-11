@@ -6,7 +6,7 @@
  */
 package org.eclipse.cbi.p2repo.aggregator.impl;
 
-import org.eclipse.b3.p2.P2Package;
+import org.eclipse.cbi.p2repo.p2.P2Package;
 import org.eclipse.cbi.p2repo.aggregator.Aggregation;
 import org.eclipse.cbi.p2repo.aggregator.AggregationType;
 import org.eclipse.cbi.p2repo.aggregator.AggregatorFactory;

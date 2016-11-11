@@ -15,6 +15,7 @@ import java.util.List;
 import org.eclipse.cbi.p2repo.aggregator.AggregatorPackage;
 import org.eclipse.cbi.p2repo.aggregator.AvailableFrom;
 import org.eclipse.cbi.p2repo.aggregator.AvailableVersion;
+import org.eclipse.cbi.p2repo.aggregator.VersionMatch;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.ResourceLocator;

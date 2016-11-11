@@ -24,7 +24,7 @@ import org.eclipse.equinox.p2.repository.IRepositoryReference;
  * </ul>
  *
  * @see org.eclipse.cbi.p2repo.aggregator.p2view.P2viewPackage#getRepositoryReferences()
- * @model superTypes="org.eclipse.cbi.p2repo.aggregator.ChildrenProvider<org.eclipse.b3.p2.IRepositoryReference>"
+ * @model superTypes="org.eclipse.cbi.p2repo.aggregator.ChildrenProvider<org.eclipse.cbi.p2repo.p2.IRepositoryReference>"
  * @generated
  */
 public interface RepositoryReferences extends ChildrenProvider<IRepositoryReference> {
@@ -38,7 +38,7 @@ public interface RepositoryReferences extends ChildrenProvider<IRepositoryRefere
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Repository References</em>' reference list.
 	 * @see org.eclipse.cbi.p2repo.aggregator.p2view.P2viewPackage#getRepositoryReferences_RepositoryReferences()
-	 * @model type="org.eclipse.b3.p2.IRepositoryReference"
+	 * @model type="org.eclipse.cbi.p2repo.p2.IRepositoryReference"
 	 * @generated
 	 */
 	EList<IRepositoryReference> getRepositoryReferences();

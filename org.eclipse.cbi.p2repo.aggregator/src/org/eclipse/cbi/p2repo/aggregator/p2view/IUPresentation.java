@@ -114,7 +114,7 @@ public interface IUPresentation {
 	 * @return the value of the '<em>Installable Unit</em>' reference.
 	 * @see #setInstallableUnit(IInstallableUnit)
 	 * @see org.eclipse.cbi.p2repo.aggregator.p2view.P2viewPackage#getIUPresentation_InstallableUnit()
-	 * @model type="org.eclipse.b3.p2.IInstallableUnit" resolveProxies="false"
+	 * @model type="org.eclipse.cbi.p2repo.p2.IInstallableUnit" resolveProxies="false"
 	 * @generated
 	 */
 	IInstallableUnit getInstallableUnit();
@@ -177,7 +177,7 @@ public interface IUPresentation {
 	 * @return the value of the '<em>Version</em>' attribute.
 	 * @see #setVersion(Version)
 	 * @see org.eclipse.cbi.p2repo.aggregator.p2view.P2viewPackage#getIUPresentation_Version()
-	 * @model dataType="org.eclipse.b3.p2.Version"
+	 * @model dataType="org.eclipse.cbi.p2repo.p2.Version"
 	 * @generated
 	 */
 	Version getVersion();

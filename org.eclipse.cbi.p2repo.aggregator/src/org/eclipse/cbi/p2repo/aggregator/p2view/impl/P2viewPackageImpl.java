@@ -9,7 +9,7 @@
  */
 package org.eclipse.cbi.p2repo.aggregator.p2view.impl;
 
-import org.eclipse.b3.p2.P2Package;
+import org.eclipse.cbi.p2repo.p2.P2Package;
 import org.eclipse.cbi.p2repo.aggregator.AggregatorPackage;
 import org.eclipse.cbi.p2repo.aggregator.impl.AggregatorPackageImpl;
 import org.eclipse.cbi.p2repo.aggregator.p2view.Bundle;

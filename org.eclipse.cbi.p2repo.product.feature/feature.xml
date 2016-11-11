@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feature
-  id="org.eclipse.b3.product.feature"
+  id="org.eclipse.cbi.p2repo.product.feature"
   label="%featureName"
   version="1.0.100.qualifier"
   provider-name="%providerName"
@@ -26,9 +26,9 @@
     id="org.eclipse.equinox.core.feature"
     version="0.0.0" />
   <includes
-    id="org.eclipse.b3.aggregator.engine.feature"
+    id="org.eclipse.cbi.p2repo.aggregator.engine.feature"
     version="0.0.0" />
   <includes
-    id="org.eclipse.b3.p2.maven.indexer.feature"
+    id="org.eclipse.cbi.p2repo.p2.maven.indexer.feature"
     version="0.0.0" />
 </feature>

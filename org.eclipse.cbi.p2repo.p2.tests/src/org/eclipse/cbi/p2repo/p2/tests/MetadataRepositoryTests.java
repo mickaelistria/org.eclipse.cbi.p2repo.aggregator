@@ -11,12 +11,12 @@ package org.eclipse.cbi.p2repo.p2.tests;
 import java.io.File;
 import java.util.Iterator;
 
-import org.eclipse.b3.p2.P2Factory;
-import org.eclipse.b3.p2.impl.InstallableUnitImpl;
-import org.eclipse.b3.p2.impl.MetadataRepositoryImpl;
-import org.eclipse.b3.p2.impl.RequiredCapabilityImpl;
-import org.eclipse.b3.p2.util.P2Bridge;
-import org.eclipse.b3.p2.util.P2Utils;
+import org.eclipse.cbi.p2repo.p2.P2Factory;
+import org.eclipse.cbi.p2repo.p2.impl.InstallableUnitImpl;
+import org.eclipse.cbi.p2repo.p2.impl.MetadataRepositoryImpl;
+import org.eclipse.cbi.p2repo.p2.impl.RequiredCapabilityImpl;
+import org.eclipse.cbi.p2repo.p2.util.P2Bridge;
+import org.eclipse.cbi.p2repo.p2.util.P2Utils;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.emf.common.util.Diagnostic;

@@ -13,20 +13,27 @@
    <extension point="org.eclipse.emf.ecore.generated_package">
       <package
             uri="http://www.eclipse.org/b3/2010/p2/1.0.0"
-            class="org.eclipse.b3.p2.P2Package"
+            class="org.eclipse.cbi.p2repo.p2.P2Package"
             genModel="model/p2.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.extension_parser">
+      <!-- @generated p2 -->
+      <parser
+            type="p2"
+            class="org.eclipse.cbi.p2repo.p2.util.P2ResourceFactoryImpl"/>
    </extension>
 
    <extension
          point="org.eclipse.cbi.p2repo.p2.loader">
       <loader
       		nature="p2"
-            class="org.eclipse.b3.p2.loader.impl.P2RepositoryLoader"/>
+            class="org.eclipse.cbi.p2repo.p2.loader.impl.P2RepositoryLoader"/>
    </extension>
    <extension
          point="org.eclipse.emf.ecore.protocol_parser">
       <parser
-            class="org.eclipse.b3.p2.util.P2ResourceFactoryImpl"
+            class="org.eclipse.cbi.p2repo.p2.util.P2ResourceFactoryImpl"
             protocolName="b3">
       </parser>
    </extension>

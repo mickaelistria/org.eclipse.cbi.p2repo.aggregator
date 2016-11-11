@@ -16,10 +16,10 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import org.eclipse.b3.p2.MetadataRepository;
-import org.eclipse.b3.p2.impl.InstallableUnitImpl;
-import org.eclipse.b3.p2.util.P2Utils;
-import org.eclipse.b3.p2.util.RepositoryTranslationSupport;
+import org.eclipse.cbi.p2repo.p2.MetadataRepository;
+import org.eclipse.cbi.p2repo.p2.impl.InstallableUnitImpl;
+import org.eclipse.cbi.p2repo.p2.util.P2Utils;
+import org.eclipse.cbi.p2repo.p2.util.RepositoryTranslationSupport;
 import org.eclipse.cbi.p2repo.aggregator.AggregatorPackage;
 import org.eclipse.cbi.p2repo.aggregator.IAggregatorConstants;
 import org.eclipse.cbi.p2repo.aggregator.InstallableUnitRequest;

@@ -10,7 +10,7 @@ package org.eclipse.cbi.p2repo.aggregator.legacy;
 
 import java.util.Map;
 
-import org.eclipse.b3.p2.util.IUUtils;
+import org.eclipse.cbi.p2repo.p2.util.IUUtils;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;

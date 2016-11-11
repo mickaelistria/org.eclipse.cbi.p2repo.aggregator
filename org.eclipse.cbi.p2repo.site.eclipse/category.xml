@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <site>
-   <feature id="org.eclipse.b3.aggregator.editor.feature" version="0.0.0">
+   <feature id="org.eclipse.cbi.p2repo.aggregator.editor.feature" version="0.0.0">
       <category name="org.eclipse.cbi.p2Repo.aggregator"/>
    </feature>
-   <feature id="org.eclipse.b3.aggregator.editor.feature.source" version="0.0.0">
+   <feature id="org.eclipse.cbi.p2repo.aggregator.editor.feature.source" version="0.0.0">
       <category name="org.eclipse.cbi.p2Repo.aggregator.misc"/>
    </feature>
-   <feature id="org.eclipse.b3.aggregator.engine.feature.source" version="0.0.0">
+   <feature id="org.eclipse.cbi.p2repo.aggregator.engine.feature.source" version="0.0.0">
       <category name="org.eclipse.cbi.p2Repo.aggregator.misc"/>
    </feature>
-   <feature id="org.eclipse.b3.p2.maven.indexer.feature" version="0.0.0">
+   <feature id="org.eclipse.cbi.p2repo.p2.maven.indexer.feature" version="0.0.0">
       <category name="org.eclipse.cbi.p2Repo.aggregator.misc"/>
    </feature>
-   <feature id="org.eclipse.b3.p2.maven.indexer.feature.source" version="0.0.0">
+   <feature id="org.eclipse.cbi.p2repo.p2.maven.indexer.feature.source" version="0.0.0">
       <category name="org.eclipse.cbi.p2Repo.aggregator.misc"/>
    </feature>
-   <feature id="org.eclipse.b3.tests.feature" version="0.0.0">
+   <feature id="org.eclipse.cbi.p2repo.tests.feature" version="0.0.0">
       <category name="org.eclipse.cbi.p2Repo.aggregator.misc"/>
    </feature>
-   <feature id="org.eclipse.b3.tests.feature.source" version="0.0.0">
+   <feature id="org.eclipse.cbi.p2repo.tests.feature.source" version="0.0.0">
       <category name="org.eclipse.cbi.p2Repo.aggregator.misc"/>
    </feature>
    <category-def name="org.eclipse.cbi.p2Repo.aggregator" label="Eclipse CBI p2Repo Aggregator Editor">

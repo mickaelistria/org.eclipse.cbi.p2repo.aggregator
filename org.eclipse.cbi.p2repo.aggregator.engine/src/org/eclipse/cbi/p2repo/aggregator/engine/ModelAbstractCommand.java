@@ -10,7 +10,7 @@ package org.eclipse.cbi.p2repo.aggregator.engine;
 
 import java.io.File;
 
-import org.eclipse.b3.p2.util.ResourceSetWithAgent;
+import org.eclipse.cbi.p2repo.p2.util.ResourceSetWithAgent;
 import org.eclipse.cbi.p2repo.aggregator.Aggregation;
 import org.eclipse.cbi.p2repo.aggregator.transformer.TransformationManager;
 import org.eclipse.cbi.p2repo.aggregator.util.ResourceUtils;

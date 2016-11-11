@@ -12,7 +12,7 @@ package org.eclipse.cbi.p2repo.aggregator.p2view.provider;
 import java.util.Collection;
 import java.util.List;
 
-import org.eclipse.b3.p2.P2Package;
+import org.eclipse.cbi.p2repo.p2.P2Package;
 import org.eclipse.cbi.p2repo.aggregator.AggregatorPackage;
 import org.eclipse.cbi.p2repo.aggregator.LabelProvider;
 import org.eclipse.cbi.p2repo.aggregator.p2view.P2viewPackage;
@@ -35,6 +35,7 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.eclipse.equinox.internal.p2.metadata.IRequiredCapability;
+import org.eclipse.equinox.p2.metadata.expression.IMatchExpression;
 
 /**
  * This is the item provider adapter for a {@link org.eclipse.cbi.p2repo.aggregator.p2view.RequirementWrapper} object.

@@ -4,15 +4,15 @@
 	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
-		<groupId>org.eclipse.b3</groupId>
-		<artifactId>org.eclipse.b3.releng.parent</artifactId>
+		<groupId>org.eclipse.cbi</groupId>
+		<artifactId>org.eclipse.cbi.p2repo.releng.parent</artifactId>
 		<version>1.0.100-SNAPSHOT</version>
-		<relativePath>../org.eclipse.b3.releng.parent</relativePath>
+		<relativePath>../org.eclipse.cbi.p2repo.releng.parent</relativePath>
 	</parent>
 
 	<packaging>eclipse-target-definition</packaging>
 	<artifactId>b3.aggregator.prereqs</artifactId>
     <name>b3.aggregator.prereqs</name>
-	<groupId>org.eclipse.b3</groupId>
+	<groupId>org.eclipse.cbi</groupId>
 	<version>1.0.100-SNAPSHOT</version>
 </project>

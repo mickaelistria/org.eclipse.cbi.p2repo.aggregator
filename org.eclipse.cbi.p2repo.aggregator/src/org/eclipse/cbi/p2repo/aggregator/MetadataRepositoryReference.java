@@ -9,7 +9,7 @@
  */
 package org.eclipse.cbi.p2repo.aggregator;
 
-import org.eclipse.b3.p2.MetadataRepository;
+import org.eclipse.cbi.p2repo.p2.MetadataRepository;
 
 /**
  * <!-- begin-user-doc --> A representation of the model object '<em><b>Metadata Repository Reference</b></em>'. <!--
@@ -74,6 +74,16 @@ public interface MetadataRepositoryReference extends EnabledStatusProvider, Stat
 	MetadataRepository getMetadataRepository();
 
 	/**
+	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.aggregator.MetadataRepositoryReference#getMetadataRepository <em>Metadata Repository</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Metadata Repository</em>' reference.
+	 * @see #getMetadataRepository()
+	 * @generated
+	 */
+	void setMetadataRepository(MetadataRepository value);
+
+	/**
 	 * Returns the value of the '<em><b>Metadata Repository</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -134,15 +144,6 @@ public interface MetadataRepositoryReference extends EnabledStatusProvider, Stat
 	 * @generated
 	 */
 	void setLocation(String value);
-
-	/**
-	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.aggregator.MetadataRepositoryReference#getMetadataRepository <em>Metadata Repository</em>}' reference.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Metadata Repository</em>' reference.
-	 * @see #getMetadataRepository()
-	 * @generated
-	 */
-	void setMetadataRepository(MetadataRepository value);
 
 	/**
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.aggregator.MetadataRepositoryReference#getNature <em>Nature</em>}' attribute.

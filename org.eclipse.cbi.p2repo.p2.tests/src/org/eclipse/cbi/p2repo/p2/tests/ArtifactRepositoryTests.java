@@ -12,8 +12,8 @@ import java.util.Set;
 
 import junit.framework.Assert;
 
-import org.eclipse.b3.p2.util.P2Bridge;
-import org.eclipse.b3.p2.util.P2Utils;
+import org.eclipse.cbi.p2repo.p2.util.P2Bridge;
+import org.eclipse.cbi.p2repo.p2.util.P2Utils;
 import org.eclipse.equinox.p2.metadata.IArtifactKey;
 import org.eclipse.equinox.p2.metadata.expression.ExpressionUtil;
 import org.eclipse.equinox.p2.query.IQuery;

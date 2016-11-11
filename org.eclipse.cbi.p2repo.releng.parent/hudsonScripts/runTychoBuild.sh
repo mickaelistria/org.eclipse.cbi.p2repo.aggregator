@@ -71,7 +71,7 @@ fi
 # = = = = = = Build is over, now for some follow-up work. = = = = =
 # In this section we convert the mavenproperties.properties into a format 
 # that can be read by bash an by PHP. 
-propertiesfile="${build_home}/org.eclipse.cbi.p2repo.aggregator/org.eclipse.b3.product/target/mavenproperties.properties"
+propertiesfile="${build_home}/org.eclipse.cbi.p2repo.aggregator/org.eclipse.cbi.p2repo.product/target/mavenproperties.properties"
 sourceProperties="${build_home}/mavenproperties.shsource"
 phpProperties="${build_home}/mavenproperties.php"
 
@@ -132,4 +132,4 @@ convertProperties $propertiesfile $sourceProperties $phpProperties
 cp $propertiesfile ${build_home}/mavenproperties.properites
 
 # Test our own repository!
-${build_home}/org.eclipse.cbi.p2repo.aggregator/org.eclipse.b3.releng.parent/hudsonScripts/testOurRepo.sh
+${build_home}/org.eclipse.cbi.p2repo.aggregator/org.eclipse.cbi.p2repo.releng.parent/hudsonScripts/testOurRepo.sh

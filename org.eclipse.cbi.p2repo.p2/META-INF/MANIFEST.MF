@@ -7,10 +7,10 @@ Bundle-ClassPath: .
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
-Export-Package: org.eclipse.b3.p2,
- org.eclipse.b3.p2.impl,
- org.eclipse.b3.p2.loader,
- org.eclipse.b3.p2.util
+Export-Package: org.eclipse.cbi.p2repo.p2,
+ org.eclipse.cbi.p2repo.p2.impl,
+ org.eclipse.cbi.p2repo.p2.loader,
+ org.eclipse.cbi.p2repo.p2.util
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore;visibility:=reexport,
  org.eclipse.emf.ecore.xmi;visibility:=reexport,
@@ -22,3 +22,4 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.equinox.p2.director,
  org.eclipse.equinox.p2.engine,
  org.eclipse.equinox.p2.artifact.repository
+Bundle-ActivationPolicy: lazy

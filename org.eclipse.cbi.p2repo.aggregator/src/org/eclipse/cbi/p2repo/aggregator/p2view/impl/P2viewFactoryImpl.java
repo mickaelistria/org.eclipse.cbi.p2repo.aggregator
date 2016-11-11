@@ -14,12 +14,13 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
-import org.eclipse.b3.p2.MetadataRepository;
-import org.eclipse.b3.p2.util.P2Utils;
+import org.eclipse.cbi.p2repo.p2.MetadataRepository;
+import org.eclipse.cbi.p2repo.p2.util.P2Utils;
 import org.eclipse.cbi.p2repo.aggregator.Aggregation;
 import org.eclipse.cbi.p2repo.aggregator.AggregatorFactory;
 import org.eclipse.cbi.p2repo.aggregator.LabelProvider;
 import org.eclipse.cbi.p2repo.aggregator.Property;
+import org.eclipse.cbi.p2repo.aggregator.p2view.*;
 import org.eclipse.cbi.p2repo.aggregator.p2view.Bundle;
 import org.eclipse.cbi.p2repo.aggregator.p2view.Bundles;
 import org.eclipse.cbi.p2repo.aggregator.p2view.Categories;

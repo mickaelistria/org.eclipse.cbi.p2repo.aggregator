@@ -12,8 +12,8 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 
-import org.eclipse.b3.p2.P2Factory;
-import org.eclipse.b3.p2.P2Package;
+import org.eclipse.cbi.p2repo.p2.P2Factory;
+import org.eclipse.cbi.p2repo.p2.P2Package;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.ResourceLocator;
@@ -31,7 +31,6 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * This is the item provider adapter for a {@link java.util.Map.Entry} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
- *
  * @generated
  */
 public class ArtifactsByKeyItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider,
@@ -40,7 +39,6 @@ public class ArtifactsByKeyItemProvider extends ItemProviderAdapter implements I
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	public ArtifactsByKeyItemProvider(AdapterFactory adapterFactory) {
@@ -52,27 +50,31 @@ public class ArtifactsByKeyItemProvider extends ItemProviderAdapter implements I
 	 * that can be created under this object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 
-		newChildDescriptors.add(createChildParameter(
-			P2Package.Literals.ARTIFACTS_BY_KEY__KEY, P2Factory.eINSTANCE.createArtifactKey()));
+		newChildDescriptors.add
+			(createChildParameter
+				(P2Package.Literals.ARTIFACTS_BY_KEY__KEY,
+				 P2Factory.eINSTANCE.createArtifactKey()));
 
-		newChildDescriptors.add(createChildParameter(
-			P2Package.Literals.ARTIFACTS_BY_KEY__VALUE, P2Factory.eINSTANCE.createArtifactDescriptor()));
+		newChildDescriptors.add
+			(createChildParameter
+				(P2Package.Literals.ARTIFACTS_BY_KEY__VALUE,
+				 P2Factory.eINSTANCE.createArtifactDescriptor()));
 
-		newChildDescriptors.add(createChildParameter(
-			P2Package.Literals.ARTIFACTS_BY_KEY__VALUE, P2Factory.eINSTANCE.createSimpleArtifactDescriptor()));
+		newChildDescriptors.add
+			(createChildParameter
+				(P2Package.Literals.ARTIFACTS_BY_KEY__VALUE,
+				 P2Factory.eINSTANCE.createSimpleArtifactDescriptor()));
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -89,12 +91,11 @@ public class ArtifactsByKeyItemProvider extends ItemProviderAdapter implements I
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
-		if(childrenFeatures == null) {
+		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(P2Package.Literals.ARTIFACTS_BY_KEY__KEY);
 			childrenFeatures.add(P2Package.Literals.ARTIFACTS_BY_KEY__VALUE);
@@ -106,7 +107,6 @@ public class ArtifactsByKeyItemProvider extends ItemProviderAdapter implements I
 	 * This returns ArtifactsByKey.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -118,12 +118,11 @@ public class ArtifactsByKeyItemProvider extends ItemProviderAdapter implements I
 	 * This returns the property descriptors for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-		if(itemPropertyDescriptors == null) {
+		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
 		}
@@ -134,7 +133,6 @@ public class ArtifactsByKeyItemProvider extends ItemProviderAdapter implements I
 	 * Return the resource locator for this item provider's resources.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
@@ -146,12 +144,11 @@ public class ArtifactsByKeyItemProvider extends ItemProviderAdapter implements I
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public String getText(Object object) {
-		Map.Entry<?, ?> artifactsByKey = (Map.Entry<?, ?>) object;
+		Map.Entry<?, ?> artifactsByKey = (Map.Entry<?, ?>)object;
 		return "" + artifactsByKey.getKey() + " -> " + artifactsByKey.getValue();
 	}
 
@@ -160,14 +157,13 @@ public class ArtifactsByKeyItemProvider extends ItemProviderAdapter implements I
 	 * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 *
 	 * @generated
 	 */
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch(notification.getFeatureID(Map.Entry.class)) {
+		switch (notification.getFeatureID(Map.Entry.class)) {
 			case P2Package.ARTIFACTS_BY_KEY__KEY:
 			case P2Package.ARTIFACTS_BY_KEY__VALUE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));

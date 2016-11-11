@@ -8,8 +8,8 @@
  */
 package org.eclipse.cbi.p2repo.aggregator.p2.provider;
 
-import org.eclipse.b3.p2.MetadataRepository;
-import org.eclipse.b3.p2.P2Package;
+import org.eclipse.cbi.p2repo.p2.MetadataRepository;
+import org.eclipse.cbi.p2repo.p2.P2Package;
 import org.eclipse.cbi.p2repo.aggregator.Aggregation;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;

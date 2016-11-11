@@ -11,10 +11,10 @@
     copyrightFields="false" providerRootExtendsClass="org.eclipse.cbi.p2repo.aggregator.provider.AggregatorItemProviderAdapter"
     editPluginID="org.eclipse.cbi.p2repo.aggregator.edit" editorPluginID="org.eclipse.cbi.p2repo.aggregator.editor"
     testsPluginID="org.eclipse.cbi.p2repo.aggregator.tests" colorProviders="true" fontProviders="true"
-    language="" packedEnums="true" usedGenPackages="../../org.eclipse.b3.p2/model/p2.genmodel#//p2"
+    language="" packedEnums="true" usedGenPackages="../../org.eclipse.cbi.p2repo.p2/model/p2.genmodel#//p2"
     classNamePattern="">
   <foreignModel>Aggregator.ecore</foreignModel>
-  <genPackages prefix="Aggregator" basePackage="org.eclipse.b3" resource="XMI" disposableProviderFactory="true"
+  <genPackages prefix="Aggregator" basePackage="org.eclipse.cbi.p2repo" resource="XMI" disposableProviderFactory="true"
       generateExampleClass="false" multipleEditorPages="false" contentTypeIdentifier=""
       fileExtensions="b3aggr" ecorePackage="Aggregator.ecore#/">
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="Aggregator.ecore#//AggregationType">

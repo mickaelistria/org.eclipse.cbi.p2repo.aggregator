@@ -19,7 +19,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.eclipse.b3.p2.util.IUUtils;
+import org.eclipse.cbi.p2repo.p2.util.IUUtils;
 import org.eclipse.cbi.p2repo.aggregator.Contribution;
 import org.eclipse.cbi.p2repo.p2.maven.MavenMetadata;
 import org.eclipse.cbi.p2repo.p2.maven.metadata.MetaData;

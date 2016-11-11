@@ -31,7 +31,7 @@ public interface MappedUnit extends InstallableUnitRequest, EnabledStatusProvide
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model kind="operation" dataType="org.eclipse.b3.p2.IMatchExpression<org.eclipse.b3.p2.IInstallableUnit>"
+	 * @model kind="operation" dataType="org.eclipse.cbi.p2repo.p2.IMatchExpression<org.eclipse.cbi.p2repo.p2.IInstallableUnit>"
 	 * @generated
 	 */
 	IMatchExpression<IInstallableUnit> getFilter();
@@ -39,7 +39,7 @@ public interface MappedUnit extends InstallableUnitRequest, EnabledStatusProvide
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model kind="operation" type="org.eclipse.b3.p2.IRequirement"
+	 * @model kind="operation" type="org.eclipse.cbi.p2repo.p2.IRequirement"
 	 * @generated
 	 */
 	IRequirement getRequirement();

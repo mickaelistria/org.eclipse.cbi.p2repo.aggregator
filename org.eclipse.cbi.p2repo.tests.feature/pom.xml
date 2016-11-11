@@ -2,13 +2,13 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
     <parent>
-    <groupId>org.eclipse.b3</groupId>
-    <artifactId>org.eclipse.b3.releng.parent</artifactId>
-    <relativePath>../org.eclipse.b3.releng.parent</relativePath>
+    <groupId>org.eclipse.cbi</groupId>
+    <artifactId>org.eclipse.cbi.p2repo.releng.parent</artifactId>
+    <relativePath>../org.eclipse.cbi.p2repo.releng.parent</relativePath>
     <version>1.0.100-SNAPSHOT</version>
   </parent>
-  <groupId>org.eclipse.b3</groupId>
-  <artifactId>org.eclipse.b3.tests.feature</artifactId>
+  <groupId>org.eclipse.cbi</groupId>
+  <artifactId>org.eclipse.cbi.p2repo.tests.feature</artifactId>
   <version>1.0.100-SNAPSHOT</version>
 
   <packaging>eclipse-feature</packaging>

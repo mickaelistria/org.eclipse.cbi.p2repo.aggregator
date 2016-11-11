@@ -11,7 +11,7 @@ package org.eclipse.cbi.p2repo.aggregator.p2view;
 
 import java.net.URI;
 
-import org.eclipse.b3.p2.MetadataRepository;
+import org.eclipse.cbi.p2repo.p2.MetadataRepository;
 import org.eclipse.cbi.p2repo.aggregator.ChildrenProvider;
 
 /**
@@ -61,7 +61,7 @@ public interface MetadataRepositoryStructuredView extends ChildrenProvider<Insta
 	 * @return the value of the '<em>Location</em>' attribute.
 	 * @see #isSetLocation()
 	 * @see org.eclipse.cbi.p2repo.aggregator.p2view.P2viewPackage#getMetadataRepositoryStructuredView_Location()
-	 * @model unsettable="true" dataType="org.eclipse.b3.p2.URI" required="true" transient="true" changeable="false" volatile="true" derived="true"
+	 * @model unsettable="true" dataType="org.eclipse.cbi.p2repo.p2.URI" required="true" transient="true" changeable="false" volatile="true" derived="true"
 	 * @generated
 	 */
 	URI getLocation();
@@ -80,6 +80,16 @@ public interface MetadataRepositoryStructuredView extends ChildrenProvider<Insta
 	 * @generated
 	 */
 	MetadataRepository getMetadataRepository();
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.aggregator.p2view.MetadataRepositoryStructuredView#getMetadataRepository <em>Metadata Repository</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Metadata Repository</em>' containment reference.
+	 * @see #getMetadataRepository()
+	 * @generated
+	 */
+	void setMetadataRepository(MetadataRepository value);
 
 	/**
 	 * Returns the value of the '<em><b>Name</b></em>' attribute.
@@ -169,15 +179,6 @@ public interface MetadataRepositoryStructuredView extends ChildrenProvider<Insta
 	 * @generated
 	 */
 	void setLoaded(boolean value);
-
-	/**
-	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.aggregator.p2view.MetadataRepositoryStructuredView#getMetadataRepository <em>Metadata Repository</em>}' containment reference.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Metadata Repository</em>' containment reference.
-	 * @see #getMetadataRepository()
-	 * @generated
-	 */
-	void setMetadataRepository(MetadataRepository value);
 
 	/**
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.aggregator.p2view.MetadataRepositoryStructuredView#getName <em>Name</em>}' attribute.

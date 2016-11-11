@@ -1,9 +1,9 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!-- Schema file written by PDE -->
-<schema targetNamespace="org.eclipse.b3.aggregator" xmlns="http://www.w3.org/2001/XMLSchema">
+<schema targetNamespace="org.eclipse.cbi.p2repo.aggregator" xmlns="http://www.w3.org/2001/XMLSchema">
 <annotation>
       <appInfo>
-         <meta.schema plugin="org.eclipse.b3.aggregator" id="loader" name="org.eclipse.b3.aggregator"/>
+         <meta.schema plugin="org.eclipse.cbi.p2repo.aggregator" id="loader" name="org.eclipse.cbi.p2repo.aggregator"/>
       </appInfo>
       <documentation>
          [Enter description of this extension point.]
@@ -62,7 +62,7 @@
                   A class implementing specified interface
                </documentation>
                <appInfo>
-                  <meta.attribute kind="java" basedOn=":org.eclipse.b3.aggregator.loader.IRepositoryLoader"/>
+                  <meta.attribute kind="java" basedOn=":org.eclipse.cbi.p2repo.aggregator.loader.IRepositoryLoader"/>
                </appInfo>
             </annotation>
          </attribute>

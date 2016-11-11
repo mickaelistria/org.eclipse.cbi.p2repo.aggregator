@@ -12,8 +12,8 @@ package org.eclipse.cbi.p2repo.aggregator.impl;
 import java.io.File;
 import java.util.Collection;
 
-import org.eclipse.b3.p2.MetadataRepository;
-import org.eclipse.b3.p2.P2Factory;
+import org.eclipse.cbi.p2repo.p2.MetadataRepository;
+import org.eclipse.cbi.p2repo.p2.P2Factory;
 import org.eclipse.cbi.p2repo.aggregator.Aggregation;
 import org.eclipse.cbi.p2repo.aggregator.AggregatorFactory;
 import org.eclipse.cbi.p2repo.aggregator.AggregatorPackage;
@@ -663,10 +663,9 @@ public class MetadataRepositoryReferenceImpl extends MinimalEObjectImpl.Containe
 		if(newMetadataRepository != metadataRepository)
 			setMetadataRepositoryGen(newMetadataRepository);
 	}
-
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public void setMetadataRepositoryGen(MetadataRepository newMetadataRepository) {
 		MetadataRepository oldMetadataRepository = metadataRepository;

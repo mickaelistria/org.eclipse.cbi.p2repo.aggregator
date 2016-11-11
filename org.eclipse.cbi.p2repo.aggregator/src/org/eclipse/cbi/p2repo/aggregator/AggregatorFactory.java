@@ -6,7 +6,7 @@
  */
 package org.eclipse.cbi.p2repo.aggregator;
 
-import org.eclipse.b3.p2.MetadataRepository;
+import org.eclipse.cbi.p2repo.p2.MetadataRepository;
 import org.eclipse.emf.ecore.EFactory;
 import org.eclipse.equinox.p2.metadata.IInstallableUnit;
 

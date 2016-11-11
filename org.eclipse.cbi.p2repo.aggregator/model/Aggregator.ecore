@@ -48,15 +48,15 @@
   <eClassifiers xsi:type="ecore:EClass" name="AvailableVersion">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="versionMatch" lowerBound="1"
         eType="#//VersionMatch"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="version" eType="ecore:EDataType ../../org.eclipse.b3.p2/model/p2.ecore#//Version"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="version" eType="ecore:EDataType ../../org.eclipse.cbi.p2repo.p2/model/p2.ecore#//Version"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="filter">
-      <eGenericType eClassifier="ecore:EDataType ../../org.eclipse.b3.p2/model/p2.ecore#//IMatchExpression">
-        <eTypeArguments eClassifier="ecore:EClass ../../org.eclipse.b3.p2/model/p2.ecore#//IInstallableUnit"/>
+      <eGenericType eClassifier="ecore:EDataType ../../org.eclipse.cbi.p2repo.p2/model/p2.ecore#//IMatchExpression">
+        <eTypeArguments eClassifier="ecore:EClass ../../org.eclipse.cbi.p2repo.p2/model/p2.ecore#//IInstallableUnit"/>
       </eGenericType>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="availableFrom" lowerBound="1"
         eType="#//AvailableFrom" defaultValueLiteral="repository"/>
-    <eGenericSuperTypes eClassifier="ecore:EClass ../../org.eclipse.b3.p2/model/p2.ecore#//Comparable">
+    <eGenericSuperTypes eClassifier="ecore:EClass ../../org.eclipse.cbi.p2repo.p2/model/p2.ecore#//Comparable">
       <eTypeArguments eClassifier="#//AvailableVersion"/>
     </eGenericSuperTypes>
   </eClassifiers>
@@ -140,15 +140,15 @@
       eSuperTypes="#//StatusProvider #//InfosProvider #//DescriptionProvider">
     <eOperations name="isMappedRepositoryBroken" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eOperations name="isBranchEnabled" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
-    <eOperations name="resolveAsSingleton" eType="ecore:EClass ../../org.eclipse.b3.p2/model/p2.ecore#//IInstallableUnit"/>
-    <eOperations name="resolveAsSingleton" eType="ecore:EClass ../../org.eclipse.b3.p2/model/p2.ecore#//IInstallableUnit">
+    <eOperations name="resolveAsSingleton" eType="ecore:EClass ../../org.eclipse.cbi.p2repo.p2/model/p2.ecore#//IInstallableUnit"/>
+    <eOperations name="resolveAsSingleton" eType="ecore:EClass ../../org.eclipse.cbi.p2repo.p2/model/p2.ecore#//IInstallableUnit">
       <eParameters name="forceResolve" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     </eOperations>
     <eOperations name="resolveAvailableVersions">
       <eParameters name="updateOnly" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Boolean"/>
     </eOperations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="versionRange" eType="ecore:EDataType ../../org.eclipse.b3.p2/model/p2.ecore#//VersionRange"
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="versionRange" eType="ecore:EDataType ../../org.eclipse.cbi.p2repo.p2/model/p2.ecore#//VersionRange"
         defaultValueLiteral="0.0.0"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="availableVersionsHeader"
         eType="#//AvailableVersionsHeader" transient="true" containment="true" resolveProxies="false"
@@ -192,10 +192,10 @@
         eType="#//MapRule" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MappedUnit" abstract="true" eSuperTypes="#//InstallableUnitRequest #//EnabledStatusProvider #//IdentificationProvider">
-    <eOperations name="getRequirement" eType="ecore:EClass ../../org.eclipse.b3.p2/model/p2.ecore#//IRequirement"/>
+    <eOperations name="getRequirement" eType="ecore:EClass ../../org.eclipse.cbi.p2repo.p2/model/p2.ecore#//IRequirement"/>
     <eOperations name="getFilter">
-      <eGenericType eClassifier="ecore:EDataType ../../org.eclipse.b3.p2/model/p2.ecore#//IMatchExpression">
-        <eTypeArguments eClassifier="ecore:EClass ../../org.eclipse.b3.p2/model/p2.ecore#//IInstallableUnit"/>
+      <eGenericType eClassifier="ecore:EDataType ../../org.eclipse.cbi.p2repo.p2/model/p2.ecore#//IMatchExpression">
+        <eTypeArguments eClassifier="ecore:EClass ../../org.eclipse.cbi.p2repo.p2/model/p2.ecore#//IInstallableUnit"/>
       </eGenericType>
     </eOperations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="validConfigurations" upperBound="-1"
@@ -223,7 +223,7 @@
     </eOperations>
     <eOperations name="cancelRepositoryLoad"/>
     <eOperations name="onRepositoryLoad"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="metadataRepository" eType="ecore:EClass ../../org.eclipse.b3.p2/model/p2.ecore#//MetadataRepository"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="metadataRepository" eType="ecore:EClass ../../org.eclipse.cbi.p2repo.p2/model/p2.ecore#//MetadataRepository"
         transient="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="location" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -234,7 +234,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="Property">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eGenericSuperTypes eClassifier="ecore:EClass ../../org.eclipse.b3.p2/model/p2.ecore#//Comparable">
+    <eGenericSuperTypes eClassifier="ecore:EClass ../../org.eclipse.cbi.p2repo.p2/model/p2.ecore#//Comparable">
       <eTypeArguments eClassifier="#//Property"/>
     </eGenericSuperTypes>
   </eClassifiers>
@@ -440,23 +440,23 @@
           eType="#//p2view/Properties" containment="true" resolveProxies="false"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="touchpointsContainer"
           eType="#//p2view/Touchpoints" containment="true" resolveProxies="false"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="updateDescriptor" eType="ecore:EClass ../../org.eclipse.b3.p2/model/p2.ecore#//IUpdateDescriptor"
+      <eStructuralFeatures xsi:type="ecore:EReference" name="updateDescriptor" eType="ecore:EClass ../../org.eclipse.cbi.p2repo.p2/model/p2.ecore#//IUpdateDescriptor"
           containment="true" resolveProxies="false"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="copyright" eType="ecore:EClass ../../org.eclipse.b3.p2/model/p2.ecore#//ICopyright"
+      <eStructuralFeatures xsi:type="ecore:EReference" name="copyright" eType="ecore:EClass ../../org.eclipse.cbi.p2repo.p2/model/p2.ecore#//ICopyright"
           containment="true" resolveProxies="false"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="licensesContainer" eType="#//p2view/Licenses"
           containment="true" resolveProxies="false"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="IUPresentation" abstract="true">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="version" eType="ecore:EDataType ../../org.eclipse.b3.p2/model/p2.ecore#//Version"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="version" eType="ecore:EDataType ../../org.eclipse.cbi.p2repo.p2/model/p2.ecore#//Version"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="label" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" unique="false"
           lowerBound="1" eType="#//InstallableUnitType" changeable="false" volatile="true"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="filter" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="installableUnit" eType="ecore:EClass ../../org.eclipse.b3.p2/model/p2.ecore#//IInstallableUnit"
+      <eStructuralFeatures xsi:type="ecore:EReference" name="installableUnit" eType="ecore:EClass ../../org.eclipse.cbi.p2repo.p2/model/p2.ecore#//IInstallableUnit"
           resolveProxies="false"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="IUPresentationWithDetails" abstract="true"
@@ -465,7 +465,7 @@
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Licenses">
       <eStructuralFeatures xsi:type="ecore:EReference" name="licenses" upperBound="-1"
-          eType="ecore:EClass ../../org.eclipse.b3.p2/model/p2.ecore#//ILicense"/>
+          eType="ecore:EClass ../../org.eclipse.cbi.p2repo.p2/model/p2.ecore#//ILicense"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="RepositoryBrowser">
       <eStructuralFeatures xsi:type="ecore:EReference" name="repositories" upperBound="-1"
@@ -486,13 +486,13 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="properties" eType="#//p2view/Properties"
           containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="metadataRepository" ordered="false"
-          lowerBound="1" eType="ecore:EClass ../../org.eclipse.b3.p2/model/p2.ecore#//MetadataRepository"
+          lowerBound="1" eType="ecore:EClass ../../org.eclipse.cbi.p2repo.p2/model/p2.ecore#//MetadataRepository"
           containment="true" resolveProxies="false"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="loaded" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="repositoryReferences"
           eType="#//p2view/RepositoryReferences"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="location" lowerBound="1"
-          eType="ecore:EDataType ../../org.eclipse.b3.p2/model/p2.ecore#//URI" changeable="false"
+          eType="ecore:EDataType ../../org.eclipse.cbi.p2repo.p2/model/p2.ecore#//URI" changeable="false"
           volatile="true" transient="true" unsettable="true" derived="true"/>
       <eGenericSuperTypes eClassifier="#//ChildrenProvider">
         <eTypeArguments eClassifier="#//p2view/InstallableUnits"/>
@@ -532,31 +532,31 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="providedCapabilities"
           upperBound="-1" eType="#//p2view/ProvidedCapabilityWrapper" containment="true"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="ProvidedCapabilityWrapper" eSuperTypes="../../org.eclipse.b3.p2/model/p2.ecore#//IProvidedCapability #//LabelProvider">
+    <eClassifiers xsi:type="ecore:EClass" name="ProvidedCapabilityWrapper" eSuperTypes="../../org.eclipse.cbi.p2repo.p2/model/p2.ecore#//IProvidedCapability #//LabelProvider">
       <eStructuralFeatures xsi:type="ecore:EReference" name="genuine" lowerBound="1"
-          eType="ecore:EClass ../../org.eclipse.b3.p2/model/p2.ecore#//IProvidedCapability"
+          eType="ecore:EClass ../../org.eclipse.cbi.p2repo.p2/model/p2.ecore#//IProvidedCapability"
           changeable="false" resolveProxies="false"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="RepositoryReferences">
       <eStructuralFeatures xsi:type="ecore:EReference" name="repositoryReferences"
-          upperBound="-1" eType="ecore:EClass ../../org.eclipse.b3.p2/model/p2.ecore#//IRepositoryReference"/>
+          upperBound="-1" eType="ecore:EClass ../../org.eclipse.cbi.p2repo.p2/model/p2.ecore#//IRepositoryReference"/>
       <eGenericSuperTypes eClassifier="#//ChildrenProvider">
-        <eTypeArguments eClassifier="ecore:EClass ../../org.eclipse.b3.p2/model/p2.ecore#//IRepositoryReference"/>
+        <eTypeArguments eClassifier="ecore:EClass ../../org.eclipse.cbi.p2repo.p2/model/p2.ecore#//IRepositoryReference"/>
       </eGenericSuperTypes>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Requirements">
       <eStructuralFeatures xsi:type="ecore:EReference" name="requirements" upperBound="-1"
           eType="#//p2view/RequirementWrapper" containment="true"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="RequirementWrapper" eSuperTypes="../../org.eclipse.b3.p2/model/p2.ecore#//IRequirement #//LabelProvider">
+    <eClassifiers xsi:type="ecore:EClass" name="RequirementWrapper" eSuperTypes="../../org.eclipse.cbi.p2repo.p2/model/p2.ecore#//IRequirement #//LabelProvider">
       <eStructuralFeatures xsi:type="ecore:EReference" name="genuine" lowerBound="1"
-          eType="ecore:EClass ../../org.eclipse.b3.p2/model/p2.ecore#//IRequirement"
+          eType="ecore:EClass ../../org.eclipse.cbi.p2repo.p2/model/p2.ecore#//IRequirement"
           changeable="false" resolveProxies="false"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Touchpoints">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="touchpointType" eType="ecore:EClass ../../org.eclipse.b3.p2/model/p2.ecore#//ITouchpointType"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="touchpointType" eType="ecore:EClass ../../org.eclipse.cbi.p2repo.p2/model/p2.ecore#//ITouchpointType"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="touchpointDataList" upperBound="-1"
-          eType="ecore:EClass ../../org.eclipse.b3.p2/model/p2.ecore#//ITouchpointData"/>
+          eType="ecore:EClass ../../org.eclipse.cbi.p2repo.p2/model/p2.ecore#//ITouchpointData"/>
     </eClassifiers>
   </eSubpackages>
 </ecore:EPackage>

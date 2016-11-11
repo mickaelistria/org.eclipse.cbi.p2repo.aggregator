@@ -8,7 +8,7 @@
 
 package org.eclipse.cbi.p2repo.aggregator.util;
 
-import org.eclipse.b3.p2.InstallableUnit;
+import org.eclipse.cbi.p2repo.p2.InstallableUnit;
 import org.eclipse.cbi.p2repo.aggregator.AggregatorFactory;
 import org.eclipse.cbi.p2repo.aggregator.IAggregatorConstants;
 import org.eclipse.cbi.p2repo.aggregator.InstallableUnitType;

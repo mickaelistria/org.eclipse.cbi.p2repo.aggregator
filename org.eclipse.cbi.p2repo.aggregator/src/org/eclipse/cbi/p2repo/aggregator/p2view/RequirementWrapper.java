@@ -24,7 +24,7 @@ import org.eclipse.equinox.p2.metadata.IRequirement;
  * </ul>
  *
  * @see org.eclipse.cbi.p2repo.aggregator.p2view.P2viewPackage#getRequirementWrapper()
- * @model superTypes="org.eclipse.b3.p2.IRequirement org.eclipse.cbi.p2repo.aggregator.LabelProvider"
+ * @model superTypes="org.eclipse.cbi.p2repo.p2.IRequirement org.eclipse.cbi.p2repo.aggregator.LabelProvider"
  * @generated
  */
 public interface RequirementWrapper extends IRequirement, LabelProvider {
@@ -37,7 +37,7 @@ public interface RequirementWrapper extends IRequirement, LabelProvider {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Genuine</em>' reference.
 	 * @see org.eclipse.cbi.p2repo.aggregator.p2view.P2viewPackage#getRequirementWrapper_Genuine()
-	 * @model type="org.eclipse.b3.p2.IRequirement" resolveProxies="false" required="true" changeable="false"
+	 * @model type="org.eclipse.cbi.p2repo.p2.IRequirement" resolveProxies="false" required="true" changeable="false"
 	 * @generated
 	 */
 	IRequirement getGenuine();
