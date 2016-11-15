@@ -6,7 +6,7 @@
  * such license is available at www.eclipse.org.
  */
 
-package org.eclipse.b3.aggregator.legacy.ui;
+package org.eclipse.cbi.p2repo.aggregator.legacy.ui;
 
 import java.util.Map;
 
