@@ -47,7 +47,7 @@
             id="org.eclipse.cbi.p2repo.aggregator.presentation.AggregatorEditorID"
             name="%_UI_AggregatorEditor_label"
             icon="icons/full/obj16/AggregatorModelFile.gif"
-            extensions="b3aggr, build"
+            extensions="aggr"
             class="org.eclipse.cbi.p2repo.aggregator.presentation.AggregatorEditor"
             contributorClass="org.eclipse.cbi.p2repo.aggregator.presentation.AggregatorActionBarContributor">
       </editor>

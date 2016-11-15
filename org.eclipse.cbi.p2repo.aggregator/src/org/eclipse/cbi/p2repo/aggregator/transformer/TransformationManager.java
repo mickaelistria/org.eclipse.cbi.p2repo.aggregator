@@ -54,6 +54,14 @@ public class TransformationManager {
 
 	private static final String LEGACY_TRANSFORMATION_ATTR_SOURCE_NS = "sourceNS";
 
+	private static final String LEGACY_TRANSFORMATION_ID = "org.eclipse.cbi.p2repo.aggregator.legacy_transformation";
+
+	private static final String LEGACY_TRANSFORMATION_ATTR_SOURCE_TOP_ELEMENT = "sourceTopElement";
+
+	private static final String LEGACY_TRANSFORMATION_ATTR_SOURCE_NS_ATTRIBUTE = "sourceNSAttribute";
+
+	private static final String LEGACY_TRANSFORMATION_ATTR_CONTEXT_CONTRIBUTOR = "contextContributor";
+
 	public static List<IConfigurationElement> resolveTransformationSequence(IConfigurationElement[] transformations,
 			String requiredSourceNS, String requiredTargetNS, List<IConfigurationElement> transformerSequence) {
 
@@ -77,8 +85,8 @@ public class TransformationManager {
 					return result;
 			}
 		}
-		throw new IllegalArgumentException("Unable to resolve transformation sequence from " + requiredSourceNS +
-				" to " + requiredTargetNS);
+		throw new IllegalArgumentException(
+			"Unable to resolve transformation sequence from " + requiredSourceNS + " to " + requiredTargetNS);
 	}
 
 	private boolean srcNamespaceFound;
@@ -86,14 +94,6 @@ public class TransformationManager {
 	private List<IConfigurationElement> transformationSequence;
 
 	private List<TransformerContextContributor> contextContributors = new ArrayList<TransformerContextContributor>();
-
-	private static final String LEGACY_TRANSFORMATION_ID = "org.eclipse.cbi.p2repo.aggregator.legacy_transformation";
-
-	private static final String LEGACY_TRANSFORMATION_ATTR_SOURCE_TOP_ELEMENT = "sourceTopElement";
-
-	private static final String LEGACY_TRANSFORMATION_ATTR_SOURCE_NS_ATTRIBUTE = "sourceNSAttribute";
-
-	private static final String LEGACY_TRANSFORMATION_ATTR_CONTEXT_CONTRIBUTOR = "contextContributor";
 
 	private URI srcResourceURI;
 
@@ -140,7 +140,8 @@ public class TransformationManager {
 				TransformerContextContributor contextContributor = null;
 				try {
 					if(transformation.getAttribute(LEGACY_TRANSFORMATION_ATTR_CONTEXT_CONTRIBUTOR) != null) {
-						contextContributor = (TransformerContextContributor) transformation.createExecutableExtension(LEGACY_TRANSFORMATION_ATTR_CONTEXT_CONTRIBUTOR);
+						contextContributor = (TransformerContextContributor) transformation.createExecutableExtension(
+							LEGACY_TRANSFORMATION_ATTR_CONTEXT_CONTRIBUTOR);
 
 						if(contributorListener != null)
 							contributorListener.contributorFound(transformation, contextContributor);
@@ -230,7 +231,7 @@ public class TransformationManager {
 
 			idx++;
 
-			File tempFile = File.createTempFile("temp", ".b3aggr");
+			File tempFile = File.createTempFile("temp", ".aggr");
 			tempFile.deleteOnExit();
 
 			rs02 = new ResourceSetImpl();
@@ -255,7 +256,8 @@ public class TransformationManager {
 
 			rs02.getPackageRegistry().put(package02.getNsURI(), package02);
 
-			ITransformer transformer = (ITransformer) transformation.createExecutableExtension(LEGACY_TRANSFORMATION_ATTR_CLASS);
+			ITransformer transformer = (ITransformer) transformation.createExecutableExtension(
+				LEGACY_TRANSFORMATION_ATTR_CLASS);
 
 			transformer.initTransformer(res01, res02, package02, context);
 			transformer.startTransformation(resolveProxies);

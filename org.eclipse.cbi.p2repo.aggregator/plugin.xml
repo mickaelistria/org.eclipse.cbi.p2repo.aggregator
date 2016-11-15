@@ -20,12 +20,8 @@
 
    <extension point="org.eclipse.emf.ecore.extension_parser">
       <parser
-            type="b3aggr"
+            type="aggr"
             class="org.eclipse.cbi.p2repo.aggregator.util.AggregatorResourceFactoryImpl"/>
-      <parser
-            class="org.eclipse.cbi.p2repo.aggregator.util.AggregatorResourceFactoryImpl"
-            type="build">
-      </parser>
    </extension>
 
    <extension point="org.eclipse.emf.ecore.generated_package">
