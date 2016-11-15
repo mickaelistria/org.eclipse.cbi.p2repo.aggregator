@@ -364,7 +364,7 @@
           <target>
             <artifact>
               <groupId>org.eclipse.cbi</groupId>
-              <artifactId>b3.aggregator.prereqs</artifactId>
+              <artifactId>org.eclipse.cbi.p2repo.aggregator.prereqs</artifactId>
               <version>1.0.100-SNAPSHOT</version>
             </artifact>
           </target>

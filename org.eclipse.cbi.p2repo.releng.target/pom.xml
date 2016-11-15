@@ -11,8 +11,8 @@
 	</parent>
 
 	<packaging>eclipse-target-definition</packaging>
-	<artifactId>b3.aggregator.prereqs</artifactId>
-    <name>b3.aggregator.prereqs</name>
+	<artifactId>org.eclipse.cbi.p2repo.aggregator.prereqs</artifactId>
+    <name>org.eclipse.cbi.p2repo.aggregator.prereqs</name>
 	<groupId>org.eclipse.cbi</groupId>
 	<version>1.0.100-SNAPSHOT</version>
 </project>
