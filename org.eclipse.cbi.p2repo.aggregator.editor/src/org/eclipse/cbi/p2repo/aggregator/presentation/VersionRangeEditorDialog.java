@@ -9,7 +9,7 @@
 package org.eclipse.cbi.p2repo.aggregator.presentation;
 
 import org.eclipse.cbi.p2repo.aggregator.AvailableVersion;
-import org.eclipse.cbi.p2repo.aggregator.B3Messages;
+import org.eclipse.cbi.p2repo.aggregator.P2RepoMessages;
 import org.eclipse.cbi.p2repo.aggregator.Feature;
 import org.eclipse.equinox.internal.p2.metadata.VersionFormat;
 import org.eclipse.equinox.p2.metadata.IVersionFormat;
@@ -346,7 +346,7 @@ public class VersionRangeEditorDialog extends Dialog {
 
 		if(feature != null) {
 			Label setToAvailableVersionLabel = new Label(topComposite, SWT.NONE);
-			setToAvailableVersionLabel.setText(B3Messages.VersionRangeDialog_AvailableVersions);
+			setToAvailableVersionLabel.setText(P2RepoMessages.VersionRangeDialog_AvailableVersions);
 			if(feature.getAvailableVersions() != null && !feature.getAvailableVersions().isEmpty()) {
 				Link versions = new Link(topComposite, SWT.NONE);
 				versions.setLayoutData(new GridData(SWT.FILL, SWT.FILL, false, false, 2, 1));
@@ -373,7 +373,7 @@ public class VersionRangeEditorDialog extends Dialog {
 			else {
 				Label errorLabel = new Label(topComposite, SWT.NONE);
 				errorLabel.setLayoutData(new GridData(SWT.FILL, SWT.FILL, false, false, 2, 1));
-				errorLabel.setText(NLS.bind(B3Messages.VersionRangeDialog_NoVersionFound, this.feature.getName()));
+				errorLabel.setText(NLS.bind(P2RepoMessages.VersionRangeDialog_NoVersionFound, this.feature.getName()));
 				errorLabel.setForeground(getShell().getDisplay().getSystemColor(SWT.COLOR_RED));
 			}
 		}

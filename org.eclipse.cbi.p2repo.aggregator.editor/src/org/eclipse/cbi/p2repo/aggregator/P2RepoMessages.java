@@ -13,7 +13,7 @@ import org.eclipse.osgi.util.NLS;
 /**
  * Messages used by B3 aggregator
  */
-public class B3Messages extends NLS {
+public class P2RepoMessages extends NLS {
 
 	public static String VersionRangeDialog_NoVersionFound;
 
@@ -24,6 +24,6 @@ public class B3Messages extends NLS {
 	public static String FixVersionDialog_UpdateMessage;
 
 	static {
-		NLS.initializeMessages(B3Messages.class.getPackage().getName() + ".messages", B3Messages.class); // #NON-NLS-1$
+		NLS.initializeMessages(P2RepoMessages.class.getPackage().getName() + ".messages", P2RepoMessages.class); // #NON-NLS-1$
 	}
 }

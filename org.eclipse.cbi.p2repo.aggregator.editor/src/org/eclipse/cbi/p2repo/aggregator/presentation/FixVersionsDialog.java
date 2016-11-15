@@ -18,7 +18,7 @@ import java.util.Set;
 
 import org.eclipse.cbi.p2repo.aggregator.Aggregation;
 import org.eclipse.cbi.p2repo.aggregator.AvailableVersion;
-import org.eclipse.cbi.p2repo.aggregator.B3Messages;
+import org.eclipse.cbi.p2repo.aggregator.P2RepoMessages;
 import org.eclipse.cbi.p2repo.aggregator.Contribution;
 import org.eclipse.cbi.p2repo.aggregator.InstallableUnitRequest;
 import org.eclipse.cbi.p2repo.aggregator.MappedRepository;
@@ -108,8 +108,8 @@ public class FixVersionsDialog extends TitleAreaDialog {
 
 	@Override
 	public Control createDialogArea(Composite parent) {
-		setTitle(B3Messages.FixVersionDialog_Title);
-		setMessage(B3Messages.FixVersionDialog_UpdateMessage);
+		setTitle(P2RepoMessages.FixVersionDialog_Title);
+		setMessage(P2RepoMessages.FixVersionDialog_UpdateMessage);
 
 		Composite res = new Composite(parent, SWT.NONE);
 		res.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true));
