@@ -54,7 +54,8 @@ public class MetadataRepositoryTests {
 
 			IMetadataRepository reloaded = loadMetadataRepository(mdrMgr, tempRepositoryLocation);
 
-			IQueryResult<IInstallableUnit> iusCreated = created.query(P2Bridge.QUERY_ALL_IUS, new NullProgressMonitor());
+			IQueryResult<IInstallableUnit> iusCreated = created.query(
+				P2Bridge.QUERY_ALL_IUS, new NullProgressMonitor());
 			Iterator<IInstallableUnit> itorCreated = iusCreated.iterator();
 			IQueryResult<IInstallableUnit> iusReloaded = reloaded.query(
 				P2Bridge.QUERY_ALL_IUS, new NullProgressMonitor());
@@ -89,7 +90,7 @@ public class MetadataRepositoryTests {
 		mdr.setDescription("This is a testing repository");
 		mdr.setType(SIMPLE_METADATA_TYPE);
 		mdr.setModifiable(true);
-		mdr.setProvider("Eclipse b3 Project");
+		mdr.setProvider("Eclipse CBI");
 		mdr.setVersion("1.0.0");
 
 		InstallableUnitImpl iu1 = createTestingIU("org.eclipse.b3.testing.iu.01", "1.0.0");

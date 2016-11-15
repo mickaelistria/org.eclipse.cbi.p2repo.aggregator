@@ -27,7 +27,7 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.kohsuke.args4j.Option;
 
 /**
- * @author Markus Alexaneder Kuppe <b3-dev_eclipse.org@lemmster dot de>
+ * @author Markus Alexaneder Kuppe <cbi-dev_eclipse.org@lemmster dot de>
  *
  */
 public class Modifier extends ModelAbstractCommand {
@@ -78,12 +78,12 @@ public class Modifier extends ModelAbstractCommand {
 					}
 				}
 				if(validationSet == null)
-					throw ExceptionUtils.fromMessage("Unable to find a validation set named '" + validationSetName +
-							'\'');
+					throw ExceptionUtils.fromMessage(
+						"Unable to find a validation set named '" + validationSetName + '\'');
 			}
 
 			if(action == ActionType.ADD) {
-				// create a b3 metadata repo from the String
+				// create a metadata repo from the String
 				final MetadataRepositoryReferenceImpl newRepository = (MetadataRepositoryReferenceImpl) AggregatorFactory.eINSTANCE.createMetadataRepositoryReference();
 				newRepository.setLocation(repoLocation);
 

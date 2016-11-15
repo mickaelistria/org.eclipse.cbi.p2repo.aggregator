@@ -11,7 +11,7 @@ package org.eclipse.cbi.p2repo.aggregator;
 import org.eclipse.osgi.util.NLS;
 
 /**
- * Messages used by B3 aggregator
+ * Messages used by cbi p2Repo aggregator
  */
 public class P2RepoMessages extends NLS {
 

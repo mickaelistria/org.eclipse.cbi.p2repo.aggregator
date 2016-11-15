@@ -13,9 +13,9 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import org.eclipse.cbi.p2repo.util.P2RepoUtil;
 import org.eclipse.cbi.p2repo.util.LogLevel;
 import org.eclipse.cbi.p2repo.util.LogUtils;
+import org.eclipse.cbi.p2repo.util.P2RepoUtil;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.core.runtime.jobs.Job;
@@ -39,10 +39,10 @@ public abstract class AbstractCommand implements Comparable<AbstractCommand> {
 	@Option(name = "--stacktrace", usage = "Display stack trace on error")
 	private boolean displayStacktrace;
 
-	@Option(name = "--logLevel", usage = "Controls the verbosity of the console trace output. Defaults to global b3 settings.")
+	@Option(name = "--logLevel", usage = "Controls the verbosity of the console trace output. Defaults to global settings.")
 	private LogLevel logLevel;
 
-	@Option(name = "--eclipseLogLevel", usage = "Controls the verbosity of the eclipse log trace output. Defaults to global b3 settings.")
+	@Option(name = "--eclipseLogLevel", usage = "Controls the verbosity of the eclipse log trace output. Defaults to global settings.")
 	private LogLevel eclipseLogLevel;
 
 	private String name;

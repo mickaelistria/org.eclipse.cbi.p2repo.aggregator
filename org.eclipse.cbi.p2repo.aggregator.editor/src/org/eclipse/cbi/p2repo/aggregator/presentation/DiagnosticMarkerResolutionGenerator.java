@@ -260,7 +260,7 @@ public class DiagnosticMarkerResolutionGenerator implements IMarkerResolutionGen
 	}
 
 	static void verifyAggregation(final Aggregation aggregation) {
-		new Job("b3 Aggregator") {
+		new Job("CBI Aggregator") {
 			{
 				setUser(true);
 				setPriority(Job.LONG);
@@ -277,8 +277,9 @@ public class DiagnosticMarkerResolutionGenerator implements IMarkerResolutionGen
 					URL fileURL = FileLocator.toFileURL(new java.net.URI(emfURI.toString()).toURL());
 					if(!"file".equals(fileURL.getProtocol()))
 						throw new Exception("URI scheme is not \"file\"");
-					java.net.URI uri = new java.net.URI(fileURL.getProtocol() + ":/" +
-							URLEncoder.encode(fileURL.getPath(), "UTF-8").replaceAll("\\+", "%20"));
+					java.net.URI uri = new java.net.URI(
+						fileURL.getProtocol() + ":/" +
+								URLEncoder.encode(fileURL.getPath(), "UTF-8").replaceAll("\\+", "%20"));
 					builder.setBuildModelLocation(new File(uri));
 					// builder.setLogLevel(LogUtils.DEBUG);
 					builder.setAction(Builder.ActionType.VALIDATE);
@@ -293,7 +294,8 @@ public class DiagnosticMarkerResolutionGenerator implements IMarkerResolutionGen
 							: new Status(IStatus.ERROR, Engine.PLUGIN_ID, IStatus.OK, cause.getMessage(), cause);
 
 					if(resource != null && status instanceof AnalyzedPlannerStatus)
-						((AggregatorResourceImpl) resource).updateVerificationMarkers(((AnalyzedPlannerStatus) status).getVerificationDiagnostics());
+						((AggregatorResourceImpl) resource).updateVerificationMarkers(
+							((AnalyzedPlannerStatus) status).getVerificationDiagnostics());
 
 					return status;
 				}

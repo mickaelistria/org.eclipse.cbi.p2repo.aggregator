@@ -10,11 +10,11 @@ package org.eclipse.cbi.p2repo.aggregator.engine;
 
 import java.io.File;
 
-import org.eclipse.cbi.p2repo.p2.util.ResourceSetWithAgent;
 import org.eclipse.cbi.p2repo.aggregator.Aggregation;
 import org.eclipse.cbi.p2repo.aggregator.transformer.TransformationManager;
 import org.eclipse.cbi.p2repo.aggregator.util.ResourceUtils;
 import org.eclipse.cbi.p2repo.cli.AbstractCommand;
+import org.eclipse.cbi.p2repo.p2.util.ResourceSetWithAgent;
 import org.eclipse.cbi.p2repo.util.ExceptionUtils;
 import org.eclipse.cbi.p2repo.util.LogUtils;
 import org.eclipse.core.runtime.CoreException;
@@ -25,7 +25,7 @@ import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.kohsuke.args4j.Option;
 
 /**
- * @author Markus Alexaneder Kuppe <b3-dev_eclipse.org@lemmster dot de>
+ * @author Markus Alexaneder Kuppe <cbi-dev_eclipse.org@lemmster dot de>
  *
  */
 public abstract class ModelAbstractCommand extends AbstractCommand {
