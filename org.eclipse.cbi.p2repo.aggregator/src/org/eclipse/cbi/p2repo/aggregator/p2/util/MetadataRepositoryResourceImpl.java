@@ -576,7 +576,7 @@ public class MetadataRepositoryResourceImpl extends ResourceImpl implements Stat
 			if(c == '/' || c == '\\')
 				location = location.substring(0, last);
 		}
-		return URI.createGenericURI(AggregatorPlugin.B3AGGR_URI_SCHEME, nature + ":" + location, null);
+		return URI.createGenericURI(AggregatorPlugin.AGGR_URI_SCHEME, nature + ":" + location, null);
 	}
 
 	private static Throwable unwrap(Exception loadException) {

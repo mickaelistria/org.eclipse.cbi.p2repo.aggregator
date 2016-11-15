@@ -74,7 +74,7 @@ public final class AggregatorPlugin extends EMFPlugin {
 	 */
 	public static final AggregatorPlugin INSTANCE = new AggregatorPlugin();
 
-	public static final String B3AGGR_URI_SCHEME = "b3aggr";
+	public static final String AGGR_URI_SCHEME = "b3aggr";
 
 	/**
 	 * Keep track of the singleton.
