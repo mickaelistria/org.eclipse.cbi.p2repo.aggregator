@@ -32,13 +32,13 @@ public abstract class ExceptionUtils {
 	public static IStatus createStatus(Throwable cause) {
 		return (cause instanceof CoreException)
 				? ((CoreException) cause).getStatus()
-				: new Status(IStatus.ERROR, B3Util.getPluginID(), IStatus.OK, cause.getMessage(), cause);
+				: new Status(IStatus.ERROR, P2RepoUtil.getPluginID(), IStatus.OK, cause.getMessage(), cause);
 	}
 
 	public static IStatus createStatus(Throwable cause, String message, Object... args) {
 		if(args.length > 0)
 			message = String.format(message, args);
-		return new Status(IStatus.ERROR, B3Util.getPluginID(), IStatus.OK, message, cause);
+		return new Status(IStatus.ERROR, P2RepoUtil.getPluginID(), IStatus.OK, message, cause);
 	}
 
 	public static void deeplyPrint(Throwable e, PrintStream strm, boolean stackTrace) {

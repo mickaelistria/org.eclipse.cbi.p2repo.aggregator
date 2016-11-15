@@ -11,7 +11,7 @@ package org.eclipse.cbi.p2repo.p2.util;
 import java.io.File;
 import java.net.URI;
 
-import org.eclipse.cbi.p2repo.util.B3Util;
+import org.eclipse.cbi.p2repo.util.P2RepoUtil;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.equinox.internal.p2.metadata.expression.LDAPFilter;
 import org.eclipse.equinox.p2.core.IProvisioningAgent;
@@ -36,12 +36,12 @@ public class P2Utils {
 		IProvisioningAgentProvider agentProvider = null;
 
 		try {
-			agentProvider = B3Util.getPlugin().getService(IProvisioningAgentProvider.class);
+			agentProvider = P2RepoUtil.getPlugin().getService(IProvisioningAgentProvider.class);
 			IProvisioningAgent agent = agentProvider.createAgent(location);
 			return new BackgroundProvisioningAgent(agent);
 		}
 		finally {
-			B3Util.getPlugin().ungetService(agentProvider);
+			P2RepoUtil.getPlugin().ungetService(agentProvider);
 		}
 	}
 
@@ -76,19 +76,19 @@ public class P2Utils {
 			filter = "(locationURI=" + defaultLocationURI + ')';
 		}
 		try {
-			return B3Util.getPlugin().getService(IProvisioningAgent.class, filter);
+			return P2RepoUtil.getPlugin().getService(IProvisioningAgent.class, filter);
 		}
 		catch(CoreException e) {
 			// Agent not created yet. This is expected the first time a process
 			// makes this call.
 		}
 
-		IProvisioningAgentProvider agentProvider = B3Util.getPlugin().getService(IProvisioningAgentProvider.class);
+		IProvisioningAgentProvider agentProvider = P2RepoUtil.getPlugin().getService(IProvisioningAgentProvider.class);
 		try {
 			return agentProvider.createAgent(defaultLocationURI);
 		}
 		finally {
-			B3Util.getPlugin().ungetService(agentProvider);
+			P2RepoUtil.getPlugin().ungetService(agentProvider);
 		}
 	}
 
@@ -116,13 +116,13 @@ public class P2Utils {
 			Object service = agent.getService(clazz.getName());
 			if(service == null) {
 				String filter = "(p2.agent.servicename=" + clazz.getName() + ")";
-				IAgentServiceFactory serviceFactory = B3Util.getPlugin().getService(IAgentServiceFactory.class, filter);
+				IAgentServiceFactory serviceFactory = P2RepoUtil.getPlugin().getService(IAgentServiceFactory.class, filter);
 				service = serviceFactory.createService(agent);
-				B3Util.getPlugin().ungetService(serviceFactory);
+				P2RepoUtil.getPlugin().ungetService(serviceFactory);
 			}
 			T result = clazz.cast(service);
 
-			B3Util.getPlugin().ungetService(agent);
+			P2RepoUtil.getPlugin().ungetService(agent);
 
 			if(result != null) {
 				if(agentParam != null && agentParam instanceof BackgroundProvisioningAgent)

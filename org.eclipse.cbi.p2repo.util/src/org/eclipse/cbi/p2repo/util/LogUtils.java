@@ -41,7 +41,7 @@ public class LogUtils {
 	}
 
 	public static ILog getLog() {
-		return Platform.getLog(B3Util.getPlugin().getBundle());
+		return Platform.getLog(P2RepoUtil.getPlugin().getBundle());
 	}
 
 	public static void info(String msg, Object... args) {
@@ -53,7 +53,7 @@ public class LogUtils {
 	}
 
 	public static void log(IStatus status) {
-		B3Util plugin = B3Util.getPlugin();
+		P2RepoUtil plugin = P2RepoUtil.getPlugin();
 		if(status.getSeverity() >= plugin.getConsoleLogLevel().ordinal()) {
 			String fullMessage = status.getMessage();
 			if(status.getSeverity() >= IStatus.WARNING)
@@ -73,7 +73,7 @@ public class LogUtils {
 				? msg
 				: String.format(msg, args);
 
-		B3Util plugin = B3Util.getPlugin();
+		P2RepoUtil plugin = P2RepoUtil.getPlugin();
 		if(level.ordinal() >= plugin.getConsoleLogLevel().ordinal())
 			if(level.ordinal() >= IStatus.WARNING)
 				System.err.println(fullMessage);
@@ -81,7 +81,7 @@ public class LogUtils {
 				System.out.println(fullMessage);
 
 		if(level.ordinal() >= plugin.getEclipseLogLevel().ordinal())
-			getLog().log(new Status(level.getStatusLevel(), B3Util.getPluginID(), MAGIC, fullMessage, t));
+			getLog().log(new Status(level.getStatusLevel(), P2RepoUtil.getPluginID(), MAGIC, fullMessage, t));
 	}
 
 	public static void warning(String msg, Object... args) {
@@ -92,5 +92,5 @@ public class LogUtils {
 		log(WARNING, t, msg, args);
 	}
 
-	private static final int MAGIC = B3Util.getPluginID().hashCode();
+	private static final int MAGIC = P2RepoUtil.getPluginID().hashCode();
 }

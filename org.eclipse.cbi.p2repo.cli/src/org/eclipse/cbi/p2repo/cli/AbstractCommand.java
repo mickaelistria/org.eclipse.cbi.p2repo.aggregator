@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import org.eclipse.cbi.p2repo.util.B3Util;
+import org.eclipse.cbi.p2repo.util.P2RepoUtil;
 import org.eclipse.cbi.p2repo.util.LogLevel;
 import org.eclipse.cbi.p2repo.util.LogUtils;
 import org.eclipse.core.runtime.IProgressMonitor;
@@ -101,7 +101,7 @@ public abstract class AbstractCommand implements Comparable<AbstractCommand> {
 
 	private void printConfiguration() {
 		LogUtils.debug("Configuration:");
-		Bundle[] bundles = B3Util.getPlugin().getBundle().getBundleContext().getBundles();
+		Bundle[] bundles = P2RepoUtil.getPlugin().getBundle().getBundleContext().getBundles();
 		List<String> configLines = new ArrayList<String>(bundles.length);
 		for(Bundle bundle : bundles)
 			configLines.add(bundle.getSymbolicName() + " / " + bundle.getVersion());
@@ -118,17 +118,17 @@ public abstract class AbstractCommand implements Comparable<AbstractCommand> {
 		if(monitor == null)
 			monitor = new NullProgressMonitor();
 
-		LogLevel originalConsoleLogLevel = B3Util.getPlugin().getConsoleLogLevel();
-		LogLevel originalEclipseLogLevel = B3Util.getPlugin().getEclipseLogLevel();
+		LogLevel originalConsoleLogLevel = P2RepoUtil.getPlugin().getConsoleLogLevel();
+		LogLevel originalEclipseLogLevel = P2RepoUtil.getPlugin().getEclipseLogLevel();
 
 		try {
 			if(logLevel != null)
-				B3Util.getPlugin().setConsoleLogLevel(logLevel);
+				P2RepoUtil.getPlugin().setConsoleLogLevel(logLevel);
 			if(eclipseLogLevel != null)
-				B3Util.getPlugin().setEclipseLogLevel(logLevel);
+				P2RepoUtil.getPlugin().setEclipseLogLevel(logLevel);
 
-			if(B3Util.getPlugin().getConsoleLogLevel().ordinal() <= LogLevel.DEBUG.ordinal() ||
-					B3Util.getPlugin().getEclipseLogLevel().ordinal() <= LogLevel.DEBUG.ordinal())
+			if(P2RepoUtil.getPlugin().getConsoleLogLevel().ordinal() <= LogLevel.DEBUG.ordinal() ||
+					P2RepoUtil.getPlugin().getEclipseLogLevel().ordinal() <= LogLevel.DEBUG.ordinal())
 				printConfiguration();
 
 			return run(monitor);
@@ -137,9 +137,9 @@ public abstract class AbstractCommand implements Comparable<AbstractCommand> {
 			monitor.done();
 
 			if(logLevel != null)
-				B3Util.getPlugin().setConsoleLogLevel(originalConsoleLogLevel);
+				P2RepoUtil.getPlugin().setConsoleLogLevel(originalConsoleLogLevel);
 			if(eclipseLogLevel != null)
-				B3Util.getPlugin().setEclipseLogLevel(originalEclipseLogLevel);
+				P2RepoUtil.getPlugin().setEclipseLogLevel(originalEclipseLogLevel);
 
 		}
 	}

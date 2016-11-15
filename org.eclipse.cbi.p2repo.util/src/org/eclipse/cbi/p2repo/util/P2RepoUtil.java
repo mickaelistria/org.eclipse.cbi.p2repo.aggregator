@@ -20,11 +20,11 @@ import org.osgi.framework.ServiceReference;
  * @author filip.hrbek@cloudsmith.com
  *
  */
-public class B3Util extends Plugin {
+public class P2RepoUtil extends Plugin {
 	private static Plugin plugin;
 
-	public static B3Util getPlugin() {
-		return (B3Util) plugin;
+	public static P2RepoUtil getPlugin() {
+		return (P2RepoUtil) plugin;
 	}
 
 	public static String getPluginID() {
@@ -37,7 +37,7 @@ public class B3Util extends Plugin {
 
 	private IdentityHashMap<Object, ServiceReference<?>> services;
 
-	public B3Util() {
+	public P2RepoUtil() {
 		plugin = this;
 	}
 
