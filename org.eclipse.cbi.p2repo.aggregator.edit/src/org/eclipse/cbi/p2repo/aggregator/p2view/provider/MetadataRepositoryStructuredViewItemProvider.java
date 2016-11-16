@@ -43,14 +43,16 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * This is the item provider adapter for a {@link org.eclipse.cbi.p2repo.aggregator.p2view.MetadataRepositoryStructuredView} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
+ *
  * @generated
  */
-public class MetadataRepositoryStructuredViewItemProvider extends AggregatorItemProviderAdapter implements
-		IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider,
-		IItemPropertySource, IItemColorProvider, IItemFontProvider {
+public class MetadataRepositoryStructuredViewItemProvider extends AggregatorItemProviderAdapter
+		implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider,
+		IItemLabelProvider, IItemPropertySource, IItemColorProvider, IItemFontProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 *
 	 * @generated
 	 */
 	public MetadataRepositoryStructuredViewItemProvider(AdapterFactory adapterFactory) {
@@ -64,132 +66,116 @@ public class MetadataRepositoryStructuredViewItemProvider extends AggregatorItem
 	 * @generated
 	 */
 	protected void addInstallableUnitListPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_MetadataRepositoryStructuredView_installableUnitList_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_MetadataRepositoryStructuredView_installableUnitList_feature", "_UI_MetadataRepositoryStructuredView_type"),
-				 P2viewPackage.Literals.METADATA_REPOSITORY_STRUCTURED_VIEW__INSTALLABLE_UNIT_LIST,
-				 false,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
+		itemPropertyDescriptors.add(
+			createItemPropertyDescriptor(
+				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+				getString("_UI_MetadataRepositoryStructuredView_installableUnitList_feature"),
+				getString(
+					"_UI_PropertyDescriptor_description",
+					"_UI_MetadataRepositoryStructuredView_installableUnitList_feature",
+					"_UI_MetadataRepositoryStructuredView_type"),
+				P2viewPackage.Literals.METADATA_REPOSITORY_STRUCTURED_VIEW__INSTALLABLE_UNIT_LIST, false, false, true,
+				null, null, null));
 	}
 
 	/**
 	 * This adds a property descriptor for the Loaded feature.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 *
 	 * @generated
 	 */
 	protected void addLoadedPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_MetadataRepositoryStructuredView_loaded_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_MetadataRepositoryStructuredView_loaded_feature", "_UI_MetadataRepositoryStructuredView_type"),
-				 P2viewPackage.Literals.METADATA_REPOSITORY_STRUCTURED_VIEW__LOADED,
-				 false,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-				 null,
-				 null));
+		itemPropertyDescriptors.add(
+			createItemPropertyDescriptor(
+				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+				getString("_UI_MetadataRepositoryStructuredView_loaded_feature"),
+				getString(
+					"_UI_PropertyDescriptor_description", "_UI_MetadataRepositoryStructuredView_loaded_feature",
+					"_UI_MetadataRepositoryStructuredView_type"),
+				P2viewPackage.Literals.METADATA_REPOSITORY_STRUCTURED_VIEW__LOADED, false, false, false,
+				ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null));
 	}
 
 	/**
 	 * This adds a property descriptor for the Location feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 *
 	 * @generated
 	 */
 	protected void addLocationPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_MetadataRepositoryStructuredView_location_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_MetadataRepositoryStructuredView_location_feature", "_UI_MetadataRepositoryStructuredView_type"),
-				 P2viewPackage.Literals.METADATA_REPOSITORY_STRUCTURED_VIEW__LOCATION,
-				 false,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
+		itemPropertyDescriptors.add(
+			createItemPropertyDescriptor(
+				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+				getString("_UI_MetadataRepositoryStructuredView_location_feature"),
+				getString(
+					"_UI_PropertyDescriptor_description", "_UI_MetadataRepositoryStructuredView_location_feature",
+					"_UI_MetadataRepositoryStructuredView_type"),
+				P2viewPackage.Literals.METADATA_REPOSITORY_STRUCTURED_VIEW__LOCATION, false, false, false,
+				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
 	 * This adds a property descriptor for the Name feature.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 *
 	 * @generated
 	 */
 	protected void addNamePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_MetadataRepositoryStructuredView_name_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_MetadataRepositoryStructuredView_name_feature", "_UI_MetadataRepositoryStructuredView_type"),
-				 P2viewPackage.Literals.METADATA_REPOSITORY_STRUCTURED_VIEW__NAME,
-				 false,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
+		itemPropertyDescriptors.add(
+			createItemPropertyDescriptor(
+				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+				getString("_UI_MetadataRepositoryStructuredView_name_feature"),
+				getString(
+					"_UI_PropertyDescriptor_description", "_UI_MetadataRepositoryStructuredView_name_feature",
+					"_UI_MetadataRepositoryStructuredView_type"),
+				P2viewPackage.Literals.METADATA_REPOSITORY_STRUCTURED_VIEW__NAME, false, false, false,
+				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
 	 * This adds a property descriptor for the Properties feature.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 *
 	 * @generated
 	 */
 	protected void addPropertiesPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_MetadataRepositoryStructuredView_properties_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_MetadataRepositoryStructuredView_properties_feature", "_UI_MetadataRepositoryStructuredView_type"),
-				 P2viewPackage.Literals.METADATA_REPOSITORY_STRUCTURED_VIEW__PROPERTIES,
-				 false,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
+		itemPropertyDescriptors.add(
+			createItemPropertyDescriptor(
+				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+				getString("_UI_MetadataRepositoryStructuredView_properties_feature"),
+				getString(
+					"_UI_PropertyDescriptor_description", "_UI_MetadataRepositoryStructuredView_properties_feature",
+					"_UI_MetadataRepositoryStructuredView_type"),
+				P2viewPackage.Literals.METADATA_REPOSITORY_STRUCTURED_VIEW__PROPERTIES, false, false, true, null, null,
+				null));
 	}
 
 	/**
 	 * This adds a property descriptor for the Repository References feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 *
 	 * @generated
 	 */
 	protected void addRepositoryReferencesPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_MetadataRepositoryStructuredView_repositoryReferences_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_MetadataRepositoryStructuredView_repositoryReferences_feature", "_UI_MetadataRepositoryStructuredView_type"),
-				 P2viewPackage.Literals.METADATA_REPOSITORY_STRUCTURED_VIEW__REPOSITORY_REFERENCES,
-				 false,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
+		itemPropertyDescriptors.add(
+			createItemPropertyDescriptor(
+				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+				getString("_UI_MetadataRepositoryStructuredView_repositoryReferences_feature"),
+				getString(
+					"_UI_PropertyDescriptor_description",
+					"_UI_MetadataRepositoryStructuredView_repositoryReferences_feature",
+					"_UI_MetadataRepositoryStructuredView_type"),
+				P2viewPackage.Literals.METADATA_REPOSITORY_STRUCTURED_VIEW__REPOSITORY_REFERENCES, false, false, true,
+				null, null, null));
 	}
 
 	/**
 	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
 	 * that can be created under this object.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 *
 	 * @generated
 	 */
 	@Override
@@ -199,6 +185,7 @@ public class MetadataRepositoryStructuredViewItemProvider extends AggregatorItem
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 *
 	 * @generated
 	 */
 	@Override
@@ -215,11 +202,12 @@ public class MetadataRepositoryStructuredViewItemProvider extends AggregatorItem
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 *
 	 * @generated
 	 */
 	@Override
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
-		if (childrenFeatures == null) {
+		if(childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(P2viewPackage.Literals.METADATA_REPOSITORY_STRUCTURED_VIEW__INSTALLABLE_UNIT_LIST);
 			childrenFeatures.add(P2viewPackage.Literals.METADATA_REPOSITORY_STRUCTURED_VIEW__PROPERTIES);
@@ -276,11 +264,12 @@ public class MetadataRepositoryStructuredViewItemProvider extends AggregatorItem
 	/**
 	 * This returns the property descriptors for the adapted class.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 *
 	 * @generated
 	 */
 	@Override
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-		if (itemPropertyDescriptors == null) {
+		if(itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
 			addNamePropertyDescriptor(object);
@@ -296,6 +285,7 @@ public class MetadataRepositoryStructuredViewItemProvider extends AggregatorItem
 	/**
 	 * Return the resource locator for this item provider's resources.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 *
 	 * @generated
 	 */
 	@Override
@@ -323,8 +313,8 @@ public class MetadataRepositoryStructuredViewItemProvider extends AggregatorItem
 			if(uri != null) {
 				int startPos = 0;
 				String uriStr = uri.toString();
-				if(uriStr.startsWith("b3aggr:"))
-					startPos = 7;
+				if(uriStr.startsWith("cbiaggr:"))
+					startPos = 8;
 				if(uriStr.startsWith("p2:", startPos))
 					startPos += 3;
 				bld.append(uriStr, startPos, uriStr.length());
@@ -381,7 +371,8 @@ public class MetadataRepositoryStructuredViewItemProvider extends AggregatorItem
 	public void notifyChanged(Notification notification) {
 		notifyChangedGen(notification);
 
-		if(notification.getFeatureID(MetadataRepositoryStructuredView.class) == P2viewPackage.METADATA_REPOSITORY_STRUCTURED_VIEW__LOADED) {
+		if(notification.getFeatureID(
+			MetadataRepositoryStructuredView.class) == P2viewPackage.METADATA_REPOSITORY_STRUCTURED_VIEW__LOADED) {
 			MetadataRepositoryStructuredView mdrView = (MetadataRepositoryStructuredView) notification.getNotifier();
 			Aggregation aggregation = ResourceUtils.getAggregation(((EObject) mdrView).eResource().getResourceSet());
 
@@ -400,7 +391,7 @@ public class MetadataRepositoryStructuredViewItemProvider extends AggregatorItem
 	public void notifyChangedGen(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(MetadataRepositoryStructuredView.class)) {
+		switch(notification.getFeatureID(MetadataRepositoryStructuredView.class)) {
 			case P2viewPackage.METADATA_REPOSITORY_STRUCTURED_VIEW__NAME:
 			case P2viewPackage.METADATA_REPOSITORY_STRUCTURED_VIEW__METADATA_REPOSITORY:
 			case P2viewPackage.METADATA_REPOSITORY_STRUCTURED_VIEW__LOADED:

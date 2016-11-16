@@ -21,15 +21,6 @@ import java.util.Map;
 import java.util.Set;
 import java.util.regex.Pattern;
 
-import org.eclipse.cbi.p2repo.p2.MetadataRepository;
-import org.eclipse.cbi.p2repo.p2.P2Factory;
-import org.eclipse.cbi.p2repo.p2.impl.InstallableUnitImpl;
-import org.eclipse.cbi.p2repo.p2.impl.MetadataRepositoryImpl;
-import org.eclipse.cbi.p2repo.p2.loader.IRepositoryLoader;
-import org.eclipse.cbi.p2repo.p2.util.IUUtils;
-import org.eclipse.cbi.p2repo.p2.util.P2Utils;
-import org.eclipse.cbi.p2repo.p2.util.RepositoryTranslationSupport;
-import org.eclipse.cbi.p2repo.p2.util.ResourceSetWithAgent;
 import org.eclipse.cbi.p2repo.aggregator.Aggregation;
 import org.eclipse.cbi.p2repo.aggregator.AggregatorFactory;
 import org.eclipse.cbi.p2repo.aggregator.AggregatorPlugin;
@@ -60,6 +51,15 @@ import org.eclipse.cbi.p2repo.aggregator.util.InstallableUnitUtils;
 import org.eclipse.cbi.p2repo.aggregator.util.ResourceDiagnosticImpl;
 import org.eclipse.cbi.p2repo.aggregator.util.ResourceUtils;
 import org.eclipse.cbi.p2repo.aggregator.util.TwoColumnMatrix;
+import org.eclipse.cbi.p2repo.p2.MetadataRepository;
+import org.eclipse.cbi.p2repo.p2.P2Factory;
+import org.eclipse.cbi.p2repo.p2.impl.InstallableUnitImpl;
+import org.eclipse.cbi.p2repo.p2.impl.MetadataRepositoryImpl;
+import org.eclipse.cbi.p2repo.p2.loader.IRepositoryLoader;
+import org.eclipse.cbi.p2repo.p2.util.IUUtils;
+import org.eclipse.cbi.p2repo.p2.util.P2Utils;
+import org.eclipse.cbi.p2repo.p2.util.RepositoryTranslationSupport;
+import org.eclipse.cbi.p2repo.p2.util.ResourceSetWithAgent;
 import org.eclipse.cbi.p2repo.util.LogUtils;
 import org.eclipse.cbi.p2repo.util.MonitorUtils;
 import org.eclipse.cbi.p2repo.util.StringUtils;
@@ -278,7 +278,7 @@ public class MetadataRepositoryResourceImpl extends ResourceImpl implements Stat
 
 				String name = RepositoryTranslationSupport.getInstance(
 					(MetadataRepository) ((InstallableUnitImpl) iu).eContainer()).getIUProperty(
-					iu, IInstallableUnit.PROP_NAME);
+						iu, IInstallableUnit.PROP_NAME);
 				if(name == null || name.length() == 0)
 					iuPresentation.setName(iu.getId());
 				else
@@ -292,13 +292,15 @@ public class MetadataRepositoryResourceImpl extends ResourceImpl implements Stat
 							? name
 							: iu.getId());
 				else
-					iuPresentation.setLabel(iu.getId() + " / " + IUUtils.stringifyVersion(iu.getVersion()) +
-							(name != null && name.length() > 0
-									? " (" + name + ")"
-									: ""));
-				iuPresentation.setDescription(RepositoryTranslationSupport.getInstance(
-					(MetadataRepository) ((InstallableUnitImpl) iu).eContainer()).getIUProperty(
-					iu, IInstallableUnit.PROP_DESCRIPTION));
+					iuPresentation.setLabel(
+						iu.getId() + " / " + IUUtils.stringifyVersion(iu.getVersion()) +
+								(name != null && name.length() > 0
+										? " (" + name + ")"
+										: ""));
+				iuPresentation.setDescription(
+					RepositoryTranslationSupport.getInstance(
+						(MetadataRepository) ((InstallableUnitImpl) iu).eContainer()).getIUProperty(
+							iu, IInstallableUnit.PROP_DESCRIPTION));
 
 				Map<Version, IUPresentation> versionMap = iuMap.get(iu.getId());
 				if(versionMap == null)
@@ -622,7 +624,8 @@ public class MetadataRepositoryResourceImpl extends ResourceImpl implements Stat
 		forceReload = true;
 	}
 
-	private List<Object> findIU(List<Object> nodePath, Pattern iuIdPattern, VersionRange iuVersionRange, boolean forward) {
+	private List<Object> findIU(List<Object> nodePath, Pattern iuIdPattern, VersionRange iuVersionRange,
+			boolean forward) {
 		List<Object> foundInSubTreePath = null;
 
 		if(forward)
@@ -803,7 +806,7 @@ public class MetadataRepositoryResourceImpl extends ResourceImpl implements Stat
 			return null;
 
 		String uriString = getURI().toString();
-		if(!uriString.startsWith("b3aggr:p2:"))
+		if(!uriString.startsWith("cbiaggr:p2:"))
 			return null;
 
 		uriString = uriString.substring(10);

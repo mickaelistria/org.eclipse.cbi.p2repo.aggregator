@@ -42,7 +42,7 @@
          point="org.eclipse.emf.ecore.protocol_parser">
       <parser
             class="org.eclipse.cbi.p2repo.aggregator.p2.util.MetadataRepositoryResourceFactoryImpl"
-            protocolName="b3aggr">
+            protocolName="cbiaggr">
       </parser>
    </extension>
 </plugin>
