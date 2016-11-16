@@ -32,13 +32,6 @@ import java.util.regex.PatternSyntaxException;
 import org.apache.tools.ant.Project;
 import org.apache.tools.ant.util.DateUtils;
 import org.apache.tools.mail.MailMessage;
-import org.eclipse.cbi.p2repo.p2.MetadataRepository;
-import org.eclipse.cbi.p2repo.p2.loader.IRepositoryLoader;
-import org.eclipse.cbi.p2repo.p2.util.IUUtils;
-import org.eclipse.cbi.p2repo.p2.util.P2ResourceImpl;
-import org.eclipse.cbi.p2repo.p2.util.P2Utils;
-import org.eclipse.cbi.p2repo.p2.util.RepositoryLoaderUtils;
-import org.eclipse.cbi.p2repo.p2.util.ResourceSetWithAgent;
 import org.eclipse.cbi.p2repo.aggregator.Aggregation;
 import org.eclipse.cbi.p2repo.aggregator.AggregatorFactory;
 import org.eclipse.cbi.p2repo.aggregator.Contact;
@@ -56,8 +49,15 @@ import org.eclipse.cbi.p2repo.aggregator.engine.maven.MavenManager;
 import org.eclipse.cbi.p2repo.aggregator.engine.maven.MavenRepositoryHelper;
 import org.eclipse.cbi.p2repo.aggregator.impl.MetadataRepositoryReferenceImpl;
 import org.eclipse.cbi.p2repo.aggregator.util.ResourceUtils;
+import org.eclipse.cbi.p2repo.p2.MetadataRepository;
+import org.eclipse.cbi.p2repo.p2.loader.IRepositoryLoader;
 import org.eclipse.cbi.p2repo.p2.maven.indexer.IMaven2Indexer;
 import org.eclipse.cbi.p2repo.p2.maven.indexer.IndexerUtils;
+import org.eclipse.cbi.p2repo.p2.util.IUUtils;
+import org.eclipse.cbi.p2repo.p2.util.P2ResourceImpl;
+import org.eclipse.cbi.p2repo.p2.util.P2Utils;
+import org.eclipse.cbi.p2repo.p2.util.RepositoryLoaderUtils;
+import org.eclipse.cbi.p2repo.p2.util.ResourceSetWithAgent;
 import org.eclipse.cbi.p2repo.util.ExceptionUtils;
 import org.eclipse.cbi.p2repo.util.IOUtils;
 import org.eclipse.cbi.p2repo.util.LogUtils;
@@ -222,7 +222,7 @@ public class Builder extends ModelAbstractCommand {
 
 	public static final String NAMESPACE_OSGI_BUNDLE = "osgi.bundle"; //$NON-NLS-1$
 
-	public static final String PROFILE_ID = "b3AggregatorProfile"; //$NON-NLS-1$
+	public static final String PROFILE_ID = "cbiAggregatorProfile"; //$NON-NLS-1$
 
 	public static final String REPO_FOLDER_VERIFICATION = "verification"; //$NON-NLS-1$
 
