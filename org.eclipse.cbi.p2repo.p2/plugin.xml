@@ -34,7 +34,7 @@
          point="org.eclipse.emf.ecore.protocol_parser">
       <parser
             class="org.eclipse.cbi.p2repo.p2.util.P2ResourceFactoryImpl"
-            protocolName="b3">
+            protocolName="p2aggr">
       </parser>
    </extension>
 

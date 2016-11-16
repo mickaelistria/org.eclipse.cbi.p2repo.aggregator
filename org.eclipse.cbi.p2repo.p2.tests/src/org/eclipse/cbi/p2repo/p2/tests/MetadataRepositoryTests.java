@@ -123,7 +123,7 @@ public class MetadataRepositoryTests {
 			throws Exception {
 		ResourceSet resourceSet = new ResourceSetImpl();
 		Resource resource = resourceSet.getResource(
-			org.eclipse.emf.common.util.URI.createGenericURI("b3", "p2:" + location.toURI(), null), true);
+			org.eclipse.emf.common.util.URI.createGenericURI("p2aggr", "p2:" + location.toURI(), null), true);
 		if(resource.getErrors().size() > 0)
 			throw new Exception(resource.getErrors().get(0).getMessage());
 

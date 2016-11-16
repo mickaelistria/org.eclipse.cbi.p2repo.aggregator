@@ -69,14 +69,16 @@ import org.eclipse.equinox.p2.repository.artifact.IProcessingStepDescriptor;
  * <!-- begin-user-doc -->
  * An implementation of the model <b>Factory</b>.
  * <!-- end-user-doc -->
+ * 
  * @generated
  */
 public class P2FactoryImpl extends EFactoryImpl implements P2Factory {
-	private static final String MDR_PROXY_URI_FORMATTER = "b3:%s:%s#/";
+	private static final String MDR_PROXY_URI_FORMATTER = "p2aggr:%s:%s#/";
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @deprecated
 	 * @generated
 	 */
@@ -89,16 +91,17 @@ public class P2FactoryImpl extends EFactoryImpl implements P2Factory {
 	 * Creates the default factory implementation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public static P2Factory init() {
 		try {
-			P2Factory theP2Factory = (P2Factory)EPackage.Registry.INSTANCE.getEFactory(P2Package.eNS_URI);
-			if (theP2Factory != null) {
+			P2Factory theP2Factory = (P2Factory) EPackage.Registry.INSTANCE.getEFactory(P2Package.eNS_URI);
+			if(theP2Factory != null) {
 				return theP2Factory;
 			}
 		}
-		catch (Exception exception) {
+		catch(Exception exception) {
 			EcorePlugin.INSTANCE.log(exception);
 		}
 		return new P2FactoryImpl();
@@ -108,6 +111,7 @@ public class P2FactoryImpl extends EFactoryImpl implements P2Factory {
 	 * Creates an instance of the factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public P2FactoryImpl() {
@@ -117,6 +121,7 @@ public class P2FactoryImpl extends EFactoryImpl implements P2Factory {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public String convertCollectionToString(EDataType eDataType, Object instanceValue) {
@@ -126,6 +131,7 @@ public class P2FactoryImpl extends EFactoryImpl implements P2Factory {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public String convertFileToString(EDataType eDataType, Object instanceValue) {
@@ -135,6 +141,7 @@ public class P2FactoryImpl extends EFactoryImpl implements P2Factory {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public String convertIArtifactDescriptorArrayToString(EDataType eDataType, Object instanceValue) {
@@ -144,6 +151,7 @@ public class P2FactoryImpl extends EFactoryImpl implements P2Factory {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public String convertIArtifactKeyArrayToString(EDataType eDataType, Object instanceValue) {
@@ -153,6 +161,7 @@ public class P2FactoryImpl extends EFactoryImpl implements P2Factory {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public String convertIArtifactRequestArrayToString(EDataType eDataType, Object instanceValue) {
@@ -162,6 +171,7 @@ public class P2FactoryImpl extends EFactoryImpl implements P2Factory {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public String convertIInstallableUnitArrayToString(EDataType eDataType, Object instanceValue) {
@@ -171,6 +181,7 @@ public class P2FactoryImpl extends EFactoryImpl implements P2Factory {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public String convertIInstallableUnitFragmentArrayToString(EDataType eDataType, Object instanceValue) {
@@ -180,6 +191,7 @@ public class P2FactoryImpl extends EFactoryImpl implements P2Factory {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public String convertILicenseArrayToString(EDataType eDataType, Object instanceValue) {
@@ -201,6 +213,7 @@ public class P2FactoryImpl extends EFactoryImpl implements P2Factory {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public String convertIProcessingDescriptorArrayToString(EDataType eDataType, Object instanceValue) {
@@ -210,6 +223,7 @@ public class P2FactoryImpl extends EFactoryImpl implements P2Factory {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public String convertIProvidedCapabilityArrayToString(EDataType eDataType, Object instanceValue) {
@@ -219,6 +233,7 @@ public class P2FactoryImpl extends EFactoryImpl implements P2Factory {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public String convertIProvisioningAgentToString(EDataType eDataType, Object instanceValue) {
@@ -228,6 +243,7 @@ public class P2FactoryImpl extends EFactoryImpl implements P2Factory {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public String convertIQueryResultToString(EDataType eDataType, Object instanceValue) {
@@ -237,6 +253,7 @@ public class P2FactoryImpl extends EFactoryImpl implements P2Factory {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public String convertIRequirementArrayArrayToString(EDataType eDataType, Object instanceValue) {
@@ -246,6 +263,7 @@ public class P2FactoryImpl extends EFactoryImpl implements P2Factory {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public String convertIRunnableWithProgressToString(EDataType eDataType, Object instanceValue) {
@@ -255,6 +273,7 @@ public class P2FactoryImpl extends EFactoryImpl implements P2Factory {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public String convertIStatusToString(EDataType eDataType, Object instanceValue) {
@@ -264,6 +283,7 @@ public class P2FactoryImpl extends EFactoryImpl implements P2Factory {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public String convertITouchpointDataArrayToString(EDataType eDataType, Object instanceValue) {
@@ -273,6 +293,7 @@ public class P2FactoryImpl extends EFactoryImpl implements P2Factory {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public String convertMapToString(EDataType eDataType, Object instanceValue) {
@@ -282,6 +303,7 @@ public class P2FactoryImpl extends EFactoryImpl implements P2Factory {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public String convertOutputStreamToString(EDataType eDataType, Object instanceValue) {
@@ -291,6 +313,7 @@ public class P2FactoryImpl extends EFactoryImpl implements P2Factory {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public String convertStringArrayToString(EDataType eDataType, Object instanceValue) {
@@ -300,11 +323,12 @@ public class P2FactoryImpl extends EFactoryImpl implements P2Factory {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public String convertToString(EDataType eDataType, Object instanceValue) {
-		switch (eDataType.getClassifierID()) {
+		switch(eDataType.getClassifierID()) {
 			case P2Package.COLLECTION:
 				return convertCollectionToString(eDataType, instanceValue);
 			case P2Package.FILE:
@@ -354,13 +378,15 @@ public class P2FactoryImpl extends EFactoryImpl implements P2Factory {
 			case P2Package.VERSION_RANGE:
 				return convertVersionRangeToString(eDataType, instanceValue);
 			default:
-				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
+				throw new IllegalArgumentException(
+					"The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public String convertUntypedMapToString(EDataType eDataType, Object instanceValue) {
@@ -370,6 +396,7 @@ public class P2FactoryImpl extends EFactoryImpl implements P2Factory {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public String convertURIToString(EDataType eDataType, Object instanceValue) {
@@ -391,6 +418,7 @@ public class P2FactoryImpl extends EFactoryImpl implements P2Factory {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public String convertVersionToString(EDataType eDataType, Object instanceValue) {
@@ -400,36 +428,62 @@ public class P2FactoryImpl extends EFactoryImpl implements P2Factory {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public EObject create(EClass eClass) {
-		switch (eClass.getClassifierID()) {
-			case P2Package.ARTIFACT_KEY: return (EObject)createArtifactKey();
-			case P2Package.ARTIFACT_DESCRIPTOR: return (EObject)createArtifactDescriptor();
-			case P2Package.ARTIFACT_REPOSITORY: return (EObject)createArtifactRepository();
-			case P2Package.ARTIFACTS_BY_KEY: return (EObject)createArtifactsByKey();
-			case P2Package.COPYRIGHT: return (EObject)createCopyright();
-			case P2Package.INSTALLABLE_UNIT: return (EObject)createInstallableUnit();
-			case P2Package.INSTALLABLE_UNIT_FRAGMENT: return (EObject)createInstallableUnitFragment();
-			case P2Package.INSTALLABLE_UNIT_PATCH: return (EObject)createInstallableUnitPatch();
-			case P2Package.INSTRUCTION_MAP: return (EObject)createInstructionMap();
-			case P2Package.LICENSE: return (EObject)createLicense();
-			case P2Package.MAPPING_RULE: return (EObject)createMappingRule();
-			case P2Package.METADATA_REPOSITORY: return (EObject)createMetadataRepository();
-			case P2Package.PROCESSING_STEP_DESCRIPTOR: return (EObject)createProcessingStepDescriptor();
-			case P2Package.PROPERTY: return (EObject)createProperty();
-			case P2Package.PROVIDED_CAPABILITY: return (EObject)createProvidedCapability();
-			case P2Package.REPOSITORY_REFERENCE: return (EObject)createRepositoryReference();
-			case P2Package.REQUIRED_CAPABILITY: return (EObject)createRequiredCapability();
-			case P2Package.REQUIREMENT: return (EObject)createRequirement();
-			case P2Package.REQUIREMENT_CHANGE: return (EObject)createRequirementChange();
-			case P2Package.SIMPLE_ARTIFACT_REPOSITORY: return (EObject)createSimpleArtifactRepository();
-			case P2Package.SIMPLE_ARTIFACT_DESCRIPTOR: return (EObject)createSimpleArtifactDescriptor();
-			case P2Package.TOUCHPOINT_DATA: return (EObject)createTouchpointData();
-			case P2Package.TOUCHPOINT_INSTRUCTION: return (EObject)createTouchpointInstruction();
-			case P2Package.TOUCHPOINT_TYPE: return (EObject)createTouchpointType();
-			case P2Package.UPDATE_DESCRIPTOR: return (EObject)createUpdateDescriptor();
+		switch(eClass.getClassifierID()) {
+			case P2Package.ARTIFACT_KEY:
+				return (EObject) createArtifactKey();
+			case P2Package.ARTIFACT_DESCRIPTOR:
+				return (EObject) createArtifactDescriptor();
+			case P2Package.ARTIFACT_REPOSITORY:
+				return (EObject) createArtifactRepository();
+			case P2Package.ARTIFACTS_BY_KEY:
+				return (EObject) createArtifactsByKey();
+			case P2Package.COPYRIGHT:
+				return (EObject) createCopyright();
+			case P2Package.INSTALLABLE_UNIT:
+				return (EObject) createInstallableUnit();
+			case P2Package.INSTALLABLE_UNIT_FRAGMENT:
+				return (EObject) createInstallableUnitFragment();
+			case P2Package.INSTALLABLE_UNIT_PATCH:
+				return (EObject) createInstallableUnitPatch();
+			case P2Package.INSTRUCTION_MAP:
+				return (EObject) createInstructionMap();
+			case P2Package.LICENSE:
+				return (EObject) createLicense();
+			case P2Package.MAPPING_RULE:
+				return (EObject) createMappingRule();
+			case P2Package.METADATA_REPOSITORY:
+				return (EObject) createMetadataRepository();
+			case P2Package.PROCESSING_STEP_DESCRIPTOR:
+				return (EObject) createProcessingStepDescriptor();
+			case P2Package.PROPERTY:
+				return (EObject) createProperty();
+			case P2Package.PROVIDED_CAPABILITY:
+				return (EObject) createProvidedCapability();
+			case P2Package.REPOSITORY_REFERENCE:
+				return (EObject) createRepositoryReference();
+			case P2Package.REQUIRED_CAPABILITY:
+				return (EObject) createRequiredCapability();
+			case P2Package.REQUIREMENT:
+				return (EObject) createRequirement();
+			case P2Package.REQUIREMENT_CHANGE:
+				return (EObject) createRequirementChange();
+			case P2Package.SIMPLE_ARTIFACT_REPOSITORY:
+				return (EObject) createSimpleArtifactRepository();
+			case P2Package.SIMPLE_ARTIFACT_DESCRIPTOR:
+				return (EObject) createSimpleArtifactDescriptor();
+			case P2Package.TOUCHPOINT_DATA:
+				return (EObject) createTouchpointData();
+			case P2Package.TOUCHPOINT_INSTRUCTION:
+				return (EObject) createTouchpointInstruction();
+			case P2Package.TOUCHPOINT_TYPE:
+				return (EObject) createTouchpointType();
+			case P2Package.UPDATE_DESCRIPTOR:
+				return (EObject) createUpdateDescriptor();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -438,6 +492,7 @@ public class P2FactoryImpl extends EFactoryImpl implements P2Factory {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -449,6 +504,7 @@ public class P2FactoryImpl extends EFactoryImpl implements P2Factory {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -460,6 +516,7 @@ public class P2FactoryImpl extends EFactoryImpl implements P2Factory {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -471,6 +528,7 @@ public class P2FactoryImpl extends EFactoryImpl implements P2Factory {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public Map.Entry<IArtifactKey, EList<IArtifactDescriptor>> createArtifactsByKey() {
@@ -481,15 +539,17 @@ public class P2FactoryImpl extends EFactoryImpl implements P2Factory {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public Collection<?> createCollectionFromString(EDataType eDataType, String initialValue) {
-		return (Collection<?>)super.createFromString(initialValue);
+		return (Collection<?>) super.createFromString(initialValue);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -501,20 +561,22 @@ public class P2FactoryImpl extends EFactoryImpl implements P2Factory {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public File createFileFromString(EDataType eDataType, String initialValue) {
-		return (File)super.createFromString(eDataType, initialValue);
+		return (File) super.createFromString(eDataType, initialValue);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public Object createFromString(EDataType eDataType, String initialValue) {
-		switch (eDataType.getClassifierID()) {
+		switch(eDataType.getClassifierID()) {
 			case P2Package.COLLECTION:
 				return createCollectionFromString(eDataType, initialValue);
 			case P2Package.FILE:
@@ -564,63 +626,70 @@ public class P2FactoryImpl extends EFactoryImpl implements P2Factory {
 			case P2Package.VERSION_RANGE:
 				return createVersionRangeFromString(eDataType, initialValue);
 			default:
-				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
+				throw new IllegalArgumentException(
+					"The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public IArtifactDescriptor[] createIArtifactDescriptorArrayFromString(EDataType eDataType, String initialValue) {
-		return (IArtifactDescriptor[])super.createFromString(initialValue);
+		return (IArtifactDescriptor[]) super.createFromString(initialValue);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public IArtifactKey[] createIArtifactKeyArrayFromString(EDataType eDataType, String initialValue) {
-		return (IArtifactKey[])super.createFromString(initialValue);
+		return (IArtifactKey[]) super.createFromString(initialValue);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public IArtifactRequest[] createIArtifactRequestArrayFromString(EDataType eDataType, String initialValue) {
-		return (IArtifactRequest[])super.createFromString(initialValue);
+		return (IArtifactRequest[]) super.createFromString(initialValue);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public IInstallableUnit[] createIInstallableUnitArrayFromString(EDataType eDataType, String initialValue) {
-		return (IInstallableUnit[])super.createFromString(initialValue);
+		return (IInstallableUnit[]) super.createFromString(initialValue);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public IInstallableUnitFragment[] createIInstallableUnitFragmentArrayFromString(EDataType eDataType,
 			String initialValue) {
-		return (IInstallableUnitFragment[])super.createFromString(initialValue);
+		return (IInstallableUnitFragment[]) super.createFromString(initialValue);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public ILicense[] createILicenseArrayFromString(EDataType eDataType, String initialValue) {
-		return (ILicense[])super.createFromString(initialValue);
+		return (ILicense[]) super.createFromString(initialValue);
 	}
 
 	/**
@@ -636,6 +705,7 @@ public class P2FactoryImpl extends EFactoryImpl implements P2Factory {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -647,6 +717,7 @@ public class P2FactoryImpl extends EFactoryImpl implements P2Factory {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -658,6 +729,7 @@ public class P2FactoryImpl extends EFactoryImpl implements P2Factory {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -669,6 +741,7 @@ public class P2FactoryImpl extends EFactoryImpl implements P2Factory {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public Map.Entry<String, ITouchpointInstruction> createInstructionMap() {
@@ -679,79 +752,88 @@ public class P2FactoryImpl extends EFactoryImpl implements P2Factory {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public IProcessingStepDescriptor[] createIProcessingDescriptorArrayFromString(EDataType eDataType,
 			String initialValue) {
-		return (IProcessingStepDescriptor[])super.createFromString(initialValue);
+		return (IProcessingStepDescriptor[]) super.createFromString(initialValue);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public IProvidedCapability[] createIProvidedCapabilityArrayFromString(EDataType eDataType, String initialValue) {
-		return (IProvidedCapability[])super.createFromString(initialValue);
+		return (IProvidedCapability[]) super.createFromString(initialValue);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public IProvisioningAgent createIProvisioningAgentFromString(EDataType eDataType, String initialValue) {
-		return (IProvisioningAgent)super.createFromString(eDataType, initialValue);
+		return (IProvisioningAgent) super.createFromString(eDataType, initialValue);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public IQueryResult<?> createIQueryResultFromString(EDataType eDataType, String initialValue) {
-		return (IQueryResult<?>)super.createFromString(initialValue);
+		return (IQueryResult<?>) super.createFromString(initialValue);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public IRequirement[][] createIRequirementArrayArrayFromString(EDataType eDataType, String initialValue) {
-		return (IRequirement[][])super.createFromString(initialValue);
+		return (IRequirement[][]) super.createFromString(initialValue);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public IRunnableWithProgress createIRunnableWithProgressFromString(EDataType eDataType, String initialValue) {
-		return (IRunnableWithProgress)super.createFromString(eDataType, initialValue);
+		return (IRunnableWithProgress) super.createFromString(eDataType, initialValue);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public IStatus createIStatusFromString(EDataType eDataType, String initialValue) {
-		return (IStatus)super.createFromString(eDataType, initialValue);
+		return (IStatus) super.createFromString(eDataType, initialValue);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public ITouchpointData[] createITouchpointDataArrayFromString(EDataType eDataType, String initialValue) {
-		return (ITouchpointData[])super.createFromString(initialValue);
+		return (ITouchpointData[]) super.createFromString(initialValue);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -763,15 +845,17 @@ public class P2FactoryImpl extends EFactoryImpl implements P2Factory {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public Map<?, ?> createMapFromString(EDataType eDataType, String initialValue) {
-		return (Map<?, ?>)super.createFromString(initialValue);
+		return (Map<?, ?>) super.createFromString(initialValue);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -783,6 +867,7 @@ public class P2FactoryImpl extends EFactoryImpl implements P2Factory {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -809,15 +894,17 @@ public class P2FactoryImpl extends EFactoryImpl implements P2Factory {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public OutputStream createOutputStreamFromString(EDataType eDataType, String initialValue) {
-		return (OutputStream)super.createFromString(eDataType, initialValue);
+		return (OutputStream) super.createFromString(eDataType, initialValue);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -829,6 +916,7 @@ public class P2FactoryImpl extends EFactoryImpl implements P2Factory {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public Map.Entry<String, String> createProperty() {
@@ -839,6 +927,7 @@ public class P2FactoryImpl extends EFactoryImpl implements P2Factory {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -850,6 +939,7 @@ public class P2FactoryImpl extends EFactoryImpl implements P2Factory {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -861,6 +951,7 @@ public class P2FactoryImpl extends EFactoryImpl implements P2Factory {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -872,6 +963,7 @@ public class P2FactoryImpl extends EFactoryImpl implements P2Factory {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -883,6 +975,7 @@ public class P2FactoryImpl extends EFactoryImpl implements P2Factory {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -894,6 +987,7 @@ public class P2FactoryImpl extends EFactoryImpl implements P2Factory {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -905,6 +999,7 @@ public class P2FactoryImpl extends EFactoryImpl implements P2Factory {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -916,15 +1011,17 @@ public class P2FactoryImpl extends EFactoryImpl implements P2Factory {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public String[] createStringArrayFromString(EDataType eDataType, String initialValue) {
-		return (String[])super.createFromString(initialValue);
+		return (String[]) super.createFromString(initialValue);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -936,6 +1033,7 @@ public class P2FactoryImpl extends EFactoryImpl implements P2Factory {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -947,6 +1045,7 @@ public class P2FactoryImpl extends EFactoryImpl implements P2Factory {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -969,6 +1068,7 @@ public class P2FactoryImpl extends EFactoryImpl implements P2Factory {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -1019,11 +1119,12 @@ public class P2FactoryImpl extends EFactoryImpl implements P2Factory {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public P2Package getP2Package() {
-		return (P2Package)getEPackage();
+		return (P2Package) getEPackage();
 	}
 
 } // P2FactoryImpl

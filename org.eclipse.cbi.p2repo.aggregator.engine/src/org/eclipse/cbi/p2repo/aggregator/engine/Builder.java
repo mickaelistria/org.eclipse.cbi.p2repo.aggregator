@@ -1118,7 +1118,7 @@ public class Builder extends ModelAbstractCommand {
 		// first, set up asynchronous loading jobs so that the repos are loaded in parallel
 		for(MetadataRepositoryReference repo : aggregation.getAllMetadataRepositoryReferences(true)) {
 			org.eclipse.emf.common.util.URI repoURI = org.eclipse.emf.common.util.URI.createGenericURI(
-				"b3", repo.getNature() + ":" + repo.getResolvedLocation(), null);
+				"p2aggr", repo.getNature() + ":" + repo.getResolvedLocation(), null);
 			P2ResourceImpl res = (P2ResourceImpl) topSet.getResource(repoURI, false);
 			if(res == null)
 				res = (P2ResourceImpl) topSet.createResource(repoURI);
