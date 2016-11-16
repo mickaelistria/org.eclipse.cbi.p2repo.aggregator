@@ -41,7 +41,7 @@ public class Activator extends Plugin {
 	@Override
 	public void start(BundleContext context) throws Exception {
 		ContainerConfiguration cc = new DefaultContainerConfiguration().setClassWorld(
-			new ClassWorld("b3.aggregator", Activator.class.getClassLoader())).setName("b3.plexus");
+			new ClassWorld("cbi.p2repo.aggregator", Activator.class.getClassLoader())).setName("cbi.p2repo.plexus");
 		plexus = new DefaultPlexusContainer(cc);
 	}
 

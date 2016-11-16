@@ -17,7 +17,7 @@
             thread="main"
             visible="true">
          <run
-               class="org.eclipse.b3.cli.Headless">
+               class="org.eclipse.cbi.p2repo.cli.Headless">
          </run>
       </application>
    </extension>
@@ -25,11 +25,11 @@
          id="product"
          point="org.eclipse.core.runtime.products">
       <product
-            application="org.eclipse.b3.cli.headless"
-            name="b3">
+            application="org.eclipse.cbi.p2repo.cli.headless"
+            name="cbiAggr">
          <property
                name="appName"
-               value="b3">
+               value="cbiAggr">
          </property>
       </product>
    </extension>

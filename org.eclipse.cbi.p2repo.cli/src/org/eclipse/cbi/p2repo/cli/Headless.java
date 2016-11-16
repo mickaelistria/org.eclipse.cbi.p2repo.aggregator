@@ -39,7 +39,7 @@ public class Headless implements IApplication {
 
 	private static final int CONSOLE_WIDTH = 80;
 
-	private static final String APPLICATION_NAME = "b3";
+	private static final String APPLICATION_NAME = "cbiAggr";
 
 	private static final String COMMAND_EXTENSION = "org.eclipse.cbi.p2repo.cli.commands";
 

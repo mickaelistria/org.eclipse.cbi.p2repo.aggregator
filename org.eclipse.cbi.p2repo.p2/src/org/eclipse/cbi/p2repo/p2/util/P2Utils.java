@@ -97,11 +97,11 @@ public class P2Utils {
 		if(userHome == null)
 			return null;
 		File home = new File(userHome);
-		File b3Home = new File(home, ".b3");
-		if(!(b3Home.isDirectory() || b3Home.mkdirs()))
+		File cbiP2RepoHome = new File(home, ".cbiP2Repo");
+		if(!(cbiP2RepoHome.isDirectory() || cbiP2RepoHome.mkdirs()))
 			return null;
 
-		File agentLocation = new File(b3Home, "p2agent");
+		File agentLocation = new File(cbiP2RepoHome, "p2agent");
 		if(!(agentLocation.isDirectory() || agentLocation.mkdirs()))
 			return null;
 		return agentLocation;
@@ -116,7 +116,8 @@ public class P2Utils {
 			Object service = agent.getService(clazz.getName());
 			if(service == null) {
 				String filter = "(p2.agent.servicename=" + clazz.getName() + ")";
-				IAgentServiceFactory serviceFactory = P2RepoUtil.getPlugin().getService(IAgentServiceFactory.class, filter);
+				IAgentServiceFactory serviceFactory = P2RepoUtil.getPlugin().getService(
+					IAgentServiceFactory.class, filter);
 				service = serviceFactory.createService(agent);
 				P2RepoUtil.getPlugin().ungetService(serviceFactory);
 			}

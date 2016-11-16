@@ -56,6 +56,15 @@ public class POM implements IPropertyProvider {
 
 	public static final String MODEL_VERSION = "4.0.0";
 
+	private static String createRelativePath(String groupId, String artifactId, String version) {
+		groupId = StringUtils.trimmedOrNull(groupId);
+		artifactId = StringUtils.trimmedOrNull(artifactId);
+		version = StringUtils.trimmedOrNull(version);
+		return (groupId != null
+				? groupId.replace('.', '/')
+				: groupId) + "/" + artifactId + "/" + version + "/" + artifactId + "-" + version + ".pom";
+	}
+
 	public static String expandProperties(String str, IPropertyProvider propertyProvider) throws CoreException {
 		if(str == null)
 			return "";
@@ -103,15 +112,6 @@ public class POM implements IPropertyProvider {
 		return pom;
 	}
 
-	private static String createRelativePath(String groupId, String artifactId, String version) {
-		groupId = StringUtils.trimmedOrNull(groupId);
-		artifactId = StringUtils.trimmedOrNull(artifactId);
-		version = StringUtils.trimmedOrNull(version);
-		return (groupId != null
-				? groupId.replace('.', '/')
-				: groupId) + "/" + artifactId + "/" + version + "/" + artifactId + "-" + version + ".pom";
-	}
-
 	private String repoRoot;
 
 	private ResolvedModel resolvedModel;
@@ -153,8 +153,9 @@ public class POM implements IPropertyProvider {
 		if(diag.getSeverity() >= Diagnostic.ERROR) {
 			for(Diagnostic childDiag : diag.getChildren()) {
 				String childMessage = childDiag.getMessage();
-				if(!childMessage.matches("The feature 'mixed' of 'org.eclipse.b3.aggregator.engine.maven.pom.impl.DocumentRootImpl@"
-						+ "[0-9a-f]+\\{[^\\}]+.pom#/\\}' with 2 element values must have exactly 1 element value")) {
+				if(!childMessage.matches(
+					"The feature 'mixed' of 'org.eclipse.cbi.p2repo.aggregator.engine.maven.pom.impl.DocumentRootImpl@" +
+							"[0-9a-f]+\\{[^\\}]+.pom#/\\}' with 2 element values must have exactly 1 element value")) {
 					LogUtils.error(childDiag.getMessage());
 					if(modifiedSeverity < childDiag.getSeverity())
 						modifiedSeverity = childDiag.getSeverity();
@@ -167,9 +168,8 @@ public class POM implements IPropertyProvider {
 
 		this.repoRoot = repoRoot;
 		Model resolvedModel = getResolvedProject();
-		String relativePath = "/" +
-				createRelativePath(
-					resolvedModel.getGroupId(), resolvedModel.getArtifactId(), resolvedModel.getVersion());
+		String relativePath = "/" + createRelativePath(
+			resolvedModel.getGroupId(), resolvedModel.getArtifactId(), resolvedModel.getVersion());
 		String uriStr = uri.toString();
 		if(!uriStr.endsWith(relativePath))
 			throw ExceptionUtils.fromMessage("Invalid path, %s should end with %s", uriStr, relativePath);
@@ -218,6 +218,23 @@ public class POM implements IPropertyProvider {
 		return resolvedModel;
 	}
 
+	private ResourceSet getResourceSet() {
+		ResourceSet resourceSet = new ResourceSetImpl();
+		resourceSet.setResourceFactoryRegistry(new ResourceFactoryRegistryImpl() {
+			@Override
+			public Resource.Factory getFactory(URI uri) {
+				return new PomResourceFactoryImpl();
+			}
+
+			@Override
+			public Resource.Factory getFactory(URI uri, String contentType) {
+				return getFactory(uri);
+			}
+		});
+
+		return resourceSet;
+	}
+
 	public String getSha1() {
 		return sha1;
 	}
@@ -256,22 +273,5 @@ public class POM implements IPropertyProvider {
 
 	public void save(URI uri) throws CoreException {
 		save(getResourceSet().createResource(uri));
-	}
-
-	private ResourceSet getResourceSet() {
-		ResourceSet resourceSet = new ResourceSetImpl();
-		resourceSet.setResourceFactoryRegistry(new ResourceFactoryRegistryImpl() {
-			@Override
-			public Resource.Factory getFactory(URI uri) {
-				return new PomResourceFactoryImpl();
-			}
-
-			@Override
-			public Resource.Factory getFactory(URI uri, String contentType) {
-				return getFactory(uri);
-			}
-		});
-
-		return resourceSet;
 	}
 }

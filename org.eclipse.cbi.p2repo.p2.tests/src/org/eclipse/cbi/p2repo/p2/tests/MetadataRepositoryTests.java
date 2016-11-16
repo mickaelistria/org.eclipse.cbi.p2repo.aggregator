@@ -93,8 +93,8 @@ public class MetadataRepositoryTests {
 		mdr.setProvider("Eclipse CBI");
 		mdr.setVersion("1.0.0");
 
-		InstallableUnitImpl iu1 = createTestingIU("org.eclipse.b3.testing.iu.01", "1.0.0");
-		InstallableUnitImpl iu2 = createTestingIU("org.eclipse.b3.testing.iu.02", "1.0.0");
+		InstallableUnitImpl iu1 = createTestingIU("org.eclipse.cbi.p2repo.testing.iu.01", "1.0.0");
+		InstallableUnitImpl iu2 = createTestingIU("org.eclipse.cbi.p2repo.testing.iu.02", "1.0.0");
 		RequiredCapabilityImpl dep = (RequiredCapabilityImpl) P2Factory.eINSTANCE.createRequiredCapability();
 		dep.setName(iu2.getId());
 		dep.setNamespace(IInstallableUnit.NAMESPACE_IU_ID);

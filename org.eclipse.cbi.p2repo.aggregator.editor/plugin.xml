@@ -13,10 +13,10 @@
 
    <extension point="org.eclipse.ui.newWizards">
       <category
-            id="org.eclipse.b3"
-            name="b3"/>
+            id="org.eclipse.cbi.p2repo"
+            name="CBI Aggregation"/>
       <wizard
-            category="org.eclipse.b3"
+            category="org.eclipse.cbi.p2repo"
             class="org.eclipse.cbi.p2repo.aggregator.presentation.AggregatorModelWizard"
             icon="icons/full/obj16/AggregatorModelFile.gif"
             id="org.eclipse.cbi.p2repo.aggregator.presentation.AggregatorModelWizardID"
