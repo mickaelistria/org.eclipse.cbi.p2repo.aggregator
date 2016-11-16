@@ -101,7 +101,7 @@
           <profile>CBIProfile</profile>
           <products>
             <product>
-              <id>org.eclipse.cbi.p2repo.product</id>
+              <id>org.eclipse.cbi.p2repo.cli.product</id>
               <rootFolder>cbiAggr</rootFolder>
               <rootFolders>
                 <macosx>cbiAggr.app</macosx>
