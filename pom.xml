@@ -38,8 +38,8 @@
     <module>org.eclipse.cbi.p2repo.aggregator.editor.feature</module>
     <module>org.eclipse.cbi.p2repo.aggregator.engine.feature</module>
     <module>org.eclipse.cbi.p2repo.p2.maven.indexer.feature</module>
-    <module>org.eclipse.cbi.p2repo.product.feature</module>
-    <module>org.eclipse.cbi.p2repo.product</module>
+    <module>org.eclipse.cbi.p2repo.cli.product.feature</module>
+    <module>org.eclipse.cbi.p2repo.cli.product</module>
     <module>org.eclipse.cbi.p2repo.site.eclipse</module>
     <module>org.eclipse.cbi.p2repo.p2.tests</module>
     <module>org.eclipse.cbi.p2repo.tests.feature</module>

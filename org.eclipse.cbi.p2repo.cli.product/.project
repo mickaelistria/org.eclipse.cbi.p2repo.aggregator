@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>org.eclipse.cbi.p2repo.product</name>
+	<name>org.eclipse.cbi.p2repo.cli.product</name>
 	<comment></comment>
 	<projects>
 	</projects>

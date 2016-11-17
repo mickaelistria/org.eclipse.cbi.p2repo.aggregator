@@ -7,7 +7,7 @@
     <relativePath>../org.eclipse.cbi.p2repo.releng.parent</relativePath>
     <version>1.0.100-SNAPSHOT</version>
   </parent>
-  <artifactId>org.eclipse.cbi.p2repo.product.feature</artifactId>
+  <artifactId>org.eclipse.cbi.p2repo.cli.product.feature</artifactId>
   <version>1.0.100-SNAPSHOT</version>
   <packaging>eclipse-feature</packaging>
 
