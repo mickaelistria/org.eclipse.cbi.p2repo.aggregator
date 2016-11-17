@@ -32,7 +32,7 @@
      -->
     <dirtyworkingTree>error</dirtyworkingTree>
     
-    <comparatorMode>disable</comparatorMode>
+    <comparatorMode>warn</comparatorMode>
     <!-- 
        This 'updateRelease' value is not used in the build, per se, but when we "deploy" to 
        the update site locations. It reflects, basically, the version of the platform that it 
