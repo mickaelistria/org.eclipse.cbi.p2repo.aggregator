@@ -25,9 +25,9 @@ import org.eclipse.equinox.p2.repository.artifact.IProcessingStepDescriptor;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.eclipse.cbi.p2repo.p2.impl.ProcessingStepDescriptorImpl#getProcessorId <em>Processor Id</em>}</li>
- *   <li>{@link org.eclipse.cbi.p2repo.p2.impl.ProcessingStepDescriptorImpl#getData <em>Data</em>}</li>
- *   <li>{@link org.eclipse.cbi.p2repo.p2.impl.ProcessingStepDescriptorImpl#isRequired <em>Required</em>}</li>
+ * <li>{@link org.eclipse.cbi.p2repo.p2.impl.ProcessingStepDescriptorImpl#getProcessorId <em>Processor Id</em>}</li>
+ * <li>{@link org.eclipse.cbi.p2repo.p2.impl.ProcessingStepDescriptorImpl#getData <em>Data</em>}</li>
+ * <li>{@link org.eclipse.cbi.p2repo.p2.impl.ProcessingStepDescriptorImpl#isRequired <em>Required</em>}</li>
  * </ul>
  *
  * @generated
@@ -37,6 +37,7 @@ public class ProcessingStepDescriptorImpl extends MinimalEObjectImpl.Container i
 	 * A set of bit flags representing the values of boolean attributes and whether unsettable features have been set.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -46,6 +47,7 @@ public class ProcessingStepDescriptorImpl extends MinimalEObjectImpl.Container i
 	 * The default value of the '{@link #getProcessorId() <em>Processor Id</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getProcessorId()
 	 * @generated
 	 * @ordered
@@ -56,6 +58,7 @@ public class ProcessingStepDescriptorImpl extends MinimalEObjectImpl.Container i
 	 * The cached value of the '{@link #getProcessorId() <em>Processor Id</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getProcessorId()
 	 * @generated
 	 * @ordered
@@ -66,6 +69,7 @@ public class ProcessingStepDescriptorImpl extends MinimalEObjectImpl.Container i
 	 * The default value of the '{@link #getData() <em>Data</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getData()
 	 * @generated
 	 * @ordered
@@ -76,6 +80,7 @@ public class ProcessingStepDescriptorImpl extends MinimalEObjectImpl.Container i
 	 * The cached value of the '{@link #getData() <em>Data</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getData()
 	 * @generated
 	 * @ordered
@@ -86,6 +91,7 @@ public class ProcessingStepDescriptorImpl extends MinimalEObjectImpl.Container i
 	 * The default value of the '{@link #isRequired() <em>Required</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #isRequired()
 	 * @generated
 	 * @ordered
@@ -96,6 +102,7 @@ public class ProcessingStepDescriptorImpl extends MinimalEObjectImpl.Container i
 	 * The flag representing the value of the '{@link #isRequired() <em>Required</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #isRequired()
 	 * @generated
 	 * @ordered
@@ -105,6 +112,7 @@ public class ProcessingStepDescriptorImpl extends MinimalEObjectImpl.Container i
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected ProcessingStepDescriptorImpl() {
@@ -114,11 +122,12 @@ public class ProcessingStepDescriptorImpl extends MinimalEObjectImpl.Container i
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch (featureID) {
+		switch(featureID) {
 			case P2Package.PROCESSING_STEP_DESCRIPTOR__PROCESSOR_ID:
 				return getProcessorId();
 			case P2Package.PROCESSING_STEP_DESCRIPTOR__DATA:
@@ -132,15 +141,20 @@ public class ProcessingStepDescriptorImpl extends MinimalEObjectImpl.Container i
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch (featureID) {
+		switch(featureID) {
 			case P2Package.PROCESSING_STEP_DESCRIPTOR__PROCESSOR_ID:
-				return PROCESSOR_ID_EDEFAULT == null ? processorId != null : !PROCESSOR_ID_EDEFAULT.equals(processorId);
+				return PROCESSOR_ID_EDEFAULT == null
+						? processorId != null
+						: !PROCESSOR_ID_EDEFAULT.equals(processorId);
 			case P2Package.PROCESSING_STEP_DESCRIPTOR__DATA:
-				return DATA_EDEFAULT == null ? data != null : !DATA_EDEFAULT.equals(data);
+				return DATA_EDEFAULT == null
+						? data != null
+						: !DATA_EDEFAULT.equals(data);
 			case P2Package.PROCESSING_STEP_DESCRIPTOR__REQUIRED:
 				return ((eFlags & REQUIRED_EFLAG) != 0) != REQUIRED_EDEFAULT;
 		}
@@ -161,19 +175,20 @@ public class ProcessingStepDescriptorImpl extends MinimalEObjectImpl.Container i
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch (featureID) {
+		switch(featureID) {
 			case P2Package.PROCESSING_STEP_DESCRIPTOR__PROCESSOR_ID:
-				setProcessorId((String)newValue);
+				setProcessorId((String) newValue);
 				return;
 			case P2Package.PROCESSING_STEP_DESCRIPTOR__DATA:
-				setData((String)newValue);
+				setData((String) newValue);
 				return;
 			case P2Package.PROCESSING_STEP_DESCRIPTOR__REQUIRED:
-				setRequired((Boolean)newValue);
+				setRequired((Boolean) newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -182,6 +197,7 @@ public class ProcessingStepDescriptorImpl extends MinimalEObjectImpl.Container i
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -192,11 +208,12 @@ public class ProcessingStepDescriptorImpl extends MinimalEObjectImpl.Container i
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
-		switch (featureID) {
+		switch(featureID) {
 			case P2Package.PROCESSING_STEP_DESCRIPTOR__PROCESSOR_ID:
 				setProcessorId(PROCESSOR_ID_EDEFAULT);
 				return;
@@ -213,6 +230,7 @@ public class ProcessingStepDescriptorImpl extends MinimalEObjectImpl.Container i
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -223,6 +241,7 @@ public class ProcessingStepDescriptorImpl extends MinimalEObjectImpl.Container i
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -250,6 +269,7 @@ public class ProcessingStepDescriptorImpl extends MinimalEObjectImpl.Container i
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -260,47 +280,62 @@ public class ProcessingStepDescriptorImpl extends MinimalEObjectImpl.Container i
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setData(String newData) {
 		String oldData = data;
 		data = newData;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, P2Package.PROCESSING_STEP_DESCRIPTOR__DATA, oldData, data));
+		if(eNotificationRequired())
+			eNotify(
+				new ENotificationImpl(
+					this, Notification.SET, P2Package.PROCESSING_STEP_DESCRIPTOR__DATA, oldData, data));
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setProcessorId(String newProcessorId) {
 		String oldProcessorId = processorId;
 		processorId = newProcessorId;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, P2Package.PROCESSING_STEP_DESCRIPTOR__PROCESSOR_ID, oldProcessorId, processorId));
+		if(eNotificationRequired())
+			eNotify(
+				new ENotificationImpl(
+					this, Notification.SET, P2Package.PROCESSING_STEP_DESCRIPTOR__PROCESSOR_ID, oldProcessorId,
+					processorId));
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setRequired(boolean newRequired) {
 		boolean oldRequired = (eFlags & REQUIRED_EFLAG) != 0;
-		if (newRequired) eFlags |= REQUIRED_EFLAG; else eFlags &= ~REQUIRED_EFLAG;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, P2Package.PROCESSING_STEP_DESCRIPTOR__REQUIRED, oldRequired, newRequired));
+		if(newRequired)
+			eFlags |= REQUIRED_EFLAG;
+		else
+			eFlags &= ~REQUIRED_EFLAG;
+		if(eNotificationRequired())
+			eNotify(
+				new ENotificationImpl(
+					this, Notification.SET, P2Package.PROCESSING_STEP_DESCRIPTOR__REQUIRED, oldRequired, newRequired));
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy()) return super.toString();
+		if(eIsProxy())
+			return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (processorId: ");

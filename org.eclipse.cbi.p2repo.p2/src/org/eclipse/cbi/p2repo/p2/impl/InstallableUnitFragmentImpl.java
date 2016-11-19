@@ -27,7 +27,7 @@ import org.eclipse.equinox.p2.metadata.IRequirement;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.eclipse.cbi.p2repo.p2.impl.InstallableUnitFragmentImpl#getHost <em>Host</em>}</li>
+ * <li>{@link org.eclipse.cbi.p2repo.p2.impl.InstallableUnitFragmentImpl#getHost <em>Host</em>}</li>
  * </ul>
  *
  * @generated
@@ -38,6 +38,7 @@ public class InstallableUnitFragmentImpl extends InstallableUnitImpl implements 
 	 * The cached value of the '{@link #getHost() <em>Host</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getHost()
 	 * @generated
 	 * @ordered
@@ -49,6 +50,7 @@ public class InstallableUnitFragmentImpl extends InstallableUnitImpl implements 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected InstallableUnitFragmentImpl() {
@@ -71,11 +73,12 @@ public class InstallableUnitFragmentImpl extends InstallableUnitImpl implements 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch (featureID) {
+		switch(featureID) {
 			case P2Package.INSTALLABLE_UNIT_FRAGMENT__HOST:
 				return getHost();
 		}
@@ -85,13 +88,14 @@ public class InstallableUnitFragmentImpl extends InstallableUnitImpl implements 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
+		switch(featureID) {
 			case P2Package.INSTALLABLE_UNIT_FRAGMENT__HOST:
-				return ((InternalEList<?>)getHost()).basicRemove(otherEnd, msgs);
+				return ((InternalEList<?>) getHost()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -99,11 +103,12 @@ public class InstallableUnitFragmentImpl extends InstallableUnitImpl implements 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch (featureID) {
+		switch(featureID) {
 			case P2Package.INSTALLABLE_UNIT_FRAGMENT__HOST:
 				return host != null && !host.isEmpty();
 		}
@@ -113,15 +118,16 @@ public class InstallableUnitFragmentImpl extends InstallableUnitImpl implements 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch (featureID) {
+		switch(featureID) {
 			case P2Package.INSTALLABLE_UNIT_FRAGMENT__HOST:
 				getHost().clear();
-				getHost().addAll((Collection<? extends IRequirement>)newValue);
+				getHost().addAll((Collection<? extends IRequirement>) newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -130,6 +136,7 @@ public class InstallableUnitFragmentImpl extends InstallableUnitImpl implements 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -140,11 +147,12 @@ public class InstallableUnitFragmentImpl extends InstallableUnitImpl implements 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
-		switch (featureID) {
+		switch(featureID) {
 			case P2Package.INSTALLABLE_UNIT_FRAGMENT__HOST:
 				getHost().clear();
 				return;
@@ -155,12 +163,14 @@ public class InstallableUnitFragmentImpl extends InstallableUnitImpl implements 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public EList<IRequirement> getHost() {
-		if (host == null) {
-			host = new EObjectContainmentEList.Resolving<IRequirement>(IRequirement.class, this, P2Package.INSTALLABLE_UNIT_FRAGMENT__HOST);
+		if(host == null) {
+			host = new EObjectContainmentEList.Resolving<IRequirement>(
+				IRequirement.class, this, P2Package.INSTALLABLE_UNIT_FRAGMENT__HOST);
 		}
 		return host;
 	}

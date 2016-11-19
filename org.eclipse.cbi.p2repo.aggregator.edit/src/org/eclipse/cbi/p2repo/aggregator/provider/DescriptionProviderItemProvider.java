@@ -36,9 +36,9 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  *
  * @generated
  */
-public class DescriptionProviderItemProvider extends AggregatorItemProviderAdapter implements
-		IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider,
-		IItemPropertySource, IItemColorProvider, IItemFontProvider {
+public class DescriptionProviderItemProvider extends AggregatorItemProviderAdapter
+		implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider,
+		IItemLabelProvider, IItemPropertySource, IItemColorProvider, IItemFontProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -54,19 +54,15 @@ public class DescriptionProviderItemProvider extends AggregatorItemProviderAdapt
 	 * @generated
 	 */
 	protected void addDescriptionPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_DescriptionProvider_description_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_DescriptionProvider_description_feature", "_UI_DescriptionProvider_type"),
-				 AggregatorPackage.Literals.DESCRIPTION_PROVIDER__DESCRIPTION,
-				 true,
-				 true,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
+		itemPropertyDescriptors.add(
+			createItemPropertyDescriptor(
+				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+				getString("_UI_DescriptionProvider_description_feature"),
+				getString(
+					"_UI_PropertyDescriptor_description", "_UI_DescriptionProvider_description_feature",
+					"_UI_DescriptionProvider_type"),
+				AggregatorPackage.Literals.DESCRIPTION_PROVIDER__DESCRIPTION, true, true, false,
+				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -97,7 +93,7 @@ public class DescriptionProviderItemProvider extends AggregatorItemProviderAdapt
 	 */
 	@Override
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-		if (itemPropertyDescriptors == null) {
+		if(itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
 			addDescriptionPropertyDescriptor(object);
@@ -142,7 +138,7 @@ public class DescriptionProviderItemProvider extends AggregatorItemProviderAdapt
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(DescriptionProvider.class)) {
+		switch(notification.getFeatureID(DescriptionProvider.class)) {
 			case AggregatorPackage.DESCRIPTION_PROVIDER__DESCRIPTION:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;

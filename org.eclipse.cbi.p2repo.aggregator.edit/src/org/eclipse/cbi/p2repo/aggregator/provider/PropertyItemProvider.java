@@ -32,9 +32,9 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  *
  * @generated
  */
-public class PropertyItemProvider extends AggregatorItemProviderAdapter implements IEditingDomainItemProvider,
-		IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource,
-		IItemColorProvider, IItemFontProvider {
+public class PropertyItemProvider extends AggregatorItemProviderAdapter
+		implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider,
+		IItemLabelProvider, IItemPropertySource, IItemColorProvider, IItemFontProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -50,19 +50,13 @@ public class PropertyItemProvider extends AggregatorItemProviderAdapter implemen
 	 * @generated
 	 */
 	protected void addKeyPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Property_key_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Property_key_feature", "_UI_Property_type"),
-				 AggregatorPackage.Literals.PROPERTY__KEY,
-				 false,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
+		itemPropertyDescriptors.add(
+			createItemPropertyDescriptor(
+				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+				getString("_UI_Property_key_feature"),
+				getString("_UI_PropertyDescriptor_description", "_UI_Property_key_feature", "_UI_Property_type"),
+				AggregatorPackage.Literals.PROPERTY__KEY, false, false, false,
+				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -71,19 +65,13 @@ public class PropertyItemProvider extends AggregatorItemProviderAdapter implemen
 	 * @generated
 	 */
 	protected void addValuePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Property_value_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Property_value_feature", "_UI_Property_type"),
-				 AggregatorPackage.Literals.PROPERTY__VALUE,
-				 false,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
+		itemPropertyDescriptors.add(
+			createItemPropertyDescriptor(
+				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+				getString("_UI_Property_value_feature"),
+				getString("_UI_PropertyDescriptor_description", "_UI_Property_value_feature", "_UI_Property_type"),
+				AggregatorPackage.Literals.PROPERTY__VALUE, false, false, false,
+				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -114,7 +102,7 @@ public class PropertyItemProvider extends AggregatorItemProviderAdapter implemen
 	 */
 	@Override
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-		if (itemPropertyDescriptors == null) {
+		if(itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
 			addKeyPropertyDescriptor(object);
@@ -155,7 +143,7 @@ public class PropertyItemProvider extends AggregatorItemProviderAdapter implemen
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(Property.class)) {
+		switch(notification.getFeatureID(Property.class)) {
 			case AggregatorPackage.PROPERTY__KEY:
 			case AggregatorPackage.PROPERTY__VALUE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));

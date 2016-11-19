@@ -19,8 +19,8 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.OrganizationImpl#getName <em>Name</em>}</li>
- *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.OrganizationImpl#getUrl <em>Url</em>}</li>
+ * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.OrganizationImpl#getName <em>Name</em>}</li>
+ * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.OrganizationImpl#getUrl <em>Url</em>}</li>
  * </ul>
  *
  * @generated
@@ -59,6 +59,7 @@ public class OrganizationImpl extends EObjectImpl implements Organization {
 	/**
 	 * The cached value of the '{@link #getUrl() <em>Url</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see #getUrl()
 	 * @generated
 	 * @ordered
@@ -67,6 +68,7 @@ public class OrganizationImpl extends EObjectImpl implements Organization {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected OrganizationImpl() {
@@ -75,11 +77,12 @@ public class OrganizationImpl extends EObjectImpl implements Organization {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch (featureID) {
+		switch(featureID) {
 			case PomPackage.ORGANIZATION__NAME:
 				return getName();
 			case PomPackage.ORGANIZATION__URL:
@@ -90,31 +93,37 @@ public class OrganizationImpl extends EObjectImpl implements Organization {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch (featureID) {
+		switch(featureID) {
 			case PomPackage.ORGANIZATION__NAME:
-				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+				return NAME_EDEFAULT == null
+						? name != null
+						: !NAME_EDEFAULT.equals(name);
 			case PomPackage.ORGANIZATION__URL:
-				return URL_EDEFAULT == null ? url != null : !URL_EDEFAULT.equals(url);
+				return URL_EDEFAULT == null
+						? url != null
+						: !URL_EDEFAULT.equals(url);
 		}
 		return super.eIsSet(featureID);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch (featureID) {
+		switch(featureID) {
 			case PomPackage.ORGANIZATION__NAME:
-				setName((String)newValue);
+				setName((String) newValue);
 				return;
 			case PomPackage.ORGANIZATION__URL:
-				setUrl((String)newValue);
+				setUrl((String) newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -122,11 +131,12 @@ public class OrganizationImpl extends EObjectImpl implements Organization {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
-		switch (featureID) {
+		switch(featureID) {
 			case PomPackage.ORGANIZATION__NAME:
 				setName(NAME_EDEFAULT);
 				return;
@@ -139,6 +149,7 @@ public class OrganizationImpl extends EObjectImpl implements Organization {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -148,6 +159,7 @@ public class OrganizationImpl extends EObjectImpl implements Organization {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -157,35 +169,39 @@ public class OrganizationImpl extends EObjectImpl implements Organization {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void setName(String newName) {
 		String oldName = name;
 		name = newName;
-		if (eNotificationRequired())
+		if(eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.ORGANIZATION__NAME, oldName, name));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void setUrl(String newUrl) {
 		String oldUrl = url;
 		url = newUrl;
-		if (eNotificationRequired())
+		if(eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.ORGANIZATION__URL, oldUrl, url));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy()) return super.toString();
+		if(eIsProxy())
+			return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (name: ");
@@ -198,6 +214,7 @@ public class OrganizationImpl extends EObjectImpl implements Organization {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override

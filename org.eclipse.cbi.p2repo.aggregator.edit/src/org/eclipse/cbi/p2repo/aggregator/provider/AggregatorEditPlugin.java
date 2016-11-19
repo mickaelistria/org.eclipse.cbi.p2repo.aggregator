@@ -73,10 +73,7 @@ public final class AggregatorEditPlugin extends EMFPlugin {
 	 * @generated
 	 */
 	public AggregatorEditPlugin() {
-		super
-		  (new ResourceLocator [] {
-		     P2EditPlugin.INSTANCE,
-		   });
+		super(new ResourceLocator[] { P2EditPlugin.INSTANCE, });
 	}
 
 	/**

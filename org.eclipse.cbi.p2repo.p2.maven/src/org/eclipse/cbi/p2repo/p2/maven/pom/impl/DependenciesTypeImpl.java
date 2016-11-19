@@ -44,6 +44,7 @@ public class DependenciesTypeImpl extends EObjectImpl implements DependenciesTyp
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected DependenciesTypeImpl() {
@@ -52,11 +53,12 @@ public class DependenciesTypeImpl extends EObjectImpl implements DependenciesTyp
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch (featureID) {
+		switch(featureID) {
 			case PomPackage.DEPENDENCIES_TYPE__DEPENDENCY:
 				return getDependency();
 		}
@@ -65,24 +67,26 @@ public class DependenciesTypeImpl extends EObjectImpl implements DependenciesTyp
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
+		switch(featureID) {
 			case PomPackage.DEPENDENCIES_TYPE__DEPENDENCY:
-				return ((InternalEList<?>)getDependency()).basicRemove(otherEnd, msgs);
+				return ((InternalEList<?>) getDependency()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch (featureID) {
+		switch(featureID) {
 			case PomPackage.DEPENDENCIES_TYPE__DEPENDENCY:
 				return dependency != null && !dependency.isEmpty();
 		}
@@ -91,15 +95,16 @@ public class DependenciesTypeImpl extends EObjectImpl implements DependenciesTyp
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch (featureID) {
+		switch(featureID) {
 			case PomPackage.DEPENDENCIES_TYPE__DEPENDENCY:
 				getDependency().clear();
-				getDependency().addAll((Collection<? extends Dependency>)newValue);
+				getDependency().addAll((Collection<? extends Dependency>) newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -107,11 +112,12 @@ public class DependenciesTypeImpl extends EObjectImpl implements DependenciesTyp
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
-		switch (featureID) {
+		switch(featureID) {
 			case PomPackage.DEPENDENCIES_TYPE__DEPENDENCY:
 				getDependency().clear();
 				return;
@@ -121,18 +127,21 @@ public class DependenciesTypeImpl extends EObjectImpl implements DependenciesTyp
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public EList<Dependency> getDependency() {
-		if (dependency == null) {
-			dependency = new EObjectContainmentEList<Dependency>(Dependency.class, this, PomPackage.DEPENDENCIES_TYPE__DEPENDENCY);
+		if(dependency == null) {
+			dependency = new EObjectContainmentEList<Dependency>(
+				Dependency.class, this, PomPackage.DEPENDENCIES_TYPE__DEPENDENCY);
 		}
 		return dependency;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override

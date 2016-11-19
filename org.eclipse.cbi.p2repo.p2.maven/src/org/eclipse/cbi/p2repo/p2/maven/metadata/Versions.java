@@ -15,16 +15,16 @@ import org.eclipse.emf.ecore.EObject;
  * <!-- begin-model-doc -->
  * 1.0.0
  * 
- * 				Container for all the versions in the repository for
- * 				this artifact.
- * 			
+ * Container for all the versions in the repository for
+ * this artifact.
+ * 
  * <!-- end-model-doc -->
  *
  * <p>
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.metadata.Versions#getVersion <em>Version</em>}</li>
+ * <li>{@link org.eclipse.cbi.p2repo.p2.maven.metadata.Versions#getVersion <em>Version</em>}</li>
  * </ul>
  *
  * @see org.eclipse.cbi.p2repo.p2.maven.metadata.MetadataPackage#getVersions()

@@ -34,9 +34,9 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
  *
  * @generated
  */
-public class CategoriesItemProvider extends AggregatorItemProviderAdapter implements IEditingDomainItemProvider,
-		IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource,
-		IItemColorProvider, IItemFontProvider {
+public class CategoriesItemProvider extends AggregatorItemProviderAdapter
+		implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider,
+		IItemLabelProvider, IItemPropertySource, IItemColorProvider, IItemFontProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -79,7 +79,7 @@ public class CategoriesItemProvider extends AggregatorItemProviderAdapter implem
 	 */
 	@Override
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
-		if (childrenFeatures == null) {
+		if(childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(P2viewPackage.Literals.CATEGORIES__CATEGORIES);
 		}
@@ -103,7 +103,7 @@ public class CategoriesItemProvider extends AggregatorItemProviderAdapter implem
 	 */
 	@Override
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-		if (itemPropertyDescriptors == null) {
+		if(itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
 		}

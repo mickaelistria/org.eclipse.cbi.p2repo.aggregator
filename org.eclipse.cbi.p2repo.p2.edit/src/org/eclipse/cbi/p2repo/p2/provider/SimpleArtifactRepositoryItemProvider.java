@@ -24,6 +24,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * This is the item provider adapter for a {@link org.eclipse.cbi.p2repo.p2.SimpleArtifactRepository} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
+ * 
  * @generated
  */
 public class SimpleArtifactRepositoryItemProvider extends ArtifactRepositoryItemProvider {
@@ -31,6 +32,7 @@ public class SimpleArtifactRepositoryItemProvider extends ArtifactRepositoryItem
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public SimpleArtifactRepositoryItemProvider(AdapterFactory adapterFactory) {
@@ -42,21 +44,22 @@ public class SimpleArtifactRepositoryItemProvider extends ArtifactRepositoryItem
 	 * that can be created under this object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 
-		newChildDescriptors.add
-			(createChildParameter
-				(P2Package.Literals.SIMPLE_ARTIFACT_REPOSITORY__RULES,
-				 P2Factory.eINSTANCE.createMappingRule()));
+		newChildDescriptors.add(
+			createChildParameter(
+				P2Package.Literals.SIMPLE_ARTIFACT_REPOSITORY__RULES, P2Factory.eINSTANCE.createMappingRule()));
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -73,11 +76,12 @@ public class SimpleArtifactRepositoryItemProvider extends ArtifactRepositoryItem
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
-		if (childrenFeatures == null) {
+		if(childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(P2Package.Literals.SIMPLE_ARTIFACT_REPOSITORY__RULES);
 		}
@@ -88,6 +92,7 @@ public class SimpleArtifactRepositoryItemProvider extends ArtifactRepositoryItem
 	 * This returns SimpleArtifactRepository.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -99,11 +104,12 @@ public class SimpleArtifactRepositoryItemProvider extends ArtifactRepositoryItem
 	 * This returns the property descriptors for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-		if (itemPropertyDescriptors == null) {
+		if(itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
 		}
@@ -114,14 +120,15 @@ public class SimpleArtifactRepositoryItemProvider extends ArtifactRepositoryItem
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((SimpleArtifactRepository)object).getName();
-		return label == null || label.length() == 0 ?
-			getString("_UI_SimpleArtifactRepository_type") :
-			getString("_UI_SimpleArtifactRepository_type") + " " + label;
+		String label = ((SimpleArtifactRepository) object).getName();
+		return label == null || label.length() == 0
+				? getString("_UI_SimpleArtifactRepository_type")
+				: getString("_UI_SimpleArtifactRepository_type") + " " + label;
 	}
 
 	/**
@@ -129,13 +136,14 @@ public class SimpleArtifactRepositoryItemProvider extends ArtifactRepositoryItem
 	 * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(SimpleArtifactRepository.class)) {
+		switch(notification.getFeatureID(SimpleArtifactRepository.class)) {
 			case P2Package.SIMPLE_ARTIFACT_REPOSITORY__RULES:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;

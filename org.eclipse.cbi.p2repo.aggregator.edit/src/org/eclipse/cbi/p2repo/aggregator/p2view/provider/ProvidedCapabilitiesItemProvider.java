@@ -34,9 +34,9 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
  * <!-- begin-user-doc --> <!-- end-user-doc -->
  * @generated
  */
-public class ProvidedCapabilitiesItemProvider extends AggregatorItemProviderAdapter implements
-		IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider,
-		IItemPropertySource, IItemColorProvider, IItemFontProvider {
+public class ProvidedCapabilitiesItemProvider extends AggregatorItemProviderAdapter
+		implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider,
+		IItemLabelProvider, IItemPropertySource, IItemColorProvider, IItemFontProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -53,19 +53,15 @@ public class ProvidedCapabilitiesItemProvider extends AggregatorItemProviderAdap
 	 * @generated
 	 */
 	protected void addProvidedCapabilitiesPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_ProvidedCapabilities_providedCapabilities_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ProvidedCapabilities_providedCapabilities_feature", "_UI_ProvidedCapabilities_type"),
-				 P2viewPackage.Literals.PROVIDED_CAPABILITIES__PROVIDED_CAPABILITIES,
-				 false,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
+		itemPropertyDescriptors.add(
+			createItemPropertyDescriptor(
+				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+				getString("_UI_ProvidedCapabilities_providedCapabilities_feature"),
+				getString(
+					"_UI_PropertyDescriptor_description", "_UI_ProvidedCapabilities_providedCapabilities_feature",
+					"_UI_ProvidedCapabilities_type"),
+				P2viewPackage.Literals.PROVIDED_CAPABILITIES__PROVIDED_CAPABILITIES, false, false, true, null, null,
+				null));
 	}
 
 	/**
@@ -101,7 +97,7 @@ public class ProvidedCapabilitiesItemProvider extends AggregatorItemProviderAdap
 	 */
 	@Override
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
-		if (childrenFeatures == null) {
+		if(childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(P2viewPackage.Literals.PROVIDED_CAPABILITIES__PROVIDED_CAPABILITIES);
 		}
@@ -125,7 +121,7 @@ public class ProvidedCapabilitiesItemProvider extends AggregatorItemProviderAdap
 	 */
 	@Override
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-		if (itemPropertyDescriptors == null) {
+		if(itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
 			addProvidedCapabilitiesPropertyDescriptor(object);

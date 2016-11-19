@@ -75,7 +75,8 @@ import org.eclipse.equinox.p2.query.QueryUtil;
  *
  * @generated
  */
-public abstract class InstallableUnitRequestImpl extends MinimalEObjectImpl.Container implements InstallableUnitRequest {
+public abstract class InstallableUnitRequestImpl extends MinimalEObjectImpl.Container
+		implements InstallableUnitRequest {
 	/**
 	 * This looks up a string in the plugin's plugin.properties file. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 *
@@ -171,7 +172,8 @@ public abstract class InstallableUnitRequestImpl extends MinimalEObjectImpl.Cont
 	 * @generated
 	 * @ordered
 	 */
-	protected static final VersionRange VERSION_RANGE_EDEFAULT = (VersionRange)P2Factory.eINSTANCE.createFromString(P2Package.eINSTANCE.getVersionRange(), "0.0.0");
+	protected static final VersionRange VERSION_RANGE_EDEFAULT = (VersionRange) P2Factory.eINSTANCE.createFromString(
+		P2Package.eINSTANCE.getVersionRange(), "0.0.0");
 
 	/**
 	 * The cached value of the '{@link #getVersionRange() <em>Version Range</em>}' attribute.
@@ -252,9 +254,14 @@ public abstract class InstallableUnitRequestImpl extends MinimalEObjectImpl.Cont
 			NotificationChain msgs) {
 		AvailableVersionsHeader oldAvailableVersionsHeader = availableVersionsHeader;
 		availableVersionsHeader = newAvailableVersionsHeader;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AggregatorPackage.INSTALLABLE_UNIT_REQUEST__AVAILABLE_VERSIONS_HEADER, oldAvailableVersionsHeader, newAvailableVersionsHeader);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
+		if(eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(
+				this, Notification.SET, AggregatorPackage.INSTALLABLE_UNIT_REQUEST__AVAILABLE_VERSIONS_HEADER,
+				oldAvailableVersionsHeader, newAvailableVersionsHeader);
+			if(msgs == null)
+				msgs = notification;
+			else
+				msgs.add(notification);
 		}
 		return msgs;
 	}
@@ -265,18 +272,24 @@ public abstract class InstallableUnitRequestImpl extends MinimalEObjectImpl.Cont
 	 */
 	@Override
 	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
-		if (baseClass == InfosProvider.class) {
-			switch (derivedFeatureID) {
-				case AggregatorPackage.INSTALLABLE_UNIT_REQUEST__ERRORS: return AggregatorPackage.INFOS_PROVIDER__ERRORS;
-				case AggregatorPackage.INSTALLABLE_UNIT_REQUEST__WARNINGS: return AggregatorPackage.INFOS_PROVIDER__WARNINGS;
-				case AggregatorPackage.INSTALLABLE_UNIT_REQUEST__INFOS: return AggregatorPackage.INFOS_PROVIDER__INFOS;
-				default: return -1;
+		if(baseClass == InfosProvider.class) {
+			switch(derivedFeatureID) {
+				case AggregatorPackage.INSTALLABLE_UNIT_REQUEST__ERRORS:
+					return AggregatorPackage.INFOS_PROVIDER__ERRORS;
+				case AggregatorPackage.INSTALLABLE_UNIT_REQUEST__WARNINGS:
+					return AggregatorPackage.INFOS_PROVIDER__WARNINGS;
+				case AggregatorPackage.INSTALLABLE_UNIT_REQUEST__INFOS:
+					return AggregatorPackage.INFOS_PROVIDER__INFOS;
+				default:
+					return -1;
 			}
 		}
-		if (baseClass == DescriptionProvider.class) {
-			switch (derivedFeatureID) {
-				case AggregatorPackage.INSTALLABLE_UNIT_REQUEST__DESCRIPTION: return AggregatorPackage.DESCRIPTION_PROVIDER__DESCRIPTION;
-				default: return -1;
+		if(baseClass == DescriptionProvider.class) {
+			switch(derivedFeatureID) {
+				case AggregatorPackage.INSTALLABLE_UNIT_REQUEST__DESCRIPTION:
+					return AggregatorPackage.DESCRIPTION_PROVIDER__DESCRIPTION;
+				default:
+					return -1;
 			}
 		}
 		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
@@ -288,18 +301,24 @@ public abstract class InstallableUnitRequestImpl extends MinimalEObjectImpl.Cont
 	 */
 	@Override
 	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
-		if (baseClass == InfosProvider.class) {
-			switch (baseFeatureID) {
-				case AggregatorPackage.INFOS_PROVIDER__ERRORS: return AggregatorPackage.INSTALLABLE_UNIT_REQUEST__ERRORS;
-				case AggregatorPackage.INFOS_PROVIDER__WARNINGS: return AggregatorPackage.INSTALLABLE_UNIT_REQUEST__WARNINGS;
-				case AggregatorPackage.INFOS_PROVIDER__INFOS: return AggregatorPackage.INSTALLABLE_UNIT_REQUEST__INFOS;
-				default: return -1;
+		if(baseClass == InfosProvider.class) {
+			switch(baseFeatureID) {
+				case AggregatorPackage.INFOS_PROVIDER__ERRORS:
+					return AggregatorPackage.INSTALLABLE_UNIT_REQUEST__ERRORS;
+				case AggregatorPackage.INFOS_PROVIDER__WARNINGS:
+					return AggregatorPackage.INSTALLABLE_UNIT_REQUEST__WARNINGS;
+				case AggregatorPackage.INFOS_PROVIDER__INFOS:
+					return AggregatorPackage.INSTALLABLE_UNIT_REQUEST__INFOS;
+				default:
+					return -1;
 			}
 		}
-		if (baseClass == DescriptionProvider.class) {
-			switch (baseFeatureID) {
-				case AggregatorPackage.DESCRIPTION_PROVIDER__DESCRIPTION: return AggregatorPackage.INSTALLABLE_UNIT_REQUEST__DESCRIPTION;
-				default: return -1;
+		if(baseClass == DescriptionProvider.class) {
+			switch(baseFeatureID) {
+				case AggregatorPackage.DESCRIPTION_PROVIDER__DESCRIPTION:
+					return AggregatorPackage.INSTALLABLE_UNIT_REQUEST__DESCRIPTION;
+				default:
+					return -1;
 			}
 		}
 		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
@@ -311,7 +330,7 @@ public abstract class InstallableUnitRequestImpl extends MinimalEObjectImpl.Cont
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch (featureID) {
+		switch(featureID) {
 			case AggregatorPackage.INSTALLABLE_UNIT_REQUEST__STATUS:
 				return getStatus();
 			case AggregatorPackage.INSTALLABLE_UNIT_REQUEST__ERRORS:
@@ -341,11 +360,14 @@ public abstract class InstallableUnitRequestImpl extends MinimalEObjectImpl.Cont
 	 */
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
+		switch(featureID) {
 			case AggregatorPackage.INSTALLABLE_UNIT_REQUEST__AVAILABLE_VERSIONS_HEADER:
-				if (availableVersionsHeader != null)
-					msgs = ((InternalEObject)availableVersionsHeader).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - AggregatorPackage.INSTALLABLE_UNIT_REQUEST__AVAILABLE_VERSIONS_HEADER, null, msgs);
-				return basicSetAvailableVersionsHeader((AvailableVersionsHeader)otherEnd, msgs);
+				if(availableVersionsHeader != null)
+					msgs = ((InternalEObject) availableVersionsHeader).eInverseRemove(
+						this,
+						EOPPOSITE_FEATURE_BASE - AggregatorPackage.INSTALLABLE_UNIT_REQUEST__AVAILABLE_VERSIONS_HEADER,
+						null, msgs);
+				return basicSetAvailableVersionsHeader((AvailableVersionsHeader) otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -357,11 +379,11 @@ public abstract class InstallableUnitRequestImpl extends MinimalEObjectImpl.Cont
 	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
+		switch(featureID) {
 			case AggregatorPackage.INSTALLABLE_UNIT_REQUEST__AVAILABLE_VERSIONS_HEADER:
 				return basicSetAvailableVersionsHeader(null, msgs);
 			case AggregatorPackage.INSTALLABLE_UNIT_REQUEST__AVAILABLE_VERSIONS:
-				return ((InternalEList<?>)getAvailableVersions()).basicRemove(otherEnd, msgs);
+				return ((InternalEList<?>) getAvailableVersions()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -372,7 +394,7 @@ public abstract class InstallableUnitRequestImpl extends MinimalEObjectImpl.Cont
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch (featureID) {
+		switch(featureID) {
 			case AggregatorPackage.INSTALLABLE_UNIT_REQUEST__STATUS:
 				return getStatus() != null;
 			case AggregatorPackage.INSTALLABLE_UNIT_REQUEST__ERRORS:
@@ -382,11 +404,17 @@ public abstract class InstallableUnitRequestImpl extends MinimalEObjectImpl.Cont
 			case AggregatorPackage.INSTALLABLE_UNIT_REQUEST__INFOS:
 				return infos != null && !infos.isEmpty();
 			case AggregatorPackage.INSTALLABLE_UNIT_REQUEST__DESCRIPTION:
-				return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
+				return DESCRIPTION_EDEFAULT == null
+						? description != null
+						: !DESCRIPTION_EDEFAULT.equals(description);
 			case AggregatorPackage.INSTALLABLE_UNIT_REQUEST__NAME:
-				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+				return NAME_EDEFAULT == null
+						? name != null
+						: !NAME_EDEFAULT.equals(name);
 			case AggregatorPackage.INSTALLABLE_UNIT_REQUEST__VERSION_RANGE:
-				return VERSION_RANGE_EDEFAULT == null ? versionRange != null : !VERSION_RANGE_EDEFAULT.equals(versionRange);
+				return VERSION_RANGE_EDEFAULT == null
+						? versionRange != null
+						: !VERSION_RANGE_EDEFAULT.equals(versionRange);
 			case AggregatorPackage.INSTALLABLE_UNIT_REQUEST__AVAILABLE_VERSIONS_HEADER:
 				return availableVersionsHeader != null;
 			case AggregatorPackage.INSTALLABLE_UNIT_REQUEST__AVAILABLE_VERSIONS:
@@ -402,34 +430,34 @@ public abstract class InstallableUnitRequestImpl extends MinimalEObjectImpl.Cont
 	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch (featureID) {
+		switch(featureID) {
 			case AggregatorPackage.INSTALLABLE_UNIT_REQUEST__ERRORS:
 				getErrors().clear();
-				getErrors().addAll((Collection<? extends String>)newValue);
+				getErrors().addAll((Collection<? extends String>) newValue);
 				return;
 			case AggregatorPackage.INSTALLABLE_UNIT_REQUEST__WARNINGS:
 				getWarnings().clear();
-				getWarnings().addAll((Collection<? extends String>)newValue);
+				getWarnings().addAll((Collection<? extends String>) newValue);
 				return;
 			case AggregatorPackage.INSTALLABLE_UNIT_REQUEST__INFOS:
 				getInfos().clear();
-				getInfos().addAll((Collection<? extends String>)newValue);
+				getInfos().addAll((Collection<? extends String>) newValue);
 				return;
 			case AggregatorPackage.INSTALLABLE_UNIT_REQUEST__DESCRIPTION:
-				setDescription((String)newValue);
+				setDescription((String) newValue);
 				return;
 			case AggregatorPackage.INSTALLABLE_UNIT_REQUEST__NAME:
-				setName((String)newValue);
+				setName((String) newValue);
 				return;
 			case AggregatorPackage.INSTALLABLE_UNIT_REQUEST__VERSION_RANGE:
-				setVersionRange((VersionRange)newValue);
+				setVersionRange((VersionRange) newValue);
 				return;
 			case AggregatorPackage.INSTALLABLE_UNIT_REQUEST__AVAILABLE_VERSIONS_HEADER:
-				setAvailableVersionsHeader((AvailableVersionsHeader)newValue);
+				setAvailableVersionsHeader((AvailableVersionsHeader) newValue);
 				return;
 			case AggregatorPackage.INSTALLABLE_UNIT_REQUEST__AVAILABLE_VERSIONS:
 				getAvailableVersions().clear();
-				getAvailableVersions().addAll((Collection<? extends AvailableVersion>)newValue);
+				getAvailableVersions().addAll((Collection<? extends AvailableVersion>) newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -450,7 +478,7 @@ public abstract class InstallableUnitRequestImpl extends MinimalEObjectImpl.Cont
 	 */
 	@Override
 	public void eUnset(int featureID) {
-		switch (featureID) {
+		switch(featureID) {
 			case AggregatorPackage.INSTALLABLE_UNIT_REQUEST__ERRORS:
 				getErrors().clear();
 				return;
@@ -470,7 +498,7 @@ public abstract class InstallableUnitRequestImpl extends MinimalEObjectImpl.Cont
 				setVersionRange(VERSION_RANGE_EDEFAULT);
 				return;
 			case AggregatorPackage.INSTALLABLE_UNIT_REQUEST__AVAILABLE_VERSIONS_HEADER:
-				setAvailableVersionsHeader((AvailableVersionsHeader)null);
+				setAvailableVersionsHeader((AvailableVersionsHeader) null);
 				return;
 			case AggregatorPackage.INSTALLABLE_UNIT_REQUEST__AVAILABLE_VERSIONS:
 				getAvailableVersions().clear();
@@ -485,6 +513,7 @@ public abstract class InstallableUnitRequestImpl extends MinimalEObjectImpl.Cont
 	 *
 	 * @generated NOT
 	 */
+	@Override
 	public EList<AvailableVersion> getAvailableVersions() {
 		if(availableVersions == null) {
 			resolveAvailableVersions(false);
@@ -497,6 +526,7 @@ public abstract class InstallableUnitRequestImpl extends MinimalEObjectImpl.Cont
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public AvailableVersionsHeader getAvailableVersionsHeader() {
 		return availableVersionsHeader;
 	}
@@ -506,6 +536,7 @@ public abstract class InstallableUnitRequestImpl extends MinimalEObjectImpl.Cont
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getDescription() {
 		return description;
 	}
@@ -515,6 +546,7 @@ public abstract class InstallableUnitRequestImpl extends MinimalEObjectImpl.Cont
 	 *
 	 * @generated NOT
 	 */
+	@Override
 	public EList<String> getErrors() {
 		errors = new BasicEList<String>();
 
@@ -531,6 +563,7 @@ public abstract class InstallableUnitRequestImpl extends MinimalEObjectImpl.Cont
 	 *
 	 * @generated NOT
 	 */
+	@Override
 	public EList<String> getInfos() {
 		infos = new BasicEList<String>();
 
@@ -552,6 +585,7 @@ public abstract class InstallableUnitRequestImpl extends MinimalEObjectImpl.Cont
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getName() {
 		return name;
 	}
@@ -561,6 +595,7 @@ public abstract class InstallableUnitRequestImpl extends MinimalEObjectImpl.Cont
 	 *
 	 * @generated NOT
 	 */
+	@Override
 	synchronized public Status getStatus() {
 		if(!isBranchDisabledOrMappedRepositoryBroken()) {
 			if(resolveAsSingleton() == null)
@@ -576,6 +611,7 @@ public abstract class InstallableUnitRequestImpl extends MinimalEObjectImpl.Cont
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public VersionRange getVersionRange() {
 		return versionRange;
 	}
@@ -584,13 +620,16 @@ public abstract class InstallableUnitRequestImpl extends MinimalEObjectImpl.Cont
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<String> getWarnings() {
-		if (warnings == null) {
-			warnings = new EDataTypeUniqueEList<String>(String.class, this, AggregatorPackage.INSTALLABLE_UNIT_REQUEST__WARNINGS);
+		if(warnings == null) {
+			warnings = new EDataTypeUniqueEList<String>(
+				String.class, this, AggregatorPackage.INSTALLABLE_UNIT_REQUEST__WARNINGS);
 		}
 		return warnings;
 	}
 
+	@Override
 	public boolean isBranchDisabledOrMappedRepositoryBroken() {
 		return !isBranchEnabled() || isMappedRepositoryBroken();
 	}
@@ -600,6 +639,7 @@ public abstract class InstallableUnitRequestImpl extends MinimalEObjectImpl.Cont
 	 *
 	 * @generated NOT
 	 */
+	@Override
 	public boolean isBranchEnabled() {
 		return GeneralUtils.isBranchEnabled(this);
 	}
@@ -609,6 +649,7 @@ public abstract class InstallableUnitRequestImpl extends MinimalEObjectImpl.Cont
 	 *
 	 * @generated NOT
 	 */
+	@Override
 	public boolean isMappedRepositoryBroken() {
 		MappedRepository repo = (MappedRepository) eContainer();
 		return repo == null || repo.getMetadataRepository(false) == null ||
@@ -621,6 +662,7 @@ public abstract class InstallableUnitRequestImpl extends MinimalEObjectImpl.Cont
 	 *
 	 * @generated NOT
 	 */
+	@Override
 	public IInstallableUnit resolveAsSingleton() {
 		return resolveAsSingleton(false);
 	}
@@ -631,6 +673,7 @@ public abstract class InstallableUnitRequestImpl extends MinimalEObjectImpl.Cont
 	 *
 	 * @generated NOT
 	 */
+	@Override
 	public IInstallableUnit resolveAsSingleton(boolean forceResolve) {
 		String id = getName();
 
@@ -651,6 +694,7 @@ public abstract class InstallableUnitRequestImpl extends MinimalEObjectImpl.Cont
 		return null;
 	}
 
+	@Override
 	synchronized public void resolveAvailableVersions(boolean updateOnly) {
 
 		if(availableVersions == null) {
@@ -727,6 +771,7 @@ public abstract class InstallableUnitRequestImpl extends MinimalEObjectImpl.Cont
 	 *
 	 * @generated NOT
 	 */
+	@Override
 	public void setAvailableVersionsHeader(AvailableVersionsHeader newAvailableVersionsHeader) {
 		if(newAvailableVersionsHeader != availableVersionsHeader) {
 			NotificationChain msgs = null;
@@ -743,9 +788,10 @@ public abstract class InstallableUnitRequestImpl extends MinimalEObjectImpl.Cont
 				msgs.dispatch();
 		}
 		else if(eNotificationRequired())
-			eNotify(new ENotificationImpl(
-				this, Notification.SET, AggregatorPackage.INSTALLABLE_UNIT_REQUEST__AVAILABLE_VERSIONS_HEADER,
-				newAvailableVersionsHeader, newAvailableVersionsHeader));
+			eNotify(
+				new ENotificationImpl(
+					this, Notification.SET, AggregatorPackage.INSTALLABLE_UNIT_REQUEST__AVAILABLE_VERSIONS_HEADER,
+					newAvailableVersionsHeader, newAvailableVersionsHeader));
 	}
 
 	/**
@@ -753,11 +799,15 @@ public abstract class InstallableUnitRequestImpl extends MinimalEObjectImpl.Cont
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setDescription(String newDescription) {
 		String oldDescription = description;
 		description = newDescription;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, AggregatorPackage.INSTALLABLE_UNIT_REQUEST__DESCRIPTION, oldDescription, description));
+		if(eNotificationRequired())
+			eNotify(
+				new ENotificationImpl(
+					this, Notification.SET, AggregatorPackage.INSTALLABLE_UNIT_REQUEST__DESCRIPTION, oldDescription,
+					description));
 	}
 
 	/**
@@ -765,11 +815,14 @@ public abstract class InstallableUnitRequestImpl extends MinimalEObjectImpl.Cont
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setName(String newName) {
 		String oldName = name;
 		name = newName;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, AggregatorPackage.INSTALLABLE_UNIT_REQUEST__NAME, oldName, name));
+		if(eNotificationRequired())
+			eNotify(
+				new ENotificationImpl(
+					this, Notification.SET, AggregatorPackage.INSTALLABLE_UNIT_REQUEST__NAME, oldName, name));
 	}
 
 	/**
@@ -777,11 +830,15 @@ public abstract class InstallableUnitRequestImpl extends MinimalEObjectImpl.Cont
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setVersionRange(VersionRange newVersionRange) {
 		VersionRange oldVersionRange = versionRange;
 		versionRange = newVersionRange;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, AggregatorPackage.INSTALLABLE_UNIT_REQUEST__VERSION_RANGE, oldVersionRange, versionRange));
+		if(eNotificationRequired())
+			eNotify(
+				new ENotificationImpl(
+					this, Notification.SET, AggregatorPackage.INSTALLABLE_UNIT_REQUEST__VERSION_RANGE, oldVersionRange,
+					versionRange));
 	}
 
 	/**
@@ -790,7 +847,8 @@ public abstract class InstallableUnitRequestImpl extends MinimalEObjectImpl.Cont
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy()) return super.toString();
+		if(eIsProxy())
+			return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (errors: ");

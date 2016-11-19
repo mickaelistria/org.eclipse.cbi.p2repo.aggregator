@@ -46,7 +46,7 @@ import org.eclipse.equinox.p2.repository.artifact.IArtifactRequest;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.eclipse.cbi.p2repo.p2.impl.ArtifactRepositoryImpl#getArtifactMap <em>Artifact Map</em>}</li>
+ * <li>{@link org.eclipse.cbi.p2repo.p2.impl.ArtifactRepositoryImpl#getArtifactMap <em>Artifact Map</em>}</li>
  * </ul>
  *
  * @generated
@@ -56,6 +56,7 @@ public class ArtifactRepositoryImpl extends RepositoryImpl<IArtifactKey> impleme
 	 * The cached value of the '{@link #getArtifactMap() <em>Artifact Map</em>}' map.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getArtifactMap()
 	 * @generated
 	 * @ordered
@@ -67,6 +68,7 @@ public class ArtifactRepositoryImpl extends RepositoryImpl<IArtifactKey> impleme
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected ArtifactRepositoryImpl() {
@@ -204,7 +206,8 @@ public class ArtifactRepositoryImpl extends RepositoryImpl<IArtifactKey> impleme
 	public IQueryable<IArtifactDescriptor> descriptorQueryable() {
 		return new IQueryable<IArtifactDescriptor>() {
 			@Override
-			public IQueryResult<IArtifactDescriptor> query(IQuery<IArtifactDescriptor> query, IProgressMonitor monitor) {
+			public IQueryResult<IArtifactDescriptor> query(IQuery<IArtifactDescriptor> query,
+					IProgressMonitor monitor) {
 				return query.perform(new CompoundIterator<IArtifactDescriptor>(getArtifactMap().values().iterator()));
 			}
 		};
@@ -213,14 +216,17 @@ public class ArtifactRepositoryImpl extends RepositoryImpl<IArtifactKey> impleme
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch (featureID) {
+		switch(featureID) {
 			case P2Package.ARTIFACT_REPOSITORY__ARTIFACT_MAP:
-				if (coreType) return getArtifactMap();
-				else return getArtifactMap().map();
+				if(coreType)
+					return getArtifactMap();
+				else
+					return getArtifactMap().map();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -228,13 +234,14 @@ public class ArtifactRepositoryImpl extends RepositoryImpl<IArtifactKey> impleme
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
+		switch(featureID) {
 			case P2Package.ARTIFACT_REPOSITORY__ARTIFACT_MAP:
-				return ((InternalEList<?>)getArtifactMap()).basicRemove(otherEnd, msgs);
+				return ((InternalEList<?>) getArtifactMap()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -242,11 +249,12 @@ public class ArtifactRepositoryImpl extends RepositoryImpl<IArtifactKey> impleme
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch (featureID) {
+		switch(featureID) {
 			case P2Package.ARTIFACT_REPOSITORY__ARTIFACT_MAP:
 				return artifactMap != null && !artifactMap.isEmpty();
 		}
@@ -256,13 +264,14 @@ public class ArtifactRepositoryImpl extends RepositoryImpl<IArtifactKey> impleme
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch (featureID) {
+		switch(featureID) {
 			case P2Package.ARTIFACT_REPOSITORY__ARTIFACT_MAP:
-				((EStructuralFeature.Setting)getArtifactMap()).set(newValue);
+				((EStructuralFeature.Setting) getArtifactMap()).set(newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -271,6 +280,7 @@ public class ArtifactRepositoryImpl extends RepositoryImpl<IArtifactKey> impleme
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -281,11 +291,12 @@ public class ArtifactRepositoryImpl extends RepositoryImpl<IArtifactKey> impleme
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
-		switch (featureID) {
+		switch(featureID) {
 			case P2Package.ARTIFACT_REPOSITORY__ARTIFACT_MAP:
 				getArtifactMap().clear();
 				return;
@@ -345,12 +356,15 @@ public class ArtifactRepositoryImpl extends RepositoryImpl<IArtifactKey> impleme
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public EMap<IArtifactKey, EList<IArtifactDescriptor>> getArtifactMap() {
-		if (artifactMap == null) {
-			artifactMap = new EcoreEMap<IArtifactKey,EList<IArtifactDescriptor>>(P2Package.Literals.ARTIFACTS_BY_KEY, ArtifactsByKeyImpl.class, this, P2Package.ARTIFACT_REPOSITORY__ARTIFACT_MAP);
+		if(artifactMap == null) {
+			artifactMap = new EcoreEMap<IArtifactKey, EList<IArtifactDescriptor>>(
+				P2Package.Literals.ARTIFACTS_BY_KEY, ArtifactsByKeyImpl.class, this,
+				P2Package.ARTIFACT_REPOSITORY__ARTIFACT_MAP);
 		}
 		return artifactMap;
 	}

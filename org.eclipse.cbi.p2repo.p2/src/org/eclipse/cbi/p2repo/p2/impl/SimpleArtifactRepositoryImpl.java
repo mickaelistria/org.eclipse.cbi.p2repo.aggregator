@@ -33,7 +33,7 @@ import org.eclipse.equinox.p2.repository.artifact.IArtifactDescriptor;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.eclipse.cbi.p2repo.p2.impl.SimpleArtifactRepositoryImpl#getRules <em>Rules</em>}</li>
+ * <li>{@link org.eclipse.cbi.p2repo.p2.impl.SimpleArtifactRepositoryImpl#getRules <em>Rules</em>}</li>
  * </ul>
  *
  * @generated
@@ -43,6 +43,7 @@ public class SimpleArtifactRepositoryImpl extends ArtifactRepositoryImpl impleme
 	 * The cached value of the '{@link #getRules() <em>Rules</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getRules()
 	 * @generated
 	 * @ordered
@@ -52,6 +53,7 @@ public class SimpleArtifactRepositoryImpl extends ArtifactRepositoryImpl impleme
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected SimpleArtifactRepositoryImpl() {
@@ -70,11 +72,12 @@ public class SimpleArtifactRepositoryImpl extends ArtifactRepositoryImpl impleme
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch (featureID) {
+		switch(featureID) {
 			case P2Package.SIMPLE_ARTIFACT_REPOSITORY__RULES:
 				return getRules();
 		}
@@ -84,13 +87,14 @@ public class SimpleArtifactRepositoryImpl extends ArtifactRepositoryImpl impleme
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
+		switch(featureID) {
 			case P2Package.SIMPLE_ARTIFACT_REPOSITORY__RULES:
-				return ((InternalEList<?>)getRules()).basicRemove(otherEnd, msgs);
+				return ((InternalEList<?>) getRules()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -98,11 +102,12 @@ public class SimpleArtifactRepositoryImpl extends ArtifactRepositoryImpl impleme
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch (featureID) {
+		switch(featureID) {
 			case P2Package.SIMPLE_ARTIFACT_REPOSITORY__RULES:
 				return rules != null && !rules.isEmpty();
 		}
@@ -112,15 +117,16 @@ public class SimpleArtifactRepositoryImpl extends ArtifactRepositoryImpl impleme
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch (featureID) {
+		switch(featureID) {
 			case P2Package.SIMPLE_ARTIFACT_REPOSITORY__RULES:
 				getRules().clear();
-				getRules().addAll((Collection<? extends MappingRule>)newValue);
+				getRules().addAll((Collection<? extends MappingRule>) newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -129,6 +135,7 @@ public class SimpleArtifactRepositoryImpl extends ArtifactRepositoryImpl impleme
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -139,11 +146,12 @@ public class SimpleArtifactRepositoryImpl extends ArtifactRepositoryImpl impleme
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
-		switch (featureID) {
+		switch(featureID) {
 			case P2Package.SIMPLE_ARTIFACT_REPOSITORY__RULES:
 				getRules().clear();
 				return;
@@ -154,6 +162,7 @@ public class SimpleArtifactRepositoryImpl extends ArtifactRepositoryImpl impleme
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -166,6 +175,7 @@ public class SimpleArtifactRepositoryImpl extends ArtifactRepositoryImpl impleme
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -178,12 +188,14 @@ public class SimpleArtifactRepositoryImpl extends ArtifactRepositoryImpl impleme
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public EList<MappingRule> getRules() {
-		if (rules == null) {
-			rules = new EObjectContainmentEList.Resolving<MappingRule>(MappingRule.class, this, P2Package.SIMPLE_ARTIFACT_REPOSITORY__RULES);
+		if(rules == null) {
+			rules = new EObjectContainmentEList.Resolving<MappingRule>(
+				MappingRule.class, this, P2Package.SIMPLE_ARTIFACT_REPOSITORY__RULES);
 		}
 		return rules;
 	}

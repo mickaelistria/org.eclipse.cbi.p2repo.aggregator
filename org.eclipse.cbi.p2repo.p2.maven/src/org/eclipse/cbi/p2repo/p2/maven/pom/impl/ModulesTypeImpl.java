@@ -21,7 +21,7 @@ import org.eclipse.emf.ecore.util.EDataTypeEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.ModulesTypeImpl#getModule <em>Module</em>}</li>
+ * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.ModulesTypeImpl#getModule <em>Module</em>}</li>
  * </ul>
  *
  * @generated
@@ -31,6 +31,7 @@ public class ModulesTypeImpl extends EObjectImpl implements ModulesType {
 	 * The cached value of the '{@link #getModule() <em>Module</em>}' attribute list.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @see #getModule()
 	 * @generated
 	 * @ordered
@@ -39,6 +40,7 @@ public class ModulesTypeImpl extends EObjectImpl implements ModulesType {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected ModulesTypeImpl() {
@@ -47,11 +49,12 @@ public class ModulesTypeImpl extends EObjectImpl implements ModulesType {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch (featureID) {
+		switch(featureID) {
 			case PomPackage.MODULES_TYPE__MODULE:
 				return getModule();
 		}
@@ -60,11 +63,12 @@ public class ModulesTypeImpl extends EObjectImpl implements ModulesType {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch (featureID) {
+		switch(featureID) {
 			case PomPackage.MODULES_TYPE__MODULE:
 				return module != null && !module.isEmpty();
 		}
@@ -73,15 +77,16 @@ public class ModulesTypeImpl extends EObjectImpl implements ModulesType {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch (featureID) {
+		switch(featureID) {
 			case PomPackage.MODULES_TYPE__MODULE:
 				getModule().clear();
-				getModule().addAll((Collection<? extends String>)newValue);
+				getModule().addAll((Collection<? extends String>) newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -89,11 +94,12 @@ public class ModulesTypeImpl extends EObjectImpl implements ModulesType {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
-		switch (featureID) {
+		switch(featureID) {
 			case PomPackage.MODULES_TYPE__MODULE:
 				getModule().clear();
 				return;
@@ -103,11 +109,12 @@ public class ModulesTypeImpl extends EObjectImpl implements ModulesType {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public EList<String> getModule() {
-		if (module == null) {
+		if(module == null) {
 			module = new EDataTypeEList<String>(String.class, this, PomPackage.MODULES_TYPE__MODULE);
 		}
 		return module;
@@ -115,11 +122,13 @@ public class ModulesTypeImpl extends EObjectImpl implements ModulesType {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy()) return super.toString();
+		if(eIsProxy())
+			return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (module: ");
@@ -130,6 +139,7 @@ public class ModulesTypeImpl extends EObjectImpl implements ModulesType {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override

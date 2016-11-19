@@ -54,7 +54,7 @@ public class FeatureImpl extends MappedUnitImpl implements Feature {
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch (featureID) {
+		switch(featureID) {
 			case AggregatorPackage.FEATURE__CATEGORIES:
 				return getCategories();
 		}
@@ -68,9 +68,9 @@ public class FeatureImpl extends MappedUnitImpl implements Feature {
 	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
+		switch(featureID) {
 			case AggregatorPackage.FEATURE__CATEGORIES:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getCategories()).basicAdd(otherEnd, msgs);
+				return ((InternalEList<InternalEObject>) (InternalEList<?>) getCategories()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -81,9 +81,9 @@ public class FeatureImpl extends MappedUnitImpl implements Feature {
 	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
+		switch(featureID) {
 			case AggregatorPackage.FEATURE__CATEGORIES:
-				return ((InternalEList<?>)getCategories()).basicRemove(otherEnd, msgs);
+				return ((InternalEList<?>) getCategories()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -94,7 +94,7 @@ public class FeatureImpl extends MappedUnitImpl implements Feature {
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch (featureID) {
+		switch(featureID) {
 			case AggregatorPackage.FEATURE__CATEGORIES:
 				return categories != null && !categories.isEmpty();
 		}
@@ -108,10 +108,10 @@ public class FeatureImpl extends MappedUnitImpl implements Feature {
 	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch (featureID) {
+		switch(featureID) {
 			case AggregatorPackage.FEATURE__CATEGORIES:
 				getCategories().clear();
-				getCategories().addAll((Collection<? extends CustomCategory>)newValue);
+				getCategories().addAll((Collection<? extends CustomCategory>) newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -132,7 +132,7 @@ public class FeatureImpl extends MappedUnitImpl implements Feature {
 	 */
 	@Override
 	public void eUnset(int featureID) {
-		switch (featureID) {
+		switch(featureID) {
 			case AggregatorPackage.FEATURE__CATEGORIES:
 				getCategories().clear();
 				return;
@@ -144,9 +144,12 @@ public class FeatureImpl extends MappedUnitImpl implements Feature {
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<CustomCategory> getCategories() {
-		if (categories == null) {
-			categories = new EObjectWithInverseResolvingEList.ManyInverse<CustomCategory>(CustomCategory.class, this, AggregatorPackage.FEATURE__CATEGORIES, AggregatorPackage.CUSTOM_CATEGORY__FEATURES);
+		if(categories == null) {
+			categories = new EObjectWithInverseResolvingEList.ManyInverse<CustomCategory>(
+				CustomCategory.class, this, AggregatorPackage.FEATURE__CATEGORIES,
+				AggregatorPackage.CUSTOM_CATEGORY__FEATURES);
 		}
 		return categories;
 	}

@@ -64,19 +64,15 @@ public class MappedRepositoryItemProvider extends MetadataRepositoryReferenceIte
 	 * @generated
 	 */
 	protected void addCategoryPrefixPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_MappedRepository_categoryPrefix_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_MappedRepository_categoryPrefix_feature", "_UI_MappedRepository_type"),
-				 AggregatorPackage.Literals.MAPPED_REPOSITORY__CATEGORY_PREFIX,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
+		itemPropertyDescriptors.add(
+			createItemPropertyDescriptor(
+				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+				getString("_UI_MappedRepository_categoryPrefix_feature"),
+				getString(
+					"_UI_PropertyDescriptor_description", "_UI_MappedRepository_categoryPrefix_feature",
+					"_UI_MappedRepository_type"),
+				AggregatorPackage.Literals.MAPPED_REPOSITORY__CATEGORY_PREFIX, true, false, false,
+				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -85,19 +81,15 @@ public class MappedRepositoryItemProvider extends MetadataRepositoryReferenceIte
 	 * @generated
 	 */
 	protected void addDescriptionPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_DescriptionProvider_description_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_DescriptionProvider_description_feature", "_UI_DescriptionProvider_type"),
-				 AggregatorPackage.Literals.DESCRIPTION_PROVIDER__DESCRIPTION,
-				 true,
-				 true,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
+		itemPropertyDescriptors.add(
+			createItemPropertyDescriptor(
+				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+				getString("_UI_DescriptionProvider_description_feature"),
+				getString(
+					"_UI_PropertyDescriptor_description", "_UI_DescriptionProvider_description_feature",
+					"_UI_DescriptionProvider_type"),
+				AggregatorPackage.Literals.DESCRIPTION_PROVIDER__DESCRIPTION, true, true, false,
+				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -106,19 +98,15 @@ public class MappedRepositoryItemProvider extends MetadataRepositoryReferenceIte
 	 * @generated
 	 */
 	protected void addMirrorArtifactsPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_MappedRepository_mirrorArtifacts_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_MappedRepository_mirrorArtifacts_feature", "_UI_MappedRepository_type"),
-				 AggregatorPackage.Literals.MAPPED_REPOSITORY__MIRROR_ARTIFACTS,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-				 null,
-				 null));
+		itemPropertyDescriptors.add(
+			createItemPropertyDescriptor(
+				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+				getString("_UI_MappedRepository_mirrorArtifacts_feature"),
+				getString(
+					"_UI_PropertyDescriptor_description", "_UI_MappedRepository_mirrorArtifacts_feature",
+					"_UI_MappedRepository_type"),
+				AggregatorPackage.Literals.MAPPED_REPOSITORY__MIRROR_ARTIFACTS, true, false, false,
+				ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -131,50 +119,46 @@ public class MappedRepositoryItemProvider extends MetadataRepositoryReferenceIte
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 
-		newChildDescriptors.add
-			(createChildParameter
-				(AggregatorPackage.Literals.MAPPED_REPOSITORY__PRODUCTS,
-				 AggregatorFactory.eINSTANCE.createProduct()));
+		newChildDescriptors.add(
+			createChildParameter(
+				AggregatorPackage.Literals.MAPPED_REPOSITORY__PRODUCTS, AggregatorFactory.eINSTANCE.createProduct()));
 
-		newChildDescriptors.add
-			(createChildParameter
-				(AggregatorPackage.Literals.MAPPED_REPOSITORY__BUNDLES,
-				 AggregatorFactory.eINSTANCE.createBundle()));
+		newChildDescriptors.add(
+			createChildParameter(
+				AggregatorPackage.Literals.MAPPED_REPOSITORY__BUNDLES, AggregatorFactory.eINSTANCE.createBundle()));
 
-		newChildDescriptors.add
-			(createChildParameter
-				(AggregatorPackage.Literals.MAPPED_REPOSITORY__FEATURES,
-				 AggregatorFactory.eINSTANCE.createFeature()));
+		newChildDescriptors.add(
+			createChildParameter(
+				AggregatorPackage.Literals.MAPPED_REPOSITORY__FEATURES, AggregatorFactory.eINSTANCE.createFeature()));
 
-		newChildDescriptors.add
-			(createChildParameter
-				(AggregatorPackage.Literals.MAPPED_REPOSITORY__CATEGORIES,
-				 AggregatorFactory.eINSTANCE.createCategory()));
+		newChildDescriptors.add(
+			createChildParameter(
+				AggregatorPackage.Literals.MAPPED_REPOSITORY__CATEGORIES,
+				AggregatorFactory.eINSTANCE.createCategory()));
 
-		newChildDescriptors.add
-			(createChildParameter
-				(AggregatorPackage.Literals.MAPPED_REPOSITORY__MAP_RULES,
-				 AggregatorFactory.eINSTANCE.createExclusionRule()));
+		newChildDescriptors.add(
+			createChildParameter(
+				AggregatorPackage.Literals.MAPPED_REPOSITORY__MAP_RULES,
+				AggregatorFactory.eINSTANCE.createExclusionRule()));
 
-		newChildDescriptors.add
-			(createChildParameter
-				(AggregatorPackage.Literals.MAPPED_REPOSITORY__MAP_RULES,
-				 AggregatorFactory.eINSTANCE.createValidConfigurationsRule()));
+		newChildDescriptors.add(
+			createChildParameter(
+				AggregatorPackage.Literals.MAPPED_REPOSITORY__MAP_RULES,
+				AggregatorFactory.eINSTANCE.createValidConfigurationsRule()));
 	}
 
 	@SuppressWarnings("unchecked")
 	private Command createAddIUsToMappedRepositoryCommand(Object owner, Collection<?> collection, int operation) {
 		ItemSorter itemSorter = new ItemSorter(collection);
 
-		if(((MappedRepository) owner).isEnabled() &&
-				itemSorter.getTotalItemCount() > 0 &&
+		if(((MappedRepository) owner).isEnabled() && itemSorter.getTotalItemCount() > 0 &&
 				(itemSorter.getTotalItemCount() == itemSorter.getGroupItems(ItemGroup.IU).size() &&
 						ItemUtils.haveSameLocation(
-							(MappedRepository) owner, (List<InstallableUnit>) itemSorter.getGroupItems(ItemGroup.IU)) || itemSorter.getTotalItemCount() == itemSorter.getGroupItems(
-					ItemGroup.IU_STRUCTURED).size() &&
-						ItemUtils.haveSameLocation(
-							(MappedRepository) owner,
-							ItemUtils.getIUs((List<IUPresentation>) itemSorter.getGroupItems(ItemGroup.IU_STRUCTURED))))) {
+							(MappedRepository) owner, (List<InstallableUnit>) itemSorter.getGroupItems(ItemGroup.IU)) ||
+						itemSorter.getTotalItemCount() == itemSorter.getGroupItems(ItemGroup.IU_STRUCTURED).size() &&
+								ItemUtils.haveSameLocation(
+									(MappedRepository) owner, ItemUtils.getIUs(
+										(List<IUPresentation>) itemSorter.getGroupItems(ItemGroup.IU_STRUCTURED))))) {
 			List<IInstallableUnit> ius = new ArrayList<IInstallableUnit>();
 
 			ius.addAll((List<InstallableUnit>) itemSorter.getGroupItems(ItemGroup.IU));
@@ -215,7 +199,8 @@ public class MappedRepositoryItemProvider extends MetadataRepositoryReferenceIte
 	@Override
 	protected Command createDragAndDropCommand(EditingDomain domain, Object owner, float location, int operations,
 			int operation, Collection<?> collection) {
-		if((operation & (AggregatorEditPlugin.ADD_IU | AggregatorEditPlugin.ADD_EXCLUSION_RULE | AggregatorEditPlugin.ADD_VALID_CONFIGURATIONS_RULE)) == 0)
+		if((operation & (AggregatorEditPlugin.ADD_IU | AggregatorEditPlugin.ADD_EXCLUSION_RULE |
+				AggregatorEditPlugin.ADD_VALID_CONFIGURATIONS_RULE)) == 0)
 			operation = AggregatorEditPlugin.ADD_IU;
 
 		Command command = createAddIUsToMappedRepositoryCommand(owner, collection, operation);
@@ -308,7 +293,7 @@ public class MappedRepositoryItemProvider extends MetadataRepositoryReferenceIte
 	 */
 	@Override
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
-		if (childrenFeatures == null) {
+		if(childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(AggregatorPackage.Literals.MAPPED_REPOSITORY__PRODUCTS);
 			childrenFeatures.add(AggregatorPackage.Literals.MAPPED_REPOSITORY__BUNDLES);
@@ -349,7 +334,7 @@ public class MappedRepositoryItemProvider extends MetadataRepositoryReferenceIte
 	 */
 	@Override
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-		if (itemPropertyDescriptors == null) {
+		if(itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
 			addDescriptionPropertyDescriptor(object);

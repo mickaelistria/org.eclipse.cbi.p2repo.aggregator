@@ -21,7 +21,7 @@ import org.eclipse.emf.ecore.util.EDataTypeEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.ExcludesTypeImpl#getExclude <em>Exclude</em>}</li>
+ * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.ExcludesTypeImpl#getExclude <em>Exclude</em>}</li>
  * </ul>
  *
  * @generated
@@ -31,6 +31,7 @@ public class ExcludesTypeImpl extends EObjectImpl implements ExcludesType {
 	 * The cached value of the '{@link #getExclude() <em>Exclude</em>}' attribute list.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @see #getExclude()
 	 * @generated
 	 * @ordered
@@ -39,6 +40,7 @@ public class ExcludesTypeImpl extends EObjectImpl implements ExcludesType {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected ExcludesTypeImpl() {
@@ -47,11 +49,12 @@ public class ExcludesTypeImpl extends EObjectImpl implements ExcludesType {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch (featureID) {
+		switch(featureID) {
 			case PomPackage.EXCLUDES_TYPE__EXCLUDE:
 				return getExclude();
 		}
@@ -60,11 +63,12 @@ public class ExcludesTypeImpl extends EObjectImpl implements ExcludesType {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch (featureID) {
+		switch(featureID) {
 			case PomPackage.EXCLUDES_TYPE__EXCLUDE:
 				return exclude != null && !exclude.isEmpty();
 		}
@@ -73,15 +77,16 @@ public class ExcludesTypeImpl extends EObjectImpl implements ExcludesType {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch (featureID) {
+		switch(featureID) {
 			case PomPackage.EXCLUDES_TYPE__EXCLUDE:
 				getExclude().clear();
-				getExclude().addAll((Collection<? extends String>)newValue);
+				getExclude().addAll((Collection<? extends String>) newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -89,11 +94,12 @@ public class ExcludesTypeImpl extends EObjectImpl implements ExcludesType {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
-		switch (featureID) {
+		switch(featureID) {
 			case PomPackage.EXCLUDES_TYPE__EXCLUDE:
 				getExclude().clear();
 				return;
@@ -103,11 +109,12 @@ public class ExcludesTypeImpl extends EObjectImpl implements ExcludesType {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public EList<String> getExclude() {
-		if (exclude == null) {
+		if(exclude == null) {
 			exclude = new EDataTypeEList<String>(String.class, this, PomPackage.EXCLUDES_TYPE__EXCLUDE);
 		}
 		return exclude;
@@ -115,11 +122,13 @@ public class ExcludesTypeImpl extends EObjectImpl implements ExcludesType {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy()) return super.toString();
+		if(eIsProxy())
+			return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (exclude: ");
@@ -130,6 +139,7 @@ public class ExcludesTypeImpl extends EObjectImpl implements ExcludesType {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override

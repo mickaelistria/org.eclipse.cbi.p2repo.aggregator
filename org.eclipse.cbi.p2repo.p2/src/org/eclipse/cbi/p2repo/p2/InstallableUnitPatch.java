@@ -25,6 +25,7 @@ public interface InstallableUnitPatch extends InstallableUnit, IInstallableUnitP
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @model kind="operation" dataType="org.eclipse.cbi.p2repo.p2.IRequirementArrayArray"
 	 * @generated
 	 */

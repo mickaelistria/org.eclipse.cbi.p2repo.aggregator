@@ -47,19 +47,15 @@ public class AggregationItemProvider extends DescriptionProviderItemProvider {
 	 * @generated
 	 */
 	protected void addAllowLegacySitesPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Aggregation_allowLegacySites_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Aggregation_allowLegacySites_feature", "_UI_Aggregation_type"),
-				 AggregatorPackage.Literals.AGGREGATION__ALLOW_LEGACY_SITES,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-				 null,
-				 null));
+		itemPropertyDescriptors.add(
+			createItemPropertyDescriptor(
+				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+				getString("_UI_Aggregation_allowLegacySites_feature"),
+				getString(
+					"_UI_PropertyDescriptor_description", "_UI_Aggregation_allowLegacySites_feature",
+					"_UI_Aggregation_type"),
+				AggregatorPackage.Literals.AGGREGATION__ALLOW_LEGACY_SITES, true, false, false,
+				ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -69,19 +65,14 @@ public class AggregationItemProvider extends DescriptionProviderItemProvider {
 	 * @generated
 	 */
 	protected void addBuildmasterPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Aggregation_buildmaster_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Aggregation_buildmaster_feature", "_UI_Aggregation_type"),
-				 AggregatorPackage.Literals.AGGREGATION__BUILDMASTER,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
+		itemPropertyDescriptors.add(
+			createItemPropertyDescriptor(
+				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+				getString("_UI_Aggregation_buildmaster_feature"),
+				getString(
+					"_UI_PropertyDescriptor_description", "_UI_Aggregation_buildmaster_feature",
+					"_UI_Aggregation_type"),
+				AggregatorPackage.Literals.AGGREGATION__BUILDMASTER, true, false, true, null, null, null));
 	}
 
 	/**
@@ -91,19 +82,14 @@ public class AggregationItemProvider extends DescriptionProviderItemProvider {
 	 * @generated
 	 */
 	protected void addBuildmasterBackupPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Aggregation_buildmasterBackup_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Aggregation_buildmasterBackup_feature", "_UI_Aggregation_type"),
-				 AggregatorPackage.Literals.AGGREGATION__BUILDMASTER_BACKUP,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
+		itemPropertyDescriptors.add(
+			createItemPropertyDescriptor(
+				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+				getString("_UI_Aggregation_buildmasterBackup_feature"),
+				getString(
+					"_UI_PropertyDescriptor_description", "_UI_Aggregation_buildmasterBackup_feature",
+					"_UI_Aggregation_type"),
+				AggregatorPackage.Literals.AGGREGATION__BUILDMASTER_BACKUP, true, false, true, null, null, null));
 	}
 
 	/**
@@ -113,19 +99,14 @@ public class AggregationItemProvider extends DescriptionProviderItemProvider {
 	 * @generated
 	 */
 	protected void addBuildRootPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Aggregation_buildRoot_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Aggregation_buildRoot_feature", "_UI_Aggregation_type"),
-				 AggregatorPackage.Literals.AGGREGATION__BUILD_ROOT,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
+		itemPropertyDescriptors.add(
+			createItemPropertyDescriptor(
+				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+				getString("_UI_Aggregation_buildRoot_feature"),
+				getString(
+					"_UI_PropertyDescriptor_description", "_UI_Aggregation_buildRoot_feature", "_UI_Aggregation_type"),
+				AggregatorPackage.Literals.AGGREGATION__BUILD_ROOT, true, false, false,
+				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -135,19 +116,14 @@ public class AggregationItemProvider extends DescriptionProviderItemProvider {
 	 * @generated
 	 */
 	protected void addLabelPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Aggregation_label_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Aggregation_label_feature", "_UI_Aggregation_type"),
-				 AggregatorPackage.Literals.AGGREGATION__LABEL,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
+		itemPropertyDescriptors.add(
+			createItemPropertyDescriptor(
+				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+				getString("_UI_Aggregation_label_feature"),
+				getString(
+					"_UI_PropertyDescriptor_description", "_UI_Aggregation_label_feature", "_UI_Aggregation_type"),
+				AggregatorPackage.Literals.AGGREGATION__LABEL, true, false, false,
+				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -157,19 +133,15 @@ public class AggregationItemProvider extends DescriptionProviderItemProvider {
 	 * @generated
 	 */
 	protected void addMavenResultPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Aggregation_mavenResult_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Aggregation_mavenResult_feature", "_UI_Aggregation_type"),
-				 AggregatorPackage.Literals.AGGREGATION__MAVEN_RESULT,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-				 null,
-				 null));
+		itemPropertyDescriptors.add(
+			createItemPropertyDescriptor(
+				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+				getString("_UI_Aggregation_mavenResult_feature"),
+				getString(
+					"_UI_PropertyDescriptor_description", "_UI_Aggregation_mavenResult_feature",
+					"_UI_Aggregation_type"),
+				AggregatorPackage.Literals.AGGREGATION__MAVEN_RESULT, true, false, false,
+				ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -179,19 +151,15 @@ public class AggregationItemProvider extends DescriptionProviderItemProvider {
 	 * @generated
 	 */
 	protected void addPackedStrategyPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Aggregation_packedStrategy_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Aggregation_packedStrategy_feature", "_UI_Aggregation_type"),
-				 AggregatorPackage.Literals.AGGREGATION__PACKED_STRATEGY,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
+		itemPropertyDescriptors.add(
+			createItemPropertyDescriptor(
+				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+				getString("_UI_Aggregation_packedStrategy_feature"),
+				getString(
+					"_UI_PropertyDescriptor_description", "_UI_Aggregation_packedStrategy_feature",
+					"_UI_Aggregation_type"),
+				AggregatorPackage.Literals.AGGREGATION__PACKED_STRATEGY, true, false, false,
+				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -201,19 +169,14 @@ public class AggregationItemProvider extends DescriptionProviderItemProvider {
 	 * @generated
 	 */
 	protected void addSendmailPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Aggregation_sendmail_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Aggregation_sendmail_feature", "_UI_Aggregation_type"),
-				 AggregatorPackage.Literals.AGGREGATION__SENDMAIL,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-				 null,
-				 null));
+		itemPropertyDescriptors.add(
+			createItemPropertyDescriptor(
+				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+				getString("_UI_Aggregation_sendmail_feature"),
+				getString(
+					"_UI_PropertyDescriptor_description", "_UI_Aggregation_sendmail_feature", "_UI_Aggregation_type"),
+				AggregatorPackage.Literals.AGGREGATION__SENDMAIL, true, false, false,
+				ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -223,19 +186,15 @@ public class AggregationItemProvider extends DescriptionProviderItemProvider {
 	 * @generated
 	 */
 	protected void addStrictMavenVersionsPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Aggregation_strictMavenVersions_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Aggregation_strictMavenVersions_feature", "_UI_Aggregation_type"),
-				 AggregatorPackage.Literals.AGGREGATION__STRICT_MAVEN_VERSIONS,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-				 null,
-				 null));
+		itemPropertyDescriptors.add(
+			createItemPropertyDescriptor(
+				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+				getString("_UI_Aggregation_strictMavenVersions_feature"),
+				getString(
+					"_UI_PropertyDescriptor_description", "_UI_Aggregation_strictMavenVersions_feature",
+					"_UI_Aggregation_type"),
+				AggregatorPackage.Literals.AGGREGATION__STRICT_MAVEN_VERSIONS, true, false, false,
+				ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -245,19 +204,13 @@ public class AggregationItemProvider extends DescriptionProviderItemProvider {
 	 * @generated
 	 */
 	protected void addTypePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Aggregation_type_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Aggregation_type_feature", "_UI_Aggregation_type"),
-				 AggregatorPackage.Literals.AGGREGATION__TYPE,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
+		itemPropertyDescriptors.add(
+			createItemPropertyDescriptor(
+				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+				getString("_UI_Aggregation_type_feature"),
+				getString("_UI_PropertyDescriptor_description", "_UI_Aggregation_type_feature", "_UI_Aggregation_type"),
+				AggregatorPackage.Literals.AGGREGATION__TYPE, true, false, false,
+				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -271,30 +224,29 @@ public class AggregationItemProvider extends DescriptionProviderItemProvider {
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 
-		newChildDescriptors.add
-			(createChildParameter
-				(AggregatorPackage.Literals.AGGREGATION__VALIDATION_SETS,
-				 AggregatorFactory.eINSTANCE.createValidationSet()));
+		newChildDescriptors.add(
+			createChildParameter(
+				AggregatorPackage.Literals.AGGREGATION__VALIDATION_SETS,
+				AggregatorFactory.eINSTANCE.createValidationSet()));
 
-		newChildDescriptors.add
-			(createChildParameter
-				(AggregatorPackage.Literals.AGGREGATION__CONFIGURATIONS,
-				 AggregatorFactory.eINSTANCE.createConfiguration()));
+		newChildDescriptors.add(
+			createChildParameter(
+				AggregatorPackage.Literals.AGGREGATION__CONFIGURATIONS,
+				AggregatorFactory.eINSTANCE.createConfiguration()));
 
-		newChildDescriptors.add
-			(createChildParameter
-				(AggregatorPackage.Literals.AGGREGATION__CUSTOM_CATEGORIES,
-				 AggregatorFactory.eINSTANCE.createCustomCategory()));
+		newChildDescriptors.add(
+			createChildParameter(
+				AggregatorPackage.Literals.AGGREGATION__CUSTOM_CATEGORIES,
+				AggregatorFactory.eINSTANCE.createCustomCategory()));
 
-		newChildDescriptors.add
-			(createChildParameter
-				(AggregatorPackage.Literals.AGGREGATION__CONTACTS,
-				 AggregatorFactory.eINSTANCE.createContact()));
+		newChildDescriptors.add(
+			createChildParameter(
+				AggregatorPackage.Literals.AGGREGATION__CONTACTS, AggregatorFactory.eINSTANCE.createContact()));
 
-		newChildDescriptors.add
-			(createChildParameter
-				(AggregatorPackage.Literals.AGGREGATION__MAVEN_MAPPINGS,
-				 AggregatorFactory.eINSTANCE.createMavenMapping()));
+		newChildDescriptors.add(
+			createChildParameter(
+				AggregatorPackage.Literals.AGGREGATION__MAVEN_MAPPINGS,
+				AggregatorFactory.eINSTANCE.createMavenMapping()));
 	}
 
 	/**
@@ -320,7 +272,7 @@ public class AggregationItemProvider extends DescriptionProviderItemProvider {
 	 */
 	@Override
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
-		if (childrenFeatures == null) {
+		if(childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(AggregatorPackage.Literals.AGGREGATION__VALIDATION_SETS);
 			childrenFeatures.add(AggregatorPackage.Literals.AGGREGATION__CONFIGURATIONS);
@@ -350,7 +302,7 @@ public class AggregationItemProvider extends DescriptionProviderItemProvider {
 	 */
 	@Override
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-		if (itemPropertyDescriptors == null) {
+		if(itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
 			addBuildmasterPropertyDescriptor(object);
@@ -404,7 +356,7 @@ public class AggregationItemProvider extends DescriptionProviderItemProvider {
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(Aggregation.class)) {
+		switch(notification.getFeatureID(Aggregation.class)) {
 			case AggregatorPackage.AGGREGATION__STATUS:
 			case AggregatorPackage.AGGREGATION__LABEL:
 			case AggregatorPackage.AGGREGATION__BUILD_ROOT:

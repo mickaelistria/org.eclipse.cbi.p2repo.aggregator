@@ -21,7 +21,7 @@ import org.eclipse.emf.common.util.EMap;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.eclipse.cbi.p2repo.p2.SimpleArtifactDescriptor#getRepositoryPropertyMap <em>Repository Property Map</em>}</li>
+ * <li>{@link org.eclipse.cbi.p2repo.p2.SimpleArtifactDescriptor#getRepositoryPropertyMap <em>Repository Property Map</em>}</li>
  * </ul>
  *
  * @see org.eclipse.cbi.p2repo.p2.P2Package#getSimpleArtifactDescriptor()
@@ -32,6 +32,7 @@ public interface SimpleArtifactDescriptor extends ArtifactDescriptor {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @model kind="operation"
 	 * @generated
 	 */
@@ -40,6 +41,7 @@ public interface SimpleArtifactDescriptor extends ArtifactDescriptor {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @model
 	 * @generated
 	 */
@@ -54,6 +56,7 @@ public interface SimpleArtifactDescriptor extends ArtifactDescriptor {
 	 * If the meaning of the '<em>Repository Property Map</em>' map isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the value of the '<em>Repository Property Map</em>' map.
 	 * @see org.eclipse.cbi.p2repo.p2.P2Package#getSimpleArtifactDescriptor_RepositoryPropertyMap()
 	 * @model mapType="org.eclipse.cbi.p2repo.p2.Property<org.eclipse.emf.ecore.EString, org.eclipse.emf.ecore.EString>"

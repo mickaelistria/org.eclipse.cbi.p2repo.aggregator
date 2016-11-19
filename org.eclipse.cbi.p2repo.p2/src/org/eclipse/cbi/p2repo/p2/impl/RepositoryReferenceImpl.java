@@ -24,10 +24,10 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.eclipse.cbi.p2repo.p2.impl.RepositoryReferenceImpl#getLocation <em>Location</em>}</li>
- *   <li>{@link org.eclipse.cbi.p2repo.p2.impl.RepositoryReferenceImpl#getType <em>Type</em>}</li>
- *   <li>{@link org.eclipse.cbi.p2repo.p2.impl.RepositoryReferenceImpl#getOptions <em>Options</em>}</li>
- *   <li>{@link org.eclipse.cbi.p2repo.p2.impl.RepositoryReferenceImpl#getNickname <em>Nickname</em>}</li>
+ * <li>{@link org.eclipse.cbi.p2repo.p2.impl.RepositoryReferenceImpl#getLocation <em>Location</em>}</li>
+ * <li>{@link org.eclipse.cbi.p2repo.p2.impl.RepositoryReferenceImpl#getType <em>Type</em>}</li>
+ * <li>{@link org.eclipse.cbi.p2repo.p2.impl.RepositoryReferenceImpl#getOptions <em>Options</em>}</li>
+ * <li>{@link org.eclipse.cbi.p2repo.p2.impl.RepositoryReferenceImpl#getNickname <em>Nickname</em>}</li>
  * </ul>
  *
  * @generated
@@ -37,6 +37,7 @@ public class RepositoryReferenceImpl extends MinimalEObjectImpl.Container implem
 	 * A set of bit flags representing the values of boolean attributes and whether unsettable features have been set.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -46,6 +47,7 @@ public class RepositoryReferenceImpl extends MinimalEObjectImpl.Container implem
 	 * The default value of the '{@link #getLocation() <em>Location</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getLocation()
 	 * @generated
 	 * @ordered
@@ -56,6 +58,7 @@ public class RepositoryReferenceImpl extends MinimalEObjectImpl.Container implem
 	 * The cached value of the '{@link #getLocation() <em>Location</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getLocation()
 	 * @generated
 	 * @ordered
@@ -66,6 +69,7 @@ public class RepositoryReferenceImpl extends MinimalEObjectImpl.Container implem
 	 * The default value of the '{@link #getType() <em>Type</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getType()
 	 * @generated
 	 * @ordered
@@ -76,6 +80,7 @@ public class RepositoryReferenceImpl extends MinimalEObjectImpl.Container implem
 	 * The cached value of the '{@link #getType() <em>Type</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getType()
 	 * @generated
 	 * @ordered
@@ -86,6 +91,7 @@ public class RepositoryReferenceImpl extends MinimalEObjectImpl.Container implem
 	 * The default value of the '{@link #getOptions() <em>Options</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getOptions()
 	 * @generated
 	 * @ordered
@@ -96,6 +102,7 @@ public class RepositoryReferenceImpl extends MinimalEObjectImpl.Container implem
 	 * The cached value of the '{@link #getOptions() <em>Options</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getOptions()
 	 * @generated
 	 * @ordered
@@ -106,6 +113,7 @@ public class RepositoryReferenceImpl extends MinimalEObjectImpl.Container implem
 	 * The default value of the '{@link #getNickname() <em>Nickname</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getNickname()
 	 * @generated
 	 * @ordered
@@ -116,6 +124,7 @@ public class RepositoryReferenceImpl extends MinimalEObjectImpl.Container implem
 	 * The cached value of the '{@link #getNickname() <em>Nickname</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getNickname()
 	 * @generated
 	 * @ordered
@@ -125,6 +134,7 @@ public class RepositoryReferenceImpl extends MinimalEObjectImpl.Container implem
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected RepositoryReferenceImpl() {
@@ -134,11 +144,12 @@ public class RepositoryReferenceImpl extends MinimalEObjectImpl.Container implem
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch (featureID) {
+		switch(featureID) {
 			case P2Package.REPOSITORY_REFERENCE__LOCATION:
 				return getLocation();
 			case P2Package.REPOSITORY_REFERENCE__TYPE:
@@ -154,19 +165,24 @@ public class RepositoryReferenceImpl extends MinimalEObjectImpl.Container implem
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch (featureID) {
+		switch(featureID) {
 			case P2Package.REPOSITORY_REFERENCE__LOCATION:
-				return LOCATION_EDEFAULT == null ? location != null : !LOCATION_EDEFAULT.equals(location);
+				return LOCATION_EDEFAULT == null
+						? location != null
+						: !LOCATION_EDEFAULT.equals(location);
 			case P2Package.REPOSITORY_REFERENCE__TYPE:
 				return type != TYPE_EDEFAULT;
 			case P2Package.REPOSITORY_REFERENCE__OPTIONS:
 				return options != OPTIONS_EDEFAULT;
 			case P2Package.REPOSITORY_REFERENCE__NICKNAME:
-				return NICKNAME_EDEFAULT == null ? nickname != null : !NICKNAME_EDEFAULT.equals(nickname);
+				return NICKNAME_EDEFAULT == null
+						? nickname != null
+						: !NICKNAME_EDEFAULT.equals(nickname);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -174,22 +190,23 @@ public class RepositoryReferenceImpl extends MinimalEObjectImpl.Container implem
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch (featureID) {
+		switch(featureID) {
 			case P2Package.REPOSITORY_REFERENCE__LOCATION:
-				setLocation((URI)newValue);
+				setLocation((URI) newValue);
 				return;
 			case P2Package.REPOSITORY_REFERENCE__TYPE:
-				setType((Integer)newValue);
+				setType((Integer) newValue);
 				return;
 			case P2Package.REPOSITORY_REFERENCE__OPTIONS:
-				setOptions((Integer)newValue);
+				setOptions((Integer) newValue);
 				return;
 			case P2Package.REPOSITORY_REFERENCE__NICKNAME:
-				setNickname((String)newValue);
+				setNickname((String) newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -198,6 +215,7 @@ public class RepositoryReferenceImpl extends MinimalEObjectImpl.Container implem
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -208,11 +226,12 @@ public class RepositoryReferenceImpl extends MinimalEObjectImpl.Container implem
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
-		switch (featureID) {
+		switch(featureID) {
 			case P2Package.REPOSITORY_REFERENCE__LOCATION:
 				setLocation(LOCATION_EDEFAULT);
 				return;
@@ -232,6 +251,7 @@ public class RepositoryReferenceImpl extends MinimalEObjectImpl.Container implem
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -242,6 +262,7 @@ public class RepositoryReferenceImpl extends MinimalEObjectImpl.Container implem
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -252,6 +273,7 @@ public class RepositoryReferenceImpl extends MinimalEObjectImpl.Container implem
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -262,6 +284,7 @@ public class RepositoryReferenceImpl extends MinimalEObjectImpl.Container implem
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -272,59 +295,71 @@ public class RepositoryReferenceImpl extends MinimalEObjectImpl.Container implem
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setLocation(URI newLocation) {
 		URI oldLocation = location;
 		location = newLocation;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, P2Package.REPOSITORY_REFERENCE__LOCATION, oldLocation, location));
+		if(eNotificationRequired())
+			eNotify(
+				new ENotificationImpl(
+					this, Notification.SET, P2Package.REPOSITORY_REFERENCE__LOCATION, oldLocation, location));
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setNickname(String newNickname) {
 		String oldNickname = nickname;
 		nickname = newNickname;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, P2Package.REPOSITORY_REFERENCE__NICKNAME, oldNickname, nickname));
+		if(eNotificationRequired())
+			eNotify(
+				new ENotificationImpl(
+					this, Notification.SET, P2Package.REPOSITORY_REFERENCE__NICKNAME, oldNickname, nickname));
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setOptions(int newOptions) {
 		int oldOptions = options;
 		options = newOptions;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, P2Package.REPOSITORY_REFERENCE__OPTIONS, oldOptions, options));
+		if(eNotificationRequired())
+			eNotify(
+				new ENotificationImpl(
+					this, Notification.SET, P2Package.REPOSITORY_REFERENCE__OPTIONS, oldOptions, options));
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setType(int newType) {
 		int oldType = type;
 		type = newType;
-		if (eNotificationRequired())
+		if(eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, P2Package.REPOSITORY_REFERENCE__TYPE, oldType, type));
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy()) return super.toString();
+		if(eIsProxy())
+			return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (location: ");

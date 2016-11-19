@@ -77,8 +77,9 @@ public interface PluginExecution extends EObject {
 	 * <!-- begin-model-doc -->
 	 * 4.0.0
 	 * 
-	 *             Whether any configuration should be propagated to child POMs.
+	 * Whether any configuration should be propagated to child POMs.
 	 * <!-- end-model-doc -->
+	 * 
 	 * @return the value of the '<em>Inherited</em>' attribute.
 	 * @see #setInherited(String)
 	 * @see org.eclipse.cbi.p2repo.p2.maven.pom.PomPackage#getPluginExecution_Inherited()
@@ -105,6 +106,7 @@ public interface PluginExecution extends EObject {
 	/**
 	 * Returns whether the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.PluginExecution#getId <em>Id</em>}' attribute is set.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @return whether the value of the '<em>Id</em>' attribute is set.
 	 * @see #unsetId()
 	 * @see #getId()
@@ -114,9 +116,12 @@ public interface PluginExecution extends EObject {
 	boolean isSetId();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.PluginExecution#getConfiguration <em>Configuration</em>}' containment reference.
+	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.PluginExecution#getConfiguration <em>Configuration</em>}' containment
+	 * reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Configuration</em>' containment reference.
+	 * 
+	 * @param value
+	 *            the new value of the '<em>Configuration</em>' containment reference.
 	 * @see #getConfiguration()
 	 * @generated
 	 */
@@ -125,7 +130,9 @@ public interface PluginExecution extends EObject {
 	/**
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.PluginExecution#getGoals <em>Goals</em>}' containment reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Goals</em>' containment reference.
+	 * 
+	 * @param value
+	 *            the new value of the '<em>Goals</em>' containment reference.
 	 * @see #getGoals()
 	 * @generated
 	 */
@@ -134,7 +141,9 @@ public interface PluginExecution extends EObject {
 	/**
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.PluginExecution#getId <em>Id</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Id</em>' attribute.
+	 * 
+	 * @param value
+	 *            the new value of the '<em>Id</em>' attribute.
 	 * @see #isSetId()
 	 * @see #unsetId()
 	 * @see #getId()
@@ -145,7 +154,9 @@ public interface PluginExecution extends EObject {
 	/**
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.PluginExecution#getInherited <em>Inherited</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Inherited</em>' attribute.
+	 * 
+	 * @param value
+	 *            the new value of the '<em>Inherited</em>' attribute.
 	 * @see #getInherited()
 	 * @generated
 	 */
@@ -154,7 +165,9 @@ public interface PluginExecution extends EObject {
 	/**
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.PluginExecution#getPhase <em>Phase</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Phase</em>' attribute.
+	 * 
+	 * @param value
+	 *            the new value of the '<em>Phase</em>' attribute.
 	 * @see #getPhase()
 	 * @generated
 	 */
@@ -163,6 +176,7 @@ public interface PluginExecution extends EObject {
 	/**
 	 * Unsets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.PluginExecution#getId <em>Id</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see #isSetId()
 	 * @see #getId()
 	 * @see #setId(String)

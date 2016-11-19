@@ -181,12 +181,16 @@ public class MavenMappingImpl extends MinimalEObjectImpl.Container implements Ma
 	 */
 	@Override
 	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
-		if (baseClass == InfosProvider.class) {
-			switch (derivedFeatureID) {
-				case AggregatorPackage.MAVEN_MAPPING__ERRORS: return AggregatorPackage.INFOS_PROVIDER__ERRORS;
-				case AggregatorPackage.MAVEN_MAPPING__WARNINGS: return AggregatorPackage.INFOS_PROVIDER__WARNINGS;
-				case AggregatorPackage.MAVEN_MAPPING__INFOS: return AggregatorPackage.INFOS_PROVIDER__INFOS;
-				default: return -1;
+		if(baseClass == InfosProvider.class) {
+			switch(derivedFeatureID) {
+				case AggregatorPackage.MAVEN_MAPPING__ERRORS:
+					return AggregatorPackage.INFOS_PROVIDER__ERRORS;
+				case AggregatorPackage.MAVEN_MAPPING__WARNINGS:
+					return AggregatorPackage.INFOS_PROVIDER__WARNINGS;
+				case AggregatorPackage.MAVEN_MAPPING__INFOS:
+					return AggregatorPackage.INFOS_PROVIDER__INFOS;
+				default:
+					return -1;
 			}
 		}
 		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
@@ -198,12 +202,16 @@ public class MavenMappingImpl extends MinimalEObjectImpl.Container implements Ma
 	 */
 	@Override
 	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
-		if (baseClass == InfosProvider.class) {
-			switch (baseFeatureID) {
-				case AggregatorPackage.INFOS_PROVIDER__ERRORS: return AggregatorPackage.MAVEN_MAPPING__ERRORS;
-				case AggregatorPackage.INFOS_PROVIDER__WARNINGS: return AggregatorPackage.MAVEN_MAPPING__WARNINGS;
-				case AggregatorPackage.INFOS_PROVIDER__INFOS: return AggregatorPackage.MAVEN_MAPPING__INFOS;
-				default: return -1;
+		if(baseClass == InfosProvider.class) {
+			switch(baseFeatureID) {
+				case AggregatorPackage.INFOS_PROVIDER__ERRORS:
+					return AggregatorPackage.MAVEN_MAPPING__ERRORS;
+				case AggregatorPackage.INFOS_PROVIDER__WARNINGS:
+					return AggregatorPackage.MAVEN_MAPPING__WARNINGS;
+				case AggregatorPackage.INFOS_PROVIDER__INFOS:
+					return AggregatorPackage.MAVEN_MAPPING__INFOS;
+				default:
+					return -1;
 			}
 		}
 		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
@@ -215,7 +223,7 @@ public class MavenMappingImpl extends MinimalEObjectImpl.Container implements Ma
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch (featureID) {
+		switch(featureID) {
 			case AggregatorPackage.MAVEN_MAPPING__STATUS:
 				return getStatus();
 			case AggregatorPackage.MAVEN_MAPPING__ERRORS:
@@ -240,7 +248,7 @@ public class MavenMappingImpl extends MinimalEObjectImpl.Container implements Ma
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch (featureID) {
+		switch(featureID) {
 			case AggregatorPackage.MAVEN_MAPPING__STATUS:
 				return getStatus() != null;
 			case AggregatorPackage.MAVEN_MAPPING__ERRORS:
@@ -250,11 +258,17 @@ public class MavenMappingImpl extends MinimalEObjectImpl.Container implements Ma
 			case AggregatorPackage.MAVEN_MAPPING__INFOS:
 				return infos != null && !infos.isEmpty();
 			case AggregatorPackage.MAVEN_MAPPING__NAME_PATTERN:
-				return NAME_PATTERN_EDEFAULT == null ? namePattern != null : !NAME_PATTERN_EDEFAULT.equals(namePattern);
+				return NAME_PATTERN_EDEFAULT == null
+						? namePattern != null
+						: !NAME_PATTERN_EDEFAULT.equals(namePattern);
 			case AggregatorPackage.MAVEN_MAPPING__GROUP_ID:
-				return GROUP_ID_EDEFAULT == null ? groupId != null : !GROUP_ID_EDEFAULT.equals(groupId);
+				return GROUP_ID_EDEFAULT == null
+						? groupId != null
+						: !GROUP_ID_EDEFAULT.equals(groupId);
 			case AggregatorPackage.MAVEN_MAPPING__ARTIFACT_ID:
-				return ARTIFACT_ID_EDEFAULT == null ? artifactId != null : !ARTIFACT_ID_EDEFAULT.equals(artifactId);
+				return ARTIFACT_ID_EDEFAULT == null
+						? artifactId != null
+						: !ARTIFACT_ID_EDEFAULT.equals(artifactId);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -266,27 +280,27 @@ public class MavenMappingImpl extends MinimalEObjectImpl.Container implements Ma
 	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch (featureID) {
+		switch(featureID) {
 			case AggregatorPackage.MAVEN_MAPPING__ERRORS:
 				getErrors().clear();
-				getErrors().addAll((Collection<? extends String>)newValue);
+				getErrors().addAll((Collection<? extends String>) newValue);
 				return;
 			case AggregatorPackage.MAVEN_MAPPING__WARNINGS:
 				getWarnings().clear();
-				getWarnings().addAll((Collection<? extends String>)newValue);
+				getWarnings().addAll((Collection<? extends String>) newValue);
 				return;
 			case AggregatorPackage.MAVEN_MAPPING__INFOS:
 				getInfos().clear();
-				getInfos().addAll((Collection<? extends String>)newValue);
+				getInfos().addAll((Collection<? extends String>) newValue);
 				return;
 			case AggregatorPackage.MAVEN_MAPPING__NAME_PATTERN:
-				setNamePattern((String)newValue);
+				setNamePattern((String) newValue);
 				return;
 			case AggregatorPackage.MAVEN_MAPPING__GROUP_ID:
-				setGroupId((String)newValue);
+				setGroupId((String) newValue);
 				return;
 			case AggregatorPackage.MAVEN_MAPPING__ARTIFACT_ID:
-				setArtifactId((String)newValue);
+				setArtifactId((String) newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -307,7 +321,7 @@ public class MavenMappingImpl extends MinimalEObjectImpl.Container implements Ma
 	 */
 	@Override
 	public void eUnset(int featureID) {
-		switch (featureID) {
+		switch(featureID) {
 			case AggregatorPackage.MAVEN_MAPPING__ERRORS:
 				getErrors().clear();
 				return;
@@ -334,6 +348,7 @@ public class MavenMappingImpl extends MinimalEObjectImpl.Container implements Ma
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getArtifactId() {
 		return artifactId;
 	}
@@ -342,8 +357,9 @@ public class MavenMappingImpl extends MinimalEObjectImpl.Container implements Ma
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<String> getErrors() {
-		if (errors == null) {
+		if(errors == null) {
 			errors = new EDataTypeUniqueEList<String>(String.class, this, AggregatorPackage.MAVEN_MAPPING__ERRORS);
 		}
 		return errors;
@@ -353,6 +369,7 @@ public class MavenMappingImpl extends MinimalEObjectImpl.Container implements Ma
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getGroupId() {
 		return groupId;
 	}
@@ -361,8 +378,9 @@ public class MavenMappingImpl extends MinimalEObjectImpl.Container implements Ma
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<String> getInfos() {
-		if (infos == null) {
+		if(infos == null) {
 			infos = new EDataTypeUniqueEList<String>(String.class, this, AggregatorPackage.MAVEN_MAPPING__INFOS);
 		}
 		return infos;
@@ -372,6 +390,7 @@ public class MavenMappingImpl extends MinimalEObjectImpl.Container implements Ma
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getNamePattern() {
 		return namePattern;
 	}
@@ -381,6 +400,7 @@ public class MavenMappingImpl extends MinimalEObjectImpl.Container implements Ma
 	 *
 	 * @generated NOT
 	 */
+	@Override
 	public Status getStatus() {
 		try {
 			String pattern = StringUtils.trimmedOrNull(getNamePattern());
@@ -404,8 +424,9 @@ public class MavenMappingImpl extends MinimalEObjectImpl.Container implements Ma
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<String> getWarnings() {
-		if (warnings == null) {
+		if(warnings == null) {
 			warnings = new EDataTypeUniqueEList<String>(String.class, this, AggregatorPackage.MAVEN_MAPPING__WARNINGS);
 		}
 		return warnings;
@@ -416,6 +437,7 @@ public class MavenMappingImpl extends MinimalEObjectImpl.Container implements Ma
 	 *
 	 * @generated NOT
 	 */
+	@Override
 	public MavenItem map(String installableUnitID) {
 		if(compiledPattern != null) {
 			Matcher m = compiledPattern.matcher(installableUnitID);
@@ -435,22 +457,28 @@ public class MavenMappingImpl extends MinimalEObjectImpl.Container implements Ma
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setArtifactId(String newArtifactId) {
 		String oldArtifactId = artifactId;
 		artifactId = newArtifactId;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, AggregatorPackage.MAVEN_MAPPING__ARTIFACT_ID, oldArtifactId, artifactId));
+		if(eNotificationRequired())
+			eNotify(
+				new ENotificationImpl(
+					this, Notification.SET, AggregatorPackage.MAVEN_MAPPING__ARTIFACT_ID, oldArtifactId, artifactId));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setGroupId(String newGroupId) {
 		String oldGroupId = groupId;
 		groupId = newGroupId;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, AggregatorPackage.MAVEN_MAPPING__GROUP_ID, oldGroupId, groupId));
+		if(eNotificationRequired())
+			eNotify(
+				new ENotificationImpl(
+					this, Notification.SET, AggregatorPackage.MAVEN_MAPPING__GROUP_ID, oldGroupId, groupId));
 	}
 
 	/**
@@ -458,12 +486,15 @@ public class MavenMappingImpl extends MinimalEObjectImpl.Container implements Ma
 	 *
 	 * @generated NOT
 	 */
+	@Override
 	public void setNamePattern(String newNamePattern) {
 		String oldNamePattern = namePattern;
 		namePattern = newNamePattern;
 		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(
-				this, Notification.SET, AggregatorPackage.MAVEN_MAPPING__NAME_PATTERN, oldNamePattern, namePattern));
+			eNotify(
+				new ENotificationImpl(
+					this, Notification.SET, AggregatorPackage.MAVEN_MAPPING__NAME_PATTERN, oldNamePattern,
+					namePattern));
 
 		if(newNamePattern != null) {
 			if(!newNamePattern.equals(oldNamePattern))
@@ -484,7 +515,8 @@ public class MavenMappingImpl extends MinimalEObjectImpl.Container implements Ma
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy()) return super.toString();
+		if(eIsProxy())
+			return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (errors: ");

@@ -23,7 +23,7 @@ import org.eclipse.equinox.p2.repository.artifact.IArtifactRepository;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.eclipse.cbi.p2repo.p2.ArtifactRepository#getArtifactMap <em>Artifact Map</em>}</li>
+ * <li>{@link org.eclipse.cbi.p2repo.p2.ArtifactRepository#getArtifactMap <em>Artifact Map</em>}</li>
  * </ul>
  *
  * @see org.eclipse.cbi.p2repo.p2.P2Package#getArtifactRepository()
@@ -40,9 +40,11 @@ public interface ArtifactRepository extends Repository<IArtifactKey>, IArtifactR
 	 * If the meaning of the '<em>Artifact Map</em>' reference list isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the value of the '<em>Artifact Map</em>' map.
 	 * @see org.eclipse.cbi.p2repo.p2.P2Package#getArtifactRepository_ArtifactMap()
-	 * @model mapType="org.eclipse.cbi.p2repo.p2.ArtifactsByKey<org.eclipse.cbi.p2repo.p2.IArtifactKey, org.eclipse.cbi.p2repo.p2.IArtifactDescriptor>"
+	 * @model mapType="org.eclipse.cbi.p2repo.p2.ArtifactsByKey<org.eclipse.cbi.p2repo.p2.IArtifactKey,
+	 *        org.eclipse.cbi.p2repo.p2.IArtifactDescriptor>"
 	 * @generated
 	 */
 	EMap<IArtifactKey, EList<IArtifactDescriptor>> getArtifactMap();

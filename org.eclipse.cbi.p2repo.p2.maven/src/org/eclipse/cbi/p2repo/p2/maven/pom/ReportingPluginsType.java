@@ -17,7 +17,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.ReportingPluginsType#getPlugin <em>Plugin</em>}</li>
+ * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.ReportingPluginsType#getPlugin <em>Plugin</em>}</li>
  * </ul>
  *
  * @see org.eclipse.cbi.p2repo.p2.maven.pom.PomPackage#getReportingPluginsType()
@@ -33,6 +33,7 @@ public interface ReportingPluginsType extends EObject {
 	 * If the meaning of the '<em>Plugin</em>' containment reference list isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the value of the '<em>Plugin</em>' containment reference list.
 	 * @see org.eclipse.cbi.p2repo.p2.maven.pom.PomPackage#getReportingPluginsType_Plugin()
 	 * @model containment="true"

@@ -23,14 +23,14 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.ContributorImpl#getName <em>Name</em>}</li>
- *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.ContributorImpl#getEmail <em>Email</em>}</li>
- *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.ContributorImpl#getUrl <em>Url</em>}</li>
- *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.ContributorImpl#getOrganization <em>Organization</em>}</li>
- *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.ContributorImpl#getOrganizationUrl <em>Organization Url</em>}</li>
- *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.ContributorImpl#getRoles <em>Roles</em>}</li>
- *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.ContributorImpl#getTimezone <em>Timezone</em>}</li>
- *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.ContributorImpl#getProperties <em>Properties</em>}</li>
+ * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.ContributorImpl#getName <em>Name</em>}</li>
+ * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.ContributorImpl#getEmail <em>Email</em>}</li>
+ * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.ContributorImpl#getUrl <em>Url</em>}</li>
+ * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.ContributorImpl#getOrganization <em>Organization</em>}</li>
+ * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.ContributorImpl#getOrganizationUrl <em>Organization Url</em>}</li>
+ * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.ContributorImpl#getRoles <em>Roles</em>}</li>
+ * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.ContributorImpl#getTimezone <em>Timezone</em>}</li>
+ * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.ContributorImpl#getProperties <em>Properties</em>}</li>
  * </ul>
  *
  * @generated
@@ -60,6 +60,7 @@ public class ContributorImpl extends EObjectImpl implements Contributor {
 	 * The default value of the '{@link #getEmail() <em>Email</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @see #getEmail()
 	 * @generated
 	 * @ordered
@@ -89,6 +90,7 @@ public class ContributorImpl extends EObjectImpl implements Contributor {
 	/**
 	 * The cached value of the '{@link #getUrl() <em>Url</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see #getUrl()
 	 * @generated
 	 * @ordered
@@ -99,6 +101,7 @@ public class ContributorImpl extends EObjectImpl implements Contributor {
 	 * The default value of the '{@link #getOrganization() <em>Organization</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getOrganization()
 	 * @generated
 	 * @ordered
@@ -109,6 +112,7 @@ public class ContributorImpl extends EObjectImpl implements Contributor {
 	 * The cached value of the '{@link #getOrganization() <em>Organization</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getOrganization()
 	 * @generated
 	 * @ordered
@@ -119,6 +123,7 @@ public class ContributorImpl extends EObjectImpl implements Contributor {
 	 * The default value of the '{@link #getOrganizationUrl() <em>Organization Url</em>}' attribute.
 	 * <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
+	 * 
 	 * @see #getOrganizationUrl()
 	 * @generated
 	 * @ordered
@@ -129,6 +134,7 @@ public class ContributorImpl extends EObjectImpl implements Contributor {
 	 * The cached value of the '{@link #getOrganizationUrl() <em>Organization Url</em>}' attribute.
 	 * <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
+	 * 
 	 * @see #getOrganizationUrl()
 	 * @generated
 	 * @ordered
@@ -139,6 +145,7 @@ public class ContributorImpl extends EObjectImpl implements Contributor {
 	 * The cached value of the '{@link #getRoles() <em>Roles</em>}' containment reference.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @see #getRoles()
 	 * @generated
 	 * @ordered
@@ -149,6 +156,7 @@ public class ContributorImpl extends EObjectImpl implements Contributor {
 	 * The default value of the '{@link #getTimezone() <em>Timezone</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @see #getTimezone()
 	 * @generated
 	 * @ordered
@@ -159,6 +167,7 @@ public class ContributorImpl extends EObjectImpl implements Contributor {
 	 * The cached value of the '{@link #getTimezone() <em>Timezone</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @see #getTimezone()
 	 * @generated
 	 * @ordered
@@ -169,6 +178,7 @@ public class ContributorImpl extends EObjectImpl implements Contributor {
 	 * The cached value of the '{@link #getProperties() <em>Properties</em>}' containment reference.
 	 * <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
+	 * 
 	 * @see #getProperties()
 	 * @generated
 	 * @ordered
@@ -177,6 +187,7 @@ public class ContributorImpl extends EObjectImpl implements Contributor {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected ContributorImpl() {
@@ -185,39 +196,50 @@ public class ContributorImpl extends EObjectImpl implements Contributor {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public NotificationChain basicSetProperties(PropertiesType newProperties, NotificationChain msgs) {
 		PropertiesType oldProperties = properties;
 		properties = newProperties;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, PomPackage.CONTRIBUTOR__PROPERTIES, oldProperties, newProperties);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
+		if(eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(
+				this, Notification.SET, PomPackage.CONTRIBUTOR__PROPERTIES, oldProperties, newProperties);
+			if(msgs == null)
+				msgs = notification;
+			else
+				msgs.add(notification);
 		}
 		return msgs;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public NotificationChain basicSetRoles(RolesType newRoles, NotificationChain msgs) {
 		RolesType oldRoles = roles;
 		roles = newRoles;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, PomPackage.CONTRIBUTOR__ROLES, oldRoles, newRoles);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
+		if(eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(
+				this, Notification.SET, PomPackage.CONTRIBUTOR__ROLES, oldRoles, newRoles);
+			if(msgs == null)
+				msgs = notification;
+			else
+				msgs.add(notification);
 		}
 		return msgs;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch (featureID) {
+		switch(featureID) {
 			case PomPackage.CONTRIBUTOR__NAME:
 				return getName();
 			case PomPackage.CONTRIBUTOR__EMAIL:
@@ -240,11 +262,12 @@ public class ContributorImpl extends EObjectImpl implements Contributor {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
+		switch(featureID) {
 			case PomPackage.CONTRIBUTOR__ROLES:
 				return basicSetRoles(null, msgs);
 			case PomPackage.CONTRIBUTOR__PROPERTIES:
@@ -255,25 +278,38 @@ public class ContributorImpl extends EObjectImpl implements Contributor {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch (featureID) {
+		switch(featureID) {
 			case PomPackage.CONTRIBUTOR__NAME:
-				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+				return NAME_EDEFAULT == null
+						? name != null
+						: !NAME_EDEFAULT.equals(name);
 			case PomPackage.CONTRIBUTOR__EMAIL:
-				return EMAIL_EDEFAULT == null ? email != null : !EMAIL_EDEFAULT.equals(email);
+				return EMAIL_EDEFAULT == null
+						? email != null
+						: !EMAIL_EDEFAULT.equals(email);
 			case PomPackage.CONTRIBUTOR__URL:
-				return URL_EDEFAULT == null ? url != null : !URL_EDEFAULT.equals(url);
+				return URL_EDEFAULT == null
+						? url != null
+						: !URL_EDEFAULT.equals(url);
 			case PomPackage.CONTRIBUTOR__ORGANIZATION:
-				return ORGANIZATION_EDEFAULT == null ? organization != null : !ORGANIZATION_EDEFAULT.equals(organization);
+				return ORGANIZATION_EDEFAULT == null
+						? organization != null
+						: !ORGANIZATION_EDEFAULT.equals(organization);
 			case PomPackage.CONTRIBUTOR__ORGANIZATION_URL:
-				return ORGANIZATION_URL_EDEFAULT == null ? organizationUrl != null : !ORGANIZATION_URL_EDEFAULT.equals(organizationUrl);
+				return ORGANIZATION_URL_EDEFAULT == null
+						? organizationUrl != null
+						: !ORGANIZATION_URL_EDEFAULT.equals(organizationUrl);
 			case PomPackage.CONTRIBUTOR__ROLES:
 				return roles != null;
 			case PomPackage.CONTRIBUTOR__TIMEZONE:
-				return TIMEZONE_EDEFAULT == null ? timezone != null : !TIMEZONE_EDEFAULT.equals(timezone);
+				return TIMEZONE_EDEFAULT == null
+						? timezone != null
+						: !TIMEZONE_EDEFAULT.equals(timezone);
 			case PomPackage.CONTRIBUTOR__PROPERTIES:
 				return properties != null;
 		}
@@ -282,34 +318,35 @@ public class ContributorImpl extends EObjectImpl implements Contributor {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch (featureID) {
+		switch(featureID) {
 			case PomPackage.CONTRIBUTOR__NAME:
-				setName((String)newValue);
+				setName((String) newValue);
 				return;
 			case PomPackage.CONTRIBUTOR__EMAIL:
-				setEmail((String)newValue);
+				setEmail((String) newValue);
 				return;
 			case PomPackage.CONTRIBUTOR__URL:
-				setUrl((String)newValue);
+				setUrl((String) newValue);
 				return;
 			case PomPackage.CONTRIBUTOR__ORGANIZATION:
-				setOrganization((String)newValue);
+				setOrganization((String) newValue);
 				return;
 			case PomPackage.CONTRIBUTOR__ORGANIZATION_URL:
-				setOrganizationUrl((String)newValue);
+				setOrganizationUrl((String) newValue);
 				return;
 			case PomPackage.CONTRIBUTOR__ROLES:
-				setRoles((RolesType)newValue);
+				setRoles((RolesType) newValue);
 				return;
 			case PomPackage.CONTRIBUTOR__TIMEZONE:
-				setTimezone((String)newValue);
+				setTimezone((String) newValue);
 				return;
 			case PomPackage.CONTRIBUTOR__PROPERTIES:
-				setProperties((PropertiesType)newValue);
+				setProperties((PropertiesType) newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -317,11 +354,12 @@ public class ContributorImpl extends EObjectImpl implements Contributor {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
-		switch (featureID) {
+		switch(featureID) {
 			case PomPackage.CONTRIBUTOR__NAME:
 				setName(NAME_EDEFAULT);
 				return;
@@ -338,13 +376,13 @@ public class ContributorImpl extends EObjectImpl implements Contributor {
 				setOrganizationUrl(ORGANIZATION_URL_EDEFAULT);
 				return;
 			case PomPackage.CONTRIBUTOR__ROLES:
-				setRoles((RolesType)null);
+				setRoles((RolesType) null);
 				return;
 			case PomPackage.CONTRIBUTOR__TIMEZONE:
 				setTimezone(TIMEZONE_EDEFAULT);
 				return;
 			case PomPackage.CONTRIBUTOR__PROPERTIES:
-				setProperties((PropertiesType)null);
+				setProperties((PropertiesType) null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -352,6 +390,7 @@ public class ContributorImpl extends EObjectImpl implements Contributor {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -361,6 +400,7 @@ public class ContributorImpl extends EObjectImpl implements Contributor {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -370,6 +410,7 @@ public class ContributorImpl extends EObjectImpl implements Contributor {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -379,6 +420,7 @@ public class ContributorImpl extends EObjectImpl implements Contributor {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -388,6 +430,7 @@ public class ContributorImpl extends EObjectImpl implements Contributor {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -397,6 +440,7 @@ public class ContributorImpl extends EObjectImpl implements Contributor {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -406,6 +450,7 @@ public class ContributorImpl extends EObjectImpl implements Contributor {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -415,6 +460,7 @@ public class ContributorImpl extends EObjectImpl implements Contributor {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -424,121 +470,145 @@ public class ContributorImpl extends EObjectImpl implements Contributor {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void setEmail(String newEmail) {
 		String oldEmail = email;
 		email = newEmail;
-		if (eNotificationRequired())
+		if(eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.CONTRIBUTOR__EMAIL, oldEmail, email));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void setName(String newName) {
 		String oldName = name;
 		name = newName;
-		if (eNotificationRequired())
+		if(eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.CONTRIBUTOR__NAME, oldName, name));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void setOrganization(String newOrganization) {
 		String oldOrganization = organization;
 		organization = newOrganization;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.CONTRIBUTOR__ORGANIZATION, oldOrganization, organization));
+		if(eNotificationRequired())
+			eNotify(
+				new ENotificationImpl(
+					this, Notification.SET, PomPackage.CONTRIBUTOR__ORGANIZATION, oldOrganization, organization));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void setOrganizationUrl(String newOrganizationUrl) {
 		String oldOrganizationUrl = organizationUrl;
 		organizationUrl = newOrganizationUrl;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.CONTRIBUTOR__ORGANIZATION_URL, oldOrganizationUrl, organizationUrl));
+		if(eNotificationRequired())
+			eNotify(
+				new ENotificationImpl(
+					this, Notification.SET, PomPackage.CONTRIBUTOR__ORGANIZATION_URL, oldOrganizationUrl,
+					organizationUrl));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void setProperties(PropertiesType newProperties) {
-		if (newProperties != properties) {
+		if(newProperties != properties) {
 			NotificationChain msgs = null;
-			if (properties != null)
-				msgs = ((InternalEObject)properties).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - PomPackage.CONTRIBUTOR__PROPERTIES, null, msgs);
-			if (newProperties != null)
-				msgs = ((InternalEObject)newProperties).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - PomPackage.CONTRIBUTOR__PROPERTIES, null, msgs);
+			if(properties != null)
+				msgs = ((InternalEObject) properties).eInverseRemove(
+					this, EOPPOSITE_FEATURE_BASE - PomPackage.CONTRIBUTOR__PROPERTIES, null, msgs);
+			if(newProperties != null)
+				msgs = ((InternalEObject) newProperties).eInverseAdd(
+					this, EOPPOSITE_FEATURE_BASE - PomPackage.CONTRIBUTOR__PROPERTIES, null, msgs);
 			msgs = basicSetProperties(newProperties, msgs);
-			if (msgs != null) msgs.dispatch();
+			if(msgs != null)
+				msgs.dispatch();
 		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.CONTRIBUTOR__PROPERTIES, newProperties, newProperties));
+		else if(eNotificationRequired())
+			eNotify(
+				new ENotificationImpl(
+					this, Notification.SET, PomPackage.CONTRIBUTOR__PROPERTIES, newProperties, newProperties));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void setRoles(RolesType newRoles) {
-		if (newRoles != roles) {
+		if(newRoles != roles) {
 			NotificationChain msgs = null;
-			if (roles != null)
-				msgs = ((InternalEObject)roles).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - PomPackage.CONTRIBUTOR__ROLES, null, msgs);
-			if (newRoles != null)
-				msgs = ((InternalEObject)newRoles).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - PomPackage.CONTRIBUTOR__ROLES, null, msgs);
+			if(roles != null)
+				msgs = ((InternalEObject) roles).eInverseRemove(
+					this, EOPPOSITE_FEATURE_BASE - PomPackage.CONTRIBUTOR__ROLES, null, msgs);
+			if(newRoles != null)
+				msgs = ((InternalEObject) newRoles).eInverseAdd(
+					this, EOPPOSITE_FEATURE_BASE - PomPackage.CONTRIBUTOR__ROLES, null, msgs);
 			msgs = basicSetRoles(newRoles, msgs);
-			if (msgs != null) msgs.dispatch();
+			if(msgs != null)
+				msgs.dispatch();
 		}
-		else if (eNotificationRequired())
+		else if(eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.CONTRIBUTOR__ROLES, newRoles, newRoles));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void setTimezone(String newTimezone) {
 		String oldTimezone = timezone;
 		timezone = newTimezone;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.CONTRIBUTOR__TIMEZONE, oldTimezone, timezone));
+		if(eNotificationRequired())
+			eNotify(
+				new ENotificationImpl(this, Notification.SET, PomPackage.CONTRIBUTOR__TIMEZONE, oldTimezone, timezone));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void setUrl(String newUrl) {
 		String oldUrl = url;
 		url = newUrl;
-		if (eNotificationRequired())
+		if(eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.CONTRIBUTOR__URL, oldUrl, url));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy()) return super.toString();
+		if(eIsProxy())
+			return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (name: ");
@@ -559,6 +629,7 @@ public class ContributorImpl extends EObjectImpl implements Contributor {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override

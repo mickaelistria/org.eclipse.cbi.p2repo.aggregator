@@ -33,6 +33,7 @@ public class PropertiesTypeImpl extends EObjectImpl implements PropertiesType {
 	 * The cached value of the '{@link #getAny() <em>Any</em>}' attribute list.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @see #getAny()
 	 * @generated
 	 * @ordered
@@ -41,6 +42,7 @@ public class PropertiesTypeImpl extends EObjectImpl implements PropertiesType {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected PropertiesTypeImpl() {
@@ -49,38 +51,42 @@ public class PropertiesTypeImpl extends EObjectImpl implements PropertiesType {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch (featureID) {
+		switch(featureID) {
 			case PomPackage.PROPERTIES_TYPE__ANY:
-				if (coreType) return getAny();
-				return ((FeatureMap.Internal)getAny()).getWrapper();
+				if(coreType)
+					return getAny();
+				return ((FeatureMap.Internal) getAny()).getWrapper();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
+		switch(featureID) {
 			case PomPackage.PROPERTIES_TYPE__ANY:
-				return ((InternalEList<?>)getAny()).basicRemove(otherEnd, msgs);
+				return ((InternalEList<?>) getAny()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch (featureID) {
+		switch(featureID) {
 			case PomPackage.PROPERTIES_TYPE__ANY:
 				return any != null && !any.isEmpty();
 		}
@@ -89,13 +95,14 @@ public class PropertiesTypeImpl extends EObjectImpl implements PropertiesType {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch (featureID) {
+		switch(featureID) {
 			case PomPackage.PROPERTIES_TYPE__ANY:
-				((FeatureMap.Internal)getAny()).set(newValue);
+				((FeatureMap.Internal) getAny()).set(newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -103,11 +110,12 @@ public class PropertiesTypeImpl extends EObjectImpl implements PropertiesType {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
-		switch (featureID) {
+		switch(featureID) {
 			case PomPackage.PROPERTIES_TYPE__ANY:
 				getAny().clear();
 				return;
@@ -117,11 +125,12 @@ public class PropertiesTypeImpl extends EObjectImpl implements PropertiesType {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public FeatureMap getAny() {
-		if (any == null) {
+		if(any == null) {
 			any = new BasicFeatureMap(this, PomPackage.PROPERTIES_TYPE__ANY);
 		}
 		return any;
@@ -129,11 +138,13 @@ public class PropertiesTypeImpl extends EObjectImpl implements PropertiesType {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy()) return super.toString();
+		if(eIsProxy())
+			return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (any: ");
@@ -144,6 +155,7 @@ public class PropertiesTypeImpl extends EObjectImpl implements PropertiesType {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override

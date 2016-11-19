@@ -33,9 +33,9 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
  * <!-- end-user-doc -->
  * @generated
  */
-public class LicensesItemProvider extends AggregatorItemProviderAdapter implements IEditingDomainItemProvider,
-		IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource,
-		IItemColorProvider, IItemFontProvider {
+public class LicensesItemProvider extends AggregatorItemProviderAdapter
+		implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider,
+		IItemLabelProvider, IItemPropertySource, IItemColorProvider, IItemFontProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -53,19 +53,12 @@ public class LicensesItemProvider extends AggregatorItemProviderAdapter implemen
 	 * @generated
 	 */
 	protected void addLicensesPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Licenses_licenses_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Licenses_licenses_feature", "_UI_Licenses_type"),
-				 P2viewPackage.Literals.LICENSES__LICENSES,
-				 false,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
+		itemPropertyDescriptors.add(
+			createItemPropertyDescriptor(
+				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+				getString("_UI_Licenses_licenses_feature"),
+				getString("_UI_PropertyDescriptor_description", "_UI_Licenses_licenses_feature", "_UI_Licenses_type"),
+				P2viewPackage.Literals.LICENSES__LICENSES, false, false, true, null, null, null));
 	}
 
 	/**
@@ -103,7 +96,7 @@ public class LicensesItemProvider extends AggregatorItemProviderAdapter implemen
 	 */
 	@Override
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
-		if (childrenFeatures == null) {
+		if(childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(P2viewPackage.Literals.LICENSES__LICENSES);
 		}
@@ -129,7 +122,7 @@ public class LicensesItemProvider extends AggregatorItemProviderAdapter implemen
 	 */
 	@Override
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-		if (itemPropertyDescriptors == null) {
+		if(itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
 			addLicensesPropertyDescriptor(object);

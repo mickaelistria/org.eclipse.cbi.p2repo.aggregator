@@ -65,9 +65,9 @@ import org.eclipse.equinox.p2.metadata.IInstallableUnit;
  *
  * @generated
  */
-public class ContributionItemProvider extends AggregatorItemProviderAdapter implements IEditingDomainItemProvider,
-		IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource,
-		IItemColorProvider, IItemFontProvider {
+public class ContributionItemProvider extends AggregatorItemProviderAdapter
+		implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider,
+		IItemLabelProvider, IItemPropertySource, IItemColorProvider, IItemFontProvider {
 	static class DynamicItemPropertyDescriptor extends AggregatorItemPropertyDescriptor {
 
 		public DynamicItemPropertyDescriptor(AdapterFactory adapterFactory, ResourceLocator resourceLocator,
@@ -94,7 +94,8 @@ public class ContributionItemProvider extends AggregatorItemProviderAdapter impl
 						if(contribution.isEnabled()) {
 							result = object instanceof MappedRepository &&
 									AggregatorPackage.Literals.ENABLED_STATUS_PROVIDER__ENABLED.getName().equals(
-										getId(mappedRepository)) || mappedRepository.isEnabled();
+										getId(mappedRepository)) ||
+									mappedRepository.isEnabled();
 
 							if(result && object instanceof MappedUnit)
 								result = (AggregatorPackage.Literals.ENABLED_STATUS_PROVIDER__ENABLED.getName().equals(
@@ -154,19 +155,13 @@ public class ContributionItemProvider extends AggregatorItemProviderAdapter impl
 	 * @generated
 	 */
 	protected void addContactsPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Contribution_contacts_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Contribution_contacts_feature", "_UI_Contribution_type"),
-				 AggregatorPackage.Literals.CONTRIBUTION__CONTACTS,
-				 true,
-				 false,
-				 false,
-				 null,
-				 null,
-				 null));
+		itemPropertyDescriptors.add(
+			createItemPropertyDescriptor(
+				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+				getString("_UI_Contribution_contacts_feature"),
+				getString(
+					"_UI_PropertyDescriptor_description", "_UI_Contribution_contacts_feature", "_UI_Contribution_type"),
+				AggregatorPackage.Literals.CONTRIBUTION__CONTACTS, true, false, false, null, null, null));
 	}
 
 	/**
@@ -175,19 +170,15 @@ public class ContributionItemProvider extends AggregatorItemProviderAdapter impl
 	 * @generated
 	 */
 	protected void addDescriptionPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_DescriptionProvider_description_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_DescriptionProvider_description_feature", "_UI_DescriptionProvider_type"),
-				 AggregatorPackage.Literals.DESCRIPTION_PROVIDER__DESCRIPTION,
-				 true,
-				 true,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
+		itemPropertyDescriptors.add(
+			createItemPropertyDescriptor(
+				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+				getString("_UI_DescriptionProvider_description_feature"),
+				getString(
+					"_UI_PropertyDescriptor_description", "_UI_DescriptionProvider_description_feature",
+					"_UI_DescriptionProvider_type"),
+				AggregatorPackage.Literals.DESCRIPTION_PROVIDER__DESCRIPTION, true, true, false,
+				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -196,19 +187,15 @@ public class ContributionItemProvider extends AggregatorItemProviderAdapter impl
 	 * @generated
 	 */
 	protected void addEnabledPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_EnabledStatusProvider_enabled_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_EnabledStatusProvider_enabled_feature", "_UI_EnabledStatusProvider_type"),
-				 AggregatorPackage.Literals.ENABLED_STATUS_PROVIDER__ENABLED,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-				 null,
-				 null));
+		itemPropertyDescriptors.add(
+			createItemPropertyDescriptor(
+				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+				getString("_UI_EnabledStatusProvider_enabled_feature"),
+				getString(
+					"_UI_PropertyDescriptor_description", "_UI_EnabledStatusProvider_enabled_feature",
+					"_UI_EnabledStatusProvider_type"),
+				AggregatorPackage.Literals.ENABLED_STATUS_PROVIDER__ENABLED, true, false, false,
+				ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -217,19 +204,14 @@ public class ContributionItemProvider extends AggregatorItemProviderAdapter impl
 	 * @generated
 	 */
 	protected void addLabelPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Contribution_label_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Contribution_label_feature", "_UI_Contribution_type"),
-				 AggregatorPackage.Literals.CONTRIBUTION__LABEL,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
+		itemPropertyDescriptors.add(
+			createItemPropertyDescriptor(
+				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+				getString("_UI_Contribution_label_feature"),
+				getString(
+					"_UI_PropertyDescriptor_description", "_UI_Contribution_label_feature", "_UI_Contribution_type"),
+				AggregatorPackage.Literals.CONTRIBUTION__LABEL, true, false, false,
+				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -242,31 +224,33 @@ public class ContributionItemProvider extends AggregatorItemProviderAdapter impl
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 
-		newChildDescriptors.add
-			(createChildParameter
-				(AggregatorPackage.Literals.CONTRIBUTION__REPOSITORIES,
-				 AggregatorFactory.eINSTANCE.createMappedRepository()));
+		newChildDescriptors.add(
+			createChildParameter(
+				AggregatorPackage.Literals.CONTRIBUTION__REPOSITORIES,
+				AggregatorFactory.eINSTANCE.createMappedRepository()));
 
-		newChildDescriptors.add
-			(createChildParameter
-				(AggregatorPackage.Literals.CONTRIBUTION__MAVEN_MAPPINGS,
-				 AggregatorFactory.eINSTANCE.createMavenMapping()));
+		newChildDescriptors.add(
+			createChildParameter(
+				AggregatorPackage.Literals.CONTRIBUTION__MAVEN_MAPPINGS,
+				AggregatorFactory.eINSTANCE.createMavenMapping()));
 	}
 
 	@SuppressWarnings("unchecked")
 	private Command createAddIUsToContributionCommand(Object owner, Collection<?> collection) {
 		ItemSorter itemSorter = new ItemSorter(collection);
 
-		if(((EnabledStatusProvider) owner).isEnabled() &&
-				itemSorter.getTotalItemCount() > 0 &&
-				(itemSorter.getTotalItemCount() == (itemSorter.getGroupItems(ItemGroup.MDR).size() + itemSorter.getGroupItems(
-					ItemGroup.IU).size()) || itemSorter.getTotalItemCount() == (itemSorter.getGroupItems(
-					ItemGroup.MDR_STRUCTURED).size() + itemSorter.getGroupItems(ItemGroup.IU_STRUCTURED).size()))) {
+		if(((EnabledStatusProvider) owner).isEnabled() && itemSorter.getTotalItemCount() > 0 &&
+				(itemSorter.getTotalItemCount() == (itemSorter.getGroupItems(ItemGroup.MDR).size() +
+						itemSorter.getGroupItems(ItemGroup.IU).size()) ||
+						itemSorter.getTotalItemCount() == (itemSorter.getGroupItems(ItemGroup.MDR_STRUCTURED).size() +
+								itemSorter.getGroupItems(ItemGroup.IU_STRUCTURED).size()))) {
 			List<MetadataRepository> mdrs = new ArrayList<MetadataRepository>();
 			List<IInstallableUnit> ius = new ArrayList<IInstallableUnit>();
 
 			mdrs.addAll((List<MetadataRepository>) itemSorter.getGroupItems(ItemGroup.MDR));
-			mdrs.addAll(ItemUtils.getMDRs((List<MetadataRepositoryStructuredView>) itemSorter.getGroupItems(ItemGroup.MDR_STRUCTURED)));
+			mdrs.addAll(
+				ItemUtils.getMDRs(
+					(List<MetadataRepositoryStructuredView>) itemSorter.getGroupItems(ItemGroup.MDR_STRUCTURED)));
 			ius.addAll((List<InstallableUnit>) itemSorter.getGroupItems(ItemGroup.IU));
 			ius.addAll(ItemUtils.getIUs((List<IUPresentation>) itemSorter.getGroupItems(ItemGroup.IU_STRUCTURED)));
 
@@ -370,7 +354,7 @@ public class ContributionItemProvider extends AggregatorItemProviderAdapter impl
 	 */
 	@Override
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
-		if (childrenFeatures == null) {
+		if(childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(AggregatorPackage.Literals.CONTRIBUTION__REPOSITORIES);
 			childrenFeatures.add(AggregatorPackage.Literals.CONTRIBUTION__MAVEN_MAPPINGS);
@@ -386,8 +370,7 @@ public class ContributionItemProvider extends AggregatorItemProviderAdapter impl
 	@Override
 	public Object getImage(Object object) {
 		return overlayImage(
-			object,
-			getResourceLocator().getImage("full/obj16/Contribution" + (((Contribution) object).isBranchEnabled()
+			object, getResourceLocator().getImage("full/obj16/Contribution" + (((Contribution) object).isBranchEnabled()
 					? ""
 					: "Disabled")));
 	}
@@ -410,7 +393,7 @@ public class ContributionItemProvider extends AggregatorItemProviderAdapter impl
 	 */
 	@Override
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-		if (itemPropertyDescriptors == null) {
+		if(itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
 			addEnabledPropertyDescriptor(object);
@@ -498,7 +481,8 @@ public class ContributionItemProvider extends AggregatorItemProviderAdapter impl
 				if(featureId == AggregatorPackage.CONTRIBUTION__ENABLED) {
 					newValue = notification.getNewBooleanValue();
 					// Browse all mapped repositories which may have changed their virtual status (inherently enabled/disabled)
-					for(MappedRepository mappedRepository : ((Contribution) notification.getNotifier()).getRepositories(!newValue)) {
+					for(MappedRepository mappedRepository : ((Contribution) notification.getNotifier()).getRepositories(
+						!newValue)) {
 						if(newValue)
 							ResourceUtils.loadResourceForMappedRepository(mappedRepository);
 
@@ -527,7 +511,8 @@ public class ContributionItemProvider extends AggregatorItemProviderAdapter impl
 
 		// If a repository is removed, update possible warning overlays
 		if(notification.getEventType() == Notification.REMOVE &&
-				(notification.getOldValue() instanceof MappedRepository || notification.getOldValue() instanceof MavenMapping)) {
+				(notification.getOldValue() instanceof MappedRepository ||
+						notification.getOldValue() instanceof MavenMapping)) {
 			Set<Object> affectedNodes = new HashSet<Object>();
 
 			// Go through all direct ancestors first, and add also the top resource
@@ -552,7 +537,8 @@ public class ContributionItemProvider extends AggregatorItemProviderAdapter impl
 		}
 		// If a repository is added (e.g. Undo Delete), reload MDR
 		else if(notification.getEventType() == Notification.ADD &&
-				(notification.getNewValue() instanceof MappedRepository || notification.getNewValue() instanceof MavenMapping)) {
+				(notification.getNewValue() instanceof MappedRepository ||
+						notification.getNewValue() instanceof MavenMapping)) {
 			if(notification.getNewValue() instanceof MappedRepository)
 				ResourceUtils.loadResourceForMappedRepository((MappedRepository) notification.getNewValue());
 
@@ -580,7 +566,7 @@ public class ContributionItemProvider extends AggregatorItemProviderAdapter impl
 	public void notifyChangedGen(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(Contribution.class)) {
+		switch(notification.getFeatureID(Contribution.class)) {
 			case AggregatorPackage.CONTRIBUTION__ENABLED:
 			case AggregatorPackage.CONTRIBUTION__DESCRIPTION:
 			case AggregatorPackage.CONTRIBUTION__STATUS:

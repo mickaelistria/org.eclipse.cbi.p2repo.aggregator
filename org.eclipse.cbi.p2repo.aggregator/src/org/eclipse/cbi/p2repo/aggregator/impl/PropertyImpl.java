@@ -93,6 +93,7 @@ public class PropertyImpl extends MinimalEObjectImpl.Container implements Proper
 		this.value = value;
 	}
 
+	@Override
 	public int compareTo(Property o) {
 		return getKey().compareTo(o.getKey());
 	}
@@ -103,7 +104,7 @@ public class PropertyImpl extends MinimalEObjectImpl.Container implements Proper
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch (featureID) {
+		switch(featureID) {
 			case AggregatorPackage.PROPERTY__KEY:
 				return getKey();
 			case AggregatorPackage.PROPERTY__VALUE:
@@ -118,11 +119,15 @@ public class PropertyImpl extends MinimalEObjectImpl.Container implements Proper
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch (featureID) {
+		switch(featureID) {
 			case AggregatorPackage.PROPERTY__KEY:
-				return KEY_EDEFAULT == null ? key != null : !KEY_EDEFAULT.equals(key);
+				return KEY_EDEFAULT == null
+						? key != null
+						: !KEY_EDEFAULT.equals(key);
 			case AggregatorPackage.PROPERTY__VALUE:
-				return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
+				return VALUE_EDEFAULT == null
+						? value != null
+						: !VALUE_EDEFAULT.equals(value);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -133,12 +138,12 @@ public class PropertyImpl extends MinimalEObjectImpl.Container implements Proper
 	 */
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch (featureID) {
+		switch(featureID) {
 			case AggregatorPackage.PROPERTY__KEY:
-				setKey((String)newValue);
+				setKey((String) newValue);
 				return;
 			case AggregatorPackage.PROPERTY__VALUE:
-				setValue((String)newValue);
+				setValue((String) newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -159,7 +164,7 @@ public class PropertyImpl extends MinimalEObjectImpl.Container implements Proper
 	 */
 	@Override
 	public void eUnset(int featureID) {
-		switch (featureID) {
+		switch(featureID) {
 			case AggregatorPackage.PROPERTY__KEY:
 				setKey(KEY_EDEFAULT);
 				return;
@@ -174,6 +179,7 @@ public class PropertyImpl extends MinimalEObjectImpl.Container implements Proper
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getKey() {
 		return key;
 	}
@@ -182,6 +188,7 @@ public class PropertyImpl extends MinimalEObjectImpl.Container implements Proper
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getValue() {
 		return value;
 	}
@@ -190,10 +197,11 @@ public class PropertyImpl extends MinimalEObjectImpl.Container implements Proper
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setKey(String newKey) {
 		String oldKey = key;
 		key = newKey;
-		if (eNotificationRequired())
+		if(eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, AggregatorPackage.PROPERTY__KEY, oldKey, key));
 	}
 
@@ -201,10 +209,11 @@ public class PropertyImpl extends MinimalEObjectImpl.Container implements Proper
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setValue(String newValue) {
 		String oldValue = value;
 		value = newValue;
-		if (eNotificationRequired())
+		if(eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, AggregatorPackage.PROPERTY__VALUE, oldValue, value));
 	}
 
@@ -214,7 +223,8 @@ public class PropertyImpl extends MinimalEObjectImpl.Container implements Proper
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy()) return super.toString();
+		if(eIsProxy())
+			return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (key: ");

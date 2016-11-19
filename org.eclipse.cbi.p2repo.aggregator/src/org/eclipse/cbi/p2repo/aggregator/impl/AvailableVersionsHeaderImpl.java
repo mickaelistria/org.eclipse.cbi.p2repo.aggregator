@@ -59,9 +59,11 @@ public class AvailableVersionsHeaderImpl extends MinimalEObjectImpl.Container im
 	 */
 	@Override
 	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
-		switch (eContainerFeatureID()) {
+		switch(eContainerFeatureID()) {
 			case AggregatorPackage.AVAILABLE_VERSIONS_HEADER__INSTALLABLE_UNIT_REQUEST:
-				return eInternalContainer().eInverseRemove(this, AggregatorPackage.INSTALLABLE_UNIT_REQUEST__AVAILABLE_VERSIONS_HEADER, InstallableUnitRequest.class, msgs);
+				return eInternalContainer().eInverseRemove(
+					this, AggregatorPackage.INSTALLABLE_UNIT_REQUEST__AVAILABLE_VERSIONS_HEADER,
+					InstallableUnitRequest.class, msgs);
 		}
 		return super.eBasicRemoveFromContainerFeature(msgs);
 	}
@@ -73,7 +75,7 @@ public class AvailableVersionsHeaderImpl extends MinimalEObjectImpl.Container im
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch (featureID) {
+		switch(featureID) {
 			case AggregatorPackage.AVAILABLE_VERSIONS_HEADER__AVAILABLE_VERSIONS:
 				return getAvailableVersions();
 			case AggregatorPackage.AVAILABLE_VERSIONS_HEADER__INSTALLABLE_UNIT_REQUEST:
@@ -89,11 +91,12 @@ public class AvailableVersionsHeaderImpl extends MinimalEObjectImpl.Container im
 	 */
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
+		switch(featureID) {
 			case AggregatorPackage.AVAILABLE_VERSIONS_HEADER__INSTALLABLE_UNIT_REQUEST:
-				if (eInternalContainer() != null)
+				if(eInternalContainer() != null)
 					msgs = eBasicRemoveFromContainer(msgs);
-				return eBasicSetContainer(otherEnd, AggregatorPackage.AVAILABLE_VERSIONS_HEADER__INSTALLABLE_UNIT_REQUEST, msgs);
+				return eBasicSetContainer(
+					otherEnd, AggregatorPackage.AVAILABLE_VERSIONS_HEADER__INSTALLABLE_UNIT_REQUEST, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -105,9 +108,10 @@ public class AvailableVersionsHeaderImpl extends MinimalEObjectImpl.Container im
 	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
+		switch(featureID) {
 			case AggregatorPackage.AVAILABLE_VERSIONS_HEADER__INSTALLABLE_UNIT_REQUEST:
-				return eBasicSetContainer(null, AggregatorPackage.AVAILABLE_VERSIONS_HEADER__INSTALLABLE_UNIT_REQUEST, msgs);
+				return eBasicSetContainer(
+					null, AggregatorPackage.AVAILABLE_VERSIONS_HEADER__INSTALLABLE_UNIT_REQUEST, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -122,7 +126,8 @@ public class AvailableVersionsHeaderImpl extends MinimalEObjectImpl.Container im
 	public boolean eIsSet(int featureID) {
 		switch(featureID) {
 			case AggregatorPackage.AVAILABLE_VERSIONS_HEADER__AVAILABLE_VERSIONS:
-				return ((InstallableUnitRequestImpl) getInstallableUnitRequest()).eIsSet(AggregatorPackage.INSTALLABLE_UNIT_REQUEST__AVAILABLE_VERSIONS);
+				return ((InstallableUnitRequestImpl) getInstallableUnitRequest()).eIsSet(
+					AggregatorPackage.INSTALLABLE_UNIT_REQUEST__AVAILABLE_VERSIONS);
 			case AggregatorPackage.AVAILABLE_VERSIONS_HEADER__INSTALLABLE_UNIT_REQUEST:
 				return getInstallableUnitRequest() != null;
 		}
@@ -145,6 +150,7 @@ public class AvailableVersionsHeaderImpl extends MinimalEObjectImpl.Container im
 	 *
 	 * @generated NOT
 	 */
+	@Override
 	public EList<AvailableVersion> getAvailableVersions() {
 		return getInstallableUnitRequest().getAvailableVersions();
 	}
@@ -154,9 +160,11 @@ public class AvailableVersionsHeaderImpl extends MinimalEObjectImpl.Container im
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public InstallableUnitRequest getInstallableUnitRequest() {
-		if (eContainerFeatureID() != AggregatorPackage.AVAILABLE_VERSIONS_HEADER__INSTALLABLE_UNIT_REQUEST) return null;
-		return (InstallableUnitRequest)eInternalContainer();
+		if(eContainerFeatureID() != AggregatorPackage.AVAILABLE_VERSIONS_HEADER__INSTALLABLE_UNIT_REQUEST)
+			return null;
+		return (InstallableUnitRequest) eInternalContainer();
 	}
 
 } // AvailableVersionsHeaderImpl

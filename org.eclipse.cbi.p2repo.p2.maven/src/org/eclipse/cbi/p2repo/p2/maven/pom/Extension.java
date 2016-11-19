@@ -20,9 +20,9 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.Extension#getGroupId <em>Group Id</em>}</li>
- *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.Extension#getArtifactId <em>Artifact Id</em>}</li>
- *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.Extension#getVersion <em>Version</em>}</li>
+ * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.Extension#getGroupId <em>Group Id</em>}</li>
+ * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.Extension#getArtifactId <em>Artifact Id</em>}</li>
+ * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.Extension#getVersion <em>Version</em>}</li>
  * </ul>
  *
  * @see org.eclipse.cbi.p2repo.p2.maven.pom.PomPackage#getExtension()
@@ -37,6 +37,7 @@ public interface Extension extends EObject {
 	 * 4.0.0
 	 * The artifact ID of the extension.
 	 * <!-- end-model-doc -->
+	 * 
 	 * @return the value of the '<em>Artifact Id</em>' attribute.
 	 * @see #setArtifactId(String)
 	 * @see org.eclipse.cbi.p2repo.p2.maven.pom.PomPackage#getExtension_ArtifactId()
@@ -75,7 +76,9 @@ public interface Extension extends EObject {
 	/**
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.Extension#getArtifactId <em>Artifact Id</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Artifact Id</em>' attribute.
+	 * 
+	 * @param value
+	 *            the new value of the '<em>Artifact Id</em>' attribute.
 	 * @see #getArtifactId()
 	 * @generated
 	 */
@@ -84,7 +87,9 @@ public interface Extension extends EObject {
 	/**
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.Extension#getGroupId <em>Group Id</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Group Id</em>' attribute.
+	 * 
+	 * @param value
+	 *            the new value of the '<em>Group Id</em>' attribute.
 	 * @see #getGroupId()
 	 * @generated
 	 */
@@ -93,7 +98,9 @@ public interface Extension extends EObject {
 	/**
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.Extension#getVersion <em>Version</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Version</em>' attribute.
+	 * 
+	 * @param value
+	 *            the new value of the '<em>Version</em>' attribute.
 	 * @see #getVersion()
 	 * @generated
 	 */

@@ -26,7 +26,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.PluginRepositoriesTypeImpl#getPluginRepository <em>Plugin Repository</em>}</li>
+ * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.PluginRepositoriesTypeImpl#getPluginRepository <em>Plugin Repository</em>}</li>
  * </ul>
  *
  * @generated
@@ -35,6 +35,7 @@ public class PluginRepositoriesTypeImpl extends EObjectImpl implements PluginRep
 	/**
 	 * The cached value of the '{@link #getPluginRepository() <em>Plugin Repository</em>}' containment reference list.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see #getPluginRepository()
 	 * @generated
 	 * @ordered
@@ -43,6 +44,7 @@ public class PluginRepositoriesTypeImpl extends EObjectImpl implements PluginRep
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected PluginRepositoriesTypeImpl() {
@@ -51,11 +53,12 @@ public class PluginRepositoriesTypeImpl extends EObjectImpl implements PluginRep
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch (featureID) {
+		switch(featureID) {
 			case PomPackage.PLUGIN_REPOSITORIES_TYPE__PLUGIN_REPOSITORY:
 				return getPluginRepository();
 		}
@@ -64,24 +67,26 @@ public class PluginRepositoriesTypeImpl extends EObjectImpl implements PluginRep
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
+		switch(featureID) {
 			case PomPackage.PLUGIN_REPOSITORIES_TYPE__PLUGIN_REPOSITORY:
-				return ((InternalEList<?>)getPluginRepository()).basicRemove(otherEnd, msgs);
+				return ((InternalEList<?>) getPluginRepository()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch (featureID) {
+		switch(featureID) {
 			case PomPackage.PLUGIN_REPOSITORIES_TYPE__PLUGIN_REPOSITORY:
 				return pluginRepository != null && !pluginRepository.isEmpty();
 		}
@@ -90,15 +95,16 @@ public class PluginRepositoriesTypeImpl extends EObjectImpl implements PluginRep
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch (featureID) {
+		switch(featureID) {
 			case PomPackage.PLUGIN_REPOSITORIES_TYPE__PLUGIN_REPOSITORY:
 				getPluginRepository().clear();
-				getPluginRepository().addAll((Collection<? extends Repository>)newValue);
+				getPluginRepository().addAll((Collection<? extends Repository>) newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -106,11 +112,12 @@ public class PluginRepositoriesTypeImpl extends EObjectImpl implements PluginRep
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
-		switch (featureID) {
+		switch(featureID) {
 			case PomPackage.PLUGIN_REPOSITORIES_TYPE__PLUGIN_REPOSITORY:
 				getPluginRepository().clear();
 				return;
@@ -120,18 +127,21 @@ public class PluginRepositoriesTypeImpl extends EObjectImpl implements PluginRep
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public EList<Repository> getPluginRepository() {
-		if (pluginRepository == null) {
-			pluginRepository = new EObjectContainmentEList<Repository>(Repository.class, this, PomPackage.PLUGIN_REPOSITORIES_TYPE__PLUGIN_REPOSITORY);
+		if(pluginRepository == null) {
+			pluginRepository = new EObjectContainmentEList<Repository>(
+				Repository.class, this, PomPackage.PLUGIN_REPOSITORIES_TYPE__PLUGIN_REPOSITORY);
 		}
 		return pluginRepository;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override

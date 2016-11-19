@@ -62,12 +62,14 @@ public class RepositoryBrowserImpl extends MinimalEObjectImpl.Container implemen
 
 			if(!loading)
 				// We also listen to when a reference to a repository changes its reference.
-				loading = nf instanceof MetadataRepositoryReference &&
-						notification.getFeatureID(MetadataRepositoryReference.class) == AggregatorPackage.METADATA_REPOSITORY_REFERENCE__METADATA_REPOSITORY;
+				loading = nf instanceof MetadataRepositoryReference && notification.getFeatureID(
+					MetadataRepositoryReference.class) == AggregatorPackage.METADATA_REPOSITORY_REFERENCE__METADATA_REPOSITORY;
 
 			if(loading) {
-				eNotify(new ENotificationImpl(
-					RepositoryBrowserImpl.this, Notification.SET, P2viewPackage.REPOSITORY_BROWSER__LOADING, null, null));
+				eNotify(
+					new ENotificationImpl(
+						RepositoryBrowserImpl.this, Notification.SET, P2viewPackage.REPOSITORY_BROWSER__LOADING, null,
+						null));
 			}
 		}
 	}
@@ -118,10 +120,12 @@ public class RepositoryBrowserImpl extends MinimalEObjectImpl.Container implemen
 	 */
 	@Override
 	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
-		if (baseClass == ChildrenProvider.class) {
-			switch (derivedFeatureID) {
-				case P2viewPackage.REPOSITORY_BROWSER__CHILDREN: return AggregatorPackage.CHILDREN_PROVIDER__CHILDREN;
-				default: return -1;
+		if(baseClass == ChildrenProvider.class) {
+			switch(derivedFeatureID) {
+				case P2viewPackage.REPOSITORY_BROWSER__CHILDREN:
+					return AggregatorPackage.CHILDREN_PROVIDER__CHILDREN;
+				default:
+					return -1;
 			}
 		}
 		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
@@ -134,10 +138,12 @@ public class RepositoryBrowserImpl extends MinimalEObjectImpl.Container implemen
 	 */
 	@Override
 	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
-		if (baseClass == ChildrenProvider.class) {
-			switch (baseFeatureID) {
-				case AggregatorPackage.CHILDREN_PROVIDER__CHILDREN: return P2viewPackage.REPOSITORY_BROWSER__CHILDREN;
-				default: return -1;
+		if(baseClass == ChildrenProvider.class) {
+			switch(baseFeatureID) {
+				case AggregatorPackage.CHILDREN_PROVIDER__CHILDREN:
+					return P2viewPackage.REPOSITORY_BROWSER__CHILDREN;
+				default:
+					return -1;
 			}
 		}
 		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
@@ -150,7 +156,7 @@ public class RepositoryBrowserImpl extends MinimalEObjectImpl.Container implemen
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch (featureID) {
+		switch(featureID) {
 			case P2viewPackage.REPOSITORY_BROWSER__STATUS:
 				return getStatus();
 			case P2viewPackage.REPOSITORY_BROWSER__CHILDREN:
@@ -170,7 +176,7 @@ public class RepositoryBrowserImpl extends MinimalEObjectImpl.Container implemen
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch (featureID) {
+		switch(featureID) {
 			case P2viewPackage.REPOSITORY_BROWSER__STATUS:
 				return getStatus() != null;
 			case P2viewPackage.REPOSITORY_BROWSER__CHILDREN:
@@ -191,10 +197,10 @@ public class RepositoryBrowserImpl extends MinimalEObjectImpl.Container implemen
 	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch (featureID) {
+		switch(featureID) {
 			case P2viewPackage.REPOSITORY_BROWSER__REPOSITORIES:
 				getRepositories().clear();
-				getRepositories().addAll((Collection<? extends MetadataRepositoryStructuredView>)newValue);
+				getRepositories().addAll((Collection<? extends MetadataRepositoryStructuredView>) newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -217,7 +223,7 @@ public class RepositoryBrowserImpl extends MinimalEObjectImpl.Container implemen
 	 */
 	@Override
 	public void eUnset(int featureID) {
-		switch (featureID) {
+		switch(featureID) {
 			case P2viewPackage.REPOSITORY_BROWSER__REPOSITORIES:
 				getRepositories().clear();
 				return;
@@ -231,6 +237,7 @@ public class RepositoryBrowserImpl extends MinimalEObjectImpl.Container implemen
 	 *
 	 * @generated NOT
 	 */
+	@Override
 	public EList<MetadataRepositoryStructuredView> getChildren() {
 		return getRepositories();
 	}
@@ -241,6 +248,7 @@ public class RepositoryBrowserImpl extends MinimalEObjectImpl.Container implemen
 	 *
 	 * @generated NOT
 	 */
+	@Override
 	public EList<MetadataRepositoryStructuredView> getRepositories() {
 		List<Resource> resources = getResources();
 		EList<MetadataRepositoryStructuredView> result = new BasicEList<MetadataRepositoryStructuredView>(
@@ -279,6 +287,7 @@ public class RepositoryBrowserImpl extends MinimalEObjectImpl.Container implemen
 	 *
 	 * @generated NOT
 	 */
+	@Override
 	public Status getStatus() {
 		Status result = null;
 		for(Resource resource : getResources()) {
@@ -304,6 +313,7 @@ public class RepositoryBrowserImpl extends MinimalEObjectImpl.Container implemen
 	 *
 	 * @generated NOT
 	 */
+	@Override
 	public boolean isLoading() {
 		boolean loading = false;
 		for(Resource resource : getResources()) {
@@ -322,6 +332,7 @@ public class RepositoryBrowserImpl extends MinimalEObjectImpl.Container implemen
 	 *
 	 * @generated NOT
 	 */
+	@Override
 	public boolean isSetLoading() {
 		return true;
 	}

@@ -44,6 +44,7 @@ public class ReportSetsTypeImpl extends EObjectImpl implements ReportSetsType {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected ReportSetsTypeImpl() {
@@ -52,11 +53,12 @@ public class ReportSetsTypeImpl extends EObjectImpl implements ReportSetsType {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch (featureID) {
+		switch(featureID) {
 			case PomPackage.REPORT_SETS_TYPE__REPORT_SET:
 				return getReportSet();
 		}
@@ -65,24 +67,26 @@ public class ReportSetsTypeImpl extends EObjectImpl implements ReportSetsType {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
+		switch(featureID) {
 			case PomPackage.REPORT_SETS_TYPE__REPORT_SET:
-				return ((InternalEList<?>)getReportSet()).basicRemove(otherEnd, msgs);
+				return ((InternalEList<?>) getReportSet()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch (featureID) {
+		switch(featureID) {
 			case PomPackage.REPORT_SETS_TYPE__REPORT_SET:
 				return reportSet != null && !reportSet.isEmpty();
 		}
@@ -91,15 +95,16 @@ public class ReportSetsTypeImpl extends EObjectImpl implements ReportSetsType {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch (featureID) {
+		switch(featureID) {
 			case PomPackage.REPORT_SETS_TYPE__REPORT_SET:
 				getReportSet().clear();
-				getReportSet().addAll((Collection<? extends ReportSet>)newValue);
+				getReportSet().addAll((Collection<? extends ReportSet>) newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -107,11 +112,12 @@ public class ReportSetsTypeImpl extends EObjectImpl implements ReportSetsType {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
-		switch (featureID) {
+		switch(featureID) {
 			case PomPackage.REPORT_SETS_TYPE__REPORT_SET:
 				getReportSet().clear();
 				return;
@@ -121,18 +127,21 @@ public class ReportSetsTypeImpl extends EObjectImpl implements ReportSetsType {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public EList<ReportSet> getReportSet() {
-		if (reportSet == null) {
-			reportSet = new EObjectContainmentEList<ReportSet>(ReportSet.class, this, PomPackage.REPORT_SETS_TYPE__REPORT_SET);
+		if(reportSet == null) {
+			reportSet = new EObjectContainmentEList<ReportSet>(
+				ReportSet.class, this, PomPackage.REPORT_SETS_TYPE__REPORT_SET);
 		}
 		return reportSet;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override

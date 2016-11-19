@@ -66,7 +66,7 @@ public class LicensesImpl extends MinimalEObjectImpl.Container implements Licens
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch (featureID) {
+		switch(featureID) {
 			case P2viewPackage.LICENSES__LICENSES:
 				return getLicenses();
 		}
@@ -80,7 +80,7 @@ public class LicensesImpl extends MinimalEObjectImpl.Container implements Licens
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch (featureID) {
+		switch(featureID) {
 			case P2viewPackage.LICENSES__LICENSES:
 				return licenses != null && !licenses.isEmpty();
 		}
@@ -95,10 +95,10 @@ public class LicensesImpl extends MinimalEObjectImpl.Container implements Licens
 	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch (featureID) {
+		switch(featureID) {
 			case P2viewPackage.LICENSES__LICENSES:
 				getLicenses().clear();
-				getLicenses().addAll((Collection<? extends ILicense>)newValue);
+				getLicenses().addAll((Collection<? extends ILicense>) newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -121,7 +121,7 @@ public class LicensesImpl extends MinimalEObjectImpl.Container implements Licens
 	 */
 	@Override
 	public void eUnset(int featureID) {
-		switch (featureID) {
+		switch(featureID) {
 			case P2viewPackage.LICENSES__LICENSES:
 				getLicenses().clear();
 				return;
@@ -134,8 +134,9 @@ public class LicensesImpl extends MinimalEObjectImpl.Container implements Licens
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<ILicense> getLicenses() {
-		if (licenses == null) {
+		if(licenses == null) {
 			licenses = new EObjectResolvingEList<ILicense>(ILicense.class, this, P2viewPackage.LICENSES__LICENSES);
 		}
 		return licenses;

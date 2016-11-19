@@ -326,9 +326,11 @@ public class AggregatorEditor extends MultiPageEditorPart
 		 * @generated
 		 */
 		@Override
-		public Object [] getChildren(Object object) {
+		public Object[] getChildren(Object object) {
 			Object parent = super.getParent(object);
-			return (parent == null ? Collections.EMPTY_SET : Collections.singleton(parent)).toArray();
+			return (parent == null
+					? Collections.EMPTY_SET
+					: Collections.singleton(parent)).toArray();
 		}
 
 		/**
@@ -336,9 +338,11 @@ public class AggregatorEditor extends MultiPageEditorPart
 		 * @generated
 		 */
 		@Override
-		public Object [] getElements(Object object) {
+		public Object[] getElements(Object object) {
 			Object parent = super.getParent(object);
-			return (parent == null ? Collections.EMPTY_SET : Collections.singleton(parent)).toArray();
+			return (parent == null
+					? Collections.EMPTY_SET
+					: Collections.singleton(parent)).toArray();
 		}
 
 		/**
@@ -389,7 +393,7 @@ public class AggregatorEditor extends MultiPageEditorPart
 	 * @generated
 	 */
 	private static String getString(String key, Object s1) {
-		return AggregatorEditorPlugin.INSTANCE.getString(key, new Object [] { s1 });
+		return AggregatorEditorPlugin.INSTANCE.getString(key, new Object[] { s1 });
 	}
 
 	private IContextActivation contextActivation;
@@ -744,75 +748,80 @@ public class AggregatorEditor extends MultiPageEditorPart
 	 * @generated
 	 */
 	protected IResourceChangeListener resourceChangeListener = new IResourceChangeListener() {
-			public void resourceChanged(IResourceChangeEvent event) {
-				IResourceDelta delta = event.getDelta();
-				try {
-					class ResourceDeltaVisitor implements IResourceDeltaVisitor {
-						protected ResourceSet resourceSet = editingDomain.getResourceSet();
-						protected Collection<Resource> changedResources = new ArrayList<Resource>();
-						protected Collection<Resource> removedResources = new ArrayList<Resource>();
+		@Override
+		public void resourceChanged(IResourceChangeEvent event) {
+			IResourceDelta delta = event.getDelta();
+			try {
+				class ResourceDeltaVisitor implements IResourceDeltaVisitor {
+					protected ResourceSet resourceSet = editingDomain.getResourceSet();
 
-						public boolean visit(IResourceDelta delta) {
-							if (delta.getResource().getType() == IResource.FILE) {
-								if (delta.getKind() == IResourceDelta.REMOVED ||
-								    delta.getKind() == IResourceDelta.CHANGED && delta.getFlags() != IResourceDelta.MARKERS) {
-									Resource resource = resourceSet.getResource(URI.createPlatformResourceURI(delta.getFullPath().toString(), true), false);
-									if (resource != null) {
-										if (delta.getKind() == IResourceDelta.REMOVED) {
-											removedResources.add(resource);
-										}
-										else if (!savedResources.remove(resource)) {
-											changedResources.add(resource);
-										}
+					protected Collection<Resource> changedResources = new ArrayList<Resource>();
+
+					protected Collection<Resource> removedResources = new ArrayList<Resource>();
+
+					@Override
+					public boolean visit(IResourceDelta delta) {
+						if(delta.getResource().getType() == IResource.FILE) {
+							if(delta.getKind() == IResourceDelta.REMOVED || delta.getKind() == IResourceDelta.CHANGED &&
+									delta.getFlags() != IResourceDelta.MARKERS) {
+								Resource resource = resourceSet.getResource(
+									URI.createPlatformResourceURI(delta.getFullPath().toString(), true), false);
+								if(resource != null) {
+									if(delta.getKind() == IResourceDelta.REMOVED) {
+										removedResources.add(resource);
+									}
+									else if(!savedResources.remove(resource)) {
+										changedResources.add(resource);
 									}
 								}
-								return false;
 							}
-
-							return true;
+							return false;
 						}
 
-						public Collection<Resource> getChangedResources() {
-							return changedResources;
-						}
-
-						public Collection<Resource> getRemovedResources() {
-							return removedResources;
-						}
+						return true;
 					}
 
-					final ResourceDeltaVisitor visitor = new ResourceDeltaVisitor();
-					delta.accept(visitor);
-
-					if (!visitor.getRemovedResources().isEmpty()) {
-						getSite().getShell().getDisplay().asyncExec
-							(new Runnable() {
-								 public void run() {
-									 removedResources.addAll(visitor.getRemovedResources());
-									 if (!isDirty()) {
-										 getSite().getPage().closeEditor(AggregatorEditor.this, false);
-									 }
-								 }
-							 });
+					public Collection<Resource> getChangedResources() {
+						return changedResources;
 					}
 
-					if (!visitor.getChangedResources().isEmpty()) {
-						getSite().getShell().getDisplay().asyncExec
-							(new Runnable() {
-								 public void run() {
-									 changedResources.addAll(visitor.getChangedResources());
-									 if (getSite().getPage().getActiveEditor() == AggregatorEditor.this) {
-										 handleActivate();
-									 }
-								 }
-							 });
+					public Collection<Resource> getRemovedResources() {
+						return removedResources;
 					}
 				}
-				catch (CoreException exception) {
-					AggregatorEditorPlugin.INSTANCE.log(exception);
+
+				final ResourceDeltaVisitor visitor = new ResourceDeltaVisitor();
+				delta.accept(visitor);
+
+				if(!visitor.getRemovedResources().isEmpty()) {
+					getSite().getShell().getDisplay().asyncExec(new Runnable() {
+						@Override
+						public void run() {
+							removedResources.addAll(visitor.getRemovedResources());
+							if(!isDirty()) {
+								getSite().getPage().closeEditor(AggregatorEditor.this, false);
+							}
+						}
+					});
+				}
+
+				if(!visitor.getChangedResources().isEmpty()) {
+					getSite().getShell().getDisplay().asyncExec(new Runnable() {
+						@Override
+						public void run() {
+							changedResources.addAll(visitor.getChangedResources());
+							if(getSite().getPage().getActiveEditor() == AggregatorEditor.this) {
+								handleActivate();
+							}
+						}
+					});
 				}
 			}
-		};
+			catch(CoreException exception) {
+				AggregatorEditorPlugin.INSTANCE.log(exception);
+			}
+		}
+	};
 
 	/**
 	 * This creates a model editor.
@@ -981,12 +990,13 @@ public class AggregatorEditor extends MultiPageEditorPart
 		contextMenu.add(new Separator("additions"));
 		contextMenu.setRemoveAllWhenShown(true);
 		contextMenu.addMenuListener(this);
-		Menu menu= contextMenu.createContextMenu(viewer.getControl());
+		Menu menu = contextMenu.createContextMenu(viewer.getControl());
 		viewer.getControl().setMenu(menu);
 		getSite().registerContextMenu(contextMenu, new UnwrappingSelectionProvider(viewer));
 
 		int dndOperations = DND.DROP_COPY | DND.DROP_MOVE | DND.DROP_LINK;
-		Transfer[] transfers = new Transfer[] { LocalTransfer.getInstance(), LocalSelectionTransfer.getTransfer(), FileTransfer.getInstance() };
+		Transfer[] transfers = new Transfer[] {
+				LocalTransfer.getInstance(), LocalSelectionTransfer.getTransfer(), FileTransfer.getInstance() };
 		viewer.addDragSupport(dndOperations, transfers, new ViewerDragAdapter(viewer));
 		viewer.addDropSupport(dndOperations, transfers, new EditingDomainViewerDropAdapter(editingDomain, viewer));
 	}
@@ -1140,7 +1150,7 @@ public class AggregatorEditor extends MultiPageEditorPart
 
 		// Only creates the other pages if there is something that can be edited
 		//
-		if (!getEditingDomain().getResourceSet().getResources().isEmpty()) {
+		if(!getEditingDomain().getResourceSet().getResources().isEmpty()) {
 			// Create a page for the selection tree view.
 			//
 			Tree tree = new Tree(getContainer(), SWT.MULTI);
@@ -1148,9 +1158,11 @@ public class AggregatorEditor extends MultiPageEditorPart
 			setCurrentViewer(selectionViewer);
 
 			selectionViewer.setContentProvider(new AdapterFactoryContentProvider(adapterFactory));
-			selectionViewer.setLabelProvider(new AdapterFactoryLabelProvider.FontAndColorProvider(adapterFactory, selectionViewer));
+			selectionViewer.setLabelProvider(
+				new AdapterFactoryLabelProvider.FontAndColorProvider(adapterFactory, selectionViewer));
 			selectionViewer.setInput(editingDomain.getResourceSet());
-			selectionViewer.setSelection(new StructuredSelection(editingDomain.getResourceSet().getResources().get(0)), true);
+			selectionViewer.setSelection(
+				new StructuredSelection(editingDomain.getResourceSet().getResources().get(0)), true);
 
 			new AdapterFactoryTreeEditor(selectionViewer.getTree(), adapterFactory);
 
@@ -1158,36 +1170,36 @@ public class AggregatorEditor extends MultiPageEditorPart
 			int pageIndex = addPage(tree);
 			setPageText(pageIndex, getString("_UI_SelectionPage_label"));
 
-			getSite().getShell().getDisplay().asyncExec
-				(new Runnable() {
-					 public void run() {
-						 setActivePage(0);
-					 }
-				 });
+			getSite().getShell().getDisplay().asyncExec(new Runnable() {
+				@Override
+				public void run() {
+					setActivePage(0);
+				}
+			});
 		}
 
 		// Ensures that this editor will only display the page's tab
 		// area if there are more than one page
 		//
-		getContainer().addControlListener
-			(new ControlAdapter() {
-				boolean guard = false;
-				@Override
-				public void controlResized(ControlEvent event) {
-					if (!guard) {
-						guard = true;
-						hideTabs();
-						guard = false;
-					}
-				}
-			 });
+		getContainer().addControlListener(new ControlAdapter() {
+			boolean guard = false;
 
-		getSite().getShell().getDisplay().asyncExec
-			(new Runnable() {
-				 public void run() {
-					 updateProblemIndication();
-				 }
-			 });
+			@Override
+			public void controlResized(ControlEvent event) {
+				if(!guard) {
+					guard = true;
+					hideTabs();
+					guard = false;
+				}
+			}
+		});
+
+		getSite().getShell().getDisplay().asyncExec(new Runnable() {
+			@Override
+			public void run() {
+				updateProblemIndication();
+			}
+		});
 	}
 
 	/**
@@ -1204,15 +1216,15 @@ public class AggregatorEditor extends MultiPageEditorPart
 
 		adapterFactory.dispose();
 
-		if (getActionBarContributor().getActiveEditor() == this) {
+		if(getActionBarContributor().getActiveEditor() == this) {
 			getActionBarContributor().setActiveEditor(null);
 		}
 
-		for (PropertySheetPage propertySheetPage : propertySheetPages) {
+		for(PropertySheetPage propertySheetPage : propertySheetPages) {
 			propertySheetPage.dispose();
 		}
 
-		if (contentOutlinePage != null) {
+		if(contentOutlinePage != null) {
 			contentOutlinePage.dispose();
 		}
 
@@ -1235,32 +1247,32 @@ public class AggregatorEditor extends MultiPageEditorPart
 
 		// Do the work within an operation because this is a long running activity that modifies the workbench.
 		//
-		WorkspaceModifyOperation operation =
-			new WorkspaceModifyOperation() {
-				// This is the method that gets invoked when the operation runs.
+		WorkspaceModifyOperation operation = new WorkspaceModifyOperation() {
+			// This is the method that gets invoked when the operation runs.
+			//
+			@Override
+			public void execute(IProgressMonitor monitor) {
+				// Save the resources to the file system.
 				//
-				@Override
-				public void execute(IProgressMonitor monitor) {
-					// Save the resources to the file system.
-					//
-					boolean first = true;
-					for (Resource resource : editingDomain.getResourceSet().getResources()) {
-						if ((first || !resource.getContents().isEmpty() || isPersisted(resource)) && !editingDomain.isReadOnly(resource)) {
-							try {
-								long timeStamp = resource.getTimeStamp();
-								resource.save(saveOptions);
-								if (resource.getTimeStamp() != timeStamp) {
-									savedResources.add(resource);
-								}
+				boolean first = true;
+				for(Resource resource : editingDomain.getResourceSet().getResources()) {
+					if((first || !resource.getContents().isEmpty() || isPersisted(resource)) &&
+							!editingDomain.isReadOnly(resource)) {
+						try {
+							long timeStamp = resource.getTimeStamp();
+							resource.save(saveOptions);
+							if(resource.getTimeStamp() != timeStamp) {
+								savedResources.add(resource);
 							}
-							catch (Exception exception) {
-								resourceToDiagnosticMap.put(resource, analyzeResourceProblems(resource, exception));
-							}
-							first = false;
 						}
+						catch(Exception exception) {
+							resourceToDiagnosticMap.put(resource, analyzeResourceProblems(resource, exception));
+						}
+						first = false;
 					}
 				}
-			};
+			}
+		};
 
 		updateProblemIndication = false;
 		try {
@@ -1270,10 +1282,10 @@ public class AggregatorEditor extends MultiPageEditorPart
 
 			// Refresh the necessary state.
 			//
-			((BasicCommandStack)editingDomain.getCommandStack()).saveIsDone();
+			((BasicCommandStack) editingDomain.getCommandStack()).saveIsDone();
 			firePropertyChange(IEditorPart.PROP_DIRTY);
 		}
-		catch (Exception exception) {
+		catch(Exception exception) {
 			// Something went wrong that shouldn't.
 			//
 			AggregatorEditorPlugin.INSTANCE.log(exception);
@@ -1292,9 +1304,9 @@ public class AggregatorEditor extends MultiPageEditorPart
 		SaveAsDialog saveAsDialog = new SaveAsDialog(getSite().getShell());
 		saveAsDialog.open();
 		IPath path = saveAsDialog.getResult();
-		if (path != null) {
+		if(path != null) {
 			IFile file = ResourcesPlugin.getWorkspace().getRoot().getFile(path);
-			if (file != null) {
+			if(file != null) {
 				doSaveAs(URI.createPlatformResourceURI(file.getFullPath().toString(), true), new FileEditorInput(file));
 			}
 		}
@@ -1308,10 +1320,9 @@ public class AggregatorEditor extends MultiPageEditorPart
 		(editingDomain.getResourceSet().getResources().get(0)).setURI(uri);
 		setInputWithNotify(editorInput);
 		setPartName(editorInput.getName());
-		IProgressMonitor progressMonitor =
-			getActionBars().getStatusLineManager() != null ?
-				getActionBars().getStatusLineManager().getProgressMonitor() :
-				new NullProgressMonitor();
+		IProgressMonitor progressMonitor = getActionBars().getStatusLineManager() != null
+				? getActionBars().getStatusLineManager().getProgressMonitor()
+				: new NullProgressMonitor();
 		doSave(progressMonitor);
 	}
 
@@ -1392,7 +1403,7 @@ public class AggregatorEditor extends MultiPageEditorPart
 	 * @generated
 	 */
 	public EditingDomainActionBarContributor getActionBarContributor() {
-		return (EditingDomainActionBarContributor)getEditorSite().getActionBarContributor();
+		return (EditingDomainActionBarContributor) getEditorSite().getActionBarContributor();
 	}
 
 	/**
@@ -1411,13 +1422,15 @@ public class AggregatorEditor extends MultiPageEditorPart
 	@SuppressWarnings("rawtypes")
 	@Override
 	public Object getAdapter(Class key) {
-		if (key.equals(IContentOutlinePage.class)) {
-			return showOutlineView() ? getContentOutlinePage() : null;
+		if(key.equals(IContentOutlinePage.class)) {
+			return showOutlineView()
+					? getContentOutlinePage()
+					: null;
 		}
-		else if (key.equals(IPropertySheetPage.class)) {
+		else if(key.equals(IPropertySheetPage.class)) {
 			return getPropertySheetPage();
 		}
-		else if (key.equals(IGotoMarker.class)) {
+		else if(key.equals(IGotoMarker.class)) {
 			return this;
 		}
 		else {
@@ -1439,7 +1452,7 @@ public class AggregatorEditor extends MultiPageEditorPart
 	 * @generated
 	 */
 	public IContentOutlinePage getContentOutlinePage() {
-		if (contentOutlinePage == null) {
+		if(contentOutlinePage == null) {
 			// The content outline is just a tree.
 			//
 			class MyContentOutlinePage extends ContentOutlinePage {
@@ -1452,22 +1465,25 @@ public class AggregatorEditor extends MultiPageEditorPart
 					// Set up the tree viewer.
 					//
 					contentOutlineViewer.setContentProvider(new AdapterFactoryContentProvider(adapterFactory));
-					contentOutlineViewer.setLabelProvider(new AdapterFactoryLabelProvider.FontAndColorProvider(adapterFactory, contentOutlineViewer));
+					contentOutlineViewer.setLabelProvider(
+						new AdapterFactoryLabelProvider.FontAndColorProvider(adapterFactory, contentOutlineViewer));
 					contentOutlineViewer.setInput(editingDomain.getResourceSet());
 
 					// Make sure our popups work.
 					//
 					createContextMenuFor(contentOutlineViewer);
 
-					if (!editingDomain.getResourceSet().getResources().isEmpty()) {
-					  // Select the root object in the view.
-					  //
-					  contentOutlineViewer.setSelection(new StructuredSelection(editingDomain.getResourceSet().getResources().get(0)), true);
+					if(!editingDomain.getResourceSet().getResources().isEmpty()) {
+						// Select the root object in the view.
+						//
+						contentOutlineViewer.setSelection(
+							new StructuredSelection(editingDomain.getResourceSet().getResources().get(0)), true);
 					}
 				}
 
 				@Override
-				public void makeContributions(IMenuManager menuManager, IToolBarManager toolBarManager, IStatusLineManager statusLineManager) {
+				public void makeContributions(IMenuManager menuManager, IToolBarManager toolBarManager,
+						IStatusLineManager statusLineManager) {
 					super.makeContributions(menuManager, toolBarManager, statusLineManager);
 					contentOutlineStatusLineManager = statusLineManager;
 				}
@@ -1483,14 +1499,14 @@ public class AggregatorEditor extends MultiPageEditorPart
 
 			// Listen to selection so that we can handle it is a special way.
 			//
-			contentOutlinePage.addSelectionChangedListener
-				(new ISelectionChangedListener() {
-					 // This ensures that we handle selections correctly.
-					 //
-					 public void selectionChanged(SelectionChangedEvent event) {
-						 handleContentOutlineSelection(event.getSelection());
-					 }
-				 });
+			contentOutlinePage.addSelectionChangedListener(new ISelectionChangedListener() {
+				// This ensures that we handle selections correctly.
+				//
+				@Override
+				public void selectionChanged(SelectionChangedEvent event) {
+					handleContentOutlineSelection(event.getSelection());
+				}
+			});
 		}
 
 		return contentOutlinePage;
@@ -1712,28 +1728,28 @@ public class AggregatorEditor extends MultiPageEditorPart
 	 * @generated
 	 */
 	protected void handleChangedResources() {
-		if (!changedResources.isEmpty() && (!isDirty() || handleDirtyConflict())) {
-			if (isDirty()) {
+		if(!changedResources.isEmpty() && (!isDirty() || handleDirtyConflict())) {
+			if(isDirty()) {
 				changedResources.addAll(editingDomain.getResourceSet().getResources());
 			}
 			editingDomain.getCommandStack().flush();
 
 			updateProblemIndication = false;
-			for (Resource resource : changedResources) {
-				if (resource.isLoaded()) {
+			for(Resource resource : changedResources) {
+				if(resource.isLoaded()) {
 					resource.unload();
 					try {
 						resource.load(Collections.EMPTY_MAP);
 					}
-					catch (IOException exception) {
-						if (!resourceToDiagnosticMap.containsKey(resource)) {
+					catch(IOException exception) {
+						if(!resourceToDiagnosticMap.containsKey(resource)) {
 							resourceToDiagnosticMap.put(resource, analyzeResourceProblems(resource, exception));
 						}
 					}
 				}
 			}
 
-			if (AdapterFactoryEditingDomain.isStale(editorSelection)) {
+			if(AdapterFactoryEditingDomain.isStale(editorSelection)) {
 				setSelection(StructuredSelection.EMPTY);
 			}
 
@@ -1749,16 +1765,16 @@ public class AggregatorEditor extends MultiPageEditorPart
 	 * @generated
 	 */
 	public void handleContentOutlineSelection(ISelection selection) {
-		if (selectionViewer != null && !selection.isEmpty() && selection instanceof IStructuredSelection) {
-			Iterator<?> selectedElements = ((IStructuredSelection)selection).iterator();
-			if (selectedElements.hasNext()) {
+		if(selectionViewer != null && !selection.isEmpty() && selection instanceof IStructuredSelection) {
+			Iterator<?> selectedElements = ((IStructuredSelection) selection).iterator();
+			if(selectedElements.hasNext()) {
 				// Get the first selected element.
 				//
 				Object selectedElement = selectedElements.next();
 
 				ArrayList<Object> selectionList = new ArrayList<Object>();
 				selectionList.add(selectedElement);
-				while (selectedElements.hasNext()) {
+				while(selectedElements.hasNext()) {
 					selectionList.add(selectedElements.next());
 				}
 
@@ -1784,11 +1800,8 @@ public class AggregatorEditor extends MultiPageEditorPart
 	 * @generated
 	 */
 	protected boolean handleDirtyConflict() {
-		return
-			MessageDialog.openQuestion
-				(getSite().getShell(),
-				 getString("_UI_FileConflict_label"),
-				 getString("_WARN_FileConflict"));
+		return MessageDialog.openQuestion(
+			getSite().getShell(), getString("_UI_FileConflict_label"), getString("_WARN_FileConflict"));
 	}
 
 	/**
@@ -1798,10 +1811,10 @@ public class AggregatorEditor extends MultiPageEditorPart
 	 * @generated
 	 */
 	protected void hideTabs() {
-		if (getPageCount() <= 1) {
+		if(getPageCount() <= 1) {
 			setPageText(0, "");
-			if (getContainer() instanceof CTabFolder) {
-				((CTabFolder)getContainer()).setTabHeight(1);
+			if(getContainer() instanceof CTabFolder) {
+				((CTabFolder) getContainer()).setTabHeight(1);
 				Point point = getContainer().getSize();
 				getContainer().setSize(point.x, point.y + 6);
 			}
@@ -1820,7 +1833,8 @@ public class AggregatorEditor extends MultiPageEditorPart
 		setPartName(editorInput.getName());
 		site.setSelectionProvider(this);
 		site.getPage().addPartListener(partListener);
-		ResourcesPlugin.getWorkspace().addResourceChangeListener(resourceChangeListener, IResourceChangeEvent.POST_CHANGE);
+		ResourcesPlugin.getWorkspace().addResourceChangeListener(
+			resourceChangeListener, IResourceChangeEvent.POST_CHANGE);
 	}
 
 	/**
@@ -2011,7 +2025,7 @@ public class AggregatorEditor extends MultiPageEditorPart
 	 */
 	@Override
 	public boolean isDirty() {
-		return ((BasicCommandStack)editingDomain.getCommandStack()).isSaveNeeded();
+		return ((BasicCommandStack) editingDomain.getCommandStack()).isSaveNeeded();
 	}
 
 	protected boolean isPersisted(Resource resource) {
@@ -2031,12 +2045,12 @@ public class AggregatorEditor extends MultiPageEditorPart
 		boolean result = false;
 		try {
 			InputStream stream = editingDomain.getResourceSet().getURIConverter().createInputStream(resource.getURI());
-			if (stream != null) {
+			if(stream != null) {
 				result = true;
 				stream.close();
 			}
 		}
-		catch (IOException e) {
+		catch(IOException e) {
 			// Ignore
 		}
 		return result;
@@ -2059,7 +2073,7 @@ public class AggregatorEditor extends MultiPageEditorPart
 	 */
 	@Override
 	public void menuAboutToShow(IMenuManager menuManager) {
-		((IMenuListener)getEditorSite().getActionBarContributor()).menuAboutToShow(menuManager);
+		((IMenuListener) getEditorSite().getActionBarContributor()).menuAboutToShow(menuManager);
 	}
 
 	/**
@@ -2071,7 +2085,7 @@ public class AggregatorEditor extends MultiPageEditorPart
 	protected void pageChange(int pageIndex) {
 		super.pageChange(pageIndex);
 
-		if (contentOutlinePage != null) {
+		if(contentOutlinePage != null) {
 			handleContentOutlineSelection(contentOutlinePage.getSelection());
 		}
 	}
@@ -2101,29 +2115,29 @@ public class AggregatorEditor extends MultiPageEditorPart
 	public void setCurrentViewer(Viewer viewer) {
 		// If it is changing...
 		//
-		if (currentViewer != viewer) {
-			if (selectionChangedListener == null) {
+		if(currentViewer != viewer) {
+			if(selectionChangedListener == null) {
 				// Create the listener on demand.
 				//
-				selectionChangedListener =
-					new ISelectionChangedListener() {
-						// This just notifies those things that are affected by the section.
-						//
-						public void selectionChanged(SelectionChangedEvent selectionChangedEvent) {
-							setSelection(selectionChangedEvent.getSelection());
-						}
-					};
+				selectionChangedListener = new ISelectionChangedListener() {
+					// This just notifies those things that are affected by the section.
+					//
+					@Override
+					public void selectionChanged(SelectionChangedEvent selectionChangedEvent) {
+						setSelection(selectionChangedEvent.getSelection());
+					}
+				};
 			}
 
 			// Stop listening to the old one.
 			//
-			if (currentViewer != null) {
+			if(currentViewer != null) {
 				currentViewer.removeSelectionChangedListener(selectionChangedListener);
 			}
 
 			// Start listening to the new one.
 			//
-			if (viewer != null) {
+			if(viewer != null) {
 				viewer.addSelectionChangedListener(selectionChangedListener);
 			}
 
@@ -2133,7 +2147,9 @@ public class AggregatorEditor extends MultiPageEditorPart
 
 			// Set the editors selection based on the current viewer's selection.
 			//
-			setSelection(currentViewer == null ? StructuredSelection.EMPTY : currentViewer.getSelection());
+			setSelection(currentViewer == null
+					? StructuredSelection.EMPTY
+					: currentViewer.getSelection());
 		}
 	}
 
@@ -2156,7 +2172,7 @@ public class AggregatorEditor extends MultiPageEditorPart
 	public void setSelection(ISelection selection) {
 		editorSelection = selection;
 
-		for (ISelectionChangedListener listener : selectionChangedListeners) {
+		for(ISelectionChangedListener listener : selectionChangedListeners) {
 			listener.selectionChanged(new SelectionChangedEvent(this, selection));
 		}
 		setStatusLineManager(selection);
@@ -2171,17 +2187,17 @@ public class AggregatorEditor extends MultiPageEditorPart
 		final Collection<?> theSelection = collection;
 		// Make sure it's okay.
 		//
-		if (theSelection != null && !theSelection.isEmpty()) {
-			Runnable runnable =
-				new Runnable() {
-					public void run() {
-						// Try to select the items in the current content viewer of the editor.
-						//
-						if (currentViewer != null) {
-							currentViewer.setSelection(new StructuredSelection(theSelection.toArray()), true);
-						}
+		if(theSelection != null && !theSelection.isEmpty()) {
+			Runnable runnable = new Runnable() {
+				@Override
+				public void run() {
+					// Try to select the items in the current content viewer of the editor.
+					//
+					if(currentViewer != null) {
+						currentViewer.setSelection(new StructuredSelection(theSelection.toArray()), true);
 					}
-				};
+				}
+			};
 			getSite().getShell().getDisplay().asyncExec(runnable);
 		}
 	}
@@ -2191,24 +2207,27 @@ public class AggregatorEditor extends MultiPageEditorPart
 	 * @generated
 	 */
 	public void setStatusLineManager(ISelection selection) {
-		IStatusLineManager statusLineManager = currentViewer != null && currentViewer == contentOutlineViewer ?
-			contentOutlineStatusLineManager : getActionBars().getStatusLineManager();
+		IStatusLineManager statusLineManager = currentViewer != null && currentViewer == contentOutlineViewer
+				? contentOutlineStatusLineManager
+				: getActionBars().getStatusLineManager();
 
-		if (statusLineManager != null) {
-			if (selection instanceof IStructuredSelection) {
-				Collection<?> collection = ((IStructuredSelection)selection).toList();
-				switch (collection.size()) {
+		if(statusLineManager != null) {
+			if(selection instanceof IStructuredSelection) {
+				Collection<?> collection = ((IStructuredSelection) selection).toList();
+				switch(collection.size()) {
 					case 0: {
 						statusLineManager.setMessage(getString("_UI_NoObjectSelected"));
 						break;
 					}
 					case 1: {
-						String text = new AdapterFactoryItemDelegator(adapterFactory).getText(collection.iterator().next());
+						String text = new AdapterFactoryItemDelegator(adapterFactory).getText(
+							collection.iterator().next());
 						statusLineManager.setMessage(getString("_UI_SingleObjectSelected", text));
 						break;
 					}
 					default: {
-						statusLineManager.setMessage(getString("_UI_MultiObjectSelected", Integer.toString(collection.size())));
+						statusLineManager.setMessage(
+							getString("_UI_MultiObjectSelected", Integer.toString(collection.size())));
 						break;
 					}
 				}
@@ -2235,10 +2254,10 @@ public class AggregatorEditor extends MultiPageEditorPart
 	 * @generated
 	 */
 	protected void showTabs() {
-		if (getPageCount() > 1) {
+		if(getPageCount() > 1) {
 			setPageText(0, getString("_UI_SelectionPage_label"));
-			if (getContainer() instanceof CTabFolder) {
-				((CTabFolder)getContainer()).setTabHeight(SWT.DEFAULT);
+			if(getContainer() instanceof CTabFolder) {
+				((CTabFolder) getContainer()).setTabHeight(SWT.DEFAULT);
 				Point point = getContainer().getSize();
 				getContainer().setSize(point.x, point.y - 6);
 			}
@@ -2252,28 +2271,24 @@ public class AggregatorEditor extends MultiPageEditorPart
 	 * @generated
 	 */
 	protected void updateProblemIndication() {
-		if (updateProblemIndication) {
-			BasicDiagnostic diagnostic =
-				new BasicDiagnostic
-					(Diagnostic.OK,
-					 "org.eclipse.cbi.p2repo.aggregator.editor",
-					 0,
-					 null,
-					 new Object [] { editingDomain.getResourceSet() });
-			for (Diagnostic childDiagnostic : resourceToDiagnosticMap.values()) {
-				if (childDiagnostic.getSeverity() != Diagnostic.OK) {
+		if(updateProblemIndication) {
+			BasicDiagnostic diagnostic = new BasicDiagnostic(
+				Diagnostic.OK, "org.eclipse.cbi.p2repo.aggregator.editor", 0, null,
+				new Object[] { editingDomain.getResourceSet() });
+			for(Diagnostic childDiagnostic : resourceToDiagnosticMap.values()) {
+				if(childDiagnostic.getSeverity() != Diagnostic.OK) {
 					diagnostic.add(childDiagnostic);
 				}
 			}
 
 			int lastEditorPage = getPageCount() - 1;
-			if (lastEditorPage >= 0 && getEditor(lastEditorPage) instanceof ProblemEditorPart) {
-				((ProblemEditorPart)getEditor(lastEditorPage)).setDiagnostic(diagnostic);
-				if (diagnostic.getSeverity() != Diagnostic.OK) {
+			if(lastEditorPage >= 0 && getEditor(lastEditorPage) instanceof ProblemEditorPart) {
+				((ProblemEditorPart) getEditor(lastEditorPage)).setDiagnostic(diagnostic);
+				if(diagnostic.getSeverity() != Diagnostic.OK) {
 					setActivePage(lastEditorPage);
 				}
 			}
-			else if (diagnostic.getSeverity() != Diagnostic.OK) {
+			else if(diagnostic.getSeverity() != Diagnostic.OK) {
 				ProblemEditorPart problemEditorPart = new ProblemEditorPart();
 				problemEditorPart.setDiagnostic(diagnostic);
 				problemEditorPart.setMarkerHelper(markerHelper);
@@ -2283,18 +2298,18 @@ public class AggregatorEditor extends MultiPageEditorPart
 					setActivePage(lastEditorPage);
 					showTabs();
 				}
-				catch (PartInitException exception) {
+				catch(PartInitException exception) {
 					AggregatorEditorPlugin.INSTANCE.log(exception);
 				}
 			}
 
-			if (markerHelper.hasMarkers(editingDomain.getResourceSet())) {
+			if(markerHelper.hasMarkers(editingDomain.getResourceSet())) {
 				markerHelper.deleteMarkers(editingDomain.getResourceSet());
-				if (diagnostic.getSeverity() != Diagnostic.OK) {
+				if(diagnostic.getSeverity() != Diagnostic.OK) {
 					try {
 						markerHelper.createMarkers(diagnostic);
 					}
-					catch (CoreException exception) {
+					catch(CoreException exception) {
 						AggregatorEditorPlugin.INSTANCE.log(exception);
 					}
 				}

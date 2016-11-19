@@ -34,18 +34,19 @@ import org.eclipse.equinox.p2.repository.artifact.IArtifactDescriptor;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.eclipse.cbi.p2repo.p2.impl.ArtifactsByKeyImpl#getTypedKey <em>Key</em>}</li>
- *   <li>{@link org.eclipse.cbi.p2repo.p2.impl.ArtifactsByKeyImpl#getTypedValue <em>Value</em>}</li>
+ * <li>{@link org.eclipse.cbi.p2repo.p2.impl.ArtifactsByKeyImpl#getTypedKey <em>Key</em>}</li>
+ * <li>{@link org.eclipse.cbi.p2repo.p2.impl.ArtifactsByKeyImpl#getTypedValue <em>Value</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class ArtifactsByKeyImpl extends MinimalEObjectImpl.Container implements
-		BasicEMap.Entry<IArtifactKey,EList<IArtifactDescriptor>> {
+public class ArtifactsByKeyImpl extends MinimalEObjectImpl.Container
+		implements BasicEMap.Entry<IArtifactKey, EList<IArtifactDescriptor>> {
 	/**
 	 * A set of bit flags representing the values of boolean attributes and whether unsettable features have been set.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -55,6 +56,7 @@ public class ArtifactsByKeyImpl extends MinimalEObjectImpl.Container implements
 	 * The cached value of the '{@link #getTypedKey() <em>Key</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getTypedKey()
 	 * @generated
 	 * @ordered
@@ -65,6 +67,7 @@ public class ArtifactsByKeyImpl extends MinimalEObjectImpl.Container implements
 	 * The cached value of the '{@link #getTypedValue() <em>Value</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getTypedValue()
 	 * @generated
 	 * @ordered
@@ -74,6 +77,7 @@ public class ArtifactsByKeyImpl extends MinimalEObjectImpl.Container implements
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected int hash = -1;
@@ -81,6 +85,7 @@ public class ArtifactsByKeyImpl extends MinimalEObjectImpl.Container implements
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected ArtifactsByKeyImpl() {
@@ -90,6 +95,7 @@ public class ArtifactsByKeyImpl extends MinimalEObjectImpl.Container implements
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public IArtifactKey basicGetTypedKey() {
@@ -99,14 +105,19 @@ public class ArtifactsByKeyImpl extends MinimalEObjectImpl.Container implements
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public NotificationChain basicSetTypedKey(IArtifactKey newKey, NotificationChain msgs) {
 		IArtifactKey oldKey = key;
 		key = newKey;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, P2Package.ARTIFACTS_BY_KEY__KEY, oldKey, newKey);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
+		if(eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(
+				this, Notification.SET, P2Package.ARTIFACTS_BY_KEY__KEY, oldKey, newKey);
+			if(msgs == null)
+				msgs = notification;
+			else
+				msgs.add(notification);
 		}
 		return msgs;
 	}
@@ -114,13 +125,15 @@ public class ArtifactsByKeyImpl extends MinimalEObjectImpl.Container implements
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch (featureID) {
+		switch(featureID) {
 			case P2Package.ARTIFACTS_BY_KEY__KEY:
-				if (resolve) return getTypedKey();
+				if(resolve)
+					return getTypedKey();
 				return basicGetTypedKey();
 			case P2Package.ARTIFACTS_BY_KEY__VALUE:
 				return getTypedValue();
@@ -131,15 +144,16 @@ public class ArtifactsByKeyImpl extends MinimalEObjectImpl.Container implements
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
+		switch(featureID) {
 			case P2Package.ARTIFACTS_BY_KEY__KEY:
 				return basicSetTypedKey(null, msgs);
 			case P2Package.ARTIFACTS_BY_KEY__VALUE:
-				return ((InternalEList<?>)getTypedValue()).basicRemove(otherEnd, msgs);
+				return ((InternalEList<?>) getTypedValue()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -147,11 +161,12 @@ public class ArtifactsByKeyImpl extends MinimalEObjectImpl.Container implements
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch (featureID) {
+		switch(featureID) {
 			case P2Package.ARTIFACTS_BY_KEY__KEY:
 				return key != null;
 			case P2Package.ARTIFACTS_BY_KEY__VALUE:
@@ -163,18 +178,19 @@ public class ArtifactsByKeyImpl extends MinimalEObjectImpl.Container implements
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch (featureID) {
+		switch(featureID) {
 			case P2Package.ARTIFACTS_BY_KEY__KEY:
-				setTypedKey((IArtifactKey)newValue);
+				setTypedKey((IArtifactKey) newValue);
 				return;
 			case P2Package.ARTIFACTS_BY_KEY__VALUE:
 				getTypedValue().clear();
-				getTypedValue().addAll((Collection<? extends IArtifactDescriptor>)newValue);
+				getTypedValue().addAll((Collection<? extends IArtifactDescriptor>) newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -183,6 +199,7 @@ public class ArtifactsByKeyImpl extends MinimalEObjectImpl.Container implements
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -193,13 +210,14 @@ public class ArtifactsByKeyImpl extends MinimalEObjectImpl.Container implements
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
-		switch (featureID) {
+		switch(featureID) {
 			case P2Package.ARTIFACTS_BY_KEY__KEY:
-				setTypedKey((IArtifactKey)null);
+				setTypedKey((IArtifactKey) null);
 				return;
 			case P2Package.ARTIFACTS_BY_KEY__VALUE:
 				getTypedValue().clear();
@@ -211,24 +229,30 @@ public class ArtifactsByKeyImpl extends MinimalEObjectImpl.Container implements
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
 	public EMap<IArtifactKey, EList<IArtifactDescriptor>> getEMap() {
 		EObject container = eContainer();
-		return container == null ? null : (EMap<IArtifactKey, EList<IArtifactDescriptor>>)container.eGet(eContainmentFeature());
+		return container == null
+				? null
+				: (EMap<IArtifactKey, EList<IArtifactDescriptor>>) container.eGet(eContainmentFeature());
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public int getHash() {
-		if (hash == -1) {
+		if(hash == -1) {
 			Object theKey = getKey();
-			hash = (theKey == null ? 0 : theKey.hashCode());
+			hash = (theKey == null
+					? 0
+					: theKey.hashCode());
 		}
 		return hash;
 	}
@@ -236,6 +260,7 @@ public class ArtifactsByKeyImpl extends MinimalEObjectImpl.Container implements
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -246,21 +271,27 @@ public class ArtifactsByKeyImpl extends MinimalEObjectImpl.Container implements
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public IArtifactKey getTypedKey() {
-		if (key != null && ((EObject)key).eIsProxy()) {
-			InternalEObject oldKey = (InternalEObject)key;
-			key = (IArtifactKey)eResolveProxy(oldKey);
-			if (key != oldKey) {
-				InternalEObject newKey = (InternalEObject)key;
-				NotificationChain msgs = oldKey.eInverseRemove(this, EOPPOSITE_FEATURE_BASE - P2Package.ARTIFACTS_BY_KEY__KEY, null, null);
-				if (newKey.eInternalContainer() == null) {
-					msgs = newKey.eInverseAdd(this, EOPPOSITE_FEATURE_BASE - P2Package.ARTIFACTS_BY_KEY__KEY, null, msgs);
+		if(key != null && ((EObject) key).eIsProxy()) {
+			InternalEObject oldKey = (InternalEObject) key;
+			key = (IArtifactKey) eResolveProxy(oldKey);
+			if(key != oldKey) {
+				InternalEObject newKey = (InternalEObject) key;
+				NotificationChain msgs = oldKey.eInverseRemove(
+					this, EOPPOSITE_FEATURE_BASE - P2Package.ARTIFACTS_BY_KEY__KEY, null, null);
+				if(newKey.eInternalContainer() == null) {
+					msgs = newKey.eInverseAdd(
+						this, EOPPOSITE_FEATURE_BASE - P2Package.ARTIFACTS_BY_KEY__KEY, null, msgs);
 				}
-				if (msgs != null) msgs.dispatch();
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, P2Package.ARTIFACTS_BY_KEY__KEY, oldKey, key));
+				if(msgs != null)
+					msgs.dispatch();
+				if(eNotificationRequired())
+					eNotify(
+						new ENotificationImpl(
+							this, Notification.RESOLVE, P2Package.ARTIFACTS_BY_KEY__KEY, oldKey, key));
 			}
 		}
 		return key;
@@ -269,11 +300,13 @@ public class ArtifactsByKeyImpl extends MinimalEObjectImpl.Container implements
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EList<IArtifactDescriptor> getTypedValue() {
-		if (value == null) {
-			value = new EObjectContainmentEList.Resolving<IArtifactDescriptor>(IArtifactDescriptor.class, this, P2Package.ARTIFACTS_BY_KEY__VALUE);
+		if(value == null) {
+			value = new EObjectContainmentEList.Resolving<IArtifactDescriptor>(
+				IArtifactDescriptor.class, this, P2Package.ARTIFACTS_BY_KEY__VALUE);
 		}
 		return value;
 	}
@@ -281,6 +314,7 @@ public class ArtifactsByKeyImpl extends MinimalEObjectImpl.Container implements
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -291,6 +325,7 @@ public class ArtifactsByKeyImpl extends MinimalEObjectImpl.Container implements
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -301,6 +336,7 @@ public class ArtifactsByKeyImpl extends MinimalEObjectImpl.Container implements
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -311,25 +347,30 @@ public class ArtifactsByKeyImpl extends MinimalEObjectImpl.Container implements
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setTypedKey(IArtifactKey newKey) {
-		if (newKey != key) {
+		if(newKey != key) {
 			NotificationChain msgs = null;
-			if (key != null)
-				msgs = ((InternalEObject)key).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - P2Package.ARTIFACTS_BY_KEY__KEY, null, msgs);
-			if (newKey != null)
-				msgs = ((InternalEObject)newKey).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - P2Package.ARTIFACTS_BY_KEY__KEY, null, msgs);
+			if(key != null)
+				msgs = ((InternalEObject) key).eInverseRemove(
+					this, EOPPOSITE_FEATURE_BASE - P2Package.ARTIFACTS_BY_KEY__KEY, null, msgs);
+			if(newKey != null)
+				msgs = ((InternalEObject) newKey).eInverseAdd(
+					this, EOPPOSITE_FEATURE_BASE - P2Package.ARTIFACTS_BY_KEY__KEY, null, msgs);
 			msgs = basicSetTypedKey(newKey, msgs);
-			if (msgs != null) msgs.dispatch();
+			if(msgs != null)
+				msgs.dispatch();
 		}
-		else if (eNotificationRequired())
+		else if(eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, P2Package.ARTIFACTS_BY_KEY__KEY, newKey, newKey));
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override

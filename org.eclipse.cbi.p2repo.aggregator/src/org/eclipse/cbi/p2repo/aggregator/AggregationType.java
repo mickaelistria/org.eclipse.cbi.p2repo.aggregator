@@ -174,13 +174,7 @@ public enum AggregationType implements Enumerator {
 	 * @generated
 	 */
 	private static final AggregationType[] VALUES_ARRAY = new AggregationType[] {
-			STABLE,
-			INTEGRATION,
-			NIGHTLY,
-			MAINTENANCE,
-			CONTINUOUS,
-			RELEASE,
-		};
+			STABLE, INTEGRATION, NIGHTLY, MAINTENANCE, CONTINUOUS, RELEASE, };
 
 	/**
 	 * A public read-only list of all the '<em><b>Aggregation Type</b></em>' enumerators.
@@ -199,13 +193,19 @@ public enum AggregationType implements Enumerator {
 	 * @generated
 	 */
 	public static AggregationType get(int value) {
-		switch (value) {
-			case STABLE_VALUE: return STABLE;
-			case INTEGRATION_VALUE: return INTEGRATION;
-			case NIGHTLY_VALUE: return NIGHTLY;
-			case MAINTENANCE_VALUE: return MAINTENANCE;
-			case CONTINUOUS_VALUE: return CONTINUOUS;
-			case RELEASE_VALUE: return RELEASE;
+		switch(value) {
+			case STABLE_VALUE:
+				return STABLE;
+			case INTEGRATION_VALUE:
+				return INTEGRATION;
+			case NIGHTLY_VALUE:
+				return NIGHTLY;
+			case MAINTENANCE_VALUE:
+				return MAINTENANCE;
+			case CONTINUOUS_VALUE:
+				return CONTINUOUS;
+			case RELEASE_VALUE:
+				return RELEASE;
 		}
 		return null;
 	}
@@ -219,9 +219,9 @@ public enum AggregationType implements Enumerator {
 	 * @generated
 	 */
 	public static AggregationType get(String literal) {
-		for (int i = 0; i < VALUES_ARRAY.length; ++i) {
+		for(int i = 0; i < VALUES_ARRAY.length; ++i) {
 			AggregationType result = VALUES_ARRAY[i];
-			if (result.toString().equals(literal)) {
+			if(result.toString().equals(literal)) {
 				return result;
 			}
 		}
@@ -237,9 +237,9 @@ public enum AggregationType implements Enumerator {
 	 * @generated
 	 */
 	public static AggregationType getByName(String name) {
-		for (int i = 0; i < VALUES_ARRAY.length; ++i) {
+		for(int i = 0; i < VALUES_ARRAY.length; ++i) {
 			AggregationType result = VALUES_ARRAY[i];
-			if (result.getName().equals(name)) {
+			if(result.getName().equals(name)) {
 				return result;
 			}
 		}
@@ -284,8 +284,9 @@ public enum AggregationType implements Enumerator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getLiteral() {
-	  return literal;
+		return literal;
 	}
 
 	/**
@@ -293,8 +294,9 @@ public enum AggregationType implements Enumerator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getName() {
-	  return name;
+		return name;
 	}
 
 	/**
@@ -302,8 +304,9 @@ public enum AggregationType implements Enumerator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public int getValue() {
-	  return value;
+		return value;
 	}
 
 	/**

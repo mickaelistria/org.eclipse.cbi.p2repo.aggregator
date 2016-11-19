@@ -160,10 +160,12 @@ public class ProvidedCapabilityWrapperImpl extends MinimalEObjectImpl.Container 
 	 */
 	@Override
 	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
-		if (baseClass == LabelProvider.class) {
-			switch (derivedFeatureID) {
-				case P2viewPackage.PROVIDED_CAPABILITY_WRAPPER__LABEL: return AggregatorPackage.LABEL_PROVIDER__LABEL;
-				default: return -1;
+		if(baseClass == LabelProvider.class) {
+			switch(derivedFeatureID) {
+				case P2viewPackage.PROVIDED_CAPABILITY_WRAPPER__LABEL:
+					return AggregatorPackage.LABEL_PROVIDER__LABEL;
+				default:
+					return -1;
 			}
 		}
 		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
@@ -175,10 +177,12 @@ public class ProvidedCapabilityWrapperImpl extends MinimalEObjectImpl.Container 
 	 */
 	@Override
 	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
-		if (baseClass == LabelProvider.class) {
-			switch (baseFeatureID) {
-				case AggregatorPackage.LABEL_PROVIDER__LABEL: return P2viewPackage.PROVIDED_CAPABILITY_WRAPPER__LABEL;
-				default: return -1;
+		if(baseClass == LabelProvider.class) {
+			switch(baseFeatureID) {
+				case AggregatorPackage.LABEL_PROVIDER__LABEL:
+					return P2viewPackage.PROVIDED_CAPABILITY_WRAPPER__LABEL;
+				default:
+					return -1;
 			}
 		}
 		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
@@ -190,7 +194,7 @@ public class ProvidedCapabilityWrapperImpl extends MinimalEObjectImpl.Container 
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch (featureID) {
+		switch(featureID) {
 			case P2viewPackage.PROVIDED_CAPABILITY_WRAPPER__NAME:
 				return getName();
 			case P2viewPackage.PROVIDED_CAPABILITY_WRAPPER__NAMESPACE:
@@ -230,18 +234,18 @@ public class ProvidedCapabilityWrapperImpl extends MinimalEObjectImpl.Container 
 	 */
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch (featureID) {
+		switch(featureID) {
 			case P2viewPackage.PROVIDED_CAPABILITY_WRAPPER__NAME:
-				setName((String)newValue);
+				setName((String) newValue);
 				return;
 			case P2viewPackage.PROVIDED_CAPABILITY_WRAPPER__NAMESPACE:
-				setNamespace((String)newValue);
+				setNamespace((String) newValue);
 				return;
 			case P2viewPackage.PROVIDED_CAPABILITY_WRAPPER__VERSION:
-				setVersion((Version)newValue);
+				setVersion((Version) newValue);
 				return;
 			case P2viewPackage.PROVIDED_CAPABILITY_WRAPPER__LABEL:
-				setLabel((String)newValue);
+				setLabel((String) newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -262,7 +266,7 @@ public class ProvidedCapabilityWrapperImpl extends MinimalEObjectImpl.Container 
 	 */
 	@Override
 	public void eUnset(int featureID) {
-		switch (featureID) {
+		switch(featureID) {
 			case P2viewPackage.PROVIDED_CAPABILITY_WRAPPER__NAME:
 				setName(NAME_EDEFAULT);
 				return;
@@ -283,6 +287,7 @@ public class ProvidedCapabilityWrapperImpl extends MinimalEObjectImpl.Container 
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public IProvidedCapability getGenuine() {
 		return genuine;
 	}
@@ -291,6 +296,7 @@ public class ProvidedCapabilityWrapperImpl extends MinimalEObjectImpl.Container 
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getLabel() {
 		return label;
 	}
@@ -300,6 +306,7 @@ public class ProvidedCapabilityWrapperImpl extends MinimalEObjectImpl.Container 
 	 *
 	 * @generated NOT
 	 */
+	@Override
 	public String getName() {
 		return genuine.getName();
 	}
@@ -309,6 +316,7 @@ public class ProvidedCapabilityWrapperImpl extends MinimalEObjectImpl.Container 
 	 *
 	 * @generated NOT
 	 */
+	@Override
 	public String getNamespace() {
 		return genuine.getNamespace();
 	}
@@ -318,6 +326,7 @@ public class ProvidedCapabilityWrapperImpl extends MinimalEObjectImpl.Container 
 	 *
 	 * @generated NOT
 	 */
+	@Override
 	public Version getVersion() {
 		return genuine.getVersion();
 	}
@@ -326,11 +335,14 @@ public class ProvidedCapabilityWrapperImpl extends MinimalEObjectImpl.Container 
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setLabel(String newLabel) {
 		String oldLabel = label;
 		label = newLabel;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, P2viewPackage.PROVIDED_CAPABILITY_WRAPPER__LABEL, oldLabel, label));
+		if(eNotificationRequired())
+			eNotify(
+				new ENotificationImpl(
+					this, Notification.SET, P2viewPackage.PROVIDED_CAPABILITY_WRAPPER__LABEL, oldLabel, label));
 	}
 
 	/**

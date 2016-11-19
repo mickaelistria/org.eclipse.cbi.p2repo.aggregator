@@ -19,10 +19,10 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.RelocationImpl#getGroupId <em>Group Id</em>}</li>
- *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.RelocationImpl#getArtifactId <em>Artifact Id</em>}</li>
- *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.RelocationImpl#getVersion <em>Version</em>}</li>
- *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.RelocationImpl#getMessage <em>Message</em>}</li>
+ * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.RelocationImpl#getGroupId <em>Group Id</em>}</li>
+ * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.RelocationImpl#getArtifactId <em>Artifact Id</em>}</li>
+ * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.RelocationImpl#getVersion <em>Version</em>}</li>
+ * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.RelocationImpl#getMessage <em>Message</em>}</li>
  * </ul>
  *
  * @generated
@@ -32,6 +32,7 @@ public class RelocationImpl extends EObjectImpl implements Relocation {
 	 * The default value of the '{@link #getGroupId() <em>Group Id</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @see #getGroupId()
 	 * @generated
 	 * @ordered
@@ -42,6 +43,7 @@ public class RelocationImpl extends EObjectImpl implements Relocation {
 	 * The cached value of the '{@link #getGroupId() <em>Group Id</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @see #getGroupId()
 	 * @generated
 	 * @ordered
@@ -52,6 +54,7 @@ public class RelocationImpl extends EObjectImpl implements Relocation {
 	 * The default value of the '{@link #getArtifactId() <em>Artifact Id</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @see #getArtifactId()
 	 * @generated
 	 * @ordered
@@ -62,6 +65,7 @@ public class RelocationImpl extends EObjectImpl implements Relocation {
 	 * The cached value of the '{@link #getArtifactId() <em>Artifact Id</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @see #getArtifactId()
 	 * @generated
 	 * @ordered
@@ -72,6 +76,7 @@ public class RelocationImpl extends EObjectImpl implements Relocation {
 	 * The default value of the '{@link #getVersion() <em>Version</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @see #getVersion()
 	 * @generated
 	 * @ordered
@@ -82,6 +87,7 @@ public class RelocationImpl extends EObjectImpl implements Relocation {
 	 * The cached value of the '{@link #getVersion() <em>Version</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @see #getVersion()
 	 * @generated
 	 * @ordered
@@ -92,6 +98,7 @@ public class RelocationImpl extends EObjectImpl implements Relocation {
 	 * The default value of the '{@link #getMessage() <em>Message</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @see #getMessage()
 	 * @generated
 	 * @ordered
@@ -102,6 +109,7 @@ public class RelocationImpl extends EObjectImpl implements Relocation {
 	 * The cached value of the '{@link #getMessage() <em>Message</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @see #getMessage()
 	 * @generated
 	 * @ordered
@@ -110,6 +118,7 @@ public class RelocationImpl extends EObjectImpl implements Relocation {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected RelocationImpl() {
@@ -118,11 +127,12 @@ public class RelocationImpl extends EObjectImpl implements Relocation {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch (featureID) {
+		switch(featureID) {
 			case PomPackage.RELOCATION__GROUP_ID:
 				return getGroupId();
 			case PomPackage.RELOCATION__ARTIFACT_ID:
@@ -137,41 +147,51 @@ public class RelocationImpl extends EObjectImpl implements Relocation {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch (featureID) {
+		switch(featureID) {
 			case PomPackage.RELOCATION__GROUP_ID:
-				return GROUP_ID_EDEFAULT == null ? groupId != null : !GROUP_ID_EDEFAULT.equals(groupId);
+				return GROUP_ID_EDEFAULT == null
+						? groupId != null
+						: !GROUP_ID_EDEFAULT.equals(groupId);
 			case PomPackage.RELOCATION__ARTIFACT_ID:
-				return ARTIFACT_ID_EDEFAULT == null ? artifactId != null : !ARTIFACT_ID_EDEFAULT.equals(artifactId);
+				return ARTIFACT_ID_EDEFAULT == null
+						? artifactId != null
+						: !ARTIFACT_ID_EDEFAULT.equals(artifactId);
 			case PomPackage.RELOCATION__VERSION:
-				return VERSION_EDEFAULT == null ? version != null : !VERSION_EDEFAULT.equals(version);
+				return VERSION_EDEFAULT == null
+						? version != null
+						: !VERSION_EDEFAULT.equals(version);
 			case PomPackage.RELOCATION__MESSAGE:
-				return MESSAGE_EDEFAULT == null ? message != null : !MESSAGE_EDEFAULT.equals(message);
+				return MESSAGE_EDEFAULT == null
+						? message != null
+						: !MESSAGE_EDEFAULT.equals(message);
 		}
 		return super.eIsSet(featureID);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch (featureID) {
+		switch(featureID) {
 			case PomPackage.RELOCATION__GROUP_ID:
-				setGroupId((String)newValue);
+				setGroupId((String) newValue);
 				return;
 			case PomPackage.RELOCATION__ARTIFACT_ID:
-				setArtifactId((String)newValue);
+				setArtifactId((String) newValue);
 				return;
 			case PomPackage.RELOCATION__VERSION:
-				setVersion((String)newValue);
+				setVersion((String) newValue);
 				return;
 			case PomPackage.RELOCATION__MESSAGE:
-				setMessage((String)newValue);
+				setMessage((String) newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -179,11 +199,12 @@ public class RelocationImpl extends EObjectImpl implements Relocation {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
-		switch (featureID) {
+		switch(featureID) {
 			case PomPackage.RELOCATION__GROUP_ID:
 				setGroupId(GROUP_ID_EDEFAULT);
 				return;
@@ -202,6 +223,7 @@ public class RelocationImpl extends EObjectImpl implements Relocation {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -211,6 +233,7 @@ public class RelocationImpl extends EObjectImpl implements Relocation {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -220,6 +243,7 @@ public class RelocationImpl extends EObjectImpl implements Relocation {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -229,6 +253,7 @@ public class RelocationImpl extends EObjectImpl implements Relocation {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -238,59 +263,68 @@ public class RelocationImpl extends EObjectImpl implements Relocation {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void setArtifactId(String newArtifactId) {
 		String oldArtifactId = artifactId;
 		artifactId = newArtifactId;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.RELOCATION__ARTIFACT_ID, oldArtifactId, artifactId));
+		if(eNotificationRequired())
+			eNotify(
+				new ENotificationImpl(
+					this, Notification.SET, PomPackage.RELOCATION__ARTIFACT_ID, oldArtifactId, artifactId));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void setGroupId(String newGroupId) {
 		String oldGroupId = groupId;
 		groupId = newGroupId;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.RELOCATION__GROUP_ID, oldGroupId, groupId));
+		if(eNotificationRequired())
+			eNotify(
+				new ENotificationImpl(this, Notification.SET, PomPackage.RELOCATION__GROUP_ID, oldGroupId, groupId));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void setMessage(String newMessage) {
 		String oldMessage = message;
 		message = newMessage;
-		if (eNotificationRequired())
+		if(eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.RELOCATION__MESSAGE, oldMessage, message));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void setVersion(String newVersion) {
 		String oldVersion = version;
 		version = newVersion;
-		if (eNotificationRequired())
+		if(eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.RELOCATION__VERSION, oldVersion, version));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy()) return super.toString();
+		if(eIsProxy())
+			return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (groupId: ");
@@ -307,6 +341,7 @@ public class RelocationImpl extends EObjectImpl implements Relocation {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override

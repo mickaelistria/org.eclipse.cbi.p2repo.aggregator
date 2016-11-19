@@ -103,11 +103,7 @@ public enum VersionMatch implements Enumerator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private static final VersionMatch[] VALUES_ARRAY = new VersionMatch[] {
-			BELOW,
-			MATCHES,
-			ABOVE,
-		};
+	private static final VersionMatch[] VALUES_ARRAY = new VersionMatch[] { BELOW, MATCHES, ABOVE, };
 
 	/**
 	 * A public read-only list of all the '<em><b>Version Match</b></em>' enumerators.
@@ -126,10 +122,13 @@ public enum VersionMatch implements Enumerator {
 	 * @generated
 	 */
 	public static VersionMatch get(int value) {
-		switch (value) {
-			case BELOW_VALUE: return BELOW;
-			case MATCHES_VALUE: return MATCHES;
-			case ABOVE_VALUE: return ABOVE;
+		switch(value) {
+			case BELOW_VALUE:
+				return BELOW;
+			case MATCHES_VALUE:
+				return MATCHES;
+			case ABOVE_VALUE:
+				return ABOVE;
 		}
 		return null;
 	}
@@ -143,9 +142,9 @@ public enum VersionMatch implements Enumerator {
 	 * @generated
 	 */
 	public static VersionMatch get(String literal) {
-		for (int i = 0; i < VALUES_ARRAY.length; ++i) {
+		for(int i = 0; i < VALUES_ARRAY.length; ++i) {
 			VersionMatch result = VALUES_ARRAY[i];
-			if (result.toString().equals(literal)) {
+			if(result.toString().equals(literal)) {
 				return result;
 			}
 		}
@@ -161,9 +160,9 @@ public enum VersionMatch implements Enumerator {
 	 * @generated
 	 */
 	public static VersionMatch getByName(String name) {
-		for (int i = 0; i < VALUES_ARRAY.length; ++i) {
+		for(int i = 0; i < VALUES_ARRAY.length; ++i) {
 			VersionMatch result = VALUES_ARRAY[i];
-			if (result.getName().equals(name)) {
+			if(result.getName().equals(name)) {
 				return result;
 			}
 		}
@@ -208,8 +207,9 @@ public enum VersionMatch implements Enumerator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getLiteral() {
-	  return literal;
+		return literal;
 	}
 
 	/**
@@ -217,8 +217,9 @@ public enum VersionMatch implements Enumerator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getName() {
-	  return name;
+		return name;
 	}
 
 	/**
@@ -226,8 +227,9 @@ public enum VersionMatch implements Enumerator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public int getValue() {
-	  return value;
+		return value;
 	}
 
 	/**

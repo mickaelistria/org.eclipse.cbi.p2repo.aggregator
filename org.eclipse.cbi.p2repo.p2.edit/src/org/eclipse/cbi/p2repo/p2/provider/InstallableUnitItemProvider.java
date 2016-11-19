@@ -41,6 +41,7 @@ import org.eclipse.equinox.p2.query.QueryUtil;
  * This is the item provider adapter for a {@link org.eclipse.cbi.p2repo.p2.InstallableUnit} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
+ * 
  * @generated
  */
 public class InstallableUnitItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider,
@@ -49,6 +50,7 @@ public class InstallableUnitItemProvider extends ItemProviderAdapter implements 
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public InstallableUnitItemProvider(AdapterFactory adapterFactory) {
@@ -59,110 +61,92 @@ public class InstallableUnitItemProvider extends ItemProviderAdapter implements 
 	 * This adds a property descriptor for the Filter feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected void addFilterPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_IInstallableUnit_filter_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_IInstallableUnit_filter_feature", "_UI_IInstallableUnit_type"),
-				 P2Package.Literals.IINSTALLABLE_UNIT__FILTER,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
+		itemPropertyDescriptors.add(
+			createItemPropertyDescriptor(
+				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+				getString("_UI_IInstallableUnit_filter_feature"),
+				getString(
+					"_UI_PropertyDescriptor_description", "_UI_IInstallableUnit_filter_feature",
+					"_UI_IInstallableUnit_type"),
+				P2Package.Literals.IINSTALLABLE_UNIT__FILTER, true, false, false,
+				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
 	 * This adds a property descriptor for the Id feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected void addIdPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_IVersionedId_id_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_IVersionedId_id_feature", "_UI_IVersionedId_type"),
-				 P2Package.Literals.IVERSIONED_ID__ID,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
+		itemPropertyDescriptors.add(
+			createItemPropertyDescriptor(
+				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+				getString("_UI_IVersionedId_id_feature"),
+				getString("_UI_PropertyDescriptor_description", "_UI_IVersionedId_id_feature", "_UI_IVersionedId_type"),
+				P2Package.Literals.IVERSIONED_ID__ID, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				null, null));
 	}
 
 	/**
 	 * This adds a property descriptor for the Resolved feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected void addResolvedPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_IInstallableUnit_resolved_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_IInstallableUnit_resolved_feature", "_UI_IInstallableUnit_type"),
-				 P2Package.Literals.IINSTALLABLE_UNIT__RESOLVED,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-				 null,
-				 null));
+		itemPropertyDescriptors.add(
+			createItemPropertyDescriptor(
+				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+				getString("_UI_IInstallableUnit_resolved_feature"),
+				getString(
+					"_UI_PropertyDescriptor_description", "_UI_IInstallableUnit_resolved_feature",
+					"_UI_IInstallableUnit_type"),
+				P2Package.Literals.IINSTALLABLE_UNIT__RESOLVED, true, false, false,
+				ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null));
 	}
 
 	/**
 	 * This adds a property descriptor for the Singleton feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected void addSingletonPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_IInstallableUnit_singleton_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_IInstallableUnit_singleton_feature", "_UI_IInstallableUnit_type"),
-				 P2Package.Literals.IINSTALLABLE_UNIT__SINGLETON,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-				 null,
-				 null));
+		itemPropertyDescriptors.add(
+			createItemPropertyDescriptor(
+				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+				getString("_UI_IInstallableUnit_singleton_feature"),
+				getString(
+					"_UI_PropertyDescriptor_description", "_UI_IInstallableUnit_singleton_feature",
+					"_UI_IInstallableUnit_type"),
+				P2Package.Literals.IINSTALLABLE_UNIT__SINGLETON, true, false, false,
+				ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null));
 	}
 
 	/**
 	 * This adds a property descriptor for the Version feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected void addVersionPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_IVersionedId_version_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_IVersionedId_version_feature", "_UI_IVersionedId_type"),
-				 P2Package.Literals.IVERSIONED_ID__VERSION,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
+		itemPropertyDescriptors.add(
+			createItemPropertyDescriptor(
+				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+				getString("_UI_IVersionedId_version_feature"),
+				getString(
+					"_UI_PropertyDescriptor_description", "_UI_IVersionedId_version_feature", "_UI_IVersionedId_type"),
+				P2Package.Literals.IVERSIONED_ID__VERSION, true, false, false,
+				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -170,81 +154,72 @@ public class InstallableUnitItemProvider extends ItemProviderAdapter implements 
 	 * that can be created under this object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 
-		newChildDescriptors.add
-			(createChildParameter
-				(P2Package.Literals.IINSTALLABLE_UNIT__ARTIFACTS,
-				 P2Factory.eINSTANCE.createArtifactKey()));
+		newChildDescriptors.add(
+			createChildParameter(
+				P2Package.Literals.IINSTALLABLE_UNIT__ARTIFACTS, P2Factory.eINSTANCE.createArtifactKey()));
 
-		newChildDescriptors.add
-			(createChildParameter
-				(P2Package.Literals.IINSTALLABLE_UNIT__COPYRIGHT,
-				 P2Factory.eINSTANCE.createCopyright()));
+		newChildDescriptors.add(
+			createChildParameter(
+				P2Package.Literals.IINSTALLABLE_UNIT__COPYRIGHT, P2Factory.eINSTANCE.createCopyright()));
 
-		newChildDescriptors.add
-			(createChildParameter
-				(P2Package.Literals.IINSTALLABLE_UNIT__FRAGMENTS,
-				 P2Factory.eINSTANCE.createInstallableUnitFragment()));
+		newChildDescriptors.add(
+			createChildParameter(
+				P2Package.Literals.IINSTALLABLE_UNIT__FRAGMENTS, P2Factory.eINSTANCE.createInstallableUnitFragment()));
 
-		newChildDescriptors.add
-			(createChildParameter
-				(P2Package.Literals.IINSTALLABLE_UNIT__LICENSES,
-				 P2Factory.eINSTANCE.createLicense()));
+		newChildDescriptors.add(
+			createChildParameter(P2Package.Literals.IINSTALLABLE_UNIT__LICENSES, P2Factory.eINSTANCE.createLicense()));
 
-		newChildDescriptors.add
-			(createChildParameter
-				(P2Package.Literals.IINSTALLABLE_UNIT__META_REQUIREMENTS,
-				 P2Factory.eINSTANCE.createRequirement()));
+		newChildDescriptors.add(
+			createChildParameter(
+				P2Package.Literals.IINSTALLABLE_UNIT__META_REQUIREMENTS, P2Factory.eINSTANCE.createRequirement()));
 
-		newChildDescriptors.add
-			(createChildParameter
-				(P2Package.Literals.IINSTALLABLE_UNIT__META_REQUIREMENTS,
-				 P2Factory.eINSTANCE.createRequiredCapability()));
+		newChildDescriptors.add(
+			createChildParameter(
+				P2Package.Literals.IINSTALLABLE_UNIT__META_REQUIREMENTS,
+				P2Factory.eINSTANCE.createRequiredCapability()));
 
-		newChildDescriptors.add
-			(createChildParameter
-				(P2Package.Literals.IINSTALLABLE_UNIT__PROVIDED_CAPABILITIES,
-				 P2Factory.eINSTANCE.createProvidedCapability()));
+		newChildDescriptors.add(
+			createChildParameter(
+				P2Package.Literals.IINSTALLABLE_UNIT__PROVIDED_CAPABILITIES,
+				P2Factory.eINSTANCE.createProvidedCapability()));
 
-		newChildDescriptors.add
-			(createChildParameter
-				(P2Package.Literals.IINSTALLABLE_UNIT__REQUIREMENTS,
-				 P2Factory.eINSTANCE.createRequirement()));
+		newChildDescriptors.add(
+			createChildParameter(
+				P2Package.Literals.IINSTALLABLE_UNIT__REQUIREMENTS, P2Factory.eINSTANCE.createRequirement()));
 
-		newChildDescriptors.add
-			(createChildParameter
-				(P2Package.Literals.IINSTALLABLE_UNIT__REQUIREMENTS,
-				 P2Factory.eINSTANCE.createRequiredCapability()));
+		newChildDescriptors.add(
+			createChildParameter(
+				P2Package.Literals.IINSTALLABLE_UNIT__REQUIREMENTS, P2Factory.eINSTANCE.createRequiredCapability()));
 
-		newChildDescriptors.add
-			(createChildParameter
-				(P2Package.Literals.IINSTALLABLE_UNIT__TOUCHPOINT_DATA,
-				 P2Factory.eINSTANCE.createTouchpointData()));
+		newChildDescriptors.add(
+			createChildParameter(
+				P2Package.Literals.IINSTALLABLE_UNIT__TOUCHPOINT_DATA, P2Factory.eINSTANCE.createTouchpointData()));
 
-		newChildDescriptors.add
-			(createChildParameter
-				(P2Package.Literals.IINSTALLABLE_UNIT__TOUCHPOINT_TYPE,
-				 P2Factory.eINSTANCE.createTouchpointType()));
+		newChildDescriptors.add(
+			createChildParameter(
+				P2Package.Literals.IINSTALLABLE_UNIT__TOUCHPOINT_TYPE, P2Factory.eINSTANCE.createTouchpointType()));
 
-		newChildDescriptors.add
-			(createChildParameter
-				(P2Package.Literals.IINSTALLABLE_UNIT__UPDATE_DESCRIPTOR,
-				 P2Factory.eINSTANCE.createUpdateDescriptor()));
+		newChildDescriptors.add(
+			createChildParameter(
+				P2Package.Literals.IINSTALLABLE_UNIT__UPDATE_DESCRIPTOR, P2Factory.eINSTANCE.createUpdateDescriptor()));
 
-		newChildDescriptors.add
-			(createChildParameter
-				(P2Package.Literals.INSTALLABLE_UNIT__PROPERTY_MAP,
-				 P2Factory.eINSTANCE.create(P2Package.Literals.PROPERTY)));
+		newChildDescriptors.add(
+			createChildParameter(
+				P2Package.Literals.INSTALLABLE_UNIT__PROPERTY_MAP,
+				P2Factory.eINSTANCE.create(P2Package.Literals.PROPERTY)));
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -261,11 +236,12 @@ public class InstallableUnitItemProvider extends ItemProviderAdapter implements 
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
-		if (childrenFeatures == null) {
+		if(childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(P2Package.Literals.IINSTALLABLE_UNIT__ARTIFACTS);
 			childrenFeatures.add(P2Package.Literals.IINSTALLABLE_UNIT__COPYRIGHT);
@@ -287,6 +263,7 @@ public class InstallableUnitItemProvider extends ItemProviderAdapter implements 
 	 * This returns the label text for {@link org.eclipse.emf.edit.command.CreateChildCommand}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -294,14 +271,13 @@ public class InstallableUnitItemProvider extends ItemProviderAdapter implements 
 		Object childFeature = feature;
 		Object childObject = child;
 
-		boolean qualify =
-			childFeature == P2Package.Literals.IINSTALLABLE_UNIT__META_REQUIREMENTS ||
-			childFeature == P2Package.Literals.IINSTALLABLE_UNIT__REQUIREMENTS;
+		boolean qualify = childFeature == P2Package.Literals.IINSTALLABLE_UNIT__META_REQUIREMENTS ||
+				childFeature == P2Package.Literals.IINSTALLABLE_UNIT__REQUIREMENTS;
 
-		if (qualify) {
-			return getString
-				("_UI_CreateChild_text2",
-				 new Object[] { getTypeText(childObject), getFeatureText(childFeature), getTypeText(owner) });
+		if(qualify) {
+			return getString(
+				"_UI_CreateChild_text2",
+				new Object[] { getTypeText(childObject), getFeatureText(childFeature), getTypeText(owner) });
 		}
 		return super.getCreateChildText(owner, feature, child, selection);
 	}
@@ -310,6 +286,7 @@ public class InstallableUnitItemProvider extends ItemProviderAdapter implements 
 	 * This returns InstallableUnit.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -321,11 +298,12 @@ public class InstallableUnitItemProvider extends ItemProviderAdapter implements 
 	 * This returns the property descriptors for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-		if (itemPropertyDescriptors == null) {
+		if(itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
 			addIdPropertyDescriptor(object);
@@ -341,6 +319,7 @@ public class InstallableUnitItemProvider extends ItemProviderAdapter implements 
 	 * Return the resource locator for this item provider's resources.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -375,7 +354,7 @@ public class InstallableUnitItemProvider extends ItemProviderAdapter implements 
 		else {
 			String name = RepositoryTranslationSupport.getInstance(
 				(MetadataRepository) ((InstallableUnitImpl) iu).eContainer()).getIUProperty(
-				iu, IInstallableUnit.PROP_NAME);
+					iu, IInstallableUnit.PROP_NAME);
 			if(name != null && name.startsWith("%"))
 				name = null;
 
@@ -394,13 +373,14 @@ public class InstallableUnitItemProvider extends ItemProviderAdapter implements 
 	 * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(InstallableUnit.class)) {
+		switch(notification.getFeatureID(InstallableUnit.class)) {
 			case P2Package.INSTALLABLE_UNIT__ID:
 			case P2Package.INSTALLABLE_UNIT__VERSION:
 			case P2Package.INSTALLABLE_UNIT__RESOLVED:

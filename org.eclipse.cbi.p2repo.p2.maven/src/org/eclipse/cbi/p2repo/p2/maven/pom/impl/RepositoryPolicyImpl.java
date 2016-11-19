@@ -32,6 +32,7 @@ public class RepositoryPolicyImpl extends EObjectImpl implements RepositoryPolic
 	 * The default value of the '{@link #isEnabled() <em>Enabled</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @see #isEnabled()
 	 * @generated
 	 * @ordered
@@ -42,6 +43,7 @@ public class RepositoryPolicyImpl extends EObjectImpl implements RepositoryPolic
 	 * The cached value of the '{@link #isEnabled() <em>Enabled</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @see #isEnabled()
 	 * @generated
 	 * @ordered
@@ -51,6 +53,7 @@ public class RepositoryPolicyImpl extends EObjectImpl implements RepositoryPolic
 	/**
 	 * This is true if the Enabled attribute has been set.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -60,6 +63,7 @@ public class RepositoryPolicyImpl extends EObjectImpl implements RepositoryPolic
 	 * The default value of the '{@link #getUpdatePolicy() <em>Update Policy</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getUpdatePolicy()
 	 * @generated
 	 * @ordered
@@ -70,6 +74,7 @@ public class RepositoryPolicyImpl extends EObjectImpl implements RepositoryPolic
 	 * The cached value of the '{@link #getUpdatePolicy() <em>Update Policy</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getUpdatePolicy()
 	 * @generated
 	 * @ordered
@@ -80,6 +85,7 @@ public class RepositoryPolicyImpl extends EObjectImpl implements RepositoryPolic
 	 * The default value of the '{@link #getChecksumPolicy() <em>Checksum Policy</em>}' attribute.
 	 * <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
+	 * 
 	 * @see #getChecksumPolicy()
 	 * @generated
 	 * @ordered
@@ -90,6 +96,7 @@ public class RepositoryPolicyImpl extends EObjectImpl implements RepositoryPolic
 	 * The cached value of the '{@link #getChecksumPolicy() <em>Checksum Policy</em>}' attribute.
 	 * <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
+	 * 
 	 * @see #getChecksumPolicy()
 	 * @generated
 	 * @ordered
@@ -98,6 +105,7 @@ public class RepositoryPolicyImpl extends EObjectImpl implements RepositoryPolic
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected RepositoryPolicyImpl() {
@@ -106,11 +114,12 @@ public class RepositoryPolicyImpl extends EObjectImpl implements RepositoryPolic
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch (featureID) {
+		switch(featureID) {
 			case PomPackage.REPOSITORY_POLICY__ENABLED:
 				return isEnabled();
 			case PomPackage.REPOSITORY_POLICY__UPDATE_POLICY:
@@ -123,36 +132,42 @@ public class RepositoryPolicyImpl extends EObjectImpl implements RepositoryPolic
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch (featureID) {
+		switch(featureID) {
 			case PomPackage.REPOSITORY_POLICY__ENABLED:
 				return isSetEnabled();
 			case PomPackage.REPOSITORY_POLICY__UPDATE_POLICY:
-				return UPDATE_POLICY_EDEFAULT == null ? updatePolicy != null : !UPDATE_POLICY_EDEFAULT.equals(updatePolicy);
+				return UPDATE_POLICY_EDEFAULT == null
+						? updatePolicy != null
+						: !UPDATE_POLICY_EDEFAULT.equals(updatePolicy);
 			case PomPackage.REPOSITORY_POLICY__CHECKSUM_POLICY:
-				return CHECKSUM_POLICY_EDEFAULT == null ? checksumPolicy != null : !CHECKSUM_POLICY_EDEFAULT.equals(checksumPolicy);
+				return CHECKSUM_POLICY_EDEFAULT == null
+						? checksumPolicy != null
+						: !CHECKSUM_POLICY_EDEFAULT.equals(checksumPolicy);
 		}
 		return super.eIsSet(featureID);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch (featureID) {
+		switch(featureID) {
 			case PomPackage.REPOSITORY_POLICY__ENABLED:
-				setEnabled((Boolean)newValue);
+				setEnabled((Boolean) newValue);
 				return;
 			case PomPackage.REPOSITORY_POLICY__UPDATE_POLICY:
-				setUpdatePolicy((String)newValue);
+				setUpdatePolicy((String) newValue);
 				return;
 			case PomPackage.REPOSITORY_POLICY__CHECKSUM_POLICY:
-				setChecksumPolicy((String)newValue);
+				setChecksumPolicy((String) newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -160,11 +175,12 @@ public class RepositoryPolicyImpl extends EObjectImpl implements RepositoryPolic
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
-		switch (featureID) {
+		switch(featureID) {
 			case PomPackage.REPOSITORY_POLICY__ENABLED:
 				unsetEnabled();
 				return;
@@ -180,6 +196,7 @@ public class RepositoryPolicyImpl extends EObjectImpl implements RepositoryPolic
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -189,6 +206,7 @@ public class RepositoryPolicyImpl extends EObjectImpl implements RepositoryPolic
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -198,6 +216,7 @@ public class RepositoryPolicyImpl extends EObjectImpl implements RepositoryPolic
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -207,6 +226,7 @@ public class RepositoryPolicyImpl extends EObjectImpl implements RepositoryPolic
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -216,18 +236,23 @@ public class RepositoryPolicyImpl extends EObjectImpl implements RepositoryPolic
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void setChecksumPolicy(String newChecksumPolicy) {
 		String oldChecksumPolicy = checksumPolicy;
 		checksumPolicy = newChecksumPolicy;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.REPOSITORY_POLICY__CHECKSUM_POLICY, oldChecksumPolicy, checksumPolicy));
+		if(eNotificationRequired())
+			eNotify(
+				new ENotificationImpl(
+					this, Notification.SET, PomPackage.REPOSITORY_POLICY__CHECKSUM_POLICY, oldChecksumPolicy,
+					checksumPolicy));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -236,33 +261,45 @@ public class RepositoryPolicyImpl extends EObjectImpl implements RepositoryPolic
 		enabled = newEnabled;
 		boolean oldEnabledESet = enabledESet;
 		enabledESet = true;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.REPOSITORY_POLICY__ENABLED, oldEnabled, enabled, !oldEnabledESet));
+		if(eNotificationRequired())
+			eNotify(
+				new ENotificationImpl(
+					this, Notification.SET, PomPackage.REPOSITORY_POLICY__ENABLED, oldEnabled, enabled,
+					!oldEnabledESet));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void setUpdatePolicy(String newUpdatePolicy) {
 		String oldUpdatePolicy = updatePolicy;
 		updatePolicy = newUpdatePolicy;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.REPOSITORY_POLICY__UPDATE_POLICY, oldUpdatePolicy, updatePolicy));
+		if(eNotificationRequired())
+			eNotify(
+				new ENotificationImpl(
+					this, Notification.SET, PomPackage.REPOSITORY_POLICY__UPDATE_POLICY, oldUpdatePolicy,
+					updatePolicy));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy()) return super.toString();
+		if(eIsProxy())
+			return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (enabled: ");
-		if (enabledESet) result.append(enabled); else result.append("<unset>");
+		if(enabledESet)
+			result.append(enabled);
+		else
+			result.append("<unset>");
 		result.append(", updatePolicy: ");
 		result.append(updatePolicy);
 		result.append(", checksumPolicy: ");
@@ -273,6 +310,7 @@ public class RepositoryPolicyImpl extends EObjectImpl implements RepositoryPolic
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -281,12 +319,16 @@ public class RepositoryPolicyImpl extends EObjectImpl implements RepositoryPolic
 		boolean oldEnabledESet = enabledESet;
 		enabled = ENABLED_EDEFAULT;
 		enabledESet = false;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.UNSET, PomPackage.REPOSITORY_POLICY__ENABLED, oldEnabled, ENABLED_EDEFAULT, oldEnabledESet));
+		if(eNotificationRequired())
+			eNotify(
+				new ENotificationImpl(
+					this, Notification.UNSET, PomPackage.REPOSITORY_POLICY__ENABLED, oldEnabled, ENABLED_EDEFAULT,
+					oldEnabledESet));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override

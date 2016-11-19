@@ -144,12 +144,7 @@ public enum PackedStrategy implements Enumerator {
 	 * @generated
 	 */
 	private static final PackedStrategy[] VALUES_ARRAY = new PackedStrategy[] {
-			COPY,
-			VERIFY,
-			UNPACK_AS_SIBLING,
-			UNPACK,
-			SKIP,
-		};
+			COPY, VERIFY, UNPACK_AS_SIBLING, UNPACK, SKIP, };
 
 	/**
 	 * A public read-only list of all the '<em><b>Packed Strategy</b></em>' enumerators.
@@ -168,12 +163,17 @@ public enum PackedStrategy implements Enumerator {
 	 * @generated
 	 */
 	public static PackedStrategy get(int value) {
-		switch (value) {
-			case COPY_VALUE: return COPY;
-			case VERIFY_VALUE: return VERIFY;
-			case UNPACK_AS_SIBLING_VALUE: return UNPACK_AS_SIBLING;
-			case UNPACK_VALUE: return UNPACK;
-			case SKIP_VALUE: return SKIP;
+		switch(value) {
+			case COPY_VALUE:
+				return COPY;
+			case VERIFY_VALUE:
+				return VERIFY;
+			case UNPACK_AS_SIBLING_VALUE:
+				return UNPACK_AS_SIBLING;
+			case UNPACK_VALUE:
+				return UNPACK;
+			case SKIP_VALUE:
+				return SKIP;
 		}
 		return null;
 	}
@@ -187,9 +187,9 @@ public enum PackedStrategy implements Enumerator {
 	 * @generated
 	 */
 	public static PackedStrategy get(String literal) {
-		for (int i = 0; i < VALUES_ARRAY.length; ++i) {
+		for(int i = 0; i < VALUES_ARRAY.length; ++i) {
 			PackedStrategy result = VALUES_ARRAY[i];
-			if (result.toString().equals(literal)) {
+			if(result.toString().equals(literal)) {
 				return result;
 			}
 		}
@@ -205,9 +205,9 @@ public enum PackedStrategy implements Enumerator {
 	 * @generated
 	 */
 	public static PackedStrategy getByName(String name) {
-		for (int i = 0; i < VALUES_ARRAY.length; ++i) {
+		for(int i = 0; i < VALUES_ARRAY.length; ++i) {
 			PackedStrategy result = VALUES_ARRAY[i];
-			if (result.getName().equals(name)) {
+			if(result.getName().equals(name)) {
 				return result;
 			}
 		}
@@ -247,24 +247,27 @@ public enum PackedStrategy implements Enumerator {
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getLiteral() {
-	  return literal;
+		return literal;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getName() {
-	  return name;
+		return name;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public int getValue() {
-	  return value;
+		return value;
 	}
 
 	/**

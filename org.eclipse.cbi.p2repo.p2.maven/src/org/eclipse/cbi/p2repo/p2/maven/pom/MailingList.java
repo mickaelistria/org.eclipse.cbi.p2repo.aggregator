@@ -14,21 +14,21 @@ import org.eclipse.emf.ecore.EObject;
  * <!-- begin-model-doc -->
  * 3.0.0+
  * 
- *         This element describes all of the mailing lists associated with
- *         a project. The auto-generated site references this information.
- *       
+ * This element describes all of the mailing lists associated with
+ * a project. The auto-generated site references this information.
+ * 
  * <!-- end-model-doc -->
  *
  * <p>
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.MailingList#getName <em>Name</em>}</li>
- *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.MailingList#getSubscribe <em>Subscribe</em>}</li>
- *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.MailingList#getUnsubscribe <em>Unsubscribe</em>}</li>
- *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.MailingList#getPost <em>Post</em>}</li>
- *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.MailingList#getArchive <em>Archive</em>}</li>
- *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.MailingList#getOtherArchives <em>Other Archives</em>}</li>
+ * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.MailingList#getName <em>Name</em>}</li>
+ * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.MailingList#getSubscribe <em>Subscribe</em>}</li>
+ * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.MailingList#getUnsubscribe <em>Unsubscribe</em>}</li>
+ * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.MailingList#getPost <em>Post</em>}</li>
+ * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.MailingList#getArchive <em>Archive</em>}</li>
+ * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.MailingList#getOtherArchives <em>Other Archives</em>}</li>
  * </ul>
  *
  * @see org.eclipse.cbi.p2repo.p2.maven.pom.PomPackage#getMailingList()
@@ -106,12 +106,13 @@ public interface MailingList extends EObject {
 	 * <!-- begin-model-doc -->
 	 * 3.0.0+
 	 * 
-	 *             The email address or link that can be used to subscribe to the mailing list.
-	 *             If this is an email address, a
-	 *             &lt;code&gt;mailto:&lt;/code&gt; link will automatically be created when
-	 *             the documentation is created.
-	 *           
+	 * The email address or link that can be used to subscribe to the mailing list.
+	 * If this is an email address, a
+	 * &lt;code&gt;mailto:&lt;/code&gt; link will automatically be created when
+	 * the documentation is created.
+	 * 
 	 * <!-- end-model-doc -->
+	 * 
 	 * @return the value of the '<em>Subscribe</em>' attribute.
 	 * @see #setSubscribe(String)
 	 * @see org.eclipse.cbi.p2repo.p2.maven.pom.PomPackage#getMailingList_Subscribe()
@@ -127,12 +128,13 @@ public interface MailingList extends EObject {
 	 * <!-- begin-model-doc -->
 	 * 3.0.0+
 	 * 
-	 *             The email address or link that can be used to unsubscribe to
-	 *             the mailing list.  If this is an email address, a
-	 *             &lt;code&gt;mailto:&lt;/code&gt; link will automatically be created
-	 *             when the documentation is created.
-	 *           
+	 * The email address or link that can be used to unsubscribe to
+	 * the mailing list. If this is an email address, a
+	 * &lt;code&gt;mailto:&lt;/code&gt; link will automatically be created
+	 * when the documentation is created.
+	 * 
 	 * <!-- end-model-doc -->
+	 * 
 	 * @return the value of the '<em>Unsubscribe</em>' attribute.
 	 * @see #setUnsubscribe(String)
 	 * @see org.eclipse.cbi.p2repo.p2.maven.pom.PomPackage#getMailingList_Unsubscribe()
@@ -145,7 +147,9 @@ public interface MailingList extends EObject {
 	/**
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.MailingList#getArchive <em>Archive</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Archive</em>' attribute.
+	 * 
+	 * @param value
+	 *            the new value of the '<em>Archive</em>' attribute.
 	 * @see #getArchive()
 	 * @generated
 	 */
@@ -154,7 +158,9 @@ public interface MailingList extends EObject {
 	/**
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.MailingList#getName <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Name</em>' attribute.
+	 * 
+	 * @param value
+	 *            the new value of the '<em>Name</em>' attribute.
 	 * @see #getName()
 	 * @generated
 	 */
@@ -163,7 +169,9 @@ public interface MailingList extends EObject {
 	/**
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.MailingList#getOtherArchives <em>Other Archives</em>}' containment reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Other Archives</em>' containment reference.
+	 * 
+	 * @param value
+	 *            the new value of the '<em>Other Archives</em>' containment reference.
 	 * @see #getOtherArchives()
 	 * @generated
 	 */
@@ -172,7 +180,9 @@ public interface MailingList extends EObject {
 	/**
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.MailingList#getPost <em>Post</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Post</em>' attribute.
+	 * 
+	 * @param value
+	 *            the new value of the '<em>Post</em>' attribute.
 	 * @see #getPost()
 	 * @generated
 	 */
@@ -181,7 +191,9 @@ public interface MailingList extends EObject {
 	/**
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.MailingList#getSubscribe <em>Subscribe</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Subscribe</em>' attribute.
+	 * 
+	 * @param value
+	 *            the new value of the '<em>Subscribe</em>' attribute.
 	 * @see #getSubscribe()
 	 * @generated
 	 */
@@ -190,7 +202,9 @@ public interface MailingList extends EObject {
 	/**
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.MailingList#getUnsubscribe <em>Unsubscribe</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Unsubscribe</em>' attribute.
+	 * 
+	 * @param value
+	 *            the new value of the '<em>Unsubscribe</em>' attribute.
 	 * @see #getUnsubscribe()
 	 * @generated
 	 */

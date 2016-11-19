@@ -51,10 +51,11 @@ public enum AvailableFrom implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	VALIDATION_SET(2, "VALIDATION_SET", "validationSet"), /**
+	VALIDATION_SET(2, "VALIDATION_SET", "validationSet"),
+	/**
 	 * The '<em><b>AGGREGATION</b></em>' literal object.
 	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	* <!-- end-user-doc -->
 	 * @see #AGGREGATION_VALUE
 	 * @generated
 	 * @ordered
@@ -124,11 +125,7 @@ public enum AvailableFrom implements Enumerator {
 	 * @generated
 	 */
 	private static final AvailableFrom[] VALUES_ARRAY = new AvailableFrom[] {
-			REPOSITORY,
-			CONTRIBUTION,
-			VALIDATION_SET,
-			AGGREGATION,
-		};
+			REPOSITORY, CONTRIBUTION, VALIDATION_SET, AGGREGATION, };
 
 	/**
 	 * A public read-only list of all the '<em><b>Available From</b></em>' enumerators.
@@ -147,11 +144,15 @@ public enum AvailableFrom implements Enumerator {
 	 * @generated
 	 */
 	public static AvailableFrom get(int value) {
-		switch (value) {
-			case REPOSITORY_VALUE: return REPOSITORY;
-			case CONTRIBUTION_VALUE: return CONTRIBUTION;
-			case VALIDATION_SET_VALUE: return VALIDATION_SET;
-			case AGGREGATION_VALUE: return AGGREGATION;
+		switch(value) {
+			case REPOSITORY_VALUE:
+				return REPOSITORY;
+			case CONTRIBUTION_VALUE:
+				return CONTRIBUTION;
+			case VALIDATION_SET_VALUE:
+				return VALIDATION_SET;
+			case AGGREGATION_VALUE:
+				return AGGREGATION;
 		}
 		return null;
 	}
@@ -165,9 +166,9 @@ public enum AvailableFrom implements Enumerator {
 	 * @generated
 	 */
 	public static AvailableFrom get(String literal) {
-		for (int i = 0; i < VALUES_ARRAY.length; ++i) {
+		for(int i = 0; i < VALUES_ARRAY.length; ++i) {
 			AvailableFrom result = VALUES_ARRAY[i];
-			if (result.toString().equals(literal)) {
+			if(result.toString().equals(literal)) {
 				return result;
 			}
 		}
@@ -183,9 +184,9 @@ public enum AvailableFrom implements Enumerator {
 	 * @generated
 	 */
 	public static AvailableFrom getByName(String name) {
-		for (int i = 0; i < VALUES_ARRAY.length; ++i) {
+		for(int i = 0; i < VALUES_ARRAY.length; ++i) {
 			AvailableFrom result = VALUES_ARRAY[i];
-			if (result.getName().equals(name)) {
+			if(result.getName().equals(name)) {
 				return result;
 			}
 		}
@@ -230,8 +231,9 @@ public enum AvailableFrom implements Enumerator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getLiteral() {
-	  return literal;
+		return literal;
 	}
 
 	/**
@@ -239,8 +241,9 @@ public enum AvailableFrom implements Enumerator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getName() {
-	  return name;
+		return name;
 	}
 
 	/**
@@ -248,8 +251,9 @@ public enum AvailableFrom implements Enumerator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public int getValue() {
-	  return value;
+		return value;
 	}
 
 	/**

@@ -6,7 +6,6 @@
  */
 package org.eclipse.cbi.p2repo.aggregator;
 
-
 /**
  * <!-- begin-user-doc --> A representation of the model object '<em><b>Property</b></em>'. <!-- end-user-doc -->
  *

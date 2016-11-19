@@ -19,8 +19,8 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.ExclusionImpl#getArtifactId <em>Artifact Id</em>}</li>
- *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.ExclusionImpl#getGroupId <em>Group Id</em>}</li>
+ * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.ExclusionImpl#getArtifactId <em>Artifact Id</em>}</li>
+ * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.ExclusionImpl#getGroupId <em>Group Id</em>}</li>
  * </ul>
  *
  * @generated
@@ -30,6 +30,7 @@ public class ExclusionImpl extends EObjectImpl implements Exclusion {
 	 * The default value of the '{@link #getArtifactId() <em>Artifact Id</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @see #getArtifactId()
 	 * @generated
 	 * @ordered
@@ -40,6 +41,7 @@ public class ExclusionImpl extends EObjectImpl implements Exclusion {
 	 * The cached value of the '{@link #getArtifactId() <em>Artifact Id</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @see #getArtifactId()
 	 * @generated
 	 * @ordered
@@ -50,6 +52,7 @@ public class ExclusionImpl extends EObjectImpl implements Exclusion {
 	 * The default value of the '{@link #getGroupId() <em>Group Id</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @see #getGroupId()
 	 * @generated
 	 * @ordered
@@ -60,6 +63,7 @@ public class ExclusionImpl extends EObjectImpl implements Exclusion {
 	 * The cached value of the '{@link #getGroupId() <em>Group Id</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @see #getGroupId()
 	 * @generated
 	 * @ordered
@@ -68,6 +72,7 @@ public class ExclusionImpl extends EObjectImpl implements Exclusion {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected ExclusionImpl() {
@@ -76,11 +81,12 @@ public class ExclusionImpl extends EObjectImpl implements Exclusion {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch (featureID) {
+		switch(featureID) {
 			case PomPackage.EXCLUSION__ARTIFACT_ID:
 				return getArtifactId();
 			case PomPackage.EXCLUSION__GROUP_ID:
@@ -91,31 +97,37 @@ public class ExclusionImpl extends EObjectImpl implements Exclusion {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch (featureID) {
+		switch(featureID) {
 			case PomPackage.EXCLUSION__ARTIFACT_ID:
-				return ARTIFACT_ID_EDEFAULT == null ? artifactId != null : !ARTIFACT_ID_EDEFAULT.equals(artifactId);
+				return ARTIFACT_ID_EDEFAULT == null
+						? artifactId != null
+						: !ARTIFACT_ID_EDEFAULT.equals(artifactId);
 			case PomPackage.EXCLUSION__GROUP_ID:
-				return GROUP_ID_EDEFAULT == null ? groupId != null : !GROUP_ID_EDEFAULT.equals(groupId);
+				return GROUP_ID_EDEFAULT == null
+						? groupId != null
+						: !GROUP_ID_EDEFAULT.equals(groupId);
 		}
 		return super.eIsSet(featureID);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch (featureID) {
+		switch(featureID) {
 			case PomPackage.EXCLUSION__ARTIFACT_ID:
-				setArtifactId((String)newValue);
+				setArtifactId((String) newValue);
 				return;
 			case PomPackage.EXCLUSION__GROUP_ID:
-				setGroupId((String)newValue);
+				setGroupId((String) newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -123,11 +135,12 @@ public class ExclusionImpl extends EObjectImpl implements Exclusion {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
-		switch (featureID) {
+		switch(featureID) {
 			case PomPackage.EXCLUSION__ARTIFACT_ID:
 				setArtifactId(ARTIFACT_ID_EDEFAULT);
 				return;
@@ -140,6 +153,7 @@ public class ExclusionImpl extends EObjectImpl implements Exclusion {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -149,6 +163,7 @@ public class ExclusionImpl extends EObjectImpl implements Exclusion {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -158,35 +173,41 @@ public class ExclusionImpl extends EObjectImpl implements Exclusion {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void setArtifactId(String newArtifactId) {
 		String oldArtifactId = artifactId;
 		artifactId = newArtifactId;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.EXCLUSION__ARTIFACT_ID, oldArtifactId, artifactId));
+		if(eNotificationRequired())
+			eNotify(
+				new ENotificationImpl(
+					this, Notification.SET, PomPackage.EXCLUSION__ARTIFACT_ID, oldArtifactId, artifactId));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void setGroupId(String newGroupId) {
 		String oldGroupId = groupId;
 		groupId = newGroupId;
-		if (eNotificationRequired())
+		if(eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.EXCLUSION__GROUP_ID, oldGroupId, groupId));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy()) return super.toString();
+		if(eIsProxy())
+			return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (artifactId: ");
@@ -199,6 +220,7 @@ public class ExclusionImpl extends EObjectImpl implements Exclusion {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override

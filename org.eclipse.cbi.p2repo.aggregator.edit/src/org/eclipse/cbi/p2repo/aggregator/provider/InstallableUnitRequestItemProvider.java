@@ -51,9 +51,9 @@ import org.eclipse.equinox.p2.query.IQueryResult;
  * <!-- begin-user-doc --> <!-- end-user-doc -->
  * @generated
  */
-public class InstallableUnitRequestItemProvider extends AggregatorItemProviderAdapter implements
-		IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider,
-		IItemPropertySource, IItemColorProvider, IItemFontProvider {
+public class InstallableUnitRequestItemProvider extends AggregatorItemProviderAdapter
+		implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider,
+		IItemLabelProvider, IItemPropertySource, IItemColorProvider, IItemFontProvider {
 
 	/**
 	 * This constructs an instance from a factory and a notifier.
@@ -71,19 +71,15 @@ public class InstallableUnitRequestItemProvider extends AggregatorItemProviderAd
 	 * @generated
 	 */
 	protected void addDescriptionPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_DescriptionProvider_description_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_DescriptionProvider_description_feature", "_UI_DescriptionProvider_type"),
-				 AggregatorPackage.Literals.DESCRIPTION_PROVIDER__DESCRIPTION,
-				 true,
-				 true,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
+		itemPropertyDescriptors.add(
+			createItemPropertyDescriptor(
+				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+				getString("_UI_DescriptionProvider_description_feature"),
+				getString(
+					"_UI_PropertyDescriptor_description", "_UI_DescriptionProvider_description_feature",
+					"_UI_DescriptionProvider_type"),
+				AggregatorPackage.Literals.DESCRIPTION_PROVIDER__DESCRIPTION, true, true, false,
+				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -94,63 +90,66 @@ public class InstallableUnitRequestItemProvider extends AggregatorItemProviderAd
 	 * @generated NOT
 	 */
 	protected void addNamePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(new ContributionItemProvider.DynamicItemPropertyDescriptor(
-			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-			getString("_UI_InstallableUnitRequest_name_feature"), getString(
-				"_UI_PropertyDescriptor_description", "_UI_InstallableUnitRequest_name_feature",
-				"_UI_InstallableUnitRequest_type"), AggregatorPackage.Literals.INSTALLABLE_UNIT_REQUEST__NAME, true,
-			false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null) {
+		itemPropertyDescriptors.add(
+			new ContributionItemProvider.DynamicItemPropertyDescriptor(
+				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+				getString("_UI_InstallableUnitRequest_name_feature"),
+				getString(
+					"_UI_PropertyDescriptor_description", "_UI_InstallableUnitRequest_name_feature",
+					"_UI_InstallableUnitRequest_type"),
+				AggregatorPackage.Literals.INSTALLABLE_UNIT_REQUEST__NAME, true, false, false,
+				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null) {
 
-			@Override
-			public Collection<?> getChoiceOfValues(Object object) {
-				InstallableUnitRequest self = (InstallableUnitRequest) object;
-				MappedRepository container = (MappedRepository) ((EObject) self).eContainer();
-				MetadataRepository repo = container.getMetadataRepository(false);
-				if(repo == null || ((EObject) repo).eIsProxy())
-					return Collections.singleton(null);
+				@Override
+				public Collection<?> getChoiceOfValues(Object object) {
+					InstallableUnitRequest self = (InstallableUnitRequest) object;
+					MappedRepository container = (MappedRepository) ((EObject) self).eContainer();
+					MetadataRepository repo = container.getMetadataRepository(false);
+					if(repo == null || ((EObject) repo).eIsProxy())
+						return Collections.singleton(null);
 
-				// Build a list of IU's that correspond to the given type of MappedUnit
-				//
-				IQueryResult<IInstallableUnit> queryResult = repo.query(getInstallableUnitQuery(), null);
-				if(queryResult.isEmpty())
-					return Collections.singleton(null);
+					// Build a list of IU's that correspond to the given type of MappedUnit
+					//
+					IQueryResult<IInstallableUnit> queryResult = repo.query(getInstallableUnitQuery(), null);
+					if(queryResult.isEmpty())
+						return Collections.singleton(null);
 
-				List<String> result = new ArrayList<String>();
+					List<String> result = new ArrayList<String>();
 
-				Collection<IInstallableUnit> availableUnits = queryResult.toSet();
-				Set<String> availableUnitNames = new HashSet<String>(availableUnits.size());
-				for(Object availableUnit : availableUnits)
-					availableUnitNames.add(((IInstallableUnit) availableUnit).getId());
+					Collection<IInstallableUnit> availableUnits = queryResult.toSet();
+					Set<String> availableUnitNames = new HashSet<String>(availableUnits.size());
+					for(Object availableUnit : availableUnits)
+						availableUnitNames.add(((IInstallableUnit) availableUnit).getId());
 
-				// if current installable unit is not among the newly retrieved ones,
-				// add it to the choice values so that user would not be surprised by
-				// disappearing current choice after clicking on the property value
-				if(self.getName() != null && !availableUnitNames.contains(self.getName()))
-					result.add(self.getName());
+					// if current installable unit is not among the newly retrieved ones,
+					// add it to the choice values so that user would not be surprised by
+					// disappearing current choice after clicking on the property value
+					if(self.getName() != null && !availableUnitNames.contains(self.getName()))
+						result.add(self.getName());
 
-				result.addAll(availableUnitNames);
+					result.addAll(availableUnitNames);
 
-				// Exclude IU's that are already mapped
-				//
-				for(InstallableUnitRequest iuRef : getContainerChildren(container)) {
-					if(iuRef == self)
-						continue;
+					// Exclude IU's that are already mapped
+					//
+					for(InstallableUnitRequest iuRef : getContainerChildren(container)) {
+						if(iuRef == self)
+							continue;
 
-					String iu = iuRef.getName();
-					if(iu == null)
-						continue;
+						String iu = iuRef.getName();
+						if(iu == null)
+							continue;
 
-					int idx = result.indexOf(iu);
-					if(idx >= 0)
-						result.remove(idx);
+						int idx = result.indexOf(iu);
+						if(idx >= 0)
+							result.remove(idx);
+					}
+
+					Collections.sort(result);
+					result.add(0, null);
+
+					return result;
 				}
-
-				Collections.sort(result);
-				result.add(0, null);
-
-				return result;
-			}
-		});
+			});
 	}
 
 	/**
@@ -160,19 +159,15 @@ public class InstallableUnitRequestItemProvider extends AggregatorItemProviderAd
 	 * @generated
 	 */
 	protected void addVersionRangePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_InstallableUnitRequest_versionRange_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_InstallableUnitRequest_versionRange_feature", "_UI_InstallableUnitRequest_type"),
-				 AggregatorPackage.Literals.INSTALLABLE_UNIT_REQUEST__VERSION_RANGE,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
+		itemPropertyDescriptors.add(
+			createItemPropertyDescriptor(
+				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+				getString("_UI_InstallableUnitRequest_versionRange_feature"),
+				getString(
+					"_UI_PropertyDescriptor_description", "_UI_InstallableUnitRequest_versionRange_feature",
+					"_UI_InstallableUnitRequest_type"),
+				AggregatorPackage.Literals.INSTALLABLE_UNIT_REQUEST__VERSION_RANGE, true, false, false,
+				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	protected boolean appendIUText(Object object, String typeKey, StringBuilder bld) {
@@ -198,7 +193,7 @@ public class InstallableUnitRequestItemProvider extends AggregatorItemProviderAd
 		if(iu != null) {
 			name = RepositoryTranslationSupport.getInstance(
 				(MetadataRepository) ((InstallableUnitImpl) iu).eContainer()).getIUProperty(
-				iu, IInstallableUnit.PROP_NAME);
+					iu, IInstallableUnit.PROP_NAME);
 			if(name != null && name.startsWith("%"))
 				name = null;
 		}
@@ -258,7 +253,7 @@ public class InstallableUnitRequestItemProvider extends AggregatorItemProviderAd
 	 */
 	@Override
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
-		if (childrenFeatures == null) {
+		if(childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(AggregatorPackage.Literals.INSTALLABLE_UNIT_REQUEST__AVAILABLE_VERSIONS_HEADER);
 		}
@@ -292,7 +287,7 @@ public class InstallableUnitRequestItemProvider extends AggregatorItemProviderAd
 	 */
 	@Override
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-		if (itemPropertyDescriptors == null) {
+		if(itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
 			addDescriptionPropertyDescriptor(object);
@@ -319,10 +314,10 @@ public class InstallableUnitRequestItemProvider extends AggregatorItemProviderAd
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((InstallableUnitRequest)object).getName();
-		return label == null || label.length() == 0 ?
-			getString("_UI_InstallableUnitRequest_type") :
-			getString("_UI_InstallableUnitRequest_type") + " " + label;
+		String label = ((InstallableUnitRequest) object).getName();
+		return label == null || label.length() == 0
+				? getString("_UI_InstallableUnitRequest_type")
+				: getString("_UI_InstallableUnitRequest_type") + " " + label;
 	}
 
 	// It always have a child - "Available Versions"

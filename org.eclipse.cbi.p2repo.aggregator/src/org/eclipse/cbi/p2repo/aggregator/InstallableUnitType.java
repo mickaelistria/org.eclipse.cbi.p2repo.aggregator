@@ -168,13 +168,7 @@ public enum InstallableUnitType implements Enumerator {
 	 * @generated
 	 */
 	private static final InstallableUnitType[] VALUES_ARRAY = new InstallableUnitType[] {
-			BUNDLE,
-			FEATURE,
-			PRODUCT,
-			CATEGORY,
-			FRAGMENT,
-			OTHER,
-		};
+			BUNDLE, FEATURE, PRODUCT, CATEGORY, FRAGMENT, OTHER, };
 
 	/**
 	 * A public read-only list of all the '<em><b>Installable Unit Type</b></em>' enumerators.
@@ -193,13 +187,19 @@ public enum InstallableUnitType implements Enumerator {
 	 * @generated
 	 */
 	public static InstallableUnitType get(int value) {
-		switch (value) {
-			case BUNDLE_VALUE: return BUNDLE;
-			case FEATURE_VALUE: return FEATURE;
-			case PRODUCT_VALUE: return PRODUCT;
-			case CATEGORY_VALUE: return CATEGORY;
-			case FRAGMENT_VALUE: return FRAGMENT;
-			case OTHER_VALUE: return OTHER;
+		switch(value) {
+			case BUNDLE_VALUE:
+				return BUNDLE;
+			case FEATURE_VALUE:
+				return FEATURE;
+			case PRODUCT_VALUE:
+				return PRODUCT;
+			case CATEGORY_VALUE:
+				return CATEGORY;
+			case FRAGMENT_VALUE:
+				return FRAGMENT;
+			case OTHER_VALUE:
+				return OTHER;
 		}
 		return null;
 	}
@@ -213,9 +213,9 @@ public enum InstallableUnitType implements Enumerator {
 	 * @generated
 	 */
 	public static InstallableUnitType get(String literal) {
-		for (int i = 0; i < VALUES_ARRAY.length; ++i) {
+		for(int i = 0; i < VALUES_ARRAY.length; ++i) {
 			InstallableUnitType result = VALUES_ARRAY[i];
-			if (result.toString().equals(literal)) {
+			if(result.toString().equals(literal)) {
 				return result;
 			}
 		}
@@ -231,9 +231,9 @@ public enum InstallableUnitType implements Enumerator {
 	 * @generated
 	 */
 	public static InstallableUnitType getByName(String name) {
-		for (int i = 0; i < VALUES_ARRAY.length; ++i) {
+		for(int i = 0; i < VALUES_ARRAY.length; ++i) {
 			InstallableUnitType result = VALUES_ARRAY[i];
-			if (result.getName().equals(name)) {
+			if(result.getName().equals(name)) {
 				return result;
 			}
 		}
@@ -273,24 +273,27 @@ public enum InstallableUnitType implements Enumerator {
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getLiteral() {
-	  return literal;
+		return literal;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getName() {
-	  return name;
+		return name;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public int getValue() {
-	  return value;
+		return value;
 	}
 
 	/**

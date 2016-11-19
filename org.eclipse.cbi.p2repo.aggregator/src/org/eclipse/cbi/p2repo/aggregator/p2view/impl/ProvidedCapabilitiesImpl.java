@@ -67,7 +67,7 @@ public class ProvidedCapabilitiesImpl extends MinimalEObjectImpl.Container imple
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch (featureID) {
+		switch(featureID) {
 			case P2viewPackage.PROVIDED_CAPABILITIES__PROVIDED_CAPABILITIES:
 				return getProvidedCapabilities();
 		}
@@ -81,9 +81,9 @@ public class ProvidedCapabilitiesImpl extends MinimalEObjectImpl.Container imple
 	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
+		switch(featureID) {
 			case P2viewPackage.PROVIDED_CAPABILITIES__PROVIDED_CAPABILITIES:
-				return ((InternalEList<?>)getProvidedCapabilities()).basicRemove(otherEnd, msgs);
+				return ((InternalEList<?>) getProvidedCapabilities()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -94,7 +94,7 @@ public class ProvidedCapabilitiesImpl extends MinimalEObjectImpl.Container imple
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch (featureID) {
+		switch(featureID) {
 			case P2viewPackage.PROVIDED_CAPABILITIES__PROVIDED_CAPABILITIES:
 				return providedCapabilities != null && !providedCapabilities.isEmpty();
 		}
@@ -108,10 +108,10 @@ public class ProvidedCapabilitiesImpl extends MinimalEObjectImpl.Container imple
 	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch (featureID) {
+		switch(featureID) {
 			case P2viewPackage.PROVIDED_CAPABILITIES__PROVIDED_CAPABILITIES:
 				getProvidedCapabilities().clear();
-				getProvidedCapabilities().addAll((Collection<? extends ProvidedCapabilityWrapper>)newValue);
+				getProvidedCapabilities().addAll((Collection<? extends ProvidedCapabilityWrapper>) newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -132,7 +132,7 @@ public class ProvidedCapabilitiesImpl extends MinimalEObjectImpl.Container imple
 	 */
 	@Override
 	public void eUnset(int featureID) {
-		switch (featureID) {
+		switch(featureID) {
 			case P2viewPackage.PROVIDED_CAPABILITIES__PROVIDED_CAPABILITIES:
 				getProvidedCapabilities().clear();
 				return;
@@ -144,9 +144,11 @@ public class ProvidedCapabilitiesImpl extends MinimalEObjectImpl.Container imple
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<ProvidedCapabilityWrapper> getProvidedCapabilities() {
-		if (providedCapabilities == null) {
-			providedCapabilities = new EObjectContainmentEList.Resolving<ProvidedCapabilityWrapper>(ProvidedCapabilityWrapper.class, this, P2viewPackage.PROVIDED_CAPABILITIES__PROVIDED_CAPABILITIES);
+		if(providedCapabilities == null) {
+			providedCapabilities = new EObjectContainmentEList.Resolving<ProvidedCapabilityWrapper>(
+				ProvidedCapabilityWrapper.class, this, P2viewPackage.PROVIDED_CAPABILITIES__PROVIDED_CAPABILITIES);
 		}
 		return providedCapabilities;
 	}

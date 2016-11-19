@@ -34,6 +34,7 @@ import org.eclipse.equinox.p2.core.IProvisioningAgent;
  * <!-- begin-user-doc -->
  * The <b>Resource </b> associated with the package.
  * <!-- end-user-doc -->
+ * 
  * @see org.eclipse.cbi.p2repo.p2.util.P2ResourceFactoryImpl
  * @generated
  */
@@ -89,8 +90,9 @@ public class P2ResourceImpl extends XMLResourceImpl {
 					load(null);
 				}
 				catch(IOException e) {
-					status = new Status(IStatus.ERROR, "org.eclipse.cbi.p2repo.p2", "Unable to load repository " +
-							getURI().opaquePart(), e);
+					status = new Status(
+						IStatus.ERROR, "org.eclipse.cbi.p2repo.p2",
+						"Unable to load repository " + getURI().opaquePart(), e);
 				}
 
 				if(monitor.isCanceled()) {

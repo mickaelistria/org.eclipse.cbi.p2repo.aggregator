@@ -16,7 +16,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.ModulesType#getModule <em>Module</em>}</li>
+ * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.ModulesType#getModule <em>Module</em>}</li>
  * </ul>
  *
  * @see org.eclipse.cbi.p2repo.p2.maven.pom.PomPackage#getModulesType()
@@ -32,6 +32,7 @@ public interface ModulesType extends EObject {
 	 * If the meaning of the '<em>Module</em>' attribute list isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the value of the '<em>Module</em>' attribute list.
 	 * @see org.eclipse.cbi.p2repo.p2.maven.pom.PomPackage#getModulesType_Module()
 	 * @model unique="false" dataType="org.eclipse.emf.ecore.xml.type.String"

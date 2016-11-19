@@ -64,7 +64,7 @@ public class CategoriesImpl extends MinimalEObjectImpl.Container implements Cate
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch (featureID) {
+		switch(featureID) {
 			case P2viewPackage.CATEGORIES__CHILDREN:
 				return getChildren();
 			case P2viewPackage.CATEGORIES__CATEGORIES:
@@ -79,7 +79,7 @@ public class CategoriesImpl extends MinimalEObjectImpl.Container implements Cate
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch (featureID) {
+		switch(featureID) {
 			case P2viewPackage.CATEGORIES__CHILDREN:
 				return !getChildren().isEmpty();
 			case P2viewPackage.CATEGORIES__CATEGORIES:
@@ -95,10 +95,10 @@ public class CategoriesImpl extends MinimalEObjectImpl.Container implements Cate
 	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch (featureID) {
+		switch(featureID) {
 			case P2viewPackage.CATEGORIES__CATEGORIES:
 				getCategories().clear();
-				getCategories().addAll((Collection<? extends Category>)newValue);
+				getCategories().addAll((Collection<? extends Category>) newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -119,7 +119,7 @@ public class CategoriesImpl extends MinimalEObjectImpl.Container implements Cate
 	 */
 	@Override
 	public void eUnset(int featureID) {
-		switch (featureID) {
+		switch(featureID) {
 			case P2viewPackage.CATEGORIES__CATEGORIES:
 				getCategories().clear();
 				return;
@@ -131,9 +131,11 @@ public class CategoriesImpl extends MinimalEObjectImpl.Container implements Cate
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<Category> getCategories() {
-		if (categories == null) {
-			categories = new EObjectResolvingEList<Category>(Category.class, this, P2viewPackage.CATEGORIES__CATEGORIES);
+		if(categories == null) {
+			categories = new EObjectResolvingEList<Category>(
+				Category.class, this, P2viewPackage.CATEGORIES__CATEGORIES);
 		}
 		return categories;
 	}
@@ -143,6 +145,7 @@ public class CategoriesImpl extends MinimalEObjectImpl.Container implements Cate
 	 *
 	 * @generated NOT
 	 */
+	@Override
 	public EList<Category> getChildren() {
 		return getCategories();
 	}

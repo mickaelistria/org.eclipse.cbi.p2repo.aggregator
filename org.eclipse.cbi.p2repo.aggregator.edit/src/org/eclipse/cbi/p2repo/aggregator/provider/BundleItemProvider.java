@@ -59,8 +59,7 @@ public class BundleItemProvider extends MappedUnitItemProvider {
 	@Override
 	public Object getImage(Object object) {
 		return overlayImage(
-			object,
-			getResourceLocator().getImage(
+			object, getResourceLocator().getImage(
 				"full/obj16/Bundle" + (!((Bundle) object).isBranchDisabledOrMappedRepositoryBroken()
 						? ""
 						: "Disabled")));
@@ -78,7 +77,7 @@ public class BundleItemProvider extends MappedUnitItemProvider {
 	 */
 	@Override
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-		if (itemPropertyDescriptors == null) {
+		if(itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
 		}

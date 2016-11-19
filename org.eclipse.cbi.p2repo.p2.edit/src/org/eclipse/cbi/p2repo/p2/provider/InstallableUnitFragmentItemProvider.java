@@ -24,6 +24,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * This is the item provider adapter for a {@link org.eclipse.cbi.p2repo.p2.InstallableUnitFragment} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
+ * 
  * @generated
  */
 public class InstallableUnitFragmentItemProvider extends InstallableUnitItemProvider {
@@ -31,6 +32,7 @@ public class InstallableUnitFragmentItemProvider extends InstallableUnitItemProv
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public InstallableUnitFragmentItemProvider(AdapterFactory adapterFactory) {
@@ -42,26 +44,26 @@ public class InstallableUnitFragmentItemProvider extends InstallableUnitItemProv
 	 * that can be created under this object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 
-		newChildDescriptors.add
-			(createChildParameter
-				(P2Package.Literals.INSTALLABLE_UNIT_FRAGMENT__HOST,
-				 P2Factory.eINSTANCE.createRequirement()));
+		newChildDescriptors.add(
+			createChildParameter(
+				P2Package.Literals.INSTALLABLE_UNIT_FRAGMENT__HOST, P2Factory.eINSTANCE.createRequirement()));
 
-		newChildDescriptors.add
-			(createChildParameter
-				(P2Package.Literals.INSTALLABLE_UNIT_FRAGMENT__HOST,
-				 P2Factory.eINSTANCE.createRequiredCapability()));
+		newChildDescriptors.add(
+			createChildParameter(
+				P2Package.Literals.INSTALLABLE_UNIT_FRAGMENT__HOST, P2Factory.eINSTANCE.createRequiredCapability()));
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -78,11 +80,12 @@ public class InstallableUnitFragmentItemProvider extends InstallableUnitItemProv
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
-		if (childrenFeatures == null) {
+		if(childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(P2Package.Literals.INSTALLABLE_UNIT_FRAGMENT__HOST);
 		}
@@ -93,6 +96,7 @@ public class InstallableUnitFragmentItemProvider extends InstallableUnitItemProv
 	 * This returns the label text for {@link org.eclipse.emf.edit.command.CreateChildCommand}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -100,15 +104,14 @@ public class InstallableUnitFragmentItemProvider extends InstallableUnitItemProv
 		Object childFeature = feature;
 		Object childObject = child;
 
-		boolean qualify =
-			childFeature == P2Package.Literals.IINSTALLABLE_UNIT__META_REQUIREMENTS ||
-			childFeature == P2Package.Literals.IINSTALLABLE_UNIT__REQUIREMENTS ||
-			childFeature == P2Package.Literals.INSTALLABLE_UNIT_FRAGMENT__HOST;
+		boolean qualify = childFeature == P2Package.Literals.IINSTALLABLE_UNIT__META_REQUIREMENTS ||
+				childFeature == P2Package.Literals.IINSTALLABLE_UNIT__REQUIREMENTS ||
+				childFeature == P2Package.Literals.INSTALLABLE_UNIT_FRAGMENT__HOST;
 
-		if (qualify) {
-			return getString
-				("_UI_CreateChild_text2",
-				 new Object[] { getTypeText(childObject), getFeatureText(childFeature), getTypeText(owner) });
+		if(qualify) {
+			return getString(
+				"_UI_CreateChild_text2",
+				new Object[] { getTypeText(childObject), getFeatureText(childFeature), getTypeText(owner) });
 		}
 		return super.getCreateChildText(owner, feature, child, selection);
 	}
@@ -117,6 +120,7 @@ public class InstallableUnitFragmentItemProvider extends InstallableUnitItemProv
 	 * This returns InstallableUnitFragment.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -128,11 +132,12 @@ public class InstallableUnitFragmentItemProvider extends InstallableUnitItemProv
 	 * This returns the property descriptors for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-		if (itemPropertyDescriptors == null) {
+		if(itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
 		}
@@ -156,13 +161,14 @@ public class InstallableUnitFragmentItemProvider extends InstallableUnitItemProv
 	 * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(InstallableUnitFragment.class)) {
+		switch(notification.getFeatureID(InstallableUnitFragment.class)) {
 			case P2Package.INSTALLABLE_UNIT_FRAGMENT__HOST:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;

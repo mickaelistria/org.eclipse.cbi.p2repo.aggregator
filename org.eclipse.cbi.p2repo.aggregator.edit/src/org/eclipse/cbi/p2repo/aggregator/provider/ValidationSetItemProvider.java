@@ -48,9 +48,9 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class ValidationSetItemProvider extends AggregatorItemProviderAdapter implements IEditingDomainItemProvider,
-		IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource,
-		IItemColorProvider, IItemFontProvider {
+public class ValidationSetItemProvider extends AggregatorItemProviderAdapter
+		implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider,
+		IItemLabelProvider, IItemPropertySource, IItemColorProvider, IItemFontProvider {
 
 	/**
 	 * This constructs an instance from a factory and a notifier.
@@ -69,19 +69,15 @@ public class ValidationSetItemProvider extends AggregatorItemProviderAdapter imp
 	 * @generated
 	 */
 	protected void addDescriptionPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_DescriptionProvider_description_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_DescriptionProvider_description_feature", "_UI_DescriptionProvider_type"),
-				 AggregatorPackage.Literals.DESCRIPTION_PROVIDER__DESCRIPTION,
-				 true,
-				 true,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
+		itemPropertyDescriptors.add(
+			createItemPropertyDescriptor(
+				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+				getString("_UI_DescriptionProvider_description_feature"),
+				getString(
+					"_UI_PropertyDescriptor_description", "_UI_DescriptionProvider_description_feature",
+					"_UI_DescriptionProvider_type"),
+				AggregatorPackage.Literals.DESCRIPTION_PROVIDER__DESCRIPTION, true, true, false,
+				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -91,19 +87,15 @@ public class ValidationSetItemProvider extends AggregatorItemProviderAdapter imp
 	 * @generated
 	 */
 	protected void addEnabledPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_EnabledStatusProvider_enabled_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_EnabledStatusProvider_enabled_feature", "_UI_EnabledStatusProvider_type"),
-				 AggregatorPackage.Literals.ENABLED_STATUS_PROVIDER__ENABLED,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-				 null,
-				 null));
+		itemPropertyDescriptors.add(
+			createItemPropertyDescriptor(
+				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+				getString("_UI_EnabledStatusProvider_enabled_feature"),
+				getString(
+					"_UI_PropertyDescriptor_description", "_UI_EnabledStatusProvider_enabled_feature",
+					"_UI_EnabledStatusProvider_type"),
+				AggregatorPackage.Literals.ENABLED_STATUS_PROVIDER__ENABLED, true, false, false,
+				ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -114,25 +106,28 @@ public class ValidationSetItemProvider extends AggregatorItemProviderAdapter imp
 	 * @generated NOT
 	 */
 	protected void addExtendsPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(new ItemPropertyDescriptor(
-			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-			getString("_UI_ValidationSet_extends_feature"), getString(
-				"_UI_PropertyDescriptor_description", "_UI_ValidationSet_extends_feature", "_UI_ValidationSet_type"),
-			AggregatorPackage.Literals.VALIDATION_SET__EXTENDS, true, false, true, null, null, null) {
+		itemPropertyDescriptors.add(
+			new ItemPropertyDescriptor(
+				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+				getString("_UI_ValidationSet_extends_feature"),
+				getString(
+					"_UI_PropertyDescriptor_description", "_UI_ValidationSet_extends_feature",
+					"_UI_ValidationSet_type"),
+				AggregatorPackage.Literals.VALIDATION_SET__EXTENDS, true, false, true, null, null, null) {
 
-			@Override
-			public Collection<?> getChoiceOfValues(Object object) {
-				// Provide a list of ValidationSets that this set doesn't inherit already
-				ValidationSet vs = (ValidationSet) object;
-				@SuppressWarnings("unchecked")
-				List<ValidationSet> candidates = (List<ValidationSet>) super.getChoiceOfValues(object);
-				List<ValidationSet> filtered = new ArrayList<ValidationSet>();
-				for(ValidationSet candidate : candidates)
-					if(!vs.isExtensionOf(candidate))
-						filtered.add(candidate);
-				return filtered;
-			}
-		});
+				@Override
+				public Collection<?> getChoiceOfValues(Object object) {
+					// Provide a list of ValidationSets that this set doesn't inherit already
+					ValidationSet vs = (ValidationSet) object;
+					@SuppressWarnings("unchecked")
+					List<ValidationSet> candidates = (List<ValidationSet>) super.getChoiceOfValues(object);
+					List<ValidationSet> filtered = new ArrayList<ValidationSet>();
+					for(ValidationSet candidate : candidates)
+						if(!vs.isExtensionOf(candidate))
+							filtered.add(candidate);
+					return filtered;
+				}
+			});
 
 	}
 
@@ -143,19 +138,14 @@ public class ValidationSetItemProvider extends AggregatorItemProviderAdapter imp
 	 * @generated
 	 */
 	protected void addLabelPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_ValidationSet_label_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ValidationSet_label_feature", "_UI_ValidationSet_type"),
-				 AggregatorPackage.Literals.VALIDATION_SET__LABEL,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
+		itemPropertyDescriptors.add(
+			createItemPropertyDescriptor(
+				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+				getString("_UI_ValidationSet_label_feature"),
+				getString(
+					"_UI_PropertyDescriptor_description", "_UI_ValidationSet_label_feature", "_UI_ValidationSet_type"),
+				AggregatorPackage.Literals.VALIDATION_SET__LABEL, true, false, false,
+				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -169,20 +159,20 @@ public class ValidationSetItemProvider extends AggregatorItemProviderAdapter imp
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 
-		newChildDescriptors.add
-			(createChildParameter
-				(AggregatorPackage.Literals.VALIDATION_SET__CONTRIBUTIONS,
-				 AggregatorFactory.eINSTANCE.createContribution()));
+		newChildDescriptors.add(
+			createChildParameter(
+				AggregatorPackage.Literals.VALIDATION_SET__CONTRIBUTIONS,
+				AggregatorFactory.eINSTANCE.createContribution()));
 
-		newChildDescriptors.add
-			(createChildParameter
-				(AggregatorPackage.Literals.VALIDATION_SET__VALIDATION_REPOSITORIES,
-				 AggregatorFactory.eINSTANCE.createMetadataRepositoryReference()));
+		newChildDescriptors.add(
+			createChildParameter(
+				AggregatorPackage.Literals.VALIDATION_SET__VALIDATION_REPOSITORIES,
+				AggregatorFactory.eINSTANCE.createMetadataRepositoryReference()));
 
-		newChildDescriptors.add
-			(createChildParameter
-				(AggregatorPackage.Literals.VALIDATION_SET__VALIDATION_REPOSITORIES,
-				 AggregatorFactory.eINSTANCE.createMappedRepository()));
+		newChildDescriptors.add(
+			createChildParameter(
+				AggregatorPackage.Literals.VALIDATION_SET__VALIDATION_REPOSITORIES,
+				AggregatorFactory.eINSTANCE.createMappedRepository()));
 	}
 
 	@Override
@@ -223,7 +213,7 @@ public class ValidationSetItemProvider extends AggregatorItemProviderAdapter imp
 	 */
 	@Override
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
-		if (childrenFeatures == null) {
+		if(childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(AggregatorPackage.Literals.VALIDATION_SET__CONTRIBUTIONS);
 			childrenFeatures.add(AggregatorPackage.Literals.VALIDATION_SET__VALIDATION_REPOSITORIES);
@@ -254,7 +244,7 @@ public class ValidationSetItemProvider extends AggregatorItemProviderAdapter imp
 	 */
 	@Override
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-		if (itemPropertyDescriptors == null) {
+		if(itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
 			addEnabledPropertyDescriptor(object);
@@ -364,7 +354,7 @@ public class ValidationSetItemProvider extends AggregatorItemProviderAdapter imp
 	public void notifyChangedGen(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(ValidationSet.class)) {
+		switch(notification.getFeatureID(ValidationSet.class)) {
 			case AggregatorPackage.VALIDATION_SET__ENABLED:
 			case AggregatorPackage.VALIDATION_SET__DESCRIPTION:
 			case AggregatorPackage.VALIDATION_SET__STATUS:

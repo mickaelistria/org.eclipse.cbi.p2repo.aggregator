@@ -17,7 +17,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.ExecutionGoalsType#getGoal <em>Goal</em>}</li>
+ * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.ExecutionGoalsType#getGoal <em>Goal</em>}</li>
  * </ul>
  *
  * @see org.eclipse.cbi.p2repo.p2.maven.pom.PomPackage#getExecutionGoalsType()
@@ -33,6 +33,7 @@ public interface ExecutionGoalsType extends EObject {
 	 * If the meaning of the '<em>Goal</em>' attribute list isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the value of the '<em>Goal</em>' attribute list.
 	 * @see org.eclipse.cbi.p2repo.p2.maven.pom.PomPackage#getExecutionGoalsType_Goal()
 	 * @model unique="false" dataType="org.eclipse.emf.ecore.xml.type.String"

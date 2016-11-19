@@ -37,6 +37,7 @@ public class PluginExecutionImpl extends EObjectImpl implements PluginExecution 
 	/**
 	 * The default value of the '{@link #getId() <em>Id</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see #getId()
 	 * @generated
 	 * @ordered
@@ -46,6 +47,7 @@ public class PluginExecutionImpl extends EObjectImpl implements PluginExecution 
 	/**
 	 * The cached value of the '{@link #getId() <em>Id</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see #getId()
 	 * @generated
 	 * @ordered
@@ -55,6 +57,7 @@ public class PluginExecutionImpl extends EObjectImpl implements PluginExecution 
 	/**
 	 * This is true if the Id attribute has been set.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -64,6 +67,7 @@ public class PluginExecutionImpl extends EObjectImpl implements PluginExecution 
 	 * The default value of the '{@link #getPhase() <em>Phase</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @see #getPhase()
 	 * @generated
 	 * @ordered
@@ -84,6 +88,7 @@ public class PluginExecutionImpl extends EObjectImpl implements PluginExecution 
 	 * The cached value of the '{@link #getGoals() <em>Goals</em>}' containment reference.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @see #getGoals()
 	 * @generated
 	 * @ordered
@@ -94,6 +99,7 @@ public class PluginExecutionImpl extends EObjectImpl implements PluginExecution 
 	 * The default value of the '{@link #getInherited() <em>Inherited</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @see #getInherited()
 	 * @generated
 	 * @ordered
@@ -104,6 +110,7 @@ public class PluginExecutionImpl extends EObjectImpl implements PluginExecution 
 	 * The cached value of the '{@link #getInherited() <em>Inherited</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @see #getInherited()
 	 * @generated
 	 * @ordered
@@ -122,6 +129,7 @@ public class PluginExecutionImpl extends EObjectImpl implements PluginExecution 
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected PluginExecutionImpl() {
@@ -130,39 +138,50 @@ public class PluginExecutionImpl extends EObjectImpl implements PluginExecution 
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public NotificationChain basicSetConfiguration(ConfigurationType newConfiguration, NotificationChain msgs) {
 		ConfigurationType oldConfiguration = configuration;
 		configuration = newConfiguration;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, PomPackage.PLUGIN_EXECUTION__CONFIGURATION, oldConfiguration, newConfiguration);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
+		if(eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(
+				this, Notification.SET, PomPackage.PLUGIN_EXECUTION__CONFIGURATION, oldConfiguration, newConfiguration);
+			if(msgs == null)
+				msgs = notification;
+			else
+				msgs.add(notification);
 		}
 		return msgs;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public NotificationChain basicSetGoals(ExecutionGoalsType newGoals, NotificationChain msgs) {
 		ExecutionGoalsType oldGoals = goals;
 		goals = newGoals;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, PomPackage.PLUGIN_EXECUTION__GOALS, oldGoals, newGoals);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
+		if(eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(
+				this, Notification.SET, PomPackage.PLUGIN_EXECUTION__GOALS, oldGoals, newGoals);
+			if(msgs == null)
+				msgs = notification;
+			else
+				msgs.add(notification);
 		}
 		return msgs;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch (featureID) {
+		switch(featureID) {
 			case PomPackage.PLUGIN_EXECUTION__ID:
 				return getId();
 			case PomPackage.PLUGIN_EXECUTION__PHASE:
@@ -179,11 +198,12 @@ public class PluginExecutionImpl extends EObjectImpl implements PluginExecution 
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
+		switch(featureID) {
 			case PomPackage.PLUGIN_EXECUTION__GOALS:
 				return basicSetGoals(null, msgs);
 			case PomPackage.PLUGIN_EXECUTION__CONFIGURATION:
@@ -194,19 +214,24 @@ public class PluginExecutionImpl extends EObjectImpl implements PluginExecution 
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch (featureID) {
+		switch(featureID) {
 			case PomPackage.PLUGIN_EXECUTION__ID:
 				return isSetId();
 			case PomPackage.PLUGIN_EXECUTION__PHASE:
-				return PHASE_EDEFAULT == null ? phase != null : !PHASE_EDEFAULT.equals(phase);
+				return PHASE_EDEFAULT == null
+						? phase != null
+						: !PHASE_EDEFAULT.equals(phase);
 			case PomPackage.PLUGIN_EXECUTION__GOALS:
 				return goals != null;
 			case PomPackage.PLUGIN_EXECUTION__INHERITED:
-				return INHERITED_EDEFAULT == null ? inherited != null : !INHERITED_EDEFAULT.equals(inherited);
+				return INHERITED_EDEFAULT == null
+						? inherited != null
+						: !INHERITED_EDEFAULT.equals(inherited);
 			case PomPackage.PLUGIN_EXECUTION__CONFIGURATION:
 				return configuration != null;
 		}
@@ -215,25 +240,26 @@ public class PluginExecutionImpl extends EObjectImpl implements PluginExecution 
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch (featureID) {
+		switch(featureID) {
 			case PomPackage.PLUGIN_EXECUTION__ID:
-				setId((String)newValue);
+				setId((String) newValue);
 				return;
 			case PomPackage.PLUGIN_EXECUTION__PHASE:
-				setPhase((String)newValue);
+				setPhase((String) newValue);
 				return;
 			case PomPackage.PLUGIN_EXECUTION__GOALS:
-				setGoals((ExecutionGoalsType)newValue);
+				setGoals((ExecutionGoalsType) newValue);
 				return;
 			case PomPackage.PLUGIN_EXECUTION__INHERITED:
-				setInherited((String)newValue);
+				setInherited((String) newValue);
 				return;
 			case PomPackage.PLUGIN_EXECUTION__CONFIGURATION:
-				setConfiguration((ConfigurationType)newValue);
+				setConfiguration((ConfigurationType) newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -241,11 +267,12 @@ public class PluginExecutionImpl extends EObjectImpl implements PluginExecution 
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
-		switch (featureID) {
+		switch(featureID) {
 			case PomPackage.PLUGIN_EXECUTION__ID:
 				unsetId();
 				return;
@@ -253,13 +280,13 @@ public class PluginExecutionImpl extends EObjectImpl implements PluginExecution 
 				setPhase(PHASE_EDEFAULT);
 				return;
 			case PomPackage.PLUGIN_EXECUTION__GOALS:
-				setGoals((ExecutionGoalsType)null);
+				setGoals((ExecutionGoalsType) null);
 				return;
 			case PomPackage.PLUGIN_EXECUTION__INHERITED:
 				setInherited(INHERITED_EDEFAULT);
 				return;
 			case PomPackage.PLUGIN_EXECUTION__CONFIGURATION:
-				setConfiguration((ConfigurationType)null);
+				setConfiguration((ConfigurationType) null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -267,6 +294,7 @@ public class PluginExecutionImpl extends EObjectImpl implements PluginExecution 
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -276,6 +304,7 @@ public class PluginExecutionImpl extends EObjectImpl implements PluginExecution 
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -285,6 +314,7 @@ public class PluginExecutionImpl extends EObjectImpl implements PluginExecution 
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -294,6 +324,7 @@ public class PluginExecutionImpl extends EObjectImpl implements PluginExecution 
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -303,6 +334,7 @@ public class PluginExecutionImpl extends EObjectImpl implements PluginExecution 
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -312,6 +344,7 @@ public class PluginExecutionImpl extends EObjectImpl implements PluginExecution 
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -321,44 +354,57 @@ public class PluginExecutionImpl extends EObjectImpl implements PluginExecution 
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void setConfiguration(ConfigurationType newConfiguration) {
-		if (newConfiguration != configuration) {
+		if(newConfiguration != configuration) {
 			NotificationChain msgs = null;
-			if (configuration != null)
-				msgs = ((InternalEObject)configuration).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - PomPackage.PLUGIN_EXECUTION__CONFIGURATION, null, msgs);
-			if (newConfiguration != null)
-				msgs = ((InternalEObject)newConfiguration).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - PomPackage.PLUGIN_EXECUTION__CONFIGURATION, null, msgs);
+			if(configuration != null)
+				msgs = ((InternalEObject) configuration).eInverseRemove(
+					this, EOPPOSITE_FEATURE_BASE - PomPackage.PLUGIN_EXECUTION__CONFIGURATION, null, msgs);
+			if(newConfiguration != null)
+				msgs = ((InternalEObject) newConfiguration).eInverseAdd(
+					this, EOPPOSITE_FEATURE_BASE - PomPackage.PLUGIN_EXECUTION__CONFIGURATION, null, msgs);
 			msgs = basicSetConfiguration(newConfiguration, msgs);
-			if (msgs != null) msgs.dispatch();
+			if(msgs != null)
+				msgs.dispatch();
 		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.PLUGIN_EXECUTION__CONFIGURATION, newConfiguration, newConfiguration));
+		else if(eNotificationRequired())
+			eNotify(
+				new ENotificationImpl(
+					this, Notification.SET, PomPackage.PLUGIN_EXECUTION__CONFIGURATION, newConfiguration,
+					newConfiguration));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void setGoals(ExecutionGoalsType newGoals) {
-		if (newGoals != goals) {
+		if(newGoals != goals) {
 			NotificationChain msgs = null;
-			if (goals != null)
-				msgs = ((InternalEObject)goals).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - PomPackage.PLUGIN_EXECUTION__GOALS, null, msgs);
-			if (newGoals != null)
-				msgs = ((InternalEObject)newGoals).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - PomPackage.PLUGIN_EXECUTION__GOALS, null, msgs);
+			if(goals != null)
+				msgs = ((InternalEObject) goals).eInverseRemove(
+					this, EOPPOSITE_FEATURE_BASE - PomPackage.PLUGIN_EXECUTION__GOALS, null, msgs);
+			if(newGoals != null)
+				msgs = ((InternalEObject) newGoals).eInverseAdd(
+					this, EOPPOSITE_FEATURE_BASE - PomPackage.PLUGIN_EXECUTION__GOALS, null, msgs);
 			msgs = basicSetGoals(newGoals, msgs);
-			if (msgs != null) msgs.dispatch();
+			if(msgs != null)
+				msgs.dispatch();
 		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.PLUGIN_EXECUTION__GOALS, newGoals, newGoals));
+		else if(eNotificationRequired())
+			eNotify(
+				new ENotificationImpl(this, Notification.SET, PomPackage.PLUGIN_EXECUTION__GOALS, newGoals, newGoals));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -367,45 +413,55 @@ public class PluginExecutionImpl extends EObjectImpl implements PluginExecution 
 		id = newId;
 		boolean oldIdESet = idESet;
 		idESet = true;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.PLUGIN_EXECUTION__ID, oldId, id, !oldIdESet));
+		if(eNotificationRequired())
+			eNotify(
+				new ENotificationImpl(this, Notification.SET, PomPackage.PLUGIN_EXECUTION__ID, oldId, id, !oldIdESet));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void setInherited(String newInherited) {
 		String oldInherited = inherited;
 		inherited = newInherited;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.PLUGIN_EXECUTION__INHERITED, oldInherited, inherited));
+		if(eNotificationRequired())
+			eNotify(
+				new ENotificationImpl(
+					this, Notification.SET, PomPackage.PLUGIN_EXECUTION__INHERITED, oldInherited, inherited));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void setPhase(String newPhase) {
 		String oldPhase = phase;
 		phase = newPhase;
-		if (eNotificationRequired())
+		if(eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.PLUGIN_EXECUTION__PHASE, oldPhase, phase));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy()) return super.toString();
+		if(eIsProxy())
+			return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (id: ");
-		if (idESet) result.append(id); else result.append("<unset>");
+		if(idESet)
+			result.append(id);
+		else
+			result.append("<unset>");
 		result.append(", phase: ");
 		result.append(phase);
 		result.append(", inherited: ");
@@ -416,6 +472,7 @@ public class PluginExecutionImpl extends EObjectImpl implements PluginExecution 
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -424,12 +481,15 @@ public class PluginExecutionImpl extends EObjectImpl implements PluginExecution 
 		boolean oldIdESet = idESet;
 		id = ID_EDEFAULT;
 		idESet = false;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.UNSET, PomPackage.PLUGIN_EXECUTION__ID, oldId, ID_EDEFAULT, oldIdESet));
+		if(eNotificationRequired())
+			eNotify(
+				new ENotificationImpl(
+					this, Notification.UNSET, PomPackage.PLUGIN_EXECUTION__ID, oldId, ID_EDEFAULT, oldIdESet));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override

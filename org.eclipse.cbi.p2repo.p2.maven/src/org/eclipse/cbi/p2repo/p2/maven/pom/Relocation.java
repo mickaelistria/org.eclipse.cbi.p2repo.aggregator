@@ -14,17 +14,17 @@ import org.eclipse.emf.ecore.EObject;
  * <!-- begin-model-doc -->
  * 4.0.0
  * Describes where an artifact has moved to. If any of the values are omitted, it is assumed to be the
- *         same as it was before.
+ * same as it was before.
  * <!-- end-model-doc -->
  *
  * <p>
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.Relocation#getGroupId <em>Group Id</em>}</li>
- *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.Relocation#getArtifactId <em>Artifact Id</em>}</li>
- *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.Relocation#getVersion <em>Version</em>}</li>
- *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.Relocation#getMessage <em>Message</em>}</li>
+ * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.Relocation#getGroupId <em>Group Id</em>}</li>
+ * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.Relocation#getArtifactId <em>Artifact Id</em>}</li>
+ * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.Relocation#getVersion <em>Version</em>}</li>
+ * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.Relocation#getMessage <em>Message</em>}</li>
  * </ul>
  *
  * @see org.eclipse.cbi.p2repo.p2.maven.pom.PomPackage#getRelocation()
@@ -39,6 +39,7 @@ public interface Relocation extends EObject {
 	 * 4.0.0
 	 * The new artifact ID of the artifact.
 	 * <!-- end-model-doc -->
+	 * 
 	 * @return the value of the '<em>Artifact Id</em>' attribute.
 	 * @see #setArtifactId(String)
 	 * @see org.eclipse.cbi.p2repo.p2.maven.pom.PomPackage#getRelocation_ArtifactId()
@@ -91,7 +92,9 @@ public interface Relocation extends EObject {
 	/**
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.Relocation#getArtifactId <em>Artifact Id</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Artifact Id</em>' attribute.
+	 * 
+	 * @param value
+	 *            the new value of the '<em>Artifact Id</em>' attribute.
 	 * @see #getArtifactId()
 	 * @generated
 	 */
@@ -100,7 +103,9 @@ public interface Relocation extends EObject {
 	/**
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.Relocation#getGroupId <em>Group Id</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Group Id</em>' attribute.
+	 * 
+	 * @param value
+	 *            the new value of the '<em>Group Id</em>' attribute.
 	 * @see #getGroupId()
 	 * @generated
 	 */
@@ -109,7 +114,9 @@ public interface Relocation extends EObject {
 	/**
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.Relocation#getMessage <em>Message</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Message</em>' attribute.
+	 * 
+	 * @param value
+	 *            the new value of the '<em>Message</em>' attribute.
 	 * @see #getMessage()
 	 * @generated
 	 */
@@ -118,7 +125,9 @@ public interface Relocation extends EObject {
 	/**
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.Relocation#getVersion <em>Version</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Version</em>' attribute.
+	 * 
+	 * @param value
+	 *            the new value of the '<em>Version</em>' attribute.
 	 * @see #getVersion()
 	 * @generated
 	 */

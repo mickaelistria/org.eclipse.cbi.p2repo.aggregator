@@ -39,9 +39,9 @@ import org.eclipse.equinox.p2.repository.artifact.IProcessingStepDescriptor;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.eclipse.cbi.p2repo.p2.impl.ArtifactDescriptorImpl#getArtifactKey <em>Artifact Key</em>}</li>
- *   <li>{@link org.eclipse.cbi.p2repo.p2.impl.ArtifactDescriptorImpl#getPropertyMap <em>Property Map</em>}</li>
- *   <li>{@link org.eclipse.cbi.p2repo.p2.impl.ArtifactDescriptorImpl#getProcessingStepList <em>Processing Step List</em>}</li>
+ * <li>{@link org.eclipse.cbi.p2repo.p2.impl.ArtifactDescriptorImpl#getArtifactKey <em>Artifact Key</em>}</li>
+ * <li>{@link org.eclipse.cbi.p2repo.p2.impl.ArtifactDescriptorImpl#getPropertyMap <em>Property Map</em>}</li>
+ * <li>{@link org.eclipse.cbi.p2repo.p2.impl.ArtifactDescriptorImpl#getProcessingStepList <em>Processing Step List</em>}</li>
  * </ul>
  *
  * @generated
@@ -51,6 +51,7 @@ public class ArtifactDescriptorImpl extends MinimalEObjectImpl.Container impleme
 	 * A set of bit flags representing the values of boolean attributes and whether unsettable features have been set.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -60,6 +61,7 @@ public class ArtifactDescriptorImpl extends MinimalEObjectImpl.Container impleme
 	 * The cached value of the '{@link #getArtifactKey() <em>Artifact Key</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getArtifactKey()
 	 * @generated
 	 * @ordered
@@ -70,6 +72,7 @@ public class ArtifactDescriptorImpl extends MinimalEObjectImpl.Container impleme
 	 * The cached value of the '{@link #getPropertyMap() <em>Property Map</em>}' map.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getPropertyMap()
 	 * @generated
 	 * @ordered
@@ -80,6 +83,7 @@ public class ArtifactDescriptorImpl extends MinimalEObjectImpl.Container impleme
 	 * The cached value of the '{@link #getProcessingStepList() <em>Processing Step List</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getProcessingStepList()
 	 * @generated
 	 * @ordered
@@ -89,6 +93,7 @@ public class ArtifactDescriptorImpl extends MinimalEObjectImpl.Container impleme
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected ArtifactDescriptorImpl() {
@@ -98,6 +103,7 @@ public class ArtifactDescriptorImpl extends MinimalEObjectImpl.Container impleme
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public IArtifactKey basicGetArtifactKey() {
@@ -107,17 +113,21 @@ public class ArtifactDescriptorImpl extends MinimalEObjectImpl.Container impleme
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch (featureID) {
+		switch(featureID) {
 			case P2Package.ARTIFACT_DESCRIPTOR__ARTIFACT_KEY:
-				if (resolve) return getArtifactKey();
+				if(resolve)
+					return getArtifactKey();
 				return basicGetArtifactKey();
 			case P2Package.ARTIFACT_DESCRIPTOR__PROPERTY_MAP:
-				if (coreType) return getPropertyMap();
-				else return getPropertyMap().map();
+				if(coreType)
+					return getPropertyMap();
+				else
+					return getPropertyMap().map();
 			case P2Package.ARTIFACT_DESCRIPTOR__PROCESSING_STEP_LIST:
 				return getProcessingStepList();
 		}
@@ -127,15 +137,16 @@ public class ArtifactDescriptorImpl extends MinimalEObjectImpl.Container impleme
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
+		switch(featureID) {
 			case P2Package.ARTIFACT_DESCRIPTOR__PROPERTY_MAP:
-				return ((InternalEList<?>)getPropertyMap()).basicRemove(otherEnd, msgs);
+				return ((InternalEList<?>) getPropertyMap()).basicRemove(otherEnd, msgs);
 			case P2Package.ARTIFACT_DESCRIPTOR__PROCESSING_STEP_LIST:
-				return ((InternalEList<?>)getProcessingStepList()).basicRemove(otherEnd, msgs);
+				return ((InternalEList<?>) getProcessingStepList()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -143,11 +154,12 @@ public class ArtifactDescriptorImpl extends MinimalEObjectImpl.Container impleme
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch (featureID) {
+		switch(featureID) {
 			case P2Package.ARTIFACT_DESCRIPTOR__ARTIFACT_KEY:
 				return artifactKey != null;
 			case P2Package.ARTIFACT_DESCRIPTOR__PROPERTY_MAP:
@@ -195,21 +207,22 @@ public class ArtifactDescriptorImpl extends MinimalEObjectImpl.Container impleme
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch (featureID) {
+		switch(featureID) {
 			case P2Package.ARTIFACT_DESCRIPTOR__ARTIFACT_KEY:
-				setArtifactKey((IArtifactKey)newValue);
+				setArtifactKey((IArtifactKey) newValue);
 				return;
 			case P2Package.ARTIFACT_DESCRIPTOR__PROPERTY_MAP:
-				((EStructuralFeature.Setting)getPropertyMap()).set(newValue);
+				((EStructuralFeature.Setting) getPropertyMap()).set(newValue);
 				return;
 			case P2Package.ARTIFACT_DESCRIPTOR__PROCESSING_STEP_LIST:
 				getProcessingStepList().clear();
-				getProcessingStepList().addAll((Collection<? extends IProcessingStepDescriptor>)newValue);
+				getProcessingStepList().addAll((Collection<? extends IProcessingStepDescriptor>) newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -218,6 +231,7 @@ public class ArtifactDescriptorImpl extends MinimalEObjectImpl.Container impleme
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -228,13 +242,14 @@ public class ArtifactDescriptorImpl extends MinimalEObjectImpl.Container impleme
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
-		switch (featureID) {
+		switch(featureID) {
 			case P2Package.ARTIFACT_DESCRIPTOR__ARTIFACT_KEY:
-				setArtifactKey((IArtifactKey)null);
+				setArtifactKey((IArtifactKey) null);
 				return;
 			case P2Package.ARTIFACT_DESCRIPTOR__PROPERTY_MAP:
 				getPropertyMap().clear();
@@ -249,16 +264,20 @@ public class ArtifactDescriptorImpl extends MinimalEObjectImpl.Container impleme
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public IArtifactKey getArtifactKey() {
-		if (artifactKey != null && ((EObject)artifactKey).eIsProxy()) {
-			InternalEObject oldArtifactKey = (InternalEObject)artifactKey;
-			artifactKey = (IArtifactKey)eResolveProxy(oldArtifactKey);
-			if (artifactKey != oldArtifactKey) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, P2Package.ARTIFACT_DESCRIPTOR__ARTIFACT_KEY, oldArtifactKey, artifactKey));
+		if(artifactKey != null && ((EObject) artifactKey).eIsProxy()) {
+			InternalEObject oldArtifactKey = (InternalEObject) artifactKey;
+			artifactKey = (IArtifactKey) eResolveProxy(oldArtifactKey);
+			if(artifactKey != oldArtifactKey) {
+				if(eNotificationRequired())
+					eNotify(
+						new ENotificationImpl(
+							this, Notification.RESOLVE, P2Package.ARTIFACT_DESCRIPTOR__ARTIFACT_KEY, oldArtifactKey,
+							artifactKey));
 			}
 		}
 		return artifactKey;
@@ -267,12 +286,14 @@ public class ArtifactDescriptorImpl extends MinimalEObjectImpl.Container impleme
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public EList<IProcessingStepDescriptor> getProcessingStepList() {
-		if (processingStepList == null) {
-			processingStepList = new EObjectContainmentEList.Resolving<IProcessingStepDescriptor>(IProcessingStepDescriptor.class, this, P2Package.ARTIFACT_DESCRIPTOR__PROCESSING_STEP_LIST);
+		if(processingStepList == null) {
+			processingStepList = new EObjectContainmentEList.Resolving<IProcessingStepDescriptor>(
+				IProcessingStepDescriptor.class, this, P2Package.ARTIFACT_DESCRIPTOR__PROCESSING_STEP_LIST);
 		}
 		return processingStepList;
 	}
@@ -314,12 +335,14 @@ public class ArtifactDescriptorImpl extends MinimalEObjectImpl.Container impleme
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public EMap<String, String> getPropertyMap() {
-		if (propertyMap == null) {
-			propertyMap = new EcoreEMap<String,String>(P2Package.Literals.PROPERTY, PropertyImpl.class, this, P2Package.ARTIFACT_DESCRIPTOR__PROPERTY_MAP);
+		if(propertyMap == null) {
+			propertyMap = new EcoreEMap<String, String>(
+				P2Package.Literals.PROPERTY, PropertyImpl.class, this, P2Package.ARTIFACT_DESCRIPTOR__PROPERTY_MAP);
 		}
 		return propertyMap;
 	}
@@ -357,13 +380,16 @@ public class ArtifactDescriptorImpl extends MinimalEObjectImpl.Container impleme
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setArtifactKey(IArtifactKey newArtifactKey) {
 		IArtifactKey oldArtifactKey = artifactKey;
 		artifactKey = newArtifactKey;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, P2Package.ARTIFACT_DESCRIPTOR__ARTIFACT_KEY, oldArtifactKey, artifactKey));
+		if(eNotificationRequired())
+			eNotify(
+				new ENotificationImpl(
+					this, Notification.SET, P2Package.ARTIFACT_DESCRIPTOR__ARTIFACT_KEY, oldArtifactKey, artifactKey));
 	}
 
 } // ArtifactDescriptorImpl

@@ -61,13 +61,11 @@ import org.eclipse.equinox.p2.metadata.ITouchpointData;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model <b>Factory</b>. <!-- end-user-doc -->
- * 
  * @generated
  */
 public class P2viewFactoryImpl extends EFactoryImpl implements P2viewFactory {
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @deprecated
 	 * @generated
 	 */
@@ -79,7 +77,6 @@ public class P2viewFactoryImpl extends EFactoryImpl implements P2viewFactory {
 	/**
 	 * Creates the default factory implementation.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public static P2viewFactory init() {
@@ -99,7 +96,6 @@ public class P2viewFactoryImpl extends EFactoryImpl implements P2viewFactory {
 	/**
 	 * Creates an instance of the factory.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public P2viewFactoryImpl() {
@@ -108,7 +104,6 @@ public class P2viewFactoryImpl extends EFactoryImpl implements P2viewFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -169,9 +164,9 @@ public class P2viewFactoryImpl extends EFactoryImpl implements P2viewFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
+	@Override
 	public Bundle createBundle() {
 		BundleImpl bundle = new BundleImpl();
 		return bundle;
@@ -182,6 +177,7 @@ public class P2viewFactoryImpl extends EFactoryImpl implements P2viewFactory {
 	 *
 	 * @generated NOT
 	 */
+	@Override
 	public Bundle createBundle(IInstallableUnit iu) {
 		BundleImpl bundle = new BundleImpl(iu);
 		return bundle;
@@ -189,9 +185,9 @@ public class P2viewFactoryImpl extends EFactoryImpl implements P2viewFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
+	@Override
 	public Bundles createBundles() {
 		BundlesImpl bundles = new BundlesImpl();
 		return bundles;
@@ -199,9 +195,9 @@ public class P2viewFactoryImpl extends EFactoryImpl implements P2viewFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
+	@Override
 	public Categories createCategories() {
 		CategoriesImpl categories = new CategoriesImpl();
 		return categories;
@@ -209,9 +205,9 @@ public class P2viewFactoryImpl extends EFactoryImpl implements P2viewFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
+	@Override
 	public Category createCategory() {
 		CategoryImpl category = new CategoryImpl();
 		return category;
@@ -222,6 +218,7 @@ public class P2viewFactoryImpl extends EFactoryImpl implements P2viewFactory {
 	 *
 	 * @generated NOT
 	 */
+	@Override
 	public Category createCategory(IInstallableUnit iu) {
 		CategoryImpl category = new CategoryImpl(iu);
 		return category;
@@ -229,9 +226,9 @@ public class P2viewFactoryImpl extends EFactoryImpl implements P2viewFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
+	@Override
 	public Feature createFeature() {
 		FeatureImpl feature = new FeatureImpl();
 		return feature;
@@ -242,6 +239,7 @@ public class P2viewFactoryImpl extends EFactoryImpl implements P2viewFactory {
 	 *
 	 * @generated NOT
 	 */
+	@Override
 	public Feature createFeature(IInstallableUnit iu) {
 		FeatureImpl feature = new FeatureImpl(iu);
 		return feature;
@@ -249,9 +247,9 @@ public class P2viewFactoryImpl extends EFactoryImpl implements P2viewFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
+	@Override
 	public Features createFeatures() {
 		FeaturesImpl features = new FeaturesImpl();
 		return features;
@@ -259,9 +257,9 @@ public class P2viewFactoryImpl extends EFactoryImpl implements P2viewFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
+	@Override
 	public Fragment createFragment() {
 		FragmentImpl fragment = new FragmentImpl();
 		return fragment;
@@ -272,6 +270,7 @@ public class P2viewFactoryImpl extends EFactoryImpl implements P2viewFactory {
 	 *
 	 * @generated NOT
 	 */
+	@Override
 	public Fragment createFragment(IInstallableUnit iu) {
 		FragmentImpl fragment = new FragmentImpl(iu);
 		return fragment;
@@ -279,9 +278,9 @@ public class P2viewFactoryImpl extends EFactoryImpl implements P2viewFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
+	@Override
 	public Fragments createFragments() {
 		FragmentsImpl fragments = new FragmentsImpl();
 		return fragments;
@@ -289,9 +288,9 @@ public class P2viewFactoryImpl extends EFactoryImpl implements P2viewFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
+	@Override
 	public InstallableUnits createInstallableUnits() {
 		InstallableUnitsImpl installableUnits = new InstallableUnitsImpl();
 		return installableUnits;
@@ -299,14 +298,15 @@ public class P2viewFactoryImpl extends EFactoryImpl implements P2viewFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
+	@Override
 	public IUDetails createIUDetails() {
 		IUDetailsImpl iuDetails = new IUDetailsImpl();
 		return iuDetails;
 	}
 
+	@Override
 	public IUDetails createIUDetails(IInstallableUnit iu) {
 		IUDetails iuDetails = createIUDetails();
 
@@ -409,9 +409,9 @@ public class P2viewFactoryImpl extends EFactoryImpl implements P2viewFactory {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
+	@Override
 	public Licenses createLicenses() {
 		LicensesImpl licenses = new LicensesImpl();
 		return licenses;
@@ -419,9 +419,9 @@ public class P2viewFactoryImpl extends EFactoryImpl implements P2viewFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
+	@Override
 	public MetadataRepositoryStructuredView createMetadataRepositoryStructuredView() {
 		MetadataRepositoryStructuredViewImpl metadataRepositoryStructuredView = new MetadataRepositoryStructuredViewImpl();
 		return metadataRepositoryStructuredView;
@@ -432,6 +432,7 @@ public class P2viewFactoryImpl extends EFactoryImpl implements P2viewFactory {
 	 *
 	 * @generated NOT
 	 */
+	@Override
 	public MetadataRepositoryStructuredView createMetadataRepositoryStructuredView(
 			MetadataRepository metadataRepository) {
 		MetadataRepositoryStructuredViewImpl metadataRepositoryStructuredView = new MetadataRepositoryStructuredViewImpl(
@@ -441,9 +442,9 @@ public class P2viewFactoryImpl extends EFactoryImpl implements P2viewFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
+	@Override
 	public Miscellaneous createMiscellaneous() {
 		MiscellaneousImpl miscellaneous = new MiscellaneousImpl();
 		return miscellaneous;
@@ -451,9 +452,9 @@ public class P2viewFactoryImpl extends EFactoryImpl implements P2viewFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
+	@Override
 	public OtherIU createOtherIU() {
 		OtherIUImpl otherIU = new OtherIUImpl();
 		return otherIU;
@@ -464,6 +465,7 @@ public class P2viewFactoryImpl extends EFactoryImpl implements P2viewFactory {
 	 *
 	 * @generated NOT
 	 */
+	@Override
 	public OtherIU createOtherIU(IInstallableUnit iu) {
 		OtherIUImpl otherIU = new OtherIUImpl(iu);
 		return otherIU;
@@ -471,9 +473,9 @@ public class P2viewFactoryImpl extends EFactoryImpl implements P2viewFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
+	@Override
 	public Product createProduct() {
 		ProductImpl product = new ProductImpl();
 		return product;
@@ -484,6 +486,7 @@ public class P2viewFactoryImpl extends EFactoryImpl implements P2viewFactory {
 	 *
 	 * @generated NOT
 	 */
+	@Override
 	public Product createProduct(IInstallableUnit iu) {
 		ProductImpl product = new ProductImpl(iu);
 		return product;
@@ -491,9 +494,9 @@ public class P2viewFactoryImpl extends EFactoryImpl implements P2viewFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
+	@Override
 	public Products createProducts() {
 		ProductsImpl products = new ProductsImpl();
 		return products;
@@ -501,9 +504,9 @@ public class P2viewFactoryImpl extends EFactoryImpl implements P2viewFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
+	@Override
 	public Properties createProperties() {
 		PropertiesImpl properties = new PropertiesImpl();
 		return properties;
@@ -511,9 +514,9 @@ public class P2viewFactoryImpl extends EFactoryImpl implements P2viewFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
+	@Override
 	public ProvidedCapabilities createProvidedCapabilities() {
 		ProvidedCapabilitiesImpl providedCapabilities = new ProvidedCapabilitiesImpl();
 		return providedCapabilities;
@@ -521,14 +524,15 @@ public class P2viewFactoryImpl extends EFactoryImpl implements P2viewFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
+	@Override
 	public ProvidedCapabilityWrapper createProvidedCapabilityWrapper() {
 		ProvidedCapabilityWrapperImpl providedCapabilityWrapper = new ProvidedCapabilityWrapperImpl();
 		return providedCapabilityWrapper;
 	}
 
+	@Override
 	public ProvidedCapabilityWrapper createProvidedCapabilityWrapper(IProvidedCapability pc) {
 		ProvidedCapabilityWrapperImpl providedCapabilityWrapper = new ProvidedCapabilityWrapperImpl(pc);
 		return providedCapabilityWrapper;
@@ -537,14 +541,15 @@ public class P2viewFactoryImpl extends EFactoryImpl implements P2viewFactory {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
+	@Override
 	public RepositoryBrowser createRepositoryBrowser() {
 		RepositoryBrowserImpl repositoryBrowser = new RepositoryBrowserImpl();
 		return repositoryBrowser;
 	}
 
+	@Override
 	public RepositoryBrowser createRepositoryBrowser(Aggregation aggregation) {
 		RepositoryBrowserImpl repositoryBrowser = new RepositoryBrowserImpl(aggregation);
 		return repositoryBrowser;
@@ -553,9 +558,9 @@ public class P2viewFactoryImpl extends EFactoryImpl implements P2viewFactory {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
+	@Override
 	public RepositoryReferences createRepositoryReferences() {
 		RepositoryReferencesImpl repositoryReferences = new RepositoryReferencesImpl();
 		return repositoryReferences;
@@ -564,9 +569,9 @@ public class P2viewFactoryImpl extends EFactoryImpl implements P2viewFactory {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
+	@Override
 	public Requirements createRequirements() {
 		RequirementsImpl requirements = new RequirementsImpl();
 		return requirements;
@@ -575,14 +580,15 @@ public class P2viewFactoryImpl extends EFactoryImpl implements P2viewFactory {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
+	@Override
 	public RequirementWrapper createRequirementWrapper() {
 		RequirementWrapperImpl requirementWrapper = new RequirementWrapperImpl();
 		return requirementWrapper;
 	}
 
+	@Override
 	public RequirementWrapper createRequirementWrapper(IRequirement req) {
 		RequirementWrapperImpl requiredCapabilityWrapper = new RequirementWrapperImpl(req);
 		return requiredCapabilityWrapper;
@@ -590,9 +596,9 @@ public class P2viewFactoryImpl extends EFactoryImpl implements P2viewFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
+	@Override
 	public Touchpoints createTouchpoints() {
 		TouchpointsImpl touchpoints = new TouchpointsImpl();
 		return touchpoints;
@@ -600,9 +606,9 @@ public class P2viewFactoryImpl extends EFactoryImpl implements P2viewFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
+	@Override
 	public P2viewPackage getP2viewPackage() {
 		return (P2viewPackage) getEPackage();
 	}

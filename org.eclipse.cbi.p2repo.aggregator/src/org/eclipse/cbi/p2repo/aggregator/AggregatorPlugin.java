@@ -103,7 +103,7 @@ public final class AggregatorPlugin extends EMFPlugin {
 	 * @generated
 	 */
 	public AggregatorPlugin() {
-		super(new ResourceLocator [] {});
+		super(new ResourceLocator[] {});
 	}
 
 	/**

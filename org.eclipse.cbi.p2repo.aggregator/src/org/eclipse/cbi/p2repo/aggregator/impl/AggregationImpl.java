@@ -409,18 +409,24 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 	 */
 	@Override
 	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
-		if (baseClass == StatusProvider.class) {
-			switch (derivedFeatureID) {
-				case AggregatorPackage.AGGREGATION__STATUS: return AggregatorPackage.STATUS_PROVIDER__STATUS;
-				default: return -1;
+		if(baseClass == StatusProvider.class) {
+			switch(derivedFeatureID) {
+				case AggregatorPackage.AGGREGATION__STATUS:
+					return AggregatorPackage.STATUS_PROVIDER__STATUS;
+				default:
+					return -1;
 			}
 		}
-		if (baseClass == InfosProvider.class) {
-			switch (derivedFeatureID) {
-				case AggregatorPackage.AGGREGATION__ERRORS: return AggregatorPackage.INFOS_PROVIDER__ERRORS;
-				case AggregatorPackage.AGGREGATION__WARNINGS: return AggregatorPackage.INFOS_PROVIDER__WARNINGS;
-				case AggregatorPackage.AGGREGATION__INFOS: return AggregatorPackage.INFOS_PROVIDER__INFOS;
-				default: return -1;
+		if(baseClass == InfosProvider.class) {
+			switch(derivedFeatureID) {
+				case AggregatorPackage.AGGREGATION__ERRORS:
+					return AggregatorPackage.INFOS_PROVIDER__ERRORS;
+				case AggregatorPackage.AGGREGATION__WARNINGS:
+					return AggregatorPackage.INFOS_PROVIDER__WARNINGS;
+				case AggregatorPackage.AGGREGATION__INFOS:
+					return AggregatorPackage.INFOS_PROVIDER__INFOS;
+				default:
+					return -1;
 			}
 		}
 		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
@@ -432,18 +438,24 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 	 */
 	@Override
 	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
-		if (baseClass == StatusProvider.class) {
-			switch (baseFeatureID) {
-				case AggregatorPackage.STATUS_PROVIDER__STATUS: return AggregatorPackage.AGGREGATION__STATUS;
-				default: return -1;
+		if(baseClass == StatusProvider.class) {
+			switch(baseFeatureID) {
+				case AggregatorPackage.STATUS_PROVIDER__STATUS:
+					return AggregatorPackage.AGGREGATION__STATUS;
+				default:
+					return -1;
 			}
 		}
-		if (baseClass == InfosProvider.class) {
-			switch (baseFeatureID) {
-				case AggregatorPackage.INFOS_PROVIDER__ERRORS: return AggregatorPackage.AGGREGATION__ERRORS;
-				case AggregatorPackage.INFOS_PROVIDER__WARNINGS: return AggregatorPackage.AGGREGATION__WARNINGS;
-				case AggregatorPackage.INFOS_PROVIDER__INFOS: return AggregatorPackage.AGGREGATION__INFOS;
-				default: return -1;
+		if(baseClass == InfosProvider.class) {
+			switch(baseFeatureID) {
+				case AggregatorPackage.INFOS_PROVIDER__ERRORS:
+					return AggregatorPackage.AGGREGATION__ERRORS;
+				case AggregatorPackage.INFOS_PROVIDER__WARNINGS:
+					return AggregatorPackage.AGGREGATION__WARNINGS;
+				case AggregatorPackage.INFOS_PROVIDER__INFOS:
+					return AggregatorPackage.AGGREGATION__INFOS;
+				default:
+					return -1;
 			}
 		}
 		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
@@ -455,7 +467,7 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch (featureID) {
+		switch(featureID) {
 			case AggregatorPackage.AGGREGATION__STATUS:
 				return getStatus();
 			case AggregatorPackage.AGGREGATION__ERRORS:
@@ -473,10 +485,12 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 			case AggregatorPackage.AGGREGATION__CONTACTS:
 				return getContacts();
 			case AggregatorPackage.AGGREGATION__BUILDMASTER:
-				if (resolve) return getBuildmaster();
+				if(resolve)
+					return getBuildmaster();
 				return basicGetBuildmaster();
 			case AggregatorPackage.AGGREGATION__BUILDMASTER_BACKUP:
-				if (resolve) return getBuildmasterBackup();
+				if(resolve)
+					return getBuildmasterBackup();
 				return basicGetBuildmasterBackup();
 			case AggregatorPackage.AGGREGATION__LABEL:
 				return getLabel();
@@ -507,9 +521,9 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
+		switch(featureID) {
 			case AggregatorPackage.AGGREGATION__CONTACTS:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getContacts()).basicAdd(otherEnd, msgs);
+				return ((InternalEList<InternalEObject>) (InternalEList<?>) getContacts()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -520,17 +534,17 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
+		switch(featureID) {
 			case AggregatorPackage.AGGREGATION__VALIDATION_SETS:
-				return ((InternalEList<?>)getValidationSets()).basicRemove(otherEnd, msgs);
+				return ((InternalEList<?>) getValidationSets()).basicRemove(otherEnd, msgs);
 			case AggregatorPackage.AGGREGATION__CONFIGURATIONS:
-				return ((InternalEList<?>)getConfigurations()).basicRemove(otherEnd, msgs);
+				return ((InternalEList<?>) getConfigurations()).basicRemove(otherEnd, msgs);
 			case AggregatorPackage.AGGREGATION__CUSTOM_CATEGORIES:
-				return ((InternalEList<?>)getCustomCategories()).basicRemove(otherEnd, msgs);
+				return ((InternalEList<?>) getCustomCategories()).basicRemove(otherEnd, msgs);
 			case AggregatorPackage.AGGREGATION__CONTACTS:
-				return ((InternalEList<?>)getContacts()).basicRemove(otherEnd, msgs);
+				return ((InternalEList<?>) getContacts()).basicRemove(otherEnd, msgs);
 			case AggregatorPackage.AGGREGATION__MAVEN_MAPPINGS:
-				return ((InternalEList<?>)getMavenMappings()).basicRemove(otherEnd, msgs);
+				return ((InternalEList<?>) getMavenMappings()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -541,7 +555,7 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch (featureID) {
+		switch(featureID) {
 			case AggregatorPackage.AGGREGATION__STATUS:
 				return getStatus() != null;
 			case AggregatorPackage.AGGREGATION__ERRORS:
@@ -563,9 +577,13 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 			case AggregatorPackage.AGGREGATION__BUILDMASTER_BACKUP:
 				return buildmasterBackup != null;
 			case AggregatorPackage.AGGREGATION__LABEL:
-				return LABEL_EDEFAULT == null ? label != null : !LABEL_EDEFAULT.equals(label);
+				return LABEL_EDEFAULT == null
+						? label != null
+						: !LABEL_EDEFAULT.equals(label);
 			case AggregatorPackage.AGGREGATION__BUILD_ROOT:
-				return BUILD_ROOT_EDEFAULT == null ? buildRoot != null : !BUILD_ROOT_EDEFAULT.equals(buildRoot);
+				return BUILD_ROOT_EDEFAULT == null
+						? buildRoot != null
+						: !BUILD_ROOT_EDEFAULT.equals(buildRoot);
 			case AggregatorPackage.AGGREGATION__PACKED_STRATEGY:
 				return (eFlags & PACKED_STRATEGY_EFLAG) != PACKED_STRATEGY_EFLAG_DEFAULT;
 			case AggregatorPackage.AGGREGATION__SENDMAIL:
@@ -591,68 +609,68 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch (featureID) {
+		switch(featureID) {
 			case AggregatorPackage.AGGREGATION__ERRORS:
 				getErrors().clear();
-				getErrors().addAll((Collection<? extends String>)newValue);
+				getErrors().addAll((Collection<? extends String>) newValue);
 				return;
 			case AggregatorPackage.AGGREGATION__WARNINGS:
 				getWarnings().clear();
-				getWarnings().addAll((Collection<? extends String>)newValue);
+				getWarnings().addAll((Collection<? extends String>) newValue);
 				return;
 			case AggregatorPackage.AGGREGATION__INFOS:
 				getInfos().clear();
-				getInfos().addAll((Collection<? extends String>)newValue);
+				getInfos().addAll((Collection<? extends String>) newValue);
 				return;
 			case AggregatorPackage.AGGREGATION__VALIDATION_SETS:
 				getValidationSets().clear();
-				getValidationSets().addAll((Collection<? extends ValidationSet>)newValue);
+				getValidationSets().addAll((Collection<? extends ValidationSet>) newValue);
 				return;
 			case AggregatorPackage.AGGREGATION__CONFIGURATIONS:
 				getConfigurations().clear();
-				getConfigurations().addAll((Collection<? extends Configuration>)newValue);
+				getConfigurations().addAll((Collection<? extends Configuration>) newValue);
 				return;
 			case AggregatorPackage.AGGREGATION__CUSTOM_CATEGORIES:
 				getCustomCategories().clear();
-				getCustomCategories().addAll((Collection<? extends CustomCategory>)newValue);
+				getCustomCategories().addAll((Collection<? extends CustomCategory>) newValue);
 				return;
 			case AggregatorPackage.AGGREGATION__CONTACTS:
 				getContacts().clear();
-				getContacts().addAll((Collection<? extends Contact>)newValue);
+				getContacts().addAll((Collection<? extends Contact>) newValue);
 				return;
 			case AggregatorPackage.AGGREGATION__BUILDMASTER:
-				setBuildmaster((Contact)newValue);
+				setBuildmaster((Contact) newValue);
 				return;
 			case AggregatorPackage.AGGREGATION__BUILDMASTER_BACKUP:
-				setBuildmasterBackup((Contact)newValue);
+				setBuildmasterBackup((Contact) newValue);
 				return;
 			case AggregatorPackage.AGGREGATION__LABEL:
-				setLabel((String)newValue);
+				setLabel((String) newValue);
 				return;
 			case AggregatorPackage.AGGREGATION__BUILD_ROOT:
-				setBuildRoot((String)newValue);
+				setBuildRoot((String) newValue);
 				return;
 			case AggregatorPackage.AGGREGATION__PACKED_STRATEGY:
-				setPackedStrategy((PackedStrategy)newValue);
+				setPackedStrategy((PackedStrategy) newValue);
 				return;
 			case AggregatorPackage.AGGREGATION__SENDMAIL:
-				setSendmail((Boolean)newValue);
+				setSendmail((Boolean) newValue);
 				return;
 			case AggregatorPackage.AGGREGATION__TYPE:
-				setType((AggregationType)newValue);
+				setType((AggregationType) newValue);
 				return;
 			case AggregatorPackage.AGGREGATION__MAVEN_RESULT:
-				setMavenResult((Boolean)newValue);
+				setMavenResult((Boolean) newValue);
 				return;
 			case AggregatorPackage.AGGREGATION__STRICT_MAVEN_VERSIONS:
-				setStrictMavenVersions((Boolean)newValue);
+				setStrictMavenVersions((Boolean) newValue);
 				return;
 			case AggregatorPackage.AGGREGATION__MAVEN_MAPPINGS:
 				getMavenMappings().clear();
-				getMavenMappings().addAll((Collection<? extends MavenMapping>)newValue);
+				getMavenMappings().addAll((Collection<? extends MavenMapping>) newValue);
 				return;
 			case AggregatorPackage.AGGREGATION__ALLOW_LEGACY_SITES:
-				setAllowLegacySites((Boolean)newValue);
+				setAllowLegacySites((Boolean) newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -673,7 +691,7 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 	 */
 	@Override
 	public void eUnset(int featureID) {
-		switch (featureID) {
+		switch(featureID) {
 			case AggregatorPackage.AGGREGATION__ERRORS:
 				getErrors().clear();
 				return;
@@ -696,10 +714,10 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 				getContacts().clear();
 				return;
 			case AggregatorPackage.AGGREGATION__BUILDMASTER:
-				setBuildmaster((Contact)null);
+				setBuildmaster((Contact) null);
 				return;
 			case AggregatorPackage.AGGREGATION__BUILDMASTER_BACKUP:
-				setBuildmasterBackup((Contact)null);
+				setBuildmasterBackup((Contact) null);
 				return;
 			case AggregatorPackage.AGGREGATION__LABEL:
 				setLabel(LABEL_EDEFAULT);
@@ -738,6 +756,7 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 	 *
 	 * @generated NOT
 	 */
+	@Override
 	public EList<Contribution> getAllContributions(boolean enabledOnly) {
 		BasicEList<Contribution> result = new UniqueEList.FastCompare<Contribution>();
 		for(ValidationSet vs : getValidationSets(enabledOnly)) {
@@ -755,6 +774,7 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 	 *
 	 * @generated NOT
 	 */
+	@Override
 	public EList<MetadataRepositoryReference> getAllMetadataRepositoryReferences(boolean enabledOnly) {
 		EList<MetadataRepositoryReference> allRepos = new UniqueEList.FastCompare<MetadataRepositoryReference>();
 		for(ValidationSet vs : getValidationSets(enabledOnly)) {
@@ -777,13 +797,17 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Contact getBuildmaster() {
-		if (buildmaster != null && ((EObject)buildmaster).eIsProxy()) {
-			InternalEObject oldBuildmaster = (InternalEObject)buildmaster;
-			buildmaster = (Contact)eResolveProxy(oldBuildmaster);
-			if (buildmaster != oldBuildmaster) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, AggregatorPackage.AGGREGATION__BUILDMASTER, oldBuildmaster, buildmaster));
+		if(buildmaster != null && ((EObject) buildmaster).eIsProxy()) {
+			InternalEObject oldBuildmaster = (InternalEObject) buildmaster;
+			buildmaster = (Contact) eResolveProxy(oldBuildmaster);
+			if(buildmaster != oldBuildmaster) {
+				if(eNotificationRequired())
+					eNotify(
+						new ENotificationImpl(
+							this, Notification.RESOLVE, AggregatorPackage.AGGREGATION__BUILDMASTER, oldBuildmaster,
+							buildmaster));
 			}
 		}
 		return buildmaster;
@@ -793,6 +817,7 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getBuildRoot() {
 		return buildRoot;
 	}
@@ -801,9 +826,11 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<Configuration> getConfigurations() {
-		if (configurations == null) {
-			configurations = new EObjectContainmentEList.Resolving<Configuration>(Configuration.class, this, AggregatorPackage.AGGREGATION__CONFIGURATIONS);
+		if(configurations == null) {
+			configurations = new EObjectContainmentEList.Resolving<Configuration>(
+				Configuration.class, this, AggregatorPackage.AGGREGATION__CONFIGURATIONS);
 		}
 		return configurations;
 	}
@@ -812,9 +839,11 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<Contact> getContacts() {
-		if (contacts == null) {
-			contacts = new EObjectContainmentWithInverseEList.Resolving<Contact>(Contact.class, this, AggregatorPackage.AGGREGATION__CONTACTS, AggregatorPackage.CONTACT__AGGREGATION);
+		if(contacts == null) {
+			contacts = new EObjectContainmentWithInverseEList.Resolving<Contact>(
+				Contact.class, this, AggregatorPackage.AGGREGATION__CONTACTS, AggregatorPackage.CONTACT__AGGREGATION);
 		}
 		return contacts;
 	}
@@ -823,9 +852,11 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<CustomCategory> getCustomCategories() {
-		if (customCategories == null) {
-			customCategories = new EObjectContainmentEList.Resolving<CustomCategory>(CustomCategory.class, this, AggregatorPackage.AGGREGATION__CUSTOM_CATEGORIES);
+		if(customCategories == null) {
+			customCategories = new EObjectContainmentEList.Resolving<CustomCategory>(
+				CustomCategory.class, this, AggregatorPackage.AGGREGATION__CUSTOM_CATEGORIES);
 		}
 		return customCategories;
 	}
@@ -834,8 +865,9 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<String> getErrors() {
-		if (errors == null) {
+		if(errors == null) {
 			errors = new EDataTypeUniqueEList<String>(String.class, this, AggregatorPackage.AGGREGATION__ERRORS);
 		}
 		return errors;
@@ -845,8 +877,9 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<String> getInfos() {
-		if (infos == null) {
+		if(infos == null) {
 			infos = new EDataTypeUniqueEList<String>(String.class, this, AggregatorPackage.AGGREGATION__INFOS);
 		}
 		return infos;
@@ -856,6 +889,7 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getLabel() {
 		return label;
 	}
@@ -864,9 +898,11 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<MavenMapping> getMavenMappings() {
-		if (mavenMappings == null) {
-			mavenMappings = new EObjectContainmentEList.Resolving<MavenMapping>(MavenMapping.class, this, AggregatorPackage.AGGREGATION__MAVEN_MAPPINGS);
+		if(mavenMappings == null) {
+			mavenMappings = new EObjectContainmentEList.Resolving<MavenMapping>(
+				MavenMapping.class, this, AggregatorPackage.AGGREGATION__MAVEN_MAPPINGS);
 		}
 		return mavenMappings;
 	}
@@ -875,10 +911,12 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public PackedStrategy getPackedStrategy() {
 		return PACKED_STRATEGY_EFLAG_VALUES[(eFlags & PACKED_STRATEGY_EFLAG) >>> PACKED_STRATEGY_EFLAG_OFFSET];
 	}
 
+	@Override
 	synchronized public Status getStatus() {
 		StatusCode statusCode;
 		for(ValidationSet vs : getValidationSets(true)) {
@@ -896,6 +934,7 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public AggregationType getType() {
 		return TYPE_EFLAG_VALUES[(eFlags & TYPE_EFLAG) >>> TYPE_EFLAG_OFFSET];
 	}
@@ -905,9 +944,11 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<ValidationSet> getValidationSets() {
-		if (validationSets == null) {
-			validationSets = new EObjectContainmentEList.Resolving<ValidationSet>(ValidationSet.class, this, AggregatorPackage.AGGREGATION__VALIDATION_SETS);
+		if(validationSets == null) {
+			validationSets = new EObjectContainmentEList.Resolving<ValidationSet>(
+				ValidationSet.class, this, AggregatorPackage.AGGREGATION__VALIDATION_SETS);
 		}
 		return validationSets;
 	}
@@ -918,6 +959,7 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 	 *
 	 * @generated NOT
 	 */
+	@Override
 	public EList<ValidationSet> getValidationSets(boolean enabledOnly) {
 		EList<ValidationSet> vss = getValidationSets();
 		if(enabledOnly)
@@ -929,8 +971,9 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<String> getWarnings() {
-		if (warnings == null) {
+		if(warnings == null) {
 			warnings = new EDataTypeUniqueEList<String>(String.class, this, AggregatorPackage.AGGREGATION__WARNINGS);
 		}
 		return warnings;
@@ -941,6 +984,7 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public boolean isAllowLegacySites() {
 		return (eFlags & ALLOW_LEGACY_SITES_EFLAG) != 0;
 	}
@@ -949,6 +993,7 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public boolean isMavenResult() {
 		return (eFlags & MAVEN_RESULT_EFLAG) != 0;
 	}
@@ -957,6 +1002,7 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public boolean isSendmail() {
 		return (eFlags & SENDMAIL_EFLAG) != 0;
 	}
@@ -966,6 +1012,7 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public boolean isStrictMavenVersions() {
 		return (eFlags & STRICT_MAVEN_VERSIONS_EFLAG) != 0;
 	}
@@ -975,22 +1022,32 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setAllowLegacySites(boolean newAllowLegacySites) {
 		boolean oldAllowLegacySites = (eFlags & ALLOW_LEGACY_SITES_EFLAG) != 0;
-		if (newAllowLegacySites) eFlags |= ALLOW_LEGACY_SITES_EFLAG; else eFlags &= ~ALLOW_LEGACY_SITES_EFLAG;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, AggregatorPackage.AGGREGATION__ALLOW_LEGACY_SITES, oldAllowLegacySites, newAllowLegacySites));
+		if(newAllowLegacySites)
+			eFlags |= ALLOW_LEGACY_SITES_EFLAG;
+		else
+			eFlags &= ~ALLOW_LEGACY_SITES_EFLAG;
+		if(eNotificationRequired())
+			eNotify(
+				new ENotificationImpl(
+					this, Notification.SET, AggregatorPackage.AGGREGATION__ALLOW_LEGACY_SITES, oldAllowLegacySites,
+					newAllowLegacySites));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setBuildmaster(Contact newBuildmaster) {
 		Contact oldBuildmaster = buildmaster;
 		buildmaster = newBuildmaster;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, AggregatorPackage.AGGREGATION__BUILDMASTER, oldBuildmaster, buildmaster));
+		if(eNotificationRequired())
+			eNotify(
+				new ENotificationImpl(
+					this, Notification.SET, AggregatorPackage.AGGREGATION__BUILDMASTER, oldBuildmaster, buildmaster));
 	}
 
 	/**
@@ -998,13 +1055,17 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Contact getBuildmasterBackup() {
-		if (buildmasterBackup != null && ((EObject)buildmasterBackup).eIsProxy()) {
-			InternalEObject oldBuildmasterBackup = (InternalEObject)buildmasterBackup;
-			buildmasterBackup = (Contact)eResolveProxy(oldBuildmasterBackup);
-			if (buildmasterBackup != oldBuildmasterBackup) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, AggregatorPackage.AGGREGATION__BUILDMASTER_BACKUP, oldBuildmasterBackup, buildmasterBackup));
+		if(buildmasterBackup != null && ((EObject) buildmasterBackup).eIsProxy()) {
+			InternalEObject oldBuildmasterBackup = (InternalEObject) buildmasterBackup;
+			buildmasterBackup = (Contact) eResolveProxy(oldBuildmasterBackup);
+			if(buildmasterBackup != oldBuildmasterBackup) {
+				if(eNotificationRequired())
+					eNotify(
+						new ENotificationImpl(
+							this, Notification.RESOLVE, AggregatorPackage.AGGREGATION__BUILDMASTER_BACKUP,
+							oldBuildmasterBackup, buildmasterBackup));
 			}
 		}
 		return buildmasterBackup;
@@ -1024,67 +1085,95 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setBuildmasterBackup(Contact newBuildmasterBackup) {
 		Contact oldBuildmasterBackup = buildmasterBackup;
 		buildmasterBackup = newBuildmasterBackup;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, AggregatorPackage.AGGREGATION__BUILDMASTER_BACKUP, oldBuildmasterBackup, buildmasterBackup));
+		if(eNotificationRequired())
+			eNotify(
+				new ENotificationImpl(
+					this, Notification.SET, AggregatorPackage.AGGREGATION__BUILDMASTER_BACKUP, oldBuildmasterBackup,
+					buildmasterBackup));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setBuildRoot(String newBuildRoot) {
 		String oldBuildRoot = buildRoot;
 		buildRoot = newBuildRoot;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, AggregatorPackage.AGGREGATION__BUILD_ROOT, oldBuildRoot, buildRoot));
+		if(eNotificationRequired())
+			eNotify(
+				new ENotificationImpl(
+					this, Notification.SET, AggregatorPackage.AGGREGATION__BUILD_ROOT, oldBuildRoot, buildRoot));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setLabel(String newLabel) {
 		String oldLabel = label;
 		label = newLabel;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, AggregatorPackage.AGGREGATION__LABEL, oldLabel, label));
+		if(eNotificationRequired())
+			eNotify(
+				new ENotificationImpl(this, Notification.SET, AggregatorPackage.AGGREGATION__LABEL, oldLabel, label));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setMavenResult(boolean newMavenResult) {
 		boolean oldMavenResult = (eFlags & MAVEN_RESULT_EFLAG) != 0;
-		if (newMavenResult) eFlags |= MAVEN_RESULT_EFLAG; else eFlags &= ~MAVEN_RESULT_EFLAG;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, AggregatorPackage.AGGREGATION__MAVEN_RESULT, oldMavenResult, newMavenResult));
+		if(newMavenResult)
+			eFlags |= MAVEN_RESULT_EFLAG;
+		else
+			eFlags &= ~MAVEN_RESULT_EFLAG;
+		if(eNotificationRequired())
+			eNotify(
+				new ENotificationImpl(
+					this, Notification.SET, AggregatorPackage.AGGREGATION__MAVEN_RESULT, oldMavenResult,
+					newMavenResult));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setPackedStrategy(PackedStrategy newPackedStrategy) {
-		PackedStrategy oldPackedStrategy = PACKED_STRATEGY_EFLAG_VALUES[(eFlags & PACKED_STRATEGY_EFLAG) >>> PACKED_STRATEGY_EFLAG_OFFSET];
-		if (newPackedStrategy == null) newPackedStrategy = PACKED_STRATEGY_EDEFAULT;
+		PackedStrategy oldPackedStrategy = PACKED_STRATEGY_EFLAG_VALUES[(eFlags &
+				PACKED_STRATEGY_EFLAG) >>> PACKED_STRATEGY_EFLAG_OFFSET];
+		if(newPackedStrategy == null)
+			newPackedStrategy = PACKED_STRATEGY_EDEFAULT;
 		eFlags = eFlags & ~PACKED_STRATEGY_EFLAG | newPackedStrategy.ordinal() << PACKED_STRATEGY_EFLAG_OFFSET;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, AggregatorPackage.AGGREGATION__PACKED_STRATEGY, oldPackedStrategy, newPackedStrategy));
+		if(eNotificationRequired())
+			eNotify(
+				new ENotificationImpl(
+					this, Notification.SET, AggregatorPackage.AGGREGATION__PACKED_STRATEGY, oldPackedStrategy,
+					newPackedStrategy));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setSendmail(boolean newSendmail) {
 		boolean oldSendmail = (eFlags & SENDMAIL_EFLAG) != 0;
-		if (newSendmail) eFlags |= SENDMAIL_EFLAG; else eFlags &= ~SENDMAIL_EFLAG;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, AggregatorPackage.AGGREGATION__SENDMAIL, oldSendmail, newSendmail));
+		if(newSendmail)
+			eFlags |= SENDMAIL_EFLAG;
+		else
+			eFlags &= ~SENDMAIL_EFLAG;
+		if(eNotificationRequired())
+			eNotify(
+				new ENotificationImpl(
+					this, Notification.SET, AggregatorPackage.AGGREGATION__SENDMAIL, oldSendmail, newSendmail));
 	}
 
 	/**
@@ -1092,11 +1181,18 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setStrictMavenVersions(boolean newStrictMavenVersions) {
 		boolean oldStrictMavenVersions = (eFlags & STRICT_MAVEN_VERSIONS_EFLAG) != 0;
-		if (newStrictMavenVersions) eFlags |= STRICT_MAVEN_VERSIONS_EFLAG; else eFlags &= ~STRICT_MAVEN_VERSIONS_EFLAG;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, AggregatorPackage.AGGREGATION__STRICT_MAVEN_VERSIONS, oldStrictMavenVersions, newStrictMavenVersions));
+		if(newStrictMavenVersions)
+			eFlags |= STRICT_MAVEN_VERSIONS_EFLAG;
+		else
+			eFlags &= ~STRICT_MAVEN_VERSIONS_EFLAG;
+		if(eNotificationRequired())
+			eNotify(
+				new ENotificationImpl(
+					this, Notification.SET, AggregatorPackage.AGGREGATION__STRICT_MAVEN_VERSIONS,
+					oldStrictMavenVersions, newStrictMavenVersions));
 	}
 
 	/**
@@ -1104,12 +1200,15 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setType(AggregationType newType) {
 		AggregationType oldType = TYPE_EFLAG_VALUES[(eFlags & TYPE_EFLAG) >>> TYPE_EFLAG_OFFSET];
-		if (newType == null) newType = TYPE_EDEFAULT;
+		if(newType == null)
+			newType = TYPE_EDEFAULT;
 		eFlags = eFlags & ~TYPE_EFLAG | newType.ordinal() << TYPE_EFLAG_OFFSET;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, AggregatorPackage.AGGREGATION__TYPE, oldType, newType));
+		if(eNotificationRequired())
+			eNotify(
+				new ENotificationImpl(this, Notification.SET, AggregatorPackage.AGGREGATION__TYPE, oldType, newType));
 	}
 
 	/**
@@ -1118,7 +1217,8 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy()) return super.toString();
+		if(eIsProxy())
+			return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (errors: ");

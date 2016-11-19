@@ -25,9 +25,9 @@ import org.eclipse.equinox.p2.metadata.expression.IMatchExpression;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.eclipse.cbi.p2repo.p2.impl.RequiredCapabilityImpl#getName <em>Name</em>}</li>
- *   <li>{@link org.eclipse.cbi.p2repo.p2.impl.RequiredCapabilityImpl#getNamespace <em>Namespace</em>}</li>
- *   <li>{@link org.eclipse.cbi.p2repo.p2.impl.RequiredCapabilityImpl#getRange <em>Range</em>}</li>
+ * <li>{@link org.eclipse.cbi.p2repo.p2.impl.RequiredCapabilityImpl#getName <em>Name</em>}</li>
+ * <li>{@link org.eclipse.cbi.p2repo.p2.impl.RequiredCapabilityImpl#getNamespace <em>Namespace</em>}</li>
+ * <li>{@link org.eclipse.cbi.p2repo.p2.impl.RequiredCapabilityImpl#getRange <em>Range</em>}</li>
  * </ul>
  *
  * @generated
@@ -37,6 +37,7 @@ public class RequiredCapabilityImpl extends RequirementImpl implements RequiredC
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getName()
 	 * @generated
 	 * @ordered
@@ -47,6 +48,7 @@ public class RequiredCapabilityImpl extends RequirementImpl implements RequiredC
 	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getName()
 	 * @generated
 	 * @ordered
@@ -57,6 +59,7 @@ public class RequiredCapabilityImpl extends RequirementImpl implements RequiredC
 	 * The default value of the '{@link #getNamespace() <em>Namespace</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getNamespace()
 	 * @generated
 	 * @ordered
@@ -67,6 +70,7 @@ public class RequiredCapabilityImpl extends RequirementImpl implements RequiredC
 	 * The cached value of the '{@link #getNamespace() <em>Namespace</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getNamespace()
 	 * @generated
 	 * @ordered
@@ -77,6 +81,7 @@ public class RequiredCapabilityImpl extends RequirementImpl implements RequiredC
 	 * The default value of the '{@link #getRange() <em>Range</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getRange()
 	 * @generated
 	 * @ordered
@@ -87,6 +92,7 @@ public class RequiredCapabilityImpl extends RequirementImpl implements RequiredC
 	 * The cached value of the '{@link #getRange() <em>Range</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getRange()
 	 * @generated
 	 * @ordered
@@ -98,6 +104,7 @@ public class RequiredCapabilityImpl extends RequirementImpl implements RequiredC
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected RequiredCapabilityImpl() {
@@ -117,16 +124,21 @@ public class RequiredCapabilityImpl extends RequirementImpl implements RequiredC
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
-		if (baseClass == IRequiredCapability.class) {
-			switch (derivedFeatureID) {
-				case P2Package.REQUIRED_CAPABILITY__NAME: return P2Package.IREQUIRED_CAPABILITY__NAME;
-				case P2Package.REQUIRED_CAPABILITY__NAMESPACE: return P2Package.IREQUIRED_CAPABILITY__NAMESPACE;
-				case P2Package.REQUIRED_CAPABILITY__RANGE: return P2Package.IREQUIRED_CAPABILITY__RANGE;
-				default: return -1;
+		if(baseClass == IRequiredCapability.class) {
+			switch(derivedFeatureID) {
+				case P2Package.REQUIRED_CAPABILITY__NAME:
+					return P2Package.IREQUIRED_CAPABILITY__NAME;
+				case P2Package.REQUIRED_CAPABILITY__NAMESPACE:
+					return P2Package.IREQUIRED_CAPABILITY__NAMESPACE;
+				case P2Package.REQUIRED_CAPABILITY__RANGE:
+					return P2Package.IREQUIRED_CAPABILITY__RANGE;
+				default:
+					return -1;
 			}
 		}
 		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
@@ -135,16 +147,21 @@ public class RequiredCapabilityImpl extends RequirementImpl implements RequiredC
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
-		if (baseClass == IRequiredCapability.class) {
-			switch (baseFeatureID) {
-				case P2Package.IREQUIRED_CAPABILITY__NAME: return P2Package.REQUIRED_CAPABILITY__NAME;
-				case P2Package.IREQUIRED_CAPABILITY__NAMESPACE: return P2Package.REQUIRED_CAPABILITY__NAMESPACE;
-				case P2Package.IREQUIRED_CAPABILITY__RANGE: return P2Package.REQUIRED_CAPABILITY__RANGE;
-				default: return -1;
+		if(baseClass == IRequiredCapability.class) {
+			switch(baseFeatureID) {
+				case P2Package.IREQUIRED_CAPABILITY__NAME:
+					return P2Package.REQUIRED_CAPABILITY__NAME;
+				case P2Package.IREQUIRED_CAPABILITY__NAMESPACE:
+					return P2Package.REQUIRED_CAPABILITY__NAMESPACE;
+				case P2Package.IREQUIRED_CAPABILITY__RANGE:
+					return P2Package.REQUIRED_CAPABILITY__RANGE;
+				default:
+					return -1;
 			}
 		}
 		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
@@ -153,11 +170,12 @@ public class RequiredCapabilityImpl extends RequirementImpl implements RequiredC
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch (featureID) {
+		switch(featureID) {
 			case P2Package.REQUIRED_CAPABILITY__NAME:
 				return getName();
 			case P2Package.REQUIRED_CAPABILITY__NAMESPACE:
@@ -171,17 +189,24 @@ public class RequiredCapabilityImpl extends RequirementImpl implements RequiredC
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch (featureID) {
+		switch(featureID) {
 			case P2Package.REQUIRED_CAPABILITY__NAME:
-				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+				return NAME_EDEFAULT == null
+						? name != null
+						: !NAME_EDEFAULT.equals(name);
 			case P2Package.REQUIRED_CAPABILITY__NAMESPACE:
-				return NAMESPACE_EDEFAULT == null ? namespace != null : !NAMESPACE_EDEFAULT.equals(namespace);
+				return NAMESPACE_EDEFAULT == null
+						? namespace != null
+						: !NAMESPACE_EDEFAULT.equals(namespace);
 			case P2Package.REQUIRED_CAPABILITY__RANGE:
-				return RANGE_EDEFAULT == null ? range != null : !RANGE_EDEFAULT.equals(range);
+				return RANGE_EDEFAULT == null
+						? range != null
+						: !RANGE_EDEFAULT.equals(range);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -217,19 +242,20 @@ public class RequiredCapabilityImpl extends RequirementImpl implements RequiredC
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch (featureID) {
+		switch(featureID) {
 			case P2Package.REQUIRED_CAPABILITY__NAME:
-				setName((String)newValue);
+				setName((String) newValue);
 				return;
 			case P2Package.REQUIRED_CAPABILITY__NAMESPACE:
-				setNamespace((String)newValue);
+				setNamespace((String) newValue);
 				return;
 			case P2Package.REQUIRED_CAPABILITY__RANGE:
-				setRange((VersionRange)newValue);
+				setRange((VersionRange) newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -238,6 +264,7 @@ public class RequiredCapabilityImpl extends RequirementImpl implements RequiredC
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -248,11 +275,12 @@ public class RequiredCapabilityImpl extends RequirementImpl implements RequiredC
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
-		switch (featureID) {
+		switch(featureID) {
 			case P2Package.REQUIRED_CAPABILITY__NAME:
 				setName(NAME_EDEFAULT);
 				return;
@@ -277,6 +305,7 @@ public class RequiredCapabilityImpl extends RequirementImpl implements RequiredC
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -287,6 +316,7 @@ public class RequiredCapabilityImpl extends RequirementImpl implements RequiredC
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -297,6 +327,7 @@ public class RequiredCapabilityImpl extends RequirementImpl implements RequiredC
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -338,12 +369,13 @@ public class RequiredCapabilityImpl extends RequirementImpl implements RequiredC
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setNameGen(String newName) {
 		String oldName = name;
 		name = newName;
-		if (eNotificationRequired())
+		if(eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, P2Package.REQUIRED_CAPABILITY__NAME, oldName, name));
 	}
 
@@ -361,13 +393,16 @@ public class RequiredCapabilityImpl extends RequirementImpl implements RequiredC
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setNamespaceGen(String newNamespace) {
 		String oldNamespace = namespace;
 		namespace = newNamespace;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, P2Package.REQUIRED_CAPABILITY__NAMESPACE, oldNamespace, namespace));
+		if(eNotificationRequired())
+			eNotify(
+				new ENotificationImpl(
+					this, Notification.SET, P2Package.REQUIRED_CAPABILITY__NAMESPACE, oldNamespace, namespace));
 	}
 
 	/**
@@ -384,13 +419,15 @@ public class RequiredCapabilityImpl extends RequirementImpl implements RequiredC
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setRangeGen(VersionRange newRange) {
 		VersionRange oldRange = range;
 		range = newRange;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, P2Package.REQUIRED_CAPABILITY__RANGE, oldRange, range));
+		if(eNotificationRequired())
+			eNotify(
+				new ENotificationImpl(this, Notification.SET, P2Package.REQUIRED_CAPABILITY__RANGE, oldRange, range));
 	}
 
 	/**

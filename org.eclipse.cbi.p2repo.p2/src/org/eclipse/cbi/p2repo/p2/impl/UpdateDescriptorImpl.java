@@ -28,9 +28,9 @@ import org.eclipse.equinox.p2.metadata.expression.IMatchExpression;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.eclipse.cbi.p2repo.p2.impl.UpdateDescriptorImpl#getDescription <em>Description</em>}</li>
- *   <li>{@link org.eclipse.cbi.p2repo.p2.impl.UpdateDescriptorImpl#getSeverity <em>Severity</em>}</li>
- *   <li>{@link org.eclipse.cbi.p2repo.p2.impl.UpdateDescriptorImpl#getLocation <em>Location</em>}</li>
+ * <li>{@link org.eclipse.cbi.p2repo.p2.impl.UpdateDescriptorImpl#getDescription <em>Description</em>}</li>
+ * <li>{@link org.eclipse.cbi.p2repo.p2.impl.UpdateDescriptorImpl#getSeverity <em>Severity</em>}</li>
+ * <li>{@link org.eclipse.cbi.p2repo.p2.impl.UpdateDescriptorImpl#getLocation <em>Location</em>}</li>
  * </ul>
  *
  * @generated
@@ -42,6 +42,7 @@ public class UpdateDescriptorImpl extends MinimalEObjectImpl.Container implement
 	 * A set of bit flags representing the values of boolean attributes and whether unsettable features have been set.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -51,6 +52,7 @@ public class UpdateDescriptorImpl extends MinimalEObjectImpl.Container implement
 	 * The default value of the '{@link #getDescription() <em>Description</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getDescription()
 	 * @generated
 	 * @ordered
@@ -61,6 +63,7 @@ public class UpdateDescriptorImpl extends MinimalEObjectImpl.Container implement
 	 * The cached value of the '{@link #getDescription() <em>Description</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getDescription()
 	 * @generated
 	 * @ordered
@@ -71,6 +74,7 @@ public class UpdateDescriptorImpl extends MinimalEObjectImpl.Container implement
 	 * The default value of the '{@link #getSeverity() <em>Severity</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getSeverity()
 	 * @generated
 	 * @ordered
@@ -81,6 +85,7 @@ public class UpdateDescriptorImpl extends MinimalEObjectImpl.Container implement
 	 * The cached value of the '{@link #getSeverity() <em>Severity</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getSeverity()
 	 * @generated
 	 * @ordered
@@ -91,6 +96,7 @@ public class UpdateDescriptorImpl extends MinimalEObjectImpl.Container implement
 	 * The default value of the '{@link #getLocation() <em>Location</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getLocation()
 	 * @generated
 	 * @ordered
@@ -101,6 +107,7 @@ public class UpdateDescriptorImpl extends MinimalEObjectImpl.Container implement
 	 * The cached value of the '{@link #getLocation() <em>Location</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getLocation()
 	 * @generated
 	 * @ordered
@@ -110,6 +117,7 @@ public class UpdateDescriptorImpl extends MinimalEObjectImpl.Container implement
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected UpdateDescriptorImpl() {
@@ -119,11 +127,12 @@ public class UpdateDescriptorImpl extends MinimalEObjectImpl.Container implement
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch (featureID) {
+		switch(featureID) {
 			case P2Package.UPDATE_DESCRIPTOR__DESCRIPTION:
 				return getDescription();
 			case P2Package.UPDATE_DESCRIPTOR__SEVERITY:
@@ -137,17 +146,22 @@ public class UpdateDescriptorImpl extends MinimalEObjectImpl.Container implement
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch (featureID) {
+		switch(featureID) {
 			case P2Package.UPDATE_DESCRIPTOR__DESCRIPTION:
-				return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
+				return DESCRIPTION_EDEFAULT == null
+						? description != null
+						: !DESCRIPTION_EDEFAULT.equals(description);
 			case P2Package.UPDATE_DESCRIPTOR__SEVERITY:
 				return severity != SEVERITY_EDEFAULT;
 			case P2Package.UPDATE_DESCRIPTOR__LOCATION:
-				return LOCATION_EDEFAULT == null ? location != null : !LOCATION_EDEFAULT.equals(location);
+				return LOCATION_EDEFAULT == null
+						? location != null
+						: !LOCATION_EDEFAULT.equals(location);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -155,19 +169,20 @@ public class UpdateDescriptorImpl extends MinimalEObjectImpl.Container implement
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch (featureID) {
+		switch(featureID) {
 			case P2Package.UPDATE_DESCRIPTOR__DESCRIPTION:
-				setDescription((String)newValue);
+				setDescription((String) newValue);
 				return;
 			case P2Package.UPDATE_DESCRIPTOR__SEVERITY:
-				setSeverity((Integer)newValue);
+				setSeverity((Integer) newValue);
 				return;
 			case P2Package.UPDATE_DESCRIPTOR__LOCATION:
-				setLocation((URI)newValue);
+				setLocation((URI) newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -176,6 +191,7 @@ public class UpdateDescriptorImpl extends MinimalEObjectImpl.Container implement
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -186,11 +202,12 @@ public class UpdateDescriptorImpl extends MinimalEObjectImpl.Container implement
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
-		switch (featureID) {
+		switch(featureID) {
 			case P2Package.UPDATE_DESCRIPTOR__DESCRIPTION:
 				setDescription(DESCRIPTION_EDEFAULT);
 				return;
@@ -207,6 +224,7 @@ public class UpdateDescriptorImpl extends MinimalEObjectImpl.Container implement
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -231,6 +249,7 @@ public class UpdateDescriptorImpl extends MinimalEObjectImpl.Container implement
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -241,6 +260,7 @@ public class UpdateDescriptorImpl extends MinimalEObjectImpl.Container implement
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -267,13 +287,16 @@ public class UpdateDescriptorImpl extends MinimalEObjectImpl.Container implement
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setDescription(String newDescription) {
 		String oldDescription = description;
 		description = newDescription;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, P2Package.UPDATE_DESCRIPTOR__DESCRIPTION, oldDescription, description));
+		if(eNotificationRequired())
+			eNotify(
+				new ENotificationImpl(
+					this, Notification.SET, P2Package.UPDATE_DESCRIPTOR__DESCRIPTION, oldDescription, description));
 	}
 
 	public void setIUsBeingUpdated(Collection<IMatchExpression<IInstallableUnit>> IUsBeingUpdated) {
@@ -283,35 +306,43 @@ public class UpdateDescriptorImpl extends MinimalEObjectImpl.Container implement
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setLocation(URI newLocation) {
 		URI oldLocation = location;
 		location = newLocation;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, P2Package.UPDATE_DESCRIPTOR__LOCATION, oldLocation, location));
+		if(eNotificationRequired())
+			eNotify(
+				new ENotificationImpl(
+					this, Notification.SET, P2Package.UPDATE_DESCRIPTOR__LOCATION, oldLocation, location));
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setSeverity(int newSeverity) {
 		int oldSeverity = severity;
 		severity = newSeverity;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, P2Package.UPDATE_DESCRIPTOR__SEVERITY, oldSeverity, severity));
+		if(eNotificationRequired())
+			eNotify(
+				new ENotificationImpl(
+					this, Notification.SET, P2Package.UPDATE_DESCRIPTOR__SEVERITY, oldSeverity, severity));
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy()) return super.toString();
+		if(eIsProxy())
+			return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (description: ");

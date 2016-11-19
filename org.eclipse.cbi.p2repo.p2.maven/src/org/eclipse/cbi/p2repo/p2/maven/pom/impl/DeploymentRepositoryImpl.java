@@ -20,11 +20,11 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.DeploymentRepositoryImpl#isUniqueVersion <em>Unique Version</em>}</li>
- *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.DeploymentRepositoryImpl#getId <em>Id</em>}</li>
- *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.DeploymentRepositoryImpl#getName <em>Name</em>}</li>
- *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.DeploymentRepositoryImpl#getUrl <em>Url</em>}</li>
- *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.DeploymentRepositoryImpl#getLayout <em>Layout</em>}</li>
+ * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.DeploymentRepositoryImpl#isUniqueVersion <em>Unique Version</em>}</li>
+ * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.DeploymentRepositoryImpl#getId <em>Id</em>}</li>
+ * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.DeploymentRepositoryImpl#getName <em>Name</em>}</li>
+ * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.DeploymentRepositoryImpl#getUrl <em>Url</em>}</li>
+ * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.DeploymentRepositoryImpl#getLayout <em>Layout</em>}</li>
  * </ul>
  *
  * @generated
@@ -34,6 +34,7 @@ public class DeploymentRepositoryImpl extends EObjectImpl implements DeploymentR
 	 * The default value of the '{@link #isUniqueVersion() <em>Unique Version</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #isUniqueVersion()
 	 * @generated
 	 * @ordered
@@ -44,6 +45,7 @@ public class DeploymentRepositoryImpl extends EObjectImpl implements DeploymentR
 	 * The cached value of the '{@link #isUniqueVersion() <em>Unique Version</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #isUniqueVersion()
 	 * @generated
 	 * @ordered
@@ -53,6 +55,7 @@ public class DeploymentRepositoryImpl extends EObjectImpl implements DeploymentR
 	/**
 	 * This is true if the Unique Version attribute has been set.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -61,6 +64,7 @@ public class DeploymentRepositoryImpl extends EObjectImpl implements DeploymentR
 	/**
 	 * The default value of the '{@link #getId() <em>Id</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see #getId()
 	 * @generated
 	 * @ordered
@@ -70,6 +74,7 @@ public class DeploymentRepositoryImpl extends EObjectImpl implements DeploymentR
 	/**
 	 * The cached value of the '{@link #getId() <em>Id</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see #getId()
 	 * @generated
 	 * @ordered
@@ -109,6 +114,7 @@ public class DeploymentRepositoryImpl extends EObjectImpl implements DeploymentR
 	/**
 	 * The cached value of the '{@link #getUrl() <em>Url</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see #getUrl()
 	 * @generated
 	 * @ordered
@@ -119,6 +125,7 @@ public class DeploymentRepositoryImpl extends EObjectImpl implements DeploymentR
 	 * The default value of the '{@link #getLayout() <em>Layout</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @see #getLayout()
 	 * @generated
 	 * @ordered
@@ -129,6 +136,7 @@ public class DeploymentRepositoryImpl extends EObjectImpl implements DeploymentR
 	 * The cached value of the '{@link #getLayout() <em>Layout</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @see #getLayout()
 	 * @generated
 	 * @ordered
@@ -138,6 +146,7 @@ public class DeploymentRepositoryImpl extends EObjectImpl implements DeploymentR
 	/**
 	 * This is true if the Layout attribute has been set.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -145,6 +154,7 @@ public class DeploymentRepositoryImpl extends EObjectImpl implements DeploymentR
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected DeploymentRepositoryImpl() {
@@ -153,11 +163,12 @@ public class DeploymentRepositoryImpl extends EObjectImpl implements DeploymentR
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch (featureID) {
+		switch(featureID) {
 			case PomPackage.DEPLOYMENT_REPOSITORY__UNIQUE_VERSION:
 				return isUniqueVersion();
 			case PomPackage.DEPLOYMENT_REPOSITORY__ID:
@@ -174,19 +185,26 @@ public class DeploymentRepositoryImpl extends EObjectImpl implements DeploymentR
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch (featureID) {
+		switch(featureID) {
 			case PomPackage.DEPLOYMENT_REPOSITORY__UNIQUE_VERSION:
 				return isSetUniqueVersion();
 			case PomPackage.DEPLOYMENT_REPOSITORY__ID:
-				return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
+				return ID_EDEFAULT == null
+						? id != null
+						: !ID_EDEFAULT.equals(id);
 			case PomPackage.DEPLOYMENT_REPOSITORY__NAME:
-				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+				return NAME_EDEFAULT == null
+						? name != null
+						: !NAME_EDEFAULT.equals(name);
 			case PomPackage.DEPLOYMENT_REPOSITORY__URL:
-				return URL_EDEFAULT == null ? url != null : !URL_EDEFAULT.equals(url);
+				return URL_EDEFAULT == null
+						? url != null
+						: !URL_EDEFAULT.equals(url);
 			case PomPackage.DEPLOYMENT_REPOSITORY__LAYOUT:
 				return isSetLayout();
 		}
@@ -195,25 +213,26 @@ public class DeploymentRepositoryImpl extends EObjectImpl implements DeploymentR
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch (featureID) {
+		switch(featureID) {
 			case PomPackage.DEPLOYMENT_REPOSITORY__UNIQUE_VERSION:
-				setUniqueVersion((Boolean)newValue);
+				setUniqueVersion((Boolean) newValue);
 				return;
 			case PomPackage.DEPLOYMENT_REPOSITORY__ID:
-				setId((String)newValue);
+				setId((String) newValue);
 				return;
 			case PomPackage.DEPLOYMENT_REPOSITORY__NAME:
-				setName((String)newValue);
+				setName((String) newValue);
 				return;
 			case PomPackage.DEPLOYMENT_REPOSITORY__URL:
-				setUrl((String)newValue);
+				setUrl((String) newValue);
 				return;
 			case PomPackage.DEPLOYMENT_REPOSITORY__LAYOUT:
-				setLayout((String)newValue);
+				setLayout((String) newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -221,11 +240,12 @@ public class DeploymentRepositoryImpl extends EObjectImpl implements DeploymentR
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
-		switch (featureID) {
+		switch(featureID) {
 			case PomPackage.DEPLOYMENT_REPOSITORY__UNIQUE_VERSION:
 				unsetUniqueVersion();
 				return;
@@ -247,6 +267,7 @@ public class DeploymentRepositoryImpl extends EObjectImpl implements DeploymentR
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -256,6 +277,7 @@ public class DeploymentRepositoryImpl extends EObjectImpl implements DeploymentR
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -265,6 +287,7 @@ public class DeploymentRepositoryImpl extends EObjectImpl implements DeploymentR
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -274,6 +297,7 @@ public class DeploymentRepositoryImpl extends EObjectImpl implements DeploymentR
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -283,6 +307,7 @@ public class DeploymentRepositoryImpl extends EObjectImpl implements DeploymentR
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -292,6 +317,7 @@ public class DeploymentRepositoryImpl extends EObjectImpl implements DeploymentR
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -301,6 +327,7 @@ public class DeploymentRepositoryImpl extends EObjectImpl implements DeploymentR
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -310,18 +337,20 @@ public class DeploymentRepositoryImpl extends EObjectImpl implements DeploymentR
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void setId(String newId) {
 		String oldId = id;
 		id = newId;
-		if (eNotificationRequired())
+		if(eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.DEPLOYMENT_REPOSITORY__ID, oldId, id));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -330,24 +359,30 @@ public class DeploymentRepositoryImpl extends EObjectImpl implements DeploymentR
 		layout = newLayout;
 		boolean oldLayoutESet = layoutESet;
 		layoutESet = true;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.DEPLOYMENT_REPOSITORY__LAYOUT, oldLayout, layout, !oldLayoutESet));
+		if(eNotificationRequired())
+			eNotify(
+				new ENotificationImpl(
+					this, Notification.SET, PomPackage.DEPLOYMENT_REPOSITORY__LAYOUT, oldLayout, layout,
+					!oldLayoutESet));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void setName(String newName) {
 		String oldName = name;
 		name = newName;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.DEPLOYMENT_REPOSITORY__NAME, oldName, name));
+		if(eNotificationRequired())
+			eNotify(
+				new ENotificationImpl(this, Notification.SET, PomPackage.DEPLOYMENT_REPOSITORY__NAME, oldName, name));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -356,33 +391,42 @@ public class DeploymentRepositoryImpl extends EObjectImpl implements DeploymentR
 		uniqueVersion = newUniqueVersion;
 		boolean oldUniqueVersionESet = uniqueVersionESet;
 		uniqueVersionESet = true;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.DEPLOYMENT_REPOSITORY__UNIQUE_VERSION, oldUniqueVersion, uniqueVersion, !oldUniqueVersionESet));
+		if(eNotificationRequired())
+			eNotify(
+				new ENotificationImpl(
+					this, Notification.SET, PomPackage.DEPLOYMENT_REPOSITORY__UNIQUE_VERSION, oldUniqueVersion,
+					uniqueVersion, !oldUniqueVersionESet));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void setUrl(String newUrl) {
 		String oldUrl = url;
 		url = newUrl;
-		if (eNotificationRequired())
+		if(eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.DEPLOYMENT_REPOSITORY__URL, oldUrl, url));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy()) return super.toString();
+		if(eIsProxy())
+			return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (uniqueVersion: ");
-		if (uniqueVersionESet) result.append(uniqueVersion); else result.append("<unset>");
+		if(uniqueVersionESet)
+			result.append(uniqueVersion);
+		else
+			result.append("<unset>");
 		result.append(", id: ");
 		result.append(id);
 		result.append(", name: ");
@@ -390,13 +434,17 @@ public class DeploymentRepositoryImpl extends EObjectImpl implements DeploymentR
 		result.append(", url: ");
 		result.append(url);
 		result.append(", layout: ");
-		if (layoutESet) result.append(layout); else result.append("<unset>");
+		if(layoutESet)
+			result.append(layout);
+		else
+			result.append("<unset>");
 		result.append(')');
 		return result.toString();
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -405,12 +453,16 @@ public class DeploymentRepositoryImpl extends EObjectImpl implements DeploymentR
 		boolean oldLayoutESet = layoutESet;
 		layout = LAYOUT_EDEFAULT;
 		layoutESet = false;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.UNSET, PomPackage.DEPLOYMENT_REPOSITORY__LAYOUT, oldLayout, LAYOUT_EDEFAULT, oldLayoutESet));
+		if(eNotificationRequired())
+			eNotify(
+				new ENotificationImpl(
+					this, Notification.UNSET, PomPackage.DEPLOYMENT_REPOSITORY__LAYOUT, oldLayout, LAYOUT_EDEFAULT,
+					oldLayoutESet));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -419,12 +471,16 @@ public class DeploymentRepositoryImpl extends EObjectImpl implements DeploymentR
 		boolean oldUniqueVersionESet = uniqueVersionESet;
 		uniqueVersion = UNIQUE_VERSION_EDEFAULT;
 		uniqueVersionESet = false;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.UNSET, PomPackage.DEPLOYMENT_REPOSITORY__UNIQUE_VERSION, oldUniqueVersion, UNIQUE_VERSION_EDEFAULT, oldUniqueVersionESet));
+		if(eNotificationRequired())
+			eNotify(
+				new ENotificationImpl(
+					this, Notification.UNSET, PomPackage.DEPLOYMENT_REPOSITORY__UNIQUE_VERSION, oldUniqueVersion,
+					UNIQUE_VERSION_EDEFAULT, oldUniqueVersionESet));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override

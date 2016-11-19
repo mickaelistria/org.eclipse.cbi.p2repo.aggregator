@@ -30,8 +30,8 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface ValidationSet extends EnabledStatusProvider, DescriptionProvider, StatusProvider, InfosProvider,
-		IdentificationProvider {
+public interface ValidationSet
+		extends EnabledStatusProvider, DescriptionProvider, StatusProvider, InfosProvider, IdentificationProvider {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

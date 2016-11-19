@@ -45,19 +45,14 @@ public class CategoryItemProvider extends MappedUnitItemProvider {
 	 * @generated
 	 */
 	protected void addLabelOverridePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Category_labelOverride_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Category_labelOverride_feature", "_UI_Category_type"),
-				 AggregatorPackage.Literals.CATEGORY__LABEL_OVERRIDE,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
+		itemPropertyDescriptors.add(
+			createItemPropertyDescriptor(
+				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+				getString("_UI_Category_labelOverride_feature"),
+				getString(
+					"_UI_PropertyDescriptor_description", "_UI_Category_labelOverride_feature", "_UI_Category_type"),
+				AggregatorPackage.Literals.CATEGORY__LABEL_OVERRIDE, true, false, false,
+				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -84,8 +79,7 @@ public class CategoryItemProvider extends MappedUnitItemProvider {
 	@Override
 	public Object getImage(Object object) {
 		return overlayImage(
-			object,
-			getResourceLocator().getImage(
+			object, getResourceLocator().getImage(
 				"full/obj16/Category" + (!((Category) object).isBranchDisabledOrMappedRepositoryBroken()
 						? ""
 						: "Disabled")));
@@ -103,7 +97,7 @@ public class CategoryItemProvider extends MappedUnitItemProvider {
 	 */
 	@Override
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-		if (itemPropertyDescriptors == null) {
+		if(itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
 			addLabelOverridePropertyDescriptor(object);
@@ -147,7 +141,7 @@ public class CategoryItemProvider extends MappedUnitItemProvider {
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(Category.class)) {
+		switch(notification.getFeatureID(Category.class)) {
 			case AggregatorPackage.CATEGORY__LABEL_OVERRIDE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;

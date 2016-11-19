@@ -14,20 +14,20 @@ import org.eclipse.emf.ecore.EObject;
  * <!-- begin-model-doc -->
  * 1.0.0
  * 
- * 				The &lt;code&gt;&amp;lt;metadata&amp;gt;&lt;/code&gt;
- * 				element is the root of the descriptor. The following
- * 				table lists all of the possible child elements.
- * 			
+ * The &lt;code&gt;&amp;lt;metadata&amp;gt;&lt;/code&gt;
+ * element is the root of the descriptor. The following
+ * table lists all of the possible child elements.
+ * 
  * <!-- end-model-doc -->
  *
  * <p>
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.metadata.MetaData#getGroupId <em>Group Id</em>}</li>
- *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.metadata.MetaData#getArtifactId <em>Artifact Id</em>}</li>
- *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.metadata.MetaData#getVersion <em>Version</em>}</li>
- *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.metadata.MetaData#getVersioning <em>Versioning</em>}</li>
+ * <li>{@link org.eclipse.cbi.p2repo.p2.maven.metadata.MetaData#getGroupId <em>Group Id</em>}</li>
+ * <li>{@link org.eclipse.cbi.p2repo.p2.maven.metadata.MetaData#getArtifactId <em>Artifact Id</em>}</li>
+ * <li>{@link org.eclipse.cbi.p2repo.p2.maven.metadata.MetaData#getVersion <em>Version</em>}</li>
+ * <li>{@link org.eclipse.cbi.p2repo.p2.maven.metadata.MetaData#getVersioning <em>Versioning</em>}</li>
  * </ul>
  *
  * @see org.eclipse.cbi.p2repo.p2.maven.metadata.MetadataPackage#getMetaData()
@@ -40,17 +40,18 @@ public interface MetaData extends EObject {
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * 
-	 * 						1.0.0
-	 * 					
+	 * 1.0.0
 	 * 
-	 * 						The identifier for this artifact that is unique
-	 * 						within the group given by the group ID. An
-	 * 						artifact is something that is either produced or
-	 * 						used by a project. Examples of artifacts
-	 * 						produced by Maven for a project include: JARs,
-	 * 						source and binary distributions, and WARs.
-	 * 					
+	 * 
+	 * The identifier for this artifact that is unique
+	 * within the group given by the group ID. An
+	 * artifact is something that is either produced or
+	 * used by a project. Examples of artifacts
+	 * produced by Maven for a project include: JARs,
+	 * source and binary distributions, and WARs.
+	 * 
 	 * <!-- end-model-doc -->
+	 * 
 	 * @return the value of the '<em>Artifact Id</em>' attribute.
 	 * @see #setArtifactId(String)
 	 * @see org.eclipse.cbi.p2repo.p2.maven.metadata.MetadataPackage#getMetaData_ArtifactId()
@@ -124,7 +125,9 @@ public interface MetaData extends EObject {
 	/**
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.metadata.MetaData#getArtifactId <em>Artifact Id</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Artifact Id</em>' attribute.
+	 * 
+	 * @param value
+	 *            the new value of the '<em>Artifact Id</em>' attribute.
 	 * @see #getArtifactId()
 	 * @generated
 	 */
@@ -133,7 +136,9 @@ public interface MetaData extends EObject {
 	/**
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.metadata.MetaData#getGroupId <em>Group Id</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Group Id</em>' attribute.
+	 * 
+	 * @param value
+	 *            the new value of the '<em>Group Id</em>' attribute.
 	 * @see #getGroupId()
 	 * @generated
 	 */
@@ -142,7 +147,9 @@ public interface MetaData extends EObject {
 	/**
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.metadata.MetaData#getVersion <em>Version</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Version</em>' attribute.
+	 * 
+	 * @param value
+	 *            the new value of the '<em>Version</em>' attribute.
 	 * @see #getVersion()
 	 * @generated
 	 */
@@ -151,7 +158,9 @@ public interface MetaData extends EObject {
 	/**
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.metadata.MetaData#getVersioning <em>Versioning</em>}' containment reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Versioning</em>' containment reference.
+	 * 
+	 * @param value
+	 *            the new value of the '<em>Versioning</em>' containment reference.
 	 * @see #getVersioning()
 	 * @generated
 	 */

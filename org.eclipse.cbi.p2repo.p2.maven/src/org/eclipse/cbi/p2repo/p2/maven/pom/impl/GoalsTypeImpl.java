@@ -22,7 +22,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.GoalsTypeImpl#getAny <em>Any</em>}</li>
+ * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.GoalsTypeImpl#getAny <em>Any</em>}</li>
  * </ul>
  *
  * @generated
@@ -32,6 +32,7 @@ public class GoalsTypeImpl extends EObjectImpl implements GoalsType {
 	 * The cached value of the '{@link #getAny() <em>Any</em>}' attribute list.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @see #getAny()
 	 * @generated
 	 * @ordered
@@ -40,6 +41,7 @@ public class GoalsTypeImpl extends EObjectImpl implements GoalsType {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected GoalsTypeImpl() {
@@ -48,38 +50,42 @@ public class GoalsTypeImpl extends EObjectImpl implements GoalsType {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch (featureID) {
+		switch(featureID) {
 			case PomPackage.GOALS_TYPE__ANY:
-				if (coreType) return getAny();
-				return ((FeatureMap.Internal)getAny()).getWrapper();
+				if(coreType)
+					return getAny();
+				return ((FeatureMap.Internal) getAny()).getWrapper();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
+		switch(featureID) {
 			case PomPackage.GOALS_TYPE__ANY:
-				return ((InternalEList<?>)getAny()).basicRemove(otherEnd, msgs);
+				return ((InternalEList<?>) getAny()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch (featureID) {
+		switch(featureID) {
 			case PomPackage.GOALS_TYPE__ANY:
 				return any != null && !any.isEmpty();
 		}
@@ -88,13 +94,14 @@ public class GoalsTypeImpl extends EObjectImpl implements GoalsType {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch (featureID) {
+		switch(featureID) {
 			case PomPackage.GOALS_TYPE__ANY:
-				((FeatureMap.Internal)getAny()).set(newValue);
+				((FeatureMap.Internal) getAny()).set(newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -102,11 +109,12 @@ public class GoalsTypeImpl extends EObjectImpl implements GoalsType {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
-		switch (featureID) {
+		switch(featureID) {
 			case PomPackage.GOALS_TYPE__ANY:
 				getAny().clear();
 				return;
@@ -116,11 +124,12 @@ public class GoalsTypeImpl extends EObjectImpl implements GoalsType {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public FeatureMap getAny() {
-		if (any == null) {
+		if(any == null) {
 			any = new BasicFeatureMap(this, PomPackage.GOALS_TYPE__ANY);
 		}
 		return any;
@@ -128,11 +137,13 @@ public class GoalsTypeImpl extends EObjectImpl implements GoalsType {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy()) return super.toString();
+		if(eIsProxy())
+			return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (any: ");
@@ -143,6 +154,7 @@ public class GoalsTypeImpl extends EObjectImpl implements GoalsType {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override

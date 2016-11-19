@@ -16,7 +16,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.RolesType#getRole <em>Role</em>}</li>
+ * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.RolesType#getRole <em>Role</em>}</li>
  * </ul>
  *
  * @see org.eclipse.cbi.p2repo.p2.maven.pom.PomPackage#getRolesType()
@@ -32,6 +32,7 @@ public interface RolesType extends EObject {
 	 * If the meaning of the '<em>Role</em>' attribute list isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the value of the '<em>Role</em>' attribute list.
 	 * @see org.eclipse.cbi.p2repo.p2.maven.pom.PomPackage#getRolesType_Role()
 	 * @model unique="false" dataType="org.eclipse.emf.ecore.xml.type.String"

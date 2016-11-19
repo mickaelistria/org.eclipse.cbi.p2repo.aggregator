@@ -20,9 +20,9 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.Reporting#isExcludeDefaults <em>Exclude Defaults</em>}</li>
- *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.Reporting#getOutputDirectory <em>Output Directory</em>}</li>
- *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.Reporting#getPlugins <em>Plugins</em>}</li>
+ * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.Reporting#isExcludeDefaults <em>Exclude Defaults</em>}</li>
+ * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.Reporting#getOutputDirectory <em>Output Directory</em>}</li>
+ * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.Reporting#getPlugins <em>Plugins</em>}</li>
  * </ul>
  *
  * @see org.eclipse.cbi.p2repo.p2.maven.pom.PomPackage#getReporting()
@@ -79,8 +79,10 @@ public interface Reporting extends EObject {
 	boolean isExcludeDefaults();
 
 	/**
-	 * Returns whether the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.Reporting#isExcludeDefaults <em>Exclude Defaults</em>}' attribute is set.
+	 * Returns whether the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.Reporting#isExcludeDefaults <em>Exclude Defaults</em>}' attribute
+	 * is set.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @return whether the value of the '<em>Exclude Defaults</em>' attribute is set.
 	 * @see #unsetExcludeDefaults()
 	 * @see #isExcludeDefaults()
@@ -92,7 +94,9 @@ public interface Reporting extends EObject {
 	/**
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.Reporting#isExcludeDefaults <em>Exclude Defaults</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Exclude Defaults</em>' attribute.
+	 * 
+	 * @param value
+	 *            the new value of the '<em>Exclude Defaults</em>' attribute.
 	 * @see #isSetExcludeDefaults()
 	 * @see #unsetExcludeDefaults()
 	 * @see #isExcludeDefaults()
@@ -103,7 +107,9 @@ public interface Reporting extends EObject {
 	/**
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.Reporting#getOutputDirectory <em>Output Directory</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Output Directory</em>' attribute.
+	 * 
+	 * @param value
+	 *            the new value of the '<em>Output Directory</em>' attribute.
 	 * @see #getOutputDirectory()
 	 * @generated
 	 */
@@ -112,7 +118,9 @@ public interface Reporting extends EObject {
 	/**
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.Reporting#getPlugins <em>Plugins</em>}' containment reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Plugins</em>' containment reference.
+	 * 
+	 * @param value
+	 *            the new value of the '<em>Plugins</em>' containment reference.
 	 * @see #getPlugins()
 	 * @generated
 	 */
@@ -121,6 +129,7 @@ public interface Reporting extends EObject {
 	/**
 	 * Unsets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.Reporting#isExcludeDefaults <em>Exclude Defaults</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see #isSetExcludeDefaults()
 	 * @see #isExcludeDefaults()
 	 * @see #setExcludeDefaults(boolean)

@@ -32,9 +32,9 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  *
  * @generated
  */
-public class ContactItemProvider extends AggregatorItemProviderAdapter implements IEditingDomainItemProvider,
-		IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource,
-		IItemColorProvider, IItemFontProvider
+public class ContactItemProvider extends AggregatorItemProviderAdapter
+		implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider,
+		IItemLabelProvider, IItemPropertySource, IItemColorProvider, IItemFontProvider
 
 {
 	/**
@@ -52,19 +52,13 @@ public class ContactItemProvider extends AggregatorItemProviderAdapter implement
 	 * @generated
 	 */
 	protected void addEmailPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Contact_email_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Contact_email_feature", "_UI_Contact_type"),
-				 AggregatorPackage.Literals.CONTACT__EMAIL,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
+		itemPropertyDescriptors.add(
+			createItemPropertyDescriptor(
+				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+				getString("_UI_Contact_email_feature"),
+				getString("_UI_PropertyDescriptor_description", "_UI_Contact_email_feature", "_UI_Contact_type"),
+				AggregatorPackage.Literals.CONTACT__EMAIL, true, false, false,
+				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -73,19 +67,13 @@ public class ContactItemProvider extends AggregatorItemProviderAdapter implement
 	 * @generated
 	 */
 	protected void addNamePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Contact_name_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Contact_name_feature", "_UI_Contact_type"),
-				 AggregatorPackage.Literals.CONTACT__NAME,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
+		itemPropertyDescriptors.add(
+			createItemPropertyDescriptor(
+				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+				getString("_UI_Contact_name_feature"),
+				getString("_UI_PropertyDescriptor_description", "_UI_Contact_name_feature", "_UI_Contact_type"),
+				AggregatorPackage.Literals.CONTACT__NAME, true, false, false,
+				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -116,7 +104,7 @@ public class ContactItemProvider extends AggregatorItemProviderAdapter implement
 	 */
 	@Override
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-		if (itemPropertyDescriptors == null) {
+		if(itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
 			addNamePropertyDescriptor(object);
@@ -163,7 +151,7 @@ public class ContactItemProvider extends AggregatorItemProviderAdapter implement
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(Contact.class)) {
+		switch(notification.getFeatureID(Contact.class)) {
 			case AggregatorPackage.CONTACT__NAME:
 			case AggregatorPackage.CONTACT__EMAIL:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));

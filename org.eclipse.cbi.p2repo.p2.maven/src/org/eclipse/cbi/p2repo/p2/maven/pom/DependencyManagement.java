@@ -15,15 +15,15 @@ import org.eclipse.emf.ecore.EObject;
  * <!-- begin-model-doc -->
  * 4.0.0
  * 
- *         Section for management of default dependency information for use in a group of POMs.
- *       
+ * Section for management of default dependency information for use in a group of POMs.
+ * 
  * <!-- end-model-doc -->
  *
  * <p>
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.DependencyManagement#getDependencies <em>Dependencies</em>}</li>
+ * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.DependencyManagement#getDependencies <em>Dependencies</em>}</li>
  * </ul>
  *
  * @see org.eclipse.cbi.p2repo.p2.maven.pom.PomPackage#getDependencyManagement()
@@ -49,9 +49,12 @@ public interface DependencyManagement extends EObject {
 	DependenciesType getDependencies();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.DependencyManagement#getDependencies <em>Dependencies</em>}' containment reference.
+	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.DependencyManagement#getDependencies <em>Dependencies</em>}' containment
+	 * reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Dependencies</em>' containment reference.
+	 * 
+	 * @param value
+	 *            the new value of the '<em>Dependencies</em>' containment reference.
 	 * @see #getDependencies()
 	 * @generated
 	 */

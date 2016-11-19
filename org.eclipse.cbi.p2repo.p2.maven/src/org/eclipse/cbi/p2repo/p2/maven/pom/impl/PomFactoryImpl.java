@@ -82,11 +82,13 @@ import org.eclipse.emf.ecore.plugin.EcorePlugin;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model <b>Factory</b>. <!-- end-user-doc -->
+ * 
  * @generated
  */
 public class PomFactoryImpl extends EFactoryImpl implements PomFactory {
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @deprecated
 	 * @generated
 	 */
@@ -98,16 +100,17 @@ public class PomFactoryImpl extends EFactoryImpl implements PomFactory {
 	/**
 	 * Creates the default factory implementation.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public static PomFactory init() {
 		try {
-			PomFactory thePomFactory = (PomFactory)EPackage.Registry.INSTANCE.getEFactory(PomPackage.eNS_URI);
-			if (thePomFactory != null) {
+			PomFactory thePomFactory = (PomFactory) EPackage.Registry.INSTANCE.getEFactory(PomPackage.eNS_URI);
+			if(thePomFactory != null) {
 				return thePomFactory;
 			}
 		}
-		catch (Exception exception) {
+		catch(Exception exception) {
 			EcorePlugin.INSTANCE.log(exception);
 		}
 		return new PomFactoryImpl();
@@ -116,6 +119,7 @@ public class PomFactoryImpl extends EFactoryImpl implements PomFactory {
 	/**
 	 * Creates an instance of the factory.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public PomFactoryImpl() {
@@ -124,77 +128,144 @@ public class PomFactoryImpl extends EFactoryImpl implements PomFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public EObject create(EClass eClass) {
-		switch (eClass.getClassifierID()) {
-			case PomPackage.ACTIVATION: return createActivation();
-			case PomPackage.ACTIVATION_FILE: return createActivationFile();
-			case PomPackage.ACTIVATION_OS: return createActivationOS();
-			case PomPackage.ACTIVATION_PROPERTY: return createActivationProperty();
-			case PomPackage.BUILD: return createBuild();
-			case PomPackage.BUILD_BASE: return createBuildBase();
-			case PomPackage.CI_MANAGEMENT: return createCiManagement();
-			case PomPackage.CONFIGURATION_TYPE: return createConfigurationType();
-			case PomPackage.CONTRIBUTOR: return createContributor();
-			case PomPackage.CONTRIBUTORS_TYPE: return createContributorsType();
-			case PomPackage.DEPENDENCIES_TYPE: return createDependenciesType();
-			case PomPackage.DEPENDENCY: return createDependency();
-			case PomPackage.DEPENDENCY_MANAGEMENT: return createDependencyManagement();
-			case PomPackage.DEPLOYMENT_REPOSITORY: return createDeploymentRepository();
-			case PomPackage.DEVELOPER: return createDeveloper();
-			case PomPackage.DEVELOPERS_TYPE: return createDevelopersType();
-			case PomPackage.DISTRIBUTION_MANAGEMENT: return createDistributionManagement();
-			case PomPackage.DOCUMENT_ROOT: return createDocumentRoot();
-			case PomPackage.EXCLUDES_TYPE: return createExcludesType();
-			case PomPackage.EXCLUSION: return createExclusion();
-			case PomPackage.EXCLUSIONS_TYPE: return createExclusionsType();
-			case PomPackage.EXECUTION_GOALS_TYPE: return createExecutionGoalsType();
-			case PomPackage.EXECUTIONS_TYPE: return createExecutionsType();
-			case PomPackage.EXTENSION: return createExtension();
-			case PomPackage.EXTENSIONS_TYPE: return createExtensionsType();
-			case PomPackage.FILTERS_TYPE: return createFiltersType();
-			case PomPackage.GOALS_TYPE: return createGoalsType();
-			case PomPackage.INCLUDES_TYPE: return createIncludesType();
-			case PomPackage.ISSUE_MANAGEMENT: return createIssueManagement();
-			case PomPackage.LICENSE: return createLicense();
-			case PomPackage.LICENSES_TYPE: return createLicensesType();
-			case PomPackage.MAILING_LIST: return createMailingList();
-			case PomPackage.MAILING_LISTS_TYPE: return createMailingListsType();
-			case PomPackage.MODEL: return createModel();
-			case PomPackage.MODULES_TYPE: return createModulesType();
-			case PomPackage.NOTIFIER: return createNotifier();
-			case PomPackage.NOTIFIERS_TYPE: return createNotifiersType();
-			case PomPackage.ORGANIZATION: return createOrganization();
-			case PomPackage.OTHER_ARCHIVES_TYPE: return createOtherArchivesType();
-			case PomPackage.PARENT: return createParent();
-			case PomPackage.PLUGIN: return createPlugin();
-			case PomPackage.PLUGIN_EXECUTION: return createPluginExecution();
-			case PomPackage.PLUGIN_MANAGEMENT: return createPluginManagement();
-			case PomPackage.PLUGIN_REPOSITORIES_TYPE: return createPluginRepositoriesType();
-			case PomPackage.PLUGINS_TYPE: return createPluginsType();
-			case PomPackage.PREREQUISITES: return createPrerequisites();
-			case PomPackage.PROFILE: return createProfile();
-			case PomPackage.PROFILES_TYPE: return createProfilesType();
-			case PomPackage.PROPERTIES_TYPE: return createPropertiesType();
-			case PomPackage.RELOCATION: return createRelocation();
-			case PomPackage.REPORTING: return createReporting();
-			case PomPackage.REPORT_PLUGIN: return createReportPlugin();
-			case PomPackage.REPORTING_PLUGINS_TYPE: return createReportingPluginsType();
-			case PomPackage.REPORT_SET: return createReportSet();
-			case PomPackage.REPORT_SET_REPORTS_TYPE: return createReportSetReportsType();
-			case PomPackage.REPORT_SETS_TYPE: return createReportSetsType();
-			case PomPackage.REPORTS_TYPE: return createReportsType();
-			case PomPackage.REPOSITORIES_TYPE: return createRepositoriesType();
-			case PomPackage.REPOSITORY: return createRepository();
-			case PomPackage.REPOSITORY_POLICY: return createRepositoryPolicy();
-			case PomPackage.RESOURCE: return createResource();
-			case PomPackage.RESOURCES_TYPE: return createResourcesType();
-			case PomPackage.ROLES_TYPE: return createRolesType();
-			case PomPackage.SCM: return createScm();
-			case PomPackage.SITE: return createSite();
-			case PomPackage.TEST_RESOURCES_TYPE: return createTestResourcesType();
+		switch(eClass.getClassifierID()) {
+			case PomPackage.ACTIVATION:
+				return createActivation();
+			case PomPackage.ACTIVATION_FILE:
+				return createActivationFile();
+			case PomPackage.ACTIVATION_OS:
+				return createActivationOS();
+			case PomPackage.ACTIVATION_PROPERTY:
+				return createActivationProperty();
+			case PomPackage.BUILD:
+				return createBuild();
+			case PomPackage.BUILD_BASE:
+				return createBuildBase();
+			case PomPackage.CI_MANAGEMENT:
+				return createCiManagement();
+			case PomPackage.CONFIGURATION_TYPE:
+				return createConfigurationType();
+			case PomPackage.CONTRIBUTOR:
+				return createContributor();
+			case PomPackage.CONTRIBUTORS_TYPE:
+				return createContributorsType();
+			case PomPackage.DEPENDENCIES_TYPE:
+				return createDependenciesType();
+			case PomPackage.DEPENDENCY:
+				return createDependency();
+			case PomPackage.DEPENDENCY_MANAGEMENT:
+				return createDependencyManagement();
+			case PomPackage.DEPLOYMENT_REPOSITORY:
+				return createDeploymentRepository();
+			case PomPackage.DEVELOPER:
+				return createDeveloper();
+			case PomPackage.DEVELOPERS_TYPE:
+				return createDevelopersType();
+			case PomPackage.DISTRIBUTION_MANAGEMENT:
+				return createDistributionManagement();
+			case PomPackage.DOCUMENT_ROOT:
+				return createDocumentRoot();
+			case PomPackage.EXCLUDES_TYPE:
+				return createExcludesType();
+			case PomPackage.EXCLUSION:
+				return createExclusion();
+			case PomPackage.EXCLUSIONS_TYPE:
+				return createExclusionsType();
+			case PomPackage.EXECUTION_GOALS_TYPE:
+				return createExecutionGoalsType();
+			case PomPackage.EXECUTIONS_TYPE:
+				return createExecutionsType();
+			case PomPackage.EXTENSION:
+				return createExtension();
+			case PomPackage.EXTENSIONS_TYPE:
+				return createExtensionsType();
+			case PomPackage.FILTERS_TYPE:
+				return createFiltersType();
+			case PomPackage.GOALS_TYPE:
+				return createGoalsType();
+			case PomPackage.INCLUDES_TYPE:
+				return createIncludesType();
+			case PomPackage.ISSUE_MANAGEMENT:
+				return createIssueManagement();
+			case PomPackage.LICENSE:
+				return createLicense();
+			case PomPackage.LICENSES_TYPE:
+				return createLicensesType();
+			case PomPackage.MAILING_LIST:
+				return createMailingList();
+			case PomPackage.MAILING_LISTS_TYPE:
+				return createMailingListsType();
+			case PomPackage.MODEL:
+				return createModel();
+			case PomPackage.MODULES_TYPE:
+				return createModulesType();
+			case PomPackage.NOTIFIER:
+				return createNotifier();
+			case PomPackage.NOTIFIERS_TYPE:
+				return createNotifiersType();
+			case PomPackage.ORGANIZATION:
+				return createOrganization();
+			case PomPackage.OTHER_ARCHIVES_TYPE:
+				return createOtherArchivesType();
+			case PomPackage.PARENT:
+				return createParent();
+			case PomPackage.PLUGIN:
+				return createPlugin();
+			case PomPackage.PLUGIN_EXECUTION:
+				return createPluginExecution();
+			case PomPackage.PLUGIN_MANAGEMENT:
+				return createPluginManagement();
+			case PomPackage.PLUGIN_REPOSITORIES_TYPE:
+				return createPluginRepositoriesType();
+			case PomPackage.PLUGINS_TYPE:
+				return createPluginsType();
+			case PomPackage.PREREQUISITES:
+				return createPrerequisites();
+			case PomPackage.PROFILE:
+				return createProfile();
+			case PomPackage.PROFILES_TYPE:
+				return createProfilesType();
+			case PomPackage.PROPERTIES_TYPE:
+				return createPropertiesType();
+			case PomPackage.RELOCATION:
+				return createRelocation();
+			case PomPackage.REPORTING:
+				return createReporting();
+			case PomPackage.REPORT_PLUGIN:
+				return createReportPlugin();
+			case PomPackage.REPORTING_PLUGINS_TYPE:
+				return createReportingPluginsType();
+			case PomPackage.REPORT_SET:
+				return createReportSet();
+			case PomPackage.REPORT_SET_REPORTS_TYPE:
+				return createReportSetReportsType();
+			case PomPackage.REPORT_SETS_TYPE:
+				return createReportSetsType();
+			case PomPackage.REPORTS_TYPE:
+				return createReportsType();
+			case PomPackage.REPOSITORIES_TYPE:
+				return createRepositoriesType();
+			case PomPackage.REPOSITORY:
+				return createRepository();
+			case PomPackage.REPOSITORY_POLICY:
+				return createRepositoryPolicy();
+			case PomPackage.RESOURCE:
+				return createResource();
+			case PomPackage.RESOURCES_TYPE:
+				return createResourcesType();
+			case PomPackage.ROLES_TYPE:
+				return createRolesType();
+			case PomPackage.SCM:
+				return createScm();
+			case PomPackage.SITE:
+				return createSite();
+			case PomPackage.TEST_RESOURCES_TYPE:
+				return createTestResourcesType();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -202,6 +273,7 @@ public class PomFactoryImpl extends EFactoryImpl implements PomFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -212,6 +284,7 @@ public class PomFactoryImpl extends EFactoryImpl implements PomFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -222,6 +295,7 @@ public class PomFactoryImpl extends EFactoryImpl implements PomFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -232,6 +306,7 @@ public class PomFactoryImpl extends EFactoryImpl implements PomFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -242,6 +317,7 @@ public class PomFactoryImpl extends EFactoryImpl implements PomFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -252,6 +328,7 @@ public class PomFactoryImpl extends EFactoryImpl implements PomFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -262,6 +339,7 @@ public class PomFactoryImpl extends EFactoryImpl implements PomFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -272,6 +350,7 @@ public class PomFactoryImpl extends EFactoryImpl implements PomFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -282,6 +361,7 @@ public class PomFactoryImpl extends EFactoryImpl implements PomFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -292,6 +372,7 @@ public class PomFactoryImpl extends EFactoryImpl implements PomFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -302,6 +383,7 @@ public class PomFactoryImpl extends EFactoryImpl implements PomFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -312,6 +394,7 @@ public class PomFactoryImpl extends EFactoryImpl implements PomFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -322,6 +405,7 @@ public class PomFactoryImpl extends EFactoryImpl implements PomFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -332,6 +416,7 @@ public class PomFactoryImpl extends EFactoryImpl implements PomFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -342,6 +427,7 @@ public class PomFactoryImpl extends EFactoryImpl implements PomFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -352,6 +438,7 @@ public class PomFactoryImpl extends EFactoryImpl implements PomFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -362,6 +449,7 @@ public class PomFactoryImpl extends EFactoryImpl implements PomFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -372,6 +460,7 @@ public class PomFactoryImpl extends EFactoryImpl implements PomFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -382,6 +471,7 @@ public class PomFactoryImpl extends EFactoryImpl implements PomFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -392,6 +482,7 @@ public class PomFactoryImpl extends EFactoryImpl implements PomFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -402,6 +493,7 @@ public class PomFactoryImpl extends EFactoryImpl implements PomFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -412,6 +504,7 @@ public class PomFactoryImpl extends EFactoryImpl implements PomFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -422,6 +515,7 @@ public class PomFactoryImpl extends EFactoryImpl implements PomFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -432,6 +526,7 @@ public class PomFactoryImpl extends EFactoryImpl implements PomFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -442,6 +537,7 @@ public class PomFactoryImpl extends EFactoryImpl implements PomFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -452,6 +548,7 @@ public class PomFactoryImpl extends EFactoryImpl implements PomFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -462,6 +559,7 @@ public class PomFactoryImpl extends EFactoryImpl implements PomFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -472,6 +570,7 @@ public class PomFactoryImpl extends EFactoryImpl implements PomFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -482,6 +581,7 @@ public class PomFactoryImpl extends EFactoryImpl implements PomFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -492,6 +592,7 @@ public class PomFactoryImpl extends EFactoryImpl implements PomFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -502,6 +603,7 @@ public class PomFactoryImpl extends EFactoryImpl implements PomFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -512,6 +614,7 @@ public class PomFactoryImpl extends EFactoryImpl implements PomFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -522,6 +625,7 @@ public class PomFactoryImpl extends EFactoryImpl implements PomFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -532,6 +636,7 @@ public class PomFactoryImpl extends EFactoryImpl implements PomFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -542,6 +647,7 @@ public class PomFactoryImpl extends EFactoryImpl implements PomFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -552,6 +658,7 @@ public class PomFactoryImpl extends EFactoryImpl implements PomFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -562,6 +669,7 @@ public class PomFactoryImpl extends EFactoryImpl implements PomFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -572,6 +680,7 @@ public class PomFactoryImpl extends EFactoryImpl implements PomFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -582,6 +691,7 @@ public class PomFactoryImpl extends EFactoryImpl implements PomFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -592,6 +702,7 @@ public class PomFactoryImpl extends EFactoryImpl implements PomFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -602,6 +713,7 @@ public class PomFactoryImpl extends EFactoryImpl implements PomFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -612,6 +724,7 @@ public class PomFactoryImpl extends EFactoryImpl implements PomFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -622,6 +735,7 @@ public class PomFactoryImpl extends EFactoryImpl implements PomFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -632,6 +746,7 @@ public class PomFactoryImpl extends EFactoryImpl implements PomFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -642,6 +757,7 @@ public class PomFactoryImpl extends EFactoryImpl implements PomFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -652,6 +768,7 @@ public class PomFactoryImpl extends EFactoryImpl implements PomFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -662,6 +779,7 @@ public class PomFactoryImpl extends EFactoryImpl implements PomFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -672,6 +790,7 @@ public class PomFactoryImpl extends EFactoryImpl implements PomFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -682,6 +801,7 @@ public class PomFactoryImpl extends EFactoryImpl implements PomFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -692,6 +812,7 @@ public class PomFactoryImpl extends EFactoryImpl implements PomFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -702,6 +823,7 @@ public class PomFactoryImpl extends EFactoryImpl implements PomFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -712,6 +834,7 @@ public class PomFactoryImpl extends EFactoryImpl implements PomFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -722,6 +845,7 @@ public class PomFactoryImpl extends EFactoryImpl implements PomFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -732,6 +856,7 @@ public class PomFactoryImpl extends EFactoryImpl implements PomFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -742,6 +867,7 @@ public class PomFactoryImpl extends EFactoryImpl implements PomFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -752,6 +878,7 @@ public class PomFactoryImpl extends EFactoryImpl implements PomFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -762,6 +889,7 @@ public class PomFactoryImpl extends EFactoryImpl implements PomFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -772,6 +900,7 @@ public class PomFactoryImpl extends EFactoryImpl implements PomFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -782,6 +911,7 @@ public class PomFactoryImpl extends EFactoryImpl implements PomFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -792,6 +922,7 @@ public class PomFactoryImpl extends EFactoryImpl implements PomFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -802,6 +933,7 @@ public class PomFactoryImpl extends EFactoryImpl implements PomFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -812,6 +944,7 @@ public class PomFactoryImpl extends EFactoryImpl implements PomFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -822,6 +955,7 @@ public class PomFactoryImpl extends EFactoryImpl implements PomFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -832,6 +966,7 @@ public class PomFactoryImpl extends EFactoryImpl implements PomFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -842,6 +977,7 @@ public class PomFactoryImpl extends EFactoryImpl implements PomFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -852,6 +988,7 @@ public class PomFactoryImpl extends EFactoryImpl implements PomFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -862,11 +999,12 @@ public class PomFactoryImpl extends EFactoryImpl implements PomFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public PomPackage getPomPackage() {
-		return (PomPackage)getEPackage();
+		return (PomPackage) getEPackage();
 	}
 
 } // PomFactoryImpl

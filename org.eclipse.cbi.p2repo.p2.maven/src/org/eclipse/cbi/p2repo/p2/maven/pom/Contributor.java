@@ -14,24 +14,24 @@ import org.eclipse.emf.ecore.EObject;
  * <!-- begin-model-doc -->
  * 3.0.0+
  * 
- *         Description of a person who has contributed to the project, but who does
- *         not have commit privileges. Usually, these contributions come in the
- *         form of patches submitted.
- *       
+ * Description of a person who has contributed to the project, but who does
+ * not have commit privileges. Usually, these contributions come in the
+ * form of patches submitted.
+ * 
  * <!-- end-model-doc -->
  *
  * <p>
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.Contributor#getName <em>Name</em>}</li>
- *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.Contributor#getEmail <em>Email</em>}</li>
- *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.Contributor#getUrl <em>Url</em>}</li>
- *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.Contributor#getOrganization <em>Organization</em>}</li>
- *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.Contributor#getOrganizationUrl <em>Organization Url</em>}</li>
- *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.Contributor#getRoles <em>Roles</em>}</li>
- *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.Contributor#getTimezone <em>Timezone</em>}</li>
- *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.Contributor#getProperties <em>Properties</em>}</li>
+ * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.Contributor#getName <em>Name</em>}</li>
+ * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.Contributor#getEmail <em>Email</em>}</li>
+ * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.Contributor#getUrl <em>Url</em>}</li>
+ * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.Contributor#getOrganization <em>Organization</em>}</li>
+ * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.Contributor#getOrganizationUrl <em>Organization Url</em>}</li>
+ * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.Contributor#getRoles <em>Roles</em>}</li>
+ * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.Contributor#getTimezone <em>Timezone</em>}</li>
+ * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.Contributor#getProperties <em>Properties</em>}</li>
  * </ul>
  *
  * @see org.eclipse.cbi.p2repo.p2.maven.pom.PomPackage#getContributor()
@@ -72,6 +72,7 @@ public interface Contributor extends EObject {
 	 * 3.0.0+
 	 * The organization to which the contributor belongs.
 	 * <!-- end-model-doc -->
+	 * 
 	 * @return the value of the '<em>Organization</em>' attribute.
 	 * @see #setOrganization(String)
 	 * @see org.eclipse.cbi.p2repo.p2.maven.pom.PomPackage#getContributor_Organization()
@@ -160,7 +161,9 @@ public interface Contributor extends EObject {
 	/**
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.Contributor#getEmail <em>Email</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Email</em>' attribute.
+	 * 
+	 * @param value
+	 *            the new value of the '<em>Email</em>' attribute.
 	 * @see #getEmail()
 	 * @generated
 	 */
@@ -169,7 +172,9 @@ public interface Contributor extends EObject {
 	/**
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.Contributor#getName <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Name</em>' attribute.
+	 * 
+	 * @param value
+	 *            the new value of the '<em>Name</em>' attribute.
 	 * @see #getName()
 	 * @generated
 	 */
@@ -178,7 +183,9 @@ public interface Contributor extends EObject {
 	/**
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.Contributor#getOrganization <em>Organization</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Organization</em>' attribute.
+	 * 
+	 * @param value
+	 *            the new value of the '<em>Organization</em>' attribute.
 	 * @see #getOrganization()
 	 * @generated
 	 */
@@ -187,7 +194,9 @@ public interface Contributor extends EObject {
 	/**
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.Contributor#getOrganizationUrl <em>Organization Url</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Organization Url</em>' attribute.
+	 * 
+	 * @param value
+	 *            the new value of the '<em>Organization Url</em>' attribute.
 	 * @see #getOrganizationUrl()
 	 * @generated
 	 */
@@ -196,7 +205,9 @@ public interface Contributor extends EObject {
 	/**
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.Contributor#getProperties <em>Properties</em>}' containment reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Properties</em>' containment reference.
+	 * 
+	 * @param value
+	 *            the new value of the '<em>Properties</em>' containment reference.
 	 * @see #getProperties()
 	 * @generated
 	 */
@@ -205,7 +216,9 @@ public interface Contributor extends EObject {
 	/**
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.Contributor#getRoles <em>Roles</em>}' containment reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Roles</em>' containment reference.
+	 * 
+	 * @param value
+	 *            the new value of the '<em>Roles</em>' containment reference.
 	 * @see #getRoles()
 	 * @generated
 	 */
@@ -214,7 +227,9 @@ public interface Contributor extends EObject {
 	/**
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.Contributor#getTimezone <em>Timezone</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Timezone</em>' attribute.
+	 * 
+	 * @param value
+	 *            the new value of the '<em>Timezone</em>' attribute.
 	 * @see #getTimezone()
 	 * @generated
 	 */
@@ -223,7 +238,9 @@ public interface Contributor extends EObject {
 	/**
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.Contributor#getUrl <em>Url</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Url</em>' attribute.
+	 * 
+	 * @param value
+	 *            the new value of the '<em>Url</em>' attribute.
 	 * @see #getUrl()
 	 * @generated
 	 */

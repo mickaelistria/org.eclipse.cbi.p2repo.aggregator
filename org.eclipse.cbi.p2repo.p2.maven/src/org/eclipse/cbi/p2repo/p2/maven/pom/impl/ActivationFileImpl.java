@@ -31,6 +31,7 @@ public class ActivationFileImpl extends EObjectImpl implements ActivationFile {
 	 * The default value of the '{@link #getMissing() <em>Missing</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @see #getMissing()
 	 * @generated
 	 * @ordered
@@ -41,6 +42,7 @@ public class ActivationFileImpl extends EObjectImpl implements ActivationFile {
 	 * The cached value of the '{@link #getMissing() <em>Missing</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @see #getMissing()
 	 * @generated
 	 * @ordered
@@ -51,6 +53,7 @@ public class ActivationFileImpl extends EObjectImpl implements ActivationFile {
 	 * The default value of the '{@link #getExists() <em>Exists</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @see #getExists()
 	 * @generated
 	 * @ordered
@@ -61,6 +64,7 @@ public class ActivationFileImpl extends EObjectImpl implements ActivationFile {
 	 * The cached value of the '{@link #getExists() <em>Exists</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @see #getExists()
 	 * @generated
 	 * @ordered
@@ -69,6 +73,7 @@ public class ActivationFileImpl extends EObjectImpl implements ActivationFile {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected ActivationFileImpl() {
@@ -77,11 +82,12 @@ public class ActivationFileImpl extends EObjectImpl implements ActivationFile {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch (featureID) {
+		switch(featureID) {
 			case PomPackage.ACTIVATION_FILE__MISSING:
 				return getMissing();
 			case PomPackage.ACTIVATION_FILE__EXISTS:
@@ -92,31 +98,37 @@ public class ActivationFileImpl extends EObjectImpl implements ActivationFile {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch (featureID) {
+		switch(featureID) {
 			case PomPackage.ACTIVATION_FILE__MISSING:
-				return MISSING_EDEFAULT == null ? missing != null : !MISSING_EDEFAULT.equals(missing);
+				return MISSING_EDEFAULT == null
+						? missing != null
+						: !MISSING_EDEFAULT.equals(missing);
 			case PomPackage.ACTIVATION_FILE__EXISTS:
-				return EXISTS_EDEFAULT == null ? exists != null : !EXISTS_EDEFAULT.equals(exists);
+				return EXISTS_EDEFAULT == null
+						? exists != null
+						: !EXISTS_EDEFAULT.equals(exists);
 		}
 		return super.eIsSet(featureID);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch (featureID) {
+		switch(featureID) {
 			case PomPackage.ACTIVATION_FILE__MISSING:
-				setMissing((String)newValue);
+				setMissing((String) newValue);
 				return;
 			case PomPackage.ACTIVATION_FILE__EXISTS:
-				setExists((String)newValue);
+				setExists((String) newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -124,11 +136,12 @@ public class ActivationFileImpl extends EObjectImpl implements ActivationFile {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
-		switch (featureID) {
+		switch(featureID) {
 			case PomPackage.ACTIVATION_FILE__MISSING:
 				setMissing(MISSING_EDEFAULT);
 				return;
@@ -141,6 +154,7 @@ public class ActivationFileImpl extends EObjectImpl implements ActivationFile {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -150,6 +164,7 @@ public class ActivationFileImpl extends EObjectImpl implements ActivationFile {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -159,35 +174,42 @@ public class ActivationFileImpl extends EObjectImpl implements ActivationFile {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void setExists(String newExists) {
 		String oldExists = exists;
 		exists = newExists;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.ACTIVATION_FILE__EXISTS, oldExists, exists));
+		if(eNotificationRequired())
+			eNotify(
+				new ENotificationImpl(this, Notification.SET, PomPackage.ACTIVATION_FILE__EXISTS, oldExists, exists));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void setMissing(String newMissing) {
 		String oldMissing = missing;
 		missing = newMissing;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.ACTIVATION_FILE__MISSING, oldMissing, missing));
+		if(eNotificationRequired())
+			eNotify(
+				new ENotificationImpl(
+					this, Notification.SET, PomPackage.ACTIVATION_FILE__MISSING, oldMissing, missing));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy()) return super.toString();
+		if(eIsProxy())
+			return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (missing: ");
@@ -200,6 +222,7 @@ public class ActivationFileImpl extends EObjectImpl implements ActivationFile {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override

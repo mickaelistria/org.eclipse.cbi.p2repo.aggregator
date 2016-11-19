@@ -40,9 +40,9 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class RepositoryBrowserItemProvider extends AggregatorItemProviderAdapter implements IEditingDomainItemProvider,
-		IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource,
-		IItemColorProvider, IItemFontProvider {
+public class RepositoryBrowserItemProvider extends AggregatorItemProviderAdapter
+		implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider,
+		IItemLabelProvider, IItemPropertySource, IItemColorProvider, IItemFontProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -60,19 +60,15 @@ public class RepositoryBrowserItemProvider extends AggregatorItemProviderAdapter
 	 * @generated
 	 */
 	protected void addLoadingPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_RepositoryBrowser_loading_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_RepositoryBrowser_loading_feature", "_UI_RepositoryBrowser_type"),
-				 P2viewPackage.Literals.REPOSITORY_BROWSER__LOADING,
-				 false,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-				 null,
-				 null));
+		itemPropertyDescriptors.add(
+			createItemPropertyDescriptor(
+				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+				getString("_UI_RepositoryBrowser_loading_feature"),
+				getString(
+					"_UI_PropertyDescriptor_description", "_UI_RepositoryBrowser_loading_feature",
+					"_UI_RepositoryBrowser_type"),
+				P2viewPackage.Literals.REPOSITORY_BROWSER__LOADING, false, false, false,
+				ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -82,19 +78,14 @@ public class RepositoryBrowserItemProvider extends AggregatorItemProviderAdapter
 	 * @generated
 	 */
 	protected void addRepositoriesPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_RepositoryBrowser_repositories_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_RepositoryBrowser_repositories_feature", "_UI_RepositoryBrowser_type"),
-				 P2viewPackage.Literals.REPOSITORY_BROWSER__REPOSITORIES,
-				 false,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
+		itemPropertyDescriptors.add(
+			createItemPropertyDescriptor(
+				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+				getString("_UI_RepositoryBrowser_repositories_feature"),
+				getString(
+					"_UI_PropertyDescriptor_description", "_UI_RepositoryBrowser_repositories_feature",
+					"_UI_RepositoryBrowser_type"),
+				P2viewPackage.Literals.REPOSITORY_BROWSER__REPOSITORIES, false, false, true, null, null, null));
 	}
 
 	/**
@@ -132,7 +123,7 @@ public class RepositoryBrowserItemProvider extends AggregatorItemProviderAdapter
 	 */
 	@Override
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
-		if (childrenFeatures == null) {
+		if(childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(P2viewPackage.Literals.REPOSITORY_BROWSER__REPOSITORIES);
 		}
@@ -188,7 +179,7 @@ public class RepositoryBrowserItemProvider extends AggregatorItemProviderAdapter
 	 */
 	@Override
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-		if (itemPropertyDescriptors == null) {
+		if(itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
 			addRepositoriesPropertyDescriptor(object);
@@ -257,7 +248,7 @@ public class RepositoryBrowserItemProvider extends AggregatorItemProviderAdapter
 	public void notifyChangedGen(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(RepositoryBrowser.class)) {
+		switch(notification.getFeatureID(RepositoryBrowser.class)) {
 			case P2viewPackage.REPOSITORY_BROWSER__STATUS:
 			case P2viewPackage.REPOSITORY_BROWSER__LOADING:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));

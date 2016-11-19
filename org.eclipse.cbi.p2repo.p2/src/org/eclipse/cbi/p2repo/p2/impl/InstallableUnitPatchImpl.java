@@ -34,9 +34,9 @@ import org.eclipse.equinox.p2.metadata.IRequirementChange;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.eclipse.cbi.p2repo.p2.impl.InstallableUnitPatchImpl#getRequirementsChange <em>Requirements Change</em>}</li>
- *   <li>{@link org.eclipse.cbi.p2repo.p2.impl.InstallableUnitPatchImpl#getLifeCycle <em>Life Cycle</em>}</li>
- *   <li>{@link org.eclipse.cbi.p2repo.p2.impl.InstallableUnitPatchImpl#getAppliesTo <em>Applies To</em>}</li>
+ * <li>{@link org.eclipse.cbi.p2repo.p2.impl.InstallableUnitPatchImpl#getRequirementsChange <em>Requirements Change</em>}</li>
+ * <li>{@link org.eclipse.cbi.p2repo.p2.impl.InstallableUnitPatchImpl#getLifeCycle <em>Life Cycle</em>}</li>
+ * <li>{@link org.eclipse.cbi.p2repo.p2.impl.InstallableUnitPatchImpl#getAppliesTo <em>Applies To</em>}</li>
  * </ul>
  *
  * @generated
@@ -46,6 +46,7 @@ public class InstallableUnitPatchImpl extends InstallableUnitImpl implements Ins
 	 * The cached value of the '{@link #getRequirementsChange() <em>Requirements Change</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getRequirementsChange()
 	 * @generated
 	 * @ordered
@@ -56,6 +57,7 @@ public class InstallableUnitPatchImpl extends InstallableUnitImpl implements Ins
 	 * The cached value of the '{@link #getLifeCycle() <em>Life Cycle</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getLifeCycle()
 	 * @generated
 	 * @ordered
@@ -66,6 +68,7 @@ public class InstallableUnitPatchImpl extends InstallableUnitImpl implements Ins
 	 * The cached value of the '{@link #getAppliesTo() <em>Applies To</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getAppliesTo()
 	 * @generated
 	 * @ordered
@@ -75,6 +78,7 @@ public class InstallableUnitPatchImpl extends InstallableUnitImpl implements Ins
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected InstallableUnitPatchImpl() {
@@ -84,6 +88,7 @@ public class InstallableUnitPatchImpl extends InstallableUnitImpl implements Ins
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public IRequirement basicGetLifeCycle() {
@@ -93,14 +98,19 @@ public class InstallableUnitPatchImpl extends InstallableUnitImpl implements Ins
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public NotificationChain basicSetLifeCycle(IRequirement newLifeCycle, NotificationChain msgs) {
 		IRequirement oldLifeCycle = lifeCycle;
 		lifeCycle = newLifeCycle;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, P2Package.INSTALLABLE_UNIT_PATCH__LIFE_CYCLE, oldLifeCycle, newLifeCycle);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
+		if(eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(
+				this, Notification.SET, P2Package.INSTALLABLE_UNIT_PATCH__LIFE_CYCLE, oldLifeCycle, newLifeCycle);
+			if(msgs == null)
+				msgs = notification;
+			else
+				msgs.add(notification);
 		}
 		return msgs;
 	}
@@ -108,16 +118,21 @@ public class InstallableUnitPatchImpl extends InstallableUnitImpl implements Ins
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
-		if (baseClass == IInstallableUnitPatch.class) {
-			switch (derivedFeatureID) {
-				case P2Package.INSTALLABLE_UNIT_PATCH__REQUIREMENTS_CHANGE: return P2Package.IINSTALLABLE_UNIT_PATCH__REQUIREMENTS_CHANGE;
-				case P2Package.INSTALLABLE_UNIT_PATCH__LIFE_CYCLE: return P2Package.IINSTALLABLE_UNIT_PATCH__LIFE_CYCLE;
-				case P2Package.INSTALLABLE_UNIT_PATCH__APPLIES_TO: return P2Package.IINSTALLABLE_UNIT_PATCH__APPLIES_TO;
-				default: return -1;
+		if(baseClass == IInstallableUnitPatch.class) {
+			switch(derivedFeatureID) {
+				case P2Package.INSTALLABLE_UNIT_PATCH__REQUIREMENTS_CHANGE:
+					return P2Package.IINSTALLABLE_UNIT_PATCH__REQUIREMENTS_CHANGE;
+				case P2Package.INSTALLABLE_UNIT_PATCH__LIFE_CYCLE:
+					return P2Package.IINSTALLABLE_UNIT_PATCH__LIFE_CYCLE;
+				case P2Package.INSTALLABLE_UNIT_PATCH__APPLIES_TO:
+					return P2Package.IINSTALLABLE_UNIT_PATCH__APPLIES_TO;
+				default:
+					return -1;
 			}
 		}
 		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
@@ -126,16 +141,21 @@ public class InstallableUnitPatchImpl extends InstallableUnitImpl implements Ins
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
-		if (baseClass == IInstallableUnitPatch.class) {
-			switch (baseFeatureID) {
-				case P2Package.IINSTALLABLE_UNIT_PATCH__REQUIREMENTS_CHANGE: return P2Package.INSTALLABLE_UNIT_PATCH__REQUIREMENTS_CHANGE;
-				case P2Package.IINSTALLABLE_UNIT_PATCH__LIFE_CYCLE: return P2Package.INSTALLABLE_UNIT_PATCH__LIFE_CYCLE;
-				case P2Package.IINSTALLABLE_UNIT_PATCH__APPLIES_TO: return P2Package.INSTALLABLE_UNIT_PATCH__APPLIES_TO;
-				default: return -1;
+		if(baseClass == IInstallableUnitPatch.class) {
+			switch(baseFeatureID) {
+				case P2Package.IINSTALLABLE_UNIT_PATCH__REQUIREMENTS_CHANGE:
+					return P2Package.INSTALLABLE_UNIT_PATCH__REQUIREMENTS_CHANGE;
+				case P2Package.IINSTALLABLE_UNIT_PATCH__LIFE_CYCLE:
+					return P2Package.INSTALLABLE_UNIT_PATCH__LIFE_CYCLE;
+				case P2Package.IINSTALLABLE_UNIT_PATCH__APPLIES_TO:
+					return P2Package.INSTALLABLE_UNIT_PATCH__APPLIES_TO;
+				default:
+					return -1;
 			}
 		}
 		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
@@ -144,15 +164,17 @@ public class InstallableUnitPatchImpl extends InstallableUnitImpl implements Ins
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch (featureID) {
+		switch(featureID) {
 			case P2Package.INSTALLABLE_UNIT_PATCH__REQUIREMENTS_CHANGE:
 				return getRequirementsChange();
 			case P2Package.INSTALLABLE_UNIT_PATCH__LIFE_CYCLE:
-				if (resolve) return getLifeCycle();
+				if(resolve)
+					return getLifeCycle();
 				return basicGetLifeCycle();
 			case P2Package.INSTALLABLE_UNIT_PATCH__APPLIES_TO:
 				return getAppliesTo();
@@ -163,17 +185,18 @@ public class InstallableUnitPatchImpl extends InstallableUnitImpl implements Ins
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
+		switch(featureID) {
 			case P2Package.INSTALLABLE_UNIT_PATCH__REQUIREMENTS_CHANGE:
-				return ((InternalEList<?>)getRequirementsChange()).basicRemove(otherEnd, msgs);
+				return ((InternalEList<?>) getRequirementsChange()).basicRemove(otherEnd, msgs);
 			case P2Package.INSTALLABLE_UNIT_PATCH__LIFE_CYCLE:
 				return basicSetLifeCycle(null, msgs);
 			case P2Package.INSTALLABLE_UNIT_PATCH__APPLIES_TO:
-				return ((InternalEList<?>)getAppliesTo()).basicRemove(otherEnd, msgs);
+				return ((InternalEList<?>) getAppliesTo()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -181,11 +204,12 @@ public class InstallableUnitPatchImpl extends InstallableUnitImpl implements Ins
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch (featureID) {
+		switch(featureID) {
 			case P2Package.INSTALLABLE_UNIT_PATCH__REQUIREMENTS_CHANGE:
 				return requirementsChange != null && !requirementsChange.isEmpty();
 			case P2Package.INSTALLABLE_UNIT_PATCH__LIFE_CYCLE:
@@ -199,22 +223,23 @@ public class InstallableUnitPatchImpl extends InstallableUnitImpl implements Ins
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch (featureID) {
+		switch(featureID) {
 			case P2Package.INSTALLABLE_UNIT_PATCH__REQUIREMENTS_CHANGE:
 				getRequirementsChange().clear();
-				getRequirementsChange().addAll((Collection<? extends IRequirementChange>)newValue);
+				getRequirementsChange().addAll((Collection<? extends IRequirementChange>) newValue);
 				return;
 			case P2Package.INSTALLABLE_UNIT_PATCH__LIFE_CYCLE:
-				setLifeCycle((IRequirement)newValue);
+				setLifeCycle((IRequirement) newValue);
 				return;
 			case P2Package.INSTALLABLE_UNIT_PATCH__APPLIES_TO:
 				getAppliesTo().clear();
-				getAppliesTo().addAll((Collection<? extends IRequirement>)newValue);
+				getAppliesTo().addAll((Collection<? extends IRequirement>) newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -223,6 +248,7 @@ public class InstallableUnitPatchImpl extends InstallableUnitImpl implements Ins
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -233,16 +259,17 @@ public class InstallableUnitPatchImpl extends InstallableUnitImpl implements Ins
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
-		switch (featureID) {
+		switch(featureID) {
 			case P2Package.INSTALLABLE_UNIT_PATCH__REQUIREMENTS_CHANGE:
 				getRequirementsChange().clear();
 				return;
 			case P2Package.INSTALLABLE_UNIT_PATCH__LIFE_CYCLE:
-				setLifeCycle((IRequirement)null);
+				setLifeCycle((IRequirement) null);
 				return;
 			case P2Package.INSTALLABLE_UNIT_PATCH__APPLIES_TO:
 				getAppliesTo().clear();
@@ -270,11 +297,13 @@ public class InstallableUnitPatchImpl extends InstallableUnitImpl implements Ins
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EList<IRequirement> getAppliesTo() {
-		if (appliesTo == null) {
-			appliesTo = new EObjectContainmentEList.Resolving<IRequirement>(IRequirement.class, this, P2Package.INSTALLABLE_UNIT_PATCH__APPLIES_TO);
+		if(appliesTo == null) {
+			appliesTo = new EObjectContainmentEList.Resolving<IRequirement>(
+				IRequirement.class, this, P2Package.INSTALLABLE_UNIT_PATCH__APPLIES_TO);
 		}
 		return appliesTo;
 	}
@@ -282,22 +311,29 @@ public class InstallableUnitPatchImpl extends InstallableUnitImpl implements Ins
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public IRequirement getLifeCycle() {
-		if (lifeCycle != null && ((EObject)lifeCycle).eIsProxy()) {
-			InternalEObject oldLifeCycle = (InternalEObject)lifeCycle;
-			lifeCycle = (IRequirement)eResolveProxy(oldLifeCycle);
-			if (lifeCycle != oldLifeCycle) {
-				InternalEObject newLifeCycle = (InternalEObject)lifeCycle;
-				NotificationChain msgs = oldLifeCycle.eInverseRemove(this, EOPPOSITE_FEATURE_BASE - P2Package.INSTALLABLE_UNIT_PATCH__LIFE_CYCLE, null, null);
-				if (newLifeCycle.eInternalContainer() == null) {
-					msgs = newLifeCycle.eInverseAdd(this, EOPPOSITE_FEATURE_BASE - P2Package.INSTALLABLE_UNIT_PATCH__LIFE_CYCLE, null, msgs);
+		if(lifeCycle != null && ((EObject) lifeCycle).eIsProxy()) {
+			InternalEObject oldLifeCycle = (InternalEObject) lifeCycle;
+			lifeCycle = (IRequirement) eResolveProxy(oldLifeCycle);
+			if(lifeCycle != oldLifeCycle) {
+				InternalEObject newLifeCycle = (InternalEObject) lifeCycle;
+				NotificationChain msgs = oldLifeCycle.eInverseRemove(
+					this, EOPPOSITE_FEATURE_BASE - P2Package.INSTALLABLE_UNIT_PATCH__LIFE_CYCLE, null, null);
+				if(newLifeCycle.eInternalContainer() == null) {
+					msgs = newLifeCycle.eInverseAdd(
+						this, EOPPOSITE_FEATURE_BASE - P2Package.INSTALLABLE_UNIT_PATCH__LIFE_CYCLE, null, msgs);
 				}
-				if (msgs != null) msgs.dispatch();
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, P2Package.INSTALLABLE_UNIT_PATCH__LIFE_CYCLE, oldLifeCycle, lifeCycle));
+				if(msgs != null)
+					msgs.dispatch();
+				if(eNotificationRequired())
+					eNotify(
+						new ENotificationImpl(
+							this, Notification.RESOLVE, P2Package.INSTALLABLE_UNIT_PATCH__LIFE_CYCLE, oldLifeCycle,
+							lifeCycle));
 			}
 		}
 		return lifeCycle;
@@ -306,12 +342,14 @@ public class InstallableUnitPatchImpl extends InstallableUnitImpl implements Ins
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public EList<IRequirementChange> getRequirementsChange() {
-		if (requirementsChange == null) {
-			requirementsChange = new EObjectContainmentEList.Resolving<IRequirementChange>(IRequirementChange.class, this, P2Package.INSTALLABLE_UNIT_PATCH__REQUIREMENTS_CHANGE);
+		if(requirementsChange == null) {
+			requirementsChange = new EObjectContainmentEList.Resolving<IRequirementChange>(
+				IRequirementChange.class, this, P2Package.INSTALLABLE_UNIT_PATCH__REQUIREMENTS_CHANGE);
 		}
 		return requirementsChange;
 	}
@@ -319,20 +357,26 @@ public class InstallableUnitPatchImpl extends InstallableUnitImpl implements Ins
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setLifeCycle(IRequirement newLifeCycle) {
-		if (newLifeCycle != lifeCycle) {
+		if(newLifeCycle != lifeCycle) {
 			NotificationChain msgs = null;
-			if (lifeCycle != null)
-				msgs = ((InternalEObject)lifeCycle).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - P2Package.INSTALLABLE_UNIT_PATCH__LIFE_CYCLE, null, msgs);
-			if (newLifeCycle != null)
-				msgs = ((InternalEObject)newLifeCycle).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - P2Package.INSTALLABLE_UNIT_PATCH__LIFE_CYCLE, null, msgs);
+			if(lifeCycle != null)
+				msgs = ((InternalEObject) lifeCycle).eInverseRemove(
+					this, EOPPOSITE_FEATURE_BASE - P2Package.INSTALLABLE_UNIT_PATCH__LIFE_CYCLE, null, msgs);
+			if(newLifeCycle != null)
+				msgs = ((InternalEObject) newLifeCycle).eInverseAdd(
+					this, EOPPOSITE_FEATURE_BASE - P2Package.INSTALLABLE_UNIT_PATCH__LIFE_CYCLE, null, msgs);
 			msgs = basicSetLifeCycle(newLifeCycle, msgs);
-			if (msgs != null) msgs.dispatch();
+			if(msgs != null)
+				msgs.dispatch();
 		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, P2Package.INSTALLABLE_UNIT_PATCH__LIFE_CYCLE, newLifeCycle, newLifeCycle));
+		else if(eNotificationRequired())
+			eNotify(
+				new ENotificationImpl(
+					this, Notification.SET, P2Package.INSTALLABLE_UNIT_PATCH__LIFE_CYCLE, newLifeCycle, newLifeCycle));
 	}
 
 } // InstallableUnitPatchImpl

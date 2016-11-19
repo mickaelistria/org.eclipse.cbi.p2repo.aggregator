@@ -45,34 +45,38 @@ public enum OperatingSystem implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	MAC_OSX(2, "MacOSX", "macosx"), /**
+	MAC_OSX(2, "MacOSX", "macosx"),
+	/**
 	 * The '<em><b>AIX</b></em>' literal object.
 	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	* <!-- end-user-doc -->
 	 * @see #AIX_VALUE
 	 * @generated
 	 * @ordered
 	 */
-	AIX(3, "AIX", "aix"), /**
+	AIX(3, "AIX", "aix"),
+	/**
 	 * The '<em><b>HPUX</b></em>' literal object.
 	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	* <!-- end-user-doc -->
 	 * @see #HPUX_VALUE
 	 * @generated
 	 * @ordered
 	 */
-	HPUX(4, "HPUX", "hpux"), /**
+	HPUX(4, "HPUX", "hpux"),
+	/**
 	 * The '<em><b>Solaris</b></em>' literal object.
 	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	* <!-- end-user-doc -->
 	 * @see #SOLARIS_VALUE
 	 * @generated
 	 * @ordered
 	 */
-	SOLARIS(5, "Solaris", "solaris"), /**
+	SOLARIS(5, "Solaris", "solaris"),
+	/**
 	 * The '<em><b>QNX</b></em>' literal object.
 	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	* <!-- end-user-doc -->
 	 * @see #QNX_VALUE
 	 * @generated
 	 * @ordered
@@ -183,14 +187,7 @@ public enum OperatingSystem implements Enumerator {
 	 * @generated
 	 */
 	private static final OperatingSystem[] VALUES_ARRAY = new OperatingSystem[] {
-			WIN32,
-			LINUX,
-			MAC_OSX,
-			AIX,
-			HPUX,
-			SOLARIS,
-			QNX,
-		};
+			WIN32, LINUX, MAC_OSX, AIX, HPUX, SOLARIS, QNX, };
 
 	/**
 	 * A public read-only list of all the '<em><b>Operating System</b></em>' enumerators.
@@ -209,14 +206,21 @@ public enum OperatingSystem implements Enumerator {
 	 * @generated
 	 */
 	public static OperatingSystem get(int value) {
-		switch (value) {
-			case WIN32_VALUE: return WIN32;
-			case LINUX_VALUE: return LINUX;
-			case MAC_OSX_VALUE: return MAC_OSX;
-			case AIX_VALUE: return AIX;
-			case HPUX_VALUE: return HPUX;
-			case SOLARIS_VALUE: return SOLARIS;
-			case QNX_VALUE: return QNX;
+		switch(value) {
+			case WIN32_VALUE:
+				return WIN32;
+			case LINUX_VALUE:
+				return LINUX;
+			case MAC_OSX_VALUE:
+				return MAC_OSX;
+			case AIX_VALUE:
+				return AIX;
+			case HPUX_VALUE:
+				return HPUX;
+			case SOLARIS_VALUE:
+				return SOLARIS;
+			case QNX_VALUE:
+				return QNX;
 		}
 		return null;
 	}
@@ -230,9 +234,9 @@ public enum OperatingSystem implements Enumerator {
 	 * @generated
 	 */
 	public static OperatingSystem get(String literal) {
-		for (int i = 0; i < VALUES_ARRAY.length; ++i) {
+		for(int i = 0; i < VALUES_ARRAY.length; ++i) {
 			OperatingSystem result = VALUES_ARRAY[i];
-			if (result.toString().equals(literal)) {
+			if(result.toString().equals(literal)) {
 				return result;
 			}
 		}
@@ -248,9 +252,9 @@ public enum OperatingSystem implements Enumerator {
 	 * @generated
 	 */
 	public static OperatingSystem getByName(String name) {
-		for (int i = 0; i < VALUES_ARRAY.length; ++i) {
+		for(int i = 0; i < VALUES_ARRAY.length; ++i) {
 			OperatingSystem result = VALUES_ARRAY[i];
-			if (result.getName().equals(name)) {
+			if(result.getName().equals(name)) {
 				return result;
 			}
 		}
@@ -290,24 +294,27 @@ public enum OperatingSystem implements Enumerator {
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getLiteral() {
-	  return literal;
+		return literal;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getName() {
-	  return name;
+		return name;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public int getValue() {
-	  return value;
+		return value;
 	}
 
 	/**

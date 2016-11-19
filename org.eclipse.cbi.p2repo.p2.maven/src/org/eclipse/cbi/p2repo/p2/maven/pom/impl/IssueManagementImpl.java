@@ -31,6 +31,7 @@ public class IssueManagementImpl extends EObjectImpl implements IssueManagement 
 	 * The default value of the '{@link #getSystem() <em>System</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @see #getSystem()
 	 * @generated
 	 * @ordered
@@ -41,6 +42,7 @@ public class IssueManagementImpl extends EObjectImpl implements IssueManagement 
 	 * The cached value of the '{@link #getSystem() <em>System</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @see #getSystem()
 	 * @generated
 	 * @ordered
@@ -60,6 +62,7 @@ public class IssueManagementImpl extends EObjectImpl implements IssueManagement 
 	/**
 	 * The cached value of the '{@link #getUrl() <em>Url</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see #getUrl()
 	 * @generated
 	 * @ordered
@@ -68,6 +71,7 @@ public class IssueManagementImpl extends EObjectImpl implements IssueManagement 
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected IssueManagementImpl() {
@@ -76,11 +80,12 @@ public class IssueManagementImpl extends EObjectImpl implements IssueManagement 
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch (featureID) {
+		switch(featureID) {
 			case PomPackage.ISSUE_MANAGEMENT__SYSTEM:
 				return getSystem();
 			case PomPackage.ISSUE_MANAGEMENT__URL:
@@ -91,31 +96,37 @@ public class IssueManagementImpl extends EObjectImpl implements IssueManagement 
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch (featureID) {
+		switch(featureID) {
 			case PomPackage.ISSUE_MANAGEMENT__SYSTEM:
-				return SYSTEM_EDEFAULT == null ? system != null : !SYSTEM_EDEFAULT.equals(system);
+				return SYSTEM_EDEFAULT == null
+						? system != null
+						: !SYSTEM_EDEFAULT.equals(system);
 			case PomPackage.ISSUE_MANAGEMENT__URL:
-				return URL_EDEFAULT == null ? url != null : !URL_EDEFAULT.equals(url);
+				return URL_EDEFAULT == null
+						? url != null
+						: !URL_EDEFAULT.equals(url);
 		}
 		return super.eIsSet(featureID);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch (featureID) {
+		switch(featureID) {
 			case PomPackage.ISSUE_MANAGEMENT__SYSTEM:
-				setSystem((String)newValue);
+				setSystem((String) newValue);
 				return;
 			case PomPackage.ISSUE_MANAGEMENT__URL:
-				setUrl((String)newValue);
+				setUrl((String) newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -123,11 +134,12 @@ public class IssueManagementImpl extends EObjectImpl implements IssueManagement 
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
-		switch (featureID) {
+		switch(featureID) {
 			case PomPackage.ISSUE_MANAGEMENT__SYSTEM:
 				setSystem(SYSTEM_EDEFAULT);
 				return;
@@ -140,6 +152,7 @@ public class IssueManagementImpl extends EObjectImpl implements IssueManagement 
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -149,6 +162,7 @@ public class IssueManagementImpl extends EObjectImpl implements IssueManagement 
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -158,35 +172,40 @@ public class IssueManagementImpl extends EObjectImpl implements IssueManagement 
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void setSystem(String newSystem) {
 		String oldSystem = system;
 		system = newSystem;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.ISSUE_MANAGEMENT__SYSTEM, oldSystem, system));
+		if(eNotificationRequired())
+			eNotify(
+				new ENotificationImpl(this, Notification.SET, PomPackage.ISSUE_MANAGEMENT__SYSTEM, oldSystem, system));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void setUrl(String newUrl) {
 		String oldUrl = url;
 		url = newUrl;
-		if (eNotificationRequired())
+		if(eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, PomPackage.ISSUE_MANAGEMENT__URL, oldUrl, url));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy()) return super.toString();
+		if(eIsProxy())
+			return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (system: ");
@@ -199,6 +218,7 @@ public class IssueManagementImpl extends EObjectImpl implements IssueManagement 
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override

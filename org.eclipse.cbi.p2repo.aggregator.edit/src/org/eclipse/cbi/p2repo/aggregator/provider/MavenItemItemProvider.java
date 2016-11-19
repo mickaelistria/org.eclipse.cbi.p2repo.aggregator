@@ -35,9 +35,9 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  *
  * @generated
  */
-public class MavenItemItemProvider extends AggregatorItemProviderAdapter implements IEditingDomainItemProvider,
-		IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource,
-		IItemColorProvider, IItemFontProvider {
+public class MavenItemItemProvider extends AggregatorItemProviderAdapter
+		implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider,
+		IItemLabelProvider, IItemPropertySource, IItemColorProvider, IItemFontProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -53,19 +53,14 @@ public class MavenItemItemProvider extends AggregatorItemProviderAdapter impleme
 	 * @generated
 	 */
 	protected void addArtifactIdPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_MavenItem_artifactId_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_MavenItem_artifactId_feature", "_UI_MavenItem_type"),
-				 AggregatorPackage.Literals.MAVEN_ITEM__ARTIFACT_ID,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
+		itemPropertyDescriptors.add(
+			createItemPropertyDescriptor(
+				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+				getString("_UI_MavenItem_artifactId_feature"),
+				getString(
+					"_UI_PropertyDescriptor_description", "_UI_MavenItem_artifactId_feature", "_UI_MavenItem_type"),
+				AggregatorPackage.Literals.MAVEN_ITEM__ARTIFACT_ID, true, false, false,
+				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -74,19 +69,13 @@ public class MavenItemItemProvider extends AggregatorItemProviderAdapter impleme
 	 * @generated
 	 */
 	protected void addGroupIdPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_MavenItem_groupId_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_MavenItem_groupId_feature", "_UI_MavenItem_type"),
-				 AggregatorPackage.Literals.MAVEN_ITEM__GROUP_ID,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
+		itemPropertyDescriptors.add(
+			createItemPropertyDescriptor(
+				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+				getString("_UI_MavenItem_groupId_feature"),
+				getString("_UI_PropertyDescriptor_description", "_UI_MavenItem_groupId_feature", "_UI_MavenItem_type"),
+				AggregatorPackage.Literals.MAVEN_ITEM__GROUP_ID, true, false, false,
+				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -117,7 +106,7 @@ public class MavenItemItemProvider extends AggregatorItemProviderAdapter impleme
 	 */
 	@Override
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-		if (itemPropertyDescriptors == null) {
+		if(itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
 			addGroupIdPropertyDescriptor(object);
@@ -168,7 +157,7 @@ public class MavenItemItemProvider extends AggregatorItemProviderAdapter impleme
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(MavenItem.class)) {
+		switch(notification.getFeatureID(MavenItem.class)) {
 			case AggregatorPackage.MAVEN_ITEM__GROUP_ID:
 			case AggregatorPackage.MAVEN_ITEM__ARTIFACT_ID:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));

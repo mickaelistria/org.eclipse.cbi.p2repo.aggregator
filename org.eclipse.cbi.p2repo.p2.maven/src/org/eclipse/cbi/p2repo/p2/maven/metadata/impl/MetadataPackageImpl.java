@@ -21,35 +21,41 @@ import org.eclipse.emf.ecore.xml.type.XMLTypePackage;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model <b>Package</b>. <!-- end-user-doc -->
+ * 
  * @generated
  */
 public class MetadataPackageImpl extends EPackageImpl implements MetadataPackage {
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private EClass documentRootEClass = null;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private EClass metaDataEClass = null;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private EClass versioningEClass = null;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private EClass versionsEClass = null;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private static boolean isInited = false;
@@ -57,19 +63,25 @@ public class MetadataPackageImpl extends EPackageImpl implements MetadataPackage
 	/**
 	 * Creates, registers, and initializes the <b>Package</b> for this model, and for any others upon which it depends.
 	 * 
-	 * <p>This method is used to initialize {@link MetadataPackage#eINSTANCE} when that field is accessed.
+	 * <p>
+	 * This method is used to initialize {@link MetadataPackage#eINSTANCE} when that field is accessed.
 	 * Clients should not invoke it directly. Instead, they should simply access that field to obtain the package.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see #eNS_URI
 	 * @see #createPackageContents()
 	 * @see #initializePackageContents()
 	 * @generated
 	 */
 	public static MetadataPackage init() {
-		if (isInited) return (MetadataPackage)EPackage.Registry.INSTANCE.getEPackage(MetadataPackage.eNS_URI);
+		if(isInited)
+			return (MetadataPackage) EPackage.Registry.INSTANCE.getEPackage(MetadataPackage.eNS_URI);
 
 		// Obtain or create and register package
-		MetadataPackageImpl theMetadataPackage = (MetadataPackageImpl)(EPackage.Registry.INSTANCE.get(eNS_URI) instanceof MetadataPackageImpl ? EPackage.Registry.INSTANCE.get(eNS_URI) : new MetadataPackageImpl());
+		MetadataPackageImpl theMetadataPackage = (MetadataPackageImpl) (EPackage.Registry.INSTANCE.get(
+			eNS_URI) instanceof MetadataPackageImpl
+					? EPackage.Registry.INSTANCE.get(eNS_URI)
+					: new MetadataPackageImpl());
 
 		isInited = true;
 
@@ -85,7 +97,6 @@ public class MetadataPackageImpl extends EPackageImpl implements MetadataPackage
 		// Mark meta-data to indicate it can't be changed
 		theMetadataPackage.freeze();
 
-  
 		// Update the registry and return the package
 		EPackage.Registry.INSTANCE.put(MetadataPackage.eNS_URI, theMetadataPackage);
 		return theMetadataPackage;
@@ -93,12 +104,14 @@ public class MetadataPackageImpl extends EPackageImpl implements MetadataPackage
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private boolean isCreated = false;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private boolean isInitialized = false;
@@ -107,11 +120,13 @@ public class MetadataPackageImpl extends EPackageImpl implements MetadataPackage
 	 * Creates an instance of the model <b>Package</b>, registered with
 	 * {@link org.eclipse.emf.ecore.EPackage.Registry EPackage.Registry} by the package
 	 * package URI value.
-	 * <p>Note: the correct way to create the package is via the static
+	 * <p>
+	 * Note: the correct way to create the package is via the static
 	 * factory method {@link #init init()}, which also performs
 	 * initialization of the package, or returns the registered package,
 	 * if one already exists.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see org.eclipse.emf.ecore.EPackage.Registry
 	 * @see org.eclipse.cbi.p2repo.p2.maven.metadata.MetadataPackage#eNS_URI
 	 * @see #init()
@@ -122,13 +137,15 @@ public class MetadataPackageImpl extends EPackageImpl implements MetadataPackage
 	}
 
 	/**
-	 * Creates the meta-model objects for the package.  This method is
+	 * Creates the meta-model objects for the package. This method is
 	 * guarded to have no affect on any invocation but its first.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void createPackageContents() {
-		if (isCreated) return;
+		if(isCreated)
+			return;
 		isCreated = true;
 
 		// Create classes and their features
@@ -156,6 +173,7 @@ public class MetadataPackageImpl extends EPackageImpl implements MetadataPackage
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -165,42 +183,47 @@ public class MetadataPackageImpl extends EPackageImpl implements MetadataPackage
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public EReference getDocumentRoot_Metadata() {
-		return (EReference)documentRootEClass.getEStructuralFeatures().get(3);
+		return (EReference) documentRootEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public EAttribute getDocumentRoot_Mixed() {
-		return (EAttribute)documentRootEClass.getEStructuralFeatures().get(0);
+		return (EAttribute) documentRootEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public EReference getDocumentRoot_XMLNSPrefixMap() {
-		return (EReference)documentRootEClass.getEStructuralFeatures().get(1);
+		return (EReference) documentRootEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public EReference getDocumentRoot_XSISchemaLocation() {
-		return (EReference)documentRootEClass.getEStructuralFeatures().get(2);
+		return (EReference) documentRootEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -210,51 +233,57 @@ public class MetadataPackageImpl extends EPackageImpl implements MetadataPackage
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public EAttribute getMetaData_ArtifactId() {
-		return (EAttribute)metaDataEClass.getEStructuralFeatures().get(1);
+		return (EAttribute) metaDataEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public EAttribute getMetaData_GroupId() {
-		return (EAttribute)metaDataEClass.getEStructuralFeatures().get(0);
+		return (EAttribute) metaDataEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public EAttribute getMetaData_Version() {
-		return (EAttribute)metaDataEClass.getEStructuralFeatures().get(2);
+		return (EAttribute) metaDataEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public EReference getMetaData_Versioning() {
-		return (EReference)metaDataEClass.getEStructuralFeatures().get(3);
+		return (EReference) metaDataEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public MetadataFactory getMetadataFactory() {
-		return (MetadataFactory)getEFactoryInstance();
+		return (MetadataFactory) getEFactoryInstance();
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -264,43 +293,48 @@ public class MetadataPackageImpl extends EPackageImpl implements MetadataPackage
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public EAttribute getVersioning_LastUpdated() {
-		return (EAttribute)versioningEClass.getEStructuralFeatures().get(3);
+		return (EAttribute) versioningEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public EAttribute getVersioning_Latest() {
-		return (EAttribute)versioningEClass.getEStructuralFeatures().get(1);
+		return (EAttribute) versioningEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public EAttribute getVersioning_Release() {
-		return (EAttribute)versioningEClass.getEStructuralFeatures().get(0);
+		return (EAttribute) versioningEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public EReference getVersioning_Versions() {
-		return (EReference)versioningEClass.getEStructuralFeatures().get(2);
+		return (EReference) versioningEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -310,21 +344,24 @@ public class MetadataPackageImpl extends EPackageImpl implements MetadataPackage
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public EAttribute getVersions_Version() {
-		return (EAttribute)versionsEClass.getEStructuralFeatures().get(0);
+		return (EAttribute) versionsEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
-	 * Complete the initialization of the package and its meta-model.  This
+	 * Complete the initialization of the package and its meta-model. This
 	 * method is guarded to have no affect on any invocation but its first.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void initializePackageContents() {
-		if (isInitialized) return;
+		if(isInitialized)
+			return;
 		isInitialized = true;
 
 		// Initialize package
@@ -333,7 +370,8 @@ public class MetadataPackageImpl extends EPackageImpl implements MetadataPackage
 		setNsURI(eNS_URI);
 
 		// Obtain other dependent packages
-		XMLTypePackage theXMLTypePackage = (XMLTypePackage)EPackage.Registry.INSTANCE.getEPackage(XMLTypePackage.eNS_URI);
+		XMLTypePackage theXMLTypePackage = (XMLTypePackage) EPackage.Registry.INSTANCE.getEPackage(
+			XMLTypePackage.eNS_URI);
 
 		// Create type parameters
 
@@ -342,26 +380,62 @@ public class MetadataPackageImpl extends EPackageImpl implements MetadataPackage
 		// Add supertypes to classes
 
 		// Initialize classes and features; add operations and parameters
-		initEClass(documentRootEClass, DocumentRoot.class, "DocumentRoot", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getDocumentRoot_Mixed(), ecorePackage.getEFeatureMapEntry(), "mixed", null, 0, -1, null, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getDocumentRoot_XMLNSPrefixMap(), ecorePackage.getEStringToStringMapEntry(), null, "xMLNSPrefixMap", null, 0, -1, null, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getDocumentRoot_XSISchemaLocation(), ecorePackage.getEStringToStringMapEntry(), null, "xSISchemaLocation", null, 0, -1, null, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getDocumentRoot_Metadata(), this.getMetaData(), null, "metadata", null, 0, -2, null, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEClass(
+			documentRootEClass, DocumentRoot.class, "DocumentRoot", !IS_ABSTRACT, !IS_INTERFACE,
+			IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(
+			getDocumentRoot_Mixed(), ecorePackage.getEFeatureMapEntry(), "mixed", null, 0, -1, null, !IS_TRANSIENT,
+			!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(
+			getDocumentRoot_XMLNSPrefixMap(), ecorePackage.getEStringToStringMapEntry(), null, "xMLNSPrefixMap", null,
+			0, -1, null, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
+			IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(
+			getDocumentRoot_XSISchemaLocation(), ecorePackage.getEStringToStringMapEntry(), null, "xSISchemaLocation",
+			null, 0, -1, null, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
+			!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(
+			getDocumentRoot_Metadata(), this.getMetaData(), null, "metadata", null, 0, -2, null, IS_TRANSIENT,
+			IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED,
+			IS_ORDERED);
 
-		initEClass(metaDataEClass, MetaData.class, "MetaData", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getMetaData_GroupId(), theXMLTypePackage.getString(), "groupId", null, 0, 1, MetaData.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getMetaData_ArtifactId(), theXMLTypePackage.getString(), "artifactId", null, 0, 1, MetaData.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getMetaData_Version(), theXMLTypePackage.getString(), "version", null, 0, 1, MetaData.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getMetaData_Versioning(), this.getVersioning(), null, "versioning", null, 1, 1, MetaData.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(
+			metaDataEClass, MetaData.class, "MetaData", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(
+			getMetaData_GroupId(), theXMLTypePackage.getString(), "groupId", null, 0, 1, MetaData.class, !IS_TRANSIENT,
+			!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(
+			getMetaData_ArtifactId(), theXMLTypePackage.getString(), "artifactId", null, 0, 1, MetaData.class,
+			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(
+			getMetaData_Version(), theXMLTypePackage.getString(), "version", null, 0, 1, MetaData.class, !IS_TRANSIENT,
+			!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(
+			getMetaData_Versioning(), this.getVersioning(), null, "versioning", null, 1, 1, MetaData.class,
+			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,
+			!IS_DERIVED, IS_ORDERED);
 
-		initEClass(versioningEClass, Versioning.class, "Versioning", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getVersioning_Release(), theXMLTypePackage.getString(), "release", null, 0, 1, Versioning.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getVersioning_Latest(), theXMLTypePackage.getString(), "latest", null, 0, 1, Versioning.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getVersioning_Versions(), this.getVersions(), null, "versions", null, 1, 1, Versioning.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getVersioning_LastUpdated(), theXMLTypePackage.getString(), "lastUpdated", null, 0, 1, Versioning.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(
+			versioningEClass, Versioning.class, "Versioning", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(
+			getVersioning_Release(), theXMLTypePackage.getString(), "release", null, 0, 1, Versioning.class,
+			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(
+			getVersioning_Latest(), theXMLTypePackage.getString(), "latest", null, 0, 1, Versioning.class,
+			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(
+			getVersioning_Versions(), this.getVersions(), null, "versions", null, 1, 1, Versioning.class, !IS_TRANSIENT,
+			!IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
+			IS_ORDERED);
+		initEAttribute(
+			getVersioning_LastUpdated(), theXMLTypePackage.getString(), "lastUpdated", null, 0, 1, Versioning.class,
+			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(versionsEClass, Versions.class, "Versions", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getVersions_Version(), theXMLTypePackage.getString(), "version", null, 1, -1, Versions.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(
+			versionsEClass, Versions.class, "Versions", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(
+			getVersions_Version(), theXMLTypePackage.getString(), "version", null, 1, -1, Versions.class, !IS_TRANSIENT,
+			!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);
@@ -375,139 +449,51 @@ public class MetadataPackageImpl extends EPackageImpl implements MetadataPackage
 	 * Initializes the annotations for <b>http:///org/eclipse/emf/ecore/util/ExtendedMetaData</b>.
 	 * <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected void createExtendedMetaDataAnnotations() {
-		String source = "http:///org/eclipse/emf/ecore/util/ExtendedMetaData";	
-		addAnnotation
-		  (documentRootEClass, 
-		   source, 
-		   new String[] {
-			 "name", "",
-			 "kind", "mixed"
-		   });	
-		addAnnotation
-		  (getDocumentRoot_Mixed(), 
-		   source, 
-		   new String[] {
-			 "kind", "elementWildcard",
-			 "name", ":mixed"
-		   });	
-		addAnnotation
-		  (getDocumentRoot_XMLNSPrefixMap(), 
-		   source, 
-		   new String[] {
-			 "kind", "attribute",
-			 "name", "xmlns:prefix"
-		   });	
-		addAnnotation
-		  (getDocumentRoot_XSISchemaLocation(), 
-		   source, 
-		   new String[] {
-			 "kind", "attribute",
-			 "name", "xsi:schemaLocation"
-		   });	
-		addAnnotation
-		  (getDocumentRoot_Metadata(), 
-		   source, 
-		   new String[] {
-			 "kind", "element",
-			 "name", "metadata",
-			 "namespace", "##targetNamespace"
-		   });	
-		addAnnotation
-		  (metaDataEClass, 
-		   source, 
-		   new String[] {
-			 "name", "MetaData",
-			 "kind", "elementOnly"
-		   });	
-		addAnnotation
-		  (getMetaData_GroupId(), 
-		   source, 
-		   new String[] {
-			 "kind", "element",
-			 "name", "groupId",
-			 "namespace", "##targetNamespace"
-		   });	
-		addAnnotation
-		  (getMetaData_ArtifactId(), 
-		   source, 
-		   new String[] {
-			 "kind", "element",
-			 "name", "artifactId",
-			 "namespace", "##targetNamespace"
-		   });	
-		addAnnotation
-		  (getMetaData_Version(), 
-		   source, 
-		   new String[] {
-			 "kind", "element",
-			 "name", "version",
-			 "namespace", "##targetNamespace"
-		   });	
-		addAnnotation
-		  (getMetaData_Versioning(), 
-		   source, 
-		   new String[] {
-			 "kind", "element",
-			 "name", "versioning",
-			 "namespace", "##targetNamespace"
-		   });	
-		addAnnotation
-		  (versioningEClass, 
-		   source, 
-		   new String[] {
-			 "name", "Versioning",
-			 "kind", "elementOnly"
-		   });	
-		addAnnotation
-		  (getVersioning_Release(), 
-		   source, 
-		   new String[] {
-			 "kind", "element",
-			 "name", "release",
-			 "namespace", "##targetNamespace"
-		   });	
-		addAnnotation
-		  (getVersioning_Latest(), 
-		   source, 
-		   new String[] {
-			 "kind", "element",
-			 "name", "latest",
-			 "namespace", "##targetNamespace"
-		   });	
-		addAnnotation
-		  (getVersioning_Versions(), 
-		   source, 
-		   new String[] {
-			 "kind", "element",
-			 "name", "versions",
-			 "namespace", "##targetNamespace"
-		   });	
-		addAnnotation
-		  (getVersioning_LastUpdated(), 
-		   source, 
-		   new String[] {
-			 "kind", "element",
-			 "name", "lastUpdated",
-			 "namespace", "##targetNamespace"
-		   });	
-		addAnnotation
-		  (versionsEClass, 
-		   source, 
-		   new String[] {
-			 "name", "Versions",
-			 "kind", "elementOnly"
-		   });	
-		addAnnotation
-		  (getVersions_Version(), 
-		   source, 
-		   new String[] {
-			 "kind", "element",
-			 "name", "version",
-			 "namespace", "##targetNamespace"
-		   });
+		String source = "http:///org/eclipse/emf/ecore/util/ExtendedMetaData";
+		addAnnotation(documentRootEClass, source, new String[] { "name", "", "kind", "mixed" });
+		addAnnotation(getDocumentRoot_Mixed(), source, new String[] { "kind", "elementWildcard", "name", ":mixed" });
+		addAnnotation(
+			getDocumentRoot_XMLNSPrefixMap(), source, new String[] { "kind", "attribute", "name", "xmlns:prefix" });
+		addAnnotation(
+			getDocumentRoot_XSISchemaLocation(), source,
+			new String[] { "kind", "attribute", "name", "xsi:schemaLocation" });
+		addAnnotation(
+			getDocumentRoot_Metadata(), source,
+			new String[] { "kind", "element", "name", "metadata", "namespace", "##targetNamespace" });
+		addAnnotation(metaDataEClass, source, new String[] { "name", "MetaData", "kind", "elementOnly" });
+		addAnnotation(
+			getMetaData_GroupId(), source,
+			new String[] { "kind", "element", "name", "groupId", "namespace", "##targetNamespace" });
+		addAnnotation(
+			getMetaData_ArtifactId(), source,
+			new String[] { "kind", "element", "name", "artifactId", "namespace", "##targetNamespace" });
+		addAnnotation(
+			getMetaData_Version(), source,
+			new String[] { "kind", "element", "name", "version", "namespace", "##targetNamespace" });
+		addAnnotation(
+			getMetaData_Versioning(), source,
+			new String[] { "kind", "element", "name", "versioning", "namespace", "##targetNamespace" });
+		addAnnotation(versioningEClass, source, new String[] { "name", "Versioning", "kind", "elementOnly" });
+		addAnnotation(
+			getVersioning_Release(), source,
+			new String[] { "kind", "element", "name", "release", "namespace", "##targetNamespace" });
+		addAnnotation(
+			getVersioning_Latest(), source,
+			new String[] { "kind", "element", "name", "latest", "namespace", "##targetNamespace" });
+		addAnnotation(
+			getVersioning_Versions(), source,
+			new String[] { "kind", "element", "name", "versions", "namespace", "##targetNamespace" });
+		addAnnotation(
+			getVersioning_LastUpdated(), source,
+			new String[] { "kind", "element", "name", "lastUpdated", "namespace", "##targetNamespace" });
+		addAnnotation(versionsEClass, source, new String[] { "name", "Versions", "kind", "elementOnly" });
+		addAnnotation(
+			getVersions_Version(), source,
+			new String[] { "kind", "element", "name", "version", "namespace", "##targetNamespace" });
 	}
 
 } // MetadataPackageImpl

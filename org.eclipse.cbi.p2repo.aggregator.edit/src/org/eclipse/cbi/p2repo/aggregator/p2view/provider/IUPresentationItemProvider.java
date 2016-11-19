@@ -37,9 +37,9 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  *
  * @generated
  */
-public class IUPresentationItemProvider extends AggregatorItemProviderAdapter implements IEditingDomainItemProvider,
-		IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource,
-		IItemColorProvider, IItemFontProvider {
+public class IUPresentationItemProvider extends AggregatorItemProviderAdapter
+		implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider,
+		IItemLabelProvider, IItemPropertySource, IItemColorProvider, IItemFontProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -55,19 +55,15 @@ public class IUPresentationItemProvider extends AggregatorItemProviderAdapter im
 	 * @generated
 	 */
 	protected void addDescriptionPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_IUPresentation_description_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_IUPresentation_description_feature", "_UI_IUPresentation_type"),
-				 P2viewPackage.Literals.IU_PRESENTATION__DESCRIPTION,
-				 false,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
+		itemPropertyDescriptors.add(
+			createItemPropertyDescriptor(
+				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+				getString("_UI_IUPresentation_description_feature"),
+				getString(
+					"_UI_PropertyDescriptor_description", "_UI_IUPresentation_description_feature",
+					"_UI_IUPresentation_type"),
+				P2viewPackage.Literals.IU_PRESENTATION__DESCRIPTION, false, false, false,
+				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -77,19 +73,15 @@ public class IUPresentationItemProvider extends AggregatorItemProviderAdapter im
 	 * @generated
 	 */
 	protected void addFilterPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_IUPresentation_filter_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_IUPresentation_filter_feature", "_UI_IUPresentation_type"),
-				 P2viewPackage.Literals.IU_PRESENTATION__FILTER,
-				 false,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
+		itemPropertyDescriptors.add(
+			createItemPropertyDescriptor(
+				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+				getString("_UI_IUPresentation_filter_feature"),
+				getString(
+					"_UI_PropertyDescriptor_description", "_UI_IUPresentation_filter_feature",
+					"_UI_IUPresentation_type"),
+				P2viewPackage.Literals.IU_PRESENTATION__FILTER, false, false, false,
+				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -98,19 +90,14 @@ public class IUPresentationItemProvider extends AggregatorItemProviderAdapter im
 	 * @generated
 	 */
 	protected void addIdPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_IUPresentation_id_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_IUPresentation_id_feature", "_UI_IUPresentation_type"),
-				 P2viewPackage.Literals.IU_PRESENTATION__ID,
-				 false,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
+		itemPropertyDescriptors.add(
+			createItemPropertyDescriptor(
+				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+				getString("_UI_IUPresentation_id_feature"),
+				getString(
+					"_UI_PropertyDescriptor_description", "_UI_IUPresentation_id_feature", "_UI_IUPresentation_type"),
+				P2viewPackage.Literals.IU_PRESENTATION__ID, false, false, false,
+				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -119,19 +106,15 @@ public class IUPresentationItemProvider extends AggregatorItemProviderAdapter im
 	 * @generated
 	 */
 	protected void addLabelPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_IUPresentation_label_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_IUPresentation_label_feature", "_UI_IUPresentation_type"),
-				 P2viewPackage.Literals.IU_PRESENTATION__LABEL,
-				 false,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
+		itemPropertyDescriptors.add(
+			createItemPropertyDescriptor(
+				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+				getString("_UI_IUPresentation_label_feature"),
+				getString(
+					"_UI_PropertyDescriptor_description", "_UI_IUPresentation_label_feature",
+					"_UI_IUPresentation_type"),
+				P2viewPackage.Literals.IU_PRESENTATION__LABEL, false, false, false,
+				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -140,19 +123,14 @@ public class IUPresentationItemProvider extends AggregatorItemProviderAdapter im
 	 * @generated
 	 */
 	protected void addNamePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_IUPresentation_name_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_IUPresentation_name_feature", "_UI_IUPresentation_type"),
-				 P2viewPackage.Literals.IU_PRESENTATION__NAME,
-				 false,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
+		itemPropertyDescriptors.add(
+			createItemPropertyDescriptor(
+				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+				getString("_UI_IUPresentation_name_feature"),
+				getString(
+					"_UI_PropertyDescriptor_description", "_UI_IUPresentation_name_feature", "_UI_IUPresentation_type"),
+				P2viewPackage.Literals.IU_PRESENTATION__NAME, false, false, false,
+				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -161,19 +139,14 @@ public class IUPresentationItemProvider extends AggregatorItemProviderAdapter im
 	 * @generated
 	 */
 	protected void addTypePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_IUPresentation_type_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_IUPresentation_type_feature", "_UI_IUPresentation_type"),
-				 P2viewPackage.Literals.IU_PRESENTATION__TYPE,
-				 false,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
+		itemPropertyDescriptors.add(
+			createItemPropertyDescriptor(
+				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+				getString("_UI_IUPresentation_type_feature"),
+				getString(
+					"_UI_PropertyDescriptor_description", "_UI_IUPresentation_type_feature", "_UI_IUPresentation_type"),
+				P2viewPackage.Literals.IU_PRESENTATION__TYPE, false, false, false,
+				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -182,19 +155,15 @@ public class IUPresentationItemProvider extends AggregatorItemProviderAdapter im
 	 * @generated
 	 */
 	protected void addVersionPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_IUPresentation_version_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_IUPresentation_version_feature", "_UI_IUPresentation_type"),
-				 P2viewPackage.Literals.IU_PRESENTATION__VERSION,
-				 false,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
+		itemPropertyDescriptors.add(
+			createItemPropertyDescriptor(
+				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+				getString("_UI_IUPresentation_version_feature"),
+				getString(
+					"_UI_PropertyDescriptor_description", "_UI_IUPresentation_version_feature",
+					"_UI_IUPresentation_type"),
+				P2viewPackage.Literals.IU_PRESENTATION__VERSION, false, false, false,
+				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -215,7 +184,7 @@ public class IUPresentationItemProvider extends AggregatorItemProviderAdapter im
 	 */
 	@Override
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-		if (itemPropertyDescriptors == null) {
+		if(itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
 			addIdPropertyDescriptor(object);
@@ -246,10 +215,10 @@ public class IUPresentationItemProvider extends AggregatorItemProviderAdapter im
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((IUPresentation)object).getLabel();
-		return label == null || label.length() == 0 ?
-			getString("_UI_IUPresentation_type") :
-			getString("_UI_IUPresentation_type") + " " + label;
+		String label = ((IUPresentation) object).getLabel();
+		return label == null || label.length() == 0
+				? getString("_UI_IUPresentation_type")
+				: getString("_UI_IUPresentation_type") + " " + label;
 	}
 
 	/**
@@ -263,7 +232,7 @@ public class IUPresentationItemProvider extends AggregatorItemProviderAdapter im
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(IUPresentation.class)) {
+		switch(notification.getFeatureID(IUPresentation.class)) {
 			case P2viewPackage.IU_PRESENTATION__ID:
 			case P2viewPackage.IU_PRESENTATION__VERSION:
 			case P2viewPackage.IU_PRESENTATION__NAME:

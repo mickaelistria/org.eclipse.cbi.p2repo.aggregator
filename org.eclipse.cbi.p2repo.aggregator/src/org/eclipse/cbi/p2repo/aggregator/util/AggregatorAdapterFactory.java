@@ -62,135 +62,166 @@ public class AggregatorAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	protected AggregatorSwitch<Adapter> modelSwitch = new AggregatorSwitch<Adapter>() {
-			@Override
-			public Adapter caseAggregation(Aggregation object) {
-				return createAggregationAdapter();
-			}
-			@Override
-			public Adapter caseAvailableVersionsHeader(AvailableVersionsHeader object) {
-				return createAvailableVersionsHeaderAdapter();
-			}
-			@Override
-			public Adapter caseAvailableVersion(AvailableVersion object) {
-				return createAvailableVersionAdapter();
-			}
-			@Override
-			public Adapter caseBundle(Bundle object) {
-				return createBundleAdapter();
-			}
-			@Override
-			public Adapter caseCategory(Category object) {
-				return createCategoryAdapter();
-			}
-			@Override
-			public <T> Adapter caseChildrenProvider(ChildrenProvider<T> object) {
-				return createChildrenProviderAdapter();
-			}
-			@Override
-			public Adapter caseConfiguration(Configuration object) {
-				return createConfigurationAdapter();
-			}
-			@Override
-			public Adapter caseContact(Contact object) {
-				return createContactAdapter();
-			}
-			@Override
-			public Adapter caseContribution(Contribution object) {
-				return createContributionAdapter();
-			}
-			@Override
-			public Adapter caseFeature(Feature object) {
-				return createFeatureAdapter();
-			}
-			@Override
-			public Adapter caseCustomCategory(CustomCategory object) {
-				return createCustomCategoryAdapter();
-			}
-			@Override
-			public Adapter caseDescriptionProvider(DescriptionProvider object) {
-				return createDescriptionProviderAdapter();
-			}
-			@Override
-			public Adapter caseEnabledStatusProvider(EnabledStatusProvider object) {
-				return createEnabledStatusProviderAdapter();
-			}
-			@Override
-			public Adapter caseExclusionRule(ExclusionRule object) {
-				return createExclusionRuleAdapter();
-			}
-			@Override
-			public Adapter caseIdentificationProvider(IdentificationProvider object) {
-				return createIdentificationProviderAdapter();
-			}
-			@Override
-			public Adapter caseInfosProvider(InfosProvider object) {
-				return createInfosProviderAdapter();
-			}
-			@Override
-			public Adapter caseInstallableUnitRequest(InstallableUnitRequest object) {
-				return createInstallableUnitRequestAdapter();
-			}
-			@Override
-			public Adapter caseLabelProvider(LabelProvider object) {
-				return createLabelProviderAdapter();
-			}
-			@Override
-			public Adapter caseMappedRepository(MappedRepository object) {
-				return createMappedRepositoryAdapter();
-			}
-			@Override
-			public Adapter caseMappedUnit(MappedUnit object) {
-				return createMappedUnitAdapter();
-			}
-			@Override
-			public Adapter caseMapRule(MapRule object) {
-				return createMapRuleAdapter();
-			}
-			@Override
-			public Adapter caseMavenItem(MavenItem object) {
-				return createMavenItemAdapter();
-			}
-			@Override
-			public Adapter caseMavenMapping(MavenMapping object) {
-				return createMavenMappingAdapter();
-			}
-			@Override
-			public Adapter caseMetadataRepositoryReference(MetadataRepositoryReference object) {
-				return createMetadataRepositoryReferenceAdapter();
-			}
-			@Override
-			public Adapter caseProduct(Product object) {
-				return createProductAdapter();
-			}
-			@Override
-			public Adapter caseProperty(Property object) {
-				return createPropertyAdapter();
-			}
-			@Override
-			public Adapter caseStatus(Status object) {
-				return createStatusAdapter();
-			}
-			@Override
-			public Adapter caseStatusProvider(StatusProvider object) {
-				return createStatusProviderAdapter();
-			}
-			@Override
-			public Adapter caseValidationSet(ValidationSet object) {
-				return createValidationSetAdapter();
-			}
-			@Override
-			public Adapter caseValidConfigurationsRule(ValidConfigurationsRule object) {
-				return createValidConfigurationsRuleAdapter();
-			}
-			@Override
-			public <T> Adapter caseComparable(Comparable<T> object) {
-				return createComparableAdapter();
-			}
-			@Override
-			public Adapter defaultCase(EObject object) {
-				return createEObjectAdapter();
-			}
-		};
+		@Override
+		public Adapter caseAggregation(Aggregation object) {
+			return createAggregationAdapter();
+		}
+
+		@Override
+		public Adapter caseAvailableVersionsHeader(AvailableVersionsHeader object) {
+			return createAvailableVersionsHeaderAdapter();
+		}
+
+		@Override
+		public Adapter caseAvailableVersion(AvailableVersion object) {
+			return createAvailableVersionAdapter();
+		}
+
+		@Override
+		public Adapter caseBundle(Bundle object) {
+			return createBundleAdapter();
+		}
+
+		@Override
+		public Adapter caseCategory(Category object) {
+			return createCategoryAdapter();
+		}
+
+		@Override
+		public <T> Adapter caseChildrenProvider(ChildrenProvider<T> object) {
+			return createChildrenProviderAdapter();
+		}
+
+		@Override
+		public Adapter caseConfiguration(Configuration object) {
+			return createConfigurationAdapter();
+		}
+
+		@Override
+		public Adapter caseContact(Contact object) {
+			return createContactAdapter();
+		}
+
+		@Override
+		public Adapter caseContribution(Contribution object) {
+			return createContributionAdapter();
+		}
+
+		@Override
+		public Adapter caseFeature(Feature object) {
+			return createFeatureAdapter();
+		}
+
+		@Override
+		public Adapter caseCustomCategory(CustomCategory object) {
+			return createCustomCategoryAdapter();
+		}
+
+		@Override
+		public Adapter caseDescriptionProvider(DescriptionProvider object) {
+			return createDescriptionProviderAdapter();
+		}
+
+		@Override
+		public Adapter caseEnabledStatusProvider(EnabledStatusProvider object) {
+			return createEnabledStatusProviderAdapter();
+		}
+
+		@Override
+		public Adapter caseExclusionRule(ExclusionRule object) {
+			return createExclusionRuleAdapter();
+		}
+
+		@Override
+		public Adapter caseIdentificationProvider(IdentificationProvider object) {
+			return createIdentificationProviderAdapter();
+		}
+
+		@Override
+		public Adapter caseInfosProvider(InfosProvider object) {
+			return createInfosProviderAdapter();
+		}
+
+		@Override
+		public Adapter caseInstallableUnitRequest(InstallableUnitRequest object) {
+			return createInstallableUnitRequestAdapter();
+		}
+
+		@Override
+		public Adapter caseLabelProvider(LabelProvider object) {
+			return createLabelProviderAdapter();
+		}
+
+		@Override
+		public Adapter caseMappedRepository(MappedRepository object) {
+			return createMappedRepositoryAdapter();
+		}
+
+		@Override
+		public Adapter caseMappedUnit(MappedUnit object) {
+			return createMappedUnitAdapter();
+		}
+
+		@Override
+		public Adapter caseMapRule(MapRule object) {
+			return createMapRuleAdapter();
+		}
+
+		@Override
+		public Adapter caseMavenItem(MavenItem object) {
+			return createMavenItemAdapter();
+		}
+
+		@Override
+		public Adapter caseMavenMapping(MavenMapping object) {
+			return createMavenMappingAdapter();
+		}
+
+		@Override
+		public Adapter caseMetadataRepositoryReference(MetadataRepositoryReference object) {
+			return createMetadataRepositoryReferenceAdapter();
+		}
+
+		@Override
+		public Adapter caseProduct(Product object) {
+			return createProductAdapter();
+		}
+
+		@Override
+		public Adapter caseProperty(Property object) {
+			return createPropertyAdapter();
+		}
+
+		@Override
+		public Adapter caseStatus(Status object) {
+			return createStatusAdapter();
+		}
+
+		@Override
+		public Adapter caseStatusProvider(StatusProvider object) {
+			return createStatusProviderAdapter();
+		}
+
+		@Override
+		public Adapter caseValidationSet(ValidationSet object) {
+			return createValidationSetAdapter();
+		}
+
+		@Override
+		public Adapter caseValidConfigurationsRule(ValidConfigurationsRule object) {
+			return createValidConfigurationsRuleAdapter();
+		}
+
+		@Override
+		public <T> Adapter caseComparable(Comparable<T> object) {
+			return createComparableAdapter();
+		}
+
+		@Override
+		public Adapter defaultCase(EObject object) {
+			return createEObjectAdapter();
+		}
+	};
 
 	/**
 	 * Creates an instance of the adapter factory.
@@ -198,7 +229,7 @@ public class AggregatorAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public AggregatorAdapterFactory() {
-		if (modelPackage == null) {
+		if(modelPackage == null) {
 			modelPackage = AggregatorPackage.eINSTANCE;
 		}
 	}
@@ -212,7 +243,7 @@ public class AggregatorAdapterFactory extends AdapterFactoryImpl {
 	 */
 	@Override
 	public Adapter createAdapter(Notifier target) {
-		return modelSwitch.doSwitch((EObject)target);
+		return modelSwitch.doSwitch((EObject) target);
 	}
 
 	/**
@@ -650,11 +681,11 @@ public class AggregatorAdapterFactory extends AdapterFactoryImpl {
 	 */
 	@Override
 	public boolean isFactoryForType(Object object) {
-		if (object == modelPackage) {
+		if(object == modelPackage) {
 			return true;
 		}
-		if (object instanceof EObject) {
-			return ((EObject)object).eClass().getEPackage() == modelPackage;
+		if(object instanceof EObject) {
+			return ((EObject) object).eClass().getEPackage() == modelPackage;
 		}
 		return false;
 	}

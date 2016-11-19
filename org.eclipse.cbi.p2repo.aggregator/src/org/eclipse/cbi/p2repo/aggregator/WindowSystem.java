@@ -27,41 +27,46 @@ public enum WindowSystem implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	WIN32(0, "Win32", "win32"), /**
-	 * The '<em><b>GTK</b></em>' literal object. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
-	 *
-	 * @see #GTK_VALUE
-	 * @generated
-	 * @ordered
-	 */
-	GTK(1, "GTK", "gtk"), /**
+	WIN32(0, "Win32", "win32"),
+	/**
+	* The '<em><b>GTK</b></em>' literal object. <!-- begin-user-doc --> <!-- end-user-doc
+	* -->
+	*
+	* @see #GTK_VALUE
+	* @generated
+	* @ordered
+	*/
+	GTK(1, "GTK", "gtk"),
+	/**
 	 * The '<em><b>Carbon</b></em>' literal object.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #CARBON_VALUE
 	 * @generated
 	 * @ordered
 	 */
-	CARBON(2, "Carbon", "carbon"), /**
+	CARBON(2, "Carbon", "carbon"),
+	/**
 	 * The '<em><b>Cocoa</b></em>' literal object.
 	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	* end-user-doc -->
 	 * @see #COCOA_VALUE
 	 * @generated
 	 * @ordered
 	 */
-	COCOA(3, "Cocoa", "cocoa"), /**
+	COCOA(3, "Cocoa", "cocoa"),
+	/**
 	 * The '<em><b>Motif</b></em>' literal object.
 	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	* <!-- end-user-doc -->
 	 * @see #MOTIF_VALUE
 	 * @generated
 	 * @ordered
 	 */
-	MOTIF(4, "Motif", "motif"), /**
+	MOTIF(4, "Motif", "motif"),
+	/**
 	 * The '<em><b>Photon</b></em>' literal object.
 	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	* <!-- end-user-doc -->
 	 * @see #PHOTON_VALUE
 	 * @generated
 	 * @ordered
@@ -157,14 +162,7 @@ public enum WindowSystem implements Enumerator {
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
-	private static final WindowSystem[] VALUES_ARRAY = new WindowSystem[] {
-			WIN32,
-			GTK,
-			CARBON,
-			COCOA,
-			MOTIF,
-			PHOTON,
-		};
+	private static final WindowSystem[] VALUES_ARRAY = new WindowSystem[] { WIN32, GTK, CARBON, COCOA, MOTIF, PHOTON, };
 
 	/**
 	 * A public read-only list of all the '<em><b>Window System</b></em>' enumerators.
@@ -183,13 +181,19 @@ public enum WindowSystem implements Enumerator {
 	 * @generated
 	 */
 	public static WindowSystem get(int value) {
-		switch (value) {
-			case WIN32_VALUE: return WIN32;
-			case GTK_VALUE: return GTK;
-			case CARBON_VALUE: return CARBON;
-			case COCOA_VALUE: return COCOA;
-			case MOTIF_VALUE: return MOTIF;
-			case PHOTON_VALUE: return PHOTON;
+		switch(value) {
+			case WIN32_VALUE:
+				return WIN32;
+			case GTK_VALUE:
+				return GTK;
+			case CARBON_VALUE:
+				return CARBON;
+			case COCOA_VALUE:
+				return COCOA;
+			case MOTIF_VALUE:
+				return MOTIF;
+			case PHOTON_VALUE:
+				return PHOTON;
 		}
 		return null;
 	}
@@ -203,9 +207,9 @@ public enum WindowSystem implements Enumerator {
 	 * @generated
 	 */
 	public static WindowSystem get(String literal) {
-		for (int i = 0; i < VALUES_ARRAY.length; ++i) {
+		for(int i = 0; i < VALUES_ARRAY.length; ++i) {
 			WindowSystem result = VALUES_ARRAY[i];
-			if (result.toString().equals(literal)) {
+			if(result.toString().equals(literal)) {
 				return result;
 			}
 		}
@@ -221,9 +225,9 @@ public enum WindowSystem implements Enumerator {
 	 * @generated
 	 */
 	public static WindowSystem getByName(String name) {
-		for (int i = 0; i < VALUES_ARRAY.length; ++i) {
+		for(int i = 0; i < VALUES_ARRAY.length; ++i) {
 			WindowSystem result = VALUES_ARRAY[i];
-			if (result.getName().equals(name)) {
+			if(result.getName().equals(name)) {
 				return result;
 			}
 		}
@@ -263,24 +267,27 @@ public enum WindowSystem implements Enumerator {
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getLiteral() {
-	  return literal;
+		return literal;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getName() {
-	  return name;
+		return name;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public int getValue() {
-	  return value;
+		return value;
 	}
 
 	/**

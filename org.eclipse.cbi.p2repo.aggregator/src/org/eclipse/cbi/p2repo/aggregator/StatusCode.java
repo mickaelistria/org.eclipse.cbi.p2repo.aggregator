@@ -97,11 +97,7 @@ public enum StatusCode implements Enumerator {
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
-	private static final StatusCode[] VALUES_ARRAY = new StatusCode[] {
-			OK,
-			BROKEN,
-			WAITING,
-		};
+	private static final StatusCode[] VALUES_ARRAY = new StatusCode[] { OK, BROKEN, WAITING, };
 
 	/**
 	 * A public read-only list of all the '<em><b>Status Code</b></em>' enumerators.
@@ -120,10 +116,13 @@ public enum StatusCode implements Enumerator {
 	 * @generated
 	 */
 	public static StatusCode get(int value) {
-		switch (value) {
-			case OK_VALUE: return OK;
-			case BROKEN_VALUE: return BROKEN;
-			case WAITING_VALUE: return WAITING;
+		switch(value) {
+			case OK_VALUE:
+				return OK;
+			case BROKEN_VALUE:
+				return BROKEN;
+			case WAITING_VALUE:
+				return WAITING;
 		}
 		return null;
 	}
@@ -137,9 +136,9 @@ public enum StatusCode implements Enumerator {
 	 * @generated
 	 */
 	public static StatusCode get(String literal) {
-		for (int i = 0; i < VALUES_ARRAY.length; ++i) {
+		for(int i = 0; i < VALUES_ARRAY.length; ++i) {
 			StatusCode result = VALUES_ARRAY[i];
-			if (result.toString().equals(literal)) {
+			if(result.toString().equals(literal)) {
 				return result;
 			}
 		}
@@ -155,9 +154,9 @@ public enum StatusCode implements Enumerator {
 	 * @generated
 	 */
 	public static StatusCode getByName(String name) {
-		for (int i = 0; i < VALUES_ARRAY.length; ++i) {
+		for(int i = 0; i < VALUES_ARRAY.length; ++i) {
 			StatusCode result = VALUES_ARRAY[i];
-			if (result.getName().equals(name)) {
+			if(result.getName().equals(name)) {
 				return result;
 			}
 		}
@@ -197,24 +196,27 @@ public enum StatusCode implements Enumerator {
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getLiteral() {
-	  return literal;
+		return literal;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getName() {
-	  return name;
+		return name;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public int getValue() {
-	  return value;
+		return value;
 	}
 
 	/**

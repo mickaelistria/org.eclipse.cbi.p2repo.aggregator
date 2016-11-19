@@ -76,10 +76,7 @@ public final class AggregatorEditorPlugin extends EMFPlugin {
 	 * @generated
 	 */
 	public AggregatorEditorPlugin() {
-		super
-			(new ResourceLocator [] {
-				P2EditPlugin.INSTANCE,
-			});
+		super(new ResourceLocator[] { P2EditPlugin.INSTANCE, });
 	}
 
 	public AdapterFactoryEditingDomain getActiveEditingDomain() {

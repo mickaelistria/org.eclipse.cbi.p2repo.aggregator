@@ -44,19 +44,12 @@ public class FeatureItemProvider extends MappedUnitItemProvider {
 	 * @generated
 	 */
 	protected void addCategoriesPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Feature_categories_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Feature_categories_feature", "_UI_Feature_type"),
-				 AggregatorPackage.Literals.FEATURE__CATEGORIES,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
+		itemPropertyDescriptors.add(
+			createItemPropertyDescriptor(
+				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+				getString("_UI_Feature_categories_feature"),
+				getString("_UI_PropertyDescriptor_description", "_UI_Feature_categories_feature", "_UI_Feature_type"),
+				AggregatorPackage.Literals.FEATURE__CATEGORIES, true, false, true, null, null, null));
 	}
 
 	/**
@@ -87,8 +80,7 @@ public class FeatureItemProvider extends MappedUnitItemProvider {
 	@Override
 	public Object getImage(Object object) {
 		return overlayImage(
-			object,
-			getResourceLocator().getImage(
+			object, getResourceLocator().getImage(
 				"full/obj16/Feature" + (!((Feature) object).isBranchDisabledOrMappedRepositoryBroken()
 						? ""
 						: "Disabled")));
@@ -106,7 +98,7 @@ public class FeatureItemProvider extends MappedUnitItemProvider {
 	 */
 	@Override
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-		if (itemPropertyDescriptors == null) {
+		if(itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
 			addCategoriesPropertyDescriptor(object);

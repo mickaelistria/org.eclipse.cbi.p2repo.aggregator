@@ -35,9 +35,9 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
  *
  * @generated
  */
-public class IUDetailsItemProvider extends AggregatorItemProviderAdapter implements IEditingDomainItemProvider,
-		IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource,
-		IItemColorProvider, IItemFontProvider {
+public class IUDetailsItemProvider extends AggregatorItemProviderAdapter
+		implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider,
+		IItemLabelProvider, IItemPropertySource, IItemColorProvider, IItemFontProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -53,19 +53,13 @@ public class IUDetailsItemProvider extends AggregatorItemProviderAdapter impleme
 	 * @generated
 	 */
 	protected void addCopyrightPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_IUDetails_copyright_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_IUDetails_copyright_feature", "_UI_IUDetails_type"),
-				 P2viewPackage.Literals.IU_DETAILS__COPYRIGHT,
-				 false,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
+		itemPropertyDescriptors.add(
+			createItemPropertyDescriptor(
+				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+				getString("_UI_IUDetails_copyright_feature"),
+				getString(
+					"_UI_PropertyDescriptor_description", "_UI_IUDetails_copyright_feature", "_UI_IUDetails_type"),
+				P2viewPackage.Literals.IU_DETAILS__COPYRIGHT, false, false, true, null, null, null));
 	}
 
 	/**
@@ -74,19 +68,14 @@ public class IUDetailsItemProvider extends AggregatorItemProviderAdapter impleme
 	 * @generated
 	 */
 	protected void addUpdateDescriptorPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_IUDetails_updateDescriptor_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_IUDetails_updateDescriptor_feature", "_UI_IUDetails_type"),
-				 P2viewPackage.Literals.IU_DETAILS__UPDATE_DESCRIPTOR,
-				 false,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
+		itemPropertyDescriptors.add(
+			createItemPropertyDescriptor(
+				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+				getString("_UI_IUDetails_updateDescriptor_feature"),
+				getString(
+					"_UI_PropertyDescriptor_description", "_UI_IUDetails_updateDescriptor_feature",
+					"_UI_IUDetails_type"),
+				P2viewPackage.Literals.IU_DETAILS__UPDATE_DESCRIPTOR, false, false, true, null, null, null));
 	}
 
 	/**
@@ -122,7 +111,7 @@ public class IUDetailsItemProvider extends AggregatorItemProviderAdapter impleme
 	 */
 	@Override
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
-		if (childrenFeatures == null) {
+		if(childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(P2viewPackage.Literals.IU_DETAILS__REQUIREMENTS_CONTAINER);
 			childrenFeatures.add(P2viewPackage.Literals.IU_DETAILS__PROVIDED_CAPABILITIES_CONTAINER);
@@ -152,7 +141,7 @@ public class IUDetailsItemProvider extends AggregatorItemProviderAdapter impleme
 	 */
 	@Override
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-		if (itemPropertyDescriptors == null) {
+		if(itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
 			addUpdateDescriptorPropertyDescriptor(object);

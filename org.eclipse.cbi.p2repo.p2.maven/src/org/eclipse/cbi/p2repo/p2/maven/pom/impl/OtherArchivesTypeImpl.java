@@ -22,7 +22,7 @@ import org.eclipse.emf.ecore.util.EDataTypeEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.OtherArchivesTypeImpl#getOtherArchive <em>Other Archive</em>}</li>
+ * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.impl.OtherArchivesTypeImpl#getOtherArchive <em>Other Archive</em>}</li>
  * </ul>
  *
  * @generated
@@ -32,6 +32,7 @@ public class OtherArchivesTypeImpl extends EObjectImpl implements OtherArchivesT
 	 * The cached value of the '{@link #getOtherArchive() <em>Other Archive</em>}' attribute list.
 	 * <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
+	 * 
 	 * @see #getOtherArchive()
 	 * @generated
 	 * @ordered
@@ -40,6 +41,7 @@ public class OtherArchivesTypeImpl extends EObjectImpl implements OtherArchivesT
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected OtherArchivesTypeImpl() {
@@ -48,11 +50,12 @@ public class OtherArchivesTypeImpl extends EObjectImpl implements OtherArchivesT
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch (featureID) {
+		switch(featureID) {
 			case PomPackage.OTHER_ARCHIVES_TYPE__OTHER_ARCHIVE:
 				return getOtherArchive();
 		}
@@ -61,11 +64,12 @@ public class OtherArchivesTypeImpl extends EObjectImpl implements OtherArchivesT
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch (featureID) {
+		switch(featureID) {
 			case PomPackage.OTHER_ARCHIVES_TYPE__OTHER_ARCHIVE:
 				return otherArchive != null && !otherArchive.isEmpty();
 		}
@@ -74,15 +78,16 @@ public class OtherArchivesTypeImpl extends EObjectImpl implements OtherArchivesT
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch (featureID) {
+		switch(featureID) {
 			case PomPackage.OTHER_ARCHIVES_TYPE__OTHER_ARCHIVE:
 				getOtherArchive().clear();
-				getOtherArchive().addAll((Collection<? extends String>)newValue);
+				getOtherArchive().addAll((Collection<? extends String>) newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -90,11 +95,12 @@ public class OtherArchivesTypeImpl extends EObjectImpl implements OtherArchivesT
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
-		switch (featureID) {
+		switch(featureID) {
 			case PomPackage.OTHER_ARCHIVES_TYPE__OTHER_ARCHIVE:
 				getOtherArchive().clear();
 				return;
@@ -104,23 +110,27 @@ public class OtherArchivesTypeImpl extends EObjectImpl implements OtherArchivesT
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public EList<String> getOtherArchive() {
-		if (otherArchive == null) {
-			otherArchive = new EDataTypeEList<String>(String.class, this, PomPackage.OTHER_ARCHIVES_TYPE__OTHER_ARCHIVE);
+		if(otherArchive == null) {
+			otherArchive = new EDataTypeEList<String>(
+				String.class, this, PomPackage.OTHER_ARCHIVES_TYPE__OTHER_ARCHIVE);
 		}
 		return otherArchive;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy()) return super.toString();
+		if(eIsProxy())
+			return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (otherArchive: ");
@@ -131,6 +141,7 @@ public class OtherArchivesTypeImpl extends EObjectImpl implements OtherArchivesT
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override

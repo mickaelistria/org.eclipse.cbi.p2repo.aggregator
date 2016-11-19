@@ -25,9 +25,9 @@ import org.eclipse.equinox.p2.metadata.ILicense;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.eclipse.cbi.p2repo.p2.impl.LicenseImpl#getLocation <em>Location</em>}</li>
- *   <li>{@link org.eclipse.cbi.p2repo.p2.impl.LicenseImpl#getBody <em>Body</em>}</li>
- *   <li>{@link org.eclipse.cbi.p2repo.p2.impl.LicenseImpl#getUUID <em>UUID</em>}</li>
+ * <li>{@link org.eclipse.cbi.p2repo.p2.impl.LicenseImpl#getLocation <em>Location</em>}</li>
+ * <li>{@link org.eclipse.cbi.p2repo.p2.impl.LicenseImpl#getBody <em>Body</em>}</li>
+ * <li>{@link org.eclipse.cbi.p2repo.p2.impl.LicenseImpl#getUUID <em>UUID</em>}</li>
  * </ul>
  *
  * @generated
@@ -37,6 +37,7 @@ public class LicenseImpl extends MinimalEObjectImpl.Container implements License
 	 * A set of bit flags representing the values of boolean attributes and whether unsettable features have been set.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -46,6 +47,7 @@ public class LicenseImpl extends MinimalEObjectImpl.Container implements License
 	 * The default value of the '{@link #getLocation() <em>Location</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getLocation()
 	 * @generated
 	 * @ordered
@@ -56,6 +58,7 @@ public class LicenseImpl extends MinimalEObjectImpl.Container implements License
 	 * The cached value of the '{@link #getLocation() <em>Location</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getLocation()
 	 * @generated
 	 * @ordered
@@ -66,6 +69,7 @@ public class LicenseImpl extends MinimalEObjectImpl.Container implements License
 	 * The default value of the '{@link #getBody() <em>Body</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getBody()
 	 * @generated
 	 * @ordered
@@ -76,6 +80,7 @@ public class LicenseImpl extends MinimalEObjectImpl.Container implements License
 	 * The cached value of the '{@link #getBody() <em>Body</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getBody()
 	 * @generated
 	 * @ordered
@@ -86,6 +91,7 @@ public class LicenseImpl extends MinimalEObjectImpl.Container implements License
 	 * The default value of the '{@link #getUUID() <em>UUID</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getUUID()
 	 * @generated
 	 * @ordered
@@ -96,6 +102,7 @@ public class LicenseImpl extends MinimalEObjectImpl.Container implements License
 	 * The cached value of the '{@link #getUUID() <em>UUID</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getUUID()
 	 * @generated
 	 * @ordered
@@ -105,6 +112,7 @@ public class LicenseImpl extends MinimalEObjectImpl.Container implements License
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected LicenseImpl() {
@@ -114,11 +122,12 @@ public class LicenseImpl extends MinimalEObjectImpl.Container implements License
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch (featureID) {
+		switch(featureID) {
 			case P2Package.LICENSE__LOCATION:
 				return getLocation();
 			case P2Package.LICENSE__BODY:
@@ -132,17 +141,24 @@ public class LicenseImpl extends MinimalEObjectImpl.Container implements License
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch (featureID) {
+		switch(featureID) {
 			case P2Package.LICENSE__LOCATION:
-				return LOCATION_EDEFAULT == null ? location != null : !LOCATION_EDEFAULT.equals(location);
+				return LOCATION_EDEFAULT == null
+						? location != null
+						: !LOCATION_EDEFAULT.equals(location);
 			case P2Package.LICENSE__BODY:
-				return BODY_EDEFAULT == null ? body != null : !BODY_EDEFAULT.equals(body);
+				return BODY_EDEFAULT == null
+						? body != null
+						: !BODY_EDEFAULT.equals(body);
 			case P2Package.LICENSE__UUID:
-				return UUID_EDEFAULT == null ? uuid != null : !UUID_EDEFAULT.equals(uuid);
+				return UUID_EDEFAULT == null
+						? uuid != null
+						: !UUID_EDEFAULT.equals(uuid);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -164,19 +180,20 @@ public class LicenseImpl extends MinimalEObjectImpl.Container implements License
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch (featureID) {
+		switch(featureID) {
 			case P2Package.LICENSE__LOCATION:
-				setLocation((URI)newValue);
+				setLocation((URI) newValue);
 				return;
 			case P2Package.LICENSE__BODY:
-				setBody((String)newValue);
+				setBody((String) newValue);
 				return;
 			case P2Package.LICENSE__UUID:
-				setUUID((String)newValue);
+				setUUID((String) newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -185,6 +202,7 @@ public class LicenseImpl extends MinimalEObjectImpl.Container implements License
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -195,11 +213,12 @@ public class LicenseImpl extends MinimalEObjectImpl.Container implements License
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
-		switch (featureID) {
+		switch(featureID) {
 			case P2Package.LICENSE__LOCATION:
 				setLocation(LOCATION_EDEFAULT);
 				return;
@@ -216,6 +235,7 @@ public class LicenseImpl extends MinimalEObjectImpl.Container implements License
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -226,6 +246,7 @@ public class LicenseImpl extends MinimalEObjectImpl.Container implements License
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -236,6 +257,7 @@ public class LicenseImpl extends MinimalEObjectImpl.Container implements License
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -251,47 +273,52 @@ public class LicenseImpl extends MinimalEObjectImpl.Container implements License
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setBody(String newBody) {
 		String oldBody = body;
 		body = newBody;
-		if (eNotificationRequired())
+		if(eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, P2Package.LICENSE__BODY, oldBody, body));
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setLocation(URI newLocation) {
 		URI oldLocation = location;
 		location = newLocation;
-		if (eNotificationRequired())
+		if(eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, P2Package.LICENSE__LOCATION, oldLocation, location));
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setUUID(String newUUID) {
 		String oldUUID = uuid;
 		uuid = newUUID;
-		if (eNotificationRequired())
+		if(eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, P2Package.LICENSE__UUID, oldUUID, uuid));
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy()) return super.toString();
+		if(eIsProxy())
+			return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (location: ");

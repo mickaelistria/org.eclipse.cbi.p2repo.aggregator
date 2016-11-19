@@ -20,6 +20,7 @@ import org.eclipse.emf.ecore.util.Switch;
  * to invoke the <code>caseXXX</code> method for each class of the model,
  * starting with the actual class of the object and proceeding up the inheritance hierarchy until a non-null result is
  * returned, which is the result of the switch. <!-- end-user-doc -->
+ * 
  * @see org.eclipse.cbi.p2repo.p2.maven.metadata.MetadataPackage
  * @generated
  */
@@ -27,6 +28,7 @@ public class MetadataSwitch<T> extends Switch<T> {
 	/**
 	 * The cached model package
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected static MetadataPackage modelPackage;
@@ -34,10 +36,11 @@ public class MetadataSwitch<T> extends Switch<T> {
 	/**
 	 * Creates an instance of the switch.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public MetadataSwitch() {
-		if (modelPackage == null) {
+		if(modelPackage == null) {
 			modelPackage = MetadataPackage.eINSTANCE;
 		}
 	}
@@ -46,7 +49,9 @@ public class MetadataSwitch<T> extends Switch<T> {
 	 * Returns the result of interpreting the object as an instance of '<em>Document Root</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
-	 * @param object the target of the switch.
+	 * 
+	 * @param object
+	 *            the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Document Root</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
@@ -59,7 +64,9 @@ public class MetadataSwitch<T> extends Switch<T> {
 	 * Returns the result of interpreting the object as an instance of '<em>Meta Data</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
-	 * @param object the target of the switch.
+	 * 
+	 * @param object
+	 *            the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Meta Data</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
@@ -72,7 +79,9 @@ public class MetadataSwitch<T> extends Switch<T> {
 	 * Returns the result of interpreting the object as an instance of '<em>Versioning</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
-	 * @param object the target of the switch.
+	 * 
+	 * @param object
+	 *            the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Versioning</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
@@ -85,7 +94,9 @@ public class MetadataSwitch<T> extends Switch<T> {
 	 * Returns the result of interpreting the object as an instance of '<em>Versions</em>'.
 	 * <!-- begin-user-doc --> This
 	 * implementation returns null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
-	 * @param object the target of the switch.
+	 * 
+	 * @param object
+	 *            the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Versions</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
@@ -99,7 +110,9 @@ public class MetadataSwitch<T> extends Switch<T> {
 	 * <!-- begin-user-doc --> This
 	 * implementation returns null; returning a non-null result will terminate the switch, but this is the last case
 	 * anyway. <!-- end-user-doc -->
-	 * @param object the target of the switch.
+	 * 
+	 * @param object
+	 *            the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>EObject</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject)
 	 * @generated
@@ -112,37 +125,43 @@ public class MetadataSwitch<T> extends Switch<T> {
 	/**
 	 * Calls <code>caseXXX</code> for each class of the model until one returns a non null result; it yields that result.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @return the first non-null result returned by a <code>caseXXX</code> call.
 	 * @generated
 	 */
 	@Override
 	protected T doSwitch(int classifierID, EObject theEObject) {
-		switch (classifierID) {
+		switch(classifierID) {
 			case MetadataPackage.DOCUMENT_ROOT: {
-				DocumentRoot documentRoot = (DocumentRoot)theEObject;
+				DocumentRoot documentRoot = (DocumentRoot) theEObject;
 				T result = caseDocumentRoot(documentRoot);
-				if (result == null) result = defaultCase(theEObject);
+				if(result == null)
+					result = defaultCase(theEObject);
 				return result;
 			}
 			case MetadataPackage.META_DATA: {
-				MetaData metaData = (MetaData)theEObject;
+				MetaData metaData = (MetaData) theEObject;
 				T result = caseMetaData(metaData);
-				if (result == null) result = defaultCase(theEObject);
+				if(result == null)
+					result = defaultCase(theEObject);
 				return result;
 			}
 			case MetadataPackage.VERSIONING: {
-				Versioning versioning = (Versioning)theEObject;
+				Versioning versioning = (Versioning) theEObject;
 				T result = caseVersioning(versioning);
-				if (result == null) result = defaultCase(theEObject);
+				if(result == null)
+					result = defaultCase(theEObject);
 				return result;
 			}
 			case MetadataPackage.VERSIONS: {
-				Versions versions = (Versions)theEObject;
+				Versions versions = (Versions) theEObject;
 				T result = caseVersions(versions);
-				if (result == null) result = defaultCase(theEObject);
+				if(result == null)
+					result = defaultCase(theEObject);
 				return result;
 			}
-			default: return defaultCase(theEObject);
+			default:
+				return defaultCase(theEObject);
 		}
 	}
 
@@ -150,7 +169,9 @@ public class MetadataSwitch<T> extends Switch<T> {
 	 * Checks whether this is a switch for the given package.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param ePackage the package in question.
+	 * 
+	 * @param ePackage
+	 *            the package in question.
 	 * @return whether this is a switch for the given package.
 	 * @generated
 	 */

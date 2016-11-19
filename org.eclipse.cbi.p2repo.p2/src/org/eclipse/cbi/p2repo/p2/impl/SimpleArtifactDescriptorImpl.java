@@ -29,7 +29,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.eclipse.cbi.p2repo.p2.impl.SimpleArtifactDescriptorImpl#getRepositoryPropertyMap <em>Repository Property Map</em>}</li>
+ * <li>{@link org.eclipse.cbi.p2repo.p2.impl.SimpleArtifactDescriptorImpl#getRepositoryPropertyMap <em>Repository Property Map</em>}</li>
  * </ul>
  *
  * @generated
@@ -39,6 +39,7 @@ public class SimpleArtifactDescriptorImpl extends ArtifactDescriptorImpl impleme
 	 * The cached value of the '{@link #getRepositoryPropertyMap() <em>Repository Property Map</em>}' map.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getRepositoryPropertyMap()
 	 * @generated
 	 * @ordered
@@ -50,6 +51,7 @@ public class SimpleArtifactDescriptorImpl extends ArtifactDescriptorImpl impleme
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected SimpleArtifactDescriptorImpl() {
@@ -59,14 +61,17 @@ public class SimpleArtifactDescriptorImpl extends ArtifactDescriptorImpl impleme
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch (featureID) {
+		switch(featureID) {
 			case P2Package.SIMPLE_ARTIFACT_DESCRIPTOR__REPOSITORY_PROPERTY_MAP:
-				if (coreType) return getRepositoryPropertyMap();
-				else return getRepositoryPropertyMap().map();
+				if(coreType)
+					return getRepositoryPropertyMap();
+				else
+					return getRepositoryPropertyMap().map();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -74,13 +79,14 @@ public class SimpleArtifactDescriptorImpl extends ArtifactDescriptorImpl impleme
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
+		switch(featureID) {
 			case P2Package.SIMPLE_ARTIFACT_DESCRIPTOR__REPOSITORY_PROPERTY_MAP:
-				return ((InternalEList<?>)getRepositoryPropertyMap()).basicRemove(otherEnd, msgs);
+				return ((InternalEList<?>) getRepositoryPropertyMap()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -88,11 +94,12 @@ public class SimpleArtifactDescriptorImpl extends ArtifactDescriptorImpl impleme
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch (featureID) {
+		switch(featureID) {
 			case P2Package.SIMPLE_ARTIFACT_DESCRIPTOR__REPOSITORY_PROPERTY_MAP:
 				return repositoryPropertyMap != null && !repositoryPropertyMap.isEmpty();
 		}
@@ -115,13 +122,14 @@ public class SimpleArtifactDescriptorImpl extends ArtifactDescriptorImpl impleme
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch (featureID) {
+		switch(featureID) {
 			case P2Package.SIMPLE_ARTIFACT_DESCRIPTOR__REPOSITORY_PROPERTY_MAP:
-				((EStructuralFeature.Setting)getRepositoryPropertyMap()).set(newValue);
+				((EStructuralFeature.Setting) getRepositoryPropertyMap()).set(newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -130,6 +138,7 @@ public class SimpleArtifactDescriptorImpl extends ArtifactDescriptorImpl impleme
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -140,11 +149,12 @@ public class SimpleArtifactDescriptorImpl extends ArtifactDescriptorImpl impleme
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
-		switch (featureID) {
+		switch(featureID) {
 			case P2Package.SIMPLE_ARTIFACT_DESCRIPTOR__REPOSITORY_PROPERTY_MAP:
 				getRepositoryPropertyMap().clear();
 				return;
@@ -177,12 +187,15 @@ public class SimpleArtifactDescriptorImpl extends ArtifactDescriptorImpl impleme
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public EMap<String, String> getRepositoryPropertyMap() {
-		if (repositoryPropertyMap == null) {
-			repositoryPropertyMap = new EcoreEMap<String,String>(P2Package.Literals.PROPERTY, PropertyImpl.class, this, P2Package.SIMPLE_ARTIFACT_DESCRIPTOR__REPOSITORY_PROPERTY_MAP);
+		if(repositoryPropertyMap == null) {
+			repositoryPropertyMap = new EcoreEMap<String, String>(
+				P2Package.Literals.PROPERTY, PropertyImpl.class, this,
+				P2Package.SIMPLE_ARTIFACT_DESCRIPTOR__REPOSITORY_PROPERTY_MAP);
 		}
 		return repositoryPropertyMap;
 	}

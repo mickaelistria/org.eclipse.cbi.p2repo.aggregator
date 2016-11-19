@@ -24,6 +24,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * This is the item provider adapter for a {@link org.eclipse.cbi.p2repo.p2.ArtifactRepository} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
+ * 
  * @generated
  */
 public class ArtifactRepositoryItemProvider extends RepositoryItemProvider {
@@ -31,6 +32,7 @@ public class ArtifactRepositoryItemProvider extends RepositoryItemProvider {
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public ArtifactRepositoryItemProvider(AdapterFactory adapterFactory) {
@@ -42,21 +44,23 @@ public class ArtifactRepositoryItemProvider extends RepositoryItemProvider {
 	 * that can be created under this object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 
-		newChildDescriptors.add
-			(createChildParameter
-				(P2Package.Literals.ARTIFACT_REPOSITORY__ARTIFACT_MAP,
-				 P2Factory.eINSTANCE.create(P2Package.Literals.ARTIFACTS_BY_KEY)));
+		newChildDescriptors.add(
+			createChildParameter(
+				P2Package.Literals.ARTIFACT_REPOSITORY__ARTIFACT_MAP,
+				P2Factory.eINSTANCE.create(P2Package.Literals.ARTIFACTS_BY_KEY)));
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -73,11 +77,12 @@ public class ArtifactRepositoryItemProvider extends RepositoryItemProvider {
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
-		if (childrenFeatures == null) {
+		if(childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(P2Package.Literals.ARTIFACT_REPOSITORY__ARTIFACT_MAP);
 		}
@@ -88,6 +93,7 @@ public class ArtifactRepositoryItemProvider extends RepositoryItemProvider {
 	 * This returns ArtifactRepository.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -99,11 +105,12 @@ public class ArtifactRepositoryItemProvider extends RepositoryItemProvider {
 	 * This returns the property descriptors for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-		if (itemPropertyDescriptors == null) {
+		if(itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
 		}
@@ -114,14 +121,15 @@ public class ArtifactRepositoryItemProvider extends RepositoryItemProvider {
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((ArtifactRepository)object).getName();
-		return label == null || label.length() == 0 ?
-			getString("_UI_ArtifactRepository_type") :
-			getString("_UI_ArtifactRepository_type") + " " + label;
+		String label = ((ArtifactRepository) object).getName();
+		return label == null || label.length() == 0
+				? getString("_UI_ArtifactRepository_type")
+				: getString("_UI_ArtifactRepository_type") + " " + label;
 	}
 
 	/**
@@ -129,13 +137,14 @@ public class ArtifactRepositoryItemProvider extends RepositoryItemProvider {
 	 * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(ArtifactRepository.class)) {
+		switch(notification.getFeatureID(ArtifactRepository.class)) {
 			case P2Package.ARTIFACT_REPOSITORY__ARTIFACT_MAP:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;

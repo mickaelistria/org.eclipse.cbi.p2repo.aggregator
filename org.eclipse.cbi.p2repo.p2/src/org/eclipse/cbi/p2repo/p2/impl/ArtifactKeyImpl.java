@@ -24,9 +24,9 @@ import org.eclipse.equinox.p2.metadata.Version;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.eclipse.cbi.p2repo.p2.impl.ArtifactKeyImpl#getClassifier <em>Classifier</em>}</li>
- *   <li>{@link org.eclipse.cbi.p2repo.p2.impl.ArtifactKeyImpl#getId <em>Id</em>}</li>
- *   <li>{@link org.eclipse.cbi.p2repo.p2.impl.ArtifactKeyImpl#getVersion <em>Version</em>}</li>
+ * <li>{@link org.eclipse.cbi.p2repo.p2.impl.ArtifactKeyImpl#getClassifier <em>Classifier</em>}</li>
+ * <li>{@link org.eclipse.cbi.p2repo.p2.impl.ArtifactKeyImpl#getId <em>Id</em>}</li>
+ * <li>{@link org.eclipse.cbi.p2repo.p2.impl.ArtifactKeyImpl#getVersion <em>Version</em>}</li>
  * </ul>
  *
  * @generated
@@ -36,6 +36,7 @@ public class ArtifactKeyImpl extends MinimalEObjectImpl.Container implements Art
 	 * A set of bit flags representing the values of boolean attributes and whether unsettable features have been set.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -45,6 +46,7 @@ public class ArtifactKeyImpl extends MinimalEObjectImpl.Container implements Art
 	 * The default value of the '{@link #getClassifier() <em>Classifier</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getClassifier()
 	 * @generated
 	 * @ordered
@@ -55,6 +57,7 @@ public class ArtifactKeyImpl extends MinimalEObjectImpl.Container implements Art
 	 * The cached value of the '{@link #getClassifier() <em>Classifier</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getClassifier()
 	 * @generated
 	 * @ordered
@@ -65,6 +68,7 @@ public class ArtifactKeyImpl extends MinimalEObjectImpl.Container implements Art
 	 * The default value of the '{@link #getId() <em>Id</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getId()
 	 * @generated
 	 * @ordered
@@ -75,6 +79,7 @@ public class ArtifactKeyImpl extends MinimalEObjectImpl.Container implements Art
 	 * The cached value of the '{@link #getId() <em>Id</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getId()
 	 * @generated
 	 * @ordered
@@ -85,6 +90,7 @@ public class ArtifactKeyImpl extends MinimalEObjectImpl.Container implements Art
 	 * The default value of the '{@link #getVersion() <em>Version</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getVersion()
 	 * @generated
 	 * @ordered
@@ -95,6 +101,7 @@ public class ArtifactKeyImpl extends MinimalEObjectImpl.Container implements Art
 	 * The cached value of the '{@link #getVersion() <em>Version</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getVersion()
 	 * @generated
 	 * @ordered
@@ -104,6 +111,7 @@ public class ArtifactKeyImpl extends MinimalEObjectImpl.Container implements Art
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected ArtifactKeyImpl() {
@@ -113,11 +121,12 @@ public class ArtifactKeyImpl extends MinimalEObjectImpl.Container implements Art
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch (featureID) {
+		switch(featureID) {
 			case P2Package.ARTIFACT_KEY__CLASSIFIER:
 				return getClassifier();
 			case P2Package.ARTIFACT_KEY__ID:
@@ -131,17 +140,24 @@ public class ArtifactKeyImpl extends MinimalEObjectImpl.Container implements Art
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch (featureID) {
+		switch(featureID) {
 			case P2Package.ARTIFACT_KEY__CLASSIFIER:
-				return CLASSIFIER_EDEFAULT == null ? classifier != null : !CLASSIFIER_EDEFAULT.equals(classifier);
+				return CLASSIFIER_EDEFAULT == null
+						? classifier != null
+						: !CLASSIFIER_EDEFAULT.equals(classifier);
 			case P2Package.ARTIFACT_KEY__ID:
-				return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
+				return ID_EDEFAULT == null
+						? id != null
+						: !ID_EDEFAULT.equals(id);
 			case P2Package.ARTIFACT_KEY__VERSION:
-				return VERSION_EDEFAULT == null ? version != null : !VERSION_EDEFAULT.equals(version);
+				return VERSION_EDEFAULT == null
+						? version != null
+						: !VERSION_EDEFAULT.equals(version);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -157,19 +173,20 @@ public class ArtifactKeyImpl extends MinimalEObjectImpl.Container implements Art
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch (featureID) {
+		switch(featureID) {
 			case P2Package.ARTIFACT_KEY__CLASSIFIER:
-				setClassifier((String)newValue);
+				setClassifier((String) newValue);
 				return;
 			case P2Package.ARTIFACT_KEY__ID:
-				setId((String)newValue);
+				setId((String) newValue);
 				return;
 			case P2Package.ARTIFACT_KEY__VERSION:
-				setVersion((Version)newValue);
+				setVersion((Version) newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -178,6 +195,7 @@ public class ArtifactKeyImpl extends MinimalEObjectImpl.Container implements Art
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -188,11 +206,12 @@ public class ArtifactKeyImpl extends MinimalEObjectImpl.Container implements Art
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
-		switch (featureID) {
+		switch(featureID) {
 			case P2Package.ARTIFACT_KEY__CLASSIFIER:
 				setClassifier(CLASSIFIER_EDEFAULT);
 				return;
@@ -209,6 +228,7 @@ public class ArtifactKeyImpl extends MinimalEObjectImpl.Container implements Art
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -219,6 +239,7 @@ public class ArtifactKeyImpl extends MinimalEObjectImpl.Container implements Art
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -229,6 +250,7 @@ public class ArtifactKeyImpl extends MinimalEObjectImpl.Container implements Art
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -247,42 +269,49 @@ public class ArtifactKeyImpl extends MinimalEObjectImpl.Container implements Art
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setClassifier(String newClassifier) {
 		String oldClassifier = classifier;
 		classifier = newClassifier;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, P2Package.ARTIFACT_KEY__CLASSIFIER, oldClassifier, classifier));
+		if(eNotificationRequired())
+			eNotify(
+				new ENotificationImpl(
+					this, Notification.SET, P2Package.ARTIFACT_KEY__CLASSIFIER, oldClassifier, classifier));
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setId(String newId) {
 		String oldId = id;
 		id = newId;
-		if (eNotificationRequired())
+		if(eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, P2Package.ARTIFACT_KEY__ID, oldId, id));
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setVersion(Version newVersion) {
 		Version oldVersion = version;
 		version = newVersion;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, P2Package.ARTIFACT_KEY__VERSION, oldVersion, version));
+		if(eNotificationRequired())
+			eNotify(
+				new ENotificationImpl(this, Notification.SET, P2Package.ARTIFACT_KEY__VERSION, oldVersion, version));
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -295,11 +324,13 @@ public class ArtifactKeyImpl extends MinimalEObjectImpl.Container implements Art
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy()) return super.toString();
+		if(eIsProxy())
+			return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (classifier: ");

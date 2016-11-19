@@ -199,9 +199,14 @@ public class MetadataRepositoryStructuredViewImpl extends MinimalEObjectImpl.Con
 			NotificationChain msgs) {
 		InstallableUnits oldInstallableUnitList = installableUnitList;
 		installableUnitList = newInstallableUnitList;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, P2viewPackage.METADATA_REPOSITORY_STRUCTURED_VIEW__INSTALLABLE_UNIT_LIST, oldInstallableUnitList, newInstallableUnitList);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
+		if(eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(
+				this, Notification.SET, P2viewPackage.METADATA_REPOSITORY_STRUCTURED_VIEW__INSTALLABLE_UNIT_LIST,
+				oldInstallableUnitList, newInstallableUnitList);
+			if(msgs == null)
+				msgs = notification;
+			else
+				msgs.add(notification);
 		}
 		return msgs;
 	}
@@ -213,9 +218,14 @@ public class MetadataRepositoryStructuredViewImpl extends MinimalEObjectImpl.Con
 	public NotificationChain basicSetProperties(Properties newProperties, NotificationChain msgs) {
 		Properties oldProperties = properties;
 		properties = newProperties;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, P2viewPackage.METADATA_REPOSITORY_STRUCTURED_VIEW__PROPERTIES, oldProperties, newProperties);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
+		if(eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(
+				this, Notification.SET, P2viewPackage.METADATA_REPOSITORY_STRUCTURED_VIEW__PROPERTIES, oldProperties,
+				newProperties);
+			if(msgs == null)
+				msgs = notification;
+			else
+				msgs.add(notification);
 		}
 		return msgs;
 	}
@@ -226,23 +236,26 @@ public class MetadataRepositoryStructuredViewImpl extends MinimalEObjectImpl.Con
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch (featureID) {
+		switch(featureID) {
 			case P2viewPackage.METADATA_REPOSITORY_STRUCTURED_VIEW__CHILDREN:
 				return getChildren();
 			case P2viewPackage.METADATA_REPOSITORY_STRUCTURED_VIEW__NAME:
 				return getName();
 			case P2viewPackage.METADATA_REPOSITORY_STRUCTURED_VIEW__INSTALLABLE_UNIT_LIST:
-				if (resolve) return getInstallableUnitList();
+				if(resolve)
+					return getInstallableUnitList();
 				return basicGetInstallableUnitList();
 			case P2viewPackage.METADATA_REPOSITORY_STRUCTURED_VIEW__PROPERTIES:
-				if (resolve) return getProperties();
+				if(resolve)
+					return getProperties();
 				return basicGetProperties();
 			case P2viewPackage.METADATA_REPOSITORY_STRUCTURED_VIEW__METADATA_REPOSITORY:
 				return getMetadataRepository();
 			case P2viewPackage.METADATA_REPOSITORY_STRUCTURED_VIEW__LOADED:
 				return isLoaded();
 			case P2viewPackage.METADATA_REPOSITORY_STRUCTURED_VIEW__REPOSITORY_REFERENCES:
-				if (resolve) return getRepositoryReferences();
+				if(resolve)
+					return getRepositoryReferences();
 				return basicGetRepositoryReferences();
 			case P2viewPackage.METADATA_REPOSITORY_STRUCTURED_VIEW__LOCATION:
 				return getLocation();
@@ -256,7 +269,7 @@ public class MetadataRepositoryStructuredViewImpl extends MinimalEObjectImpl.Con
 	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
+		switch(featureID) {
 			case P2viewPackage.METADATA_REPOSITORY_STRUCTURED_VIEW__INSTALLABLE_UNIT_LIST:
 				return basicSetInstallableUnitList(null, msgs);
 			case P2viewPackage.METADATA_REPOSITORY_STRUCTURED_VIEW__PROPERTIES:
@@ -273,11 +286,13 @@ public class MetadataRepositoryStructuredViewImpl extends MinimalEObjectImpl.Con
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch (featureID) {
+		switch(featureID) {
 			case P2viewPackage.METADATA_REPOSITORY_STRUCTURED_VIEW__CHILDREN:
 				return !getChildren().isEmpty();
 			case P2viewPackage.METADATA_REPOSITORY_STRUCTURED_VIEW__NAME:
-				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+				return NAME_EDEFAULT == null
+						? name != null
+						: !NAME_EDEFAULT.equals(name);
 			case P2viewPackage.METADATA_REPOSITORY_STRUCTURED_VIEW__INSTALLABLE_UNIT_LIST:
 				return installableUnitList != null;
 			case P2viewPackage.METADATA_REPOSITORY_STRUCTURED_VIEW__PROPERTIES:
@@ -300,24 +315,24 @@ public class MetadataRepositoryStructuredViewImpl extends MinimalEObjectImpl.Con
 	 */
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch (featureID) {
+		switch(featureID) {
 			case P2viewPackage.METADATA_REPOSITORY_STRUCTURED_VIEW__NAME:
-				setName((String)newValue);
+				setName((String) newValue);
 				return;
 			case P2viewPackage.METADATA_REPOSITORY_STRUCTURED_VIEW__INSTALLABLE_UNIT_LIST:
-				setInstallableUnitList((InstallableUnits)newValue);
+				setInstallableUnitList((InstallableUnits) newValue);
 				return;
 			case P2viewPackage.METADATA_REPOSITORY_STRUCTURED_VIEW__PROPERTIES:
-				setProperties((Properties)newValue);
+				setProperties((Properties) newValue);
 				return;
 			case P2viewPackage.METADATA_REPOSITORY_STRUCTURED_VIEW__METADATA_REPOSITORY:
-				setMetadataRepository((MetadataRepository)newValue);
+				setMetadataRepository((MetadataRepository) newValue);
 				return;
 			case P2viewPackage.METADATA_REPOSITORY_STRUCTURED_VIEW__LOADED:
-				setLoaded((Boolean)newValue);
+				setLoaded((Boolean) newValue);
 				return;
 			case P2viewPackage.METADATA_REPOSITORY_STRUCTURED_VIEW__REPOSITORY_REFERENCES:
-				setRepositoryReferences((RepositoryReferences)newValue);
+				setRepositoryReferences((RepositoryReferences) newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -338,24 +353,24 @@ public class MetadataRepositoryStructuredViewImpl extends MinimalEObjectImpl.Con
 	 */
 	@Override
 	public void eUnset(int featureID) {
-		switch (featureID) {
+		switch(featureID) {
 			case P2viewPackage.METADATA_REPOSITORY_STRUCTURED_VIEW__NAME:
 				setName(NAME_EDEFAULT);
 				return;
 			case P2viewPackage.METADATA_REPOSITORY_STRUCTURED_VIEW__INSTALLABLE_UNIT_LIST:
-				setInstallableUnitList((InstallableUnits)null);
+				setInstallableUnitList((InstallableUnits) null);
 				return;
 			case P2viewPackage.METADATA_REPOSITORY_STRUCTURED_VIEW__PROPERTIES:
-				setProperties((Properties)null);
+				setProperties((Properties) null);
 				return;
 			case P2viewPackage.METADATA_REPOSITORY_STRUCTURED_VIEW__METADATA_REPOSITORY:
-				setMetadataRepository((MetadataRepository)null);
+				setMetadataRepository((MetadataRepository) null);
 				return;
 			case P2viewPackage.METADATA_REPOSITORY_STRUCTURED_VIEW__LOADED:
 				setLoaded(LOADED_EDEFAULT);
 				return;
 			case P2viewPackage.METADATA_REPOSITORY_STRUCTURED_VIEW__REPOSITORY_REFERENCES:
-				setRepositoryReferences((RepositoryReferences)null);
+				setRepositoryReferences((RepositoryReferences) null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -366,6 +381,7 @@ public class MetadataRepositoryStructuredViewImpl extends MinimalEObjectImpl.Con
 	 *
 	 * @generated NOT
 	 */
+	@Override
 	public EList<InstallableUnits> getChildren() {
 		EList<InstallableUnits> children = new BasicEList<InstallableUnits>();
 		children.add(getInstallableUnitList());
@@ -376,19 +392,31 @@ public class MetadataRepositoryStructuredViewImpl extends MinimalEObjectImpl.Con
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public InstallableUnits getInstallableUnitList() {
-		if (installableUnitList != null && ((EObject)installableUnitList).eIsProxy()) {
-			InternalEObject oldInstallableUnitList = (InternalEObject)installableUnitList;
-			installableUnitList = (InstallableUnits)eResolveProxy(oldInstallableUnitList);
-			if (installableUnitList != oldInstallableUnitList) {
-				InternalEObject newInstallableUnitList = (InternalEObject)installableUnitList;
-				NotificationChain msgs = oldInstallableUnitList.eInverseRemove(this, EOPPOSITE_FEATURE_BASE - P2viewPackage.METADATA_REPOSITORY_STRUCTURED_VIEW__INSTALLABLE_UNIT_LIST, null, null);
-				if (newInstallableUnitList.eInternalContainer() == null) {
-					msgs = newInstallableUnitList.eInverseAdd(this, EOPPOSITE_FEATURE_BASE - P2viewPackage.METADATA_REPOSITORY_STRUCTURED_VIEW__INSTALLABLE_UNIT_LIST, null, msgs);
+		if(installableUnitList != null && ((EObject) installableUnitList).eIsProxy()) {
+			InternalEObject oldInstallableUnitList = (InternalEObject) installableUnitList;
+			installableUnitList = (InstallableUnits) eResolveProxy(oldInstallableUnitList);
+			if(installableUnitList != oldInstallableUnitList) {
+				InternalEObject newInstallableUnitList = (InternalEObject) installableUnitList;
+				NotificationChain msgs = oldInstallableUnitList.eInverseRemove(
+					this,
+					EOPPOSITE_FEATURE_BASE - P2viewPackage.METADATA_REPOSITORY_STRUCTURED_VIEW__INSTALLABLE_UNIT_LIST,
+					null, null);
+				if(newInstallableUnitList.eInternalContainer() == null) {
+					msgs = newInstallableUnitList.eInverseAdd(
+						this, EOPPOSITE_FEATURE_BASE -
+								P2viewPackage.METADATA_REPOSITORY_STRUCTURED_VIEW__INSTALLABLE_UNIT_LIST,
+						null, msgs);
 				}
-				if (msgs != null) msgs.dispatch();
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, P2viewPackage.METADATA_REPOSITORY_STRUCTURED_VIEW__INSTALLABLE_UNIT_LIST, oldInstallableUnitList, installableUnitList));
+				if(msgs != null)
+					msgs.dispatch();
+				if(eNotificationRequired())
+					eNotify(
+						new ENotificationImpl(
+							this, Notification.RESOLVE,
+							P2viewPackage.METADATA_REPOSITORY_STRUCTURED_VIEW__INSTALLABLE_UNIT_LIST,
+							oldInstallableUnitList, installableUnitList));
 			}
 		}
 		return installableUnitList;
@@ -400,6 +428,7 @@ public class MetadataRepositoryStructuredViewImpl extends MinimalEObjectImpl.Con
 	 *
 	 * @generated NOT
 	 */
+	@Override
 	public URI getLocation() {
 		MetadataRepository mr = getMetadataRepository();
 		return mr == null
@@ -412,6 +441,7 @@ public class MetadataRepositoryStructuredViewImpl extends MinimalEObjectImpl.Con
 	 *
 	 * @generated NOT
 	 */
+	@Override
 	public MetadataRepository getMetadataRepository() {
 		if(!isLoaded())
 			return null;
@@ -432,12 +462,18 @@ public class MetadataRepositoryStructuredViewImpl extends MinimalEObjectImpl.Con
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetMetadataRepository(MetadataRepository newMetadataRepository, NotificationChain msgs) {
+	public NotificationChain basicSetMetadataRepository(MetadataRepository newMetadataRepository,
+			NotificationChain msgs) {
 		MetadataRepository oldMetadataRepository = metadataRepository;
 		metadataRepository = newMetadataRepository;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, P2viewPackage.METADATA_REPOSITORY_STRUCTURED_VIEW__METADATA_REPOSITORY, oldMetadataRepository, newMetadataRepository);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
+		if(eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(
+				this, Notification.SET, P2viewPackage.METADATA_REPOSITORY_STRUCTURED_VIEW__METADATA_REPOSITORY,
+				oldMetadataRepository, newMetadataRepository);
+			if(msgs == null)
+				msgs = notification;
+			else
+				msgs.add(notification);
 		}
 		return msgs;
 	}
@@ -447,24 +483,36 @@ public class MetadataRepositoryStructuredViewImpl extends MinimalEObjectImpl.Con
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setMetadataRepository(MetadataRepository newMetadataRepository) {
-		if (newMetadataRepository != metadataRepository) {
+		if(newMetadataRepository != metadataRepository) {
 			NotificationChain msgs = null;
-			if (metadataRepository != null)
-				msgs = ((InternalEObject)metadataRepository).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - P2viewPackage.METADATA_REPOSITORY_STRUCTURED_VIEW__METADATA_REPOSITORY, null, msgs);
-			if (newMetadataRepository != null)
-				msgs = ((InternalEObject)newMetadataRepository).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - P2viewPackage.METADATA_REPOSITORY_STRUCTURED_VIEW__METADATA_REPOSITORY, null, msgs);
+			if(metadataRepository != null)
+				msgs = ((InternalEObject) metadataRepository).eInverseRemove(
+					this,
+					EOPPOSITE_FEATURE_BASE - P2viewPackage.METADATA_REPOSITORY_STRUCTURED_VIEW__METADATA_REPOSITORY,
+					null, msgs);
+			if(newMetadataRepository != null)
+				msgs = ((InternalEObject) newMetadataRepository).eInverseAdd(
+					this,
+					EOPPOSITE_FEATURE_BASE - P2viewPackage.METADATA_REPOSITORY_STRUCTURED_VIEW__METADATA_REPOSITORY,
+					null, msgs);
 			msgs = basicSetMetadataRepository(newMetadataRepository, msgs);
-			if (msgs != null) msgs.dispatch();
+			if(msgs != null)
+				msgs.dispatch();
 		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, P2viewPackage.METADATA_REPOSITORY_STRUCTURED_VIEW__METADATA_REPOSITORY, newMetadataRepository, newMetadataRepository));
+		else if(eNotificationRequired())
+			eNotify(
+				new ENotificationImpl(
+					this, Notification.SET, P2viewPackage.METADATA_REPOSITORY_STRUCTURED_VIEW__METADATA_REPOSITORY,
+					newMetadataRepository, newMetadataRepository));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getName() {
 		return name;
 	}
@@ -473,19 +521,28 @@ public class MetadataRepositoryStructuredViewImpl extends MinimalEObjectImpl.Con
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Properties getProperties() {
-		if (properties != null && ((EObject)properties).eIsProxy()) {
-			InternalEObject oldProperties = (InternalEObject)properties;
-			properties = (Properties)eResolveProxy(oldProperties);
-			if (properties != oldProperties) {
-				InternalEObject newProperties = (InternalEObject)properties;
-				NotificationChain msgs = oldProperties.eInverseRemove(this, EOPPOSITE_FEATURE_BASE - P2viewPackage.METADATA_REPOSITORY_STRUCTURED_VIEW__PROPERTIES, null, null);
-				if (newProperties.eInternalContainer() == null) {
-					msgs = newProperties.eInverseAdd(this, EOPPOSITE_FEATURE_BASE - P2viewPackage.METADATA_REPOSITORY_STRUCTURED_VIEW__PROPERTIES, null, msgs);
+		if(properties != null && ((EObject) properties).eIsProxy()) {
+			InternalEObject oldProperties = (InternalEObject) properties;
+			properties = (Properties) eResolveProxy(oldProperties);
+			if(properties != oldProperties) {
+				InternalEObject newProperties = (InternalEObject) properties;
+				NotificationChain msgs = oldProperties.eInverseRemove(
+					this, EOPPOSITE_FEATURE_BASE - P2viewPackage.METADATA_REPOSITORY_STRUCTURED_VIEW__PROPERTIES, null,
+					null);
+				if(newProperties.eInternalContainer() == null) {
+					msgs = newProperties.eInverseAdd(
+						this, EOPPOSITE_FEATURE_BASE - P2viewPackage.METADATA_REPOSITORY_STRUCTURED_VIEW__PROPERTIES,
+						null, msgs);
 				}
-				if (msgs != null) msgs.dispatch();
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, P2viewPackage.METADATA_REPOSITORY_STRUCTURED_VIEW__PROPERTIES, oldProperties, properties));
+				if(msgs != null)
+					msgs.dispatch();
+				if(eNotificationRequired())
+					eNotify(
+						new ENotificationImpl(
+							this, Notification.RESOLVE, P2viewPackage.METADATA_REPOSITORY_STRUCTURED_VIEW__PROPERTIES,
+							oldProperties, properties));
 			}
 		}
 		return properties;
@@ -496,13 +553,18 @@ public class MetadataRepositoryStructuredViewImpl extends MinimalEObjectImpl.Con
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public RepositoryReferences getRepositoryReferences() {
-		if (repositoryReferences != null && ((EObject)repositoryReferences).eIsProxy()) {
-			InternalEObject oldRepositoryReferences = (InternalEObject)repositoryReferences;
-			repositoryReferences = (RepositoryReferences)eResolveProxy(oldRepositoryReferences);
-			if (repositoryReferences != oldRepositoryReferences) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, P2viewPackage.METADATA_REPOSITORY_STRUCTURED_VIEW__REPOSITORY_REFERENCES, oldRepositoryReferences, repositoryReferences));
+		if(repositoryReferences != null && ((EObject) repositoryReferences).eIsProxy()) {
+			InternalEObject oldRepositoryReferences = (InternalEObject) repositoryReferences;
+			repositoryReferences = (RepositoryReferences) eResolveProxy(oldRepositoryReferences);
+			if(repositoryReferences != oldRepositoryReferences) {
+				if(eNotificationRequired())
+					eNotify(
+						new ENotificationImpl(
+							this, Notification.RESOLVE,
+							P2viewPackage.METADATA_REPOSITORY_STRUCTURED_VIEW__REPOSITORY_REFERENCES,
+							oldRepositoryReferences, repositoryReferences));
 			}
 		}
 		return repositoryReferences;
@@ -512,6 +574,7 @@ public class MetadataRepositoryStructuredViewImpl extends MinimalEObjectImpl.Con
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public boolean isLoaded() {
 		return (eFlags & LOADED_EFLAG) != 0;
 	}
@@ -522,6 +585,7 @@ public class MetadataRepositoryStructuredViewImpl extends MinimalEObjectImpl.Con
 	 *
 	 * @generated NOT
 	 */
+	@Override
 	public boolean isSetLocation() {
 		return true;
 	}
@@ -530,58 +594,88 @@ public class MetadataRepositoryStructuredViewImpl extends MinimalEObjectImpl.Con
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setInstallableUnitList(InstallableUnits newInstallableUnitList) {
-		if (newInstallableUnitList != installableUnitList) {
+		if(newInstallableUnitList != installableUnitList) {
 			NotificationChain msgs = null;
-			if (installableUnitList != null)
-				msgs = ((InternalEObject)installableUnitList).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - P2viewPackage.METADATA_REPOSITORY_STRUCTURED_VIEW__INSTALLABLE_UNIT_LIST, null, msgs);
-			if (newInstallableUnitList != null)
-				msgs = ((InternalEObject)newInstallableUnitList).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - P2viewPackage.METADATA_REPOSITORY_STRUCTURED_VIEW__INSTALLABLE_UNIT_LIST, null, msgs);
+			if(installableUnitList != null)
+				msgs = ((InternalEObject) installableUnitList).eInverseRemove(
+					this,
+					EOPPOSITE_FEATURE_BASE - P2viewPackage.METADATA_REPOSITORY_STRUCTURED_VIEW__INSTALLABLE_UNIT_LIST,
+					null, msgs);
+			if(newInstallableUnitList != null)
+				msgs = ((InternalEObject) newInstallableUnitList).eInverseAdd(
+					this,
+					EOPPOSITE_FEATURE_BASE - P2viewPackage.METADATA_REPOSITORY_STRUCTURED_VIEW__INSTALLABLE_UNIT_LIST,
+					null, msgs);
 			msgs = basicSetInstallableUnitList(newInstallableUnitList, msgs);
-			if (msgs != null) msgs.dispatch();
+			if(msgs != null)
+				msgs.dispatch();
 		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, P2viewPackage.METADATA_REPOSITORY_STRUCTURED_VIEW__INSTALLABLE_UNIT_LIST, newInstallableUnitList, newInstallableUnitList));
+		else if(eNotificationRequired())
+			eNotify(
+				new ENotificationImpl(
+					this, Notification.SET, P2viewPackage.METADATA_REPOSITORY_STRUCTURED_VIEW__INSTALLABLE_UNIT_LIST,
+					newInstallableUnitList, newInstallableUnitList));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setLoaded(boolean newLoaded) {
 		boolean oldLoaded = (eFlags & LOADED_EFLAG) != 0;
-		if (newLoaded) eFlags |= LOADED_EFLAG; else eFlags &= ~LOADED_EFLAG;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, P2viewPackage.METADATA_REPOSITORY_STRUCTURED_VIEW__LOADED, oldLoaded, newLoaded));
+		if(newLoaded)
+			eFlags |= LOADED_EFLAG;
+		else
+			eFlags &= ~LOADED_EFLAG;
+		if(eNotificationRequired())
+			eNotify(
+				new ENotificationImpl(
+					this, Notification.SET, P2viewPackage.METADATA_REPOSITORY_STRUCTURED_VIEW__LOADED, oldLoaded,
+					newLoaded));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setName(String newName) {
 		String oldName = name;
 		name = newName;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, P2viewPackage.METADATA_REPOSITORY_STRUCTURED_VIEW__NAME, oldName, name));
+		if(eNotificationRequired())
+			eNotify(
+				new ENotificationImpl(
+					this, Notification.SET, P2viewPackage.METADATA_REPOSITORY_STRUCTURED_VIEW__NAME, oldName, name));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setProperties(Properties newProperties) {
-		if (newProperties != properties) {
+		if(newProperties != properties) {
 			NotificationChain msgs = null;
-			if (properties != null)
-				msgs = ((InternalEObject)properties).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - P2viewPackage.METADATA_REPOSITORY_STRUCTURED_VIEW__PROPERTIES, null, msgs);
-			if (newProperties != null)
-				msgs = ((InternalEObject)newProperties).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - P2viewPackage.METADATA_REPOSITORY_STRUCTURED_VIEW__PROPERTIES, null, msgs);
+			if(properties != null)
+				msgs = ((InternalEObject) properties).eInverseRemove(
+					this, EOPPOSITE_FEATURE_BASE - P2viewPackage.METADATA_REPOSITORY_STRUCTURED_VIEW__PROPERTIES, null,
+					msgs);
+			if(newProperties != null)
+				msgs = ((InternalEObject) newProperties).eInverseAdd(
+					this, EOPPOSITE_FEATURE_BASE - P2viewPackage.METADATA_REPOSITORY_STRUCTURED_VIEW__PROPERTIES, null,
+					msgs);
 			msgs = basicSetProperties(newProperties, msgs);
-			if (msgs != null) msgs.dispatch();
+			if(msgs != null)
+				msgs.dispatch();
 		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, P2viewPackage.METADATA_REPOSITORY_STRUCTURED_VIEW__PROPERTIES, newProperties, newProperties));
+		else if(eNotificationRequired())
+			eNotify(
+				new ENotificationImpl(
+					this, Notification.SET, P2viewPackage.METADATA_REPOSITORY_STRUCTURED_VIEW__PROPERTIES,
+					newProperties, newProperties));
 	}
 
 	/**
@@ -589,11 +683,15 @@ public class MetadataRepositoryStructuredViewImpl extends MinimalEObjectImpl.Con
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setRepositoryReferences(RepositoryReferences newRepositoryReferences) {
 		RepositoryReferences oldRepositoryReferences = repositoryReferences;
 		repositoryReferences = newRepositoryReferences;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, P2viewPackage.METADATA_REPOSITORY_STRUCTURED_VIEW__REPOSITORY_REFERENCES, oldRepositoryReferences, repositoryReferences));
+		if(eNotificationRequired())
+			eNotify(
+				new ENotificationImpl(
+					this, Notification.SET, P2viewPackage.METADATA_REPOSITORY_STRUCTURED_VIEW__REPOSITORY_REFERENCES,
+					oldRepositoryReferences, repositoryReferences));
 	}
 
 	/**
@@ -602,7 +700,8 @@ public class MetadataRepositoryStructuredViewImpl extends MinimalEObjectImpl.Con
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy()) return super.toString();
+		if(eIsProxy())
+			return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (name: ");

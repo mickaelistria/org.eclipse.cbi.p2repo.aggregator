@@ -820,17 +820,18 @@ public class AggregatorActionBarContributor extends EditingDomainActionBarContri
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected IAction showPropertiesViewAction = new Action(AggregatorEditorPlugin.INSTANCE.getString("_UI_ShowPropertiesView_menu_item")) {
-			@Override
-			public void run() {
-				try {
-					getPage().showView("org.eclipse.ui.views.PropertySheet");
-				}
-				catch (PartInitException exception) {
-					AggregatorEditorPlugin.INSTANCE.log(exception);
-				}
+	protected IAction showPropertiesViewAction = new Action(
+		AggregatorEditorPlugin.INSTANCE.getString("_UI_ShowPropertiesView_menu_item")) {
+		@Override
+		public void run() {
+			try {
+				getPage().showView("org.eclipse.ui.views.PropertySheet");
 			}
-		};
+			catch(PartInitException exception) {
+				AggregatorEditorPlugin.INSTANCE.log(exception);
+			}
+		}
+	};
 
 	/**
 	 * This action refreshes the viewer of the current editor if the editor
@@ -838,22 +839,23 @@ public class AggregatorActionBarContributor extends EditingDomainActionBarContri
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected IAction refreshViewerAction = new Action(AggregatorEditorPlugin.INSTANCE.getString("_UI_RefreshViewer_menu_item")) {
-			@Override
-			public boolean isEnabled() {
-				return activeEditorPart instanceof IViewerProvider;
-			}
+	protected IAction refreshViewerAction = new Action(
+		AggregatorEditorPlugin.INSTANCE.getString("_UI_RefreshViewer_menu_item")) {
+		@Override
+		public boolean isEnabled() {
+			return activeEditorPart instanceof IViewerProvider;
+		}
 
-			@Override
-			public void run() {
-				if (activeEditorPart instanceof IViewerProvider) {
-					Viewer viewer = ((IViewerProvider)activeEditorPart).getViewer();
-					if (viewer != null) {
-						viewer.refresh();
-					}
+		@Override
+		public void run() {
+			if(activeEditorPart instanceof IViewerProvider) {
+				Viewer viewer = ((IViewerProvider) activeEditorPart).getViewer();
+				if(viewer != null) {
+					viewer.refresh();
 				}
 			}
-		};
+		}
+	};
 
 	/**
 	 * This will contain one {@link org.eclipse.emf.edit.ui.action.CreateChildAction} corresponding to each descriptor
@@ -954,7 +956,7 @@ public class AggregatorActionBarContributor extends EditingDomainActionBarContri
 		menuManager.insertAfter("additions-end", new Separator("ui-actions"));
 		menuManager.insertAfter("ui-actions", showPropertiesViewAction);
 
-		refreshViewerAction.setEnabled(refreshViewerAction.isEnabled());		
+		refreshViewerAction.setEnabled(refreshViewerAction.isEnabled());
 		menuManager.insertAfter("ui-actions", refreshViewerAction);
 
 		super.addGlobalActions(menuManager);
@@ -974,7 +976,9 @@ public class AggregatorActionBarContributor extends EditingDomainActionBarContri
 	public void contributeToMenu(IMenuManager menuManager) {
 		super.contributeToMenu(menuManager);
 
-		IMenuManager submenuManager = new MenuManager(AggregatorEditorPlugin.INSTANCE.getString("_UI_AggregatorEditor_menu"), "org.eclipse.cbi.p2repo.aggregatorMenuID");
+		IMenuManager submenuManager = new MenuManager(
+			AggregatorEditorPlugin.INSTANCE.getString("_UI_AggregatorEditor_menu"),
+			"org.eclipse.cbi.p2repo.aggregatorMenuID");
 		menuManager.insertAfter("additions", submenuManager);
 		submenuManager.add(new Separator("settings"));
 		submenuManager.add(new Separator("actions"));
@@ -983,22 +987,24 @@ public class AggregatorActionBarContributor extends EditingDomainActionBarContri
 
 		// Prepare for CreateChild item addition or removal.
 		//
-		createChildMenuManager = new MenuManager(AggregatorEditorPlugin.INSTANCE.getString("_UI_CreateChild_menu_item"));
+		createChildMenuManager = new MenuManager(
+			AggregatorEditorPlugin.INSTANCE.getString("_UI_CreateChild_menu_item"));
 		submenuManager.insertBefore("additions", createChildMenuManager);
 
 		// Prepare for CreateSibling item addition or removal.
 		//
-		createSiblingMenuManager = new MenuManager(AggregatorEditorPlugin.INSTANCE.getString("_UI_CreateSibling_menu_item"));
+		createSiblingMenuManager = new MenuManager(
+			AggregatorEditorPlugin.INSTANCE.getString("_UI_CreateSibling_menu_item"));
 		submenuManager.insertBefore("additions", createSiblingMenuManager);
 
 		// Force an update because Eclipse hides empty menus now.
 		//
-		submenuManager.addMenuListener
-			(new IMenuListener() {
-				 public void menuAboutToShow(IMenuManager menuManager) {
-					 menuManager.updateAll(true);
-				 }
-			 });
+		submenuManager.addMenuListener(new IMenuListener() {
+			@Override
+			public void menuAboutToShow(IMenuManager menuManager) {
+				menuManager.updateAll(true);
+			}
+		});
 
 		addGlobalActions(submenuManager);
 	}
@@ -1022,21 +1028,21 @@ public class AggregatorActionBarContributor extends EditingDomainActionBarContri
 	 * @generated
 	 */
 	protected void depopulateManager(IContributionManager manager, Collection<? extends IAction> actions) {
-		if (actions != null) {
+		if(actions != null) {
 			IContributionItem[] items = manager.getItems();
-			for (int i = 0; i < items.length; i++) {
+			for(int i = 0; i < items.length; i++) {
 				// Look into SubContributionItems
 				//
 				IContributionItem contributionItem = items[i];
-				while (contributionItem instanceof SubContributionItem) {
-					contributionItem = ((SubContributionItem)contributionItem).getInnerItem();
+				while(contributionItem instanceof SubContributionItem) {
+					contributionItem = ((SubContributionItem) contributionItem).getInnerItem();
 				}
 
 				// Delete the ActionContributionItems with matching action.
 				//
-				if (contributionItem instanceof ActionContributionItem) {
-					IAction action = ((ActionContributionItem)contributionItem).getAction();
-					if (actions.contains(action)) {
+				if(contributionItem instanceof ActionContributionItem) {
+					IAction action = ((ActionContributionItem) contributionItem).getAction();
+					if(actions.contains(action)) {
 						manager.remove(contributionItem);
 					}
 				}
@@ -1127,8 +1133,8 @@ public class AggregatorActionBarContributor extends EditingDomainActionBarContri
 	 */
 	protected Collection<IAction> generateCreateChildActions(Collection<?> descriptors, ISelection selection) {
 		Collection<IAction> actions = new ArrayList<IAction>();
-		if (descriptors != null) {
-			for (Object descriptor : descriptors) {
+		if(descriptors != null) {
+			for(Object descriptor : descriptors) {
 				actions.add(new CreateChildAction(activeEditorPart, selection, descriptor));
 			}
 		}
@@ -1144,8 +1150,8 @@ public class AggregatorActionBarContributor extends EditingDomainActionBarContri
 	 */
 	protected Collection<IAction> generateCreateSiblingActions(Collection<?> descriptors, ISelection selection) {
 		Collection<IAction> actions = new ArrayList<IAction>();
-		if (descriptors != null) {
-			for (Object descriptor : descriptors) {
+		if(descriptors != null) {
+			for(Object descriptor : descriptors) {
 				actions.add(new CreateSiblingAction(activeEditorPart, selection, descriptor));
 			}
 		}
@@ -1305,9 +1311,9 @@ public class AggregatorActionBarContributor extends EditingDomainActionBarContri
 	 */
 	protected void populateManager(IContributionManager manager, Collection<? extends IAction> actions,
 			String contributionID) {
-		if (actions != null) {
-			for (IAction action : actions) {
-				if (contributionID != null) {
+		if(actions != null) {
+			for(IAction action : actions) {
+				if(contributionID != null) {
 					manager.insertBefore(contributionID, action);
 				}
 				else {
@@ -1354,10 +1360,10 @@ public class AggregatorActionBarContributor extends EditingDomainActionBarContri
 
 		// Switch to the new selection provider.
 		//
-		if (selectionProvider != null) {
+		if(selectionProvider != null) {
 			selectionProvider.removeSelectionChangedListener(this);
 		}
-		if (part == null) {
+		if(part == null) {
 			selectionProvider = null;
 		}
 		else {
@@ -1366,7 +1372,7 @@ public class AggregatorActionBarContributor extends EditingDomainActionBarContri
 
 			// Fake a selection changed event to update the menus.
 			//
-			if (selectionProvider.getSelection() != null) {
+			if(selectionProvider.getSelection() != null) {
 				selectionChanged(new SelectionChangedEvent(selectionProvider, selectionProvider.getSelection()));
 			}
 		}

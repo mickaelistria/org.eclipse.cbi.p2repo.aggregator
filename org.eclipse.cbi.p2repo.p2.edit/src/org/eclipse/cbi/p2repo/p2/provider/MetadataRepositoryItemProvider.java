@@ -24,6 +24,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * This is the item provider adapter for a {@link org.eclipse.cbi.p2repo.p2.MetadataRepository} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
+ * 
  * @generated
  */
 public class MetadataRepositoryItemProvider extends RepositoryItemProvider {
@@ -31,6 +32,7 @@ public class MetadataRepositoryItemProvider extends RepositoryItemProvider {
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public MetadataRepositoryItemProvider(AdapterFactory adapterFactory) {
@@ -42,36 +44,37 @@ public class MetadataRepositoryItemProvider extends RepositoryItemProvider {
 	 * that can be created under this object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 
-		newChildDescriptors.add
-			(createChildParameter
-				(P2Package.Literals.METADATA_REPOSITORY__INSTALLABLE_UNITS,
-				 P2Factory.eINSTANCE.createInstallableUnit()));
+		newChildDescriptors.add(
+			createChildParameter(
+				P2Package.Literals.METADATA_REPOSITORY__INSTALLABLE_UNITS,
+				P2Factory.eINSTANCE.createInstallableUnit()));
 
-		newChildDescriptors.add
-			(createChildParameter
-				(P2Package.Literals.METADATA_REPOSITORY__INSTALLABLE_UNITS,
-				 P2Factory.eINSTANCE.createInstallableUnitFragment()));
+		newChildDescriptors.add(
+			createChildParameter(
+				P2Package.Literals.METADATA_REPOSITORY__INSTALLABLE_UNITS,
+				P2Factory.eINSTANCE.createInstallableUnitFragment()));
 
-		newChildDescriptors.add
-			(createChildParameter
-				(P2Package.Literals.METADATA_REPOSITORY__INSTALLABLE_UNITS,
-				 P2Factory.eINSTANCE.createInstallableUnitPatch()));
+		newChildDescriptors.add(
+			createChildParameter(
+				P2Package.Literals.METADATA_REPOSITORY__INSTALLABLE_UNITS,
+				P2Factory.eINSTANCE.createInstallableUnitPatch()));
 
-		newChildDescriptors.add
-			(createChildParameter
-				(P2Package.Literals.METADATA_REPOSITORY__REFERENCES,
-				 P2Factory.eINSTANCE.createRepositoryReference()));
+		newChildDescriptors.add(
+			createChildParameter(
+				P2Package.Literals.METADATA_REPOSITORY__REFERENCES, P2Factory.eINSTANCE.createRepositoryReference()));
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -88,11 +91,12 @@ public class MetadataRepositoryItemProvider extends RepositoryItemProvider {
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
-		if (childrenFeatures == null) {
+		if(childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(P2Package.Literals.METADATA_REPOSITORY__INSTALLABLE_UNITS);
 			childrenFeatures.add(P2Package.Literals.METADATA_REPOSITORY__REFERENCES);
@@ -104,6 +108,7 @@ public class MetadataRepositoryItemProvider extends RepositoryItemProvider {
 	 * This returns MetadataRepository.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -115,11 +120,12 @@ public class MetadataRepositoryItemProvider extends RepositoryItemProvider {
 	 * This returns the property descriptors for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-		if (itemPropertyDescriptors == null) {
+		if(itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
 		}
@@ -130,14 +136,15 @@ public class MetadataRepositoryItemProvider extends RepositoryItemProvider {
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((MetadataRepository)object).getName();
-		return label == null || label.length() == 0 ?
-			getString("_UI_MetadataRepository_type") :
-			getString("_UI_MetadataRepository_type") + " " + label;
+		String label = ((MetadataRepository) object).getName();
+		return label == null || label.length() == 0
+				? getString("_UI_MetadataRepository_type")
+				: getString("_UI_MetadataRepository_type") + " " + label;
 	}
 
 	/**
@@ -145,13 +152,14 @@ public class MetadataRepositoryItemProvider extends RepositoryItemProvider {
 	 * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(MetadataRepository.class)) {
+		switch(notification.getFeatureID(MetadataRepository.class)) {
 			case P2Package.METADATA_REPOSITORY__INSTALLABLE_UNITS:
 			case P2Package.METADATA_REPOSITORY__REFERENCES:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));

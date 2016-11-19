@@ -16,7 +16,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.ExclusionsType#getExclusion <em>Exclusion</em>}</li>
+ * <li>{@link org.eclipse.cbi.p2repo.p2.maven.pom.ExclusionsType#getExclusion <em>Exclusion</em>}</li>
  * </ul>
  *
  * @see org.eclipse.cbi.p2repo.p2.maven.pom.PomPackage#getExclusionsType()
@@ -32,6 +32,7 @@ public interface ExclusionsType extends EObject {
 	 * If the meaning of the '<em>Exclusion</em>' containment reference list isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the value of the '<em>Exclusion</em>' containment reference list.
 	 * @see org.eclipse.cbi.p2repo.p2.maven.pom.PomPackage#getExclusionsType_Exclusion()
 	 * @model containment="true"

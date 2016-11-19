@@ -167,12 +167,16 @@ public class CustomCategoryImpl extends MinimalEObjectImpl.Container implements 
 	 */
 	@Override
 	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
-		if (baseClass == InfosProvider.class) {
-			switch (derivedFeatureID) {
-				case AggregatorPackage.CUSTOM_CATEGORY__ERRORS: return AggregatorPackage.INFOS_PROVIDER__ERRORS;
-				case AggregatorPackage.CUSTOM_CATEGORY__WARNINGS: return AggregatorPackage.INFOS_PROVIDER__WARNINGS;
-				case AggregatorPackage.CUSTOM_CATEGORY__INFOS: return AggregatorPackage.INFOS_PROVIDER__INFOS;
-				default: return -1;
+		if(baseClass == InfosProvider.class) {
+			switch(derivedFeatureID) {
+				case AggregatorPackage.CUSTOM_CATEGORY__ERRORS:
+					return AggregatorPackage.INFOS_PROVIDER__ERRORS;
+				case AggregatorPackage.CUSTOM_CATEGORY__WARNINGS:
+					return AggregatorPackage.INFOS_PROVIDER__WARNINGS;
+				case AggregatorPackage.CUSTOM_CATEGORY__INFOS:
+					return AggregatorPackage.INFOS_PROVIDER__INFOS;
+				default:
+					return -1;
 			}
 		}
 		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
@@ -184,12 +188,16 @@ public class CustomCategoryImpl extends MinimalEObjectImpl.Container implements 
 	 */
 	@Override
 	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
-		if (baseClass == InfosProvider.class) {
-			switch (baseFeatureID) {
-				case AggregatorPackage.INFOS_PROVIDER__ERRORS: return AggregatorPackage.CUSTOM_CATEGORY__ERRORS;
-				case AggregatorPackage.INFOS_PROVIDER__WARNINGS: return AggregatorPackage.CUSTOM_CATEGORY__WARNINGS;
-				case AggregatorPackage.INFOS_PROVIDER__INFOS: return AggregatorPackage.CUSTOM_CATEGORY__INFOS;
-				default: return -1;
+		if(baseClass == InfosProvider.class) {
+			switch(baseFeatureID) {
+				case AggregatorPackage.INFOS_PROVIDER__ERRORS:
+					return AggregatorPackage.CUSTOM_CATEGORY__ERRORS;
+				case AggregatorPackage.INFOS_PROVIDER__WARNINGS:
+					return AggregatorPackage.CUSTOM_CATEGORY__WARNINGS;
+				case AggregatorPackage.INFOS_PROVIDER__INFOS:
+					return AggregatorPackage.CUSTOM_CATEGORY__INFOS;
+				default:
+					return -1;
 			}
 		}
 		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
@@ -201,7 +209,7 @@ public class CustomCategoryImpl extends MinimalEObjectImpl.Container implements 
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch (featureID) {
+		switch(featureID) {
 			case AggregatorPackage.CUSTOM_CATEGORY__STATUS:
 				return getStatus();
 			case AggregatorPackage.CUSTOM_CATEGORY__ERRORS:
@@ -229,9 +237,9 @@ public class CustomCategoryImpl extends MinimalEObjectImpl.Container implements 
 	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
+		switch(featureID) {
 			case AggregatorPackage.CUSTOM_CATEGORY__FEATURES:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getFeatures()).basicAdd(otherEnd, msgs);
+				return ((InternalEList<InternalEObject>) (InternalEList<?>) getFeatures()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -242,9 +250,9 @@ public class CustomCategoryImpl extends MinimalEObjectImpl.Container implements 
 	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
+		switch(featureID) {
 			case AggregatorPackage.CUSTOM_CATEGORY__FEATURES:
-				return ((InternalEList<?>)getFeatures()).basicRemove(otherEnd, msgs);
+				return ((InternalEList<?>) getFeatures()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -255,7 +263,7 @@ public class CustomCategoryImpl extends MinimalEObjectImpl.Container implements 
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch (featureID) {
+		switch(featureID) {
 			case AggregatorPackage.CUSTOM_CATEGORY__STATUS:
 				return getStatus() != null;
 			case AggregatorPackage.CUSTOM_CATEGORY__ERRORS:
@@ -265,11 +273,17 @@ public class CustomCategoryImpl extends MinimalEObjectImpl.Container implements 
 			case AggregatorPackage.CUSTOM_CATEGORY__INFOS:
 				return infos != null && !infos.isEmpty();
 			case AggregatorPackage.CUSTOM_CATEGORY__IDENTIFIER:
-				return IDENTIFIER_EDEFAULT == null ? identifier != null : !IDENTIFIER_EDEFAULT.equals(identifier);
+				return IDENTIFIER_EDEFAULT == null
+						? identifier != null
+						: !IDENTIFIER_EDEFAULT.equals(identifier);
 			case AggregatorPackage.CUSTOM_CATEGORY__LABEL:
-				return LABEL_EDEFAULT == null ? label != null : !LABEL_EDEFAULT.equals(label);
+				return LABEL_EDEFAULT == null
+						? label != null
+						: !LABEL_EDEFAULT.equals(label);
 			case AggregatorPackage.CUSTOM_CATEGORY__DESCRIPTION:
-				return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
+				return DESCRIPTION_EDEFAULT == null
+						? description != null
+						: !DESCRIPTION_EDEFAULT.equals(description);
 			case AggregatorPackage.CUSTOM_CATEGORY__FEATURES:
 				return features != null && !features.isEmpty();
 		}
@@ -283,31 +297,31 @@ public class CustomCategoryImpl extends MinimalEObjectImpl.Container implements 
 	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch (featureID) {
+		switch(featureID) {
 			case AggregatorPackage.CUSTOM_CATEGORY__ERRORS:
 				getErrors().clear();
-				getErrors().addAll((Collection<? extends String>)newValue);
+				getErrors().addAll((Collection<? extends String>) newValue);
 				return;
 			case AggregatorPackage.CUSTOM_CATEGORY__WARNINGS:
 				getWarnings().clear();
-				getWarnings().addAll((Collection<? extends String>)newValue);
+				getWarnings().addAll((Collection<? extends String>) newValue);
 				return;
 			case AggregatorPackage.CUSTOM_CATEGORY__INFOS:
 				getInfos().clear();
-				getInfos().addAll((Collection<? extends String>)newValue);
+				getInfos().addAll((Collection<? extends String>) newValue);
 				return;
 			case AggregatorPackage.CUSTOM_CATEGORY__IDENTIFIER:
-				setIdentifier((String)newValue);
+				setIdentifier((String) newValue);
 				return;
 			case AggregatorPackage.CUSTOM_CATEGORY__LABEL:
-				setLabel((String)newValue);
+				setLabel((String) newValue);
 				return;
 			case AggregatorPackage.CUSTOM_CATEGORY__DESCRIPTION:
-				setDescription((String)newValue);
+				setDescription((String) newValue);
 				return;
 			case AggregatorPackage.CUSTOM_CATEGORY__FEATURES:
 				getFeatures().clear();
-				getFeatures().addAll((Collection<? extends Feature>)newValue);
+				getFeatures().addAll((Collection<? extends Feature>) newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -328,7 +342,7 @@ public class CustomCategoryImpl extends MinimalEObjectImpl.Container implements 
 	 */
 	@Override
 	public void eUnset(int featureID) {
-		switch (featureID) {
+		switch(featureID) {
 			case AggregatorPackage.CUSTOM_CATEGORY__ERRORS:
 				getErrors().clear();
 				return;
@@ -358,6 +372,7 @@ public class CustomCategoryImpl extends MinimalEObjectImpl.Container implements 
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getDescription() {
 		return description;
 	}
@@ -366,8 +381,9 @@ public class CustomCategoryImpl extends MinimalEObjectImpl.Container implements 
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<String> getErrors() {
-		if (errors == null) {
+		if(errors == null) {
 			errors = new EDataTypeUniqueEList<String>(String.class, this, AggregatorPackage.CUSTOM_CATEGORY__ERRORS);
 		}
 		return errors;
@@ -377,9 +393,12 @@ public class CustomCategoryImpl extends MinimalEObjectImpl.Container implements 
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<Feature> getFeatures() {
-		if (features == null) {
-			features = new EObjectWithInverseResolvingEList.ManyInverse<Feature>(Feature.class, this, AggregatorPackage.CUSTOM_CATEGORY__FEATURES, AggregatorPackage.FEATURE__CATEGORIES);
+		if(features == null) {
+			features = new EObjectWithInverseResolvingEList.ManyInverse<Feature>(
+				Feature.class, this, AggregatorPackage.CUSTOM_CATEGORY__FEATURES,
+				AggregatorPackage.FEATURE__CATEGORIES);
 		}
 		return features;
 	}
@@ -388,6 +407,7 @@ public class CustomCategoryImpl extends MinimalEObjectImpl.Container implements 
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getIdentifier() {
 		return identifier;
 	}
@@ -396,8 +416,9 @@ public class CustomCategoryImpl extends MinimalEObjectImpl.Container implements 
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<String> getInfos() {
-		if (infos == null) {
+		if(infos == null) {
 			infos = new EDataTypeUniqueEList<String>(String.class, this, AggregatorPackage.CUSTOM_CATEGORY__INFOS);
 		}
 		return infos;
@@ -407,10 +428,12 @@ public class CustomCategoryImpl extends MinimalEObjectImpl.Container implements 
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getLabel() {
 		return label;
 	}
 
+	@Override
 	synchronized public Status getStatus() {
 		StatusCode statusCode;
 		for(Feature feature : getFeatures()) {
@@ -425,9 +448,11 @@ public class CustomCategoryImpl extends MinimalEObjectImpl.Container implements 
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<String> getWarnings() {
-		if (warnings == null) {
-			warnings = new EDataTypeUniqueEList<String>(String.class, this, AggregatorPackage.CUSTOM_CATEGORY__WARNINGS);
+		if(warnings == null) {
+			warnings = new EDataTypeUniqueEList<String>(
+				String.class, this, AggregatorPackage.CUSTOM_CATEGORY__WARNINGS);
 		}
 		return warnings;
 	}
@@ -436,33 +461,43 @@ public class CustomCategoryImpl extends MinimalEObjectImpl.Container implements 
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setDescription(String newDescription) {
 		String oldDescription = description;
 		description = newDescription;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, AggregatorPackage.CUSTOM_CATEGORY__DESCRIPTION, oldDescription, description));
+		if(eNotificationRequired())
+			eNotify(
+				new ENotificationImpl(
+					this, Notification.SET, AggregatorPackage.CUSTOM_CATEGORY__DESCRIPTION, oldDescription,
+					description));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setIdentifier(String newIdentifier) {
 		String oldIdentifier = identifier;
 		identifier = newIdentifier;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, AggregatorPackage.CUSTOM_CATEGORY__IDENTIFIER, oldIdentifier, identifier));
+		if(eNotificationRequired())
+			eNotify(
+				new ENotificationImpl(
+					this, Notification.SET, AggregatorPackage.CUSTOM_CATEGORY__IDENTIFIER, oldIdentifier, identifier));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setLabel(String newLabel) {
 		String oldLabel = label;
 		label = newLabel;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, AggregatorPackage.CUSTOM_CATEGORY__LABEL, oldLabel, label));
+		if(eNotificationRequired())
+			eNotify(
+				new ENotificationImpl(
+					this, Notification.SET, AggregatorPackage.CUSTOM_CATEGORY__LABEL, oldLabel, label));
 	}
 
 	/**
@@ -471,7 +506,8 @@ public class CustomCategoryImpl extends MinimalEObjectImpl.Container implements 
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy()) return super.toString();
+		if(eIsProxy())
+			return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (errors: ");

@@ -2139,7 +2139,8 @@ public interface P2viewPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int METADATA_REPOSITORY_STRUCTURED_VIEW__INSTALLABLE_UNIT_LIST = AggregatorPackage.CHILDREN_PROVIDER_FEATURE_COUNT + 1;
+	int METADATA_REPOSITORY_STRUCTURED_VIEW__INSTALLABLE_UNIT_LIST = AggregatorPackage.CHILDREN_PROVIDER_FEATURE_COUNT +
+			1;
 
 	/**
 	 * The feature id for the '<em><b>Properties</b></em>' containment reference.
@@ -2157,7 +2158,8 @@ public interface P2viewPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int METADATA_REPOSITORY_STRUCTURED_VIEW__METADATA_REPOSITORY = AggregatorPackage.CHILDREN_PROVIDER_FEATURE_COUNT + 3;
+	int METADATA_REPOSITORY_STRUCTURED_VIEW__METADATA_REPOSITORY = AggregatorPackage.CHILDREN_PROVIDER_FEATURE_COUNT +
+			3;
 
 	/**
 	 * The feature id for the '<em><b>Loaded</b></em>' attribute.
@@ -2174,7 +2176,8 @@ public interface P2viewPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int METADATA_REPOSITORY_STRUCTURED_VIEW__REPOSITORY_REFERENCES = AggregatorPackage.CHILDREN_PROVIDER_FEATURE_COUNT + 5;
+	int METADATA_REPOSITORY_STRUCTURED_VIEW__REPOSITORY_REFERENCES = AggregatorPackage.CHILDREN_PROVIDER_FEATURE_COUNT +
+			5;
 
 	/**
 	 * The feature id for the '<em><b>Location</b></em>' attribute.

@@ -64,7 +64,7 @@ public class BundlesImpl extends MinimalEObjectImpl.Container implements Bundles
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch (featureID) {
+		switch(featureID) {
 			case P2viewPackage.BUNDLES__CHILDREN:
 				return getChildren();
 			case P2viewPackage.BUNDLES__BUNDLES:
@@ -79,7 +79,7 @@ public class BundlesImpl extends MinimalEObjectImpl.Container implements Bundles
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch (featureID) {
+		switch(featureID) {
 			case P2viewPackage.BUNDLES__CHILDREN:
 				return !getChildren().isEmpty();
 			case P2viewPackage.BUNDLES__BUNDLES:
@@ -95,10 +95,10 @@ public class BundlesImpl extends MinimalEObjectImpl.Container implements Bundles
 	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch (featureID) {
+		switch(featureID) {
 			case P2viewPackage.BUNDLES__BUNDLES:
 				getBundles().clear();
-				getBundles().addAll((Collection<? extends Bundle>)newValue);
+				getBundles().addAll((Collection<? extends Bundle>) newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -119,7 +119,7 @@ public class BundlesImpl extends MinimalEObjectImpl.Container implements Bundles
 	 */
 	@Override
 	public void eUnset(int featureID) {
-		switch (featureID) {
+		switch(featureID) {
 			case P2viewPackage.BUNDLES__BUNDLES:
 				getBundles().clear();
 				return;
@@ -131,8 +131,9 @@ public class BundlesImpl extends MinimalEObjectImpl.Container implements Bundles
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<Bundle> getBundles() {
-		if (bundles == null) {
+		if(bundles == null) {
 			bundles = new EObjectResolvingEList<Bundle>(Bundle.class, this, P2viewPackage.BUNDLES__BUNDLES);
 		}
 		return bundles;
@@ -143,6 +144,7 @@ public class BundlesImpl extends MinimalEObjectImpl.Container implements Bundles
 	 *
 	 * @generated NOT
 	 */
+	@Override
 	public EList<Bundle> getChildren() {
 		return getBundles();
 	}
