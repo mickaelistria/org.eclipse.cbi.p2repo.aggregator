@@ -12,7 +12,6 @@ package org.eclipse.cbi.p2repo.aggregator.p2view.util;
 import org.eclipse.cbi.p2repo.aggregator.ChildrenProvider;
 import org.eclipse.cbi.p2repo.aggregator.LabelProvider;
 import org.eclipse.cbi.p2repo.aggregator.StatusProvider;
-import org.eclipse.cbi.p2repo.aggregator.p2view.*;
 import org.eclipse.cbi.p2repo.aggregator.p2view.Bundle;
 import org.eclipse.cbi.p2repo.aggregator.p2view.Bundles;
 import org.eclipse.cbi.p2repo.aggregator.p2view.Categories;

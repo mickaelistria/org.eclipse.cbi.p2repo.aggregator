@@ -14,13 +14,10 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
-import org.eclipse.cbi.p2repo.p2.MetadataRepository;
-import org.eclipse.cbi.p2repo.p2.util.P2Utils;
 import org.eclipse.cbi.p2repo.aggregator.Aggregation;
 import org.eclipse.cbi.p2repo.aggregator.AggregatorFactory;
 import org.eclipse.cbi.p2repo.aggregator.LabelProvider;
 import org.eclipse.cbi.p2repo.aggregator.Property;
-import org.eclipse.cbi.p2repo.aggregator.p2view.*;
 import org.eclipse.cbi.p2repo.aggregator.p2view.Bundle;
 import org.eclipse.cbi.p2repo.aggregator.p2view.Bundles;
 import org.eclipse.cbi.p2repo.aggregator.p2view.Categories;
@@ -48,6 +45,8 @@ import org.eclipse.cbi.p2repo.aggregator.p2view.RequirementWrapper;
 import org.eclipse.cbi.p2repo.aggregator.p2view.Requirements;
 import org.eclipse.cbi.p2repo.aggregator.p2view.Touchpoints;
 import org.eclipse.cbi.p2repo.aggregator.util.CapabilityNamespace;
+import org.eclipse.cbi.p2repo.p2.MetadataRepository;
+import org.eclipse.cbi.p2repo.p2.util.P2Utils;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
@@ -62,11 +61,13 @@ import org.eclipse.equinox.p2.metadata.ITouchpointData;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model <b>Factory</b>. <!-- end-user-doc -->
+ * 
  * @generated
  */
 public class P2viewFactoryImpl extends EFactoryImpl implements P2viewFactory {
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @deprecated
 	 * @generated
 	 */
@@ -78,16 +79,18 @@ public class P2viewFactoryImpl extends EFactoryImpl implements P2viewFactory {
 	/**
 	 * Creates the default factory implementation.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public static P2viewFactory init() {
 		try {
-			P2viewFactory theP2viewFactory = (P2viewFactory)EPackage.Registry.INSTANCE.getEFactory(P2viewPackage.eNS_URI);
-			if (theP2viewFactory != null) {
+			P2viewFactory theP2viewFactory = (P2viewFactory) EPackage.Registry.INSTANCE.getEFactory(
+				P2viewPackage.eNS_URI);
+			if(theP2viewFactory != null) {
 				return theP2viewFactory;
 			}
 		}
-		catch (Exception exception) {
+		catch(Exception exception) {
 			EcorePlugin.INSTANCE.log(exception);
 		}
 		return new P2viewFactoryImpl();
@@ -96,6 +99,7 @@ public class P2viewFactoryImpl extends EFactoryImpl implements P2viewFactory {
 	/**
 	 * Creates an instance of the factory.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public P2viewFactoryImpl() {
@@ -104,35 +108,60 @@ public class P2viewFactoryImpl extends EFactoryImpl implements P2viewFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public EObject create(EClass eClass) {
-		switch (eClass.getClassifierID()) {
-			case P2viewPackage.BUNDLE: return (EObject)createBundle();
-			case P2viewPackage.BUNDLES: return (EObject)createBundles();
-			case P2viewPackage.CATEGORY: return (EObject)createCategory();
-			case P2viewPackage.CATEGORIES: return (EObject)createCategories();
-			case P2viewPackage.FEATURE: return (EObject)createFeature();
-			case P2viewPackage.FEATURES: return (EObject)createFeatures();
-			case P2viewPackage.FRAGMENT: return (EObject)createFragment();
-			case P2viewPackage.FRAGMENTS: return (EObject)createFragments();
-			case P2viewPackage.INSTALLABLE_UNITS: return (EObject)createInstallableUnits();
-			case P2viewPackage.IU_DETAILS: return (EObject)createIUDetails();
-			case P2viewPackage.LICENSES: return (EObject)createLicenses();
-			case P2viewPackage.REPOSITORY_BROWSER: return (EObject)createRepositoryBrowser();
-			case P2viewPackage.METADATA_REPOSITORY_STRUCTURED_VIEW: return (EObject)createMetadataRepositoryStructuredView();
-			case P2viewPackage.MISCELLANEOUS: return (EObject)createMiscellaneous();
-			case P2viewPackage.OTHER_IU: return (EObject)createOtherIU();
-			case P2viewPackage.PRODUCT: return (EObject)createProduct();
-			case P2viewPackage.PRODUCTS: return (EObject)createProducts();
-			case P2viewPackage.PROPERTIES: return (EObject)createProperties();
-			case P2viewPackage.PROVIDED_CAPABILITIES: return (EObject)createProvidedCapabilities();
-			case P2viewPackage.PROVIDED_CAPABILITY_WRAPPER: return (EObject)createProvidedCapabilityWrapper();
-			case P2viewPackage.REPOSITORY_REFERENCES: return (EObject)createRepositoryReferences();
-			case P2viewPackage.REQUIREMENTS: return (EObject)createRequirements();
-			case P2viewPackage.REQUIREMENT_WRAPPER: return (EObject)createRequirementWrapper();
-			case P2viewPackage.TOUCHPOINTS: return (EObject)createTouchpoints();
+		switch(eClass.getClassifierID()) {
+			case P2viewPackage.BUNDLE:
+				return (EObject) createBundle();
+			case P2viewPackage.BUNDLES:
+				return (EObject) createBundles();
+			case P2viewPackage.CATEGORY:
+				return (EObject) createCategory();
+			case P2viewPackage.CATEGORIES:
+				return (EObject) createCategories();
+			case P2viewPackage.FEATURE:
+				return (EObject) createFeature();
+			case P2viewPackage.FEATURES:
+				return (EObject) createFeatures();
+			case P2viewPackage.FRAGMENT:
+				return (EObject) createFragment();
+			case P2viewPackage.FRAGMENTS:
+				return (EObject) createFragments();
+			case P2viewPackage.INSTALLABLE_UNITS:
+				return (EObject) createInstallableUnits();
+			case P2viewPackage.IU_DETAILS:
+				return (EObject) createIUDetails();
+			case P2viewPackage.LICENSES:
+				return (EObject) createLicenses();
+			case P2viewPackage.REPOSITORY_BROWSER:
+				return (EObject) createRepositoryBrowser();
+			case P2viewPackage.METADATA_REPOSITORY_STRUCTURED_VIEW:
+				return (EObject) createMetadataRepositoryStructuredView();
+			case P2viewPackage.MISCELLANEOUS:
+				return (EObject) createMiscellaneous();
+			case P2viewPackage.OTHER_IU:
+				return (EObject) createOtherIU();
+			case P2viewPackage.PRODUCT:
+				return (EObject) createProduct();
+			case P2viewPackage.PRODUCTS:
+				return (EObject) createProducts();
+			case P2viewPackage.PROPERTIES:
+				return (EObject) createProperties();
+			case P2viewPackage.PROVIDED_CAPABILITIES:
+				return (EObject) createProvidedCapabilities();
+			case P2viewPackage.PROVIDED_CAPABILITY_WRAPPER:
+				return (EObject) createProvidedCapabilityWrapper();
+			case P2viewPackage.REPOSITORY_REFERENCES:
+				return (EObject) createRepositoryReferences();
+			case P2viewPackage.REQUIREMENTS:
+				return (EObject) createRequirements();
+			case P2viewPackage.REQUIREMENT_WRAPPER:
+				return (EObject) createRequirementWrapper();
+			case P2viewPackage.TOUCHPOINTS:
+				return (EObject) createTouchpoints();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -140,6 +169,7 @@ public class P2viewFactoryImpl extends EFactoryImpl implements P2viewFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public Bundle createBundle() {
@@ -159,6 +189,7 @@ public class P2viewFactoryImpl extends EFactoryImpl implements P2viewFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public Bundles createBundles() {
@@ -168,6 +199,7 @@ public class P2viewFactoryImpl extends EFactoryImpl implements P2viewFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public Categories createCategories() {
@@ -177,6 +209,7 @@ public class P2viewFactoryImpl extends EFactoryImpl implements P2viewFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public Category createCategory() {
@@ -196,6 +229,7 @@ public class P2viewFactoryImpl extends EFactoryImpl implements P2viewFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public Feature createFeature() {
@@ -215,6 +249,7 @@ public class P2viewFactoryImpl extends EFactoryImpl implements P2viewFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public Features createFeatures() {
@@ -224,6 +259,7 @@ public class P2viewFactoryImpl extends EFactoryImpl implements P2viewFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public Fragment createFragment() {
@@ -243,6 +279,7 @@ public class P2viewFactoryImpl extends EFactoryImpl implements P2viewFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public Fragments createFragments() {
@@ -252,6 +289,7 @@ public class P2viewFactoryImpl extends EFactoryImpl implements P2viewFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public InstallableUnits createInstallableUnits() {
@@ -261,6 +299,7 @@ public class P2viewFactoryImpl extends EFactoryImpl implements P2viewFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public IUDetails createIUDetails() {
@@ -370,6 +409,7 @@ public class P2viewFactoryImpl extends EFactoryImpl implements P2viewFactory {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public Licenses createLicenses() {
@@ -379,6 +419,7 @@ public class P2viewFactoryImpl extends EFactoryImpl implements P2viewFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public MetadataRepositoryStructuredView createMetadataRepositoryStructuredView() {
@@ -400,6 +441,7 @@ public class P2viewFactoryImpl extends EFactoryImpl implements P2viewFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public Miscellaneous createMiscellaneous() {
@@ -409,6 +451,7 @@ public class P2viewFactoryImpl extends EFactoryImpl implements P2viewFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public OtherIU createOtherIU() {
@@ -428,6 +471,7 @@ public class P2viewFactoryImpl extends EFactoryImpl implements P2viewFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public Product createProduct() {
@@ -447,6 +491,7 @@ public class P2viewFactoryImpl extends EFactoryImpl implements P2viewFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public Products createProducts() {
@@ -456,6 +501,7 @@ public class P2viewFactoryImpl extends EFactoryImpl implements P2viewFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public Properties createProperties() {
@@ -465,6 +511,7 @@ public class P2viewFactoryImpl extends EFactoryImpl implements P2viewFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public ProvidedCapabilities createProvidedCapabilities() {
@@ -474,6 +521,7 @@ public class P2viewFactoryImpl extends EFactoryImpl implements P2viewFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public ProvidedCapabilityWrapper createProvidedCapabilityWrapper() {
@@ -489,6 +537,7 @@ public class P2viewFactoryImpl extends EFactoryImpl implements P2viewFactory {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public RepositoryBrowser createRepositoryBrowser() {
@@ -504,6 +553,7 @@ public class P2viewFactoryImpl extends EFactoryImpl implements P2viewFactory {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public RepositoryReferences createRepositoryReferences() {
@@ -514,6 +564,7 @@ public class P2viewFactoryImpl extends EFactoryImpl implements P2viewFactory {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public Requirements createRequirements() {
@@ -524,6 +575,7 @@ public class P2viewFactoryImpl extends EFactoryImpl implements P2viewFactory {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public RequirementWrapper createRequirementWrapper() {
@@ -538,6 +590,7 @@ public class P2viewFactoryImpl extends EFactoryImpl implements P2viewFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public Touchpoints createTouchpoints() {
@@ -547,10 +600,11 @@ public class P2viewFactoryImpl extends EFactoryImpl implements P2viewFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public P2viewPackage getP2viewPackage() {
-		return (P2viewPackage)getEPackage();
+		return (P2viewPackage) getEPackage();
 	}
 
 } // P2viewFactoryImpl

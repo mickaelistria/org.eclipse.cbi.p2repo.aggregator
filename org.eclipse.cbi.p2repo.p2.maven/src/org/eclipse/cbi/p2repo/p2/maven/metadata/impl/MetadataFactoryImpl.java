@@ -6,7 +6,6 @@
  */
 package org.eclipse.cbi.p2repo.p2.maven.metadata.impl;
 
-import org.eclipse.cbi.p2repo.p2.maven.metadata.*;
 import org.eclipse.cbi.p2repo.p2.maven.metadata.DocumentRoot;
 import org.eclipse.cbi.p2repo.p2.maven.metadata.MetaData;
 import org.eclipse.cbi.p2repo.p2.maven.metadata.MetadataFactory;

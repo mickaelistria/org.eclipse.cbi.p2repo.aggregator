@@ -6,7 +6,6 @@
  */
 package org.eclipse.cbi.p2repo.p2.maven.pom.util;
 
-import org.eclipse.cbi.p2repo.p2.maven.pom.*;
 import org.eclipse.cbi.p2repo.p2.maven.pom.Activation;
 import org.eclipse.cbi.p2repo.p2.maven.pom.ActivationFile;
 import org.eclipse.cbi.p2repo.p2.maven.pom.ActivationOS;
