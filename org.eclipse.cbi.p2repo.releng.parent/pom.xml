@@ -46,7 +46,7 @@
       the comparatorRepo but the comparator can use a composite whereas the 
       reference repo needs to be absolute file location of simple repository.
     -->
-    <referenceRepo>/home/data/httpd/download.eclipse.org/cbi/updates/aggregator/ide/4.6/I20161107-2127</referenceRepo>
+    <referenceRepo>/home/data/httpd/download.eclipse.org/cbi/updates/aggregator/ide/4.6/I20161119-0315</referenceRepo>
     
   </properties>
   <profiles>
