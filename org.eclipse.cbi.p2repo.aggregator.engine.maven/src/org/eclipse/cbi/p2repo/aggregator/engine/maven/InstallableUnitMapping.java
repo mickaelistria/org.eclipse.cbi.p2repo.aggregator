@@ -21,6 +21,7 @@ import org.eclipse.cbi.p2repo.aggregator.Contribution;
 import org.eclipse.cbi.p2repo.aggregator.MavenItem;
 import org.eclipse.cbi.p2repo.aggregator.MavenMapping;
 import org.eclipse.cbi.p2repo.aggregator.StatusCode;
+import org.eclipse.cbi.p2repo.aggregator.VersionFormat;
 import org.eclipse.cbi.p2repo.p2.maven.POM;
 import org.eclipse.cbi.p2repo.p2.maven.pom.DependenciesType;
 import org.eclipse.cbi.p2repo.p2.maven.pom.Dependency;
@@ -105,10 +106,11 @@ public class InstallableUnitMapping implements IInstallableUnit {
 
 	private Contribution contribution;
 
-	private boolean useStrictMavenVersions;
+	private VersionFormat versionFormat;
 
-	public InstallableUnitMapping() {
+	public InstallableUnitMapping(VersionFormat versionFormat) {
 		this((String) null);
+		this.versionFormat = versionFormat;
 	}
 
 	public InstallableUnitMapping(Contribution contribution, IInstallableUnit iu) {
@@ -154,7 +156,7 @@ public class InstallableUnitMapping implements IInstallableUnit {
 				installableUnit = proxy;
 		}
 		Aggregation aggregation = (Aggregation) ((EObject) contribution).eContainer().eContainer();
-		useStrictMavenVersions = aggregation.isStrictMavenVersions();
+		versionFormat = aggregation.getVersionFormat();
 	}
 
 	public InstallableUnitMapping(String name) {
@@ -186,7 +188,7 @@ public class InstallableUnitMapping implements IInstallableUnit {
 			Parent newParent = PomFactory.eINSTANCE.createParent();
 			newParent.setGroupId(parent.map().getGroupId());
 			newParent.setArtifactId(parent.map().getArtifactId());
-			newParent.setVersion(VersionUtil.getVersionString(parent.getVersion(), useStrictMavenVersions));
+			newParent.setVersion(VersionUtil.getVersionString(parent.getVersion(), versionFormat));
 			model.setParent(newParent);
 		}
 		model.setModelVersion(POM.MODEL_VERSION);
@@ -222,15 +224,15 @@ public class InstallableUnitMapping implements IInstallableUnit {
 						Version high = cap.getRange().getMaximum();
 						if(cap.getRange().getIncludeMinimum() && Version.MAX_VERSION.equals(high)) {
 							versionRangeString.append("[").append(
-								VersionUtil.getVersionString(low, useStrictMavenVersions)).append(",)");
+								VersionUtil.getVersionString(low, versionFormat)).append(",)");
 						}
 						else {
 							versionRangeString.append(cap.getRange().getIncludeMinimum()
 									? '['
 									: '(');
-							versionRangeString.append(VersionUtil.getVersionString(low, useStrictMavenVersions));
+							versionRangeString.append(VersionUtil.getVersionString(low, versionFormat));
 							versionRangeString.append(',');
-							versionRangeString.append(VersionUtil.getVersionString(high, useStrictMavenVersions));
+							versionRangeString.append(VersionUtil.getVersionString(high, versionFormat));
 							versionRangeString.append(cap.getRange().getIncludeMaximum()
 									? ']'
 									: ')');
@@ -495,8 +497,15 @@ public class InstallableUnitMapping implements IInstallableUnit {
 		return installableUnit.getVersion();
 	}
 
+	/**
+	 * @return the version format to be used when generating for Maven.
+	 */
+	public VersionFormat getVersionFormat() {
+		return versionFormat;
+	}
+
 	public String getVersionString() {
-		return VersionUtil.getVersionString(getVersion(), useStrictMavenVersions);
+		return VersionUtil.getVersionString(getVersion(), versionFormat);
 	}
 
 	@Override
@@ -507,13 +516,6 @@ public class InstallableUnitMapping implements IInstallableUnit {
 	@Override
 	public boolean isSingleton() {
 		return installableUnit.isSingleton();
-	}
-
-	/**
-	 * @return true if this aggregation should generate strict maven versions
-	 */
-	public boolean isStrictMavenVersions() {
-		return useStrictMavenVersions;
 	}
 
 	public boolean isTransient() {

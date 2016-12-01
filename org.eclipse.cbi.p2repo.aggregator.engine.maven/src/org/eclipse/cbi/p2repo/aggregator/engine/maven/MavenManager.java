@@ -20,7 +20,9 @@ import java.util.List;
 import java.util.Map;
 
 import org.eclipse.cbi.p2repo.p2.util.IUUtils;
+import org.eclipse.cbi.p2repo.aggregator.Aggregation;
 import org.eclipse.cbi.p2repo.aggregator.Contribution;
+import org.eclipse.cbi.p2repo.aggregator.VersionFormat;
 import org.eclipse.cbi.p2repo.p2.maven.MavenMetadata;
 import org.eclipse.cbi.p2repo.p2.maven.metadata.MetaData;
 import org.eclipse.cbi.p2repo.p2.maven.metadata.MetadataFactory;
@@ -171,7 +173,8 @@ public class MavenManager {
 		}
 	}
 
-	public static MavenRepositoryHelper createMavenStructure(List<InstallableUnitMapping> ius) throws CoreException {
+	public static MavenRepositoryHelper createMavenStructure(List<InstallableUnitMapping> ius, Aggregation aggregation)
+			throws CoreException {
 		List<String[]> mappingRulesList = new ArrayList<String[]>();
 
 		// Initialize with standard rules for packed artifacts (which are not usable for maven anyway)
@@ -192,7 +195,7 @@ public class MavenManager {
 			group.add(iu);
 		}
 
-		InstallableUnitMapping top = new InstallableUnitMapping();
+		InstallableUnitMapping top = new InstallableUnitMapping(aggregation.getVersionFormat());
 		top.setTransient(true);
 		addMappingRule(mappingRulesList, top);
 		// FIXME: rule uses mavenized name, OK?
@@ -239,7 +242,7 @@ public class MavenManager {
 		Map<String, MavenMetadataHelper> metadataCollector = new HashMap<String, MavenMetadataHelper>();
 
 		savePOMs(root, iu, uriConverter, DigestUtil.MESSAGE_DIGESTERS, metadataCollector, errors);
-		saveXMLs(root, uriConverter, DigestUtil.MESSAGE_DIGESTERS, metadataCollector, iu.isStrictMavenVersions());
+		saveXMLs(root, uriConverter, DigestUtil.MESSAGE_DIGESTERS, metadataCollector, iu.getVersionFormat());
 	}
 
 	private static void savePOMs(URI root, InstallableUnitMapping iu, URIConverter uriConverter,
@@ -285,7 +288,7 @@ public class MavenManager {
 	}
 
 	private static void saveXMLs(URI root, URIConverter uriConverter, MessageDigest[] digests,
-			Map<String, MavenMetadataHelper> metadataCollector, boolean strictMavenVersions) throws CoreException {
+			Map<String, MavenMetadataHelper> metadataCollector, VersionFormat versionFormat) throws CoreException {
 		String timestamp = String.format("%1$tY%1$tm%1$td%1$tH%1$tM%1$tS", new Date());
 
 		for(MavenMetadataHelper mdh : metadataCollector.values()) {
@@ -300,12 +303,12 @@ public class MavenManager {
 			versioning.setLastUpdated(timestamp);
 			Version release = mdh.getRelease();
 			if(release != null)
-				versioning.setRelease(VersionUtil.getVersionString(release, strictMavenVersions));
+				versioning.setRelease(VersionUtil.getVersionString(release, versionFormat));
 			Versions versions = MetadataFactory.eINSTANCE.createVersions();
 			versioning.setVersions(versions);
 			List<String> versionList = versions.getVersion();
 			for(Version version : mdh.getVersions())
-				versionList.add(VersionUtil.getVersionString(version, strictMavenVersions));
+				versionList.add(VersionUtil.getVersionString(version, versionFormat));
 
 			URI xmlUri = createXmlURI(root, mdh);
 			mdConainter.save(xmlUri);

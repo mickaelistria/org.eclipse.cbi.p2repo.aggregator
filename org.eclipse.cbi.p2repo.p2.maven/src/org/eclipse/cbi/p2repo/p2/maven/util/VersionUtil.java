@@ -11,6 +11,7 @@ package org.eclipse.cbi.p2repo.p2.maven.util;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import org.eclipse.cbi.p2repo.aggregator.VersionFormat;
 import org.eclipse.cbi.p2repo.util.StringUtils;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.equinox.p2.metadata.Version;
@@ -67,9 +68,9 @@ public class VersionUtil {
 		return versionString;
 	}
 
-	public static String getVersionString(Version version, boolean strictMavenVersions) {
+	public static String getVersionString(Version version, VersionFormat versionFormat) {
 		String versionString = getVersionString(version);
-		if(!strictMavenVersions)
+		if(versionFormat == VersionFormat.NORMAL)
 			return versionString;
 
 		// Some components (jgit in particular) uses an OSGi version that translates
@@ -82,6 +83,9 @@ public class VersionUtil {
 		m = osgiPattern.matcher(versionString);
 		if(!m.matches())
 			return versionString;
+		
+		if (versionFormat == VersionFormat.MAVEN_RELEASE)
+			return m.group(1);
 
 		// Ensure that the qualifier is separated with a dash and then don't contain dashes
 		StringBuilder bld = new StringBuilder();

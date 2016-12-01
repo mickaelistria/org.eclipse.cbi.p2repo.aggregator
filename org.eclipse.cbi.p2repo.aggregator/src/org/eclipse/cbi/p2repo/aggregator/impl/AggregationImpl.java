@@ -25,6 +25,7 @@ import org.eclipse.cbi.p2repo.aggregator.Status;
 import org.eclipse.cbi.p2repo.aggregator.StatusCode;
 import org.eclipse.cbi.p2repo.aggregator.StatusProvider;
 import org.eclipse.cbi.p2repo.aggregator.ValidationSet;
+import org.eclipse.cbi.p2repo.aggregator.VersionFormat;
 import org.eclipse.cbi.p2repo.aggregator.util.GeneralUtils;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -63,6 +64,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link org.eclipse.cbi.p2repo.aggregator.impl.AggregationImpl#getType <em>Type</em>}</li>
  *   <li>{@link org.eclipse.cbi.p2repo.aggregator.impl.AggregationImpl#isMavenResult <em>Maven Result</em>}</li>
  *   <li>{@link org.eclipse.cbi.p2repo.aggregator.impl.AggregationImpl#isStrictMavenVersions <em>Strict Maven Versions</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.aggregator.impl.AggregationImpl#getVersionFormat <em>Version Format</em>}</li>
  *   <li>{@link org.eclipse.cbi.p2repo.aggregator.impl.AggregationImpl#getMavenMappings <em>Maven Mappings</em>}</li>
  *   <li>{@link org.eclipse.cbi.p2repo.aggregator.impl.AggregationImpl#isAllowLegacySites <em>Allow Legacy Sites</em>}</li>
  * </ul>
@@ -352,6 +354,53 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 	protected static final int STRICT_MAVEN_VERSIONS_EFLAG = 1 << 8;
 
 	/**
+	 * The default value of the '{@link #getVersionFormat() <em>Version Format</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getVersionFormat()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final VersionFormat VERSION_FORMAT_EDEFAULT = VersionFormat.NORMAL;
+
+	/**
+	 * The offset of the flags representing the value of the '{@link #getVersionFormat() <em>Version Format</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int VERSION_FORMAT_EFLAG_OFFSET = 9;
+
+	/**
+	 * The flags representing the default value of the '{@link #getVersionFormat() <em>Version Format</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int VERSION_FORMAT_EFLAG_DEFAULT = VERSION_FORMAT_EDEFAULT.ordinal() << VERSION_FORMAT_EFLAG_OFFSET;
+
+	/**
+	 * The array of enumeration values for '{@link VersionFormat Version Format}'
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	private static final VersionFormat[] VERSION_FORMAT_EFLAG_VALUES = VersionFormat.values();
+
+	/**
+	 * The flags representing the value of the '{@link #getVersionFormat() <em>Version Format</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getVersionFormat()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int VERSION_FORMAT_EFLAG = 0x3 << VERSION_FORMAT_EFLAG_OFFSET;
+
+	/**
 	 * The cached value of the '{@link #getMavenMappings() <em>Maven Mappings</em>}' containment reference list. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 *
@@ -379,7 +428,7 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 	 * @generated
 	 * @ordered
 	 */
-	protected static final int ALLOW_LEGACY_SITES_EFLAG = 1 << 9;
+	protected static final int ALLOW_LEGACY_SITES_EFLAG = 1 << 11;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -506,6 +555,8 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 				return isMavenResult();
 			case AggregatorPackage.AGGREGATION__STRICT_MAVEN_VERSIONS:
 				return isStrictMavenVersions();
+			case AggregatorPackage.AGGREGATION__VERSION_FORMAT:
+				return getVersionFormat();
 			case AggregatorPackage.AGGREGATION__MAVEN_MAPPINGS:
 				return getMavenMappings();
 			case AggregatorPackage.AGGREGATION__ALLOW_LEGACY_SITES:
@@ -594,6 +645,8 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 				return ((eFlags & MAVEN_RESULT_EFLAG) != 0) != MAVEN_RESULT_EDEFAULT;
 			case AggregatorPackage.AGGREGATION__STRICT_MAVEN_VERSIONS:
 				return ((eFlags & STRICT_MAVEN_VERSIONS_EFLAG) != 0) != STRICT_MAVEN_VERSIONS_EDEFAULT;
+			case AggregatorPackage.AGGREGATION__VERSION_FORMAT:
+				return (eFlags & VERSION_FORMAT_EFLAG) != VERSION_FORMAT_EFLAG_DEFAULT;
 			case AggregatorPackage.AGGREGATION__MAVEN_MAPPINGS:
 				return mavenMappings != null && !mavenMappings.isEmpty();
 			case AggregatorPackage.AGGREGATION__ALLOW_LEGACY_SITES:
@@ -664,6 +717,9 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 				return;
 			case AggregatorPackage.AGGREGATION__STRICT_MAVEN_VERSIONS:
 				setStrictMavenVersions((Boolean) newValue);
+				return;
+			case AggregatorPackage.AGGREGATION__VERSION_FORMAT:
+				setVersionFormat((VersionFormat) newValue);
 				return;
 			case AggregatorPackage.AGGREGATION__MAVEN_MAPPINGS:
 				getMavenMappings().clear();
@@ -739,6 +795,9 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 				return;
 			case AggregatorPackage.AGGREGATION__STRICT_MAVEN_VERSIONS:
 				setStrictMavenVersions(STRICT_MAVEN_VERSIONS_EDEFAULT);
+				return;
+			case AggregatorPackage.AGGREGATION__VERSION_FORMAT:
+				setVersionFormat(VERSION_FORMAT_EDEFAULT);
 				return;
 			case AggregatorPackage.AGGREGATION__MAVEN_MAPPINGS:
 				getMavenMappings().clear();
@@ -1142,6 +1201,16 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public VersionFormat getVersionFormat() {
+		return VERSION_FORMAT_EFLAG_VALUES[(eFlags & VERSION_FORMAT_EFLAG) >>> VERSION_FORMAT_EFLAG_OFFSET];
+	}
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
@@ -1179,7 +1248,7 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public void setStrictMavenVersions(boolean newStrictMavenVersions) {
@@ -1193,6 +1262,33 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 				new ENotificationImpl(
 					this, Notification.SET, AggregatorPackage.AGGREGATION__STRICT_MAVEN_VERSIONS,
 					oldStrictMavenVersions, newStrictMavenVersions));
+		if(newStrictMavenVersions != oldStrictMavenVersions) {
+			if(newStrictMavenVersions)
+				setVersionFormat(VersionFormat.STRICT_MAVEN);
+			else if(getVersionFormat() == VersionFormat.STRICT_MAVEN) // don't propagate if format is MavenRelease
+				setVersionFormat(VersionFormat.NORMAL);
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public void setVersionFormat(VersionFormat newVersionFormat) {
+		VersionFormat oldVersionFormat = VERSION_FORMAT_EFLAG_VALUES[(eFlags &
+				VERSION_FORMAT_EFLAG) >>> VERSION_FORMAT_EFLAG_OFFSET];
+		if(newVersionFormat == null)
+			newVersionFormat = VERSION_FORMAT_EDEFAULT;
+		eFlags = eFlags & ~VERSION_FORMAT_EFLAG | newVersionFormat.ordinal() << VERSION_FORMAT_EFLAG_OFFSET;
+		if(eNotificationRequired())
+			eNotify(
+				new ENotificationImpl(
+					this, Notification.SET, AggregatorPackage.AGGREGATION__VERSION_FORMAT, oldVersionFormat,
+					newVersionFormat));
+		if (oldVersionFormat != newVersionFormat)
+			setStrictMavenVersions(newVersionFormat == VersionFormat.STRICT_MAVEN);
 	}
 
 	/**
@@ -1241,6 +1337,8 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 		result.append((eFlags & MAVEN_RESULT_EFLAG) != 0);
 		result.append(", strictMavenVersions: ");
 		result.append((eFlags & STRICT_MAVEN_VERSIONS_EFLAG) != 0);
+		result.append(", versionFormat: ");
+		result.append(VERSION_FORMAT_EFLAG_VALUES[(eFlags & VERSION_FORMAT_EFLAG) >>> VERSION_FORMAT_EFLAG_OFFSET]);
 		result.append(", allowLegacySites: ");
 		result.append((eFlags & ALLOW_LEGACY_SITES_EFLAG) != 0);
 		result.append(')');

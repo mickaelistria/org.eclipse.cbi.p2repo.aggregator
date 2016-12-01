@@ -1425,7 +1425,7 @@ public class Builder extends ModelAbstractCommand {
 			MonitorUtils.done(contribMonitor);
 		}
 
-		mavenHelper = MavenManager.createMavenStructure(iusToMaven);
+		mavenHelper = MavenManager.createMavenStructure(iusToMaven, getAggregation());
 
 		if(aggregateAr instanceof SimpleArtifactRepository) {
 			SimpleArtifactRepository simpleAr = ((SimpleArtifactRepository) aggregateAr);

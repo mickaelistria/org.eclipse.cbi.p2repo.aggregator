@@ -46,6 +46,7 @@ import org.eclipse.cbi.p2repo.aggregator.StatusCode;
 import org.eclipse.cbi.p2repo.aggregator.StatusProvider;
 import org.eclipse.cbi.p2repo.aggregator.ValidConfigurationsRule;
 import org.eclipse.cbi.p2repo.aggregator.ValidationSet;
+import org.eclipse.cbi.p2repo.aggregator.VersionFormat;
 import org.eclipse.cbi.p2repo.aggregator.VersionMatch;
 import org.eclipse.cbi.p2repo.aggregator.WindowSystem;
 import org.eclipse.cbi.p2repo.aggregator.p2view.P2viewPackage;
@@ -321,6 +322,13 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 	private EEnum windowSystemEEnum = null;
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum versionFormatEEnum = null;
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
@@ -420,6 +428,7 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 		createEAttribute(aggregationEClass, AGGREGATION__TYPE);
 		createEAttribute(aggregationEClass, AGGREGATION__MAVEN_RESULT);
 		createEAttribute(aggregationEClass, AGGREGATION__STRICT_MAVEN_VERSIONS);
+		createEAttribute(aggregationEClass, AGGREGATION__VERSION_FORMAT);
 		createEReference(aggregationEClass, AGGREGATION__MAVEN_MAPPINGS);
 		createEAttribute(aggregationEClass, AGGREGATION__ALLOW_LEGACY_SITES);
 
@@ -553,6 +562,7 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 		statusCodeEEnum = createEEnum(STATUS_CODE);
 		versionMatchEEnum = createEEnum(VERSION_MATCH);
 		windowSystemEEnum = createEEnum(WINDOW_SYSTEM);
+		versionFormatEEnum = createEEnum(VERSION_FORMAT);
 	}
 
 	/**
@@ -572,7 +582,7 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 	 */
 	@Override
 	public EAttribute getAggregation_AllowLegacySites() {
-		return (EAttribute) aggregationEClass.getEStructuralFeatures().get(14);
+		return (EAttribute) aggregationEClass.getEStructuralFeatures().get(15);
 	}
 
 	/**
@@ -652,7 +662,7 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 	 */
 	@Override
 	public EReference getAggregation_MavenMappings() {
-		return (EReference) aggregationEClass.getEStructuralFeatures().get(13);
+		return (EReference) aggregationEClass.getEStructuralFeatures().get(14);
 	}
 
 	/**
@@ -663,6 +673,26 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 	@Override
 	public EAttribute getAggregation_MavenResult() {
 		return (EAttribute) aggregationEClass.getEStructuralFeatures().get(11);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getAggregation_StrictMavenVersions() {
+		return (EAttribute) aggregationEClass.getEStructuralFeatures().get(12);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getAggregation_VersionFormat() {
+		return (EAttribute) aggregationEClass.getEStructuralFeatures().get(13);
 	}
 
 	/**
@@ -683,16 +713,6 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 	@Override
 	public EAttribute getAggregation_Sendmail() {
 		return (EAttribute) aggregationEClass.getEStructuralFeatures().get(9);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EAttribute getAggregation_StrictMavenVersions() {
-		return (EAttribute) aggregationEClass.getEStructuralFeatures().get(12);
 	}
 
 	/**
@@ -1651,6 +1671,16 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EEnum getVersionFormat() {
+		return versionFormatEEnum;
+	}
+
+	/**
 	 * Complete the initialization of the package and its meta-model.  This
 	 * method is guarded to have no affect on any invocation but its first.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -1785,6 +1815,9 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 			getAggregation_StrictMavenVersions(), ecorePackage.getEBoolean(), "strictMavenVersions", null, 0, 1,
 			Aggregation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
 			!IS_DERIVED, IS_ORDERED);
+		initEAttribute(
+			getAggregation_VersionFormat(), this.getVersionFormat(), "versionFormat", null, 0, 1, Aggregation.class,
+			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(
 			getAggregation_MavenMappings(), this.getMavenMapping(), null, "mavenMappings", null, 0, -1,
 			Aggregation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES,
@@ -2296,6 +2329,11 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 		addEEnumLiteral(windowSystemEEnum, WindowSystem.COCOA);
 		addEEnumLiteral(windowSystemEEnum, WindowSystem.MOTIF);
 		addEEnumLiteral(windowSystemEEnum, WindowSystem.PHOTON);
+
+		initEEnum(versionFormatEEnum, VersionFormat.class, "VersionFormat");
+		addEEnumLiteral(versionFormatEEnum, VersionFormat.NORMAL);
+		addEEnumLiteral(versionFormatEEnum, VersionFormat.STRICT_MAVEN);
+		addEEnumLiteral(versionFormatEEnum, VersionFormat.MAVEN_RELEASE);
 
 		// Create resource
 		createResource(eNS_URI);

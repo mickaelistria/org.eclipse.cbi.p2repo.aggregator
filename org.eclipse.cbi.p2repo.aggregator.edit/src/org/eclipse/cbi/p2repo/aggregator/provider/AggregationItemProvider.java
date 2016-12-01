@@ -145,6 +145,42 @@ public class AggregationItemProvider extends DescriptionProviderItemProvider {
 	}
 
 	/**
+	 * This adds a property descriptor for the Strict Maven Versions feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addStrictMavenVersionsPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add(
+			createItemPropertyDescriptor(
+				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+				getString("_UI_Aggregation_strictMavenVersions_feature"),
+				getString(
+					"_UI_PropertyDescriptor_description", "_UI_Aggregation_strictMavenVersions_feature",
+					"_UI_Aggregation_type"),
+				AggregatorPackage.Literals.AGGREGATION__STRICT_MAVEN_VERSIONS, true, false, false,
+				ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Version Format feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addVersionFormatPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add(
+			createItemPropertyDescriptor(
+				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+				getString("_UI_Aggregation_versionFormat_feature"),
+				getString(
+					"_UI_PropertyDescriptor_description", "_UI_Aggregation_versionFormat_feature",
+					"_UI_Aggregation_type"),
+				AggregatorPackage.Literals.AGGREGATION__VERSION_FORMAT, true, false, false,
+				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+	}
+
+	/**
 	 * This adds a property descriptor for the Packed Strategy feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -176,24 +212,6 @@ public class AggregationItemProvider extends DescriptionProviderItemProvider {
 				getString(
 					"_UI_PropertyDescriptor_description", "_UI_Aggregation_sendmail_feature", "_UI_Aggregation_type"),
 				AggregatorPackage.Literals.AGGREGATION__SENDMAIL, true, false, false,
-				ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Strict Maven Versions feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addStrictMavenVersionsPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(
-			createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-				getString("_UI_Aggregation_strictMavenVersions_feature"),
-				getString(
-					"_UI_PropertyDescriptor_description", "_UI_Aggregation_strictMavenVersions_feature",
-					"_UI_Aggregation_type"),
-				AggregatorPackage.Literals.AGGREGATION__STRICT_MAVEN_VERSIONS, true, false, false,
 				ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null));
 	}
 
@@ -314,6 +332,7 @@ public class AggregationItemProvider extends DescriptionProviderItemProvider {
 			addTypePropertyDescriptor(object);
 			addMavenResultPropertyDescriptor(object);
 			addStrictMavenVersionsPropertyDescriptor(object);
+			addVersionFormatPropertyDescriptor(object);
 			addAllowLegacySitesPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
@@ -365,6 +384,7 @@ public class AggregationItemProvider extends DescriptionProviderItemProvider {
 			case AggregatorPackage.AGGREGATION__TYPE:
 			case AggregatorPackage.AGGREGATION__MAVEN_RESULT:
 			case AggregatorPackage.AGGREGATION__STRICT_MAVEN_VERSIONS:
+			case AggregatorPackage.AGGREGATION__VERSION_FORMAT:
 			case AggregatorPackage.AGGREGATION__ALLOW_LEGACY_SITES:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;

@@ -87,6 +87,11 @@
       <genEnumLiterals ecoreEnumLiteral="Aggregator.ecore#//WindowSystem/Motif"/>
       <genEnumLiterals ecoreEnumLiteral="Aggregator.ecore#//WindowSystem/Photon"/>
     </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="Aggregator.ecore#//VersionFormat">
+      <genEnumLiterals ecoreEnumLiteral="Aggregator.ecore#//VersionFormat/Normal"/>
+      <genEnumLiterals ecoreEnumLiteral="Aggregator.ecore#//VersionFormat/StrictMaven"/>
+      <genEnumLiterals ecoreEnumLiteral="Aggregator.ecore#//VersionFormat/MavenRelease"/>
+    </genEnums>
     <genClasses ecoreClass="Aggregator.ecore#//Aggregation">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Aggregator.ecore#//Aggregation/validationSets"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Aggregator.ecore#//Aggregation/configurations"/>
@@ -101,6 +106,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Aggregator.ecore#//Aggregation/type"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Aggregator.ecore#//Aggregation/mavenResult"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Aggregator.ecore#//Aggregation/strictMavenVersions"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Aggregator.ecore#//Aggregation/versionFormat"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Aggregator.ecore#//Aggregation/mavenMappings"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Aggregator.ecore#//Aggregation/allowLegacySites"/>
       <genOperations ecoreOperation="Aggregator.ecore#//Aggregation/getAllMetadataRepositoryReferences">
@@ -282,8 +288,9 @@
     <genClasses ecoreClass="Aggregator.ecore#//ValidConfigurationsRule">
       <genFeatures createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Aggregator.ecore#//ValidConfigurationsRule/validConfigurations"/>
     </genClasses>
-    <nestedGenPackages prefix="P2view" resource="XML" disposableProviderFactory="true"
-        multipleEditorPages="false" generateModelWizard="false" ecorePackage="Aggregator.ecore#//p2view">
+    <nestedGenPackages prefix="P2view" basePackage="org.eclipse.cbi.p2repo.aggregator"
+        resource="XML" disposableProviderFactory="true" multipleEditorPages="false"
+        generateModelWizard="false" ecorePackage="Aggregator.ecore#//p2view">
       <genClasses ecoreClass="Aggregator.ecore#//p2view/Bundle"/>
       <genClasses ecoreClass="Aggregator.ecore#//p2view/Bundles">
         <genFeatures property="None" notify="false" children="true" createChild="false"

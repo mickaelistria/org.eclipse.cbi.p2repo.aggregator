@@ -350,6 +350,35 @@ public interface Aggregation extends DescriptionProvider, StatusProvider, InfosP
 	void setMavenResult(boolean value);
 
 	/**
+	 * Returns the value of the '<em><b>Version Format</b></em>' attribute.
+	 * The literals are from the enumeration {@link org.eclipse.cbi.p2repo.aggregator.VersionFormat}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Version Format</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Version Format</em>' attribute.
+	 * @see org.eclipse.cbi.p2repo.aggregator.VersionFormat
+	 * @see #setVersionFormat(VersionFormat)
+	 * @see org.eclipse.cbi.p2repo.aggregator.AggregatorPackage#getAggregation_VersionFormat()
+	 * @model
+	 * @generated
+	 */
+	VersionFormat getVersionFormat();
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.aggregator.Aggregation#getVersionFormat <em>Version Format</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Version Format</em>' attribute.
+	 * @see org.eclipse.cbi.p2repo.aggregator.VersionFormat
+	 * @see #getVersionFormat()
+	 * @generated
+	 */
+	void setVersionFormat(VersionFormat value);
+
+	/**
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.aggregator.Aggregation#getPackedStrategy <em>Packed Strategy</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Packed Strategy</em>' attribute.

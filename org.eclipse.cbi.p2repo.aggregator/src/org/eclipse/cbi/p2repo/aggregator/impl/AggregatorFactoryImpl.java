@@ -6,6 +6,7 @@
  */
 package org.eclipse.cbi.p2repo.aggregator.impl;
 
+import org.eclipse.cbi.p2repo.aggregator.*;
 import org.eclipse.cbi.p2repo.aggregator.Aggregation;
 import org.eclipse.cbi.p2repo.aggregator.AggregationType;
 import org.eclipse.cbi.p2repo.aggregator.AggregatorFactory;
@@ -193,6 +194,8 @@ public class AggregatorFactoryImpl extends EFactoryImpl implements AggregatorFac
 				return convertVersionMatchToString(eDataType, instanceValue);
 			case AggregatorPackage.WINDOW_SYSTEM:
 				return convertWindowSystemToString(eDataType, instanceValue);
+			case AggregatorPackage.VERSION_FORMAT:
+				return convertVersionFormatToString(eDataType, instanceValue);
 			default:
 				throw new IllegalArgumentException(
 					"The datatype '" + eDataType.getName() + "' is not a valid classifier");
@@ -215,6 +218,30 @@ public class AggregatorFactoryImpl extends EFactoryImpl implements AggregatorFac
 	 * @generated
 	 */
 	public String convertWindowSystemToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null
+				? null
+				: instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public VersionFormat createVersionFormatFromString(EDataType eDataType, String initialValue) {
+		VersionFormat result = VersionFormat.get(initialValue);
+		if(result == null)
+			throw new IllegalArgumentException(
+				"The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertVersionFormatToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null
 				? null
 				: instanceValue.toString();
@@ -462,6 +489,8 @@ public class AggregatorFactoryImpl extends EFactoryImpl implements AggregatorFac
 				return createVersionMatchFromString(eDataType, initialValue);
 			case AggregatorPackage.WINDOW_SYSTEM:
 				return createWindowSystemFromString(eDataType, initialValue);
+			case AggregatorPackage.VERSION_FORMAT:
+				return createVersionFormatFromString(eDataType, initialValue);
 			default:
 				throw new IllegalArgumentException(
 					"The datatype '" + eDataType.getName() + "' is not a valid classifier");

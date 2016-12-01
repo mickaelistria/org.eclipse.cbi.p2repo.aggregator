@@ -154,6 +154,14 @@ public interface AggregatorPackage extends EPackage {
 		EAttribute AGGREGATION__STRICT_MAVEN_VERSIONS = eINSTANCE.getAggregation_StrictMavenVersions();
 
 		/**
+		 * The meta object literal for the '<em><b>Version Format</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute AGGREGATION__VERSION_FORMAT = eINSTANCE.getAggregation_VersionFormat();
+
+		/**
 		 * The meta object literal for the '<em><b>Maven Mappings</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -960,6 +968,16 @@ public interface AggregatorPackage extends EPackage {
 		EEnum WINDOW_SYSTEM = eINSTANCE.getWindowSystem();
 
 		/**
+		 * The meta object literal for the '{@link org.eclipse.cbi.p2repo.aggregator.VersionFormat <em>Version Format</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.cbi.p2repo.aggregator.VersionFormat
+		 * @see org.eclipse.cbi.p2repo.aggregator.impl.AggregatorPackageImpl#getVersionFormat()
+		 * @generated
+		 */
+		EEnum VERSION_FORMAT = eINSTANCE.getVersionFormat();
+
+		/**
 		 * The meta object literal for the '{@link org.eclipse.cbi.p2repo.aggregator.Architecture <em>Architecture</em>}' enum.
 		 * <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * @see org.eclipse.cbi.p2repo.aggregator.Architecture
@@ -1244,13 +1262,22 @@ public interface AggregatorPackage extends EPackage {
 	int AGGREGATION__STRICT_MAVEN_VERSIONS = DESCRIPTION_PROVIDER_FEATURE_COUNT + 16;
 
 	/**
+	 * The feature id for the '<em><b>Version Format</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AGGREGATION__VERSION_FORMAT = DESCRIPTION_PROVIDER_FEATURE_COUNT + 17;
+
+	/**
 	 * The feature id for the '<em><b>Maven Mappings</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int AGGREGATION__MAVEN_MAPPINGS = DESCRIPTION_PROVIDER_FEATURE_COUNT + 17;
+	int AGGREGATION__MAVEN_MAPPINGS = DESCRIPTION_PROVIDER_FEATURE_COUNT + 18;
 
 	/**
 	 * The feature id for the '<em><b>Allow Legacy Sites</b></em>' attribute.
@@ -1259,7 +1286,7 @@ public interface AggregatorPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AGGREGATION__ALLOW_LEGACY_SITES = DESCRIPTION_PROVIDER_FEATURE_COUNT + 18;
+	int AGGREGATION__ALLOW_LEGACY_SITES = DESCRIPTION_PROVIDER_FEATURE_COUNT + 19;
 
 	/**
 	 * The number of structural features of the '<em>Aggregation</em>' class.
@@ -1268,7 +1295,7 @@ public interface AggregatorPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AGGREGATION_FEATURE_COUNT = DESCRIPTION_PROVIDER_FEATURE_COUNT + 19;
+	int AGGREGATION_FEATURE_COUNT = DESCRIPTION_PROVIDER_FEATURE_COUNT + 20;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.cbi.p2repo.aggregator.EnabledStatusProvider <em>Enabled Status Provider</em>}' class.
@@ -3483,6 +3510,16 @@ public interface AggregatorPackage extends EPackage {
 	int WINDOW_SYSTEM = 38;
 
 	/**
+	 * The meta object id for the '{@link org.eclipse.cbi.p2repo.aggregator.VersionFormat <em>Version Format</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.cbi.p2repo.aggregator.VersionFormat
+	 * @see org.eclipse.cbi.p2repo.aggregator.impl.AggregatorPackageImpl#getVersionFormat()
+	 * @generated
+	 */
+	int VERSION_FORMAT = 39;
+
+	/**
 	 * The meta object id for the '{@link org.eclipse.cbi.p2repo.aggregator.Architecture <em>Architecture</em>}' enum.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see org.eclipse.cbi.p2repo.aggregator.Architecture
@@ -3659,6 +3696,28 @@ public interface AggregatorPackage extends EPackage {
 	EAttribute getAggregation_MavenResult();
 
 	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.cbi.p2repo.aggregator.Aggregation#isStrictMavenVersions <em>Strict Maven Versions</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Strict Maven Versions</em>'.
+	 * @see org.eclipse.cbi.p2repo.aggregator.Aggregation#isStrictMavenVersions()
+	 * @see #getAggregation()
+	 * @generated
+	 */
+	EAttribute getAggregation_StrictMavenVersions();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.cbi.p2repo.aggregator.Aggregation#getVersionFormat <em>Version Format</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Version Format</em>'.
+	 * @see org.eclipse.cbi.p2repo.aggregator.Aggregation#getVersionFormat()
+	 * @see #getAggregation()
+	 * @generated
+	 */
+	EAttribute getAggregation_VersionFormat();
+
+	/**
 	 * Returns the meta object for the attribute '{@link org.eclipse.cbi.p2repo.aggregator.Aggregation#getPackedStrategy <em>Packed Strategy</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3679,17 +3738,6 @@ public interface AggregatorPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getAggregation_Sendmail();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.cbi.p2repo.aggregator.Aggregation#isStrictMavenVersions <em>Strict Maven Versions</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Strict Maven Versions</em>'.
-	 * @see org.eclipse.cbi.p2repo.aggregator.Aggregation#isStrictMavenVersions()
-	 * @see #getAggregation()
-	 * @generated
-	 */
-	EAttribute getAggregation_StrictMavenVersions();
 
 	/**
 	 * Returns the meta object for the attribute '{@link org.eclipse.cbi.p2repo.aggregator.Aggregation#getType <em>Type</em>}'.
@@ -4751,5 +4799,15 @@ public interface AggregatorPackage extends EPackage {
 	 * @generated
 	 */
 	EEnum getWindowSystem();
+
+	/**
+	 * Returns the meta object for enum '{@link org.eclipse.cbi.p2repo.aggregator.VersionFormat <em>Version Format</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Version Format</em>'.
+	 * @see org.eclipse.cbi.p2repo.aggregator.VersionFormat
+	 * @generated
+	 */
+	EEnum getVersionFormat();
 
 } // AggregatorPackage
