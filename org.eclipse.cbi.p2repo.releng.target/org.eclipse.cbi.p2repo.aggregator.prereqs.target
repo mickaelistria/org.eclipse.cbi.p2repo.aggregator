@@ -1,8 +1,24 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <?pde version="3.8"?>
-<target
-  name="org.eclipse.cbi.p2repo.aggregator.prereqs">
+<target name="org.eclipse.cbi.p2repo.aggregator.prereqs">
   <locations>
+
+    <!-- need "current platform" for working in workbench
+      <location path="${eclipse_home}" type="Profile"/>
+    -->
+
+    <location
+      includeAllPlatforms="false"
+      includeConfigurePhase="false"
+      includeMode="slicer"
+      includeSource="false"
+      type="InstallableUnit">
+      <unit
+        id="org.eclipse.license.feature.group"
+        version="1.0.1.v20140414-1359" />
+      <repository location="http://download.eclipse.org/cbi/updates/license/1.0.1.v20140414-1359/" />
+    </location>
+
     <location
       includeAllPlatforms="false"
       includeConfigurePhase="false"
@@ -120,17 +136,7 @@
         version="2.11.0.v20160526-0356" />
       <repository location="http://download.eclipse.org/modeling/emf/emf/updates/2.12/core/R201605260356/" />
     </location>
-    <location
-      includeAllPlatforms="false"
-      includeConfigurePhase="false"
-      includeMode="slicer"
-      includeSource="false"
-      type="InstallableUnit">
-      <unit
-        id="org.eclipse.license.feature.group"
-        version="1.0.1.v20140414-1359" />
-      <repository location="http://download.eclipse.org/cbi/updates/license/1.0.1.v20140414-1359/" />
-    </location>
+
     <location
       includeAllPlatforms="false"
       includeConfigurePhase="false"
@@ -195,6 +201,7 @@
         version="1.7.0.20160603-1931" />
       <repository location="http://download.eclipse.org/technology/m2e/releases/1.7/1.7.0.20160603-1933/" />
     </location>
+
     <location
       includeAllPlatforms="false"
       includeConfigurePhase="false"
@@ -213,6 +220,9 @@
       <unit
         id="org.eclipse.equinox.executable.feature.group"
         version="3.6.300.v20160525-1303" />
+      <unit
+        id="org.eclipse.core.runtime"
+        version="3.12.0.v20160606-1342" />
       <unit
         id="org.eclipse.equinox.concurrent"
         version="1.1.0.v20130327-1442" />
