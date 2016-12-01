@@ -20,7 +20,7 @@ rm -fr ${build_home}/testarea
 mkdir -p ${build_home}/testarea
 
 pushd ${build_home}/testarea
-wget -O org.eclipse.cbi.p2repo.analyzers.product-linux.gtk.x86_64.tar.gz  https://hudson.eclipse.org/cbi/job/cbi.p2repo.analyzers.build/lastSuccessfulBuild/artifact/output/products/org.eclipse.cbi.p2repo.analyzers.product-linux.gtk.x86_64.tar.gz
+wget -O org.eclipse.cbi.p2repo.analyzers.product-linux.gtk.x86_64.tar.gz  http://download.eclipse.org/cbi/updates/analyzers/4.6/I20161201-1633/org.eclipse.cbi.p2repo.analyzers.product_I20161201-1633_linux.gtk.x86_64.tar.gz
 tar -xf org.eclipse.cbi.p2repo.analyzers.product-linux.gtk.x86_64.tar.gz
 popd
 
