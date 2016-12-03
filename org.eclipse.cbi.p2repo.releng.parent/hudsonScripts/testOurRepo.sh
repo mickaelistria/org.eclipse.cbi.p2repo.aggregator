@@ -41,7 +41,7 @@ rm -fr ${build_home}/testarea
 mkdir -p ${build_home}/testarea
 
 pushd ${build_home}/testarea
-wget -O org.eclipse.cbi.p2repo.analyzers.product-linux.gtk.x86_64.tar.gz  http://download.eclipse.org/cbi/updates/analyzers/4.6/I20161201-1633/org.eclipse.cbi.p2repo.analyzers.product_I20161201-1633_linux.gtk.x86_64.tar.gz
+wget --no-verbose -O org.eclipse.cbi.p2repo.analyzers.product-linux.gtk.x86_64.tar.gz  http://download.eclipse.org/cbi/updates/analyzers/4.6/I20161201-1633/org.eclipse.cbi.p2repo.analyzers.product_I20161201-1633_linux.gtk.x86_64.tar.gz
 tar -xf org.eclipse.cbi.p2repo.analyzers.product-linux.gtk.x86_64.tar.gz
 popd
 
@@ -51,7 +51,9 @@ source $sourceProperties
 # Note: 'referenceRepo' can be provided in "sourceProperties", if 
 # necessary, which is done in parent pom, but typically the "latest build", 
 # is the one we want to use. 
-computedReferenceRepo=$(latestSimpleRepo "/home/data/httpd/download.eclipse.org/cbi/updates/aggregator/ide/4.6/" "I20*")
+repoRoot="/home/data/httpd/download.eclipse.org/cbi/updates/aggregator/ide/${releaseVersion}"
+computedReferenceRepoLastSegment=$(latestSimpleRepo "${repoRoot}" "I20*")
+computedReferenceRepo=${repoRoot}/${computedReferenceRepoLastSegment}
 printf "\n[INFO] %s\n" "computedReferenceRepo: ${computedReferenceRepo}"
 referenceRepo=${referenceRepo:-${computedReferenceRepo}}
 printf "\n[INFO] %s\n" "referenceRepo: ${referenceRepo}"
