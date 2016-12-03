@@ -51,7 +51,7 @@ source $sourceProperties
 # Note: 'referenceRepo' can be provided in "sourceProperties", if 
 # necessary, which is done in parent pom, but typically the "latest build", 
 # is the one we want to use. 
-repoRoot="/home/data/httpd/download.eclipse.org/cbi/updates/aggregator/ide/${releaseVersion}"
+repoRoot="/home/data/httpd/download.eclipse.org/cbi/updates/aggregator/ide/${updateRelease}"
 computedReferenceRepoLastSegment=$(latestSimpleRepo "${repoRoot}" "I20*")
 computedReferenceRepo=${repoRoot}/${computedReferenceRepoLastSegment}
 printf "\n[INFO] %s\n" "computedReferenceRepo: ${computedReferenceRepo}"
