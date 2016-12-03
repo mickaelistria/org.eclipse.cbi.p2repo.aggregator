@@ -49,9 +49,9 @@
       Similarly, referenceRepo is not used in the build, per se, but by the
       repoReport tests. Normally the "latest build" is computed. But, if there is ever a 
       reason to override what is computed, then this would be the place to do it. 
-    -->
+    
     <referenceRepo>/home/data/httpd/download.eclipse.org/cbi/updates/aggregator/ide/4.6/I20161201-1951</referenceRepo>
-
+    -->
   </properties>
 
   <profiles>
