@@ -47,10 +47,8 @@
     <updateRelease>4.6</updateRelease>
     <!--
       Similarly, referenceRepo is not used in the build, per se, but by the
-      repoReport tests. For now we pick a previous, recent I-build for reference,
-      but ultimately should be some non-changing "previous release". It is related to
-      the comparatorRepo but the comparator can use a composite whereas the
-      reference repo needs to be absolute file location of simple repository.
+      repoReport tests. Normally the "latest build" is computed. But, if there is ever a 
+      reason to override what is computed, then this would be the place to do it. 
     -->
     <referenceRepo>/home/data/httpd/download.eclipse.org/cbi/updates/aggregator/ide/4.6/I20161201-1951</referenceRepo>
 

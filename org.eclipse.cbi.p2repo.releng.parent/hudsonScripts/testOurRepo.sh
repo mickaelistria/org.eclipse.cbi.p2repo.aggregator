@@ -12,6 +12,27 @@ repo_dir=${build_home}/org.eclipse.cbi.p2repo.aggregator
 
 out_file=${build_home}/aggr/repoReportsTestOutput.txt
 
+# This function assumes we have not yet deployed the build
+# we want to use as the reference repo. 
+function latestSimpleRepo
+{
+  if [[ $# != 2 ]]
+  then
+    echo "\n\t[ERROR] Program error. ${0##*/} requires parent directory of simple repositories and name pattern of repo required, such as I20*."
+    exit 9
+  fi
+  parentDir=$1
+  namePattern=$2
+  latestDLrepo=$(find ${parentDir} -maxdepth 1 -name ${namePattern} -type d | sort | tail -1)
+  # we want to return only the "last part" of the directory name, since 
+  # rest of code is expecting that. Rest of code could be modified so it took
+  # "whole path", but that change should be done under separate bug, if/when desired.
+  latestDLrepoSegment=${latestDLrepo##*/}
+  # this echo is our "return" value, so can not echo anything else
+  echo ${latestDLrepoSegment}
+}
+
+
 # This first write does not "append", the rest need to.
 env | tee ${out_file}
 
@@ -25,6 +46,17 @@ tar -xf org.eclipse.cbi.p2repo.analyzers.product-linux.gtk.x86_64.tar.gz
 popd
 
 unzip ${build_home}/org.eclipse.cbi.p2repo.aggregator/org.eclipse.cbi.p2repo.site.eclipse/target/org.eclipse.cbi.p2repo.site.eclipse-1.0.0-SNAPSHOT.zip -d ${build_home}/testarea/repoToTest
-# TODO: it is very awkward to have to update referenceRepo (in parent pom) so frequently 
+
 source $sourceProperties
+# Note: 'referenceRepo' can be provided in "sourceProperties", if 
+# necessary, which is done in parent pom, but typically the "latest build", 
+# is the one we want to use. 
+computedReferenceRepo=$(latestSimpleRepo "/home/data/httpd/download.eclipse.org/cbi/updates/aggregator/ide/4.6/" "I20*")
+printf "\n[INFO] %s\n" "computedReferenceRepo: ${computedReferenceRepo}"
+referenceRepo=${referenceRepo:-${computedReferenceRepo}}
+printf "\n[INFO] %s\n" "referenceRepo: ${referenceRepo}"
+if [[ ${computedReferenceRepo} != ${referenceRepo} ]]
+  then
+    printf "\n[WARNING] %s\n" "referenceRepo is differnt than computedReferenceRepo, which is not the normal case. Be sure desired in this case."
+  fi
 ${build_home}/testarea/p2analyze/p2analyze -data workspace-report -vmargs -DreportRepoDir=${build_home}/testarea/repoToTest -DreferenceRepo=${referenceRepo}  -DreportOutputDir=${build_home}/p2repoSelfReport 2>&1 | tee -a ${out_file}
