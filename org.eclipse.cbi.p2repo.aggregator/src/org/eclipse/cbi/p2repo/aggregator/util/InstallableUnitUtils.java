@@ -100,4 +100,12 @@ public class InstallableUnitUtils {
 		return false;
 	}
 
+	public static boolean isSourceBundle(IInstallableUnit iu) {
+		for(IProvidedCapability rc : iu.getProvidedCapabilities())
+			if(IAggregatorConstants.NAMESPACE_TYPE.equals(rc.getNamespace()) &&
+					IAggregatorConstants.CAPABILITY_TYPE_SOURCE.equals(rc.getName()))
+				return true;
+		return false;
+	}
+
 }

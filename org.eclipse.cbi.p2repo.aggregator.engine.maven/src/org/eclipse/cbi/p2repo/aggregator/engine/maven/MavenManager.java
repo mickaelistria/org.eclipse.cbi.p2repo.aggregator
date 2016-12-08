@@ -249,9 +249,12 @@ public class MavenManager {
 			MessageDigest[] digests, Map<String, MavenMetadataHelper> metadataCollector,
 			Map<Contribution, List<String>> errors) throws CoreException {
 		if(!iu.isTransient()) {
-			URI pomUri = createPomURI(root, iu);
-			iu.asPOM().save(pomUri);
-			createCheckSum(pomUri, uriConverter, digests);
+			boolean isSource = iu.isSourceArtifact();
+			if(!isSource) {
+				URI pomUri = createPomURI(root, iu);
+				iu.asPOM().save(pomUri);
+				createCheckSum(pomUri, uriConverter, digests);
+			}
 
 			URI artifactUri = createArtifactURI(root, iu);
 			if(artifactUri != null) {
@@ -273,6 +276,9 @@ public class MavenManager {
 					LogUtils.error(msg);
 					contribErrors.add(msg);
 				}
+			}
+			if(isSource) {
+				return; // don't add source jar to metadataCollector
 			}
 
 			String key = iu.map().getGroupId() + "/" + iu.map().getArtifactId();
