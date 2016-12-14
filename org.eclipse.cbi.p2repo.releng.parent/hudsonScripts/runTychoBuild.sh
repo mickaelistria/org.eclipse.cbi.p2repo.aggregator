@@ -1,14 +1,20 @@
 #!/usr/bin/env bash
 
 build_home=${WORKSPACE:-/home/davidw/gitCBI}
-export tmp_dir=${build_home}/aggr/tmp
-export local_mvn_repo=${build_home}/aggr/localMvnRepo
+cleanableDir=${build_home}/aggr
+export tmp_dir=${cleanableDir}/tmp
+export local_mvn_repo=${cleanableDir}/localMvnRepo
 
 repo_dir=${build_home}/org.eclipse.cbi.p2repo.aggregator
 
 out_file=${build_home}/buildOutput.txt
-# remove previous output file, if it exist
-rm -f ${out_file}
+# remove any previous top level output files, if they exist
+rm -f *.txt
+rm -f *.html
+rm -f *.properties
+rm -f *.shsource
+rm -f *.php
+
 # This first write does not "append", the rest need to.
 echo -e "Build log\n" | tee ${out_file}
 
@@ -35,6 +41,9 @@ if [[ "${cleanLocal}" == "true" ]]
 then
   rm -fr ${tmp_dir}
   rm -fr ${local_mvn_repo}
+  # there should be nothing left in 'cleanable', but we will delete it 
+  # anyway, to be sure.
+  rm -fr ${cleanableDir}
   printf "\n\t[INFO] %s\n\n" "cleanLocal argument was true so tmp and local maven repo were removed" | tee -a ${out_file}
 else
   printf "\n\t[WARNING] %s\n\n" "cleanLocal argument was not true so tmp and local maven repo were not removed" | tee -a ${out_file}

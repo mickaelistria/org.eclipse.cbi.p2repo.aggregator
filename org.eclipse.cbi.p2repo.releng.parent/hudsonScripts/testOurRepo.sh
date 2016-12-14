@@ -10,7 +10,7 @@ export local_mvn_repo=${build_home}/aggr/localMvnRepo
 sourceProperties="${build_home}/mavenproperties.shsource"
 repo_dir=${build_home}/org.eclipse.cbi.p2repo.aggregator
 
-out_file=${build_home}/aggr/repoReportsTestOutput.txt
+out_file=${build_home}/repoReportsTestOutputLog.txt
 
 # This function assumes we have not yet deployed the build
 # we want to use as the reference repo. 
