@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 build_home=${WORKSPACE:-/home/davidw/gitCBI}
-cleanableDir=${build_home}/aggr
+cleanableDir=${build_home}/cleanable
 export tmp_dir=${cleanableDir}/tmp
 export local_mvn_repo=${cleanableDir}/localMvnRepo
 
