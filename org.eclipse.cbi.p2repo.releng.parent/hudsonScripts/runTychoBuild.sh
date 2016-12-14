@@ -7,6 +7,20 @@ export local_mvn_repo=${build_home}/aggr/localMvnRepo
 repo_dir=${build_home}/org.eclipse.cbi.p2repo.aggregator
 
 out_file=${build_home}/buildOutput.txt
+# remove previous output file, if it exist
+rm -f ${out_file}
+# This first write does not "append", the rest need to.
+echo -e "Build log\n" | tee ${out_file}
+
+echo -e "\n\t[INFO] all args passed to ${0##*/}:" | tee -a ${out_file}
+for arg in "$@" 
+do
+    echo -e "\t\t>$arg<" | tee -a ${out_file}
+done
+echo -e "\n"
+
+echo -e "\n\t[INFO] All env properties\n" | tee -a ${out_file}
+env | tee -a ${out_file}
 
 cleanLocal=$1
 
