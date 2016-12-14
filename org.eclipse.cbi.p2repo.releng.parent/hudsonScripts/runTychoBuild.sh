@@ -11,13 +11,14 @@ out_file=${build_home}/aggr/buildOutput.txt
 # This first write does not "append", the rest need to.
 env | tee ${out_file}
 
-echo -e "\n\t[INFO] all args passed to ${0##*/}:"| tee -a ${out_file}
+echo -e "\n\t[INFO] all args passed to ${0##*/}:" | tee -a ${out_file}
 for arg in "$@" 
 do
     echo -e "\t\t>$arg<"  | tee -a ${out_file}
 done
 echo -e "\n"
-
+# TEMP exit for debugging
+exit 1
 
 cleanLocal=$1
 
@@ -67,7 +68,7 @@ printf "\n\t[INFO] %s\n\n" "TYCHO_ARGS: ${TYCHO_ARGS}" | tee -a ${out_file}
 # All -D type settings need to come before the -P settings, apparently.
 # Note: signJars and cleanLocal values are passed in as -D values simply so they can be captured in 
 #       the "saveproperties/mavenproperties.properties" file.
-mvn clean verify -X -e --update-snapshots -DsignJars=${signJars} -DcleanLocal=${cleanLocal} -DskipTests=true -Dmaven.repo.local=$local_mvn_repo ${TYCHO_ARGS} -Pbree-libs ${sign_jars_arg} 2>>&1 | tee -a ${out_file}
+mvn clean verify -X -e --update-snapshots -DsignJars=${signJars} -DcleanLocal=${cleanLocal} -DskipTests=true -Dmaven.repo.local=$local_mvn_repo ${TYCHO_ARGS} -Pbree-libs ${sign_jars_arg} 2>>${out_file} | tee -a ${out_file}
 RC=${PIPESTATUS[0]}
 
 printf "\n\t[INFO] %s\n\n" "Build Output in ${out_file}"
