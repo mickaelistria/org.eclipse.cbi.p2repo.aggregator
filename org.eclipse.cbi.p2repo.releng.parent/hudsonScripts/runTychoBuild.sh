@@ -57,7 +57,9 @@ printf "\n\t[INFO] %s\n" "mvn clean verify ...:" | tee -a ${out_file}
 printf "\n\t[INFO] %s\n" "MAVEN_OPTS: ${MAVEN_OPTS}" | tee -a ${out_file}
 printf "\n\t[INFO] %s\n\n" "TYCHO_ARGS: ${TYCHO_ARGS}" | tee -a ${out_file}
 # All -D type settings need to come before the -P settings, apparently.
-mvn clean verify -X -e --update-snapshots -DskipTests=true -Dmaven.repo.local=$local_mvn_repo ${TYCHO_ARGS} -Pbree-libs ${sign_jars_arg} 2>&1 | tee -a ${out_file}
+# Note: signJars and cleanLocal values are passed in as -D values simply so they can be captured in 
+#       the "saveproperties/mavenproperties.properties" file.
+mvn clean verify -X -e --update-snapshots -DsignJars=${signJars} -DcleanLocal=${cleanLocal} -DskipTests=true -Dmaven.repo.local=$local_mvn_repo ${TYCHO_ARGS} -Pbree-libs ${sign_jars_arg} 2>&1 | tee -a ${out_file}
 RC=${PIPESTATUS[0]}
 
 printf "\n\t[INFO] %s\n\n" "Build Output in ${out_file}"
