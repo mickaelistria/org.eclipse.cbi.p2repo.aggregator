@@ -56,15 +56,15 @@ echo "<p>repositories specific for this build: </p>" >> ${DLpage}
 echo "<ul>" >> ${DLpage}
 echo "<li> For IDE repo: <a href=\"http://${DLPath}/ide/${updateRelease}/${buildId}\">http://${DLPath}/ide/${updateRelease}/${buildId}</a></li>" >> ${DLpage}
 echo "<li> For headless CLI product repo: <a href=\"http://${DLPath}/headless/${updateRelease}/${buildId}\">http://${DLPath}/headless/${updateRelease}/${buildId}</a></li>" >> ${DLpage}
-echo "</ul>" >> ${DLPage}
+echo "</ul>" >> ${DLpage}
 
-echo "<p>The downloadable CLI products:</p>" >> ${DLPage}
+echo "<p>The downloadable CLI products:</p>" >> ${DLpage}
 echo "<ul>" >> ${DLpage}
 echo "<li> Windows: <a href=\"http://${DLPath}/headless/${updateRelease}/${buildId}/${windowsProd}\">${windowsProd}</a></li>" >> ${DLpage}
 echo "<li> Linux: <a href=\"http://${DLPath}/headless/${updateRelease}/${buildId}/${linuxProd}\">${linuxProd}</a></li>" >> ${DLpage}
 echo "<li> Mac OSX: <a href=\"http://${DLPath}/headless/${updateRelease}/${buildId}/${macProd}\">${macProd}</a></li>" >> ${DLpage}
-echo "</ul>" >> ${DLPage}
-echo "<p>For release engineering, be sure to check the <a href=\"reporeports\">'repo reports'</a> from this build</p>" >> ${DLPage}
+echo "</ul>" >> ${DLpage}
+echo "<p>For release engineering, be sure to check the <a href=\"reporeports\">'repo reports'</a> from this build</p>" >> ${DLpage}
 
-cp ${DLPage} ${headlessUpdate}
-cp ${DLPage} ${ideUpdate}
+cp ${DLpage} ${headlessUpdate}
+cp ${DLpage} ${ideUpdate}
