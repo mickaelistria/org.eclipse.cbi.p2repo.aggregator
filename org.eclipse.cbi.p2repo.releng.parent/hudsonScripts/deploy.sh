@@ -50,7 +50,10 @@ cp -r ${build_home}/reporeports ${headlessUpdate}/
 # create an easy to read file for location of these specific repositories
 # TODOeventually should turn this into a proper "download page"
 DLpage=${build_home}/buildResults.html
-echo "<p>Results of build: <a href=\"../${buildId}\">${buildId}</a></p>" > ${DLpage}
+# Notice how we "pick" the headless site to jump to, if someone clicks on the buildId they are looking at. 
+# We have the same file in two places, 'ide' and 'headless', so some users may be surprised by that?
+# TODO: could make specific versions one for each "site" where this one value is the only difference. 
+echo "<p>Results of build: <a href=\"http://${DLPath}/headless/${updateRelease}/${buildId}\">${buildId}</a></p>" > ${DLpage}
 # First echo, above, starts new page. The rest must append to DLpage.
 echo "<p>repositories specific for this build: </p>" >> ${DLpage}
 echo "<ul>" >> ${DLpage}
