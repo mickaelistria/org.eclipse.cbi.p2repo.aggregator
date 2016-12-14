@@ -49,8 +49,8 @@ cp -r ${build_home}/reporeports ${headlessUpdate}/
 
 # create an easy to read file for location of these specific repositories
 # TODOeventually should turn this into a proper "download page"
-DLpage=${build_home}/buildId.html
-echo "<p>created for build: ${buildId}</p>" > ${DLpage}
+DLpage=${build_home}/buildResults.html
+echo "<p>Results of build: <a href=\"../${buildId}\">${buildId}</a></p>" > ${DLpage}
 # First echo, above, starts new page. The rest must append to DLpage.
 echo "<p>repositories specific for this build: </p>" >> ${DLpage}
 echo "<ul>" >> ${DLpage}
