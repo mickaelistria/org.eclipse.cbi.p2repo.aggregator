@@ -64,7 +64,7 @@ echo "<li> Windows: <a href=\"http://${DLPath}/headless/${updateRelease}/${build
 echo "<li> Linux: <a href=\"http://${DLPath}/headless/${updateRelease}/${buildId}/${linuxProd}\">${linuxProd}</a></li>" >> ${DLpage}
 echo "<li> Mac OSX: <a href=\"http://${DLPath}/headless/${updateRelease}/${buildId}/${macProd}\">${macProd}</a></li>" >> ${DLpage}
 echo "</ul>" >> ${DLpage}
-echo "<p>For release engineering, be sure to check the <a href=\"http://${DLPath}/headless/reporeports\">\"repo reports\"</a> from this build</p>" >> ${DLpage}
+echo "<p>For release engineering, be sure to check the <a href=\"http://${DLPath}/headless/${updateRelease}/${buildId}/reporeports\">\"repo reports\"</a> from this build</p>" >> ${DLpage}
 
 cp ${DLpage} ${headlessUpdate}
 cp ${DLpage} ${ideUpdate}
