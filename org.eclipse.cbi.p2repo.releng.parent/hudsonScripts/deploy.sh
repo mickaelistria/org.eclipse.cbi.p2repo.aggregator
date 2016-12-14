@@ -20,7 +20,9 @@ function deployRepos
 
 source $sourceProperties
 
-baseDL=/home/data/httpd/download.eclipse.org/cbi/updates/aggregator
+DLRoot=/home/data/httpd
+DLPath=/download.eclipse.org/cbi/updates/aggregator
+baseDL=${DLRoot}/${DLPath}
 ideUpdate=${baseDL}/ide/${updateRelease}/${buildId}
 headlessUpdate=${baseDL}/headless/${updateRelease}/${buildId}
 
@@ -33,9 +35,36 @@ cp ${sourceProperties} ${headlessUpdate}
 cp ${propertiesfile} ${headlessUpdate}
 cp ${phpProperties} ${headlessUpdate}
 
+windowsProd=headless_${buildId}_win32.win32.x86_64.zip
+linuxProd=headless_${buildId}_linux.gtk.x86_64.tar.gz
+macProd=headless_${buildId}_macosx.cocoa.x86_64.tar.gz
+
 productroot=${build_home}/org.eclipse.cbi.p2repo.aggregator/org.eclipse.cbi.p2repo.cli.product/target/products
-cp ${productroot}/org.eclipse.cbi.p2repo.cli.product-linux.gtk.x86_64.tar.gz ${headlessUpdate}/headless_${buildId}_linux.gtk.x86_64.tar.gz
-cp ${productroot}/org.eclipse.cbi.p2repo.cli.product-macosx.cocoa.x86_64.tar.gz ${headlessUpdate}/headless_${buildId}_macosx.cocoa.x86_64.tar.gz
-cp ${productroot}/org.eclipse.cbi.p2repo.cli.product-win32.win32.x86_64.zip ${headlessUpdate}/headless_${buildId}_win32.win32.x86_64.zip
+cp ${productroot}/org.eclipse.cbi.p2repo.cli.product-linux.gtk.x86_64.tar.gz ${headlessUpdate}/${linuxProd}
+cp ${productroot}/org.eclipse.cbi.p2repo.cli.product-macosx.cocoa.x86_64.tar.gz ${headlessUpdate}/${macProd}
+cp ${productroot}/org.eclipse.cbi.p2repo.cli.product-win32.win32.x86_64.zip ${headlessUpdate}/${windowsProd}
 
 cp -r ${build_home}/p2repoSelfReport/reporeports ${headlessUpdate}/
+
+
+# create an easy to read file for location of these specific repositories
+# TODOeventually should turn this into a proper "download page"
+DLpage=${build_home}/buildId.html
+echo "<p>created for build: ${buildId}</p>" > ${DLpage}
+# First echo, above, starts new page. The rest must append to DLpage.
+echo "<p>repositories specific for this build: </p>" >> ${DLpage}
+echo "<ul>" >> ${DLpage}
+echo "<li> For IDE repo: <a href=\"http://${DLPath}/ide/${updateRelease}/${buildId}\">http://${DLPath}/ide/${updateRelease}/${buildId}</a></li>" >> ${DLpage}
+echo "<li> For headless CLI product repo: <a href=\"http://${DLPath}/headless/${updateRelease}/${buildId}\">http://${DLPath}/headless/${updateRelease}/${buildId}</a></li>" >> ${DLpage}
+echo "</ul>" >> ${DLPage}
+
+echo "<p>The downloadable CLI products:</p>" >> ${DLPage}
+echo "<ul>" >> ${DLpage}
+echo "<li> Windows: <a href=\"http://${DLPath}/headless/${updateRelease}/${buildId}/${windowsProd}\">${windowsProd}</a></li>" >> ${DLpage}
+echo "<li> Linux: <a href=\"http://${DLPath}/headless/${updateRelease}/${buildId}/${linuxProd}\">${linuxProd}</a></li>" >> ${DLpage}
+echo "<li> Mac OSX: <a href=\"http://${DLPath}/headless/${updateRelease}/${buildId}/${macProd}\">${macProd}</a></li>" >> ${DLpage}
+echo "</ul>" >> ${DLPage}
+echo "<p>For release engineering, be sure to check the <a href=\"reporeports\">'repo reports'</a> from this build</p>" >> ${DLPage}
+
+cp ${DLPage} ${headlessUpdate}
+cp ${DLPage} ${ideUpdate}
