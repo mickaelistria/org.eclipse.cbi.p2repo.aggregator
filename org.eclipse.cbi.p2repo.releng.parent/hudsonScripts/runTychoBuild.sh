@@ -11,6 +11,14 @@ out_file=${build_home}/aggr/buildOutput.txt
 # This first write does not "append", the rest need to.
 env | tee ${out_file}
 
+echo -e "\n\t[INFO] all args passed to ${0##*/}:" >> ${out_file}
+for arg in "$@" 
+do
+    echo -e "\t\t>$arg<"  >> ${out_file}
+done
+echo -e "\n"
+
+
 cleanLocal=$1
 
 signjars=$2
