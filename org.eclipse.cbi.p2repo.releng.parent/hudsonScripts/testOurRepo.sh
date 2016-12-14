@@ -61,4 +61,4 @@ if [[ ${computedReferenceRepo} != ${referenceRepo} ]]
   then
     printf "\n[WARNING] %s\n" "referenceRepo is differnt than computedReferenceRepo, which is not the normal case. Be sure desired in this case."
   fi
-${build_home}/testarea/p2analyze/p2analyze -data workspace-report -vmargs -DreportRepoDir=${build_home}/testarea/repoToTest -DreferenceRepo=${referenceRepo}  -DreportOutputDir=${build_home}/p2repoSelfReport 2>&1 | tee -a ${out_file}
+${build_home}/testarea/p2analyze/p2analyze -data workspace-report -vmargs -DreportRepoDir=${build_home}/testarea/repoToTest -DreferenceRepo=${referenceRepo}  -DreportOutputDir=${build_home} 2>&1 | tee -a ${out_file}
