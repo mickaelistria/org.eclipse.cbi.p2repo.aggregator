@@ -6,19 +6,7 @@ export local_mvn_repo=${build_home}/aggr/localMvnRepo
 
 repo_dir=${build_home}/org.eclipse.cbi.p2repo.aggregator
 
-out_file=${build_home}/aggr/buildOutput.txt
-
-# This first write does not "append", the rest need to.
-env | tee ${out_file}
-
-echo -e "\n\t[INFO] all args passed to ${0##*/}:" | tee -a ${out_file}
-for arg in "$@" 
-do
-    echo -e "\t\t>$arg<"  | tee -a ${out_file}
-done
-echo -e "\n"
-# TEMP exit for debugging
-exit 1
+out_file=${build_home}/buildOutput.txt
 
 cleanLocal=$1
 
