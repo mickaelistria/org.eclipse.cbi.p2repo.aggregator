@@ -134,6 +134,9 @@ if [[ -e "${WORKSPACE}/cbi" ]]
     rm -fr ${WORKSPACE}/cbi
   fi
 
+git config --global --unset user.name
+git config --global --add   user.name "genie.cbi"
+
 git clone --origin origin --branch master /gitroot/www.eclipse.org/cbi.git cbi
 
 
