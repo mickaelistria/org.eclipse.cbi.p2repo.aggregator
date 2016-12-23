@@ -123,11 +123,28 @@ done
 # reporoots[1] should be the "headless" repository. 
 
 pushd ${WORKSPACE}/cbi
+git config --global push.default simple
 # print config and status, just to have in log, for now
+printf "\n\t[INFO] %s\n" " = = Start of git config --list = ="
 git config --list
-git status 
-# confirm we are on "master"
+printf "\n\t[INFO] %s\n" " = = Start of git config --list = ="
+printf "\n\t[INFO] %s\n" " = = Confirm we are on master = ="
 git checkout master
+printf "\n\t[INFO] %s\n" " = = And that we have the latest = ="
+git pull
+RC=$?
+if [[ $RC != 0 ]] 
+  then
+    printf "\n\t[WARNING] %s\n" "git pull returned non-zero return code: $RC. Will try reset."
+    git reset --hard
+    RC=$?
+    if [[ $RC != 0 ]] 
+        then
+        printf "\n\t[WARNING] %s\n" "git reset --hard returned non-zero return code: $RC. Will try to continue ..."
+    fi\
+fi
+printf "\n\t[INFO] %s\n" " = = Confirm status is clear = ="
+git status 
 
 printf "\n\t[DEBUG] %s\n" "repo root from which to get latest buildId: ${repoRoots[1]}"
 latestBuildId=$(getLatestBuildId ${repoRoots[1]})
@@ -142,6 +159,9 @@ else
     printf "\n\t[INFO] %s\n" "Copied ${latestBuildId}/buildResults.html to aggregatorLatest/index.html"
 fi
 
+printf "\n\t[INFO] %s\n" " = = Confirm status shows one change = ="
+git status 
+
 # Commit "all"
 git commit -a -m "Auto commit from Hudson 'cbi.p2repo.aggregator_addComposites' job"
 RC=$?
@@ -150,8 +170,8 @@ then
     printf "\n\t[ERROR] %s\n" "git commit returned non-zero return code: $RC. Exiting early."
     exit $RC
 fi
-
-git push
+# 'origin1' is the name Hudson has assigned
+git push --verbose origin1 HEAD:refs/heads/master
 RC=$?
 if [[ $RC != 0 ]]
 then
