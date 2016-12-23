@@ -130,14 +130,14 @@ printf "\n\t[INFO] %s\n" "whoami is $(whoami)"
 
 # if it exists, remove it before new cloning
 if [[ -e "${WORKSPACE}/cbi" ]]
-  then
-    rm -fr ${WORKSPACE}/cbi
-  fi
+then
+  rm -fr ${WORKSPACE}/cbi
+fi
 
 git config --global --unset user.name
 git config --global --add   user.name "genie.cbi"
 
-git clone --origin origin --branch master file:///gitroot/www.eclipse.org/cbi.git cbi
+git clone --origin origin --branch master git://git.eclipse.org:29418/www.eclipse.org/cbi.git cbi
 
 
 pushd ${WORKSPACE}/cbi
