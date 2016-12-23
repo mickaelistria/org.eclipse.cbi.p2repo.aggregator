@@ -48,9 +48,9 @@ function writeChildren
 {
     outfile=$1
     repoRoot=$2
-    # NOTE: we always take "most recent 3 builds". 
-    # we use "I20" as prefix that all our child repo directories start with 
-    # such as "I2016...". So, in 80 years will need some maintenance. :) 
+    # NOTE: we always take "most recent 3 builds".
+    # we use "I20" as prefix that all our child repo directories start with
+    # such as "I2016...". So, in 80 years will need some maintenance. :)
     # But, otherwise, this cheap heuristic finds existing files such as "composite*".
     pushd "${repoRoot}" >/dev/null
     children=$(ls -1td I20* | head -3)
@@ -66,9 +66,9 @@ function writeChildren
 function getLatestBuildId
 {
     repoRoot=$1
-    # NOTE: we always take "most recent 3 builds". 
-    # we use "I20" as prefix that all our child repo directories start with 
-    # such as "I2016...". So, in 80 years will need some maintenance. :) 
+    # NOTE: we always take "most recent 3 builds".
+    # we use "I20" as prefix that all our child repo directories start with
+    # such as "I2016...". So, in 80 years will need some maintenance. :)
     # But, otherwise, this cheap heuristic finds existing files such as "composite*".
     pushd "${repoRoot}" >/dev/null
     latest=$(ls -1td I20* | head -1)
@@ -84,7 +84,7 @@ repoRoots=("/home/data/httpd/download.eclipse.org/cbi/updates/aggregator/ide/4.6
 #writeRepoRoots=("${PWD}/ide" "${PWD}/headless")
 writeRepoRoots=(${repoRoots[@]})
 indices=(0 1)
-for index in ${indices[@]} 
+for index in ${indices[@]}
 do
     #echo -e "[DEBUG] index: ${index}\n"
     writeRepoRoot="${writeRepoRoots[$index]}"
@@ -98,7 +98,7 @@ do
     fi
     repoRoot="${repoRoots[$index]}"
     #echo -e "[DEBUG] repoRoot: ${repoRoot}\n"
-    
+
     artifactsCompositeFile="${writeRepoRoot}/compositeArtifacts.xml"
     contentCompositeFile="${writeRepoRoot}/compositeContent.xml"
     p2Index="${writeRepoRoot}/p2.index"
@@ -115,36 +115,36 @@ do
 done
 
 # Now write latest ${buildId}/buildResults.html to our web site/index.html
-# Note: we assume Hudson has already checked out latest version 
+# Note: we assume Hudson has already checked out latest version
 # of www repo:  file:///gitroot/www.eclipse.org/cbi.git
-# and our "latest aggregator downloads" index.html will go into 
+# and our "latest aggregator downloads" index.html will go into
 # ${WORKSPACE}/cbi/downloads/aggregatorLatest/
 # but then we still need to commit and push (under the cbi.genie Id)
-# reporoots[1] should be the "headless" repository. 
+# reporoots[1] should be the "headless" repository.
 
 pushd ${WORKSPACE}/cbi
 git config --global push.default simple
 # print config and status, just to have in log, for now
 printf "\n\t[INFO] %s\n" " = = Start of git config --list = ="
 git config --list
-printf "\n\t[INFO] %s\n" " = = Start of git config --list = ="
+printf "\n\t[INFO] %s\n" " = = End of git config --list = ="
 printf "\n\t[INFO] %s\n" " = = Confirm we are on master = ="
 git checkout master
 printf "\n\t[INFO] %s\n" " = = And that we have the latest = ="
 git pull
 RC=$?
-if [[ $RC != 0 ]] 
-  then
+if [[ $RC != 0 ]]
+then
     printf "\n\t[WARNING] %s\n" "git pull returned non-zero return code: $RC. Will try reset."
     git reset --hard
     RC=$?
-    if [[ $RC != 0 ]] 
-        then
+    if [[ $RC != 0 ]]
+    then
         printf "\n\t[WARNING] %s\n" "git reset --hard returned non-zero return code: $RC. Will try to continue ..."
-    fi\
+    fi
 fi
 printf "\n\t[INFO] %s\n" " = = Confirm status is clear = ="
-git status 
+git status
 
 printf "\n\t[DEBUG] %s\n" "repo root from which to get latest buildId: ${repoRoots[1]}"
 latestBuildId=$(getLatestBuildId ${repoRoots[1]})
@@ -155,12 +155,12 @@ if [[ $RC != 0 ]]
 then
     printf "\n\t[ERROR] %s\n" "Copy to index.html returned non-zero return code: $RC. Exiting early."
     exit $RC
-else 
+else
     printf "\n\t[INFO] %s\n" "Copied ${latestBuildId}/buildResults.html to aggregatorLatest/index.html"
 fi
 
 printf "\n\t[INFO] %s\n" " = = Confirm status shows one change = ="
-git status 
+git status
 
 # Commit "all"
 git commit -a -m "Auto commit from Hudson 'cbi.p2repo.aggregator_addComposites' job"
