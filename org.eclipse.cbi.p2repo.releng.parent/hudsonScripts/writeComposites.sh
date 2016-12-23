@@ -138,7 +138,7 @@ pushd ${WORKSPACE}/cbi
 # print status, just to have in log, for now
 git status 
 # Commit "all"
-git commit -a -m "Auto commit from Hudson 'writeComposites' job"
+git commit -a -m "Auto commit from Hudson 'cbi.p2repo.aggregator_addComposites' job"
 RC=$?
 if [[ $RC != 0 ]]
 then
