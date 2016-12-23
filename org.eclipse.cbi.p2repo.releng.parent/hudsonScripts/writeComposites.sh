@@ -117,6 +117,8 @@ done
 # Now write latest ${buildId}/buildResults.html to our web site/index.html
 # Note: we assume Hudson has already checked out latest version
 # of www repo:  file:///gitroot/www.eclipse.org/cbi.git
+# AND we ask Hudson to "clean workspace" first! (for now) 
+
 # and our "latest aggregator downloads" index.html will go into
 # ${WORKSPACE}/cbi/downloads/aggregatorLatest/
 # but then we still need to commit and push (under the cbi.genie Id)
@@ -163,7 +165,7 @@ printf "\n\t[INFO] %s\n" " = = Confirm status shows one change = ="
 git status
 
 # Commit "all"
-git commit -a -m "Auto commit from Hudson 'cbi.p2repo.aggregator_addComposites' job"
+git commit --verbose -a -m "Auto commit from Hudson 'cbi.p2repo.aggregator_addComposites' job"
 RC=$?
 if [[ $RC != 0 ]]
 then
