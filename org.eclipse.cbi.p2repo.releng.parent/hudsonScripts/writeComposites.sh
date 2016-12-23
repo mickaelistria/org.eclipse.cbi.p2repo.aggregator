@@ -63,6 +63,21 @@ function writeChildren
 
 }
 
+function getLatestBuildId
+{
+    repoRoot=$1
+    # NOTE: we always take "most recent 3 builds". 
+    # we use "I20" as prefix that all our child repo directories start with 
+    # such as "I2016...". So, in 80 years will need some maintenance. :) 
+    # But, otherwise, this cheap heuristic finds existing files such as "composite*".
+    pushd "${repoRoot}" >/dev/null
+    latest=$(ls -1td I20* | head -1)
+    popd >/dev/null
+
+    echo "${latest[0]}"
+
+}
+
 repoRoots=("/home/data/httpd/download.eclipse.org/cbi/updates/aggregator/ide/4.6" "/home/data/httpd/download.eclipse.org/cbi/updates/aggregator/headless/4.6")
 # Normally "writeRepoRoots" is the same as "repoRoots", but might not always be, plus
 # it is very handy for testing this script not to have to write to the "production" area.
@@ -99,3 +114,46 @@ do
     writeCompositeP2Index "${p2Index}"
 done
 
+# Now write latest ${buildId}/buildResults.html to our web site/index.html
+# Note: we assume Hudson has already checked out latest version 
+# of www repo:  file:///gitroot/www.eclipse.org/cbi.git
+# and our "latest aggregator downloads" index.html will go into 
+# ${WORKSPACE}/cbi/downloads/aggregatorLatest/
+# but then we still need to commit and push (under the cbi.genie Id)
+# reporoots[1] should be the "headless" repository. 
+printf "\n\t[DEBUG] %s\n" "repo root from which to get latest buildId: ${repoRoots[1]}"
+latestBuildId=$(getLatestBuildId ${repoRoots[1]})
+printf "\n\t[DEBUG] %s\n" "found latest buildId: ${latestBuildId}"
+cp ${repoRoots[1]}/${latestBuildId}/buildResults.html ${WORKSPACE}/cbi/downloads/aggregatorLatest/index.html
+RC=$?
+if [[ $RC != 0 ]]
+then
+    printf "\n\t[ERROR] %s\n" "Copy to index.html returned non-zero return code: $RC. Exiting early."
+    exit $RC
+else 
+    printf "\n\t[INFO] %s\n" "Copied ${latestBuildId}/buildResults.html to aggregatorLatest/index.html"
+fi
+
+pushd ${WORKSPACE}/cbi
+# print status, just to have in log, for now
+git status 
+# Commit "all"
+git commit -a -m "Auto commit from Hudson 'writeComposites' job"
+RC=$?
+if [[ $RC != 0 ]]
+then
+    printf "\n\t[ERROR] %s\n" "git commit returned non-zero return code: $RC. Exiting early."
+    exit $RC
+fi
+
+git push
+RC=$?
+if [[ $RC != 0 ]]
+then
+    printf "\n\t[ERROR] %s\n" "git push returned non-zero return code: $RC. Exiting early."
+    exit $RC
+fi
+
+popd
+
+exit 0
