@@ -134,7 +134,7 @@ if [[ -e "${WORKSPACE}/cbi" ]]
     rm -fr ${WORKSPACE}/cbi
   fi
 
-git clone --origin origin --branch master /gitroot/www.eclipse.org/cbi cbi
+git clone --origin origin --branch master /gitroot/www.eclipse.org/cbi.git cbi
 
 
 pushd ${WORKSPACE}/cbi
