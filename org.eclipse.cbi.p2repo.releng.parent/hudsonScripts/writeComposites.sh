@@ -137,7 +137,7 @@ if [[ -e "${WORKSPACE}/cbi" ]]
 git config --global --unset user.name
 git config --global --add   user.name "genie.cbi"
 
-git clone --origin origin --branch master file:///gitroot/www.eclipse.org/cbi.git cbi
+git clone --origin origin --branch master ssh://git.eclipse.org:29418/www.eclipse.org/cbi
 
 
 pushd ${WORKSPACE}/cbi
