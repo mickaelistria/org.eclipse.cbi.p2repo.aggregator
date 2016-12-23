@@ -128,6 +128,15 @@ printf "\n\t[INFO] %s\n" "Confirm \$USER and 'whoami' with git config"
 printf "\n\t[INFO] %s\n" "\$USER is $USER"
 printf "\n\t[INFO] %s\n" "whoami is $(whoami)"
 
+# if it exists, remove it before new cloning
+if [[ -e "${WORKSPACE}/cbi" ]]
+  then
+    rm -fr ${WORKSPACE}/cbi
+  fi
+
+git clone --origin origin --branch master file:///gitroot/www.eclipse.org/cbi cbi
+
+
 pushd ${WORKSPACE}/cbi
 git config --global push.default simple
 # print config and status, just to have in log, for now
@@ -168,16 +177,27 @@ fi
 printf "\n\t[INFO] %s\n" " = = Confirm status shows one change = ="
 git status
 
-# Commit "all"
-git commit --verbose -a -m "Auto commit from Hudson 'cbi.p2repo.aggregator_addComposites' job"
+git add --all
+
+printf "\n\t[INFO] %s\n" " = = Confirm status shows one can be committed = ="
+git status
+
+# Commit 
+git commit --verbose -m "Auto commit from Hudson 'cbi.p2repo.aggregator_addComposites' job"
 RC=$?
 if [[ $RC != 0 ]]
 then
   printf "\n\t[ERROR] %s\n" "git commit returned non-zero return code: $RC. Exiting early."
   exit $RC
 fi
-# 'origin1' is the name Hudson has assigned
-git push --verbose origin1 HEAD:refs/heads/master
+
+printf "\n\t[INFO] %s\n" " = = Confirm status shows ahead by one commit = ="
+git status
+
+
+# 'origin1' is the name Hudson has assigned. 
+# but, since I started to do clone above, I will assume 'origin'
+git push --verbose origin master:refs/heads/master
 RC=$?
 if [[ $RC != 0 ]]
 then
