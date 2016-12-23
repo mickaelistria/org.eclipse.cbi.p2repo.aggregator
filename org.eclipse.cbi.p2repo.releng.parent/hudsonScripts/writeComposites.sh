@@ -121,6 +121,14 @@ done
 # ${WORKSPACE}/cbi/downloads/aggregatorLatest/
 # but then we still need to commit and push (under the cbi.genie Id)
 # reporoots[1] should be the "headless" repository. 
+
+pushd ${WORKSPACE}/cbi
+# print config and status, just to have in log, for now
+git config --list
+git status 
+# confirm we are on "master"
+git checkout master
+
 printf "\n\t[DEBUG] %s\n" "repo root from which to get latest buildId: ${repoRoots[1]}"
 latestBuildId=$(getLatestBuildId ${repoRoots[1]})
 printf "\n\t[DEBUG] %s\n" "found latest buildId: ${latestBuildId}"
@@ -134,9 +142,6 @@ else
     printf "\n\t[INFO] %s\n" "Copied ${latestBuildId}/buildResults.html to aggregatorLatest/index.html"
 fi
 
-pushd ${WORKSPACE}/cbi
-# print status, just to have in log, for now
-git status 
 # Commit "all"
 git commit -a -m "Auto commit from Hudson 'cbi.p2repo.aggregator_addComposites' job"
 RC=$?
