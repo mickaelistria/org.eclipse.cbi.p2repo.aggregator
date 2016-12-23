@@ -21,7 +21,7 @@ function deployRepos
 source $sourceProperties
 
 DLRoot=/home/data/httpd
-DLPath=/download.eclipse.org/cbi/updates/aggregator
+DLPath=download.eclipse.org/cbi/updates/aggregator
 baseDL=${DLRoot}/${DLPath}
 ideUpdate=${baseDL}/ide/${updateRelease}/${buildId}
 headlessUpdate=${baseDL}/headless/${updateRelease}/${buildId}
