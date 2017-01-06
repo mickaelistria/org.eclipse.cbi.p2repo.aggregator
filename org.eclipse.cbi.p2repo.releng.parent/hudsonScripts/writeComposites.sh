@@ -124,43 +124,13 @@ done
 # but then we still need to commit and push (under the cbi.genie Id)
 # reporoots[1] should be the "headless" repository.
 
-printf "\n\t[INFO] %s\n" "Confirm \$USER and 'whoami' with git config"
-printf "\n\t[INFO] %s\n" "\$USER is $USER"
-printf "\n\t[INFO] %s\n" "whoami is $(whoami)"
-
-# if it exists, remove it before new cloning
-if [[ -e "${WORKSPACE}/cbi" ]]
-then
-  rm -fr ${WORKSPACE}/cbi
-fi
-
-git config --global --unset user.name
-git config --global --add   user.name "genie.cbi"
-
-git clone --origin origin --branch master git://git.eclipse.org:29418/www.eclipse.org/cbi.git cbi
-
 
 pushd ${WORKSPACE}/cbi
-git config --global push.default simple
+#git config --global push.default simple
 # print config and status, just to have in log, for now
 printf "\n\t[INFO] %s\n" " = = Start of git config --list = ="
 git config --list
 printf "\n\t[INFO] %s\n" " = = End of git config --list = ="
-printf "\n\t[INFO] %s\n" " = = Confirm we are on master = ="
-git checkout master
-printf "\n\t[INFO] %s\n" " = = And that we have the latest = ="
-git pull
-RC=$?
-if [[ $RC != 0 ]]
-then
-  printf "\n\t[WARNING] %s\n" "git pull returned non-zero return code: $RC. Will try reset."
-  git reset --hard
-  RC=$?
-  if [[ $RC != 0 ]]
-  then
-    printf "\n\t[WARNING] %s\n" "git reset --hard returned non-zero return code: $RC. Will try to continue ..."
-  fi
-fi
 printf "\n\t[INFO] %s\n" " = = Confirm status is clear = ="
 git status
 
@@ -199,8 +169,8 @@ git status
 
 
 # 'origin1' is the name Hudson has assigned. 
-# but, since I started to do clone above, I will assume 'origin'
-git push --verbose origin master:refs/heads/master
+
+git push --verbose origin1 master:refs/heads/master
 RC=$?
 if [[ $RC != 0 ]]
 then
