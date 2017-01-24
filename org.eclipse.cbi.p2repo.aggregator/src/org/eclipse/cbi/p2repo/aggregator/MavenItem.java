@@ -18,6 +18,7 @@ package org.eclipse.cbi.p2repo.aggregator;
  * <ul>
  *   <li>{@link org.eclipse.cbi.p2repo.aggregator.MavenItem#getGroupId <em>Group Id</em>}</li>
  *   <li>{@link org.eclipse.cbi.p2repo.aggregator.MavenItem#getArtifactId <em>Artifact Id</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.aggregator.MavenItem#getClassifier <em>Classifier</em>}</li>
  * </ul>
  *
  * @see org.eclipse.cbi.p2repo.aggregator.AggregatorPackage#getMavenItem()
@@ -63,6 +64,40 @@ public interface MavenItem {
 	 * @generated
 	 */
 	void setArtifactId(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Classifier</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Classifier</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Classifier</em>' attribute.
+	 * @see #setClassifier(String)
+	 * @see org.eclipse.cbi.p2repo.aggregator.AggregatorPackage#getMavenItem_Classifier()
+	 * @model
+	 * @generated
+	 */
+	String getClassifier();
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.aggregator.MavenItem#getClassifier <em>Classifier</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Classifier</em>' attribute.
+	 * @see #getClassifier()
+	 * @generated
+	 */
+	void setClassifier(String value);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation"
+	 * @generated
+	 */
+	boolean isSources();
 
 	/**
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.aggregator.MavenItem#getGroupId <em>Group Id</em>}' attribute.

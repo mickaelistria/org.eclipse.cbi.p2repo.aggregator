@@ -233,6 +233,8 @@
     <genClasses ecoreClass="Aggregator.ecore#//MavenItem">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Aggregator.ecore#//MavenItem/groupId"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Aggregator.ecore#//MavenItem/artifactId"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Aggregator.ecore#//MavenItem/classifier"/>
+      <genOperations ecoreOperation="Aggregator.ecore#//MavenItem/isSources"/>
     </genClasses>
     <genClasses ecoreClass="Aggregator.ecore#//MavenMapping">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Aggregator.ecore#//MavenMapping/namePattern"/>

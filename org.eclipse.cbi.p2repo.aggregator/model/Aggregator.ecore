@@ -204,8 +204,10 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MapRule" abstract="true" eSuperTypes="#//InstallableUnitRequest #//DescriptionProvider #//EnabledStatusProvider"/>
   <eClassifiers xsi:type="ecore:EClass" name="MavenItem">
+    <eOperations name="isSources" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="groupId" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="artifactId" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="classifier" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MavenMapping" eSuperTypes="#//StatusProvider #//InfosProvider">
     <eOperations name="map" eType="#//MavenItem">

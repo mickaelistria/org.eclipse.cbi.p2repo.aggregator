@@ -517,6 +517,7 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 		mavenItemEClass = createEClass(MAVEN_ITEM);
 		createEAttribute(mavenItemEClass, MAVEN_ITEM__GROUP_ID);
 		createEAttribute(mavenItemEClass, MAVEN_ITEM__ARTIFACT_ID);
+		createEAttribute(mavenItemEClass, MAVEN_ITEM__CLASSIFIER);
 
 		mavenMappingEClass = createEClass(MAVEN_MAPPING);
 		createEAttribute(mavenMappingEClass, MAVEN_MAPPING__NAME_PATTERN);
@@ -1375,6 +1376,16 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getMavenItem_Classifier() {
+		return (EAttribute) mavenItemEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
@@ -2131,6 +2142,11 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 		initEAttribute(
 			getMavenItem_ArtifactId(), ecorePackage.getEString(), "artifactId", null, 0, 1, MavenItem.class,
 			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(
+			getMavenItem_Classifier(), ecorePackage.getEString(), "classifier", null, 0, 1, MavenItem.class,
+			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		addEOperation(mavenItemEClass, ecorePackage.getEBoolean(), "isSources", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(
 			mavenMappingEClass, MavenMapping.class, "MavenMapping", !IS_ABSTRACT, !IS_INTERFACE,

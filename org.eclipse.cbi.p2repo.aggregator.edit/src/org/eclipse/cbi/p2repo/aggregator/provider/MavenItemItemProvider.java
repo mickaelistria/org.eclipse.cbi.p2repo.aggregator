@@ -64,6 +64,23 @@ public class MavenItemItemProvider extends AggregatorItemProviderAdapter
 	}
 
 	/**
+	 * This adds a property descriptor for the Classifier feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addClassifierPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add(
+			createItemPropertyDescriptor(
+				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+				getString("_UI_MavenItem_classifier_feature"),
+				getString(
+					"_UI_PropertyDescriptor_description", "_UI_MavenItem_classifier_feature", "_UI_MavenItem_type"),
+				AggregatorPackage.Literals.MAVEN_ITEM__CLASSIFIER, true, false, false,
+				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+	}
+
+	/**
 	 * This adds a property descriptor for the Group Id feature.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
@@ -111,6 +128,7 @@ public class MavenItemItemProvider extends AggregatorItemProviderAdapter
 
 			addGroupIdPropertyDescriptor(object);
 			addArtifactIdPropertyDescriptor(object);
+			addClassifierPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -160,6 +178,7 @@ public class MavenItemItemProvider extends AggregatorItemProviderAdapter
 		switch(notification.getFeatureID(MavenItem.class)) {
 			case AggregatorPackage.MAVEN_ITEM__GROUP_ID:
 			case AggregatorPackage.MAVEN_ITEM__ARTIFACT_ID:
+			case AggregatorPackage.MAVEN_ITEM__CLASSIFIER:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

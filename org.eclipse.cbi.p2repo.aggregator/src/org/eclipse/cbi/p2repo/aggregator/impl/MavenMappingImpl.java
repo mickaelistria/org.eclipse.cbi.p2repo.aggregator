@@ -47,6 +47,41 @@ import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
  * @generated
  */
 public class MavenMappingImpl extends MinimalEObjectImpl.Container implements MavenMapping {
+
+	static final String MAVEN_SOURCES_CLASSIFIER = "sources";
+
+	private static final String P2_SOURCE_SUFFIX = ".source";
+
+	/**
+	 * The default value of the '{@link #getNamePattern() <em>Name Pattern</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getNamePattern()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String NAME_PATTERN_EDEFAULT = null;
+
+	/**
+	 * The default value of the '{@link #getGroupId() <em>Group Id</em>}' attribute.
+	 * <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * @see #getGroupId()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String GROUP_ID_EDEFAULT = null;
+
+	/**
+	 * The default value of the '{@link #getArtifactId() <em>Artifact Id</em>}' attribute.
+	 * <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * @see #getArtifactId()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String ARTIFACT_ID_EDEFAULT = null;
+
 	private Pattern compiledPattern;
 
 	/**
@@ -88,16 +123,6 @@ public class MavenMappingImpl extends MinimalEObjectImpl.Container implements Ma
 	protected EList<String> infos;
 
 	/**
-	 * The default value of the '{@link #getNamePattern() <em>Name Pattern</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getNamePattern()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String NAME_PATTERN_EDEFAULT = null;
-
-	/**
 	 * The cached value of the '{@link #getNamePattern() <em>Name Pattern</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
@@ -108,16 +133,6 @@ public class MavenMappingImpl extends MinimalEObjectImpl.Container implements Ma
 	protected String namePattern = NAME_PATTERN_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getGroupId() <em>Group Id</em>}' attribute.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
-	 * @see #getGroupId()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String GROUP_ID_EDEFAULT = null;
-
-	/**
 	 * The cached value of the '{@link #getGroupId() <em>Group Id</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
@@ -126,16 +141,6 @@ public class MavenMappingImpl extends MinimalEObjectImpl.Container implements Ma
 	 * @ordered
 	 */
 	protected String groupId = GROUP_ID_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #getArtifactId() <em>Artifact Id</em>}' attribute.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
-	 * @see #getArtifactId()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String ARTIFACT_ID_EDEFAULT = null;
 
 	/**
 	 * The cached value of the '{@link #getArtifactId() <em>Artifact Id</em>}' attribute.
@@ -440,12 +445,21 @@ public class MavenMappingImpl extends MinimalEObjectImpl.Container implements Ma
 	@Override
 	public MavenItem map(String installableUnitID) {
 		if(compiledPattern != null) {
+			// map osgi name suffix ".source" to maven classifier "sources":
+			boolean isSource = installableUnitID.endsWith(P2_SOURCE_SUFFIX);
+			if(isSource) {
+				installableUnitID = installableUnitID.substring(0,
+						installableUnitID.length() - P2_SOURCE_SUFFIX.length());
+			}
+
 			Matcher m = compiledPattern.matcher(installableUnitID);
 			if(m.matches()) {
 				MavenItem item = AggregatorFactory.eINSTANCE.createMavenItem();
 				item.setGroupId(m.replaceFirst(getGroupId()));
 				item.setArtifactId(m.replaceFirst(getArtifactId()));
-
+				if(isSource) {
+					item.setClassifier(MAVEN_SOURCES_CLASSIFIER);
+				}
 				return item;
 			}
 		}

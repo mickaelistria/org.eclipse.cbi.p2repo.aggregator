@@ -908,6 +908,14 @@ public interface AggregatorPackage extends EPackage {
 		EAttribute MAVEN_ITEM__ARTIFACT_ID = eINSTANCE.getMavenItem_ArtifactId();
 
 		/**
+		 * The meta object literal for the '<em><b>Classifier</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute MAVEN_ITEM__CLASSIFIER = eINSTANCE.getMavenItem_Classifier();
+
+		/**
 		 * The meta object literal for the '{@link org.eclipse.cbi.p2repo.aggregator.ChildrenProvider <em>Children Provider</em>}' class.
 		 * <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * @see org.eclipse.cbi.p2repo.aggregator.ChildrenProvider
@@ -3011,13 +3019,22 @@ public interface AggregatorPackage extends EPackage {
 	int MAVEN_ITEM__ARTIFACT_ID = 1;
 
 	/**
+	 * The feature id for the '<em><b>Classifier</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MAVEN_ITEM__CLASSIFIER = 2;
+
+	/**
 	 * The number of structural features of the '<em>Maven Item</em>' class. <!-- begin-user-doc --> <!-- end-user-doc
 	 * -->
 	 *
 	 * @generated
 	 * @ordered
 	 */
-	int MAVEN_ITEM_FEATURE_COUNT = 2;
+	int MAVEN_ITEM_FEATURE_COUNT = 3;
 
 	/**
 	 * The feature id for the '<em><b>Status</b></em>' reference.
@@ -4479,6 +4496,17 @@ public interface AggregatorPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getMavenItem_ArtifactId();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.cbi.p2repo.aggregator.MavenItem#getClassifier <em>Classifier</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Classifier</em>'.
+	 * @see org.eclipse.cbi.p2repo.aggregator.MavenItem#getClassifier()
+	 * @see #getMavenItem()
+	 * @generated
+	 */
+	EAttribute getMavenItem_Classifier();
 
 	/**
 	 * Returns the meta object for the attribute '{@link org.eclipse.cbi.p2repo.aggregator.MavenItem#getGroupId <em>Group Id</em>}'.

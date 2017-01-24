@@ -33,6 +33,7 @@ import org.eclipse.cbi.p2repo.p2.maven.pom.Parent;
 import org.eclipse.cbi.p2repo.p2.maven.pom.PomFactory;
 import org.eclipse.cbi.p2repo.p2.maven.util.VersionUtil;
 import org.eclipse.cbi.p2repo.util.ExceptionUtils;
+import org.eclipse.cbi.p2repo.util.LogUtils;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.equinox.internal.p2.metadata.IRequiredCapability;
@@ -63,10 +64,6 @@ public class InstallableUnitMapping implements IInstallableUnit {
 	public enum Type {
 		TOP, GROUP, IU, PROXY;
 	}
-
-	private static final String MAVEN_SOURCES_SUFFIX = "-sources";
-
-	private static final String P2_SOURCE_SUFFIX = ".source";
 
 	private static MavenItem map(String id, List<MavenMapping> mappings) throws CoreException {
 		MavenItem item = null;
@@ -372,14 +369,11 @@ public class InstallableUnitMapping implements IInstallableUnit {
 
 	private String getFileName(String extension) throws CoreException {
 		String fileId = mapped.getArtifactId();
-		boolean isSource = isSourceArtifact();
-		if(isSource)
-			fileId = removeSuffix(fileId, P2_SOURCE_SUFFIX);
 		StringBuilder fileName = new StringBuilder(fileId);
 		fileName.append('-');
 		fileName.append(getVersionString());
-		if(isSource)
-			fileName.append(MAVEN_SOURCES_SUFFIX);
+		if(isSourceArtifact())
+			fileName.append('-').append(mapped.getClassifier());
 
 		if(extension == null) {
 			if(!(getMainArtifact() != null && "binary".equals(getMainArtifact().getClassifier()))) {
@@ -462,8 +456,6 @@ public class InstallableUnitMapping implements IInstallableUnit {
 
 	public String getRelativePath() throws CoreException {
 		String artifactId = map().getArtifactId();
-		if(isSourceArtifact())
-			artifactId = removeSuffix(artifactId, P2_SOURCE_SUFFIX);
 		return map().getGroupId().replace('.', '/') + "/" + artifactId + "/" + getVersionString();
 	}
 
@@ -532,7 +524,17 @@ public class InstallableUnitMapping implements IInstallableUnit {
 	}
 
 	public boolean isSourceArtifact() {
-		return InstallableUnitUtils.isSourceBundle(this.installableUnit) && getId().endsWith(P2_SOURCE_SUFFIX);
+		// consult p2 metadata:
+		if(!InstallableUnitUtils.isSourceBundle(this.installableUnit))
+			return false;
+		try {
+			// consult the mapped maven item:
+			return map().isSources();
+		}
+		catch(CoreException e) {
+			LogUtils.error(e, "Failed to map artifact {0}", getId());
+			return false;
+		}
 	}
 
 	public boolean isTransient() {
@@ -544,10 +546,6 @@ public class InstallableUnitMapping implements IInstallableUnit {
 			return mapped;
 
 		return mapped = map(getId(), mappings);
-	}
-
-	private String removeSuffix(String artifactId, String suffix) {
-		return artifactId.substring(0, artifactId.length() - suffix.length());
 	}
 
 	public boolean satisfies(IRequiredCapability candidate) {
