@@ -53,24 +53,11 @@ DLfile=buildResults.html
 DLpage=${build_home}/${DLfile}
 # Notice how we "pick" the headless site to jump to, if someone clicks on the buildId they are looking at. 
 # We have the same file in two places, 'ide' and 'headless', so some users may be surprised by that?
-# TODO: could make specific versions one for each "site" where this one value is the only difference.
-# The purpose of this "self reference" is partially to get a better experience if someone 
-# is looking at Hudson version, and wants to "jump" do download version.
-echo "<p>Results of build: <a href=\"http://${DLPath}/headless/${updateRelease}/${buildId}/${DLfile}\">${buildId}</a></p>" > ${DLpage}
-# First echo, above, starts new page. The rest must append to DLpage.
-echo "<p>repositories specific for this build: </p>" >> ${DLpage}
-echo "<ul>" >> ${DLpage}
-echo "<li> For IDE repo: <a href=\"http://${DLPath}/ide/${updateRelease}/${buildId}\">http://${DLPath}/ide/${updateRelease}/${buildId}</a></li>" >> ${DLpage}
-echo "<li> For headless CLI product repo: <a href=\"http://${DLPath}/headless/${updateRelease}/${buildId}\">http://${DLPath}/headless/${updateRelease}/${buildId}</a></li>" >> ${DLpage}
-echo "</ul>" >> ${DLpage}
 
-echo "<p>The downloadable CLI products:</p>" >> ${DLpage}
-echo "<ul>" >> ${DLpage}
-echo "<li> Windows: <a href=\"http://${DLPath}/headless/${updateRelease}/${buildId}/${windowsProd}\">${windowsProd}</a></li>" >> ${DLpage}
-echo "<li> Linux: <a href=\"http://${DLPath}/headless/${updateRelease}/${buildId}/${linuxProd}\">${linuxProd}</a></li>" >> ${DLpage}
-echo "<li> Mac OSX: <a href=\"http://${DLPath}/headless/${updateRelease}/${buildId}/${macProd}\">${macProd}</a></li>" >> ${DLpage}
-echo "</ul>" >> ${DLpage}
-echo "<p>For release engineering, be sure to check the <a href=\"http://${DLPath}/headless/${updateRelease}/${buildId}/reporeports\">\"repo reports\"</a> from this build</p>" >> ${DLpage}
+# be sure these variables are exported, for use by 'envsubst'.
+export DLPath updateRelease buildId
+
+envsubst < "${build_home}/org.eclipse.cbi.p2repo.releng.parent/hudsonScripts/template_index.html" > "${DLpage}"
 
 cp ${DLpage} ${headlessUpdate}
 cp ${DLpage} ${ideUpdate}
