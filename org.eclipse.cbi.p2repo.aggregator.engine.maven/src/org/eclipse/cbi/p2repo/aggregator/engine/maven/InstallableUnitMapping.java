@@ -12,16 +12,21 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import org.eclipse.cbi.p2repo.aggregator.Aggregation;
 import org.eclipse.cbi.p2repo.aggregator.AggregatorFactory;
+import org.eclipse.cbi.p2repo.aggregator.Architecture;
 import org.eclipse.cbi.p2repo.aggregator.Contribution;
 import org.eclipse.cbi.p2repo.aggregator.MavenItem;
 import org.eclipse.cbi.p2repo.aggregator.MavenMapping;
+import org.eclipse.cbi.p2repo.aggregator.OperatingSystem;
 import org.eclipse.cbi.p2repo.aggregator.StatusCode;
 import org.eclipse.cbi.p2repo.aggregator.VersionFormat;
+import org.eclipse.cbi.p2repo.aggregator.WindowSystem;
 import org.eclipse.cbi.p2repo.aggregator.util.InstallableUnitUtils;
 import org.eclipse.cbi.p2repo.p2.maven.POM;
 import org.eclipse.cbi.p2repo.p2.maven.pom.DependenciesType;
@@ -51,6 +56,7 @@ import org.eclipse.equinox.p2.metadata.ITouchpointType;
 import org.eclipse.equinox.p2.metadata.IUpdateDescriptor;
 import org.eclipse.equinox.p2.metadata.Version;
 import org.eclipse.equinox.p2.metadata.VersionRange;
+import org.eclipse.equinox.p2.metadata.expression.IFilterExpression;
 import org.eclipse.equinox.p2.metadata.expression.IMatchExpression;
 
 /**
@@ -63,6 +69,24 @@ import org.eclipse.equinox.p2.metadata.expression.IMatchExpression;
 public class InstallableUnitMapping implements IInstallableUnit {
 	public enum Type {
 		TOP, GROUP, IU, PROXY;
+	}
+
+	private static final String GENERIC_PLATFORM_SUFFIX = ".${osgi.platform}";
+
+	private static final Set<String> KNOWN_OSGI_WS, KNOWN_OSGI_OS, KNOWN_OSGI_ARCH;
+	static {
+		Set<String> values = new HashSet<>();
+		for(WindowSystem ws : WindowSystem.values())
+			values.add(ws.getLiteral());
+		KNOWN_OSGI_WS = Collections.unmodifiableSet(values);
+		values = new HashSet<>();
+		for(OperatingSystem os : OperatingSystem.values())
+			values.add(os.getLiteral());
+		KNOWN_OSGI_OS = Collections.unmodifiableSet(values);
+		values = new HashSet<>();
+		for(Architecture arch : Architecture.values())
+			values.add(arch.getLiteral());
+		KNOWN_OSGI_ARCH = Collections.unmodifiableSet(values);
 	}
 
 	private static MavenItem map(String id, List<MavenMapping> mappings) throws CoreException {
@@ -205,6 +229,7 @@ public class InstallableUnitMapping implements IInstallableUnit {
 		Collection<IRequirement> requirements = getRequirements();
 		if(requirements.size() > 0) {
 			DependenciesType dependencies = PomFactory.eINSTANCE.createDependenciesType();
+			boolean hasPlatformFragmentDependency = false;
 			for(IRequirement req : requirements) {
 				if(!(req instanceof IRequiredCapability))
 					continue;
@@ -214,11 +239,20 @@ public class InstallableUnitMapping implements IInstallableUnit {
 				if(IInstallableUnit.NAMESPACE_IU_ID.equals(cap.getNamespace()) ||
 						"osgi.bundle".equals(cap.getNamespace())) {
 					Dependency dependency = PomFactory.eINSTANCE.createDependency();
-					dependencies.getDependency().add(dependency);
 
 					MavenItem dependencyMapping = map(cap.getName(), mappings);
 					dependency.setGroupId(dependencyMapping.getGroupId());
-					dependency.setArtifactId(dependencyMapping.getArtifactId());
+					String artifactId = dependencyMapping.getArtifactId();
+					String generifiedId = generifyPlatformDependency(artifactId, req.getFilter());
+					if(generifiedId != null) {
+						if(hasPlatformFragmentDependency) {
+							continue; // don't add again
+						}
+						hasPlatformFragmentDependency = true;
+						artifactId = generifiedId;
+					}
+					dependency.setArtifactId(artifactId);
+					dependencies.getDependency().add(dependency);
 
 					if(cap.getRange() != null && !cap.getRange().equals(VersionRange.emptyRange)) {
 						StringBuilder versionRangeString = new StringBuilder();
@@ -338,6 +372,40 @@ public class InstallableUnitMapping implements IInstallableUnit {
 		}
 
 		return trimOrNull(value);
+	}
+
+	private String generifyPlatformDependency(String artifactId, IMatchExpression<IInstallableUnit> filter) {
+		if(artifactId == null || filter == null)
+			return null;
+		String[] tokens = artifactId.split("\\.");
+		if(tokens.length < 4)
+			return null;
+		Map<String, String> declared = new HashMap<>();
+		int end = artifactId.length();
+		int platformStart = tokens.length - 3;
+
+		String token = tokens[platformStart];
+		if(!KNOWN_OSGI_WS.contains(token))
+			return null;
+		declared.put("osgi.ws", token);
+		end -= token.length() + 1;
+
+		token = tokens[platformStart + 1];
+		if(!KNOWN_OSGI_OS.contains(token))
+			return null;
+		declared.put("osgi.os", token);
+		end -= token.length() + 1;
+
+		token = tokens[platformStart + 2];
+		if(!KNOWN_OSGI_ARCH.contains(token))
+			return null;
+		declared.put("osgi.arch", token);
+		end -= token.length() + 1;
+
+		if(!matchesFilter(filter, declared))
+			return null;
+
+		return artifactId.substring(0, end) + GENERIC_PLATFORM_SUFFIX;
 	}
 
 	private String getArtifactFileName() throws CoreException {
@@ -546,6 +614,15 @@ public class InstallableUnitMapping implements IInstallableUnit {
 			return mapped;
 
 		return mapped = map(getId(), mappings);
+	}
+
+	private boolean matchesFilter(IMatchExpression<IInstallableUnit> filter, Map<String, String> map) {
+		for(Object object : filter.getParameters()) {
+			if(object instanceof IFilterExpression) {
+				return ((IFilterExpression) object).match(map);
+			}
+		}
+		return false;
 	}
 
 	public boolean satisfies(IRequiredCapability candidate) {
