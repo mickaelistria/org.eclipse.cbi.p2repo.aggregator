@@ -163,22 +163,32 @@
      This should be constant on "eclipse.org", but in case someone is doing a "local build", 
      they might want to override it, if their local builds reside else where. 
   Note: deliberatly written as conforming PHP variables, so that later we could have this template as a standard PHP file, and simply 'include' 
-  a file with the two php variables defined. 
+  a file with the two php variables defined. Except, it turned out, in "file names" the use of
+  _$buildId_xxx was ambiguous so had to use brackets there, such as  _${buildId}_xxx.
 -->
 <h3>Download or install CBI Aggregator</h3>
 <p>These are the results of build: <a href="http://$DLPath/headless/$updateRelease/$buildId/buildResults.html">$buildId</a></p>
-<p>repositories specific for this build: </p>
+<p>For general use in an IDE, you simply want to add the composite software site of </br>
+<a href="http://$DLPath/ide/$updateRelease">http://$DLPath/ide/$updateRelease</a><br />
+  to get the latest updates from this &quot;$updateRelease&quot; stream.
+  </p>
+  <p>Normally, the latest 
+  three builds are kept in the composite repositories, so that gives some ability to "revert" 
+  an update, as long as there has not been three published builds since it was updated. 
+</p>
+<h4>Simple repos from this build</h4>
 <ul>
-<li> For IDE repo: <a href="http://$DLPath/ide/$updateRelease/$buildId">http://$DLPath/ide/$updateRelease/$buildId</a></li>
-<li> For headless CLI product repo: <a href="http://$DLPath/headless/$updateRelease/$buildId">http://$DLPath/headless/$updateRelease/$buildId</a></li>
+<li>IDE repo: <a href="http://$DLPath/ide/$updateRelease/$buildId">http://$DLPath/ide/$updateRelease/$buildId</a></li>
+<li>Headless CLI repo: <a href="http://$DLPath/headless/$updateRelease/$buildId">http://$DLPath/headless/$updateRelease/$buildId</a></li>
 </ul>
-<p>The downloadable CLI products:</p>
+<h4>Downloadable pre-assembled CLI products</h4>
 <ul>
-<li> Windows: <a href="http://$DLPath/headless/$updateRelease/$buildId/headless_${buildId}_win32.win32.x86_64.zip">headless_${buildId}_win32.win32.x86_64.zip</a></li>
-<li> Linux: <a href="http://$DLPath/headless/$updateRelease/$buildId/headless_${buildId}_linux.gtk.x86_64.tar.gz">headless_${buildId}_linux.gtk.x86_64.tar.gz</a></li>
-<li> Mac OSX: <a href="http://$DLPath/headless/$updateRelease/$buildId/headless_${buildId}_macosx.cocoa.x86_64.tar.gz">headless_${buildId}_macosx.cocoa.x86_64.tar.gz</a></li>
+<li>Windows: <a href="http://$DLPath/headless/$updateRelease/$buildId/headless_${buildId}_win32.win32.x86_64.zip">headless_${buildId}_win32.win32.x86_64.zip</a></li>
+<li>Linux: <a href="http://$DLPath/headless/$updateRelease/$buildId/headless_${buildId}_linux.gtk.x86_64.tar.gz">headless_${buildId}_linux.gtk.x86_64.tar.gz</a></li>
+<li>Mac OSX: <a href="http://$DLPath/headless/$updateRelease/$buildId/headless_${buildId}_macosx.cocoa.x86_64.tar.gz">headless_${buildId}_macosx.cocoa.x86_64.tar.gz</a></li>
 </ul>
-<p>For release engineering, be sure to check the <a href="http://$DLPath/headless/$updateRelease/$buildId/reporeports">"repo reports"</a> from this build</p>
+<h4>Release engineering</h4>
+<p>Check the <a href="http://$DLPath/headless/$updateRelease/$buildId/reporeports">"repo reports"</a> from this build.</p>
 
 <!-- End of primary custom content -->
 
