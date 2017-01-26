@@ -57,7 +57,7 @@ DLpage=${build_home}/${DLfile}
 # be sure these variables are exported, for use by 'envsubst'.
 export DLPath updateRelease buildId
 
-envsubst < "${build_home}/org.eclipse.cbi.p2repo.releng.parent/hudsonScripts/template_index.html" > "${DLpage}"
+envsubst < "${build_home}/org.eclipse.cbi.p2repo.aggregator/org.eclipse.cbi.p2repo.releng.parent/hudsonScripts/template_index.html" > "${DLpage}"
 
 cp ${DLpage} ${headlessUpdate}
 cp ${DLpage} ${ideUpdate}
