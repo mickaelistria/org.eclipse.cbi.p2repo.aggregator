@@ -127,14 +127,17 @@ done
 
 pushd ${WORKSPACE}/cbi
 #git config --global push.default simple
-git config  --add core.autocrlf input
+printf "\n\t[INFO] %s\n" " = = avoid conversions of CRLF, except when we check in = ="
+git config  --global --add core.autocrlf input
 # print config and status, just to have in log, for now
 printf "\n\t[INFO] %s\n" " = = Start of git config --list = ="
 git config --list
 printf "\n\t[INFO] %s\n" " = = End of git config --list = ="
 printf "\n\t[INFO] %s\n" " = = Confirm status is clear = ="
 git status
-git checkout master
+printf "\n\t[INFO] %s\n" " = = Avoid detached? = ="
+git checkout -B master
+printf "\n\t[INFO] %s\n" " = = Confirm status is clear = ="
 git status
 
 printf "\n\t[DEBUG] %s\n" "repo root from which to get latest buildId: ${repoRoots[1]}"
