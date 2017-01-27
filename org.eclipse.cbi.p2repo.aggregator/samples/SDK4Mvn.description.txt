@@ -33,6 +33,6 @@ The following are notes to clarify parts of the example.
   But, yuu can also "point" p2 to that repository, and see that it sill finds the content and artifacts
   it needs. (for  example, from another installed instance, say of only the Eclipse Platform (not
   SDK) you can add a new software repository site such as 
-  "file:///<your workspace location>/MavenTestRepo/final" and use it to install the SDK.
+  "file:///<your workspace location and project location>/MavenTestRepo/final" and use it to install the SDK.
 
 
