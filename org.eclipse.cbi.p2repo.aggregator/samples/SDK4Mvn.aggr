@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aggregator:Aggregation xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aggregator="http://www.eclipse.org/cbi/p2repo/2011/aggregator/1.1.0" description="Aggregation file to demonstrate creating a maven conformant repository &#xA;that is also a p2 repository." label="SDK4Mvn" buildRoot="MavenTestRepo" packedStrategy="UNPACK_AS_SIBLING" type="R" mavenResult="true" versionFormat="MavenRelease" allowLegacySites="false">
+  <validationSets label="main">
+    <contributions description="Contribute to entire Eclipse Platform repostitory &#xA;for 4.6.2 (Neon.2) from December, 2016." label="sdk462">
+      <repositories location="http://download.eclipse.org/eclipse/updates/4.6/R-4.6.2-201611241400">
+        <mapRules xsi:type="aggregator:ExclusionRule" name="org.eclipse.e4.core.tools.feature.feature.group"/>
+        <mapRules xsi:type="aggregator:ExclusionRule" name="org.eclipse.e4.core.tools.feature.source.feature.group"/>
+      </repositories>
+    </contributions>
+  </validationSets>
+  <configurations operatingSystem="aix" windowSystem="gtk" architecture="ppc"/>
+  <configurations operatingSystem="aix" windowSystem="gtk" architecture="ppc64"/>
+  <configurations operatingSystem="hpux" windowSystem="gtk" architecture="ia64"/>
+  <configurations operatingSystem="linux" windowSystem="gtk" architecture="ppc"/>
+  <configurations operatingSystem="linux" windowSystem="gtk" architecture="ppc64"/>
+  <configurations operatingSystem="linux" windowSystem="gtk" architecture="ppc64le"/>
+  <configurations operatingSystem="linux" windowSystem="gtk" architecture="s390"/>
+  <configurations operatingSystem="linux" windowSystem="gtk" architecture="s390x"/>
+  <configurations operatingSystem="linux" windowSystem="gtk"/>
+  <configurations operatingSystem="linux" windowSystem="gtk" architecture="x86_64"/>
+  <configurations operatingSystem="macosx" windowSystem="cocoa" architecture="x86_64"/>
+  <configurations operatingSystem="solaris" windowSystem="gtk" architecture="x86_64"/>
+  <configurations operatingSystem="solaris" windowSystem="gtk" architecture="sparcv9"/>
+  <configurations architecture="x86_64"/>
+  <configurations/>
+  <mavenMappings namePattern="org.junit(\.source)?" groupId="junit" artifactId="junit$1"/>
+</aggregator:Aggregation>

@@ -1,0 +1,8 @@
+These "obsolete" samples are obviously from long ago and no longer work. 
+
+They have been left here in the repository as a reminder that someone 
+should update them to be current or write new ones that demonstrate the same 
+principle, and then the "Manual Wiki" at 
+https://wiki.eclipse.org/CBI/aggregator/manual
+updated to point to the new example. 
+

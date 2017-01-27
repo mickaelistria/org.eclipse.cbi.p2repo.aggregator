@@ -1,0 +1,38 @@
+The SDK4Mvn.aggr file shows how an aggregation file can be setup to produce 
+a p2 repository that is also a maven repository. 
+
+The following are notes to clarify parts of the example.
+
+- The example works from the Neon.2 version of the Eclipse Platform (4.6.2).
+
+- The 'e4 tools' features are excluded simply because they depend on another EMF repository. So 
+  those features (and their bundles) are excluded so that the repositories created be totally self 
+  contained.
+
+- The junit bundle needs a "maven mappings" rule since it does not follow the typical naming 
+  conventions for source bundles.
+
+- It uses the "Release" rules for naming the resulting maven artifacts. This "naming" and "versioning" 
+  is for the repository only. There is no change to the normal OSGi versions inside the bundles, 
+  which is what Equinox and p2 use. This fact is how duel purpose repository "works". p2 
+  uses the content.jar/xml file and the artifacts.jar/xml file to find the content it needs 
+  whereas Maven uses the file system and Maven repository index files. 
+
+- You can run the example from your workbench. If you already have the Aggregator Editor and 
+  Engine installed you will also need to install the feature named 
+  "CBI and p2 - Nexus Indexer for Maven".
+
+- To run from the workbench (after above fetures installed) open the SDK4Mvn.aggr file using the 
+  Aggregtor Editor. You can "validate" and "validate aggregation" to confirm all is well, 
+  but to produce the repositories, you will need to run "Build Aggregation" 
+  (or, better, "Clean and Build Aggregation").
+
+- Due to a property set on the main Aggregator node (named 'Build Root' the resulting repository will 
+  end up in a directory in your workspace project named "MavenTestRepo" under the "final" directory.
+  That is the repository you can explore to see how it is different than the usual p2 repository. 
+  But, yuu can also "point" p2 to that repository, and see that it sill finds the content and artifacts
+  it needs. (for  example, from another installed instance, say of only the Eclipse Platform (not
+  SDK) you can add a new software repository site such as 
+  "file:///<your workspace location>/MavenTestRepo/final" and use it to install the SDK.
+
+
