@@ -1,3 +1,12 @@
+/**
+ * Copyright (c) 2006-2016, Cloudsmith Inc.
+ * The code, documentation and other materials contained herein have been
+ * licensed under the Eclipse Public License - v 1.0 by the copyright holder
+ * listed above, as the Initial Contributor under such license. The text of
+ * such license is available at www.eclipse.org.
+ * - Contributions:
+ *     David Williams - bug 513518
+ */
 package org.eclipse.cbi.p2repo.aggregator.engine;
 
 import java.util.ArrayList;
@@ -6,12 +15,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.eclipse.cbi.p2repo.p2.InstallableUnit;
-import org.eclipse.cbi.p2repo.p2.MetadataRepository;
-import org.eclipse.cbi.p2repo.p2.P2Factory;
-import org.eclipse.cbi.p2repo.p2.impl.InstallableUnitImpl;
-import org.eclipse.cbi.p2repo.p2.impl.ProvidedCapabilityImpl;
-import org.eclipse.cbi.p2repo.p2.util.P2Bridge;
 import org.eclipse.cbi.p2repo.aggregator.Aggregation;
 import org.eclipse.cbi.p2repo.aggregator.Category;
 import org.eclipse.cbi.p2repo.aggregator.Contribution;
@@ -21,12 +24,19 @@ import org.eclipse.cbi.p2repo.aggregator.Feature;
 import org.eclipse.cbi.p2repo.aggregator.MapRule;
 import org.eclipse.cbi.p2repo.aggregator.MappedRepository;
 import org.eclipse.cbi.p2repo.aggregator.engine.internal.RequirementUtils;
+import org.eclipse.cbi.p2repo.p2.InstallableUnit;
+import org.eclipse.cbi.p2repo.p2.MetadataRepository;
+import org.eclipse.cbi.p2repo.p2.P2Factory;
+import org.eclipse.cbi.p2repo.p2.impl.InstallableUnitImpl;
+import org.eclipse.cbi.p2repo.p2.impl.ProvidedCapabilityImpl;
+import org.eclipse.cbi.p2repo.p2.util.P2Bridge;
 import org.eclipse.cbi.p2repo.util.LogUtils;
 import org.eclipse.cbi.p2repo.util.MonitorUtils;
 import org.eclipse.cbi.p2repo.util.StringUtils;
 import org.eclipse.cbi.p2repo.util.TimeUtils;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.core.runtime.OperationCanceledException;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.equinox.internal.p2.metadata.IRequiredCapability;
 import org.eclipse.equinox.p2.metadata.IInstallableUnit;
@@ -275,6 +285,9 @@ public class CategoriesGenerator extends BuilderPhase {
 			results = normalizeCategories(results);
 			if(!results.isEmpty())
 				builder.getAggregationMetadataRepository().addInstallableUnits(results);
+		}
+		catch(OperationCanceledException e) {
+			LogUtils.info("Operation canceled."); //$NON-NLS-1$
 		}
 		finally {
 			MonitorUtils.done(monitor);

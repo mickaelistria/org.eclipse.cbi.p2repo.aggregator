@@ -1,30 +1,37 @@
 /*******************************************************************************
- * Copyright (c) 2004, 2006
+ * Copyright (c) 2004, 2016
  * Thomas Hallgren, Kenneth Olwing, Mitch Sonies
  * Pontus Rydin, Nils Unden, Peer Torngren
  * The code, documentation and other materials contained herein have been
  * licensed under the Eclipse Public License - v 1.0 by the individual
  * copyright holders listed above, as Initial Contributors under such license.
  * The text of such license is available at www.eclipse.org.
+ *
+ * - Contributions:
+ *     David Williams - bug 513518
+ *       Minimized when the OperationCancelledException is thrown.
+ *       Removed use of deprecated SubProgressMonitor in exchange for
+ *          use of SubMonitor.
  *******************************************************************************/
 package org.eclipse.cbi.p2repo.util;
 
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.core.runtime.OperationCanceledException;
-import org.eclipse.core.runtime.SubProgressMonitor;
+import org.eclipse.core.runtime.SubMonitor;
 
 /**
  * @author kolwing
  */
 public class MonitorUtils {
-	public static void begin(IProgressMonitor monitor, int ticks) throws OperationCanceledException {
+	public static void begin(IProgressMonitor monitor, int ticks) {
 		begin(monitor, null, ticks);
 	}
 
-	public static void begin(IProgressMonitor monitor, String taskName, int ticks) throws OperationCanceledException {
-		if(monitor != null) {
-			checkedTestCancelStatus(monitor);
+	public static void begin(IProgressMonitor monitor, String taskName, int ticks) {
+		if(monitor != null && !monitor.isCanceled()) {
+			// we should not throw exception during 'begin'
+			// checkedTestCancelStatus(monitor);
 			monitor.beginTask(taskName, ticks);
 		}
 	}
@@ -38,14 +45,13 @@ public class MonitorUtils {
 	 *
 	 * @param monitor
 	 *            the monitor to run beginTask()/isCanceled()/done() for. Can be <code>null</code>
-	 * @throws OperationCanceledException
-	 *             if the monitor was canceled
 	 */
-	public static void complete(IProgressMonitor monitor) throws OperationCanceledException {
+	public static void complete(IProgressMonitor monitor) {
 		if(monitor != null) {
 			try {
-				checkedTestCancelStatus(monitor);
-				monitor.beginTask(null, 1);
+				if(!monitor.isCanceled()) {
+					monitor.beginTask(null, 1);
+				}
 			}
 			finally {
 				monitor.done();
@@ -53,9 +59,12 @@ public class MonitorUtils {
 		}
 	}
 
-	public static void done(IProgressMonitor monitor) throws OperationCanceledException {
+	public static void done(IProgressMonitor monitor) {
 		if(monitor != null) {
-			checkedTestCancelStatus(monitor);
+			// Do not throw OperationCanceledException when "done".
+			// but still mark it "done".
+			// Consumer's may need to check if monitor.isCanceled() before
+			// or after calling 'done' depending on their use.
 			monitor.done();
 		}
 	}
@@ -67,14 +76,11 @@ public class MonitorUtils {
 	 * @param monitor
 	 *            the monitor to check for nullness and replace with a 'real' monitor if necessary
 	 * @return The argument or a new {@link NullProgressMonitor} if the argument was <code>null</code>
-	 * @throws OperationCanceledException
-	 *             if the monitor was canceled
 	 */
-	public static IProgressMonitor ensureNotNull(IProgressMonitor monitor) throws OperationCanceledException {
-		if(monitor == null)
+	public static IProgressMonitor ensureNotNull(IProgressMonitor monitor) {
+		if(monitor == null) {
 			monitor = new NullProgressMonitor();
-		else
-			checkedTestCancelStatus(monitor);
+		}
 		return monitor;
 	}
 
@@ -88,13 +94,10 @@ public class MonitorUtils {
 	 * @param ticks
 	 *            the number of work ticks allocated from the parent monitor
 	 * @return The sub monitor or <code>null</code> if the provided <code>monitor</code> parameter was <code>null</code> .
-	 * @throws OperationCanceledException
-	 *             if the monitor was canceled
 	 */
-	public static IProgressMonitor subMonitor(IProgressMonitor monitor, int ticks) throws OperationCanceledException {
-		if(monitor != null) {
-			checkedTestCancelStatus(monitor);
-			monitor = new SubProgressMonitor(monitor, ticks, 0);
+	public static IProgressMonitor subMonitor(IProgressMonitor monitor, int ticks) {
+		if(monitor != null && !monitor.isCanceled()) {
+			monitor = SubMonitor.convert(monitor, ticks);
 		}
 		return monitor;
 	}
@@ -111,23 +114,22 @@ public class MonitorUtils {
 	 * @param style
 	 *            one of
 	 *            <ul>
-	 *            <li> <code>SUPPRESS_SUBTASK_LABEL</code></li>
-	 *            <li> <code>PREPEND_MAIN_LABEL_TO_SUBTASK</code></li>
+	 *            <li><code>SUPPRESS_SUBTASK_LABEL</code></li>
+	 *            <li><code>PREPEND_MAIN_LABEL_TO_SUBTASK</code></li>
 	 *            </ul>
-	 * @see SubProgressMonitor#SUPPRESS_SUBTASK_LABEL
-	 * @see SubProgressMonitor#PREPEND_MAIN_LABEL_TO_SUBTASK
+	 * @see SubMonitor#SUPPRESS_SUBTASK_LABEL
+	 * @see SubMonitor#PREPEND_MAIN_LABEL_TO_SUBTASK
 	 * @return The sub monitor or <code>null</code> if the provided <code>monitor</code> parameter was <code>null</code>
-	 * @throws OperationCanceledException
-	 *             if the monitor was canceled
 	 */
-	public static IProgressMonitor subMonitor(IProgressMonitor monitor, int ticks, boolean prependMainLabelToSubtask)
-			throws OperationCanceledException {
-		if(monitor != null) {
-			checkedTestCancelStatus(monitor);
+	public static IProgressMonitor subMonitor(IProgressMonitor monitor, int ticks, boolean prependMainLabelToSubtask) {
+		SubMonitor subMonitor = null;
+		if(monitor != null && !monitor.isCanceled()) {
 			int style = prependMainLabelToSubtask
-					? SubProgressMonitor.PREPEND_MAIN_LABEL_TO_SUBTASK
-					: 0;
-			monitor = new SubProgressMonitor(monitor, ticks, style);
+					? SubMonitor.SUPPRESS_NONE
+					: SubMonitor.SUPPRESS_ALL_LABELS;
+			subMonitor = SubMonitor.convert(monitor, ticks);
+			subMonitor.split(ticks, style);
+			return subMonitor;
 		}
 		return monitor;
 	}
@@ -140,12 +142,9 @@ public class MonitorUtils {
 	 *            the progress monitor. Can be <code>null</code>
 	 * @param name
 	 *            the name (or description) of the subtask
-	 * @throws OperationCanceledException
-	 *             if the monitor was canceled
 	 */
-	public static void subTask(IProgressMonitor monitor, String name) throws OperationCanceledException {
-		if(monitor != null) {
-			checkedTestCancelStatus(monitor);
+	public static void subTask(IProgressMonitor monitor, String name) {
+		if(monitor != null && !monitor.isCanceled()) {
 			monitor.subTask(name);
 		}
 	}
@@ -160,8 +159,9 @@ public class MonitorUtils {
 	 *             if the monitor was canceled
 	 */
 	public static void testCancelStatus(IProgressMonitor monitor) throws OperationCanceledException {
-		if(monitor != null && monitor.isCanceled())
+		if(monitor != null && monitor.isCanceled()) {
 			throw new OperationCanceledException();
+		}
 	}
 
 	/**
@@ -177,13 +177,8 @@ public class MonitorUtils {
 	 */
 	public static void worked(IProgressMonitor monitor, int work) throws OperationCanceledException {
 		if(monitor != null) {
-			checkedTestCancelStatus(monitor);
+			testCancelStatus(monitor);
 			monitor.worked(work);
 		}
-	}
-
-	private static void checkedTestCancelStatus(IProgressMonitor monitor) throws OperationCanceledException {
-		if(monitor.isCanceled())
-			throw new OperationCanceledException();
 	}
 }

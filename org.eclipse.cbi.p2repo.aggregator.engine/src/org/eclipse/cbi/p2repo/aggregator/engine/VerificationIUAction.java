@@ -1,9 +1,11 @@
 /*******************************************************************************
- * Copyright (c) 2006-2009, Cloudsmith Inc.
+ * Copyright (c) 2006-2016, Cloudsmith Inc.
  * The code, documentation and other materials contained herein have been
  * licensed under the Eclipse Public License - v 1.0 by the copyright holder
  * listed above, as the Initial Contributor under such license. The text of
  * such license is available at www.eclipse.org.
+ * - Contributions:
+ *     David Williams - bug 513518
  ******************************************************************************/
 package org.eclipse.cbi.p2repo.aggregator.engine;
 
@@ -37,6 +39,7 @@ import org.eclipse.cbi.p2repo.util.MonitorUtils;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
+import org.eclipse.core.runtime.OperationCanceledException;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.core.runtime.SubMonitor;
 import org.eclipse.emf.ecore.EObject;
@@ -290,7 +293,8 @@ public class VerificationIUAction extends AbstractPublisherAction {
 	}
 
 	public String getRelativeEObjectURI(EObject eObject) {
-		return EcoreUtil.getURI(eObject).deresolve(((EObject) builder.getAggregation()).eResource().getURI()).toString();
+		return EcoreUtil.getURI(eObject).deresolve(
+			((EObject) builder.getAggregation()).eResource().getURI()).toString();
 	}
 
 	@Override
@@ -353,7 +357,8 @@ public class VerificationIUAction extends AbstractPublisherAction {
 											if(filter != null)
 												throw new IllegalStateException(
 													"Only one configuration rule per IU name can be specified");
-											filter = createFilter(((ValidConfigurationsRule) rule).getValidConfigurations());
+											filter = createFilter(
+												((ValidConfigurationsRule) rule).getValidConfigurations());
 										}
 									}
 								}
@@ -400,8 +405,10 @@ public class VerificationIUAction extends AbstractPublisherAction {
 			iuDescription.setId(Builder.PDE_TARGET_PLATFORM_NAME);
 			iuDescription.setVersion(Version.emptyVersion);
 			iuDescription.setProperty(Builder.PROP_AGGREGATOR_GENERATED_IU, Boolean.TRUE.toString());
-			iuDescription.addProvidedCapabilities(Collections.singletonList(MetadataFactory.createProvidedCapability(
-				Builder.PDE_TARGET_PLATFORM_NAMESPACE, iuDescription.getId(), iuDescription.getVersion())));
+			iuDescription.addProvidedCapabilities(
+				Collections.singletonList(
+					MetadataFactory.createProvidedCapability(
+						Builder.PDE_TARGET_PLATFORM_NAMESPACE, iuDescription.getId(), iuDescription.getVersion())));
 			results.addIU(MetadataFactory.createInstallableUnit(iuDescription), IPublisherResult.NON_ROOT);
 
 			// add the IUs representing MappedRepositories
@@ -424,15 +431,17 @@ public class VerificationIUAction extends AbstractPublisherAction {
 					rejecter.setId(builder.getMappedRepositoryVerificationIUName(repository) + "_rejections");
 					rejecter.setVersion(Builder.ALL_CONTRIBUTED_CONTENT_VERSION);
 					rejecter.setProperty(Builder.PROP_AGGREGATOR_GENERATED_IU, Boolean.TRUE.toString());
-					rejecter.addProvidedCapabilities(Collections.singletonList(createSelfCapability(
-						rejecter.getId(), rejecter.getVersion())));
+					rejecter.addProvidedCapabilities(
+						Collections.singletonList(createSelfCapability(rejecter.getId(), rejecter.getVersion())));
 					// add the IUs representing contributions as requirements of the verification IU
 					rejecter.setRequirements(rejections.toArray(new IRequirement[rejections.size()]));
 					IInstallableUnit rejecterIU = MetadataFactory.createInstallableUnit(rejecter);
 					results.addIU(rejecterIU, IPublisherResult.NON_ROOT);
-					crList.add(MetadataFactory.createRequirement(
-						PublisherHelper.IU_NAMESPACE, rejecterIU.getId(), new VersionRange(
-							rejecterIU.getVersion(), true, rejecterIU.getVersion(), true), null, 1, 1, true));
+					crList.add(
+						MetadataFactory.createRequirement(
+							PublisherHelper.IU_NAMESPACE, rejecterIU.getId(),
+							new VersionRange(rejecterIU.getVersion(), true, rejecterIU.getVersion(), true), null, 1, 1,
+							true));
 				}
 
 				iuDescription.setId(builder.getMappedRepositoryVerificationIUName(repository));
@@ -442,13 +451,15 @@ public class VerificationIUAction extends AbstractPublisherAction {
 					VerificationDiagnostic.PROP_AGGREGATOR_MODEL_ELEMENT_URI,
 					getRelativeEObjectURI((EObject) repository));
 				iuDescription.setProperty(Builder.PROP_AGGREGATOR_GENERATED_IU, Boolean.TRUE.toString());
-				iuDescription.addProvidedCapabilities(Collections.singletonList(createSelfCapability(
-					iuDescription.getId(), iuDescription.getVersion())));
+				iuDescription.addProvidedCapabilities(
+					Collections.singletonList(createSelfCapability(iuDescription.getId(), iuDescription.getVersion())));
 				iuDescription.setRequirements(crList.toArray(new IRequirement[crList.size()]));
 
-				rList.add(MetadataFactory.createRequirement(
-					PublisherHelper.IU_NAMESPACE, iuDescription.getId(), new VersionRange(
-						iuDescription.getVersion(), true, iuDescription.getVersion(), true), null, false, false));
+				rList.add(
+					MetadataFactory.createRequirement(
+						PublisherHelper.IU_NAMESPACE, iuDescription.getId(),
+						new VersionRange(iuDescription.getVersion(), true, iuDescription.getVersion(), true), null,
+						false, false));
 
 				results.addIU(MetadataFactory.createInstallableUnit(iuDescription), IPublisherResult.NON_ROOT);
 
@@ -459,16 +470,21 @@ public class VerificationIUAction extends AbstractPublisherAction {
 			iuDescription.setVersion(Builder.ALL_CONTRIBUTED_CONTENT_VERSION);
 			iuDescription.setProperty(InstallableUnitDescription.PROP_TYPE_GROUP, Boolean.TRUE.toString());
 			iuDescription.setProperty(Builder.PROP_AGGREGATOR_GENERATED_IU, Boolean.TRUE.toString());
-			iuDescription.addProvidedCapabilities(Collections.singletonList(createSelfCapability(
-				iuDescription.getId(), iuDescription.getVersion())));
+			iuDescription.addProvidedCapabilities(
+				Collections.singletonList(createSelfCapability(iuDescription.getId(), iuDescription.getVersion())));
 			// add the IUs representing contributions as requirements of the verification IU
 			iuDescription.setRequirements(rList.toArray(new IRequirement[rList.size()]));
 			results.addIU(MetadataFactory.createInstallableUnit(iuDescription), IPublisherResult.ROOT);
 
 			return Status.OK_STATUS;
 		}
+		catch(OperationCanceledException e) {
+			LogUtils.info("Operation canceled."); //$NON-NLS-1$
+		}
 		finally {
 			MonitorUtils.done(subMon);
 		}
+		// only gets to here if "operation canceled" which we will count as "ok".
+		return Status.OK_STATUS;
 	}
 }

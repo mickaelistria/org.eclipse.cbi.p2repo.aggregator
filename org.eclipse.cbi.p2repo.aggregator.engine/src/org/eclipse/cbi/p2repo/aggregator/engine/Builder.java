@@ -1,3 +1,12 @@
+/**
+ * Copyright (c) 2006-2016, Cloudsmith Inc.
+ * The code, documentation and other materials contained herein have been
+ * licensed under the Eclipse Public License - v 1.0 by the copyright holder
+ * listed above, as the Initial Contributor under such license. The text of
+ * such license is available at www.eclipse.org.
+ * - Contributions:
+ *     David Williams - bug 513518
+ */
 package org.eclipse.cbi.p2repo.aggregator.engine;
 
 import static java.lang.String.format;
@@ -71,6 +80,7 @@ import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IConfigurationElement;
 import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.core.runtime.OperationCanceledException;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.core.runtime.SubMonitor;
 import org.eclipse.emf.common.util.Diagnostic;
@@ -541,12 +551,14 @@ public class Builder extends ModelAbstractCommand {
 		IArtifactRepositoryManager arMgr = getArManager();
 		IMetadataRepositoryManager mdrMgr = getMdrManager();
 		SubMonitor subMon = SubMonitor.convert(monitor, 100);
+		MonitorUtils.testCancelStatus(subMon);
 		try {
 			List<MappedRepository> reposWithReferencedArtifacts = new ArrayList<MappedRepository>();
 			List<MappedRepository> reposWithReferencedMetadata = new ArrayList<MappedRepository>();
 
 			for(Contribution contrib : aggregation.getAllContributions(true)) {
 				for(MappedRepository repo : contrib.getRepositories(true)) {
+					MonitorUtils.testCancelStatus(monitor);
 					if(isMapVerbatim(repo)) {
 						reposWithReferencedArtifacts.add(repo);
 						reposWithReferencedMetadata.add(repo);
@@ -594,6 +606,7 @@ public class Builder extends ModelAbstractCommand {
 				p2Index.setProperty("metadata.repository.factory.order", "compositeContent.xml,!");
 				LogUtils.info("Done building final metadata composite");
 			}
+			MonitorUtils.testCancelStatus(subMon);
 			subMon.worked(10);
 
 			IFileArtifactRepository artifacts = getAggregationArtifactRepository(subMon.newChild(2));
@@ -604,6 +617,7 @@ public class Builder extends ModelAbstractCommand {
 			if(!hasMirroredArtifacts) {
 				// Delete all stuff related to this artifact repository in the aggregate directory
 				for(String name : aggregateDestination.list()) {
+					MonitorUtils.testCancelStatus(monitor);
 					if(!"content.jar".equals(name))
 						FileUtils.deleteAll(new File(aggregateDestination, name));
 				}
@@ -617,6 +631,7 @@ public class Builder extends ModelAbstractCommand {
 				// up to the final directory.
 				LogUtils.info("Making the aggregated artifact repository final at %s", finalURI);
 				for(String name : aggregateDestination.list()) {
+					MonitorUtils.testCancelStatus(monitor);
 					if("content.jar".equals(name))
 						continue;
 
@@ -635,6 +650,7 @@ public class Builder extends ModelAbstractCommand {
 				p2Index.setProperty("artifact.repository.factory.order", "artifacts.xml,!");
 			}
 			else {
+				MonitorUtils.testCancelStatus(monitor);
 				// Set up the final composite repositories
 				LogUtils.info("Building final artifact composite at %s", finalURI);
 				arMgr.removeRepository(finalURI);
@@ -645,8 +661,10 @@ public class Builder extends ModelAbstractCommand {
 				CompositeArtifactRepository compositeAr = (CompositeArtifactRepository) arMgr.createRepository(
 					finalURI, getAggregation().getLabel() + " artifacts", COMPOSITE_ARTIFACTS_TYPE, properties); //$NON-NLS-1$
 
-				for(MappedRepository referenced : reposWithReferencedArtifacts)
+				for(MappedRepository referenced : reposWithReferencedArtifacts) {
+					MonitorUtils.testCancelStatus(monitor);
 					compositeAr.addChild(referenced.getMetadataRepository().getLocation());
+				}
 
 				if(hasMirroredArtifacts)
 					compositeAr.addChild(finalURI.relativize(aggregateURI));
@@ -678,9 +696,14 @@ public class Builder extends ModelAbstractCommand {
 			// Remove the aggregation in case it's now empty.
 			//
 			String[] content = aggregateDestination.list();
-			if(content != null && content.length == 0)
+			if(content != null && content.length == 0) {
+				MonitorUtils.testCancelStatus(monitor);
 				if(!aggregateDestination.delete())
 					throw ExceptionUtils.fromMessage("Unable to remove %s", aggregateDestination.getAbsolutePath());
+			}
+		}
+		catch(OperationCanceledException e) {
+			LogUtils.info("Operation canceled."); //$NON-NLS-1$
 		}
 		finally {
 			MonitorUtils.done(monitor);
@@ -705,6 +728,7 @@ public class Builder extends ModelAbstractCommand {
 		properties.put(IRepository.PROP_COMPRESSED, Boolean.toString(true));
 		properties.put(Publisher.PUBLISH_PACK_FILES_AS_SIBLINGS, Boolean.toString(true));
 		try {
+			MonitorUtils.testCancelStatus(monitor);
 			aggregationAr = (IFileArtifactRepository) arMgr.loadRepository(aggregateURI, monitor);
 		}
 		catch(ProvisionException e) {
@@ -994,6 +1018,9 @@ public class Builder extends ModelAbstractCommand {
 				if(file.exists() && !file.delete())
 					throw ExceptionUtils.fromMessage("Unable to remove %s", file.getAbsolutePath());
 			}
+		}
+		catch(OperationCanceledException e) {
+			LogUtils.info("Operation canceled."); //$NON-NLS-1$
 		}
 		finally {
 			MonitorUtils.done(monitor);
@@ -1526,19 +1553,23 @@ public class Builder extends ModelAbstractCommand {
 			MonitorUtils.complete(monitor);
 			return;
 		}
-
-		IWorkspaceRoot wsRoot = ResourcesPlugin.getWorkspace().getRoot();
-		IContainer[] containers = wsRoot.findContainersForLocationURI(buildRoot.toURI());
-		SubMonitor subMon = SubMonitor.convert(monitor, containers.length * 100);
-		for(IContainer rootContainer : containers) {
-			try {
+		try {
+			IWorkspaceRoot wsRoot = ResourcesPlugin.getWorkspace().getRoot();
+			IContainer[] containers = wsRoot.findContainersForLocationURI(buildRoot.toURI());
+			SubMonitor subMon = SubMonitor.convert(monitor, containers.length * 100);
+			for(IContainer rootContainer : containers) {
 				rootContainer.refreshLocal(IResource.DEPTH_INFINITE, subMon.newChild(100));
 			}
-			catch(CoreException e) {
-				// ignore
-			}
 		}
-		MonitorUtils.done(monitor);
+		catch(OperationCanceledException e) {
+			LogUtils.info("Operation canceled."); //$NON-NLS-1$
+		}
+		catch(CoreException e) {
+			// ignore
+		}
+		finally {
+			MonitorUtils.done(monitor);
+		}
 	}
 
 	public void removeUnitsToAggregate(ValidationSet validationSet) {
@@ -1673,6 +1704,9 @@ public class Builder extends ModelAbstractCommand {
 			}
 			return 0;
 		}
+		catch(OperationCanceledException e) {
+			LogUtils.info("Operation canceled."); //$NON-NLS-1$
+		}
 		catch(Exception e) {
 			LogUtils.error(e, "Build failed! Exception was %s", getExceptionMessages(e));
 			throw e;
@@ -1691,6 +1725,8 @@ public class Builder extends ModelAbstractCommand {
 			refreshBuildRoot(subMon.newChild(100));
 			MonitorUtils.done(monitor);
 		}
+		// It gets to here only if OperationCanceledException caught.
+		return 0;
 	}
 
 	@Override

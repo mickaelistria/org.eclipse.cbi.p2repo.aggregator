@@ -1,9 +1,11 @@
 /**
- * Copyright (c) 2006-2009, Cloudsmith Inc.
+ * Copyright (c) 2006-2016, Cloudsmith Inc.
  * The code, documentation and other materials contained herein have been
  * licensed under the Eclipse Public License - v 1.0 by the copyright holder
  * listed above, as the Initial Contributor under such license. The text of
  * such license is available at www.eclipse.org.
+ * - Contributions:
+ *     David Williams - bug 513518
  */
 
 package org.eclipse.cbi.p2repo.p2.util;
@@ -56,9 +58,11 @@ import org.eclipse.cbi.p2repo.p2.impl.TouchpointInstructionImpl;
 import org.eclipse.cbi.p2repo.p2.impl.TouchpointTypeImpl;
 import org.eclipse.cbi.p2repo.p2.impl.UpdateDescriptorImpl;
 import org.eclipse.cbi.p2repo.util.ExceptionUtils;
+import org.eclipse.cbi.p2repo.util.LogUtils;
 import org.eclipse.cbi.p2repo.util.MonitorUtils;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.core.runtime.OperationCanceledException;
 import org.eclipse.core.runtime.SubMonitor;
 import org.eclipse.emf.common.util.EMap;
 import org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactDescriptor;
@@ -155,7 +159,8 @@ public class P2Bridge {
 						SimpleArtifactDescriptor p2native = new SimpleArtifactDescriptor(descriptor);
 						p2native.setRepositoryProperty(
 							SimpleArtifactDescriptor.ARTIFACT_REFERENCE,
-							((SimpleArtifactDescriptorImpl) descriptor).getRepositoryProperty(SimpleArtifactDescriptor.ARTIFACT_REFERENCE));
+							((SimpleArtifactDescriptorImpl) descriptor).getRepositoryProperty(
+								SimpleArtifactDescriptor.ARTIFACT_REFERENCE));
 						target.addDescriptor(p2native, subMon.newChild(1));
 					}
 					else
@@ -210,7 +215,8 @@ public class P2Bridge {
 	public static ArtifactDescriptor importToModel(IArtifactRepository target, IArtifactDescriptor descriptor) {
 		if(descriptor == null)
 			return null;
-		ArtifactDescriptorImpl mdescriptor = (ArtifactDescriptorImpl) target.createArtifactDescriptor(descriptor.getArtifactKey());
+		ArtifactDescriptorImpl mdescriptor = (ArtifactDescriptorImpl) target.createArtifactDescriptor(
+			descriptor.getArtifactKey());
 		List<IProcessingStepDescriptor> msteps = mdescriptor.getProcessingStepList();
 		for(IProcessingStepDescriptor step : descriptor.getProcessingSteps())
 			msteps.add(importToModel(step));
@@ -386,17 +392,22 @@ public class P2Bridge {
 	public static void importToModel(IMetadataRepositoryManager mdrMgr, IMetadataRepository mdr,
 			MetadataRepositoryImpl target, IProgressMonitor monitor, boolean sortIUs) throws CoreException {
 		importToModel(mdrMgr, mdr, target);
-		monitor = MonitorUtils.ensureNotNull(monitor);
-		IQueryResult<IInstallableUnit> result = mdr.query(QUERY_ALL_IUS, monitor);
-		Iterator<IInstallableUnit> itor = result.iterator();
-		ArrayList<InstallableUnit> ius = new ArrayList<InstallableUnit>();
-		while(itor.hasNext())
-			ius.add(P2Bridge.importToModel(itor.next()));
-		if(sortIUs)
-			Collections.sort(ius);
-		target.getInstallableUnits().addAll(ius);
+		try {
+			monitor = MonitorUtils.ensureNotNull(monitor);
+			IQueryResult<IInstallableUnit> result = mdr.query(QUERY_ALL_IUS, monitor);
+			Iterator<IInstallableUnit> itor = result.iterator();
+			ArrayList<InstallableUnit> ius = new ArrayList<InstallableUnit>();
+			while(itor.hasNext())
+				ius.add(P2Bridge.importToModel(itor.next()));
+			if(sortIUs)
+				Collections.sort(ius);
+			target.getInstallableUnits().addAll(ius);
 
-		target.addRepositoryReferences(mdrMgr, mdr);
+			target.addRepositoryReferences(mdrMgr, mdr);
+		}
+		catch(OperationCanceledException e) {
+			LogUtils.info("Operation canceled."); //$NON-NLS-1$
+		}
 	}
 
 	public static IProcessingStepDescriptor importToModel(IProcessingStepDescriptor step) {

@@ -1,3 +1,12 @@
+/**
+ * Copyright (c) 2006-2016, Cloudsmith Inc.
+ * The code, documentation and other materials contained herein have been
+ * licensed under the Eclipse Public License - v 1.0 by the copyright holder
+ * listed above, as the Initial Contributor under such license. The text of
+ * such license is available at www.eclipse.org.
+ * - Contributions:
+ *     David Williams - bug 513518
+ */
 package org.eclipse.cbi.p2repo.aggregator.engine;
 
 import static java.lang.String.format;
@@ -16,9 +25,6 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
-import org.eclipse.cbi.p2repo.p2.MetadataRepository;
-import org.eclipse.cbi.p2repo.p2.util.P2Bridge;
-import org.eclipse.cbi.p2repo.p2.util.P2Utils;
 import org.eclipse.cbi.p2repo.aggregator.Aggregation;
 import org.eclipse.cbi.p2repo.aggregator.Configuration;
 import org.eclipse.cbi.p2repo.aggregator.Contribution;
@@ -31,6 +37,9 @@ import org.eclipse.cbi.p2repo.aggregator.impl.AggregationImpl;
 import org.eclipse.cbi.p2repo.aggregator.util.InstallableUnitUtils;
 import org.eclipse.cbi.p2repo.aggregator.util.SpecialQueries;
 import org.eclipse.cbi.p2repo.aggregator.util.VerificationDiagnostic;
+import org.eclipse.cbi.p2repo.p2.MetadataRepository;
+import org.eclipse.cbi.p2repo.p2.util.P2Bridge;
+import org.eclipse.cbi.p2repo.p2.util.P2Utils;
 import org.eclipse.cbi.p2repo.util.ExceptionUtils;
 import org.eclipse.cbi.p2repo.util.LogUtils;
 import org.eclipse.cbi.p2repo.util.MonitorUtils;
@@ -40,6 +49,7 @@ import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.MultiStatus;
 import org.eclipse.core.runtime.NullProgressMonitor;
+import org.eclipse.core.runtime.OperationCanceledException;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.core.runtime.SubMonitor;
 import org.eclipse.emf.ecore.EObject;
@@ -85,6 +95,8 @@ public class ValidationSetVerifier extends BuilderPhase {
 
 	public static class AnalyzedPlannerStatus extends MultiStatus {
 
+		private static final String MESSAGE_INDENT = "  ";
+
 		private static void appendChildren(StringBuilder messageBuilder, IStatus[] children, String indent, int level) {
 			for(IStatus child : children) {
 				for(int i = 0; i < level; ++i)
@@ -104,8 +116,6 @@ public class ValidationSetVerifier extends BuilderPhase {
 
 			return messageBuilder;
 		}
-
-		private static final String MESSAGE_INDENT = "  ";
 
 		protected PlannerStatus plannerStatus;
 
@@ -247,9 +257,10 @@ public class ValidationSetVerifier extends BuilderPhase {
 						org.eclipse.emf.common.util.URI modelElementURI = dependencyChain.getModelElementURI();
 
 						if(modelElementURI != null)
-							verificationDiagnostics.add(new VerificationDiagnostic(
-								rootProblem.toString(), dependencyChain.getModelElementURI().deresolve(
-									resource.getURI())));
+							verificationDiagnostics.add(
+								new VerificationDiagnostic(
+									rootProblem.toString(),
+									dependencyChain.getModelElementURI().deresolve(resource.getURI())));
 					}
 				}
 				else if(rootProblem instanceof MissingGreedyIU) {
@@ -276,9 +287,10 @@ public class ValidationSetVerifier extends BuilderPhase {
 						org.eclipse.emf.common.util.URI modelElementURI = dependencyChain.getModelElementURI();
 
 						if(modelElementURI != null)
-							verificationDiagnostics.add(new VerificationDiagnostic(
-								rootProblem.toString(), dependencyChain.getModelElementURI().deresolve(
-									resource.getURI())));
+							verificationDiagnostics.add(
+								new VerificationDiagnostic(
+									rootProblem.toString(),
+									dependencyChain.getModelElementURI().deresolve(resource.getURI())));
 					}
 				}
 			}
@@ -374,8 +386,12 @@ public class ValidationSetVerifier extends BuilderPhase {
 		IQuery<IInstallableUnit> query = QueryUtil.createIUQuery(iuName, version);
 		IQueryResult<IInstallableUnit> roots = site.query(query, monitor);
 
-		if(roots.isEmpty())
-			throw ExceptionUtils.fromMessage("IU %s not found", iuName); //$NON-NLS-1$
+		if(roots.isEmpty()) {
+			// roots might be empty because operation canceled.
+			if(monitor != null && !monitor.isCanceled()) {
+				throw ExceptionUtils.fromMessage("IU %s not found", iuName); //$NON-NLS-1$
+			}
+		}
 
 		return roots.toArray(IInstallableUnit.class);
 	}
@@ -618,8 +634,9 @@ public class ValidationSetVerifier extends BuilderPhase {
 				tempAr = (IFileArtifactRepository) arMgr.loadRepository(tempRepositoryURI, subMon.newChild(1));
 			}
 			catch(ProvisionException e) {
-				tempAr = (IFileArtifactRepository) arMgr.createRepository(tempRepositoryURI, "temporary artifacts"
-						+ " artifacts", Builder.SIMPLE_ARTIFACTS_TYPE, Collections.<String, String> emptyMap()); //$NON-NLS-1$
+				tempAr = (IFileArtifactRepository) arMgr.createRepository(
+					tempRepositoryURI, "temporary artifacts" + " artifacts", Builder.SIMPLE_ARTIFACTS_TYPE, //$NON-NLS-2$
+					Collections.<String, String> emptyMap());
 			}
 
 			Collection<IArtifactKey> artifacts = miu.getArtifacts();
@@ -703,7 +720,8 @@ public class ValidationSetVerifier extends BuilderPhase {
 			if(sourceRepo instanceof UpdateSiteMetadataRepository &&
 					!getBuilder().getAggregation().isAllowLegacySites())
 				throw ExceptionUtils.fromMessage(
-					"Location %s appoints a legacy update site. They are not allowed in this aggregation", repoLocation);
+					"Location %s appoints a legacy update site. They are not allowed in this aggregation",
+					repoLocation);
 
 			for(Configuration config : configs) {
 				if(!config.isEnabled())
@@ -716,7 +734,7 @@ public class ValidationSetVerifier extends BuilderPhase {
 
 				Map<String, String> props = new HashMap<String, String>();
 				// TODO Where is FLAVOR gone?
-				//props.put(IProfile.PROP_FLAVOR, "tooling"); //$NON-NLS-1$
+				// props.put(IProfile.PROP_FLAVOR, "tooling"); //$NON-NLS-1$
 				props.put(IProfile.PROP_ENVIRONMENTS, config.getOSGiEnvironmentString());
 				props.put(IProfile.PROP_INSTALL_FEATURES, "true");
 
@@ -739,6 +757,7 @@ public class ValidationSetVerifier extends BuilderPhase {
 				request.addInstallableUnits(rootArr);
 
 				while(true) {
+					MonitorUtils.testCancelStatus(monitor);
 					ProvisioningContext context = createContext(repoLocation);
 					ProvisioningPlan plan = (ProvisioningPlan) planner.getProvisioningPlan(
 						request, context,
@@ -749,8 +768,9 @@ public class ValidationSetVerifier extends BuilderPhase {
 						LogUtils.log(status);
 						sendEmails((PlannerStatus) status);
 						LogUtils.info("Done. Took %s", TimeUtils.getFormattedDuration(start)); //$NON-NLS-1$
-						throw new CoreException(new AnalyzedPlannerStatus(
-							((EObject) aggregation).eResource(), config, (PlannerStatus) status));
+						throw new CoreException(
+							new AnalyzedPlannerStatus(
+								((EObject) aggregation).eResource(), config, (PlannerStatus) status));
 					}
 
 					boolean hadPartials = false;
@@ -814,7 +834,8 @@ public class ValidationSetVerifier extends BuilderPhase {
 							}
 							else {
 								if(!unitsToAggregate.contains(iu)) {
-									if(Boolean.valueOf(iu.getProperty(IInstallableUnit.PROP_PARTIAL_IU)).booleanValue()) {
+									if(Boolean.valueOf(
+										iu.getProperty(IInstallableUnit.PROP_PARTIAL_IU)).booleanValue()) {
 										iu = resolvePartialIU(iu, subMon.newChild(1));
 										hadPartials = true;
 									}
@@ -838,7 +859,8 @@ public class ValidationSetVerifier extends BuilderPhase {
 							IInstallableUnit iu = allIUs.next();
 							if(candidates.contains(iu) && !unitsToAggregate.contains(iu)) {
 								try {
-									if(Boolean.valueOf(iu.getProperty(IInstallableUnit.PROP_PARTIAL_IU)).booleanValue()) {
+									if(Boolean.valueOf(
+										iu.getProperty(IInstallableUnit.PROP_PARTIAL_IU)).booleanValue()) {
 										iu = resolvePartialIU(iu, SubMonitor.convert(new NullProgressMonitor()));
 										hadPartialsHolder[0] = true;
 									}
@@ -858,7 +880,11 @@ public class ValidationSetVerifier extends BuilderPhase {
 					LogUtils.info("Partial IU's encountered. Verifying %s again...", configName); //$NON-NLS-1$
 				}
 			}
+
 			LogUtils.info("Verification successful"); //$NON-NLS-1$
+		}
+		catch(OperationCanceledException e) {
+			LogUtils.info("Operation canceled."); //$NON-NLS-1$
 		}
 		catch(RuntimeException e) {
 			throw ExceptionUtils.wrap(e);

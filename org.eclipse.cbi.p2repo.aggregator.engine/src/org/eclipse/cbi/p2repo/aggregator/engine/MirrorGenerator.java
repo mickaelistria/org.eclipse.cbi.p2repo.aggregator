@@ -1,3 +1,12 @@
+/**
+ * Copyright (c) 2006-2016, Cloudsmith Inc.
+ * The code, documentation and other materials contained herein have been
+ * licensed under the Eclipse Public License - v 1.0 by the copyright holder
+ * listed above, as the Initial Contributor under such license. The text of
+ * such license is available at www.eclipse.org.
+ * - Contributions:
+ *     David Williams - bug 513518
+ */
 package org.eclipse.cbi.p2repo.aggregator.engine;
 
 import static java.lang.String.format;
@@ -14,13 +23,13 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import org.eclipse.cbi.p2repo.p2.MetadataRepository;
 import org.eclipse.cbi.p2repo.aggregator.Aggregation;
 import org.eclipse.cbi.p2repo.aggregator.Contribution;
 import org.eclipse.cbi.p2repo.aggregator.MappedRepository;
 import org.eclipse.cbi.p2repo.aggregator.PackedStrategy;
 import org.eclipse.cbi.p2repo.aggregator.ValidationSet;
 import org.eclipse.cbi.p2repo.aggregator.util.ResourceUtils;
+import org.eclipse.cbi.p2repo.p2.MetadataRepository;
 import org.eclipse.cbi.p2repo.util.ExceptionUtils;
 import org.eclipse.cbi.p2repo.util.IOUtils;
 import org.eclipse.cbi.p2repo.util.LogUtils;
@@ -462,17 +471,12 @@ public class MirrorGenerator extends BuilderPhase {
 						LogUtils.info(msg);
 						contribMonitor.subTask(msg);
 						IArtifactRepository childAr = builder.getArtifactRepository(
-							repo,
-							contribMonitor.newChild(1, SubMonitor.SUPPRESS_BEGINTASK | SubMonitor.SUPPRESS_SETTASKNAME));
+							repo, contribMonitor.newChild(
+								1, SubMonitor.SUPPRESS_BEGINTASK | SubMonitor.SUPPRESS_SETTASKNAME));
 						mirror(
-							keysToMirror,
-							tempAr,
-							childAr,
-							aggregationAr,
-							getTransport(),
-							packedStrategy,
-							errors,
-							contribMonitor.newChild(94, SubMonitor.SUPPRESS_BEGINTASK | SubMonitor.SUPPRESS_SETTASKNAME));
+							keysToMirror, tempAr, childAr, aggregationAr, getTransport(), packedStrategy, errors,
+							contribMonitor.newChild(
+								94, SubMonitor.SUPPRESS_BEGINTASK | SubMonitor.SUPPRESS_SETTASKNAME));
 					}
 					else
 						MonitorUtils.worked(contribMonitor, 95);
@@ -485,6 +489,9 @@ public class MirrorGenerator extends BuilderPhase {
 				}
 				MonitorUtils.done(contribMonitor);
 			}
+		}
+		catch(OperationCanceledException e) {
+			LogUtils.info("Operation canceled."); //$NON-NLS-1$
 		}
 		finally {
 			MonitorUtils.done(monitor);
