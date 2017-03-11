@@ -18,6 +18,7 @@ import org.eclipse.cbi.p2repo.util.LogUtils;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.NullProgressMonitor;
+import org.eclipse.core.runtime.OperationCanceledException;
 import org.eclipse.core.runtime.SubMonitor;
 import org.eclipse.equinox.p2.core.IProvisioningAgent;
 import org.eclipse.equinox.p2.core.ProvisionException;
@@ -94,6 +95,9 @@ public class P2RepositoryLoader implements IRepositoryLoader {
 
 				break;
 			}
+			catch(OperationCanceledException e) {
+				LogUtils.info("Operation canceled."); //$NON-NLS-1$
+			}
 			catch(ProvisionException e) {
 				Throwable t = e.getCause();
 				if(i > 0 && t instanceof IOException && t.getMessage() != null &&
@@ -112,8 +116,9 @@ public class P2RepositoryLoader implements IRepositoryLoader {
 				throw (e);
 			}
 		}
-
-		P2Bridge.importToModel(mdrMgr, repo, repository, subMon.newChild(20), true);
+		if(!monitor.isCanceled()) {
+			P2Bridge.importToModel(mdrMgr, repo, repository, subMon.newChild(20), true);
+		}
 	}
 
 	@Override

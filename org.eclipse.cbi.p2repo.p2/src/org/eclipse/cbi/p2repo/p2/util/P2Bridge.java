@@ -174,12 +174,13 @@ public class P2Bridge {
 	}
 
 	public static void exportFromModel(IMetadataRepositoryManager mdrMgr, IMetadataRepository mdr,
-			boolean overwriteExisting, IProgressMonitor monitor) throws CoreException {
+			boolean overwriteExisting, IProgressMonitor monitor) throws OperationCanceledException, CoreException {
 		exportFromModel(mdrMgr, mdr, mdr.getLocation(), overwriteExisting, false, monitor);
 	}
 
 	public static void exportFromModel(IMetadataRepositoryManager mdrMgr, IMetadataRepository mdr, URI targetLocation,
-			boolean overwriteExisting, boolean sortIUs, IProgressMonitor monitor) throws CoreException {
+			boolean overwriteExisting, boolean sortIUs, IProgressMonitor monitor)
+			throws OperationCanceledException, CoreException {
 
 		if(overwriteExisting) {
 			deleteIfExists(targetLocation, "content.xml", "content.jar", "compositeContent.jar");

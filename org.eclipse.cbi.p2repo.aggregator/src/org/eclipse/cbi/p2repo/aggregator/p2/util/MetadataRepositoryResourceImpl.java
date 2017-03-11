@@ -493,6 +493,7 @@ public class MetadataRepositoryResourceImpl extends ResourceImpl implements Stat
 
 				LogUtils.debug("Repository %s loaded (Took %s)", location, TimeUtils.getFormattedDuration(start));
 			}
+
 			catch(Exception e) {
 				exception = e;
 				LogUtils.error(e, "Unable to load repository %s", location);

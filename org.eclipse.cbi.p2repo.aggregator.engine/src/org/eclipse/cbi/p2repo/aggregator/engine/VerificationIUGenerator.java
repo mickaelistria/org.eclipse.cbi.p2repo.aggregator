@@ -51,8 +51,9 @@ public class VerificationIUGenerator extends BuilderPhase {
 		name += " Verification repository";
 
 		File globalLocation = new File(getBuilder().getBuildRoot(), Builder.REPO_FOLDER_INTERIM);
-		File location = new File(globalLocation, Builder.REPO_FOLDER_VERIFICATION +
-				getBuilder().getValidationSetSubdirectory(validationSet));
+		File location = new File(
+			globalLocation,
+			Builder.REPO_FOLDER_VERIFICATION + getBuilder().getValidationSetSubdirectory(validationSet));
 		FileUtils.deleteAll(location);
 
 		Map<String, String> properties = new HashMap<String, String>();
@@ -82,6 +83,9 @@ public class VerificationIUGenerator extends BuilderPhase {
 				throw new CoreException(publishResult[0]);
 
 			getBuilder().getSourceComposite(validationSet).addChild(mdr.getLocation());
+		}
+		catch(OperationCanceledException e) {
+			LogUtils.info("Operation canceled."); //$NON-NLS-1$
 		}
 		finally {
 			MonitorUtils.done(monitor);

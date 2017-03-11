@@ -17,8 +17,10 @@ import org.eclipse.cbi.p2repo.p2.impl.MetadataRepositoryImpl;
 import org.eclipse.cbi.p2repo.p2.impl.RequiredCapabilityImpl;
 import org.eclipse.cbi.p2repo.p2.util.P2Bridge;
 import org.eclipse.cbi.p2repo.p2.util.P2Utils;
+import org.eclipse.cbi.p2repo.util.LogUtils;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.NullProgressMonitor;
+import org.eclipse.core.runtime.OperationCanceledException;
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
@@ -83,6 +85,7 @@ public class MetadataRepositoryTests {
 
 	private IMetadataRepository createMetadataRepository(IMetadataRepositoryManager mdrMgr, File location)
 			throws CoreException {
+
 		MetadataRepositoryImpl mdr = (MetadataRepositoryImpl) P2Factory.eINSTANCE.createMetadataRepository();
 		mdr.setLocation(location.toURI());
 		mdr.setName("Testing Repository");
@@ -105,9 +108,12 @@ public class MetadataRepositoryTests {
 
 		mdr.getInstallableUnits().add(iu1);
 		mdr.getInstallableUnits().add(iu2);
-
-		P2Bridge.exportFromModel(mdrMgr, mdr, true, null);
-
+		try {
+			P2Bridge.exportFromModel(mdrMgr, mdr, true, null);
+		}
+		catch(OperationCanceledException e) {
+			LogUtils.info("Operation canceled."); //$NON-NLS-1$
+		}
 		return mdr;
 	}
 

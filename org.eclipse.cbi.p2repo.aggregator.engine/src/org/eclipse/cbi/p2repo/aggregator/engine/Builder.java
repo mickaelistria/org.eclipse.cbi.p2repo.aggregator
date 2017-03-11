@@ -551,8 +551,8 @@ public class Builder extends ModelAbstractCommand {
 		IArtifactRepositoryManager arMgr = getArManager();
 		IMetadataRepositoryManager mdrMgr = getMdrManager();
 		SubMonitor subMon = SubMonitor.convert(monitor, 100);
-		MonitorUtils.testCancelStatus(subMon);
 		try {
+			MonitorUtils.testCancelStatus(subMon);
 			List<MappedRepository> reposWithReferencedArtifacts = new ArrayList<MappedRepository>();
 			List<MappedRepository> reposWithReferencedMetadata = new ArrayList<MappedRepository>();
 
@@ -714,7 +714,8 @@ public class Builder extends ModelAbstractCommand {
 		return aggregation;
 	}
 
-	public IFileArtifactRepository getAggregationArtifactRepository(IProgressMonitor monitor) throws CoreException {
+	public IFileArtifactRepository getAggregationArtifactRepository(IProgressMonitor monitor)
+			throws OperationCanceledException, CoreException {
 		if(aggregationAr != null) {
 			MonitorUtils.complete(monitor);
 			return aggregationAr;
@@ -739,7 +740,7 @@ public class Builder extends ModelAbstractCommand {
 		return aggregationAr;
 	}
 
-	public IMetadataRepository getAggregationMetadataRepository() throws CoreException {
+	public IMetadataRepository getAggregationMetadataRepository() throws OperationCanceledException, CoreException {
 		if(aggregationMdr != null)
 			return aggregationMdr;
 
@@ -1415,39 +1416,44 @@ public class Builder extends ModelAbstractCommand {
 			List<MappedRepository> repos = contrib.getRepositories(true);
 			List<String> errors = new ArrayList<String>();
 			MonitorUtils.begin(contribMonitor, repos.size() * 100);
-			for(MappedRepository repo : repos) {
-				if(!repo.isMirrorArtifacts()) {
-					String msg = String.format(
-						"Repository %s must be set to mirror artifacts if maven result is required",
-						repo.getLocation());
-					LogUtils.error(msg);
-					errors.add(msg);
-					MonitorUtils.worked(contribMonitor, 100);
-					continue;
-				}
-
-				MetadataRepository childMdr = ResourceUtils.getMetadataRepository(repo);
-				ArrayList<IInstallableUnit> iusToMirror = null;
-				for(IInstallableUnit iu : childMdr.getInstallableUnits()) {
-					if(!allUnitsToAggregate.contains(iu))
+			try {
+				for(MappedRepository repo : repos) {
+					if(!repo.isMirrorArtifacts()) {
+						String msg = String.format(
+							"Repository %s must be set to mirror artifacts if maven result is required",
+							repo.getLocation());
+						LogUtils.error(msg);
+						errors.add(msg);
+						MonitorUtils.worked(contribMonitor, 100);
 						continue;
+					}
 
-					if(iusToMirror == null)
-						iusToMirror = new ArrayList<IInstallableUnit>();
-					iusToMirror.add(iu);
+					MetadataRepository childMdr = ResourceUtils.getMetadataRepository(repo);
+					ArrayList<IInstallableUnit> iusToMirror = null;
+					for(IInstallableUnit iu : childMdr.getInstallableUnits()) {
+						if(!allUnitsToAggregate.contains(iu))
+							continue;
+
+						if(iusToMirror == null)
+							iusToMirror = new ArrayList<IInstallableUnit>();
+						iusToMirror.add(iu);
+					}
+
+					List<MavenMapping> allMavenMappings = contrib.getAllMavenMappings();
+					if(iusToMirror != null)
+						for(IInstallableUnit iu : iusToMirror)
+							iusToMaven.add(new InstallableUnitMapping(contrib, iu, allMavenMappings));
+
+					MonitorUtils.worked(contribMonitor, 100);
 				}
-
-				List<MavenMapping> allMavenMappings = contrib.getAllMavenMappings();
-				if(iusToMirror != null)
-					for(IInstallableUnit iu : iusToMirror)
-						iusToMaven.add(new InstallableUnitMapping(contrib, iu, allMavenMappings));
-
-				MonitorUtils.worked(contribMonitor, 100);
+				if(errors.size() > 0) {
+					sendEmail(contrib, errors);
+					throw ExceptionUtils.fromMessage(
+						"All repositories must be set to mirror artifacts if maven result is required");
+				}
 			}
-			if(errors.size() > 0) {
-				sendEmail(contrib, errors);
-				throw ExceptionUtils.fromMessage(
-					"All repositories must be set to mirror artifacts if maven result is required");
+			catch(OperationCanceledException e) {
+				LogUtils.info("Operation canceled."); //$NON-NLS-1$
 			}
 			MonitorUtils.done(contribMonitor);
 		}
@@ -1486,34 +1492,39 @@ public class Builder extends ModelAbstractCommand {
 			SubMonitor contribMonitor = childMonitor.newChild(10);
 			List<MappedRepository> repos = contrib.getRepositories(true);
 			MonitorUtils.begin(contribMonitor, repos.size() * 100);
-			for(MappedRepository repo : repos) {
-				int ticksRemaining = 100;
+			try {
+				for(MappedRepository repo : repos) {
+					int ticksRemaining = 100;
 
-				// Create rules only if the artifacts are mapped from a non-p2 repository
-				if("p2".equals(repo.getNature())) {
-					MonitorUtils.worked(contribMonitor, 100);
-					continue;
-				}
+					// Create rules only if the artifacts are mapped from a non-p2 repository
+					if("p2".equals(repo.getNature())) {
+						MonitorUtils.worked(contribMonitor, 100);
+						continue;
+					}
 
-				MetadataRepository childMdr = ResourceUtils.getMetadataRepository(repo);
-				ArrayList<IInstallableUnit> iusToRefer = null;
-				for(IInstallableUnit iu : childMdr.getInstallableUnits()) {
-					if(allUnitsToValidate.contains(iu))
+					MetadataRepository childMdr = ResourceUtils.getMetadataRepository(repo);
+					ArrayList<IInstallableUnit> iusToRefer = null;
+					for(IInstallableUnit iu : childMdr.getInstallableUnits()) {
+						if(allUnitsToValidate.contains(iu))
+							continue;
+
+						if(iusToRefer == null)
+							iusToRefer = new ArrayList<IInstallableUnit>();
+						iusToRefer.add(iu);
+					}
+					if(iusToRefer == null)
 						continue;
 
-					if(iusToRefer == null)
-						iusToRefer = new ArrayList<IInstallableUnit>();
-					iusToRefer.add(iu);
+					int ticks = 50;
+					IArtifactRepository ar = getArtifactRepository(repo, contribMonitor.newChild(ticks));
+					ticksRemaining -= ticks;
+					for(IInstallableUnit iu : iusToRefer)
+						mavenApplyRules(repo, iu, ar, mappingRules, referencedArtifacts);
+					MonitorUtils.worked(contribMonitor, ticksRemaining);
 				}
-				if(iusToRefer == null)
-					continue;
-
-				int ticks = 50;
-				IArtifactRepository ar = getArtifactRepository(repo, contribMonitor.newChild(ticks));
-				ticksRemaining -= ticks;
-				for(IInstallableUnit iu : iusToRefer)
-					mavenApplyRules(repo, iu, ar, mappingRules, referencedArtifacts);
-				MonitorUtils.worked(contribMonitor, ticksRemaining);
+			}
+			catch(OperationCanceledException e) {
+				LogUtils.info("Operation canceled."); //$NON-NLS-1$
 			}
 			MonitorUtils.done(contribMonitor);
 		}
@@ -1558,6 +1569,7 @@ public class Builder extends ModelAbstractCommand {
 			IContainer[] containers = wsRoot.findContainersForLocationURI(buildRoot.toURI());
 			SubMonitor subMon = SubMonitor.convert(monitor, containers.length * 100);
 			for(IContainer rootContainer : containers) {
+				MonitorUtils.testCancelStatus(subMon);
 				rootContainer.refreshLocal(IResource.DEPTH_INFINITE, subMon.newChild(100));
 			}
 		}
@@ -1682,6 +1694,7 @@ public class Builder extends ModelAbstractCommand {
 
 			for(ValidationSet validationSet : validationSets) {
 				if(!validationSet.isAbstract()) {
+					MonitorUtils.testCancelStatus(subMon);
 					runCompositeGenerator(validationSet, subMon.newChild(5));
 					runVerificationIUGenerator(validationSet, subMon.newChild(5));
 					runRepositoryVerifier(validationSet, subMon.newChild(100));
@@ -1691,15 +1704,18 @@ public class Builder extends ModelAbstractCommand {
 			if(action != ActionType.VALIDATE) {
 				initMirroring(subMon.newChild(5));
 				for(ValidationSet validationSet : validationSets) {
+					MonitorUtils.testCancelStatus(subMon);
 					if(!validationSet.isAbstract())
 						runMetadataMirroring(validationSet, subMon.newChild(100));
 				}
 				runCategoriesRepoGenerator(subMon.newChild(5));
 				initializeArtifactMirroring(subMon.newChild(10));
 				for(ValidationSet validationSet : validationSets) {
+					MonitorUtils.testCancelStatus(subMon);
 					if(!validationSet.isAbstract())
 						runMirroring(validationSet, subMon.newChild(2000));
 				}
+				MonitorUtils.testCancelStatus(monitor);
 				finishMirroring(monitor);
 			}
 			return 0;

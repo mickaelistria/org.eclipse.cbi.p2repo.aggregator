@@ -76,24 +76,24 @@ public class SourceCompositeGenerator extends BuilderPhase {
 		String info = "Starting generation of composite repository";
 		LogUtils.info(info);
 		subMon.setTaskName("Generating composite from all sources...");
-
-		long start = TimeUtils.getNow();
-
-		String name = validationSet.getLabel() + " Source Composite";
 		boolean errorsFound = false;
-
-		Builder builder = getBuilder();
-		IMetadataRepositoryManager mdrMgr = builder.getMdrManager();
-		URI sourceLocationURI = builder.getSourceCompositeURI(validationSet);
-		mdrMgr.removeRepository(sourceLocationURI);
-		FileUtils.deleteAll(new File(builder.getBuildRoot(), Builder.REPO_FOLDER_INTERIM));
-
-		Map<String, String> properties = new HashMap<String, String>();
-		properties.put(Builder.PROP_ATOMIC_COMPOSITE_LOADING, Boolean.toString(true));
-		CompositeMetadataRepository compositeMdr = (CompositeMetadataRepository) mdrMgr.createRepository(
-			sourceLocationURI, name, Builder.COMPOSITE_METADATA_TYPE, properties);
-		getBuilder().setSourceComposite(validationSet, compositeMdr);
+		long start = TimeUtils.getNow();
 		try {
+
+			String name = validationSet.getLabel() + " Source Composite";
+
+			Builder builder = getBuilder();
+			IMetadataRepositoryManager mdrMgr = builder.getMdrManager();
+			URI sourceLocationURI = builder.getSourceCompositeURI(validationSet);
+			mdrMgr.removeRepository(sourceLocationURI);
+			FileUtils.deleteAll(new File(builder.getBuildRoot(), Builder.REPO_FOLDER_INTERIM));
+
+			Map<String, String> properties = new HashMap<String, String>();
+			properties.put(Builder.PROP_ATOMIC_COMPOSITE_LOADING, Boolean.toString(true));
+			CompositeMetadataRepository compositeMdr = (CompositeMetadataRepository) mdrMgr.createRepository(
+				sourceLocationURI, name, Builder.COMPOSITE_METADATA_TYPE, properties);
+			getBuilder().setSourceComposite(validationSet, compositeMdr);
+
 			MonitorUtils.worked(subMon, 100);
 			for(Contribution contrib : contribs) {
 				SubMonitor contribMonitor = subMon.newChild(100);
@@ -102,6 +102,7 @@ public class SourceCompositeGenerator extends BuilderPhase {
 				List<String> errors = new ArrayList<String>();
 				for(MappedRepository repo : repos) {
 					try {
+						MonitorUtils.worked(contribMonitor, 200);
 						URI childLocation = new URI(repo.getResolvedLocation());
 						LogUtils.info("Adding child meta-data repository %s", childLocation);
 

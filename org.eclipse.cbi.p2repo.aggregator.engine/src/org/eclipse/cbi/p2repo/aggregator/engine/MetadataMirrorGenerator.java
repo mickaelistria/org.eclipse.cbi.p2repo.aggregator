@@ -149,8 +149,10 @@ public class MetadataMirrorGenerator extends BuilderPhase {
 				}
 			}, subMon.newChild(900, SubMonitor.SUPPRESS_BEGINTASK | SubMonitor.SUPPRESS_SETTASKNAME));
 
-			if(status.getSeverity() == IStatus.CANCEL)
+			if(status.getSeverity() == IStatus.CANCEL) {
+				// caught by outer try/catch block
 				throw new OperationCanceledException();
+			}
 
 			if(status.getSeverity() == IStatus.ERROR) {
 				Throwable t = status.getException();
@@ -163,10 +165,15 @@ public class MetadataMirrorGenerator extends BuilderPhase {
 				throw new RuntimeException(t);
 			}
 		}
+		catch(OperationCanceledException e) {
+			LogUtils.info("Operation canceled."); //$NON-NLS-1$
+		}
 		finally {
 			MonitorUtils.done(monitor);
 		}
-		LogUtils.info("Done. Took %s", TimeUtils.getFormattedDuration(start)); //$NON-NLS-1$
+		if(!monitor.isCanceled()) {
+			LogUtils.info("Done. Took %s", TimeUtils.getFormattedDuration(start)); //$NON-NLS-1$
+		}
 		if(artifactErrors)
 			throw ExceptionUtils.fromMessage("Not all artifacts could be mirrored, see log for details");
 	}

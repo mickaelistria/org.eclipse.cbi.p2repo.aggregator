@@ -198,142 +198,150 @@ public class MirrorGenerator extends BuilderPhase {
 		IQueryResult<IArtifactKey> result = source.query(ArtifactKeyQuery.ALL_KEYS, null);
 		IArtifactKey[] keys = result.toArray(IArtifactKey.class);
 		MonitorUtils.begin(monitor, keys.length * 100);
+		try {
+			for(IArtifactKey key : keys) {
 
-		for(IArtifactKey key : keys) {
-			// We must iterate here since EMF lists use identity comparison
-			// ant not equals.
-			boolean found = false;
-			Iterator<IArtifactKey> keyIterator = keysToInstall.iterator();
-			while(keyIterator.hasNext()) {
-				IArtifactKey keyToInstall = keyIterator.next();
-				if(keyToInstall.equals(key)) {
-					found = true;
-					keyIterator.remove();
-					break;
-				}
-			}
-
-			if(!found)
-				continue;
-
-			LogUtils.info("- mirroring artifact %s", key);
-
-			IArtifactRepository sourceForCopy;
-			if(cache != null && cache.contains(key))
-				sourceForCopy = cache;
-			else
-				sourceForCopy = source;
-
-			PackedStrategy keyStrategy;
-
-			if(!"osgi.bundle".equals(key.getClassifier()))
-				//
-				// Only osgi.bundles will contain .class files so we get rid of
-				// excessive use of pack200 here.
-				//
-				keyStrategy = PackedStrategy.SKIP;
-			else
-				keyStrategy = strategy;
-
-			try {
-				IArtifactDescriptor[] aDescs = sourceForCopy.getArtifactDescriptors(key);
-				// Typically one that has no format and one that is packed.
-				// If so,
-				// just copy the packed one.
-				//
-				IArtifactDescriptor optimized = null;
-				IArtifactDescriptor canonical = null;
-				for(IArtifactDescriptor desc : aDescs) {
-					if(isPacked(desc))
-						optimized = desc;
-					else
-						canonical = desc;
+				// We must iterate here since EMF lists use identity comparison
+				// ant not equals.
+				boolean found = false;
+				Iterator<IArtifactKey> keyIterator = keysToInstall.iterator();
+				while(keyIterator.hasNext()) {
+					IArtifactKey keyToInstall = keyIterator.next();
+					if(keyToInstall.equals(key)) {
+						found = true;
+						keyIterator.remove();
+						break;
+					}
 				}
 
-				if(optimized == null && canonical == null)
-					throw ExceptionUtils.fromMessage(
-						"Found no usable descriptor for artifact %s in repository %s", key, dest.getLocation());
+				if(!found)
+					continue;
 
-				if(keyStrategy == PackedStrategy.SKIP && canonical == null) {
-					LogUtils.warning("    canonical artifact unavailable, using optimized one instead");
-					keyStrategy = PackedStrategy.COPY;
-				}
-				else if(keyStrategy != PackedStrategy.SKIP && optimized == null)
+				LogUtils.info("- mirroring artifact %s", key);
+
+				IArtifactRepository sourceForCopy;
+				if(cache != null && cache.contains(key))
+					sourceForCopy = cache;
+				else
+					sourceForCopy = source;
+
+				PackedStrategy keyStrategy;
+
+				if(!"osgi.bundle".equals(key.getClassifier()))
+					//
+					// Only osgi.bundles will contain .class files so we get rid of
+					// excessive use of pack200 here.
+					//
 					keyStrategy = PackedStrategy.SKIP;
+				else
+					keyStrategy = strategy;
 
-				switch(keyStrategy) {
-					case SKIP:
-						if(!checkIfTargetPresent(dest, key, false)) {
-							LogUtils.debug("    doing copy of canonical artifact");
-							mirror(
-								sourceForCopy, dest, canonical, new ArtifactDescriptor(canonical), transport,
-								MonitorUtils.subMonitor(monitor, 90));
-						}
-						break;
-					case COPY:
-						if(!checkIfTargetPresent(dest, key, true)) {
-							LogUtils.debug("    doing copy of optimized artifact");
-							mirror(
-								sourceForCopy, dest, optimized, new ArtifactDescriptor(optimized), transport,
-								MonitorUtils.subMonitor(monitor, 90));
-						}
-						break;
-					default:
-						if(keyStrategy == PackedStrategy.UNPACK) {
+				try {
+					IArtifactDescriptor[] aDescs = sourceForCopy.getArtifactDescriptors(key);
+					// Typically one that has no format and one that is packed.
+					// If so,
+					// just copy the packed one.
+					//
+					IArtifactDescriptor optimized = null;
+					IArtifactDescriptor canonical = null;
+					for(IArtifactDescriptor desc : aDescs) {
+						if(isPacked(desc))
+							optimized = desc;
+						else
+							canonical = desc;
+					}
+
+					if(optimized == null && canonical == null)
+						throw ExceptionUtils.fromMessage(
+							"Found no usable descriptor for artifact %s in repository %s", key, dest.getLocation());
+
+					if(keyStrategy == PackedStrategy.SKIP && canonical == null) {
+						LogUtils.warning("    canonical artifact unavailable, using optimized one instead");
+						keyStrategy = PackedStrategy.COPY;
+					}
+					else if(keyStrategy != PackedStrategy.SKIP && optimized == null)
+						keyStrategy = PackedStrategy.SKIP;
+
+					switch(keyStrategy) {
+						case SKIP:
 							if(!checkIfTargetPresent(dest, key, false)) {
-								LogUtils.debug("    doing copy of optimized artifact into canonical target");
-								unpack(sourceForCopy, dest, optimized, transport, MonitorUtils.subMonitor(monitor, 90));
+								LogUtils.debug("    doing copy of canonical artifact");
+								mirror(
+									sourceForCopy, dest, canonical, new ArtifactDescriptor(canonical), transport,
+									MonitorUtils.subMonitor(monitor, 90));
 							}
-							continue;
-						}
+							break;
+						case COPY:
+							if(!checkIfTargetPresent(dest, key, true)) {
+								LogUtils.debug("    doing copy of optimized artifact");
+								mirror(
+									sourceForCopy, dest, optimized, new ArtifactDescriptor(optimized), transport,
+									MonitorUtils.subMonitor(monitor, 90));
+							}
+							break;
+						default:
+							if(keyStrategy == PackedStrategy.UNPACK) {
+								if(!checkIfTargetPresent(dest, key, false)) {
+									LogUtils.debug("    doing copy of optimized artifact into canonical target");
+									unpack(
+										sourceForCopy, dest, optimized, transport,
+										MonitorUtils.subMonitor(monitor, 90));
+								}
+								continue;
+							}
 
-						boolean isVerify = keyStrategy == PackedStrategy.VERIFY;
-						if(checkIfTargetPresent(dest, key, true)) {
+							boolean isVerify = keyStrategy == PackedStrategy.VERIFY;
+							if(checkIfTargetPresent(dest, key, true)) {
+								if(isVerify)
+									// Treat the target as verified.
+									break;
+							}
+							else {
+								LogUtils.debug("    doing copy of optimized artifact");
+								mirror(
+									sourceForCopy, dest, optimized, new ArtifactDescriptor(optimized), transport,
+									MonitorUtils.subMonitor(monitor, 70));
+							}
+
 							if(isVerify)
-								// Treat the target as verified.
-								break;
-						}
-						else {
-							LogUtils.debug("    doing copy of optimized artifact");
-							mirror(
-								sourceForCopy, dest, optimized, new ArtifactDescriptor(optimized), transport,
-								MonitorUtils.subMonitor(monitor, 70));
-						}
+								LogUtils.debug("    unpacking optimized artifact for verification");
+							else {
+								if(checkIfTargetPresent(dest, key, false))
+									break;
+								LogUtils.debug("    unpacking optimized artifact");
+							}
 
-						if(isVerify)
-							LogUtils.debug("    unpacking optimized artifact for verification");
-						else {
-							if(checkIfTargetPresent(dest, key, false))
-								break;
-							LogUtils.debug("    unpacking optimized artifact");
-						}
-
-						unpackToSibling(
-							dest, getArtifactDescriptor(dest, key, true), transport, isVerify,
-							MonitorUtils.subMonitor(monitor, 20));
+							unpackToSibling(
+								dest, getArtifactDescriptor(dest, key, true), transport, isVerify,
+								MonitorUtils.subMonitor(monitor, 20));
+					}
+				}
+				catch(CoreException e) {
+					LogUtils.error(e, e.getMessage());
+					errors.add(Builder.getExceptionMessages(e));
+					dest.removeDescriptor(key, MonitorUtils.subMonitor(monitor, 2));
 				}
 			}
-			catch(CoreException e) {
-				LogUtils.error(e, e.getMessage());
-				errors.add(Builder.getExceptionMessages(e));
-				dest.removeDescriptor(key, MonitorUtils.subMonitor(monitor, 2));
+
+			// the collection of keys to install should now be empty unless some artifacts could not be found
+			for(IArtifactKey key : keysToInstall) {
+				String msg = "Artifact " + key + " could not be found in the artifact repository (" +
+						source.getLocation() + ")";
+				LogUtils.error(msg);
+				errors.add(msg);
 			}
 		}
-
-		// the collection of keys to install should now be empty unless some artifacts could not be found
-		for(IArtifactKey key : keysToInstall) {
-			String msg = "Artifact " + key + " could not be found in the artifact repository (" + source.getLocation() +
-					")";
-			LogUtils.error(msg);
-			errors.add(msg);
+		catch(OperationCanceledException e) {
+			LogUtils.info("Operation canceled."); //$NON-NLS-1$
 		}
-
-		MonitorUtils.done(monitor);
+		finally {
+			MonitorUtils.done(monitor);
+		}
 	}
 
 	static IArtifactDescriptor mirror(IArtifactRepository source, IArtifactRepository dest,
 			IArtifactDescriptor sourceDesc, IArtifactDescriptor targetDesc, Transport transport,
-			IProgressMonitor monitor) throws CoreException {
+			IProgressMonitor monitor) throws OperationCanceledException, CoreException {
 		if(dest.contains(targetDesc))
 			return targetDesc;
 
@@ -354,7 +362,7 @@ public class MirrorGenerator extends BuilderPhase {
 				result = new Status(IStatus.ERROR, Engine.PLUGIN_ID, "Zero bytes copied");
 				break;
 			case IStatus.CANCEL:
-				LogUtils.warning("Aggregation cancelled while mirroring artifact %s", sourceDesc.getArtifactKey());
+				LogUtils.info("Aggregation cancelled while mirroring artifact %s", sourceDesc.getArtifactKey());
 				throw new OperationCanceledException();
 			default:
 				if(result.getCode() == org.eclipse.equinox.p2.core.ProvisionException.ARTIFACT_EXISTS) {

@@ -23,6 +23,7 @@ import org.eclipse.cbi.p2repo.util.ExceptionUtils;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
+import org.eclipse.core.runtime.OperationCanceledException;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
@@ -74,7 +75,7 @@ public class MetadataRepositoryImpl extends RepositoryImpl<IInstallableUnit> imp
 	 * The cached value of the '{@link #getInstallableUnits() <em>Installable Units</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getInstallableUnits()
 	 * @generated
 	 * @ordered
@@ -85,7 +86,7 @@ public class MetadataRepositoryImpl extends RepositoryImpl<IInstallableUnit> imp
 	 * The cached value of the '{@link #getReferences() <em>References</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getReferences()
 	 * @generated
 	 * @ordered
@@ -95,7 +96,7 @@ public class MetadataRepositoryImpl extends RepositoryImpl<IInstallableUnit> imp
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected MetadataRepositoryImpl() {
@@ -142,7 +143,7 @@ public class MetadataRepositoryImpl extends RepositoryImpl<IInstallableUnit> imp
 	}
 
 	public void addRepositoryReferences(IMetadataRepositoryManager mdrMgr, IMetadataRepository mdr)
-			throws CoreException {
+			throws CoreException, OperationCanceledException {
 		if(mdr instanceof LocalMetadataRepository) {
 			try {
 				@SuppressWarnings("unchecked")
@@ -165,7 +166,7 @@ public class MetadataRepositoryImpl extends RepositoryImpl<IInstallableUnit> imp
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -178,7 +179,7 @@ public class MetadataRepositoryImpl extends RepositoryImpl<IInstallableUnit> imp
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -195,7 +196,7 @@ public class MetadataRepositoryImpl extends RepositoryImpl<IInstallableUnit> imp
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -212,7 +213,7 @@ public class MetadataRepositoryImpl extends RepositoryImpl<IInstallableUnit> imp
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -238,7 +239,7 @@ public class MetadataRepositoryImpl extends RepositoryImpl<IInstallableUnit> imp
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
@@ -260,7 +261,7 @@ public class MetadataRepositoryImpl extends RepositoryImpl<IInstallableUnit> imp
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -271,7 +272,7 @@ public class MetadataRepositoryImpl extends RepositoryImpl<IInstallableUnit> imp
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -301,7 +302,7 @@ public class MetadataRepositoryImpl extends RepositoryImpl<IInstallableUnit> imp
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -333,7 +334,7 @@ public class MetadataRepositoryImpl extends RepositoryImpl<IInstallableUnit> imp
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override

@@ -53,9 +53,6 @@ import org.eclipse.cbi.p2repo.p2.impl.MetadataRepositoryImpl;
 import org.eclipse.cbi.p2repo.p2.impl.ProvidedCapabilityImpl;
 import org.eclipse.cbi.p2repo.p2.impl.TouchpointTypeImpl;
 import org.eclipse.cbi.p2repo.p2.loader.IRepositoryLoader;
-import org.eclipse.cbi.p2repo.p2.util.P2Bridge;
-import org.eclipse.cbi.p2repo.p2.util.P2Utils;
-import org.eclipse.cbi.p2repo.p2.util.RepositoryLoaderUtils;
 import org.eclipse.cbi.p2repo.p2.maven.MavenActivator;
 import org.eclipse.cbi.p2repo.p2.maven.MavenMetadata;
 import org.eclipse.cbi.p2repo.p2.maven.POM;
@@ -67,6 +64,9 @@ import org.eclipse.cbi.p2repo.p2.maven.pom.License;
 import org.eclipse.cbi.p2repo.p2.maven.pom.Model;
 import org.eclipse.cbi.p2repo.p2.maven.util.UriIterator;
 import org.eclipse.cbi.p2repo.p2.maven.util.VersionUtil;
+import org.eclipse.cbi.p2repo.p2.util.P2Bridge;
+import org.eclipse.cbi.p2repo.p2.util.P2Utils;
+import org.eclipse.cbi.p2repo.p2.util.RepositoryLoaderUtils;
 import org.eclipse.cbi.p2repo.util.ExceptionUtils;
 import org.eclipse.cbi.p2repo.util.LogUtils;
 import org.eclipse.cbi.p2repo.util.StringUtils;
@@ -535,7 +535,7 @@ public class Maven2RepositoryLoader implements IRepositoryLoader {
 		return findNextComponent(monitor);
 	}
 
-	private InstallableUnit findNextIU(IProgressMonitor monitor) throws CoreException {
+	private InstallableUnit findNextIU(IProgressMonitor monitor) throws CoreException, OperationCanceledException {
 		while(true) {
 			if(indexer != null) {
 				// if an indexer is used, finish loading when the iterator is exhausted
@@ -758,10 +758,18 @@ public class Maven2RepositoryLoader implements IRepositoryLoader {
 
 	@Override
 	public void load(IProgressMonitor monitor) throws CoreException {
-		load(monitor, false);
+		try {
+			load(monitor, false);
+		}
+		catch(OperationCanceledException e) {
+			LogUtils.info("Operation canceled."); //$NON-NLS-1$
+		}
+		finally {
+			monitor.done();
+		}
 	}
 
-	private void load(IProgressMonitor monitor, boolean avoidCache) throws CoreException {
+	private void load(IProgressMonitor monitor, boolean avoidCache) throws CoreException, OperationCanceledException {
 		IRepositoryLoader cacheLoader = null;
 		cachedIUs = null;
 		long remoteTime = getRemoteIndexTimestamp();
@@ -984,7 +992,15 @@ public class Maven2RepositoryLoader implements IRepositoryLoader {
 
 	@Override
 	public void reload(IProgressMonitor monitor) throws CoreException {
-		load(monitor, true);
+		try {
+			load(monitor, true);
+		}
+		catch(OperationCanceledException e) {
+			LogUtils.info("Operation canceled."); //$NON-NLS-1$
+		}
+		finally {
+			monitor.done();
+		}
 	}
 
 	private void removeCache() throws CoreException {
@@ -1057,7 +1073,7 @@ public class Maven2RepositoryLoader implements IRepositoryLoader {
 		return true;
 	}
 
-	private void storeCache() throws CoreException {
+	private void storeCache() throws CoreException, OperationCanceledException {
 		IMetadataRepositoryManager mdrMgr = null;
 		mdrMgr = P2Utils.getRepositoryManager(agent, IMetadataRepositoryManager.class);
 		try {

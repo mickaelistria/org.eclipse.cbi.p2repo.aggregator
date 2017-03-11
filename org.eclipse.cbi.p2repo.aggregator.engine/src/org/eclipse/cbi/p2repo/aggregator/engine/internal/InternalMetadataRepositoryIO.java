@@ -21,6 +21,7 @@ import java.util.Set;
 
 import javax.xml.parsers.ParserConfigurationException;
 
+import org.eclipse.cbi.p2repo.util.LogUtils;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.OperationCanceledException;
@@ -141,8 +142,8 @@ public class InternalMetadataRepositoryIO extends MetadataRepositoryIO {
 				if(PI_REPOSITORY_TARGET.equals(target)) {
 					Version repositoryVersion = extractPIVersion(target, data);
 					if(!XMLConstants.XML_TOLERANCE.isIncluded(repositoryVersion)) {
-						throw new SAXException(NLS.bind(
-							Messages.io_IncompatibleVersion, repositoryVersion, XMLConstants.XML_TOLERANCE));
+						throw new SAXException(
+							NLS.bind(Messages.io_IncompatibleVersion, repositoryVersion, XMLConstants.XML_TOLERANCE));
 					}
 				}
 			}
@@ -525,8 +526,8 @@ public class InternalMetadataRepositoryIO extends MetadataRepositoryIO {
 		// A format version number for metadata repository XML.
 		public static final Version COMPATIBLE_VERSION = Version.createOSGi(1, 0, 0);
 
-		public static final VersionRange XML_TOLERANCE = new VersionRange(COMPATIBLE_VERSION, true, Version.createOSGi(
-			2, 0, 0), false);
+		public static final VersionRange XML_TOLERANCE = new VersionRange(
+			COMPATIBLE_VERSION, true, Version.createOSGi(2, 0, 0), false);
 
 		// Constants for processing Instructions
 		public static final String PI_REPOSITORY_TARGET = "metadataRepository"; //$NON-NLS-1$
@@ -539,7 +540,8 @@ public class InternalMetadataRepositoryIO extends MetadataRepositoryIO {
 
 	private static final String NAME_ATTRIBUTE = "name";
 
-	private static final String[] MANDATORY_REQIUREMENT_ATTRIBUTES = new String[] { NAMESPACE_ATTRIBUTE, NAME_ATTRIBUTE };
+	private static final String[] MANDATORY_REQIUREMENT_ATTRIBUTES = new String[] {
+			NAMESPACE_ATTRIBUTE, NAME_ATTRIBUTE };
 
 	private static final String[] OPTIONAL_REQIUREMENT_ATTRIBUTES = new String[] {};
 
@@ -555,6 +557,9 @@ public class InternalMetadataRepositoryIO extends MetadataRepositoryIO {
 		super(agent);
 	}
 
+	/**
+	 * returns null if operation cancelled
+	 */
 	@Override
 	public IMetadataRepository read(URL location, InputStream input, IProgressMonitor monitor)
 			throws ProvisionException {
@@ -577,6 +582,9 @@ public class InternalMetadataRepositoryIO extends MetadataRepositoryIO {
 				}
 				return repositoryParser.getRepository();
 			}
+			catch(OperationCanceledException e) {
+				LogUtils.info("Operation canceled."); //$NON-NLS-1$
+			}
 			finally {
 				if(bufferedInput != null)
 					bufferedInput.close();
@@ -584,9 +592,11 @@ public class InternalMetadataRepositoryIO extends MetadataRepositoryIO {
 		}
 		catch(IOException ioe) {
 			String msg = NLS.bind(Messages.io_failedRead, location);
-			throw new ProvisionException(new Status(
-				IStatus.ERROR, Activator.ID, ProvisionException.REPOSITORY_FAILED_READ, msg, ioe));
+			throw new ProvisionException(
+				new Status(IStatus.ERROR, Activator.ID, ProvisionException.REPOSITORY_FAILED_READ, msg, ioe));
 		}
+		// Only returns null if operation cancelled.
+		return null;
 	}
 
 	@Override
