@@ -521,9 +521,12 @@ public class MetadataRepositoryResourceImpl extends ResourceImpl implements Stat
 				for(ValidationSet vs : aggregation.getValidationSets())
 					for(Contribution contribution : vs.getContributions())
 						for(MappedRepository mappedRepo : contribution.getRepositories())
-							if(repository.getLocation().toString().equals(mappedRepo.getLocation()))
-								for(MappedUnit unit : mappedRepo.getUnits(false))
-									unit.resolveAvailableVersions(true);
+							// mappedRepo can be null is cancelled while loading
+							if(mappedRepo != null) {
+								if(repository.getLocation().toString().equals(mappedRepo.getLocation()))
+									for(MappedUnit unit : mappedRepo.getUnits(false))
+										unit.resolveAvailableVersions(true);
+							}
 		}
 	}
 
