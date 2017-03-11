@@ -121,18 +121,19 @@ public class MonitorUtils {
 	 * @see SubMonitor#PREPEND_MAIN_LABEL_TO_SUBTASK
 	 * @return The sub monitor or <code>null</code> if the provided <code>monitor</code> parameter was <code>null</code>
 	 */
-	public static IProgressMonitor subMonitor(IProgressMonitor monitor, int ticks, boolean prependMainLabelToSubtask) {
-		SubMonitor subMonitor = null;
-		if(monitor != null && !monitor.isCanceled()) {
-			int style = prependMainLabelToSubtask
-					? SubMonitor.SUPPRESS_NONE
-					: SubMonitor.SUPPRESS_ALL_LABELS;
-			subMonitor = SubMonitor.convert(monitor, ticks);
-			subMonitor.split(ticks, style);
-			return subMonitor;
-		}
-		return monitor;
-	}
+	// Appears not used
+	// public static IProgressMonitor subMonitor(IProgressMonitor monitor, int ticks, boolean prependMainLabelToSubtask) {
+	// SubMonitor subMonitor = null;
+	// if(monitor != null && !monitor.isCanceled()) {
+	// int style = prependMainLabelToSubtask
+	// ? SubMonitor.SUPPRESS_NONE
+	// : SubMonitor.SUPPRESS_ALL_LABELS;
+	// subMonitor = SubMonitor.convert(monitor, ticks);
+	// subMonitor.split(ticks, style);
+	// return subMonitor;
+	// }
+	// return monitor;
+	// }
 
 	/**
 	 * Notifies that a subtask of the main task is beginning. Subtasks are optional; the main task might not have
