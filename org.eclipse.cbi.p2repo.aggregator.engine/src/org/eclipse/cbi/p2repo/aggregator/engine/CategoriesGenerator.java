@@ -292,7 +292,9 @@ public class CategoriesGenerator extends BuilderPhase {
 		finally {
 			MonitorUtils.done(monitor);
 		}
-		LogUtils.info("Done. Took %s", TimeUtils.getFormattedDuration(start)); //$NON-NLS-1$
+		if(!monitor.isCanceled()) {
+			LogUtils.info("Done. Took %s", TimeUtils.getFormattedDuration(start)); //$NON-NLS-1$
+		}
 	}
 
 	/**
