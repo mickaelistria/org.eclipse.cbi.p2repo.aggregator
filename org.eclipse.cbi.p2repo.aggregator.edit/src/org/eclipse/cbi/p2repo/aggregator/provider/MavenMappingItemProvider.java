@@ -215,6 +215,12 @@ public class MavenMappingItemProvider extends AggregatorItemProviderAdapter
 			bld.append('/');
 			bld.append(artifactId);
 		}
+		String versionPattern = self.getVersionPattern();
+		String versionTemplate = self.getVersionTemplate();
+		if(versionPattern != null && versionTemplate != null) {
+			bld.append("', '").append(versionPattern);
+			bld.append("' => '").append(versionTemplate);
+		}
 		bld.append("']");
 		return bld.toString();
 	}

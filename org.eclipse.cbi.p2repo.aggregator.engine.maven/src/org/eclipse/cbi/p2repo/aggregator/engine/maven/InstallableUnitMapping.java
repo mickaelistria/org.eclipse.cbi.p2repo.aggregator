@@ -195,7 +195,7 @@ public class InstallableUnitMapping implements IInstallableUnit {
 			Parent newParent = PomFactory.eINSTANCE.createParent();
 			newParent.setGroupId(parent.map().getGroupId());
 			newParent.setArtifactId(parent.map().getArtifactId());
-			newParent.setVersion(VersionUtil.getVersionString(parent.getVersion(), versionFormat));
+			newParent.setVersion(parent.getVersionString());
 			model.setParent(newParent);
 		}
 		model.setModelVersion(POM.MODEL_VERSION);
@@ -241,16 +241,16 @@ public class InstallableUnitMapping implements IInstallableUnit {
 						Version high = cap.getRange().getMaximum();
 						if(cap.getRange().getIncludeMinimum() && Version.MAX_VERSION.equals(high)) {
 							versionRangeString.append("[").append(
-								VersionUtil.getVersionString(low, versionFormat)).append(",)");
+								getVersionStringForDependency(dependencyMapping, low)).append(",)");
 						}
 						else {
 							versionRangeString.append(
 								cap.getRange().getIncludeMinimum()
 										? '['
 										: '(');
-							versionRangeString.append(VersionUtil.getVersionString(low, versionFormat));
+							versionRangeString.append(getVersionStringForDependency(dependencyMapping, low));
 							versionRangeString.append(',');
-							versionRangeString.append(VersionUtil.getVersionString(high, versionFormat));
+							versionRangeString.append(getVersionStringForDependency(dependencyMapping, high));
 							versionRangeString.append(
 								cap.getRange().getIncludeMaximum()
 										? ']'
@@ -468,6 +468,15 @@ public class InstallableUnitMapping implements IInstallableUnit {
 		return mainArtifact;
 	}
 
+	public Version getMappedVersion() {
+		if(this.mapped != null) {
+			String mappedVersion = this.mapped.getMappedVersion();
+			if(mappedVersion != null)
+				return VersionUtil.mappedVersion(mappedVersion);
+		}
+		return installableUnit.getVersion();
+	}
+
 	@Override
 	public Collection<IRequirement> getMetaRequirements() {
 		return installableUnit.getMetaRequirements();
@@ -561,7 +570,19 @@ public class InstallableUnitMapping implements IInstallableUnit {
 	}
 
 	public String getVersionString() {
+		if(this.mapped != null && this.mapped.getMappedVersion() != null)
+			return this.mapped.getMappedVersion();
 		return VersionUtil.getVersionString(getVersion(), versionFormat);
+	}
+
+	public String getVersionStringForDependency(MavenItem dependencyMapping, Version dependencyVersion) {
+		MavenMapping mavenMapping = dependencyMapping.getMavenMapping();
+		if(mavenMapping != null) {
+			String mappedVersion = mavenMapping.mapVersion(dependencyVersion);
+			if(mappedVersion != null)
+				return mappedVersion;
+		}
+		return VersionUtil.getVersionString(dependencyVersion, versionFormat);
 	}
 
 	@Override
@@ -603,7 +624,7 @@ public class InstallableUnitMapping implements IInstallableUnit {
 		MavenItem item = null;
 
 		for(MavenMapping mapping : mappings)
-			if((item = mapping.map(id, null)) != null)
+			if((item = mapping.map(id, getVersion())) != null)
 				return item;
 
 		StringBuilder mappingDescriptor = new StringBuilder();

@@ -14,6 +14,7 @@ import java.util.regex.Pattern;
 import org.eclipse.cbi.p2repo.aggregator.VersionFormat;
 import org.eclipse.cbi.p2repo.util.StringUtils;
 import org.eclipse.core.runtime.CoreException;
+import org.eclipse.equinox.p2.metadata.IVersionFormat;
 import org.eclipse.equinox.p2.metadata.Version;
 import org.eclipse.equinox.p2.metadata.VersionRange;
 
@@ -22,6 +23,70 @@ import org.eclipse.equinox.p2.metadata.VersionRange;
  *
  */
 public class VersionUtil {
+
+	/**
+	 * Wrapper class to provide dual views on a version: mostly OSGi-like,
+	 * but string representation uses the mapped variant (from #versionPattern & #versionTemplate).
+	 */
+	private static class MappedVersion extends Version {
+		private static final long serialVersionUID = 1L;
+
+		private final String mappedVersion;
+
+		private final Version version;
+
+		/**
+		 * @param version
+		 * @param mappedVersion
+		 */
+		public MappedVersion(Version version, String mappedVersion) {
+			this.mappedVersion = mappedVersion;
+			this.version = version;
+		}
+
+		@Override
+		public int compareTo(Version o) {
+			if(o instanceof MappedVersion)
+				o = ((MappedVersion) o).version;
+			return version.compareTo(o);
+		}
+
+		@Override
+		public IVersionFormat getFormat() {
+			return version.getFormat();
+		}
+
+		@Override
+		public String getOriginal() {
+			return mappedVersion;
+		}
+
+		@Override
+		public Comparable<?> getPad() {
+			return version.getPad();
+		}
+
+		@Override
+		public Comparable<?> getSegment(int index) {
+			return version.getSegment(index);
+		}
+
+		@Override
+		public int getSegmentCount() {
+			return version.getSegmentCount();
+		}
+
+		@Override
+		public boolean isOSGiCompatible() {
+			return version.isOSGiCompatible();
+		}
+
+		@Override
+		public void toString(StringBuffer sb) {
+			sb.append(mappedVersion);
+		}
+	}
+
 	public static Version createVersion(String versionStr) throws CoreException {
 		versionStr = StringUtils.trimmedOrNull(versionStr);
 		if(versionStr == null)
@@ -69,6 +134,9 @@ public class VersionUtil {
 	}
 
 	public static String getVersionString(Version version, VersionFormat versionFormat) {
+		if(version instanceof MappedVersion)
+			return version.getOriginal(); // MappedVersion indicates that VersionFormat is overridden from MavenMapping
+
 		String versionString = getVersionString(version);
 		if(versionFormat == VersionFormat.NORMAL)
 			return versionString;
@@ -93,6 +161,10 @@ public class VersionUtil {
 		bld.append('-');
 		bld.append(m.group(2));
 		return bld.toString();
+	}
+
+	public static Version mappedVersion(String original) {
+		return new MappedVersion(Version.create(original), original);
 	}
 
 	private static Pattern versionRangePattern = Pattern.compile("^(\\([)([^,]+),([^,]+)(\\)])$");

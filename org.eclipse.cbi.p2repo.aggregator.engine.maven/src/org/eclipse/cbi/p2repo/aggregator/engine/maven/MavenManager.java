@@ -91,7 +91,8 @@ public class MavenManager {
 			for(int idx = versions.length - 1; idx >= 0; idx--) {
 				String qualifier = null;
 				try {
-					qualifier = ((BasicVersion) versions[idx]).getQualifier();
+					if(versions[idx] instanceof BasicVersion)
+						qualifier = ((BasicVersion) versions[idx]).getQualifier();
 				}
 				catch(UnsupportedOperationException e) {
 					// ignore
@@ -286,7 +287,7 @@ public class MavenManager {
 			if(md == null)
 				metadataCollector.put(
 					key, md = new MavenMetadataHelper(iu.map().getGroupId(), iu.map().getArtifactId()));
-			md.addVersion(iu.getVersion()); // will potentially be mapped to strict maven during saveXMLs
+			md.addVersion(iu.getMappedVersion()); // will potentially be mapped to the global VersionFormat during saveXMLs
 		}
 
 		for(InstallableUnitMapping child : iu.getChildren())
