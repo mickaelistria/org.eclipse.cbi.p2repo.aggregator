@@ -42,6 +42,7 @@ public class MavenMappingItemProvider extends AggregatorItemProviderAdapter
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public MavenMappingItemProvider(AdapterFactory adapterFactory) {
@@ -51,6 +52,7 @@ public class MavenMappingItemProvider extends AggregatorItemProviderAdapter
 	/**
 	 * This adds a property descriptor for the Artifact Id feature.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected void addArtifactIdPropertyDescriptor(Object object) {
@@ -68,6 +70,7 @@ public class MavenMappingItemProvider extends AggregatorItemProviderAdapter
 	/**
 	 * This adds a property descriptor for the Group Id feature.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected void addGroupIdPropertyDescriptor(Object object) {
@@ -84,6 +87,7 @@ public class MavenMappingItemProvider extends AggregatorItemProviderAdapter
 	/**
 	 * This adds a property descriptor for the Name Pattern feature.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected void addNamePatternPropertyDescriptor(Object object) {
@@ -99,9 +103,48 @@ public class MavenMappingItemProvider extends AggregatorItemProviderAdapter
 	}
 
 	/**
+	 * This adds a property descriptor for the Version Pattern feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	protected void addVersionPatternPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add(
+			createItemPropertyDescriptor(
+				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+				getString("_UI_MavenMapping_versionPattern_feature"),
+				getString(
+					"_UI_PropertyDescriptor_description", "_UI_MavenMapping_versionPattern_feature",
+					"_UI_MavenMapping_type"),
+				AggregatorPackage.Literals.MAVEN_MAPPING__VERSION_PATTERN, true, false, false,
+				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Version Template feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	protected void addVersionTemplatePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add(
+			createItemPropertyDescriptor(
+				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+				getString("_UI_MavenMapping_versionTemplate_feature"),
+				getString(
+					"_UI_PropertyDescriptor_description", "_UI_MavenMapping_versionTemplate_feature",
+					"_UI_MavenMapping_type"),
+				AggregatorPackage.Literals.MAVEN_MAPPING__VERSION_TEMPLATE, true, false, false,
+				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+	}
+
+	/**
 	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
 	 * that can be created under this object.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -112,6 +155,7 @@ public class MavenMappingItemProvider extends AggregatorItemProviderAdapter
 	/**
 	 * This returns MavenMapping.gif.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -122,6 +166,7 @@ public class MavenMappingItemProvider extends AggregatorItemProviderAdapter
 	/**
 	 * This returns the property descriptors for the adapted class.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -132,6 +177,8 @@ public class MavenMappingItemProvider extends AggregatorItemProviderAdapter
 			addNamePatternPropertyDescriptor(object);
 			addGroupIdPropertyDescriptor(object);
 			addArtifactIdPropertyDescriptor(object);
+			addVersionPatternPropertyDescriptor(object);
+			addVersionTemplatePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -139,6 +186,7 @@ public class MavenMappingItemProvider extends AggregatorItemProviderAdapter
 	/**
 	 * Return the resource locator for this item provider's resources.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -200,6 +248,8 @@ public class MavenMappingItemProvider extends AggregatorItemProviderAdapter
 			case AggregatorPackage.MAVEN_MAPPING__NAME_PATTERN:
 			case AggregatorPackage.MAVEN_MAPPING__GROUP_ID:
 			case AggregatorPackage.MAVEN_MAPPING__ARTIFACT_ID:
+			case AggregatorPackage.MAVEN_MAPPING__VERSION_PATTERN:
+			case AggregatorPackage.MAVEN_MAPPING__VERSION_TEMPLATE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

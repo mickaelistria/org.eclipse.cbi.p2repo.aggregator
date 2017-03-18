@@ -38,6 +38,7 @@ public class ConfigurationItemProvider extends AggregatorItemProviderAdapter
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 *
 	 * @generated
 	 */
 	public ConfigurationItemProvider(AdapterFactory adapterFactory) {
@@ -47,6 +48,7 @@ public class ConfigurationItemProvider extends AggregatorItemProviderAdapter
 	/**
 	 * This adds a property descriptor for the Architecture feature.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 *
 	 * @generated
 	 */
 	protected void addArchitecturePropertyDescriptor(Object object) {
@@ -64,6 +66,7 @@ public class ConfigurationItemProvider extends AggregatorItemProviderAdapter
 	/**
 	 * This adds a property descriptor for the Enabled feature.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 *
 	 * @generated
 	 */
 	protected void addEnabledPropertyDescriptor(Object object) {
@@ -81,6 +84,7 @@ public class ConfigurationItemProvider extends AggregatorItemProviderAdapter
 	/**
 	 * This adds a property descriptor for the Operating System feature.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 *
 	 * @generated
 	 */
 	protected void addOperatingSystemPropertyDescriptor(Object object) {
@@ -98,6 +102,7 @@ public class ConfigurationItemProvider extends AggregatorItemProviderAdapter
 	/**
 	 * This adds a property descriptor for the Window System feature.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 *
 	 * @generated
 	 */
 	protected void addWindowSystemPropertyDescriptor(Object object) {
@@ -116,6 +121,7 @@ public class ConfigurationItemProvider extends AggregatorItemProviderAdapter
 	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
 	 * that can be created under this object.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 *
 	 * @generated
 	 */
 	@Override
@@ -131,14 +137,16 @@ public class ConfigurationItemProvider extends AggregatorItemProviderAdapter
 	@Override
 	public Object getImage(Object object) {
 		return overlayImage(
-			object, getResourceLocator().getImage("full/obj16/Configuration" + (((Configuration) object).isEnabled()
-					? ""
-					: "Disabled")));
+			object, getResourceLocator().getImage(
+				"full/obj16/Configuration" + (((Configuration) object).isEnabled()
+						? ""
+						: "Disabled")));
 	}
 
 	/**
 	 * This returns the property descriptors for the adapted class.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 *
 	 * @generated
 	 */
 	@Override
@@ -157,6 +165,7 @@ public class ConfigurationItemProvider extends AggregatorItemProviderAdapter
 	/**
 	 * Return the resource locator for this item provider's resources.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 *
 	 * @generated
 	 */
 	@Override

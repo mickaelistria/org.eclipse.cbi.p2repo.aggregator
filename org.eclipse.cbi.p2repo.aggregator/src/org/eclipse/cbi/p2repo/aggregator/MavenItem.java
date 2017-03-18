@@ -18,7 +18,9 @@ package org.eclipse.cbi.p2repo.aggregator;
  * <ul>
  *   <li>{@link org.eclipse.cbi.p2repo.aggregator.MavenItem#getGroupId <em>Group Id</em>}</li>
  *   <li>{@link org.eclipse.cbi.p2repo.aggregator.MavenItem#getArtifactId <em>Artifact Id</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.aggregator.MavenItem#getMappedVersion <em>Mapped Version</em>}</li>
  *   <li>{@link org.eclipse.cbi.p2repo.aggregator.MavenItem#getClassifier <em>Classifier</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.aggregator.MavenItem#getMavenMapping <em>Maven Mapping</em>}</li>
  * </ul>
  *
  * @see org.eclipse.cbi.p2repo.aggregator.AggregatorPackage#getMavenItem()
@@ -66,6 +68,32 @@ public interface MavenItem {
 	void setArtifactId(String value);
 
 	/**
+	 * Returns the value of the '<em><b>Mapped Version</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Mapped Version</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Mapped Version</em>' attribute.
+	 * @see #setMappedVersion(String)
+	 * @see org.eclipse.cbi.p2repo.aggregator.AggregatorPackage#getMavenItem_MappedVersion()
+	 * @model
+	 * @generated
+	 */
+	String getMappedVersion();
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.aggregator.MavenItem#getMappedVersion <em>Mapped Version</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Mapped Version</em>' attribute.
+	 * @see #getMappedVersion()
+	 * @generated
+	 */
+	void setMappedVersion(String value);
+
+	/**
 	 * Returns the value of the '<em><b>Classifier</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -90,6 +118,32 @@ public interface MavenItem {
 	 * @generated
 	 */
 	void setClassifier(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Maven Mapping</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Maven Mapping</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Maven Mapping</em>' reference.
+	 * @see #setMavenMapping(MavenMapping)
+	 * @see org.eclipse.cbi.p2repo.aggregator.AggregatorPackage#getMavenItem_MavenMapping()
+	 * @model
+	 * @generated
+	 */
+	MavenMapping getMavenMapping();
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.aggregator.MavenItem#getMavenMapping <em>Maven Mapping</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Maven Mapping</em>' reference.
+	 * @see #getMavenMapping()
+	 * @generated
+	 */
+	void setMavenMapping(MavenMapping value);
 
 	/**
 	 * <!-- begin-user-doc -->

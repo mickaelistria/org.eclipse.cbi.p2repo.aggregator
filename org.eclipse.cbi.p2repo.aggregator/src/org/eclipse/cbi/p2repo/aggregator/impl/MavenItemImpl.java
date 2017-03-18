@@ -11,8 +11,11 @@ package org.eclipse.cbi.p2repo.aggregator.impl;
 
 import org.eclipse.cbi.p2repo.aggregator.AggregatorPackage;
 import org.eclipse.cbi.p2repo.aggregator.MavenItem;
+import org.eclipse.cbi.p2repo.aggregator.MavenMapping;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
@@ -24,12 +27,22 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <ul>
  *   <li>{@link org.eclipse.cbi.p2repo.aggregator.impl.MavenItemImpl#getGroupId <em>Group Id</em>}</li>
  *   <li>{@link org.eclipse.cbi.p2repo.aggregator.impl.MavenItemImpl#getArtifactId <em>Artifact Id</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.aggregator.impl.MavenItemImpl#getMappedVersion <em>Mapped Version</em>}</li>
  *   <li>{@link org.eclipse.cbi.p2repo.aggregator.impl.MavenItemImpl#getClassifier <em>Classifier</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.aggregator.impl.MavenItemImpl#getMavenMapping <em>Maven Mapping</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class MavenItemImpl extends MinimalEObjectImpl.Container implements MavenItem {
+	/**
+	 * A set of bit flags representing the values of boolean attributes and whether unsettable features have been set.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	protected int eFlags = 0;
+
 	/**
 	 * The default value of the '{@link #getGroupId() <em>Group Id</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
@@ -39,34 +52,6 @@ public class MavenItemImpl extends MinimalEObjectImpl.Container implements Maven
 	 * @ordered
 	 */
 	protected static final String GROUP_ID_EDEFAULT = null;
-
-	/**
-	 * The default value of the '{@link #getArtifactId() <em>Artifact Id</em>}' attribute.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
-	 * @see #getArtifactId()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String ARTIFACT_ID_EDEFAULT = null;
-
-	/**
-	 * The default value of the '{@link #getClassifier() <em>Classifier</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getClassifier()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String CLASSIFIER_EDEFAULT = null;
-
-	/**
-	 * A set of bit flags representing the values of boolean attributes and whether unsettable features have been set.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	protected int eFlags = 0;
 
 	/**
 	 * The cached value of the '{@link #getGroupId() <em>Group Id</em>}' attribute.
@@ -79,6 +64,16 @@ public class MavenItemImpl extends MinimalEObjectImpl.Container implements Maven
 	protected String groupId = GROUP_ID_EDEFAULT;
 
 	/**
+	 * The default value of the '{@link #getArtifactId() <em>Artifact Id</em>}' attribute.
+	 * <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * @see #getArtifactId()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String ARTIFACT_ID_EDEFAULT = null;
+
+	/**
 	 * The cached value of the '{@link #getArtifactId() <em>Artifact Id</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
@@ -89,6 +84,36 @@ public class MavenItemImpl extends MinimalEObjectImpl.Container implements Maven
 	protected String artifactId = ARTIFACT_ID_EDEFAULT;
 
 	/**
+	 * The default value of the '{@link #getMappedVersion() <em>Mapped Version</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMappedVersion()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String MAPPED_VERSION_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getMappedVersion() <em>Mapped Version</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMappedVersion()
+	 * @generated
+	 * @ordered
+	 */
+	protected String mappedVersion = MAPPED_VERSION_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getClassifier() <em>Classifier</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getClassifier()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String CLASSIFIER_EDEFAULT = null;
+
+	/**
 	 * The cached value of the '{@link #getClassifier() <em>Classifier</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -97,6 +122,16 @@ public class MavenItemImpl extends MinimalEObjectImpl.Container implements Maven
 	 * @ordered
 	 */
 	protected String classifier = CLASSIFIER_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getMavenMapping() <em>Maven Mapping</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMavenMapping()
+	 * @generated
+	 * @ordered
+	 */
+	protected MavenMapping mavenMapping;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -117,8 +152,14 @@ public class MavenItemImpl extends MinimalEObjectImpl.Container implements Maven
 				return getGroupId();
 			case AggregatorPackage.MAVEN_ITEM__ARTIFACT_ID:
 				return getArtifactId();
+			case AggregatorPackage.MAVEN_ITEM__MAPPED_VERSION:
+				return getMappedVersion();
 			case AggregatorPackage.MAVEN_ITEM__CLASSIFIER:
 				return getClassifier();
+			case AggregatorPackage.MAVEN_ITEM__MAVEN_MAPPING:
+				if(resolve)
+					return getMavenMapping();
+				return basicGetMavenMapping();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -138,10 +179,16 @@ public class MavenItemImpl extends MinimalEObjectImpl.Container implements Maven
 				return ARTIFACT_ID_EDEFAULT == null
 						? artifactId != null
 						: !ARTIFACT_ID_EDEFAULT.equals(artifactId);
+			case AggregatorPackage.MAVEN_ITEM__MAPPED_VERSION:
+				return MAPPED_VERSION_EDEFAULT == null
+						? mappedVersion != null
+						: !MAPPED_VERSION_EDEFAULT.equals(mappedVersion);
 			case AggregatorPackage.MAVEN_ITEM__CLASSIFIER:
 				return CLASSIFIER_EDEFAULT == null
 						? classifier != null
 						: !CLASSIFIER_EDEFAULT.equals(classifier);
+			case AggregatorPackage.MAVEN_ITEM__MAVEN_MAPPING:
+				return mavenMapping != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -159,8 +206,14 @@ public class MavenItemImpl extends MinimalEObjectImpl.Container implements Maven
 			case AggregatorPackage.MAVEN_ITEM__ARTIFACT_ID:
 				setArtifactId((String) newValue);
 				return;
+			case AggregatorPackage.MAVEN_ITEM__MAPPED_VERSION:
+				setMappedVersion((String) newValue);
+				return;
 			case AggregatorPackage.MAVEN_ITEM__CLASSIFIER:
 				setClassifier((String) newValue);
+				return;
+			case AggregatorPackage.MAVEN_ITEM__MAVEN_MAPPING:
+				setMavenMapping((MavenMapping) newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -188,8 +241,14 @@ public class MavenItemImpl extends MinimalEObjectImpl.Container implements Maven
 			case AggregatorPackage.MAVEN_ITEM__ARTIFACT_ID:
 				setArtifactId(ARTIFACT_ID_EDEFAULT);
 				return;
+			case AggregatorPackage.MAVEN_ITEM__MAPPED_VERSION:
+				setMappedVersion(MAPPED_VERSION_EDEFAULT);
+				return;
 			case AggregatorPackage.MAVEN_ITEM__CLASSIFIER:
 				setClassifier(CLASSIFIER_EDEFAULT);
+				return;
+			case AggregatorPackage.MAVEN_ITEM__MAVEN_MAPPING:
+				setMavenMapping((MavenMapping) null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -253,6 +312,32 @@ public class MavenItemImpl extends MinimalEObjectImpl.Container implements Maven
 	 * @generated
 	 */
 	@Override
+	public String getMappedVersion() {
+		return mappedVersion;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setMappedVersion(String newMappedVersion) {
+		String oldMappedVersion = mappedVersion;
+		mappedVersion = newMappedVersion;
+		if(eNotificationRequired())
+			eNotify(
+				new ENotificationImpl(
+					this, Notification.SET, AggregatorPackage.MAVEN_ITEM__MAPPED_VERSION, oldMappedVersion,
+					mappedVersion));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public void setClassifier(String newClassifier) {
 		String oldClassifier = classifier;
 		classifier = newClassifier;
@@ -260,6 +345,52 @@ public class MavenItemImpl extends MinimalEObjectImpl.Container implements Maven
 			eNotify(
 				new ENotificationImpl(
 					this, Notification.SET, AggregatorPackage.MAVEN_ITEM__CLASSIFIER, oldClassifier, classifier));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public MavenMapping getMavenMapping() {
+		if(mavenMapping != null && ((EObject) mavenMapping).eIsProxy()) {
+			InternalEObject oldMavenMapping = (InternalEObject) mavenMapping;
+			mavenMapping = (MavenMapping) eResolveProxy(oldMavenMapping);
+			if(mavenMapping != oldMavenMapping) {
+				if(eNotificationRequired())
+					eNotify(
+						new ENotificationImpl(
+							this, Notification.RESOLVE, AggregatorPackage.MAVEN_ITEM__MAVEN_MAPPING, oldMavenMapping,
+							mavenMapping));
+			}
+		}
+		return mavenMapping;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public MavenMapping basicGetMavenMapping() {
+		return mavenMapping;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setMavenMapping(MavenMapping newMavenMapping) {
+		MavenMapping oldMavenMapping = mavenMapping;
+		mavenMapping = newMavenMapping;
+		if(eNotificationRequired())
+			eNotify(
+				new ENotificationImpl(
+					this, Notification.SET, AggregatorPackage.MAVEN_ITEM__MAVEN_MAPPING, oldMavenMapping,
+					mavenMapping));
 	}
 
 	/**
@@ -290,6 +421,8 @@ public class MavenItemImpl extends MinimalEObjectImpl.Container implements Maven
 		result.append(groupId);
 		result.append(", artifactId: ");
 		result.append(artifactId);
+		result.append(", mappedVersion: ");
+		result.append(mappedVersion);
 		result.append(", classifier: ");
 		result.append(classifier);
 		result.append(')');

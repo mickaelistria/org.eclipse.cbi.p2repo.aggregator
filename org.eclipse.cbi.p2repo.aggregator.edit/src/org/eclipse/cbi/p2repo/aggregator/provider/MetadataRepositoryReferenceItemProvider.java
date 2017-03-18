@@ -17,8 +17,6 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import org.eclipse.cbi.p2repo.p2.MetadataRepository;
-import org.eclipse.cbi.p2repo.p2.impl.MetadataRepositoryImpl;
 import org.eclipse.cbi.p2repo.aggregator.Aggregation;
 import org.eclipse.cbi.p2repo.aggregator.AggregatorPackage;
 import org.eclipse.cbi.p2repo.aggregator.AggregatorPlugin;
@@ -32,6 +30,8 @@ import org.eclipse.cbi.p2repo.aggregator.StatusCode;
 import org.eclipse.cbi.p2repo.aggregator.StatusProvider;
 import org.eclipse.cbi.p2repo.aggregator.ValidationSet;
 import org.eclipse.cbi.p2repo.aggregator.util.ResourceUtils;
+import org.eclipse.cbi.p2repo.p2.MetadataRepository;
+import org.eclipse.cbi.p2repo.p2.impl.MetadataRepositoryImpl;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.ResourceLocator;
@@ -51,6 +51,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
 /**
  * This is the item provider adapter for a {@link org.eclipse.cbi.p2repo.aggregator.MetadataRepositoryReference} object.
  * <!-- begin-user-doc --> <!-- end-user-doc -->
+ * 
  * @generated
  */
 public class MetadataRepositoryReferenceItemProvider extends AggregatorItemProviderAdapter
@@ -59,6 +60,7 @@ public class MetadataRepositoryReferenceItemProvider extends AggregatorItemProvi
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public MetadataRepositoryReferenceItemProvider(AdapterFactory adapterFactory) {
@@ -68,6 +70,7 @@ public class MetadataRepositoryReferenceItemProvider extends AggregatorItemProvi
 	/**
 	 * This adds a property descriptor for the Enabled feature.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected void addEnabledPropertyDescriptor(Object object) {
@@ -85,6 +88,7 @@ public class MetadataRepositoryReferenceItemProvider extends AggregatorItemProvi
 	/**
 	 * This adds a property descriptor for the Location feature.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected void addLocationPropertyDescriptor(Object object) {
@@ -182,6 +186,7 @@ public class MetadataRepositoryReferenceItemProvider extends AggregatorItemProvi
 	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
 	 * that can be created under this object.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -204,7 +209,8 @@ public class MetadataRepositoryReferenceItemProvider extends AggregatorItemProvi
 	@Override
 	public Object getImage(Object object) {
 		return overlayImage(
-			object, getResourceLocator().getImage(
+			object,
+			getResourceLocator().getImage(
 				"full/obj16/MetadataRepositoryReference" + (((MetadataRepositoryReference) object).isBranchEnabled()
 						? ""
 						: "Disabled")));
@@ -214,6 +220,7 @@ public class MetadataRepositoryReferenceItemProvider extends AggregatorItemProvi
 	/**
 	 * This returns the property descriptors for the adapted class.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -231,6 +238,7 @@ public class MetadataRepositoryReferenceItemProvider extends AggregatorItemProvi
 	/**
 	 * Return the resource locator for this item provider's resources.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -292,9 +300,10 @@ public class MetadataRepositoryReferenceItemProvider extends AggregatorItemProvi
 				StatusCode status = repoRef.getStatus().getCode();
 				if(status != StatusCode.OK) {
 					bld.append(" (");
-					bld.append(status == StatusCode.WAITING
-							? "loading"
-							: "missing");
+					bld.append(
+						status == StatusCode.WAITING
+								? "loading"
+								: "missing");
 					bld.append(')');
 				}
 			}

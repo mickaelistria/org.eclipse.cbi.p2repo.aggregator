@@ -89,27 +89,6 @@ public class InstallableUnitMapping implements IInstallableUnit {
 		KNOWN_OSGI_ARCH = Collections.unmodifiableSet(values);
 	}
 
-	private static MavenItem map(String id, List<MavenMapping> mappings) throws CoreException {
-		MavenItem item = null;
-
-		for(MavenMapping mapping : mappings)
-			if((item = mapping.map(id)) != null)
-				return item;
-
-		StringBuilder mappingDescriptor = new StringBuilder();
-		boolean first = true;
-		for(MavenMapping mapping : mappings) {
-			if(first)
-				first = false;
-			else
-				mappingDescriptor.append(',');
-			mappingDescriptor.append(mapping.toString());
-		}
-
-		throw ExceptionUtils.fromMessage(
-			"Unable to map IU to maven artifact: id=%s, mappings=%s", id, mappingDescriptor.toString());
-	}
-
 	private static final Version DUMMY_VERSION = Version.parseVersion("1");
 
 	private Type type;
@@ -133,11 +112,6 @@ public class InstallableUnitMapping implements IInstallableUnit {
 	private Contribution contribution;
 
 	private VersionFormat versionFormat;
-
-	public InstallableUnitMapping(VersionFormat versionFormat) {
-		this((String) null);
-		this.versionFormat = versionFormat;
-	}
 
 	public InstallableUnitMapping(Contribution contribution, IInstallableUnit iu) {
 		this(contribution, iu, Collections.<MavenMapping> emptyList());
@@ -168,8 +142,10 @@ public class InstallableUnitMapping implements IInstallableUnit {
 				int idx = 0;
 				for(IArtifactKey artifact : iu.getArtifacts()) {
 					String genId = artifact.getId() + ".artifact-" + (idx + 1);
-					dependencies.add(new RequiredCapability(NAMESPACE_IU_ID, genId, new VersionRange(
-						iu.getVersion(), true, iu.getVersion(), true), null, false, false));
+					dependencies.add(
+						new RequiredCapability(
+							NAMESPACE_IU_ID, genId, new VersionRange(iu.getVersion(), true, iu.getVersion(), true),
+							null, false, false));
 					InstallableUnitOverrider sibling = new InstallableUnitOverrider(iu);
 					sibling.overrideId(genId);
 					sibling.overrideArtifacts(Collections.singletonList(artifact));
@@ -205,6 +181,11 @@ public class InstallableUnitMapping implements IInstallableUnit {
 		mapped = AggregatorFactory.eINSTANCE.createMavenItem();
 		mapped.setGroupId(groupId);
 		mapped.setArtifactId(artifactId);
+	}
+
+	public InstallableUnitMapping(VersionFormat versionFormat) {
+		this((String) null);
+		this.versionFormat = versionFormat;
 	}
 
 	public POM asPOM() throws CoreException {
@@ -263,15 +244,17 @@ public class InstallableUnitMapping implements IInstallableUnit {
 								VersionUtil.getVersionString(low, versionFormat)).append(",)");
 						}
 						else {
-							versionRangeString.append(cap.getRange().getIncludeMinimum()
-									? '['
-									: '(');
+							versionRangeString.append(
+								cap.getRange().getIncludeMinimum()
+										? '['
+										: '(');
 							versionRangeString.append(VersionUtil.getVersionString(low, versionFormat));
 							versionRangeString.append(',');
 							versionRangeString.append(VersionUtil.getVersionString(high, versionFormat));
-							versionRangeString.append(cap.getRange().getIncludeMaximum()
-									? ']'
-									: ')');
+							versionRangeString.append(
+								cap.getRange().getIncludeMaximum()
+										? ']'
+										: ')');
 						}
 
 						dependency.setVersion(versionRangeString.toString());
@@ -614,6 +597,27 @@ public class InstallableUnitMapping implements IInstallableUnit {
 			return mapped;
 
 		return mapped = map(getId(), mappings);
+	}
+
+	private MavenItem map(String id, List<MavenMapping> mappings) throws CoreException {
+		MavenItem item = null;
+
+		for(MavenMapping mapping : mappings)
+			if((item = mapping.map(id, null)) != null)
+				return item;
+
+		StringBuilder mappingDescriptor = new StringBuilder();
+		boolean first = true;
+		for(MavenMapping mapping : mappings) {
+			if(first)
+				first = false;
+			else
+				mappingDescriptor.append(',');
+			mappingDescriptor.append(mapping.toString());
+		}
+
+		throw ExceptionUtils.fromMessage(
+			"Unable to map IU to maven artifact: id=%s, mappings=%s", id, mappingDescriptor.toString());
 	}
 
 	private boolean matchesFilter(IMatchExpression<IInstallableUnit> filter, Map<String, String> map) {

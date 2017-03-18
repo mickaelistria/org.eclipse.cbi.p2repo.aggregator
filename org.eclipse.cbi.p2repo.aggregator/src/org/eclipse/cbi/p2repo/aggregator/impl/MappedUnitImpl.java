@@ -34,9 +34,9 @@ import org.eclipse.equinox.p2.metadata.expression.IMatchExpression;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.eclipse.cbi.p2repo.aggregator.impl.MappedUnitImpl#isBranchEnabled <em>Branch Enabled</em>}</li>
- *   <li>{@link org.eclipse.cbi.p2repo.aggregator.impl.MappedUnitImpl#isEnabled <em>Enabled</em>}</li>
- *   <li>{@link org.eclipse.cbi.p2repo.aggregator.impl.MappedUnitImpl#getValidConfigurations <em>Valid Configurations</em>}</li>
+ * <li>{@link org.eclipse.cbi.p2repo.aggregator.impl.MappedUnitImpl#isBranchEnabled <em>Branch Enabled</em>}</li>
+ * <li>{@link org.eclipse.cbi.p2repo.aggregator.impl.MappedUnitImpl#isEnabled <em>Enabled</em>}</li>
+ * <li>{@link org.eclipse.cbi.p2repo.aggregator.impl.MappedUnitImpl#getValidConfigurations <em>Valid Configurations</em>}</li>
  * </ul>
  *
  * @generated
@@ -46,6 +46,7 @@ public abstract class MappedUnitImpl extends InstallableUnitRequestImpl implemen
 	 * The default value of the '{@link #isBranchEnabled() <em>Branch Enabled</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #isBranchEnabled()
 	 * @generated
 	 * @ordered
@@ -56,6 +57,7 @@ public abstract class MappedUnitImpl extends InstallableUnitRequestImpl implemen
 	 * The default value of the '{@link #isEnabled() <em>Enabled</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @see #isEnabled()
 	 * @generated
 	 * @ordered
@@ -66,6 +68,7 @@ public abstract class MappedUnitImpl extends InstallableUnitRequestImpl implemen
 	 * The flag representing the value of the '{@link #isEnabled() <em>Enabled</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #isEnabled()
 	 * @generated
 	 * @ordered
@@ -102,9 +105,10 @@ public abstract class MappedUnitImpl extends InstallableUnitRequestImpl implemen
 			}
 		}
 
-		StringBuilder filterBld = new StringBuilder(inheritedFilter != null
-				? inheritedFilter.toString()
-				: "");
+		StringBuilder filterBld = new StringBuilder(
+			inheritedFilter != null
+					? inheritedFilter.toString()
+					: "");
 		Object[] parameters = new Object[(inheritedFilter != null
 				? inheritedFilter.getParameters().length
 				: 0) +
@@ -143,6 +147,7 @@ public abstract class MappedUnitImpl extends InstallableUnitRequestImpl implemen
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected MappedUnitImpl() {
@@ -152,6 +157,7 @@ public abstract class MappedUnitImpl extends InstallableUnitRequestImpl implemen
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -177,6 +183,7 @@ public abstract class MappedUnitImpl extends InstallableUnitRequestImpl implemen
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -202,6 +209,7 @@ public abstract class MappedUnitImpl extends InstallableUnitRequestImpl implemen
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -219,6 +227,7 @@ public abstract class MappedUnitImpl extends InstallableUnitRequestImpl implemen
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -236,6 +245,7 @@ public abstract class MappedUnitImpl extends InstallableUnitRequestImpl implemen
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
@@ -255,6 +265,7 @@ public abstract class MappedUnitImpl extends InstallableUnitRequestImpl implemen
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -264,6 +275,7 @@ public abstract class MappedUnitImpl extends InstallableUnitRequestImpl implemen
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -323,6 +335,7 @@ public abstract class MappedUnitImpl extends InstallableUnitRequestImpl implemen
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -347,6 +360,7 @@ public abstract class MappedUnitImpl extends InstallableUnitRequestImpl implemen
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -374,6 +388,7 @@ public abstract class MappedUnitImpl extends InstallableUnitRequestImpl implemen
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -391,6 +406,7 @@ public abstract class MappedUnitImpl extends InstallableUnitRequestImpl implemen
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
