@@ -98,19 +98,20 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch(featureID) {
 			case PomPackage.DOCUMENT_ROOT__MIXED:
-				if(coreType)
+				if(coreType) {
 					return getMixed();
+				}
 				return ((FeatureMap.Internal) getMixed()).getWrapper();
 			case PomPackage.DOCUMENT_ROOT__XMLNS_PREFIX_MAP:
-				if(coreType)
+				if(coreType) {
 					return getXMLNSPrefixMap();
-				else
-					return getXMLNSPrefixMap().map();
+				}
+				return getXMLNSPrefixMap().map();
 			case PomPackage.DOCUMENT_ROOT__XSI_SCHEMA_LOCATION:
-				if(coreType)
+				if(coreType) {
 					return getXSISchemaLocation();
-				else
-					return getXSISchemaLocation().map();
+				}
+				return getXSISchemaLocation().map();
 			case PomPackage.DOCUMENT_ROOT__PROJECT:
 				return getProject();
 		}
