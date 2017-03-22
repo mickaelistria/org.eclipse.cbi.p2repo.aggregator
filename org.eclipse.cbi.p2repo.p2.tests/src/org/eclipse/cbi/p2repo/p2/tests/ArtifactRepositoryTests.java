@@ -10,8 +10,6 @@ package org.eclipse.cbi.p2repo.p2.tests;
 
 import java.util.Set;
 
-import junit.framework.Assert;
-
 import org.eclipse.cbi.p2repo.p2.util.P2Bridge;
 import org.eclipse.cbi.p2repo.p2.util.P2Utils;
 import org.eclipse.equinox.p2.metadata.IArtifactKey;
@@ -21,6 +19,7 @@ import org.eclipse.equinox.p2.query.QueryUtil;
 import org.eclipse.equinox.p2.repository.artifact.IArtifactDescriptor;
 import org.eclipse.equinox.p2.repository.artifact.IArtifactRepository;
 import org.eclipse.equinox.p2.repository.artifact.IArtifactRepositoryManager;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
