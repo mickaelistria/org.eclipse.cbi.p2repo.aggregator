@@ -883,6 +883,22 @@ public interface AggregatorPackage extends EPackage {
 		EAttribute MAVEN_MAPPING__ARTIFACT_ID = eINSTANCE.getMavenMapping_ArtifactId();
 
 		/**
+		 * The meta object literal for the '<em><b>Version Pattern</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute MAVEN_MAPPING__VERSION_PATTERN = eINSTANCE.getMavenMapping_VersionPattern();
+
+		/**
+		 * The meta object literal for the '<em><b>Version Template</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute MAVEN_MAPPING__VERSION_TEMPLATE = eINSTANCE.getMavenMapping_VersionTemplate();
+
+		/**
 		 * The meta object literal for the '{@link org.eclipse.cbi.p2repo.aggregator.impl.MavenItemImpl <em>Maven Item</em>}' class.
 		 * <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * @see org.eclipse.cbi.p2repo.aggregator.impl.MavenItemImpl
@@ -908,12 +924,28 @@ public interface AggregatorPackage extends EPackage {
 		EAttribute MAVEN_ITEM__ARTIFACT_ID = eINSTANCE.getMavenItem_ArtifactId();
 
 		/**
+		 * The meta object literal for the '<em><b>Mapped Version</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute MAVEN_ITEM__MAPPED_VERSION = eINSTANCE.getMavenItem_MappedVersion();
+
+		/**
 		 * The meta object literal for the '<em><b>Classifier</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EAttribute MAVEN_ITEM__CLASSIFIER = eINSTANCE.getMavenItem_Classifier();
+
+		/**
+		 * The meta object literal for the '<em><b>Maven Mapping</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference MAVEN_ITEM__MAVEN_MAPPING = eINSTANCE.getMavenItem_MavenMapping();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.cbi.p2repo.aggregator.ChildrenProvider <em>Children Provider</em>}' class.
@@ -3019,13 +3051,31 @@ public interface AggregatorPackage extends EPackage {
 	int MAVEN_ITEM__ARTIFACT_ID = 1;
 
 	/**
+	 * The feature id for the '<em><b>Mapped Version</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MAVEN_ITEM__MAPPED_VERSION = 2;
+
+	/**
 	 * The feature id for the '<em><b>Classifier</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MAVEN_ITEM__CLASSIFIER = 2;
+	int MAVEN_ITEM__CLASSIFIER = 3;
+
+	/**
+	 * The feature id for the '<em><b>Maven Mapping</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MAVEN_ITEM__MAVEN_MAPPING = 4;
 
 	/**
 	 * The number of structural features of the '<em>Maven Item</em>' class. <!-- begin-user-doc --> <!-- end-user-doc
@@ -3034,7 +3084,7 @@ public interface AggregatorPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MAVEN_ITEM_FEATURE_COUNT = 3;
+	int MAVEN_ITEM_FEATURE_COUNT = 5;
 
 	/**
 	 * The feature id for the '<em><b>Status</b></em>' reference.
@@ -3093,13 +3143,31 @@ public interface AggregatorPackage extends EPackage {
 	int MAVEN_MAPPING__ARTIFACT_ID = STATUS_PROVIDER_FEATURE_COUNT + 5;
 
 	/**
+	 * The feature id for the '<em><b>Version Pattern</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MAVEN_MAPPING__VERSION_PATTERN = STATUS_PROVIDER_FEATURE_COUNT + 6;
+
+	/**
+	 * The feature id for the '<em><b>Version Template</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MAVEN_MAPPING__VERSION_TEMPLATE = STATUS_PROVIDER_FEATURE_COUNT + 7;
+
+	/**
 	 * The number of structural features of the '<em>Maven Mapping</em>' class.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MAVEN_MAPPING_FEATURE_COUNT = STATUS_PROVIDER_FEATURE_COUNT + 6;
+	int MAVEN_MAPPING_FEATURE_COUNT = STATUS_PROVIDER_FEATURE_COUNT + 8;
 
 	/**
 	 * The feature id for the '<em><b>Status</b></em>' reference.
@@ -4498,6 +4566,17 @@ public interface AggregatorPackage extends EPackage {
 	EAttribute getMavenItem_ArtifactId();
 
 	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.cbi.p2repo.aggregator.MavenItem#getMappedVersion <em>Mapped Version</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Mapped Version</em>'.
+	 * @see org.eclipse.cbi.p2repo.aggregator.MavenItem#getMappedVersion()
+	 * @see #getMavenItem()
+	 * @generated
+	 */
+	EAttribute getMavenItem_MappedVersion();
+
+	/**
 	 * Returns the meta object for the attribute '{@link org.eclipse.cbi.p2repo.aggregator.MavenItem#getClassifier <em>Classifier</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4507,6 +4586,17 @@ public interface AggregatorPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getMavenItem_Classifier();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.eclipse.cbi.p2repo.aggregator.MavenItem#getMavenMapping <em>Maven Mapping</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Maven Mapping</em>'.
+	 * @see org.eclipse.cbi.p2repo.aggregator.MavenItem#getMavenMapping()
+	 * @see #getMavenItem()
+	 * @generated
+	 */
+	EReference getMavenItem_MavenMapping();
 
 	/**
 	 * Returns the meta object for the attribute '{@link org.eclipse.cbi.p2repo.aggregator.MavenItem#getGroupId <em>Group Id</em>}'.
@@ -4536,6 +4626,28 @@ public interface AggregatorPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getMavenMapping_ArtifactId();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.cbi.p2repo.aggregator.MavenMapping#getVersionPattern <em>Version Pattern</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Version Pattern</em>'.
+	 * @see org.eclipse.cbi.p2repo.aggregator.MavenMapping#getVersionPattern()
+	 * @see #getMavenMapping()
+	 * @generated
+	 */
+	EAttribute getMavenMapping_VersionPattern();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.cbi.p2repo.aggregator.MavenMapping#getVersionTemplate <em>Version Template</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Version Template</em>'.
+	 * @see org.eclipse.cbi.p2repo.aggregator.MavenMapping#getVersionTemplate()
+	 * @see #getMavenMapping()
+	 * @generated
+	 */
+	EAttribute getMavenMapping_VersionTemplate();
 
 	/**
 	 * Returns the meta object for the attribute '{@link org.eclipse.cbi.p2repo.aggregator.MavenMapping#getGroupId <em>Group Id</em>}'.

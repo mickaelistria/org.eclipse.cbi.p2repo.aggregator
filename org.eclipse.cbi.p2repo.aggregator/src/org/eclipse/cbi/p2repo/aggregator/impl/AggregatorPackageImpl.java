@@ -517,12 +517,16 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 		mavenItemEClass = createEClass(MAVEN_ITEM);
 		createEAttribute(mavenItemEClass, MAVEN_ITEM__GROUP_ID);
 		createEAttribute(mavenItemEClass, MAVEN_ITEM__ARTIFACT_ID);
+		createEAttribute(mavenItemEClass, MAVEN_ITEM__MAPPED_VERSION);
 		createEAttribute(mavenItemEClass, MAVEN_ITEM__CLASSIFIER);
+		createEReference(mavenItemEClass, MAVEN_ITEM__MAVEN_MAPPING);
 
 		mavenMappingEClass = createEClass(MAVEN_MAPPING);
 		createEAttribute(mavenMappingEClass, MAVEN_MAPPING__NAME_PATTERN);
 		createEAttribute(mavenMappingEClass, MAVEN_MAPPING__GROUP_ID);
 		createEAttribute(mavenMappingEClass, MAVEN_MAPPING__ARTIFACT_ID);
+		createEAttribute(mavenMappingEClass, MAVEN_MAPPING__VERSION_PATTERN);
+		createEAttribute(mavenMappingEClass, MAVEN_MAPPING__VERSION_TEMPLATE);
 
 		metadataRepositoryReferenceEClass = createEClass(METADATA_REPOSITORY_REFERENCE);
 		createEReference(metadataRepositoryReferenceEClass, METADATA_REPOSITORY_REFERENCE__METADATA_REPOSITORY);
@@ -1381,8 +1385,28 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 	 * @generated
 	 */
 	@Override
-	public EAttribute getMavenItem_Classifier() {
+	public EAttribute getMavenItem_MappedVersion() {
 		return (EAttribute) mavenItemEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getMavenItem_Classifier() {
+		return (EAttribute) mavenItemEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getMavenItem_MavenMapping() {
+		return (EReference) mavenItemEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -1410,6 +1434,26 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 	@Override
 	public EAttribute getMavenMapping_ArtifactId() {
 		return (EAttribute) mavenMappingEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getMavenMapping_VersionPattern() {
+		return (EAttribute) mavenMappingEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getMavenMapping_VersionTemplate() {
+		return (EAttribute) mavenMappingEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -2143,8 +2187,15 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 			getMavenItem_ArtifactId(), ecorePackage.getEString(), "artifactId", null, 0, 1, MavenItem.class,
 			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(
+			getMavenItem_MappedVersion(), ecorePackage.getEString(), "mappedVersion", null, 0, 1, MavenItem.class,
+			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(
 			getMavenItem_Classifier(), ecorePackage.getEString(), "classifier", null, 0, 1, MavenItem.class,
 			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(
+			getMavenItem_MavenMapping(), this.getMavenMapping(), null, "mavenMapping", null, 0, 1, MavenItem.class,
+			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,
+			!IS_DERIVED, IS_ORDERED);
 
 		addEOperation(mavenItemEClass, ecorePackage.getEBoolean(), "isSources", 0, 1, IS_UNIQUE, IS_ORDERED);
 
@@ -2160,9 +2211,21 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 		initEAttribute(
 			getMavenMapping_ArtifactId(), ecorePackage.getEString(), "artifactId", null, 0, 1, MavenMapping.class,
 			!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(
+			getMavenMapping_VersionPattern(), ecorePackage.getEString(), "versionPattern", null, 0, 1,
+			MavenMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+			!IS_DERIVED, IS_ORDERED);
+		initEAttribute(
+			getMavenMapping_VersionTemplate(), ecorePackage.getEString(), "versionTemplate", null, 0, 1,
+			MavenMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+			!IS_DERIVED, IS_ORDERED);
 
 		op = addEOperation(mavenMappingEClass, this.getMavenItem(), "map", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "installableUnitID", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theP2Package.getVersion(), "version", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = addEOperation(mavenMappingEClass, ecorePackage.getEString(), "mapVersion", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theP2Package.getVersion(), "version", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(
 			metadataRepositoryReferenceEClass, MetadataRepositoryReference.class, "MetadataRepositoryReference",

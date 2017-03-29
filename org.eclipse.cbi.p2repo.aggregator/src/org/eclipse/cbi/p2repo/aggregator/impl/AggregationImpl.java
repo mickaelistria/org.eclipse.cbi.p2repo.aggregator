@@ -47,35 +47,296 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.eclipse.cbi.p2repo.aggregator.impl.AggregationImpl#getStatus <em>Status</em>}</li>
- *   <li>{@link org.eclipse.cbi.p2repo.aggregator.impl.AggregationImpl#getErrors <em>Errors</em>}</li>
- *   <li>{@link org.eclipse.cbi.p2repo.aggregator.impl.AggregationImpl#getWarnings <em>Warnings</em>}</li>
- *   <li>{@link org.eclipse.cbi.p2repo.aggregator.impl.AggregationImpl#getInfos <em>Infos</em>}</li>
- *   <li>{@link org.eclipse.cbi.p2repo.aggregator.impl.AggregationImpl#getValidationSets <em>Validation Sets</em>}</li>
- *   <li>{@link org.eclipse.cbi.p2repo.aggregator.impl.AggregationImpl#getConfigurations <em>Configurations</em>}</li>
- *   <li>{@link org.eclipse.cbi.p2repo.aggregator.impl.AggregationImpl#getCustomCategories <em>Custom Categories</em>}</li>
- *   <li>{@link org.eclipse.cbi.p2repo.aggregator.impl.AggregationImpl#getContacts <em>Contacts</em>}</li>
- *   <li>{@link org.eclipse.cbi.p2repo.aggregator.impl.AggregationImpl#getBuildmaster <em>Buildmaster</em>}</li>
- *   <li>{@link org.eclipse.cbi.p2repo.aggregator.impl.AggregationImpl#getBuildmasterBackup <em>Buildmaster Backup</em>}</li>
- *   <li>{@link org.eclipse.cbi.p2repo.aggregator.impl.AggregationImpl#getLabel <em>Label</em>}</li>
- *   <li>{@link org.eclipse.cbi.p2repo.aggregator.impl.AggregationImpl#getBuildRoot <em>Build Root</em>}</li>
- *   <li>{@link org.eclipse.cbi.p2repo.aggregator.impl.AggregationImpl#getPackedStrategy <em>Packed Strategy</em>}</li>
- *   <li>{@link org.eclipse.cbi.p2repo.aggregator.impl.AggregationImpl#isSendmail <em>Sendmail</em>}</li>
- *   <li>{@link org.eclipse.cbi.p2repo.aggregator.impl.AggregationImpl#getType <em>Type</em>}</li>
- *   <li>{@link org.eclipse.cbi.p2repo.aggregator.impl.AggregationImpl#isMavenResult <em>Maven Result</em>}</li>
- *   <li>{@link org.eclipse.cbi.p2repo.aggregator.impl.AggregationImpl#isStrictMavenVersions <em>Strict Maven Versions</em>}</li>
- *   <li>{@link org.eclipse.cbi.p2repo.aggregator.impl.AggregationImpl#getVersionFormat <em>Version Format</em>}</li>
- *   <li>{@link org.eclipse.cbi.p2repo.aggregator.impl.AggregationImpl#getMavenMappings <em>Maven Mappings</em>}</li>
- *   <li>{@link org.eclipse.cbi.p2repo.aggregator.impl.AggregationImpl#isAllowLegacySites <em>Allow Legacy Sites</em>}</li>
+ * <li>{@link org.eclipse.cbi.p2repo.aggregator.impl.AggregationImpl#getStatus <em>Status</em>}</li>
+ * <li>{@link org.eclipse.cbi.p2repo.aggregator.impl.AggregationImpl#getErrors <em>Errors</em>}</li>
+ * <li>{@link org.eclipse.cbi.p2repo.aggregator.impl.AggregationImpl#getWarnings <em>Warnings</em>}</li>
+ * <li>{@link org.eclipse.cbi.p2repo.aggregator.impl.AggregationImpl#getInfos <em>Infos</em>}</li>
+ * <li>{@link org.eclipse.cbi.p2repo.aggregator.impl.AggregationImpl#getValidationSets <em>Validation Sets</em>}</li>
+ * <li>{@link org.eclipse.cbi.p2repo.aggregator.impl.AggregationImpl#getConfigurations <em>Configurations</em>}</li>
+ * <li>{@link org.eclipse.cbi.p2repo.aggregator.impl.AggregationImpl#getCustomCategories <em>Custom Categories</em>}</li>
+ * <li>{@link org.eclipse.cbi.p2repo.aggregator.impl.AggregationImpl#getContacts <em>Contacts</em>}</li>
+ * <li>{@link org.eclipse.cbi.p2repo.aggregator.impl.AggregationImpl#getBuildmaster <em>Buildmaster</em>}</li>
+ * <li>{@link org.eclipse.cbi.p2repo.aggregator.impl.AggregationImpl#getBuildmasterBackup <em>Buildmaster Backup</em>}</li>
+ * <li>{@link org.eclipse.cbi.p2repo.aggregator.impl.AggregationImpl#getLabel <em>Label</em>}</li>
+ * <li>{@link org.eclipse.cbi.p2repo.aggregator.impl.AggregationImpl#getBuildRoot <em>Build Root</em>}</li>
+ * <li>{@link org.eclipse.cbi.p2repo.aggregator.impl.AggregationImpl#getPackedStrategy <em>Packed Strategy</em>}</li>
+ * <li>{@link org.eclipse.cbi.p2repo.aggregator.impl.AggregationImpl#isSendmail <em>Sendmail</em>}</li>
+ * <li>{@link org.eclipse.cbi.p2repo.aggregator.impl.AggregationImpl#getType <em>Type</em>}</li>
+ * <li>{@link org.eclipse.cbi.p2repo.aggregator.impl.AggregationImpl#isMavenResult <em>Maven Result</em>}</li>
+ * <li>{@link org.eclipse.cbi.p2repo.aggregator.impl.AggregationImpl#isStrictMavenVersions <em>Strict Maven Versions</em>}</li>
+ * <li>{@link org.eclipse.cbi.p2repo.aggregator.impl.AggregationImpl#getVersionFormat <em>Version Format</em>}</li>
+ * <li>{@link org.eclipse.cbi.p2repo.aggregator.impl.AggregationImpl#getMavenMappings <em>Maven Mappings</em>}</li>
+ * <li>{@link org.eclipse.cbi.p2repo.aggregator.impl.AggregationImpl#isAllowLegacySites <em>Allow Legacy Sites</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class AggregationImpl extends DescriptionProviderImpl implements Aggregation {
 	/**
+	 * The default value of the '{@link #getLabel() <em>Label</em>}' attribute.
+	 * <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
+	 * @see #getLabel()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String LABEL_EDEFAULT = null;
+
+	/**
+	 * The default value of the '{@link #getBuildRoot() <em>Build Root</em>}' attribute.
+	 * <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
+	 * @see #getBuildRoot()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String BUILD_ROOT_EDEFAULT = "${user.home}/build";
+
+	/**
+	 * The default value of the '{@link #getPackedStrategy() <em>Packed Strategy</em>}' attribute.
+	 * <!-- begin-user-doc
+	 * --> <!-- end-user-doc -->
+	 * 
+	 * @see #getPackedStrategy()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final PackedStrategy PACKED_STRATEGY_EDEFAULT = PackedStrategy.COPY;
+
+	/**
+	 * The offset of the flags representing the value of the '{@link #getPackedStrategy() <em>Packed Strategy</em>}' attribute.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int PACKED_STRATEGY_EFLAG_OFFSET = 0;
+
+	/**
+	 * The flags representing the default value of the '{@link #getPackedStrategy() <em>Packed Strategy</em>}' attribute.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int PACKED_STRATEGY_EFLAG_DEFAULT = PACKED_STRATEGY_EDEFAULT.ordinal() << PACKED_STRATEGY_EFLAG_OFFSET;
+
+	/**
+	 * The array of enumeration values for '{@link PackedStrategy Packed Strategy}'
+	 * <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	private static final PackedStrategy[] PACKED_STRATEGY_EFLAG_VALUES = PackedStrategy.values();
+
+	/**
+	 * The flags representing the value of the '{@link #getPackedStrategy() <em>Packed Strategy</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 *
+	 * @see #getPackedStrategy()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int PACKED_STRATEGY_EFLAG = 0x7 << PACKED_STRATEGY_EFLAG_OFFSET;
+
+	/**
+	 * The default value of the '{@link #isSendmail() <em>Sendmail</em>}' attribute.
+	 * <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
+	 * @see #isSendmail()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean SENDMAIL_EDEFAULT = false;
+
+	/**
+	 * The flag representing the value of the '{@link #isSendmail() <em>Sendmail</em>}' attribute.
+	 * <!-- begin-user-doc
+	 * --> <!-- end-user-doc -->
+	 * 
+	 * @see #isSendmail()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int SENDMAIL_EFLAG = 1 << 3;
+
+	/**
+	 * The default value of the '{@link #getType() <em>Type</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
+	 * -->
+	 *
+	 * @see #getType()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final AggregationType TYPE_EDEFAULT = AggregationType.STABLE;
+
+	/**
+	 * The offset of the flags representing the value of the '{@link #getType() <em>Type</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 *
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int TYPE_EFLAG_OFFSET = 4;
+
+	/**
+	 * The flags representing the default value of the '{@link #getType() <em>Type</em>}' attribute.
+	 * <!-- begin-user-doc
+	 * --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int TYPE_EFLAG_DEFAULT = TYPE_EDEFAULT.ordinal() << TYPE_EFLAG_OFFSET;
+
+	/**
+	 * The array of enumeration values for '{@link AggregationType Aggregation Type}'
+	 * <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	private static final AggregationType[] TYPE_EFLAG_VALUES = AggregationType.values();
+
+	/**
+	 * The flags representing the value of the '{@link #getType() <em>Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see #getType()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int TYPE_EFLAG = 0x7 << TYPE_EFLAG_OFFSET;
+
+	/**
+	 * The default value of the '{@link #isMavenResult() <em>Maven Result</em>}' attribute.
+	 * <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
+	 * @see #isMavenResult()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean MAVEN_RESULT_EDEFAULT = false;
+
+	/**
+	 * The flag representing the value of the '{@link #isMavenResult() <em>Maven Result</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 *
+	 * @see #isMavenResult()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int MAVEN_RESULT_EFLAG = 1 << 7;
+
+	/**
+	 * The default value of the '{@link #isStrictMavenVersions() <em>Strict Maven Versions</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see #isStrictMavenVersions()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean STRICT_MAVEN_VERSIONS_EDEFAULT = false;
+
+	/**
+	 * The flag representing the value of the '{@link #isStrictMavenVersions() <em>Strict Maven Versions</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see #isStrictMavenVersions()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int STRICT_MAVEN_VERSIONS_EFLAG = 1 << 8;
+
+	/**
+	 * The default value of the '{@link #getVersionFormat() <em>Version Format</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see #getVersionFormat()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final VersionFormat VERSION_FORMAT_EDEFAULT = VersionFormat.NORMAL;
+
+	/**
+	 * The offset of the flags representing the value of the '{@link #getVersionFormat() <em>Version Format</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int VERSION_FORMAT_EFLAG_OFFSET = 9;
+
+	/**
+	 * The flags representing the default value of the '{@link #getVersionFormat() <em>Version Format</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int VERSION_FORMAT_EFLAG_DEFAULT = VERSION_FORMAT_EDEFAULT.ordinal() << VERSION_FORMAT_EFLAG_OFFSET;
+
+	/**
+	 * The array of enumeration values for '{@link VersionFormat Version Format}'
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	private static final VersionFormat[] VERSION_FORMAT_EFLAG_VALUES = VersionFormat.values();
+
+	/**
+	 * The flags representing the value of the '{@link #getVersionFormat() <em>Version Format</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see #getVersionFormat()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int VERSION_FORMAT_EFLAG = 0x3 << VERSION_FORMAT_EFLAG_OFFSET;
+
+	/**
+	 * The default value of the '{@link #isAllowLegacySites() <em>Allow Legacy Sites</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see #isAllowLegacySites()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean ALLOW_LEGACY_SITES_EDEFAULT = true;
+
+	/**
+	 * The flag representing the value of the '{@link #isAllowLegacySites() <em>Allow Legacy Sites</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see #isAllowLegacySites()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int ALLOW_LEGACY_SITES_EFLAG = 1 << 11;
+
+	/**
 	 * The cached value of the '{@link #getErrors() <em>Errors</em>}' attribute list.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @see #getErrors()
 	 * @generated
 	 * @ordered
@@ -86,6 +347,7 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 	 * The cached value of the '{@link #getWarnings() <em>Warnings</em>}' attribute list.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @see #getWarnings()
 	 * @generated
 	 * @ordered
@@ -96,6 +358,7 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 	 * The cached value of the '{@link #getInfos() <em>Infos</em>}' attribute list.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @see #getInfos()
 	 * @generated
 	 * @ordered
@@ -106,6 +369,7 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 	 * The cached value of the '{@link #getValidationSets() <em>Validation Sets</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getValidationSets()
 	 * @generated
 	 * @ordered
@@ -125,6 +389,7 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 	/**
 	 * The cached value of the '{@link #getCustomCategories() <em>Custom Categories</em>}' containment reference list.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see #getCustomCategories()
 	 * @generated
 	 * @ordered
@@ -155,21 +420,12 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 	 * The cached value of the '{@link #getBuildmasterBackup() <em>Buildmaster Backup</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getBuildmasterBackup()
 	 * @generated
 	 * @ordered
 	 */
 	protected Contact buildmasterBackup;
-
-	/**
-	 * The default value of the '{@link #getLabel() <em>Label</em>}' attribute.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
-	 * @see #getLabel()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String LABEL_EDEFAULT = null;
 
 	/**
 	 * The cached value of the '{@link #getLabel() <em>Label</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
@@ -182,223 +438,15 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 	protected String label = LABEL_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getBuildRoot() <em>Build Root</em>}' attribute.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
-	 * @see #getBuildRoot()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String BUILD_ROOT_EDEFAULT = "${user.home}/build";
-
-	/**
 	 * The cached value of the '{@link #getBuildRoot() <em>Build Root</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @see #getBuildRoot()
 	 * @generated
 	 * @ordered
 	 */
 	protected String buildRoot = BUILD_ROOT_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #getPackedStrategy() <em>Packed Strategy</em>}' attribute.
-	 * <!-- begin-user-doc
-	 * --> <!-- end-user-doc -->
-	 * @see #getPackedStrategy()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final PackedStrategy PACKED_STRATEGY_EDEFAULT = PackedStrategy.COPY;
-
-	/**
-	 * The offset of the flags representing the value of the '{@link #getPackedStrategy() <em>Packed Strategy</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	protected static final int PACKED_STRATEGY_EFLAG_OFFSET = 0;
-
-	/**
-	 * The flags representing the default value of the '{@link #getPackedStrategy() <em>Packed Strategy</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	protected static final int PACKED_STRATEGY_EFLAG_DEFAULT = PACKED_STRATEGY_EDEFAULT.ordinal() << PACKED_STRATEGY_EFLAG_OFFSET;
-
-	/**
-	 * The array of enumeration values for '{@link PackedStrategy Packed Strategy}'
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	private static final PackedStrategy[] PACKED_STRATEGY_EFLAG_VALUES = PackedStrategy.values();
-
-	/**
-	 * The flags representing the value of the '{@link #getPackedStrategy() <em>Packed Strategy</em>}' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
-	 * @see #getPackedStrategy()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final int PACKED_STRATEGY_EFLAG = 0x7 << PACKED_STRATEGY_EFLAG_OFFSET;
-
-	/**
-	 * The default value of the '{@link #isSendmail() <em>Sendmail</em>}' attribute.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
-	 * @see #isSendmail()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final boolean SENDMAIL_EDEFAULT = false;
-
-	/**
-	 * The flag representing the value of the '{@link #isSendmail() <em>Sendmail</em>}' attribute.
-	 * <!-- begin-user-doc
-	 * --> <!-- end-user-doc -->
-	 * @see #isSendmail()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final int SENDMAIL_EFLAG = 1 << 3;
-
-	/**
-	 * The default value of the '{@link #getType() <em>Type</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
-	 *
-	 * @see #getType()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final AggregationType TYPE_EDEFAULT = AggregationType.STABLE;
-
-	/**
-	 * The offset of the flags representing the value of the '{@link #getType() <em>Type</em>}' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
-	 * @generated
-	 * @ordered
-	 */
-	protected static final int TYPE_EFLAG_OFFSET = 4;
-
-	/**
-	 * The flags representing the default value of the '{@link #getType() <em>Type</em>}' attribute.
-	 * <!-- begin-user-doc
-	 * --> <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	protected static final int TYPE_EFLAG_DEFAULT = TYPE_EDEFAULT.ordinal() << TYPE_EFLAG_OFFSET;
-
-	/**
-	 * The array of enumeration values for '{@link AggregationType Aggregation Type}'
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	private static final AggregationType[] TYPE_EFLAG_VALUES = AggregationType.values();
-
-	/**
-	 * The flags representing the value of the '{@link #getType() <em>Type</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getType()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final int TYPE_EFLAG = 0x7 << TYPE_EFLAG_OFFSET;
-
-	/**
-	 * The default value of the '{@link #isMavenResult() <em>Maven Result</em>}' attribute.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
-	 * @see #isMavenResult()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final boolean MAVEN_RESULT_EDEFAULT = false;
-
-	/**
-	 * The flag representing the value of the '{@link #isMavenResult() <em>Maven Result</em>}' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 *
-	 * @see #isMavenResult()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final int MAVEN_RESULT_EFLAG = 1 << 7;
-
-	/**
-	 * The default value of the '{@link #isStrictMavenVersions() <em>Strict Maven Versions</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #isStrictMavenVersions()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final boolean STRICT_MAVEN_VERSIONS_EDEFAULT = false;
-
-	/**
-	 * The flag representing the value of the '{@link #isStrictMavenVersions() <em>Strict Maven Versions</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #isStrictMavenVersions()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final int STRICT_MAVEN_VERSIONS_EFLAG = 1 << 8;
-
-	/**
-	 * The default value of the '{@link #getVersionFormat() <em>Version Format</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getVersionFormat()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final VersionFormat VERSION_FORMAT_EDEFAULT = VersionFormat.NORMAL;
-
-	/**
-	 * The offset of the flags representing the value of the '{@link #getVersionFormat() <em>Version Format</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	protected static final int VERSION_FORMAT_EFLAG_OFFSET = 9;
-
-	/**
-	 * The flags representing the default value of the '{@link #getVersionFormat() <em>Version Format</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	protected static final int VERSION_FORMAT_EFLAG_DEFAULT = VERSION_FORMAT_EDEFAULT.ordinal() << VERSION_FORMAT_EFLAG_OFFSET;
-
-	/**
-	 * The array of enumeration values for '{@link VersionFormat Version Format}'
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	private static final VersionFormat[] VERSION_FORMAT_EFLAG_VALUES = VersionFormat.values();
-
-	/**
-	 * The flags representing the value of the '{@link #getVersionFormat() <em>Version Format</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getVersionFormat()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final int VERSION_FORMAT_EFLAG = 0x3 << VERSION_FORMAT_EFLAG_OFFSET;
 
 	/**
 	 * The cached value of the '{@link #getMavenMappings() <em>Maven Mappings</em>}' containment reference list. <!--
@@ -411,27 +459,8 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 	protected EList<MavenMapping> mavenMappings;
 
 	/**
-	 * The default value of the '{@link #isAllowLegacySites() <em>Allow Legacy Sites</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #isAllowLegacySites()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final boolean ALLOW_LEGACY_SITES_EDEFAULT = true;
-
-	/**
-	 * The flag representing the value of the '{@link #isAllowLegacySites() <em>Allow Legacy Sites</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #isAllowLegacySites()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final int ALLOW_LEGACY_SITES_EFLAG = 1 << 11;
-
-	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected AggregationImpl() {
@@ -441,10 +470,21 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public Contact basicGetBuildmaster() {
 		return buildmaster;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public Contact basicGetBuildmasterBackup() {
+		return buildmasterBackup;
 	}
 
 	public void clearStatus() {
@@ -454,6 +494,7 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -483,6 +524,7 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -512,6 +554,7 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -567,6 +610,7 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
@@ -581,6 +625,7 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -602,6 +647,7 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -657,6 +703,7 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
@@ -734,6 +781,7 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -743,6 +791,7 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -854,6 +903,7 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -873,7 +923,30 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public Contact getBuildmasterBackup() {
+		if(buildmasterBackup != null && ((EObject) buildmasterBackup).eIsProxy()) {
+			InternalEObject oldBuildmasterBackup = (InternalEObject) buildmasterBackup;
+			buildmasterBackup = (Contact) eResolveProxy(oldBuildmasterBackup);
+			if(buildmasterBackup != oldBuildmasterBackup) {
+				if(eNotificationRequired())
+					eNotify(
+						new ENotificationImpl(
+							this, Notification.RESOLVE, AggregatorPackage.AGGREGATION__BUILDMASTER_BACKUP,
+							oldBuildmasterBackup, buildmasterBackup));
+			}
+		}
+		return buildmasterBackup;
+	}
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -883,6 +956,7 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -896,6 +970,7 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -909,6 +984,7 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -922,6 +998,7 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -934,6 +1011,7 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -946,6 +1024,7 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -955,6 +1034,7 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -968,6 +1048,7 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -991,6 +1072,7 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -1001,6 +1083,7 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -1027,7 +1110,19 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public VersionFormat getVersionFormat() {
+		return VERSION_FORMAT_EFLAG_VALUES[(eFlags & VERSION_FORMAT_EFLAG) >>> VERSION_FORMAT_EFLAG_OFFSET];
+	}
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -1041,6 +1136,7 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -1050,6 +1146,7 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -1059,6 +1156,7 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -1069,6 +1167,7 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -1079,6 +1178,7 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -1097,6 +1197,7 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -1112,36 +1213,7 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Contact getBuildmasterBackup() {
-		if(buildmasterBackup != null && ((EObject) buildmasterBackup).eIsProxy()) {
-			InternalEObject oldBuildmasterBackup = (InternalEObject) buildmasterBackup;
-			buildmasterBackup = (Contact) eResolveProxy(oldBuildmasterBackup);
-			if(buildmasterBackup != oldBuildmasterBackup) {
-				if(eNotificationRequired())
-					eNotify(
-						new ENotificationImpl(
-							this, Notification.RESOLVE, AggregatorPackage.AGGREGATION__BUILDMASTER_BACKUP,
-							oldBuildmasterBackup, buildmasterBackup));
-			}
-		}
-		return buildmasterBackup;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Contact basicGetBuildmasterBackup() {
-		return buildmasterBackup;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -1157,6 +1229,7 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -1171,6 +1244,7 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -1184,6 +1258,7 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -1201,17 +1276,8 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public VersionFormat getVersionFormat() {
-		return VERSION_FORMAT_EFLAG_VALUES[(eFlags & VERSION_FORMAT_EFLAG) >>> VERSION_FORMAT_EFLAG_OFFSET];
-	}
-
-	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -1230,6 +1296,7 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -1248,6 +1315,7 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated NOT
 	 */
 	@Override
@@ -1273,27 +1341,7 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated NOT
-	 */
-	@Override
-	public void setVersionFormat(VersionFormat newVersionFormat) {
-		VersionFormat oldVersionFormat = VERSION_FORMAT_EFLAG_VALUES[(eFlags &
-				VERSION_FORMAT_EFLAG) >>> VERSION_FORMAT_EFLAG_OFFSET];
-		if(newVersionFormat == null)
-			newVersionFormat = VERSION_FORMAT_EDEFAULT;
-		eFlags = eFlags & ~VERSION_FORMAT_EFLAG | newVersionFormat.ordinal() << VERSION_FORMAT_EFLAG_OFFSET;
-		if(eNotificationRequired())
-			eNotify(
-				new ENotificationImpl(
-					this, Notification.SET, AggregatorPackage.AGGREGATION__VERSION_FORMAT, oldVersionFormat,
-					newVersionFormat));
-		if (oldVersionFormat != newVersionFormat)
-			setStrictMavenVersions(newVersionFormat == VersionFormat.STRICT_MAVEN);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -1308,7 +1356,30 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated NOT
+	 */
+	@Override
+	public void setVersionFormat(VersionFormat newVersionFormat) {
+		VersionFormat oldVersionFormat = VERSION_FORMAT_EFLAG_VALUES[(eFlags &
+				VERSION_FORMAT_EFLAG) >>> VERSION_FORMAT_EFLAG_OFFSET];
+		if(newVersionFormat == null)
+			newVersionFormat = VERSION_FORMAT_EDEFAULT;
+		eFlags = eFlags & ~VERSION_FORMAT_EFLAG | newVersionFormat.ordinal() << VERSION_FORMAT_EFLAG_OFFSET;
+		if(eNotificationRequired())
+			eNotify(
+				new ENotificationImpl(
+					this, Notification.SET, AggregatorPackage.AGGREGATION__VERSION_FORMAT, oldVersionFormat,
+					newVersionFormat));
+		if(oldVersionFormat != newVersionFormat)
+			setStrictMavenVersions(newVersionFormat == VersionFormat.STRICT_MAVEN);
+	}
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override

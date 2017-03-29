@@ -32,6 +32,7 @@ public class FeatureItemProvider extends MappedUnitItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public FeatureItemProvider(AdapterFactory adapterFactory) {
@@ -41,6 +42,7 @@ public class FeatureItemProvider extends MappedUnitItemProvider {
 	/**
 	 * This adds a property descriptor for the Categories feature.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected void addCategoriesPropertyDescriptor(Object object) {
@@ -56,6 +58,7 @@ public class FeatureItemProvider extends MappedUnitItemProvider {
 	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
 	 * that can be created under this object.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -80,7 +83,8 @@ public class FeatureItemProvider extends MappedUnitItemProvider {
 	@Override
 	public Object getImage(Object object) {
 		return overlayImage(
-			object, getResourceLocator().getImage(
+			object,
+			getResourceLocator().getImage(
 				"full/obj16/Feature" + (!((Feature) object).isBranchDisabledOrMappedRepositoryBroken()
 						? ""
 						: "Disabled")));
@@ -94,6 +98,7 @@ public class FeatureItemProvider extends MappedUnitItemProvider {
 	/**
 	 * This returns the property descriptors for the adapted class.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override

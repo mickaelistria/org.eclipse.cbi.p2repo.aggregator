@@ -27,6 +27,7 @@ public class ExclusionRuleItemProvider extends MapRuleItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public ExclusionRuleItemProvider(AdapterFactory adapterFactory) {
@@ -37,6 +38,7 @@ public class ExclusionRuleItemProvider extends MapRuleItemProvider {
 	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
 	 * that can be created under this object.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -52,7 +54,8 @@ public class ExclusionRuleItemProvider extends MapRuleItemProvider {
 	@Override
 	public Object getImage(Object object) {
 		return overlayImage(
-			object, getResourceLocator().getImage(
+			object,
+			getResourceLocator().getImage(
 				"full/obj16/ExclusionRule" + (!((ExclusionRule) object).isBranchDisabledOrMappedRepositoryBroken()
 						? ""
 						: "Disabled")));
@@ -61,6 +64,7 @@ public class ExclusionRuleItemProvider extends MapRuleItemProvider {
 	/**
 	 * This returns the property descriptors for the adapted class.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override

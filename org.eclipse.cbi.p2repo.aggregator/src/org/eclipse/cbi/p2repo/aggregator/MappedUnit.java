@@ -31,7 +31,7 @@ public interface MappedUnit extends InstallableUnitRequest, EnabledStatusProvide
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model kind="operation" dataType="org.eclipse.cbi.p2repo.p2.IMatchExpression<org.eclipse.cbi.p2repo.p2.IInstallableUnit>"
+	 * @model kind="operation" dataType="org.eclipse.cbi.p2repo.p2.IMatchExpression&lt;org.eclipse.cbi.p2repo.p2.IInstallableUnit&gt;"
 	 * @generated
 	 */
 	IMatchExpression<IInstallableUnit> getFilter();

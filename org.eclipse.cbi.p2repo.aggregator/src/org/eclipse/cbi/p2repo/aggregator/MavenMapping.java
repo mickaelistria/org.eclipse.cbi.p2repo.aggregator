@@ -10,6 +10,7 @@
 package org.eclipse.cbi.p2repo.aggregator;
 
 import org.eclipse.cbi.p2repo.aggregator.impl.MavenMappingImpl;
+import org.eclipse.equinox.p2.metadata.Version;
 
 /**
  * <!-- begin-user-doc --> A representation of the model object '<em><b>Maven Mapping</b></em>'. <!-- end-user-doc -->
@@ -21,6 +22,8 @@ import org.eclipse.cbi.p2repo.aggregator.impl.MavenMappingImpl;
  *   <li>{@link org.eclipse.cbi.p2repo.aggregator.MavenMapping#getNamePattern <em>Name Pattern</em>}</li>
  *   <li>{@link org.eclipse.cbi.p2repo.aggregator.MavenMapping#getGroupId <em>Group Id</em>}</li>
  *   <li>{@link org.eclipse.cbi.p2repo.aggregator.MavenMapping#getArtifactId <em>Artifact Id</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.aggregator.MavenMapping#getVersionPattern <em>Version Pattern</em>}</li>
+ *   <li>{@link org.eclipse.cbi.p2repo.aggregator.MavenMapping#getVersionTemplate <em>Version Template</em>}</li>
  * </ul>
  *
  * @see org.eclipse.cbi.p2repo.aggregator.AggregatorPackage#getMavenMapping()
@@ -76,13 +79,6 @@ public interface MavenMapping extends StatusProvider, InfosProvider {
 	String getNamePattern();
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @model
-	 * @generated
-	 */
-	MavenItem map(String installableUnitID);
-
-	/**
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.aggregator.MavenMapping#getArtifactId <em>Artifact Id</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Artifact Id</em>' attribute.
@@ -90,6 +86,74 @@ public interface MavenMapping extends StatusProvider, InfosProvider {
 	 * @generated
 	 */
 	void setArtifactId(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Version Pattern</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Version Pattern</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Version Pattern</em>' attribute.
+	 * @see #setVersionPattern(String)
+	 * @see org.eclipse.cbi.p2repo.aggregator.AggregatorPackage#getMavenMapping_VersionPattern()
+	 * @model
+	 * @generated
+	 */
+	String getVersionPattern();
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.aggregator.MavenMapping#getVersionPattern <em>Version Pattern</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Version Pattern</em>' attribute.
+	 * @see #getVersionPattern()
+	 * @generated
+	 */
+	void setVersionPattern(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Version Template</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Version Template</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Version Template</em>' attribute.
+	 * @see #setVersionTemplate(String)
+	 * @see org.eclipse.cbi.p2repo.aggregator.AggregatorPackage#getMavenMapping_VersionTemplate()
+	 * @model
+	 * @generated
+	 */
+	String getVersionTemplate();
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.aggregator.MavenMapping#getVersionTemplate <em>Version Template</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Version Template</em>' attribute.
+	 * @see #getVersionTemplate()
+	 * @generated
+	 */
+	void setVersionTemplate(String value);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model versionDataType="org.eclipse.cbi.p2repo.p2.Version"
+	 * @generated
+	 */
+	MavenItem map(String installableUnitID, Version version);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model versionDataType="org.eclipse.cbi.p2repo.p2.Version"
+	 * @generated
+	 */
+	String mapVersion(Version version);
 
 	/**
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.aggregator.MavenMapping#getGroupId <em>Group Id</em>}' attribute.

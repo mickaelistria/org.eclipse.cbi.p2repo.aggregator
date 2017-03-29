@@ -28,6 +28,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
+import org.eclipse.equinox.p2.metadata.Version;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object '<em><b>Maven Mapping</b></em>'. <!-- end-user-doc -->
@@ -35,13 +36,15 @@ import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.eclipse.cbi.p2repo.aggregator.impl.MavenMappingImpl#getStatus <em>Status</em>}</li>
- *   <li>{@link org.eclipse.cbi.p2repo.aggregator.impl.MavenMappingImpl#getErrors <em>Errors</em>}</li>
- *   <li>{@link org.eclipse.cbi.p2repo.aggregator.impl.MavenMappingImpl#getWarnings <em>Warnings</em>}</li>
- *   <li>{@link org.eclipse.cbi.p2repo.aggregator.impl.MavenMappingImpl#getInfos <em>Infos</em>}</li>
- *   <li>{@link org.eclipse.cbi.p2repo.aggregator.impl.MavenMappingImpl#getNamePattern <em>Name Pattern</em>}</li>
- *   <li>{@link org.eclipse.cbi.p2repo.aggregator.impl.MavenMappingImpl#getGroupId <em>Group Id</em>}</li>
- *   <li>{@link org.eclipse.cbi.p2repo.aggregator.impl.MavenMappingImpl#getArtifactId <em>Artifact Id</em>}</li>
+ * <li>{@link org.eclipse.cbi.p2repo.aggregator.impl.MavenMappingImpl#getStatus <em>Status</em>}</li>
+ * <li>{@link org.eclipse.cbi.p2repo.aggregator.impl.MavenMappingImpl#getErrors <em>Errors</em>}</li>
+ * <li>{@link org.eclipse.cbi.p2repo.aggregator.impl.MavenMappingImpl#getWarnings <em>Warnings</em>}</li>
+ * <li>{@link org.eclipse.cbi.p2repo.aggregator.impl.MavenMappingImpl#getInfos <em>Infos</em>}</li>
+ * <li>{@link org.eclipse.cbi.p2repo.aggregator.impl.MavenMappingImpl#getNamePattern <em>Name Pattern</em>}</li>
+ * <li>{@link org.eclipse.cbi.p2repo.aggregator.impl.MavenMappingImpl#getGroupId <em>Group Id</em>}</li>
+ * <li>{@link org.eclipse.cbi.p2repo.aggregator.impl.MavenMappingImpl#getArtifactId <em>Artifact Id</em>}</li>
+ * <li>{@link org.eclipse.cbi.p2repo.aggregator.impl.MavenMappingImpl#getVersionPattern <em>Version Pattern</em>}</li>
+ * <li>{@link org.eclipse.cbi.p2repo.aggregator.impl.MavenMappingImpl#getVersionTemplate <em>Version Template</em>}</li>
  * </ul>
  *
  * @generated
@@ -56,6 +59,7 @@ public class MavenMappingImpl extends MinimalEObjectImpl.Container implements Ma
 	 * The default value of the '{@link #getNamePattern() <em>Name Pattern</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 *
 	 * @see #getNamePattern()
 	 * @generated
 	 * @ordered
@@ -66,6 +70,7 @@ public class MavenMappingImpl extends MinimalEObjectImpl.Container implements Ma
 	 * The default value of the '{@link #getGroupId() <em>Group Id</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 *
 	 * @see #getGroupId()
 	 * @generated
 	 * @ordered
@@ -76,17 +81,41 @@ public class MavenMappingImpl extends MinimalEObjectImpl.Container implements Ma
 	 * The default value of the '{@link #getArtifactId() <em>Artifact Id</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 *
 	 * @see #getArtifactId()
 	 * @generated
 	 * @ordered
 	 */
 	protected static final String ARTIFACT_ID_EDEFAULT = null;
 
+	/**
+	 * The default value of the '{@link #getVersionPattern() <em>Version Pattern</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 *
+	 * @see #getVersionPattern()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String VERSION_PATTERN_EDEFAULT = null;
+
+	/**
+	 * The default value of the '{@link #getVersionTemplate() <em>Version Template</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 *
+	 * @see #getVersionTemplate()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String VERSION_TEMPLATE_EDEFAULT = null;
+
 	private Pattern compiledPattern;
 
 	/**
 	 * A set of bit flags representing the values of boolean attributes and whether unsettable features have been set.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 *
 	 * @generated
 	 * @ordered
 	 */
@@ -96,6 +125,7 @@ public class MavenMappingImpl extends MinimalEObjectImpl.Container implements Ma
 	 * The cached value of the '{@link #getErrors() <em>Errors</em>}' attribute list.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 *
 	 * @see #getErrors()
 	 * @generated
 	 * @ordered
@@ -106,6 +136,7 @@ public class MavenMappingImpl extends MinimalEObjectImpl.Container implements Ma
 	 * The cached value of the '{@link #getWarnings() <em>Warnings</em>}' attribute list.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 *
 	 * @see #getWarnings()
 	 * @generated
 	 * @ordered
@@ -116,6 +147,7 @@ public class MavenMappingImpl extends MinimalEObjectImpl.Container implements Ma
 	 * The cached value of the '{@link #getInfos() <em>Infos</em>}' attribute list.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 *
 	 * @see #getInfos()
 	 * @generated
 	 * @ordered
@@ -126,6 +158,7 @@ public class MavenMappingImpl extends MinimalEObjectImpl.Container implements Ma
 	 * The cached value of the '{@link #getNamePattern() <em>Name Pattern</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 *
 	 * @see #getNamePattern()
 	 * @generated
 	 * @ordered
@@ -136,6 +169,7 @@ public class MavenMappingImpl extends MinimalEObjectImpl.Container implements Ma
 	 * The cached value of the '{@link #getGroupId() <em>Group Id</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 *
 	 * @see #getGroupId()
 	 * @generated
 	 * @ordered
@@ -146,6 +180,7 @@ public class MavenMappingImpl extends MinimalEObjectImpl.Container implements Ma
 	 * The cached value of the '{@link #getArtifactId() <em>Artifact Id</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 *
 	 * @see #getArtifactId()
 	 * @generated
 	 * @ordered
@@ -153,7 +188,30 @@ public class MavenMappingImpl extends MinimalEObjectImpl.Container implements Ma
 	protected String artifactId = ARTIFACT_ID_EDEFAULT;
 
 	/**
+	 * The cached value of the '{@link #getVersionPattern() <em>Version Pattern</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 *
+	 * @see #getVersionPattern()
+	 * @generated
+	 * @ordered
+	 */
+	protected String versionPattern = VERSION_PATTERN_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getVersionTemplate() <em>Version Template</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 *
+	 * @see #getVersionTemplate()
+	 * @generated
+	 * @ordered
+	 */
+	protected String versionTemplate = VERSION_TEMPLATE_EDEFAULT;
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 *
 	 * @generated
 	 */
 	protected MavenMappingImpl() {
@@ -182,6 +240,7 @@ public class MavenMappingImpl extends MinimalEObjectImpl.Container implements Ma
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 *
 	 * @generated
 	 */
 	@Override
@@ -203,6 +262,7 @@ public class MavenMappingImpl extends MinimalEObjectImpl.Container implements Ma
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 *
 	 * @generated
 	 */
 	@Override
@@ -224,6 +284,7 @@ public class MavenMappingImpl extends MinimalEObjectImpl.Container implements Ma
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 *
 	 * @generated
 	 */
 	@Override
@@ -243,12 +304,17 @@ public class MavenMappingImpl extends MinimalEObjectImpl.Container implements Ma
 				return getGroupId();
 			case AggregatorPackage.MAVEN_MAPPING__ARTIFACT_ID:
 				return getArtifactId();
+			case AggregatorPackage.MAVEN_MAPPING__VERSION_PATTERN:
+				return getVersionPattern();
+			case AggregatorPackage.MAVEN_MAPPING__VERSION_TEMPLATE:
+				return getVersionTemplate();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 *
 	 * @generated
 	 */
 	@Override
@@ -274,12 +340,21 @@ public class MavenMappingImpl extends MinimalEObjectImpl.Container implements Ma
 				return ARTIFACT_ID_EDEFAULT == null
 						? artifactId != null
 						: !ARTIFACT_ID_EDEFAULT.equals(artifactId);
+			case AggregatorPackage.MAVEN_MAPPING__VERSION_PATTERN:
+				return VERSION_PATTERN_EDEFAULT == null
+						? versionPattern != null
+						: !VERSION_PATTERN_EDEFAULT.equals(versionPattern);
+			case AggregatorPackage.MAVEN_MAPPING__VERSION_TEMPLATE:
+				return VERSION_TEMPLATE_EDEFAULT == null
+						? versionTemplate != null
+						: !VERSION_TEMPLATE_EDEFAULT.equals(versionTemplate);
 		}
 		return super.eIsSet(featureID);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 *
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
@@ -307,12 +382,19 @@ public class MavenMappingImpl extends MinimalEObjectImpl.Container implements Ma
 			case AggregatorPackage.MAVEN_MAPPING__ARTIFACT_ID:
 				setArtifactId((String) newValue);
 				return;
+			case AggregatorPackage.MAVEN_MAPPING__VERSION_PATTERN:
+				setVersionPattern((String) newValue);
+				return;
+			case AggregatorPackage.MAVEN_MAPPING__VERSION_TEMPLATE:
+				setVersionTemplate((String) newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 *
 	 * @generated
 	 */
 	@Override
@@ -322,6 +404,7 @@ public class MavenMappingImpl extends MinimalEObjectImpl.Container implements Ma
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 *
 	 * @generated
 	 */
 	@Override
@@ -345,12 +428,19 @@ public class MavenMappingImpl extends MinimalEObjectImpl.Container implements Ma
 			case AggregatorPackage.MAVEN_MAPPING__ARTIFACT_ID:
 				setArtifactId(ARTIFACT_ID_EDEFAULT);
 				return;
+			case AggregatorPackage.MAVEN_MAPPING__VERSION_PATTERN:
+				setVersionPattern(VERSION_PATTERN_EDEFAULT);
+				return;
+			case AggregatorPackage.MAVEN_MAPPING__VERSION_TEMPLATE:
+				setVersionTemplate(VERSION_TEMPLATE_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 *
 	 * @generated
 	 */
 	@Override
@@ -360,6 +450,7 @@ public class MavenMappingImpl extends MinimalEObjectImpl.Container implements Ma
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 *
 	 * @generated
 	 */
 	@Override
@@ -372,6 +463,7 @@ public class MavenMappingImpl extends MinimalEObjectImpl.Container implements Ma
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 *
 	 * @generated
 	 */
 	@Override
@@ -381,6 +473,7 @@ public class MavenMappingImpl extends MinimalEObjectImpl.Container implements Ma
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 *
 	 * @generated
 	 */
 	@Override
@@ -393,6 +486,7 @@ public class MavenMappingImpl extends MinimalEObjectImpl.Container implements Ma
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 *
 	 * @generated
 	 */
 	@Override
@@ -426,7 +520,30 @@ public class MavenMappingImpl extends MinimalEObjectImpl.Container implements Ma
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 *
+	 * @generated
+	 */
+	@Override
+	public String getVersionPattern() {
+		return versionPattern;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 *
+	 * @generated
+	 */
+	@Override
+	public String getVersionTemplate() {
+		return versionTemplate;
+	}
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 *
 	 * @generated
 	 */
 	@Override
@@ -443,13 +560,13 @@ public class MavenMappingImpl extends MinimalEObjectImpl.Container implements Ma
 	 * @generated NOT
 	 */
 	@Override
-	public MavenItem map(String installableUnitID) {
+	public MavenItem map(String installableUnitID, Version version) {
 		if(compiledPattern != null) {
 			// map osgi name suffix ".source" to maven classifier "sources":
 			boolean isSource = installableUnitID.endsWith(P2_SOURCE_SUFFIX);
 			if(isSource) {
-				installableUnitID = installableUnitID.substring(0,
-						installableUnitID.length() - P2_SOURCE_SUFFIX.length());
+				installableUnitID = installableUnitID.substring(
+					0, installableUnitID.length() - P2_SOURCE_SUFFIX.length());
 			}
 
 			Matcher m = compiledPattern.matcher(installableUnitID);
@@ -468,7 +585,21 @@ public class MavenMappingImpl extends MinimalEObjectImpl.Container implements Ma
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 *
+	 * @generated
+	 */
+	@Override
+	public String mapVersion(Version version) {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 *
 	 * @generated
 	 */
 	@Override
@@ -483,6 +614,7 @@ public class MavenMappingImpl extends MinimalEObjectImpl.Container implements Ma
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 *
 	 * @generated
 	 */
 	@Override
@@ -524,7 +656,42 @@ public class MavenMappingImpl extends MinimalEObjectImpl.Container implements Ma
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 *
+	 * @generated
+	 */
+	@Override
+	public void setVersionPattern(String newVersionPattern) {
+		String oldVersionPattern = versionPattern;
+		versionPattern = newVersionPattern;
+		if(eNotificationRequired())
+			eNotify(
+				new ENotificationImpl(
+					this, Notification.SET, AggregatorPackage.MAVEN_MAPPING__VERSION_PATTERN, oldVersionPattern,
+					versionPattern));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 *
+	 * @generated
+	 */
+	@Override
+	public void setVersionTemplate(String newVersionTemplate) {
+		String oldVersionTemplate = versionTemplate;
+		versionTemplate = newVersionTemplate;
+		if(eNotificationRequired())
+			eNotify(
+				new ENotificationImpl(
+					this, Notification.SET, AggregatorPackage.MAVEN_MAPPING__VERSION_TEMPLATE, oldVersionTemplate,
+					versionTemplate));
+	}
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 *
 	 * @generated
 	 */
 	@Override
@@ -545,6 +712,10 @@ public class MavenMappingImpl extends MinimalEObjectImpl.Container implements Ma
 		result.append(groupId);
 		result.append(", artifactId: ");
 		result.append(artifactId);
+		result.append(", versionPattern: ");
+		result.append(versionPattern);
+		result.append(", versionTemplate: ");
+		result.append(versionTemplate);
 		result.append(')');
 		return result.toString();
 	}

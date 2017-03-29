@@ -233,15 +233,23 @@
     <genClasses ecoreClass="Aggregator.ecore#//MavenItem">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Aggregator.ecore#//MavenItem/groupId"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Aggregator.ecore#//MavenItem/artifactId"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Aggregator.ecore#//MavenItem/mappedVersion"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Aggregator.ecore#//MavenItem/classifier"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Aggregator.ecore#//MavenItem/mavenMapping"/>
       <genOperations ecoreOperation="Aggregator.ecore#//MavenItem/isSources"/>
     </genClasses>
     <genClasses ecoreClass="Aggregator.ecore#//MavenMapping">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Aggregator.ecore#//MavenMapping/namePattern"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Aggregator.ecore#//MavenMapping/groupId"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Aggregator.ecore#//MavenMapping/artifactId"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Aggregator.ecore#//MavenMapping/versionPattern"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Aggregator.ecore#//MavenMapping/versionTemplate"/>
       <genOperations ecoreOperation="Aggregator.ecore#//MavenMapping/map">
         <genParameters ecoreParameter="Aggregator.ecore#//MavenMapping/map/installableUnitID"/>
+        <genParameters ecoreParameter="Aggregator.ecore#//MavenMapping/map/version"/>
+      </genOperations>
+      <genOperations ecoreOperation="Aggregator.ecore#//MavenMapping/mapVersion">
+        <genParameters ecoreParameter="Aggregator.ecore#//MavenMapping/mapVersion/version"/>
       </genOperations>
     </genClasses>
     <genClasses ecoreClass="Aggregator.ecore#//MetadataRepositoryReference">

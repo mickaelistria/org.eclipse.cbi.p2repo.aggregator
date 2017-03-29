@@ -207,15 +207,23 @@
     <eOperations name="isSources" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="groupId" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="artifactId" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="mappedVersion" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="classifier" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="mavenMapping" eType="#//MavenMapping"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MavenMapping" eSuperTypes="#//StatusProvider #//InfosProvider">
     <eOperations name="map" eType="#//MavenItem">
       <eParameters name="installableUnitID" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eParameters name="version" eType="ecore:EDataType ../../org.eclipse.cbi.p2repo.p2/model/p2.ecore#//Version"/>
+    </eOperations>
+    <eOperations name="mapVersion" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eParameters name="version" eType="ecore:EDataType ../../org.eclipse.cbi.p2repo.p2/model/p2.ecore#//Version"/>
     </eOperations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="namePattern" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="groupId" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="artifactId" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="versionPattern" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="versionTemplate" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MetadataRepositoryReference" eSuperTypes="#//EnabledStatusProvider #//StatusProvider #//InfosProvider">
     <eOperations name="getAggregation" eType="#//Aggregation"/>

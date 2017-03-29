@@ -29,7 +29,7 @@ import org.eclipse.equinox.p2.metadata.expression.IMatchExpression;
  * </ul>
  *
  * @see org.eclipse.cbi.p2repo.aggregator.AggregatorPackage#getAvailableVersion()
- * @model superTypes="org.eclipse.cbi.p2repo.p2.Comparable<org.eclipse.cbi.p2repo.aggregator.AvailableVersion>"
+ * @model superTypes="org.eclipse.cbi.p2repo.p2.Comparable&lt;org.eclipse.cbi.p2repo.aggregator.AvailableVersion&gt;"
  * @generated
  */
 public interface AvailableVersion extends Comparable<AvailableVersion> {
@@ -61,7 +61,7 @@ public interface AvailableVersion extends Comparable<AvailableVersion> {
 	 * @return the value of the '<em>Filter</em>' attribute.
 	 * @see #setFilter(IMatchExpression)
 	 * @see org.eclipse.cbi.p2repo.aggregator.AggregatorPackage#getAvailableVersion_Filter()
-	 * @model dataType="org.eclipse.cbi.p2repo.p2.IMatchExpression<org.eclipse.cbi.p2repo.p2.IInstallableUnit>"
+	 * @model dataType="org.eclipse.cbi.p2repo.p2.IMatchExpression&lt;org.eclipse.cbi.p2repo.p2.IInstallableUnit&gt;"
 	 * @generated
 	 */
 	IMatchExpression<IInstallableUnit> getFilter();
