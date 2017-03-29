@@ -112,6 +112,8 @@ public class MavenMappingImpl extends MinimalEObjectImpl.Container implements Ma
 
 	private Pattern compiledPattern;
 
+	private Pattern compiledVersionPattern;
+
 	/**
 	 * A set of bit flags representing the values of boolean attributes and whether unsettable features have been set.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -574,8 +576,13 @@ public class MavenMappingImpl extends MinimalEObjectImpl.Container implements Ma
 				MavenItem item = AggregatorFactory.eINSTANCE.createMavenItem();
 				item.setGroupId(m.replaceFirst(getGroupId()));
 				item.setArtifactId(m.replaceFirst(getArtifactId()));
+				item.setMavenMapping(this);
 				if(isSource) {
 					item.setClassifier(MAVEN_SOURCES_CLASSIFIER);
+				}
+				String mappedVersion = mapVersion(version);
+				if(mappedVersion != null) {
+					item.setMappedVersion(mappedVersion);
 				}
 				return item;
 			}
@@ -588,13 +595,19 @@ public class MavenMappingImpl extends MinimalEObjectImpl.Container implements Ma
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 *
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public String mapVersion(Version version) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		if(this.versionPattern != null && this.versionTemplate != null) {
+			if(this.compiledVersionPattern == null)
+				this.compiledVersionPattern = Pattern.compile(this.versionPattern);
+			Matcher vm = this.compiledVersionPattern.matcher(version.getOriginal());
+			if(vm.matches()) {
+				return vm.replaceFirst(this.versionTemplate);
+			}
+		}
+		return null;
 	}
 
 	/**
