@@ -103,6 +103,10 @@ do
   contentCompositeFile="${writeRepoRoot}/compositeContent.xml"
   p2Index="${writeRepoRoot}/p2.index"
 
+  # TODO: There is short time, here, that that the repo is "broken" while we write these files. 
+  # Would be a slight improvement to write them to a temp location first, and then slight more atomically 
+  # add them to their final location.
+
   writeArtifactsHeader "${artifactsCompositeFile}"
   writeChildren "${artifactsCompositeFile}" "${repoRoot}"
   writeFooter "${artifactsCompositeFile}"
@@ -126,6 +130,7 @@ done
 
 
 pushd ${WORKSPACE}/cbi
+
 #git config --global push.default simple
 printf "\n\t[INFO] %s\n" " = = avoid conversions of CRLF, except when we check in = ="
 git config  --global --add core.autocrlf input
@@ -148,42 +153,47 @@ RC=$?
 if [[ $RC != 0 ]]
 then
   printf "\n\t[ERROR] %s\n" "Copy to index.html returned non-zero return code: $RC. Exiting early."
+  popd
   exit $RC
 else
   printf "\n\t[INFO] %s\n" "Copied ${latestBuildId}/buildResults.html to aggregatorLatest/index.html"
 fi
 
-printf "\n\t[INFO] %s\n" " = = Confirm status shows one change = ="
-git status
+printf "\n\t[INFO] %s\n" " = = Confirming there is a change before 'adding' and 'committing' = ="
 
-git add --all
+git diff --exit-code
+diffrc=$?
 
-printf "\n\t[INFO] %s\n" " = = Confirm status shows one can be committed = ="
-git status
-
-# Commit 
-git commit --verbose -m "Auto commit from Hudson 'cbi.p2repo.aggregator_addComposites' job"
-RC=$?
-if [[ $RC != 0 ]]
+if [[ $diffrc != 0 ]] 
 then
-  printf "\n\t[ERROR] %s\n" "git commit returned non-zero return code: $RC. Exiting early."
-  exit $RC
-fi
 
-printf "\n\t[INFO] %s\n" " = = Confirm status shows ahead by one commit = ="
-git status
+  # Add and Commit 
+  git commit -a --verbose -m "Auto commit from Hudson 'cbi.p2repo.aggregator_addComposites' job"
+  RC=$?
+  if [[ $RC != 0 ]]
+  then
+    printf "\n\t[ERROR] %s\n" "git commit returned non-zero return code: $RC. Exiting early."
+    popd
+    exit $RC
+  fi
+
+  printf "\n\t[DEBUG] %s\n" " = = Confirm status shows ahead by one commit = ="
+  git status
 
 
-# 'origin1' is the name Hudson has assigned. 
+  # 'origin1' is the name Hudson has assigned. 
 
-git push --verbose origin1 master:refs/heads/master
-RC=$?
-if [[ $RC != 0 ]]
-then
-  printf "\n\t[ERROR] %s\n" "git push returned non-zero return code: $RC. Exiting early."
-  exit $RC
+  git push --verbose origin1 master:refs/heads/master
+  RC=$?
+  if [[ $RC != 0 ]]
+  then
+    printf "\n\t[ERROR] %s\n" "git push returned non-zero return code: $RC. Exiting early."
+    popd
+    exit $RC
+  fi
+else 
+  printf "\n\t[INFO] %s\n" " = = Do differences found, so nothing added or committed to 'www' repo. Probably due to multiple runs? = ="
 fi
 
 popd
-
 exit 0
