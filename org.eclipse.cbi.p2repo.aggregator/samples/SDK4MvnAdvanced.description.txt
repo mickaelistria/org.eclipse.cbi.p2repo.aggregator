@@ -1,0 +1,5 @@
+
+
+See the SDK4Mvn.aggr sample and read its description file. 
+Then also see 
+https://wiki.eclipse.org/CBI/aggregator/manual#Maven_Mapping_.28Contribution.29

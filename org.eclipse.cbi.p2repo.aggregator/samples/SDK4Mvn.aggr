@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<aggregator:Aggregation xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aggregator="http://www.eclipse.org/cbi/p2repo/2011/aggregator/1.1.0" description="Aggregation file to demonstrate creating a maven conformant repository &#xA;that is also a p2 repository." label="SDK4Mvn" buildRoot="MavenTestRepo" packedStrategy="UNPACK_AS_SIBLING" type="R" mavenResult="true" versionFormat="MavenRelease" allowLegacySites="false">
+<aggregator:Aggregation xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aggregator="http://www.eclipse.org/cbi/p2repo/2011/aggregator/1.1.0" description="Aggregation file to demonstrate creating a maven conformant repository &#xA;that is also a p2 repository." label="SDK4Mvn" buildRoot="samplesOutput/SDK4Mvn" packedStrategy="UNPACK_AS_SIBLING" type="R" mavenResult="true" versionFormat="MavenRelease" allowLegacySites="false">
   <validationSets label="main">
     <contributions description="Contribute to entire Eclipse Platform repostitory &#xA;for 4.6.2 (Neon.2) from December, 2016." label="sdk462">
       <repositories location="http://download.eclipse.org/eclipse/updates/4.6/R-4.6.2-201611241400">
