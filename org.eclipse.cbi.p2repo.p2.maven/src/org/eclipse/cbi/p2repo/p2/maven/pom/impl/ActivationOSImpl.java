@@ -52,7 +52,7 @@ public class ActivationOSImpl extends EObjectImpl implements ActivationOS {
 	 * The default value of the '{@link #getFamily() <em>Family</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @see #getFamily()
 	 * @generated
 	 * @ordered
@@ -63,7 +63,7 @@ public class ActivationOSImpl extends EObjectImpl implements ActivationOS {
 	 * The cached value of the '{@link #getFamily() <em>Family</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @see #getFamily()
 	 * @generated
 	 * @ordered
@@ -94,7 +94,7 @@ public class ActivationOSImpl extends EObjectImpl implements ActivationOS {
 	 * The default value of the '{@link #getVersion() <em>Version</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @see #getVersion()
 	 * @generated
 	 * @ordered
@@ -105,7 +105,7 @@ public class ActivationOSImpl extends EObjectImpl implements ActivationOS {
 	 * The cached value of the '{@link #getVersion() <em>Version</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @see #getVersion()
 	 * @generated
 	 * @ordered
@@ -114,7 +114,7 @@ public class ActivationOSImpl extends EObjectImpl implements ActivationOS {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected ActivationOSImpl() {
@@ -123,7 +123,7 @@ public class ActivationOSImpl extends EObjectImpl implements ActivationOS {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -143,7 +143,7 @@ public class ActivationOSImpl extends EObjectImpl implements ActivationOS {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -171,7 +171,7 @@ public class ActivationOSImpl extends EObjectImpl implements ActivationOS {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -195,7 +195,7 @@ public class ActivationOSImpl extends EObjectImpl implements ActivationOS {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -219,7 +219,7 @@ public class ActivationOSImpl extends EObjectImpl implements ActivationOS {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -229,7 +229,7 @@ public class ActivationOSImpl extends EObjectImpl implements ActivationOS {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -239,7 +239,7 @@ public class ActivationOSImpl extends EObjectImpl implements ActivationOS {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -249,7 +249,7 @@ public class ActivationOSImpl extends EObjectImpl implements ActivationOS {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -259,7 +259,7 @@ public class ActivationOSImpl extends EObjectImpl implements ActivationOS {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -272,7 +272,7 @@ public class ActivationOSImpl extends EObjectImpl implements ActivationOS {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -285,7 +285,7 @@ public class ActivationOSImpl extends EObjectImpl implements ActivationOS {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -298,7 +298,7 @@ public class ActivationOSImpl extends EObjectImpl implements ActivationOS {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -312,7 +312,7 @@ public class ActivationOSImpl extends EObjectImpl implements ActivationOS {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -335,7 +335,7 @@ public class ActivationOSImpl extends EObjectImpl implements ActivationOS {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override

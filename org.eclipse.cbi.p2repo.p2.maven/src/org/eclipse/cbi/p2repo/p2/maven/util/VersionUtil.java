@@ -151,7 +151,7 @@ public class VersionUtil {
 		m = osgiPattern.matcher(versionString);
 		if(!m.matches())
 			return versionString;
-		
+
 		if (versionFormat == VersionFormat.MAVEN_RELEASE)
 			return m.group(1);
 

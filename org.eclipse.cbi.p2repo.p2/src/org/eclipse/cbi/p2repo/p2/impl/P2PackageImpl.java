@@ -89,14 +89,14 @@ import org.eclipse.equinox.p2.repository.metadata.IMetadataRepository;
  * <!-- begin-user-doc -->
  * An implementation of the model <b>Package</b>.
  * <!-- end-user-doc -->
- * 
+ *
  * @generated
  */
 public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EClass iArtifactKeyEClass = null;
@@ -104,7 +104,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EClass iArtifactRepositoryEClass = null;
@@ -112,7 +112,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EClass iCopyrightEClass = null;
@@ -120,7 +120,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EClass iFileArtifactRepositoryEClass = null;
@@ -128,7 +128,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EClass iInstallableUnitEClass = null;
@@ -136,7 +136,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EClass iInstallableUnitFragmentEClass = null;
@@ -144,7 +144,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EClass iInstallableUnitPatchEClass = null;
@@ -152,7 +152,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EClass iLicenseEClass = null;
@@ -160,7 +160,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EClass iProvidedCapabilityEClass = null;
@@ -168,7 +168,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EClass iRequirementEClass = null;
@@ -176,7 +176,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EClass iRequiredCapabilityEClass = null;
@@ -184,7 +184,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EClass iRequirementChangeEClass = null;
@@ -192,7 +192,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EClass iTouchpointDataEClass = null;
@@ -200,7 +200,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EClass iTouchpointInstructionEClass = null;
@@ -208,7 +208,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EClass iTouchpointTypeEClass = null;
@@ -216,7 +216,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EClass iVersionedIdEClass = null;
@@ -224,7 +224,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EClass iUpdateDescriptorEClass = null;
@@ -232,7 +232,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EClass artifactKeyEClass = null;
@@ -240,7 +240,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EClass artifactDescriptorEClass = null;
@@ -248,7 +248,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EClass artifactRepositoryEClass = null;
@@ -256,7 +256,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EClass artifactsByKeyEClass = null;
@@ -264,7 +264,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EClass copyrightEClass = null;
@@ -272,7 +272,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EClass metadataRepositoryEClass = null;
@@ -280,7 +280,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EClass processingStepDescriptorEClass = null;
@@ -288,7 +288,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EClass installableUnitEClass = null;
@@ -296,7 +296,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EClass installableUnitFragmentEClass = null;
@@ -304,7 +304,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EClass installableUnitPatchEClass = null;
@@ -312,7 +312,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EClass licenseEClass = null;
@@ -320,7 +320,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EClass mappingRuleEClass = null;
@@ -328,7 +328,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EClass providedCapabilityEClass = null;
@@ -336,7 +336,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EClass repositoryEClass = null;
@@ -344,7 +344,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EClass requiredCapabilityEClass = null;
@@ -352,7 +352,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EClass requirementEClass = null;
@@ -360,7 +360,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EClass requirementChangeEClass = null;
@@ -368,7 +368,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EClass simpleArtifactRepositoryEClass = null;
@@ -376,7 +376,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EClass simpleArtifactDescriptorEClass = null;
@@ -384,7 +384,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EClass touchpointDataEClass = null;
@@ -392,7 +392,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EClass touchpointInstructionEClass = null;
@@ -400,7 +400,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EClass touchpointTypeEClass = null;
@@ -408,7 +408,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EClass updateDescriptorEClass = null;
@@ -416,7 +416,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EClass propertyEClass = null;
@@ -424,7 +424,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EClass instructionMapEClass = null;
@@ -432,7 +432,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EClass iQueryableEClass = null;
@@ -440,7 +440,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EClass iMetadataRepositoryEClass = null;
@@ -448,7 +448,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EClass iProcessingStepDescriptorEClass = null;
@@ -456,7 +456,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EClass iRepositoryEClass = null;
@@ -464,7 +464,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EClass iRepositoryReferenceEClass = null;
@@ -472,7 +472,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EClass repositoryReferenceEClass = null;
@@ -480,7 +480,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EClass iAdaptableEClass = null;
@@ -488,7 +488,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EClass iArtifactDescriptorEClass = null;
@@ -496,7 +496,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EClass comparableEClass = null;
@@ -504,7 +504,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EDataType versionEDataType = null;
@@ -512,7 +512,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EDataType versionRangeEDataType = null;
@@ -520,7 +520,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EDataType iInstallableUnitArrayEDataType = null;
@@ -528,7 +528,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EDataType collectionEDataType = null;
@@ -536,7 +536,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EDataType iProvidedCapabilityArrayEDataType = null;
@@ -544,7 +544,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EDataType iInstallableUnitFragmentArrayEDataType = null;
@@ -552,7 +552,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EDataType iArtifactKeyArrayEDataType = null;
@@ -560,7 +560,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EDataType iArtifactRequestArrayEDataType = null;
@@ -568,7 +568,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EDataType iTouchpointDataArrayEDataType = null;
@@ -576,7 +576,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EDataType iRequirementArrayArrayEDataType = null;
@@ -584,7 +584,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EDataType iPoolEDataType = null;
@@ -592,7 +592,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EDataType iProcessingDescriptorArrayEDataType = null;
@@ -600,7 +600,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EDataType stringArrayEDataType = null;
@@ -608,7 +608,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EDataType untypedMapEDataType = null;
@@ -616,7 +616,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EDataType mapEDataType = null;
@@ -624,7 +624,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EDataType outputStreamEDataType = null;
@@ -632,7 +632,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EDataType iLicenseArrayEDataType = null;
@@ -640,7 +640,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EDataType iQueryResultEDataType = null;
@@ -648,7 +648,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EDataType iQueryEDataType = null;
@@ -656,7 +656,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EDataType collectorEDataType = null;
@@ -664,7 +664,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EDataType fileEDataType = null;
@@ -672,7 +672,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EDataType iArtifactDescriptorArrayEDataType = null;
@@ -680,7 +680,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EDataType iProgressMonitorEDataType = null;
@@ -688,7 +688,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EDataType iRunnableWithProgressEDataType = null;
@@ -696,7 +696,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EDataType iStatusEDataType = null;
@@ -704,7 +704,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EDataType iMatchExpressionEDataType = null;
@@ -712,7 +712,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EDataType iProvisioningAgentEDataType = null;
@@ -720,7 +720,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private EDataType uriEDataType = null;
@@ -728,19 +728,19 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private static boolean isInited = false;
 
 	/**
 	 * Creates, registers, and initializes the <b>Package</b> for this model, and for any others upon which it depends.
-	 * 
+	 *
 	 * <p>
 	 * This method is used to initialize {@link P2Package#eINSTANCE} when that field is accessed.
 	 * Clients should not invoke it directly. Instead, they should simply access that field to obtain the package.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #eNS_URI
 	 * @see #createPackageContents()
 	 * @see #initializePackageContents()
@@ -777,7 +777,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private boolean isCreated = false;
@@ -785,7 +785,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private boolean isInitialized = false;
@@ -800,7 +800,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	 * initialization of the package, or returns the registered package,
 	 * if one already exists.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see org.eclipse.emf.ecore.EPackage.Registry
 	 * @see org.eclipse.cbi.p2repo.p2.P2Package#eNS_URI
 	 * @see #init()
@@ -815,7 +815,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	 * guarded to have no affect on any invocation but its first.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public void createPackageContents() {
@@ -1042,7 +1042,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -1053,7 +1053,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -1064,7 +1064,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -1075,7 +1075,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -1086,7 +1086,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -1097,7 +1097,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -1108,7 +1108,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -1119,7 +1119,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -1130,7 +1130,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -1141,7 +1141,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -1152,7 +1152,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -1163,7 +1163,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -1174,7 +1174,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -1185,7 +1185,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -1196,7 +1196,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -1207,7 +1207,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -1218,7 +1218,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -1229,7 +1229,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -1240,7 +1240,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -1251,7 +1251,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -1262,7 +1262,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -1273,7 +1273,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -1284,7 +1284,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -1295,7 +1295,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -1306,7 +1306,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -1317,7 +1317,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -1328,7 +1328,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -1339,7 +1339,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -1350,7 +1350,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -1361,7 +1361,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -1372,7 +1372,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -1383,7 +1383,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -1394,7 +1394,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -1405,7 +1405,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -1416,7 +1416,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -1427,7 +1427,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -1438,7 +1438,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -1449,7 +1449,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -1460,7 +1460,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -1471,7 +1471,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -1482,7 +1482,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -1493,7 +1493,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -1504,7 +1504,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -1515,7 +1515,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -1526,7 +1526,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -1537,7 +1537,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -1548,7 +1548,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -1559,7 +1559,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -1570,7 +1570,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -1581,7 +1581,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -1592,7 +1592,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -1603,7 +1603,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -1614,7 +1614,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -1625,7 +1625,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -1636,7 +1636,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -1647,7 +1647,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -1658,7 +1658,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -1669,7 +1669,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -1680,7 +1680,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -1691,7 +1691,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -1702,7 +1702,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -1713,7 +1713,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -1724,7 +1724,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -1735,7 +1735,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -1746,7 +1746,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -1757,7 +1757,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -1768,7 +1768,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -1779,7 +1779,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -1790,7 +1790,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -1801,7 +1801,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -1812,7 +1812,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -1823,7 +1823,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -1834,7 +1834,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -1845,7 +1845,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -1856,7 +1856,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -1867,7 +1867,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -1878,7 +1878,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -1889,7 +1889,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -1900,7 +1900,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -1911,7 +1911,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -1922,7 +1922,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -1933,7 +1933,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -1944,7 +1944,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -1955,7 +1955,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -1966,7 +1966,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -1977,7 +1977,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -1988,7 +1988,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -1999,7 +1999,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -2010,7 +2010,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -2021,7 +2021,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -2032,7 +2032,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -2043,7 +2043,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -2054,7 +2054,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -2065,7 +2065,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -2076,7 +2076,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -2087,7 +2087,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -2098,7 +2098,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -2109,7 +2109,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -2120,7 +2120,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -2131,7 +2131,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -2142,7 +2142,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -2153,7 +2153,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -2164,7 +2164,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -2175,7 +2175,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -2186,7 +2186,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -2197,7 +2197,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -2208,7 +2208,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -2219,7 +2219,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -2230,7 +2230,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -2241,7 +2241,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -2252,7 +2252,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -2263,7 +2263,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -2274,7 +2274,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -2285,7 +2285,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -2296,7 +2296,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -2307,7 +2307,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -2318,7 +2318,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -2329,7 +2329,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -2340,7 +2340,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -2351,7 +2351,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -2362,7 +2362,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -2373,7 +2373,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -2384,7 +2384,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -2395,7 +2395,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -2406,7 +2406,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -2417,7 +2417,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -2428,7 +2428,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -2439,7 +2439,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -2450,7 +2450,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -2461,7 +2461,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -2472,7 +2472,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -2483,7 +2483,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -2494,7 +2494,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -2505,7 +2505,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -2516,7 +2516,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -2527,7 +2527,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -2538,7 +2538,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -2549,7 +2549,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -2560,7 +2560,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -2571,7 +2571,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -2582,7 +2582,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -2593,7 +2593,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -2604,7 +2604,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -2615,7 +2615,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -2626,7 +2626,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -2637,7 +2637,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -2648,7 +2648,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -2659,7 +2659,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -2670,7 +2670,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -2681,7 +2681,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -2692,7 +2692,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -2703,7 +2703,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -2714,7 +2714,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -2725,7 +2725,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -2736,7 +2736,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -2747,7 +2747,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -2758,7 +2758,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -2769,7 +2769,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -2780,7 +2780,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -2791,7 +2791,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -2802,7 +2802,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -2813,7 +2813,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -2826,7 +2826,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	 * method is guarded to have no affect on any invocation but its first.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public void initializePackageContents() {

@@ -35,7 +35,7 @@ public class PluginsTypeImpl extends EObjectImpl implements PluginsType {
 	 * The cached value of the '{@link #getPlugin() <em>Plugin</em>}' containment reference list.
 	 * <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getPlugin()
 	 * @generated
 	 * @ordered
@@ -44,7 +44,7 @@ public class PluginsTypeImpl extends EObjectImpl implements PluginsType {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected PluginsTypeImpl() {
@@ -53,7 +53,7 @@ public class PluginsTypeImpl extends EObjectImpl implements PluginsType {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -67,7 +67,7 @@ public class PluginsTypeImpl extends EObjectImpl implements PluginsType {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -81,7 +81,7 @@ public class PluginsTypeImpl extends EObjectImpl implements PluginsType {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -95,7 +95,7 @@ public class PluginsTypeImpl extends EObjectImpl implements PluginsType {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
@@ -112,7 +112,7 @@ public class PluginsTypeImpl extends EObjectImpl implements PluginsType {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -127,7 +127,7 @@ public class PluginsTypeImpl extends EObjectImpl implements PluginsType {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -140,7 +140,7 @@ public class PluginsTypeImpl extends EObjectImpl implements PluginsType {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override

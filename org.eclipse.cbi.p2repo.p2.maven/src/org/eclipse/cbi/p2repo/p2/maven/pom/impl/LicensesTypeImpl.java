@@ -35,7 +35,7 @@ public class LicensesTypeImpl extends EObjectImpl implements LicensesType {
 	 * The cached value of the '{@link #getLicense() <em>License</em>}' containment reference list.
 	 * <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getLicense()
 	 * @generated
 	 * @ordered
@@ -44,7 +44,7 @@ public class LicensesTypeImpl extends EObjectImpl implements LicensesType {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected LicensesTypeImpl() {
@@ -53,7 +53,7 @@ public class LicensesTypeImpl extends EObjectImpl implements LicensesType {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -67,7 +67,7 @@ public class LicensesTypeImpl extends EObjectImpl implements LicensesType {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -81,7 +81,7 @@ public class LicensesTypeImpl extends EObjectImpl implements LicensesType {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -95,7 +95,7 @@ public class LicensesTypeImpl extends EObjectImpl implements LicensesType {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
@@ -112,7 +112,7 @@ public class LicensesTypeImpl extends EObjectImpl implements LicensesType {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -127,7 +127,7 @@ public class LicensesTypeImpl extends EObjectImpl implements LicensesType {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -140,7 +140,7 @@ public class LicensesTypeImpl extends EObjectImpl implements LicensesType {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override

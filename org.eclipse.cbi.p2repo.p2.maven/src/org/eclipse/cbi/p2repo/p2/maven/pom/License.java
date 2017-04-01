@@ -13,11 +13,11 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <!-- begin-model-doc -->
  * 3.0.0+
- * 
+ *
  * Describes the licenses for this project. This is used to generate
  * the license page of the project's web site, as well as being taken into consideration in other reporting and
  * validation. The licenses listed for the project are that of the project itself, and not of dependencies.
- * 
+ *
  * <!-- end-model-doc -->
  *
  * <p>
@@ -57,7 +57,7 @@ public interface License extends EObject {
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * 3.0.0+
-	 * 
+	 *
 	 * The primary method by which this project may be distributed.
 	 * &lt;dl&gt;
 	 * &lt;dt&gt;repo&lt;/dt&gt;
@@ -65,9 +65,9 @@ public interface License extends EObject {
 	 * &lt;dt&gt;manual&lt;/dt&gt;
 	 * &lt;dd&gt;user must manually download and install the dependency.&lt;/dd&gt;
 	 * &lt;/dl&gt;
-	 * 
+	 *
 	 * <!-- end-model-doc -->
-	 * 
+	 *
 	 * @return the value of the '<em>Distribution</em>' attribute.
 	 * @see #setDistribution(String)
 	 * @see org.eclipse.cbi.p2repo.p2.maven.pom.PomPackage#getLicense_Distribution()
@@ -106,7 +106,7 @@ public interface License extends EObject {
 	/**
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.License#getComments <em>Comments</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param value
 	 *            the new value of the '<em>Comments</em>' attribute.
 	 * @see #getComments()
@@ -117,7 +117,7 @@ public interface License extends EObject {
 	/**
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.License#getDistribution <em>Distribution</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param value
 	 *            the new value of the '<em>Distribution</em>' attribute.
 	 * @see #getDistribution()
@@ -128,7 +128,7 @@ public interface License extends EObject {
 	/**
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.License#getName <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param value
 	 *            the new value of the '<em>Name</em>' attribute.
 	 * @see #getName()
@@ -139,7 +139,7 @@ public interface License extends EObject {
 	/**
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.License#getUrl <em>Url</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param value
 	 *            the new value of the '<em>Url</em>' attribute.
 	 * @see #getUrl()

@@ -55,7 +55,7 @@ public abstract class RepositoryImpl<T> extends MinimalEObjectImpl.Container imp
 	 * A set of bit flags representing the values of boolean attributes and whether unsettable features have been set.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 * @ordered
 	 */
@@ -65,7 +65,7 @@ public abstract class RepositoryImpl<T> extends MinimalEObjectImpl.Container imp
 	 * The default value of the '{@link #getLocation() <em>Location</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getLocation()
 	 * @generated
 	 * @ordered
@@ -76,7 +76,7 @@ public abstract class RepositoryImpl<T> extends MinimalEObjectImpl.Container imp
 	 * The cached value of the '{@link #getLocation() <em>Location</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getLocation()
 	 * @generated
 	 * @ordered
@@ -87,7 +87,7 @@ public abstract class RepositoryImpl<T> extends MinimalEObjectImpl.Container imp
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getName()
 	 * @generated
 	 * @ordered
@@ -98,7 +98,7 @@ public abstract class RepositoryImpl<T> extends MinimalEObjectImpl.Container imp
 	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getName()
 	 * @generated
 	 * @ordered
@@ -109,7 +109,7 @@ public abstract class RepositoryImpl<T> extends MinimalEObjectImpl.Container imp
 	 * The default value of the '{@link #getType() <em>Type</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getType()
 	 * @generated
 	 * @ordered
@@ -120,7 +120,7 @@ public abstract class RepositoryImpl<T> extends MinimalEObjectImpl.Container imp
 	 * The cached value of the '{@link #getType() <em>Type</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getType()
 	 * @generated
 	 * @ordered
@@ -131,7 +131,7 @@ public abstract class RepositoryImpl<T> extends MinimalEObjectImpl.Container imp
 	 * The default value of the '{@link #getVersion() <em>Version</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getVersion()
 	 * @generated
 	 * @ordered
@@ -142,7 +142,7 @@ public abstract class RepositoryImpl<T> extends MinimalEObjectImpl.Container imp
 	 * The cached value of the '{@link #getVersion() <em>Version</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getVersion()
 	 * @generated
 	 * @ordered
@@ -153,7 +153,7 @@ public abstract class RepositoryImpl<T> extends MinimalEObjectImpl.Container imp
 	 * The default value of the '{@link #getDescription() <em>Description</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getDescription()
 	 * @generated
 	 * @ordered
@@ -164,7 +164,7 @@ public abstract class RepositoryImpl<T> extends MinimalEObjectImpl.Container imp
 	 * The cached value of the '{@link #getDescription() <em>Description</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getDescription()
 	 * @generated
 	 * @ordered
@@ -175,7 +175,7 @@ public abstract class RepositoryImpl<T> extends MinimalEObjectImpl.Container imp
 	 * The default value of the '{@link #getProvider() <em>Provider</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getProvider()
 	 * @generated
 	 * @ordered
@@ -186,7 +186,7 @@ public abstract class RepositoryImpl<T> extends MinimalEObjectImpl.Container imp
 	 * The cached value of the '{@link #getProvider() <em>Provider</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getProvider()
 	 * @generated
 	 * @ordered
@@ -197,7 +197,7 @@ public abstract class RepositoryImpl<T> extends MinimalEObjectImpl.Container imp
 	 * The default value of the '{@link #isModifiable() <em>Modifiable</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #isModifiable()
 	 * @generated
 	 * @ordered
@@ -208,7 +208,7 @@ public abstract class RepositoryImpl<T> extends MinimalEObjectImpl.Container imp
 	 * The flag representing the value of the '{@link #isModifiable() <em>Modifiable</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #isModifiable()
 	 * @generated
 	 * @ordered
@@ -219,7 +219,7 @@ public abstract class RepositoryImpl<T> extends MinimalEObjectImpl.Container imp
 	 * The default value of the '{@link #getProvisioningAgent() <em>Provisioning Agent</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getProvisioningAgent()
 	 * @generated
 	 * @ordered
@@ -230,7 +230,7 @@ public abstract class RepositoryImpl<T> extends MinimalEObjectImpl.Container imp
 	 * The cached value of the '{@link #getProvisioningAgent() <em>Provisioning Agent</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getProvisioningAgent()
 	 * @generated
 	 * @ordered
@@ -241,7 +241,7 @@ public abstract class RepositoryImpl<T> extends MinimalEObjectImpl.Container imp
 	 * The cached value of the '{@link #getPropertyMap() <em>Property Map</em>}' map.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getPropertyMap()
 	 * @generated
 	 * @ordered
@@ -251,7 +251,7 @@ public abstract class RepositoryImpl<T> extends MinimalEObjectImpl.Container imp
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected RepositoryImpl() {
@@ -261,7 +261,7 @@ public abstract class RepositoryImpl<T> extends MinimalEObjectImpl.Container imp
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -295,7 +295,7 @@ public abstract class RepositoryImpl<T> extends MinimalEObjectImpl.Container imp
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -310,7 +310,7 @@ public abstract class RepositoryImpl<T> extends MinimalEObjectImpl.Container imp
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -355,7 +355,7 @@ public abstract class RepositoryImpl<T> extends MinimalEObjectImpl.Container imp
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -395,7 +395,7 @@ public abstract class RepositoryImpl<T> extends MinimalEObjectImpl.Container imp
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -406,7 +406,7 @@ public abstract class RepositoryImpl<T> extends MinimalEObjectImpl.Container imp
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -458,7 +458,7 @@ public abstract class RepositoryImpl<T> extends MinimalEObjectImpl.Container imp
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -469,7 +469,7 @@ public abstract class RepositoryImpl<T> extends MinimalEObjectImpl.Container imp
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -480,7 +480,7 @@ public abstract class RepositoryImpl<T> extends MinimalEObjectImpl.Container imp
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -513,7 +513,7 @@ public abstract class RepositoryImpl<T> extends MinimalEObjectImpl.Container imp
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -528,7 +528,7 @@ public abstract class RepositoryImpl<T> extends MinimalEObjectImpl.Container imp
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -539,7 +539,7 @@ public abstract class RepositoryImpl<T> extends MinimalEObjectImpl.Container imp
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -550,7 +550,7 @@ public abstract class RepositoryImpl<T> extends MinimalEObjectImpl.Container imp
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -561,7 +561,7 @@ public abstract class RepositoryImpl<T> extends MinimalEObjectImpl.Container imp
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -572,7 +572,7 @@ public abstract class RepositoryImpl<T> extends MinimalEObjectImpl.Container imp
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -592,7 +592,7 @@ public abstract class RepositoryImpl<T> extends MinimalEObjectImpl.Container imp
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public void setDescription(String newDescription) {
@@ -607,7 +607,7 @@ public abstract class RepositoryImpl<T> extends MinimalEObjectImpl.Container imp
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public void setLocation(URI newLocation) {
@@ -621,7 +621,7 @@ public abstract class RepositoryImpl<T> extends MinimalEObjectImpl.Container imp
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public void setModifiable(boolean newModifiable) {
@@ -639,7 +639,7 @@ public abstract class RepositoryImpl<T> extends MinimalEObjectImpl.Container imp
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public void setName(String newName) {
@@ -663,7 +663,7 @@ public abstract class RepositoryImpl<T> extends MinimalEObjectImpl.Container imp
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -676,7 +676,7 @@ public abstract class RepositoryImpl<T> extends MinimalEObjectImpl.Container imp
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public void setProvider(String newProvider) {
@@ -690,7 +690,7 @@ public abstract class RepositoryImpl<T> extends MinimalEObjectImpl.Container imp
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public void setProvisioningAgent(IProvisioningAgent newProvisioningAgent) {
@@ -706,7 +706,7 @@ public abstract class RepositoryImpl<T> extends MinimalEObjectImpl.Container imp
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public void setType(String newType) {
@@ -719,7 +719,7 @@ public abstract class RepositoryImpl<T> extends MinimalEObjectImpl.Container imp
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public void setVersion(String newVersion) {
@@ -732,7 +732,7 @@ public abstract class RepositoryImpl<T> extends MinimalEObjectImpl.Container imp
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override

@@ -31,7 +31,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * This is the item provider adapter for a {@link org.eclipse.cbi.p2repo.p2.MappingRule} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
- * 
+ *
  * @generated
  */
 public class MappingRuleItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider,
@@ -40,7 +40,7 @@ public class MappingRuleItemProvider extends ItemProviderAdapter implements IEdi
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public MappingRuleItemProvider(AdapterFactory adapterFactory) {
@@ -51,7 +51,7 @@ public class MappingRuleItemProvider extends ItemProviderAdapter implements IEdi
 	 * This adds a property descriptor for the Filter feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected void addFilterPropertyDescriptor(Object object) {
@@ -69,7 +69,7 @@ public class MappingRuleItemProvider extends ItemProviderAdapter implements IEdi
 	 * This adds a property descriptor for the Output feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected void addOutputPropertyDescriptor(Object object) {
@@ -88,7 +88,7 @@ public class MappingRuleItemProvider extends ItemProviderAdapter implements IEdi
 	 * that can be created under this object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -100,7 +100,7 @@ public class MappingRuleItemProvider extends ItemProviderAdapter implements IEdi
 	 * This returns MappingRule.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -112,7 +112,7 @@ public class MappingRuleItemProvider extends ItemProviderAdapter implements IEdi
 	 * This returns the property descriptors for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -130,7 +130,7 @@ public class MappingRuleItemProvider extends ItemProviderAdapter implements IEdi
 	 * Return the resource locator for this item provider's resources.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -142,7 +142,7 @@ public class MappingRuleItemProvider extends ItemProviderAdapter implements IEdi
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -158,7 +158,7 @@ public class MappingRuleItemProvider extends ItemProviderAdapter implements IEdi
 	 * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override

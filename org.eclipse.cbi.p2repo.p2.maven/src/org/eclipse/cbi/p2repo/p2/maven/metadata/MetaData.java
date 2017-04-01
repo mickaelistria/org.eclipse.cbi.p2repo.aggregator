@@ -13,11 +13,11 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <!-- begin-model-doc -->
  * 1.0.0
- * 
+ *
  * The &lt;code&gt;&amp;lt;metadata&amp;gt;&lt;/code&gt;
  * element is the root of the descriptor. The following
  * table lists all of the possible child elements.
- * 
+ *
  * <!-- end-model-doc -->
  *
  * <p>
@@ -39,19 +39,19 @@ public interface MetaData extends EObject {
 	 * Returns the value of the '<em><b>Artifact Id</b></em>' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * 
+	 *
 	 * 1.0.0
-	 * 
-	 * 
+	 *
+	 *
 	 * The identifier for this artifact that is unique
 	 * within the group given by the group ID. An
 	 * artifact is something that is either produced or
 	 * used by a project. Examples of artifacts
 	 * produced by Maven for a project include: JARs,
 	 * source and binary distributions, and WARs.
-	 * 
+	 *
 	 * <!-- end-model-doc -->
-	 * 
+	 *
 	 * @return the value of the '<em>Artifact Id</em>' attribute.
 	 * @see #setArtifactId(String)
 	 * @see org.eclipse.cbi.p2repo.p2.maven.metadata.MetadataPackage#getMetaData_ArtifactId()
@@ -125,7 +125,7 @@ public interface MetaData extends EObject {
 	/**
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.metadata.MetaData#getArtifactId <em>Artifact Id</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param value
 	 *            the new value of the '<em>Artifact Id</em>' attribute.
 	 * @see #getArtifactId()
@@ -136,7 +136,7 @@ public interface MetaData extends EObject {
 	/**
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.metadata.MetaData#getGroupId <em>Group Id</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param value
 	 *            the new value of the '<em>Group Id</em>' attribute.
 	 * @see #getGroupId()
@@ -147,7 +147,7 @@ public interface MetaData extends EObject {
 	/**
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.metadata.MetaData#getVersion <em>Version</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param value
 	 *            the new value of the '<em>Version</em>' attribute.
 	 * @see #getVersion()
@@ -158,7 +158,7 @@ public interface MetaData extends EObject {
 	/**
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.metadata.MetaData#getVersioning <em>Versioning</em>}' containment reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param value
 	 *            the new value of the '<em>Versioning</em>' containment reference.
 	 * @see #getVersioning()

@@ -39,7 +39,7 @@ public interface ArtifactDescriptor extends IArtifactDescriptor {
 	 * If the meaning of the '<em>Processing Step List</em>' reference list isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @return the value of the '<em>Processing Step List</em>' containment reference list.
 	 * @see org.eclipse.cbi.p2repo.p2.P2Package#getArtifactDescriptor_ProcessingStepList()
 	 * @model type="org.eclipse.cbi.p2repo.p2.IProcessingStepDescriptor" containment="true" resolveProxies="true"
@@ -56,7 +56,7 @@ public interface ArtifactDescriptor extends IArtifactDescriptor {
 	 * If the meaning of the '<em>Property Map</em>' map isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @return the value of the '<em>Property Map</em>' map.
 	 * @see org.eclipse.cbi.p2repo.p2.P2Package#getArtifactDescriptor_PropertyMap()
 	 * @model mapType="org.eclipse.cbi.p2repo.p2.Property<org.eclipse.emf.ecore.EString, org.eclipse.emf.ecore.EString>"

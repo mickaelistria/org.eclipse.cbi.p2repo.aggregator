@@ -57,7 +57,7 @@ public class MailingListImpl extends EObjectImpl implements MailingList {
 	 * The default value of the '{@link #getSubscribe() <em>Subscribe</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @see #getSubscribe()
 	 * @generated
 	 * @ordered
@@ -68,7 +68,7 @@ public class MailingListImpl extends EObjectImpl implements MailingList {
 	 * The cached value of the '{@link #getSubscribe() <em>Subscribe</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @see #getSubscribe()
 	 * @generated
 	 * @ordered
@@ -79,7 +79,7 @@ public class MailingListImpl extends EObjectImpl implements MailingList {
 	 * The default value of the '{@link #getUnsubscribe() <em>Unsubscribe</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @see #getUnsubscribe()
 	 * @generated
 	 * @ordered
@@ -90,7 +90,7 @@ public class MailingListImpl extends EObjectImpl implements MailingList {
 	 * The cached value of the '{@link #getUnsubscribe() <em>Unsubscribe</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @see #getUnsubscribe()
 	 * @generated
 	 * @ordered
@@ -121,7 +121,7 @@ public class MailingListImpl extends EObjectImpl implements MailingList {
 	 * The default value of the '{@link #getArchive() <em>Archive</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @see #getArchive()
 	 * @generated
 	 * @ordered
@@ -132,7 +132,7 @@ public class MailingListImpl extends EObjectImpl implements MailingList {
 	 * The cached value of the '{@link #getArchive() <em>Archive</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @see #getArchive()
 	 * @generated
 	 * @ordered
@@ -151,7 +151,7 @@ public class MailingListImpl extends EObjectImpl implements MailingList {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected MailingListImpl() {
@@ -160,7 +160,7 @@ public class MailingListImpl extends EObjectImpl implements MailingList {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public NotificationChain basicSetOtherArchives(OtherArchivesType newOtherArchives, NotificationChain msgs) {
@@ -179,7 +179,7 @@ public class MailingListImpl extends EObjectImpl implements MailingList {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -203,7 +203,7 @@ public class MailingListImpl extends EObjectImpl implements MailingList {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -217,7 +217,7 @@ public class MailingListImpl extends EObjectImpl implements MailingList {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -251,7 +251,7 @@ public class MailingListImpl extends EObjectImpl implements MailingList {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -281,7 +281,7 @@ public class MailingListImpl extends EObjectImpl implements MailingList {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -311,7 +311,7 @@ public class MailingListImpl extends EObjectImpl implements MailingList {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -321,7 +321,7 @@ public class MailingListImpl extends EObjectImpl implements MailingList {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -331,7 +331,7 @@ public class MailingListImpl extends EObjectImpl implements MailingList {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -341,7 +341,7 @@ public class MailingListImpl extends EObjectImpl implements MailingList {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -351,7 +351,7 @@ public class MailingListImpl extends EObjectImpl implements MailingList {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -361,7 +361,7 @@ public class MailingListImpl extends EObjectImpl implements MailingList {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -371,7 +371,7 @@ public class MailingListImpl extends EObjectImpl implements MailingList {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -385,7 +385,7 @@ public class MailingListImpl extends EObjectImpl implements MailingList {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -398,7 +398,7 @@ public class MailingListImpl extends EObjectImpl implements MailingList {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -424,7 +424,7 @@ public class MailingListImpl extends EObjectImpl implements MailingList {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -437,7 +437,7 @@ public class MailingListImpl extends EObjectImpl implements MailingList {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -452,7 +452,7 @@ public class MailingListImpl extends EObjectImpl implements MailingList {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -467,7 +467,7 @@ public class MailingListImpl extends EObjectImpl implements MailingList {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -492,7 +492,7 @@ public class MailingListImpl extends EObjectImpl implements MailingList {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override

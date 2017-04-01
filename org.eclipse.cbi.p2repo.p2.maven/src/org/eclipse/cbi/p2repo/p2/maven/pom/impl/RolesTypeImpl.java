@@ -31,7 +31,7 @@ public class RolesTypeImpl extends EObjectImpl implements RolesType {
 	 * The cached value of the '{@link #getRole() <em>Role</em>}' attribute list.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @see #getRole()
 	 * @generated
 	 * @ordered
@@ -40,7 +40,7 @@ public class RolesTypeImpl extends EObjectImpl implements RolesType {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected RolesTypeImpl() {
@@ -49,7 +49,7 @@ public class RolesTypeImpl extends EObjectImpl implements RolesType {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -63,7 +63,7 @@ public class RolesTypeImpl extends EObjectImpl implements RolesType {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -77,7 +77,7 @@ public class RolesTypeImpl extends EObjectImpl implements RolesType {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
@@ -94,7 +94,7 @@ public class RolesTypeImpl extends EObjectImpl implements RolesType {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -109,7 +109,7 @@ public class RolesTypeImpl extends EObjectImpl implements RolesType {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -122,7 +122,7 @@ public class RolesTypeImpl extends EObjectImpl implements RolesType {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -139,7 +139,7 @@ public class RolesTypeImpl extends EObjectImpl implements RolesType {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override

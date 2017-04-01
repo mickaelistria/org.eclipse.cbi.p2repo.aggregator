@@ -31,7 +31,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * This is the item provider adapter for a {@link org.eclipse.cbi.p2repo.p2.TouchpointInstruction} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
- * 
+ *
  * @generated
  */
 public class TouchpointInstructionItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider,
@@ -40,7 +40,7 @@ public class TouchpointInstructionItemProvider extends ItemProviderAdapter imple
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public TouchpointInstructionItemProvider(AdapterFactory adapterFactory) {
@@ -51,7 +51,7 @@ public class TouchpointInstructionItemProvider extends ItemProviderAdapter imple
 	 * This adds a property descriptor for the Body feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected void addBodyPropertyDescriptor(Object object) {
@@ -70,7 +70,7 @@ public class TouchpointInstructionItemProvider extends ItemProviderAdapter imple
 	 * This adds a property descriptor for the Import Attribute feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected void addImportAttributePropertyDescriptor(Object object) {
@@ -90,7 +90,7 @@ public class TouchpointInstructionItemProvider extends ItemProviderAdapter imple
 	 * that can be created under this object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -102,7 +102,7 @@ public class TouchpointInstructionItemProvider extends ItemProviderAdapter imple
 	 * This returns TouchpointInstruction.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -114,7 +114,7 @@ public class TouchpointInstructionItemProvider extends ItemProviderAdapter imple
 	 * This returns the property descriptors for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -132,7 +132,7 @@ public class TouchpointInstructionItemProvider extends ItemProviderAdapter imple
 	 * Return the resource locator for this item provider's resources.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -144,7 +144,7 @@ public class TouchpointInstructionItemProvider extends ItemProviderAdapter imple
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -160,7 +160,7 @@ public class TouchpointInstructionItemProvider extends ItemProviderAdapter imple
 	 * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override

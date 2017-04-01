@@ -32,7 +32,7 @@ public interface InstallableUnitFragment extends InstallableUnit, IInstallableUn
 	 * The list contents are of type {@link org.eclipse.equinox.p2.metadata.IRequirement}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @return the value of the '<em>Host</em>' containment reference list.
 	 * @see org.eclipse.cbi.p2repo.p2.P2Package#getInstallableUnitFragment_Host()
 	 * @model type="org.eclipse.cbi.p2repo.p2.IRequirement" containment="true" resolveProxies="true"

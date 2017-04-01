@@ -173,7 +173,7 @@ import org.eclipse.ui.views.properties.PropertySheetPage;
 /**
  * This is an example of a Aggregator model editor.
  * <!-- begin-user-doc --> <!-- end-user-doc -->
- * 
+ *
  * @generated
  */
 @SuppressWarnings("unused")
@@ -310,14 +310,14 @@ public class AggregatorEditor extends MultiPageEditorPart
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public class ReverseAdapterFactoryContentProvider extends AdapterFactoryContentProvider {
 
 		/**
 		 * <!-- begin-user-doc --> <!-- end-user-doc -->
-		 * 
+		 *
 		 * @generated
 		 */
 		public ReverseAdapterFactoryContentProvider(AdapterFactory adapterFactory) {
@@ -326,7 +326,7 @@ public class AggregatorEditor extends MultiPageEditorPart
 
 		/**
 		 * <!-- begin-user-doc --> <!-- end-user-doc -->
-		 * 
+		 *
 		 * @generated
 		 */
 		@Override
@@ -339,7 +339,7 @@ public class AggregatorEditor extends MultiPageEditorPart
 
 		/**
 		 * <!-- begin-user-doc --> <!-- end-user-doc -->
-		 * 
+		 *
 		 * @generated
 		 */
 		@Override
@@ -352,7 +352,7 @@ public class AggregatorEditor extends MultiPageEditorPart
 
 		/**
 		 * <!-- begin-user-doc --> <!-- end-user-doc -->
-		 * 
+		 *
 		 * @generated
 		 */
 		@Override
@@ -362,7 +362,7 @@ public class AggregatorEditor extends MultiPageEditorPart
 
 		/**
 		 * <!-- begin-user-doc --> <!-- end-user-doc -->
-		 * 
+		 *
 		 * @generated
 		 */
 		@Override
@@ -388,7 +388,7 @@ public class AggregatorEditor extends MultiPageEditorPart
 	/**
 	 * This looks up a string in the plugin's plugin.properties file.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private static String getString(String key) {
@@ -398,7 +398,7 @@ public class AggregatorEditor extends MultiPageEditorPart
 	/**
 	 * This looks up a string in plugin.properties, making a substitution.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	private static String getString(String key, Object s1) {
@@ -411,7 +411,7 @@ public class AggregatorEditor extends MultiPageEditorPart
 	 * This keeps track of the editing domain that is used to track all changes to the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected AdapterFactoryEditingDomain editingDomain;
@@ -427,7 +427,7 @@ public class AggregatorEditor extends MultiPageEditorPart
 	/**
 	 * This is the content outline page.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected IContentOutlinePage contentOutlinePage;
@@ -435,7 +435,7 @@ public class AggregatorEditor extends MultiPageEditorPart
 	/**
 	 * This is a kludge...
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected IStatusLineManager contentOutlineStatusLineManager;
@@ -443,7 +443,7 @@ public class AggregatorEditor extends MultiPageEditorPart
 	/**
 	 * This is the content outline page's viewer.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected TreeViewer contentOutlineViewer;
@@ -452,7 +452,7 @@ public class AggregatorEditor extends MultiPageEditorPart
 	 * This is the property sheet page.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected List<PropertySheetPage> propertySheetPages = new ArrayList<PropertySheetPage>();
@@ -463,7 +463,7 @@ public class AggregatorEditor extends MultiPageEditorPart
 	 * This is the viewer that shadows the selection in the content outline.
 	 * The parent relation must be correctly defined for this to work.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected TreeViewer selectionViewer;
@@ -471,7 +471,7 @@ public class AggregatorEditor extends MultiPageEditorPart
 	/**
 	 * This keeps track of the active content viewer, which may be either one of the viewers in the pages or the content outline viewer.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected Viewer currentViewer;
@@ -479,7 +479,7 @@ public class AggregatorEditor extends MultiPageEditorPart
 	/**
 	 * This listens to which ever viewer is active.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected ISelectionChangedListener selectionChangedListener;
@@ -487,7 +487,7 @@ public class AggregatorEditor extends MultiPageEditorPart
 	/**
 	 * This keeps track of all the {@link org.eclipse.jface.viewers.ISelectionChangedListener}s that are listening to this editor.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected Collection<ISelectionChangedListener> selectionChangedListeners = new ArrayList<ISelectionChangedListener>();
@@ -495,7 +495,7 @@ public class AggregatorEditor extends MultiPageEditorPart
 	/**
 	 * This keeps track of the selection of the editor as a whole.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected ISelection editorSelection = StructuredSelection.EMPTY;
@@ -579,7 +579,7 @@ public class AggregatorEditor extends MultiPageEditorPart
 	/**
 	 * Resources that have been removed since last activation.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected Collection<Resource> removedResources = new ArrayList<Resource>();
@@ -587,7 +587,7 @@ public class AggregatorEditor extends MultiPageEditorPart
 	/**
 	 * Resources that have been changed since last activation.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected Collection<Resource> changedResources = new ArrayList<Resource>();
@@ -595,7 +595,7 @@ public class AggregatorEditor extends MultiPageEditorPart
 	/**
 	 * Resources that have been saved.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected Collection<Resource> savedResources = new ArrayList<Resource>();
@@ -603,7 +603,7 @@ public class AggregatorEditor extends MultiPageEditorPart
 	/**
 	 * Map to store the diagnostic associated with a resource.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected Map<Resource, Diagnostic> resourceToDiagnosticMap = new LinkedHashMap<Resource, Diagnostic>();
@@ -615,7 +615,7 @@ public class AggregatorEditor extends MultiPageEditorPart
 	/**
 	 * Controls whether the problem indication should be updated.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected boolean updateProblemIndication = true;
@@ -770,7 +770,7 @@ public class AggregatorEditor extends MultiPageEditorPart
 	/**
 	 * This listens for workspace changes.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected IResourceChangeListener resourceChangeListener = new IResourceChangeListener() {
@@ -852,7 +852,7 @@ public class AggregatorEditor extends MultiPageEditorPart
 	/**
 	 * This creates a model editor.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public AggregatorEditor() {
@@ -1233,7 +1233,7 @@ public class AggregatorEditor extends MultiPageEditorPart
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -1265,7 +1265,7 @@ public class AggregatorEditor extends MultiPageEditorPart
 	 * This is for implementing {@link IEditorPart} and simply saves the model file.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -1328,7 +1328,7 @@ public class AggregatorEditor extends MultiPageEditorPart
 	/**
 	 * This also changes the editor's input.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -1346,7 +1346,7 @@ public class AggregatorEditor extends MultiPageEditorPart
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected void doSaveAs(URI uri, IEditorInput editorInput) {
@@ -1424,7 +1424,7 @@ public class AggregatorEditor extends MultiPageEditorPart
 	/**
 	 * This is here for the listener to be able to call it.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -1434,7 +1434,7 @@ public class AggregatorEditor extends MultiPageEditorPart
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public EditingDomainActionBarContributor getActionBarContributor() {
@@ -1443,7 +1443,7 @@ public class AggregatorEditor extends MultiPageEditorPart
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public IActionBars getActionBars() {
@@ -1453,7 +1453,7 @@ public class AggregatorEditor extends MultiPageEditorPart
 	/**
 	 * This is how the framework determines which interfaces we implement.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@SuppressWarnings("rawtypes")
@@ -1477,7 +1477,7 @@ public class AggregatorEditor extends MultiPageEditorPart
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public AdapterFactory getAdapterFactory() {
@@ -1487,7 +1487,7 @@ public class AggregatorEditor extends MultiPageEditorPart
 	/**
 	 * This accesses a cached version of the content outliner.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public IContentOutlinePage getContentOutlinePage() {
@@ -1556,7 +1556,7 @@ public class AggregatorEditor extends MultiPageEditorPart
 	 * This is important for implementing the static methods of {@link AdapterFactoryEditingDomain}
 	 * and for supporting {@link org.eclipse.emf.edit.ui.action.CommandAction}.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -1676,7 +1676,7 @@ public class AggregatorEditor extends MultiPageEditorPart
 	/**
 	 * This implements {@link org.eclipse.jface.viewers.ISelectionProvider} to return this editor's overall selection.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -1688,7 +1688,7 @@ public class AggregatorEditor extends MultiPageEditorPart
 	 * This returns the viewer as required by the {@link IViewerProvider} interface.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -1767,7 +1767,7 @@ public class AggregatorEditor extends MultiPageEditorPart
 	/**
 	 * Handles what to do with changed resources on activation.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected void handleChangedResources() {
@@ -1805,7 +1805,7 @@ public class AggregatorEditor extends MultiPageEditorPart
 	 * This deals with how we want selection in the outliner to affect the other views.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public void handleContentOutlineSelection(ISelection selection) {
@@ -1868,7 +1868,7 @@ public class AggregatorEditor extends MultiPageEditorPart
 	/**
 	 * This is called during startup.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -2068,7 +2068,7 @@ public class AggregatorEditor extends MultiPageEditorPart
 	 * This is for implementing {@link IEditorPart} and simply tests the command stack.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -2087,7 +2087,7 @@ public class AggregatorEditor extends MultiPageEditorPart
 	 * The implementation uses the URI converter from the editor's resource set to try to open an input stream.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected boolean isPersistedGen(Resource resource) {
@@ -2108,7 +2108,7 @@ public class AggregatorEditor extends MultiPageEditorPart
 	/**
 	 * This always returns true because it is not currently supported.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -2119,7 +2119,7 @@ public class AggregatorEditor extends MultiPageEditorPart
 	/**
 	 * This implements {@link org.eclipse.jface.action.IMenuListener} to help fill the context menus with contributions from the Edit menu.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -2130,7 +2130,7 @@ public class AggregatorEditor extends MultiPageEditorPart
 	/**
 	 * This is used to track the active viewer.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -2162,7 +2162,7 @@ public class AggregatorEditor extends MultiPageEditorPart
 	 * This makes sure that one content viewer, either for the current page or the outline view, if it has focus,
 	 * is the current one.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public void setCurrentViewer(Viewer viewer) {
@@ -2209,7 +2209,7 @@ public class AggregatorEditor extends MultiPageEditorPart
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -2221,7 +2221,7 @@ public class AggregatorEditor extends MultiPageEditorPart
 	 * This implements {@link org.eclipse.jface.viewers.ISelectionProvider} to set this editor's overall selection.
 	 * Calling this result will notify the listeners.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -2237,7 +2237,7 @@ public class AggregatorEditor extends MultiPageEditorPart
 	/**
 	 * This sets the selection into whichever viewer is active.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public void setSelectionToViewer(Collection<?> collection) {
@@ -2261,7 +2261,7 @@ public class AggregatorEditor extends MultiPageEditorPart
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public void setStatusLineManager(ISelection selection) {
@@ -2299,7 +2299,7 @@ public class AggregatorEditor extends MultiPageEditorPart
 	/**
 	 * Returns whether the outline view should be presented to the user.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected boolean showOutlineView() {
@@ -2327,7 +2327,7 @@ public class AggregatorEditor extends MultiPageEditorPart
 	 * Updates the problems indication with the information described in the specified diagnostic.
 	 * <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected void updateProblemIndication() {

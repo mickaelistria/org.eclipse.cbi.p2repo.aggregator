@@ -32,7 +32,7 @@ public interface ExcludesType extends EObject {
 	 * If the meaning of the '<em>Exclude</em>' attribute list isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @return the value of the '<em>Exclude</em>' attribute list.
 	 * @see org.eclipse.cbi.p2repo.p2.maven.pom.PomPackage#getExcludesType_Exclude()
 	 * @model unique="false" dataType="org.eclipse.emf.ecore.xml.type.String"

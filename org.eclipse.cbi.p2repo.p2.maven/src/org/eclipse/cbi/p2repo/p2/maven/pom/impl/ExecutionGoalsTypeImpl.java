@@ -32,7 +32,7 @@ public class ExecutionGoalsTypeImpl extends EObjectImpl implements ExecutionGoal
 	 * The cached value of the '{@link #getGoal() <em>Goal</em>}' attribute list.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @see #getGoal()
 	 * @generated
 	 * @ordered
@@ -41,7 +41,7 @@ public class ExecutionGoalsTypeImpl extends EObjectImpl implements ExecutionGoal
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected ExecutionGoalsTypeImpl() {
@@ -50,7 +50,7 @@ public class ExecutionGoalsTypeImpl extends EObjectImpl implements ExecutionGoal
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -64,7 +64,7 @@ public class ExecutionGoalsTypeImpl extends EObjectImpl implements ExecutionGoal
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -78,7 +78,7 @@ public class ExecutionGoalsTypeImpl extends EObjectImpl implements ExecutionGoal
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
@@ -95,7 +95,7 @@ public class ExecutionGoalsTypeImpl extends EObjectImpl implements ExecutionGoal
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -110,7 +110,7 @@ public class ExecutionGoalsTypeImpl extends EObjectImpl implements ExecutionGoal
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -123,7 +123,7 @@ public class ExecutionGoalsTypeImpl extends EObjectImpl implements ExecutionGoal
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -140,7 +140,7 @@ public class ExecutionGoalsTypeImpl extends EObjectImpl implements ExecutionGoal
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override

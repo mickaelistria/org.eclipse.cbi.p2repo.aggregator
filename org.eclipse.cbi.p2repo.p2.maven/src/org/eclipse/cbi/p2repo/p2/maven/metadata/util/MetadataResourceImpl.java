@@ -11,7 +11,7 @@ import org.eclipse.emf.ecore.xmi.impl.XMLResourceImpl;
 
 /**
  * <!-- begin-user-doc --> The <b>Resource </b> associated with the package. <!-- end-user-doc -->
- * 
+ *
  * @see org.eclipse.cbi.p2repo.p2.maven.metadata.util.MetadataResourceFactoryImpl
  * @generated
  */

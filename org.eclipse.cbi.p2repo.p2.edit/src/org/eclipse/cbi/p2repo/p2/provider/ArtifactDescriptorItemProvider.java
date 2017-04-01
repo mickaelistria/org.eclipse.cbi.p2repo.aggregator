@@ -32,7 +32,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * This is the item provider adapter for a {@link org.eclipse.cbi.p2repo.p2.ArtifactDescriptor} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
- * 
+ *
  * @generated
  */
 public class ArtifactDescriptorItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider,
@@ -41,7 +41,7 @@ public class ArtifactDescriptorItemProvider extends ItemProviderAdapter implemen
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public ArtifactDescriptorItemProvider(AdapterFactory adapterFactory) {
@@ -52,7 +52,7 @@ public class ArtifactDescriptorItemProvider extends ItemProviderAdapter implemen
 	 * This adds a property descriptor for the Artifact Key feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected void addArtifactKeyPropertyDescriptor(Object object) {
@@ -71,7 +71,7 @@ public class ArtifactDescriptorItemProvider extends ItemProviderAdapter implemen
 	 * that can be created under this object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -92,7 +92,7 @@ public class ArtifactDescriptorItemProvider extends ItemProviderAdapter implemen
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -109,7 +109,7 @@ public class ArtifactDescriptorItemProvider extends ItemProviderAdapter implemen
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -126,7 +126,7 @@ public class ArtifactDescriptorItemProvider extends ItemProviderAdapter implemen
 	 * This returns ArtifactDescriptor.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -138,7 +138,7 @@ public class ArtifactDescriptorItemProvider extends ItemProviderAdapter implemen
 	 * This returns the property descriptors for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -155,7 +155,7 @@ public class ArtifactDescriptorItemProvider extends ItemProviderAdapter implemen
 	 * Return the resource locator for this item provider's resources.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -167,7 +167,7 @@ public class ArtifactDescriptorItemProvider extends ItemProviderAdapter implemen
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -180,7 +180,7 @@ public class ArtifactDescriptorItemProvider extends ItemProviderAdapter implemen
 	 * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override

@@ -35,7 +35,7 @@ public interface DocumentRoot extends EObject {
 	 * If the meaning of the '<em>Metadata</em>' containment reference isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @return the value of the '<em>Metadata</em>' containment reference.
 	 * @see #setMetadata(MetaData)
 	 * @see org.eclipse.cbi.p2repo.p2.maven.metadata.MetadataPackage#getDocumentRoot_Metadata()
@@ -53,7 +53,7 @@ public interface DocumentRoot extends EObject {
 	 * If the meaning of the '<em>Mixed</em>' attribute list isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @return the value of the '<em>Mixed</em>' attribute list.
 	 * @see org.eclipse.cbi.p2repo.p2.maven.metadata.MetadataPackage#getDocumentRoot_Mixed()
 	 * @model unique="false" dataType="org.eclipse.emf.ecore.EFeatureMapEntry" many="true"
@@ -71,7 +71,7 @@ public interface DocumentRoot extends EObject {
 	 * If the meaning of the '<em>XMLNS Prefix Map</em>' map isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @return the value of the '<em>XMLNS Prefix Map</em>' map.
 	 * @see org.eclipse.cbi.p2repo.p2.maven.metadata.MetadataPackage#getDocumentRoot_XMLNSPrefixMap()
 	 * @model mapType="org.eclipse.emf.ecore.EStringToStringMapEntry<org.eclipse.emf.ecore.EString, org.eclipse.emf.ecore.EString>" transient="true"
@@ -89,7 +89,7 @@ public interface DocumentRoot extends EObject {
 	 * If the meaning of the '<em>XSI Schema Location</em>' map isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @return the value of the '<em>XSI Schema Location</em>' map.
 	 * @see org.eclipse.cbi.p2repo.p2.maven.metadata.MetadataPackage#getDocumentRoot_XSISchemaLocation()
 	 * @model mapType="org.eclipse.emf.ecore.EStringToStringMapEntry<org.eclipse.emf.ecore.EString, org.eclipse.emf.ecore.EString>" transient="true"
@@ -101,7 +101,7 @@ public interface DocumentRoot extends EObject {
 	/**
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.metadata.DocumentRoot#getMetadata <em>Metadata</em>}' containment reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param value
 	 *            the new value of the '<em>Metadata</em>' containment reference.
 	 * @see #getMetadata()

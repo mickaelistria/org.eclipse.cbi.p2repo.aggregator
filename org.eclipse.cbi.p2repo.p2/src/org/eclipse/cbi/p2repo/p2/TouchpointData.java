@@ -36,7 +36,7 @@ public interface TouchpointData extends ITouchpointData {
 	 * If the meaning of the '<em>Instruction Map</em>' map isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @return the value of the '<em>Instruction Map</em>' map.
 	 * @see org.eclipse.cbi.p2repo.p2.P2Package#getTouchpointData_InstructionMap()
 	 * @model mapType="org.eclipse.cbi.p2repo.p2.InstructionMap<org.eclipse.emf.ecore.EString, org.eclipse.cbi.p2repo.p2.ITouchpointInstruction>"

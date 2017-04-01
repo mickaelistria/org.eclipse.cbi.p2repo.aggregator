@@ -34,7 +34,7 @@ import org.eclipse.equinox.p2.metadata.expression.IMatchExpression;
  * This is the item provider adapter for a {@link org.eclipse.cbi.p2repo.p2.Requirement} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
- * 
+ *
  * @generated
  */
 public class RequirementItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider,
@@ -43,7 +43,7 @@ public class RequirementItemProvider extends ItemProviderAdapter implements IEdi
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public RequirementItemProvider(AdapterFactory adapterFactory) {
@@ -54,7 +54,7 @@ public class RequirementItemProvider extends ItemProviderAdapter implements IEdi
 	 * This adds a property descriptor for the Description feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected void addDescriptionPropertyDescriptor(Object object) {
@@ -73,7 +73,7 @@ public class RequirementItemProvider extends ItemProviderAdapter implements IEdi
 	 * This adds a property descriptor for the Filter feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected void addFilterPropertyDescriptor(Object object) {
@@ -91,7 +91,7 @@ public class RequirementItemProvider extends ItemProviderAdapter implements IEdi
 	 * This adds a property descriptor for the Greedy feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected void addGreedyPropertyDescriptor(Object object) {
@@ -109,7 +109,7 @@ public class RequirementItemProvider extends ItemProviderAdapter implements IEdi
 	 * This adds a property descriptor for the Matches feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected void addMatchesPropertyDescriptor(Object object) {
@@ -127,7 +127,7 @@ public class RequirementItemProvider extends ItemProviderAdapter implements IEdi
 	 * This adds a property descriptor for the Max feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected void addMaxPropertyDescriptor(Object object) {
@@ -145,7 +145,7 @@ public class RequirementItemProvider extends ItemProviderAdapter implements IEdi
 	 * This adds a property descriptor for the Min feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected void addMinPropertyDescriptor(Object object) {
@@ -164,7 +164,7 @@ public class RequirementItemProvider extends ItemProviderAdapter implements IEdi
 	 * that can be created under this object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -176,7 +176,7 @@ public class RequirementItemProvider extends ItemProviderAdapter implements IEdi
 	 * This returns Requirement.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -188,7 +188,7 @@ public class RequirementItemProvider extends ItemProviderAdapter implements IEdi
 	 * This returns the property descriptors for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -210,7 +210,7 @@ public class RequirementItemProvider extends ItemProviderAdapter implements IEdi
 	 * Return the resource locator for this item provider's resources.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -241,7 +241,7 @@ public class RequirementItemProvider extends ItemProviderAdapter implements IEdi
 	 * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override

@@ -65,10 +65,10 @@ public interface ReportSet extends EObject {
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * 4.0.0
-	 * 
+	 *
 	 * Whether any configuration should be propagated to child POMs.
 	 * <!-- end-model-doc -->
-	 * 
+	 *
 	 * @return the value of the '<em>Inherited</em>' attribute.
 	 * @see #setInherited(String)
 	 * @see org.eclipse.cbi.p2repo.p2.maven.pom.PomPackage#getReportSet_Inherited()
@@ -97,7 +97,7 @@ public interface ReportSet extends EObject {
 	/**
 	 * Returns whether the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.ReportSet#getId <em>Id</em>}' attribute is set.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @return whether the value of the '<em>Id</em>' attribute is set.
 	 * @see #unsetId()
 	 * @see #getId()
@@ -109,7 +109,7 @@ public interface ReportSet extends EObject {
 	/**
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.ReportSet#getConfiguration <em>Configuration</em>}' containment reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param value
 	 *            the new value of the '<em>Configuration</em>' containment reference.
 	 * @see #getConfiguration()
@@ -120,7 +120,7 @@ public interface ReportSet extends EObject {
 	/**
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.ReportSet#getId <em>Id</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param value
 	 *            the new value of the '<em>Id</em>' attribute.
 	 * @see #isSetId()
@@ -133,7 +133,7 @@ public interface ReportSet extends EObject {
 	/**
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.ReportSet#getInherited <em>Inherited</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param value
 	 *            the new value of the '<em>Inherited</em>' attribute.
 	 * @see #getInherited()
@@ -144,7 +144,7 @@ public interface ReportSet extends EObject {
 	/**
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.ReportSet#getReports <em>Reports</em>}' containment reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param value
 	 *            the new value of the '<em>Reports</em>' containment reference.
 	 * @see #getReports()
@@ -155,7 +155,7 @@ public interface ReportSet extends EObject {
 	/**
 	 * Unsets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.ReportSet#getId <em>Id</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #isSetId()
 	 * @see #getId()
 	 * @see #setId(String)

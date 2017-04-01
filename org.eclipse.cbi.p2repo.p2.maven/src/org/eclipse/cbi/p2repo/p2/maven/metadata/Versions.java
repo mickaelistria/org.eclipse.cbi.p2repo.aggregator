@@ -14,10 +14,10 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <!-- begin-model-doc -->
  * 1.0.0
- * 
+ *
  * Container for all the versions in the repository for
  * this artifact.
- * 
+ *
  * <!-- end-model-doc -->
  *
  * <p>

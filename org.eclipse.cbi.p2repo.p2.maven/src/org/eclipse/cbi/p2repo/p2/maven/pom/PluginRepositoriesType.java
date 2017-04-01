@@ -33,7 +33,7 @@ public interface PluginRepositoriesType extends EObject {
 	 * If the meaning of the '<em>Plugin Repository</em>' containment reference list isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @return the value of the '<em>Plugin Repository</em>' containment reference list.
 	 * @see org.eclipse.cbi.p2repo.p2.maven.pom.PomPackage#getPluginRepositoriesType_PluginRepository()
 	 * @model containment="true"

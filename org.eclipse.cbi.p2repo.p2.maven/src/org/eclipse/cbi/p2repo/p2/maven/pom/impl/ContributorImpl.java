@@ -60,7 +60,7 @@ public class ContributorImpl extends EObjectImpl implements Contributor {
 	 * The default value of the '{@link #getEmail() <em>Email</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @see #getEmail()
 	 * @generated
 	 * @ordered
@@ -90,7 +90,7 @@ public class ContributorImpl extends EObjectImpl implements Contributor {
 	/**
 	 * The cached value of the '{@link #getUrl() <em>Url</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getUrl()
 	 * @generated
 	 * @ordered
@@ -101,7 +101,7 @@ public class ContributorImpl extends EObjectImpl implements Contributor {
 	 * The default value of the '{@link #getOrganization() <em>Organization</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getOrganization()
 	 * @generated
 	 * @ordered
@@ -112,7 +112,7 @@ public class ContributorImpl extends EObjectImpl implements Contributor {
 	 * The cached value of the '{@link #getOrganization() <em>Organization</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getOrganization()
 	 * @generated
 	 * @ordered
@@ -123,7 +123,7 @@ public class ContributorImpl extends EObjectImpl implements Contributor {
 	 * The default value of the '{@link #getOrganizationUrl() <em>Organization Url</em>}' attribute.
 	 * <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getOrganizationUrl()
 	 * @generated
 	 * @ordered
@@ -134,7 +134,7 @@ public class ContributorImpl extends EObjectImpl implements Contributor {
 	 * The cached value of the '{@link #getOrganizationUrl() <em>Organization Url</em>}' attribute.
 	 * <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getOrganizationUrl()
 	 * @generated
 	 * @ordered
@@ -145,7 +145,7 @@ public class ContributorImpl extends EObjectImpl implements Contributor {
 	 * The cached value of the '{@link #getRoles() <em>Roles</em>}' containment reference.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @see #getRoles()
 	 * @generated
 	 * @ordered
@@ -156,7 +156,7 @@ public class ContributorImpl extends EObjectImpl implements Contributor {
 	 * The default value of the '{@link #getTimezone() <em>Timezone</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @see #getTimezone()
 	 * @generated
 	 * @ordered
@@ -167,7 +167,7 @@ public class ContributorImpl extends EObjectImpl implements Contributor {
 	 * The cached value of the '{@link #getTimezone() <em>Timezone</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @see #getTimezone()
 	 * @generated
 	 * @ordered
@@ -178,7 +178,7 @@ public class ContributorImpl extends EObjectImpl implements Contributor {
 	 * The cached value of the '{@link #getProperties() <em>Properties</em>}' containment reference.
 	 * <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getProperties()
 	 * @generated
 	 * @ordered
@@ -187,7 +187,7 @@ public class ContributorImpl extends EObjectImpl implements Contributor {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected ContributorImpl() {
@@ -196,7 +196,7 @@ public class ContributorImpl extends EObjectImpl implements Contributor {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public NotificationChain basicSetProperties(PropertiesType newProperties, NotificationChain msgs) {
@@ -215,7 +215,7 @@ public class ContributorImpl extends EObjectImpl implements Contributor {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public NotificationChain basicSetRoles(RolesType newRoles, NotificationChain msgs) {
@@ -234,7 +234,7 @@ public class ContributorImpl extends EObjectImpl implements Contributor {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -262,7 +262,7 @@ public class ContributorImpl extends EObjectImpl implements Contributor {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -278,7 +278,7 @@ public class ContributorImpl extends EObjectImpl implements Contributor {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -318,7 +318,7 @@ public class ContributorImpl extends EObjectImpl implements Contributor {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -354,7 +354,7 @@ public class ContributorImpl extends EObjectImpl implements Contributor {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -390,7 +390,7 @@ public class ContributorImpl extends EObjectImpl implements Contributor {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -400,7 +400,7 @@ public class ContributorImpl extends EObjectImpl implements Contributor {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -410,7 +410,7 @@ public class ContributorImpl extends EObjectImpl implements Contributor {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -420,7 +420,7 @@ public class ContributorImpl extends EObjectImpl implements Contributor {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -430,7 +430,7 @@ public class ContributorImpl extends EObjectImpl implements Contributor {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -440,7 +440,7 @@ public class ContributorImpl extends EObjectImpl implements Contributor {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -450,7 +450,7 @@ public class ContributorImpl extends EObjectImpl implements Contributor {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -460,7 +460,7 @@ public class ContributorImpl extends EObjectImpl implements Contributor {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -470,7 +470,7 @@ public class ContributorImpl extends EObjectImpl implements Contributor {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -483,7 +483,7 @@ public class ContributorImpl extends EObjectImpl implements Contributor {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -496,7 +496,7 @@ public class ContributorImpl extends EObjectImpl implements Contributor {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -511,7 +511,7 @@ public class ContributorImpl extends EObjectImpl implements Contributor {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -527,7 +527,7 @@ public class ContributorImpl extends EObjectImpl implements Contributor {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -552,7 +552,7 @@ public class ContributorImpl extends EObjectImpl implements Contributor {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -575,7 +575,7 @@ public class ContributorImpl extends EObjectImpl implements Contributor {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -589,7 +589,7 @@ public class ContributorImpl extends EObjectImpl implements Contributor {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -602,7 +602,7 @@ public class ContributorImpl extends EObjectImpl implements Contributor {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -629,7 +629,7 @@ public class ContributorImpl extends EObjectImpl implements Contributor {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override

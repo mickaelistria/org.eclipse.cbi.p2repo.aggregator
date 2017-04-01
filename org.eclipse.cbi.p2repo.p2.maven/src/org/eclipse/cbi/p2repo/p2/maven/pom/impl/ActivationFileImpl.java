@@ -31,7 +31,7 @@ public class ActivationFileImpl extends EObjectImpl implements ActivationFile {
 	 * The default value of the '{@link #getMissing() <em>Missing</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @see #getMissing()
 	 * @generated
 	 * @ordered
@@ -42,7 +42,7 @@ public class ActivationFileImpl extends EObjectImpl implements ActivationFile {
 	 * The cached value of the '{@link #getMissing() <em>Missing</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @see #getMissing()
 	 * @generated
 	 * @ordered
@@ -53,7 +53,7 @@ public class ActivationFileImpl extends EObjectImpl implements ActivationFile {
 	 * The default value of the '{@link #getExists() <em>Exists</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @see #getExists()
 	 * @generated
 	 * @ordered
@@ -64,7 +64,7 @@ public class ActivationFileImpl extends EObjectImpl implements ActivationFile {
 	 * The cached value of the '{@link #getExists() <em>Exists</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @see #getExists()
 	 * @generated
 	 * @ordered
@@ -73,7 +73,7 @@ public class ActivationFileImpl extends EObjectImpl implements ActivationFile {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected ActivationFileImpl() {
@@ -82,7 +82,7 @@ public class ActivationFileImpl extends EObjectImpl implements ActivationFile {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -98,7 +98,7 @@ public class ActivationFileImpl extends EObjectImpl implements ActivationFile {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -118,7 +118,7 @@ public class ActivationFileImpl extends EObjectImpl implements ActivationFile {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -136,7 +136,7 @@ public class ActivationFileImpl extends EObjectImpl implements ActivationFile {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -154,7 +154,7 @@ public class ActivationFileImpl extends EObjectImpl implements ActivationFile {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -164,7 +164,7 @@ public class ActivationFileImpl extends EObjectImpl implements ActivationFile {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -174,7 +174,7 @@ public class ActivationFileImpl extends EObjectImpl implements ActivationFile {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -188,7 +188,7 @@ public class ActivationFileImpl extends EObjectImpl implements ActivationFile {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -203,7 +203,7 @@ public class ActivationFileImpl extends EObjectImpl implements ActivationFile {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -222,7 +222,7 @@ public class ActivationFileImpl extends EObjectImpl implements ActivationFile {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override

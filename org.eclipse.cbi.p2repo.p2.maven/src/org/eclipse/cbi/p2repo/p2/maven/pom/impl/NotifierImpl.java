@@ -57,7 +57,7 @@ public class NotifierImpl extends EObjectImpl implements Notifier {
 	/**
 	 * This is true if the Type attribute has been set.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 * @ordered
 	 */
@@ -67,7 +67,7 @@ public class NotifierImpl extends EObjectImpl implements Notifier {
 	 * The default value of the '{@link #isSendOnError() <em>Send On Error</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #isSendOnError()
 	 * @generated
 	 * @ordered
@@ -78,7 +78,7 @@ public class NotifierImpl extends EObjectImpl implements Notifier {
 	 * The cached value of the '{@link #isSendOnError() <em>Send On Error</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @see #isSendOnError()
 	 * @generated
 	 * @ordered
@@ -88,7 +88,7 @@ public class NotifierImpl extends EObjectImpl implements Notifier {
 	/**
 	 * This is true if the Send On Error attribute has been set.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 * @ordered
 	 */
@@ -98,7 +98,7 @@ public class NotifierImpl extends EObjectImpl implements Notifier {
 	 * The default value of the '{@link #isSendOnFailure() <em>Send On Failure</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #isSendOnFailure()
 	 * @generated
 	 * @ordered
@@ -109,7 +109,7 @@ public class NotifierImpl extends EObjectImpl implements Notifier {
 	 * The cached value of the '{@link #isSendOnFailure() <em>Send On Failure</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #isSendOnFailure()
 	 * @generated
 	 * @ordered
@@ -119,7 +119,7 @@ public class NotifierImpl extends EObjectImpl implements Notifier {
 	/**
 	 * This is true if the Send On Failure attribute has been set.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 * @ordered
 	 */
@@ -129,7 +129,7 @@ public class NotifierImpl extends EObjectImpl implements Notifier {
 	 * The default value of the '{@link #isSendOnSuccess() <em>Send On Success</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #isSendOnSuccess()
 	 * @generated
 	 * @ordered
@@ -140,7 +140,7 @@ public class NotifierImpl extends EObjectImpl implements Notifier {
 	 * The cached value of the '{@link #isSendOnSuccess() <em>Send On Success</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #isSendOnSuccess()
 	 * @generated
 	 * @ordered
@@ -150,7 +150,7 @@ public class NotifierImpl extends EObjectImpl implements Notifier {
 	/**
 	 * This is true if the Send On Success attribute has been set.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 * @ordered
 	 */
@@ -160,7 +160,7 @@ public class NotifierImpl extends EObjectImpl implements Notifier {
 	 * The default value of the '{@link #isSendOnWarning() <em>Send On Warning</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #isSendOnWarning()
 	 * @generated
 	 * @ordered
@@ -171,7 +171,7 @@ public class NotifierImpl extends EObjectImpl implements Notifier {
 	 * The cached value of the '{@link #isSendOnWarning() <em>Send On Warning</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #isSendOnWarning()
 	 * @generated
 	 * @ordered
@@ -181,7 +181,7 @@ public class NotifierImpl extends EObjectImpl implements Notifier {
 	/**
 	 * This is true if the Send On Warning attribute has been set.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 * @ordered
 	 */
@@ -191,7 +191,7 @@ public class NotifierImpl extends EObjectImpl implements Notifier {
 	 * The default value of the '{@link #getAddress() <em>Address</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @see #getAddress()
 	 * @generated
 	 * @ordered
@@ -202,7 +202,7 @@ public class NotifierImpl extends EObjectImpl implements Notifier {
 	 * The cached value of the '{@link #getAddress() <em>Address</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @see #getAddress()
 	 * @generated
 	 * @ordered
@@ -221,7 +221,7 @@ public class NotifierImpl extends EObjectImpl implements Notifier {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected NotifierImpl() {
@@ -230,7 +230,7 @@ public class NotifierImpl extends EObjectImpl implements Notifier {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public NotificationChain basicSetConfiguration(ConfigurationType newConfiguration, NotificationChain msgs) {
@@ -249,7 +249,7 @@ public class NotifierImpl extends EObjectImpl implements Notifier {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -275,7 +275,7 @@ public class NotifierImpl extends EObjectImpl implements Notifier {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -289,7 +289,7 @@ public class NotifierImpl extends EObjectImpl implements Notifier {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -317,7 +317,7 @@ public class NotifierImpl extends EObjectImpl implements Notifier {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -350,7 +350,7 @@ public class NotifierImpl extends EObjectImpl implements Notifier {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -383,7 +383,7 @@ public class NotifierImpl extends EObjectImpl implements Notifier {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -393,7 +393,7 @@ public class NotifierImpl extends EObjectImpl implements Notifier {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -403,7 +403,7 @@ public class NotifierImpl extends EObjectImpl implements Notifier {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -413,7 +413,7 @@ public class NotifierImpl extends EObjectImpl implements Notifier {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -423,7 +423,7 @@ public class NotifierImpl extends EObjectImpl implements Notifier {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -433,7 +433,7 @@ public class NotifierImpl extends EObjectImpl implements Notifier {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -443,7 +443,7 @@ public class NotifierImpl extends EObjectImpl implements Notifier {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -453,7 +453,7 @@ public class NotifierImpl extends EObjectImpl implements Notifier {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -463,7 +463,7 @@ public class NotifierImpl extends EObjectImpl implements Notifier {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -473,7 +473,7 @@ public class NotifierImpl extends EObjectImpl implements Notifier {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -483,7 +483,7 @@ public class NotifierImpl extends EObjectImpl implements Notifier {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -493,7 +493,7 @@ public class NotifierImpl extends EObjectImpl implements Notifier {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -503,7 +503,7 @@ public class NotifierImpl extends EObjectImpl implements Notifier {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -516,7 +516,7 @@ public class NotifierImpl extends EObjectImpl implements Notifier {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -541,7 +541,7 @@ public class NotifierImpl extends EObjectImpl implements Notifier {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -559,7 +559,7 @@ public class NotifierImpl extends EObjectImpl implements Notifier {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -577,7 +577,7 @@ public class NotifierImpl extends EObjectImpl implements Notifier {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -595,7 +595,7 @@ public class NotifierImpl extends EObjectImpl implements Notifier {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -613,7 +613,7 @@ public class NotifierImpl extends EObjectImpl implements Notifier {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -629,7 +629,7 @@ public class NotifierImpl extends EObjectImpl implements Notifier {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -671,7 +671,7 @@ public class NotifierImpl extends EObjectImpl implements Notifier {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -689,7 +689,7 @@ public class NotifierImpl extends EObjectImpl implements Notifier {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -707,7 +707,7 @@ public class NotifierImpl extends EObjectImpl implements Notifier {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -725,7 +725,7 @@ public class NotifierImpl extends EObjectImpl implements Notifier {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -743,7 +743,7 @@ public class NotifierImpl extends EObjectImpl implements Notifier {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -760,7 +760,7 @@ public class NotifierImpl extends EObjectImpl implements Notifier {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override

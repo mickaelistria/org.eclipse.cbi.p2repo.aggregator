@@ -56,7 +56,7 @@ public class ArtifactRepositoryImpl extends RepositoryImpl<IArtifactKey> impleme
 	 * The cached value of the '{@link #getArtifactMap() <em>Artifact Map</em>}' map.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getArtifactMap()
 	 * @generated
 	 * @ordered
@@ -68,7 +68,7 @@ public class ArtifactRepositoryImpl extends RepositoryImpl<IArtifactKey> impleme
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected ArtifactRepositoryImpl() {
@@ -216,7 +216,7 @@ public class ArtifactRepositoryImpl extends RepositoryImpl<IArtifactKey> impleme
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -234,7 +234,7 @@ public class ArtifactRepositoryImpl extends RepositoryImpl<IArtifactKey> impleme
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -249,7 +249,7 @@ public class ArtifactRepositoryImpl extends RepositoryImpl<IArtifactKey> impleme
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -264,7 +264,7 @@ public class ArtifactRepositoryImpl extends RepositoryImpl<IArtifactKey> impleme
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -280,7 +280,7 @@ public class ArtifactRepositoryImpl extends RepositoryImpl<IArtifactKey> impleme
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -291,7 +291,7 @@ public class ArtifactRepositoryImpl extends RepositoryImpl<IArtifactKey> impleme
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -356,7 +356,7 @@ public class ArtifactRepositoryImpl extends RepositoryImpl<IArtifactKey> impleme
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override

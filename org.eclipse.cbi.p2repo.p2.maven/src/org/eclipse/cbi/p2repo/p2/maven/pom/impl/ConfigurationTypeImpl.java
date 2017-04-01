@@ -33,7 +33,7 @@ public class ConfigurationTypeImpl extends EObjectImpl implements ConfigurationT
 	 * The cached value of the '{@link #getAny() <em>Any</em>}' attribute list.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @see #getAny()
 	 * @generated
 	 * @ordered
@@ -42,7 +42,7 @@ public class ConfigurationTypeImpl extends EObjectImpl implements ConfigurationT
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected ConfigurationTypeImpl() {
@@ -51,7 +51,7 @@ public class ConfigurationTypeImpl extends EObjectImpl implements ConfigurationT
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -67,7 +67,7 @@ public class ConfigurationTypeImpl extends EObjectImpl implements ConfigurationT
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -81,7 +81,7 @@ public class ConfigurationTypeImpl extends EObjectImpl implements ConfigurationT
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -95,7 +95,7 @@ public class ConfigurationTypeImpl extends EObjectImpl implements ConfigurationT
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -110,7 +110,7 @@ public class ConfigurationTypeImpl extends EObjectImpl implements ConfigurationT
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -125,7 +125,7 @@ public class ConfigurationTypeImpl extends EObjectImpl implements ConfigurationT
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -138,7 +138,7 @@ public class ConfigurationTypeImpl extends EObjectImpl implements ConfigurationT
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -155,7 +155,7 @@ public class ConfigurationTypeImpl extends EObjectImpl implements ConfigurationT
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override

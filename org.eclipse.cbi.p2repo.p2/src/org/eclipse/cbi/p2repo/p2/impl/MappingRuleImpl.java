@@ -34,7 +34,7 @@ public class MappingRuleImpl extends MinimalEObjectImpl.Container implements Map
 	 * A set of bit flags representing the values of boolean attributes and whether unsettable features have been set.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 * @ordered
 	 */
@@ -44,7 +44,7 @@ public class MappingRuleImpl extends MinimalEObjectImpl.Container implements Map
 	 * The default value of the '{@link #getFilter() <em>Filter</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getFilter()
 	 * @generated
 	 * @ordered
@@ -55,7 +55,7 @@ public class MappingRuleImpl extends MinimalEObjectImpl.Container implements Map
 	 * The cached value of the '{@link #getFilter() <em>Filter</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getFilter()
 	 * @generated
 	 * @ordered
@@ -66,7 +66,7 @@ public class MappingRuleImpl extends MinimalEObjectImpl.Container implements Map
 	 * The default value of the '{@link #getOutput() <em>Output</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getOutput()
 	 * @generated
 	 * @ordered
@@ -77,7 +77,7 @@ public class MappingRuleImpl extends MinimalEObjectImpl.Container implements Map
 	 * The cached value of the '{@link #getOutput() <em>Output</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getOutput()
 	 * @generated
 	 * @ordered
@@ -87,7 +87,7 @@ public class MappingRuleImpl extends MinimalEObjectImpl.Container implements Map
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected MappingRuleImpl() {
@@ -97,7 +97,7 @@ public class MappingRuleImpl extends MinimalEObjectImpl.Container implements Map
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -114,7 +114,7 @@ public class MappingRuleImpl extends MinimalEObjectImpl.Container implements Map
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -135,7 +135,7 @@ public class MappingRuleImpl extends MinimalEObjectImpl.Container implements Map
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -154,7 +154,7 @@ public class MappingRuleImpl extends MinimalEObjectImpl.Container implements Map
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -165,7 +165,7 @@ public class MappingRuleImpl extends MinimalEObjectImpl.Container implements Map
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -184,7 +184,7 @@ public class MappingRuleImpl extends MinimalEObjectImpl.Container implements Map
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -195,7 +195,7 @@ public class MappingRuleImpl extends MinimalEObjectImpl.Container implements Map
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -206,7 +206,7 @@ public class MappingRuleImpl extends MinimalEObjectImpl.Container implements Map
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -220,7 +220,7 @@ public class MappingRuleImpl extends MinimalEObjectImpl.Container implements Map
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -234,7 +234,7 @@ public class MappingRuleImpl extends MinimalEObjectImpl.Container implements Map
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override

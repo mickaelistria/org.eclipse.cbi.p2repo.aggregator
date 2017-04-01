@@ -13,10 +13,10 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <!-- begin-model-doc -->
  * 1.0.0
- * 
+ *
  * Container for the current set of versions and the last
  * update element.
- * 
+ *
  * <!-- end-model-doc -->
  *
  * <p>
@@ -38,15 +38,15 @@ public interface Versioning extends EObject {
 	 * Returns the value of the '<em><b>Last Updated</b></em>' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * 
+	 *
 	 * 1.0.0
-	 * 
-	 * 
+	 *
+	 *
 	 * The timinig of the last update of the current
 	 * version
-	 * 
+	 *
 	 * <!-- end-model-doc -->
-	 * 
+	 *
 	 * @return the value of the '<em>Last Updated</em>' attribute.
 	 * @see #setLastUpdated(String)
 	 * @see org.eclipse.cbi.p2repo.p2.maven.metadata.MetadataPackage#getVersioning_LastUpdated()
@@ -61,14 +61,14 @@ public interface Versioning extends EObject {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * 
+	 *
 	 * 1.0.0
-	 * 
-	 * 
+	 *
+	 *
 	 * The latest version of the project.
-	 * 
+	 *
 	 * <!-- end-model-doc -->
-	 * 
+	 *
 	 * @return the value of the '<em>Latest</em>' attribute.
 	 * @see #setLatest(String)
 	 * @see org.eclipse.cbi.p2repo.p2.maven.metadata.MetadataPackage#getVersioning_Latest()
@@ -121,7 +121,7 @@ public interface Versioning extends EObject {
 	/**
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.metadata.Versioning#getLastUpdated <em>Last Updated</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param value
 	 *            the new value of the '<em>Last Updated</em>' attribute.
 	 * @see #getLastUpdated()
@@ -133,7 +133,7 @@ public interface Versioning extends EObject {
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.metadata.Versioning#getLatest <em>Latest</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param value
 	 *            the new value of the '<em>Latest</em>' attribute.
 	 * @see #getLatest()
@@ -144,7 +144,7 @@ public interface Versioning extends EObject {
 	/**
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.metadata.Versioning#getRelease <em>Release</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param value
 	 *            the new value of the '<em>Release</em>' attribute.
 	 * @see #getRelease()
@@ -155,7 +155,7 @@ public interface Versioning extends EObject {
 	/**
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.metadata.Versioning#getVersions <em>Versions</em>}' containment reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param value
 	 *            the new value of the '<em>Versions</em>' containment reference.
 	 * @see #getVersions()

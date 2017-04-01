@@ -34,7 +34,7 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
  * Note that most of the adapters are shared among multiple instances.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
- * 
+ *
  * @generated
  */
 public class P2ItemProviderAdapterFactory extends P2AdapterFactory
@@ -43,7 +43,7 @@ public class P2ItemProviderAdapterFactory extends P2AdapterFactory
 	 * This keeps track of the root adapter factory that delegates to this adapter factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected ComposedAdapterFactory parentAdapterFactory;
@@ -52,7 +52,7 @@ public class P2ItemProviderAdapterFactory extends P2AdapterFactory
 	 * This is used to implement {@link org.eclipse.emf.edit.provider.IChangeNotifier}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected IChangeNotifier changeNotifier = new ChangeNotifier();
@@ -61,7 +61,7 @@ public class P2ItemProviderAdapterFactory extends P2AdapterFactory
 	 * This keeps track of all the supported types checked by {@link #isFactoryForType isFactoryForType}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected Collection<Object> supportedTypes = new ArrayList<Object>();
@@ -70,7 +70,7 @@ public class P2ItemProviderAdapterFactory extends P2AdapterFactory
 	 * This keeps track of the one adapter used for all {@link org.eclipse.cbi.p2repo.p2.ArtifactKey} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected ArtifactKeyItemProvider artifactKeyItemProvider;
@@ -79,7 +79,7 @@ public class P2ItemProviderAdapterFactory extends P2AdapterFactory
 	 * This keeps track of the one adapter used for all {@link org.eclipse.cbi.p2repo.p2.Copyright} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected CopyrightItemProvider copyrightItemProvider;
@@ -88,7 +88,7 @@ public class P2ItemProviderAdapterFactory extends P2AdapterFactory
 	 * This keeps track of the one adapter used for all {@link org.eclipse.cbi.p2repo.p2.MetadataRepository} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected MetadataRepositoryItemProvider metadataRepositoryItemProvider;
@@ -97,7 +97,7 @@ public class P2ItemProviderAdapterFactory extends P2AdapterFactory
 	 * This keeps track of the one adapter used for all {@link org.eclipse.cbi.p2repo.p2.InstallableUnit} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected InstallableUnitItemProvider installableUnitItemProvider;
@@ -106,7 +106,7 @@ public class P2ItemProviderAdapterFactory extends P2AdapterFactory
 	 * This keeps track of the one adapter used for all {@link org.eclipse.cbi.p2repo.p2.InstallableUnitFragment} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected InstallableUnitFragmentItemProvider installableUnitFragmentItemProvider;
@@ -115,7 +115,7 @@ public class P2ItemProviderAdapterFactory extends P2AdapterFactory
 	 * This keeps track of the one adapter used for all {@link org.eclipse.cbi.p2repo.p2.License} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected LicenseItemProvider licenseItemProvider;
@@ -124,7 +124,7 @@ public class P2ItemProviderAdapterFactory extends P2AdapterFactory
 	 * This keeps track of the one adapter used for all {@link org.eclipse.cbi.p2repo.p2.ProvidedCapability} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected ProvidedCapabilityItemProvider providedCapabilityItemProvider;
@@ -133,7 +133,7 @@ public class P2ItemProviderAdapterFactory extends P2AdapterFactory
 	 * This keeps track of the one adapter used for all {@link org.eclipse.cbi.p2repo.p2.RequiredCapability} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected RequiredCapabilityItemProvider requiredCapabilityItemProvider;
@@ -142,7 +142,7 @@ public class P2ItemProviderAdapterFactory extends P2AdapterFactory
 	 * This keeps track of the one adapter used for all {@link org.eclipse.cbi.p2repo.p2.Requirement} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected RequirementItemProvider requirementItemProvider;
@@ -151,7 +151,7 @@ public class P2ItemProviderAdapterFactory extends P2AdapterFactory
 	 * This keeps track of the one adapter used for all {@link org.eclipse.cbi.p2repo.p2.TouchpointData} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected TouchpointDataItemProvider touchpointDataItemProvider;
@@ -160,7 +160,7 @@ public class P2ItemProviderAdapterFactory extends P2AdapterFactory
 	 * This keeps track of the one adapter used for all {@link org.eclipse.cbi.p2repo.p2.TouchpointInstruction} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected TouchpointInstructionItemProvider touchpointInstructionItemProvider;
@@ -169,7 +169,7 @@ public class P2ItemProviderAdapterFactory extends P2AdapterFactory
 	 * This keeps track of the one adapter used for all {@link org.eclipse.cbi.p2repo.p2.TouchpointType} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected TouchpointTypeItemProvider touchpointTypeItemProvider;
@@ -178,7 +178,7 @@ public class P2ItemProviderAdapterFactory extends P2AdapterFactory
 	 * This keeps track of the one adapter used for all {@link org.eclipse.cbi.p2repo.p2.UpdateDescriptor} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected UpdateDescriptorItemProvider updateDescriptorItemProvider;
@@ -187,7 +187,7 @@ public class P2ItemProviderAdapterFactory extends P2AdapterFactory
 	 * This keeps track of the one adapter used for all {@link java.util.Map.Entry} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected PropertyItemProvider propertyItemProvider;
@@ -196,7 +196,7 @@ public class P2ItemProviderAdapterFactory extends P2AdapterFactory
 	 * This keeps track of the one adapter used for all {@link java.util.Map.Entry} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected InstructionMapItemProvider instructionMapItemProvider;
@@ -205,7 +205,7 @@ public class P2ItemProviderAdapterFactory extends P2AdapterFactory
 	 * This keeps track of the one adapter used for all {@link org.eclipse.cbi.p2repo.p2.RepositoryReference} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected RepositoryReferenceItemProvider repositoryReferenceItemProvider;
@@ -214,7 +214,7 @@ public class P2ItemProviderAdapterFactory extends P2AdapterFactory
 	 * This keeps track of the one adapter used for all {@link org.eclipse.cbi.p2repo.p2.InstallableUnitPatch} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected InstallableUnitPatchItemProvider installableUnitPatchItemProvider;
@@ -223,7 +223,7 @@ public class P2ItemProviderAdapterFactory extends P2AdapterFactory
 	 * This keeps track of the one adapter used for all {@link org.eclipse.cbi.p2repo.p2.RequirementChange} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected RequirementChangeItemProvider requirementChangeItemProvider;
@@ -232,7 +232,7 @@ public class P2ItemProviderAdapterFactory extends P2AdapterFactory
 	 * This keeps track of the one adapter used for all {@link org.eclipse.cbi.p2repo.p2.ArtifactDescriptor} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected ArtifactDescriptorItemProvider artifactDescriptorItemProvider;
@@ -241,7 +241,7 @@ public class P2ItemProviderAdapterFactory extends P2AdapterFactory
 	 * This keeps track of the one adapter used for all {@link org.eclipse.cbi.p2repo.p2.ArtifactRepository} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected ArtifactRepositoryItemProvider artifactRepositoryItemProvider;
@@ -250,7 +250,7 @@ public class P2ItemProviderAdapterFactory extends P2AdapterFactory
 	 * This keeps track of the one adapter used for all {@link java.util.Map.Entry} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected ArtifactsByKeyItemProvider artifactsByKeyItemProvider;
@@ -259,7 +259,7 @@ public class P2ItemProviderAdapterFactory extends P2AdapterFactory
 	 * This keeps track of the one adapter used for all {@link org.eclipse.cbi.p2repo.p2.MappingRule} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected MappingRuleItemProvider mappingRuleItemProvider;
@@ -268,7 +268,7 @@ public class P2ItemProviderAdapterFactory extends P2AdapterFactory
 	 * This keeps track of the one adapter used for all {@link org.eclipse.cbi.p2repo.p2.ProcessingStepDescriptor} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected ProcessingStepDescriptorItemProvider processingStepDescriptorItemProvider;
@@ -277,7 +277,7 @@ public class P2ItemProviderAdapterFactory extends P2AdapterFactory
 	 * This keeps track of the one adapter used for all {@link org.eclipse.cbi.p2repo.p2.SimpleArtifactRepository} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected SimpleArtifactRepositoryItemProvider simpleArtifactRepositoryItemProvider;
@@ -286,7 +286,7 @@ public class P2ItemProviderAdapterFactory extends P2AdapterFactory
 	 * This keeps track of the one adapter used for all {@link org.eclipse.cbi.p2repo.p2.SimpleArtifactDescriptor} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected SimpleArtifactDescriptorItemProvider simpleArtifactDescriptorItemProvider;
@@ -295,7 +295,7 @@ public class P2ItemProviderAdapterFactory extends P2AdapterFactory
 	 * This constructs an instance.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public P2ItemProviderAdapterFactory() {
@@ -310,7 +310,7 @@ public class P2ItemProviderAdapterFactory extends P2AdapterFactory
 	 * This implementation substitutes the factory itself as the key for the adapter.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -321,7 +321,7 @@ public class P2ItemProviderAdapterFactory extends P2AdapterFactory
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -340,7 +340,7 @@ public class P2ItemProviderAdapterFactory extends P2AdapterFactory
 	 * This adds a listener.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -352,7 +352,7 @@ public class P2ItemProviderAdapterFactory extends P2AdapterFactory
 	 * This creates an adapter for a {@link org.eclipse.cbi.p2repo.p2.ArtifactDescriptor}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -368,7 +368,7 @@ public class P2ItemProviderAdapterFactory extends P2AdapterFactory
 	 * This creates an adapter for a {@link org.eclipse.cbi.p2repo.p2.ArtifactKey}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -384,7 +384,7 @@ public class P2ItemProviderAdapterFactory extends P2AdapterFactory
 	 * This creates an adapter for a {@link org.eclipse.cbi.p2repo.p2.ArtifactRepository}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -400,7 +400,7 @@ public class P2ItemProviderAdapterFactory extends P2AdapterFactory
 	 * This creates an adapter for a {@link java.util.Map.Entry}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -416,7 +416,7 @@ public class P2ItemProviderAdapterFactory extends P2AdapterFactory
 	 * This creates an adapter for a {@link org.eclipse.cbi.p2repo.p2.Copyright}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -432,7 +432,7 @@ public class P2ItemProviderAdapterFactory extends P2AdapterFactory
 	 * This creates an adapter for a {@link org.eclipse.cbi.p2repo.p2.InstallableUnit}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -448,7 +448,7 @@ public class P2ItemProviderAdapterFactory extends P2AdapterFactory
 	 * This creates an adapter for a {@link org.eclipse.cbi.p2repo.p2.InstallableUnitFragment}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -464,7 +464,7 @@ public class P2ItemProviderAdapterFactory extends P2AdapterFactory
 	 * This creates an adapter for a {@link org.eclipse.cbi.p2repo.p2.InstallableUnitPatch}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -480,7 +480,7 @@ public class P2ItemProviderAdapterFactory extends P2AdapterFactory
 	 * This creates an adapter for a {@link java.util.Map.Entry}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -496,7 +496,7 @@ public class P2ItemProviderAdapterFactory extends P2AdapterFactory
 	 * This creates an adapter for a {@link org.eclipse.cbi.p2repo.p2.License}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -512,7 +512,7 @@ public class P2ItemProviderAdapterFactory extends P2AdapterFactory
 	 * This creates an adapter for a {@link org.eclipse.cbi.p2repo.p2.MappingRule}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -528,7 +528,7 @@ public class P2ItemProviderAdapterFactory extends P2AdapterFactory
 	 * This creates an adapter for a {@link org.eclipse.cbi.p2repo.p2.MetadataRepository}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -544,7 +544,7 @@ public class P2ItemProviderAdapterFactory extends P2AdapterFactory
 	 * This creates an adapter for a {@link org.eclipse.cbi.p2repo.p2.ProcessingStepDescriptor}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -560,7 +560,7 @@ public class P2ItemProviderAdapterFactory extends P2AdapterFactory
 	 * This creates an adapter for a {@link java.util.Map.Entry}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -576,7 +576,7 @@ public class P2ItemProviderAdapterFactory extends P2AdapterFactory
 	 * This creates an adapter for a {@link org.eclipse.cbi.p2repo.p2.ProvidedCapability}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -592,7 +592,7 @@ public class P2ItemProviderAdapterFactory extends P2AdapterFactory
 	 * This creates an adapter for a {@link org.eclipse.cbi.p2repo.p2.RepositoryReference}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -608,7 +608,7 @@ public class P2ItemProviderAdapterFactory extends P2AdapterFactory
 	 * This creates an adapter for a {@link org.eclipse.cbi.p2repo.p2.RequiredCapability}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -624,7 +624,7 @@ public class P2ItemProviderAdapterFactory extends P2AdapterFactory
 	 * This creates an adapter for a {@link org.eclipse.cbi.p2repo.p2.Requirement}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -640,7 +640,7 @@ public class P2ItemProviderAdapterFactory extends P2AdapterFactory
 	 * This creates an adapter for a {@link org.eclipse.cbi.p2repo.p2.RequirementChange}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -656,7 +656,7 @@ public class P2ItemProviderAdapterFactory extends P2AdapterFactory
 	 * This creates an adapter for a {@link org.eclipse.cbi.p2repo.p2.SimpleArtifactDescriptor}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -672,7 +672,7 @@ public class P2ItemProviderAdapterFactory extends P2AdapterFactory
 	 * This creates an adapter for a {@link org.eclipse.cbi.p2repo.p2.SimpleArtifactRepository}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -688,7 +688,7 @@ public class P2ItemProviderAdapterFactory extends P2AdapterFactory
 	 * This creates an adapter for a {@link org.eclipse.cbi.p2repo.p2.TouchpointData}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -704,7 +704,7 @@ public class P2ItemProviderAdapterFactory extends P2AdapterFactory
 	 * This creates an adapter for a {@link org.eclipse.cbi.p2repo.p2.TouchpointInstruction}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -720,7 +720,7 @@ public class P2ItemProviderAdapterFactory extends P2AdapterFactory
 	 * This creates an adapter for a {@link org.eclipse.cbi.p2repo.p2.TouchpointType}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -736,7 +736,7 @@ public class P2ItemProviderAdapterFactory extends P2AdapterFactory
 	 * This creates an adapter for a {@link org.eclipse.cbi.p2repo.p2.UpdateDescriptor}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -752,7 +752,7 @@ public class P2ItemProviderAdapterFactory extends P2AdapterFactory
 	 * This disposes all of the item providers created by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -813,7 +813,7 @@ public class P2ItemProviderAdapterFactory extends P2AdapterFactory
 	 * This delegates to {@link #changeNotifier} and to {@link #parentAdapterFactory}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -829,7 +829,7 @@ public class P2ItemProviderAdapterFactory extends P2AdapterFactory
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -842,7 +842,7 @@ public class P2ItemProviderAdapterFactory extends P2AdapterFactory
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -854,7 +854,7 @@ public class P2ItemProviderAdapterFactory extends P2AdapterFactory
 	 * This removes a listener.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -866,7 +866,7 @@ public class P2ItemProviderAdapterFactory extends P2AdapterFactory
 	 * This sets the composed adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override

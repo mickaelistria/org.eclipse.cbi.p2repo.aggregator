@@ -24,7 +24,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * This is the item provider adapter for a {@link org.eclipse.cbi.p2repo.p2.RequiredCapability} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
- * 
+ *
  * @generated
  */
 public class RequiredCapabilityItemProvider extends RequirementItemProvider {
@@ -32,7 +32,7 @@ public class RequiredCapabilityItemProvider extends RequirementItemProvider {
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public RequiredCapabilityItemProvider(AdapterFactory adapterFactory) {
@@ -43,7 +43,7 @@ public class RequiredCapabilityItemProvider extends RequirementItemProvider {
 	 * This adds a property descriptor for the Name feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected void addNamePropertyDescriptor(Object object) {
@@ -62,7 +62,7 @@ public class RequiredCapabilityItemProvider extends RequirementItemProvider {
 	 * This adds a property descriptor for the Namespace feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected void addNamespacePropertyDescriptor(Object object) {
@@ -81,7 +81,7 @@ public class RequiredCapabilityItemProvider extends RequirementItemProvider {
 	 * This adds a property descriptor for the Range feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected void addRangePropertyDescriptor(Object object) {
@@ -101,7 +101,7 @@ public class RequiredCapabilityItemProvider extends RequirementItemProvider {
 	 * that can be created under this object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -113,7 +113,7 @@ public class RequiredCapabilityItemProvider extends RequirementItemProvider {
 	 * This returns RequiredCapability.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -125,7 +125,7 @@ public class RequiredCapabilityItemProvider extends RequirementItemProvider {
 	 * This returns the property descriptors for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -144,7 +144,7 @@ public class RequiredCapabilityItemProvider extends RequirementItemProvider {
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -160,7 +160,7 @@ public class RequiredCapabilityItemProvider extends RequirementItemProvider {
 	 * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override

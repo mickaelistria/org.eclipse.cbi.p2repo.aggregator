@@ -35,7 +35,7 @@ public class CopyrightImpl extends MinimalEObjectImpl.Container implements Copyr
 	 * A set of bit flags representing the values of boolean attributes and whether unsettable features have been set.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 * @ordered
 	 */
@@ -45,7 +45,7 @@ public class CopyrightImpl extends MinimalEObjectImpl.Container implements Copyr
 	 * The default value of the '{@link #getLocation() <em>Location</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getLocation()
 	 * @generated
 	 * @ordered
@@ -56,7 +56,7 @@ public class CopyrightImpl extends MinimalEObjectImpl.Container implements Copyr
 	 * The cached value of the '{@link #getLocation() <em>Location</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getLocation()
 	 * @generated
 	 * @ordered
@@ -67,7 +67,7 @@ public class CopyrightImpl extends MinimalEObjectImpl.Container implements Copyr
 	 * The default value of the '{@link #getBody() <em>Body</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getBody()
 	 * @generated
 	 * @ordered
@@ -78,7 +78,7 @@ public class CopyrightImpl extends MinimalEObjectImpl.Container implements Copyr
 	 * The cached value of the '{@link #getBody() <em>Body</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getBody()
 	 * @generated
 	 * @ordered
@@ -88,7 +88,7 @@ public class CopyrightImpl extends MinimalEObjectImpl.Container implements Copyr
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected CopyrightImpl() {
@@ -98,7 +98,7 @@ public class CopyrightImpl extends MinimalEObjectImpl.Container implements Copyr
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -115,7 +115,7 @@ public class CopyrightImpl extends MinimalEObjectImpl.Container implements Copyr
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -136,7 +136,7 @@ public class CopyrightImpl extends MinimalEObjectImpl.Container implements Copyr
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -155,7 +155,7 @@ public class CopyrightImpl extends MinimalEObjectImpl.Container implements Copyr
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -166,7 +166,7 @@ public class CopyrightImpl extends MinimalEObjectImpl.Container implements Copyr
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -185,7 +185,7 @@ public class CopyrightImpl extends MinimalEObjectImpl.Container implements Copyr
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -196,7 +196,7 @@ public class CopyrightImpl extends MinimalEObjectImpl.Container implements Copyr
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -207,7 +207,7 @@ public class CopyrightImpl extends MinimalEObjectImpl.Container implements Copyr
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public void setBody(String newBody) {
@@ -220,7 +220,7 @@ public class CopyrightImpl extends MinimalEObjectImpl.Container implements Copyr
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public void setLocation(URI newLocation) {
@@ -234,7 +234,7 @@ public class CopyrightImpl extends MinimalEObjectImpl.Container implements Copyr
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override

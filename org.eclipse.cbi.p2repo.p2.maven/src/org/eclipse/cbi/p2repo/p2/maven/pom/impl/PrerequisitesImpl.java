@@ -29,7 +29,7 @@ public class PrerequisitesImpl extends EObjectImpl implements Prerequisites {
 	 * The default value of the '{@link #getMaven() <em>Maven</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @see #getMaven()
 	 * @generated
 	 * @ordered
@@ -49,7 +49,7 @@ public class PrerequisitesImpl extends EObjectImpl implements Prerequisites {
 	/**
 	 * This is true if the Maven attribute has been set.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 * @ordered
 	 */
@@ -57,7 +57,7 @@ public class PrerequisitesImpl extends EObjectImpl implements Prerequisites {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected PrerequisitesImpl() {
@@ -66,7 +66,7 @@ public class PrerequisitesImpl extends EObjectImpl implements Prerequisites {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -80,7 +80,7 @@ public class PrerequisitesImpl extends EObjectImpl implements Prerequisites {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -94,7 +94,7 @@ public class PrerequisitesImpl extends EObjectImpl implements Prerequisites {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -109,7 +109,7 @@ public class PrerequisitesImpl extends EObjectImpl implements Prerequisites {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -124,7 +124,7 @@ public class PrerequisitesImpl extends EObjectImpl implements Prerequisites {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -134,7 +134,7 @@ public class PrerequisitesImpl extends EObjectImpl implements Prerequisites {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -144,7 +144,7 @@ public class PrerequisitesImpl extends EObjectImpl implements Prerequisites {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -161,7 +161,7 @@ public class PrerequisitesImpl extends EObjectImpl implements Prerequisites {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -181,7 +181,7 @@ public class PrerequisitesImpl extends EObjectImpl implements Prerequisites {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -198,7 +198,7 @@ public class PrerequisitesImpl extends EObjectImpl implements Prerequisites {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override

@@ -76,7 +76,7 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 	 * The default value of the '{@link #getLabel() <em>Label</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @see #getLabel()
 	 * @generated
 	 * @ordered
@@ -87,7 +87,7 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 	 * The default value of the '{@link #getBuildRoot() <em>Build Root</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @see #getBuildRoot()
 	 * @generated
 	 * @ordered
@@ -98,7 +98,7 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 	 * The default value of the '{@link #getPackedStrategy() <em>Packed Strategy</em>}' attribute.
 	 * <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getPackedStrategy()
 	 * @generated
 	 * @ordered
@@ -108,7 +108,7 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 	/**
 	 * The offset of the flags representing the value of the '{@link #getPackedStrategy() <em>Packed Strategy</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 * @ordered
 	 */
@@ -117,7 +117,7 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 	/**
 	 * The flags representing the default value of the '{@link #getPackedStrategy() <em>Packed Strategy</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 * @ordered
 	 */
@@ -127,7 +127,7 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 	 * The array of enumeration values for '{@link PackedStrategy Packed Strategy}'
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 * @ordered
 	 */
@@ -147,7 +147,7 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 	 * The default value of the '{@link #isSendmail() <em>Sendmail</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @see #isSendmail()
 	 * @generated
 	 * @ordered
@@ -158,7 +158,7 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 	 * The flag representing the value of the '{@link #isSendmail() <em>Sendmail</em>}' attribute.
 	 * <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #isSendmail()
 	 * @generated
 	 * @ordered
@@ -188,7 +188,7 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 	 * The flags representing the default value of the '{@link #getType() <em>Type</em>}' attribute.
 	 * <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 * @ordered
 	 */
@@ -198,7 +198,7 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 	 * The array of enumeration values for '{@link AggregationType Aggregation Type}'
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 * @ordered
 	 */
@@ -208,7 +208,7 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 	 * The flags representing the value of the '{@link #getType() <em>Type</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getType()
 	 * @generated
 	 * @ordered
@@ -219,7 +219,7 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 	 * The default value of the '{@link #isMavenResult() <em>Maven Result</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @see #isMavenResult()
 	 * @generated
 	 * @ordered
@@ -240,7 +240,7 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 	 * The default value of the '{@link #isStrictMavenVersions() <em>Strict Maven Versions</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #isStrictMavenVersions()
 	 * @generated
 	 * @ordered
@@ -251,7 +251,7 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 	 * The flag representing the value of the '{@link #isStrictMavenVersions() <em>Strict Maven Versions</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #isStrictMavenVersions()
 	 * @generated
 	 * @ordered
@@ -262,7 +262,7 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 	 * The default value of the '{@link #getVersionFormat() <em>Version Format</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getVersionFormat()
 	 * @generated
 	 * @ordered
@@ -273,7 +273,7 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 	 * The offset of the flags representing the value of the '{@link #getVersionFormat() <em>Version Format</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 * @ordered
 	 */
@@ -283,7 +283,7 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 	 * The flags representing the default value of the '{@link #getVersionFormat() <em>Version Format</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 * @ordered
 	 */
@@ -293,7 +293,7 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 	 * The array of enumeration values for '{@link VersionFormat Version Format}'
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 * @ordered
 	 */
@@ -303,7 +303,7 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 	 * The flags representing the value of the '{@link #getVersionFormat() <em>Version Format</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getVersionFormat()
 	 * @generated
 	 * @ordered
@@ -314,7 +314,7 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 	 * The default value of the '{@link #isAllowLegacySites() <em>Allow Legacy Sites</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #isAllowLegacySites()
 	 * @generated
 	 * @ordered
@@ -325,7 +325,7 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 	 * The flag representing the value of the '{@link #isAllowLegacySites() <em>Allow Legacy Sites</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #isAllowLegacySites()
 	 * @generated
 	 * @ordered
@@ -336,7 +336,7 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 	 * The cached value of the '{@link #getErrors() <em>Errors</em>}' attribute list.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @see #getErrors()
 	 * @generated
 	 * @ordered
@@ -347,7 +347,7 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 	 * The cached value of the '{@link #getWarnings() <em>Warnings</em>}' attribute list.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @see #getWarnings()
 	 * @generated
 	 * @ordered
@@ -358,7 +358,7 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 	 * The cached value of the '{@link #getInfos() <em>Infos</em>}' attribute list.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @see #getInfos()
 	 * @generated
 	 * @ordered
@@ -369,7 +369,7 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 	 * The cached value of the '{@link #getValidationSets() <em>Validation Sets</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getValidationSets()
 	 * @generated
 	 * @ordered
@@ -389,7 +389,7 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 	/**
 	 * The cached value of the '{@link #getCustomCategories() <em>Custom Categories</em>}' containment reference list.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getCustomCategories()
 	 * @generated
 	 * @ordered
@@ -420,7 +420,7 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 	 * The cached value of the '{@link #getBuildmasterBackup() <em>Buildmaster Backup</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getBuildmasterBackup()
 	 * @generated
 	 * @ordered
@@ -441,7 +441,7 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 	 * The cached value of the '{@link #getBuildRoot() <em>Build Root</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @see #getBuildRoot()
 	 * @generated
 	 * @ordered
@@ -460,7 +460,7 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected AggregationImpl() {
@@ -470,7 +470,7 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public Contact basicGetBuildmaster() {
@@ -480,7 +480,7 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public Contact basicGetBuildmasterBackup() {
@@ -494,7 +494,7 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -524,7 +524,7 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -554,7 +554,7 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -610,7 +610,7 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
@@ -625,7 +625,7 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -647,7 +647,7 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -703,7 +703,7 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
@@ -781,7 +781,7 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -791,7 +791,7 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -903,7 +903,7 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -925,7 +925,7 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -946,7 +946,7 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -956,7 +956,7 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -970,7 +970,7 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -984,7 +984,7 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -998,7 +998,7 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -1011,7 +1011,7 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -1024,7 +1024,7 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -1034,7 +1034,7 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -1048,7 +1048,7 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -1072,7 +1072,7 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -1083,7 +1083,7 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -1112,7 +1112,7 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -1122,7 +1122,7 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -1136,7 +1136,7 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -1146,7 +1146,7 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -1156,7 +1156,7 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -1167,7 +1167,7 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -1178,7 +1178,7 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -1197,7 +1197,7 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -1213,7 +1213,7 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -1229,7 +1229,7 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -1244,7 +1244,7 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -1258,7 +1258,7 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -1277,7 +1277,7 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -1296,7 +1296,7 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -1315,7 +1315,7 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
 	@Override
@@ -1341,7 +1341,7 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -1358,7 +1358,7 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
 	@Override
@@ -1379,7 +1379,7 @@ public class AggregationImpl extends DescriptionProviderImpl implements Aggregat
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override

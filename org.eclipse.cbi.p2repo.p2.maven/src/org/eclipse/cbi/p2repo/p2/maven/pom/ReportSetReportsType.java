@@ -33,7 +33,7 @@ public interface ReportSetReportsType extends EObject {
 	 * If the meaning of the '<em>Report</em>' attribute list isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @return the value of the '<em>Report</em>' attribute list.
 	 * @see org.eclipse.cbi.p2repo.p2.maven.pom.PomPackage#getReportSetReportsType_Report()
 	 * @model unique="false" dataType="org.eclipse.emf.ecore.xml.type.String"

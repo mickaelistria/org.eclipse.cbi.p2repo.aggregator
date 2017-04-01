@@ -36,7 +36,7 @@ public class ArtifactKeyImpl extends MinimalEObjectImpl.Container implements Art
 	 * A set of bit flags representing the values of boolean attributes and whether unsettable features have been set.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 * @ordered
 	 */
@@ -46,7 +46,7 @@ public class ArtifactKeyImpl extends MinimalEObjectImpl.Container implements Art
 	 * The default value of the '{@link #getClassifier() <em>Classifier</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getClassifier()
 	 * @generated
 	 * @ordered
@@ -57,7 +57,7 @@ public class ArtifactKeyImpl extends MinimalEObjectImpl.Container implements Art
 	 * The cached value of the '{@link #getClassifier() <em>Classifier</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getClassifier()
 	 * @generated
 	 * @ordered
@@ -68,7 +68,7 @@ public class ArtifactKeyImpl extends MinimalEObjectImpl.Container implements Art
 	 * The default value of the '{@link #getId() <em>Id</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getId()
 	 * @generated
 	 * @ordered
@@ -79,7 +79,7 @@ public class ArtifactKeyImpl extends MinimalEObjectImpl.Container implements Art
 	 * The cached value of the '{@link #getId() <em>Id</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getId()
 	 * @generated
 	 * @ordered
@@ -90,7 +90,7 @@ public class ArtifactKeyImpl extends MinimalEObjectImpl.Container implements Art
 	 * The default value of the '{@link #getVersion() <em>Version</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getVersion()
 	 * @generated
 	 * @ordered
@@ -101,7 +101,7 @@ public class ArtifactKeyImpl extends MinimalEObjectImpl.Container implements Art
 	 * The cached value of the '{@link #getVersion() <em>Version</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getVersion()
 	 * @generated
 	 * @ordered
@@ -111,7 +111,7 @@ public class ArtifactKeyImpl extends MinimalEObjectImpl.Container implements Art
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected ArtifactKeyImpl() {
@@ -121,7 +121,7 @@ public class ArtifactKeyImpl extends MinimalEObjectImpl.Container implements Art
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -140,7 +140,7 @@ public class ArtifactKeyImpl extends MinimalEObjectImpl.Container implements Art
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -173,7 +173,7 @@ public class ArtifactKeyImpl extends MinimalEObjectImpl.Container implements Art
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -195,7 +195,7 @@ public class ArtifactKeyImpl extends MinimalEObjectImpl.Container implements Art
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -206,7 +206,7 @@ public class ArtifactKeyImpl extends MinimalEObjectImpl.Container implements Art
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -228,7 +228,7 @@ public class ArtifactKeyImpl extends MinimalEObjectImpl.Container implements Art
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -239,7 +239,7 @@ public class ArtifactKeyImpl extends MinimalEObjectImpl.Container implements Art
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -250,7 +250,7 @@ public class ArtifactKeyImpl extends MinimalEObjectImpl.Container implements Art
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -269,7 +269,7 @@ public class ArtifactKeyImpl extends MinimalEObjectImpl.Container implements Art
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public void setClassifier(String newClassifier) {
@@ -284,7 +284,7 @@ public class ArtifactKeyImpl extends MinimalEObjectImpl.Container implements Art
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public void setId(String newId) {
@@ -297,7 +297,7 @@ public class ArtifactKeyImpl extends MinimalEObjectImpl.Container implements Art
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public void setVersion(Version newVersion) {
@@ -311,7 +311,7 @@ public class ArtifactKeyImpl extends MinimalEObjectImpl.Container implements Art
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -324,7 +324,7 @@ public class ArtifactKeyImpl extends MinimalEObjectImpl.Container implements Art
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override

@@ -35,7 +35,7 @@ public class VersioningImpl extends EObjectImpl implements Versioning {
 	 * The default value of the '{@link #getRelease() <em>Release</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @see #getRelease()
 	 * @generated
 	 * @ordered
@@ -46,7 +46,7 @@ public class VersioningImpl extends EObjectImpl implements Versioning {
 	 * The cached value of the '{@link #getRelease() <em>Release</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @see #getRelease()
 	 * @generated
 	 * @ordered
@@ -57,7 +57,7 @@ public class VersioningImpl extends EObjectImpl implements Versioning {
 	 * The default value of the '{@link #getLatest() <em>Latest</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getLatest()
 	 * @generated
 	 * @ordered
@@ -68,7 +68,7 @@ public class VersioningImpl extends EObjectImpl implements Versioning {
 	 * The cached value of the '{@link #getLatest() <em>Latest</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getLatest()
 	 * @generated
 	 * @ordered
@@ -79,7 +79,7 @@ public class VersioningImpl extends EObjectImpl implements Versioning {
 	 * The cached value of the '{@link #getVersions() <em>Versions</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getVersions()
 	 * @generated
 	 * @ordered
@@ -90,7 +90,7 @@ public class VersioningImpl extends EObjectImpl implements Versioning {
 	 * The default value of the '{@link #getLastUpdated() <em>Last Updated</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getLastUpdated()
 	 * @generated
 	 * @ordered
@@ -101,7 +101,7 @@ public class VersioningImpl extends EObjectImpl implements Versioning {
 	 * The cached value of the '{@link #getLastUpdated() <em>Last Updated</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @see #getLastUpdated()
 	 * @generated
 	 * @ordered
@@ -110,7 +110,7 @@ public class VersioningImpl extends EObjectImpl implements Versioning {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected VersioningImpl() {
@@ -119,7 +119,7 @@ public class VersioningImpl extends EObjectImpl implements Versioning {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public NotificationChain basicSetVersions(Versions newVersions, NotificationChain msgs) {
@@ -138,7 +138,7 @@ public class VersioningImpl extends EObjectImpl implements Versioning {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -158,7 +158,7 @@ public class VersioningImpl extends EObjectImpl implements Versioning {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -172,7 +172,7 @@ public class VersioningImpl extends EObjectImpl implements Versioning {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -198,7 +198,7 @@ public class VersioningImpl extends EObjectImpl implements Versioning {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -222,7 +222,7 @@ public class VersioningImpl extends EObjectImpl implements Versioning {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -246,7 +246,7 @@ public class VersioningImpl extends EObjectImpl implements Versioning {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -257,7 +257,7 @@ public class VersioningImpl extends EObjectImpl implements Versioning {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -267,7 +267,7 @@ public class VersioningImpl extends EObjectImpl implements Versioning {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -277,7 +277,7 @@ public class VersioningImpl extends EObjectImpl implements Versioning {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -287,7 +287,7 @@ public class VersioningImpl extends EObjectImpl implements Versioning {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -303,7 +303,7 @@ public class VersioningImpl extends EObjectImpl implements Versioning {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -317,7 +317,7 @@ public class VersioningImpl extends EObjectImpl implements Versioning {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -332,7 +332,7 @@ public class VersioningImpl extends EObjectImpl implements Versioning {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -357,7 +357,7 @@ public class VersioningImpl extends EObjectImpl implements Versioning {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -378,7 +378,7 @@ public class VersioningImpl extends EObjectImpl implements Versioning {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override

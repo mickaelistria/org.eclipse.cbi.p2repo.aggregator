@@ -43,7 +43,7 @@ public class PluginImpl extends EObjectImpl implements Plugin {
 	 * The default value of the '{@link #getGroupId() <em>Group Id</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @see #getGroupId()
 	 * @generated
 	 * @ordered
@@ -54,7 +54,7 @@ public class PluginImpl extends EObjectImpl implements Plugin {
 	 * The cached value of the '{@link #getGroupId() <em>Group Id</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @see #getGroupId()
 	 * @generated
 	 * @ordered
@@ -64,7 +64,7 @@ public class PluginImpl extends EObjectImpl implements Plugin {
 	/**
 	 * This is true if the Group Id attribute has been set.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 * @ordered
 	 */
@@ -74,7 +74,7 @@ public class PluginImpl extends EObjectImpl implements Plugin {
 	 * The default value of the '{@link #getArtifactId() <em>Artifact Id</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @see #getArtifactId()
 	 * @generated
 	 * @ordered
@@ -85,7 +85,7 @@ public class PluginImpl extends EObjectImpl implements Plugin {
 	 * The cached value of the '{@link #getArtifactId() <em>Artifact Id</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @see #getArtifactId()
 	 * @generated
 	 * @ordered
@@ -96,7 +96,7 @@ public class PluginImpl extends EObjectImpl implements Plugin {
 	 * The default value of the '{@link #getVersion() <em>Version</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @see #getVersion()
 	 * @generated
 	 * @ordered
@@ -107,7 +107,7 @@ public class PluginImpl extends EObjectImpl implements Plugin {
 	 * The cached value of the '{@link #getVersion() <em>Version</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @see #getVersion()
 	 * @generated
 	 * @ordered
@@ -118,7 +118,7 @@ public class PluginImpl extends EObjectImpl implements Plugin {
 	 * The default value of the '{@link #isExtensions() <em>Extensions</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @see #isExtensions()
 	 * @generated
 	 * @ordered
@@ -129,7 +129,7 @@ public class PluginImpl extends EObjectImpl implements Plugin {
 	 * The cached value of the '{@link #isExtensions() <em>Extensions</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @see #isExtensions()
 	 * @generated
 	 * @ordered
@@ -139,7 +139,7 @@ public class PluginImpl extends EObjectImpl implements Plugin {
 	/**
 	 * This is true if the Extensions attribute has been set.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 * @ordered
 	 */
@@ -149,7 +149,7 @@ public class PluginImpl extends EObjectImpl implements Plugin {
 	 * The cached value of the '{@link #getExecutions() <em>Executions</em>}' containment reference.
 	 * <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getExecutions()
 	 * @generated
 	 * @ordered
@@ -170,7 +170,7 @@ public class PluginImpl extends EObjectImpl implements Plugin {
 	 * The cached value of the '{@link #getGoals() <em>Goals</em>}' containment reference.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @see #getGoals()
 	 * @generated
 	 * @ordered
@@ -181,7 +181,7 @@ public class PluginImpl extends EObjectImpl implements Plugin {
 	 * The default value of the '{@link #getInherited() <em>Inherited</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @see #getInherited()
 	 * @generated
 	 * @ordered
@@ -192,7 +192,7 @@ public class PluginImpl extends EObjectImpl implements Plugin {
 	 * The cached value of the '{@link #getInherited() <em>Inherited</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @see #getInherited()
 	 * @generated
 	 * @ordered
@@ -211,7 +211,7 @@ public class PluginImpl extends EObjectImpl implements Plugin {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected PluginImpl() {
@@ -220,7 +220,7 @@ public class PluginImpl extends EObjectImpl implements Plugin {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public NotificationChain basicSetConfiguration(ConfigurationType newConfiguration, NotificationChain msgs) {
@@ -239,7 +239,7 @@ public class PluginImpl extends EObjectImpl implements Plugin {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public NotificationChain basicSetDependencies(DependenciesType newDependencies, NotificationChain msgs) {
@@ -258,7 +258,7 @@ public class PluginImpl extends EObjectImpl implements Plugin {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public NotificationChain basicSetExecutions(ExecutionsType newExecutions, NotificationChain msgs) {
@@ -277,7 +277,7 @@ public class PluginImpl extends EObjectImpl implements Plugin {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public NotificationChain basicSetGoals(GoalsType newGoals, NotificationChain msgs) {
@@ -296,7 +296,7 @@ public class PluginImpl extends EObjectImpl implements Plugin {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -326,7 +326,7 @@ public class PluginImpl extends EObjectImpl implements Plugin {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -346,7 +346,7 @@ public class PluginImpl extends EObjectImpl implements Plugin {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -382,7 +382,7 @@ public class PluginImpl extends EObjectImpl implements Plugin {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -421,7 +421,7 @@ public class PluginImpl extends EObjectImpl implements Plugin {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -460,7 +460,7 @@ public class PluginImpl extends EObjectImpl implements Plugin {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -470,7 +470,7 @@ public class PluginImpl extends EObjectImpl implements Plugin {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -480,7 +480,7 @@ public class PluginImpl extends EObjectImpl implements Plugin {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -490,7 +490,7 @@ public class PluginImpl extends EObjectImpl implements Plugin {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -500,7 +500,7 @@ public class PluginImpl extends EObjectImpl implements Plugin {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -510,7 +510,7 @@ public class PluginImpl extends EObjectImpl implements Plugin {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -520,7 +520,7 @@ public class PluginImpl extends EObjectImpl implements Plugin {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -530,7 +530,7 @@ public class PluginImpl extends EObjectImpl implements Plugin {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -540,7 +540,7 @@ public class PluginImpl extends EObjectImpl implements Plugin {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -550,7 +550,7 @@ public class PluginImpl extends EObjectImpl implements Plugin {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -560,7 +560,7 @@ public class PluginImpl extends EObjectImpl implements Plugin {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -570,7 +570,7 @@ public class PluginImpl extends EObjectImpl implements Plugin {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -585,7 +585,7 @@ public class PluginImpl extends EObjectImpl implements Plugin {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -610,7 +610,7 @@ public class PluginImpl extends EObjectImpl implements Plugin {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -635,7 +635,7 @@ public class PluginImpl extends EObjectImpl implements Plugin {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -660,7 +660,7 @@ public class PluginImpl extends EObjectImpl implements Plugin {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -678,7 +678,7 @@ public class PluginImpl extends EObjectImpl implements Plugin {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -701,7 +701,7 @@ public class PluginImpl extends EObjectImpl implements Plugin {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -718,7 +718,7 @@ public class PluginImpl extends EObjectImpl implements Plugin {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -732,7 +732,7 @@ public class PluginImpl extends EObjectImpl implements Plugin {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -745,7 +745,7 @@ public class PluginImpl extends EObjectImpl implements Plugin {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -776,7 +776,7 @@ public class PluginImpl extends EObjectImpl implements Plugin {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -794,7 +794,7 @@ public class PluginImpl extends EObjectImpl implements Plugin {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -812,7 +812,7 @@ public class PluginImpl extends EObjectImpl implements Plugin {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override

@@ -24,7 +24,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * This is the item provider adapter for a {@link org.eclipse.cbi.p2repo.p2.SimpleArtifactRepository} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
- * 
+ *
  * @generated
  */
 public class SimpleArtifactRepositoryItemProvider extends ArtifactRepositoryItemProvider {
@@ -32,7 +32,7 @@ public class SimpleArtifactRepositoryItemProvider extends ArtifactRepositoryItem
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public SimpleArtifactRepositoryItemProvider(AdapterFactory adapterFactory) {
@@ -44,7 +44,7 @@ public class SimpleArtifactRepositoryItemProvider extends ArtifactRepositoryItem
 	 * that can be created under this object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -59,7 +59,7 @@ public class SimpleArtifactRepositoryItemProvider extends ArtifactRepositoryItem
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -76,7 +76,7 @@ public class SimpleArtifactRepositoryItemProvider extends ArtifactRepositoryItem
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -92,7 +92,7 @@ public class SimpleArtifactRepositoryItemProvider extends ArtifactRepositoryItem
 	 * This returns SimpleArtifactRepository.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -104,7 +104,7 @@ public class SimpleArtifactRepositoryItemProvider extends ArtifactRepositoryItem
 	 * This returns the property descriptors for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -120,7 +120,7 @@ public class SimpleArtifactRepositoryItemProvider extends ArtifactRepositoryItem
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -136,7 +136,7 @@ public class SimpleArtifactRepositoryItemProvider extends ArtifactRepositoryItem
 	 * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override

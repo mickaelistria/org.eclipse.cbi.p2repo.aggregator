@@ -138,7 +138,7 @@ import org.xml.sax.SAXException;
 /**
  * This is the action bar contributor for the Aggregator model editor.
  * <!-- begin-user-doc --> <!-- end-user-doc -->
- * 
+ *
  * @generated
  */
 public class AggregatorActionBarContributor extends EditingDomainActionBarContributor
@@ -806,7 +806,7 @@ public class AggregatorActionBarContributor extends EditingDomainActionBarContri
 	/**
 	 * This keeps track of the active editor.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected IEditorPart activeEditorPart;
@@ -814,7 +814,7 @@ public class AggregatorActionBarContributor extends EditingDomainActionBarContri
 	/**
 	 * This keeps track of the current selection provider.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected ISelectionProvider selectionProvider;
@@ -822,7 +822,7 @@ public class AggregatorActionBarContributor extends EditingDomainActionBarContri
 	/**
 	 * This action opens the Properties view.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected IAction showPropertiesViewAction = new Action(
@@ -842,7 +842,7 @@ public class AggregatorActionBarContributor extends EditingDomainActionBarContri
 	 * This action refreshes the viewer of the current editor if the editor
 	 * implements {@link org.eclipse.emf.common.ui.viewer.IViewerProvider}.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected IAction refreshViewerAction = new Action(
@@ -867,7 +867,7 @@ public class AggregatorActionBarContributor extends EditingDomainActionBarContri
 	 * This will contain one {@link org.eclipse.emf.edit.ui.action.CreateChildAction} corresponding to each descriptor
 	 * generated for the current selection by the item provider.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected Collection<IAction> createChildActions;
@@ -884,7 +884,7 @@ public class AggregatorActionBarContributor extends EditingDomainActionBarContri
 	 * This will contain one {@link org.eclipse.emf.edit.ui.action.CreateSiblingAction} corresponding to each descriptor
 	 * generated for the current selection by the item provider.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected Collection<IAction> createSiblingActions;
@@ -958,7 +958,7 @@ public class AggregatorActionBarContributor extends EditingDomainActionBarContri
 	/**
 	 * This inserts global actions before the "additions-end" separator.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected void addGlobalActionsGen(IMenuManager menuManager) {
@@ -979,7 +979,7 @@ public class AggregatorActionBarContributor extends EditingDomainActionBarContri
 	 * This adds to the menu bar a menu and some separators for editor additions,
 	 * as well as the sub-menus for object creation items.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -1022,7 +1022,7 @@ public class AggregatorActionBarContributor extends EditingDomainActionBarContri
 	/**
 	 * This adds Separators for editor additions to the tool bar.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -1297,7 +1297,7 @@ public class AggregatorActionBarContributor extends EditingDomainActionBarContri
 	/**
 	 * This populates the pop-up menu before it appears.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public void menuAboutToShowGen(IMenuManager menuManager) {
@@ -1319,7 +1319,7 @@ public class AggregatorActionBarContributor extends EditingDomainActionBarContri
 	 * by inserting them before the specified contribution item <code>contributionID</code>.
 	 * If <code>contributionID</code> is <code>null</code>, they are simply added.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected void populateManager(IContributionManager manager, Collection<? extends IAction> actions,
@@ -1340,7 +1340,7 @@ public class AggregatorActionBarContributor extends EditingDomainActionBarContri
 	 * This ensures that a delete action will clean up all references to deleted objects.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override

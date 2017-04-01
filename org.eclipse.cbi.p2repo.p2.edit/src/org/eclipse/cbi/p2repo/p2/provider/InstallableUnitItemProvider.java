@@ -41,7 +41,7 @@ import org.eclipse.equinox.p2.query.QueryUtil;
  * This is the item provider adapter for a {@link org.eclipse.cbi.p2repo.p2.InstallableUnit} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
- * 
+ *
  * @generated
  */
 public class InstallableUnitItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider,
@@ -50,7 +50,7 @@ public class InstallableUnitItemProvider extends ItemProviderAdapter implements 
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public InstallableUnitItemProvider(AdapterFactory adapterFactory) {
@@ -61,7 +61,7 @@ public class InstallableUnitItemProvider extends ItemProviderAdapter implements 
 	 * This adds a property descriptor for the Filter feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected void addFilterPropertyDescriptor(Object object) {
@@ -80,7 +80,7 @@ public class InstallableUnitItemProvider extends ItemProviderAdapter implements 
 	 * This adds a property descriptor for the Id feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected void addIdPropertyDescriptor(Object object) {
@@ -97,7 +97,7 @@ public class InstallableUnitItemProvider extends ItemProviderAdapter implements 
 	 * This adds a property descriptor for the Resolved feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected void addResolvedPropertyDescriptor(Object object) {
@@ -116,7 +116,7 @@ public class InstallableUnitItemProvider extends ItemProviderAdapter implements 
 	 * This adds a property descriptor for the Singleton feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected void addSingletonPropertyDescriptor(Object object) {
@@ -135,7 +135,7 @@ public class InstallableUnitItemProvider extends ItemProviderAdapter implements 
 	 * This adds a property descriptor for the Version feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected void addVersionPropertyDescriptor(Object object) {
@@ -154,7 +154,7 @@ public class InstallableUnitItemProvider extends ItemProviderAdapter implements 
 	 * that can be created under this object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -219,7 +219,7 @@ public class InstallableUnitItemProvider extends ItemProviderAdapter implements 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -236,7 +236,7 @@ public class InstallableUnitItemProvider extends ItemProviderAdapter implements 
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -263,7 +263,7 @@ public class InstallableUnitItemProvider extends ItemProviderAdapter implements 
 	 * This returns the label text for {@link org.eclipse.emf.edit.command.CreateChildCommand}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -286,7 +286,7 @@ public class InstallableUnitItemProvider extends ItemProviderAdapter implements 
 	 * This returns InstallableUnit.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -298,7 +298,7 @@ public class InstallableUnitItemProvider extends ItemProviderAdapter implements 
 	 * This returns the property descriptors for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -319,7 +319,7 @@ public class InstallableUnitItemProvider extends ItemProviderAdapter implements 
 	 * Return the resource locator for this item provider's resources.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -373,7 +373,7 @@ public class InstallableUnitItemProvider extends ItemProviderAdapter implements 
 	 * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override

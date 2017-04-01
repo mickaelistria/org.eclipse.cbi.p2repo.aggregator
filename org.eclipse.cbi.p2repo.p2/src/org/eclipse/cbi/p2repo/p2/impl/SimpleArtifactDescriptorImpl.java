@@ -39,7 +39,7 @@ public class SimpleArtifactDescriptorImpl extends ArtifactDescriptorImpl impleme
 	 * The cached value of the '{@link #getRepositoryPropertyMap() <em>Repository Property Map</em>}' map.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getRepositoryPropertyMap()
 	 * @generated
 	 * @ordered
@@ -51,7 +51,7 @@ public class SimpleArtifactDescriptorImpl extends ArtifactDescriptorImpl impleme
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected SimpleArtifactDescriptorImpl() {
@@ -61,7 +61,7 @@ public class SimpleArtifactDescriptorImpl extends ArtifactDescriptorImpl impleme
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -79,7 +79,7 @@ public class SimpleArtifactDescriptorImpl extends ArtifactDescriptorImpl impleme
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -94,7 +94,7 @@ public class SimpleArtifactDescriptorImpl extends ArtifactDescriptorImpl impleme
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -122,7 +122,7 @@ public class SimpleArtifactDescriptorImpl extends ArtifactDescriptorImpl impleme
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -138,7 +138,7 @@ public class SimpleArtifactDescriptorImpl extends ArtifactDescriptorImpl impleme
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -149,7 +149,7 @@ public class SimpleArtifactDescriptorImpl extends ArtifactDescriptorImpl impleme
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -187,7 +187,7 @@ public class SimpleArtifactDescriptorImpl extends ArtifactDescriptorImpl impleme
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override

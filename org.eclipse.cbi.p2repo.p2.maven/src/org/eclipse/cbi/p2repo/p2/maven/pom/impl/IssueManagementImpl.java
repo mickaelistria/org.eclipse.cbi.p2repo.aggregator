@@ -31,7 +31,7 @@ public class IssueManagementImpl extends EObjectImpl implements IssueManagement 
 	 * The default value of the '{@link #getSystem() <em>System</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @see #getSystem()
 	 * @generated
 	 * @ordered
@@ -42,7 +42,7 @@ public class IssueManagementImpl extends EObjectImpl implements IssueManagement 
 	 * The cached value of the '{@link #getSystem() <em>System</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @see #getSystem()
 	 * @generated
 	 * @ordered
@@ -62,7 +62,7 @@ public class IssueManagementImpl extends EObjectImpl implements IssueManagement 
 	/**
 	 * The cached value of the '{@link #getUrl() <em>Url</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getUrl()
 	 * @generated
 	 * @ordered
@@ -71,7 +71,7 @@ public class IssueManagementImpl extends EObjectImpl implements IssueManagement 
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected IssueManagementImpl() {
@@ -80,7 +80,7 @@ public class IssueManagementImpl extends EObjectImpl implements IssueManagement 
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -96,7 +96,7 @@ public class IssueManagementImpl extends EObjectImpl implements IssueManagement 
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -116,7 +116,7 @@ public class IssueManagementImpl extends EObjectImpl implements IssueManagement 
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -134,7 +134,7 @@ public class IssueManagementImpl extends EObjectImpl implements IssueManagement 
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -152,7 +152,7 @@ public class IssueManagementImpl extends EObjectImpl implements IssueManagement 
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -162,7 +162,7 @@ public class IssueManagementImpl extends EObjectImpl implements IssueManagement 
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -172,7 +172,7 @@ public class IssueManagementImpl extends EObjectImpl implements IssueManagement 
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -186,7 +186,7 @@ public class IssueManagementImpl extends EObjectImpl implements IssueManagement 
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -199,7 +199,7 @@ public class IssueManagementImpl extends EObjectImpl implements IssueManagement 
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -218,7 +218,7 @@ public class IssueManagementImpl extends EObjectImpl implements IssueManagement 
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override

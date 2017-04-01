@@ -52,7 +52,7 @@ public class ProfileImpl extends EObjectImpl implements Profile {
 	/**
 	 * The default value of the '{@link #getId() <em>Id</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getId()
 	 * @generated
 	 * @ordered
@@ -62,7 +62,7 @@ public class ProfileImpl extends EObjectImpl implements Profile {
 	/**
 	 * The cached value of the '{@link #getId() <em>Id</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getId()
 	 * @generated
 	 * @ordered
@@ -73,7 +73,7 @@ public class ProfileImpl extends EObjectImpl implements Profile {
 	 * The cached value of the '{@link #getActivation() <em>Activation</em>}' containment reference.
 	 * <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getActivation()
 	 * @generated
 	 * @ordered
@@ -84,7 +84,7 @@ public class ProfileImpl extends EObjectImpl implements Profile {
 	 * The cached value of the '{@link #getBuild() <em>Build</em>}' containment reference.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @see #getBuild()
 	 * @generated
 	 * @ordered
@@ -95,7 +95,7 @@ public class ProfileImpl extends EObjectImpl implements Profile {
 	 * The cached value of the '{@link #getModules() <em>Modules</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getModules()
 	 * @generated
 	 * @ordered
@@ -115,7 +115,7 @@ public class ProfileImpl extends EObjectImpl implements Profile {
 	/**
 	 * The cached value of the '{@link #getPluginRepositories() <em>Plugin Repositories</em>}' containment reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getPluginRepositories()
 	 * @generated
 	 * @ordered
@@ -136,7 +136,7 @@ public class ProfileImpl extends EObjectImpl implements Profile {
 	 * The cached value of the '{@link #getReports() <em>Reports</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getReports()
 	 * @generated
 	 * @ordered
@@ -147,7 +147,7 @@ public class ProfileImpl extends EObjectImpl implements Profile {
 	 * The cached value of the '{@link #getReporting() <em>Reporting</em>}' containment reference.
 	 * <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getReporting()
 	 * @generated
 	 * @ordered
@@ -157,7 +157,7 @@ public class ProfileImpl extends EObjectImpl implements Profile {
 	/**
 	 * The cached value of the '{@link #getDependencyManagement() <em>Dependency Management</em>}' containment reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getDependencyManagement()
 	 * @generated
 	 * @ordered
@@ -167,7 +167,7 @@ public class ProfileImpl extends EObjectImpl implements Profile {
 	/**
 	 * The cached value of the '{@link #getDistributionManagement() <em>Distribution Management</em>}' containment reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getDistributionManagement()
 	 * @generated
 	 * @ordered
@@ -178,7 +178,7 @@ public class ProfileImpl extends EObjectImpl implements Profile {
 	 * The cached value of the '{@link #getProperties() <em>Properties</em>}' containment reference.
 	 * <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getProperties()
 	 * @generated
 	 * @ordered
@@ -187,7 +187,7 @@ public class ProfileImpl extends EObjectImpl implements Profile {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected ProfileImpl() {
@@ -196,7 +196,7 @@ public class ProfileImpl extends EObjectImpl implements Profile {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public NotificationChain basicSetActivation(Activation newActivation, NotificationChain msgs) {
@@ -215,7 +215,7 @@ public class ProfileImpl extends EObjectImpl implements Profile {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public NotificationChain basicSetBuild(BuildBase newBuild, NotificationChain msgs) {
@@ -234,7 +234,7 @@ public class ProfileImpl extends EObjectImpl implements Profile {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public NotificationChain basicSetDependencies(DependenciesType newDependencies, NotificationChain msgs) {
@@ -253,7 +253,7 @@ public class ProfileImpl extends EObjectImpl implements Profile {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public NotificationChain basicSetDependencyManagement(DependencyManagement newDependencyManagement,
@@ -274,7 +274,7 @@ public class ProfileImpl extends EObjectImpl implements Profile {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public NotificationChain basicSetDistributionManagement(DistributionManagement newDistributionManagement,
@@ -295,7 +295,7 @@ public class ProfileImpl extends EObjectImpl implements Profile {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public NotificationChain basicSetModules(ModulesType newModules, NotificationChain msgs) {
@@ -314,7 +314,7 @@ public class ProfileImpl extends EObjectImpl implements Profile {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public NotificationChain basicSetPluginRepositories(PluginRepositoriesType newPluginRepositories,
@@ -335,7 +335,7 @@ public class ProfileImpl extends EObjectImpl implements Profile {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public NotificationChain basicSetProperties(PropertiesType newProperties, NotificationChain msgs) {
@@ -354,7 +354,7 @@ public class ProfileImpl extends EObjectImpl implements Profile {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public NotificationChain basicSetReporting(Reporting newReporting, NotificationChain msgs) {
@@ -373,7 +373,7 @@ public class ProfileImpl extends EObjectImpl implements Profile {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public NotificationChain basicSetReports(ReportsType newReports, NotificationChain msgs) {
@@ -392,7 +392,7 @@ public class ProfileImpl extends EObjectImpl implements Profile {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public NotificationChain basicSetRepositories(RepositoriesType newRepositories, NotificationChain msgs) {
@@ -411,7 +411,7 @@ public class ProfileImpl extends EObjectImpl implements Profile {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -447,7 +447,7 @@ public class ProfileImpl extends EObjectImpl implements Profile {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -481,7 +481,7 @@ public class ProfileImpl extends EObjectImpl implements Profile {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -519,7 +519,7 @@ public class ProfileImpl extends EObjectImpl implements Profile {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -567,7 +567,7 @@ public class ProfileImpl extends EObjectImpl implements Profile {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -615,7 +615,7 @@ public class ProfileImpl extends EObjectImpl implements Profile {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -625,7 +625,7 @@ public class ProfileImpl extends EObjectImpl implements Profile {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -635,7 +635,7 @@ public class ProfileImpl extends EObjectImpl implements Profile {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -645,7 +645,7 @@ public class ProfileImpl extends EObjectImpl implements Profile {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -655,7 +655,7 @@ public class ProfileImpl extends EObjectImpl implements Profile {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -665,7 +665,7 @@ public class ProfileImpl extends EObjectImpl implements Profile {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -675,7 +675,7 @@ public class ProfileImpl extends EObjectImpl implements Profile {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -685,7 +685,7 @@ public class ProfileImpl extends EObjectImpl implements Profile {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -695,7 +695,7 @@ public class ProfileImpl extends EObjectImpl implements Profile {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -705,7 +705,7 @@ public class ProfileImpl extends EObjectImpl implements Profile {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -715,7 +715,7 @@ public class ProfileImpl extends EObjectImpl implements Profile {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -725,7 +725,7 @@ public class ProfileImpl extends EObjectImpl implements Profile {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -735,7 +735,7 @@ public class ProfileImpl extends EObjectImpl implements Profile {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -760,7 +760,7 @@ public class ProfileImpl extends EObjectImpl implements Profile {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -783,7 +783,7 @@ public class ProfileImpl extends EObjectImpl implements Profile {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -808,7 +808,7 @@ public class ProfileImpl extends EObjectImpl implements Profile {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -834,7 +834,7 @@ public class ProfileImpl extends EObjectImpl implements Profile {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -860,7 +860,7 @@ public class ProfileImpl extends EObjectImpl implements Profile {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -873,7 +873,7 @@ public class ProfileImpl extends EObjectImpl implements Profile {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -896,7 +896,7 @@ public class ProfileImpl extends EObjectImpl implements Profile {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -922,7 +922,7 @@ public class ProfileImpl extends EObjectImpl implements Profile {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -947,7 +947,7 @@ public class ProfileImpl extends EObjectImpl implements Profile {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -972,7 +972,7 @@ public class ProfileImpl extends EObjectImpl implements Profile {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -995,7 +995,7 @@ public class ProfileImpl extends EObjectImpl implements Profile {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -1020,7 +1020,7 @@ public class ProfileImpl extends EObjectImpl implements Profile {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -1037,7 +1037,7 @@ public class ProfileImpl extends EObjectImpl implements Profile {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override

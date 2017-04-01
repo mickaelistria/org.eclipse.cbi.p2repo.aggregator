@@ -82,7 +82,7 @@ public interface Reporting extends EObject {
 	 * Returns whether the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.Reporting#isExcludeDefaults <em>Exclude Defaults</em>}' attribute
 	 * is set.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @return whether the value of the '<em>Exclude Defaults</em>' attribute is set.
 	 * @see #unsetExcludeDefaults()
 	 * @see #isExcludeDefaults()
@@ -94,7 +94,7 @@ public interface Reporting extends EObject {
 	/**
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.Reporting#isExcludeDefaults <em>Exclude Defaults</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param value
 	 *            the new value of the '<em>Exclude Defaults</em>' attribute.
 	 * @see #isSetExcludeDefaults()
@@ -107,7 +107,7 @@ public interface Reporting extends EObject {
 	/**
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.Reporting#getOutputDirectory <em>Output Directory</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param value
 	 *            the new value of the '<em>Output Directory</em>' attribute.
 	 * @see #getOutputDirectory()
@@ -118,7 +118,7 @@ public interface Reporting extends EObject {
 	/**
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.Reporting#getPlugins <em>Plugins</em>}' containment reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param value
 	 *            the new value of the '<em>Plugins</em>' containment reference.
 	 * @see #getPlugins()
@@ -129,7 +129,7 @@ public interface Reporting extends EObject {
 	/**
 	 * Unsets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.Reporting#isExcludeDefaults <em>Exclude Defaults</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #isSetExcludeDefaults()
 	 * @see #isExcludeDefaults()
 	 * @see #setExcludeDefaults(boolean)

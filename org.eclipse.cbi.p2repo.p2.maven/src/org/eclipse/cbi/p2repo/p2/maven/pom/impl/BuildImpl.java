@@ -50,7 +50,7 @@ public class BuildImpl extends EObjectImpl implements Build {
 	 * The default value of the '{@link #getSourceDirectory() <em>Source Directory</em>}' attribute.
 	 * <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getSourceDirectory()
 	 * @generated
 	 * @ordered
@@ -61,7 +61,7 @@ public class BuildImpl extends EObjectImpl implements Build {
 	 * The cached value of the '{@link #getSourceDirectory() <em>Source Directory</em>}' attribute.
 	 * <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getSourceDirectory()
 	 * @generated
 	 * @ordered
@@ -112,7 +112,7 @@ public class BuildImpl extends EObjectImpl implements Build {
 	 * The default value of the '{@link #getOutputDirectory() <em>Output Directory</em>}' attribute.
 	 * <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getOutputDirectory()
 	 * @generated
 	 * @ordered
@@ -123,7 +123,7 @@ public class BuildImpl extends EObjectImpl implements Build {
 	 * The cached value of the '{@link #getOutputDirectory() <em>Output Directory</em>}' attribute.
 	 * <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getOutputDirectory()
 	 * @generated
 	 * @ordered
@@ -154,7 +154,7 @@ public class BuildImpl extends EObjectImpl implements Build {
 	 * The cached value of the '{@link #getExtensions() <em>Extensions</em>}' containment reference.
 	 * <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getExtensions()
 	 * @generated
 	 * @ordered
@@ -165,7 +165,7 @@ public class BuildImpl extends EObjectImpl implements Build {
 	 * The default value of the '{@link #getDefaultGoal() <em>Default Goal</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getDefaultGoal()
 	 * @generated
 	 * @ordered
@@ -176,7 +176,7 @@ public class BuildImpl extends EObjectImpl implements Build {
 	 * The cached value of the '{@link #getDefaultGoal() <em>Default Goal</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @see #getDefaultGoal()
 	 * @generated
 	 * @ordered
@@ -187,7 +187,7 @@ public class BuildImpl extends EObjectImpl implements Build {
 	 * The cached value of the '{@link #getResources() <em>Resources</em>}' containment reference.
 	 * <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getResources()
 	 * @generated
 	 * @ordered
@@ -208,7 +208,7 @@ public class BuildImpl extends EObjectImpl implements Build {
 	 * The default value of the '{@link #getDirectory() <em>Directory</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @see #getDirectory()
 	 * @generated
 	 * @ordered
@@ -219,7 +219,7 @@ public class BuildImpl extends EObjectImpl implements Build {
 	 * The cached value of the '{@link #getDirectory() <em>Directory</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @see #getDirectory()
 	 * @generated
 	 * @ordered
@@ -230,7 +230,7 @@ public class BuildImpl extends EObjectImpl implements Build {
 	 * The default value of the '{@link #getFinalName() <em>Final Name</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @see #getFinalName()
 	 * @generated
 	 * @ordered
@@ -241,7 +241,7 @@ public class BuildImpl extends EObjectImpl implements Build {
 	 * The cached value of the '{@link #getFinalName() <em>Final Name</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @see #getFinalName()
 	 * @generated
 	 * @ordered
@@ -252,7 +252,7 @@ public class BuildImpl extends EObjectImpl implements Build {
 	 * The cached value of the '{@link #getFilters() <em>Filters</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getFilters()
 	 * @generated
 	 * @ordered
@@ -273,7 +273,7 @@ public class BuildImpl extends EObjectImpl implements Build {
 	 * The cached value of the '{@link #getPlugins() <em>Plugins</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getPlugins()
 	 * @generated
 	 * @ordered
@@ -282,7 +282,7 @@ public class BuildImpl extends EObjectImpl implements Build {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected BuildImpl() {
@@ -291,7 +291,7 @@ public class BuildImpl extends EObjectImpl implements Build {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public NotificationChain basicSetExtensions(ExtensionsType newExtensions, NotificationChain msgs) {
@@ -310,7 +310,7 @@ public class BuildImpl extends EObjectImpl implements Build {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public NotificationChain basicSetFilters(FiltersType newFilters, NotificationChain msgs) {
@@ -329,7 +329,7 @@ public class BuildImpl extends EObjectImpl implements Build {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public NotificationChain basicSetPluginManagement(PluginManagement newPluginManagement, NotificationChain msgs) {
@@ -348,7 +348,7 @@ public class BuildImpl extends EObjectImpl implements Build {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public NotificationChain basicSetPlugins(PluginsType newPlugins, NotificationChain msgs) {
@@ -367,7 +367,7 @@ public class BuildImpl extends EObjectImpl implements Build {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public NotificationChain basicSetResources(ResourcesType newResources, NotificationChain msgs) {
@@ -386,7 +386,7 @@ public class BuildImpl extends EObjectImpl implements Build {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public NotificationChain basicSetTestResources(TestResourcesType newTestResources, NotificationChain msgs) {
@@ -405,7 +405,7 @@ public class BuildImpl extends EObjectImpl implements Build {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -445,7 +445,7 @@ public class BuildImpl extends EObjectImpl implements Build {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -469,7 +469,7 @@ public class BuildImpl extends EObjectImpl implements Build {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -525,7 +525,7 @@ public class BuildImpl extends EObjectImpl implements Build {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -579,7 +579,7 @@ public class BuildImpl extends EObjectImpl implements Build {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -633,7 +633,7 @@ public class BuildImpl extends EObjectImpl implements Build {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -643,7 +643,7 @@ public class BuildImpl extends EObjectImpl implements Build {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -653,7 +653,7 @@ public class BuildImpl extends EObjectImpl implements Build {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -663,7 +663,7 @@ public class BuildImpl extends EObjectImpl implements Build {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -673,7 +673,7 @@ public class BuildImpl extends EObjectImpl implements Build {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -683,7 +683,7 @@ public class BuildImpl extends EObjectImpl implements Build {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -693,7 +693,7 @@ public class BuildImpl extends EObjectImpl implements Build {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -703,7 +703,7 @@ public class BuildImpl extends EObjectImpl implements Build {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -713,7 +713,7 @@ public class BuildImpl extends EObjectImpl implements Build {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -723,7 +723,7 @@ public class BuildImpl extends EObjectImpl implements Build {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -733,7 +733,7 @@ public class BuildImpl extends EObjectImpl implements Build {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -743,7 +743,7 @@ public class BuildImpl extends EObjectImpl implements Build {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -753,7 +753,7 @@ public class BuildImpl extends EObjectImpl implements Build {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -763,7 +763,7 @@ public class BuildImpl extends EObjectImpl implements Build {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -773,7 +773,7 @@ public class BuildImpl extends EObjectImpl implements Build {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -788,7 +788,7 @@ public class BuildImpl extends EObjectImpl implements Build {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -802,7 +802,7 @@ public class BuildImpl extends EObjectImpl implements Build {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -827,7 +827,7 @@ public class BuildImpl extends EObjectImpl implements Build {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -850,7 +850,7 @@ public class BuildImpl extends EObjectImpl implements Build {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -864,7 +864,7 @@ public class BuildImpl extends EObjectImpl implements Build {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -879,7 +879,7 @@ public class BuildImpl extends EObjectImpl implements Build {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -905,7 +905,7 @@ public class BuildImpl extends EObjectImpl implements Build {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -928,7 +928,7 @@ public class BuildImpl extends EObjectImpl implements Build {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -952,7 +952,7 @@ public class BuildImpl extends EObjectImpl implements Build {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -968,7 +968,7 @@ public class BuildImpl extends EObjectImpl implements Build {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -983,7 +983,7 @@ public class BuildImpl extends EObjectImpl implements Build {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -999,7 +999,7 @@ public class BuildImpl extends EObjectImpl implements Build {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -1024,7 +1024,7 @@ public class BuildImpl extends EObjectImpl implements Build {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -1040,7 +1040,7 @@ public class BuildImpl extends EObjectImpl implements Build {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -1071,7 +1071,7 @@ public class BuildImpl extends EObjectImpl implements Build {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override

@@ -41,7 +41,7 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * The cached value of the '{@link #getMixed() <em>Mixed</em>}' attribute list.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @see #getMixed()
 	 * @generated
 	 * @ordered
@@ -52,7 +52,7 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * The cached value of the '{@link #getXMLNSPrefixMap() <em>XMLNS Prefix Map</em>}' map.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getXMLNSPrefixMap()
 	 * @generated
 	 * @ordered
@@ -63,7 +63,7 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	 * The cached value of the '{@link #getXSISchemaLocation() <em>XSI Schema Location</em>}' map.
 	 * <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getXSISchemaLocation()
 	 * @generated
 	 * @ordered
@@ -72,7 +72,7 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected DocumentRootImpl() {
@@ -81,7 +81,7 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public NotificationChain basicSetMetadata(MetaData newMetadata, NotificationChain msgs) {
@@ -91,7 +91,7 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -120,7 +120,7 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -140,7 +140,7 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -160,7 +160,7 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -184,7 +184,7 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -194,7 +194,7 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -218,7 +218,7 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -228,7 +228,7 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -241,7 +241,7 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -256,7 +256,7 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -271,7 +271,7 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -281,7 +281,7 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override

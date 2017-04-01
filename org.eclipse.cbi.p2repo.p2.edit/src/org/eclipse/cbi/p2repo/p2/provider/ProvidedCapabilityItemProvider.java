@@ -31,7 +31,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * This is the item provider adapter for a {@link org.eclipse.cbi.p2repo.p2.ProvidedCapability} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
- * 
+ *
  * @generated
  */
 public class ProvidedCapabilityItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider,
@@ -40,7 +40,7 @@ public class ProvidedCapabilityItemProvider extends ItemProviderAdapter implemen
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public ProvidedCapabilityItemProvider(AdapterFactory adapterFactory) {
@@ -51,7 +51,7 @@ public class ProvidedCapabilityItemProvider extends ItemProviderAdapter implemen
 	 * This adds a property descriptor for the Name feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected void addNamePropertyDescriptor(Object object) {
@@ -70,7 +70,7 @@ public class ProvidedCapabilityItemProvider extends ItemProviderAdapter implemen
 	 * This adds a property descriptor for the Namespace feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected void addNamespacePropertyDescriptor(Object object) {
@@ -89,7 +89,7 @@ public class ProvidedCapabilityItemProvider extends ItemProviderAdapter implemen
 	 * This adds a property descriptor for the Version feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected void addVersionPropertyDescriptor(Object object) {
@@ -109,7 +109,7 @@ public class ProvidedCapabilityItemProvider extends ItemProviderAdapter implemen
 	 * that can be created under this object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -121,7 +121,7 @@ public class ProvidedCapabilityItemProvider extends ItemProviderAdapter implemen
 	 * This returns ProvidedCapability.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -133,7 +133,7 @@ public class ProvidedCapabilityItemProvider extends ItemProviderAdapter implemen
 	 * This returns the property descriptors for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -152,7 +152,7 @@ public class ProvidedCapabilityItemProvider extends ItemProviderAdapter implemen
 	 * Return the resource locator for this item provider's resources.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -164,7 +164,7 @@ public class ProvidedCapabilityItemProvider extends ItemProviderAdapter implemen
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -180,7 +180,7 @@ public class ProvidedCapabilityItemProvider extends ItemProviderAdapter implemen
 	 * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override

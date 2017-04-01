@@ -23,7 +23,7 @@ import org.eclipse.emf.ecore.resource.impl.ResourceFactoryImpl;
  * <!-- begin-user-doc -->
  * The <b>Resource Factory</b> associated with the package.
  * <!-- end-user-doc -->
- * 
+ *
  * @see org.eclipse.cbi.p2repo.p2.util.P2ResourceImpl
  * @generated
  */
@@ -36,7 +36,7 @@ public class P2ResourceFactoryImpl extends ResourceFactoryImpl {
 	 * Creates an instance of the resource factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public P2ResourceFactoryImpl() {

@@ -37,7 +37,7 @@ public interface MetadataRepository extends Repository<IInstallableUnit>, IMetad
 	 * If the meaning of the '<em>Installable Units</em>' containment reference list isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @return the value of the '<em>Installable Units</em>' containment reference list.
 	 * @see org.eclipse.cbi.p2repo.p2.P2Package#getMetadataRepository_InstallableUnits()
 	 * @model type="org.eclipse.cbi.p2repo.p2.IInstallableUnit" containment="true" resolveProxies="true" keys="id version"
@@ -53,7 +53,7 @@ public interface MetadataRepository extends Repository<IInstallableUnit>, IMetad
 	 * If the meaning of the '<em>References</em>' containment reference list isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @return the value of the '<em>References</em>' containment reference list.
 	 * @see org.eclipse.cbi.p2repo.p2.P2Package#getMetadataRepository_References()
 	 * @model type="org.eclipse.cbi.p2repo.p2.IRepositoryReference" containment="true" resolveProxies="true"

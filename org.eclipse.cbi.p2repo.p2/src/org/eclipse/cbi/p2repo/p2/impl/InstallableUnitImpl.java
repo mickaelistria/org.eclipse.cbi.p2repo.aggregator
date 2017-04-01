@@ -79,7 +79,7 @@ public class InstallableUnitImpl extends MinimalEObjectImpl.Container implements
 	 * A set of bit flags representing the values of boolean attributes and whether unsettable features have been set.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 * @ordered
 	 */
@@ -89,7 +89,7 @@ public class InstallableUnitImpl extends MinimalEObjectImpl.Container implements
 	 * The default value of the '{@link #getId() <em>Id</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getId()
 	 * @generated
 	 * @ordered
@@ -100,7 +100,7 @@ public class InstallableUnitImpl extends MinimalEObjectImpl.Container implements
 	 * The cached value of the '{@link #getId() <em>Id</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getId()
 	 * @generated
 	 * @ordered
@@ -111,7 +111,7 @@ public class InstallableUnitImpl extends MinimalEObjectImpl.Container implements
 	 * The default value of the '{@link #getVersion() <em>Version</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getVersion()
 	 * @generated
 	 * @ordered
@@ -122,7 +122,7 @@ public class InstallableUnitImpl extends MinimalEObjectImpl.Container implements
 	 * The cached value of the '{@link #getVersion() <em>Version</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getVersion()
 	 * @generated
 	 * @ordered
@@ -133,7 +133,7 @@ public class InstallableUnitImpl extends MinimalEObjectImpl.Container implements
 	 * The cached value of the '{@link #getArtifacts() <em>Artifacts</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getArtifacts()
 	 * @generated
 	 * @ordered
@@ -144,7 +144,7 @@ public class InstallableUnitImpl extends MinimalEObjectImpl.Container implements
 	 * The cached value of the '{@link #getCopyright() <em>Copyright</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getCopyright()
 	 * @generated
 	 * @ordered
@@ -155,7 +155,7 @@ public class InstallableUnitImpl extends MinimalEObjectImpl.Container implements
 	 * The cached value of the '{@link #getFilter() <em>Filter</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getFilter()
 	 * @generated
 	 * @ordered
@@ -166,7 +166,7 @@ public class InstallableUnitImpl extends MinimalEObjectImpl.Container implements
 	 * The cached value of the '{@link #getFragments() <em>Fragments</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getFragments()
 	 * @generated
 	 * @ordered
@@ -177,7 +177,7 @@ public class InstallableUnitImpl extends MinimalEObjectImpl.Container implements
 	 * The cached value of the '{@link #getLicenses() <em>Licenses</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getLicenses()
 	 * @generated
 	 * @ordered
@@ -188,7 +188,7 @@ public class InstallableUnitImpl extends MinimalEObjectImpl.Container implements
 	 * The cached value of the '{@link #getMetaRequirements() <em>Meta Requirements</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getMetaRequirements()
 	 * @generated
 	 * @ordered
@@ -199,7 +199,7 @@ public class InstallableUnitImpl extends MinimalEObjectImpl.Container implements
 	 * The cached value of the '{@link #getProvidedCapabilities() <em>Provided Capabilities</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getProvidedCapabilities()
 	 * @generated
 	 * @ordered
@@ -210,7 +210,7 @@ public class InstallableUnitImpl extends MinimalEObjectImpl.Container implements
 	 * The cached value of the '{@link #getRequirements() <em>Requirements</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getRequirements()
 	 * @generated
 	 * @ordered
@@ -221,7 +221,7 @@ public class InstallableUnitImpl extends MinimalEObjectImpl.Container implements
 	 * The cached value of the '{@link #getTouchpointData() <em>Touchpoint Data</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getTouchpointData()
 	 * @generated
 	 * @ordered
@@ -232,7 +232,7 @@ public class InstallableUnitImpl extends MinimalEObjectImpl.Container implements
 	 * The cached value of the '{@link #getTouchpointType() <em>Touchpoint Type</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getTouchpointType()
 	 * @generated
 	 * @ordered
@@ -243,7 +243,7 @@ public class InstallableUnitImpl extends MinimalEObjectImpl.Container implements
 	 * The cached value of the '{@link #getUpdateDescriptor() <em>Update Descriptor</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getUpdateDescriptor()
 	 * @generated
 	 * @ordered
@@ -254,7 +254,7 @@ public class InstallableUnitImpl extends MinimalEObjectImpl.Container implements
 	 * The default value of the '{@link #isResolved() <em>Resolved</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #isResolved()
 	 * @generated
 	 * @ordered
@@ -265,7 +265,7 @@ public class InstallableUnitImpl extends MinimalEObjectImpl.Container implements
 	 * The flag representing the value of the '{@link #isResolved() <em>Resolved</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #isResolved()
 	 * @generated
 	 * @ordered
@@ -276,7 +276,7 @@ public class InstallableUnitImpl extends MinimalEObjectImpl.Container implements
 	 * The default value of the '{@link #isSingleton() <em>Singleton</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #isSingleton()
 	 * @generated
 	 * @ordered
@@ -287,7 +287,7 @@ public class InstallableUnitImpl extends MinimalEObjectImpl.Container implements
 	 * The flag representing the value of the '{@link #isSingleton() <em>Singleton</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #isSingleton()
 	 * @generated
 	 * @ordered
@@ -298,7 +298,7 @@ public class InstallableUnitImpl extends MinimalEObjectImpl.Container implements
 	 * The cached value of the '{@link #getPropertyMap() <em>Property Map</em>}' map.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getPropertyMap()
 	 * @generated
 	 * @ordered
@@ -308,7 +308,7 @@ public class InstallableUnitImpl extends MinimalEObjectImpl.Container implements
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected InstallableUnitImpl() {
@@ -318,7 +318,7 @@ public class InstallableUnitImpl extends MinimalEObjectImpl.Container implements
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public ICopyright basicGetCopyright() {
@@ -328,7 +328,7 @@ public class InstallableUnitImpl extends MinimalEObjectImpl.Container implements
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public ITouchpointType basicGetTouchpointType() {
@@ -338,7 +338,7 @@ public class InstallableUnitImpl extends MinimalEObjectImpl.Container implements
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public IUpdateDescriptor basicGetUpdateDescriptor() {
@@ -348,7 +348,7 @@ public class InstallableUnitImpl extends MinimalEObjectImpl.Container implements
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public NotificationChain basicSetCopyright(ICopyright newCopyright, NotificationChain msgs) {
@@ -368,7 +368,7 @@ public class InstallableUnitImpl extends MinimalEObjectImpl.Container implements
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public NotificationChain basicSetTouchpointType(ITouchpointType newTouchpointType, NotificationChain msgs) {
@@ -389,7 +389,7 @@ public class InstallableUnitImpl extends MinimalEObjectImpl.Container implements
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public NotificationChain basicSetUpdateDescriptor(IUpdateDescriptor newUpdateDescriptor, NotificationChain msgs) {
@@ -424,7 +424,7 @@ public class InstallableUnitImpl extends MinimalEObjectImpl.Container implements
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -478,7 +478,7 @@ public class InstallableUnitImpl extends MinimalEObjectImpl.Container implements
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -511,7 +511,7 @@ public class InstallableUnitImpl extends MinimalEObjectImpl.Container implements
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -597,7 +597,7 @@ public class InstallableUnitImpl extends MinimalEObjectImpl.Container implements
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
@@ -666,7 +666,7 @@ public class InstallableUnitImpl extends MinimalEObjectImpl.Container implements
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -677,7 +677,7 @@ public class InstallableUnitImpl extends MinimalEObjectImpl.Container implements
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -738,7 +738,7 @@ public class InstallableUnitImpl extends MinimalEObjectImpl.Container implements
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -753,7 +753,7 @@ public class InstallableUnitImpl extends MinimalEObjectImpl.Container implements
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -795,7 +795,7 @@ public class InstallableUnitImpl extends MinimalEObjectImpl.Container implements
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -806,7 +806,7 @@ public class InstallableUnitImpl extends MinimalEObjectImpl.Container implements
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -821,7 +821,7 @@ public class InstallableUnitImpl extends MinimalEObjectImpl.Container implements
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -832,7 +832,7 @@ public class InstallableUnitImpl extends MinimalEObjectImpl.Container implements
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -863,7 +863,7 @@ public class InstallableUnitImpl extends MinimalEObjectImpl.Container implements
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -929,7 +929,7 @@ public class InstallableUnitImpl extends MinimalEObjectImpl.Container implements
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -944,7 +944,7 @@ public class InstallableUnitImpl extends MinimalEObjectImpl.Container implements
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -959,7 +959,7 @@ public class InstallableUnitImpl extends MinimalEObjectImpl.Container implements
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -974,7 +974,7 @@ public class InstallableUnitImpl extends MinimalEObjectImpl.Container implements
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -1004,7 +1004,7 @@ public class InstallableUnitImpl extends MinimalEObjectImpl.Container implements
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -1035,7 +1035,7 @@ public class InstallableUnitImpl extends MinimalEObjectImpl.Container implements
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -1059,7 +1059,7 @@ public class InstallableUnitImpl extends MinimalEObjectImpl.Container implements
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -1070,7 +1070,7 @@ public class InstallableUnitImpl extends MinimalEObjectImpl.Container implements
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -1092,7 +1092,7 @@ public class InstallableUnitImpl extends MinimalEObjectImpl.Container implements
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public void setCopyright(ICopyright newCopyright) {
@@ -1117,7 +1117,7 @@ public class InstallableUnitImpl extends MinimalEObjectImpl.Container implements
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public void setFilter(IMatchExpression<IInstallableUnit> newFilter) {
@@ -1131,7 +1131,7 @@ public class InstallableUnitImpl extends MinimalEObjectImpl.Container implements
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public void setId(String newId) {
@@ -1144,7 +1144,7 @@ public class InstallableUnitImpl extends MinimalEObjectImpl.Container implements
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public void setResolved(boolean newResolved) {
@@ -1162,7 +1162,7 @@ public class InstallableUnitImpl extends MinimalEObjectImpl.Container implements
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public void setSingleton(boolean newSingleton) {
@@ -1192,7 +1192,7 @@ public class InstallableUnitImpl extends MinimalEObjectImpl.Container implements
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public void setTouchpointTypeGen(ITouchpointType newTouchpointType) {
@@ -1218,7 +1218,7 @@ public class InstallableUnitImpl extends MinimalEObjectImpl.Container implements
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public void setUpdateDescriptor(IUpdateDescriptor newUpdateDescriptor) {
@@ -1244,7 +1244,7 @@ public class InstallableUnitImpl extends MinimalEObjectImpl.Container implements
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public void setVersion(Version newVersion) {
@@ -1259,7 +1259,7 @@ public class InstallableUnitImpl extends MinimalEObjectImpl.Container implements
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override

@@ -13,10 +13,10 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <!-- begin-model-doc -->
  * 4.0.0
- * 
+ *
  * The conditions within the build runtime environment which will trigger
  * the automatic inclusion of the build profile.
- * 
+ *
  * <!-- end-model-doc -->
  *
  * <p>
@@ -122,7 +122,7 @@ public interface Activation extends EObject {
 	 * Returns whether the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.Activation#isActiveByDefault <em>Active By Default</em>}'
 	 * attribute is set.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @return whether the value of the '<em>Active By Default</em>' attribute is set.
 	 * @see #unsetActiveByDefault()
 	 * @see #isActiveByDefault()
@@ -134,7 +134,7 @@ public interface Activation extends EObject {
 	/**
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.Activation#isActiveByDefault <em>Active By Default</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param value
 	 *            the new value of the '<em>Active By Default</em>' attribute.
 	 * @see #isSetActiveByDefault()
@@ -147,7 +147,7 @@ public interface Activation extends EObject {
 	/**
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.Activation#getFile <em>File</em>}' containment reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param value
 	 *            the new value of the '<em>File</em>' containment reference.
 	 * @see #getFile()
@@ -158,7 +158,7 @@ public interface Activation extends EObject {
 	/**
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.Activation#getJdk <em>Jdk</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param value
 	 *            the new value of the '<em>Jdk</em>' attribute.
 	 * @see #getJdk()
@@ -169,7 +169,7 @@ public interface Activation extends EObject {
 	/**
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.Activation#getOs <em>Os</em>}' containment reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param value
 	 *            the new value of the '<em>Os</em>' containment reference.
 	 * @see #getOs()
@@ -180,7 +180,7 @@ public interface Activation extends EObject {
 	/**
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.Activation#getProperty <em>Property</em>}' containment reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param value
 	 *            the new value of the '<em>Property</em>' containment reference.
 	 * @see #getProperty()
@@ -191,7 +191,7 @@ public interface Activation extends EObject {
 	/**
 	 * Unsets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.Activation#isActiveByDefault <em>Active By Default</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #isSetActiveByDefault()
 	 * @see #isActiveByDefault()
 	 * @see #setActiveByDefault(boolean)

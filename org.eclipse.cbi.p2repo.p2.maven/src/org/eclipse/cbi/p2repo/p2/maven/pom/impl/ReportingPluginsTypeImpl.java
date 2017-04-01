@@ -36,7 +36,7 @@ public class ReportingPluginsTypeImpl extends EObjectImpl implements ReportingPl
 	 * The cached value of the '{@link #getPlugin() <em>Plugin</em>}' containment reference list.
 	 * <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getPlugin()
 	 * @generated
 	 * @ordered
@@ -45,7 +45,7 @@ public class ReportingPluginsTypeImpl extends EObjectImpl implements ReportingPl
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected ReportingPluginsTypeImpl() {
@@ -54,7 +54,7 @@ public class ReportingPluginsTypeImpl extends EObjectImpl implements ReportingPl
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -68,7 +68,7 @@ public class ReportingPluginsTypeImpl extends EObjectImpl implements ReportingPl
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -82,7 +82,7 @@ public class ReportingPluginsTypeImpl extends EObjectImpl implements ReportingPl
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -96,7 +96,7 @@ public class ReportingPluginsTypeImpl extends EObjectImpl implements ReportingPl
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
@@ -113,7 +113,7 @@ public class ReportingPluginsTypeImpl extends EObjectImpl implements ReportingPl
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -128,7 +128,7 @@ public class ReportingPluginsTypeImpl extends EObjectImpl implements ReportingPl
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -142,7 +142,7 @@ public class ReportingPluginsTypeImpl extends EObjectImpl implements ReportingPl
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override

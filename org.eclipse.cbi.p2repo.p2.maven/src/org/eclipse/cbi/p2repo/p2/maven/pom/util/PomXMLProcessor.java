@@ -17,7 +17,7 @@ import org.eclipse.emf.ecore.xmi.util.XMLProcessor;
  * This class contains helper methods to serialize and deserialize XML documents
  * <!-- begin-user-doc --> <!--
  * end-user-doc -->
- * 
+ *
  * @generated
  */
 public class PomXMLProcessor extends XMLProcessor {
@@ -25,7 +25,7 @@ public class PomXMLProcessor extends XMLProcessor {
 	/**
 	 * Public constructor to instantiate the helper.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public PomXMLProcessor() {
@@ -37,7 +37,7 @@ public class PomXMLProcessor extends XMLProcessor {
 	 * Register for "*" and "xml" file extensions the PomResourceFactoryImpl factory.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override

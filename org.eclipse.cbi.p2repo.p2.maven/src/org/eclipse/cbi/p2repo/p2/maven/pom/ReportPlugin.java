@@ -39,7 +39,7 @@ public interface ReportPlugin extends EObject {
 	 * 4.0.0
 	 * The artifact ID of the reporting plugin in the repository.
 	 * <!-- end-model-doc -->
-	 * 
+	 *
 	 * @return the value of the '<em>Artifact Id</em>' attribute.
 	 * @see #setArtifactId(String)
 	 * @see org.eclipse.cbi.p2repo.p2.maven.pom.PomPackage#getReportPlugin_ArtifactId()
@@ -85,7 +85,7 @@ public interface ReportPlugin extends EObject {
 	 * Whether the configuration in this plugin should be made available to projects that
 	 * inherit from this one.
 	 * <!-- end-model-doc -->
-	 * 
+	 *
 	 * @return the value of the '<em>Inherited</em>' attribute.
 	 * @see #setInherited(String)
 	 * @see org.eclipse.cbi.p2repo.p2.maven.pom.PomPackage#getReportPlugin_Inherited()
@@ -125,7 +125,7 @@ public interface ReportPlugin extends EObject {
 	/**
 	 * Returns whether the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.ReportPlugin#getGroupId <em>Group Id</em>}' attribute is set.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @return whether the value of the '<em>Group Id</em>' attribute is set.
 	 * @see #unsetGroupId()
 	 * @see #getGroupId()
@@ -137,7 +137,7 @@ public interface ReportPlugin extends EObject {
 	/**
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.ReportPlugin#getArtifactId <em>Artifact Id</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param value
 	 *            the new value of the '<em>Artifact Id</em>' attribute.
 	 * @see #getArtifactId()
@@ -148,7 +148,7 @@ public interface ReportPlugin extends EObject {
 	/**
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.ReportPlugin#getConfiguration <em>Configuration</em>}' containment reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param value
 	 *            the new value of the '<em>Configuration</em>' containment reference.
 	 * @see #getConfiguration()
@@ -159,7 +159,7 @@ public interface ReportPlugin extends EObject {
 	/**
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.ReportPlugin#getGroupId <em>Group Id</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param value
 	 *            the new value of the '<em>Group Id</em>' attribute.
 	 * @see #isSetGroupId()
@@ -172,7 +172,7 @@ public interface ReportPlugin extends EObject {
 	/**
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.ReportPlugin#getInherited <em>Inherited</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param value
 	 *            the new value of the '<em>Inherited</em>' attribute.
 	 * @see #getInherited()
@@ -183,7 +183,7 @@ public interface ReportPlugin extends EObject {
 	/**
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.ReportPlugin#getReportSets <em>Report Sets</em>}' containment reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param value
 	 *            the new value of the '<em>Report Sets</em>' containment reference.
 	 * @see #getReportSets()
@@ -194,7 +194,7 @@ public interface ReportPlugin extends EObject {
 	/**
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.ReportPlugin#getVersion <em>Version</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param value
 	 *            the new value of the '<em>Version</em>' attribute.
 	 * @see #getVersion()
@@ -205,7 +205,7 @@ public interface ReportPlugin extends EObject {
 	/**
 	 * Unsets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.ReportPlugin#getGroupId <em>Group Id</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #isSetGroupId()
 	 * @see #getGroupId()
 	 * @see #setGroupId(String)

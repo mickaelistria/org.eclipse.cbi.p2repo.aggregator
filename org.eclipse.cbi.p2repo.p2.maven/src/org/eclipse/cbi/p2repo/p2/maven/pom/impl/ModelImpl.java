@@ -81,7 +81,7 @@ public class ModelImpl extends EObjectImpl implements Model {
 	 * The cached value of the '{@link #getParent() <em>Parent</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getParent()
 	 * @generated
 	 * @ordered
@@ -92,7 +92,7 @@ public class ModelImpl extends EObjectImpl implements Model {
 	 * The default value of the '{@link #getModelVersion() <em>Model Version</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getModelVersion()
 	 * @generated
 	 * @ordered
@@ -103,7 +103,7 @@ public class ModelImpl extends EObjectImpl implements Model {
 	 * The cached value of the '{@link #getModelVersion() <em>Model Version</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getModelVersion()
 	 * @generated
 	 * @ordered
@@ -114,7 +114,7 @@ public class ModelImpl extends EObjectImpl implements Model {
 	 * The default value of the '{@link #getGroupId() <em>Group Id</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @see #getGroupId()
 	 * @generated
 	 * @ordered
@@ -125,7 +125,7 @@ public class ModelImpl extends EObjectImpl implements Model {
 	 * The cached value of the '{@link #getGroupId() <em>Group Id</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @see #getGroupId()
 	 * @generated
 	 * @ordered
@@ -136,7 +136,7 @@ public class ModelImpl extends EObjectImpl implements Model {
 	 * The default value of the '{@link #getArtifactId() <em>Artifact Id</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @see #getArtifactId()
 	 * @generated
 	 * @ordered
@@ -147,7 +147,7 @@ public class ModelImpl extends EObjectImpl implements Model {
 	 * The cached value of the '{@link #getArtifactId() <em>Artifact Id</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @see #getArtifactId()
 	 * @generated
 	 * @ordered
@@ -158,7 +158,7 @@ public class ModelImpl extends EObjectImpl implements Model {
 	 * The default value of the '{@link #getPackaging() <em>Packaging</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @see #getPackaging()
 	 * @generated
 	 * @ordered
@@ -169,7 +169,7 @@ public class ModelImpl extends EObjectImpl implements Model {
 	 * The cached value of the '{@link #getPackaging() <em>Packaging</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @see #getPackaging()
 	 * @generated
 	 * @ordered
@@ -179,7 +179,7 @@ public class ModelImpl extends EObjectImpl implements Model {
 	/**
 	 * This is true if the Packaging attribute has been set.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 * @ordered
 	 */
@@ -209,7 +209,7 @@ public class ModelImpl extends EObjectImpl implements Model {
 	 * The default value of the '{@link #getVersion() <em>Version</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @see #getVersion()
 	 * @generated
 	 * @ordered
@@ -220,7 +220,7 @@ public class ModelImpl extends EObjectImpl implements Model {
 	 * The cached value of the '{@link #getVersion() <em>Version</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @see #getVersion()
 	 * @generated
 	 * @ordered
@@ -231,7 +231,7 @@ public class ModelImpl extends EObjectImpl implements Model {
 	 * The default value of the '{@link #getDescription() <em>Description</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @see #getDescription()
 	 * @generated
 	 * @ordered
@@ -242,7 +242,7 @@ public class ModelImpl extends EObjectImpl implements Model {
 	 * The cached value of the '{@link #getDescription() <em>Description</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @see #getDescription()
 	 * @generated
 	 * @ordered
@@ -262,7 +262,7 @@ public class ModelImpl extends EObjectImpl implements Model {
 	/**
 	 * The cached value of the '{@link #getUrl() <em>Url</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getUrl()
 	 * @generated
 	 * @ordered
@@ -303,7 +303,7 @@ public class ModelImpl extends EObjectImpl implements Model {
 	 * The default value of the '{@link #getInceptionYear() <em>Inception Year</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getInceptionYear()
 	 * @generated
 	 * @ordered
@@ -314,7 +314,7 @@ public class ModelImpl extends EObjectImpl implements Model {
 	 * The cached value of the '{@link #getInceptionYear() <em>Inception Year</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getInceptionYear()
 	 * @generated
 	 * @ordered
@@ -335,7 +335,7 @@ public class ModelImpl extends EObjectImpl implements Model {
 	 * The cached value of the '{@link #getDevelopers() <em>Developers</em>}' containment reference.
 	 * <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getDevelopers()
 	 * @generated
 	 * @ordered
@@ -356,7 +356,7 @@ public class ModelImpl extends EObjectImpl implements Model {
 	 * The cached value of the '{@link #getLicenses() <em>Licenses</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getLicenses()
 	 * @generated
 	 * @ordered
@@ -367,7 +367,7 @@ public class ModelImpl extends EObjectImpl implements Model {
 	 * The cached value of the '{@link #getScm() <em>Scm</em>}' containment reference.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @see #getScm()
 	 * @generated
 	 * @ordered
@@ -388,7 +388,7 @@ public class ModelImpl extends EObjectImpl implements Model {
 	 * The cached value of the '{@link #getBuild() <em>Build</em>}' containment reference.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @see #getBuild()
 	 * @generated
 	 * @ordered
@@ -399,7 +399,7 @@ public class ModelImpl extends EObjectImpl implements Model {
 	 * The cached value of the '{@link #getProfiles() <em>Profiles</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getProfiles()
 	 * @generated
 	 * @ordered
@@ -410,7 +410,7 @@ public class ModelImpl extends EObjectImpl implements Model {
 	 * The cached value of the '{@link #getModules() <em>Modules</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getModules()
 	 * @generated
 	 * @ordered
@@ -430,7 +430,7 @@ public class ModelImpl extends EObjectImpl implements Model {
 	/**
 	 * The cached value of the '{@link #getPluginRepositories() <em>Plugin Repositories</em>}' containment reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getPluginRepositories()
 	 * @generated
 	 * @ordered
@@ -451,7 +451,7 @@ public class ModelImpl extends EObjectImpl implements Model {
 	 * The cached value of the '{@link #getReports() <em>Reports</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getReports()
 	 * @generated
 	 * @ordered
@@ -462,7 +462,7 @@ public class ModelImpl extends EObjectImpl implements Model {
 	 * The cached value of the '{@link #getReporting() <em>Reporting</em>}' containment reference.
 	 * <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getReporting()
 	 * @generated
 	 * @ordered
@@ -472,7 +472,7 @@ public class ModelImpl extends EObjectImpl implements Model {
 	/**
 	 * The cached value of the '{@link #getDependencyManagement() <em>Dependency Management</em>}' containment reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getDependencyManagement()
 	 * @generated
 	 * @ordered
@@ -482,7 +482,7 @@ public class ModelImpl extends EObjectImpl implements Model {
 	/**
 	 * The cached value of the '{@link #getDistributionManagement() <em>Distribution Management</em>}' containment reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getDistributionManagement()
 	 * @generated
 	 * @ordered
@@ -493,7 +493,7 @@ public class ModelImpl extends EObjectImpl implements Model {
 	 * The cached value of the '{@link #getProperties() <em>Properties</em>}' containment reference.
 	 * <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getProperties()
 	 * @generated
 	 * @ordered
@@ -502,7 +502,7 @@ public class ModelImpl extends EObjectImpl implements Model {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected ModelImpl() {
@@ -511,7 +511,7 @@ public class ModelImpl extends EObjectImpl implements Model {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public NotificationChain basicSetBuild(Build newBuild, NotificationChain msgs) {
@@ -530,7 +530,7 @@ public class ModelImpl extends EObjectImpl implements Model {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public NotificationChain basicSetCiManagement(CiManagement newCiManagement, NotificationChain msgs) {
@@ -549,7 +549,7 @@ public class ModelImpl extends EObjectImpl implements Model {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public NotificationChain basicSetContributors(ContributorsType newContributors, NotificationChain msgs) {
@@ -568,7 +568,7 @@ public class ModelImpl extends EObjectImpl implements Model {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public NotificationChain basicSetDependencies(DependenciesType newDependencies, NotificationChain msgs) {
@@ -587,7 +587,7 @@ public class ModelImpl extends EObjectImpl implements Model {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public NotificationChain basicSetDependencyManagement(DependencyManagement newDependencyManagement,
@@ -608,7 +608,7 @@ public class ModelImpl extends EObjectImpl implements Model {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public NotificationChain basicSetDevelopers(DevelopersType newDevelopers, NotificationChain msgs) {
@@ -627,7 +627,7 @@ public class ModelImpl extends EObjectImpl implements Model {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public NotificationChain basicSetDistributionManagement(DistributionManagement newDistributionManagement,
@@ -648,7 +648,7 @@ public class ModelImpl extends EObjectImpl implements Model {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public NotificationChain basicSetIssueManagement(IssueManagement newIssueManagement, NotificationChain msgs) {
@@ -667,7 +667,7 @@ public class ModelImpl extends EObjectImpl implements Model {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public NotificationChain basicSetLicenses(LicensesType newLicenses, NotificationChain msgs) {
@@ -686,7 +686,7 @@ public class ModelImpl extends EObjectImpl implements Model {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public NotificationChain basicSetMailingLists(MailingListsType newMailingLists, NotificationChain msgs) {
@@ -705,7 +705,7 @@ public class ModelImpl extends EObjectImpl implements Model {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public NotificationChain basicSetModules(ModulesType newModules, NotificationChain msgs) {
@@ -724,7 +724,7 @@ public class ModelImpl extends EObjectImpl implements Model {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public NotificationChain basicSetOrganization(Organization newOrganization, NotificationChain msgs) {
@@ -743,7 +743,7 @@ public class ModelImpl extends EObjectImpl implements Model {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public NotificationChain basicSetParent(Parent newParent, NotificationChain msgs) {
@@ -762,7 +762,7 @@ public class ModelImpl extends EObjectImpl implements Model {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public NotificationChain basicSetPluginRepositories(PluginRepositoriesType newPluginRepositories,
@@ -783,7 +783,7 @@ public class ModelImpl extends EObjectImpl implements Model {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public NotificationChain basicSetPrerequisites(Prerequisites newPrerequisites, NotificationChain msgs) {
@@ -802,7 +802,7 @@ public class ModelImpl extends EObjectImpl implements Model {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public NotificationChain basicSetProfiles(ProfilesType newProfiles, NotificationChain msgs) {
@@ -821,7 +821,7 @@ public class ModelImpl extends EObjectImpl implements Model {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public NotificationChain basicSetProperties(PropertiesType newProperties, NotificationChain msgs) {
@@ -840,7 +840,7 @@ public class ModelImpl extends EObjectImpl implements Model {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public NotificationChain basicSetReporting(Reporting newReporting, NotificationChain msgs) {
@@ -859,7 +859,7 @@ public class ModelImpl extends EObjectImpl implements Model {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public NotificationChain basicSetReports(ReportsType newReports, NotificationChain msgs) {
@@ -878,7 +878,7 @@ public class ModelImpl extends EObjectImpl implements Model {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public NotificationChain basicSetRepositories(RepositoriesType newRepositories, NotificationChain msgs) {
@@ -897,7 +897,7 @@ public class ModelImpl extends EObjectImpl implements Model {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public NotificationChain basicSetScm(Scm newScm, NotificationChain msgs) {
@@ -916,7 +916,7 @@ public class ModelImpl extends EObjectImpl implements Model {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -988,7 +988,7 @@ public class ModelImpl extends EObjectImpl implements Model {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -1042,7 +1042,7 @@ public class ModelImpl extends EObjectImpl implements Model {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -1130,7 +1130,7 @@ public class ModelImpl extends EObjectImpl implements Model {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -1232,7 +1232,7 @@ public class ModelImpl extends EObjectImpl implements Model {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -1334,7 +1334,7 @@ public class ModelImpl extends EObjectImpl implements Model {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -1344,7 +1344,7 @@ public class ModelImpl extends EObjectImpl implements Model {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -1354,7 +1354,7 @@ public class ModelImpl extends EObjectImpl implements Model {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -1364,7 +1364,7 @@ public class ModelImpl extends EObjectImpl implements Model {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -1374,7 +1374,7 @@ public class ModelImpl extends EObjectImpl implements Model {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -1384,7 +1384,7 @@ public class ModelImpl extends EObjectImpl implements Model {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -1394,7 +1394,7 @@ public class ModelImpl extends EObjectImpl implements Model {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -1404,7 +1404,7 @@ public class ModelImpl extends EObjectImpl implements Model {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -1414,7 +1414,7 @@ public class ModelImpl extends EObjectImpl implements Model {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -1424,7 +1424,7 @@ public class ModelImpl extends EObjectImpl implements Model {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -1434,7 +1434,7 @@ public class ModelImpl extends EObjectImpl implements Model {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -1444,7 +1444,7 @@ public class ModelImpl extends EObjectImpl implements Model {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -1454,7 +1454,7 @@ public class ModelImpl extends EObjectImpl implements Model {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -1464,7 +1464,7 @@ public class ModelImpl extends EObjectImpl implements Model {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -1474,7 +1474,7 @@ public class ModelImpl extends EObjectImpl implements Model {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -1484,7 +1484,7 @@ public class ModelImpl extends EObjectImpl implements Model {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -1494,7 +1494,7 @@ public class ModelImpl extends EObjectImpl implements Model {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -1504,7 +1504,7 @@ public class ModelImpl extends EObjectImpl implements Model {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -1514,7 +1514,7 @@ public class ModelImpl extends EObjectImpl implements Model {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -1524,7 +1524,7 @@ public class ModelImpl extends EObjectImpl implements Model {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -1534,7 +1534,7 @@ public class ModelImpl extends EObjectImpl implements Model {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -1544,7 +1544,7 @@ public class ModelImpl extends EObjectImpl implements Model {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -1554,7 +1554,7 @@ public class ModelImpl extends EObjectImpl implements Model {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -1564,7 +1564,7 @@ public class ModelImpl extends EObjectImpl implements Model {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -1574,7 +1574,7 @@ public class ModelImpl extends EObjectImpl implements Model {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -1584,7 +1584,7 @@ public class ModelImpl extends EObjectImpl implements Model {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -1594,7 +1594,7 @@ public class ModelImpl extends EObjectImpl implements Model {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -1604,7 +1604,7 @@ public class ModelImpl extends EObjectImpl implements Model {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -1614,7 +1614,7 @@ public class ModelImpl extends EObjectImpl implements Model {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -1624,7 +1624,7 @@ public class ModelImpl extends EObjectImpl implements Model {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -1634,7 +1634,7 @@ public class ModelImpl extends EObjectImpl implements Model {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -1644,7 +1644,7 @@ public class ModelImpl extends EObjectImpl implements Model {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -1659,7 +1659,7 @@ public class ModelImpl extends EObjectImpl implements Model {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -1682,7 +1682,7 @@ public class ModelImpl extends EObjectImpl implements Model {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -1707,7 +1707,7 @@ public class ModelImpl extends EObjectImpl implements Model {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -1732,7 +1732,7 @@ public class ModelImpl extends EObjectImpl implements Model {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -1757,7 +1757,7 @@ public class ModelImpl extends EObjectImpl implements Model {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -1783,7 +1783,7 @@ public class ModelImpl extends EObjectImpl implements Model {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -1798,7 +1798,7 @@ public class ModelImpl extends EObjectImpl implements Model {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -1823,7 +1823,7 @@ public class ModelImpl extends EObjectImpl implements Model {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -1849,7 +1849,7 @@ public class ModelImpl extends EObjectImpl implements Model {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -1862,7 +1862,7 @@ public class ModelImpl extends EObjectImpl implements Model {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -1877,7 +1877,7 @@ public class ModelImpl extends EObjectImpl implements Model {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -1903,7 +1903,7 @@ public class ModelImpl extends EObjectImpl implements Model {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -1927,7 +1927,7 @@ public class ModelImpl extends EObjectImpl implements Model {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -1952,7 +1952,7 @@ public class ModelImpl extends EObjectImpl implements Model {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -1967,7 +1967,7 @@ public class ModelImpl extends EObjectImpl implements Model {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -1990,7 +1990,7 @@ public class ModelImpl extends EObjectImpl implements Model {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -2003,7 +2003,7 @@ public class ModelImpl extends EObjectImpl implements Model {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -2028,7 +2028,7 @@ public class ModelImpl extends EObjectImpl implements Model {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -2045,7 +2045,7 @@ public class ModelImpl extends EObjectImpl implements Model {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -2068,7 +2068,7 @@ public class ModelImpl extends EObjectImpl implements Model {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -2094,7 +2094,7 @@ public class ModelImpl extends EObjectImpl implements Model {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -2119,7 +2119,7 @@ public class ModelImpl extends EObjectImpl implements Model {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -2143,7 +2143,7 @@ public class ModelImpl extends EObjectImpl implements Model {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -2168,7 +2168,7 @@ public class ModelImpl extends EObjectImpl implements Model {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -2192,7 +2192,7 @@ public class ModelImpl extends EObjectImpl implements Model {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -2215,7 +2215,7 @@ public class ModelImpl extends EObjectImpl implements Model {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -2240,7 +2240,7 @@ public class ModelImpl extends EObjectImpl implements Model {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -2263,7 +2263,7 @@ public class ModelImpl extends EObjectImpl implements Model {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -2276,7 +2276,7 @@ public class ModelImpl extends EObjectImpl implements Model {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -2289,7 +2289,7 @@ public class ModelImpl extends EObjectImpl implements Model {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -2325,7 +2325,7 @@ public class ModelImpl extends EObjectImpl implements Model {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -2343,7 +2343,7 @@ public class ModelImpl extends EObjectImpl implements Model {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override

@@ -34,7 +34,7 @@ import org.eclipse.equinox.p2.core.IProvisioningAgent;
  * <!-- begin-user-doc -->
  * The <b>Resource </b> associated with the package.
  * <!-- end-user-doc -->
- * 
+ *
  * @see org.eclipse.cbi.p2repo.p2.util.P2ResourceFactoryImpl
  * @generated
  */

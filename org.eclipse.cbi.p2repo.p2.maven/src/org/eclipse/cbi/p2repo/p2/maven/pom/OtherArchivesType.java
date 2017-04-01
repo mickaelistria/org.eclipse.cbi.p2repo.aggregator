@@ -33,7 +33,7 @@ public interface OtherArchivesType extends EObject {
 	 * If the meaning of the '<em>Other Archive</em>' attribute list isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @return the value of the '<em>Other Archive</em>' attribute list.
 	 * @see org.eclipse.cbi.p2repo.p2.maven.pom.PomPackage#getOtherArchivesType_OtherArchive()
 	 * @model unique="false" dataType="org.eclipse.emf.ecore.xml.type.String"

@@ -34,7 +34,7 @@ public class ReportingImpl extends EObjectImpl implements Reporting {
 	 * The default value of the '{@link #isExcludeDefaults() <em>Exclude Defaults</em>}' attribute.
 	 * <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #isExcludeDefaults()
 	 * @generated
 	 * @ordered
@@ -45,7 +45,7 @@ public class ReportingImpl extends EObjectImpl implements Reporting {
 	 * The cached value of the '{@link #isExcludeDefaults() <em>Exclude Defaults</em>}' attribute.
 	 * <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #isExcludeDefaults()
 	 * @generated
 	 * @ordered
@@ -55,7 +55,7 @@ public class ReportingImpl extends EObjectImpl implements Reporting {
 	/**
 	 * This is true if the Exclude Defaults attribute has been set.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 * @ordered
 	 */
@@ -65,7 +65,7 @@ public class ReportingImpl extends EObjectImpl implements Reporting {
 	 * The default value of the '{@link #getOutputDirectory() <em>Output Directory</em>}' attribute.
 	 * <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getOutputDirectory()
 	 * @generated
 	 * @ordered
@@ -76,7 +76,7 @@ public class ReportingImpl extends EObjectImpl implements Reporting {
 	 * The cached value of the '{@link #getOutputDirectory() <em>Output Directory</em>}' attribute.
 	 * <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getOutputDirectory()
 	 * @generated
 	 * @ordered
@@ -87,7 +87,7 @@ public class ReportingImpl extends EObjectImpl implements Reporting {
 	 * The cached value of the '{@link #getPlugins() <em>Plugins</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getPlugins()
 	 * @generated
 	 * @ordered
@@ -96,7 +96,7 @@ public class ReportingImpl extends EObjectImpl implements Reporting {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected ReportingImpl() {
@@ -105,7 +105,7 @@ public class ReportingImpl extends EObjectImpl implements Reporting {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public NotificationChain basicSetPlugins(ReportingPluginsType newPlugins, NotificationChain msgs) {
@@ -124,7 +124,7 @@ public class ReportingImpl extends EObjectImpl implements Reporting {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -142,7 +142,7 @@ public class ReportingImpl extends EObjectImpl implements Reporting {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -156,7 +156,7 @@ public class ReportingImpl extends EObjectImpl implements Reporting {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -176,7 +176,7 @@ public class ReportingImpl extends EObjectImpl implements Reporting {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -197,7 +197,7 @@ public class ReportingImpl extends EObjectImpl implements Reporting {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -218,7 +218,7 @@ public class ReportingImpl extends EObjectImpl implements Reporting {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -228,7 +228,7 @@ public class ReportingImpl extends EObjectImpl implements Reporting {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -238,7 +238,7 @@ public class ReportingImpl extends EObjectImpl implements Reporting {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -248,7 +248,7 @@ public class ReportingImpl extends EObjectImpl implements Reporting {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -258,7 +258,7 @@ public class ReportingImpl extends EObjectImpl implements Reporting {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -276,7 +276,7 @@ public class ReportingImpl extends EObjectImpl implements Reporting {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -292,7 +292,7 @@ public class ReportingImpl extends EObjectImpl implements Reporting {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -316,7 +316,7 @@ public class ReportingImpl extends EObjectImpl implements Reporting {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -338,7 +338,7 @@ public class ReportingImpl extends EObjectImpl implements Reporting {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -356,7 +356,7 @@ public class ReportingImpl extends EObjectImpl implements Reporting {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override

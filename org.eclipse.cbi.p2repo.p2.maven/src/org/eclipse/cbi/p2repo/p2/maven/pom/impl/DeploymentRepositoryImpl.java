@@ -34,7 +34,7 @@ public class DeploymentRepositoryImpl extends EObjectImpl implements DeploymentR
 	 * The default value of the '{@link #isUniqueVersion() <em>Unique Version</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #isUniqueVersion()
 	 * @generated
 	 * @ordered
@@ -45,7 +45,7 @@ public class DeploymentRepositoryImpl extends EObjectImpl implements DeploymentR
 	 * The cached value of the '{@link #isUniqueVersion() <em>Unique Version</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #isUniqueVersion()
 	 * @generated
 	 * @ordered
@@ -55,7 +55,7 @@ public class DeploymentRepositoryImpl extends EObjectImpl implements DeploymentR
 	/**
 	 * This is true if the Unique Version attribute has been set.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 * @ordered
 	 */
@@ -64,7 +64,7 @@ public class DeploymentRepositoryImpl extends EObjectImpl implements DeploymentR
 	/**
 	 * The default value of the '{@link #getId() <em>Id</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getId()
 	 * @generated
 	 * @ordered
@@ -74,7 +74,7 @@ public class DeploymentRepositoryImpl extends EObjectImpl implements DeploymentR
 	/**
 	 * The cached value of the '{@link #getId() <em>Id</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getId()
 	 * @generated
 	 * @ordered
@@ -114,7 +114,7 @@ public class DeploymentRepositoryImpl extends EObjectImpl implements DeploymentR
 	/**
 	 * The cached value of the '{@link #getUrl() <em>Url</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getUrl()
 	 * @generated
 	 * @ordered
@@ -125,7 +125,7 @@ public class DeploymentRepositoryImpl extends EObjectImpl implements DeploymentR
 	 * The default value of the '{@link #getLayout() <em>Layout</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @see #getLayout()
 	 * @generated
 	 * @ordered
@@ -136,7 +136,7 @@ public class DeploymentRepositoryImpl extends EObjectImpl implements DeploymentR
 	 * The cached value of the '{@link #getLayout() <em>Layout</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @see #getLayout()
 	 * @generated
 	 * @ordered
@@ -146,7 +146,7 @@ public class DeploymentRepositoryImpl extends EObjectImpl implements DeploymentR
 	/**
 	 * This is true if the Layout attribute has been set.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 * @ordered
 	 */
@@ -154,7 +154,7 @@ public class DeploymentRepositoryImpl extends EObjectImpl implements DeploymentR
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected DeploymentRepositoryImpl() {
@@ -163,7 +163,7 @@ public class DeploymentRepositoryImpl extends EObjectImpl implements DeploymentR
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -185,7 +185,7 @@ public class DeploymentRepositoryImpl extends EObjectImpl implements DeploymentR
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -213,7 +213,7 @@ public class DeploymentRepositoryImpl extends EObjectImpl implements DeploymentR
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -240,7 +240,7 @@ public class DeploymentRepositoryImpl extends EObjectImpl implements DeploymentR
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -267,7 +267,7 @@ public class DeploymentRepositoryImpl extends EObjectImpl implements DeploymentR
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -277,7 +277,7 @@ public class DeploymentRepositoryImpl extends EObjectImpl implements DeploymentR
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -287,7 +287,7 @@ public class DeploymentRepositoryImpl extends EObjectImpl implements DeploymentR
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -297,7 +297,7 @@ public class DeploymentRepositoryImpl extends EObjectImpl implements DeploymentR
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -307,7 +307,7 @@ public class DeploymentRepositoryImpl extends EObjectImpl implements DeploymentR
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -317,7 +317,7 @@ public class DeploymentRepositoryImpl extends EObjectImpl implements DeploymentR
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -327,7 +327,7 @@ public class DeploymentRepositoryImpl extends EObjectImpl implements DeploymentR
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -337,7 +337,7 @@ public class DeploymentRepositoryImpl extends EObjectImpl implements DeploymentR
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -350,7 +350,7 @@ public class DeploymentRepositoryImpl extends EObjectImpl implements DeploymentR
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -368,7 +368,7 @@ public class DeploymentRepositoryImpl extends EObjectImpl implements DeploymentR
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -382,7 +382,7 @@ public class DeploymentRepositoryImpl extends EObjectImpl implements DeploymentR
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -400,7 +400,7 @@ public class DeploymentRepositoryImpl extends EObjectImpl implements DeploymentR
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -413,7 +413,7 @@ public class DeploymentRepositoryImpl extends EObjectImpl implements DeploymentR
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -444,7 +444,7 @@ public class DeploymentRepositoryImpl extends EObjectImpl implements DeploymentR
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -462,7 +462,7 @@ public class DeploymentRepositoryImpl extends EObjectImpl implements DeploymentR
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -480,7 +480,7 @@ public class DeploymentRepositoryImpl extends EObjectImpl implements DeploymentR
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override

@@ -44,7 +44,7 @@ public class TestResourcesTypeImpl extends EObjectImpl implements TestResourcesT
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected TestResourcesTypeImpl() {
@@ -53,7 +53,7 @@ public class TestResourcesTypeImpl extends EObjectImpl implements TestResourcesT
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -67,7 +67,7 @@ public class TestResourcesTypeImpl extends EObjectImpl implements TestResourcesT
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -81,7 +81,7 @@ public class TestResourcesTypeImpl extends EObjectImpl implements TestResourcesT
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -95,7 +95,7 @@ public class TestResourcesTypeImpl extends EObjectImpl implements TestResourcesT
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
@@ -112,7 +112,7 @@ public class TestResourcesTypeImpl extends EObjectImpl implements TestResourcesT
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -127,7 +127,7 @@ public class TestResourcesTypeImpl extends EObjectImpl implements TestResourcesT
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -141,7 +141,7 @@ public class TestResourcesTypeImpl extends EObjectImpl implements TestResourcesT
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override

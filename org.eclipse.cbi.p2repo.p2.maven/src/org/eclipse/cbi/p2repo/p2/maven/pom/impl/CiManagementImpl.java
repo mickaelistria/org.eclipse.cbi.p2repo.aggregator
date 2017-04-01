@@ -34,7 +34,7 @@ public class CiManagementImpl extends EObjectImpl implements CiManagement {
 	 * The default value of the '{@link #getSystem() <em>System</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @see #getSystem()
 	 * @generated
 	 * @ordered
@@ -45,7 +45,7 @@ public class CiManagementImpl extends EObjectImpl implements CiManagement {
 	 * The cached value of the '{@link #getSystem() <em>System</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
+	 *
 	 * @see #getSystem()
 	 * @generated
 	 * @ordered
@@ -65,7 +65,7 @@ public class CiManagementImpl extends EObjectImpl implements CiManagement {
 	/**
 	 * The cached value of the '{@link #getUrl() <em>Url</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getUrl()
 	 * @generated
 	 * @ordered
@@ -76,7 +76,7 @@ public class CiManagementImpl extends EObjectImpl implements CiManagement {
 	 * The cached value of the '{@link #getNotifiers() <em>Notifiers</em>}' containment reference.
 	 * <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getNotifiers()
 	 * @generated
 	 * @ordered
@@ -85,7 +85,7 @@ public class CiManagementImpl extends EObjectImpl implements CiManagement {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected CiManagementImpl() {
@@ -94,7 +94,7 @@ public class CiManagementImpl extends EObjectImpl implements CiManagement {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public NotificationChain basicSetNotifiers(NotifiersType newNotifiers, NotificationChain msgs) {
@@ -113,7 +113,7 @@ public class CiManagementImpl extends EObjectImpl implements CiManagement {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -131,7 +131,7 @@ public class CiManagementImpl extends EObjectImpl implements CiManagement {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -145,7 +145,7 @@ public class CiManagementImpl extends EObjectImpl implements CiManagement {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -167,7 +167,7 @@ public class CiManagementImpl extends EObjectImpl implements CiManagement {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -188,7 +188,7 @@ public class CiManagementImpl extends EObjectImpl implements CiManagement {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -209,7 +209,7 @@ public class CiManagementImpl extends EObjectImpl implements CiManagement {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -219,7 +219,7 @@ public class CiManagementImpl extends EObjectImpl implements CiManagement {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -229,7 +229,7 @@ public class CiManagementImpl extends EObjectImpl implements CiManagement {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -239,7 +239,7 @@ public class CiManagementImpl extends EObjectImpl implements CiManagement {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -264,7 +264,7 @@ public class CiManagementImpl extends EObjectImpl implements CiManagement {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -277,7 +277,7 @@ public class CiManagementImpl extends EObjectImpl implements CiManagement {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -290,7 +290,7 @@ public class CiManagementImpl extends EObjectImpl implements CiManagement {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -309,7 +309,7 @@ public class CiManagementImpl extends EObjectImpl implements CiManagement {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override

@@ -13,9 +13,9 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <!-- begin-model-doc -->
  * 4.0.0
- * 
+ *
  * Modifications to the build process which is activated based on environmental parameters or command line arguments.
- * 
+ *
  * <!-- end-model-doc -->
  *
  * <p>
@@ -233,7 +233,7 @@ public interface Profile extends EObject {
 	/**
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.Profile#getActivation <em>Activation</em>}' containment reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param value
 	 *            the new value of the '<em>Activation</em>' containment reference.
 	 * @see #getActivation()
@@ -244,7 +244,7 @@ public interface Profile extends EObject {
 	/**
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.Profile#getBuild <em>Build</em>}' containment reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param value
 	 *            the new value of the '<em>Build</em>' containment reference.
 	 * @see #getBuild()
@@ -255,7 +255,7 @@ public interface Profile extends EObject {
 	/**
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.Profile#getDependencies <em>Dependencies</em>}' containment reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param value
 	 *            the new value of the '<em>Dependencies</em>' containment reference.
 	 * @see #getDependencies()
@@ -267,7 +267,7 @@ public interface Profile extends EObject {
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.Profile#getDependencyManagement <em>Dependency Management</em>}' containment
 	 * reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param value
 	 *            the new value of the '<em>Dependency Management</em>' containment reference.
 	 * @see #getDependencyManagement()
@@ -279,7 +279,7 @@ public interface Profile extends EObject {
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.Profile#getDistributionManagement <em>Distribution Management</em>}'
 	 * containment reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param value
 	 *            the new value of the '<em>Distribution Management</em>' containment reference.
 	 * @see #getDistributionManagement()
@@ -290,7 +290,7 @@ public interface Profile extends EObject {
 	/**
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.Profile#getId <em>Id</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param value
 	 *            the new value of the '<em>Id</em>' attribute.
 	 * @see #getId()
@@ -301,7 +301,7 @@ public interface Profile extends EObject {
 	/**
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.Profile#getModules <em>Modules</em>}' containment reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param value
 	 *            the new value of the '<em>Modules</em>' containment reference.
 	 * @see #getModules()
@@ -313,7 +313,7 @@ public interface Profile extends EObject {
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.Profile#getPluginRepositories <em>Plugin Repositories</em>}' containment
 	 * reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param value
 	 *            the new value of the '<em>Plugin Repositories</em>' containment reference.
 	 * @see #getPluginRepositories()
@@ -324,7 +324,7 @@ public interface Profile extends EObject {
 	/**
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.Profile#getProperties <em>Properties</em>}' containment reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param value
 	 *            the new value of the '<em>Properties</em>' containment reference.
 	 * @see #getProperties()
@@ -335,7 +335,7 @@ public interface Profile extends EObject {
 	/**
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.Profile#getReporting <em>Reporting</em>}' containment reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param value
 	 *            the new value of the '<em>Reporting</em>' containment reference.
 	 * @see #getReporting()
@@ -346,7 +346,7 @@ public interface Profile extends EObject {
 	/**
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.Profile#getReports <em>Reports</em>}' containment reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param value
 	 *            the new value of the '<em>Reports</em>' containment reference.
 	 * @see #getReports()
@@ -357,7 +357,7 @@ public interface Profile extends EObject {
 	/**
 	 * Sets the value of the '{@link org.eclipse.cbi.p2repo.p2.maven.pom.Profile#getRepositories <em>Repositories</em>}' containment reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @param value
 	 *            the new value of the '<em>Repositories</em>' containment reference.
 	 * @see #getRepositories()

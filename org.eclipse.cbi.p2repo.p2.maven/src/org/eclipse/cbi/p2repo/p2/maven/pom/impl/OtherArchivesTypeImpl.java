@@ -32,7 +32,7 @@ public class OtherArchivesTypeImpl extends EObjectImpl implements OtherArchivesT
 	 * The cached value of the '{@link #getOtherArchive() <em>Other Archive</em>}' attribute list.
 	 * <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getOtherArchive()
 	 * @generated
 	 * @ordered
@@ -41,7 +41,7 @@ public class OtherArchivesTypeImpl extends EObjectImpl implements OtherArchivesT
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected OtherArchivesTypeImpl() {
@@ -50,7 +50,7 @@ public class OtherArchivesTypeImpl extends EObjectImpl implements OtherArchivesT
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -64,7 +64,7 @@ public class OtherArchivesTypeImpl extends EObjectImpl implements OtherArchivesT
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -78,7 +78,7 @@ public class OtherArchivesTypeImpl extends EObjectImpl implements OtherArchivesT
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
@@ -95,7 +95,7 @@ public class OtherArchivesTypeImpl extends EObjectImpl implements OtherArchivesT
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -110,7 +110,7 @@ public class OtherArchivesTypeImpl extends EObjectImpl implements OtherArchivesT
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -124,7 +124,7 @@ public class OtherArchivesTypeImpl extends EObjectImpl implements OtherArchivesT
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -141,7 +141,7 @@ public class OtherArchivesTypeImpl extends EObjectImpl implements OtherArchivesT
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override

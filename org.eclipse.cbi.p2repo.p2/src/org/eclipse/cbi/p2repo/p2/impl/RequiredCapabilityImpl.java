@@ -37,7 +37,7 @@ public class RequiredCapabilityImpl extends RequirementImpl implements RequiredC
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getName()
 	 * @generated
 	 * @ordered
@@ -48,7 +48,7 @@ public class RequiredCapabilityImpl extends RequirementImpl implements RequiredC
 	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getName()
 	 * @generated
 	 * @ordered
@@ -59,7 +59,7 @@ public class RequiredCapabilityImpl extends RequirementImpl implements RequiredC
 	 * The default value of the '{@link #getNamespace() <em>Namespace</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getNamespace()
 	 * @generated
 	 * @ordered
@@ -70,7 +70,7 @@ public class RequiredCapabilityImpl extends RequirementImpl implements RequiredC
 	 * The cached value of the '{@link #getNamespace() <em>Namespace</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getNamespace()
 	 * @generated
 	 * @ordered
@@ -81,7 +81,7 @@ public class RequiredCapabilityImpl extends RequirementImpl implements RequiredC
 	 * The default value of the '{@link #getRange() <em>Range</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getRange()
 	 * @generated
 	 * @ordered
@@ -92,7 +92,7 @@ public class RequiredCapabilityImpl extends RequirementImpl implements RequiredC
 	 * The cached value of the '{@link #getRange() <em>Range</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getRange()
 	 * @generated
 	 * @ordered
@@ -104,7 +104,7 @@ public class RequiredCapabilityImpl extends RequirementImpl implements RequiredC
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected RequiredCapabilityImpl() {
@@ -124,7 +124,7 @@ public class RequiredCapabilityImpl extends RequirementImpl implements RequiredC
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -147,7 +147,7 @@ public class RequiredCapabilityImpl extends RequirementImpl implements RequiredC
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -170,7 +170,7 @@ public class RequiredCapabilityImpl extends RequirementImpl implements RequiredC
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -189,7 +189,7 @@ public class RequiredCapabilityImpl extends RequirementImpl implements RequiredC
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -242,7 +242,7 @@ public class RequiredCapabilityImpl extends RequirementImpl implements RequiredC
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -264,7 +264,7 @@ public class RequiredCapabilityImpl extends RequirementImpl implements RequiredC
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -275,7 +275,7 @@ public class RequiredCapabilityImpl extends RequirementImpl implements RequiredC
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -305,7 +305,7 @@ public class RequiredCapabilityImpl extends RequirementImpl implements RequiredC
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -316,7 +316,7 @@ public class RequiredCapabilityImpl extends RequirementImpl implements RequiredC
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -327,7 +327,7 @@ public class RequiredCapabilityImpl extends RequirementImpl implements RequiredC
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -369,7 +369,7 @@ public class RequiredCapabilityImpl extends RequirementImpl implements RequiredC
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public void setNameGen(String newName) {
@@ -393,7 +393,7 @@ public class RequiredCapabilityImpl extends RequirementImpl implements RequiredC
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public void setNamespaceGen(String newNamespace) {
@@ -419,7 +419,7 @@ public class RequiredCapabilityImpl extends RequirementImpl implements RequiredC
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public void setRangeGen(VersionRange newRange) {

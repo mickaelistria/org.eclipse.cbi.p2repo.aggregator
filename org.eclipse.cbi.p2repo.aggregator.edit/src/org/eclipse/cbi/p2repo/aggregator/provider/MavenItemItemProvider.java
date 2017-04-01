@@ -41,7 +41,7 @@ public class MavenItemItemProvider extends AggregatorItemProviderAdapter
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	public MavenItemItemProvider(AdapterFactory adapterFactory) {
@@ -51,7 +51,7 @@ public class MavenItemItemProvider extends AggregatorItemProviderAdapter
 	/**
 	 * This adds a property descriptor for the Artifact Id feature.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected void addArtifactIdPropertyDescriptor(Object object) {
@@ -69,7 +69,7 @@ public class MavenItemItemProvider extends AggregatorItemProviderAdapter
 	 * This adds a property descriptor for the Classifier feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected void addClassifierPropertyDescriptor(Object object) {
@@ -86,7 +86,7 @@ public class MavenItemItemProvider extends AggregatorItemProviderAdapter
 	/**
 	 * This adds a property descriptor for the Group Id feature.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected void addGroupIdPropertyDescriptor(Object object) {
@@ -103,7 +103,7 @@ public class MavenItemItemProvider extends AggregatorItemProviderAdapter
 	 * This adds a property descriptor for the Mapped Version feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected void addMappedVersionPropertyDescriptor(Object object) {
@@ -121,7 +121,7 @@ public class MavenItemItemProvider extends AggregatorItemProviderAdapter
 	 * This adds a property descriptor for the Maven Mapping feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	protected void addMavenMappingPropertyDescriptor(Object object) {
@@ -138,7 +138,7 @@ public class MavenItemItemProvider extends AggregatorItemProviderAdapter
 	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
 	 * that can be created under this object.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -149,7 +149,7 @@ public class MavenItemItemProvider extends AggregatorItemProviderAdapter
 	/**
 	 * This returns MavenItem.gif.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -160,7 +160,7 @@ public class MavenItemItemProvider extends AggregatorItemProviderAdapter
 	/**
 	 * This returns the property descriptors for the adapted class.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
@@ -180,7 +180,7 @@ public class MavenItemItemProvider extends AggregatorItemProviderAdapter
 	/**
 	 * Return the resource locator for this item provider's resources.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated
 	 */
 	@Override
