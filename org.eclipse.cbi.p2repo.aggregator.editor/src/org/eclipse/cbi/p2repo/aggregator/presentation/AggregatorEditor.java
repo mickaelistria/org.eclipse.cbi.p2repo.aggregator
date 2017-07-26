@@ -131,6 +131,7 @@ import org.eclipse.jface.viewers.TreePath;
 import org.eclipse.jface.viewers.TreeSelection;
 import org.eclipse.jface.viewers.TreeViewer;
 import org.eclipse.jface.viewers.Viewer;
+import org.eclipse.jface.viewers.ViewerComparator;
 import org.eclipse.jface.wizard.WizardDialog;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.custom.CTabFolder;
@@ -195,6 +196,13 @@ public class AggregatorEditor extends MultiPageEditorPart
 				location2 = "";
 
 			return location1.compareTo(location2);
+		}
+	}
+
+	static class SortComparator extends ViewerComparator {
+		@Override
+		public int compare(Viewer viewer, Object e1, Object e2) {
+			return super.compare(viewer, e1, e2);
 		}
 	}
 
@@ -1190,6 +1198,7 @@ public class AggregatorEditor extends MultiPageEditorPart
 			selectionViewer.setLabelProvider(
 				new AdapterFactoryLabelProvider.FontAndColorProvider(adapterFactory, selectionViewer));
 			selectionViewer.setInput(editingDomain.getResourceSet());
+			selectionViewer.setComparator(new SortComparator());
 			selectionViewer.setSelection(
 				new StructuredSelection(editingDomain.getResourceSet().getResources().get(0)), true);
 
