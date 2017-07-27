@@ -62,7 +62,7 @@ then
 fi
 
 # Without the ANT_OPTS, we do get messages about "to get repeatable builds, to ignore sysclasspath"
-export ANT_HOME=${ANT_HOME:-/shared/common/apache-ant-1.9.6}
+export ANT_HOME=${ANT_HOME:-/shared/common/apache-ant-1.10.1}
 export ANT_OPTS=${ANT_OPTS:-"-Dbuild.sysclasspath=ignore -Dincludeantruntime=false"}
 export MAVEN_OPTS="-Xms1048m -Xmx2096m -Djava.io.tmpdir=${tmp_dir} ${MIRROR_SETTING}"
 TYCHO_ARGS="-Djava.io.tmpdir=${tmp_dir} -Dtycho.localArtifacts=ignore -Dtycho.debug.artifactcomparator ${MIRROR_SETTING} ${DIRTY_SETTING} ${COMPARATOR_SETTING}"
