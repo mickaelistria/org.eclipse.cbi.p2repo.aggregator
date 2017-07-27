@@ -78,7 +78,7 @@ function getLatestBuildId
 
 }
 
-repoRoots=("/home/data/httpd/download.eclipse.org/cbi/updates/aggregator/ide/4.6" "/home/data/httpd/download.eclipse.org/cbi/updates/aggregator/headless/4.6")
+repoRoots=("/home/data/httpd/download.eclipse.org/cbi/updates/aggregator/ide/4.7" "/home/data/httpd/download.eclipse.org/cbi/updates/aggregator/headless/4.7")
 # Normally "writeRepoRoots" is the same as "repoRoots", but might not always be, plus
 # it is very handy for testing this script not to have to write to the "production" area.
 #writeRepoRoots=("${PWD}/ide" "${PWD}/headless")
