@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# This job is ran after "runTychoBuild.sh" is ran in the "cleanAndDeploy" Hudson job.
+# This job is ran after "runBuild.sh" is ran in the "cleanAndDeploy" Hudson job.
 
 # The default for build home is simply where I do my local build. Feel free to change in your local copy. 
 build_home=${WORKSPACE:-/home/davidw/gitCBI}
@@ -57,7 +57,7 @@ DLpage=${build_home}/${DLfile}
 # be sure these variables are exported, for use by 'envsubst'.
 export DLPath updateRelease buildId
 
-envsubst < "${build_home}/org.eclipse.cbi.p2repo.aggregator/org.eclipse.cbi.p2repo.releng.parent/hudsonScripts/template_index.html" > "${DLpage}"
+envsubst < "${build_home}/org.eclipse.cbi.p2repo.aggregator/org.eclipse.cbi.p2repo.releng.parent/buildScripts/template_index.html" > "${DLpage}"
 
 cp ${DLpage} ${headlessUpdate}
 cp ${DLpage} ${ideUpdate}

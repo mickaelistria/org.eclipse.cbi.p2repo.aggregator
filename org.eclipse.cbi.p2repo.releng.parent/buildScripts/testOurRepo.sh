@@ -2,7 +2,7 @@
 
 # After we build, we will check the repository we just 
 # produced, to make sure it is basically compliant. 
-# This script is called direclty from "runTychoBuild.sh".
+# This script is called direclty from "runBuild.sh".
 
 build_home=${WORKSPACE:-/home/davidw/gitCBI}
 export tmp_dir=${build_home}/aggr/tmp

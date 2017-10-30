@@ -154,4 +154,4 @@ convertProperties $propertiesfile $sourceProperties $phpProperties
 cp $propertiesfile ${build_home}/mavenproperties.properites
 
 # Test our own repository!
-${build_home}/org.eclipse.cbi.p2repo.aggregator/org.eclipse.cbi.p2repo.releng.parent/hudsonScripts/testOurRepo.sh
+${build_home}/org.eclipse.cbi.p2repo.aggregator/org.eclipse.cbi.p2repo.releng.parent/buildScripts/testOurRepo.sh
