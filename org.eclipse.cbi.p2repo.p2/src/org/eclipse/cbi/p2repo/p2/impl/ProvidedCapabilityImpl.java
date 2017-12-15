@@ -7,6 +7,9 @@
  */
 package org.eclipse.cbi.p2repo.p2.impl;
 
+import java.util.Collections;
+import java.util.Map;
+
 import org.eclipse.cbi.p2repo.p2.P2Package;
 import org.eclipse.cbi.p2repo.p2.ProvidedCapability;
 import org.eclipse.emf.common.notify.Notification;
@@ -332,6 +335,16 @@ public class ProvidedCapabilityImpl extends MinimalEObjectImpl.Container impleme
 		result.append('/');
 		version.toString(result);
 		return result.toString();
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see org.eclipse.equinox.p2.metadata.IProvidedCapability#getAttributes()
+	 */
+	@Override
+	public Map<String, Object> getAttributes() {
+		return Collections.emptyMap();
 	}
 
 } // ProvidedCapabilityImpl
